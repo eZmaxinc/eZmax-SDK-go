@@ -7,8 +7,8 @@ Method | HTTP request | Description
 [**EzsignfoldersignerassociationCreateObjectV1**](ObjectEzsignfoldersignerassociationApi.md#EzsignfoldersignerassociationCreateObjectV1) | **Post** /1/object/ezsignfoldersignerassociation | Create a new Ezsignfoldersignerassociation
 [**EzsignfoldersignerassociationDeleteObjectV1**](ObjectEzsignfoldersignerassociationApi.md#EzsignfoldersignerassociationDeleteObjectV1) | **Delete** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Delete an existing Ezsignfoldersignerassociation
 [**EzsignfoldersignerassociationEditObjectV1**](ObjectEzsignfoldersignerassociationApi.md#EzsignfoldersignerassociationEditObjectV1) | **Put** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Modify an existing Ezsignfoldersignerassociation
+[**EzsignfoldersignerassociationGetChildrenV1**](ObjectEzsignfoldersignerassociationApi.md#EzsignfoldersignerassociationGetChildrenV1) | **Get** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/getChildren | Retrieve an existing Ezsignfoldersignerassociation&#39;s children IDs
 [**EzsignfoldersignerassociationGetInPersonLoginUrlV1**](ObjectEzsignfoldersignerassociationApi.md#EzsignfoldersignerassociationGetInPersonLoginUrlV1) | **Get** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/getInPersonLoginUrl | Retrieve a Login Url to allow In-Person signing
-[**EzsignfoldersignerassociationGetObjectGetChildrenV1**](ObjectEzsignfoldersignerassociationApi.md#EzsignfoldersignerassociationGetObjectGetChildrenV1) | **Get** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/getChildren | Retrieve an existing Ezsignfoldersignerassociation&#39;s children IDs
 [**EzsignfoldersignerassociationGetObjectV1**](ObjectEzsignfoldersignerassociationApi.md#EzsignfoldersignerassociationGetObjectV1) | **Get** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Retrieve an existing Ezsignfoldersignerassociation
 
 
@@ -217,6 +217,72 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## EzsignfoldersignerassociationGetChildrenV1
+
+> EzsignfoldersignerassociationGetChildrenV1(ctx, pkiEzsignfoldersignerassociationID).Execute()
+
+Retrieve an existing Ezsignfoldersignerassociation's children IDs
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    pkiEzsignfoldersignerassociationID := int32(56) // int32 | The unique ID of the Ezsignfoldersignerassociation
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.ObjectEzsignfoldersignerassociationApi.EzsignfoldersignerassociationGetChildrenV1(context.Background(), pkiEzsignfoldersignerassociationID).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldersignerassociationApi.EzsignfoldersignerassociationGetChildrenV1``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsignfoldersignerassociationID** | **int32** | The unique ID of the Ezsignfoldersignerassociation | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsignfoldersignerassociationGetChildrenV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## EzsignfoldersignerassociationGetInPersonLoginUrlV1
 
 > EzsignfoldersignerassociationGetInPersonLoginUrlV1Response EzsignfoldersignerassociationGetInPersonLoginUrlV1(ctx, pkiEzsignfoldersignerassociationID).Execute()
@@ -272,72 +338,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignfoldersignerassociationGetInPersonLoginUrlV1Response**](ezsignfoldersignerassociation-getInPersonLoginUrl-v1-Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## EzsignfoldersignerassociationGetObjectGetChildrenV1
-
-> EzsignfoldersignerassociationGetObjectGetChildrenV1(ctx, pkiEzsignfoldersignerassociationID).Execute()
-
-Retrieve an existing Ezsignfoldersignerassociation's children IDs
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    pkiEzsignfoldersignerassociationID := int32(56) // int32 | The unique ID of the Ezsignfoldersignerassociation
-
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsignfoldersignerassociationApi.EzsignfoldersignerassociationGetObjectGetChildrenV1(context.Background(), pkiEzsignfoldersignerassociationID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldersignerassociationApi.EzsignfoldersignerassociationGetObjectGetChildrenV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiEzsignfoldersignerassociationID** | **int32** | The unique ID of the Ezsignfoldersignerassociation | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiEzsignfoldersignerassociationGetObjectGetChildrenV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
- (empty response body)
 
 ### Authorization
 

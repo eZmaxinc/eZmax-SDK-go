@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**EzsignfolderCreateObjectV1**](ObjectEzsignfolderApi.md#EzsignfolderCreateObjectV1) | **Post** /1/object/ezsignfolder | Create a new Ezsignfolder
 [**EzsignfolderDeleteObjectV1**](ObjectEzsignfolderApi.md#EzsignfolderDeleteObjectV1) | **Delete** /1/object/ezsignfolder/{pkiEzsignfolderID} | Delete an existing Ezsignfolder
 [**EzsignfolderEditObjectV1**](ObjectEzsignfolderApi.md#EzsignfolderEditObjectV1) | **Put** /1/object/ezsignfolder/{pkiEzsignfolderID} | Modify an existing Ezsignfolder
-[**EzsignfolderGetObjectGetChildrenV1**](ObjectEzsignfolderApi.md#EzsignfolderGetObjectGetChildrenV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getChildren | Retrieve an existing Ezsignfolder&#39;s children IDs
+[**EzsignfolderGetChildrenV1**](ObjectEzsignfolderApi.md#EzsignfolderGetChildrenV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getChildren | Retrieve an existing Ezsignfolder&#39;s children IDs
 [**EzsignfolderGetObjectV1**](ObjectEzsignfolderApi.md#EzsignfolderGetObjectV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID} | Retrieve an existing Ezsignfolder
 [**EzsignfolderSendV1**](ObjectEzsignfolderApi.md#EzsignfolderSendV1) | **Post** /1/object/ezsignfolder/{pkiEzsignfolderID}/send | Send the Ezsignfolder to the signatories for signature
 
@@ -217,9 +217,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## EzsignfolderGetObjectGetChildrenV1
+## EzsignfolderGetChildrenV1
 
-> EzsignfolderGetObjectGetChildrenV1(ctx, pkiEzsignfolderID).Execute()
+> EzsignfolderGetChildrenV1(ctx, pkiEzsignfolderID).Execute()
 
 Retrieve an existing Ezsignfolder's children IDs
 
@@ -240,9 +240,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsignfolderApi.EzsignfolderGetObjectGetChildrenV1(context.Background(), pkiEzsignfolderID).Execute()
+    resp, r, err := api_client.ObjectEzsignfolderApi.EzsignfolderGetChildrenV1(context.Background(), pkiEzsignfolderID).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderApi.EzsignfolderGetObjectGetChildrenV1``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderApi.EzsignfolderGetChildrenV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiEzsignfolderGetObjectGetChildrenV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiEzsignfolderGetChildrenV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes

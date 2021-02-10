@@ -17,6 +17,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"strings"
 )
 
 // Linger please
@@ -24,71 +25,71 @@ var (
 	_ _context.Context
 )
 
-// ObjectApikeyApiService ObjectApikeyApi service
-type ObjectApikeyApiService service
+// GlobalCustomerApiService GlobalCustomerApi service
+type GlobalCustomerApiService service
 
-type ApiApikeyCreateObjectV1Request struct {
+type ApiGlobalCustomerGetEndpointV1Request struct {
 	ctx _context.Context
-	ApiService *ObjectApikeyApiService
-	apikeyCreateObjectV1Request *[]ApikeyCreateObjectV1Request
+	ApiService *GlobalCustomerApiService
+	pksCustomerCode string
+	sInfrastructureproductCode *string
 }
 
-func (r ApiApikeyCreateObjectV1Request) ApikeyCreateObjectV1Request(apikeyCreateObjectV1Request []ApikeyCreateObjectV1Request) ApiApikeyCreateObjectV1Request {
-	r.apikeyCreateObjectV1Request = &apikeyCreateObjectV1Request
+func (r ApiGlobalCustomerGetEndpointV1Request) SInfrastructureproductCode(sInfrastructureproductCode string) ApiGlobalCustomerGetEndpointV1Request {
+	r.sInfrastructureproductCode = &sInfrastructureproductCode
 	return r
 }
 
-func (r ApiApikeyCreateObjectV1Request) Execute() (ApikeyCreateObjectV1Response, *_nethttp.Response, error) {
-	return r.ApiService.ApikeyCreateObjectV1Execute(r)
+func (r ApiGlobalCustomerGetEndpointV1Request) Execute() (GlobalCustomerGetEndpointV1Response, *_nethttp.Response, error) {
+	return r.ApiService.GlobalCustomerGetEndpointV1Execute(r)
 }
 
 /*
- * ApikeyCreateObjectV1 Create a new Apikey
- * The endpoint allows to create one or many elements at once.
-
-The array can contain simple (Just the object) or compound (The object and its child) objects.
-
-Creating compound elements allows to reduce the multiple requests to create all child objects.
+ * GlobalCustomerGetEndpointV1 Get customer endpoint
+ * Retrieve the customer's specific server endpoint where to send requests. This will help locate the proper region (ie: sInfrastructureregionCode) and the proper environment (ie: sInfrastructureenvironmenttypeDescription) where the customer's data is stored.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiApikeyCreateObjectV1Request
+ * @param pksCustomerCode The customer code assigned to your account
+ * @return ApiGlobalCustomerGetEndpointV1Request
  */
-func (a *ObjectApikeyApiService) ApikeyCreateObjectV1(ctx _context.Context) ApiApikeyCreateObjectV1Request {
-	return ApiApikeyCreateObjectV1Request{
+func (a *GlobalCustomerApiService) GlobalCustomerGetEndpointV1(ctx _context.Context, pksCustomerCode string) ApiGlobalCustomerGetEndpointV1Request {
+	return ApiGlobalCustomerGetEndpointV1Request{
 		ApiService: a,
 		ctx: ctx,
+		pksCustomerCode: pksCustomerCode,
 	}
 }
 
 /*
  * Execute executes the request
- * @return ApikeyCreateObjectV1Response
+ * @return GlobalCustomerGetEndpointV1Response
  */
-func (a *ObjectApikeyApiService) ApikeyCreateObjectV1Execute(r ApiApikeyCreateObjectV1Request) (ApikeyCreateObjectV1Response, *_nethttp.Response, error) {
+func (a *GlobalCustomerApiService) GlobalCustomerGetEndpointV1Execute(r ApiGlobalCustomerGetEndpointV1Request) (GlobalCustomerGetEndpointV1Response, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ApikeyCreateObjectV1Response
+		localVarReturnValue  GlobalCustomerGetEndpointV1Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectApikeyApiService.ApikeyCreateObjectV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GlobalCustomerApiService.GlobalCustomerGetEndpointV1")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/1/object/apikey"
+	localVarPath := localBasePath + "/1/customer/{pksCustomerCode}/endpoint"
+	localVarPath = strings.Replace(localVarPath, "{"+"pksCustomerCode"+"}", _neturl.PathEscape(parameterToString(r.pksCustomerCode, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
-	if r.apikeyCreateObjectV1Request == nil {
-		return localVarReturnValue, nil, reportError("apikeyCreateObjectV1Request is required and must be specified")
-	}
 
+	if r.sInfrastructureproductCode != nil {
+		localVarQueryParams.Add("sInfrastructureproductCode", parameterToString(*r.sInfrastructureproductCode, ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -104,8 +105,6 @@ func (a *ObjectApikeyApiService) ApikeyCreateObjectV1Execute(r ApiApikeyCreateOb
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	// body params
-	localVarPostBody = r.apikeyCreateObjectV1Request
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -141,6 +140,15 @@ func (a *ObjectApikeyApiService) ApikeyCreateObjectV1Execute(r ApiApikeyCreateOb
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

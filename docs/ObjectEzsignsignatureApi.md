@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**EzsignsignatureCreateObjectV1**](ObjectEzsignsignatureApi.md#EzsignsignatureCreateObjectV1) | **Post** /1/object/ezsignsignature | Create a new Ezsignsignature
 [**EzsignsignatureDeleteObjectV1**](ObjectEzsignsignatureApi.md#EzsignsignatureDeleteObjectV1) | **Delete** /1/object/ezsignsignature/{pkiEzsignsignatureID} | Delete an existing Ezsignsignature
 [**EzsignsignatureEditObjectV1**](ObjectEzsignsignatureApi.md#EzsignsignatureEditObjectV1) | **Put** /1/object/ezsignsignature/{pkiEzsignsignatureID} | Modify an existing Ezsignsignature
-[**EzsignsignatureGetObjectGetChildrenV1**](ObjectEzsignsignatureApi.md#EzsignsignatureGetObjectGetChildrenV1) | **Get** /1/object/ezsignsignature/{pkiEzsignsignatureID}/getChildren | Retrieve an existing Ezsignsignature&#39;s children IDs
+[**EzsignsignatureGetChildrenV1**](ObjectEzsignsignatureApi.md#EzsignsignatureGetChildrenV1) | **Get** /1/object/ezsignsignature/{pkiEzsignsignatureID}/getChildren | Retrieve an existing Ezsignsignature&#39;s children IDs
 [**EzsignsignatureGetObjectV1**](ObjectEzsignsignatureApi.md#EzsignsignatureGetObjectV1) | **Get** /1/object/ezsignsignature/{pkiEzsignsignatureID} | Retrieve an existing Ezsignsignature
 
 
@@ -216,9 +216,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## EzsignsignatureGetObjectGetChildrenV1
+## EzsignsignatureGetChildrenV1
 
-> EzsignsignatureGetObjectGetChildrenV1(ctx, pkiEzsignsignatureID).Execute()
+> EzsignsignatureGetChildrenV1(ctx, pkiEzsignsignatureID).Execute()
 
 Retrieve an existing Ezsignsignature's children IDs
 
@@ -239,9 +239,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsignsignatureApi.EzsignsignatureGetObjectGetChildrenV1(context.Background(), pkiEzsignsignatureID).Execute()
+    resp, r, err := api_client.ObjectEzsignsignatureApi.EzsignsignatureGetChildrenV1(context.Background(), pkiEzsignsignatureID).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignatureApi.EzsignsignatureGetObjectGetChildrenV1``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignatureApi.EzsignsignatureGetChildrenV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiEzsignsignatureGetObjectGetChildrenV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiEzsignsignatureGetChildrenV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes

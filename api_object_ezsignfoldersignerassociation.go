@@ -3,7 +3,7 @@
  *
  * This API expose all the functionnalities for the eZmax and eZsign application.  We provide SDKs for customers. They are generated using OpenAPI codegen, we encourage customers to use them as we also provide samples for them.  You can choose to build your own implementation manually or can use any compatible OpenAPI 3.0 generator like Swagger Codegen, OpenAPI codegen or any commercial generators.  If you need helping understanding how to use this API, don't waste too much time looking for it. Contact support-api@ezmax.ca, we're here to help. We are developpers so we know programmers don't like bad documentation. If you don't find what you need in the documentation, let us know, we'll improve it and put you rapidly up on track.
  *
- * API version: 1.0.28
+ * API version: 1.0.29
  * Contact: support-api@ezmax.ca
  */
 
@@ -434,6 +434,123 @@ func (a *ObjectEzsignfoldersignerassociationApiService) Ezsignfoldersignerassoci
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiEzsignfoldersignerassociationGetChildrenV1Request struct {
+	ctx _context.Context
+	ApiService *ObjectEzsignfoldersignerassociationApiService
+	pkiEzsignfoldersignerassociationID int32
+}
+
+
+func (r ApiEzsignfoldersignerassociationGetChildrenV1Request) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.EzsignfoldersignerassociationGetChildrenV1Execute(r)
+}
+
+/*
+ * EzsignfoldersignerassociationGetChildrenV1 Retrieve an existing Ezsignfoldersignerassociation's children IDs
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param pkiEzsignfoldersignerassociationID The unique ID of the Ezsignfoldersignerassociation
+ * @return ApiEzsignfoldersignerassociationGetChildrenV1Request
+ */
+func (a *ObjectEzsignfoldersignerassociationApiService) EzsignfoldersignerassociationGetChildrenV1(ctx _context.Context, pkiEzsignfoldersignerassociationID int32) ApiEzsignfoldersignerassociationGetChildrenV1Request {
+	return ApiEzsignfoldersignerassociationGetChildrenV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID,
+	}
+}
+
+/*
+ * Execute executes the request
+ */
+func (a *ObjectEzsignfoldersignerassociationApiService) EzsignfoldersignerassociationGetChildrenV1Execute(r ApiEzsignfoldersignerassociationGetChildrenV1Request) (*_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfoldersignerassociationApiService.EzsignfoldersignerassociationGetChildrenV1")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/getChildren"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsignfoldersignerassociationID"+"}", _neturl.PathEscape(parameterToString(r.pkiEzsignfoldersignerassociationID, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
 type ApiEzsignfoldersignerassociationGetInPersonLoginUrlV1Request struct {
 	ctx _context.Context
 	ApiService *ObjectEzsignfoldersignerassociationApiService
@@ -573,123 +690,6 @@ func (a *ObjectEzsignfoldersignerassociationApiService) Ezsignfoldersignerassoci
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiEzsignfoldersignerassociationGetObjectGetChildrenV1Request struct {
-	ctx _context.Context
-	ApiService *ObjectEzsignfoldersignerassociationApiService
-	pkiEzsignfoldersignerassociationID int32
-}
-
-
-func (r ApiEzsignfoldersignerassociationGetObjectGetChildrenV1Request) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.EzsignfoldersignerassociationGetObjectGetChildrenV1Execute(r)
-}
-
-/*
- * EzsignfoldersignerassociationGetObjectGetChildrenV1 Retrieve an existing Ezsignfoldersignerassociation's children IDs
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param pkiEzsignfoldersignerassociationID The unique ID of the Ezsignfoldersignerassociation
- * @return ApiEzsignfoldersignerassociationGetObjectGetChildrenV1Request
- */
-func (a *ObjectEzsignfoldersignerassociationApiService) EzsignfoldersignerassociationGetObjectGetChildrenV1(ctx _context.Context, pkiEzsignfoldersignerassociationID int32) ApiEzsignfoldersignerassociationGetObjectGetChildrenV1Request {
-	return ApiEzsignfoldersignerassociationGetObjectGetChildrenV1Request{
-		ApiService: a,
-		ctx: ctx,
-		pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID,
-	}
-}
-
-/*
- * Execute executes the request
- */
-func (a *ObjectEzsignfoldersignerassociationApiService) EzsignfoldersignerassociationGetObjectGetChildrenV1Execute(r ApiEzsignfoldersignerassociationGetObjectGetChildrenV1Request) (*_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfoldersignerassociationApiService.EzsignfoldersignerassociationGetObjectGetChildrenV1")
-	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/getChildren"
-	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsignfoldersignerassociationID"+"}", _neturl.PathEscape(parameterToString(r.pkiEzsignfoldersignerassociationID, "")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Authorization"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v CommonResponseError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
 }
 
 type ApiEzsignfoldersignerassociationGetObjectV1Request struct {

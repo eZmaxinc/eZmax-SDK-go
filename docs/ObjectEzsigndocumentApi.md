@@ -8,8 +8,8 @@ Method | HTTP request | Description
 [**EzsigndocumentCreateObjectV1**](ObjectEzsigndocumentApi.md#EzsigndocumentCreateObjectV1) | **Post** /1/object/ezsigndocument | Create a new Ezsigndocument
 [**EzsigndocumentDeleteObjectV1**](ObjectEzsigndocumentApi.md#EzsigndocumentDeleteObjectV1) | **Delete** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Delete an existing Ezsigndocument
 [**EzsigndocumentEditObjectV1**](ObjectEzsigndocumentApi.md#EzsigndocumentEditObjectV1) | **Put** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Modify an existing Ezsigndocument
+[**EzsigndocumentGetChildrenV1**](ObjectEzsigndocumentApi.md#EzsigndocumentGetChildrenV1) | **Get** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getChildren | Retrieve an existing Ezsigndocument&#39;s children IDs
 [**EzsigndocumentGetDownloadUrlV1**](ObjectEzsigndocumentApi.md#EzsigndocumentGetDownloadUrlV1) | **Get** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getDownloadUrl/{eDocumentType} | Retrieve a URL to download documents.
-[**EzsigndocumentGetObjectGetChildrenV1**](ObjectEzsigndocumentApi.md#EzsigndocumentGetObjectGetChildrenV1) | **Get** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getChildren | Retrieve an existing Ezsigndocument&#39;s children IDs
 [**EzsigndocumentGetObjectV1**](ObjectEzsigndocumentApi.md#EzsigndocumentGetObjectV1) | **Get** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Retrieve an existing Ezsigndocument
 
 
@@ -290,6 +290,72 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## EzsigndocumentGetChildrenV1
+
+> EzsigndocumentGetChildrenV1(ctx, pkiEzsigndocumentID).Execute()
+
+Retrieve an existing Ezsigndocument's children IDs
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    pkiEzsigndocumentID := int32(56) // int32 | The unique ID of the Ezsigndocument
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.ObjectEzsigndocumentApi.EzsigndocumentGetChildrenV1(context.Background(), pkiEzsigndocumentID).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentApi.EzsigndocumentGetChildrenV1``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsigndocumentID** | **int32** | The unique ID of the Ezsigndocument | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsigndocumentGetChildrenV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## EzsigndocumentGetDownloadUrlV1
 
 > EzsigndocumentGetDownloadUrlV1Response EzsigndocumentGetDownloadUrlV1(ctx, pkiEzsigndocumentID, eDocumentType).Execute()
@@ -348,72 +414,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsigndocumentGetDownloadUrlV1Response**](ezsigndocument-getDownloadUrl-v1-Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## EzsigndocumentGetObjectGetChildrenV1
-
-> EzsigndocumentGetObjectGetChildrenV1(ctx, pkiEzsigndocumentID).Execute()
-
-Retrieve an existing Ezsigndocument's children IDs
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    pkiEzsigndocumentID := int32(56) // int32 | The unique ID of the Ezsigndocument
-
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsigndocumentApi.EzsigndocumentGetObjectGetChildrenV1(context.Background(), pkiEzsigndocumentID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentApi.EzsigndocumentGetObjectGetChildrenV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiEzsigndocumentID** | **int32** | The unique ID of the Ezsigndocument | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiEzsigndocumentGetObjectGetChildrenV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
- (empty response body)
 
 ### Authorization
 

@@ -3,7 +3,7 @@
  *
  * This API expose all the functionnalities for the eZmax and eZsign application.  We provide SDKs for customers. They are generated using OpenAPI codegen, we encourage customers to use them as we also provide samples for them.  You can choose to build your own implementation manually or can use any compatible OpenAPI 3.0 generator like Swagger Codegen, OpenAPI codegen or any commercial generators.  If you need helping understanding how to use this API, don't waste too much time looking for it. Contact support-api@ezmax.ca, we're here to help. We are developpers so we know programmers don't like bad documentation. If you don't find what you need in the documentation, let us know, we'll improve it and put you rapidly up on track.
  *
- * API version: 1.0.28
+ * API version: 1.0.29
  * Contact: support-api@ezmax.ca
  */
 
@@ -434,25 +434,25 @@ func (a *ObjectEzsignfolderApiService) EzsignfolderEditObjectV1Execute(r ApiEzsi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiEzsignfolderGetObjectGetChildrenV1Request struct {
+type ApiEzsignfolderGetChildrenV1Request struct {
 	ctx _context.Context
 	ApiService *ObjectEzsignfolderApiService
 	pkiEzsignfolderID int32
 }
 
 
-func (r ApiEzsignfolderGetObjectGetChildrenV1Request) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.EzsignfolderGetObjectGetChildrenV1Execute(r)
+func (r ApiEzsignfolderGetChildrenV1Request) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.EzsignfolderGetChildrenV1Execute(r)
 }
 
 /*
- * EzsignfolderGetObjectGetChildrenV1 Retrieve an existing Ezsignfolder's children IDs
+ * EzsignfolderGetChildrenV1 Retrieve an existing Ezsignfolder's children IDs
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param pkiEzsignfolderID The unique ID of the Ezsignfolder
- * @return ApiEzsignfolderGetObjectGetChildrenV1Request
+ * @return ApiEzsignfolderGetChildrenV1Request
  */
-func (a *ObjectEzsignfolderApiService) EzsignfolderGetObjectGetChildrenV1(ctx _context.Context, pkiEzsignfolderID int32) ApiEzsignfolderGetObjectGetChildrenV1Request {
-	return ApiEzsignfolderGetObjectGetChildrenV1Request{
+func (a *ObjectEzsignfolderApiService) EzsignfolderGetChildrenV1(ctx _context.Context, pkiEzsignfolderID int32) ApiEzsignfolderGetChildrenV1Request {
+	return ApiEzsignfolderGetChildrenV1Request{
 		ApiService: a,
 		ctx: ctx,
 		pkiEzsignfolderID: pkiEzsignfolderID,
@@ -462,7 +462,7 @@ func (a *ObjectEzsignfolderApiService) EzsignfolderGetObjectGetChildrenV1(ctx _c
 /*
  * Execute executes the request
  */
-func (a *ObjectEzsignfolderApiService) EzsignfolderGetObjectGetChildrenV1Execute(r ApiEzsignfolderGetObjectGetChildrenV1Request) (*_nethttp.Response, error) {
+func (a *ObjectEzsignfolderApiService) EzsignfolderGetChildrenV1Execute(r ApiEzsignfolderGetChildrenV1Request) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -471,7 +471,7 @@ func (a *ObjectEzsignfolderApiService) EzsignfolderGetObjectGetChildrenV1Execute
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfolderApiService.EzsignfolderGetObjectGetChildrenV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfolderApiService.EzsignfolderGetChildrenV1")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}

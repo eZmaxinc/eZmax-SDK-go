@@ -3,6 +3,7 @@
 .travis.yml
 README.md
 api/openapi.yaml
+api_global_customer.go
 api_module_user.go
 api_object_activesession.go
 api_object_apikey.go
@@ -106,6 +107,8 @@ docs/FranchisereferalincomeCreateObjectV1Response.md
 docs/FranchisereferalincomeCreateObjectV1ResponseMPayload.md
 docs/FranchisereferalincomeRequest.md
 docs/FranchisereferalincomeRequestCompound.md
+docs/GlobalCustomerApi.md
+docs/GlobalCustomerGetEndpointV1Response.md
 docs/ModuleUserApi.md
 docs/MultilingualApikeyDescription.md
 docs/ObjectActivesessionApi.md
@@ -225,6 +228,7 @@ model_franchisereferalincome_create_object_v1_response.go
 model_franchisereferalincome_create_object_v1_response_m_payload.go
 model_franchisereferalincome_request.go
 model_franchisereferalincome_request_compound.go
+model_global_customer_get_endpoint_v1_response.go
 model_multilingual_apikey_description.go
 model_phone_request.go
 model_user_create_ezsignuser_v1_request.go

@@ -3,7 +3,7 @@
  *
  * This API expose all the functionnalities for the eZmax and eZsign application.  We provide SDKs for customers. They are generated using OpenAPI codegen, we encourage customers to use them as we also provide samples for them.  You can choose to build your own implementation manually or can use any compatible OpenAPI 3.0 generator like Swagger Codegen, OpenAPI codegen or any commercial generators.  If you need helping understanding how to use this API, don't waste too much time looking for it. Contact support-api@ezmax.ca, we're here to help. We are developpers so we know programmers don't like bad documentation. If you don't find what you need in the documentation, let us know, we'll improve it and put you rapidly up on track.
  *
- * API version: 1.0.28
+ * API version: 1.0.29
  * Contact: support-api@ezmax.ca
  */
 
@@ -434,25 +434,25 @@ func (a *ObjectEzsignsignatureApiService) EzsignsignatureEditObjectV1Execute(r A
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiEzsignsignatureGetObjectGetChildrenV1Request struct {
+type ApiEzsignsignatureGetChildrenV1Request struct {
 	ctx _context.Context
 	ApiService *ObjectEzsignsignatureApiService
 	pkiEzsignsignatureID int32
 }
 
 
-func (r ApiEzsignsignatureGetObjectGetChildrenV1Request) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.EzsignsignatureGetObjectGetChildrenV1Execute(r)
+func (r ApiEzsignsignatureGetChildrenV1Request) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.EzsignsignatureGetChildrenV1Execute(r)
 }
 
 /*
- * EzsignsignatureGetObjectGetChildrenV1 Retrieve an existing Ezsignsignature's children IDs
+ * EzsignsignatureGetChildrenV1 Retrieve an existing Ezsignsignature's children IDs
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param pkiEzsignsignatureID The unique ID of the Ezsignsignature
- * @return ApiEzsignsignatureGetObjectGetChildrenV1Request
+ * @return ApiEzsignsignatureGetChildrenV1Request
  */
-func (a *ObjectEzsignsignatureApiService) EzsignsignatureGetObjectGetChildrenV1(ctx _context.Context, pkiEzsignsignatureID int32) ApiEzsignsignatureGetObjectGetChildrenV1Request {
-	return ApiEzsignsignatureGetObjectGetChildrenV1Request{
+func (a *ObjectEzsignsignatureApiService) EzsignsignatureGetChildrenV1(ctx _context.Context, pkiEzsignsignatureID int32) ApiEzsignsignatureGetChildrenV1Request {
+	return ApiEzsignsignatureGetChildrenV1Request{
 		ApiService: a,
 		ctx: ctx,
 		pkiEzsignsignatureID: pkiEzsignsignatureID,
@@ -462,7 +462,7 @@ func (a *ObjectEzsignsignatureApiService) EzsignsignatureGetObjectGetChildrenV1(
 /*
  * Execute executes the request
  */
-func (a *ObjectEzsignsignatureApiService) EzsignsignatureGetObjectGetChildrenV1Execute(r ApiEzsignsignatureGetObjectGetChildrenV1Request) (*_nethttp.Response, error) {
+func (a *ObjectEzsignsignatureApiService) EzsignsignatureGetChildrenV1Execute(r ApiEzsignsignatureGetChildrenV1Request) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -471,7 +471,7 @@ func (a *ObjectEzsignsignatureApiService) EzsignsignatureGetObjectGetChildrenV1E
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignsignatureApiService.EzsignsignatureGetObjectGetChildrenV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignsignatureApiService.EzsignsignatureGetChildrenV1")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
