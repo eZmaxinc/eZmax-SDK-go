@@ -24,27 +24,27 @@ var (
 	_ _context.Context
 )
 
-// ObjectActivesessionApiService ObjectActivesessionApi service
-type ObjectActivesessionApiService service
+// ModuleSsprApiService ModuleSsprApi service
+type ModuleSsprApiService service
 
-type ApiActivesessionGetCurrentV1Request struct {
+type ApiSsprRemindUsernamesV1Request struct {
 	ctx _context.Context
-	ApiService *ObjectActivesessionApiService
+	ApiService *ModuleSsprApiService
 }
 
 
-func (r ApiActivesessionGetCurrentV1Request) Execute() (ActivesessionGetCurrentV1Response, *_nethttp.Response, error) {
-	return r.ApiService.ActivesessionGetCurrentV1Execute(r)
+func (r ApiSsprRemindUsernamesV1Request) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.SsprRemindUsernamesV1Execute(r)
 }
 
 /*
- * ActivesessionGetCurrentV1 Get Current Activesession
- * Retrieve the details about the current activesession
+ * SsprRemindUsernamesV1 Remind of forgotten username(s)
+ * This endpoint returns an email with the username(s) matching the email address provided in case of forgotten username
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiActivesessionGetCurrentV1Request
+ * @return ApiSsprRemindUsernamesV1Request
  */
-func (a *ObjectActivesessionApiService) ActivesessionGetCurrentV1(ctx _context.Context) ApiActivesessionGetCurrentV1Request {
-	return ApiActivesessionGetCurrentV1Request{
+func (a *ModuleSsprApiService) SsprRemindUsernamesV1(ctx _context.Context) ApiSsprRemindUsernamesV1Request {
+	return ApiSsprRemindUsernamesV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -52,24 +52,22 @@ func (a *ObjectActivesessionApiService) ActivesessionGetCurrentV1(ctx _context.C
 
 /*
  * Execute executes the request
- * @return ActivesessionGetCurrentV1Response
  */
-func (a *ObjectActivesessionApiService) ActivesessionGetCurrentV1Execute(r ApiActivesessionGetCurrentV1Request) (ActivesessionGetCurrentV1Response, *_nethttp.Response, error) {
+func (a *ModuleSsprApiService) SsprRemindUsernamesV1Execute(r ApiSsprRemindUsernamesV1Request) (*_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ActivesessionGetCurrentV1Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectActivesessionApiService.ActivesessionGetCurrentV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModuleSsprApiService.SsprRemindUsernamesV1")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/1/object/activesession/getCurrent"
+	localVarPath := localBasePath + "/1/module/sspr/remindUsernames"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -108,19 +106,19 @@ func (a *ObjectActivesessionApiService) ActivesessionGetCurrentV1Execute(r ApiAc
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(req)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
+		return localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
+		return localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -128,17 +126,37 @@ func (a *ObjectActivesessionApiService) ActivesessionGetCurrentV1Execute(r ApiAc
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarHTTPResponse, newErr
 		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
 	}
 
-	return localVarReturnValue, localVarHTTPResponse, nil
+	return localVarHTTPResponse, nil
 }

@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.  We provide SDKs for customers. They are generated using OpenAPI codegen, we encourage customers to use them as we also provide samples for them.  You can choose to build your own implementation manually or can use any compatible OpenAPI 3.0 generator like Swagger Codegen, OpenAPI codegen or any commercial generators.  If you need helping understanding how to use this API, don't waste too much time looking for it. Contact support-api@ezmax.ca, we're here to help. We are developpers so we know programmers don't like bad documentation. If you don't find what you need in the documentation, let us know, we'll improve it and put you rapidly up on track.
+ * This API expose all the functionnalities for the eZmax and eZsign application.
  *
- * API version: 1.0.29
+ * API version: 1.0.30
  * Contact: support-api@ezmax.ca
  */
 
@@ -102,12 +102,12 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/1.0.29/go",
+		UserAgent:        "OpenAPI-Generator/1.0.30/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
 				URL: "https://{sInfrastructureenvironmenttypeDescription}.api.appcluster01.{sInfrastructureregionCode}.ezmax.com/rest",
-				Description: "The server endpoint where to send your API requests.",
+				Description: "The server endpoint where to send your region specific API requests.",
 				Variables: map[string]ServerVariable{
 					"sInfrastructureenvironmenttypeDescription": ServerVariable{
 						Description: "The environment on on which to call the API. Should always be \"prod\" unless instructed otherwise by support.",
@@ -129,6 +129,22 @@ func NewConfiguration() *Configuration {
 					},
 				},
 			},
+			{
+				URL: "https://{sInfrastructureenvironmenttypeDescription}.api.global.ezmax.com",
+				Description: "The server endpoint where to send your global API requests.",
+				Variables: map[string]ServerVariable{
+					"sInfrastructureenvironmenttypeDescription": ServerVariable{
+						Description: "The environment on on which to call the API. Should always be \"prod\" unless instructed otherwise by support.",
+						DefaultValue: "prod",
+						EnumValues: []string{
+							"prod",
+							"stg",
+							"qa",
+							"dev",
+						},
+					},
+				},
+			},
 		},
 		OperationServers: map[string]ServerConfigurations{
 			"GlobalCustomerApiService.GlobalCustomerGetEndpointV1": {
@@ -139,6 +155,12 @@ func NewConfiguration() *Configuration {
 						"sInfrastructureenvironmenttypeDescription": ServerVariable{
 							Description: "The environment on on which to call the API. Should always be \"prod\" unless instructed otherwise by support.",
 							DefaultValue: "prod",
+							EnumValues: []string{
+								"prod",
+								"stg",
+								"qa",
+								"dev",
+							},
 						},
 					},
 				},
