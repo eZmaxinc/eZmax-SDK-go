@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -26,9 +26,8 @@ type EzsigndocumentCreateObjectV1Response struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigndocumentCreateObjectV1Response(mPayload EzsigndocumentCreateObjectV1ResponseMPayload, ) *EzsigndocumentCreateObjectV1Response {
+func NewEzsigndocumentCreateObjectV1Response(mPayload EzsigndocumentCreateObjectV1ResponseMPayload) *EzsigndocumentCreateObjectV1Response {
 	this := EzsigndocumentCreateObjectV1Response{}
-	this.MPayload = mPayload
 	return &this
 }
 
@@ -42,7 +41,7 @@ func NewEzsigndocumentCreateObjectV1ResponseWithDefaults() *EzsigndocumentCreate
 
 // GetMPayload returns the MPayload field value
 func (o *EzsigndocumentCreateObjectV1Response) GetMPayload() EzsigndocumentCreateObjectV1ResponseMPayload {
-	if o == nil  {
+	if o == nil {
 		var ret EzsigndocumentCreateObjectV1ResponseMPayload
 		return ret
 	}

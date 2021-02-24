@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -25,7 +25,7 @@ type EzsignfolderSendV1Request struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfolderSendV1Request(tExtraMessage string, ) *EzsignfolderSendV1Request {
+func NewEzsignfolderSendV1Request(tExtraMessage string) *EzsignfolderSendV1Request {
 	this := EzsignfolderSendV1Request{}
 	this.TExtraMessage = tExtraMessage
 	return &this
@@ -41,7 +41,7 @@ func NewEzsignfolderSendV1RequestWithDefaults() *EzsignfolderSendV1Request {
 
 // GetTExtraMessage returns the TExtraMessage field value
 func (o *EzsignfolderSendV1Request) GetTExtraMessage() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

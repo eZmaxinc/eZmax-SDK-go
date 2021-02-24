@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -46,9 +46,8 @@ type FranchisereferalincomeRequestCompound struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFranchisereferalincomeRequestCompound(aObjContact []ContactRequestCompound, fkiFranchisebrokerID int32, fkiFranchisereferalincomeprogramID int32, fkiPeriodID int32, dFranchisereferalincomeLoan string, dFranchisereferalincomeFranchiseamount string, dFranchisereferalincomeFranchisoramount string, dFranchisereferalincomeAgentamount string, dtFranchisereferalincomeDisbursed string, tFranchisereferalincomeComment string, fkiFranchiseofficeID int32, sFranchisereferalincomeRemoteid string, ) *FranchisereferalincomeRequestCompound {
+func NewFranchisereferalincomeRequestCompound(aObjContact []ContactRequestCompound, fkiFranchisebrokerID int32, fkiFranchisereferalincomeprogramID int32, fkiPeriodID int32, dFranchisereferalincomeLoan string, dFranchisereferalincomeFranchiseamount string, dFranchisereferalincomeFranchisoramount string, dFranchisereferalincomeAgentamount string, dtFranchisereferalincomeDisbursed string, tFranchisereferalincomeComment string, fkiFranchiseofficeID int32, sFranchisereferalincomeRemoteid string) *FranchisereferalincomeRequestCompound {
 	this := FranchisereferalincomeRequestCompound{}
-	this.AObjContact = aObjContact
 	this.FkiFranchisebrokerID = fkiFranchisebrokerID
 	this.FkiFranchisereferalincomeprogramID = fkiFranchisereferalincomeprogramID
 	this.FkiPeriodID = fkiPeriodID
@@ -105,7 +104,7 @@ func (o *FranchisereferalincomeRequestCompound) SetObjAddress(v AddressRequest) 
 
 // GetAObjContact returns the AObjContact field value
 func (o *FranchisereferalincomeRequestCompound) GetAObjContact() []ContactRequestCompound {
-	if o == nil  {
+	if o == nil {
 		var ret []ContactRequestCompound
 		return ret
 	}
@@ -129,7 +128,7 @@ func (o *FranchisereferalincomeRequestCompound) SetAObjContact(v []ContactReques
 
 // GetFkiFranchisebrokerID returns the FkiFranchisebrokerID field value
 func (o *FranchisereferalincomeRequestCompound) GetFkiFranchisebrokerID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -153,7 +152,7 @@ func (o *FranchisereferalincomeRequestCompound) SetFkiFranchisebrokerID(v int32)
 
 // GetFkiFranchisereferalincomeprogramID returns the FkiFranchisereferalincomeprogramID field value
 func (o *FranchisereferalincomeRequestCompound) GetFkiFranchisereferalincomeprogramID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -177,7 +176,7 @@ func (o *FranchisereferalincomeRequestCompound) SetFkiFranchisereferalincomeprog
 
 // GetFkiPeriodID returns the FkiPeriodID field value
 func (o *FranchisereferalincomeRequestCompound) GetFkiPeriodID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -201,7 +200,7 @@ func (o *FranchisereferalincomeRequestCompound) SetFkiPeriodID(v int32) {
 
 // GetDFranchisereferalincomeLoan returns the DFranchisereferalincomeLoan field value
 func (o *FranchisereferalincomeRequestCompound) GetDFranchisereferalincomeLoan() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -225,7 +224,7 @@ func (o *FranchisereferalincomeRequestCompound) SetDFranchisereferalincomeLoan(v
 
 // GetDFranchisereferalincomeFranchiseamount returns the DFranchisereferalincomeFranchiseamount field value
 func (o *FranchisereferalincomeRequestCompound) GetDFranchisereferalincomeFranchiseamount() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -249,7 +248,7 @@ func (o *FranchisereferalincomeRequestCompound) SetDFranchisereferalincomeFranch
 
 // GetDFranchisereferalincomeFranchisoramount returns the DFranchisereferalincomeFranchisoramount field value
 func (o *FranchisereferalincomeRequestCompound) GetDFranchisereferalincomeFranchisoramount() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -273,7 +272,7 @@ func (o *FranchisereferalincomeRequestCompound) SetDFranchisereferalincomeFranch
 
 // GetDFranchisereferalincomeAgentamount returns the DFranchisereferalincomeAgentamount field value
 func (o *FranchisereferalincomeRequestCompound) GetDFranchisereferalincomeAgentamount() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -297,7 +296,7 @@ func (o *FranchisereferalincomeRequestCompound) SetDFranchisereferalincomeAgenta
 
 // GetDtFranchisereferalincomeDisbursed returns the DtFranchisereferalincomeDisbursed field value
 func (o *FranchisereferalincomeRequestCompound) GetDtFranchisereferalincomeDisbursed() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -321,7 +320,7 @@ func (o *FranchisereferalincomeRequestCompound) SetDtFranchisereferalincomeDisbu
 
 // GetTFranchisereferalincomeComment returns the TFranchisereferalincomeComment field value
 func (o *FranchisereferalincomeRequestCompound) GetTFranchisereferalincomeComment() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -345,7 +344,7 @@ func (o *FranchisereferalincomeRequestCompound) SetTFranchisereferalincomeCommen
 
 // GetFkiFranchiseofficeID returns the FkiFranchiseofficeID field value
 func (o *FranchisereferalincomeRequestCompound) GetFkiFranchiseofficeID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -369,7 +368,7 @@ func (o *FranchisereferalincomeRequestCompound) SetFkiFranchiseofficeID(v int32)
 
 // GetSFranchisereferalincomeRemoteid returns the SFranchisereferalincomeRemoteid field value
 func (o *FranchisereferalincomeRequestCompound) GetSFranchisereferalincomeRemoteid() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

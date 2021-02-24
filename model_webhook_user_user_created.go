@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -27,7 +27,7 @@ type WebhookUserUserCreated struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWebhookUserUserCreated(objUser UserResponse, objWebhook WebhookResponse, aObjAttempt []AttemptResponse, ) *WebhookUserUserCreated {
+func NewWebhookUserUserCreated(objUser UserResponse, objWebhook WebhookResponse, aObjAttempt []AttemptResponse) *WebhookUserUserCreated {
 	this := WebhookUserUserCreated{}
 	this.ObjUser = objUser
 	this.ObjWebhook = objWebhook
@@ -45,7 +45,7 @@ func NewWebhookUserUserCreatedWithDefaults() *WebhookUserUserCreated {
 
 // GetObjUser returns the ObjUser field value
 func (o *WebhookUserUserCreated) GetObjUser() UserResponse {
-	if o == nil  {
+	if o == nil {
 		var ret UserResponse
 		return ret
 	}
@@ -69,7 +69,7 @@ func (o *WebhookUserUserCreated) SetObjUser(v UserResponse) {
 
 // GetObjWebhook returns the ObjWebhook field value
 func (o *WebhookUserUserCreated) GetObjWebhook() WebhookResponse {
-	if o == nil  {
+	if o == nil {
 		var ret WebhookResponse
 		return ret
 	}
@@ -93,7 +93,7 @@ func (o *WebhookUserUserCreated) SetObjWebhook(v WebhookResponse) {
 
 // GetAObjAttempt returns the AObjAttempt field value
 func (o *WebhookUserUserCreated) GetAObjAttempt() []AttemptResponse {
-	if o == nil  {
+	if o == nil {
 		var ret []AttemptResponse
 		return ret
 	}

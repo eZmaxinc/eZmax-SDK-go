@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -32,9 +32,8 @@ type EzsignsignerRequestCompound struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignsignerRequestCompound(objContact EzsignsignerRequestCompoundContact, fkiTaxassignmentID int32, eEzsignsignerLogintype string, ) *EzsignsignerRequestCompound {
+func NewEzsignsignerRequestCompound(objContact EzsignsignerRequestCompoundContact, fkiTaxassignmentID int32, eEzsignsignerLogintype string) *EzsignsignerRequestCompound {
 	this := EzsignsignerRequestCompound{}
-	this.ObjContact = objContact
 	this.FkiTaxassignmentID = fkiTaxassignmentID
 	this.EEzsignsignerLogintype = eEzsignsignerLogintype
 	return &this
@@ -50,7 +49,7 @@ func NewEzsignsignerRequestCompoundWithDefaults() *EzsignsignerRequestCompound {
 
 // GetObjContact returns the ObjContact field value
 func (o *EzsignsignerRequestCompound) GetObjContact() EzsignsignerRequestCompoundContact {
-	if o == nil  {
+	if o == nil {
 		var ret EzsignsignerRequestCompoundContact
 		return ret
 	}
@@ -74,7 +73,7 @@ func (o *EzsignsignerRequestCompound) SetObjContact(v EzsignsignerRequestCompoun
 
 // GetFkiTaxassignmentID returns the FkiTaxassignmentID field value
 func (o *EzsignsignerRequestCompound) GetFkiTaxassignmentID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -130,7 +129,7 @@ func (o *EzsignsignerRequestCompound) SetFkiSecretquestionID(v int32) {
 
 // GetEEzsignsignerLogintype returns the EEzsignsignerLogintype field value
 func (o *EzsignsignerRequestCompound) GetEEzsignsignerLogintype() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

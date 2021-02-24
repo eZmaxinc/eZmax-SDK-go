@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -35,7 +35,7 @@ type ContactRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewContactRequest(fkiContacttitleID int32, fkiLanguageID int32, sContactFirstname string, sContactLastname string, sContactCompany string, ) *ContactRequest {
+func NewContactRequest(fkiContacttitleID int32, fkiLanguageID int32, sContactFirstname string, sContactLastname string, sContactCompany string) *ContactRequest {
 	this := ContactRequest{}
 	this.FkiContacttitleID = fkiContacttitleID
 	this.FkiLanguageID = fkiLanguageID
@@ -55,7 +55,7 @@ func NewContactRequestWithDefaults() *ContactRequest {
 
 // GetFkiContacttitleID returns the FkiContacttitleID field value
 func (o *ContactRequest) GetFkiContacttitleID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -79,7 +79,7 @@ func (o *ContactRequest) SetFkiContacttitleID(v int32) {
 
 // GetFkiLanguageID returns the FkiLanguageID field value
 func (o *ContactRequest) GetFkiLanguageID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -103,7 +103,7 @@ func (o *ContactRequest) SetFkiLanguageID(v int32) {
 
 // GetSContactFirstname returns the SContactFirstname field value
 func (o *ContactRequest) GetSContactFirstname() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -127,7 +127,7 @@ func (o *ContactRequest) SetSContactFirstname(v string) {
 
 // GetSContactLastname returns the SContactLastname field value
 func (o *ContactRequest) GetSContactLastname() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -151,7 +151,7 @@ func (o *ContactRequest) SetSContactLastname(v string) {
 
 // GetSContactCompany returns the SContactCompany field value
 func (o *ContactRequest) GetSContactCompany() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

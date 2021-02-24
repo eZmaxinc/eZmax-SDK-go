@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -37,7 +37,7 @@ type EzsignsignatureRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignsignatureRequest(fkiEzsignfoldersignerassociationID int32, iEzsignpagePagenumber int32, iEzsignsignatureX int32, iEzsignsignatureY int32, iEzsignsignatureStep int32, eEzsignsignatureType string, fkiEzsigndocumentID int32, ) *EzsignsignatureRequest {
+func NewEzsignsignatureRequest(fkiEzsignfoldersignerassociationID int32, iEzsignpagePagenumber int32, iEzsignsignatureX int32, iEzsignsignatureY int32, iEzsignsignatureStep int32, eEzsignsignatureType string, fkiEzsigndocumentID int32) *EzsignsignatureRequest {
 	this := EzsignsignatureRequest{}
 	this.FkiEzsignfoldersignerassociationID = fkiEzsignfoldersignerassociationID
 	this.IEzsignpagePagenumber = iEzsignpagePagenumber
@@ -59,7 +59,7 @@ func NewEzsignsignatureRequestWithDefaults() *EzsignsignatureRequest {
 
 // GetFkiEzsignfoldersignerassociationID returns the FkiEzsignfoldersignerassociationID field value
 func (o *EzsignsignatureRequest) GetFkiEzsignfoldersignerassociationID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -83,7 +83,7 @@ func (o *EzsignsignatureRequest) SetFkiEzsignfoldersignerassociationID(v int32) 
 
 // GetIEzsignpagePagenumber returns the IEzsignpagePagenumber field value
 func (o *EzsignsignatureRequest) GetIEzsignpagePagenumber() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -107,7 +107,7 @@ func (o *EzsignsignatureRequest) SetIEzsignpagePagenumber(v int32) {
 
 // GetIEzsignsignatureX returns the IEzsignsignatureX field value
 func (o *EzsignsignatureRequest) GetIEzsignsignatureX() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -131,7 +131,7 @@ func (o *EzsignsignatureRequest) SetIEzsignsignatureX(v int32) {
 
 // GetIEzsignsignatureY returns the IEzsignsignatureY field value
 func (o *EzsignsignatureRequest) GetIEzsignsignatureY() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -155,7 +155,7 @@ func (o *EzsignsignatureRequest) SetIEzsignsignatureY(v int32) {
 
 // GetIEzsignsignatureStep returns the IEzsignsignatureStep field value
 func (o *EzsignsignatureRequest) GetIEzsignsignatureStep() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -179,7 +179,7 @@ func (o *EzsignsignatureRequest) SetIEzsignsignatureStep(v int32) {
 
 // GetEEzsignsignatureType returns the EEzsignsignatureType field value
 func (o *EzsignsignatureRequest) GetEEzsignsignatureType() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -203,7 +203,7 @@ func (o *EzsignsignatureRequest) SetEEzsignsignatureType(v string) {
 
 // GetFkiEzsigndocumentID returns the FkiEzsigndocumentID field value
 func (o *EzsignsignatureRequest) GetFkiEzsigndocumentID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}

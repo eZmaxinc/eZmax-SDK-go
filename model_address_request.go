@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -39,7 +39,7 @@ type AddressRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAddressRequest(fkiAddresstypeID int32, sAddressCivic string, sAddressStreet string, sAddressSuite string, sAddressCity string, fkiProvinceID int32, fkiCountryID int32, sAddressZip string, ) *AddressRequest {
+func NewAddressRequest(fkiAddresstypeID int32, sAddressCivic string, sAddressStreet string, sAddressSuite string, sAddressCity string, fkiProvinceID int32, fkiCountryID int32, sAddressZip string) *AddressRequest {
 	this := AddressRequest{}
 	this.FkiAddresstypeID = fkiAddresstypeID
 	this.SAddressCivic = sAddressCivic
@@ -62,7 +62,7 @@ func NewAddressRequestWithDefaults() *AddressRequest {
 
 // GetFkiAddresstypeID returns the FkiAddresstypeID field value
 func (o *AddressRequest) GetFkiAddresstypeID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -86,7 +86,7 @@ func (o *AddressRequest) SetFkiAddresstypeID(v int32) {
 
 // GetSAddressCivic returns the SAddressCivic field value
 func (o *AddressRequest) GetSAddressCivic() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -110,7 +110,7 @@ func (o *AddressRequest) SetSAddressCivic(v string) {
 
 // GetSAddressStreet returns the SAddressStreet field value
 func (o *AddressRequest) GetSAddressStreet() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -134,7 +134,7 @@ func (o *AddressRequest) SetSAddressStreet(v string) {
 
 // GetSAddressSuite returns the SAddressSuite field value
 func (o *AddressRequest) GetSAddressSuite() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -158,7 +158,7 @@ func (o *AddressRequest) SetSAddressSuite(v string) {
 
 // GetSAddressCity returns the SAddressCity field value
 func (o *AddressRequest) GetSAddressCity() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -182,7 +182,7 @@ func (o *AddressRequest) SetSAddressCity(v string) {
 
 // GetFkiProvinceID returns the FkiProvinceID field value
 func (o *AddressRequest) GetFkiProvinceID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -206,7 +206,7 @@ func (o *AddressRequest) SetFkiProvinceID(v int32) {
 
 // GetFkiCountryID returns the FkiCountryID field value
 func (o *AddressRequest) GetFkiCountryID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -230,7 +230,7 @@ func (o *AddressRequest) SetFkiCountryID(v int32) {
 
 // GetSAddressZip returns the SAddressZip field value
 func (o *AddressRequest) GetSAddressZip() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

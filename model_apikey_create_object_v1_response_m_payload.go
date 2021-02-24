@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -24,7 +24,7 @@ type ApikeyCreateObjectV1ResponseMPayload struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApikeyCreateObjectV1ResponseMPayload(aObjApikey []ApikeyResponse, ) *ApikeyCreateObjectV1ResponseMPayload {
+func NewApikeyCreateObjectV1ResponseMPayload(aObjApikey []ApikeyResponse) *ApikeyCreateObjectV1ResponseMPayload {
 	this := ApikeyCreateObjectV1ResponseMPayload{}
 	this.AObjApikey = aObjApikey
 	return &this
@@ -40,7 +40,7 @@ func NewApikeyCreateObjectV1ResponseMPayloadWithDefaults() *ApikeyCreateObjectV1
 
 // GetAObjApikey returns the AObjApikey field value
 func (o *ApikeyCreateObjectV1ResponseMPayload) GetAObjApikey() []ApikeyResponse {
-	if o == nil  {
+	if o == nil {
 		var ret []ApikeyResponse
 		return ret
 	}

@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -34,9 +34,8 @@ type EzsignfolderRequestCompound struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfolderRequestCompound(aEzsignfoldersignerassociation []EzsignfoldersignerassociationRequest, fkiEzsignfoldertypeID int32, fkiEzsigntsarequirementID int32, sEzsignfolderDescription string, tEzsignfolderNote string, eEzsignfolderSendreminderfrequency FieldEEzsignfolderSendreminderfrequency, ) *EzsignfolderRequestCompound {
+func NewEzsignfolderRequestCompound(aEzsignfoldersignerassociation []EzsignfoldersignerassociationRequest, fkiEzsignfoldertypeID int32, fkiEzsigntsarequirementID int32, sEzsignfolderDescription string, tEzsignfolderNote string, eEzsignfolderSendreminderfrequency FieldEEzsignfolderSendreminderfrequency) *EzsignfolderRequestCompound {
 	this := EzsignfolderRequestCompound{}
-	this.AEzsignfoldersignerassociation = aEzsignfoldersignerassociation
 	this.FkiEzsignfoldertypeID = fkiEzsignfoldertypeID
 	this.FkiEzsigntsarequirementID = fkiEzsigntsarequirementID
 	this.SEzsignfolderDescription = sEzsignfolderDescription
@@ -55,7 +54,7 @@ func NewEzsignfolderRequestCompoundWithDefaults() *EzsignfolderRequestCompound {
 
 // GetAEzsignfoldersignerassociation returns the AEzsignfoldersignerassociation field value
 func (o *EzsignfolderRequestCompound) GetAEzsignfoldersignerassociation() []EzsignfoldersignerassociationRequest {
-	if o == nil  {
+	if o == nil {
 		var ret []EzsignfoldersignerassociationRequest
 		return ret
 	}
@@ -79,7 +78,7 @@ func (o *EzsignfolderRequestCompound) SetAEzsignfoldersignerassociation(v []Ezsi
 
 // GetFkiEzsignfoldertypeID returns the FkiEzsignfoldertypeID field value
 func (o *EzsignfolderRequestCompound) GetFkiEzsignfoldertypeID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -103,7 +102,7 @@ func (o *EzsignfolderRequestCompound) SetFkiEzsignfoldertypeID(v int32) {
 
 // GetFkiEzsigntsarequirementID returns the FkiEzsigntsarequirementID field value
 func (o *EzsignfolderRequestCompound) GetFkiEzsigntsarequirementID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -127,7 +126,7 @@ func (o *EzsignfolderRequestCompound) SetFkiEzsigntsarequirementID(v int32) {
 
 // GetSEzsignfolderDescription returns the SEzsignfolderDescription field value
 func (o *EzsignfolderRequestCompound) GetSEzsignfolderDescription() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -151,7 +150,7 @@ func (o *EzsignfolderRequestCompound) SetSEzsignfolderDescription(v string) {
 
 // GetTEzsignfolderNote returns the TEzsignfolderNote field value
 func (o *EzsignfolderRequestCompound) GetTEzsignfolderNote() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -175,7 +174,7 @@ func (o *EzsignfolderRequestCompound) SetTEzsignfolderNote(v string) {
 
 // GetEEzsignfolderSendreminderfrequency returns the EEzsignfolderSendreminderfrequency field value
 func (o *EzsignfolderRequestCompound) GetEEzsignfolderSendreminderfrequency() FieldEEzsignfolderSendreminderfrequency {
-	if o == nil  {
+	if o == nil {
 		var ret FieldEEzsignfolderSendreminderfrequency
 		return ret
 	}

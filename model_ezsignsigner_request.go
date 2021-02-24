@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -31,7 +31,7 @@ type EzsignsignerRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignsignerRequest(fkiTaxassignmentID int32, eEzsignsignerLogintype string, ) *EzsignsignerRequest {
+func NewEzsignsignerRequest(fkiTaxassignmentID int32, eEzsignsignerLogintype string) *EzsignsignerRequest {
 	this := EzsignsignerRequest{}
 	this.FkiTaxassignmentID = fkiTaxassignmentID
 	this.EEzsignsignerLogintype = eEzsignsignerLogintype
@@ -48,7 +48,7 @@ func NewEzsignsignerRequestWithDefaults() *EzsignsignerRequest {
 
 // GetFkiTaxassignmentID returns the FkiTaxassignmentID field value
 func (o *EzsignsignerRequest) GetFkiTaxassignmentID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -104,7 +104,7 @@ func (o *EzsignsignerRequest) SetFkiSecretquestionID(v int32) {
 
 // GetEEzsignsignerLogintype returns the EEzsignsignerLogintype field value
 func (o *EzsignsignerRequest) GetEEzsignsignerLogintype() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

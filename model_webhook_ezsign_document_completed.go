@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -27,7 +27,7 @@ type WebhookEzsignDocumentCompleted struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWebhookEzsignDocumentCompleted(objEzsigndocument EzsigndocumentResponse, objWebhook WebhookResponse, aObjAttempt []AttemptResponse, ) *WebhookEzsignDocumentCompleted {
+func NewWebhookEzsignDocumentCompleted(objEzsigndocument EzsigndocumentResponse, objWebhook WebhookResponse, aObjAttempt []AttemptResponse) *WebhookEzsignDocumentCompleted {
 	this := WebhookEzsignDocumentCompleted{}
 	this.ObjEzsigndocument = objEzsigndocument
 	this.ObjWebhook = objWebhook
@@ -45,7 +45,7 @@ func NewWebhookEzsignDocumentCompletedWithDefaults() *WebhookEzsignDocumentCompl
 
 // GetObjEzsigndocument returns the ObjEzsigndocument field value
 func (o *WebhookEzsignDocumentCompleted) GetObjEzsigndocument() EzsigndocumentResponse {
-	if o == nil  {
+	if o == nil {
 		var ret EzsigndocumentResponse
 		return ret
 	}
@@ -69,7 +69,7 @@ func (o *WebhookEzsignDocumentCompleted) SetObjEzsigndocument(v EzsigndocumentRe
 
 // GetObjWebhook returns the ObjWebhook field value
 func (o *WebhookEzsignDocumentCompleted) GetObjWebhook() WebhookResponse {
-	if o == nil  {
+	if o == nil {
 		var ret WebhookResponse
 		return ret
 	}
@@ -93,7 +93,7 @@ func (o *WebhookEzsignDocumentCompleted) SetObjWebhook(v WebhookResponse) {
 
 // GetAObjAttempt returns the AObjAttempt field value
 func (o *WebhookEzsignDocumentCompleted) GetAObjAttempt() []AttemptResponse {
-	if o == nil  {
+	if o == nil {
 		var ret []AttemptResponse
 		return ret
 	}

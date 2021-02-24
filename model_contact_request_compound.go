@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -36,7 +36,7 @@ type ContactRequestCompound struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewContactRequestCompound(objContactinformations ContactinformationsRequestCompound, fkiContacttitleID int32, fkiLanguageID int32, sContactFirstname string, sContactLastname string, sContactCompany string, ) *ContactRequestCompound {
+func NewContactRequestCompound(objContactinformations ContactinformationsRequestCompound, fkiContacttitleID int32, fkiLanguageID int32, sContactFirstname string, sContactLastname string, sContactCompany string) *ContactRequestCompound {
 	this := ContactRequestCompound{}
 	this.ObjContactinformations = objContactinformations
 	this.FkiContacttitleID = fkiContacttitleID
@@ -57,7 +57,7 @@ func NewContactRequestCompoundWithDefaults() *ContactRequestCompound {
 
 // GetObjContactinformations returns the ObjContactinformations field value
 func (o *ContactRequestCompound) GetObjContactinformations() ContactinformationsRequestCompound {
-	if o == nil  {
+	if o == nil {
 		var ret ContactinformationsRequestCompound
 		return ret
 	}
@@ -81,7 +81,7 @@ func (o *ContactRequestCompound) SetObjContactinformations(v Contactinformations
 
 // GetFkiContacttitleID returns the FkiContacttitleID field value
 func (o *ContactRequestCompound) GetFkiContacttitleID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -105,7 +105,7 @@ func (o *ContactRequestCompound) SetFkiContacttitleID(v int32) {
 
 // GetFkiLanguageID returns the FkiLanguageID field value
 func (o *ContactRequestCompound) GetFkiLanguageID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -129,7 +129,7 @@ func (o *ContactRequestCompound) SetFkiLanguageID(v int32) {
 
 // GetSContactFirstname returns the SContactFirstname field value
 func (o *ContactRequestCompound) GetSContactFirstname() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -153,7 +153,7 @@ func (o *ContactRequestCompound) SetSContactFirstname(v string) {
 
 // GetSContactLastname returns the SContactLastname field value
 func (o *ContactRequestCompound) GetSContactLastname() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -177,7 +177,7 @@ func (o *ContactRequestCompound) SetSContactLastname(v string) {
 
 // GetSContactCompany returns the SContactCompany field value
 func (o *ContactRequestCompound) GetSContactCompany() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

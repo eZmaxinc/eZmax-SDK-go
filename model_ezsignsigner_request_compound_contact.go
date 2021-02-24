@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -35,7 +35,7 @@ type EzsignsignerRequestCompoundContact struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignsignerRequestCompoundContact(sContactFirstname string, sContactLastname string, fkiLanguageID int32, ) *EzsignsignerRequestCompoundContact {
+func NewEzsignsignerRequestCompoundContact(sContactFirstname string, sContactLastname string, fkiLanguageID int32) *EzsignsignerRequestCompoundContact {
 	this := EzsignsignerRequestCompoundContact{}
 	this.SContactFirstname = sContactFirstname
 	this.SContactLastname = sContactLastname
@@ -53,7 +53,7 @@ func NewEzsignsignerRequestCompoundContactWithDefaults() *EzsignsignerRequestCom
 
 // GetSContactFirstname returns the SContactFirstname field value
 func (o *EzsignsignerRequestCompoundContact) GetSContactFirstname() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -77,7 +77,7 @@ func (o *EzsignsignerRequestCompoundContact) SetSContactFirstname(v string) {
 
 // GetSContactLastname returns the SContactLastname field value
 func (o *EzsignsignerRequestCompoundContact) GetSContactLastname() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -101,7 +101,7 @@ func (o *EzsignsignerRequestCompoundContact) SetSContactLastname(v string) {
 
 // GetFkiLanguageID returns the FkiLanguageID field value
 func (o *EzsignsignerRequestCompoundContact) GetFkiLanguageID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}

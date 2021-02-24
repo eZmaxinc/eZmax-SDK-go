@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -29,7 +29,7 @@ type CommonGetAutocompleteV1ResponseMPayload struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommonGetAutocompleteV1ResponseMPayload(group string, id string, option string, ) *CommonGetAutocompleteV1ResponseMPayload {
+func NewCommonGetAutocompleteV1ResponseMPayload(group string, id string, option string) *CommonGetAutocompleteV1ResponseMPayload {
 	this := CommonGetAutocompleteV1ResponseMPayload{}
 	this.Group = group
 	this.Id = id
@@ -47,7 +47,7 @@ func NewCommonGetAutocompleteV1ResponseMPayloadWithDefaults() *CommonGetAutocomp
 
 // GetGroup returns the Group field value
 func (o *CommonGetAutocompleteV1ResponseMPayload) GetGroup() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -71,7 +71,7 @@ func (o *CommonGetAutocompleteV1ResponseMPayload) SetGroup(v string) {
 
 // GetId returns the Id field value
 func (o *CommonGetAutocompleteV1ResponseMPayload) GetId() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -95,7 +95,7 @@ func (o *CommonGetAutocompleteV1ResponseMPayload) SetId(v string) {
 
 // GetOption returns the Option field value
 func (o *CommonGetAutocompleteV1ResponseMPayload) GetOption() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

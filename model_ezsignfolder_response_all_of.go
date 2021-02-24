@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -40,7 +40,7 @@ type EzsignfolderResponseAllOf struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfolderResponseAllOf(fkiEzsignfoldertypeID int32, fkiEzsigntsarequirementID int32, sEzsignfolderDescription string, tEzsignfolderNote string, eEzsignfolderSendreminderfrequency FieldEEzsignfolderSendreminderfrequency, pkiEzsignfolderID int32, dtEzsignfolderSentdate string, eEzsignfolderStep FieldEEzsignfolderStep, dtEzsignfolderClose string, objAudit CommonAudit, ) *EzsignfolderResponseAllOf {
+func NewEzsignfolderResponseAllOf(fkiEzsignfoldertypeID int32, fkiEzsigntsarequirementID int32, sEzsignfolderDescription string, tEzsignfolderNote string, eEzsignfolderSendreminderfrequency FieldEEzsignfolderSendreminderfrequency, pkiEzsignfolderID int32, dtEzsignfolderSentdate string, eEzsignfolderStep FieldEEzsignfolderStep, dtEzsignfolderClose string, objAudit CommonAudit) *EzsignfolderResponseAllOf {
 	this := EzsignfolderResponseAllOf{}
 	this.FkiEzsignfoldertypeID = fkiEzsignfoldertypeID
 	this.FkiEzsigntsarequirementID = fkiEzsigntsarequirementID
@@ -65,7 +65,7 @@ func NewEzsignfolderResponseAllOfWithDefaults() *EzsignfolderResponseAllOf {
 
 // GetFkiEzsignfoldertypeID returns the FkiEzsignfoldertypeID field value
 func (o *EzsignfolderResponseAllOf) GetFkiEzsignfoldertypeID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -89,7 +89,7 @@ func (o *EzsignfolderResponseAllOf) SetFkiEzsignfoldertypeID(v int32) {
 
 // GetFkiEzsigntsarequirementID returns the FkiEzsigntsarequirementID field value
 func (o *EzsignfolderResponseAllOf) GetFkiEzsigntsarequirementID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -113,7 +113,7 @@ func (o *EzsignfolderResponseAllOf) SetFkiEzsigntsarequirementID(v int32) {
 
 // GetSEzsignfolderDescription returns the SEzsignfolderDescription field value
 func (o *EzsignfolderResponseAllOf) GetSEzsignfolderDescription() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -137,7 +137,7 @@ func (o *EzsignfolderResponseAllOf) SetSEzsignfolderDescription(v string) {
 
 // GetTEzsignfolderNote returns the TEzsignfolderNote field value
 func (o *EzsignfolderResponseAllOf) GetTEzsignfolderNote() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -161,7 +161,7 @@ func (o *EzsignfolderResponseAllOf) SetTEzsignfolderNote(v string) {
 
 // GetEEzsignfolderSendreminderfrequency returns the EEzsignfolderSendreminderfrequency field value
 func (o *EzsignfolderResponseAllOf) GetEEzsignfolderSendreminderfrequency() FieldEEzsignfolderSendreminderfrequency {
-	if o == nil  {
+	if o == nil {
 		var ret FieldEEzsignfolderSendreminderfrequency
 		return ret
 	}
@@ -185,7 +185,7 @@ func (o *EzsignfolderResponseAllOf) SetEEzsignfolderSendreminderfrequency(v Fiel
 
 // GetPkiEzsignfolderID returns the PkiEzsignfolderID field value
 func (o *EzsignfolderResponseAllOf) GetPkiEzsignfolderID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -209,7 +209,7 @@ func (o *EzsignfolderResponseAllOf) SetPkiEzsignfolderID(v int32) {
 
 // GetDtEzsignfolderSentdate returns the DtEzsignfolderSentdate field value
 func (o *EzsignfolderResponseAllOf) GetDtEzsignfolderSentdate() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -233,7 +233,7 @@ func (o *EzsignfolderResponseAllOf) SetDtEzsignfolderSentdate(v string) {
 
 // GetEEzsignfolderStep returns the EEzsignfolderStep field value
 func (o *EzsignfolderResponseAllOf) GetEEzsignfolderStep() FieldEEzsignfolderStep {
-	if o == nil  {
+	if o == nil {
 		var ret FieldEEzsignfolderStep
 		return ret
 	}
@@ -257,7 +257,7 @@ func (o *EzsignfolderResponseAllOf) SetEEzsignfolderStep(v FieldEEzsignfolderSte
 
 // GetDtEzsignfolderClose returns the DtEzsignfolderClose field value
 func (o *EzsignfolderResponseAllOf) GetDtEzsignfolderClose() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -281,7 +281,7 @@ func (o *EzsignfolderResponseAllOf) SetDtEzsignfolderClose(v string) {
 
 // GetObjAudit returns the ObjAudit field value
 func (o *EzsignfolderResponseAllOf) GetObjAudit() CommonAudit {
-	if o == nil  {
+	if o == nil {
 		var ret CommonAudit
 		return ret
 	}

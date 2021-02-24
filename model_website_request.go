@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -27,7 +27,7 @@ type WebsiteRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWebsiteRequest(fkiWebsitetypeID int32, sWebsiteAddress string, ) *WebsiteRequest {
+func NewWebsiteRequest(fkiWebsitetypeID int32, sWebsiteAddress string) *WebsiteRequest {
 	this := WebsiteRequest{}
 	this.FkiWebsitetypeID = fkiWebsitetypeID
 	this.SWebsiteAddress = sWebsiteAddress
@@ -44,7 +44,7 @@ func NewWebsiteRequestWithDefaults() *WebsiteRequest {
 
 // GetFkiWebsitetypeID returns the FkiWebsitetypeID field value
 func (o *WebsiteRequest) GetFkiWebsitetypeID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -68,7 +68,7 @@ func (o *WebsiteRequest) SetFkiWebsitetypeID(v int32) {
 
 // GetSWebsiteAddress returns the SWebsiteAddress field value
 func (o *WebsiteRequest) GetSWebsiteAddress() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

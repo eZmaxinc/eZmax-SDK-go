@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -27,7 +27,7 @@ type EzsigndocumentApplyEzsigntemplateV1Request struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigndocumentApplyEzsigntemplateV1Request(fkiEzsigntemplateID int32, aSEzsigntemplatesigner []string, aPkiEzsignfoldersignerassociationID []int32, ) *EzsigndocumentApplyEzsigntemplateV1Request {
+func NewEzsigndocumentApplyEzsigntemplateV1Request(fkiEzsigntemplateID int32, aSEzsigntemplatesigner []string, aPkiEzsignfoldersignerassociationID []int32) *EzsigndocumentApplyEzsigntemplateV1Request {
 	this := EzsigndocumentApplyEzsigntemplateV1Request{}
 	this.FkiEzsigntemplateID = fkiEzsigntemplateID
 	this.ASEzsigntemplatesigner = aSEzsigntemplatesigner
@@ -45,7 +45,7 @@ func NewEzsigndocumentApplyEzsigntemplateV1RequestWithDefaults() *Ezsigndocument
 
 // GetFkiEzsigntemplateID returns the FkiEzsigntemplateID field value
 func (o *EzsigndocumentApplyEzsigntemplateV1Request) GetFkiEzsigntemplateID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -69,7 +69,7 @@ func (o *EzsigndocumentApplyEzsigntemplateV1Request) SetFkiEzsigntemplateID(v in
 
 // GetASEzsigntemplatesigner returns the ASEzsigntemplatesigner field value
 func (o *EzsigndocumentApplyEzsigntemplateV1Request) GetASEzsigntemplatesigner() []string {
-	if o == nil  {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -93,7 +93,7 @@ func (o *EzsigndocumentApplyEzsigntemplateV1Request) SetASEzsigntemplatesigner(v
 
 // GetAPkiEzsignfoldersignerassociationID returns the APkiEzsignfoldersignerassociationID field value
 func (o *EzsigndocumentApplyEzsigntemplateV1Request) GetAPkiEzsignfoldersignerassociationID() []int32 {
-	if o == nil  {
+	if o == nil {
 		var ret []int32
 		return ret
 	}

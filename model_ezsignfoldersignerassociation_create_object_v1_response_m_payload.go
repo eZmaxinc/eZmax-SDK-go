@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -25,7 +25,7 @@ type EzsignfoldersignerassociationCreateObjectV1ResponseMPayload struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfoldersignerassociationCreateObjectV1ResponseMPayload(aPkiEzsignfoldersignerassociationID []int32, ) *EzsignfoldersignerassociationCreateObjectV1ResponseMPayload {
+func NewEzsignfoldersignerassociationCreateObjectV1ResponseMPayload(aPkiEzsignfoldersignerassociationID []int32) *EzsignfoldersignerassociationCreateObjectV1ResponseMPayload {
 	this := EzsignfoldersignerassociationCreateObjectV1ResponseMPayload{}
 	this.APkiEzsignfoldersignerassociationID = aPkiEzsignfoldersignerassociationID
 	return &this
@@ -41,7 +41,7 @@ func NewEzsignfoldersignerassociationCreateObjectV1ResponseMPayloadWithDefaults(
 
 // GetAPkiEzsignfoldersignerassociationID returns the APkiEzsignfoldersignerassociationID field value
 func (o *EzsignfoldersignerassociationCreateObjectV1ResponseMPayload) GetAPkiEzsignfoldersignerassociationID() []int32 {
-	if o == nil  {
+	if o == nil {
 		var ret []int32
 		return ret
 	}

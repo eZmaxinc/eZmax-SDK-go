@@ -1,4 +1,4 @@
-# EzsignsignatureEditObjectV1Request
+# UNUSEDEzsignsignatureEditObjectV1Request
 
 ## Properties
 
@@ -8,45 +8,45 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewEzsignsignatureEditObjectV1Request
+### NewUNUSEDEzsignsignatureEditObjectV1Request
 
-`func NewEzsignsignatureEditObjectV1Request() *EzsignsignatureEditObjectV1Request`
+`func NewUNUSEDEzsignsignatureEditObjectV1Request() *UNUSEDEzsignsignatureEditObjectV1Request`
 
-NewEzsignsignatureEditObjectV1Request instantiates a new EzsignsignatureEditObjectV1Request object
+NewUNUSEDEzsignsignatureEditObjectV1Request instantiates a new UNUSEDEzsignsignatureEditObjectV1Request object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewEzsignsignatureEditObjectV1RequestWithDefaults
+### NewUNUSEDEzsignsignatureEditObjectV1RequestWithDefaults
 
-`func NewEzsignsignatureEditObjectV1RequestWithDefaults() *EzsignsignatureEditObjectV1Request`
+`func NewUNUSEDEzsignsignatureEditObjectV1RequestWithDefaults() *UNUSEDEzsignsignatureEditObjectV1Request`
 
-NewEzsignsignatureEditObjectV1RequestWithDefaults instantiates a new EzsignsignatureEditObjectV1Request object
+NewUNUSEDEzsignsignatureEditObjectV1RequestWithDefaults instantiates a new UNUSEDEzsignsignatureEditObjectV1Request object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetObjEzsignsignature
 
-`func (o *EzsignsignatureEditObjectV1Request) GetObjEzsignsignature() EzsignsignatureRequest`
+`func (o *UNUSEDEzsignsignatureEditObjectV1Request) GetObjEzsignsignature() EzsignsignatureRequest`
 
 GetObjEzsignsignature returns the ObjEzsignsignature field if non-nil, zero value otherwise.
 
 ### GetObjEzsignsignatureOk
 
-`func (o *EzsignsignatureEditObjectV1Request) GetObjEzsignsignatureOk() (*EzsignsignatureRequest, bool)`
+`func (o *UNUSEDEzsignsignatureEditObjectV1Request) GetObjEzsignsignatureOk() (*EzsignsignatureRequest, bool)`
 
 GetObjEzsignsignatureOk returns a tuple with the ObjEzsignsignature field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObjEzsignsignature
 
-`func (o *EzsignsignatureEditObjectV1Request) SetObjEzsignsignature(v EzsignsignatureRequest)`
+`func (o *UNUSEDEzsignsignatureEditObjectV1Request) SetObjEzsignsignature(v EzsignsignatureRequest)`
 
 SetObjEzsignsignature sets ObjEzsignsignature field to given value.
 
 ### HasObjEzsignsignature
 
-`func (o *EzsignsignatureEditObjectV1Request) HasObjEzsignsignature() bool`
+`func (o *UNUSEDEzsignsignatureEditObjectV1Request) HasObjEzsignsignature() bool`
 
 HasObjEzsignsignature returns a boolean if a field has been set.
 

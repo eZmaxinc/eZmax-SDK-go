@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -27,9 +27,8 @@ type EzsignfoldersignerassociationGetObjectV1Response struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfoldersignerassociationGetObjectV1Response(mPayload map[string]interface{}, ) *EzsignfoldersignerassociationGetObjectV1Response {
+func NewEzsignfoldersignerassociationGetObjectV1Response(mPayload map[string]interface{}) *EzsignfoldersignerassociationGetObjectV1Response {
 	this := EzsignfoldersignerassociationGetObjectV1Response{}
-	this.MPayload = mPayload
 	return &this
 }
 
@@ -43,7 +42,7 @@ func NewEzsignfoldersignerassociationGetObjectV1ResponseWithDefaults() *Ezsignfo
 
 // GetMPayload returns the MPayload field value
 func (o *EzsignfoldersignerassociationGetObjectV1Response) GetMPayload() map[string]interface{} {
-	if o == nil  {
+	if o == nil {
 		var ret map[string]interface{}
 		return ret
 	}

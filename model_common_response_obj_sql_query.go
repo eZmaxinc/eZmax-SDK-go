@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -27,7 +27,7 @@ type CommonResponseObjSQLQuery struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommonResponseObjSQLQuery(sQuery string, fDuration float32, ) *CommonResponseObjSQLQuery {
+func NewCommonResponseObjSQLQuery(sQuery string, fDuration float32) *CommonResponseObjSQLQuery {
 	this := CommonResponseObjSQLQuery{}
 	this.SQuery = sQuery
 	this.FDuration = fDuration
@@ -44,7 +44,7 @@ func NewCommonResponseObjSQLQueryWithDefaults() *CommonResponseObjSQLQuery {
 
 // GetSQuery returns the SQuery field value
 func (o *CommonResponseObjSQLQuery) GetSQuery() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -68,7 +68,7 @@ func (o *CommonResponseObjSQLQuery) SetSQuery(v string) {
 
 // GetFDuration returns the FDuration field value
 func (o *CommonResponseObjSQLQuery) GetFDuration() float32 {
-	if o == nil  {
+	if o == nil {
 		var ret float32
 		return ret
 	}

@@ -1,4 +1,4 @@
-# EzsignfolderEditObjectV1Request
+# UNUSEDEzsignfolderEditObjectV1Request
 
 ## Properties
 
@@ -8,45 +8,45 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewEzsignfolderEditObjectV1Request
+### NewUNUSEDEzsignfolderEditObjectV1Request
 
-`func NewEzsignfolderEditObjectV1Request() *EzsignfolderEditObjectV1Request`
+`func NewUNUSEDEzsignfolderEditObjectV1Request() *UNUSEDEzsignfolderEditObjectV1Request`
 
-NewEzsignfolderEditObjectV1Request instantiates a new EzsignfolderEditObjectV1Request object
+NewUNUSEDEzsignfolderEditObjectV1Request instantiates a new UNUSEDEzsignfolderEditObjectV1Request object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewEzsignfolderEditObjectV1RequestWithDefaults
+### NewUNUSEDEzsignfolderEditObjectV1RequestWithDefaults
 
-`func NewEzsignfolderEditObjectV1RequestWithDefaults() *EzsignfolderEditObjectV1Request`
+`func NewUNUSEDEzsignfolderEditObjectV1RequestWithDefaults() *UNUSEDEzsignfolderEditObjectV1Request`
 
-NewEzsignfolderEditObjectV1RequestWithDefaults instantiates a new EzsignfolderEditObjectV1Request object
+NewUNUSEDEzsignfolderEditObjectV1RequestWithDefaults instantiates a new UNUSEDEzsignfolderEditObjectV1Request object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetObjEzsignfolder
 
-`func (o *EzsignfolderEditObjectV1Request) GetObjEzsignfolder() EzsignfolderRequest`
+`func (o *UNUSEDEzsignfolderEditObjectV1Request) GetObjEzsignfolder() EzsignfolderRequest`
 
 GetObjEzsignfolder returns the ObjEzsignfolder field if non-nil, zero value otherwise.
 
 ### GetObjEzsignfolderOk
 
-`func (o *EzsignfolderEditObjectV1Request) GetObjEzsignfolderOk() (*EzsignfolderRequest, bool)`
+`func (o *UNUSEDEzsignfolderEditObjectV1Request) GetObjEzsignfolderOk() (*EzsignfolderRequest, bool)`
 
 GetObjEzsignfolderOk returns a tuple with the ObjEzsignfolder field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObjEzsignfolder
 
-`func (o *EzsignfolderEditObjectV1Request) SetObjEzsignfolder(v EzsignfolderRequest)`
+`func (o *UNUSEDEzsignfolderEditObjectV1Request) SetObjEzsignfolder(v EzsignfolderRequest)`
 
 SetObjEzsignfolder sets ObjEzsignfolder field to given value.
 
 ### HasObjEzsignfolder
 
-`func (o *EzsignfolderEditObjectV1Request) HasObjEzsignfolder() bool`
+`func (o *UNUSEDEzsignfolderEditObjectV1Request) HasObjEzsignfolder() bool`
 
 HasObjEzsignfolder returns a boolean if a field has been set.
 

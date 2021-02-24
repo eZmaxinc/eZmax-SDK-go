@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -37,7 +37,7 @@ type ActivesessionGetCurrentV1ResponseMPayload struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewActivesessionGetCurrentV1ResponseMPayload(sCustomerCode string, eActivesessionSessiontype string, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, aRegisteredModules []string, aPermissions []int32, ) *ActivesessionGetCurrentV1ResponseMPayload {
+func NewActivesessionGetCurrentV1ResponseMPayload(sCustomerCode string, eActivesessionSessiontype string, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, aRegisteredModules []string, aPermissions []int32) *ActivesessionGetCurrentV1ResponseMPayload {
 	this := ActivesessionGetCurrentV1ResponseMPayload{}
 	this.SCustomerCode = sCustomerCode
 	this.EActivesessionSessiontype = eActivesessionSessiontype
@@ -59,7 +59,7 @@ func NewActivesessionGetCurrentV1ResponseMPayloadWithDefaults() *ActivesessionGe
 
 // GetSCustomerCode returns the SCustomerCode field value
 func (o *ActivesessionGetCurrentV1ResponseMPayload) GetSCustomerCode() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -83,7 +83,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) SetSCustomerCode(v string) {
 
 // GetEActivesessionSessiontype returns the EActivesessionSessiontype field value
 func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionSessiontype() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -107,7 +107,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) SetEActivesessionSessiontype
 
 // GetFkiLanguageID returns the FkiLanguageID field value
 func (o *ActivesessionGetCurrentV1ResponseMPayload) GetFkiLanguageID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -131,7 +131,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) SetFkiLanguageID(v int32) {
 
 // GetSCompanyNameX returns the SCompanyNameX field value
 func (o *ActivesessionGetCurrentV1ResponseMPayload) GetSCompanyNameX() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -155,7 +155,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) SetSCompanyNameX(v string) {
 
 // GetSDepartmentNameX returns the SDepartmentNameX field value
 func (o *ActivesessionGetCurrentV1ResponseMPayload) GetSDepartmentNameX() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -179,7 +179,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) SetSDepartmentNameX(v string
 
 // GetARegisteredModules returns the ARegisteredModules field value
 func (o *ActivesessionGetCurrentV1ResponseMPayload) GetARegisteredModules() []string {
-	if o == nil  {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -203,7 +203,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) SetARegisteredModules(v []st
 
 // GetAPermissions returns the APermissions field value
 func (o *ActivesessionGetCurrentV1ResponseMPayload) GetAPermissions() []int32 {
-	if o == nil  {
+	if o == nil {
 		var ret []int32
 		return ret
 	}

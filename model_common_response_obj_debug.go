@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -33,7 +33,7 @@ type CommonResponseObjDebug struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommonResponseObjDebug(sMemoryUsage string, sRunTime string, iSQLSelects int32, iSQLQueries int32, aObjSQLQuery []CommonResponseObjSQLQuery, ) *CommonResponseObjDebug {
+func NewCommonResponseObjDebug(sMemoryUsage string, sRunTime string, iSQLSelects int32, iSQLQueries int32, aObjSQLQuery []CommonResponseObjSQLQuery) *CommonResponseObjDebug {
 	this := CommonResponseObjDebug{}
 	this.SMemoryUsage = sMemoryUsage
 	this.SRunTime = sRunTime
@@ -53,7 +53,7 @@ func NewCommonResponseObjDebugWithDefaults() *CommonResponseObjDebug {
 
 // GetSMemoryUsage returns the SMemoryUsage field value
 func (o *CommonResponseObjDebug) GetSMemoryUsage() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -77,7 +77,7 @@ func (o *CommonResponseObjDebug) SetSMemoryUsage(v string) {
 
 // GetSRunTime returns the SRunTime field value
 func (o *CommonResponseObjDebug) GetSRunTime() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -101,7 +101,7 @@ func (o *CommonResponseObjDebug) SetSRunTime(v string) {
 
 // GetISQLSelects returns the ISQLSelects field value
 func (o *CommonResponseObjDebug) GetISQLSelects() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -125,7 +125,7 @@ func (o *CommonResponseObjDebug) SetISQLSelects(v int32) {
 
 // GetISQLQueries returns the ISQLQueries field value
 func (o *CommonResponseObjDebug) GetISQLQueries() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -149,7 +149,7 @@ func (o *CommonResponseObjDebug) SetISQLQueries(v int32) {
 
 // GetAObjSQLQuery returns the AObjSQLQuery field value
 func (o *CommonResponseObjDebug) GetAObjSQLQuery() []CommonResponseObjSQLQuery {
-	if o == nil  {
+	if o == nil {
 		var ret []CommonResponseObjSQLQuery
 		return ret
 	}

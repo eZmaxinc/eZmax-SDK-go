@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -35,7 +35,7 @@ type UserResponseAllOf struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUserResponseAllOf(pkiUserID int32, fkiLanguageID int32, eUserType FieldEUserType, sUserFirstname string, sUserLastname string, sUserLoginname string, objAudit CommonAudit, ) *UserResponseAllOf {
+func NewUserResponseAllOf(pkiUserID int32, fkiLanguageID int32, eUserType FieldEUserType, sUserFirstname string, sUserLastname string, sUserLoginname string, objAudit CommonAudit) *UserResponseAllOf {
 	this := UserResponseAllOf{}
 	this.PkiUserID = pkiUserID
 	this.FkiLanguageID = fkiLanguageID
@@ -57,7 +57,7 @@ func NewUserResponseAllOfWithDefaults() *UserResponseAllOf {
 
 // GetPkiUserID returns the PkiUserID field value
 func (o *UserResponseAllOf) GetPkiUserID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -81,7 +81,7 @@ func (o *UserResponseAllOf) SetPkiUserID(v int32) {
 
 // GetFkiLanguageID returns the FkiLanguageID field value
 func (o *UserResponseAllOf) GetFkiLanguageID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -105,7 +105,7 @@ func (o *UserResponseAllOf) SetFkiLanguageID(v int32) {
 
 // GetEUserType returns the EUserType field value
 func (o *UserResponseAllOf) GetEUserType() FieldEUserType {
-	if o == nil  {
+	if o == nil {
 		var ret FieldEUserType
 		return ret
 	}
@@ -129,7 +129,7 @@ func (o *UserResponseAllOf) SetEUserType(v FieldEUserType) {
 
 // GetSUserFirstname returns the SUserFirstname field value
 func (o *UserResponseAllOf) GetSUserFirstname() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -153,7 +153,7 @@ func (o *UserResponseAllOf) SetSUserFirstname(v string) {
 
 // GetSUserLastname returns the SUserLastname field value
 func (o *UserResponseAllOf) GetSUserLastname() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -177,7 +177,7 @@ func (o *UserResponseAllOf) SetSUserLastname(v string) {
 
 // GetSUserLoginname returns the SUserLoginname field value
 func (o *UserResponseAllOf) GetSUserLoginname() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -201,7 +201,7 @@ func (o *UserResponseAllOf) SetSUserLoginname(v string) {
 
 // GetObjAudit returns the ObjAudit field value
 func (o *UserResponseAllOf) GetObjAudit() CommonAudit {
-	if o == nil  {
+	if o == nil {
 		var ret CommonAudit
 		return ret
 	}

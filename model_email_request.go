@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -27,7 +27,7 @@ type EmailRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEmailRequest(fkiEmailtypeID int32, sEmailAddress string, ) *EmailRequest {
+func NewEmailRequest(fkiEmailtypeID int32, sEmailAddress string) *EmailRequest {
 	this := EmailRequest{}
 	this.FkiEmailtypeID = fkiEmailtypeID
 	this.SEmailAddress = sEmailAddress
@@ -44,7 +44,7 @@ func NewEmailRequestWithDefaults() *EmailRequest {
 
 // GetFkiEmailtypeID returns the FkiEmailtypeID field value
 func (o *EmailRequest) GetFkiEmailtypeID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -68,7 +68,7 @@ func (o *EmailRequest) SetFkiEmailtypeID(v int32) {
 
 // GetSEmailAddress returns the SEmailAddress field value
 func (o *EmailRequest) GetSEmailAddress() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

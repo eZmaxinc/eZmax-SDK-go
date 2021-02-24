@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -35,7 +35,7 @@ type CommonAudit struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommonAudit(fkiUserIDCreated int32, fkiUserIDModified int32, dtCreatedDate string, dtModifiedDate string, ) *CommonAudit {
+func NewCommonAudit(fkiUserIDCreated int32, fkiUserIDModified int32, dtCreatedDate string, dtModifiedDate string) *CommonAudit {
 	this := CommonAudit{}
 	this.FkiUserIDCreated = fkiUserIDCreated
 	this.FkiUserIDModified = fkiUserIDModified
@@ -54,7 +54,7 @@ func NewCommonAuditWithDefaults() *CommonAudit {
 
 // GetFkiUserIDCreated returns the FkiUserIDCreated field value
 func (o *CommonAudit) GetFkiUserIDCreated() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -78,7 +78,7 @@ func (o *CommonAudit) SetFkiUserIDCreated(v int32) {
 
 // GetFkiUserIDModified returns the FkiUserIDModified field value
 func (o *CommonAudit) GetFkiUserIDModified() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -166,7 +166,7 @@ func (o *CommonAudit) SetFkiApikeyIDModified(v int32) {
 
 // GetDtCreatedDate returns the DtCreatedDate field value
 func (o *CommonAudit) GetDtCreatedDate() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -190,7 +190,7 @@ func (o *CommonAudit) SetDtCreatedDate(v string) {
 
 // GetDtModifiedDate returns the DtModifiedDate field value
 func (o *CommonAudit) GetDtModifiedDate() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

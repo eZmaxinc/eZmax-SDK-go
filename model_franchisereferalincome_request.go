@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -44,7 +44,7 @@ type FranchisereferalincomeRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFranchisereferalincomeRequest(fkiFranchisebrokerID int32, fkiFranchisereferalincomeprogramID int32, fkiPeriodID int32, dFranchisereferalincomeLoan string, dFranchisereferalincomeFranchiseamount string, dFranchisereferalincomeFranchisoramount string, dFranchisereferalincomeAgentamount string, dtFranchisereferalincomeDisbursed string, tFranchisereferalincomeComment string, fkiFranchiseofficeID int32, sFranchisereferalincomeRemoteid string, ) *FranchisereferalincomeRequest {
+func NewFranchisereferalincomeRequest(fkiFranchisebrokerID int32, fkiFranchisereferalincomeprogramID int32, fkiPeriodID int32, dFranchisereferalincomeLoan string, dFranchisereferalincomeFranchiseamount string, dFranchisereferalincomeFranchisoramount string, dFranchisereferalincomeAgentamount string, dtFranchisereferalincomeDisbursed string, tFranchisereferalincomeComment string, fkiFranchiseofficeID int32, sFranchisereferalincomeRemoteid string) *FranchisereferalincomeRequest {
 	this := FranchisereferalincomeRequest{}
 	this.FkiFranchisebrokerID = fkiFranchisebrokerID
 	this.FkiFranchisereferalincomeprogramID = fkiFranchisereferalincomeprogramID
@@ -70,7 +70,7 @@ func NewFranchisereferalincomeRequestWithDefaults() *FranchisereferalincomeReque
 
 // GetFkiFranchisebrokerID returns the FkiFranchisebrokerID field value
 func (o *FranchisereferalincomeRequest) GetFkiFranchisebrokerID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -94,7 +94,7 @@ func (o *FranchisereferalincomeRequest) SetFkiFranchisebrokerID(v int32) {
 
 // GetFkiFranchisereferalincomeprogramID returns the FkiFranchisereferalincomeprogramID field value
 func (o *FranchisereferalincomeRequest) GetFkiFranchisereferalincomeprogramID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -118,7 +118,7 @@ func (o *FranchisereferalincomeRequest) SetFkiFranchisereferalincomeprogramID(v 
 
 // GetFkiPeriodID returns the FkiPeriodID field value
 func (o *FranchisereferalincomeRequest) GetFkiPeriodID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -142,7 +142,7 @@ func (o *FranchisereferalincomeRequest) SetFkiPeriodID(v int32) {
 
 // GetDFranchisereferalincomeLoan returns the DFranchisereferalincomeLoan field value
 func (o *FranchisereferalincomeRequest) GetDFranchisereferalincomeLoan() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -166,7 +166,7 @@ func (o *FranchisereferalincomeRequest) SetDFranchisereferalincomeLoan(v string)
 
 // GetDFranchisereferalincomeFranchiseamount returns the DFranchisereferalincomeFranchiseamount field value
 func (o *FranchisereferalincomeRequest) GetDFranchisereferalincomeFranchiseamount() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -190,7 +190,7 @@ func (o *FranchisereferalincomeRequest) SetDFranchisereferalincomeFranchiseamoun
 
 // GetDFranchisereferalincomeFranchisoramount returns the DFranchisereferalincomeFranchisoramount field value
 func (o *FranchisereferalincomeRequest) GetDFranchisereferalincomeFranchisoramount() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -214,7 +214,7 @@ func (o *FranchisereferalincomeRequest) SetDFranchisereferalincomeFranchisoramou
 
 // GetDFranchisereferalincomeAgentamount returns the DFranchisereferalincomeAgentamount field value
 func (o *FranchisereferalincomeRequest) GetDFranchisereferalincomeAgentamount() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -238,7 +238,7 @@ func (o *FranchisereferalincomeRequest) SetDFranchisereferalincomeAgentamount(v 
 
 // GetDtFranchisereferalincomeDisbursed returns the DtFranchisereferalincomeDisbursed field value
 func (o *FranchisereferalincomeRequest) GetDtFranchisereferalincomeDisbursed() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -262,7 +262,7 @@ func (o *FranchisereferalincomeRequest) SetDtFranchisereferalincomeDisbursed(v s
 
 // GetTFranchisereferalincomeComment returns the TFranchisereferalincomeComment field value
 func (o *FranchisereferalincomeRequest) GetTFranchisereferalincomeComment() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -286,7 +286,7 @@ func (o *FranchisereferalincomeRequest) SetTFranchisereferalincomeComment(v stri
 
 // GetFkiFranchiseofficeID returns the FkiFranchiseofficeID field value
 func (o *FranchisereferalincomeRequest) GetFkiFranchiseofficeID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -310,7 +310,7 @@ func (o *FranchisereferalincomeRequest) SetFkiFranchiseofficeID(v int32) {
 
 // GetSFranchisereferalincomeRemoteid returns the SFranchisereferalincomeRemoteid field value
 func (o *FranchisereferalincomeRequest) GetSFranchisereferalincomeRemoteid() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

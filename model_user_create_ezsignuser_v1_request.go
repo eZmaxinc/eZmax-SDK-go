@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -39,7 +39,7 @@ type UserCreateEzsignuserV1Request struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUserCreateEzsignuserV1Request(fkiLanguageID int32, sUserFirstname string, sUserLastname string, sEmailAddress string, sPhoneRegion string, sPhoneExchange string, sPhoneNumber string, ) *UserCreateEzsignuserV1Request {
+func NewUserCreateEzsignuserV1Request(fkiLanguageID int32, sUserFirstname string, sUserLastname string, sEmailAddress string, sPhoneRegion string, sPhoneExchange string, sPhoneNumber string) *UserCreateEzsignuserV1Request {
 	this := UserCreateEzsignuserV1Request{}
 	this.FkiLanguageID = fkiLanguageID
 	this.SUserFirstname = sUserFirstname
@@ -61,7 +61,7 @@ func NewUserCreateEzsignuserV1RequestWithDefaults() *UserCreateEzsignuserV1Reque
 
 // GetFkiLanguageID returns the FkiLanguageID field value
 func (o *UserCreateEzsignuserV1Request) GetFkiLanguageID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -85,7 +85,7 @@ func (o *UserCreateEzsignuserV1Request) SetFkiLanguageID(v int32) {
 
 // GetSUserFirstname returns the SUserFirstname field value
 func (o *UserCreateEzsignuserV1Request) GetSUserFirstname() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -109,7 +109,7 @@ func (o *UserCreateEzsignuserV1Request) SetSUserFirstname(v string) {
 
 // GetSUserLastname returns the SUserLastname field value
 func (o *UserCreateEzsignuserV1Request) GetSUserLastname() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -133,7 +133,7 @@ func (o *UserCreateEzsignuserV1Request) SetSUserLastname(v string) {
 
 // GetSEmailAddress returns the SEmailAddress field value
 func (o *UserCreateEzsignuserV1Request) GetSEmailAddress() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -157,7 +157,7 @@ func (o *UserCreateEzsignuserV1Request) SetSEmailAddress(v string) {
 
 // GetSPhoneRegion returns the SPhoneRegion field value
 func (o *UserCreateEzsignuserV1Request) GetSPhoneRegion() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -181,7 +181,7 @@ func (o *UserCreateEzsignuserV1Request) SetSPhoneRegion(v string) {
 
 // GetSPhoneExchange returns the SPhoneExchange field value
 func (o *UserCreateEzsignuserV1Request) GetSPhoneExchange() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -205,7 +205,7 @@ func (o *UserCreateEzsignuserV1Request) SetSPhoneExchange(v string) {
 
 // GetSPhoneNumber returns the SPhoneNumber field value
 func (o *UserCreateEzsignuserV1Request) GetSPhoneNumber() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

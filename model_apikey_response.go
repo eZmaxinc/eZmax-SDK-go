@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -29,11 +29,8 @@ type ApikeyResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApikeyResponse(objApikeyDescription MultilingualApikeyDescription, pkiApikeyID int32, objAudit CommonAudit, ) *ApikeyResponse {
+func NewApikeyResponse(objApikeyDescription MultilingualApikeyDescription, pkiApikeyID int32, objAudit CommonAudit) *ApikeyResponse {
 	this := ApikeyResponse{}
-	this.ObjApikeyDescription = objApikeyDescription
-	this.PkiApikeyID = pkiApikeyID
-	this.ObjAudit = objAudit
 	return &this
 }
 
@@ -47,7 +44,7 @@ func NewApikeyResponseWithDefaults() *ApikeyResponse {
 
 // GetObjApikeyDescription returns the ObjApikeyDescription field value
 func (o *ApikeyResponse) GetObjApikeyDescription() MultilingualApikeyDescription {
-	if o == nil  {
+	if o == nil {
 		var ret MultilingualApikeyDescription
 		return ret
 	}
@@ -103,7 +100,7 @@ func (o *ApikeyResponse) SetSComputedToken(v string) {
 
 // GetPkiApikeyID returns the PkiApikeyID field value
 func (o *ApikeyResponse) GetPkiApikeyID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -127,7 +124,7 @@ func (o *ApikeyResponse) SetPkiApikeyID(v int32) {
 
 // GetObjAudit returns the ObjAudit field value
 func (o *ApikeyResponse) GetObjAudit() CommonAudit {
-	if o == nil  {
+	if o == nil {
 		var ret CommonAudit
 		return ret
 	}

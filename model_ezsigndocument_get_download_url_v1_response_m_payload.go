@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -25,7 +25,7 @@ type EzsigndocumentGetDownloadUrlV1ResponseMPayload struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigndocumentGetDownloadUrlV1ResponseMPayload(sDownloadUrl string, ) *EzsigndocumentGetDownloadUrlV1ResponseMPayload {
+func NewEzsigndocumentGetDownloadUrlV1ResponseMPayload(sDownloadUrl string) *EzsigndocumentGetDownloadUrlV1ResponseMPayload {
 	this := EzsigndocumentGetDownloadUrlV1ResponseMPayload{}
 	this.SDownloadUrl = sDownloadUrl
 	return &this
@@ -41,7 +41,7 @@ func NewEzsigndocumentGetDownloadUrlV1ResponseMPayloadWithDefaults() *Ezsigndocu
 
 // GetSDownloadUrl returns the SDownloadUrl field value
 func (o *EzsigndocumentGetDownloadUrlV1ResponseMPayload) GetSDownloadUrl() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

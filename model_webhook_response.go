@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -37,7 +37,7 @@ type WebhookResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWebhookResponse(pkiWebhookID int32, eWebhookModule string, pksCustomerCode string, sWebhookUrl string, sWebhookEmailfailed string, ) *WebhookResponse {
+func NewWebhookResponse(pkiWebhookID int32, eWebhookModule string, pksCustomerCode string, sWebhookUrl string, sWebhookEmailfailed string) *WebhookResponse {
 	this := WebhookResponse{}
 	this.PkiWebhookID = pkiWebhookID
 	this.EWebhookModule = eWebhookModule
@@ -57,7 +57,7 @@ func NewWebhookResponseWithDefaults() *WebhookResponse {
 
 // GetPkiWebhookID returns the PkiWebhookID field value
 func (o *WebhookResponse) GetPkiWebhookID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -81,7 +81,7 @@ func (o *WebhookResponse) SetPkiWebhookID(v int32) {
 
 // GetEWebhookModule returns the EWebhookModule field value
 func (o *WebhookResponse) GetEWebhookModule() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -137,7 +137,7 @@ func (o *WebhookResponse) SetEWebhookEzsignevent(v string) {
 
 // GetPksCustomerCode returns the PksCustomerCode field value
 func (o *WebhookResponse) GetPksCustomerCode() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -161,7 +161,7 @@ func (o *WebhookResponse) SetPksCustomerCode(v string) {
 
 // GetSWebhookUrl returns the SWebhookUrl field value
 func (o *WebhookResponse) GetSWebhookUrl() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -185,7 +185,7 @@ func (o *WebhookResponse) SetSWebhookUrl(v string) {
 
 // GetSWebhookEmailfailed returns the SWebhookEmailfailed field value
 func (o *WebhookResponse) GetSWebhookEmailfailed() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

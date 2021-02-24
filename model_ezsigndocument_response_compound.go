@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -53,7 +53,7 @@ type EzsigndocumentResponseCompound struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigndocumentResponseCompound(fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, fkiLanguageID int32, sEzsigndocumentFilename string, sEzsigndocumentName string, pkiEzsigndocumentID int32, eEzsigndocumentStep FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend string, dtEzsigndocumentLastsend string, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, sEzsigndocumentMD5initial string, sEzsigndocumentMD5signed string, objAudit CommonAudit, ) *EzsigndocumentResponseCompound {
+func NewEzsigndocumentResponseCompound(fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, fkiLanguageID int32, sEzsigndocumentFilename string, sEzsigndocumentName string, pkiEzsigndocumentID int32, eEzsigndocumentStep FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend string, dtEzsigndocumentLastsend string, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, sEzsigndocumentMD5initial string, sEzsigndocumentMD5signed string, objAudit CommonAudit) *EzsigndocumentResponseCompound {
 	this := EzsigndocumentResponseCompound{}
 	this.FkiEzsignfolderID = fkiEzsignfolderID
 	this.DtEzsigndocumentDuedate = dtEzsigndocumentDuedate
@@ -84,7 +84,7 @@ func NewEzsigndocumentResponseCompoundWithDefaults() *EzsigndocumentResponseComp
 
 // GetFkiEzsignfolderID returns the FkiEzsignfolderID field value
 func (o *EzsigndocumentResponseCompound) GetFkiEzsignfolderID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -108,7 +108,7 @@ func (o *EzsigndocumentResponseCompound) SetFkiEzsignfolderID(v int32) {
 
 // GetDtEzsigndocumentDuedate returns the DtEzsigndocumentDuedate field value
 func (o *EzsigndocumentResponseCompound) GetDtEzsigndocumentDuedate() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -132,7 +132,7 @@ func (o *EzsigndocumentResponseCompound) SetDtEzsigndocumentDuedate(v string) {
 
 // GetFkiLanguageID returns the FkiLanguageID field value
 func (o *EzsigndocumentResponseCompound) GetFkiLanguageID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -156,7 +156,7 @@ func (o *EzsigndocumentResponseCompound) SetFkiLanguageID(v int32) {
 
 // GetSEzsigndocumentFilename returns the SEzsigndocumentFilename field value
 func (o *EzsigndocumentResponseCompound) GetSEzsigndocumentFilename() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -180,7 +180,7 @@ func (o *EzsigndocumentResponseCompound) SetSEzsigndocumentFilename(v string) {
 
 // GetSEzsigndocumentName returns the SEzsigndocumentName field value
 func (o *EzsigndocumentResponseCompound) GetSEzsigndocumentName() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -204,7 +204,7 @@ func (o *EzsigndocumentResponseCompound) SetSEzsigndocumentName(v string) {
 
 // GetPkiEzsigndocumentID returns the PkiEzsigndocumentID field value
 func (o *EzsigndocumentResponseCompound) GetPkiEzsigndocumentID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -228,7 +228,7 @@ func (o *EzsigndocumentResponseCompound) SetPkiEzsigndocumentID(v int32) {
 
 // GetEEzsigndocumentStep returns the EEzsigndocumentStep field value
 func (o *EzsigndocumentResponseCompound) GetEEzsigndocumentStep() FieldEEzsigndocumentStep {
-	if o == nil  {
+	if o == nil {
 		var ret FieldEEzsigndocumentStep
 		return ret
 	}
@@ -252,7 +252,7 @@ func (o *EzsigndocumentResponseCompound) SetEEzsigndocumentStep(v FieldEEzsigndo
 
 // GetDtEzsigndocumentFirstsend returns the DtEzsigndocumentFirstsend field value
 func (o *EzsigndocumentResponseCompound) GetDtEzsigndocumentFirstsend() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -276,7 +276,7 @@ func (o *EzsigndocumentResponseCompound) SetDtEzsigndocumentFirstsend(v string) 
 
 // GetDtEzsigndocumentLastsend returns the DtEzsigndocumentLastsend field value
 func (o *EzsigndocumentResponseCompound) GetDtEzsigndocumentLastsend() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -300,7 +300,7 @@ func (o *EzsigndocumentResponseCompound) SetDtEzsigndocumentLastsend(v string) {
 
 // GetIEzsigndocumentOrder returns the IEzsigndocumentOrder field value
 func (o *EzsigndocumentResponseCompound) GetIEzsigndocumentOrder() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -324,7 +324,7 @@ func (o *EzsigndocumentResponseCompound) SetIEzsigndocumentOrder(v int32) {
 
 // GetIEzsigndocumentPagetotal returns the IEzsigndocumentPagetotal field value
 func (o *EzsigndocumentResponseCompound) GetIEzsigndocumentPagetotal() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -348,7 +348,7 @@ func (o *EzsigndocumentResponseCompound) SetIEzsigndocumentPagetotal(v int32) {
 
 // GetIEzsigndocumentSignaturesigned returns the IEzsigndocumentSignaturesigned field value
 func (o *EzsigndocumentResponseCompound) GetIEzsigndocumentSignaturesigned() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -372,7 +372,7 @@ func (o *EzsigndocumentResponseCompound) SetIEzsigndocumentSignaturesigned(v int
 
 // GetIEzsigndocumentSignaturetotal returns the IEzsigndocumentSignaturetotal field value
 func (o *EzsigndocumentResponseCompound) GetIEzsigndocumentSignaturetotal() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -396,7 +396,7 @@ func (o *EzsigndocumentResponseCompound) SetIEzsigndocumentSignaturetotal(v int3
 
 // GetSEzsigndocumentMD5initial returns the SEzsigndocumentMD5initial field value
 func (o *EzsigndocumentResponseCompound) GetSEzsigndocumentMD5initial() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -420,7 +420,7 @@ func (o *EzsigndocumentResponseCompound) SetSEzsigndocumentMD5initial(v string) 
 
 // GetSEzsigndocumentMD5signed returns the SEzsigndocumentMD5signed field value
 func (o *EzsigndocumentResponseCompound) GetSEzsigndocumentMD5signed() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -444,7 +444,7 @@ func (o *EzsigndocumentResponseCompound) SetSEzsigndocumentMD5signed(v string) {
 
 // GetObjAudit returns the ObjAudit field value
 func (o *EzsigndocumentResponseCompound) GetObjAudit() CommonAudit {
-	if o == nil  {
+	if o == nil {
 		var ret CommonAudit
 		return ret
 	}

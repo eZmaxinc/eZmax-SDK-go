@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -39,7 +39,7 @@ type EzsigndocumentRequestCompound struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigndocumentRequestCompound(eEzsigndocumentSource string, eEzsigndocumentFormat string, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, fkiLanguageID int32, sEzsigndocumentFilename string, sEzsigndocumentName string, ) *EzsigndocumentRequestCompound {
+func NewEzsigndocumentRequestCompound(eEzsigndocumentSource string, eEzsigndocumentFormat string, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, fkiLanguageID int32, sEzsigndocumentFilename string, sEzsigndocumentName string) *EzsigndocumentRequestCompound {
 	this := EzsigndocumentRequestCompound{}
 	this.EEzsigndocumentSource = eEzsigndocumentSource
 	this.EEzsigndocumentFormat = eEzsigndocumentFormat
@@ -61,7 +61,7 @@ func NewEzsigndocumentRequestCompoundWithDefaults() *EzsigndocumentRequestCompou
 
 // GetEEzsigndocumentSource returns the EEzsigndocumentSource field value
 func (o *EzsigndocumentRequestCompound) GetEEzsigndocumentSource() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -85,7 +85,7 @@ func (o *EzsigndocumentRequestCompound) SetEEzsigndocumentSource(v string) {
 
 // GetEEzsigndocumentFormat returns the EEzsigndocumentFormat field value
 func (o *EzsigndocumentRequestCompound) GetEEzsigndocumentFormat() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -141,7 +141,7 @@ func (o *EzsigndocumentRequestCompound) SetSEzsigndocumentBase64(v string) {
 
 // GetFkiEzsignfolderID returns the FkiEzsignfolderID field value
 func (o *EzsigndocumentRequestCompound) GetFkiEzsignfolderID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -165,7 +165,7 @@ func (o *EzsigndocumentRequestCompound) SetFkiEzsignfolderID(v int32) {
 
 // GetDtEzsigndocumentDuedate returns the DtEzsigndocumentDuedate field value
 func (o *EzsigndocumentRequestCompound) GetDtEzsigndocumentDuedate() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -189,7 +189,7 @@ func (o *EzsigndocumentRequestCompound) SetDtEzsigndocumentDuedate(v string) {
 
 // GetFkiLanguageID returns the FkiLanguageID field value
 func (o *EzsigndocumentRequestCompound) GetFkiLanguageID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -213,7 +213,7 @@ func (o *EzsigndocumentRequestCompound) SetFkiLanguageID(v int32) {
 
 // GetSEzsigndocumentFilename returns the SEzsigndocumentFilename field value
 func (o *EzsigndocumentRequestCompound) GetSEzsigndocumentFilename() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -237,7 +237,7 @@ func (o *EzsigndocumentRequestCompound) SetSEzsigndocumentFilename(v string) {
 
 // GetSEzsigndocumentName returns the SEzsigndocumentName field value
 func (o *EzsigndocumentRequestCompound) GetSEzsigndocumentName() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -26,7 +26,7 @@ type ApikeyRequestCompound struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApikeyRequestCompound(fkiUserID int32, objApikeyDescription MultilingualApikeyDescription, ) *ApikeyRequestCompound {
+func NewApikeyRequestCompound(fkiUserID int32, objApikeyDescription MultilingualApikeyDescription) *ApikeyRequestCompound {
 	this := ApikeyRequestCompound{}
 	this.FkiUserID = fkiUserID
 	this.ObjApikeyDescription = objApikeyDescription
@@ -43,7 +43,7 @@ func NewApikeyRequestCompoundWithDefaults() *ApikeyRequestCompound {
 
 // GetFkiUserID returns the FkiUserID field value
 func (o *ApikeyRequestCompound) GetFkiUserID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -67,7 +67,7 @@ func (o *ApikeyRequestCompound) SetFkiUserID(v int32) {
 
 // GetObjApikeyDescription returns the ObjApikeyDescription field value
 func (o *ApikeyRequestCompound) GetObjApikeyDescription() MultilingualApikeyDescription {
-	if o == nil  {
+	if o == nil {
 		var ret MultilingualApikeyDescription
 		return ret
 	}

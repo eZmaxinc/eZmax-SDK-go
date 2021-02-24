@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -29,7 +29,7 @@ type AttemptResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAttemptResponse(dtAttemptStart string, sAttemptResult string, iAttemptDuration int32, ) *AttemptResponse {
+func NewAttemptResponse(dtAttemptStart string, sAttemptResult string, iAttemptDuration int32) *AttemptResponse {
 	this := AttemptResponse{}
 	this.DtAttemptStart = dtAttemptStart
 	this.SAttemptResult = sAttemptResult
@@ -47,7 +47,7 @@ func NewAttemptResponseWithDefaults() *AttemptResponse {
 
 // GetDtAttemptStart returns the DtAttemptStart field value
 func (o *AttemptResponse) GetDtAttemptStart() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -71,7 +71,7 @@ func (o *AttemptResponse) SetDtAttemptStart(v string) {
 
 // GetSAttemptResult returns the SAttemptResult field value
 func (o *AttemptResponse) GetSAttemptResult() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -95,7 +95,7 @@ func (o *AttemptResponse) SetSAttemptResult(v string) {
 
 // GetIAttemptDuration returns the IAttemptDuration field value
 func (o *AttemptResponse) GetIAttemptDuration() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}

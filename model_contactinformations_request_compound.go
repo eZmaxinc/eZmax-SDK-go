@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -35,12 +35,8 @@ type ContactinformationsRequestCompound struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewContactinformationsRequestCompound(aObjAddress []AddressRequest, aObjPhone []PhoneRequest, aObjEmail []EmailRequest, aObjWebsite []WebsiteRequest, iAddressDefault int32, iPhoneDefault int32, iEmailDefault int32, iWebsiteDefault int32, ) *ContactinformationsRequestCompound {
+func NewContactinformationsRequestCompound(aObjAddress []AddressRequest, aObjPhone []PhoneRequest, aObjEmail []EmailRequest, aObjWebsite []WebsiteRequest, iAddressDefault int32, iPhoneDefault int32, iEmailDefault int32, iWebsiteDefault int32) *ContactinformationsRequestCompound {
 	this := ContactinformationsRequestCompound{}
-	this.AObjAddress = aObjAddress
-	this.AObjPhone = aObjPhone
-	this.AObjEmail = aObjEmail
-	this.AObjWebsite = aObjWebsite
 	this.IAddressDefault = iAddressDefault
 	this.IPhoneDefault = iPhoneDefault
 	this.IEmailDefault = iEmailDefault
@@ -58,7 +54,7 @@ func NewContactinformationsRequestCompoundWithDefaults() *ContactinformationsReq
 
 // GetAObjAddress returns the AObjAddress field value
 func (o *ContactinformationsRequestCompound) GetAObjAddress() []AddressRequest {
-	if o == nil  {
+	if o == nil {
 		var ret []AddressRequest
 		return ret
 	}
@@ -82,7 +78,7 @@ func (o *ContactinformationsRequestCompound) SetAObjAddress(v []AddressRequest) 
 
 // GetAObjPhone returns the AObjPhone field value
 func (o *ContactinformationsRequestCompound) GetAObjPhone() []PhoneRequest {
-	if o == nil  {
+	if o == nil {
 		var ret []PhoneRequest
 		return ret
 	}
@@ -106,7 +102,7 @@ func (o *ContactinformationsRequestCompound) SetAObjPhone(v []PhoneRequest) {
 
 // GetAObjEmail returns the AObjEmail field value
 func (o *ContactinformationsRequestCompound) GetAObjEmail() []EmailRequest {
-	if o == nil  {
+	if o == nil {
 		var ret []EmailRequest
 		return ret
 	}
@@ -130,7 +126,7 @@ func (o *ContactinformationsRequestCompound) SetAObjEmail(v []EmailRequest) {
 
 // GetAObjWebsite returns the AObjWebsite field value
 func (o *ContactinformationsRequestCompound) GetAObjWebsite() []WebsiteRequest {
-	if o == nil  {
+	if o == nil {
 		var ret []WebsiteRequest
 		return ret
 	}
@@ -154,7 +150,7 @@ func (o *ContactinformationsRequestCompound) SetAObjWebsite(v []WebsiteRequest) 
 
 // GetIAddressDefault returns the IAddressDefault field value
 func (o *ContactinformationsRequestCompound) GetIAddressDefault() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -178,7 +174,7 @@ func (o *ContactinformationsRequestCompound) SetIAddressDefault(v int32) {
 
 // GetIPhoneDefault returns the IPhoneDefault field value
 func (o *ContactinformationsRequestCompound) GetIPhoneDefault() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -202,7 +198,7 @@ func (o *ContactinformationsRequestCompound) SetIPhoneDefault(v int32) {
 
 // GetIEmailDefault returns the IEmailDefault field value
 func (o *ContactinformationsRequestCompound) GetIEmailDefault() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -226,7 +222,7 @@ func (o *ContactinformationsRequestCompound) SetIEmailDefault(v int32) {
 
 // GetIWebsiteDefault returns the IWebsiteDefault field value
 func (o *ContactinformationsRequestCompound) GetIWebsiteDefault() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}

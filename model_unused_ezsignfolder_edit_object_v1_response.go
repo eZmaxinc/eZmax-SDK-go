@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -15,31 +15,31 @@ import (
 	"encoding/json"
 )
 
-// EzsigndocumentEditObjectV1Response Response for the /1/object/ezsigndocument/editObject API Request
-type EzsigndocumentEditObjectV1Response struct {
+// UNUSEDEzsignfolderEditObjectV1Response Response for the /1/object/ezsignfolder/editObject API Request
+type UNUSEDEzsignfolderEditObjectV1Response struct {
 	ObjDebugPayload *CommonResponseObjDebugPayload `json:"objDebugPayload,omitempty"`
 	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
 }
 
-// NewEzsigndocumentEditObjectV1Response instantiates a new EzsigndocumentEditObjectV1Response object
+// NewUNUSEDEzsignfolderEditObjectV1Response instantiates a new UNUSEDEzsignfolderEditObjectV1Response object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigndocumentEditObjectV1Response() *EzsigndocumentEditObjectV1Response {
-	this := EzsigndocumentEditObjectV1Response{}
+func NewUNUSEDEzsignfolderEditObjectV1Response() *UNUSEDEzsignfolderEditObjectV1Response {
+	this := UNUSEDEzsignfolderEditObjectV1Response{}
 	return &this
 }
 
-// NewEzsigndocumentEditObjectV1ResponseWithDefaults instantiates a new EzsigndocumentEditObjectV1Response object
+// NewUNUSEDEzsignfolderEditObjectV1ResponseWithDefaults instantiates a new UNUSEDEzsignfolderEditObjectV1Response object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewEzsigndocumentEditObjectV1ResponseWithDefaults() *EzsigndocumentEditObjectV1Response {
-	this := EzsigndocumentEditObjectV1Response{}
+func NewUNUSEDEzsignfolderEditObjectV1ResponseWithDefaults() *UNUSEDEzsignfolderEditObjectV1Response {
+	this := UNUSEDEzsignfolderEditObjectV1Response{}
 	return &this
 }
 
 // GetObjDebugPayload returns the ObjDebugPayload field value if set, zero value otherwise.
-func (o *EzsigndocumentEditObjectV1Response) GetObjDebugPayload() CommonResponseObjDebugPayload {
+func (o *UNUSEDEzsignfolderEditObjectV1Response) GetObjDebugPayload() CommonResponseObjDebugPayload {
 	if o == nil || o.ObjDebugPayload == nil {
 		var ret CommonResponseObjDebugPayload
 		return ret
@@ -49,7 +49,7 @@ func (o *EzsigndocumentEditObjectV1Response) GetObjDebugPayload() CommonResponse
 
 // GetObjDebugPayloadOk returns a tuple with the ObjDebugPayload field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EzsigndocumentEditObjectV1Response) GetObjDebugPayloadOk() (*CommonResponseObjDebugPayload, bool) {
+func (o *UNUSEDEzsignfolderEditObjectV1Response) GetObjDebugPayloadOk() (*CommonResponseObjDebugPayload, bool) {
 	if o == nil || o.ObjDebugPayload == nil {
 		return nil, false
 	}
@@ -57,7 +57,7 @@ func (o *EzsigndocumentEditObjectV1Response) GetObjDebugPayloadOk() (*CommonResp
 }
 
 // HasObjDebugPayload returns a boolean if a field has been set.
-func (o *EzsigndocumentEditObjectV1Response) HasObjDebugPayload() bool {
+func (o *UNUSEDEzsignfolderEditObjectV1Response) HasObjDebugPayload() bool {
 	if o != nil && o.ObjDebugPayload != nil {
 		return true
 	}
@@ -66,12 +66,12 @@ func (o *EzsigndocumentEditObjectV1Response) HasObjDebugPayload() bool {
 }
 
 // SetObjDebugPayload gets a reference to the given CommonResponseObjDebugPayload and assigns it to the ObjDebugPayload field.
-func (o *EzsigndocumentEditObjectV1Response) SetObjDebugPayload(v CommonResponseObjDebugPayload) {
+func (o *UNUSEDEzsignfolderEditObjectV1Response) SetObjDebugPayload(v CommonResponseObjDebugPayload) {
 	o.ObjDebugPayload = &v
 }
 
 // GetObjDebug returns the ObjDebug field value if set, zero value otherwise.
-func (o *EzsigndocumentEditObjectV1Response) GetObjDebug() CommonResponseObjDebug {
+func (o *UNUSEDEzsignfolderEditObjectV1Response) GetObjDebug() CommonResponseObjDebug {
 	if o == nil || o.ObjDebug == nil {
 		var ret CommonResponseObjDebug
 		return ret
@@ -81,7 +81,7 @@ func (o *EzsigndocumentEditObjectV1Response) GetObjDebug() CommonResponseObjDebu
 
 // GetObjDebugOk returns a tuple with the ObjDebug field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EzsigndocumentEditObjectV1Response) GetObjDebugOk() (*CommonResponseObjDebug, bool) {
+func (o *UNUSEDEzsignfolderEditObjectV1Response) GetObjDebugOk() (*CommonResponseObjDebug, bool) {
 	if o == nil || o.ObjDebug == nil {
 		return nil, false
 	}
@@ -89,7 +89,7 @@ func (o *EzsigndocumentEditObjectV1Response) GetObjDebugOk() (*CommonResponseObj
 }
 
 // HasObjDebug returns a boolean if a field has been set.
-func (o *EzsigndocumentEditObjectV1Response) HasObjDebug() bool {
+func (o *UNUSEDEzsignfolderEditObjectV1Response) HasObjDebug() bool {
 	if o != nil && o.ObjDebug != nil {
 		return true
 	}
@@ -98,11 +98,11 @@ func (o *EzsigndocumentEditObjectV1Response) HasObjDebug() bool {
 }
 
 // SetObjDebug gets a reference to the given CommonResponseObjDebug and assigns it to the ObjDebug field.
-func (o *EzsigndocumentEditObjectV1Response) SetObjDebug(v CommonResponseObjDebug) {
+func (o *UNUSEDEzsignfolderEditObjectV1Response) SetObjDebug(v CommonResponseObjDebug) {
 	o.ObjDebug = &v
 }
 
-func (o EzsigndocumentEditObjectV1Response) MarshalJSON() ([]byte, error) {
+func (o UNUSEDEzsignfolderEditObjectV1Response) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.ObjDebugPayload != nil {
 		toSerialize["objDebugPayload"] = o.ObjDebugPayload
@@ -113,38 +113,38 @@ func (o EzsigndocumentEditObjectV1Response) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableEzsigndocumentEditObjectV1Response struct {
-	value *EzsigndocumentEditObjectV1Response
+type NullableUNUSEDEzsignfolderEditObjectV1Response struct {
+	value *UNUSEDEzsignfolderEditObjectV1Response
 	isSet bool
 }
 
-func (v NullableEzsigndocumentEditObjectV1Response) Get() *EzsigndocumentEditObjectV1Response {
+func (v NullableUNUSEDEzsignfolderEditObjectV1Response) Get() *UNUSEDEzsignfolderEditObjectV1Response {
 	return v.value
 }
 
-func (v *NullableEzsigndocumentEditObjectV1Response) Set(val *EzsigndocumentEditObjectV1Response) {
+func (v *NullableUNUSEDEzsignfolderEditObjectV1Response) Set(val *UNUSEDEzsignfolderEditObjectV1Response) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableEzsigndocumentEditObjectV1Response) IsSet() bool {
+func (v NullableUNUSEDEzsignfolderEditObjectV1Response) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableEzsigndocumentEditObjectV1Response) Unset() {
+func (v *NullableUNUSEDEzsignfolderEditObjectV1Response) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableEzsigndocumentEditObjectV1Response(val *EzsigndocumentEditObjectV1Response) *NullableEzsigndocumentEditObjectV1Response {
-	return &NullableEzsigndocumentEditObjectV1Response{value: val, isSet: true}
+func NewNullableUNUSEDEzsignfolderEditObjectV1Response(val *UNUSEDEzsignfolderEditObjectV1Response) *NullableUNUSEDEzsignfolderEditObjectV1Response {
+	return &NullableUNUSEDEzsignfolderEditObjectV1Response{value: val, isSet: true}
 }
 
-func (v NullableEzsigndocumentEditObjectV1Response) MarshalJSON() ([]byte, error) {
+func (v NullableUNUSEDEzsignfolderEditObjectV1Response) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableEzsigndocumentEditObjectV1Response) UnmarshalJSON(src []byte) error {
+func (v *NullableUNUSEDEzsignfolderEditObjectV1Response) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

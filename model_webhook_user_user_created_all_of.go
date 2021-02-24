@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -24,7 +24,7 @@ type WebhookUserUserCreatedAllOf struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWebhookUserUserCreatedAllOf(objUser UserResponse, ) *WebhookUserUserCreatedAllOf {
+func NewWebhookUserUserCreatedAllOf(objUser UserResponse) *WebhookUserUserCreatedAllOf {
 	this := WebhookUserUserCreatedAllOf{}
 	this.ObjUser = objUser
 	return &this
@@ -40,7 +40,7 @@ func NewWebhookUserUserCreatedAllOfWithDefaults() *WebhookUserUserCreatedAllOf {
 
 // GetObjUser returns the ObjUser field value
 func (o *WebhookUserUserCreatedAllOf) GetObjUser() UserResponse {
-	if o == nil  {
+	if o == nil {
 		var ret UserResponse
 		return ret
 	}

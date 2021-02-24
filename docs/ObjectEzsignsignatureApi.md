@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**EzsignsignatureCreateObjectV1**](ObjectEzsignsignatureApi.md#EzsignsignatureCreateObjectV1) | **Post** /1/object/ezsignsignature | Create a new Ezsignsignature
 [**EzsignsignatureDeleteObjectV1**](ObjectEzsignsignatureApi.md#EzsignsignatureDeleteObjectV1) | **Delete** /1/object/ezsignsignature/{pkiEzsignsignatureID} | Delete an existing Ezsignsignature
-[**EzsignsignatureEditObjectV1**](ObjectEzsignsignatureApi.md#EzsignsignatureEditObjectV1) | **Put** /1/object/ezsignsignature/{pkiEzsignsignatureID} | Modify an existing Ezsignsignature
 [**EzsignsignatureGetChildrenV1**](ObjectEzsignsignatureApi.md#EzsignsignatureGetChildrenV1) | **Get** /1/object/ezsignsignature/{pkiEzsignsignatureID}/getChildren | Retrieve an existing Ezsignsignature&#39;s children IDs
 [**EzsignsignatureGetObjectV1**](ObjectEzsignsignatureApi.md#EzsignsignatureGetObjectV1) | **Get** /1/object/ezsignsignature/{pkiEzsignsignatureID} | Retrieve an existing Ezsignsignature
 
@@ -139,76 +138,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## EzsignsignatureEditObjectV1
-
-> EzsignsignatureEditObjectV1Response EzsignsignatureEditObjectV1(ctx, pkiEzsignsignatureID).EzsignsignatureEditObjectV1Request(ezsignsignatureEditObjectV1Request).Execute()
-
-Modify an existing Ezsignsignature
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    pkiEzsignsignatureID := int32(56) // int32 | The unique ID of the Ezsignsignature
-    ezsignsignatureEditObjectV1Request := *openapiclient.NewEzsignsignatureEditObjectV1Request() // EzsignsignatureEditObjectV1Request | 
-
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsignsignatureApi.EzsignsignatureEditObjectV1(context.Background(), pkiEzsignsignatureID).EzsignsignatureEditObjectV1Request(ezsignsignatureEditObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignatureApi.EzsignsignatureEditObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignsignatureEditObjectV1`: EzsignsignatureEditObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsignatureApi.EzsignsignatureEditObjectV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiEzsignsignatureID** | **int32** | The unique ID of the Ezsignsignature | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiEzsignsignatureEditObjectV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **ezsignsignatureEditObjectV1Request** | [**EzsignsignatureEditObjectV1Request**](EzsignsignatureEditObjectV1Request.md) |  | 
-
-### Return type
-
-[**EzsignsignatureEditObjectV1Response**](ezsignsignature-editObject-v1-Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

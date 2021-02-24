@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -29,7 +29,7 @@ type CommonResponseObjDebugPayload struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommonResponseObjDebugPayload(iVersionMin int32, iVersionMax int32, aRequiredPermissions []int32, ) *CommonResponseObjDebugPayload {
+func NewCommonResponseObjDebugPayload(iVersionMin int32, iVersionMax int32, aRequiredPermissions []int32) *CommonResponseObjDebugPayload {
 	this := CommonResponseObjDebugPayload{}
 	this.IVersionMin = iVersionMin
 	this.IVersionMax = iVersionMax
@@ -47,7 +47,7 @@ func NewCommonResponseObjDebugPayloadWithDefaults() *CommonResponseObjDebugPaylo
 
 // GetIVersionMin returns the IVersionMin field value
 func (o *CommonResponseObjDebugPayload) GetIVersionMin() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -71,7 +71,7 @@ func (o *CommonResponseObjDebugPayload) SetIVersionMin(v int32) {
 
 // GetIVersionMax returns the IVersionMax field value
 func (o *CommonResponseObjDebugPayload) GetIVersionMax() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -95,7 +95,7 @@ func (o *CommonResponseObjDebugPayload) SetIVersionMax(v int32) {
 
 // GetARequiredPermissions returns the ARequiredPermissions field value
 func (o *CommonResponseObjDebugPayload) GetARequiredPermissions() []int32 {
-	if o == nil  {
+	if o == nil {
 		var ret []int32
 		return ret
 	}

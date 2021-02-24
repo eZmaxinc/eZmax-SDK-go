@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -36,7 +36,7 @@ type PhoneRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPhoneRequest(fkiPhonetypeID int32, ePhoneType FieldEPhoneType, ) *PhoneRequest {
+func NewPhoneRequest(fkiPhonetypeID int32, ePhoneType FieldEPhoneType) *PhoneRequest {
 	this := PhoneRequest{}
 	this.FkiPhonetypeID = fkiPhonetypeID
 	this.EPhoneType = ePhoneType
@@ -53,7 +53,7 @@ func NewPhoneRequestWithDefaults() *PhoneRequest {
 
 // GetFkiPhonetypeID returns the FkiPhonetypeID field value
 func (o *PhoneRequest) GetFkiPhonetypeID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -77,7 +77,7 @@ func (o *PhoneRequest) SetFkiPhonetypeID(v int32) {
 
 // GetEPhoneType returns the EPhoneType field value
 func (o *PhoneRequest) GetEPhoneType() FieldEPhoneType {
-	if o == nil  {
+	if o == nil {
 		var ret FieldEPhoneType
 		return ret
 	}

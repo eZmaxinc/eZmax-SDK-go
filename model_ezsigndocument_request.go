@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -39,7 +39,7 @@ type EzsigndocumentRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigndocumentRequest(eEzsigndocumentSource string, eEzsigndocumentFormat string, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, fkiLanguageID int32, sEzsigndocumentFilename string, sEzsigndocumentName string, ) *EzsigndocumentRequest {
+func NewEzsigndocumentRequest(eEzsigndocumentSource string, eEzsigndocumentFormat string, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, fkiLanguageID int32, sEzsigndocumentFilename string, sEzsigndocumentName string) *EzsigndocumentRequest {
 	this := EzsigndocumentRequest{}
 	this.EEzsigndocumentSource = eEzsigndocumentSource
 	this.EEzsigndocumentFormat = eEzsigndocumentFormat
@@ -61,7 +61,7 @@ func NewEzsigndocumentRequestWithDefaults() *EzsigndocumentRequest {
 
 // GetEEzsigndocumentSource returns the EEzsigndocumentSource field value
 func (o *EzsigndocumentRequest) GetEEzsigndocumentSource() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -85,7 +85,7 @@ func (o *EzsigndocumentRequest) SetEEzsigndocumentSource(v string) {
 
 // GetEEzsigndocumentFormat returns the EEzsigndocumentFormat field value
 func (o *EzsigndocumentRequest) GetEEzsigndocumentFormat() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -141,7 +141,7 @@ func (o *EzsigndocumentRequest) SetSEzsigndocumentBase64(v string) {
 
 // GetFkiEzsignfolderID returns the FkiEzsignfolderID field value
 func (o *EzsigndocumentRequest) GetFkiEzsignfolderID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -165,7 +165,7 @@ func (o *EzsigndocumentRequest) SetFkiEzsignfolderID(v int32) {
 
 // GetDtEzsigndocumentDuedate returns the DtEzsigndocumentDuedate field value
 func (o *EzsigndocumentRequest) GetDtEzsigndocumentDuedate() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -189,7 +189,7 @@ func (o *EzsigndocumentRequest) SetDtEzsigndocumentDuedate(v string) {
 
 // GetFkiLanguageID returns the FkiLanguageID field value
 func (o *EzsigndocumentRequest) GetFkiLanguageID() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -213,7 +213,7 @@ func (o *EzsigndocumentRequest) SetFkiLanguageID(v int32) {
 
 // GetSEzsigndocumentFilename returns the SEzsigndocumentFilename field value
 func (o *EzsigndocumentRequest) GetSEzsigndocumentFilename() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -237,7 +237,7 @@ func (o *EzsigndocumentRequest) SetSEzsigndocumentFilename(v string) {
 
 // GetSEzsigndocumentName returns the SEzsigndocumentName field value
 func (o *EzsigndocumentRequest) GetSEzsigndocumentName() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

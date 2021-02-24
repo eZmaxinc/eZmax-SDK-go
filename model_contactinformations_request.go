@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -31,7 +31,7 @@ type ContactinformationsRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewContactinformationsRequest(iAddressDefault int32, iPhoneDefault int32, iEmailDefault int32, iWebsiteDefault int32, ) *ContactinformationsRequest {
+func NewContactinformationsRequest(iAddressDefault int32, iPhoneDefault int32, iEmailDefault int32, iWebsiteDefault int32) *ContactinformationsRequest {
 	this := ContactinformationsRequest{}
 	this.IAddressDefault = iAddressDefault
 	this.IPhoneDefault = iPhoneDefault
@@ -50,7 +50,7 @@ func NewContactinformationsRequestWithDefaults() *ContactinformationsRequest {
 
 // GetIAddressDefault returns the IAddressDefault field value
 func (o *ContactinformationsRequest) GetIAddressDefault() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -74,7 +74,7 @@ func (o *ContactinformationsRequest) SetIAddressDefault(v int32) {
 
 // GetIPhoneDefault returns the IPhoneDefault field value
 func (o *ContactinformationsRequest) GetIPhoneDefault() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -98,7 +98,7 @@ func (o *ContactinformationsRequest) SetIPhoneDefault(v int32) {
 
 // GetIEmailDefault returns the IEmailDefault field value
 func (o *ContactinformationsRequest) GetIEmailDefault() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}
@@ -122,7 +122,7 @@ func (o *ContactinformationsRequest) SetIEmailDefault(v int32) {
 
 // GetIWebsiteDefault returns the IWebsiteDefault field value
 func (o *ContactinformationsRequest) GetIWebsiteDefault() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}

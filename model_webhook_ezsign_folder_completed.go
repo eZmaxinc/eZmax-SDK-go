@@ -1,9 +1,9 @@
 /*
  * eZmax API Definition
  *
- * This API expose all the functionnalities for the eZmax and eZsign application.
+ * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.30
+ * API version: 1.0.31
  * Contact: support-api@ezmax.ca
  */
 
@@ -27,7 +27,7 @@ type WebhookEzsignFolderCompleted struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWebhookEzsignFolderCompleted(objEzsignfolder EzsignfolderResponse, objWebhook WebhookResponse, aObjAttempt []AttemptResponse, ) *WebhookEzsignFolderCompleted {
+func NewWebhookEzsignFolderCompleted(objEzsignfolder EzsignfolderResponse, objWebhook WebhookResponse, aObjAttempt []AttemptResponse) *WebhookEzsignFolderCompleted {
 	this := WebhookEzsignFolderCompleted{}
 	this.ObjEzsignfolder = objEzsignfolder
 	this.ObjWebhook = objWebhook
@@ -45,7 +45,7 @@ func NewWebhookEzsignFolderCompletedWithDefaults() *WebhookEzsignFolderCompleted
 
 // GetObjEzsignfolder returns the ObjEzsignfolder field value
 func (o *WebhookEzsignFolderCompleted) GetObjEzsignfolder() EzsignfolderResponse {
-	if o == nil  {
+	if o == nil {
 		var ret EzsignfolderResponse
 		return ret
 	}
@@ -69,7 +69,7 @@ func (o *WebhookEzsignFolderCompleted) SetObjEzsignfolder(v EzsignfolderResponse
 
 // GetObjWebhook returns the ObjWebhook field value
 func (o *WebhookEzsignFolderCompleted) GetObjWebhook() WebhookResponse {
-	if o == nil  {
+	if o == nil {
 		var ret WebhookResponse
 		return ret
 	}
@@ -93,7 +93,7 @@ func (o *WebhookEzsignFolderCompleted) SetObjWebhook(v WebhookResponse) {
 
 // GetAObjAttempt returns the AObjAttempt field value
 func (o *WebhookEzsignFolderCompleted) GetAObjAttempt() []AttemptResponse {
-	if o == nil  {
+	if o == nil {
 		var ret []AttemptResponse
 		return ret
 	}
