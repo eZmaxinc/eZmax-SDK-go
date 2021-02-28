@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjFranchisereferalincome** | Pointer to [**FranchisereferalincomeRequest**](franchisereferalincome-Request.md) |  | [optional] 
-**ObjFranchisereferalincomeCompound** | Pointer to [**FranchisereferalincomeRequestCompound**](franchisereferalincome-RequestCompound.md) |  | [optional] 
+**ObjFranchisereferalincome** | Pointer to [**FranchisereferalincomeRequest**](FranchisereferalincomeRequest.md) |  | [optional] 
+**ObjFranchisereferalincomeCompound** | Pointer to [**FranchisereferalincomeRequestCompound**](FranchisereferalincomeRequestCompound.md) |  | [optional] 
 
 ## Methods
 

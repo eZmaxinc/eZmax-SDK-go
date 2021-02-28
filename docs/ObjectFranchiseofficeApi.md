@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonGetAutocompleteV1Response**](Common-getAutocomplete-v1-Response.md)
+[**CommonGetAutocompleteV1Response**](CommonGetAutocompleteV1Response.md)
 
 ### Authorization
 

@@ -54,11 +54,11 @@ Other parameters are passed through a pointer to a apiFranchisereferalincomeCrea
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **franchisereferalincomeCreateObjectV1Request** | [**[]FranchisereferalincomeCreateObjectV1Request**](franchisereferalincome-createObject-v1-Request.md) |  | 
+ **franchisereferalincomeCreateObjectV1Request** | [**[]FranchisereferalincomeCreateObjectV1Request**](FranchisereferalincomeCreateObjectV1Request.md) |  | 
 
 ### Return type
 
-[**FranchisereferalincomeCreateObjectV1Response**](franchisereferalincome-createObject-v1-Response.md)
+[**FranchisereferalincomeCreateObjectV1Response**](FranchisereferalincomeCreateObjectV1Response.md)
 
 ### Authorization
 

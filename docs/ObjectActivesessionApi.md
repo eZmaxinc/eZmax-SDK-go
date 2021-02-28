@@ -53,7 +53,7 @@ Other parameters are passed through a pointer to a apiActivesessionGetCurrentV1R
 
 ### Return type
 
-[**ActivesessionGetCurrentV1Response**](activesession-getCurrent-v1-Response.md)
+[**ActivesessionGetCurrentV1Response**](ActivesessionGetCurrentV1Response.md)
 
 ### Authorization
 

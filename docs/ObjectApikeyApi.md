@@ -54,11 +54,11 @@ Other parameters are passed through a pointer to a apiApikeyCreateObjectV1Reques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apikeyCreateObjectV1Request** | [**[]ApikeyCreateObjectV1Request**](apikey-createObject-v1-Request.md) |  | 
+ **apikeyCreateObjectV1Request** | [**[]ApikeyCreateObjectV1Request**](ApikeyCreateObjectV1Request.md) |  | 
 
 ### Return type
 
-[**ApikeyCreateObjectV1Response**](apikey-createObject-v1-Response.md)
+[**ApikeyCreateObjectV1Response**](ApikeyCreateObjectV1Response.md)
 
 ### Authorization
 

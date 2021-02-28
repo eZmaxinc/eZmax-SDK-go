@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjEzsignfoldersignerassociation** | Pointer to [**EzsignfoldersignerassociationRequest**](ezsignfoldersignerassociation-Request.md) |  | [optional] 
-**ObjEzsignfoldersignerassociationCompound** | Pointer to [**EzsignfoldersignerassociationRequestCompound**](ezsignfoldersignerassociation-RequestCompound.md) |  | [optional] 
+**ObjEzsignfoldersignerassociation** | Pointer to [**EzsignfoldersignerassociationRequest**](EzsignfoldersignerassociationRequest.md) |  | [optional] 
+**ObjEzsignfoldersignerassociationCompound** | Pointer to [**EzsignfoldersignerassociationRequestCompound**](EzsignfoldersignerassociationRequestCompound.md) |  | [optional] 
 
 ## Methods
 

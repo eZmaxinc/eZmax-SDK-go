@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjEzsigndocument** | Pointer to [**EzsigndocumentRequest**](ezsigndocument-Request.md) |  | [optional] 
+**ObjEzsigndocument** | Pointer to [**EzsigndocumentRequest**](EzsigndocumentRequest.md) |  | [optional] 
 
 ## Methods
 

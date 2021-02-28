@@ -57,11 +57,11 @@ Other parameters are passed through a pointer to a apiEzsignsignatureCreateObjec
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ezsignsignatureCreateObjectV1Request** | [**[]EzsignsignatureCreateObjectV1Request**](ezsignsignature-createObject-v1-Request.md) |  | 
+ **ezsignsignatureCreateObjectV1Request** | [**[]EzsignsignatureCreateObjectV1Request**](EzsignsignatureCreateObjectV1Request.md) |  | 
 
 ### Return type
 
-[**EzsignsignatureCreateObjectV1Response**](ezsignsignature-createObject-v1-Response.md)
+[**EzsignsignatureCreateObjectV1Response**](EzsignsignatureCreateObjectV1Response.md)
 
 ### Authorization
 
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignsignatureDeleteObjectV1Response**](ezsignsignature-deleteObject-v1-Response.md)
+[**EzsignsignatureDeleteObjectV1Response**](EzsignsignatureDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -263,7 +263,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignsignatureGetObjectV1Response**](ezsignsignature-getObject-v1-Response.md)
+[**EzsignsignatureGetObjectV1Response**](EzsignsignatureGetObjectV1Response.md)
 
 ### Authorization
 

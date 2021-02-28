@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **SEzsigndocumentFilename** | **string** | The actual file name that will be used when downloading or attaching to an email. | 
 **SEzsigndocumentName** | **string** | The name of the document that will be presented to Ezsignfoldersignerassociations | 
 **PkiEzsigndocumentID** | **int32** | The unique ID of the Ezsigntemplate | 
-**EEzsigndocumentStep** | [**FieldEEzsigndocumentStep**](Field-eEzsigndocumentStep.md) |  | 
+**EEzsigndocumentStep** | [**FieldEEzsigndocumentStep**](FieldEEzsigndocumentStep.md) |  | 
 **DtEzsigndocumentFirstsend** | **string** | The date and time when the Ezsigndocument was first sent. | 
 **DtEzsigndocumentLastsend** | **string** | The date and time when the Ezsigndocument was sent the last time. | 
 **IEzsigndocumentOrder** | **int32** | The order in which the Ezsigndocument will be presented to the signatory in the Ezsignfolder. | 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **IEzsigndocumentSignaturetotal** | **int32** | The number of total signatures that were requested in the Ezsigndocument. | 
 **SEzsigndocumentMD5initial** | **string** | MD5 Hash of the initial PDF Document before signatures were applied to it. | 
 **SEzsigndocumentMD5signed** | **string** | MD5 Hash of the final PDF Document after all signatures were applied to it. | 
-**ObjAudit** | [**CommonAudit**](Common-Audit.md) |  | 
+**ObjAudit** | [**CommonAudit**](CommonAudit.md) |  | 
 
 ## Methods
 

@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjApikeyDescription** | [**MultilingualApikeyDescription**](Multilingual-ApikeyDescription.md) |  | 
+**ObjApikeyDescription** | [**MultilingualApikeyDescription**](MultilingualApikeyDescription.md) |  | 
 **SComputedToken** | Pointer to **string** | The secret token for the API key.  This will be returned only on creation. | [optional] 
 **PkiApikeyID** | **int32** | The unique ID of the Apikey | 
-**ObjAudit** | [**CommonAudit**](Common-Audit.md) |  | 
+**ObjAudit** | [**CommonAudit**](CommonAudit.md) |  | 
 
 ## Methods
 

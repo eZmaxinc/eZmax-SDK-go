@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MPayload** | [**UserCreateEzsignuserV1ResponseMPayload**](user-createEzsignuser-v1-Response-mPayload.md) |  | 
-**ObjDebugPayload** | Pointer to [**CommonResponseObjDebugPayload**](Common-Response-objDebugPayload.md) |  | [optional] 
-**ObjDebug** | Pointer to [**CommonResponseObjDebug**](Common-Response-objDebug.md) |  | [optional] 
+**MPayload** | [**UserCreateEzsignuserV1ResponseMPayload**](UserCreateEzsignuserV1ResponseMPayload.md) |  | 
+**ObjDebugPayload** | Pointer to [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | [optional] 
+**ObjDebug** | Pointer to [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 
 ## Methods
 

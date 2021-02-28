@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjEzsignsignature** | Pointer to [**EzsignsignatureRequest**](ezsignsignature-Request.md) |  | [optional] 
-**ObjEzsignsignatureCompound** | Pointer to [**EzsignsignatureRequestCompound**](ezsignsignature-RequestCompound.md) |  | [optional] 
+**ObjEzsignsignature** | Pointer to [**EzsignsignatureRequest**](EzsignsignatureRequest.md) |  | [optional] 
+**ObjEzsignsignatureCompound** | Pointer to [**EzsignsignatureRequestCompound**](EzsignsignatureRequestCompound.md) |  | [optional] 
 
 ## Methods
 

@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MPayload** | [**EzsignfolderGetObjectV1ResponseMPayload**](ezsignfolder-getObject-v1-Response-mPayload.md) |  | 
-**ObjDebugPayload** | Pointer to [**CommonResponseObjDebugPayload**](Common-Response-objDebugPayload.md) |  | [optional] 
-**ObjDebug** | Pointer to [**CommonResponseObjDebug**](Common-Response-objDebug.md) |  | [optional] 
+**MPayload** | [**EzsignfolderGetObjectV1ResponseMPayload**](EzsignfolderGetObjectV1ResponseMPayload.md) |  | 
+**ObjDebugPayload** | Pointer to [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | [optional] 
+**ObjDebug** | Pointer to [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 
 ## Methods
 

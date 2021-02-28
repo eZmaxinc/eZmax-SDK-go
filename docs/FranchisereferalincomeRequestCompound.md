@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjAddress** | Pointer to [**AddressRequest**](address-Request.md) |  | [optional] 
+**ObjAddress** | Pointer to [**AddressRequest**](AddressRequest.md) |  | [optional] 
 **AObjContact** | [**[]ContactRequestCompound**](ContactRequestCompound.md) |  | 
 **FkiFranchisebrokerID** | **int32** | The unique ID of the Franchisebroker | 
 **FkiFranchisereferalincomeprogramID** | **int32** | The unique ID of the Franchisereferalincomeprogram | 

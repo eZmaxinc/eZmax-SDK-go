@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjEzsignsignature** | Pointer to [**EzsignsignatureRequest**](ezsignsignature-Request.md) |  | [optional] 
+**ObjEzsignsignature** | Pointer to [**EzsignsignatureRequest**](EzsignsignatureRequest.md) |  | [optional] 
 
 ## Methods
 

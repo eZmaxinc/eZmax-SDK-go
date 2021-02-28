@@ -147,24 +147,6 @@ func NewConfiguration() *Configuration {
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
-			"GlobalCustomerApiService.GlobalCustomerGetEndpointV1": {
-				{
-					URL: "https://{sInfrastructureenvironmenttypeDescription}.api.global.ezmax.com",
-					Description: "The server endpoint where to send your API requests.",
-					Variables: map[string]ServerVariable{
-						"sInfrastructureenvironmenttypeDescription": ServerVariable{
-							Description: "The environment on on which to call the API. Should always be \"prod\" unless instructed otherwise by support.",
-							DefaultValue: "prod",
-							EnumValues: []string{
-								"prod",
-								"stg",
-								"qa",
-								"dev",
-							},
-						},
-					},
-				},
-			},
 		},
 	}
 	return cfg

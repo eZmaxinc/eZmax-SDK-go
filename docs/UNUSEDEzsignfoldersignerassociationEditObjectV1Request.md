@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjEzsignfoldersignerassociation** | Pointer to [**EzsignfoldersignerassociationRequest**](ezsignfoldersignerassociation-Request.md) |  | [optional] 
+**ObjEzsignfoldersignerassociation** | Pointer to [**EzsignfoldersignerassociationRequest**](EzsignfoldersignerassociationRequest.md) |  | [optional] 
 
 ## Methods
 

@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigndocumentApplyEzsigntemplateV1Response**](ezsigndocument-applyEzsigntemplate-v1-Response.md)
+[**EzsigndocumentApplyEzsigntemplateV1Response**](EzsigndocumentApplyEzsigntemplateV1Response.md)
 
 ### Authorization
 
@@ -131,11 +131,11 @@ Other parameters are passed through a pointer to a apiEzsigndocumentCreateObject
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ezsigndocumentCreateObjectV1Request** | [**[]EzsigndocumentCreateObjectV1Request**](ezsigndocument-createObject-v1-Request.md) |  | 
+ **ezsigndocumentCreateObjectV1Request** | [**[]EzsigndocumentCreateObjectV1Request**](EzsigndocumentCreateObjectV1Request.md) |  | 
 
 ### Return type
 
-[**EzsigndocumentCreateObjectV1Response**](ezsigndocument-createObject-v1-Response.md)
+[**EzsigndocumentCreateObjectV1Response**](EzsigndocumentCreateObjectV1Response.md)
 
 ### Authorization
 
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigndocumentDeleteObjectV1Response**](ezsigndocument-deleteObject-v1-Response.md)
+[**EzsigndocumentDeleteObjectV1Response**](EzsigndocumentDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -342,7 +342,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigndocumentGetDownloadUrlV1Response**](ezsigndocument-getDownloadUrl-v1-Response.md)
+[**EzsigndocumentGetDownloadUrlV1Response**](EzsigndocumentGetDownloadUrlV1Response.md)
 
 ### Authorization
 
@@ -410,7 +410,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigndocumentGetObjectV1Response**](ezsigndocument-getObject-v1-Response.md)
+[**EzsigndocumentGetObjectV1Response**](EzsigndocumentGetObjectV1Response.md)
 
 ### Authorization
 

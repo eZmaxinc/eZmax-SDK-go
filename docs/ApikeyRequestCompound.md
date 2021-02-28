@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FkiUserID** | **int32** | The unique ID of the User | 
-**ObjApikeyDescription** | [**MultilingualApikeyDescription**](Multilingual-ApikeyDescription.md) |  | 
+**ObjApikeyDescription** | [**MultilingualApikeyDescription**](MultilingualApikeyDescription.md) |  | 
 
 ## Methods
 

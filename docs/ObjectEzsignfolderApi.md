@@ -58,11 +58,11 @@ Other parameters are passed through a pointer to a apiEzsignfolderCreateObjectV1
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ezsignfolderCreateObjectV1Request** | [**[]EzsignfolderCreateObjectV1Request**](ezsignfolder-createObject-v1-Request.md) |  | 
+ **ezsignfolderCreateObjectV1Request** | [**[]EzsignfolderCreateObjectV1Request**](EzsignfolderCreateObjectV1Request.md) |  | 
 
 ### Return type
 
-[**EzsignfolderCreateObjectV1Response**](ezsignfolder-createObject-v1-Response.md)
+[**EzsignfolderCreateObjectV1Response**](EzsignfolderCreateObjectV1Response.md)
 
 ### Authorization
 
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignfolderDeleteObjectV1Response**](ezsignfolder-deleteObject-v1-Response.md)
+[**EzsignfolderDeleteObjectV1Response**](EzsignfolderDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -264,7 +264,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignfolderGetObjectV1Response**](ezsignfolder-getObject-v1-Response.md)
+[**EzsignfolderGetObjectV1Response**](EzsignfolderGetObjectV1Response.md)
 
 ### Authorization
 
@@ -334,7 +334,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignfolderSendV1Response**](ezsignfolder-send-v1-Response.md)
+[**EzsignfolderSendV1Response**](EzsignfolderSendV1Response.md)
 
 ### Authorization
 

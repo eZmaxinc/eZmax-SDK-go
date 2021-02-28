@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjUser** | [**UserResponse**](user-Response.md) |  | 
+**ObjUser** | [**UserResponse**](UserResponse.md) |  | 
 
 ## Methods
 

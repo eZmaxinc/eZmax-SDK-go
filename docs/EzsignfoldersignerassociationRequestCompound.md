@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjEzsignsigner** | Pointer to [**EzsignsignerRequestCompound**](ezsignsigner-RequestCompound.md) |  | [optional] 
+**ObjEzsignsigner** | Pointer to [**EzsignsignerRequestCompound**](EzsignsignerRequestCompound.md) |  | [optional] 
 **FkiUserID** | Pointer to **int32** | A reference to a valid User.  This is only used if the signatory will be a user from the system. | [optional] 
 **FkiEzsignfolderID** | **int32** | A reference to a valid Ezsignfolder.  That value is returned after a successful Ezsignfolder Creation. | 
 

@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **MPayload** | **map[string]interface{}** | Payload for the /1/object/ezsignsignature/getObject API Request | 
-**ObjDebugPayload** | Pointer to [**CommonResponseObjDebugPayload**](Common-Response-objDebugPayload.md) |  | [optional] 
-**ObjDebug** | Pointer to [**CommonResponseObjDebug**](Common-Response-objDebug.md) |  | [optional] 
+**ObjDebugPayload** | Pointer to [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | [optional] 
+**ObjDebug** | Pointer to [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 
 ## Methods
 

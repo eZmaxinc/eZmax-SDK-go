@@ -95,6 +95,7 @@ docs/FieldEEzsignfolderSendreminderfrequency.md
 docs/FieldEEzsignfolderStep.md
 docs/FieldEPhoneType.md
 docs/FieldEUserType.md
+docs/FieldEUserTypeSSPR.md
 docs/FranchisereferalincomeCreateObjectV1Request.md
 docs/FranchisereferalincomeCreateObjectV1Response.md
 docs/FranchisereferalincomeCreateObjectV1ResponseMPayload.md
@@ -116,6 +117,11 @@ docs/ObjectFranchiseofficeApi.md
 docs/ObjectFranchisereferalincomeApi.md
 docs/ObjectPeriodApi.md
 docs/PhoneRequest.md
+docs/SsprResetPasswordRequestV1Request.md
+docs/SsprResetPasswordV1Request.md
+docs/SsprSendUsernamesV1Request.md
+docs/SsprUnlockAccountRequestV1Request.md
+docs/SsprUnlockAccountV1Request.md
 docs/UNUSEDEzsigndocumentEditObjectV1Request.md
 docs/UNUSEDEzsigndocumentEditObjectV1Response.md
 docs/UNUSEDEzsignfolderEditObjectV1Request.md
@@ -217,6 +223,7 @@ model_field_e_ezsignfolder_sendreminderfrequency.go
 model_field_e_ezsignfolder_step.go
 model_field_e_phone_type.go
 model_field_e_user_type.go
+model_field_e_user_type_sspr.go
 model_franchisereferalincome_create_object_v1_request.go
 model_franchisereferalincome_create_object_v1_response.go
 model_franchisereferalincome_create_object_v1_response_m_payload.go
@@ -225,6 +232,11 @@ model_franchisereferalincome_request_compound.go
 model_global_customer_get_endpoint_v1_response.go
 model_multilingual_apikey_description.go
 model_phone_request.go
+model_sspr_reset_password_request_v1_request.go
+model_sspr_reset_password_v1_request.go
+model_sspr_send_usernames_v1_request.go
+model_sspr_unlock_account_request_v1_request.go
+model_sspr_unlock_account_v1_request.go
 model_unused_ezsigndocument_edit_object_v1_request.go
 model_unused_ezsigndocument_edit_object_v1_response.go
 model_unused_ezsignfolder_edit_object_v1_request.go

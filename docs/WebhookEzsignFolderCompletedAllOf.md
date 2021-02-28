@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjEzsignfolder** | [**EzsignfolderResponse**](ezsignfolder-Response.md) |  | 
+**ObjEzsignfolder** | [**EzsignfolderResponse**](EzsignfolderResponse.md) |  | 
 
 ## Methods
 

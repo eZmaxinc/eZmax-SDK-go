@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjEzsigndocument** | [**EzsigndocumentResponse**](ezsigndocument-Response.md) |  | 
+**ObjEzsigndocument** | [**EzsigndocumentResponse**](EzsigndocumentResponse.md) |  | 
 
 ## Methods
 

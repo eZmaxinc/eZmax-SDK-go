@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GlobalCustomerGetEndpointV1Response**](global-customer-getEndpoint-v1-Response.md)
+[**GlobalCustomerGetEndpointV1Response**](GlobalCustomerGetEndpointV1Response.md)
 
 ### Authorization
 

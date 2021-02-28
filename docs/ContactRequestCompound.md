@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjContactinformations** | [**ContactinformationsRequestCompound**](contactinformations-RequestCompound.md) |  | 
+**ObjContactinformations** | [**ContactinformationsRequestCompound**](ContactinformationsRequestCompound.md) |  | 
 **FkiContacttitleID** | **int32** | The unique ID of the Contacttitle.  Valid values:  |Value|Description| |-|-| |1|Ms.| |2|Mr.| |4|(Blank)| |5|Me (For Notaries)| | 
 **FkiLanguageID** | **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
 **SContactFirstname** | **string** | The First name of the contact | 

@@ -6,11 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiUserID** | **int32** | The unique ID of the User | 
 **FkiLanguageID** | **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
-**EUserType** | [**FieldEUserType**](Field-eUserType.md) |  | 
+**EUserType** | [**FieldEUserType**](FieldEUserType.md) |  | 
 **SUserFirstname** | **string** | The First name of the user | 
 **SUserLastname** | **string** | The Last name of the user | 
 **SUserLoginname** | **string** | The Login name of the User. | 
-**ObjAudit** | [**CommonAudit**](Common-Audit.md) |  | 
+**ObjAudit** | [**CommonAudit**](CommonAudit.md) |  | 
 
 ## Methods
 

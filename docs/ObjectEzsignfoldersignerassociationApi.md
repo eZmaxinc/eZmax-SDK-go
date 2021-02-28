@@ -58,11 +58,11 @@ Other parameters are passed through a pointer to a apiEzsignfoldersignerassociat
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ezsignfoldersignerassociationCreateObjectV1Request** | [**[]EzsignfoldersignerassociationCreateObjectV1Request**](ezsignfoldersignerassociation-createObject-v1-Request.md) |  | 
+ **ezsignfoldersignerassociationCreateObjectV1Request** | [**[]EzsignfoldersignerassociationCreateObjectV1Request**](EzsignfoldersignerassociationCreateObjectV1Request.md) |  | 
 
 ### Return type
 
-[**EzsignfoldersignerassociationCreateObjectV1Response**](ezsignfoldersignerassociation-createObject-v1-Response.md)
+[**EzsignfoldersignerassociationCreateObjectV1Response**](EzsignfoldersignerassociationCreateObjectV1Response.md)
 
 ### Authorization
 
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignfoldersignerassociationDeleteObjectV1Response**](ezsignfoldersignerassociation-deleteObject-v1-Response.md)
+[**EzsignfoldersignerassociationDeleteObjectV1Response**](EzsignfoldersignerassociationDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -266,7 +266,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignfoldersignerassociationGetInPersonLoginUrlV1Response**](ezsignfoldersignerassociation-getInPersonLoginUrl-v1-Response.md)
+[**EzsignfoldersignerassociationGetInPersonLoginUrlV1Response**](EzsignfoldersignerassociationGetInPersonLoginUrlV1Response.md)
 
 ### Authorization
 
@@ -334,7 +334,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignfoldersignerassociationGetObjectV1Response**](ezsignfoldersignerassociation-getObject-v1-Response.md)
+[**EzsignfoldersignerassociationGetObjectV1Response**](EzsignfoldersignerassociationGetObjectV1Response.md)
 
 ### Authorization
 

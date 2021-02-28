@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjApikey** | Pointer to [**ApikeyRequest**](apikey-Request.md) |  | [optional] 
-**ObjApikeyCompound** | Pointer to [**ApikeyRequestCompound**](apikey-RequestCompound.md) |  | [optional] 
+**ObjApikey** | Pointer to [**ApikeyRequest**](ApikeyRequest.md) |  | [optional] 
+**ObjApikeyCompound** | Pointer to [**ApikeyRequestCompound**](ApikeyRequestCompound.md) |  | [optional] 
 
 ## Methods
 

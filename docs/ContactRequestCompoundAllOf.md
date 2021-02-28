@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjContactinformations** | [**ContactinformationsRequestCompound**](contactinformations-RequestCompound.md) |  | 
+**ObjContactinformations** | [**ContactinformationsRequestCompound**](ContactinformationsRequestCompound.md) |  | 
 
 ## Methods
 

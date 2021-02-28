@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjEzsignfolder** | Pointer to [**EzsignfolderRequest**](ezsignfolder-Request.md) |  | [optional] 
-**ObjEzsignfolderCompound** | Pointer to [**EzsignfolderRequestCompound**](ezsignfolder-RequestCompound.md) |  | [optional] 
+**ObjEzsignfolder** | Pointer to [**EzsignfolderRequest**](EzsignfolderRequest.md) |  | [optional] 
+**ObjEzsignfolderCompound** | Pointer to [**EzsignfolderRequestCompound**](EzsignfolderRequestCompound.md) |  | [optional] 
 
 ## Methods
 

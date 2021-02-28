@@ -54,11 +54,11 @@ Other parameters are passed through a pointer to a apiUserCreateEzsignuserV1Requ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userCreateEzsignuserV1Request** | [**[]UserCreateEzsignuserV1Request**](user-createEzsignuser-v1-Request.md) |  | 
+ **userCreateEzsignuserV1Request** | [**[]UserCreateEzsignuserV1Request**](UserCreateEzsignuserV1Request.md) |  | 
 
 ### Return type
 
-[**UserCreateEzsignuserV1Response**](user-createEzsignuser-v1-Response.md)
+[**UserCreateEzsignuserV1Response**](UserCreateEzsignuserV1Response.md)
 
 ### Authorization
 

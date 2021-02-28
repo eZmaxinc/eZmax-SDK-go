@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjEzsigndocument** | Pointer to [**EzsigndocumentRequest**](ezsigndocument-Request.md) |  | [optional] 
-**ObjEzsigndocumentCompound** | Pointer to [**EzsigndocumentRequestCompound**](ezsigndocument-RequestCompound.md) |  | [optional] 
+**ObjEzsigndocument** | Pointer to [**EzsigndocumentRequest**](EzsigndocumentRequest.md) |  | [optional] 
+**ObjEzsigndocumentCompound** | Pointer to [**EzsigndocumentRequestCompound**](EzsigndocumentRequestCompound.md) |  | [optional] 
 
 ## Methods
 
