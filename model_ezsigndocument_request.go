@@ -3,7 +3,7 @@
  *
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.31
+ * API version: 1.0.32
  * Contact: support-api@ezmax.ca
  */
 
@@ -29,8 +29,6 @@ type EzsigndocumentRequest struct {
 	DtEzsigndocumentDuedate string `json:"dtEzsigndocumentDuedate"`
 	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
 	FkiLanguageID int32 `json:"fkiLanguageID"`
-	// The actual file name that will be used when downloading or attaching to an email.
-	SEzsigndocumentFilename string `json:"sEzsigndocumentFilename"`
 	// The name of the document that will be presented to Ezsignfoldersignerassociations
 	SEzsigndocumentName string `json:"sEzsigndocumentName"`
 }
@@ -39,14 +37,13 @@ type EzsigndocumentRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigndocumentRequest(eEzsigndocumentSource string, eEzsigndocumentFormat string, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, fkiLanguageID int32, sEzsigndocumentFilename string, sEzsigndocumentName string) *EzsigndocumentRequest {
+func NewEzsigndocumentRequest(eEzsigndocumentSource string, eEzsigndocumentFormat string, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, fkiLanguageID int32, sEzsigndocumentName string) *EzsigndocumentRequest {
 	this := EzsigndocumentRequest{}
 	this.EEzsigndocumentSource = eEzsigndocumentSource
 	this.EEzsigndocumentFormat = eEzsigndocumentFormat
 	this.FkiEzsignfolderID = fkiEzsignfolderID
 	this.DtEzsigndocumentDuedate = dtEzsigndocumentDuedate
 	this.FkiLanguageID = fkiLanguageID
-	this.SEzsigndocumentFilename = sEzsigndocumentFilename
 	this.SEzsigndocumentName = sEzsigndocumentName
 	return &this
 }
@@ -211,30 +208,6 @@ func (o *EzsigndocumentRequest) SetFkiLanguageID(v int32) {
 	o.FkiLanguageID = v
 }
 
-// GetSEzsigndocumentFilename returns the SEzsigndocumentFilename field value
-func (o *EzsigndocumentRequest) GetSEzsigndocumentFilename() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SEzsigndocumentFilename
-}
-
-// GetSEzsigndocumentFilenameOk returns a tuple with the SEzsigndocumentFilename field value
-// and a boolean to check if the value has been set.
-func (o *EzsigndocumentRequest) GetSEzsigndocumentFilenameOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.SEzsigndocumentFilename, true
-}
-
-// SetSEzsigndocumentFilename sets field value
-func (o *EzsigndocumentRequest) SetSEzsigndocumentFilename(v string) {
-	o.SEzsigndocumentFilename = v
-}
-
 // GetSEzsigndocumentName returns the SEzsigndocumentName field value
 func (o *EzsigndocumentRequest) GetSEzsigndocumentName() string {
 	if o == nil {
@@ -278,9 +251,6 @@ func (o EzsigndocumentRequest) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["fkiLanguageID"] = o.FkiLanguageID
-	}
-	if true {
-		toSerialize["sEzsigndocumentFilename"] = o.SEzsigndocumentFilename
 	}
 	if true {
 		toSerialize["sEzsigndocumentName"] = o.SEzsigndocumentName

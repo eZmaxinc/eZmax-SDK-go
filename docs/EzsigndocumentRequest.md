@@ -10,14 +10,13 @@ Name | Type | Description | Notes
 **FkiEzsignfolderID** | **int32** | A reference to a valid Ezsignfolder.  That value is returned after a successful Ezsignfolder Creation. | 
 **DtEzsigndocumentDuedate** | **string** | Represent a Date Time. The timezone is the one configured in the User&#39;s profile. | 
 **FkiLanguageID** | **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
-**SEzsigndocumentFilename** | **string** | The actual file name that will be used when downloading or attaching to an email. | 
 **SEzsigndocumentName** | **string** | The name of the document that will be presented to Ezsignfoldersignerassociations | 
 
 ## Methods
 
 ### NewEzsigndocumentRequest
 
-`func NewEzsigndocumentRequest(eEzsigndocumentSource string, eEzsigndocumentFormat string, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, fkiLanguageID int32, sEzsigndocumentFilename string, sEzsigndocumentName string, ) *EzsigndocumentRequest`
+`func NewEzsigndocumentRequest(eEzsigndocumentSource string, eEzsigndocumentFormat string, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, fkiLanguageID int32, sEzsigndocumentName string, ) *EzsigndocumentRequest`
 
 NewEzsigndocumentRequest instantiates a new EzsigndocumentRequest object
 This constructor will assign default values to properties that have it defined,
@@ -155,26 +154,6 @@ and a boolean to check if the value has been set.
 `func (o *EzsigndocumentRequest) SetFkiLanguageID(v int32)`
 
 SetFkiLanguageID sets FkiLanguageID field to given value.
-
-
-### GetSEzsigndocumentFilename
-
-`func (o *EzsigndocumentRequest) GetSEzsigndocumentFilename() string`
-
-GetSEzsigndocumentFilename returns the SEzsigndocumentFilename field if non-nil, zero value otherwise.
-
-### GetSEzsigndocumentFilenameOk
-
-`func (o *EzsigndocumentRequest) GetSEzsigndocumentFilenameOk() (*string, bool)`
-
-GetSEzsigndocumentFilenameOk returns a tuple with the SEzsigndocumentFilename field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSEzsigndocumentFilename
-
-`func (o *EzsigndocumentRequest) SetSEzsigndocumentFilename(v string)`
-
-SetSEzsigndocumentFilename sets SEzsigndocumentFilename field to given value.
 
 
 ### GetSEzsigndocumentName

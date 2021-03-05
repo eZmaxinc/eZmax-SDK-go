@@ -15,8 +15,8 @@ import (
 	"encoding/json"
 )
 
-// SsprUnlockAccountRequestV1Request Request for the /1/module/sspr/unlockAccountRequest API Request
-type SsprUnlockAccountRequestV1Request struct {
+// SsprValidateTokenV1Request Request for the /1/module/sspr/validateToken API Request
+type SsprValidateTokenV1Request struct {
 	// The customer code assigned to your account
 	PksCustomerCode string `json:"pksCustomerCode"`
 	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
@@ -26,30 +26,33 @@ type SsprUnlockAccountRequestV1Request struct {
 	SEmailAddress *string `json:"sEmailAddress,omitempty"`
 	// The Login name of the User.
 	SUserLoginname *string `json:"sUserLoginname,omitempty"`
+	// Hex Encoded Secret SSPR token
+	BinUserSSPRtoken string `json:"binUserSSPRtoken"`
 }
 
-// NewSsprUnlockAccountRequestV1Request instantiates a new SsprUnlockAccountRequestV1Request object
+// NewSsprValidateTokenV1Request instantiates a new SsprValidateTokenV1Request object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSsprUnlockAccountRequestV1Request(pksCustomerCode string, fkiLanguageID int32, eUserTypeSSPR FieldEUserTypeSSPR) *SsprUnlockAccountRequestV1Request {
-	this := SsprUnlockAccountRequestV1Request{}
+func NewSsprValidateTokenV1Request(pksCustomerCode string, fkiLanguageID int32, eUserTypeSSPR FieldEUserTypeSSPR, binUserSSPRtoken string) *SsprValidateTokenV1Request {
+	this := SsprValidateTokenV1Request{}
 	this.PksCustomerCode = pksCustomerCode
 	this.FkiLanguageID = fkiLanguageID
 	this.EUserTypeSSPR = eUserTypeSSPR
+	this.BinUserSSPRtoken = binUserSSPRtoken
 	return &this
 }
 
-// NewSsprUnlockAccountRequestV1RequestWithDefaults instantiates a new SsprUnlockAccountRequestV1Request object
+// NewSsprValidateTokenV1RequestWithDefaults instantiates a new SsprValidateTokenV1Request object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewSsprUnlockAccountRequestV1RequestWithDefaults() *SsprUnlockAccountRequestV1Request {
-	this := SsprUnlockAccountRequestV1Request{}
+func NewSsprValidateTokenV1RequestWithDefaults() *SsprValidateTokenV1Request {
+	this := SsprValidateTokenV1Request{}
 	return &this
 }
 
 // GetPksCustomerCode returns the PksCustomerCode field value
-func (o *SsprUnlockAccountRequestV1Request) GetPksCustomerCode() string {
+func (o *SsprValidateTokenV1Request) GetPksCustomerCode() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -60,7 +63,7 @@ func (o *SsprUnlockAccountRequestV1Request) GetPksCustomerCode() string {
 
 // GetPksCustomerCodeOk returns a tuple with the PksCustomerCode field value
 // and a boolean to check if the value has been set.
-func (o *SsprUnlockAccountRequestV1Request) GetPksCustomerCodeOk() (*string, bool) {
+func (o *SsprValidateTokenV1Request) GetPksCustomerCodeOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -68,12 +71,12 @@ func (o *SsprUnlockAccountRequestV1Request) GetPksCustomerCodeOk() (*string, boo
 }
 
 // SetPksCustomerCode sets field value
-func (o *SsprUnlockAccountRequestV1Request) SetPksCustomerCode(v string) {
+func (o *SsprValidateTokenV1Request) SetPksCustomerCode(v string) {
 	o.PksCustomerCode = v
 }
 
 // GetFkiLanguageID returns the FkiLanguageID field value
-func (o *SsprUnlockAccountRequestV1Request) GetFkiLanguageID() int32 {
+func (o *SsprValidateTokenV1Request) GetFkiLanguageID() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -84,7 +87,7 @@ func (o *SsprUnlockAccountRequestV1Request) GetFkiLanguageID() int32 {
 
 // GetFkiLanguageIDOk returns a tuple with the FkiLanguageID field value
 // and a boolean to check if the value has been set.
-func (o *SsprUnlockAccountRequestV1Request) GetFkiLanguageIDOk() (*int32, bool) {
+func (o *SsprValidateTokenV1Request) GetFkiLanguageIDOk() (*int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -92,12 +95,12 @@ func (o *SsprUnlockAccountRequestV1Request) GetFkiLanguageIDOk() (*int32, bool) 
 }
 
 // SetFkiLanguageID sets field value
-func (o *SsprUnlockAccountRequestV1Request) SetFkiLanguageID(v int32) {
+func (o *SsprValidateTokenV1Request) SetFkiLanguageID(v int32) {
 	o.FkiLanguageID = v
 }
 
 // GetEUserTypeSSPR returns the EUserTypeSSPR field value
-func (o *SsprUnlockAccountRequestV1Request) GetEUserTypeSSPR() FieldEUserTypeSSPR {
+func (o *SsprValidateTokenV1Request) GetEUserTypeSSPR() FieldEUserTypeSSPR {
 	if o == nil {
 		var ret FieldEUserTypeSSPR
 		return ret
@@ -108,7 +111,7 @@ func (o *SsprUnlockAccountRequestV1Request) GetEUserTypeSSPR() FieldEUserTypeSSP
 
 // GetEUserTypeSSPROk returns a tuple with the EUserTypeSSPR field value
 // and a boolean to check if the value has been set.
-func (o *SsprUnlockAccountRequestV1Request) GetEUserTypeSSPROk() (*FieldEUserTypeSSPR, bool) {
+func (o *SsprValidateTokenV1Request) GetEUserTypeSSPROk() (*FieldEUserTypeSSPR, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -116,12 +119,12 @@ func (o *SsprUnlockAccountRequestV1Request) GetEUserTypeSSPROk() (*FieldEUserTyp
 }
 
 // SetEUserTypeSSPR sets field value
-func (o *SsprUnlockAccountRequestV1Request) SetEUserTypeSSPR(v FieldEUserTypeSSPR) {
+func (o *SsprValidateTokenV1Request) SetEUserTypeSSPR(v FieldEUserTypeSSPR) {
 	o.EUserTypeSSPR = v
 }
 
 // GetSEmailAddress returns the SEmailAddress field value if set, zero value otherwise.
-func (o *SsprUnlockAccountRequestV1Request) GetSEmailAddress() string {
+func (o *SsprValidateTokenV1Request) GetSEmailAddress() string {
 	if o == nil || o.SEmailAddress == nil {
 		var ret string
 		return ret
@@ -131,7 +134,7 @@ func (o *SsprUnlockAccountRequestV1Request) GetSEmailAddress() string {
 
 // GetSEmailAddressOk returns a tuple with the SEmailAddress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SsprUnlockAccountRequestV1Request) GetSEmailAddressOk() (*string, bool) {
+func (o *SsprValidateTokenV1Request) GetSEmailAddressOk() (*string, bool) {
 	if o == nil || o.SEmailAddress == nil {
 		return nil, false
 	}
@@ -139,7 +142,7 @@ func (o *SsprUnlockAccountRequestV1Request) GetSEmailAddressOk() (*string, bool)
 }
 
 // HasSEmailAddress returns a boolean if a field has been set.
-func (o *SsprUnlockAccountRequestV1Request) HasSEmailAddress() bool {
+func (o *SsprValidateTokenV1Request) HasSEmailAddress() bool {
 	if o != nil && o.SEmailAddress != nil {
 		return true
 	}
@@ -148,12 +151,12 @@ func (o *SsprUnlockAccountRequestV1Request) HasSEmailAddress() bool {
 }
 
 // SetSEmailAddress gets a reference to the given string and assigns it to the SEmailAddress field.
-func (o *SsprUnlockAccountRequestV1Request) SetSEmailAddress(v string) {
+func (o *SsprValidateTokenV1Request) SetSEmailAddress(v string) {
 	o.SEmailAddress = &v
 }
 
 // GetSUserLoginname returns the SUserLoginname field value if set, zero value otherwise.
-func (o *SsprUnlockAccountRequestV1Request) GetSUserLoginname() string {
+func (o *SsprValidateTokenV1Request) GetSUserLoginname() string {
 	if o == nil || o.SUserLoginname == nil {
 		var ret string
 		return ret
@@ -163,7 +166,7 @@ func (o *SsprUnlockAccountRequestV1Request) GetSUserLoginname() string {
 
 // GetSUserLoginnameOk returns a tuple with the SUserLoginname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SsprUnlockAccountRequestV1Request) GetSUserLoginnameOk() (*string, bool) {
+func (o *SsprValidateTokenV1Request) GetSUserLoginnameOk() (*string, bool) {
 	if o == nil || o.SUserLoginname == nil {
 		return nil, false
 	}
@@ -171,7 +174,7 @@ func (o *SsprUnlockAccountRequestV1Request) GetSUserLoginnameOk() (*string, bool
 }
 
 // HasSUserLoginname returns a boolean if a field has been set.
-func (o *SsprUnlockAccountRequestV1Request) HasSUserLoginname() bool {
+func (o *SsprValidateTokenV1Request) HasSUserLoginname() bool {
 	if o != nil && o.SUserLoginname != nil {
 		return true
 	}
@@ -180,11 +183,35 @@ func (o *SsprUnlockAccountRequestV1Request) HasSUserLoginname() bool {
 }
 
 // SetSUserLoginname gets a reference to the given string and assigns it to the SUserLoginname field.
-func (o *SsprUnlockAccountRequestV1Request) SetSUserLoginname(v string) {
+func (o *SsprValidateTokenV1Request) SetSUserLoginname(v string) {
 	o.SUserLoginname = &v
 }
 
-func (o SsprUnlockAccountRequestV1Request) MarshalJSON() ([]byte, error) {
+// GetBinUserSSPRtoken returns the BinUserSSPRtoken field value
+func (o *SsprValidateTokenV1Request) GetBinUserSSPRtoken() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.BinUserSSPRtoken
+}
+
+// GetBinUserSSPRtokenOk returns a tuple with the BinUserSSPRtoken field value
+// and a boolean to check if the value has been set.
+func (o *SsprValidateTokenV1Request) GetBinUserSSPRtokenOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.BinUserSSPRtoken, true
+}
+
+// SetBinUserSSPRtoken sets field value
+func (o *SsprValidateTokenV1Request) SetBinUserSSPRtoken(v string) {
+	o.BinUserSSPRtoken = v
+}
+
+func (o SsprValidateTokenV1Request) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["pksCustomerCode"] = o.PksCustomerCode
@@ -201,41 +228,44 @@ func (o SsprUnlockAccountRequestV1Request) MarshalJSON() ([]byte, error) {
 	if o.SUserLoginname != nil {
 		toSerialize["sUserLoginname"] = o.SUserLoginname
 	}
+	if true {
+		toSerialize["binUserSSPRtoken"] = o.BinUserSSPRtoken
+	}
 	return json.Marshal(toSerialize)
 }
 
-type NullableSsprUnlockAccountRequestV1Request struct {
-	value *SsprUnlockAccountRequestV1Request
+type NullableSsprValidateTokenV1Request struct {
+	value *SsprValidateTokenV1Request
 	isSet bool
 }
 
-func (v NullableSsprUnlockAccountRequestV1Request) Get() *SsprUnlockAccountRequestV1Request {
+func (v NullableSsprValidateTokenV1Request) Get() *SsprValidateTokenV1Request {
 	return v.value
 }
 
-func (v *NullableSsprUnlockAccountRequestV1Request) Set(val *SsprUnlockAccountRequestV1Request) {
+func (v *NullableSsprValidateTokenV1Request) Set(val *SsprValidateTokenV1Request) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableSsprUnlockAccountRequestV1Request) IsSet() bool {
+func (v NullableSsprValidateTokenV1Request) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableSsprUnlockAccountRequestV1Request) Unset() {
+func (v *NullableSsprValidateTokenV1Request) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableSsprUnlockAccountRequestV1Request(val *SsprUnlockAccountRequestV1Request) *NullableSsprUnlockAccountRequestV1Request {
-	return &NullableSsprUnlockAccountRequestV1Request{value: val, isSet: true}
+func NewNullableSsprValidateTokenV1Request(val *SsprValidateTokenV1Request) *NullableSsprValidateTokenV1Request {
+	return &NullableSsprValidateTokenV1Request{value: val, isSet: true}
 }
 
-func (v NullableSsprUnlockAccountRequestV1Request) MarshalJSON() ([]byte, error) {
+func (v NullableSsprValidateTokenV1Request) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableSsprUnlockAccountRequestV1Request) UnmarshalJSON(src []byte) error {
+func (v *NullableSsprValidateTokenV1Request) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

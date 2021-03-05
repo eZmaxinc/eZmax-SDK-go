@@ -11,12 +11,14 @@ Name | Type | Description | Notes
 **SDepartmentNameX** | **string** | The name of the active Department in the current language | 
 **ARegisteredModules** | **[]string** | An Array of Registered modules.  These are the modules that are Licensed to be used by the User or the API Key. | 
 **APermissions** | **[]int32** | An array of permissions granted to the user or api key | 
+**FkiUserID** | **int32** | The unique ID of the User | 
+**FkiApikeyID** | **int32** | The unique ID of the Apikey | 
 
 ## Methods
 
 ### NewActivesessionGetCurrentV1ResponseMPayload
 
-`func NewActivesessionGetCurrentV1ResponseMPayload(sCustomerCode string, eActivesessionSessiontype string, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, aRegisteredModules []string, aPermissions []int32, ) *ActivesessionGetCurrentV1ResponseMPayload`
+`func NewActivesessionGetCurrentV1ResponseMPayload(sCustomerCode string, eActivesessionSessiontype string, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, aRegisteredModules []string, aPermissions []int32, fkiUserID int32, fkiApikeyID int32, ) *ActivesessionGetCurrentV1ResponseMPayload`
 
 NewActivesessionGetCurrentV1ResponseMPayload instantiates a new ActivesessionGetCurrentV1ResponseMPayload object
 This constructor will assign default values to properties that have it defined,
@@ -169,6 +171,46 @@ and a boolean to check if the value has been set.
 `func (o *ActivesessionGetCurrentV1ResponseMPayload) SetAPermissions(v []int32)`
 
 SetAPermissions sets APermissions field to given value.
+
+
+### GetFkiUserID
+
+`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetFkiUserID() int32`
+
+GetFkiUserID returns the FkiUserID field if non-nil, zero value otherwise.
+
+### GetFkiUserIDOk
+
+`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetFkiUserIDOk() (*int32, bool)`
+
+GetFkiUserIDOk returns a tuple with the FkiUserID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiUserID
+
+`func (o *ActivesessionGetCurrentV1ResponseMPayload) SetFkiUserID(v int32)`
+
+SetFkiUserID sets FkiUserID field to given value.
+
+
+### GetFkiApikeyID
+
+`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetFkiApikeyID() int32`
+
+GetFkiApikeyID returns the FkiApikeyID field if non-nil, zero value otherwise.
+
+### GetFkiApikeyIDOk
+
+`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetFkiApikeyIDOk() (*int32, bool)`
+
+GetFkiApikeyIDOk returns a tuple with the FkiApikeyID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiApikeyID
+
+`func (o *ActivesessionGetCurrentV1ResponseMPayload) SetFkiApikeyID(v int32)`
+
+SetFkiApikeyID sets FkiApikeyID field to given value.
 
 
 

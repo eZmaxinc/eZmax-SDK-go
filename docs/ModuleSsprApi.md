@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**SsprSendUsernamesV1**](ModuleSsprApi.md#SsprSendUsernamesV1) | **Post** /1/module/sspr/sendUsernames | Send username(s)
 [**SsprUnlockAccountRequestV1**](ModuleSsprApi.md#SsprUnlockAccountRequestV1) | **Post** /1/module/sspr/unlockAccountRequest | Unlock Account Request
 [**SsprUnlockAccountV1**](ModuleSsprApi.md#SsprUnlockAccountV1) | **Post** /1/module/sspr/unlockAccount | Unlock Account
+[**SsprValidateTokenV1**](ModuleSsprApi.md#SsprValidateTokenV1) | **Post** /1/module/sspr/validateToken | Validate Token
 
 
 
@@ -97,7 +98,7 @@ import (
 )
 
 func main() {
-    ssprResetPasswordV1Request := *openapiclient.NewSsprResetPasswordV1Request("demo", int32(2), openapiclient.Field-eUserTypeSSPR("EzsignUser"), "012345678901234567890123456789AB") // SsprResetPasswordV1Request | 
+    ssprResetPasswordV1Request := *openapiclient.NewSsprResetPasswordV1Request("demo", int32(2), openapiclient.Field-eUserTypeSSPR("EzsignUser"), "012345678901234567890123456789ab", "Qwerty1234!") // SsprResetPasswordV1Request | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -289,7 +290,7 @@ import (
 )
 
 func main() {
-    ssprUnlockAccountV1Request := *openapiclient.NewSsprUnlockAccountV1Request("demo", int32(2), openapiclient.Field-eUserTypeSSPR("EzsignUser"), "012345678901234567890123456789AB") // SsprUnlockAccountV1Request | 
+    ssprUnlockAccountV1Request := *openapiclient.NewSsprUnlockAccountV1Request("demo", int32(2), openapiclient.Field-eUserTypeSSPR("EzsignUser"), "012345678901234567890123456789ab") // SsprUnlockAccountV1Request | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -313,6 +314,70 @@ Other parameters are passed through a pointer to a apiSsprUnlockAccountV1Request
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ssprUnlockAccountV1Request** | [**SsprUnlockAccountV1Request**](SsprUnlockAccountV1Request.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SsprValidateTokenV1
+
+> SsprValidateTokenV1(ctx).SsprValidateTokenV1Request(ssprValidateTokenV1Request).Execute()
+
+Validate Token
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    ssprValidateTokenV1Request := *openapiclient.NewSsprValidateTokenV1Request("demo", int32(2), openapiclient.Field-eUserTypeSSPR("EzsignUser"), "012345678901234567890123456789ab") // SsprValidateTokenV1Request | 
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.ModuleSsprApi.SsprValidateTokenV1(context.Background()).SsprValidateTokenV1Request(ssprValidateTokenV1Request).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ModuleSsprApi.SsprValidateTokenV1``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSsprValidateTokenV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ssprValidateTokenV1Request** | [**SsprValidateTokenV1Request**](SsprValidateTokenV1Request.md) |  | 
 
 ### Return type
 

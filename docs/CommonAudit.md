@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FkiUserIDCreated** | **int32** | The id of the User that created the object. | 
-**FkiUserIDModified** | **int32** | The id of the User that made the last modification on the object. | 
-**FkiApikeyIDCreated** | Pointer to **int32** | The id of the API Key that created the object. | [optional] 
-**FkiApikeyIDModified** | Pointer to **int32** | The id of the API Key that made the last modification on the object. | [optional] 
+**FkiUserIDCreated** | **int32** | The unique ID of the User | 
+**FkiUserIDModified** | **int32** | The unique ID of the User | 
+**FkiApikeyIDCreated** | Pointer to **int32** | The unique ID of the Apikey | [optional] 
+**FkiApikeyIDModified** | Pointer to **int32** | The unique ID of the Apikey | [optional] 
 **DtCreatedDate** | **string** | Represent a Date Time. The timezone is the one configured in the User&#39;s profile. | 
 **DtModifiedDate** | **string** | Represent a Date Time. The timezone is the one configured in the User&#39;s profile. | 
 

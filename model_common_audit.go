@@ -3,7 +3,7 @@
  *
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.31
+ * API version: 1.0.32
  * Contact: support-api@ezmax.ca
  */
 
@@ -17,13 +17,13 @@ import (
 
 // CommonAudit Gives informations about the user that created the object and the last user to have modified it.  If the object was never modified after creation, both Created and Modified informations will be the same.  Apikey details will only be provided if the changes were made by an API key.  
 type CommonAudit struct {
-	// The id of the User that created the object.
+	// The unique ID of the User
 	FkiUserIDCreated int32 `json:"fkiUserIDCreated"`
-	// The id of the User that made the last modification on the object.
+	// The unique ID of the User
 	FkiUserIDModified int32 `json:"fkiUserIDModified"`
-	// The id of the API Key that created the object.
+	// The unique ID of the Apikey
 	FkiApikeyIDCreated *int32 `json:"fkiApikeyIDCreated,omitempty"`
-	// The id of the API Key that made the last modification on the object.
+	// The unique ID of the Apikey
 	FkiApikeyIDModified *int32 `json:"fkiApikeyIDModified,omitempty"`
 	// Represent a Date Time. The timezone is the one configured in the User's profile.
 	DtCreatedDate string `json:"dtCreatedDate"`

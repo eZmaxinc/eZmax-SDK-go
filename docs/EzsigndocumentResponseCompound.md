@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **FkiEzsignfolderID** | **int32** | The unique ID of the Ezsignfolder | 
 **DtEzsigndocumentDuedate** | **string** | The maximum date and time at which the document can be signed. | 
 **FkiLanguageID** | **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
-**SEzsigndocumentFilename** | **string** | The actual file name that will be used when downloading or attaching to an email. | 
 **SEzsigndocumentName** | **string** | The name of the document that will be presented to Ezsignfoldersignerassociations | 
 **PkiEzsigndocumentID** | **int32** | The unique ID of the Ezsigntemplate | 
 **EEzsigndocumentStep** | [**FieldEEzsigndocumentStep**](FieldEEzsigndocumentStep.md) |  | 
@@ -25,7 +24,7 @@ Name | Type | Description | Notes
 
 ### NewEzsigndocumentResponseCompound
 
-`func NewEzsigndocumentResponseCompound(fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, fkiLanguageID int32, sEzsigndocumentFilename string, sEzsigndocumentName string, pkiEzsigndocumentID int32, eEzsigndocumentStep FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend string, dtEzsigndocumentLastsend string, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, sEzsigndocumentMD5initial string, sEzsigndocumentMD5signed string, objAudit CommonAudit, ) *EzsigndocumentResponseCompound`
+`func NewEzsigndocumentResponseCompound(fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, fkiLanguageID int32, sEzsigndocumentName string, pkiEzsigndocumentID int32, eEzsigndocumentStep FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend string, dtEzsigndocumentLastsend string, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, sEzsigndocumentMD5initial string, sEzsigndocumentMD5signed string, objAudit CommonAudit, ) *EzsigndocumentResponseCompound`
 
 NewEzsigndocumentResponseCompound instantiates a new EzsigndocumentResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -98,26 +97,6 @@ and a boolean to check if the value has been set.
 `func (o *EzsigndocumentResponseCompound) SetFkiLanguageID(v int32)`
 
 SetFkiLanguageID sets FkiLanguageID field to given value.
-
-
-### GetSEzsigndocumentFilename
-
-`func (o *EzsigndocumentResponseCompound) GetSEzsigndocumentFilename() string`
-
-GetSEzsigndocumentFilename returns the SEzsigndocumentFilename field if non-nil, zero value otherwise.
-
-### GetSEzsigndocumentFilenameOk
-
-`func (o *EzsigndocumentResponseCompound) GetSEzsigndocumentFilenameOk() (*string, bool)`
-
-GetSEzsigndocumentFilenameOk returns a tuple with the SEzsigndocumentFilename field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSEzsigndocumentFilename
-
-`func (o *EzsigndocumentResponseCompound) SetSEzsigndocumentFilename(v string)`
-
-SetSEzsigndocumentFilename sets SEzsigndocumentFilename field to given value.
 
 
 ### GetSEzsigndocumentName

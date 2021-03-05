@@ -3,7 +3,7 @@
  *
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.31
+ * API version: 1.0.32
  * Contact: support-api@ezmax.ca
  */
 
@@ -28,18 +28,21 @@ type SsprResetPasswordV1Request struct {
 	SUserLoginname *string `json:"sUserLoginname,omitempty"`
 	// Hex Encoded Secret SSPR token
 	BinUserSSPRtoken string `json:"binUserSSPRtoken"`
+	// A Password.  Must meet complexity requirements
+	SPassword string `json:"sPassword"`
 }
 
 // NewSsprResetPasswordV1Request instantiates a new SsprResetPasswordV1Request object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSsprResetPasswordV1Request(pksCustomerCode string, fkiLanguageID int32, eUserTypeSSPR FieldEUserTypeSSPR, binUserSSPRtoken string) *SsprResetPasswordV1Request {
+func NewSsprResetPasswordV1Request(pksCustomerCode string, fkiLanguageID int32, eUserTypeSSPR FieldEUserTypeSSPR, binUserSSPRtoken string, sPassword string) *SsprResetPasswordV1Request {
 	this := SsprResetPasswordV1Request{}
 	this.PksCustomerCode = pksCustomerCode
 	this.FkiLanguageID = fkiLanguageID
 	this.EUserTypeSSPR = eUserTypeSSPR
 	this.BinUserSSPRtoken = binUserSSPRtoken
+	this.SPassword = sPassword
 	return &this
 }
 
@@ -211,6 +214,30 @@ func (o *SsprResetPasswordV1Request) SetBinUserSSPRtoken(v string) {
 	o.BinUserSSPRtoken = v
 }
 
+// GetSPassword returns the SPassword field value
+func (o *SsprResetPasswordV1Request) GetSPassword() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SPassword
+}
+
+// GetSPasswordOk returns a tuple with the SPassword field value
+// and a boolean to check if the value has been set.
+func (o *SsprResetPasswordV1Request) GetSPasswordOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.SPassword, true
+}
+
+// SetSPassword sets field value
+func (o *SsprResetPasswordV1Request) SetSPassword(v string) {
+	o.SPassword = v
+}
+
 func (o SsprResetPasswordV1Request) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -230,6 +257,9 @@ func (o SsprResetPasswordV1Request) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["binUserSSPRtoken"] = o.BinUserSSPRtoken
+	}
+	if true {
+		toSerialize["sPassword"] = o.SPassword
 	}
 	return json.Marshal(toSerialize)
 }

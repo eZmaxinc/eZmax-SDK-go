@@ -3,7 +3,7 @@
  *
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.31
+ * API version: 1.0.32
  * Contact: support-api@ezmax.ca
  */
 
@@ -31,13 +31,17 @@ type ActivesessionGetCurrentV1ResponseMPayload struct {
 	ARegisteredModules []string `json:"a_RegisteredModules"`
 	// An array of permissions granted to the user or api key
 	APermissions []int32 `json:"a_Permissions"`
+	// The unique ID of the User
+	FkiUserID int32 `json:"fkiUserID"`
+	// The unique ID of the Apikey
+	FkiApikeyID int32 `json:"fkiApikeyID"`
 }
 
 // NewActivesessionGetCurrentV1ResponseMPayload instantiates a new ActivesessionGetCurrentV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewActivesessionGetCurrentV1ResponseMPayload(sCustomerCode string, eActivesessionSessiontype string, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, aRegisteredModules []string, aPermissions []int32) *ActivesessionGetCurrentV1ResponseMPayload {
+func NewActivesessionGetCurrentV1ResponseMPayload(sCustomerCode string, eActivesessionSessiontype string, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, aRegisteredModules []string, aPermissions []int32, fkiUserID int32, fkiApikeyID int32) *ActivesessionGetCurrentV1ResponseMPayload {
 	this := ActivesessionGetCurrentV1ResponseMPayload{}
 	this.SCustomerCode = sCustomerCode
 	this.EActivesessionSessiontype = eActivesessionSessiontype
@@ -46,6 +50,8 @@ func NewActivesessionGetCurrentV1ResponseMPayload(sCustomerCode string, eActives
 	this.SDepartmentNameX = sDepartmentNameX
 	this.ARegisteredModules = aRegisteredModules
 	this.APermissions = aPermissions
+	this.FkiUserID = fkiUserID
+	this.FkiApikeyID = fkiApikeyID
 	return &this
 }
 
@@ -225,6 +231,54 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) SetAPermissions(v []int32) {
 	o.APermissions = v
 }
 
+// GetFkiUserID returns the FkiUserID field value
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetFkiUserID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiUserID
+}
+
+// GetFkiUserIDOk returns a tuple with the FkiUserID field value
+// and a boolean to check if the value has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetFkiUserIDOk() (*int32, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.FkiUserID, true
+}
+
+// SetFkiUserID sets field value
+func (o *ActivesessionGetCurrentV1ResponseMPayload) SetFkiUserID(v int32) {
+	o.FkiUserID = v
+}
+
+// GetFkiApikeyID returns the FkiApikeyID field value
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetFkiApikeyID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiApikeyID
+}
+
+// GetFkiApikeyIDOk returns a tuple with the FkiApikeyID field value
+// and a boolean to check if the value has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetFkiApikeyIDOk() (*int32, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.FkiApikeyID, true
+}
+
+// SetFkiApikeyID sets field value
+func (o *ActivesessionGetCurrentV1ResponseMPayload) SetFkiApikeyID(v int32) {
+	o.FkiApikeyID = v
+}
+
 func (o ActivesessionGetCurrentV1ResponseMPayload) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -247,6 +301,12 @@ func (o ActivesessionGetCurrentV1ResponseMPayload) MarshalJSON() ([]byte, error)
 	}
 	if true {
 		toSerialize["a_Permissions"] = o.APermissions
+	}
+	if true {
+		toSerialize["fkiUserID"] = o.FkiUserID
+	}
+	if true {
+		toSerialize["fkiApikeyID"] = o.FkiApikeyID
 	}
 	return json.Marshal(toSerialize)
 }

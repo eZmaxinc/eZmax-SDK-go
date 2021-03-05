@@ -122,6 +122,7 @@ docs/SsprResetPasswordV1Request.md
 docs/SsprSendUsernamesV1Request.md
 docs/SsprUnlockAccountRequestV1Request.md
 docs/SsprUnlockAccountV1Request.md
+docs/SsprValidateTokenV1Request.md
 docs/UNUSEDEzsigndocumentEditObjectV1Request.md
 docs/UNUSEDEzsigndocumentEditObjectV1Response.md
 docs/UNUSEDEzsignfolderEditObjectV1Request.md
@@ -237,6 +238,7 @@ model_sspr_reset_password_v1_request.go
 model_sspr_send_usernames_v1_request.go
 model_sspr_unlock_account_request_v1_request.go
 model_sspr_unlock_account_v1_request.go
+model_sspr_validate_token_v1_request.go
 model_unused_ezsigndocument_edit_object_v1_request.go
 model_unused_ezsigndocument_edit_object_v1_response.go
 model_unused_ezsignfolder_edit_object_v1_request.go

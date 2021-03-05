@@ -3,7 +3,7 @@
  *
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.31
+ * API version: 1.0.32
  * Contact: support-api@ezmax.ca
  */
 
@@ -23,7 +23,7 @@ type WebhookResponse struct {
 	EWebhookModule string `json:"eWebhookModule"`
 	// This Ezsign Event. This property will be set only if the Module is \"Ezsign\".
 	EWebhookEzsignevent *string `json:"eWebhookEzsignevent,omitempty"`
-	// The Customer Code in which the event was generated
+	// The customer code assigned to your account
 	PksCustomerCode string `json:"pksCustomerCode"`
 	// The url being called
 	SWebhookUrl string `json:"sWebhookUrl"`
