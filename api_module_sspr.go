@@ -3,7 +3,7 @@
  *
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.32
+ * API version: 1.0.33
  * Contact: support-api@ezmax.ca
  */
 
@@ -76,7 +76,7 @@ func (a *ModuleSsprApiService) SsprResetPasswordRequestV1Execute(r ApiSsprResetP
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/1/module/sspr/resetPasswordRequest/"
+	localVarPath := localBasePath + "/1/module/sspr/resetPasswordRequest"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -780,7 +780,7 @@ func (r ApiSsprValidateTokenV1Request) Execute() (*_nethttp.Response, error) {
 
 /*
  * SsprValidateTokenV1 Validate Token
- * This endpoint validates if a Token is valid and not expired. If the token has less than an hour to its life, the TTL is reset to 1 hour.
+ * This endpoint validates if a Token is valid and not expired.
 
 sEmailAddress must be set if eUserTypeSSPR = EzsignUser
 

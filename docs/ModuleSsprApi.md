@@ -4,7 +4,7 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**SsprResetPasswordRequestV1**](ModuleSsprApi.md#SsprResetPasswordRequestV1) | **Post** /1/module/sspr/resetPasswordRequest/ | Reset Password Request
+[**SsprResetPasswordRequestV1**](ModuleSsprApi.md#SsprResetPasswordRequestV1) | **Post** /1/module/sspr/resetPasswordRequest | Reset Password Request
 [**SsprResetPasswordV1**](ModuleSsprApi.md#SsprResetPasswordV1) | **Post** /1/module/sspr/resetPassword | Reset Password
 [**SsprSendUsernamesV1**](ModuleSsprApi.md#SsprSendUsernamesV1) | **Post** /1/module/sspr/sendUsernames | Send username(s)
 [**SsprUnlockAccountRequestV1**](ModuleSsprApi.md#SsprUnlockAccountRequestV1) | **Post** /1/module/sspr/unlockAccountRequest | Unlock Account Request
@@ -98,7 +98,7 @@ import (
 )
 
 func main() {
-    ssprResetPasswordV1Request := *openapiclient.NewSsprResetPasswordV1Request("demo", int32(2), openapiclient.Field-eUserTypeSSPR("EzsignUser"), "012345678901234567890123456789ab", "Qwerty1234!") // SsprResetPasswordV1Request | 
+    ssprResetPasswordV1Request := *openapiclient.NewSsprResetPasswordV1Request("demo", int32(2), openapiclient.Field-eUserTypeSSPR("EzsignUser"), "012345678901234567890123456789012345678901234567890123456789abcd", "Qwerty1234!") // SsprResetPasswordV1Request | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -290,7 +290,7 @@ import (
 )
 
 func main() {
-    ssprUnlockAccountV1Request := *openapiclient.NewSsprUnlockAccountV1Request("demo", int32(2), openapiclient.Field-eUserTypeSSPR("EzsignUser"), "012345678901234567890123456789ab") // SsprUnlockAccountV1Request | 
+    ssprUnlockAccountV1Request := *openapiclient.NewSsprUnlockAccountV1Request("demo", int32(2), openapiclient.Field-eUserTypeSSPR("EzsignUser"), "012345678901234567890123456789012345678901234567890123456789abcd") // SsprUnlockAccountV1Request | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -354,7 +354,7 @@ import (
 )
 
 func main() {
-    ssprValidateTokenV1Request := *openapiclient.NewSsprValidateTokenV1Request("demo", int32(2), openapiclient.Field-eUserTypeSSPR("EzsignUser"), "012345678901234567890123456789ab") // SsprValidateTokenV1Request | 
+    ssprValidateTokenV1Request := *openapiclient.NewSsprValidateTokenV1Request("demo", int32(2), openapiclient.Field-eUserTypeSSPR("EzsignUser"), "012345678901234567890123456789012345678901234567890123456789abcd") // SsprValidateTokenV1Request | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
