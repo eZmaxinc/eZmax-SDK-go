@@ -3,7 +3,7 @@
  *
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.39
+ * API version: 1.0.40
  * Contact: support-api@ezmax.ca
  */
 
@@ -25,6 +25,11 @@ const (
 	INTERNATIONAL FieldEPhoneType = "International"
 )
 
+var allowedFieldEPhoneTypeEnumValues = []FieldEPhoneType{
+	"Local",
+	"International",
+}
+
 func (v *FieldEPhoneType) UnmarshalJSON(src []byte) error {
 	var value string
 	err := json.Unmarshal(src, &value)
@@ -32,7 +37,7 @@ func (v *FieldEPhoneType) UnmarshalJSON(src []byte) error {
 		return err
 	}
 	enumTypeValue := FieldEPhoneType(value)
-	for _, existing := range []FieldEPhoneType{ "Local", "International",   } {
+	for _, existing := range allowedFieldEPhoneTypeEnumValues {
 		if existing == enumTypeValue {
 			*v = enumTypeValue
 			return nil
@@ -40,6 +45,27 @@ func (v *FieldEPhoneType) UnmarshalJSON(src []byte) error {
 	}
 
 	return fmt.Errorf("%+v is not a valid FieldEPhoneType", value)
+}
+
+// NewFieldEPhoneTypeFromValue returns a pointer to a valid FieldEPhoneType
+// for the value passed as argument, or an error if the value passed is not allowed by the enum
+func NewFieldEPhoneTypeFromValue(v string) (*FieldEPhoneType, error) {
+	ev := FieldEPhoneType(v)
+	if ev.IsValid() {
+		return &ev, nil
+	} else {
+		return nil, fmt.Errorf("invalid value '%v' for FieldEPhoneType: valid values are %v", v, allowedFieldEPhoneTypeEnumValues)
+	}
+}
+
+// IsValid return true if the value is valid for the enum, false otherwise
+func (v FieldEPhoneType) IsValid() bool {
+	for _, existing := range allowedFieldEPhoneTypeEnumValues {
+		if existing == v {
+			return true
+		}
+	}
+	return false
 }
 
 // Ptr returns reference to Field-ePhoneType value

@@ -3,7 +3,7 @@
  *
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.39
+ * API version: 1.0.40
  * Contact: support-api@ezmax.ca
  */
 
@@ -44,6 +44,30 @@ const (
 	VETRX_VENDOR FieldEUserType = "VetrxVendor"
 )
 
+var allowedFieldEUserTypeEnumValues = []FieldEUserType{
+	"AgentBroker",
+	"Assistant",
+	"Attendance",
+	"Customer",
+	"Employee",
+	"Ezcom",
+	"EzsignSigner",
+	"EzsignUser",
+	"FranchiseCustomerServer",
+	"Normal",
+	"RewardAdministration",
+	"RewardMember",
+	"RewardRepresentative",
+	"RewardCustomer",
+	"RewardDistributorServer",
+	"Supplier",
+	"VetrxCustomer",
+	"Vetrxcustomergroup",
+	"VetrxCustomerServer",
+	"VetrxManufacturer",
+	"VetrxVendor",
+}
+
 func (v *FieldEUserType) UnmarshalJSON(src []byte) error {
 	var value string
 	err := json.Unmarshal(src, &value)
@@ -51,7 +75,7 @@ func (v *FieldEUserType) UnmarshalJSON(src []byte) error {
 		return err
 	}
 	enumTypeValue := FieldEUserType(value)
-	for _, existing := range []FieldEUserType{ "AgentBroker", "Assistant", "Attendance", "Customer", "Employee", "Ezcom", "EzsignSigner", "EzsignUser", "FranchiseCustomerServer", "Normal", "RewardAdministration", "RewardMember", "RewardRepresentative", "RewardCustomer", "RewardDistributorServer", "Supplier", "VetrxCustomer", "Vetrxcustomergroup", "VetrxCustomerServer", "VetrxManufacturer", "VetrxVendor",   } {
+	for _, existing := range allowedFieldEUserTypeEnumValues {
 		if existing == enumTypeValue {
 			*v = enumTypeValue
 			return nil
@@ -59,6 +83,27 @@ func (v *FieldEUserType) UnmarshalJSON(src []byte) error {
 	}
 
 	return fmt.Errorf("%+v is not a valid FieldEUserType", value)
+}
+
+// NewFieldEUserTypeFromValue returns a pointer to a valid FieldEUserType
+// for the value passed as argument, or an error if the value passed is not allowed by the enum
+func NewFieldEUserTypeFromValue(v string) (*FieldEUserType, error) {
+	ev := FieldEUserType(v)
+	if ev.IsValid() {
+		return &ev, nil
+	} else {
+		return nil, fmt.Errorf("invalid value '%v' for FieldEUserType: valid values are %v", v, allowedFieldEUserTypeEnumValues)
+	}
+}
+
+// IsValid return true if the value is valid for the enum, false otherwise
+func (v FieldEUserType) IsValid() bool {
+	for _, existing := range allowedFieldEUserTypeEnumValues {
+		if existing == v {
+			return true
+		}
+	}
+	return false
 }
 
 // Ptr returns reference to Field-eUserType value

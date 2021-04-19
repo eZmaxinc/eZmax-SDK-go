@@ -3,7 +3,7 @@
  *
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.39
+ * API version: 1.0.40
  * Contact: support-api@ezmax.ca
  */
 
@@ -26,6 +26,12 @@ const (
 	WEEKLY FieldEEzsignfolderSendreminderfrequency = "Weekly"
 )
 
+var allowedFieldEEzsignfolderSendreminderfrequencyEnumValues = []FieldEEzsignfolderSendreminderfrequency{
+	"None",
+	"Daily",
+	"Weekly",
+}
+
 func (v *FieldEEzsignfolderSendreminderfrequency) UnmarshalJSON(src []byte) error {
 	var value string
 	err := json.Unmarshal(src, &value)
@@ -33,7 +39,7 @@ func (v *FieldEEzsignfolderSendreminderfrequency) UnmarshalJSON(src []byte) erro
 		return err
 	}
 	enumTypeValue := FieldEEzsignfolderSendreminderfrequency(value)
-	for _, existing := range []FieldEEzsignfolderSendreminderfrequency{ "None", "Daily", "Weekly",   } {
+	for _, existing := range allowedFieldEEzsignfolderSendreminderfrequencyEnumValues {
 		if existing == enumTypeValue {
 			*v = enumTypeValue
 			return nil
@@ -41,6 +47,27 @@ func (v *FieldEEzsignfolderSendreminderfrequency) UnmarshalJSON(src []byte) erro
 	}
 
 	return fmt.Errorf("%+v is not a valid FieldEEzsignfolderSendreminderfrequency", value)
+}
+
+// NewFieldEEzsignfolderSendreminderfrequencyFromValue returns a pointer to a valid FieldEEzsignfolderSendreminderfrequency
+// for the value passed as argument, or an error if the value passed is not allowed by the enum
+func NewFieldEEzsignfolderSendreminderfrequencyFromValue(v string) (*FieldEEzsignfolderSendreminderfrequency, error) {
+	ev := FieldEEzsignfolderSendreminderfrequency(v)
+	if ev.IsValid() {
+		return &ev, nil
+	} else {
+		return nil, fmt.Errorf("invalid value '%v' for FieldEEzsignfolderSendreminderfrequency: valid values are %v", v, allowedFieldEEzsignfolderSendreminderfrequencyEnumValues)
+	}
+}
+
+// IsValid return true if the value is valid for the enum, false otherwise
+func (v FieldEEzsignfolderSendreminderfrequency) IsValid() bool {
+	for _, existing := range allowedFieldEEzsignfolderSendreminderfrequencyEnumValues {
+		if existing == v {
+			return true
+		}
+	}
+	return false
 }
 
 // Ptr returns reference to Field-eEzsignfolderSendreminderfrequency value

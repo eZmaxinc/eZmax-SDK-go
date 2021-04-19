@@ -3,7 +3,7 @@
  *
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.39
+ * API version: 1.0.40
  * Contact: support-api@ezmax.ca
  */
 
@@ -41,7 +41,7 @@ var (
 	xmlCheck  = regexp.MustCompile(`(?i:(?:application|text)/xml)`)
 )
 
-// APIClient manages communication with the eZmax API Definition API v1.0.39
+// APIClient manages communication with the eZmax API Definition API v1.0.40
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration
@@ -137,7 +137,7 @@ func selectHeaderAccept(accepts []string) string {
 	return strings.Join(accepts, ",")
 }
 
-// contains is a case insenstive match, finding needle in a haystack
+// contains is a case insensitive match, finding needle in a haystack
 func contains(haystack []string, needle string) bool {
 	for _, a := range haystack {
 		if strings.ToLower(a) == strings.ToLower(needle) {

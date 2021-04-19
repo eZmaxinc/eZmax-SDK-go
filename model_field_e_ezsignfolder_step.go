@@ -3,7 +3,7 @@
  *
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.39
+ * API version: 1.0.40
  * Contact: support-api@ezmax.ca
  */
 
@@ -30,6 +30,16 @@ const (
 	ARCHIVED FieldEEzsignfolderStep = "Archived"
 )
 
+var allowedFieldEEzsignfolderStepEnumValues = []FieldEEzsignfolderStep{
+	"Unsent",
+	"Sent",
+	"PartiallySigned",
+	"Expired",
+	"Signed",
+	"Completed",
+	"Archived",
+}
+
 func (v *FieldEEzsignfolderStep) UnmarshalJSON(src []byte) error {
 	var value string
 	err := json.Unmarshal(src, &value)
@@ -37,7 +47,7 @@ func (v *FieldEEzsignfolderStep) UnmarshalJSON(src []byte) error {
 		return err
 	}
 	enumTypeValue := FieldEEzsignfolderStep(value)
-	for _, existing := range []FieldEEzsignfolderStep{ "Unsent", "Sent", "PartiallySigned", "Expired", "Signed", "Completed", "Archived",   } {
+	for _, existing := range allowedFieldEEzsignfolderStepEnumValues {
 		if existing == enumTypeValue {
 			*v = enumTypeValue
 			return nil
@@ -45,6 +55,27 @@ func (v *FieldEEzsignfolderStep) UnmarshalJSON(src []byte) error {
 	}
 
 	return fmt.Errorf("%+v is not a valid FieldEEzsignfolderStep", value)
+}
+
+// NewFieldEEzsignfolderStepFromValue returns a pointer to a valid FieldEEzsignfolderStep
+// for the value passed as argument, or an error if the value passed is not allowed by the enum
+func NewFieldEEzsignfolderStepFromValue(v string) (*FieldEEzsignfolderStep, error) {
+	ev := FieldEEzsignfolderStep(v)
+	if ev.IsValid() {
+		return &ev, nil
+	} else {
+		return nil, fmt.Errorf("invalid value '%v' for FieldEEzsignfolderStep: valid values are %v", v, allowedFieldEEzsignfolderStepEnumValues)
+	}
+}
+
+// IsValid return true if the value is valid for the enum, false otherwise
+func (v FieldEEzsignfolderStep) IsValid() bool {
+	for _, existing := range allowedFieldEEzsignfolderStepEnumValues {
+		if existing == v {
+			return true
+		}
+	}
+	return false
 }
 
 // Ptr returns reference to Field-eEzsignfolderStep value

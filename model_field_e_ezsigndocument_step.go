@@ -3,7 +3,7 @@
  *
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.39
+ * API version: 1.0.40
  * Contact: support-api@ezmax.ca
  */
 
@@ -27,6 +27,13 @@ const (
 	COMPLETED FieldEEzsigndocumentStep = "Completed"
 )
 
+var allowedFieldEEzsigndocumentStepEnumValues = []FieldEEzsigndocumentStep{
+	"Unsent",
+	"Unsigned",
+	"PartiallySigned",
+	"Completed",
+}
+
 func (v *FieldEEzsigndocumentStep) UnmarshalJSON(src []byte) error {
 	var value string
 	err := json.Unmarshal(src, &value)
@@ -34,7 +41,7 @@ func (v *FieldEEzsigndocumentStep) UnmarshalJSON(src []byte) error {
 		return err
 	}
 	enumTypeValue := FieldEEzsigndocumentStep(value)
-	for _, existing := range []FieldEEzsigndocumentStep{ "Unsent", "Unsigned", "PartiallySigned", "Completed",   } {
+	for _, existing := range allowedFieldEEzsigndocumentStepEnumValues {
 		if existing == enumTypeValue {
 			*v = enumTypeValue
 			return nil
@@ -42,6 +49,27 @@ func (v *FieldEEzsigndocumentStep) UnmarshalJSON(src []byte) error {
 	}
 
 	return fmt.Errorf("%+v is not a valid FieldEEzsigndocumentStep", value)
+}
+
+// NewFieldEEzsigndocumentStepFromValue returns a pointer to a valid FieldEEzsigndocumentStep
+// for the value passed as argument, or an error if the value passed is not allowed by the enum
+func NewFieldEEzsigndocumentStepFromValue(v string) (*FieldEEzsigndocumentStep, error) {
+	ev := FieldEEzsigndocumentStep(v)
+	if ev.IsValid() {
+		return &ev, nil
+	} else {
+		return nil, fmt.Errorf("invalid value '%v' for FieldEEzsigndocumentStep: valid values are %v", v, allowedFieldEEzsigndocumentStepEnumValues)
+	}
+}
+
+// IsValid return true if the value is valid for the enum, false otherwise
+func (v FieldEEzsigndocumentStep) IsValid() bool {
+	for _, existing := range allowedFieldEEzsigndocumentStepEnumValues {
+		if existing == v {
+			return true
+		}
+	}
+	return false
 }
 
 // Ptr returns reference to Field-eEzsigndocumentStep value

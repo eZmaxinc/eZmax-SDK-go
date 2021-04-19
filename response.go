@@ -3,7 +3,7 @@
  *
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.39
+ * API version: 1.0.40
  * Contact: support-api@ezmax.ca
  */
 
@@ -33,7 +33,7 @@ type APIResponse struct {
 	Payload []byte `json:"-"`
 }
 
-// NewAPIResponse returns a new APIResonse object.
+// NewAPIResponse returns a new APIResponse object.
 func NewAPIResponse(r *http.Response) *APIResponse {
 
 	response := &APIResponse{Response: r}
