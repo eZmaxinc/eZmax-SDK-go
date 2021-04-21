@@ -3,7 +3,7 @@
  *
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.41
+ * API version: 1.0.42
  * Contact: support-api@ezmax.ca
  */
 
