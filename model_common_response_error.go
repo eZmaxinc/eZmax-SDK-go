@@ -3,7 +3,7 @@
  *
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.42
+ * API version: 1.0.43
  * Contact: support-api@ezmax.ca
  */
 
@@ -19,6 +19,8 @@ import (
 type CommonResponseError struct {
 	// More detail about the error
 	SErrorMessage string `json:"sErrorMessage"`
+	// The error code. See documentation for valid values
+	EErrorCode *string `json:"eErrorCode,omitempty"`
 }
 
 // NewCommonResponseError instantiates a new CommonResponseError object
@@ -63,10 +65,45 @@ func (o *CommonResponseError) SetSErrorMessage(v string) {
 	o.SErrorMessage = v
 }
 
+// GetEErrorCode returns the EErrorCode field value if set, zero value otherwise.
+func (o *CommonResponseError) GetEErrorCode() string {
+	if o == nil || o.EErrorCode == nil {
+		var ret string
+		return ret
+	}
+	return *o.EErrorCode
+}
+
+// GetEErrorCodeOk returns a tuple with the EErrorCode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CommonResponseError) GetEErrorCodeOk() (*string, bool) {
+	if o == nil || o.EErrorCode == nil {
+		return nil, false
+	}
+	return o.EErrorCode, true
+}
+
+// HasEErrorCode returns a boolean if a field has been set.
+func (o *CommonResponseError) HasEErrorCode() bool {
+	if o != nil && o.EErrorCode != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetEErrorCode gets a reference to the given string and assigns it to the EErrorCode field.
+func (o *CommonResponseError) SetEErrorCode(v string) {
+	o.EErrorCode = &v
+}
+
 func (o CommonResponseError) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["sErrorMessage"] = o.SErrorMessage
+	}
+	if o.EErrorCode != nil {
+		toSerialize["eErrorCode"] = o.EErrorCode
 	}
 	return json.Marshal(toSerialize)
 }

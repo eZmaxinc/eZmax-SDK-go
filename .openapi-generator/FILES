@@ -4,6 +4,7 @@
 README.md
 api/openapi.yaml
 api_global_customer.go
+api_module_authenticate.go
 api_module_sspr.go
 api_module_user.go
 api_object_activesession.go
@@ -28,6 +29,9 @@ docs/ApikeyRequest.md
 docs/ApikeyRequestCompound.md
 docs/ApikeyResponse.md
 docs/AttemptResponse.md
+docs/AuthenticateAuthenticateV2Request.md
+docs/AuthenticateAuthenticateV2Response.md
+docs/AuthenticateAuthenticateV2ResponseMPayload.md
 docs/CommonAudit.md
 docs/CommonGetAutocompleteV1Response.md
 docs/CommonGetAutocompleteV1ResponseMPayload.md
@@ -103,6 +107,7 @@ docs/FranchisereferalincomeRequest.md
 docs/FranchisereferalincomeRequestCompound.md
 docs/GlobalCustomerApi.md
 docs/GlobalCustomerGetEndpointV1Response.md
+docs/ModuleAuthenticateApi.md
 docs/ModuleSsprApi.md
 docs/ModuleUserApi.md
 docs/MultilingualApikeyDescription.md
@@ -157,6 +162,9 @@ model_apikey_request.go
 model_apikey_request_compound.go
 model_apikey_response.go
 model_attempt_response.go
+model_authenticate_authenticate_v2_request.go
+model_authenticate_authenticate_v2_response.go
+model_authenticate_authenticate_v2_response_m_payload.go
 model_common_audit.go
 model_common_get_autocomplete_v1_response.go
 model_common_get_autocomplete_v1_response_m_payload.go
