@@ -3,7 +3,7 @@
  *
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.43
+ * API version: 1.0.44
  * Contact: support-api@ezmax.ca
  */
 
@@ -24,17 +24,18 @@ type AuthenticateAuthenticateV2Request struct {
 	// The Login name of the User.
 	SUserLoginname *string `json:"sUserLoginname,omitempty"`
 	// A Password.  Must meet complexity requirements
-	SPassword string `json:"sPassword"`
+	SPassword *string `json:"sPassword,omitempty"`
+	// A Password encrypted and encoded in Base64  Must meet complexity requirements
+	SPasswordEncrypted *string `json:"sPasswordEncrypted,omitempty"`
 }
 
 // NewAuthenticateAuthenticateV2Request instantiates a new AuthenticateAuthenticateV2Request object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAuthenticateAuthenticateV2Request(pksCustomerCode string, sPassword string) *AuthenticateAuthenticateV2Request {
+func NewAuthenticateAuthenticateV2Request(pksCustomerCode string) *AuthenticateAuthenticateV2Request {
 	this := AuthenticateAuthenticateV2Request{}
 	this.PksCustomerCode = pksCustomerCode
-	this.SPassword = sPassword
 	return &this
 }
 
@@ -134,28 +135,68 @@ func (o *AuthenticateAuthenticateV2Request) SetSUserLoginname(v string) {
 	o.SUserLoginname = &v
 }
 
-// GetSPassword returns the SPassword field value
+// GetSPassword returns the SPassword field value if set, zero value otherwise.
 func (o *AuthenticateAuthenticateV2Request) GetSPassword() string {
-	if o == nil {
+	if o == nil || o.SPassword == nil {
 		var ret string
 		return ret
 	}
-
-	return o.SPassword
+	return *o.SPassword
 }
 
-// GetSPasswordOk returns a tuple with the SPassword field value
+// GetSPasswordOk returns a tuple with the SPassword field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AuthenticateAuthenticateV2Request) GetSPasswordOk() (*string, bool) {
-	if o == nil  {
+	if o == nil || o.SPassword == nil {
 		return nil, false
 	}
-	return &o.SPassword, true
+	return o.SPassword, true
 }
 
-// SetSPassword sets field value
+// HasSPassword returns a boolean if a field has been set.
+func (o *AuthenticateAuthenticateV2Request) HasSPassword() bool {
+	if o != nil && o.SPassword != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSPassword gets a reference to the given string and assigns it to the SPassword field.
 func (o *AuthenticateAuthenticateV2Request) SetSPassword(v string) {
-	o.SPassword = v
+	o.SPassword = &v
+}
+
+// GetSPasswordEncrypted returns the SPasswordEncrypted field value if set, zero value otherwise.
+func (o *AuthenticateAuthenticateV2Request) GetSPasswordEncrypted() string {
+	if o == nil || o.SPasswordEncrypted == nil {
+		var ret string
+		return ret
+	}
+	return *o.SPasswordEncrypted
+}
+
+// GetSPasswordEncryptedOk returns a tuple with the SPasswordEncrypted field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AuthenticateAuthenticateV2Request) GetSPasswordEncryptedOk() (*string, bool) {
+	if o == nil || o.SPasswordEncrypted == nil {
+		return nil, false
+	}
+	return o.SPasswordEncrypted, true
+}
+
+// HasSPasswordEncrypted returns a boolean if a field has been set.
+func (o *AuthenticateAuthenticateV2Request) HasSPasswordEncrypted() bool {
+	if o != nil && o.SPasswordEncrypted != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSPasswordEncrypted gets a reference to the given string and assigns it to the SPasswordEncrypted field.
+func (o *AuthenticateAuthenticateV2Request) SetSPasswordEncrypted(v string) {
+	o.SPasswordEncrypted = &v
 }
 
 func (o AuthenticateAuthenticateV2Request) MarshalJSON() ([]byte, error) {
@@ -169,8 +210,11 @@ func (o AuthenticateAuthenticateV2Request) MarshalJSON() ([]byte, error) {
 	if o.SUserLoginname != nil {
 		toSerialize["sUserLoginname"] = o.SUserLoginname
 	}
-	if true {
+	if o.SPassword != nil {
 		toSerialize["sPassword"] = o.SPassword
+	}
+	if o.SPasswordEncrypted != nil {
+		toSerialize["sPasswordEncrypted"] = o.SPasswordEncrypted
 	}
 	return json.Marshal(toSerialize)
 }

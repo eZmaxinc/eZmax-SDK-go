@@ -7,13 +7,14 @@ Name | Type | Description | Notes
 **PksCustomerCode** | **string** | The customer code assigned to your account | 
 **SEmailAddress** | Pointer to **string** | The email address. | [optional] 
 **SUserLoginname** | Pointer to **string** | The Login name of the User. | [optional] 
-**SPassword** | **string** | A Password.  Must meet complexity requirements | 
+**SPassword** | Pointer to **string** | A Password.  Must meet complexity requirements | [optional] 
+**SPasswordEncrypted** | Pointer to **string** | A Password encrypted and encoded in Base64  Must meet complexity requirements | [optional] 
 
 ## Methods
 
 ### NewAuthenticateAuthenticateV2Request
 
-`func NewAuthenticateAuthenticateV2Request(pksCustomerCode string, sPassword string, ) *AuthenticateAuthenticateV2Request`
+`func NewAuthenticateAuthenticateV2Request(pksCustomerCode string, ) *AuthenticateAuthenticateV2Request`
 
 NewAuthenticateAuthenticateV2Request instantiates a new AuthenticateAuthenticateV2Request object
 This constructor will assign default values to properties that have it defined,
@@ -117,6 +118,36 @@ and a boolean to check if the value has been set.
 
 SetSPassword sets SPassword field to given value.
 
+### HasSPassword
+
+`func (o *AuthenticateAuthenticateV2Request) HasSPassword() bool`
+
+HasSPassword returns a boolean if a field has been set.
+
+### GetSPasswordEncrypted
+
+`func (o *AuthenticateAuthenticateV2Request) GetSPasswordEncrypted() string`
+
+GetSPasswordEncrypted returns the SPasswordEncrypted field if non-nil, zero value otherwise.
+
+### GetSPasswordEncryptedOk
+
+`func (o *AuthenticateAuthenticateV2Request) GetSPasswordEncryptedOk() (*string, bool)`
+
+GetSPasswordEncryptedOk returns a tuple with the SPasswordEncrypted field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSPasswordEncrypted
+
+`func (o *AuthenticateAuthenticateV2Request) SetSPasswordEncrypted(v string)`
+
+SetSPasswordEncrypted sets SPasswordEncrypted field to given value.
+
+### HasSPasswordEncrypted
+
+`func (o *AuthenticateAuthenticateV2Request) HasSPasswordEncrypted() bool`
+
+HasSPasswordEncrypted returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

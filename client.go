@@ -3,7 +3,7 @@
  *
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.43
+ * API version: 1.0.44
  * Contact: support-api@ezmax.ca
  */
 
@@ -41,7 +41,7 @@ var (
 	xmlCheck  = regexp.MustCompile(`(?i:(?:application|text)/xml)`)
 )
 
-// APIClient manages communication with the eZmax API Definition API v1.0.43
+// APIClient manages communication with the eZmax API Definition API v1.0.44
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration

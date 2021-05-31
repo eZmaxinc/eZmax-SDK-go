@@ -3,7 +3,7 @@
  *
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.43
+ * API version: 1.0.44
  * Contact: support-api@ezmax.ca
  */
 
@@ -17,7 +17,7 @@ import (
 
 // EzsignsignatureRequest An Ezsignsignature Object
 type EzsignsignatureRequest struct {
-	// A reference to a valid Ezsignfoldersignerassociation.  That value is returned after a successful Ezsignfoldersignerassociation Creation. 
+	// The unique ID of the Ezsignfoldersignerassociation
 	FkiEzsignfoldersignerassociationID int32 `json:"fkiEzsignfoldersignerassociationID"`
 	// The page number in the document where to apply the signature
 	IEzsignpagePagenumber int32 `json:"iEzsignpagePagenumber"`
@@ -25,11 +25,10 @@ type EzsignsignatureRequest struct {
 	IEzsignsignatureX int32 `json:"iEzsignsignatureX"`
 	// The Y coordinate (Vertical) where to put the signature block on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the signature block 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.
 	IEzsignsignatureY int32 `json:"iEzsignsignatureY"`
-	// The step when the Ezsignsigner will be invited to sign.  For example, if you say iEzsignsignatureStep=2, that block of signature will be available for signature only after ALL the signatures in step 1 are completed.
+	// The step when the Ezsignsigner will be invited to sign.
 	IEzsignsignatureStep int32 `json:"iEzsignsignatureStep"`
-	// The type of signature required.  1. **Acknowledgement** is for an acknowledgment of receipt. 2. **Handwritten** is for a handwritten kind of signature where users needs to \"draw\" their signature on screen. 3. **Initials** is a simple \"click to add initials\" block. 4. **Name** is a simple \"Click to sign\" block. This is the most common block of signature.
-	EEzsignsignatureType string `json:"eEzsignsignatureType"`
-	// A reference to a valid Ezsigndocument.  That value is returned after a successful Ezsigndocumentation Creation.
+	EEzsignsignatureType FieldEEzsignsignatureType `json:"eEzsignsignatureType"`
+	// The unique ID of the Ezsigntemplate
 	FkiEzsigndocumentID int32 `json:"fkiEzsigndocumentID"`
 }
 
@@ -37,7 +36,7 @@ type EzsignsignatureRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignsignatureRequest(fkiEzsignfoldersignerassociationID int32, iEzsignpagePagenumber int32, iEzsignsignatureX int32, iEzsignsignatureY int32, iEzsignsignatureStep int32, eEzsignsignatureType string, fkiEzsigndocumentID int32) *EzsignsignatureRequest {
+func NewEzsignsignatureRequest(fkiEzsignfoldersignerassociationID int32, iEzsignpagePagenumber int32, iEzsignsignatureX int32, iEzsignsignatureY int32, iEzsignsignatureStep int32, eEzsignsignatureType FieldEEzsignsignatureType, fkiEzsigndocumentID int32) *EzsignsignatureRequest {
 	this := EzsignsignatureRequest{}
 	this.FkiEzsignfoldersignerassociationID = fkiEzsignfoldersignerassociationID
 	this.IEzsignpagePagenumber = iEzsignpagePagenumber
@@ -178,9 +177,9 @@ func (o *EzsignsignatureRequest) SetIEzsignsignatureStep(v int32) {
 }
 
 // GetEEzsignsignatureType returns the EEzsignsignatureType field value
-func (o *EzsignsignatureRequest) GetEEzsignsignatureType() string {
+func (o *EzsignsignatureRequest) GetEEzsignsignatureType() FieldEEzsignsignatureType {
 	if o == nil {
-		var ret string
+		var ret FieldEEzsignsignatureType
 		return ret
 	}
 
@@ -189,7 +188,7 @@ func (o *EzsignsignatureRequest) GetEEzsignsignatureType() string {
 
 // GetEEzsignsignatureTypeOk returns a tuple with the EEzsignsignatureType field value
 // and a boolean to check if the value has been set.
-func (o *EzsignsignatureRequest) GetEEzsignsignatureTypeOk() (*string, bool) {
+func (o *EzsignsignatureRequest) GetEEzsignsignatureTypeOk() (*FieldEEzsignsignatureType, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -197,7 +196,7 @@ func (o *EzsignsignatureRequest) GetEEzsignsignatureTypeOk() (*string, bool) {
 }
 
 // SetEEzsignsignatureType sets field value
-func (o *EzsignsignatureRequest) SetEEzsignsignatureType(v string) {
+func (o *EzsignsignatureRequest) SetEEzsignsignatureType(v FieldEEzsignsignatureType) {
 	o.EEzsignsignatureType = v
 }
 

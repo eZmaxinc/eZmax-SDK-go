@@ -97,6 +97,7 @@ docs/EzsignsignerRequestCompoundContact.md
 docs/FieldEEzsigndocumentStep.md
 docs/FieldEEzsignfolderSendreminderfrequency.md
 docs/FieldEEzsignfolderStep.md
+docs/FieldEEzsignsignatureType.md
 docs/FieldEPhoneType.md
 docs/FieldEUserType.md
 docs/FieldEUserTypeSSPR.md
@@ -230,6 +231,7 @@ model_ezsignsigner_request_compound_contact.go
 model_field_e_ezsigndocument_step.go
 model_field_e_ezsignfolder_sendreminderfrequency.go
 model_field_e_ezsignfolder_step.go
+model_field_e_ezsignsignature_type.go
 model_field_e_phone_type.go
 model_field_e_user_type.go
 model_field_e_user_type_sspr.go

@@ -30,7 +30,7 @@ import (
 
 func main() {
     eSessionType := "eSessionType_example" // string | 
-    authenticateAuthenticateV2Request := *openapiclient.NewAuthenticateAuthenticateV2Request("demo", "Qwerty1234!") // AuthenticateAuthenticateV2Request | 
+    authenticateAuthenticateV2Request := *openapiclient.NewAuthenticateAuthenticateV2Request("demo") // AuthenticateAuthenticateV2Request | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
