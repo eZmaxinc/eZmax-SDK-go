@@ -3,7 +3,7 @@
  *
  * This API expose all the functionnalities for the eZmax and eZsign applications.
  *
- * API version: 1.0.45
+ * API version: 1.0.46
  * Contact: support-api@ezmax.ca
  */
 
@@ -78,7 +78,7 @@ func (a *ModuleAuthenticateApiService) AuthenticateAuthenticateV2Execute(r ApiAu
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/2/module/authenticate/authenticate/ezsignuser/{eSessionType}"
+	localVarPath := localBasePath + "/2/module/authenticate/authenticate/{eSessionType}"
 	localVarPath = strings.Replace(localVarPath, "{"+"eSessionType"+"}", _neturl.PathEscape(parameterToString(r.eSessionType, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
