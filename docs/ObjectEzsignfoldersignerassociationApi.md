@@ -152,6 +152,8 @@ Name | Type | Description  | Notes
 
 Retrieve an existing Ezsignfoldersignerassociation's children IDs
 
+
+
 ### Example
 
 ```go
@@ -287,6 +289,8 @@ Name | Type | Description  | Notes
 > EzsignfoldersignerassociationGetObjectV1Response EzsignfoldersignerassociationGetObjectV1(ctx, pkiEzsignfoldersignerassociationID).Execute()
 
 Retrieve an existing Ezsignfoldersignerassociation
+
+
 
 ### Example
 

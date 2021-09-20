@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjAddress** | Pointer to [**AddressRequest**](AddressRequest.md) |  | [optional] 
+**ObjAddress** | [**AddressRequest**](AddressRequest.md) |  | 
 **AObjContact** | [**[]ContactRequestCompound**](ContactRequestCompound.md) |  | 
 **FkiFranchisebrokerID** | **int32** | The unique ID of the Franchisebroker | 
 **FkiFranchisereferalincomeprogramID** | **int32** | The unique ID of the Franchisereferalincomeprogram | 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewFranchisereferalincomeRequestCompound
 
-`func NewFranchisereferalincomeRequestCompound(aObjContact []ContactRequestCompound, fkiFranchisebrokerID int32, fkiFranchisereferalincomeprogramID int32, fkiPeriodID int32, dFranchisereferalincomeLoan string, dFranchisereferalincomeFranchiseamount string, dFranchisereferalincomeFranchisoramount string, dFranchisereferalincomeAgentamount string, dtFranchisereferalincomeDisbursed string, tFranchisereferalincomeComment string, fkiFranchiseofficeID int32, sFranchisereferalincomeRemoteid string, ) *FranchisereferalincomeRequestCompound`
+`func NewFranchisereferalincomeRequestCompound(objAddress AddressRequest, aObjContact []ContactRequestCompound, fkiFranchisebrokerID int32, fkiFranchisereferalincomeprogramID int32, fkiPeriodID int32, dFranchisereferalincomeLoan string, dFranchisereferalincomeFranchiseamount string, dFranchisereferalincomeFranchisoramount string, dFranchisereferalincomeAgentamount string, dtFranchisereferalincomeDisbursed string, tFranchisereferalincomeComment string, fkiFranchiseofficeID int32, sFranchisereferalincomeRemoteid string, ) *FranchisereferalincomeRequestCompound`
 
 NewFranchisereferalincomeRequestCompound instantiates a new FranchisereferalincomeRequestCompound object
 This constructor will assign default values to properties that have it defined,
@@ -56,11 +56,6 @@ and a boolean to check if the value has been set.
 
 SetObjAddress sets ObjAddress field to given value.
 
-### HasObjAddress
-
-`func (o *FranchisereferalincomeRequestCompound) HasObjAddress() bool`
-
-HasObjAddress returns a boolean if a field has been set.
 
 ### GetAObjContact
 

@@ -9,7 +9,9 @@ Method | HTTP request | Description
 [**EzsigndocumentDeleteObjectV1**](ObjectEzsigndocumentApi.md#EzsigndocumentDeleteObjectV1) | **Delete** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Delete an existing Ezsigndocument
 [**EzsigndocumentGetChildrenV1**](ObjectEzsigndocumentApi.md#EzsigndocumentGetChildrenV1) | **Get** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getChildren | Retrieve an existing Ezsigndocument&#39;s children IDs
 [**EzsigndocumentGetDownloadUrlV1**](ObjectEzsigndocumentApi.md#EzsigndocumentGetDownloadUrlV1) | **Get** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getDownloadUrl/{eDocumentType} | Retrieve a URL to download documents.
+[**EzsigndocumentGetFormDataV1**](ObjectEzsigndocumentApi.md#EzsigndocumentGetFormDataV1) | **Get** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getFormData | Retrieve an existing Ezsigndocument&#39;s Form Data
 [**EzsigndocumentGetObjectV1**](ObjectEzsigndocumentApi.md#EzsigndocumentGetObjectV1) | **Get** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Retrieve an existing Ezsigndocument
+[**EzsigndocumentGetWordsPositionsV1**](ObjectEzsigndocumentApi.md#EzsigndocumentGetWordsPositionsV1) | **Post** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions | Retrieve positions X,Y of given words from a Ezsigndocument
 
 
 
@@ -225,6 +227,8 @@ Name | Type | Description  | Notes
 
 Retrieve an existing Ezsigndocument's children IDs
 
+
+
 ### Example
 
 ```go
@@ -358,11 +362,83 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## EzsigndocumentGetFormDataV1
+
+> *os.File EzsigndocumentGetFormDataV1(ctx, pkiEzsigndocumentID).Execute()
+
+Retrieve an existing Ezsigndocument's Form Data
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    pkiEzsigndocumentID := int32(56) // int32 | The unique ID of the Ezsigndocument
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.ObjectEzsigndocumentApi.EzsigndocumentGetFormDataV1(context.Background(), pkiEzsigndocumentID).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentApi.EzsigndocumentGetFormDataV1``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `EzsigndocumentGetFormDataV1`: *os.File
+    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigndocumentApi.EzsigndocumentGetFormDataV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsigndocumentID** | **int32** | The unique ID of the Ezsigndocument | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsigndocumentGetFormDataV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[***os.File**](*os.File.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/zip, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## EzsigndocumentGetObjectV1
 
 > EzsigndocumentGetObjectV1Response EzsigndocumentGetObjectV1(ctx, pkiEzsigndocumentID).Execute()
 
 Retrieve an existing Ezsigndocument
+
+
 
 ### Example
 
@@ -419,6 +495,78 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsigndocumentGetWordsPositionsV1
+
+> EzsigndocumentGetWordsPositionsV1Response EzsigndocumentGetWordsPositionsV1(ctx, pkiEzsigndocumentID).EzsigndocumentGetWordsPositionsV1Request(ezsigndocumentGetWordsPositionsV1Request).Execute()
+
+Retrieve positions X,Y of given words from a Ezsigndocument
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    pkiEzsigndocumentID := int32(56) // int32 | The unique ID of the Ezsigndocument
+    ezsigndocumentGetWordsPositionsV1Request := *openapiclient.NewEzsigndocumentGetWordsPositionsV1Request([]string{"ASWords_example"}) // EzsigndocumentGetWordsPositionsV1Request | 
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.ObjectEzsigndocumentApi.EzsigndocumentGetWordsPositionsV1(context.Background(), pkiEzsigndocumentID).EzsigndocumentGetWordsPositionsV1Request(ezsigndocumentGetWordsPositionsV1Request).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentApi.EzsigndocumentGetWordsPositionsV1``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `EzsigndocumentGetWordsPositionsV1`: EzsigndocumentGetWordsPositionsV1Response
+    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigndocumentApi.EzsigndocumentGetWordsPositionsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsigndocumentID** | **int32** | The unique ID of the Ezsigndocument | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsigndocumentGetWordsPositionsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **ezsigndocumentGetWordsPositionsV1Request** | [**EzsigndocumentGetWordsPositionsV1Request**](EzsigndocumentGetWordsPositionsV1Request.md) |  | 
+
+### Return type
+
+[**EzsigndocumentGetWordsPositionsV1Response**](EzsigndocumentGetWordsPositionsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

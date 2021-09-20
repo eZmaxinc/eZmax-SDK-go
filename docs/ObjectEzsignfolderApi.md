@@ -152,6 +152,8 @@ Name | Type | Description  | Notes
 
 Retrieve an existing Ezsignfolder's children IDs
 
+
+
 ### Example
 
 ```go
@@ -217,6 +219,8 @@ Name | Type | Description  | Notes
 > EzsignfolderGetObjectV1Response EzsignfolderGetObjectV1(ctx, pkiEzsignfolderID).Execute()
 
 Retrieve an existing Ezsignfolder
+
+
 
 ### Example
 

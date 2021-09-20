@@ -151,6 +151,8 @@ Name | Type | Description  | Notes
 
 Retrieve an existing Ezsignsignature's children IDs
 
+
+
 ### Example
 
 ```go
@@ -216,6 +218,8 @@ Name | Type | Description  | Notes
 > EzsignsignatureGetObjectV1Response EzsignsignatureGetObjectV1(ctx, pkiEzsignsignatureID).Execute()
 
 Retrieve an existing Ezsignsignature
+
+
 
 ### Example
 
