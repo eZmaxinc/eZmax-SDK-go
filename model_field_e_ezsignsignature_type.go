@@ -3,7 +3,7 @@ eZmax API Definition
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.0.47
+API version: 1.0.48
 Contact: support-api@ezmax.ca
 */
 
@@ -28,7 +28,8 @@ const (
 	NAME FieldEEzsignsignatureType = "Name"
 )
 
-var allowedFieldEEzsignsignatureTypeEnumValues = []FieldEEzsignsignatureType{
+// All allowed values of FieldEEzsignsignatureType enum
+var AllowedFieldEEzsignsignatureTypeEnumValues = []FieldEEzsignsignatureType{
 	"Acknowledgement",
 	"City",
 	"Handwritten",
@@ -43,7 +44,7 @@ func (v *FieldEEzsignsignatureType) UnmarshalJSON(src []byte) error {
 		return err
 	}
 	enumTypeValue := FieldEEzsignsignatureType(value)
-	for _, existing := range allowedFieldEEzsignsignatureTypeEnumValues {
+	for _, existing := range AllowedFieldEEzsignsignatureTypeEnumValues {
 		if existing == enumTypeValue {
 			*v = enumTypeValue
 			return nil
@@ -60,13 +61,13 @@ func NewFieldEEzsignsignatureTypeFromValue(v string) (*FieldEEzsignsignatureType
 	if ev.IsValid() {
 		return &ev, nil
 	} else {
-		return nil, fmt.Errorf("invalid value '%v' for FieldEEzsignsignatureType: valid values are %v", v, allowedFieldEEzsignsignatureTypeEnumValues)
+		return nil, fmt.Errorf("invalid value '%v' for FieldEEzsignsignatureType: valid values are %v", v, AllowedFieldEEzsignsignatureTypeEnumValues)
 	}
 }
 
 // IsValid return true if the value is valid for the enum, false otherwise
 func (v FieldEEzsignsignatureType) IsValid() bool {
-	for _, existing := range allowedFieldEEzsignsignatureTypeEnumValues {
+	for _, existing := range AllowedFieldEEzsignsignatureTypeEnumValues {
 		if existing == v {
 			return true
 		}

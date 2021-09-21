@@ -3,7 +3,7 @@ eZmax API Definition
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.0.47
+API version: 1.0.48
 Contact: support-api@ezmax.ca
 */
 
@@ -26,7 +26,8 @@ const (
 	WEEKLY FieldEEzsignfolderSendreminderfrequency = "Weekly"
 )
 
-var allowedFieldEEzsignfolderSendreminderfrequencyEnumValues = []FieldEEzsignfolderSendreminderfrequency{
+// All allowed values of FieldEEzsignfolderSendreminderfrequency enum
+var AllowedFieldEEzsignfolderSendreminderfrequencyEnumValues = []FieldEEzsignfolderSendreminderfrequency{
 	"None",
 	"Daily",
 	"Weekly",
@@ -39,7 +40,7 @@ func (v *FieldEEzsignfolderSendreminderfrequency) UnmarshalJSON(src []byte) erro
 		return err
 	}
 	enumTypeValue := FieldEEzsignfolderSendreminderfrequency(value)
-	for _, existing := range allowedFieldEEzsignfolderSendreminderfrequencyEnumValues {
+	for _, existing := range AllowedFieldEEzsignfolderSendreminderfrequencyEnumValues {
 		if existing == enumTypeValue {
 			*v = enumTypeValue
 			return nil
@@ -56,13 +57,13 @@ func NewFieldEEzsignfolderSendreminderfrequencyFromValue(v string) (*FieldEEzsig
 	if ev.IsValid() {
 		return &ev, nil
 	} else {
-		return nil, fmt.Errorf("invalid value '%v' for FieldEEzsignfolderSendreminderfrequency: valid values are %v", v, allowedFieldEEzsignfolderSendreminderfrequencyEnumValues)
+		return nil, fmt.Errorf("invalid value '%v' for FieldEEzsignfolderSendreminderfrequency: valid values are %v", v, AllowedFieldEEzsignfolderSendreminderfrequencyEnumValues)
 	}
 }
 
 // IsValid return true if the value is valid for the enum, false otherwise
 func (v FieldEEzsignfolderSendreminderfrequency) IsValid() bool {
-	for _, existing := range allowedFieldEEzsignfolderSendreminderfrequencyEnumValues {
+	for _, existing := range AllowedFieldEEzsignfolderSendreminderfrequencyEnumValues {
 		if existing == v {
 			return true
 		}

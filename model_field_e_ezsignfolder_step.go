@@ -3,7 +3,7 @@ eZmax API Definition
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.0.47
+API version: 1.0.48
 Contact: support-api@ezmax.ca
 */
 
@@ -30,7 +30,8 @@ const (
 	ARCHIVED FieldEEzsignfolderStep = "Archived"
 )
 
-var allowedFieldEEzsignfolderStepEnumValues = []FieldEEzsignfolderStep{
+// All allowed values of FieldEEzsignfolderStep enum
+var AllowedFieldEEzsignfolderStepEnumValues = []FieldEEzsignfolderStep{
 	"Unsent",
 	"Sent",
 	"PartiallySigned",
@@ -47,7 +48,7 @@ func (v *FieldEEzsignfolderStep) UnmarshalJSON(src []byte) error {
 		return err
 	}
 	enumTypeValue := FieldEEzsignfolderStep(value)
-	for _, existing := range allowedFieldEEzsignfolderStepEnumValues {
+	for _, existing := range AllowedFieldEEzsignfolderStepEnumValues {
 		if existing == enumTypeValue {
 			*v = enumTypeValue
 			return nil
@@ -64,13 +65,13 @@ func NewFieldEEzsignfolderStepFromValue(v string) (*FieldEEzsignfolderStep, erro
 	if ev.IsValid() {
 		return &ev, nil
 	} else {
-		return nil, fmt.Errorf("invalid value '%v' for FieldEEzsignfolderStep: valid values are %v", v, allowedFieldEEzsignfolderStepEnumValues)
+		return nil, fmt.Errorf("invalid value '%v' for FieldEEzsignfolderStep: valid values are %v", v, AllowedFieldEEzsignfolderStepEnumValues)
 	}
 }
 
 // IsValid return true if the value is valid for the enum, false otherwise
 func (v FieldEEzsignfolderStep) IsValid() bool {
-	for _, existing := range allowedFieldEEzsignfolderStepEnumValues {
+	for _, existing := range AllowedFieldEEzsignfolderStepEnumValues {
 		if existing == v {
 			return true
 		}

@@ -3,7 +3,7 @@ eZmax API Definition
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.0.47
+API version: 1.0.48
 Contact: support-api@ezmax.ca
 */
 
@@ -29,7 +29,8 @@ const (
 	COMPLETED FieldEEzsigndocumentStep = "Completed"
 )
 
-var allowedFieldEEzsigndocumentStepEnumValues = []FieldEEzsigndocumentStep{
+// All allowed values of FieldEEzsigndocumentStep enum
+var AllowedFieldEEzsigndocumentStepEnumValues = []FieldEEzsigndocumentStep{
 	"Unsent",
 	"Unsigned",
 	"PartiallySigned",
@@ -45,7 +46,7 @@ func (v *FieldEEzsigndocumentStep) UnmarshalJSON(src []byte) error {
 		return err
 	}
 	enumTypeValue := FieldEEzsigndocumentStep(value)
-	for _, existing := range allowedFieldEEzsigndocumentStepEnumValues {
+	for _, existing := range AllowedFieldEEzsigndocumentStepEnumValues {
 		if existing == enumTypeValue {
 			*v = enumTypeValue
 			return nil
@@ -62,13 +63,13 @@ func NewFieldEEzsigndocumentStepFromValue(v string) (*FieldEEzsigndocumentStep, 
 	if ev.IsValid() {
 		return &ev, nil
 	} else {
-		return nil, fmt.Errorf("invalid value '%v' for FieldEEzsigndocumentStep: valid values are %v", v, allowedFieldEEzsigndocumentStepEnumValues)
+		return nil, fmt.Errorf("invalid value '%v' for FieldEEzsigndocumentStep: valid values are %v", v, AllowedFieldEEzsigndocumentStepEnumValues)
 	}
 }
 
 // IsValid return true if the value is valid for the enum, false otherwise
 func (v FieldEEzsigndocumentStep) IsValid() bool {
-	for _, existing := range allowedFieldEEzsigndocumentStepEnumValues {
+	for _, existing := range AllowedFieldEEzsigndocumentStepEnumValues {
 		if existing == v {
 			return true
 		}

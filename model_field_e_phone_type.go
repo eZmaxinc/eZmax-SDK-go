@@ -3,7 +3,7 @@ eZmax API Definition
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.0.47
+API version: 1.0.48
 Contact: support-api@ezmax.ca
 */
 
@@ -25,7 +25,8 @@ const (
 	INTERNATIONAL FieldEPhoneType = "International"
 )
 
-var allowedFieldEPhoneTypeEnumValues = []FieldEPhoneType{
+// All allowed values of FieldEPhoneType enum
+var AllowedFieldEPhoneTypeEnumValues = []FieldEPhoneType{
 	"Local",
 	"International",
 }
@@ -37,7 +38,7 @@ func (v *FieldEPhoneType) UnmarshalJSON(src []byte) error {
 		return err
 	}
 	enumTypeValue := FieldEPhoneType(value)
-	for _, existing := range allowedFieldEPhoneTypeEnumValues {
+	for _, existing := range AllowedFieldEPhoneTypeEnumValues {
 		if existing == enumTypeValue {
 			*v = enumTypeValue
 			return nil
@@ -54,13 +55,13 @@ func NewFieldEPhoneTypeFromValue(v string) (*FieldEPhoneType, error) {
 	if ev.IsValid() {
 		return &ev, nil
 	} else {
-		return nil, fmt.Errorf("invalid value '%v' for FieldEPhoneType: valid values are %v", v, allowedFieldEPhoneTypeEnumValues)
+		return nil, fmt.Errorf("invalid value '%v' for FieldEPhoneType: valid values are %v", v, AllowedFieldEPhoneTypeEnumValues)
 	}
 }
 
 // IsValid return true if the value is valid for the enum, false otherwise
 func (v FieldEPhoneType) IsValid() bool {
-	for _, existing := range allowedFieldEPhoneTypeEnumValues {
+	for _, existing := range AllowedFieldEPhoneTypeEnumValues {
 		if existing == v {
 			return true
 		}

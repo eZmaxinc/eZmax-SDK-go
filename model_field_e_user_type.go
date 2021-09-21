@@ -3,7 +3,7 @@ eZmax API Definition
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.0.47
+API version: 1.0.48
 Contact: support-api@ezmax.ca
 */
 
@@ -44,7 +44,8 @@ const (
 	VETRX_VENDOR FieldEUserType = "VetrxVendor"
 )
 
-var allowedFieldEUserTypeEnumValues = []FieldEUserType{
+// All allowed values of FieldEUserType enum
+var AllowedFieldEUserTypeEnumValues = []FieldEUserType{
 	"AgentBroker",
 	"Assistant",
 	"Attendance",
@@ -75,7 +76,7 @@ func (v *FieldEUserType) UnmarshalJSON(src []byte) error {
 		return err
 	}
 	enumTypeValue := FieldEUserType(value)
-	for _, existing := range allowedFieldEUserTypeEnumValues {
+	for _, existing := range AllowedFieldEUserTypeEnumValues {
 		if existing == enumTypeValue {
 			*v = enumTypeValue
 			return nil
@@ -92,13 +93,13 @@ func NewFieldEUserTypeFromValue(v string) (*FieldEUserType, error) {
 	if ev.IsValid() {
 		return &ev, nil
 	} else {
-		return nil, fmt.Errorf("invalid value '%v' for FieldEUserType: valid values are %v", v, allowedFieldEUserTypeEnumValues)
+		return nil, fmt.Errorf("invalid value '%v' for FieldEUserType: valid values are %v", v, AllowedFieldEUserTypeEnumValues)
 	}
 }
 
 // IsValid return true if the value is valid for the enum, false otherwise
 func (v FieldEUserType) IsValid() bool {
-	for _, existing := range allowedFieldEUserTypeEnumValues {
+	for _, existing := range AllowedFieldEUserTypeEnumValues {
 		if existing == v {
 			return true
 		}

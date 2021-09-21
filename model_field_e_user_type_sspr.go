@@ -3,7 +3,7 @@ eZmax API Definition
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.0.47
+API version: 1.0.48
 Contact: support-api@ezmax.ca
 */
 
@@ -25,7 +25,8 @@ const (
 	NATIVE FieldEUserTypeSSPR = "Native"
 )
 
-var allowedFieldEUserTypeSSPREnumValues = []FieldEUserTypeSSPR{
+// All allowed values of FieldEUserTypeSSPR enum
+var AllowedFieldEUserTypeSSPREnumValues = []FieldEUserTypeSSPR{
 	"EzsignUser",
 	"Native",
 }
@@ -37,7 +38,7 @@ func (v *FieldEUserTypeSSPR) UnmarshalJSON(src []byte) error {
 		return err
 	}
 	enumTypeValue := FieldEUserTypeSSPR(value)
-	for _, existing := range allowedFieldEUserTypeSSPREnumValues {
+	for _, existing := range AllowedFieldEUserTypeSSPREnumValues {
 		if existing == enumTypeValue {
 			*v = enumTypeValue
 			return nil
@@ -54,13 +55,13 @@ func NewFieldEUserTypeSSPRFromValue(v string) (*FieldEUserTypeSSPR, error) {
 	if ev.IsValid() {
 		return &ev, nil
 	} else {
-		return nil, fmt.Errorf("invalid value '%v' for FieldEUserTypeSSPR: valid values are %v", v, allowedFieldEUserTypeSSPREnumValues)
+		return nil, fmt.Errorf("invalid value '%v' for FieldEUserTypeSSPR: valid values are %v", v, AllowedFieldEUserTypeSSPREnumValues)
 	}
 }
 
 // IsValid return true if the value is valid for the enum, false otherwise
 func (v FieldEUserTypeSSPR) IsValid() bool {
-	for _, existing := range allowedFieldEUserTypeSSPREnumValues {
+	for _, existing := range AllowedFieldEUserTypeSSPREnumValues {
 		if existing == v {
 			return true
 		}
