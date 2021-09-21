@@ -173,7 +173,7 @@ func (r ApiEzsignfoldersignerassociationDeleteObjectV1Request) Execute() (Ezsign
 EzsignfoldersignerassociationDeleteObjectV1 Delete an existing Ezsignfoldersignerassociation
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pkiEzsignfoldersignerassociationID The unique ID of the Ezsignfoldersignerassociation
+ @param pkiEzsignfoldersignerassociationID
  @return ApiEzsignfoldersignerassociationDeleteObjectV1Request
 */
 func (a *ObjectEzsignfoldersignerassociationApiService) EzsignfoldersignerassociationDeleteObjectV1(ctx _context.Context, pkiEzsignfoldersignerassociationID int32) ApiEzsignfoldersignerassociationDeleteObjectV1Request {
@@ -314,7 +314,7 @@ EzsignfoldersignerassociationGetChildrenV1 Retrieve an existing Ezsignfoldersign
 ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pkiEzsignfoldersignerassociationID The unique ID of the Ezsignfoldersignerassociation
+ @param pkiEzsignfoldersignerassociationID
  @return ApiEzsignfoldersignerassociationGetChildrenV1Request
 */
 func (a *ObjectEzsignfoldersignerassociationApiService) EzsignfoldersignerassociationGetChildrenV1(ctx _context.Context, pkiEzsignfoldersignerassociationID int32) ApiEzsignfoldersignerassociationGetChildrenV1Request {
@@ -434,7 +434,7 @@ This endpoint returns a Login Url that can be used in a browser or embedded in a
 The signer Login type must be configured as In-Person.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pkiEzsignfoldersignerassociationID The unique ID of the Ezsignfoldersignerassociation
+ @param pkiEzsignfoldersignerassociationID
  @return ApiEzsignfoldersignerassociationGetInPersonLoginUrlV1Request
 */
 func (a *ObjectEzsignfoldersignerassociationApiService) EzsignfoldersignerassociationGetInPersonLoginUrlV1(ctx _context.Context, pkiEzsignfoldersignerassociationID int32) ApiEzsignfoldersignerassociationGetInPersonLoginUrlV1Request {
@@ -575,7 +575,7 @@ EzsignfoldersignerassociationGetObjectV1 Retrieve an existing Ezsignfoldersigner
 ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pkiEzsignfoldersignerassociationID The unique ID of the Ezsignfoldersignerassociation
+ @param pkiEzsignfoldersignerassociationID
  @return ApiEzsignfoldersignerassociationGetObjectV1Request
 */
 func (a *ObjectEzsignfoldersignerassociationApiService) EzsignfoldersignerassociationGetObjectV1(ctx _context.Context, pkiEzsignfoldersignerassociationID int32) ApiEzsignfoldersignerassociationGetObjectV1Request {

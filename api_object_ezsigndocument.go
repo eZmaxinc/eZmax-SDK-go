@@ -54,7 +54,7 @@ This allows to automatically apply all the form and signature fields on a docume
 The document must not already have fields otherwise an error will be returned.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pkiEzsigndocumentID The unique ID of the Ezsigndocument
+ @param pkiEzsigndocumentID
  @return ApiEzsigndocumentApplyEzsigntemplateV1Request
 */
 func (a *ObjectEzsigndocumentApiService) EzsigndocumentApplyEzsigntemplateV1(ctx _context.Context, pkiEzsigndocumentID int32) ApiEzsigndocumentApplyEzsigntemplateV1Request {
@@ -326,7 +326,7 @@ func (r ApiEzsigndocumentDeleteObjectV1Request) Execute() (EzsigndocumentDeleteO
 EzsigndocumentDeleteObjectV1 Delete an existing Ezsigndocument
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pkiEzsigndocumentID The unique ID of the Ezsigndocument
+ @param pkiEzsigndocumentID
  @return ApiEzsigndocumentDeleteObjectV1Request
 */
 func (a *ObjectEzsigndocumentApiService) EzsigndocumentDeleteObjectV1(ctx _context.Context, pkiEzsigndocumentID int32) ApiEzsigndocumentDeleteObjectV1Request {
@@ -467,7 +467,7 @@ EzsigndocumentGetChildrenV1 Retrieve an existing Ezsigndocument's children IDs
 ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pkiEzsigndocumentID The unique ID of the Ezsigndocument
+ @param pkiEzsigndocumentID
  @return ApiEzsigndocumentGetChildrenV1Request
 */
 func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetChildrenV1(ctx _context.Context, pkiEzsigndocumentID int32) ApiEzsigndocumentGetChildrenV1Request {
@@ -588,7 +588,7 @@ This endpoint returns URLs to different files that can be downloaded during the 
 These links will expire after 5 minutes so the download of the file should be made soon after retrieving the link.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pkiEzsigndocumentID The unique ID of the Ezsigndocument
+ @param pkiEzsigndocumentID
  @param eDocumentType The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **Signed** Is the final document once all signatures were applied. 3. **Proofdocument** Is the evidence report. 4. **Proof** Is the complete evidence archive including all of the above and more. 
  @return ApiEzsigndocumentGetDownloadUrlV1Request
 */
@@ -713,6 +713,147 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetDownloadUrlV1Execute(r
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiEzsigndocumentGetEzsignpagesV1Request struct {
+	ctx _context.Context
+	ApiService *ObjectEzsigndocumentApiService
+	pkiEzsigndocumentID int32
+}
+
+
+func (r ApiEzsigndocumentGetEzsignpagesV1Request) Execute() (EzsigndocumentGetEzsignpagesV1Response, *_nethttp.Response, error) {
+	return r.ApiService.EzsigndocumentGetEzsignpagesV1Execute(r)
+}
+
+/*
+EzsigndocumentGetEzsignpagesV1 Retrieve an existing Ezsigndocument's Ezsignpages
+
+## ⚠️EARLY ADOPTERS WARNING
+
+### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
+
+ @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiEzsigndocumentID
+ @return ApiEzsigndocumentGetEzsignpagesV1Request
+*/
+func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetEzsignpagesV1(ctx _context.Context, pkiEzsigndocumentID int32) ApiEzsigndocumentGetEzsignpagesV1Request {
+	return ApiEzsigndocumentGetEzsignpagesV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiEzsigndocumentID: pkiEzsigndocumentID,
+	}
+}
+
+// Execute executes the request
+//  @return EzsigndocumentGetEzsignpagesV1Response
+func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetEzsignpagesV1Execute(r ApiEzsigndocumentGetEzsignpagesV1Request) (EzsigndocumentGetEzsignpagesV1Response, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  EzsigndocumentGetEzsignpagesV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigndocumentApiService.EzsigndocumentGetEzsignpagesV1")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignpages"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsigndocumentID"+"}", _neturl.PathEscape(parameterToString(r.pkiEzsigndocumentID, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiEzsigndocumentGetFormDataV1Request struct {
 	ctx _context.Context
 	ApiService *ObjectEzsigndocumentApiService
@@ -732,7 +873,7 @@ EzsigndocumentGetFormDataV1 Retrieve an existing Ezsigndocument's Form Data
 ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pkiEzsigndocumentID The unique ID of the Ezsigndocument
+ @param pkiEzsigndocumentID
  @return ApiEzsigndocumentGetFormDataV1Request
 */
 func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetFormDataV1(ctx _context.Context, pkiEzsigndocumentID int32) ApiEzsigndocumentGetFormDataV1Request {
@@ -873,7 +1014,7 @@ EzsigndocumentGetObjectV1 Retrieve an existing Ezsigndocument
 ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pkiEzsigndocumentID The unique ID of the Ezsigndocument
+ @param pkiEzsigndocumentID
  @return ApiEzsigndocumentGetObjectV1Request
 */
 func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetObjectV1(ctx _context.Context, pkiEzsigndocumentID int32) ApiEzsigndocumentGetObjectV1Request {
@@ -1009,7 +1150,7 @@ EzsigndocumentGetWordsPositionsV1 Retrieve positions X,Y of given words from a E
 ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pkiEzsigndocumentID The unique ID of the Ezsigndocument
+ @param pkiEzsigndocumentID
  @return ApiEzsigndocumentGetWordsPositionsV1Request
 */
 func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetWordsPositionsV1(ctx _context.Context, pkiEzsigndocumentID int32) ApiEzsigndocumentGetWordsPositionsV1Request {

@@ -51,7 +51,7 @@ GlobalCustomerGetEndpointV1 Get customer endpoint
 Retrieve the customer's specific server endpoint where to send requests. This will help locate the proper region (ie: sInfrastructureregionCode) and the proper environment (ie: sInfrastructureenvironmenttypeDescription) where the customer's data is stored.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pksCustomerCode The customer code assigned to your account
+ @param pksCustomerCode
  @return ApiGlobalCustomerGetEndpointV1Request
 */
 func (a *GlobalCustomerApiService) GlobalCustomerGetEndpointV1(ctx _context.Context, pksCustomerCode string) ApiGlobalCustomerGetEndpointV1Request {
@@ -85,6 +85,12 @@ func (a *GlobalCustomerApiService) GlobalCustomerGetEndpointV1Execute(r ApiGloba
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
+	if strlen(r.pksCustomerCode) < 2 {
+		return localVarReturnValue, nil, reportError("pksCustomerCode must have at least 2 elements")
+	}
+	if strlen(r.pksCustomerCode) > 6 {
+		return localVarReturnValue, nil, reportError("pksCustomerCode must have less than 6 elements")
+	}
 
 	if r.sInfrastructureproductCode != nil {
 		localVarQueryParams.Add("sInfrastructureproductCode", parameterToString(*r.sInfrastructureproductCode, ""))

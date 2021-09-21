@@ -25,7 +25,7 @@ type EzsigndocumentResponseCompound struct {
 	FkiLanguageID int32 `json:"fkiLanguageID"`
 	// The name of the document that will be presented to Ezsignfoldersignerassociations
 	SEzsigndocumentName string `json:"sEzsigndocumentName"`
-	// The unique ID of the Ezsigntemplate
+	// The unique ID of the Ezsigndocument
 	PkiEzsigndocumentID int32 `json:"pkiEzsigndocumentID"`
 	EEzsigndocumentStep FieldEEzsigndocumentStep `json:"eEzsigndocumentStep"`
 	// The date and time when the Ezsigndocument was first sent.

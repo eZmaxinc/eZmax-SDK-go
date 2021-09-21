@@ -29,7 +29,7 @@ import (
 )
 
 func main() {
-    pksCustomerCode := "pksCustomerCode_example" // string | The customer code assigned to your account
+    pksCustomerCode := "pksCustomerCode_example" // string | 
     sInfrastructureproductCode := "sInfrastructureproductCode_example" // string | The infrastructure product Code  If undefined, \"appcluster01\" is assumed (optional)
 
     configuration := openapiclient.NewConfiguration()
@@ -50,7 +50,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pksCustomerCode** | **string** | The customer code assigned to your account | 
+**pksCustomerCode** | **string** |  | 
 
 ### Other Parameters
 

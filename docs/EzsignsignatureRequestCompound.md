@@ -5,12 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FkiEzsignfoldersignerassociationID** | **int32** | The unique ID of the Ezsignfoldersignerassociation | 
-**IEzsignpagePagenumber** | **int32** | The page number in the document where to apply the signature | 
+**IEzsignpagePagenumber** | **int32** | The page number in the Ezsigndocument | 
 **IEzsignsignatureX** | **int32** | The X coordinate (Horizontal) where to put the signature block on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the signature block 2 inches from the left border of the page, you would use \&quot;200\&quot; for the X coordinate. | 
 **IEzsignsignatureY** | **int32** | The Y coordinate (Vertical) where to put the signature block on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the signature block 3 inches from the top border of the page, you would use \&quot;300\&quot; for the Y coordinate. | 
 **IEzsignsignatureStep** | **int32** | The step when the Ezsignsigner will be invited to sign. | 
 **EEzsignsignatureType** | [**FieldEEzsignsignatureType**](FieldEEzsignsignatureType.md) |  | 
-**FkiEzsigndocumentID** | **int32** | The unique ID of the Ezsigntemplate | 
+**FkiEzsigndocumentID** | **int32** | The unique ID of the Ezsigndocument | 
 
 ## Methods
 

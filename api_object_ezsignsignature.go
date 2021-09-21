@@ -173,7 +173,7 @@ func (r ApiEzsignsignatureDeleteObjectV1Request) Execute() (EzsignsignatureDelet
 EzsignsignatureDeleteObjectV1 Delete an existing Ezsignsignature
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pkiEzsignsignatureID The unique ID of the Ezsignsignature
+ @param pkiEzsignsignatureID
  @return ApiEzsignsignatureDeleteObjectV1Request
 */
 func (a *ObjectEzsignsignatureApiService) EzsignsignatureDeleteObjectV1(ctx _context.Context, pkiEzsignsignatureID int32) ApiEzsignsignatureDeleteObjectV1Request {
@@ -314,7 +314,7 @@ EzsignsignatureGetChildrenV1 Retrieve an existing Ezsignsignature's children IDs
 ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pkiEzsignsignatureID The unique ID of the Ezsignsignature
+ @param pkiEzsignsignatureID
  @return ApiEzsignsignatureGetChildrenV1Request
 */
 func (a *ObjectEzsignsignatureApiService) EzsignsignatureGetChildrenV1(ctx _context.Context, pkiEzsignsignatureID int32) ApiEzsignsignatureGetChildrenV1Request {
@@ -434,7 +434,7 @@ EzsignsignatureGetObjectV1 Retrieve an existing Ezsignsignature
 ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pkiEzsignsignatureID The unique ID of the Ezsignsignature
+ @param pkiEzsignsignatureID
  @return ApiEzsignsignatureGetObjectV1Request
 */
 func (a *ObjectEzsignsignatureApiService) EzsignsignatureGetObjectV1(ctx _context.Context, pkiEzsignsignatureID int32) ApiEzsignsignatureGetObjectV1Request {

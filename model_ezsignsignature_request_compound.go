@@ -19,7 +19,7 @@ import (
 type EzsignsignatureRequestCompound struct {
 	// The unique ID of the Ezsignfoldersignerassociation
 	FkiEzsignfoldersignerassociationID int32 `json:"fkiEzsignfoldersignerassociationID"`
-	// The page number in the document where to apply the signature
+	// The page number in the Ezsigndocument
 	IEzsignpagePagenumber int32 `json:"iEzsignpagePagenumber"`
 	// The X coordinate (Horizontal) where to put the signature block on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the signature block 2 inches from the left border of the page, you would use \"200\" for the X coordinate.
 	IEzsignsignatureX int32 `json:"iEzsignsignatureX"`
@@ -28,7 +28,7 @@ type EzsignsignatureRequestCompound struct {
 	// The step when the Ezsignsigner will be invited to sign.
 	IEzsignsignatureStep int32 `json:"iEzsignsignatureStep"`
 	EEzsignsignatureType FieldEEzsignsignatureType `json:"eEzsignsignatureType"`
-	// The unique ID of the Ezsigntemplate
+	// The unique ID of the Ezsigndocument
 	FkiEzsigndocumentID int32 `json:"fkiEzsigndocumentID"`
 }
 

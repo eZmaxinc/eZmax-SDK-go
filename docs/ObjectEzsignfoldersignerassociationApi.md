@@ -97,7 +97,7 @@ import (
 )
 
 func main() {
-    pkiEzsignfoldersignerassociationID := int32(56) // int32 | The unique ID of the Ezsignfoldersignerassociation
+    pkiEzsignfoldersignerassociationID := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -117,7 +117,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiEzsignfoldersignerassociationID** | **int32** | The unique ID of the Ezsignfoldersignerassociation | 
+**pkiEzsignfoldersignerassociationID** | **int32** |  | 
 
 ### Other Parameters
 
@@ -167,7 +167,7 @@ import (
 )
 
 func main() {
-    pkiEzsignfoldersignerassociationID := int32(56) // int32 | The unique ID of the Ezsignfoldersignerassociation
+    pkiEzsignfoldersignerassociationID := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -185,7 +185,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiEzsignfoldersignerassociationID** | **int32** | The unique ID of the Ezsignfoldersignerassociation | 
+**pkiEzsignfoldersignerassociationID** | **int32** |  | 
 
 ### Other Parameters
 
@@ -235,7 +235,7 @@ import (
 )
 
 func main() {
-    pkiEzsignfoldersignerassociationID := int32(56) // int32 | The unique ID of the Ezsignfoldersignerassociation
+    pkiEzsignfoldersignerassociationID := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -255,7 +255,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiEzsignfoldersignerassociationID** | **int32** | The unique ID of the Ezsignfoldersignerassociation | 
+**pkiEzsignfoldersignerassociationID** | **int32** |  | 
 
 ### Other Parameters
 
@@ -305,7 +305,7 @@ import (
 )
 
 func main() {
-    pkiEzsignfoldersignerassociationID := int32(56) // int32 | The unique ID of the Ezsignfoldersignerassociation
+    pkiEzsignfoldersignerassociationID := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -325,7 +325,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiEzsignfoldersignerassociationID** | **int32** | The unique ID of the Ezsignfoldersignerassociation | 
+**pkiEzsignfoldersignerassociationID** | **int32** |  | 
 
 ### Other Parameters
 

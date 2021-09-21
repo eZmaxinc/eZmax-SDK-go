@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**EzsigndocumentDeleteObjectV1**](ObjectEzsigndocumentApi.md#EzsigndocumentDeleteObjectV1) | **Delete** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Delete an existing Ezsigndocument
 [**EzsigndocumentGetChildrenV1**](ObjectEzsigndocumentApi.md#EzsigndocumentGetChildrenV1) | **Get** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getChildren | Retrieve an existing Ezsigndocument&#39;s children IDs
 [**EzsigndocumentGetDownloadUrlV1**](ObjectEzsigndocumentApi.md#EzsigndocumentGetDownloadUrlV1) | **Get** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getDownloadUrl/{eDocumentType} | Retrieve a URL to download documents.
+[**EzsigndocumentGetEzsignpagesV1**](ObjectEzsigndocumentApi.md#EzsigndocumentGetEzsignpagesV1) | **Get** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignpages | Retrieve an existing Ezsigndocument&#39;s Ezsignpages
 [**EzsigndocumentGetFormDataV1**](ObjectEzsigndocumentApi.md#EzsigndocumentGetFormDataV1) | **Get** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getFormData | Retrieve an existing Ezsigndocument&#39;s Form Data
 [**EzsigndocumentGetObjectV1**](ObjectEzsigndocumentApi.md#EzsigndocumentGetObjectV1) | **Get** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Retrieve an existing Ezsigndocument
 [**EzsigndocumentGetWordsPositionsV1**](ObjectEzsigndocumentApi.md#EzsigndocumentGetWordsPositionsV1) | **Post** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions | Retrieve positions X,Y of given words from a Ezsigndocument
@@ -36,7 +37,7 @@ import (
 )
 
 func main() {
-    pkiEzsigndocumentID := int32(56) // int32 | The unique ID of the Ezsigndocument
+    pkiEzsigndocumentID := int32(56) // int32 | 
     ezsigndocumentApplyEzsigntemplateV1Request := *openapiclient.NewEzsigndocumentApplyEzsigntemplateV1Request(int32(36), []string{"John"}, []int32{int32(20)}) // EzsigndocumentApplyEzsigntemplateV1Request | 
 
     configuration := openapiclient.NewConfiguration()
@@ -57,7 +58,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiEzsigndocumentID** | **int32** | The unique ID of the Ezsigndocument | 
+**pkiEzsigndocumentID** | **int32** |  | 
 
 ### Other Parameters
 
@@ -172,7 +173,7 @@ import (
 )
 
 func main() {
-    pkiEzsigndocumentID := int32(56) // int32 | The unique ID of the Ezsigndocument
+    pkiEzsigndocumentID := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -192,7 +193,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiEzsigndocumentID** | **int32** | The unique ID of the Ezsigndocument | 
+**pkiEzsigndocumentID** | **int32** |  | 
 
 ### Other Parameters
 
@@ -242,7 +243,7 @@ import (
 )
 
 func main() {
-    pkiEzsigndocumentID := int32(56) // int32 | The unique ID of the Ezsigndocument
+    pkiEzsigndocumentID := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -260,7 +261,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiEzsigndocumentID** | **int32** | The unique ID of the Ezsigndocument | 
+**pkiEzsigndocumentID** | **int32** |  | 
 
 ### Other Parameters
 
@@ -310,7 +311,7 @@ import (
 )
 
 func main() {
-    pkiEzsigndocumentID := int32(56) // int32 | The unique ID of the Ezsigndocument
+    pkiEzsigndocumentID := int32(56) // int32 | 
     eDocumentType := "eDocumentType_example" // string | The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **Signed** Is the final document once all signatures were applied. 3. **Proofdocument** Is the evidence report. 4. **Proof** Is the complete evidence archive including all of the above and more. 
 
     configuration := openapiclient.NewConfiguration()
@@ -331,7 +332,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiEzsigndocumentID** | **int32** | The unique ID of the Ezsigndocument | 
+**pkiEzsigndocumentID** | **int32** |  | 
 **eDocumentType** | **string** | The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **Signed** Is the final document once all signatures were applied. 3. **Proofdocument** Is the evidence report. 4. **Proof** Is the complete evidence archive including all of the above and more.  | 
 
 ### Other Parameters
@@ -347,6 +348,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsigndocumentGetDownloadUrlV1Response**](EzsigndocumentGetDownloadUrlV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsigndocumentGetEzsignpagesV1
+
+> EzsigndocumentGetEzsignpagesV1Response EzsigndocumentGetEzsignpagesV1(ctx, pkiEzsigndocumentID).Execute()
+
+Retrieve an existing Ezsigndocument's Ezsignpages
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    pkiEzsigndocumentID := int32(56) // int32 | 
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.ObjectEzsigndocumentApi.EzsigndocumentGetEzsignpagesV1(context.Background(), pkiEzsigndocumentID).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentApi.EzsigndocumentGetEzsignpagesV1``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `EzsigndocumentGetEzsignpagesV1`: EzsigndocumentGetEzsignpagesV1Response
+    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigndocumentApi.EzsigndocumentGetEzsignpagesV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsigndocumentID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsigndocumentGetEzsignpagesV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**EzsigndocumentGetEzsignpagesV1Response**](EzsigndocumentGetEzsignpagesV1Response.md)
 
 ### Authorization
 
@@ -383,7 +454,7 @@ import (
 )
 
 func main() {
-    pkiEzsigndocumentID := int32(56) // int32 | The unique ID of the Ezsigndocument
+    pkiEzsigndocumentID := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -403,7 +474,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiEzsigndocumentID** | **int32** | The unique ID of the Ezsigndocument | 
+**pkiEzsigndocumentID** | **int32** |  | 
 
 ### Other Parameters
 
@@ -453,7 +524,7 @@ import (
 )
 
 func main() {
-    pkiEzsigndocumentID := int32(56) // int32 | The unique ID of the Ezsigndocument
+    pkiEzsigndocumentID := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -473,7 +544,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiEzsigndocumentID** | **int32** | The unique ID of the Ezsigndocument | 
+**pkiEzsigndocumentID** | **int32** |  | 
 
 ### Other Parameters
 
@@ -523,7 +594,7 @@ import (
 )
 
 func main() {
-    pkiEzsigndocumentID := int32(56) // int32 | The unique ID of the Ezsigndocument
+    pkiEzsigndocumentID := int32(56) // int32 | 
     ezsigndocumentGetWordsPositionsV1Request := *openapiclient.NewEzsigndocumentGetWordsPositionsV1Request([]string{"ASWords_example"}) // EzsigndocumentGetWordsPositionsV1Request | 
 
     configuration := openapiclient.NewConfiguration()
@@ -544,7 +615,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiEzsigndocumentID** | **int32** | The unique ID of the Ezsigndocument | 
+**pkiEzsigndocumentID** | **int32** |  | 
 
 ### Other Parameters
 

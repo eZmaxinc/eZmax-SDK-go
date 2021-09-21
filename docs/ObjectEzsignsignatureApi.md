@@ -96,7 +96,7 @@ import (
 )
 
 func main() {
-    pkiEzsignsignatureID := int32(56) // int32 | The unique ID of the Ezsignsignature
+    pkiEzsignsignatureID := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -116,7 +116,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiEzsignsignatureID** | **int32** | The unique ID of the Ezsignsignature | 
+**pkiEzsignsignatureID** | **int32** |  | 
 
 ### Other Parameters
 
@@ -166,7 +166,7 @@ import (
 )
 
 func main() {
-    pkiEzsignsignatureID := int32(56) // int32 | The unique ID of the Ezsignsignature
+    pkiEzsignsignatureID := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -184,7 +184,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiEzsignsignatureID** | **int32** | The unique ID of the Ezsignsignature | 
+**pkiEzsignsignatureID** | **int32** |  | 
 
 ### Other Parameters
 
@@ -234,7 +234,7 @@ import (
 )
 
 func main() {
-    pkiEzsignsignatureID := int32(56) // int32 | The unique ID of the Ezsignsignature
+    pkiEzsignsignatureID := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -254,7 +254,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiEzsignsignatureID** | **int32** | The unique ID of the Ezsignsignature | 
+**pkiEzsignsignatureID** | **int32** |  | 
 
 ### Other Parameters
 
