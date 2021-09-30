@@ -3,7 +3,7 @@ eZmax API Definition
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.0.48
+API version: 1.1.0
 Contact: support-api@ezmax.ca
 */
 
@@ -18,14 +18,14 @@ import (
 // EzsigndocumentGetWordsPositionsV1ResponseMPayload Payload for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions API Request
 type EzsigndocumentGetWordsPositionsV1ResponseMPayload struct {
 	// An array of words with an array of pages and positions X,Y  They are returned with the sames words that was sent in the request.
-	ASWords []WordPositionResponse `json:"a_sWords"`
+	ASWords []CustomWordPositionResponse `json:"a_sWords"`
 }
 
 // NewEzsigndocumentGetWordsPositionsV1ResponseMPayload instantiates a new EzsigndocumentGetWordsPositionsV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigndocumentGetWordsPositionsV1ResponseMPayload(aSWords []WordPositionResponse) *EzsigndocumentGetWordsPositionsV1ResponseMPayload {
+func NewEzsigndocumentGetWordsPositionsV1ResponseMPayload(aSWords []CustomWordPositionResponse) *EzsigndocumentGetWordsPositionsV1ResponseMPayload {
 	this := EzsigndocumentGetWordsPositionsV1ResponseMPayload{}
 	this.ASWords = aSWords
 	return &this
@@ -40,9 +40,9 @@ func NewEzsigndocumentGetWordsPositionsV1ResponseMPayloadWithDefaults() *Ezsignd
 }
 
 // GetASWords returns the ASWords field value
-func (o *EzsigndocumentGetWordsPositionsV1ResponseMPayload) GetASWords() []WordPositionResponse {
+func (o *EzsigndocumentGetWordsPositionsV1ResponseMPayload) GetASWords() []CustomWordPositionResponse {
 	if o == nil {
-		var ret []WordPositionResponse
+		var ret []CustomWordPositionResponse
 		return ret
 	}
 
@@ -51,7 +51,7 @@ func (o *EzsigndocumentGetWordsPositionsV1ResponseMPayload) GetASWords() []WordP
 
 // GetASWordsOk returns a tuple with the ASWords field value
 // and a boolean to check if the value has been set.
-func (o *EzsigndocumentGetWordsPositionsV1ResponseMPayload) GetASWordsOk() (*[]WordPositionResponse, bool) {
+func (o *EzsigndocumentGetWordsPositionsV1ResponseMPayload) GetASWordsOk() (*[]CustomWordPositionResponse, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -59,7 +59,7 @@ func (o *EzsigndocumentGetWordsPositionsV1ResponseMPayload) GetASWordsOk() (*[]W
 }
 
 // SetASWords sets field value
-func (o *EzsigndocumentGetWordsPositionsV1ResponseMPayload) SetASWords(v []WordPositionResponse) {
+func (o *EzsigndocumentGetWordsPositionsV1ResponseMPayload) SetASWords(v []CustomWordPositionResponse) {
 	o.ASWords = v
 }
 

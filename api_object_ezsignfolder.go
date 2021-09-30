@@ -3,7 +3,7 @@ eZmax API Definition
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.0.48
+API version: 1.1.0
 Contact: support-api@ezmax.ca
 */
 
@@ -18,7 +18,6 @@ import (
 	_nethttp "net/http"
 	_neturl "net/url"
 	"strings"
-	"os"
 )
 
 // Linger please
@@ -423,7 +422,7 @@ type ApiEzsignfolderGetFormsDataV1Request struct {
 }
 
 
-func (r ApiEzsignfolderGetFormsDataV1Request) Execute() (*os.File, *_nethttp.Response, error) {
+func (r ApiEzsignfolderGetFormsDataV1Request) Execute() (EzsignfolderGetFormsDataV1Response, *_nethttp.Response, error) {
 	return r.ApiService.EzsignfolderGetFormsDataV1Execute(r)
 }
 
@@ -447,15 +446,15 @@ func (a *ObjectEzsignfolderApiService) EzsignfolderGetFormsDataV1(ctx _context.C
 }
 
 // Execute executes the request
-//  @return *os.File
-func (a *ObjectEzsignfolderApiService) EzsignfolderGetFormsDataV1Execute(r ApiEzsignfolderGetFormsDataV1Request) (*os.File, *_nethttp.Response, error) {
+//  @return EzsignfolderGetFormsDataV1Response
+func (a *ObjectEzsignfolderApiService) EzsignfolderGetFormsDataV1Execute(r ApiEzsignfolderGetFormsDataV1Request) (EzsignfolderGetFormsDataV1Response, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  *os.File
+		localVarReturnValue  EzsignfolderGetFormsDataV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfolderApiService.EzsignfolderGetFormsDataV1")
@@ -480,7 +479,7 @@ func (a *ObjectEzsignfolderApiService) EzsignfolderGetFormsDataV1Execute(r ApiEz
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/zip", "application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/zip"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -524,6 +523,16 @@ func (a *ObjectEzsignfolderApiService) EzsignfolderGetFormsDataV1Execute(r ApiEz
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
 			var v CommonResponseError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

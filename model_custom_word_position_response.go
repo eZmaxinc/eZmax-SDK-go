@@ -3,7 +3,7 @@ eZmax API Definition
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.0.48
+API version: 1.1.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,8 +15,8 @@ import (
 	"encoding/json"
 )
 
-// WordPositionResponse A Word Position Object
-type WordPositionResponse struct {
+// CustomWordPositionResponse A Word Position Object
+type CustomWordPositionResponse struct {
 	// The page where the word occurence was found
 	IPage *int32 `json:"iPage,omitempty"`
 	// The X coordinate (Horizontal) where the Word occurence was found.  Coordinate is calculated at 100dpi (dot per inch).
@@ -25,25 +25,25 @@ type WordPositionResponse struct {
 	IY *int32 `json:"iY,omitempty"`
 }
 
-// NewWordPositionResponse instantiates a new WordPositionResponse object
+// NewCustomWordPositionResponse instantiates a new CustomWordPositionResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWordPositionResponse() *WordPositionResponse {
-	this := WordPositionResponse{}
+func NewCustomWordPositionResponse() *CustomWordPositionResponse {
+	this := CustomWordPositionResponse{}
 	return &this
 }
 
-// NewWordPositionResponseWithDefaults instantiates a new WordPositionResponse object
+// NewCustomWordPositionResponseWithDefaults instantiates a new CustomWordPositionResponse object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewWordPositionResponseWithDefaults() *WordPositionResponse {
-	this := WordPositionResponse{}
+func NewCustomWordPositionResponseWithDefaults() *CustomWordPositionResponse {
+	this := CustomWordPositionResponse{}
 	return &this
 }
 
 // GetIPage returns the IPage field value if set, zero value otherwise.
-func (o *WordPositionResponse) GetIPage() int32 {
+func (o *CustomWordPositionResponse) GetIPage() int32 {
 	if o == nil || o.IPage == nil {
 		var ret int32
 		return ret
@@ -53,7 +53,7 @@ func (o *WordPositionResponse) GetIPage() int32 {
 
 // GetIPageOk returns a tuple with the IPage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WordPositionResponse) GetIPageOk() (*int32, bool) {
+func (o *CustomWordPositionResponse) GetIPageOk() (*int32, bool) {
 	if o == nil || o.IPage == nil {
 		return nil, false
 	}
@@ -61,7 +61,7 @@ func (o *WordPositionResponse) GetIPageOk() (*int32, bool) {
 }
 
 // HasIPage returns a boolean if a field has been set.
-func (o *WordPositionResponse) HasIPage() bool {
+func (o *CustomWordPositionResponse) HasIPage() bool {
 	if o != nil && o.IPage != nil {
 		return true
 	}
@@ -70,12 +70,12 @@ func (o *WordPositionResponse) HasIPage() bool {
 }
 
 // SetIPage gets a reference to the given int32 and assigns it to the IPage field.
-func (o *WordPositionResponse) SetIPage(v int32) {
+func (o *CustomWordPositionResponse) SetIPage(v int32) {
 	o.IPage = &v
 }
 
 // GetIX returns the IX field value if set, zero value otherwise.
-func (o *WordPositionResponse) GetIX() int32 {
+func (o *CustomWordPositionResponse) GetIX() int32 {
 	if o == nil || o.IX == nil {
 		var ret int32
 		return ret
@@ -85,7 +85,7 @@ func (o *WordPositionResponse) GetIX() int32 {
 
 // GetIXOk returns a tuple with the IX field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WordPositionResponse) GetIXOk() (*int32, bool) {
+func (o *CustomWordPositionResponse) GetIXOk() (*int32, bool) {
 	if o == nil || o.IX == nil {
 		return nil, false
 	}
@@ -93,7 +93,7 @@ func (o *WordPositionResponse) GetIXOk() (*int32, bool) {
 }
 
 // HasIX returns a boolean if a field has been set.
-func (o *WordPositionResponse) HasIX() bool {
+func (o *CustomWordPositionResponse) HasIX() bool {
 	if o != nil && o.IX != nil {
 		return true
 	}
@@ -102,12 +102,12 @@ func (o *WordPositionResponse) HasIX() bool {
 }
 
 // SetIX gets a reference to the given int32 and assigns it to the IX field.
-func (o *WordPositionResponse) SetIX(v int32) {
+func (o *CustomWordPositionResponse) SetIX(v int32) {
 	o.IX = &v
 }
 
 // GetIY returns the IY field value if set, zero value otherwise.
-func (o *WordPositionResponse) GetIY() int32 {
+func (o *CustomWordPositionResponse) GetIY() int32 {
 	if o == nil || o.IY == nil {
 		var ret int32
 		return ret
@@ -117,7 +117,7 @@ func (o *WordPositionResponse) GetIY() int32 {
 
 // GetIYOk returns a tuple with the IY field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WordPositionResponse) GetIYOk() (*int32, bool) {
+func (o *CustomWordPositionResponse) GetIYOk() (*int32, bool) {
 	if o == nil || o.IY == nil {
 		return nil, false
 	}
@@ -125,7 +125,7 @@ func (o *WordPositionResponse) GetIYOk() (*int32, bool) {
 }
 
 // HasIY returns a boolean if a field has been set.
-func (o *WordPositionResponse) HasIY() bool {
+func (o *CustomWordPositionResponse) HasIY() bool {
 	if o != nil && o.IY != nil {
 		return true
 	}
@@ -134,11 +134,11 @@ func (o *WordPositionResponse) HasIY() bool {
 }
 
 // SetIY gets a reference to the given int32 and assigns it to the IY field.
-func (o *WordPositionResponse) SetIY(v int32) {
+func (o *CustomWordPositionResponse) SetIY(v int32) {
 	o.IY = &v
 }
 
-func (o WordPositionResponse) MarshalJSON() ([]byte, error) {
+func (o CustomWordPositionResponse) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.IPage != nil {
 		toSerialize["iPage"] = o.IPage
@@ -152,38 +152,38 @@ func (o WordPositionResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableWordPositionResponse struct {
-	value *WordPositionResponse
+type NullableCustomWordPositionResponse struct {
+	value *CustomWordPositionResponse
 	isSet bool
 }
 
-func (v NullableWordPositionResponse) Get() *WordPositionResponse {
+func (v NullableCustomWordPositionResponse) Get() *CustomWordPositionResponse {
 	return v.value
 }
 
-func (v *NullableWordPositionResponse) Set(val *WordPositionResponse) {
+func (v *NullableCustomWordPositionResponse) Set(val *CustomWordPositionResponse) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableWordPositionResponse) IsSet() bool {
+func (v NullableCustomWordPositionResponse) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableWordPositionResponse) Unset() {
+func (v *NullableCustomWordPositionResponse) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableWordPositionResponse(val *WordPositionResponse) *NullableWordPositionResponse {
-	return &NullableWordPositionResponse{value: val, isSet: true}
+func NewNullableCustomWordPositionResponse(val *CustomWordPositionResponse) *NullableCustomWordPositionResponse {
+	return &NullableCustomWordPositionResponse{value: val, isSet: true}
 }
 
-func (v NullableWordPositionResponse) MarshalJSON() ([]byte, error) {
+func (v NullableCustomWordPositionResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableWordPositionResponse) UnmarshalJSON(src []byte) error {
+func (v *NullableCustomWordPositionResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

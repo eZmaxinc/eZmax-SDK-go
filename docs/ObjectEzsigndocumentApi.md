@@ -5,6 +5,7 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**EzsigndocumentApplyEzsigntemplateV1**](ObjectEzsigndocumentApi.md#EzsigndocumentApplyEzsigntemplateV1) | **Post** /1/object/ezsigndocument/{pkiEzsigndocumentID}/applyezsigntemplate | Apply an Ezsign Template to the Ezsigndocument.
+[**EzsigndocumentApplyEzsigntemplateV2**](ObjectEzsigndocumentApi.md#EzsigndocumentApplyEzsigntemplateV2) | **Post** /2/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplate | Apply an Ezsign Template to the Ezsigndocument.
 [**EzsigndocumentCreateObjectV1**](ObjectEzsigndocumentApi.md#EzsigndocumentCreateObjectV1) | **Post** /1/object/ezsigndocument | Create a new Ezsigndocument
 [**EzsigndocumentDeleteObjectV1**](ObjectEzsigndocumentApi.md#EzsigndocumentDeleteObjectV1) | **Delete** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Delete an existing Ezsigndocument
 [**EzsigndocumentGetChildrenV1**](ObjectEzsigndocumentApi.md#EzsigndocumentGetChildrenV1) | **Get** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getChildren | Retrieve an existing Ezsigndocument&#39;s children IDs
@@ -73,6 +74,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsigndocumentApplyEzsigntemplateV1Response**](EzsigndocumentApplyEzsigntemplateV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsigndocumentApplyEzsigntemplateV2
+
+> EzsigndocumentApplyEzsigntemplateV2Response EzsigndocumentApplyEzsigntemplateV2(ctx, pkiEzsigndocumentID).EzsigndocumentApplyEzsigntemplateV2Request(ezsigndocumentApplyEzsigntemplateV2Request).Execute()
+
+Apply an Ezsign Template to the Ezsigndocument.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    pkiEzsigndocumentID := int32(56) // int32 | 
+    ezsigndocumentApplyEzsigntemplateV2Request := *openapiclient.NewEzsigndocumentApplyEzsigntemplateV2Request(int32(36), []string{"John"}, []int32{int32(20)}) // EzsigndocumentApplyEzsigntemplateV2Request | 
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.ObjectEzsigndocumentApi.EzsigndocumentApplyEzsigntemplateV2(context.Background(), pkiEzsigndocumentID).EzsigndocumentApplyEzsigntemplateV2Request(ezsigndocumentApplyEzsigntemplateV2Request).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentApi.EzsigndocumentApplyEzsigntemplateV2``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `EzsigndocumentApplyEzsigntemplateV2`: EzsigndocumentApplyEzsigntemplateV2Response
+    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigndocumentApi.EzsigndocumentApplyEzsigntemplateV2`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsigndocumentID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsigndocumentApplyEzsigntemplateV2Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **ezsigndocumentApplyEzsigntemplateV2Request** | [**EzsigndocumentApplyEzsigntemplateV2Request**](EzsigndocumentApplyEzsigntemplateV2Request.md) |  | 
+
+### Return type
+
+[**EzsigndocumentApplyEzsigntemplateV2Response**](EzsigndocumentApplyEzsigntemplateV2Response.md)
 
 ### Authorization
 
@@ -369,8 +442,6 @@ Name | Type | Description  | Notes
 
 Retrieve an existing Ezsigndocument's Ezsignpages
 
-
-
 ### Example
 
 ```go
@@ -435,7 +506,7 @@ Name | Type | Description  | Notes
 
 ## EzsigndocumentGetFormDataV1
 
-> *os.File EzsigndocumentGetFormDataV1(ctx, pkiEzsigndocumentID).Execute()
+> EzsigndocumentGetFormDataV1Response EzsigndocumentGetFormDataV1(ctx, pkiEzsigndocumentID).Execute()
 
 Retrieve an existing Ezsigndocument's Form Data
 
@@ -463,7 +534,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentApi.EzsigndocumentGetFormDataV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `EzsigndocumentGetFormDataV1`: *os.File
+    // response from `EzsigndocumentGetFormDataV1`: EzsigndocumentGetFormDataV1Response
     fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigndocumentApi.EzsigndocumentGetFormDataV1`: %v\n", resp)
 }
 ```
@@ -487,7 +558,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+[**EzsigndocumentGetFormDataV1Response**](EzsigndocumentGetFormDataV1Response.md)
 
 ### Authorization
 
@@ -496,7 +567,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/zip, application/json
+- **Accept**: application/json, application/zip, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

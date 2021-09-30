@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 
 ## EzsignfolderGetFormsDataV1
 
-> *os.File EzsignfolderGetFormsDataV1(ctx, pkiEzsignfolderID).Execute()
+> EzsignfolderGetFormsDataV1Response EzsignfolderGetFormsDataV1(ctx, pkiEzsignfolderID).Execute()
 
 Retrieve an existing Ezsignfolder's forms data
 
@@ -245,7 +245,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderApi.EzsignfolderGetFormsDataV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `EzsignfolderGetFormsDataV1`: *os.File
+    // response from `EzsignfolderGetFormsDataV1`: EzsignfolderGetFormsDataV1Response
     fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderApi.EzsignfolderGetFormsDataV1`: %v\n", resp)
 }
 ```
@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+[**EzsignfolderGetFormsDataV1Response**](EzsignfolderGetFormsDataV1Response.md)
 
 ### Authorization
 
@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/zip, application/json
+- **Accept**: application/json, application/zip
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
