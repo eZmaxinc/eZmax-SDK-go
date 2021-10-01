@@ -25,7 +25,6 @@ type CustomFormDataSignerResponse struct {
 	SContactFirstname string `json:"sContactFirstname"`
 	// The Last name of the contact
 	SContactLastname string `json:"sContactLastname"`
-	// This array contains the labels or each Form fields in the form but WITHOUT the values
 	AObjEzsignformfieldgroupCompound []EzsignformfieldgroupResponseCompound `json:"a_objEzsignformfieldgroupCompound"`
 }
 

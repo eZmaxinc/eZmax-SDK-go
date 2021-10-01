@@ -17,16 +17,18 @@ import (
 
 // EzsigndocumentGetWordsPositionsV1Request Request for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions API Request
 type EzsigndocumentGetWordsPositionsV1Request struct {
-	ASWords []string `json:"a_sWords"`
+	// Specify if you want to retrieve *All* words or specific *Words* from the document. If you specify *Words*, you must send the list of words to search in *a_sWord*.
+	EGet *string `json:"eGet,omitempty"`
+	// Array of words to find in the document
+	ASWord *[]string `json:"a_sWord,omitempty"`
 }
 
 // NewEzsigndocumentGetWordsPositionsV1Request instantiates a new EzsigndocumentGetWordsPositionsV1Request object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigndocumentGetWordsPositionsV1Request(aSWords []string) *EzsigndocumentGetWordsPositionsV1Request {
+func NewEzsigndocumentGetWordsPositionsV1Request() *EzsigndocumentGetWordsPositionsV1Request {
 	this := EzsigndocumentGetWordsPositionsV1Request{}
-	this.ASWords = aSWords
 	return &this
 }
 
@@ -38,34 +40,77 @@ func NewEzsigndocumentGetWordsPositionsV1RequestWithDefaults() *EzsigndocumentGe
 	return &this
 }
 
-// GetASWords returns the ASWords field value
-func (o *EzsigndocumentGetWordsPositionsV1Request) GetASWords() []string {
-	if o == nil {
+// GetEGet returns the EGet field value if set, zero value otherwise.
+func (o *EzsigndocumentGetWordsPositionsV1Request) GetEGet() string {
+	if o == nil || o.EGet == nil {
+		var ret string
+		return ret
+	}
+	return *o.EGet
+}
+
+// GetEGetOk returns a tuple with the EGet field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentGetWordsPositionsV1Request) GetEGetOk() (*string, bool) {
+	if o == nil || o.EGet == nil {
+		return nil, false
+	}
+	return o.EGet, true
+}
+
+// HasEGet returns a boolean if a field has been set.
+func (o *EzsigndocumentGetWordsPositionsV1Request) HasEGet() bool {
+	if o != nil && o.EGet != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetEGet gets a reference to the given string and assigns it to the EGet field.
+func (o *EzsigndocumentGetWordsPositionsV1Request) SetEGet(v string) {
+	o.EGet = &v
+}
+
+// GetASWord returns the ASWord field value if set, zero value otherwise.
+func (o *EzsigndocumentGetWordsPositionsV1Request) GetASWord() []string {
+	if o == nil || o.ASWord == nil {
 		var ret []string
 		return ret
 	}
-
-	return o.ASWords
+	return *o.ASWord
 }
 
-// GetASWordsOk returns a tuple with the ASWords field value
+// GetASWordOk returns a tuple with the ASWord field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EzsigndocumentGetWordsPositionsV1Request) GetASWordsOk() (*[]string, bool) {
-	if o == nil  {
+func (o *EzsigndocumentGetWordsPositionsV1Request) GetASWordOk() (*[]string, bool) {
+	if o == nil || o.ASWord == nil {
 		return nil, false
 	}
-	return &o.ASWords, true
+	return o.ASWord, true
 }
 
-// SetASWords sets field value
-func (o *EzsigndocumentGetWordsPositionsV1Request) SetASWords(v []string) {
-	o.ASWords = v
+// HasASWord returns a boolean if a field has been set.
+func (o *EzsigndocumentGetWordsPositionsV1Request) HasASWord() bool {
+	if o != nil && o.ASWord != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetASWord gets a reference to the given []string and assigns it to the ASWord field.
+func (o *EzsigndocumentGetWordsPositionsV1Request) SetASWord(v []string) {
+	o.ASWord = &v
 }
 
 func (o EzsigndocumentGetWordsPositionsV1Request) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["a_sWords"] = o.ASWords
+	if o.EGet != nil {
+		toSerialize["eGet"] = o.EGet
+	}
+	if o.ASWord != nil {
+		toSerialize["a_sWord"] = o.ASWord
 	}
 	return json.Marshal(toSerialize)
 }

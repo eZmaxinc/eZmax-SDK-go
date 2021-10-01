@@ -17,17 +17,14 @@ import (
 
 // EzsigndocumentGetWordsPositionsV1ResponseMPayload Payload for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions API Request
 type EzsigndocumentGetWordsPositionsV1ResponseMPayload struct {
-	// An array of words with an array of pages and positions X,Y  They are returned with the sames words that was sent in the request.
-	ASWords []CustomWordPositionResponse `json:"a_sWords"`
 }
 
 // NewEzsigndocumentGetWordsPositionsV1ResponseMPayload instantiates a new EzsigndocumentGetWordsPositionsV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigndocumentGetWordsPositionsV1ResponseMPayload(aSWords []CustomWordPositionResponse) *EzsigndocumentGetWordsPositionsV1ResponseMPayload {
+func NewEzsigndocumentGetWordsPositionsV1ResponseMPayload() *EzsigndocumentGetWordsPositionsV1ResponseMPayload {
 	this := EzsigndocumentGetWordsPositionsV1ResponseMPayload{}
-	this.ASWords = aSWords
 	return &this
 }
 
@@ -39,35 +36,8 @@ func NewEzsigndocumentGetWordsPositionsV1ResponseMPayloadWithDefaults() *Ezsignd
 	return &this
 }
 
-// GetASWords returns the ASWords field value
-func (o *EzsigndocumentGetWordsPositionsV1ResponseMPayload) GetASWords() []CustomWordPositionResponse {
-	if o == nil {
-		var ret []CustomWordPositionResponse
-		return ret
-	}
-
-	return o.ASWords
-}
-
-// GetASWordsOk returns a tuple with the ASWords field value
-// and a boolean to check if the value has been set.
-func (o *EzsigndocumentGetWordsPositionsV1ResponseMPayload) GetASWordsOk() (*[]CustomWordPositionResponse, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.ASWords, true
-}
-
-// SetASWords sets field value
-func (o *EzsigndocumentGetWordsPositionsV1ResponseMPayload) SetASWords(v []CustomWordPositionResponse) {
-	o.ASWords = v
-}
-
 func (o EzsigndocumentGetWordsPositionsV1ResponseMPayload) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["a_sWords"] = o.ASWords
-	}
 	return json.Marshal(toSerialize)
 }
 

@@ -4,13 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ASWords** | [**[]CustomWordPositionResponse**](CustomWordPositionResponse.md) | An array of words with an array of pages and positions X,Y  They are returned with the sames words that was sent in the request. | 
 
 ## Methods
 
 ### NewEzsigndocumentGetWordsPositionsV1ResponseMPayload
 
-`func NewEzsigndocumentGetWordsPositionsV1ResponseMPayload(aSWords []CustomWordPositionResponse, ) *EzsigndocumentGetWordsPositionsV1ResponseMPayload`
+`func NewEzsigndocumentGetWordsPositionsV1ResponseMPayload() *EzsigndocumentGetWordsPositionsV1ResponseMPayload`
 
 NewEzsigndocumentGetWordsPositionsV1ResponseMPayload instantiates a new EzsigndocumentGetWordsPositionsV1ResponseMPayload object
 This constructor will assign default values to properties that have it defined,
@@ -24,26 +23,6 @@ will change when the set of required properties is changed
 NewEzsigndocumentGetWordsPositionsV1ResponseMPayloadWithDefaults instantiates a new EzsigndocumentGetWordsPositionsV1ResponseMPayload object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetASWords
-
-`func (o *EzsigndocumentGetWordsPositionsV1ResponseMPayload) GetASWords() []CustomWordPositionResponse`
-
-GetASWords returns the ASWords field if non-nil, zero value otherwise.
-
-### GetASWordsOk
-
-`func (o *EzsigndocumentGetWordsPositionsV1ResponseMPayload) GetASWordsOk() (*[]CustomWordPositionResponse, bool)`
-
-GetASWordsOk returns a tuple with the ASWords field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetASWords
-
-`func (o *EzsigndocumentGetWordsPositionsV1ResponseMPayload) SetASWords(v []CustomWordPositionResponse)`
-
-SetASWords sets ASWords field to given value.
-
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

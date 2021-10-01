@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **FkiUserID** | Pointer to **int32** | The unique ID of the User | [optional] 
 **SContactFirstname** | **string** | The First name of the contact | 
 **SContactLastname** | **string** | The Last name of the contact | 
-**AObjEzsignformfieldgroupCompound** | [**[]EzsignformfieldgroupResponseCompound**](EzsignformfieldgroupResponseCompound.md) | This array contains the labels or each Form fields in the form but WITHOUT the values | 
+**AObjEzsignformfieldgroupCompound** | [**[]EzsignformfieldgroupResponseCompound**](EzsignformfieldgroupResponseCompound.md) |  | 
 
 ## Methods
 

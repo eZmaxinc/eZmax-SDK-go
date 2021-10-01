@@ -4,13 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ASWords** | **[]string** |  | 
+**EGet** | Pointer to **string** | Specify if you want to retrieve *All* words or specific *Words* from the document. If you specify *Words*, you must send the list of words to search in *a_sWord*. | [optional] 
+**ASWord** | Pointer to **[]string** | Array of words to find in the document | [optional] 
 
 ## Methods
 
 ### NewEzsigndocumentGetWordsPositionsV1Request
 
-`func NewEzsigndocumentGetWordsPositionsV1Request(aSWords []string, ) *EzsigndocumentGetWordsPositionsV1Request`
+`func NewEzsigndocumentGetWordsPositionsV1Request() *EzsigndocumentGetWordsPositionsV1Request`
 
 NewEzsigndocumentGetWordsPositionsV1Request instantiates a new EzsigndocumentGetWordsPositionsV1Request object
 This constructor will assign default values to properties that have it defined,
@@ -25,25 +26,55 @@ NewEzsigndocumentGetWordsPositionsV1RequestWithDefaults instantiates a new Ezsig
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetASWords
+### GetEGet
 
-`func (o *EzsigndocumentGetWordsPositionsV1Request) GetASWords() []string`
+`func (o *EzsigndocumentGetWordsPositionsV1Request) GetEGet() string`
 
-GetASWords returns the ASWords field if non-nil, zero value otherwise.
+GetEGet returns the EGet field if non-nil, zero value otherwise.
 
-### GetASWordsOk
+### GetEGetOk
 
-`func (o *EzsigndocumentGetWordsPositionsV1Request) GetASWordsOk() (*[]string, bool)`
+`func (o *EzsigndocumentGetWordsPositionsV1Request) GetEGetOk() (*string, bool)`
 
-GetASWordsOk returns a tuple with the ASWords field if it's non-nil, zero value otherwise
+GetEGetOk returns a tuple with the EGet field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetASWords
+### SetEGet
 
-`func (o *EzsigndocumentGetWordsPositionsV1Request) SetASWords(v []string)`
+`func (o *EzsigndocumentGetWordsPositionsV1Request) SetEGet(v string)`
 
-SetASWords sets ASWords field to given value.
+SetEGet sets EGet field to given value.
 
+### HasEGet
+
+`func (o *EzsigndocumentGetWordsPositionsV1Request) HasEGet() bool`
+
+HasEGet returns a boolean if a field has been set.
+
+### GetASWord
+
+`func (o *EzsigndocumentGetWordsPositionsV1Request) GetASWord() []string`
+
+GetASWord returns the ASWord field if non-nil, zero value otherwise.
+
+### GetASWordOk
+
+`func (o *EzsigndocumentGetWordsPositionsV1Request) GetASWordOk() (*[]string, bool)`
+
+GetASWordOk returns a tuple with the ASWord field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetASWord
+
+`func (o *EzsigndocumentGetWordsPositionsV1Request) SetASWord(v []string)`
+
+SetASWord sets ASWord field to given value.
+
+### HasASWord
+
+`func (o *EzsigndocumentGetWordsPositionsV1Request) HasASWord() bool`
+
+HasASWord returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
