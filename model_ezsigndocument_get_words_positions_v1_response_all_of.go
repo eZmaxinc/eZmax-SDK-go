@@ -17,14 +17,15 @@ import (
 
 // EzsigndocumentGetWordsPositionsV1ResponseAllOf struct for EzsigndocumentGetWordsPositionsV1ResponseAllOf
 type EzsigndocumentGetWordsPositionsV1ResponseAllOf struct {
-	MPayload EzsigndocumentGetWordsPositionsV1ResponseMPayload `json:"mPayload"`
+	// Payload for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions API Request
+	MPayload []CustomWordPositionWordResponse `json:"mPayload"`
 }
 
 // NewEzsigndocumentGetWordsPositionsV1ResponseAllOf instantiates a new EzsigndocumentGetWordsPositionsV1ResponseAllOf object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigndocumentGetWordsPositionsV1ResponseAllOf(mPayload EzsigndocumentGetWordsPositionsV1ResponseMPayload) *EzsigndocumentGetWordsPositionsV1ResponseAllOf {
+func NewEzsigndocumentGetWordsPositionsV1ResponseAllOf(mPayload []CustomWordPositionWordResponse) *EzsigndocumentGetWordsPositionsV1ResponseAllOf {
 	this := EzsigndocumentGetWordsPositionsV1ResponseAllOf{}
 	this.MPayload = mPayload
 	return &this
@@ -39,9 +40,9 @@ func NewEzsigndocumentGetWordsPositionsV1ResponseAllOfWithDefaults() *Ezsigndocu
 }
 
 // GetMPayload returns the MPayload field value
-func (o *EzsigndocumentGetWordsPositionsV1ResponseAllOf) GetMPayload() EzsigndocumentGetWordsPositionsV1ResponseMPayload {
+func (o *EzsigndocumentGetWordsPositionsV1ResponseAllOf) GetMPayload() []CustomWordPositionWordResponse {
 	if o == nil {
-		var ret EzsigndocumentGetWordsPositionsV1ResponseMPayload
+		var ret []CustomWordPositionWordResponse
 		return ret
 	}
 
@@ -50,7 +51,7 @@ func (o *EzsigndocumentGetWordsPositionsV1ResponseAllOf) GetMPayload() Ezsigndoc
 
 // GetMPayloadOk returns a tuple with the MPayload field value
 // and a boolean to check if the value has been set.
-func (o *EzsigndocumentGetWordsPositionsV1ResponseAllOf) GetMPayloadOk() (*EzsigndocumentGetWordsPositionsV1ResponseMPayload, bool) {
+func (o *EzsigndocumentGetWordsPositionsV1ResponseAllOf) GetMPayloadOk() (*[]CustomWordPositionWordResponse, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -58,7 +59,7 @@ func (o *EzsigndocumentGetWordsPositionsV1ResponseAllOf) GetMPayloadOk() (*Ezsig
 }
 
 // SetMPayload sets field value
-func (o *EzsigndocumentGetWordsPositionsV1ResponseAllOf) SetMPayload(v EzsigndocumentGetWordsPositionsV1ResponseMPayload) {
+func (o *EzsigndocumentGetWordsPositionsV1ResponseAllOf) SetMPayload(v []CustomWordPositionWordResponse) {
 	o.MPayload = v
 }
 

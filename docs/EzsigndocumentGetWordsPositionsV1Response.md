@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MPayload** | [**EzsigndocumentGetWordsPositionsV1ResponseMPayload**](EzsigndocumentGetWordsPositionsV1ResponseMPayload.md) |  | 
+**MPayload** | [**[]CustomWordPositionWordResponse**](CustomWordPositionWordResponse.md) | Payload for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions API Request | 
 **ObjDebugPayload** | Pointer to [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | [optional] 
 **ObjDebug** | Pointer to [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewEzsigndocumentGetWordsPositionsV1Response
 
-`func NewEzsigndocumentGetWordsPositionsV1Response(mPayload EzsigndocumentGetWordsPositionsV1ResponseMPayload, ) *EzsigndocumentGetWordsPositionsV1Response`
+`func NewEzsigndocumentGetWordsPositionsV1Response(mPayload []CustomWordPositionWordResponse, ) *EzsigndocumentGetWordsPositionsV1Response`
 
 NewEzsigndocumentGetWordsPositionsV1Response instantiates a new EzsigndocumentGetWordsPositionsV1Response object
 This constructor will assign default values to properties that have it defined,
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetMPayload
 
-`func (o *EzsigndocumentGetWordsPositionsV1Response) GetMPayload() EzsigndocumentGetWordsPositionsV1ResponseMPayload`
+`func (o *EzsigndocumentGetWordsPositionsV1Response) GetMPayload() []CustomWordPositionWordResponse`
 
 GetMPayload returns the MPayload field if non-nil, zero value otherwise.
 
 ### GetMPayloadOk
 
-`func (o *EzsigndocumentGetWordsPositionsV1Response) GetMPayloadOk() (*EzsigndocumentGetWordsPositionsV1ResponseMPayload, bool)`
+`func (o *EzsigndocumentGetWordsPositionsV1Response) GetMPayloadOk() (*[]CustomWordPositionWordResponse, bool)`
 
 GetMPayloadOk returns a tuple with the MPayload field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMPayload
 
-`func (o *EzsigndocumentGetWordsPositionsV1Response) SetMPayload(v EzsigndocumentGetWordsPositionsV1ResponseMPayload)`
+`func (o *EzsigndocumentGetWordsPositionsV1Response) SetMPayload(v []CustomWordPositionWordResponse)`
 
 SetMPayload sets MPayload field to given value.
 

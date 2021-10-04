@@ -1,4 +1,4 @@
-# CustomWordPositionResponse
+# CustomWordPositionOccurenceResponse
 
 ## Properties
 
@@ -10,95 +10,95 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewCustomWordPositionResponse
+### NewCustomWordPositionOccurenceResponse
 
-`func NewCustomWordPositionResponse() *CustomWordPositionResponse`
+`func NewCustomWordPositionOccurenceResponse() *CustomWordPositionOccurenceResponse`
 
-NewCustomWordPositionResponse instantiates a new CustomWordPositionResponse object
+NewCustomWordPositionOccurenceResponse instantiates a new CustomWordPositionOccurenceResponse object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewCustomWordPositionResponseWithDefaults
+### NewCustomWordPositionOccurenceResponseWithDefaults
 
-`func NewCustomWordPositionResponseWithDefaults() *CustomWordPositionResponse`
+`func NewCustomWordPositionOccurenceResponseWithDefaults() *CustomWordPositionOccurenceResponse`
 
-NewCustomWordPositionResponseWithDefaults instantiates a new CustomWordPositionResponse object
+NewCustomWordPositionOccurenceResponseWithDefaults instantiates a new CustomWordPositionOccurenceResponse object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetIPage
 
-`func (o *CustomWordPositionResponse) GetIPage() int32`
+`func (o *CustomWordPositionOccurenceResponse) GetIPage() int32`
 
 GetIPage returns the IPage field if non-nil, zero value otherwise.
 
 ### GetIPageOk
 
-`func (o *CustomWordPositionResponse) GetIPageOk() (*int32, bool)`
+`func (o *CustomWordPositionOccurenceResponse) GetIPageOk() (*int32, bool)`
 
 GetIPageOk returns a tuple with the IPage field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIPage
 
-`func (o *CustomWordPositionResponse) SetIPage(v int32)`
+`func (o *CustomWordPositionOccurenceResponse) SetIPage(v int32)`
 
 SetIPage sets IPage field to given value.
 
 ### HasIPage
 
-`func (o *CustomWordPositionResponse) HasIPage() bool`
+`func (o *CustomWordPositionOccurenceResponse) HasIPage() bool`
 
 HasIPage returns a boolean if a field has been set.
 
 ### GetIX
 
-`func (o *CustomWordPositionResponse) GetIX() int32`
+`func (o *CustomWordPositionOccurenceResponse) GetIX() int32`
 
 GetIX returns the IX field if non-nil, zero value otherwise.
 
 ### GetIXOk
 
-`func (o *CustomWordPositionResponse) GetIXOk() (*int32, bool)`
+`func (o *CustomWordPositionOccurenceResponse) GetIXOk() (*int32, bool)`
 
 GetIXOk returns a tuple with the IX field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIX
 
-`func (o *CustomWordPositionResponse) SetIX(v int32)`
+`func (o *CustomWordPositionOccurenceResponse) SetIX(v int32)`
 
 SetIX sets IX field to given value.
 
 ### HasIX
 
-`func (o *CustomWordPositionResponse) HasIX() bool`
+`func (o *CustomWordPositionOccurenceResponse) HasIX() bool`
 
 HasIX returns a boolean if a field has been set.
 
 ### GetIY
 
-`func (o *CustomWordPositionResponse) GetIY() int32`
+`func (o *CustomWordPositionOccurenceResponse) GetIY() int32`
 
 GetIY returns the IY field if non-nil, zero value otherwise.
 
 ### GetIYOk
 
-`func (o *CustomWordPositionResponse) GetIYOk() (*int32, bool)`
+`func (o *CustomWordPositionOccurenceResponse) GetIYOk() (*int32, bool)`
 
 GetIYOk returns a tuple with the IY field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIY
 
-`func (o *CustomWordPositionResponse) SetIY(v int32)`
+`func (o *CustomWordPositionOccurenceResponse) SetIY(v int32)`
 
 SetIY sets IY field to given value.
 
 ### HasIY
 
-`func (o *CustomWordPositionResponse) HasIY() bool`
+`func (o *CustomWordPositionOccurenceResponse) HasIY() bool`
 
 HasIY returns a boolean if a field has been set.
 
