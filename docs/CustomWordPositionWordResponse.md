@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SWord** | **string** | The searched word | 
-**ObjWordPositionOccurence** | [**[]CustomWordPositionOccurenceResponse**](CustomWordPositionOccurenceResponse.md) | The found occurences for the seached word | 
+**AObjWordPositionOccurence** | [**[]CustomWordPositionOccurenceResponse**](CustomWordPositionOccurenceResponse.md) | The found occurences for the seached word | 
 
 ## Methods
 
 ### NewCustomWordPositionWordResponse
 
-`func NewCustomWordPositionWordResponse(sWord string, objWordPositionOccurence []CustomWordPositionOccurenceResponse, ) *CustomWordPositionWordResponse`
+`func NewCustomWordPositionWordResponse(sWord string, aObjWordPositionOccurence []CustomWordPositionOccurenceResponse, ) *CustomWordPositionWordResponse`
 
 NewCustomWordPositionWordResponse instantiates a new CustomWordPositionWordResponse object
 This constructor will assign default values to properties that have it defined,
@@ -46,24 +46,24 @@ and a boolean to check if the value has been set.
 SetSWord sets SWord field to given value.
 
 
-### GetObjWordPositionOccurence
+### GetAObjWordPositionOccurence
 
-`func (o *CustomWordPositionWordResponse) GetObjWordPositionOccurence() []CustomWordPositionOccurenceResponse`
+`func (o *CustomWordPositionWordResponse) GetAObjWordPositionOccurence() []CustomWordPositionOccurenceResponse`
 
-GetObjWordPositionOccurence returns the ObjWordPositionOccurence field if non-nil, zero value otherwise.
+GetAObjWordPositionOccurence returns the AObjWordPositionOccurence field if non-nil, zero value otherwise.
 
-### GetObjWordPositionOccurenceOk
+### GetAObjWordPositionOccurenceOk
 
-`func (o *CustomWordPositionWordResponse) GetObjWordPositionOccurenceOk() (*[]CustomWordPositionOccurenceResponse, bool)`
+`func (o *CustomWordPositionWordResponse) GetAObjWordPositionOccurenceOk() (*[]CustomWordPositionOccurenceResponse, bool)`
 
-GetObjWordPositionOccurenceOk returns a tuple with the ObjWordPositionOccurence field if it's non-nil, zero value otherwise
+GetAObjWordPositionOccurenceOk returns a tuple with the AObjWordPositionOccurence field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetObjWordPositionOccurence
+### SetAObjWordPositionOccurence
 
-`func (o *CustomWordPositionWordResponse) SetObjWordPositionOccurence(v []CustomWordPositionOccurenceResponse)`
+`func (o *CustomWordPositionWordResponse) SetAObjWordPositionOccurence(v []CustomWordPositionOccurenceResponse)`
 
-SetObjWordPositionOccurence sets ObjWordPositionOccurence field to given value.
+SetAObjWordPositionOccurence sets AObjWordPositionOccurence field to given value.
 
 
 

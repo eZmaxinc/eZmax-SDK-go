@@ -20,17 +20,17 @@ type CustomWordPositionWordResponse struct {
 	// The searched word
 	SWord string `json:"sWord"`
 	// The found occurences for the seached word
-	ObjWordPositionOccurence []CustomWordPositionOccurenceResponse `json:"objWordPositionOccurence"`
+	AObjWordPositionOccurence []CustomWordPositionOccurenceResponse `json:"a_objWordPositionOccurence"`
 }
 
 // NewCustomWordPositionWordResponse instantiates a new CustomWordPositionWordResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomWordPositionWordResponse(sWord string, objWordPositionOccurence []CustomWordPositionOccurenceResponse) *CustomWordPositionWordResponse {
+func NewCustomWordPositionWordResponse(sWord string, aObjWordPositionOccurence []CustomWordPositionOccurenceResponse) *CustomWordPositionWordResponse {
 	this := CustomWordPositionWordResponse{}
 	this.SWord = sWord
-	this.ObjWordPositionOccurence = objWordPositionOccurence
+	this.AObjWordPositionOccurence = aObjWordPositionOccurence
 	return &this
 }
 
@@ -66,28 +66,28 @@ func (o *CustomWordPositionWordResponse) SetSWord(v string) {
 	o.SWord = v
 }
 
-// GetObjWordPositionOccurence returns the ObjWordPositionOccurence field value
-func (o *CustomWordPositionWordResponse) GetObjWordPositionOccurence() []CustomWordPositionOccurenceResponse {
+// GetAObjWordPositionOccurence returns the AObjWordPositionOccurence field value
+func (o *CustomWordPositionWordResponse) GetAObjWordPositionOccurence() []CustomWordPositionOccurenceResponse {
 	if o == nil {
 		var ret []CustomWordPositionOccurenceResponse
 		return ret
 	}
 
-	return o.ObjWordPositionOccurence
+	return o.AObjWordPositionOccurence
 }
 
-// GetObjWordPositionOccurenceOk returns a tuple with the ObjWordPositionOccurence field value
+// GetAObjWordPositionOccurenceOk returns a tuple with the AObjWordPositionOccurence field value
 // and a boolean to check if the value has been set.
-func (o *CustomWordPositionWordResponse) GetObjWordPositionOccurenceOk() (*[]CustomWordPositionOccurenceResponse, bool) {
+func (o *CustomWordPositionWordResponse) GetAObjWordPositionOccurenceOk() (*[]CustomWordPositionOccurenceResponse, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.ObjWordPositionOccurence, true
+	return &o.AObjWordPositionOccurence, true
 }
 
-// SetObjWordPositionOccurence sets field value
-func (o *CustomWordPositionWordResponse) SetObjWordPositionOccurence(v []CustomWordPositionOccurenceResponse) {
-	o.ObjWordPositionOccurence = v
+// SetAObjWordPositionOccurence sets field value
+func (o *CustomWordPositionWordResponse) SetAObjWordPositionOccurence(v []CustomWordPositionOccurenceResponse) {
+	o.AObjWordPositionOccurence = v
 }
 
 func (o CustomWordPositionWordResponse) MarshalJSON() ([]byte, error) {
@@ -96,7 +96,7 @@ func (o CustomWordPositionWordResponse) MarshalJSON() ([]byte, error) {
 		toSerialize["sWord"] = o.SWord
 	}
 	if true {
-		toSerialize["objWordPositionOccurence"] = o.ObjWordPositionOccurence
+		toSerialize["a_objWordPositionOccurence"] = o.AObjWordPositionOccurence
 	}
 	return json.Marshal(toSerialize)
 }
