@@ -12,6 +12,7 @@ api_object_apikey.go
 api_object_ezsigndocument.go
 api_object_ezsignfolder.go
 api_object_ezsignfoldersignerassociation.go
+api_object_ezsignfoldertype.go
 api_object_ezsignsignature.go
 api_object_franchisebroker.go
 api_object_franchiseoffice.go
@@ -39,6 +40,7 @@ docs/CommonAudit.md
 docs/CommonGetAutocompleteV1Response.md
 docs/CommonGetAutocompleteV1ResponseAllOf.md
 docs/CommonGetAutocompleteV1ResponseMPayload.md
+docs/CommonGetListV1ResponseMPayload.md
 docs/CommonResponse.md
 docs/CommonResponseError.md
 docs/CommonResponseObjDebug.md
@@ -115,6 +117,11 @@ docs/EzsignfoldersignerassociationGetObjectV1ResponseAllOf.md
 docs/EzsignfoldersignerassociationRequest.md
 docs/EzsignfoldersignerassociationRequestCompound.md
 docs/EzsignfoldersignerassociationRequestCompoundAllOf.md
+docs/EzsignfoldertypeGetListV1Response.md
+docs/EzsignfoldertypeGetListV1ResponseAllOf.md
+docs/EzsignfoldertypeGetListV1ResponseMPayload.md
+docs/EzsignfoldertypeGetListV1ResponseMPayloadAllOf.md
+docs/EzsignfoldertypeListElement.md
 docs/EzsignformfieldResponse.md
 docs/EzsignformfieldResponseCompound.md
 docs/EzsignformfieldgroupResponse.md
@@ -159,6 +166,7 @@ docs/ObjectApikeyApi.md
 docs/ObjectEzsigndocumentApi.md
 docs/ObjectEzsignfolderApi.md
 docs/ObjectEzsignfoldersignerassociationApi.md
+docs/ObjectEzsignfoldertypeApi.md
 docs/ObjectEzsignsignatureApi.md
 docs/ObjectFranchisebrokerApi.md
 docs/ObjectFranchiseofficeApi.md
@@ -215,6 +223,7 @@ model_common_audit.go
 model_common_get_autocomplete_v1_response.go
 model_common_get_autocomplete_v1_response_all_of.go
 model_common_get_autocomplete_v1_response_m_payload.go
+model_common_get_list_v1_response_m_payload.go
 model_common_response.go
 model_common_response_error.go
 model_common_response_obj_debug.go
@@ -291,6 +300,11 @@ model_ezsignfoldersignerassociation_get_object_v1_response_all_of.go
 model_ezsignfoldersignerassociation_request.go
 model_ezsignfoldersignerassociation_request_compound.go
 model_ezsignfoldersignerassociation_request_compound_all_of.go
+model_ezsignfoldertype_get_list_v1_response.go
+model_ezsignfoldertype_get_list_v1_response_all_of.go
+model_ezsignfoldertype_get_list_v1_response_m_payload.go
+model_ezsignfoldertype_get_list_v1_response_m_payload_all_of.go
+model_ezsignfoldertype_list_element.go
 model_ezsignformfield_response.go
 model_ezsignformfield_response_compound.go
 model_ezsignformfieldgroup_response.go

@@ -111,6 +111,7 @@ Class | Method | HTTP request | Description
 *ObjectEzsignfoldersignerassociationApi* | [**EzsignfoldersignerassociationGetChildrenV1**](docs/ObjectEzsignfoldersignerassociationApi.md#ezsignfoldersignerassociationgetchildrenv1) | **Get** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/getChildren | Retrieve an existing Ezsignfoldersignerassociation&#39;s children IDs
 *ObjectEzsignfoldersignerassociationApi* | [**EzsignfoldersignerassociationGetInPersonLoginUrlV1**](docs/ObjectEzsignfoldersignerassociationApi.md#ezsignfoldersignerassociationgetinpersonloginurlv1) | **Get** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/getInPersonLoginUrl | Retrieve a Login Url to allow In-Person signing
 *ObjectEzsignfoldersignerassociationApi* | [**EzsignfoldersignerassociationGetObjectV1**](docs/ObjectEzsignfoldersignerassociationApi.md#ezsignfoldersignerassociationgetobjectv1) | **Get** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Retrieve an existing Ezsignfoldersignerassociation
+*ObjectEzsignfoldertypeApi* | [**EzsignfoldertypeGetListV1**](docs/ObjectEzsignfoldertypeApi.md#ezsignfoldertypegetlistv1) | **Get** /1/object/ezsignfoldertype/getList | Retrieve Ezsignfoldertype list
 *ObjectEzsignsignatureApi* | [**EzsignsignatureCreateObjectV1**](docs/ObjectEzsignsignatureApi.md#ezsignsignaturecreateobjectv1) | **Post** /1/object/ezsignsignature | Create a new Ezsignsignature
 *ObjectEzsignsignatureApi* | [**EzsignsignatureDeleteObjectV1**](docs/ObjectEzsignsignatureApi.md#ezsignsignaturedeleteobjectv1) | **Delete** /1/object/ezsignsignature/{pkiEzsignsignatureID} | Delete an existing Ezsignsignature
 *ObjectEzsignsignatureApi* | [**EzsignsignatureGetChildrenV1**](docs/ObjectEzsignsignatureApi.md#ezsignsignaturegetchildrenv1) | **Get** /1/object/ezsignsignature/{pkiEzsignsignatureID}/getChildren | Retrieve an existing Ezsignsignature&#39;s children IDs
@@ -143,6 +144,7 @@ Class | Method | HTTP request | Description
  - [CommonGetAutocompleteV1Response](docs/CommonGetAutocompleteV1Response.md)
  - [CommonGetAutocompleteV1ResponseAllOf](docs/CommonGetAutocompleteV1ResponseAllOf.md)
  - [CommonGetAutocompleteV1ResponseMPayload](docs/CommonGetAutocompleteV1ResponseMPayload.md)
+ - [CommonGetListV1ResponseMPayload](docs/CommonGetListV1ResponseMPayload.md)
  - [CommonResponse](docs/CommonResponse.md)
  - [CommonResponseError](docs/CommonResponseError.md)
  - [CommonResponseObjDebug](docs/CommonResponseObjDebug.md)
@@ -219,6 +221,11 @@ Class | Method | HTTP request | Description
  - [EzsignfoldersignerassociationRequest](docs/EzsignfoldersignerassociationRequest.md)
  - [EzsignfoldersignerassociationRequestCompound](docs/EzsignfoldersignerassociationRequestCompound.md)
  - [EzsignfoldersignerassociationRequestCompoundAllOf](docs/EzsignfoldersignerassociationRequestCompoundAllOf.md)
+ - [EzsignfoldertypeGetListV1Response](docs/EzsignfoldertypeGetListV1Response.md)
+ - [EzsignfoldertypeGetListV1ResponseAllOf](docs/EzsignfoldertypeGetListV1ResponseAllOf.md)
+ - [EzsignfoldertypeGetListV1ResponseMPayload](docs/EzsignfoldertypeGetListV1ResponseMPayload.md)
+ - [EzsignfoldertypeGetListV1ResponseMPayloadAllOf](docs/EzsignfoldertypeGetListV1ResponseMPayloadAllOf.md)
+ - [EzsignfoldertypeListElement](docs/EzsignfoldertypeListElement.md)
  - [EzsignformfieldResponse](docs/EzsignformfieldResponse.md)
  - [EzsignformfieldResponseCompound](docs/EzsignformfieldResponseCompound.md)
  - [EzsignformfieldgroupResponse](docs/EzsignformfieldgroupResponse.md)

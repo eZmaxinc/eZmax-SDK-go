@@ -68,6 +68,8 @@ type APIClient struct {
 
 	ObjectEzsignfoldersignerassociationApi *ObjectEzsignfoldersignerassociationApiService
 
+	ObjectEzsignfoldertypeApi *ObjectEzsignfoldertypeApiService
+
 	ObjectEzsignsignatureApi *ObjectEzsignsignatureApiService
 
 	ObjectFranchisebrokerApi *ObjectFranchisebrokerApiService
@@ -104,6 +106,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectEzsigndocumentApi = (*ObjectEzsigndocumentApiService)(&c.common)
 	c.ObjectEzsignfolderApi = (*ObjectEzsignfolderApiService)(&c.common)
 	c.ObjectEzsignfoldersignerassociationApi = (*ObjectEzsignfoldersignerassociationApiService)(&c.common)
+	c.ObjectEzsignfoldertypeApi = (*ObjectEzsignfoldertypeApiService)(&c.common)
 	c.ObjectEzsignsignatureApi = (*ObjectEzsignsignatureApiService)(&c.common)
 	c.ObjectFranchisebrokerApi = (*ObjectFranchisebrokerApiService)(&c.common)
 	c.ObjectFranchiseofficeApi = (*ObjectFranchiseofficeApiService)(&c.common)

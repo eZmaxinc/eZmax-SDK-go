@@ -1123,7 +1123,7 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetFormDataV1Execute(r Ap
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 422 {
+		if localVarHTTPResponse.StatusCode == 406 {
 			var v CommonResponseError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -1133,7 +1133,7 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetFormDataV1Execute(r Ap
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 406 {
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v CommonResponseError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

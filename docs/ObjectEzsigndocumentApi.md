@@ -666,7 +666,7 @@ import (
 
 func main() {
     pkiEzsigndocumentID := int32(56) // int32 | 
-    ezsigndocumentGetWordsPositionsV1Request := *openapiclient.NewEzsigndocumentGetWordsPositionsV1Request() // EzsigndocumentGetWordsPositionsV1Request | 
+    ezsigndocumentGetWordsPositionsV1Request := *openapiclient.NewEzsigndocumentGetWordsPositionsV1Request("EGet_example", false) // EzsigndocumentGetWordsPositionsV1Request | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)

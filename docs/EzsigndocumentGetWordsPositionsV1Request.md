@@ -4,14 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EGet** | Pointer to **string** | Specify if you want to retrieve *All* words or specific *Words* from the document. If you specify *Words*, you must send the list of words to search in *a_sWord*. | [optional] 
+**EGet** | **string** | Specify if you want to retrieve *All* words or specific *Words* from the document. If you specify *Words*, you must send the list of words to search for in *a_sWord*. | 
+**BWordCaseSensitive** | **bool** | IF *true*, words will be searched case-sensitive and results will be returned case-sensitive. IF *false*, words will be searched case-insensitive and results will be returned case-insensitive. | 
 **ASWord** | Pointer to **[]string** | Array of words to find in the document | [optional] 
 
 ## Methods
 
 ### NewEzsigndocumentGetWordsPositionsV1Request
 
-`func NewEzsigndocumentGetWordsPositionsV1Request() *EzsigndocumentGetWordsPositionsV1Request`
+`func NewEzsigndocumentGetWordsPositionsV1Request(eGet string, bWordCaseSensitive bool, ) *EzsigndocumentGetWordsPositionsV1Request`
 
 NewEzsigndocumentGetWordsPositionsV1Request instantiates a new EzsigndocumentGetWordsPositionsV1Request object
 This constructor will assign default values to properties that have it defined,
@@ -45,11 +46,26 @@ and a boolean to check if the value has been set.
 
 SetEGet sets EGet field to given value.
 
-### HasEGet
 
-`func (o *EzsigndocumentGetWordsPositionsV1Request) HasEGet() bool`
+### GetBWordCaseSensitive
 
-HasEGet returns a boolean if a field has been set.
+`func (o *EzsigndocumentGetWordsPositionsV1Request) GetBWordCaseSensitive() bool`
+
+GetBWordCaseSensitive returns the BWordCaseSensitive field if non-nil, zero value otherwise.
+
+### GetBWordCaseSensitiveOk
+
+`func (o *EzsigndocumentGetWordsPositionsV1Request) GetBWordCaseSensitiveOk() (*bool, bool)`
+
+GetBWordCaseSensitiveOk returns a tuple with the BWordCaseSensitive field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBWordCaseSensitive
+
+`func (o *EzsigndocumentGetWordsPositionsV1Request) SetBWordCaseSensitive(v bool)`
+
+SetBWordCaseSensitive sets BWordCaseSensitive field to given value.
+
 
 ### GetASWord
 

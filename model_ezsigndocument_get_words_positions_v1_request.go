@@ -17,8 +17,10 @@ import (
 
 // EzsigndocumentGetWordsPositionsV1Request Request for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions API Request
 type EzsigndocumentGetWordsPositionsV1Request struct {
-	// Specify if you want to retrieve *All* words or specific *Words* from the document. If you specify *Words*, you must send the list of words to search in *a_sWord*.
-	EGet *string `json:"eGet,omitempty"`
+	// Specify if you want to retrieve *All* words or specific *Words* from the document. If you specify *Words*, you must send the list of words to search for in *a_sWord*.
+	EGet string `json:"eGet"`
+	// IF *true*, words will be searched case-sensitive and results will be returned case-sensitive. IF *false*, words will be searched case-insensitive and results will be returned case-insensitive.
+	BWordCaseSensitive bool `json:"bWordCaseSensitive"`
 	// Array of words to find in the document
 	ASWord *[]string `json:"a_sWord,omitempty"`
 }
@@ -27,8 +29,10 @@ type EzsigndocumentGetWordsPositionsV1Request struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigndocumentGetWordsPositionsV1Request() *EzsigndocumentGetWordsPositionsV1Request {
+func NewEzsigndocumentGetWordsPositionsV1Request(eGet string, bWordCaseSensitive bool) *EzsigndocumentGetWordsPositionsV1Request {
 	this := EzsigndocumentGetWordsPositionsV1Request{}
+	this.EGet = eGet
+	this.BWordCaseSensitive = bWordCaseSensitive
 	return &this
 }
 
@@ -40,36 +44,52 @@ func NewEzsigndocumentGetWordsPositionsV1RequestWithDefaults() *EzsigndocumentGe
 	return &this
 }
 
-// GetEGet returns the EGet field value if set, zero value otherwise.
+// GetEGet returns the EGet field value
 func (o *EzsigndocumentGetWordsPositionsV1Request) GetEGet() string {
-	if o == nil || o.EGet == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.EGet
+
+	return o.EGet
 }
 
-// GetEGetOk returns a tuple with the EGet field value if set, nil otherwise
+// GetEGetOk returns a tuple with the EGet field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetWordsPositionsV1Request) GetEGetOk() (*string, bool) {
-	if o == nil || o.EGet == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.EGet, true
+	return &o.EGet, true
 }
 
-// HasEGet returns a boolean if a field has been set.
-func (o *EzsigndocumentGetWordsPositionsV1Request) HasEGet() bool {
-	if o != nil && o.EGet != nil {
-		return true
+// SetEGet sets field value
+func (o *EzsigndocumentGetWordsPositionsV1Request) SetEGet(v string) {
+	o.EGet = v
+}
+
+// GetBWordCaseSensitive returns the BWordCaseSensitive field value
+func (o *EzsigndocumentGetWordsPositionsV1Request) GetBWordCaseSensitive() bool {
+	if o == nil {
+		var ret bool
+		return ret
 	}
 
-	return false
+	return o.BWordCaseSensitive
 }
 
-// SetEGet gets a reference to the given string and assigns it to the EGet field.
-func (o *EzsigndocumentGetWordsPositionsV1Request) SetEGet(v string) {
-	o.EGet = &v
+// GetBWordCaseSensitiveOk returns a tuple with the BWordCaseSensitive field value
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentGetWordsPositionsV1Request) GetBWordCaseSensitiveOk() (*bool, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.BWordCaseSensitive, true
+}
+
+// SetBWordCaseSensitive sets field value
+func (o *EzsigndocumentGetWordsPositionsV1Request) SetBWordCaseSensitive(v bool) {
+	o.BWordCaseSensitive = v
 }
 
 // GetASWord returns the ASWord field value if set, zero value otherwise.
@@ -106,8 +126,11 @@ func (o *EzsigndocumentGetWordsPositionsV1Request) SetASWord(v []string) {
 
 func (o EzsigndocumentGetWordsPositionsV1Request) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.EGet != nil {
+	if true {
 		toSerialize["eGet"] = o.EGet
+	}
+	if true {
+		toSerialize["bWordCaseSensitive"] = o.BWordCaseSensitive
 	}
 	if o.ASWord != nil {
 		toSerialize["a_sWord"] = o.ASWord
