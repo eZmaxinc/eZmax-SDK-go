@@ -89,6 +89,7 @@ docs/EzsigndocumentResponse.md
 docs/EzsigndocumentResponseCompound.md
 docs/EzsignfolderCreateObjectV1Request.md
 docs/EzsignfolderCreateObjectV1Response.md
+docs/EzsignfolderCreateObjectV1ResponseAllOf.md
 docs/EzsignfolderCreateObjectV1ResponseMPayload.md
 docs/EzsignfolderDeleteObjectV1Response.md
 docs/EzsignfolderGetFormsDataV1Response.md
@@ -273,6 +274,7 @@ model_ezsigndocument_response.go
 model_ezsigndocument_response_compound.go
 model_ezsignfolder_create_object_v1_request.go
 model_ezsignfolder_create_object_v1_response.go
+model_ezsignfolder_create_object_v1_response_all_of.go
 model_ezsignfolder_create_object_v1_response_m_payload.go
 model_ezsignfolder_delete_object_v1_response.go
 model_ezsignfolder_get_forms_data_v1_response.go

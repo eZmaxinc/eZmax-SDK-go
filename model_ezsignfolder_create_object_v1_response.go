@@ -28,6 +28,7 @@ type EzsignfolderCreateObjectV1Response struct {
 // will change when the set of required properties is changed
 func NewEzsignfolderCreateObjectV1Response(mPayload EzsignfolderCreateObjectV1ResponseMPayload) *EzsignfolderCreateObjectV1Response {
 	this := EzsignfolderCreateObjectV1Response{}
+	this.MPayload = mPayload
 	return &this
 }
 
