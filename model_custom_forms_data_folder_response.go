@@ -15,8 +15,8 @@ import (
 	"encoding/json"
 )
 
-// CustomFormDataFolderResponse A form Data Folder Object
-type CustomFormDataFolderResponse struct {
+// CustomFormsDataFolderResponse A forms Data Folder Object
+type CustomFormsDataFolderResponse struct {
 	// The unique ID of the Ezsignfolder
 	PkiEzsignfolderID int32 `json:"pkiEzsignfolderID"`
 	// The description of the Ezsign Folder
@@ -24,28 +24,28 @@ type CustomFormDataFolderResponse struct {
 	AObjFormDataDocument []CustomFormDataDocumentResponse `json:"a_objFormDataDocument"`
 }
 
-// NewCustomFormDataFolderResponse instantiates a new CustomFormDataFolderResponse object
+// NewCustomFormsDataFolderResponse instantiates a new CustomFormsDataFolderResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomFormDataFolderResponse(pkiEzsignfolderID int32, sEzsignfolderDescription string, aObjFormDataDocument []CustomFormDataDocumentResponse) *CustomFormDataFolderResponse {
-	this := CustomFormDataFolderResponse{}
+func NewCustomFormsDataFolderResponse(pkiEzsignfolderID int32, sEzsignfolderDescription string, aObjFormDataDocument []CustomFormDataDocumentResponse) *CustomFormsDataFolderResponse {
+	this := CustomFormsDataFolderResponse{}
 	this.PkiEzsignfolderID = pkiEzsignfolderID
 	this.SEzsignfolderDescription = sEzsignfolderDescription
 	this.AObjFormDataDocument = aObjFormDataDocument
 	return &this
 }
 
-// NewCustomFormDataFolderResponseWithDefaults instantiates a new CustomFormDataFolderResponse object
+// NewCustomFormsDataFolderResponseWithDefaults instantiates a new CustomFormsDataFolderResponse object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewCustomFormDataFolderResponseWithDefaults() *CustomFormDataFolderResponse {
-	this := CustomFormDataFolderResponse{}
+func NewCustomFormsDataFolderResponseWithDefaults() *CustomFormsDataFolderResponse {
+	this := CustomFormsDataFolderResponse{}
 	return &this
 }
 
 // GetPkiEzsignfolderID returns the PkiEzsignfolderID field value
-func (o *CustomFormDataFolderResponse) GetPkiEzsignfolderID() int32 {
+func (o *CustomFormsDataFolderResponse) GetPkiEzsignfolderID() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -56,7 +56,7 @@ func (o *CustomFormDataFolderResponse) GetPkiEzsignfolderID() int32 {
 
 // GetPkiEzsignfolderIDOk returns a tuple with the PkiEzsignfolderID field value
 // and a boolean to check if the value has been set.
-func (o *CustomFormDataFolderResponse) GetPkiEzsignfolderIDOk() (*int32, bool) {
+func (o *CustomFormsDataFolderResponse) GetPkiEzsignfolderIDOk() (*int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -64,12 +64,12 @@ func (o *CustomFormDataFolderResponse) GetPkiEzsignfolderIDOk() (*int32, bool) {
 }
 
 // SetPkiEzsignfolderID sets field value
-func (o *CustomFormDataFolderResponse) SetPkiEzsignfolderID(v int32) {
+func (o *CustomFormsDataFolderResponse) SetPkiEzsignfolderID(v int32) {
 	o.PkiEzsignfolderID = v
 }
 
 // GetSEzsignfolderDescription returns the SEzsignfolderDescription field value
-func (o *CustomFormDataFolderResponse) GetSEzsignfolderDescription() string {
+func (o *CustomFormsDataFolderResponse) GetSEzsignfolderDescription() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -80,7 +80,7 @@ func (o *CustomFormDataFolderResponse) GetSEzsignfolderDescription() string {
 
 // GetSEzsignfolderDescriptionOk returns a tuple with the SEzsignfolderDescription field value
 // and a boolean to check if the value has been set.
-func (o *CustomFormDataFolderResponse) GetSEzsignfolderDescriptionOk() (*string, bool) {
+func (o *CustomFormsDataFolderResponse) GetSEzsignfolderDescriptionOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -88,12 +88,12 @@ func (o *CustomFormDataFolderResponse) GetSEzsignfolderDescriptionOk() (*string,
 }
 
 // SetSEzsignfolderDescription sets field value
-func (o *CustomFormDataFolderResponse) SetSEzsignfolderDescription(v string) {
+func (o *CustomFormsDataFolderResponse) SetSEzsignfolderDescription(v string) {
 	o.SEzsignfolderDescription = v
 }
 
 // GetAObjFormDataDocument returns the AObjFormDataDocument field value
-func (o *CustomFormDataFolderResponse) GetAObjFormDataDocument() []CustomFormDataDocumentResponse {
+func (o *CustomFormsDataFolderResponse) GetAObjFormDataDocument() []CustomFormDataDocumentResponse {
 	if o == nil {
 		var ret []CustomFormDataDocumentResponse
 		return ret
@@ -104,7 +104,7 @@ func (o *CustomFormDataFolderResponse) GetAObjFormDataDocument() []CustomFormDat
 
 // GetAObjFormDataDocumentOk returns a tuple with the AObjFormDataDocument field value
 // and a boolean to check if the value has been set.
-func (o *CustomFormDataFolderResponse) GetAObjFormDataDocumentOk() (*[]CustomFormDataDocumentResponse, bool) {
+func (o *CustomFormsDataFolderResponse) GetAObjFormDataDocumentOk() (*[]CustomFormDataDocumentResponse, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -112,11 +112,11 @@ func (o *CustomFormDataFolderResponse) GetAObjFormDataDocumentOk() (*[]CustomFor
 }
 
 // SetAObjFormDataDocument sets field value
-func (o *CustomFormDataFolderResponse) SetAObjFormDataDocument(v []CustomFormDataDocumentResponse) {
+func (o *CustomFormsDataFolderResponse) SetAObjFormDataDocument(v []CustomFormDataDocumentResponse) {
 	o.AObjFormDataDocument = v
 }
 
-func (o CustomFormDataFolderResponse) MarshalJSON() ([]byte, error) {
+func (o CustomFormsDataFolderResponse) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["pkiEzsignfolderID"] = o.PkiEzsignfolderID
@@ -130,38 +130,38 @@ func (o CustomFormDataFolderResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableCustomFormDataFolderResponse struct {
-	value *CustomFormDataFolderResponse
+type NullableCustomFormsDataFolderResponse struct {
+	value *CustomFormsDataFolderResponse
 	isSet bool
 }
 
-func (v NullableCustomFormDataFolderResponse) Get() *CustomFormDataFolderResponse {
+func (v NullableCustomFormsDataFolderResponse) Get() *CustomFormsDataFolderResponse {
 	return v.value
 }
 
-func (v *NullableCustomFormDataFolderResponse) Set(val *CustomFormDataFolderResponse) {
+func (v *NullableCustomFormsDataFolderResponse) Set(val *CustomFormsDataFolderResponse) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableCustomFormDataFolderResponse) IsSet() bool {
+func (v NullableCustomFormsDataFolderResponse) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableCustomFormDataFolderResponse) Unset() {
+func (v *NullableCustomFormsDataFolderResponse) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableCustomFormDataFolderResponse(val *CustomFormDataFolderResponse) *NullableCustomFormDataFolderResponse {
-	return &NullableCustomFormDataFolderResponse{value: val, isSet: true}
+func NewNullableCustomFormsDataFolderResponse(val *CustomFormsDataFolderResponse) *NullableCustomFormsDataFolderResponse {
+	return &NullableCustomFormsDataFolderResponse{value: val, isSet: true}
 }
 
-func (v NullableCustomFormDataFolderResponse) MarshalJSON() ([]byte, error) {
+func (v NullableCustomFormsDataFolderResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableCustomFormDataFolderResponse) UnmarshalJSON(src []byte) error {
+func (v *NullableCustomFormsDataFolderResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

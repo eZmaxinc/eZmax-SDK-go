@@ -54,8 +54,8 @@ docs/ContactinformationsRequest.md
 docs/ContactinformationsRequestCompound.md
 docs/ContactinformationsRequestCompoundAllOf.md
 docs/CustomFormDataDocumentResponse.md
-docs/CustomFormDataFolderResponse.md
 docs/CustomFormDataSignerResponse.md
+docs/CustomFormsDataFolderResponse.md
 docs/CustomWordPositionOccurenceResponse.md
 docs/CustomWordPositionWordResponse.md
 docs/EmailRequest.md
@@ -157,6 +157,7 @@ docs/FranchisereferalincomeRequestCompound.md
 docs/FranchisereferalincomeRequestCompoundAllOf.md
 docs/GlobalCustomerApi.md
 docs/GlobalCustomerGetEndpointV1Response.md
+docs/HeaderAcceptLanguage.md
 docs/ModuleAuthenticateApi.md
 docs/ModuleSsprApi.md
 docs/ModuleUserApi.md
@@ -237,8 +238,8 @@ model_contactinformations_request.go
 model_contactinformations_request_compound.go
 model_contactinformations_request_compound_all_of.go
 model_custom_form_data_document_response.go
-model_custom_form_data_folder_response.go
 model_custom_form_data_signer_response.go
+model_custom_forms_data_folder_response.go
 model_custom_word_position_occurence_response.go
 model_custom_word_position_word_response.go
 model_email_request.go
@@ -339,6 +340,7 @@ model_franchisereferalincome_request.go
 model_franchisereferalincome_request_compound.go
 model_franchisereferalincome_request_compound_all_of.go
 model_global_customer_get_endpoint_v1_response.go
+model_header_accept_language.go
 model_multilingual_apikey_description.go
 model_phone_request.go
 model_sspr_reset_password_request_v1_request.go

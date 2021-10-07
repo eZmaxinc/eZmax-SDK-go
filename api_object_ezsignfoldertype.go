@@ -30,8 +30,34 @@ type ObjectEzsignfoldertypeApiService service
 type ApiEzsignfoldertypeGetListV1Request struct {
 	ctx _context.Context
 	ApiService *ObjectEzsignfoldertypeApiService
+	eOrderBy *string
+	iRowMax *int32
+	iRowOffset *int32
+	acceptLanguage *HeaderAcceptLanguage
+	sFilter *string
 }
 
+// Specify how you want the results to be sorted
+func (r ApiEzsignfoldertypeGetListV1Request) EOrderBy(eOrderBy string) ApiEzsignfoldertypeGetListV1Request {
+	r.eOrderBy = &eOrderBy
+	return r
+}
+func (r ApiEzsignfoldertypeGetListV1Request) IRowMax(iRowMax int32) ApiEzsignfoldertypeGetListV1Request {
+	r.iRowMax = &iRowMax
+	return r
+}
+func (r ApiEzsignfoldertypeGetListV1Request) IRowOffset(iRowOffset int32) ApiEzsignfoldertypeGetListV1Request {
+	r.iRowOffset = &iRowOffset
+	return r
+}
+func (r ApiEzsignfoldertypeGetListV1Request) AcceptLanguage(acceptLanguage HeaderAcceptLanguage) ApiEzsignfoldertypeGetListV1Request {
+	r.acceptLanguage = &acceptLanguage
+	return r
+}
+func (r ApiEzsignfoldertypeGetListV1Request) SFilter(sFilter string) ApiEzsignfoldertypeGetListV1Request {
+	r.sFilter = &sFilter
+	return r
+}
 
 func (r ApiEzsignfoldertypeGetListV1Request) Execute() (EzsignfoldertypeGetListV1Response, *_nethttp.Response, error) {
 	return r.ApiService.EzsignfoldertypeGetListV1Execute(r)
@@ -43,6 +69,12 @@ EzsignfoldertypeGetListV1 Retrieve Ezsignfoldertype list
 ## ⚠️EARLY ADOPTERS WARNING
 
 ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
+
+Enum values that can be filtered in query parameter *sFilter*:
+
+| Variable | Valid values |
+|---|---|
+| eEzsignfoldertypePrivacylevel | User<br>Usergroup |
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiEzsignfoldertypeGetListV1Request
@@ -77,6 +109,18 @@ func (a *ObjectEzsignfoldertypeApiService) EzsignfoldertypeGetListV1Execute(r Ap
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if r.eOrderBy != nil {
+		localVarQueryParams.Add("eOrderBy", parameterToString(*r.eOrderBy, ""))
+	}
+	if r.iRowMax != nil {
+		localVarQueryParams.Add("iRowMax", parameterToString(*r.iRowMax, ""))
+	}
+	if r.iRowOffset != nil {
+		localVarQueryParams.Add("iRowOffset", parameterToString(*r.iRowOffset, ""))
+	}
+	if r.sFilter != nil {
+		localVarQueryParams.Add("sFilter", parameterToString(*r.sFilter, ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -87,12 +131,15 @@ func (a *ObjectEzsignfoldertypeApiService) EzsignfoldertypeGetListV1Execute(r Ap
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.acceptLanguage != nil {
+		localVarHeaderParams["Accept-Language"] = parameterToString(*r.acceptLanguage, "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -129,6 +176,15 @@ func (a *ObjectEzsignfoldertypeApiService) EzsignfoldertypeGetListV1Execute(r Ap
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
