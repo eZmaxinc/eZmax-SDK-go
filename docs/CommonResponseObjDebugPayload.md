@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **IVersionMin** | **int32** | The minimum version of the function that can be called | 
 **IVersionMax** | **int32** | The maximum version of the function that can be called | 
-**ARequiredPermissions** | **[]int32** | An array of permissions required to access this function.  If the value \&quot;0\&quot; is present in the array, anyone can call this function.  You must have one of the permission to access the function. You don&#39;t need to have all of them. | 
+**ARequiredPermission** | **[]int32** | An array of permissions required to access this function.  If the value \&quot;0\&quot; is present in the array, anyone can call this function.  You must have one of the permission to access the function. You don&#39;t need to have all of them. | 
 
 ## Methods
 
 ### NewCommonResponseObjDebugPayload
 
-`func NewCommonResponseObjDebugPayload(iVersionMin int32, iVersionMax int32, aRequiredPermissions []int32, ) *CommonResponseObjDebugPayload`
+`func NewCommonResponseObjDebugPayload(iVersionMin int32, iVersionMax int32, aRequiredPermission []int32, ) *CommonResponseObjDebugPayload`
 
 NewCommonResponseObjDebugPayload instantiates a new CommonResponseObjDebugPayload object
 This constructor will assign default values to properties that have it defined,
@@ -67,24 +67,24 @@ and a boolean to check if the value has been set.
 SetIVersionMax sets IVersionMax field to given value.
 
 
-### GetARequiredPermissions
+### GetARequiredPermission
 
-`func (o *CommonResponseObjDebugPayload) GetARequiredPermissions() []int32`
+`func (o *CommonResponseObjDebugPayload) GetARequiredPermission() []int32`
 
-GetARequiredPermissions returns the ARequiredPermissions field if non-nil, zero value otherwise.
+GetARequiredPermission returns the ARequiredPermission field if non-nil, zero value otherwise.
 
-### GetARequiredPermissionsOk
+### GetARequiredPermissionOk
 
-`func (o *CommonResponseObjDebugPayload) GetARequiredPermissionsOk() (*[]int32, bool)`
+`func (o *CommonResponseObjDebugPayload) GetARequiredPermissionOk() (*[]int32, bool)`
 
-GetARequiredPermissionsOk returns a tuple with the ARequiredPermissions field if it's non-nil, zero value otherwise
+GetARequiredPermissionOk returns a tuple with the ARequiredPermission field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetARequiredPermissions
+### SetARequiredPermission
 
-`func (o *CommonResponseObjDebugPayload) SetARequiredPermissions(v []int32)`
+`func (o *CommonResponseObjDebugPayload) SetARequiredPermission(v []int32)`
 
-SetARequiredPermissions sets ARequiredPermissions field to given value.
+SetARequiredPermission sets ARequiredPermission field to given value.
 
 
 

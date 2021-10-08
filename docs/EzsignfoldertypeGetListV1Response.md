@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **MPayload** | [**EzsignfoldertypeGetListV1ResponseMPayload**](EzsignfoldertypeGetListV1ResponseMPayload.md) |  | 
-**ObjDebugPayload** | Pointer to [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | [optional] 
+**ObjDebugPayload** | Pointer to [**CommonResponseObjDebugPayloadGetList**](CommonResponseObjDebugPayloadGetList.md) |  | [optional] 
 **ObjDebug** | Pointer to [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 
 ## Methods
@@ -49,20 +49,20 @@ SetMPayload sets MPayload field to given value.
 
 ### GetObjDebugPayload
 
-`func (o *EzsignfoldertypeGetListV1Response) GetObjDebugPayload() CommonResponseObjDebugPayload`
+`func (o *EzsignfoldertypeGetListV1Response) GetObjDebugPayload() CommonResponseObjDebugPayloadGetList`
 
 GetObjDebugPayload returns the ObjDebugPayload field if non-nil, zero value otherwise.
 
 ### GetObjDebugPayloadOk
 
-`func (o *EzsignfoldertypeGetListV1Response) GetObjDebugPayloadOk() (*CommonResponseObjDebugPayload, bool)`
+`func (o *EzsignfoldertypeGetListV1Response) GetObjDebugPayloadOk() (*CommonResponseObjDebugPayloadGetList, bool)`
 
 GetObjDebugPayloadOk returns a tuple with the ObjDebugPayload field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObjDebugPayload
 
-`func (o *EzsignfoldertypeGetListV1Response) SetObjDebugPayload(v CommonResponseObjDebugPayload)`
+`func (o *EzsignfoldertypeGetListV1Response) SetObjDebugPayload(v CommonResponseObjDebugPayloadGetList)`
 
 SetObjDebugPayload sets ObjDebugPayload field to given value.
 

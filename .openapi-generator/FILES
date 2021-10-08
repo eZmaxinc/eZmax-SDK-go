@@ -43,8 +43,12 @@ docs/CommonGetAutocompleteV1ResponseMPayload.md
 docs/CommonGetListV1ResponseMPayload.md
 docs/CommonResponse.md
 docs/CommonResponseError.md
+docs/CommonResponseFilter.md
+docs/CommonResponseGetList.md
 docs/CommonResponseObjDebug.md
 docs/CommonResponseObjDebugPayload.md
+docs/CommonResponseObjDebugPayloadGetList.md
+docs/CommonResponseObjDebugPayloadGetListAllOf.md
 docs/CommonResponseObjSQLQuery.md
 docs/CommonWebhook.md
 docs/ContactRequest.md
@@ -145,6 +149,7 @@ docs/EzsignsignerRequestCompoundContact.md
 docs/FieldEEzsigndocumentStep.md
 docs/FieldEEzsignfolderSendreminderfrequency.md
 docs/FieldEEzsignfolderStep.md
+docs/FieldEEzsignfoldertypePrivacylevel.md
 docs/FieldEEzsignsignatureType.md
 docs/FieldEPhoneType.md
 docs/FieldEUserType.md
@@ -228,8 +233,12 @@ model_common_get_autocomplete_v1_response_m_payload.go
 model_common_get_list_v1_response_m_payload.go
 model_common_response.go
 model_common_response_error.go
+model_common_response_filter.go
+model_common_response_get_list.go
 model_common_response_obj_debug.go
 model_common_response_obj_debug_payload.go
+model_common_response_obj_debug_payload_get_list.go
+model_common_response_obj_debug_payload_get_list_all_of.go
 model_common_response_obj_sql_query.go
 model_common_webhook.go
 model_contact_request.go
@@ -330,6 +339,7 @@ model_ezsignsigner_request_compound_contact.go
 model_field_e_ezsigndocument_step.go
 model_field_e_ezsignfolder_sendreminderfrequency.go
 model_field_e_ezsignfolder_step.go
+model_field_e_ezsignfoldertype_privacylevel.go
 model_field_e_ezsignsignature_type.go
 model_field_e_phone_type.go
 model_field_e_user_type.go

@@ -22,18 +22,18 @@ type CommonResponseObjDebugPayload struct {
 	// The maximum version of the function that can be called
 	IVersionMax int32 `json:"iVersionMax"`
 	// An array of permissions required to access this function.  If the value \"0\" is present in the array, anyone can call this function.  You must have one of the permission to access the function. You don't need to have all of them.
-	ARequiredPermissions []int32 `json:"a_RequiredPermissions"`
+	ARequiredPermission []int32 `json:"a_RequiredPermission"`
 }
 
 // NewCommonResponseObjDebugPayload instantiates a new CommonResponseObjDebugPayload object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommonResponseObjDebugPayload(iVersionMin int32, iVersionMax int32, aRequiredPermissions []int32) *CommonResponseObjDebugPayload {
+func NewCommonResponseObjDebugPayload(iVersionMin int32, iVersionMax int32, aRequiredPermission []int32) *CommonResponseObjDebugPayload {
 	this := CommonResponseObjDebugPayload{}
 	this.IVersionMin = iVersionMin
 	this.IVersionMax = iVersionMax
-	this.ARequiredPermissions = aRequiredPermissions
+	this.ARequiredPermission = aRequiredPermission
 	return &this
 }
 
@@ -93,28 +93,28 @@ func (o *CommonResponseObjDebugPayload) SetIVersionMax(v int32) {
 	o.IVersionMax = v
 }
 
-// GetARequiredPermissions returns the ARequiredPermissions field value
-func (o *CommonResponseObjDebugPayload) GetARequiredPermissions() []int32 {
+// GetARequiredPermission returns the ARequiredPermission field value
+func (o *CommonResponseObjDebugPayload) GetARequiredPermission() []int32 {
 	if o == nil {
 		var ret []int32
 		return ret
 	}
 
-	return o.ARequiredPermissions
+	return o.ARequiredPermission
 }
 
-// GetARequiredPermissionsOk returns a tuple with the ARequiredPermissions field value
+// GetARequiredPermissionOk returns a tuple with the ARequiredPermission field value
 // and a boolean to check if the value has been set.
-func (o *CommonResponseObjDebugPayload) GetARequiredPermissionsOk() (*[]int32, bool) {
+func (o *CommonResponseObjDebugPayload) GetARequiredPermissionOk() (*[]int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.ARequiredPermissions, true
+	return &o.ARequiredPermission, true
 }
 
-// SetARequiredPermissions sets field value
-func (o *CommonResponseObjDebugPayload) SetARequiredPermissions(v []int32) {
-	o.ARequiredPermissions = v
+// SetARequiredPermission sets field value
+func (o *CommonResponseObjDebugPayload) SetARequiredPermission(v []int32) {
+	o.ARequiredPermission = v
 }
 
 func (o CommonResponseObjDebugPayload) MarshalJSON() ([]byte, error) {
@@ -126,7 +126,7 @@ func (o CommonResponseObjDebugPayload) MarshalJSON() ([]byte, error) {
 		toSerialize["iVersionMax"] = o.IVersionMax
 	}
 	if true {
-		toSerialize["a_RequiredPermissions"] = o.ARequiredPermissions
+		toSerialize["a_RequiredPermission"] = o.ARequiredPermission
 	}
 	return json.Marshal(toSerialize)
 }

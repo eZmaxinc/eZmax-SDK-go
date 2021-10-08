@@ -18,7 +18,7 @@ import (
 // EzsignfoldertypeGetListV1Response Response for the /1/object/ezsignfoldertype/getList API Request
 type EzsignfoldertypeGetListV1Response struct {
 	MPayload EzsignfoldertypeGetListV1ResponseMPayload `json:"mPayload"`
-	ObjDebugPayload *CommonResponseObjDebugPayload `json:"objDebugPayload,omitempty"`
+	ObjDebugPayload *CommonResponseObjDebugPayloadGetList `json:"objDebugPayload,omitempty"`
 	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
 }
 
@@ -65,9 +65,9 @@ func (o *EzsignfoldertypeGetListV1Response) SetMPayload(v EzsignfoldertypeGetLis
 }
 
 // GetObjDebugPayload returns the ObjDebugPayload field value if set, zero value otherwise.
-func (o *EzsignfoldertypeGetListV1Response) GetObjDebugPayload() CommonResponseObjDebugPayload {
+func (o *EzsignfoldertypeGetListV1Response) GetObjDebugPayload() CommonResponseObjDebugPayloadGetList {
 	if o == nil || o.ObjDebugPayload == nil {
-		var ret CommonResponseObjDebugPayload
+		var ret CommonResponseObjDebugPayloadGetList
 		return ret
 	}
 	return *o.ObjDebugPayload
@@ -75,7 +75,7 @@ func (o *EzsignfoldertypeGetListV1Response) GetObjDebugPayload() CommonResponseO
 
 // GetObjDebugPayloadOk returns a tuple with the ObjDebugPayload field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EzsignfoldertypeGetListV1Response) GetObjDebugPayloadOk() (*CommonResponseObjDebugPayload, bool) {
+func (o *EzsignfoldertypeGetListV1Response) GetObjDebugPayloadOk() (*CommonResponseObjDebugPayloadGetList, bool) {
 	if o == nil || o.ObjDebugPayload == nil {
 		return nil, false
 	}
@@ -91,8 +91,8 @@ func (o *EzsignfoldertypeGetListV1Response) HasObjDebugPayload() bool {
 	return false
 }
 
-// SetObjDebugPayload gets a reference to the given CommonResponseObjDebugPayload and assigns it to the ObjDebugPayload field.
-func (o *EzsignfoldertypeGetListV1Response) SetObjDebugPayload(v CommonResponseObjDebugPayload) {
+// SetObjDebugPayload gets a reference to the given CommonResponseObjDebugPayloadGetList and assigns it to the ObjDebugPayload field.
+func (o *EzsignfoldertypeGetListV1Response) SetObjDebugPayload(v CommonResponseObjDebugPayloadGetList) {
 	o.ObjDebugPayload = &v
 }
 

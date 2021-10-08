@@ -19,18 +19,23 @@ import (
 type EzsignfoldertypeListElement struct {
 	// The unique ID of the Ezsignfoldertype.
 	PkiEzsignfoldertypeID int32 `json:"pkiEzsignfoldertypeID"`
+	EEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel `json:"eEzsignfoldertypePrivacylevel"`
 	// The name of the Ezsignfoldertype in the language of the requester
 	SEzsignfoldertypeNameX string `json:"sEzsignfoldertypeNameX"`
+	// Whether the Ezsignfoldertype is active or not
+	BEzsignfoldertypeIsactive bool `json:"bEzsignfoldertypeIsactive"`
 }
 
 // NewEzsignfoldertypeListElement instantiates a new EzsignfoldertypeListElement object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfoldertypeListElement(pkiEzsignfoldertypeID int32, sEzsignfoldertypeNameX string) *EzsignfoldertypeListElement {
+func NewEzsignfoldertypeListElement(pkiEzsignfoldertypeID int32, eEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX string, bEzsignfoldertypeIsactive bool) *EzsignfoldertypeListElement {
 	this := EzsignfoldertypeListElement{}
 	this.PkiEzsignfoldertypeID = pkiEzsignfoldertypeID
+	this.EEzsignfoldertypePrivacylevel = eEzsignfoldertypePrivacylevel
 	this.SEzsignfoldertypeNameX = sEzsignfoldertypeNameX
+	this.BEzsignfoldertypeIsactive = bEzsignfoldertypeIsactive
 	return &this
 }
 
@@ -66,6 +71,30 @@ func (o *EzsignfoldertypeListElement) SetPkiEzsignfoldertypeID(v int32) {
 	o.PkiEzsignfoldertypeID = v
 }
 
+// GetEEzsignfoldertypePrivacylevel returns the EEzsignfoldertypePrivacylevel field value
+func (o *EzsignfoldertypeListElement) GetEEzsignfoldertypePrivacylevel() FieldEEzsignfoldertypePrivacylevel {
+	if o == nil {
+		var ret FieldEEzsignfoldertypePrivacylevel
+		return ret
+	}
+
+	return o.EEzsignfoldertypePrivacylevel
+}
+
+// GetEEzsignfoldertypePrivacylevelOk returns a tuple with the EEzsignfoldertypePrivacylevel field value
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldertypeListElement) GetEEzsignfoldertypePrivacylevelOk() (*FieldEEzsignfoldertypePrivacylevel, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.EEzsignfoldertypePrivacylevel, true
+}
+
+// SetEEzsignfoldertypePrivacylevel sets field value
+func (o *EzsignfoldertypeListElement) SetEEzsignfoldertypePrivacylevel(v FieldEEzsignfoldertypePrivacylevel) {
+	o.EEzsignfoldertypePrivacylevel = v
+}
+
 // GetSEzsignfoldertypeNameX returns the SEzsignfoldertypeNameX field value
 func (o *EzsignfoldertypeListElement) GetSEzsignfoldertypeNameX() string {
 	if o == nil {
@@ -90,13 +119,43 @@ func (o *EzsignfoldertypeListElement) SetSEzsignfoldertypeNameX(v string) {
 	o.SEzsignfoldertypeNameX = v
 }
 
+// GetBEzsignfoldertypeIsactive returns the BEzsignfoldertypeIsactive field value
+func (o *EzsignfoldertypeListElement) GetBEzsignfoldertypeIsactive() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BEzsignfoldertypeIsactive
+}
+
+// GetBEzsignfoldertypeIsactiveOk returns a tuple with the BEzsignfoldertypeIsactive field value
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldertypeListElement) GetBEzsignfoldertypeIsactiveOk() (*bool, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.BEzsignfoldertypeIsactive, true
+}
+
+// SetBEzsignfoldertypeIsactive sets field value
+func (o *EzsignfoldertypeListElement) SetBEzsignfoldertypeIsactive(v bool) {
+	o.BEzsignfoldertypeIsactive = v
+}
+
 func (o EzsignfoldertypeListElement) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["pkiEzsignfoldertypeID"] = o.PkiEzsignfoldertypeID
 	}
 	if true {
+		toSerialize["eEzsignfoldertypePrivacylevel"] = o.EEzsignfoldertypePrivacylevel
+	}
+	if true {
 		toSerialize["sEzsignfoldertypeNameX"] = o.SEzsignfoldertypeNameX
+	}
+	if true {
+		toSerialize["bEzsignfoldertypeIsactive"] = o.BEzsignfoldertypeIsactive
 	}
 	return json.Marshal(toSerialize)
 }

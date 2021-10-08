@@ -5,13 +5,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiEzsignfoldertypeID** | **int32** | The unique ID of the Ezsignfoldertype. | 
+**EEzsignfoldertypePrivacylevel** | [**FieldEEzsignfoldertypePrivacylevel**](FieldEEzsignfoldertypePrivacylevel.md) |  | 
 **SEzsignfoldertypeNameX** | **string** | The name of the Ezsignfoldertype in the language of the requester | 
+**BEzsignfoldertypeIsactive** | **bool** | Whether the Ezsignfoldertype is active or not | 
 
 ## Methods
 
 ### NewEzsignfoldertypeListElement
 
-`func NewEzsignfoldertypeListElement(pkiEzsignfoldertypeID int32, sEzsignfoldertypeNameX string, ) *EzsignfoldertypeListElement`
+`func NewEzsignfoldertypeListElement(pkiEzsignfoldertypeID int32, eEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX string, bEzsignfoldertypeIsactive bool, ) *EzsignfoldertypeListElement`
 
 NewEzsignfoldertypeListElement instantiates a new EzsignfoldertypeListElement object
 This constructor will assign default values to properties that have it defined,
@@ -46,6 +48,26 @@ and a boolean to check if the value has been set.
 SetPkiEzsignfoldertypeID sets PkiEzsignfoldertypeID field to given value.
 
 
+### GetEEzsignfoldertypePrivacylevel
+
+`func (o *EzsignfoldertypeListElement) GetEEzsignfoldertypePrivacylevel() FieldEEzsignfoldertypePrivacylevel`
+
+GetEEzsignfoldertypePrivacylevel returns the EEzsignfoldertypePrivacylevel field if non-nil, zero value otherwise.
+
+### GetEEzsignfoldertypePrivacylevelOk
+
+`func (o *EzsignfoldertypeListElement) GetEEzsignfoldertypePrivacylevelOk() (*FieldEEzsignfoldertypePrivacylevel, bool)`
+
+GetEEzsignfoldertypePrivacylevelOk returns a tuple with the EEzsignfoldertypePrivacylevel field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsignfoldertypePrivacylevel
+
+`func (o *EzsignfoldertypeListElement) SetEEzsignfoldertypePrivacylevel(v FieldEEzsignfoldertypePrivacylevel)`
+
+SetEEzsignfoldertypePrivacylevel sets EEzsignfoldertypePrivacylevel field to given value.
+
+
 ### GetSEzsignfoldertypeNameX
 
 `func (o *EzsignfoldertypeListElement) GetSEzsignfoldertypeNameX() string`
@@ -64,6 +86,26 @@ and a boolean to check if the value has been set.
 `func (o *EzsignfoldertypeListElement) SetSEzsignfoldertypeNameX(v string)`
 
 SetSEzsignfoldertypeNameX sets SEzsignfoldertypeNameX field to given value.
+
+
+### GetBEzsignfoldertypeIsactive
+
+`func (o *EzsignfoldertypeListElement) GetBEzsignfoldertypeIsactive() bool`
+
+GetBEzsignfoldertypeIsactive returns the BEzsignfoldertypeIsactive field if non-nil, zero value otherwise.
+
+### GetBEzsignfoldertypeIsactiveOk
+
+`func (o *EzsignfoldertypeListElement) GetBEzsignfoldertypeIsactiveOk() (*bool, bool)`
+
+GetBEzsignfoldertypeIsactiveOk returns a tuple with the BEzsignfoldertypeIsactive field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsignfoldertypeIsactive
+
+`func (o *EzsignfoldertypeListElement) SetBEzsignfoldertypeIsactive(v bool)`
+
+SetBEzsignfoldertypeIsactive sets BEzsignfoldertypeIsactive field to given value.
 
 
 
