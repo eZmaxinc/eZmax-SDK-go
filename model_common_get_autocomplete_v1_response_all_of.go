@@ -17,14 +17,15 @@ import (
 
 // CommonGetAutocompleteV1ResponseAllOf struct for CommonGetAutocompleteV1ResponseAllOf
 type CommonGetAutocompleteV1ResponseAllOf struct {
-	MPayload []CommonGetAutocompleteV1ResponseMPayload `json:"mPayload"`
+	// Generic Autocomplete Response
+	MPayload []CustomAutocompleteElementResponse `json:"mPayload"`
 }
 
 // NewCommonGetAutocompleteV1ResponseAllOf instantiates a new CommonGetAutocompleteV1ResponseAllOf object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommonGetAutocompleteV1ResponseAllOf(mPayload []CommonGetAutocompleteV1ResponseMPayload) *CommonGetAutocompleteV1ResponseAllOf {
+func NewCommonGetAutocompleteV1ResponseAllOf(mPayload []CustomAutocompleteElementResponse) *CommonGetAutocompleteV1ResponseAllOf {
 	this := CommonGetAutocompleteV1ResponseAllOf{}
 	this.MPayload = mPayload
 	return &this
@@ -39,9 +40,9 @@ func NewCommonGetAutocompleteV1ResponseAllOfWithDefaults() *CommonGetAutocomplet
 }
 
 // GetMPayload returns the MPayload field value
-func (o *CommonGetAutocompleteV1ResponseAllOf) GetMPayload() []CommonGetAutocompleteV1ResponseMPayload {
+func (o *CommonGetAutocompleteV1ResponseAllOf) GetMPayload() []CustomAutocompleteElementResponse {
 	if o == nil {
-		var ret []CommonGetAutocompleteV1ResponseMPayload
+		var ret []CustomAutocompleteElementResponse
 		return ret
 	}
 
@@ -50,7 +51,7 @@ func (o *CommonGetAutocompleteV1ResponseAllOf) GetMPayload() []CommonGetAutocomp
 
 // GetMPayloadOk returns a tuple with the MPayload field value
 // and a boolean to check if the value has been set.
-func (o *CommonGetAutocompleteV1ResponseAllOf) GetMPayloadOk() (*[]CommonGetAutocompleteV1ResponseMPayload, bool) {
+func (o *CommonGetAutocompleteV1ResponseAllOf) GetMPayloadOk() (*[]CustomAutocompleteElementResponse, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -58,7 +59,7 @@ func (o *CommonGetAutocompleteV1ResponseAllOf) GetMPayloadOk() (*[]CommonGetAuto
 }
 
 // SetMPayload sets field value
-func (o *CommonGetAutocompleteV1ResponseAllOf) SetMPayload(v []CommonGetAutocompleteV1ResponseMPayload) {
+func (o *CommonGetAutocompleteV1ResponseAllOf) SetMPayload(v []CustomAutocompleteElementResponse) {
 	o.MPayload = v
 }
 

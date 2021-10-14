@@ -510,8 +510,6 @@ Name | Type | Description  | Notes
 
 Retrieve an existing Ezsigndocument's Form Data
 
-
-
 ### Example
 
 ```go
@@ -649,8 +647,6 @@ Name | Type | Description  | Notes
 > EzsigndocumentGetWordsPositionsV1Response EzsigndocumentGetWordsPositionsV1(ctx, pkiEzsigndocumentID).EzsigndocumentGetWordsPositionsV1Request(ezsigndocumentGetWordsPositionsV1Request).Execute()
 
 Retrieve positions X,Y of given words from a Ezsigndocument
-
-
 
 ### Example
 

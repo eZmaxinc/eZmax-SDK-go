@@ -124,7 +124,6 @@ func NewConfiguration() *Configuration {
 						DefaultValue: "ca-central-1",
 						EnumValues: []string{
 							"ca-central-1",
-							"local",
 						},
 					},
 				},

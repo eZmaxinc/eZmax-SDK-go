@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MPayload** | [**[]CommonGetAutocompleteV1ResponseMPayload**](CommonGetAutocompleteV1ResponseMPayload.md) |  | 
+**MPayload** | [**[]CustomAutocompleteElementResponse**](CustomAutocompleteElementResponse.md) | Generic Autocomplete Response | 
 
 ## Methods
 
 ### NewCommonGetAutocompleteV1ResponseAllOf
 
-`func NewCommonGetAutocompleteV1ResponseAllOf(mPayload []CommonGetAutocompleteV1ResponseMPayload, ) *CommonGetAutocompleteV1ResponseAllOf`
+`func NewCommonGetAutocompleteV1ResponseAllOf(mPayload []CustomAutocompleteElementResponse, ) *CommonGetAutocompleteV1ResponseAllOf`
 
 NewCommonGetAutocompleteV1ResponseAllOf instantiates a new CommonGetAutocompleteV1ResponseAllOf object
 This constructor will assign default values to properties that have it defined,
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetMPayload
 
-`func (o *CommonGetAutocompleteV1ResponseAllOf) GetMPayload() []CommonGetAutocompleteV1ResponseMPayload`
+`func (o *CommonGetAutocompleteV1ResponseAllOf) GetMPayload() []CustomAutocompleteElementResponse`
 
 GetMPayload returns the MPayload field if non-nil, zero value otherwise.
 
 ### GetMPayloadOk
 
-`func (o *CommonGetAutocompleteV1ResponseAllOf) GetMPayloadOk() (*[]CommonGetAutocompleteV1ResponseMPayload, bool)`
+`func (o *CommonGetAutocompleteV1ResponseAllOf) GetMPayloadOk() (*[]CustomAutocompleteElementResponse, bool)`
 
 GetMPayloadOk returns a tuple with the MPayload field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMPayload
 
-`func (o *CommonGetAutocompleteV1ResponseAllOf) SetMPayload(v []CommonGetAutocompleteV1ResponseMPayload)`
+`func (o *CommonGetAutocompleteV1ResponseAllOf) SetMPayload(v []CustomAutocompleteElementResponse)`
 
 SetMPayload sets MPayload field to given value.
 

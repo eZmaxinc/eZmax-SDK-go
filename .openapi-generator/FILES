@@ -39,7 +39,6 @@ docs/AuthenticateAuthenticateV2ResponseMPayload.md
 docs/CommonAudit.md
 docs/CommonGetAutocompleteV1Response.md
 docs/CommonGetAutocompleteV1ResponseAllOf.md
-docs/CommonGetAutocompleteV1ResponseMPayload.md
 docs/CommonGetListV1ResponseMPayload.md
 docs/CommonResponse.md
 docs/CommonResponseError.md
@@ -57,6 +56,7 @@ docs/ContactRequestCompoundAllOf.md
 docs/ContactinformationsRequest.md
 docs/ContactinformationsRequestCompound.md
 docs/ContactinformationsRequestCompoundAllOf.md
+docs/CustomAutocompleteElementResponse.md
 docs/CustomFormDataDocumentResponse.md
 docs/CustomFormDataSignerResponse.md
 docs/CustomFormsDataFolderResponse.md
@@ -99,9 +99,14 @@ docs/EzsignfolderDeleteObjectV1Response.md
 docs/EzsignfolderGetFormsDataV1Response.md
 docs/EzsignfolderGetFormsDataV1ResponseAllOf.md
 docs/EzsignfolderGetFormsDataV1ResponseMPayload.md
+docs/EzsignfolderGetListV1Response.md
+docs/EzsignfolderGetListV1ResponseAllOf.md
+docs/EzsignfolderGetListV1ResponseMPayload.md
+docs/EzsignfolderGetListV1ResponseMPayloadAllOf.md
 docs/EzsignfolderGetObjectV1Response.md
 docs/EzsignfolderGetObjectV1ResponseAllOf.md
 docs/EzsignfolderGetObjectV1ResponseMPayload.md
+docs/EzsignfolderListElement.md
 docs/EzsignfolderRequest.md
 docs/EzsignfolderRequestCompound.md
 docs/EzsignfolderRequestCompoundAllOf.md
@@ -229,7 +234,6 @@ model_authenticate_authenticate_v2_response_m_payload.go
 model_common_audit.go
 model_common_get_autocomplete_v1_response.go
 model_common_get_autocomplete_v1_response_all_of.go
-model_common_get_autocomplete_v1_response_m_payload.go
 model_common_get_list_v1_response_m_payload.go
 model_common_response.go
 model_common_response_error.go
@@ -247,6 +251,7 @@ model_contact_request_compound_all_of.go
 model_contactinformations_request.go
 model_contactinformations_request_compound.go
 model_contactinformations_request_compound_all_of.go
+model_custom_autocomplete_element_response.go
 model_custom_form_data_document_response.go
 model_custom_form_data_signer_response.go
 model_custom_forms_data_folder_response.go
@@ -289,9 +294,14 @@ model_ezsignfolder_delete_object_v1_response.go
 model_ezsignfolder_get_forms_data_v1_response.go
 model_ezsignfolder_get_forms_data_v1_response_all_of.go
 model_ezsignfolder_get_forms_data_v1_response_m_payload.go
+model_ezsignfolder_get_list_v1_response.go
+model_ezsignfolder_get_list_v1_response_all_of.go
+model_ezsignfolder_get_list_v1_response_m_payload.go
+model_ezsignfolder_get_list_v1_response_m_payload_all_of.go
 model_ezsignfolder_get_object_v1_response.go
 model_ezsignfolder_get_object_v1_response_all_of.go
 model_ezsignfolder_get_object_v1_response_m_payload.go
+model_ezsignfolder_list_element.go
 model_ezsignfolder_request.go
 model_ezsignfolder_request_compound.go
 model_ezsignfolder_request_compound_all_of.go

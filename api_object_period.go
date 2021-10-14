@@ -35,7 +35,7 @@ type ApiPeriodGetAutocompleteV1Request struct {
 	sQuery *string
 }
 
-// Allow to filter on the option value
+// Allow to filter the returned results
 func (r ApiPeriodGetAutocompleteV1Request) SQuery(sQuery string) ApiPeriodGetAutocompleteV1Request {
 	r.sQuery = &sQuery
 	return r

@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**EzsignfolderDeleteObjectV1**](ObjectEzsignfolderApi.md#EzsignfolderDeleteObjectV1) | **Delete** /1/object/ezsignfolder/{pkiEzsignfolderID} | Delete an existing Ezsignfolder
 [**EzsignfolderGetChildrenV1**](ObjectEzsignfolderApi.md#EzsignfolderGetChildrenV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getChildren | Retrieve an existing Ezsignfolder&#39;s children IDs
 [**EzsignfolderGetFormsDataV1**](ObjectEzsignfolderApi.md#EzsignfolderGetFormsDataV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getFormsData | Retrieve an existing Ezsignfolder&#39;s forms data
+[**EzsignfolderGetListV1**](ObjectEzsignfolderApi.md#EzsignfolderGetListV1) | **Get** /1/object/ezsignfolder/getList | Retrieve Ezsignfolder list
 [**EzsignfolderGetObjectV1**](ObjectEzsignfolderApi.md#EzsignfolderGetObjectV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID} | Retrieve an existing Ezsignfolder
 [**EzsignfolderSendV1**](ObjectEzsignfolderApi.md#EzsignfolderSendV1) | **Post** /1/object/ezsignfolder/{pkiEzsignfolderID}/send | Send the Ezsignfolder to the signatories for signature
 
@@ -221,8 +222,6 @@ Name | Type | Description  | Notes
 
 Retrieve an existing Ezsignfolder's forms data
 
-
-
 ### Example
 
 ```go
@@ -279,6 +278,78 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json, application/zip
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsignfolderGetListV1
+
+> EzsignfolderGetListV1Response EzsignfolderGetListV1(ctx).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
+
+Retrieve Ezsignfolder list
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
+    iRowMax := int32(56) // int32 |  (optional)
+    iRowOffset := int32(56) // int32 |  (optional)
+    acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
+    sFilter := "sFilter_example" // string |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.ObjectEzsignfolderApi.EzsignfolderGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderApi.EzsignfolderGetListV1``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `EzsignfolderGetListV1`: EzsignfolderGetListV1Response
+    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderApi.EzsignfolderGetListV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsignfolderGetListV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **eOrderBy** | **string** | Specify how you want the results to be sorted | 
+ **iRowMax** | **int32** |  | 
+ **iRowOffset** | **int32** |  | 
+ **acceptLanguage** | [**HeaderAcceptLanguage**](HeaderAcceptLanguage.md) |  | 
+ **sFilter** | **string** |  | 
+
+### Return type
+
+[**EzsignfolderGetListV1Response**](EzsignfolderGetListV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

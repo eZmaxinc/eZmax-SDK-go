@@ -1020,10 +1020,6 @@ func (r ApiEzsigndocumentGetFormDataV1Request) Execute() (EzsigndocumentGetFormD
 /*
 EzsigndocumentGetFormDataV1 Retrieve an existing Ezsigndocument's Form Data
 
-## ⚠️EARLY ADOPTERS WARNING
-
-### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
-
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiEzsigndocumentID
  @return ApiEzsigndocumentGetFormDataV1Request
@@ -1306,10 +1302,6 @@ func (r ApiEzsigndocumentGetWordsPositionsV1Request) Execute() (EzsigndocumentGe
 
 /*
 EzsigndocumentGetWordsPositionsV1 Retrieve positions X,Y of given words from a Ezsigndocument
-
-## ⚠️EARLY ADOPTERS WARNING
-
-### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiEzsigndocumentID

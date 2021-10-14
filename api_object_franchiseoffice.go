@@ -35,7 +35,7 @@ type ApiFranchiseofficeGetAutocompleteV1Request struct {
 	sQuery *string
 }
 
-// Allow to filter on the option value
+// Allow to filter the returned results
 func (r ApiFranchiseofficeGetAutocompleteV1Request) SQuery(sQuery string) ApiFranchiseofficeGetAutocompleteV1Request {
 	r.sQuery = &sQuery
 	return r

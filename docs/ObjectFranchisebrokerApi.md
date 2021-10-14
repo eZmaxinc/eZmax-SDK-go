@@ -30,7 +30,7 @@ import (
 
 func main() {
     sSelector := "sSelector_example" // string | The type of Franchisebrokers to return
-    sQuery := "sQuery_example" // string | Allow to filter on the option value (optional)
+    sQuery := "sQuery_example" // string | Allow to filter the returned results (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -60,7 +60,7 @@ Other parameters are passed through a pointer to a apiFranchisebrokerGetAutocomp
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **sQuery** | **string** | Allow to filter on the option value | 
+ **sQuery** | **string** | Allow to filter the returned results | 
 
 ### Return type
 
