@@ -84,7 +84,7 @@ func (a *ObjectEzsignfoldertypeApiService) EzsignfoldertypeGetAutocompleteV1Exec
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/1/object/ezsignfoldertype/getAutocomplete/{sSelector}/"
+	localVarPath := localBasePath + "/1/object/ezsignfoldertype/getAutocomplete/{sSelector}"
 	localVarPath = strings.Replace(localVarPath, "{"+"sSelector"+"}", _neturl.PathEscape(parameterToString(r.sSelector, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)

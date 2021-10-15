@@ -290,6 +290,8 @@ Name | Type | Description  | Notes
 
 Retrieve Ezsignfolder list
 
+
+
 ### Example
 
 ```go

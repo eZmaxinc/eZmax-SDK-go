@@ -25,7 +25,6 @@ const (
 	SENT FieldEEzsignfolderStep = "Sent"
 	PARTIALLY_SIGNED FieldEEzsignfolderStep = "PartiallySigned"
 	EXPIRED FieldEEzsignfolderStep = "Expired"
-	SIGNED FieldEEzsignfolderStep = "Signed"
 	COMPLETED FieldEEzsignfolderStep = "Completed"
 	ARCHIVED FieldEEzsignfolderStep = "Archived"
 )
@@ -36,7 +35,6 @@ var AllowedFieldEEzsignfolderStepEnumValues = []FieldEEzsignfolderStep{
 	"Sent",
 	"PartiallySigned",
 	"Expired",
-	"Signed",
 	"Completed",
 	"Archived",
 }
