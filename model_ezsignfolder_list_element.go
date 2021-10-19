@@ -28,9 +28,9 @@ type EzsignfolderListElement struct {
 	EEzsignfolderStep FieldEEzsignfolderStep `json:"eEzsignfolderStep"`
 	// The date and time at which the object was created
 	DtCreatedDate string `json:"dtCreatedDate"`
-	DtEzsignfolderSentdate OneOfstringnull `json:"dtEzsignfolderSentdate"`
+	DtEzsignfolderSentdate OneOfstringobject `json:"dtEzsignfolderSentdate"`
 	// The date at which no more signature will be accepted on the folder
-	DtDueDate OneOfstringnull `json:"dtDueDate"`
+	DtDueDate OneOfstringobject `json:"dtDueDate"`
 	// The total number of Ezsigndocument in the folder
 	ITotalDocument int32 `json:"iTotalDocument"`
 	// The total number of Ezsigndocument in the folder that were saved in the edm system
@@ -45,7 +45,7 @@ type EzsignfolderListElement struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfolderListElement(pkiEzsignfolderID int32, fkiEzsignfoldertypeID int32, sEzsignfoldertypeNameX string, sEzsignfolderDescription string, eEzsignfolderStep FieldEEzsignfolderStep, dtCreatedDate string, dtEzsignfolderSentdate OneOfstringnull, dtDueDate OneOfstringnull, iTotalDocument int32, iTotalDocumentEdm int32, iTotalSignature int32, iTotalSignatureSigned int32) *EzsignfolderListElement {
+func NewEzsignfolderListElement(pkiEzsignfolderID int32, fkiEzsignfoldertypeID int32, sEzsignfoldertypeNameX string, sEzsignfolderDescription string, eEzsignfolderStep FieldEEzsignfolderStep, dtCreatedDate string, dtEzsignfolderSentdate OneOfstringobject, dtDueDate OneOfstringobject, iTotalDocument int32, iTotalDocumentEdm int32, iTotalSignature int32, iTotalSignatureSigned int32) *EzsignfolderListElement {
 	this := EzsignfolderListElement{}
 	this.PkiEzsignfolderID = pkiEzsignfolderID
 	this.FkiEzsignfoldertypeID = fkiEzsignfoldertypeID
@@ -215,10 +215,10 @@ func (o *EzsignfolderListElement) SetDtCreatedDate(v string) {
 }
 
 // GetDtEzsignfolderSentdate returns the DtEzsignfolderSentdate field value
-// If the value is explicit nil, the zero value for OneOfstringnull will be returned
-func (o *EzsignfolderListElement) GetDtEzsignfolderSentdate() OneOfstringnull {
+// If the value is explicit nil, the zero value for OneOfstringobject will be returned
+func (o *EzsignfolderListElement) GetDtEzsignfolderSentdate() OneOfstringobject {
 	if o == nil {
-		var ret OneOfstringnull
+		var ret OneOfstringobject
 		return ret
 	}
 
@@ -228,7 +228,7 @@ func (o *EzsignfolderListElement) GetDtEzsignfolderSentdate() OneOfstringnull {
 // GetDtEzsignfolderSentdateOk returns a tuple with the DtEzsignfolderSentdate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *EzsignfolderListElement) GetDtEzsignfolderSentdateOk() (*OneOfstringnull, bool) {
+func (o *EzsignfolderListElement) GetDtEzsignfolderSentdateOk() (*OneOfstringobject, bool) {
 	if o == nil || o.DtEzsignfolderSentdate == nil {
 		return nil, false
 	}
@@ -236,15 +236,15 @@ func (o *EzsignfolderListElement) GetDtEzsignfolderSentdateOk() (*OneOfstringnul
 }
 
 // SetDtEzsignfolderSentdate sets field value
-func (o *EzsignfolderListElement) SetDtEzsignfolderSentdate(v OneOfstringnull) {
+func (o *EzsignfolderListElement) SetDtEzsignfolderSentdate(v OneOfstringobject) {
 	o.DtEzsignfolderSentdate = v
 }
 
 // GetDtDueDate returns the DtDueDate field value
-// If the value is explicit nil, the zero value for OneOfstringnull will be returned
-func (o *EzsignfolderListElement) GetDtDueDate() OneOfstringnull {
+// If the value is explicit nil, the zero value for OneOfstringobject will be returned
+func (o *EzsignfolderListElement) GetDtDueDate() OneOfstringobject {
 	if o == nil {
-		var ret OneOfstringnull
+		var ret OneOfstringobject
 		return ret
 	}
 
@@ -254,7 +254,7 @@ func (o *EzsignfolderListElement) GetDtDueDate() OneOfstringnull {
 // GetDtDueDateOk returns a tuple with the DtDueDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *EzsignfolderListElement) GetDtDueDateOk() (*OneOfstringnull, bool) {
+func (o *EzsignfolderListElement) GetDtDueDateOk() (*OneOfstringobject, bool) {
 	if o == nil || o.DtDueDate == nil {
 		return nil, false
 	}
@@ -262,7 +262,7 @@ func (o *EzsignfolderListElement) GetDtDueDateOk() (*OneOfstringnull, bool) {
 }
 
 // SetDtDueDate sets field value
-func (o *EzsignfolderListElement) SetDtDueDate(v OneOfstringnull) {
+func (o *EzsignfolderListElement) SetDtDueDate(v OneOfstringobject) {
 	o.DtDueDate = v
 }
 

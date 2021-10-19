@@ -601,6 +601,10 @@ func (r ApiEzsignfolderGetListV1Request) Execute() (EzsignfolderGetListV1Respons
 /*
 EzsignfolderGetListV1 Retrieve Ezsignfolder list
 
+## ⚠️EARLY ADOPTERS WARNING
+
+### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
+
 Enum values that can be filtered in query parameter *sFilter*:
 
 | Variable | Valid values |

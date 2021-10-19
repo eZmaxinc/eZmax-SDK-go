@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## EzsignfoldertypeGetAutocompleteV1
 
-> CommonGetAutocompleteV1Response EzsignfoldertypeGetAutocompleteV1(ctx, sSelector).AcceptLanguage(acceptLanguage).SQuery(sQuery).Execute()
+> CommonGetAutocompleteV1Response EzsignfoldertypeGetAutocompleteV1(ctx, sSelector).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
 
 Retrieve Ezsignfoldertypes and IDs
 
@@ -31,12 +31,12 @@ import (
 
 func main() {
     sSelector := "sSelector_example" // string | The type of Ezsignfoldertypes to return
-    acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
     sQuery := "sQuery_example" // string | Allow to filter the returned results (optional)
+    acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsignfoldertypeApi.EzsignfoldertypeGetAutocompleteV1(context.Background(), sSelector).AcceptLanguage(acceptLanguage).SQuery(sQuery).Execute()
+    resp, r, err := api_client.ObjectEzsignfoldertypeApi.EzsignfoldertypeGetAutocompleteV1(context.Background(), sSelector).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldertypeApi.EzsignfoldertypeGetAutocompleteV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -62,8 +62,8 @@ Other parameters are passed through a pointer to a apiEzsignfoldertypeGetAutocom
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **acceptLanguage** | [**HeaderAcceptLanguage**](HeaderAcceptLanguage.md) |  | 
  **sQuery** | **string** | Allow to filter the returned results | 
+ **acceptLanguage** | [**HeaderAcceptLanguage**](HeaderAcceptLanguage.md) |  | 
 
 ### Return type
 

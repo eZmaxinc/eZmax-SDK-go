@@ -32,17 +32,17 @@ type ApiEzsignfoldertypeGetAutocompleteV1Request struct {
 	ctx _context.Context
 	ApiService *ObjectEzsignfoldertypeApiService
 	sSelector string
-	acceptLanguage *HeaderAcceptLanguage
 	sQuery *string
+	acceptLanguage *HeaderAcceptLanguage
 }
 
-func (r ApiEzsignfoldertypeGetAutocompleteV1Request) AcceptLanguage(acceptLanguage HeaderAcceptLanguage) ApiEzsignfoldertypeGetAutocompleteV1Request {
-	r.acceptLanguage = &acceptLanguage
-	return r
-}
 // Allow to filter the returned results
 func (r ApiEzsignfoldertypeGetAutocompleteV1Request) SQuery(sQuery string) ApiEzsignfoldertypeGetAutocompleteV1Request {
 	r.sQuery = &sQuery
+	return r
+}
+func (r ApiEzsignfoldertypeGetAutocompleteV1Request) AcceptLanguage(acceptLanguage HeaderAcceptLanguage) ApiEzsignfoldertypeGetAutocompleteV1Request {
+	r.acceptLanguage = &acceptLanguage
 	return r
 }
 
