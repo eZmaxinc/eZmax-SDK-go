@@ -29,13 +29,15 @@ type ListpresentationRequest struct {
 	IListpresentationRowMax int32 `json:"iListpresentationRowMax"`
 	// The starting element from where to start retrieving the results. For example if you started at iRowOffset=0 and asked for iRowMax=100, to get the next 100 results, you could specify iRowOffset=100&iRowMax=100,
 	IListpresentationRowOffset int32 `json:"iListpresentationRowOffset"`
+	// Set to true if the user chose this Listpresentation as the default one. A single element should be set to true
+	BListpresentationDefault bool `json:"bListpresentationDefault"`
 }
 
 // NewListpresentationRequest instantiates a new ListpresentationRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListpresentationRequest(sListpresentationDescription string, sListpresentationFilter string, sListpresentationOrderby string, aSColumnName []string, iListpresentationRowMax int32, iListpresentationRowOffset int32) *ListpresentationRequest {
+func NewListpresentationRequest(sListpresentationDescription string, sListpresentationFilter string, sListpresentationOrderby string, aSColumnName []string, iListpresentationRowMax int32, iListpresentationRowOffset int32, bListpresentationDefault bool) *ListpresentationRequest {
 	this := ListpresentationRequest{}
 	this.SListpresentationDescription = sListpresentationDescription
 	this.SListpresentationFilter = sListpresentationFilter
@@ -43,6 +45,7 @@ func NewListpresentationRequest(sListpresentationDescription string, sListpresen
 	this.ASColumnName = aSColumnName
 	this.IListpresentationRowMax = iListpresentationRowMax
 	this.IListpresentationRowOffset = iListpresentationRowOffset
+	this.BListpresentationDefault = bListpresentationDefault
 	return &this
 }
 
@@ -198,6 +201,30 @@ func (o *ListpresentationRequest) SetIListpresentationRowOffset(v int32) {
 	o.IListpresentationRowOffset = v
 }
 
+// GetBListpresentationDefault returns the BListpresentationDefault field value
+func (o *ListpresentationRequest) GetBListpresentationDefault() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BListpresentationDefault
+}
+
+// GetBListpresentationDefaultOk returns a tuple with the BListpresentationDefault field value
+// and a boolean to check if the value has been set.
+func (o *ListpresentationRequest) GetBListpresentationDefaultOk() (*bool, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.BListpresentationDefault, true
+}
+
+// SetBListpresentationDefault sets field value
+func (o *ListpresentationRequest) SetBListpresentationDefault(v bool) {
+	o.BListpresentationDefault = v
+}
+
 func (o ListpresentationRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -217,6 +244,9 @@ func (o ListpresentationRequest) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["iListpresentationRowOffset"] = o.IListpresentationRowOffset
+	}
+	if true {
+		toSerialize["bListpresentationDefault"] = o.BListpresentationDefault
 	}
 	return json.Marshal(toSerialize)
 }

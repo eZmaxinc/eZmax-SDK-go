@@ -10,12 +10,13 @@ Name | Type | Description | Notes
 **ASColumnName** | **[]string** | An array of column names that the user chose to bee visible | 
 **IListpresentationRowMax** | **int32** | The maximum numbers of results to be returned | 
 **IListpresentationRowOffset** | **int32** | The starting element from where to start retrieving the results. For example if you started at iRowOffset&#x3D;0 and asked for iRowMax&#x3D;100, to get the next 100 results, you could specify iRowOffset&#x3D;100&amp;iRowMax&#x3D;100, | 
+**BListpresentationDefault** | **bool** | Set to true if the user chose this Listpresentation as the default one. A single element should be set to true | 
 
 ## Methods
 
 ### NewListpresentationRequest
 
-`func NewListpresentationRequest(sListpresentationDescription string, sListpresentationFilter string, sListpresentationOrderby string, aSColumnName []string, iListpresentationRowMax int32, iListpresentationRowOffset int32, ) *ListpresentationRequest`
+`func NewListpresentationRequest(sListpresentationDescription string, sListpresentationFilter string, sListpresentationOrderby string, aSColumnName []string, iListpresentationRowMax int32, iListpresentationRowOffset int32, bListpresentationDefault bool, ) *ListpresentationRequest`
 
 NewListpresentationRequest instantiates a new ListpresentationRequest object
 This constructor will assign default values to properties that have it defined,
@@ -148,6 +149,26 @@ and a boolean to check if the value has been set.
 `func (o *ListpresentationRequest) SetIListpresentationRowOffset(v int32)`
 
 SetIListpresentationRowOffset sets IListpresentationRowOffset field to given value.
+
+
+### GetBListpresentationDefault
+
+`func (o *ListpresentationRequest) GetBListpresentationDefault() bool`
+
+GetBListpresentationDefault returns the BListpresentationDefault field if non-nil, zero value otherwise.
+
+### GetBListpresentationDefaultOk
+
+`func (o *ListpresentationRequest) GetBListpresentationDefaultOk() (*bool, bool)`
+
+GetBListpresentationDefaultOk returns a tuple with the BListpresentationDefault field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBListpresentationDefault
+
+`func (o *ListpresentationRequest) SetBListpresentationDefault(v bool)`
+
+SetBListpresentationDefault sets BListpresentationDefault field to given value.
 
 
 
