@@ -3,7 +3,7 @@ eZmax API Definition
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.0
+API version: 1.1.1
 Contact: support-api@ezmax.ca
 */
 
@@ -42,7 +42,7 @@ var (
 	xmlCheck  = regexp.MustCompile(`(?i:(?:application|text)/xml)`)
 )
 
-// APIClient manages communication with the eZmax API Definition API v1.1.0
+// APIClient manages communication with the eZmax API Definition API v1.1.1
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration
@@ -53,6 +53,8 @@ type APIClient struct {
 	GlobalCustomerApi *GlobalCustomerApiService
 
 	ModuleAuthenticateApi *ModuleAuthenticateApiService
+
+	ModuleListApi *ModuleListApiService
 
 	ModuleSsprApi *ModuleSsprApiService
 
@@ -99,6 +101,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	// API Services
 	c.GlobalCustomerApi = (*GlobalCustomerApiService)(&c.common)
 	c.ModuleAuthenticateApi = (*ModuleAuthenticateApiService)(&c.common)
+	c.ModuleListApi = (*ModuleListApiService)(&c.common)
 	c.ModuleSsprApi = (*ModuleSsprApiService)(&c.common)
 	c.ModuleUserApi = (*ModuleUserApiService)(&c.common)
 	c.ObjectActivesessionApi = (*ObjectActivesessionApiService)(&c.common)

@@ -5,6 +5,7 @@ README.md
 api/openapi.yaml
 api_global_customer.go
 api_module_authenticate.go
+api_module_list.go
 api_module_sspr.go
 api_module_user.go
 api_object_activesession.go
@@ -114,6 +115,7 @@ docs/EzsignfolderResponse.md
 docs/EzsignfolderResponseCompound.md
 docs/EzsignfolderSendV1Request.md
 docs/EzsignfolderSendV1Response.md
+docs/EzsignfolderUnsendV1Response.md
 docs/EzsignfoldersignerassociationCreateObjectV1Request.md
 docs/EzsignfoldersignerassociationCreateObjectV1Response.md
 docs/EzsignfoldersignerassociationCreateObjectV1ResponseAllOf.md
@@ -169,7 +171,13 @@ docs/FranchisereferalincomeRequestCompoundAllOf.md
 docs/GlobalCustomerApi.md
 docs/GlobalCustomerGetEndpointV1Response.md
 docs/HeaderAcceptLanguage.md
+docs/ListSaveListpresentationV1Request.md
+docs/ListSaveListpresentationV1Response.md
+docs/ListSaveListpresentationV1ResponseAllOf.md
+docs/ListSaveListpresentationV1ResponseMPayload.md
+docs/ListpresentationRequest.md
 docs/ModuleAuthenticateApi.md
+docs/ModuleListApi.md
 docs/ModuleSsprApi.md
 docs/ModuleUserApi.md
 docs/MultilingualApikeyDescription.md
@@ -309,6 +317,7 @@ model_ezsignfolder_response.go
 model_ezsignfolder_response_compound.go
 model_ezsignfolder_send_v1_request.go
 model_ezsignfolder_send_v1_response.go
+model_ezsignfolder_unsend_v1_response.go
 model_ezsignfoldersignerassociation_create_object_v1_request.go
 model_ezsignfoldersignerassociation_create_object_v1_response.go
 model_ezsignfoldersignerassociation_create_object_v1_response_all_of.go
@@ -363,6 +372,11 @@ model_franchisereferalincome_request_compound.go
 model_franchisereferalincome_request_compound_all_of.go
 model_global_customer_get_endpoint_v1_response.go
 model_header_accept_language.go
+model_list_save_listpresentation_v1_request.go
+model_list_save_listpresentation_v1_response.go
+model_list_save_listpresentation_v1_response_all_of.go
+model_list_save_listpresentation_v1_response_m_payload.go
+model_listpresentation_request.go
 model_multilingual_apikey_description.go
 model_phone_request.go
 model_sspr_reset_password_request_v1_request.go

@@ -3,7 +3,7 @@ eZmax API Definition
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.0
+API version: 1.1.1
 Contact: support-api@ezmax.ca
 */
 
@@ -23,9 +23,11 @@ type EzsigndocumentRequest struct {
 	EEzsigndocumentFormat string `json:"eEzsigndocumentFormat"`
 	// The Base64 encoded binary content of the document.  This field is Required when eEzsigndocumentSource = Base64.
 	SEzsigndocumentBase64 *string `json:"sEzsigndocumentBase64,omitempty"`
-	// A reference to a valid Ezsignfolder.  That value is returned after a successful Ezsignfolder Creation.
+	// If the source document is password protected, the password to open/modify it.
+	SEzsigndocumentPassword *string `json:"sEzsigndocumentPassword,omitempty"`
+	// The unique ID of the Ezsignfolder
 	FkiEzsignfolderID int32 `json:"fkiEzsignfolderID"`
-	// Represent a Date Time. The timezone is the one configured in the User's profile.
+	// The maximum date and time at which the document can be signed.
 	DtEzsigndocumentDuedate string `json:"dtEzsigndocumentDuedate"`
 	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
 	FkiLanguageID int32 `json:"fkiLanguageID"`
@@ -41,6 +43,8 @@ func NewEzsigndocumentRequest(eEzsigndocumentSource string, eEzsigndocumentForma
 	this := EzsigndocumentRequest{}
 	this.EEzsigndocumentSource = eEzsigndocumentSource
 	this.EEzsigndocumentFormat = eEzsigndocumentFormat
+	var sEzsigndocumentPassword string = ""
+	this.SEzsigndocumentPassword = &sEzsigndocumentPassword
 	this.FkiEzsignfolderID = fkiEzsignfolderID
 	this.DtEzsigndocumentDuedate = dtEzsigndocumentDuedate
 	this.FkiLanguageID = fkiLanguageID
@@ -53,6 +57,8 @@ func NewEzsigndocumentRequest(eEzsigndocumentSource string, eEzsigndocumentForma
 // but it doesn't guarantee that properties required by API are set
 func NewEzsigndocumentRequestWithDefaults() *EzsigndocumentRequest {
 	this := EzsigndocumentRequest{}
+	var sEzsigndocumentPassword string = ""
+	this.SEzsigndocumentPassword = &sEzsigndocumentPassword
 	return &this
 }
 
@@ -134,6 +140,38 @@ func (o *EzsigndocumentRequest) HasSEzsigndocumentBase64() bool {
 // SetSEzsigndocumentBase64 gets a reference to the given string and assigns it to the SEzsigndocumentBase64 field.
 func (o *EzsigndocumentRequest) SetSEzsigndocumentBase64(v string) {
 	o.SEzsigndocumentBase64 = &v
+}
+
+// GetSEzsigndocumentPassword returns the SEzsigndocumentPassword field value if set, zero value otherwise.
+func (o *EzsigndocumentRequest) GetSEzsigndocumentPassword() string {
+	if o == nil || o.SEzsigndocumentPassword == nil {
+		var ret string
+		return ret
+	}
+	return *o.SEzsigndocumentPassword
+}
+
+// GetSEzsigndocumentPasswordOk returns a tuple with the SEzsigndocumentPassword field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentRequest) GetSEzsigndocumentPasswordOk() (*string, bool) {
+	if o == nil || o.SEzsigndocumentPassword == nil {
+		return nil, false
+	}
+	return o.SEzsigndocumentPassword, true
+}
+
+// HasSEzsigndocumentPassword returns a boolean if a field has been set.
+func (o *EzsigndocumentRequest) HasSEzsigndocumentPassword() bool {
+	if o != nil && o.SEzsigndocumentPassword != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsigndocumentPassword gets a reference to the given string and assigns it to the SEzsigndocumentPassword field.
+func (o *EzsigndocumentRequest) SetSEzsigndocumentPassword(v string) {
+	o.SEzsigndocumentPassword = &v
 }
 
 // GetFkiEzsignfolderID returns the FkiEzsignfolderID field value
@@ -242,6 +280,9 @@ func (o EzsigndocumentRequest) MarshalJSON() ([]byte, error) {
 	}
 	if o.SEzsigndocumentBase64 != nil {
 		toSerialize["sEzsigndocumentBase64"] = o.SEzsigndocumentBase64
+	}
+	if o.SEzsigndocumentPassword != nil {
+		toSerialize["sEzsigndocumentPassword"] = o.SEzsigndocumentPassword
 	}
 	if true {
 		toSerialize["fkiEzsignfolderID"] = o.FkiEzsignfolderID

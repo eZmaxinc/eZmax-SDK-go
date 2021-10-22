@@ -7,8 +7,9 @@ Name | Type | Description | Notes
 **EEzsigndocumentSource** | **string** | Indicates where to look for the document binary content. | 
 **EEzsigndocumentFormat** | **string** | Indicates the format of the document. | 
 **SEzsigndocumentBase64** | Pointer to **string** | The Base64 encoded binary content of the document.  This field is Required when eEzsigndocumentSource &#x3D; Base64. | [optional] 
-**FkiEzsignfolderID** | **int32** | A reference to a valid Ezsignfolder.  That value is returned after a successful Ezsignfolder Creation. | 
-**DtEzsigndocumentDuedate** | **string** | Represent a Date Time. The timezone is the one configured in the User&#39;s profile. | 
+**SEzsigndocumentPassword** | Pointer to **string** | If the source document is password protected, the password to open/modify it. | [optional] [default to ""]
+**FkiEzsignfolderID** | **int32** | The unique ID of the Ezsignfolder | 
+**DtEzsigndocumentDuedate** | **string** | The maximum date and time at which the document can be signed. | 
 **FkiLanguageID** | **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
 **SEzsigndocumentName** | **string** | The name of the document that will be presented to Ezsignfoldersignerassociations | 
 
@@ -95,6 +96,31 @@ SetSEzsigndocumentBase64 sets SEzsigndocumentBase64 field to given value.
 `func (o *EzsigndocumentRequestCompound) HasSEzsigndocumentBase64() bool`
 
 HasSEzsigndocumentBase64 returns a boolean if a field has been set.
+
+### GetSEzsigndocumentPassword
+
+`func (o *EzsigndocumentRequestCompound) GetSEzsigndocumentPassword() string`
+
+GetSEzsigndocumentPassword returns the SEzsigndocumentPassword field if non-nil, zero value otherwise.
+
+### GetSEzsigndocumentPasswordOk
+
+`func (o *EzsigndocumentRequestCompound) GetSEzsigndocumentPasswordOk() (*string, bool)`
+
+GetSEzsigndocumentPasswordOk returns a tuple with the SEzsigndocumentPassword field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzsigndocumentPassword
+
+`func (o *EzsigndocumentRequestCompound) SetSEzsigndocumentPassword(v string)`
+
+SetSEzsigndocumentPassword sets SEzsigndocumentPassword field to given value.
+
+### HasSEzsigndocumentPassword
+
+`func (o *EzsigndocumentRequestCompound) HasSEzsigndocumentPassword() bool`
+
+HasSEzsigndocumentPassword returns a boolean if a field has been set.
 
 ### GetFkiEzsignfolderID
 
