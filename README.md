@@ -81,7 +81,8 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *GlobalCustomerApi* | [**GlobalCustomerGetEndpointV1**](docs/GlobalCustomerApi.md#globalcustomergetendpointv1) | **Get** /1/customer/{pksCustomerCode}/endpoint | Get customer endpoint
 *ModuleAuthenticateApi* | [**AuthenticateAuthenticateV2**](docs/ModuleAuthenticateApi.md#authenticateauthenticatev2) | **Post** /2/module/authenticate/authenticate/{eSessionType} | Authenticate a user
-*ModuleListApi* | [**ListListpresentationV1**](docs/ModuleListApi.md#listlistpresentationv1) | **Post** /1/module/list/listpresentation/{sListName} | Save all Listpresentation for a specific list
+*ModuleListApi* | [**ListGetListpresentationV1**](docs/ModuleListApi.md#listgetlistpresentationv1) | **Get** /1/module/list/listpresentation/{sListName} | Get all Listpresentation for a specific list
+*ModuleListApi* | [**ListSaveListpresentationV1**](docs/ModuleListApi.md#listsavelistpresentationv1) | **Post** /1/module/list/listpresentation/{sListName} | Save all Listpresentation for a specific list
 *ModuleSsprApi* | [**SsprResetPasswordRequestV1**](docs/ModuleSsprApi.md#ssprresetpasswordrequestv1) | **Post** /1/module/sspr/resetPasswordRequest | Reset Password Request
 *ModuleSsprApi* | [**SsprResetPasswordV1**](docs/ModuleSsprApi.md#ssprresetpasswordv1) | **Post** /1/module/sspr/resetPassword | Reset Password
 *ModuleSsprApi* | [**SsprSendUsernamesV1**](docs/ModuleSsprApi.md#ssprsendusernamesv1) | **Post** /1/module/sspr/sendUsernames | Send username(s)
@@ -277,10 +278,11 @@ Class | Method | HTTP request | Description
  - [FranchisereferalincomeRequestCompoundAllOf](docs/FranchisereferalincomeRequestCompoundAllOf.md)
  - [GlobalCustomerGetEndpointV1Response](docs/GlobalCustomerGetEndpointV1Response.md)
  - [HeaderAcceptLanguage](docs/HeaderAcceptLanguage.md)
+ - [ListGetListpresentationV1Response](docs/ListGetListpresentationV1Response.md)
+ - [ListGetListpresentationV1ResponseAllOf](docs/ListGetListpresentationV1ResponseAllOf.md)
+ - [ListGetListpresentationV1ResponseMPayload](docs/ListGetListpresentationV1ResponseMPayload.md)
  - [ListSaveListpresentationV1Request](docs/ListSaveListpresentationV1Request.md)
  - [ListSaveListpresentationV1Response](docs/ListSaveListpresentationV1Response.md)
- - [ListSaveListpresentationV1ResponseAllOf](docs/ListSaveListpresentationV1ResponseAllOf.md)
- - [ListSaveListpresentationV1ResponseMPayload](docs/ListSaveListpresentationV1ResponseMPayload.md)
  - [ListpresentationRequest](docs/ListpresentationRequest.md)
  - [MultilingualApikeyDescription](docs/MultilingualApikeyDescription.md)
  - [PhoneRequest](docs/PhoneRequest.md)

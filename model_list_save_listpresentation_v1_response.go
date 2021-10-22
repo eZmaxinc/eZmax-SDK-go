@@ -17,7 +17,6 @@ import (
 
 // ListSaveListpresentationV1Response Response for the POST /1/module/list/listpresentation/{sListName} API Request
 type ListSaveListpresentationV1Response struct {
-	MPayload ListSaveListpresentationV1ResponseMPayload `json:"mPayload"`
 	ObjDebugPayload *CommonResponseObjDebugPayload `json:"objDebugPayload,omitempty"`
 	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
 }
@@ -26,9 +25,8 @@ type ListSaveListpresentationV1Response struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListSaveListpresentationV1Response(mPayload ListSaveListpresentationV1ResponseMPayload) *ListSaveListpresentationV1Response {
+func NewListSaveListpresentationV1Response() *ListSaveListpresentationV1Response {
 	this := ListSaveListpresentationV1Response{}
-	this.MPayload = mPayload
 	return &this
 }
 
@@ -38,30 +36,6 @@ func NewListSaveListpresentationV1Response(mPayload ListSaveListpresentationV1Re
 func NewListSaveListpresentationV1ResponseWithDefaults() *ListSaveListpresentationV1Response {
 	this := ListSaveListpresentationV1Response{}
 	return &this
-}
-
-// GetMPayload returns the MPayload field value
-func (o *ListSaveListpresentationV1Response) GetMPayload() ListSaveListpresentationV1ResponseMPayload {
-	if o == nil {
-		var ret ListSaveListpresentationV1ResponseMPayload
-		return ret
-	}
-
-	return o.MPayload
-}
-
-// GetMPayloadOk returns a tuple with the MPayload field value
-// and a boolean to check if the value has been set.
-func (o *ListSaveListpresentationV1Response) GetMPayloadOk() (*ListSaveListpresentationV1ResponseMPayload, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.MPayload, true
-}
-
-// SetMPayload sets field value
-func (o *ListSaveListpresentationV1Response) SetMPayload(v ListSaveListpresentationV1ResponseMPayload) {
-	o.MPayload = v
 }
 
 // GetObjDebugPayload returns the ObjDebugPayload field value if set, zero value otherwise.
@@ -130,9 +104,6 @@ func (o *ListSaveListpresentationV1Response) SetObjDebug(v CommonResponseObjDebu
 
 func (o ListSaveListpresentationV1Response) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["mPayload"] = o.MPayload
-	}
 	if o.ObjDebugPayload != nil {
 		toSerialize["objDebugPayload"] = o.ObjDebugPayload
 	}

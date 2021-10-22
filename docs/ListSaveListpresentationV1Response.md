@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MPayload** | [**ListSaveListpresentationV1ResponseMPayload**](ListSaveListpresentationV1ResponseMPayload.md) |  | 
 **ObjDebugPayload** | Pointer to [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | [optional] 
 **ObjDebug** | Pointer to [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 
@@ -12,7 +11,7 @@ Name | Type | Description | Notes
 
 ### NewListSaveListpresentationV1Response
 
-`func NewListSaveListpresentationV1Response(mPayload ListSaveListpresentationV1ResponseMPayload, ) *ListSaveListpresentationV1Response`
+`func NewListSaveListpresentationV1Response() *ListSaveListpresentationV1Response`
 
 NewListSaveListpresentationV1Response instantiates a new ListSaveListpresentationV1Response object
 This constructor will assign default values to properties that have it defined,
@@ -26,26 +25,6 @@ will change when the set of required properties is changed
 NewListSaveListpresentationV1ResponseWithDefaults instantiates a new ListSaveListpresentationV1Response object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetMPayload
-
-`func (o *ListSaveListpresentationV1Response) GetMPayload() ListSaveListpresentationV1ResponseMPayload`
-
-GetMPayload returns the MPayload field if non-nil, zero value otherwise.
-
-### GetMPayloadOk
-
-`func (o *ListSaveListpresentationV1Response) GetMPayloadOk() (*ListSaveListpresentationV1ResponseMPayload, bool)`
-
-GetMPayloadOk returns a tuple with the MPayload field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMPayload
-
-`func (o *ListSaveListpresentationV1Response) SetMPayload(v ListSaveListpresentationV1ResponseMPayload)`
-
-SetMPayload sets MPayload field to given value.
-
 
 ### GetObjDebugPayload
 
