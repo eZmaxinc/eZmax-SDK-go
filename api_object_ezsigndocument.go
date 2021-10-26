@@ -463,7 +463,7 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentCreateObjectV1Execute(r A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v CommonResponseError
+			var v CommonResponseErrorSTemporaryFileUrl
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
