@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **EEzsigndocumentSource** | **string** | Indicates where to look for the document binary content. | 
 **EEzsigndocumentFormat** | **string** | Indicates the format of the document. | 
 **SEzsigndocumentBase64** | Pointer to **string** | The Base64 encoded binary content of the document.  This field is Required when eEzsigndocumentSource &#x3D; Base64. | [optional] 
+**SEzsigndocumentUrl** | Pointer to **string** | The url where the document content resides.  This field is Required when eEzsigndocumentSource &#x3D; Url. | [optional] 
+**BEzsigndocumentForcerepair** | Pointer to **bool** | Try to repair the document or flatten it if it cannot be used for electronic signature.  | [optional] [default to true]
 **SEzsigndocumentPassword** | Pointer to **string** | If the source document is password protected, the password to open/modify it. | [optional] [default to ""]
 **FkiEzsignfolderID** | **int32** | The unique ID of the Ezsignfolder | 
 **DtEzsigndocumentDuedate** | **string** | The maximum date and time at which the document can be signed. | 
@@ -96,6 +98,56 @@ SetSEzsigndocumentBase64 sets SEzsigndocumentBase64 field to given value.
 `func (o *EzsigndocumentRequestCompound) HasSEzsigndocumentBase64() bool`
 
 HasSEzsigndocumentBase64 returns a boolean if a field has been set.
+
+### GetSEzsigndocumentUrl
+
+`func (o *EzsigndocumentRequestCompound) GetSEzsigndocumentUrl() string`
+
+GetSEzsigndocumentUrl returns the SEzsigndocumentUrl field if non-nil, zero value otherwise.
+
+### GetSEzsigndocumentUrlOk
+
+`func (o *EzsigndocumentRequestCompound) GetSEzsigndocumentUrlOk() (*string, bool)`
+
+GetSEzsigndocumentUrlOk returns a tuple with the SEzsigndocumentUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzsigndocumentUrl
+
+`func (o *EzsigndocumentRequestCompound) SetSEzsigndocumentUrl(v string)`
+
+SetSEzsigndocumentUrl sets SEzsigndocumentUrl field to given value.
+
+### HasSEzsigndocumentUrl
+
+`func (o *EzsigndocumentRequestCompound) HasSEzsigndocumentUrl() bool`
+
+HasSEzsigndocumentUrl returns a boolean if a field has been set.
+
+### GetBEzsigndocumentForcerepair
+
+`func (o *EzsigndocumentRequestCompound) GetBEzsigndocumentForcerepair() bool`
+
+GetBEzsigndocumentForcerepair returns the BEzsigndocumentForcerepair field if non-nil, zero value otherwise.
+
+### GetBEzsigndocumentForcerepairOk
+
+`func (o *EzsigndocumentRequestCompound) GetBEzsigndocumentForcerepairOk() (*bool, bool)`
+
+GetBEzsigndocumentForcerepairOk returns a tuple with the BEzsigndocumentForcerepair field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsigndocumentForcerepair
+
+`func (o *EzsigndocumentRequestCompound) SetBEzsigndocumentForcerepair(v bool)`
+
+SetBEzsigndocumentForcerepair sets BEzsigndocumentForcerepair field to given value.
+
+### HasBEzsigndocumentForcerepair
+
+`func (o *EzsigndocumentRequestCompound) HasBEzsigndocumentForcerepair() bool`
+
+HasBEzsigndocumentForcerepair returns a boolean if a field has been set.
 
 ### GetSEzsigndocumentPassword
 

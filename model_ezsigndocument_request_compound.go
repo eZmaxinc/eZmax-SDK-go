@@ -3,7 +3,7 @@ eZmax API Definition
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.1
+API version: 1.1.2
 Contact: support-api@ezmax.ca
 */
 
@@ -23,6 +23,10 @@ type EzsigndocumentRequestCompound struct {
 	EEzsigndocumentFormat string `json:"eEzsigndocumentFormat"`
 	// The Base64 encoded binary content of the document.  This field is Required when eEzsigndocumentSource = Base64.
 	SEzsigndocumentBase64 *string `json:"sEzsigndocumentBase64,omitempty"`
+	// The url where the document content resides.  This field is Required when eEzsigndocumentSource = Url.
+	SEzsigndocumentUrl *string `json:"sEzsigndocumentUrl,omitempty"`
+	// Try to repair the document or flatten it if it cannot be used for electronic signature. 
+	BEzsigndocumentForcerepair *bool `json:"bEzsigndocumentForcerepair,omitempty"`
 	// If the source document is password protected, the password to open/modify it.
 	SEzsigndocumentPassword *string `json:"sEzsigndocumentPassword,omitempty"`
 	// The unique ID of the Ezsignfolder
@@ -43,6 +47,8 @@ func NewEzsigndocumentRequestCompound(eEzsigndocumentSource string, eEzsigndocum
 	this := EzsigndocumentRequestCompound{}
 	this.EEzsigndocumentSource = eEzsigndocumentSource
 	this.EEzsigndocumentFormat = eEzsigndocumentFormat
+	var bEzsigndocumentForcerepair bool = true
+	this.BEzsigndocumentForcerepair = &bEzsigndocumentForcerepair
 	var sEzsigndocumentPassword string = ""
 	this.SEzsigndocumentPassword = &sEzsigndocumentPassword
 	this.FkiEzsignfolderID = fkiEzsignfolderID
@@ -57,6 +63,8 @@ func NewEzsigndocumentRequestCompound(eEzsigndocumentSource string, eEzsigndocum
 // but it doesn't guarantee that properties required by API are set
 func NewEzsigndocumentRequestCompoundWithDefaults() *EzsigndocumentRequestCompound {
 	this := EzsigndocumentRequestCompound{}
+	var bEzsigndocumentForcerepair bool = true
+	this.BEzsigndocumentForcerepair = &bEzsigndocumentForcerepair
 	var sEzsigndocumentPassword string = ""
 	this.SEzsigndocumentPassword = &sEzsigndocumentPassword
 	return &this
@@ -140,6 +148,70 @@ func (o *EzsigndocumentRequestCompound) HasSEzsigndocumentBase64() bool {
 // SetSEzsigndocumentBase64 gets a reference to the given string and assigns it to the SEzsigndocumentBase64 field.
 func (o *EzsigndocumentRequestCompound) SetSEzsigndocumentBase64(v string) {
 	o.SEzsigndocumentBase64 = &v
+}
+
+// GetSEzsigndocumentUrl returns the SEzsigndocumentUrl field value if set, zero value otherwise.
+func (o *EzsigndocumentRequestCompound) GetSEzsigndocumentUrl() string {
+	if o == nil || o.SEzsigndocumentUrl == nil {
+		var ret string
+		return ret
+	}
+	return *o.SEzsigndocumentUrl
+}
+
+// GetSEzsigndocumentUrlOk returns a tuple with the SEzsigndocumentUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentRequestCompound) GetSEzsigndocumentUrlOk() (*string, bool) {
+	if o == nil || o.SEzsigndocumentUrl == nil {
+		return nil, false
+	}
+	return o.SEzsigndocumentUrl, true
+}
+
+// HasSEzsigndocumentUrl returns a boolean if a field has been set.
+func (o *EzsigndocumentRequestCompound) HasSEzsigndocumentUrl() bool {
+	if o != nil && o.SEzsigndocumentUrl != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsigndocumentUrl gets a reference to the given string and assigns it to the SEzsigndocumentUrl field.
+func (o *EzsigndocumentRequestCompound) SetSEzsigndocumentUrl(v string) {
+	o.SEzsigndocumentUrl = &v
+}
+
+// GetBEzsigndocumentForcerepair returns the BEzsigndocumentForcerepair field value if set, zero value otherwise.
+func (o *EzsigndocumentRequestCompound) GetBEzsigndocumentForcerepair() bool {
+	if o == nil || o.BEzsigndocumentForcerepair == nil {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsigndocumentForcerepair
+}
+
+// GetBEzsigndocumentForcerepairOk returns a tuple with the BEzsigndocumentForcerepair field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentRequestCompound) GetBEzsigndocumentForcerepairOk() (*bool, bool) {
+	if o == nil || o.BEzsigndocumentForcerepair == nil {
+		return nil, false
+	}
+	return o.BEzsigndocumentForcerepair, true
+}
+
+// HasBEzsigndocumentForcerepair returns a boolean if a field has been set.
+func (o *EzsigndocumentRequestCompound) HasBEzsigndocumentForcerepair() bool {
+	if o != nil && o.BEzsigndocumentForcerepair != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsigndocumentForcerepair gets a reference to the given bool and assigns it to the BEzsigndocumentForcerepair field.
+func (o *EzsigndocumentRequestCompound) SetBEzsigndocumentForcerepair(v bool) {
+	o.BEzsigndocumentForcerepair = &v
 }
 
 // GetSEzsigndocumentPassword returns the SEzsigndocumentPassword field value if set, zero value otherwise.
@@ -280,6 +352,12 @@ func (o EzsigndocumentRequestCompound) MarshalJSON() ([]byte, error) {
 	}
 	if o.SEzsigndocumentBase64 != nil {
 		toSerialize["sEzsigndocumentBase64"] = o.SEzsigndocumentBase64
+	}
+	if o.SEzsigndocumentUrl != nil {
+		toSerialize["sEzsigndocumentUrl"] = o.SEzsigndocumentUrl
+	}
+	if o.BEzsigndocumentForcerepair != nil {
+		toSerialize["bEzsigndocumentForcerepair"] = o.BEzsigndocumentForcerepair
 	}
 	if o.SEzsigndocumentPassword != nil {
 		toSerialize["sEzsigndocumentPassword"] = o.SEzsigndocumentPassword

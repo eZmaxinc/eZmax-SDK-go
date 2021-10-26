@@ -3,7 +3,7 @@ eZmax API Definition
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.1
+API version: 1.1.2
 Contact: support-api@ezmax.ca
 */
 
@@ -606,6 +606,7 @@ Enum values that can be filtered in query parameter *sFilter*:
 | Variable | Valid values |
 |---|---|
 | eEzsignfolderStep | Unsent<br>Sent<br>PartiallySigned<br>Expired<br>Completed<br>Archived |
+| eEzsignfoldertypePrivacylevel | User<br>Usergroup |
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiEzsignfolderGetListV1Request

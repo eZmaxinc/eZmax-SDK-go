@@ -101,7 +101,7 @@ import (
 
 func main() {
     sListName := "sListName_example" // string | The list Name
-    listSaveListpresentationV1Request := *openapiclient.NewListSaveListpresentationV1Request([]openapiclient.ListpresentationRequest{*openapiclient.NewListpresentationRequest("SListpresentationDescription_example", "bField1 eq true and iField2 gte 0 and iField2 lte 1000 and sField3 eq 'Other' and eField4 eq 'Paid' and sField5 like '%needle%' and iField6 in '1,2,3'", "SListpresentationOrderby_example", []string{"ASColumnName_example"}, int32(100), int32(0), false)}) // ListSaveListpresentationV1Request | 
+    listSaveListpresentationV1Request := *openapiclient.NewListSaveListpresentationV1Request([]openapiclient.ListpresentationRequest{*openapiclient.NewListpresentationRequest("SListpresentationDescription_example", "bField1 eq true and iField2 gte 0 and iField2 lte 1000 and sField3 eq 'Other' and eField4 eq 'Paid' and sField5 like '%needle%' and iField6 in '1,2,3' and dtField7 rg '=m,=3mm'", "SListpresentationOrderby_example", []string{"ASColumnName_example"}, int32(100), int32(0), false)}) // ListSaveListpresentationV1Request | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
