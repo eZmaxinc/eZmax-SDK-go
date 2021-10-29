@@ -3,7 +3,7 @@ eZmax API Definition
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.2
+API version: 1.1.3
 Contact: support-api@ezmax.ca
 */
 
@@ -18,10 +18,12 @@ import (
 // EzsignfoldersignerassociationRequestCompound An Ezsignfoldersignerassociation Object and children to create a complete structure
 type EzsignfoldersignerassociationRequestCompound struct {
 	ObjEzsignsigner *EzsignsignerRequestCompound `json:"objEzsignsigner,omitempty"`
-	// A reference to a valid User.  This is only used if the signatory will be a user from the system.
+	// The unique ID of the User
 	FkiUserID *int32 `json:"fkiUserID,omitempty"`
-	// A reference to a valid Ezsignfolder.  That value is returned after a successful Ezsignfolder Creation.
+	// The unique ID of the Ezsignfolder
 	FkiEzsignfolderID int32 `json:"fkiEzsignfolderID"`
+	// If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document.
+	BEzsignfoldersignerassociationReceivecopy *bool `json:"bEzsignfoldersignerassociationReceivecopy,omitempty"`
 }
 
 // NewEzsignfoldersignerassociationRequestCompound instantiates a new EzsignfoldersignerassociationRequestCompound object
@@ -130,6 +132,38 @@ func (o *EzsignfoldersignerassociationRequestCompound) SetFkiEzsignfolderID(v in
 	o.FkiEzsignfolderID = v
 }
 
+// GetBEzsignfoldersignerassociationReceivecopy returns the BEzsignfoldersignerassociationReceivecopy field value if set, zero value otherwise.
+func (o *EzsignfoldersignerassociationRequestCompound) GetBEzsignfoldersignerassociationReceivecopy() bool {
+	if o == nil || o.BEzsignfoldersignerassociationReceivecopy == nil {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignfoldersignerassociationReceivecopy
+}
+
+// GetBEzsignfoldersignerassociationReceivecopyOk returns a tuple with the BEzsignfoldersignerassociationReceivecopy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldersignerassociationRequestCompound) GetBEzsignfoldersignerassociationReceivecopyOk() (*bool, bool) {
+	if o == nil || o.BEzsignfoldersignerassociationReceivecopy == nil {
+		return nil, false
+	}
+	return o.BEzsignfoldersignerassociationReceivecopy, true
+}
+
+// HasBEzsignfoldersignerassociationReceivecopy returns a boolean if a field has been set.
+func (o *EzsignfoldersignerassociationRequestCompound) HasBEzsignfoldersignerassociationReceivecopy() bool {
+	if o != nil && o.BEzsignfoldersignerassociationReceivecopy != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignfoldersignerassociationReceivecopy gets a reference to the given bool and assigns it to the BEzsignfoldersignerassociationReceivecopy field.
+func (o *EzsignfoldersignerassociationRequestCompound) SetBEzsignfoldersignerassociationReceivecopy(v bool) {
+	o.BEzsignfoldersignerassociationReceivecopy = &v
+}
+
 func (o EzsignfoldersignerassociationRequestCompound) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.ObjEzsignsigner != nil {
@@ -140,6 +174,9 @@ func (o EzsignfoldersignerassociationRequestCompound) MarshalJSON() ([]byte, err
 	}
 	if true {
 		toSerialize["fkiEzsignfolderID"] = o.FkiEzsignfolderID
+	}
+	if o.BEzsignfoldersignerassociationReceivecopy != nil {
+		toSerialize["bEzsignfoldersignerassociationReceivecopy"] = o.BEzsignfoldersignerassociationReceivecopy
 	}
 	return json.Marshal(toSerialize)
 }

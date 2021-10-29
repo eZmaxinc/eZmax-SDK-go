@@ -5,8 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ObjEzsignsigner** | Pointer to [**EzsignsignerRequestCompound**](EzsignsignerRequestCompound.md) |  | [optional] 
-**FkiUserID** | Pointer to **int32** | A reference to a valid User.  This is only used if the signatory will be a user from the system. | [optional] 
-**FkiEzsignfolderID** | **int32** | A reference to a valid Ezsignfolder.  That value is returned after a successful Ezsignfolder Creation. | 
+**FkiUserID** | Pointer to **int32** | The unique ID of the User | [optional] 
+**FkiEzsignfolderID** | **int32** | The unique ID of the Ezsignfolder | 
+**BEzsignfoldersignerassociationReceivecopy** | Pointer to **bool** | If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain&#39;t required to sign the document. | [optional] 
 
 ## Methods
 
@@ -96,6 +97,31 @@ and a boolean to check if the value has been set.
 
 SetFkiEzsignfolderID sets FkiEzsignfolderID field to given value.
 
+
+### GetBEzsignfoldersignerassociationReceivecopy
+
+`func (o *EzsignfoldersignerassociationRequestCompound) GetBEzsignfoldersignerassociationReceivecopy() bool`
+
+GetBEzsignfoldersignerassociationReceivecopy returns the BEzsignfoldersignerassociationReceivecopy field if non-nil, zero value otherwise.
+
+### GetBEzsignfoldersignerassociationReceivecopyOk
+
+`func (o *EzsignfoldersignerassociationRequestCompound) GetBEzsignfoldersignerassociationReceivecopyOk() (*bool, bool)`
+
+GetBEzsignfoldersignerassociationReceivecopyOk returns a tuple with the BEzsignfoldersignerassociationReceivecopy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsignfoldersignerassociationReceivecopy
+
+`func (o *EzsignfoldersignerassociationRequestCompound) SetBEzsignfoldersignerassociationReceivecopy(v bool)`
+
+SetBEzsignfoldersignerassociationReceivecopy sets BEzsignfoldersignerassociationReceivecopy field to given value.
+
+### HasBEzsignfoldersignerassociationReceivecopy
+
+`func (o *EzsignfoldersignerassociationRequestCompound) HasBEzsignfoldersignerassociationReceivecopy() bool`
+
+HasBEzsignfoldersignerassociationReceivecopy returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
