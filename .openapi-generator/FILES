@@ -10,6 +10,7 @@ api_module_sspr.go
 api_module_user.go
 api_object_activesession.go
 api_object_apikey.go
+api_object_ezsignbulksend.go
 api_object_ezsigndocument.go
 api_object_ezsignfolder.go
 api_object_ezsignfoldersignerassociation.go
@@ -66,6 +67,11 @@ docs/CustomFormsDataFolderResponse.md
 docs/CustomWordPositionOccurenceResponse.md
 docs/CustomWordPositionWordResponse.md
 docs/EmailRequest.md
+docs/EzsignbulksendGetListV1Response.md
+docs/EzsignbulksendGetListV1ResponseAllOf.md
+docs/EzsignbulksendGetListV1ResponseMPayload.md
+docs/EzsignbulksendGetListV1ResponseMPayloadAllOf.md
+docs/EzsignbulksendListElement.md
 docs/EzsigndocumentApplyEzsigntemplateV1Request.md
 docs/EzsigndocumentApplyEzsigntemplateV1Response.md
 docs/EzsigndocumentApplyEzsigntemplateV2Request.md
@@ -186,6 +192,7 @@ docs/ModuleUserApi.md
 docs/MultilingualApikeyDescription.md
 docs/ObjectActivesessionApi.md
 docs/ObjectApikeyApi.md
+docs/ObjectEzsignbulksendApi.md
 docs/ObjectEzsigndocumentApi.md
 docs/ObjectEzsignfolderApi.md
 docs/ObjectEzsignfoldersignerassociationApi.md
@@ -271,6 +278,11 @@ model_custom_forms_data_folder_response.go
 model_custom_word_position_occurence_response.go
 model_custom_word_position_word_response.go
 model_email_request.go
+model_ezsignbulksend_get_list_v1_response.go
+model_ezsignbulksend_get_list_v1_response_all_of.go
+model_ezsignbulksend_get_list_v1_response_m_payload.go
+model_ezsignbulksend_get_list_v1_response_m_payload_all_of.go
+model_ezsignbulksend_list_element.go
 model_ezsigndocument_apply_ezsigntemplate_v1_request.go
 model_ezsigndocument_apply_ezsigntemplate_v1_response.go
 model_ezsigndocument_apply_ezsigntemplate_v2_request.go

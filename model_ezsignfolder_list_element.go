@@ -24,7 +24,7 @@ type EzsignfolderListElement struct {
 	EEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel `json:"eEzsignfoldertypePrivacylevel"`
 	// The name of the Ezsignfoldertype in the language of the requester
 	SEzsignfoldertypeNameX string `json:"sEzsignfoldertypeNameX"`
-	// The description of the Ezsign Folder
+	// The description of the Ezsignfolder
 	SEzsignfolderDescription string `json:"sEzsignfolderDescription"`
 	EEzsignfolderStep FieldEEzsignfolderStep `json:"eEzsignfolderStep"`
 	// The date and time at which the object was created
@@ -33,20 +33,20 @@ type EzsignfolderListElement struct {
 	// The date at which no more signature will be accepted on the folder
 	DtDueDate OneOfstringobject `json:"dtDueDate"`
 	// The total number of Ezsigndocument in the folder
-	ITotalDocument int32 `json:"iTotalDocument"`
+	IEzsigndocument int32 `json:"iEzsigndocument"`
 	// The total number of Ezsigndocument in the folder that were saved in the edm system
-	ITotalDocumentEdm int32 `json:"iTotalDocumentEdm"`
+	IEzsigndocumentEdm int32 `json:"iEzsigndocumentEdm"`
 	// The total number of signature blocks in all Ezsigndocuments in the folder
-	ITotalSignature int32 `json:"iTotalSignature"`
+	IEzsignsignature int32 `json:"iEzsignsignature"`
 	// The total number of already signed signature blocks in all Ezsigndocuments in the folder
-	ITotalSignatureSigned int32 `json:"iTotalSignatureSigned"`
+	IEzsignsignatureSigned int32 `json:"iEzsignsignatureSigned"`
 }
 
 // NewEzsignfolderListElement instantiates a new EzsignfolderListElement object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfolderListElement(pkiEzsignfolderID int32, fkiEzsignfoldertypeID int32, eEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX string, sEzsignfolderDescription string, eEzsignfolderStep FieldEEzsignfolderStep, dtCreatedDate string, dtEzsignfolderSentdate OneOfstringobject, dtDueDate OneOfstringobject, iTotalDocument int32, iTotalDocumentEdm int32, iTotalSignature int32, iTotalSignatureSigned int32) *EzsignfolderListElement {
+func NewEzsignfolderListElement(pkiEzsignfolderID int32, fkiEzsignfoldertypeID int32, eEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX string, sEzsignfolderDescription string, eEzsignfolderStep FieldEEzsignfolderStep, dtCreatedDate string, dtEzsignfolderSentdate OneOfstringobject, dtDueDate OneOfstringobject, iEzsigndocument int32, iEzsigndocumentEdm int32, iEzsignsignature int32, iEzsignsignatureSigned int32) *EzsignfolderListElement {
 	this := EzsignfolderListElement{}
 	this.PkiEzsignfolderID = pkiEzsignfolderID
 	this.FkiEzsignfoldertypeID = fkiEzsignfoldertypeID
@@ -57,10 +57,10 @@ func NewEzsignfolderListElement(pkiEzsignfolderID int32, fkiEzsignfoldertypeID i
 	this.DtCreatedDate = dtCreatedDate
 	this.DtEzsignfolderSentdate = dtEzsignfolderSentdate
 	this.DtDueDate = dtDueDate
-	this.ITotalDocument = iTotalDocument
-	this.ITotalDocumentEdm = iTotalDocumentEdm
-	this.ITotalSignature = iTotalSignature
-	this.ITotalSignatureSigned = iTotalSignatureSigned
+	this.IEzsigndocument = iEzsigndocument
+	this.IEzsigndocumentEdm = iEzsigndocumentEdm
+	this.IEzsignsignature = iEzsignsignature
+	this.IEzsignsignatureSigned = iEzsignsignatureSigned
 	return &this
 }
 
@@ -292,100 +292,100 @@ func (o *EzsignfolderListElement) SetDtDueDate(v OneOfstringobject) {
 	o.DtDueDate = v
 }
 
-// GetITotalDocument returns the ITotalDocument field value
-func (o *EzsignfolderListElement) GetITotalDocument() int32 {
+// GetIEzsigndocument returns the IEzsigndocument field value
+func (o *EzsignfolderListElement) GetIEzsigndocument() int32 {
 	if o == nil {
 		var ret int32
 		return ret
 	}
 
-	return o.ITotalDocument
+	return o.IEzsigndocument
 }
 
-// GetITotalDocumentOk returns a tuple with the ITotalDocument field value
+// GetIEzsigndocumentOk returns a tuple with the IEzsigndocument field value
 // and a boolean to check if the value has been set.
-func (o *EzsignfolderListElement) GetITotalDocumentOk() (*int32, bool) {
+func (o *EzsignfolderListElement) GetIEzsigndocumentOk() (*int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.ITotalDocument, true
+	return &o.IEzsigndocument, true
 }
 
-// SetITotalDocument sets field value
-func (o *EzsignfolderListElement) SetITotalDocument(v int32) {
-	o.ITotalDocument = v
+// SetIEzsigndocument sets field value
+func (o *EzsignfolderListElement) SetIEzsigndocument(v int32) {
+	o.IEzsigndocument = v
 }
 
-// GetITotalDocumentEdm returns the ITotalDocumentEdm field value
-func (o *EzsignfolderListElement) GetITotalDocumentEdm() int32 {
+// GetIEzsigndocumentEdm returns the IEzsigndocumentEdm field value
+func (o *EzsignfolderListElement) GetIEzsigndocumentEdm() int32 {
 	if o == nil {
 		var ret int32
 		return ret
 	}
 
-	return o.ITotalDocumentEdm
+	return o.IEzsigndocumentEdm
 }
 
-// GetITotalDocumentEdmOk returns a tuple with the ITotalDocumentEdm field value
+// GetIEzsigndocumentEdmOk returns a tuple with the IEzsigndocumentEdm field value
 // and a boolean to check if the value has been set.
-func (o *EzsignfolderListElement) GetITotalDocumentEdmOk() (*int32, bool) {
+func (o *EzsignfolderListElement) GetIEzsigndocumentEdmOk() (*int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.ITotalDocumentEdm, true
+	return &o.IEzsigndocumentEdm, true
 }
 
-// SetITotalDocumentEdm sets field value
-func (o *EzsignfolderListElement) SetITotalDocumentEdm(v int32) {
-	o.ITotalDocumentEdm = v
+// SetIEzsigndocumentEdm sets field value
+func (o *EzsignfolderListElement) SetIEzsigndocumentEdm(v int32) {
+	o.IEzsigndocumentEdm = v
 }
 
-// GetITotalSignature returns the ITotalSignature field value
-func (o *EzsignfolderListElement) GetITotalSignature() int32 {
+// GetIEzsignsignature returns the IEzsignsignature field value
+func (o *EzsignfolderListElement) GetIEzsignsignature() int32 {
 	if o == nil {
 		var ret int32
 		return ret
 	}
 
-	return o.ITotalSignature
+	return o.IEzsignsignature
 }
 
-// GetITotalSignatureOk returns a tuple with the ITotalSignature field value
+// GetIEzsignsignatureOk returns a tuple with the IEzsignsignature field value
 // and a boolean to check if the value has been set.
-func (o *EzsignfolderListElement) GetITotalSignatureOk() (*int32, bool) {
+func (o *EzsignfolderListElement) GetIEzsignsignatureOk() (*int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.ITotalSignature, true
+	return &o.IEzsignsignature, true
 }
 
-// SetITotalSignature sets field value
-func (o *EzsignfolderListElement) SetITotalSignature(v int32) {
-	o.ITotalSignature = v
+// SetIEzsignsignature sets field value
+func (o *EzsignfolderListElement) SetIEzsignsignature(v int32) {
+	o.IEzsignsignature = v
 }
 
-// GetITotalSignatureSigned returns the ITotalSignatureSigned field value
-func (o *EzsignfolderListElement) GetITotalSignatureSigned() int32 {
+// GetIEzsignsignatureSigned returns the IEzsignsignatureSigned field value
+func (o *EzsignfolderListElement) GetIEzsignsignatureSigned() int32 {
 	if o == nil {
 		var ret int32
 		return ret
 	}
 
-	return o.ITotalSignatureSigned
+	return o.IEzsignsignatureSigned
 }
 
-// GetITotalSignatureSignedOk returns a tuple with the ITotalSignatureSigned field value
+// GetIEzsignsignatureSignedOk returns a tuple with the IEzsignsignatureSigned field value
 // and a boolean to check if the value has been set.
-func (o *EzsignfolderListElement) GetITotalSignatureSignedOk() (*int32, bool) {
+func (o *EzsignfolderListElement) GetIEzsignsignatureSignedOk() (*int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.ITotalSignatureSigned, true
+	return &o.IEzsignsignatureSigned, true
 }
 
-// SetITotalSignatureSigned sets field value
-func (o *EzsignfolderListElement) SetITotalSignatureSigned(v int32) {
-	o.ITotalSignatureSigned = v
+// SetIEzsignsignatureSigned sets field value
+func (o *EzsignfolderListElement) SetIEzsignsignatureSigned(v int32) {
+	o.IEzsignsignatureSigned = v
 }
 
 func (o EzsignfolderListElement) MarshalJSON() ([]byte, error) {
@@ -418,16 +418,16 @@ func (o EzsignfolderListElement) MarshalJSON() ([]byte, error) {
 		toSerialize["dtDueDate"] = o.DtDueDate
 	}
 	if true {
-		toSerialize["iTotalDocument"] = o.ITotalDocument
+		toSerialize["iEzsigndocument"] = o.IEzsigndocument
 	}
 	if true {
-		toSerialize["iTotalDocumentEdm"] = o.ITotalDocumentEdm
+		toSerialize["iEzsigndocumentEdm"] = o.IEzsigndocumentEdm
 	}
 	if true {
-		toSerialize["iTotalSignature"] = o.ITotalSignature
+		toSerialize["iEzsignsignature"] = o.IEzsignsignature
 	}
 	if true {
-		toSerialize["iTotalSignatureSigned"] = o.ITotalSignatureSigned
+		toSerialize["iEzsignsignatureSigned"] = o.IEzsignsignatureSigned
 	}
 	return json.Marshal(toSerialize)
 }

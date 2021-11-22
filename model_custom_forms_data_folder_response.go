@@ -19,7 +19,7 @@ import (
 type CustomFormsDataFolderResponse struct {
 	// The unique ID of the Ezsignfolder
 	PkiEzsignfolderID int32 `json:"pkiEzsignfolderID"`
-	// The description of the Ezsign Folder
+	// The description of the Ezsignfolder
 	SEzsignfolderDescription string `json:"sEzsignfolderDescription"`
 	AObjFormDataDocument []CustomFormDataDocumentResponse `json:"a_objFormDataDocument"`
 }

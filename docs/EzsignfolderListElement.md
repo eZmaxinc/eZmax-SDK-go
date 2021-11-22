@@ -8,21 +8,21 @@ Name | Type | Description | Notes
 **FkiEzsignfoldertypeID** | **int32** | The unique ID of the Ezsignfoldertype. | 
 **EEzsignfoldertypePrivacylevel** | [**FieldEEzsignfoldertypePrivacylevel**](FieldEEzsignfoldertypePrivacylevel.md) |  | 
 **SEzsignfoldertypeNameX** | **string** | The name of the Ezsignfoldertype in the language of the requester | 
-**SEzsignfolderDescription** | **string** | The description of the Ezsign Folder | 
+**SEzsignfolderDescription** | **string** | The description of the Ezsignfolder | 
 **EEzsignfolderStep** | [**FieldEEzsignfolderStep**](FieldEEzsignfolderStep.md) |  | 
 **DtCreatedDate** | **string** | The date and time at which the object was created | 
 **DtEzsignfolderSentdate** | [**OneOfstringobject**](oneOf&lt;string,object&gt;.md) |  | 
 **DtDueDate** | [**OneOfstringobject**](oneOf&lt;string,object&gt;.md) | The date at which no more signature will be accepted on the folder | 
-**ITotalDocument** | **int32** | The total number of Ezsigndocument in the folder | 
-**ITotalDocumentEdm** | **int32** | The total number of Ezsigndocument in the folder that were saved in the edm system | 
-**ITotalSignature** | **int32** | The total number of signature blocks in all Ezsigndocuments in the folder | 
-**ITotalSignatureSigned** | **int32** | The total number of already signed signature blocks in all Ezsigndocuments in the folder | 
+**IEzsigndocument** | **int32** | The total number of Ezsigndocument in the folder | 
+**IEzsigndocumentEdm** | **int32** | The total number of Ezsigndocument in the folder that were saved in the edm system | 
+**IEzsignsignature** | **int32** | The total number of signature blocks in all Ezsigndocuments in the folder | 
+**IEzsignsignatureSigned** | **int32** | The total number of already signed signature blocks in all Ezsigndocuments in the folder | 
 
 ## Methods
 
 ### NewEzsignfolderListElement
 
-`func NewEzsignfolderListElement(pkiEzsignfolderID int32, fkiEzsignfoldertypeID int32, eEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX string, sEzsignfolderDescription string, eEzsignfolderStep FieldEEzsignfolderStep, dtCreatedDate string, dtEzsignfolderSentdate OneOfstringobject, dtDueDate OneOfstringobject, iTotalDocument int32, iTotalDocumentEdm int32, iTotalSignature int32, iTotalSignatureSigned int32, ) *EzsignfolderListElement`
+`func NewEzsignfolderListElement(pkiEzsignfolderID int32, fkiEzsignfoldertypeID int32, eEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX string, sEzsignfolderDescription string, eEzsignfolderStep FieldEEzsignfolderStep, dtCreatedDate string, dtEzsignfolderSentdate OneOfstringobject, dtDueDate OneOfstringobject, iEzsigndocument int32, iEzsigndocumentEdm int32, iEzsignsignature int32, iEzsignsignatureSigned int32, ) *EzsignfolderListElement`
 
 NewEzsignfolderListElement instantiates a new EzsignfolderListElement object
 This constructor will assign default values to properties that have it defined,
@@ -237,84 +237,84 @@ SetDtDueDate sets DtDueDate field to given value.
 `func (o *EzsignfolderListElement) UnsetDtDueDate()`
 
 UnsetDtDueDate ensures that no value is present for DtDueDate, not even an explicit nil
-### GetITotalDocument
+### GetIEzsigndocument
 
-`func (o *EzsignfolderListElement) GetITotalDocument() int32`
+`func (o *EzsignfolderListElement) GetIEzsigndocument() int32`
 
-GetITotalDocument returns the ITotalDocument field if non-nil, zero value otherwise.
+GetIEzsigndocument returns the IEzsigndocument field if non-nil, zero value otherwise.
 
-### GetITotalDocumentOk
+### GetIEzsigndocumentOk
 
-`func (o *EzsignfolderListElement) GetITotalDocumentOk() (*int32, bool)`
+`func (o *EzsignfolderListElement) GetIEzsigndocumentOk() (*int32, bool)`
 
-GetITotalDocumentOk returns a tuple with the ITotalDocument field if it's non-nil, zero value otherwise
+GetIEzsigndocumentOk returns a tuple with the IEzsigndocument field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetITotalDocument
+### SetIEzsigndocument
 
-`func (o *EzsignfolderListElement) SetITotalDocument(v int32)`
+`func (o *EzsignfolderListElement) SetIEzsigndocument(v int32)`
 
-SetITotalDocument sets ITotalDocument field to given value.
+SetIEzsigndocument sets IEzsigndocument field to given value.
 
 
-### GetITotalDocumentEdm
+### GetIEzsigndocumentEdm
 
-`func (o *EzsignfolderListElement) GetITotalDocumentEdm() int32`
+`func (o *EzsignfolderListElement) GetIEzsigndocumentEdm() int32`
 
-GetITotalDocumentEdm returns the ITotalDocumentEdm field if non-nil, zero value otherwise.
+GetIEzsigndocumentEdm returns the IEzsigndocumentEdm field if non-nil, zero value otherwise.
 
-### GetITotalDocumentEdmOk
+### GetIEzsigndocumentEdmOk
 
-`func (o *EzsignfolderListElement) GetITotalDocumentEdmOk() (*int32, bool)`
+`func (o *EzsignfolderListElement) GetIEzsigndocumentEdmOk() (*int32, bool)`
 
-GetITotalDocumentEdmOk returns a tuple with the ITotalDocumentEdm field if it's non-nil, zero value otherwise
+GetIEzsigndocumentEdmOk returns a tuple with the IEzsigndocumentEdm field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetITotalDocumentEdm
+### SetIEzsigndocumentEdm
 
-`func (o *EzsignfolderListElement) SetITotalDocumentEdm(v int32)`
+`func (o *EzsignfolderListElement) SetIEzsigndocumentEdm(v int32)`
 
-SetITotalDocumentEdm sets ITotalDocumentEdm field to given value.
+SetIEzsigndocumentEdm sets IEzsigndocumentEdm field to given value.
 
 
-### GetITotalSignature
+### GetIEzsignsignature
 
-`func (o *EzsignfolderListElement) GetITotalSignature() int32`
+`func (o *EzsignfolderListElement) GetIEzsignsignature() int32`
 
-GetITotalSignature returns the ITotalSignature field if non-nil, zero value otherwise.
+GetIEzsignsignature returns the IEzsignsignature field if non-nil, zero value otherwise.
 
-### GetITotalSignatureOk
+### GetIEzsignsignatureOk
 
-`func (o *EzsignfolderListElement) GetITotalSignatureOk() (*int32, bool)`
+`func (o *EzsignfolderListElement) GetIEzsignsignatureOk() (*int32, bool)`
 
-GetITotalSignatureOk returns a tuple with the ITotalSignature field if it's non-nil, zero value otherwise
+GetIEzsignsignatureOk returns a tuple with the IEzsignsignature field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetITotalSignature
+### SetIEzsignsignature
 
-`func (o *EzsignfolderListElement) SetITotalSignature(v int32)`
+`func (o *EzsignfolderListElement) SetIEzsignsignature(v int32)`
 
-SetITotalSignature sets ITotalSignature field to given value.
+SetIEzsignsignature sets IEzsignsignature field to given value.
 
 
-### GetITotalSignatureSigned
+### GetIEzsignsignatureSigned
 
-`func (o *EzsignfolderListElement) GetITotalSignatureSigned() int32`
+`func (o *EzsignfolderListElement) GetIEzsignsignatureSigned() int32`
 
-GetITotalSignatureSigned returns the ITotalSignatureSigned field if non-nil, zero value otherwise.
+GetIEzsignsignatureSigned returns the IEzsignsignatureSigned field if non-nil, zero value otherwise.
 
-### GetITotalSignatureSignedOk
+### GetIEzsignsignatureSignedOk
 
-`func (o *EzsignfolderListElement) GetITotalSignatureSignedOk() (*int32, bool)`
+`func (o *EzsignfolderListElement) GetIEzsignsignatureSignedOk() (*int32, bool)`
 
-GetITotalSignatureSignedOk returns a tuple with the ITotalSignatureSigned field if it's non-nil, zero value otherwise
+GetIEzsignsignatureSignedOk returns a tuple with the IEzsignsignatureSigned field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetITotalSignatureSigned
+### SetIEzsignsignatureSigned
 
-`func (o *EzsignfolderListElement) SetITotalSignatureSigned(v int32)`
+`func (o *EzsignfolderListElement) SetIEzsignsignatureSigned(v int32)`
 
-SetITotalSignatureSigned sets ITotalSignatureSigned field to given value.
+SetIEzsignsignatureSigned sets IEzsignsignatureSigned field to given value.
 
 
 

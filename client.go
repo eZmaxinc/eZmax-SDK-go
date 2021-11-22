@@ -64,6 +64,8 @@ type APIClient struct {
 
 	ObjectApikeyApi *ObjectApikeyApiService
 
+	ObjectEzsignbulksendApi *ObjectEzsignbulksendApiService
+
 	ObjectEzsigndocumentApi *ObjectEzsigndocumentApiService
 
 	ObjectEzsignfolderApi *ObjectEzsignfolderApiService
@@ -106,6 +108,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ModuleUserApi = (*ModuleUserApiService)(&c.common)
 	c.ObjectActivesessionApi = (*ObjectActivesessionApiService)(&c.common)
 	c.ObjectApikeyApi = (*ObjectApikeyApiService)(&c.common)
+	c.ObjectEzsignbulksendApi = (*ObjectEzsignbulksendApiService)(&c.common)
 	c.ObjectEzsigndocumentApi = (*ObjectEzsigndocumentApiService)(&c.common)
 	c.ObjectEzsignfolderApi = (*ObjectEzsignfolderApiService)(&c.common)
 	c.ObjectEzsignfoldersignerassociationApi = (*ObjectEzsignfoldersignerassociationApiService)(&c.common)
@@ -355,7 +358,7 @@ func (c *APIClient) prepareRequest(
 	if len(headerParams) > 0 {
 		headers := http.Header{}
 		for h, v := range headerParams {
-			headers.Set(h, v)
+			headers[h] = []string{v}
 		}
 		localVarRequest.Header = headers
 	}
