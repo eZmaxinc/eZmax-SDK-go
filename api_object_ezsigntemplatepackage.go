@@ -17,7 +17,6 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-	"strings"
 )
 
 // Linger please
@@ -25,73 +24,96 @@ var (
 	_ _context.Context
 )
 
-// GlobalCustomerApiService GlobalCustomerApi service
-type GlobalCustomerApiService service
+// ObjectEzsigntemplatepackageApiService ObjectEzsigntemplatepackageApi service
+type ObjectEzsigntemplatepackageApiService service
 
-type ApiGlobalCustomerGetEndpointV1Request struct {
+type ApiEzsigntemplatepackageGetListV1Request struct {
 	ctx _context.Context
-	ApiService *GlobalCustomerApiService
-	pksCustomerCode string
-	sInfrastructureproductCode *string
+	ApiService *ObjectEzsigntemplatepackageApiService
+	eOrderBy *string
+	iRowMax *int32
+	iRowOffset *int32
+	acceptLanguage *HeaderAcceptLanguage
+	sFilter *string
 }
 
-// The infrastructure product Code  If undefined, \&quot;appcluster01\&quot; is assumed
-func (r ApiGlobalCustomerGetEndpointV1Request) SInfrastructureproductCode(sInfrastructureproductCode string) ApiGlobalCustomerGetEndpointV1Request {
-	r.sInfrastructureproductCode = &sInfrastructureproductCode
+// Specify how you want the results to be sorted
+func (r ApiEzsigntemplatepackageGetListV1Request) EOrderBy(eOrderBy string) ApiEzsigntemplatepackageGetListV1Request {
+	r.eOrderBy = &eOrderBy
+	return r
+}
+func (r ApiEzsigntemplatepackageGetListV1Request) IRowMax(iRowMax int32) ApiEzsigntemplatepackageGetListV1Request {
+	r.iRowMax = &iRowMax
+	return r
+}
+func (r ApiEzsigntemplatepackageGetListV1Request) IRowOffset(iRowOffset int32) ApiEzsigntemplatepackageGetListV1Request {
+	r.iRowOffset = &iRowOffset
+	return r
+}
+func (r ApiEzsigntemplatepackageGetListV1Request) AcceptLanguage(acceptLanguage HeaderAcceptLanguage) ApiEzsigntemplatepackageGetListV1Request {
+	r.acceptLanguage = &acceptLanguage
+	return r
+}
+func (r ApiEzsigntemplatepackageGetListV1Request) SFilter(sFilter string) ApiEzsigntemplatepackageGetListV1Request {
+	r.sFilter = &sFilter
 	return r
 }
 
-func (r ApiGlobalCustomerGetEndpointV1Request) Execute() (GlobalCustomerGetEndpointV1Response, *_nethttp.Response, error) {
-	return r.ApiService.GlobalCustomerGetEndpointV1Execute(r)
+func (r ApiEzsigntemplatepackageGetListV1Request) Execute() (EzsigntemplatepackageGetListV1Response, *_nethttp.Response, error) {
+	return r.ApiService.EzsigntemplatepackageGetListV1Execute(r)
 }
 
 /*
-GlobalCustomerGetEndpointV1 Get customer endpoint
+EzsigntemplatepackageGetListV1 Retrieve Ezsigntemplatepackage list
 
-Retrieve the customer's specific server endpoint where to send requests. This will help locate the proper region (ie: sInfrastructureregionCode) and the proper environment (ie: sInfrastructureenvironmenttypeDescription) where the customer's data is stored.
+Enum values that can be filtered in query parameter *sFilter*:
+
+| Variable | Valid values |
+|---|---|
+| ezsigntemplatepackage | Company<br>Department<br>Team<br>User<br>Usergroup |
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pksCustomerCode
- @return ApiGlobalCustomerGetEndpointV1Request
+ @return ApiEzsigntemplatepackageGetListV1Request
 */
-func (a *GlobalCustomerApiService) GlobalCustomerGetEndpointV1(ctx _context.Context, pksCustomerCode string) ApiGlobalCustomerGetEndpointV1Request {
-	return ApiGlobalCustomerGetEndpointV1Request{
+func (a *ObjectEzsigntemplatepackageApiService) EzsigntemplatepackageGetListV1(ctx _context.Context) ApiEzsigntemplatepackageGetListV1Request {
+	return ApiEzsigntemplatepackageGetListV1Request{
 		ApiService: a,
 		ctx: ctx,
-		pksCustomerCode: pksCustomerCode,
 	}
 }
 
 // Execute executes the request
-//  @return GlobalCustomerGetEndpointV1Response
-func (a *GlobalCustomerApiService) GlobalCustomerGetEndpointV1Execute(r ApiGlobalCustomerGetEndpointV1Request) (GlobalCustomerGetEndpointV1Response, *_nethttp.Response, error) {
+//  @return EzsigntemplatepackageGetListV1Response
+func (a *ObjectEzsigntemplatepackageApiService) EzsigntemplatepackageGetListV1Execute(r ApiEzsigntemplatepackageGetListV1Request) (EzsigntemplatepackageGetListV1Response, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  GlobalCustomerGetEndpointV1Response
+		localVarReturnValue  EzsigntemplatepackageGetListV1Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GlobalCustomerApiService.GlobalCustomerGetEndpointV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigntemplatepackageApiService.EzsigntemplatepackageGetListV1")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/1/customer/{pksCustomerCode}/endpoint"
-	localVarPath = strings.Replace(localVarPath, "{"+"pksCustomerCode"+"}", _neturl.PathEscape(parameterToString(r.pksCustomerCode, "")), -1)
+	localVarPath := localBasePath + "/1/object/ezsigntemplatepackage/getList"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
-	if strlen(r.pksCustomerCode) < 2 {
-		return localVarReturnValue, nil, reportError("pksCustomerCode must have at least 2 elements")
-	}
-	if strlen(r.pksCustomerCode) > 6 {
-		return localVarReturnValue, nil, reportError("pksCustomerCode must have less than 6 elements")
-	}
 
-	if r.sInfrastructureproductCode != nil {
-		localVarQueryParams.Add("sInfrastructureproductCode", parameterToString(*r.sInfrastructureproductCode, ""))
+	if r.eOrderBy != nil {
+		localVarQueryParams.Add("eOrderBy", parameterToString(*r.eOrderBy, ""))
+	}
+	if r.iRowMax != nil {
+		localVarQueryParams.Add("iRowMax", parameterToString(*r.iRowMax, ""))
+	}
+	if r.iRowOffset != nil {
+		localVarQueryParams.Add("iRowOffset", parameterToString(*r.iRowOffset, ""))
+	}
+	if r.sFilter != nil {
+		localVarQueryParams.Add("sFilter", parameterToString(*r.sFilter, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -103,12 +125,15 @@ func (a *GlobalCustomerApiService) GlobalCustomerGetEndpointV1Execute(r ApiGloba
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.acceptLanguage != nil {
+		localVarHeaderParams["Accept-Language"] = parameterToString(*r.acceptLanguage, "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -146,7 +171,7 @@ func (a *GlobalCustomerApiService) GlobalCustomerGetEndpointV1Execute(r ApiGloba
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
+		if localVarHTTPResponse.StatusCode == 406 {
 			var v CommonResponseError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

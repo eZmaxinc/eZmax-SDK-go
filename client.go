@@ -76,6 +76,8 @@ type APIClient struct {
 
 	ObjectEzsignsignatureApi *ObjectEzsignsignatureApiService
 
+	ObjectEzsigntemplatepackageApi *ObjectEzsigntemplatepackageApiService
+
 	ObjectFranchisebrokerApi *ObjectFranchisebrokerApiService
 
 	ObjectFranchiseofficeApi *ObjectFranchiseofficeApiService
@@ -114,6 +116,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectEzsignfoldersignerassociationApi = (*ObjectEzsignfoldersignerassociationApiService)(&c.common)
 	c.ObjectEzsignfoldertypeApi = (*ObjectEzsignfoldertypeApiService)(&c.common)
 	c.ObjectEzsignsignatureApi = (*ObjectEzsignsignatureApiService)(&c.common)
+	c.ObjectEzsigntemplatepackageApi = (*ObjectEzsigntemplatepackageApiService)(&c.common)
 	c.ObjectFranchisebrokerApi = (*ObjectFranchisebrokerApiService)(&c.common)
 	c.ObjectFranchiseofficeApi = (*ObjectFranchiseofficeApiService)(&c.common)
 	c.ObjectFranchisereferalincomeApi = (*ObjectFranchisereferalincomeApiService)(&c.common)
@@ -238,6 +241,12 @@ func (c *APIClient) GetConfig() *Configuration {
 	return c.cfg
 }
 
+type formFile struct {
+		fileBytes []byte
+		fileName string
+		formFileName string
+}
+
 // prepareRequest build the request
 func (c *APIClient) prepareRequest(
 	ctx context.Context,
@@ -246,9 +255,7 @@ func (c *APIClient) prepareRequest(
 	headerParams map[string]string,
 	queryParams url.Values,
 	formParams url.Values,
-	formFileName string,
-	fileName string,
-	fileBytes []byte) (localVarRequest *http.Request, err error) {
+	formFiles []formFile) (localVarRequest *http.Request, err error) {
 
 	var body *bytes.Buffer
 
@@ -267,7 +274,7 @@ func (c *APIClient) prepareRequest(
 	}
 
 	// add form parameters and file if available.
-	if strings.HasPrefix(headerParams["Content-Type"], "multipart/form-data") && len(formParams) > 0 || (len(fileBytes) > 0 && fileName != "") {
+	if strings.HasPrefix(headerParams["Content-Type"], "multipart/form-data") && len(formParams) > 0 || (len(formFiles) > 0) {
 		if body != nil {
 			return nil, errors.New("Cannot specify postBody and multipart form at the same time.")
 		}
@@ -286,16 +293,17 @@ func (c *APIClient) prepareRequest(
 				}
 			}
 		}
-		if len(fileBytes) > 0 && fileName != "" {
-			w.Boundary()
-			//_, fileNm := filepath.Split(fileName)
-			part, err := w.CreateFormFile(formFileName, filepath.Base(fileName))
-			if err != nil {
-				return nil, err
-			}
-			_, err = part.Write(fileBytes)
-			if err != nil {
-				return nil, err
+		for _, formFile := range formFiles {
+			if len(formFile.fileBytes) > 0 && formFile.fileName != "" {
+				w.Boundary()
+				part, err := w.CreateFormFile(formFile.formFileName, filepath.Base(formFile.fileName))
+				if err != nil {
+						return nil, err
+				}
+				_, err = part.Write(formFile.fileBytes)
+				if err != nil {
+						return nil, err
+				}
 			}
 		}
 

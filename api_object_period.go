@@ -68,9 +68,7 @@ func (a *ObjectPeriodApiService) PeriodGetAutocompleteV1Execute(r ApiPeriodGetAu
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  CommonGetAutocompleteV1Response
 	)
 
@@ -120,7 +118,7 @@ func (a *ObjectPeriodApiService) PeriodGetAutocompleteV1Execute(r ApiPeriodGetAu
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
