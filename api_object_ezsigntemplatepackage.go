@@ -70,7 +70,7 @@ Enum values that can be filtered in query parameter *sFilter*:
 
 | Variable | Valid values |
 |---|---|
-| ezsigntemplatepackage | Company<br>Department<br>Team<br>User<br>Usergroup |
+| eEzsigntemplatepackageType | Company<br>Department<br>Team<br>User<br>Usergroup |
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiEzsigntemplatepackageGetListV1Request

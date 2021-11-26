@@ -17,15 +17,16 @@ import (
 
 // EzsignbulksendGetListV1ResponseMPayloadAllOf struct for EzsignbulksendGetListV1ResponseMPayloadAllOf
 type EzsignbulksendGetListV1ResponseMPayloadAllOf struct {
-	AObjEzsignfolder *[]EzsignbulksendListElement `json:"a_objEzsignfolder,omitempty"`
+	AObjEzsignbulksend []EzsignbulksendListElement `json:"a_objEzsignbulksend"`
 }
 
 // NewEzsignbulksendGetListV1ResponseMPayloadAllOf instantiates a new EzsignbulksendGetListV1ResponseMPayloadAllOf object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignbulksendGetListV1ResponseMPayloadAllOf() *EzsignbulksendGetListV1ResponseMPayloadAllOf {
+func NewEzsignbulksendGetListV1ResponseMPayloadAllOf(aObjEzsignbulksend []EzsignbulksendListElement) *EzsignbulksendGetListV1ResponseMPayloadAllOf {
 	this := EzsignbulksendGetListV1ResponseMPayloadAllOf{}
+	this.AObjEzsignbulksend = aObjEzsignbulksend
 	return &this
 }
 
@@ -37,42 +38,34 @@ func NewEzsignbulksendGetListV1ResponseMPayloadAllOfWithDefaults() *Ezsignbulkse
 	return &this
 }
 
-// GetAObjEzsignfolder returns the AObjEzsignfolder field value if set, zero value otherwise.
-func (o *EzsignbulksendGetListV1ResponseMPayloadAllOf) GetAObjEzsignfolder() []EzsignbulksendListElement {
-	if o == nil || o.AObjEzsignfolder == nil {
+// GetAObjEzsignbulksend returns the AObjEzsignbulksend field value
+func (o *EzsignbulksendGetListV1ResponseMPayloadAllOf) GetAObjEzsignbulksend() []EzsignbulksendListElement {
+	if o == nil {
 		var ret []EzsignbulksendListElement
 		return ret
 	}
-	return *o.AObjEzsignfolder
+
+	return o.AObjEzsignbulksend
 }
 
-// GetAObjEzsignfolderOk returns a tuple with the AObjEzsignfolder field value if set, nil otherwise
+// GetAObjEzsignbulksendOk returns a tuple with the AObjEzsignbulksend field value
 // and a boolean to check if the value has been set.
-func (o *EzsignbulksendGetListV1ResponseMPayloadAllOf) GetAObjEzsignfolderOk() (*[]EzsignbulksendListElement, bool) {
-	if o == nil || o.AObjEzsignfolder == nil {
+func (o *EzsignbulksendGetListV1ResponseMPayloadAllOf) GetAObjEzsignbulksendOk() (*[]EzsignbulksendListElement, bool) {
+	if o == nil  {
 		return nil, false
 	}
-	return o.AObjEzsignfolder, true
+	return &o.AObjEzsignbulksend, true
 }
 
-// HasAObjEzsignfolder returns a boolean if a field has been set.
-func (o *EzsignbulksendGetListV1ResponseMPayloadAllOf) HasAObjEzsignfolder() bool {
-	if o != nil && o.AObjEzsignfolder != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetAObjEzsignfolder gets a reference to the given []EzsignbulksendListElement and assigns it to the AObjEzsignfolder field.
-func (o *EzsignbulksendGetListV1ResponseMPayloadAllOf) SetAObjEzsignfolder(v []EzsignbulksendListElement) {
-	o.AObjEzsignfolder = &v
+// SetAObjEzsignbulksend sets field value
+func (o *EzsignbulksendGetListV1ResponseMPayloadAllOf) SetAObjEzsignbulksend(v []EzsignbulksendListElement) {
+	o.AObjEzsignbulksend = v
 }
 
 func (o EzsignbulksendGetListV1ResponseMPayloadAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.AObjEzsignfolder != nil {
-		toSerialize["a_objEzsignfolder"] = o.AObjEzsignfolder
+	if true {
+		toSerialize["a_objEzsignbulksend"] = o.AObjEzsignbulksend
 	}
 	return json.Marshal(toSerialize)
 }

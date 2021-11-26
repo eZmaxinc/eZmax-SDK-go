@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AObjEzsignfolder** | Pointer to [**[]EzsignbulksendListElement**](EzsignbulksendListElement.md) |  | [optional] 
+**AObjEzsignbulksend** | [**[]EzsignbulksendListElement**](EzsignbulksendListElement.md) |  | 
 **IRowReturned** | **int32** | The number of rows returned | 
 **IRowFiltered** | **int32** | The number of rows matching your filters (if any) or the total number of rows | 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewEzsignbulksendGetListV1ResponseMPayload
 
-`func NewEzsignbulksendGetListV1ResponseMPayload(iRowReturned int32, iRowFiltered int32, ) *EzsignbulksendGetListV1ResponseMPayload`
+`func NewEzsignbulksendGetListV1ResponseMPayload(aObjEzsignbulksend []EzsignbulksendListElement, iRowReturned int32, iRowFiltered int32, ) *EzsignbulksendGetListV1ResponseMPayload`
 
 NewEzsignbulksendGetListV1ResponseMPayload instantiates a new EzsignbulksendGetListV1ResponseMPayload object
 This constructor will assign default values to properties that have it defined,
@@ -27,30 +27,25 @@ NewEzsignbulksendGetListV1ResponseMPayloadWithDefaults instantiates a new Ezsign
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetAObjEzsignfolder
+### GetAObjEzsignbulksend
 
-`func (o *EzsignbulksendGetListV1ResponseMPayload) GetAObjEzsignfolder() []EzsignbulksendListElement`
+`func (o *EzsignbulksendGetListV1ResponseMPayload) GetAObjEzsignbulksend() []EzsignbulksendListElement`
 
-GetAObjEzsignfolder returns the AObjEzsignfolder field if non-nil, zero value otherwise.
+GetAObjEzsignbulksend returns the AObjEzsignbulksend field if non-nil, zero value otherwise.
 
-### GetAObjEzsignfolderOk
+### GetAObjEzsignbulksendOk
 
-`func (o *EzsignbulksendGetListV1ResponseMPayload) GetAObjEzsignfolderOk() (*[]EzsignbulksendListElement, bool)`
+`func (o *EzsignbulksendGetListV1ResponseMPayload) GetAObjEzsignbulksendOk() (*[]EzsignbulksendListElement, bool)`
 
-GetAObjEzsignfolderOk returns a tuple with the AObjEzsignfolder field if it's non-nil, zero value otherwise
+GetAObjEzsignbulksendOk returns a tuple with the AObjEzsignbulksend field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAObjEzsignfolder
+### SetAObjEzsignbulksend
 
-`func (o *EzsignbulksendGetListV1ResponseMPayload) SetAObjEzsignfolder(v []EzsignbulksendListElement)`
+`func (o *EzsignbulksendGetListV1ResponseMPayload) SetAObjEzsignbulksend(v []EzsignbulksendListElement)`
 
-SetAObjEzsignfolder sets AObjEzsignfolder field to given value.
+SetAObjEzsignbulksend sets AObjEzsignbulksend field to given value.
 
-### HasAObjEzsignfolder
-
-`func (o *EzsignbulksendGetListV1ResponseMPayload) HasAObjEzsignfolder() bool`
-
-HasAObjEzsignfolder returns a boolean if a field has been set.
 
 ### GetIRowReturned
 
