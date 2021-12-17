@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SCategory** | **string** | The Category for the dropdown or an empty string if not categorized | 
 **SLabel** | **string** | The Description of the element | 
-**MValue** | [**OneOfintegerstring**](oneOf&lt;integer,string&gt;.md) | The Unique ID of the element | 
+**MValue** | **string** | The Unique ID of the element | 
 
 ## Methods
 
 ### NewCustomAutocompleteElementResponse
 
-`func NewCustomAutocompleteElementResponse(sCategory string, sLabel string, mValue OneOfintegerstring, ) *CustomAutocompleteElementResponse`
+`func NewCustomAutocompleteElementResponse(sCategory string, sLabel string, mValue string, ) *CustomAutocompleteElementResponse`
 
 NewCustomAutocompleteElementResponse instantiates a new CustomAutocompleteElementResponse object
 This constructor will assign default values to properties that have it defined,
@@ -69,34 +69,24 @@ SetSLabel sets SLabel field to given value.
 
 ### GetMValue
 
-`func (o *CustomAutocompleteElementResponse) GetMValue() OneOfintegerstring`
+`func (o *CustomAutocompleteElementResponse) GetMValue() string`
 
 GetMValue returns the MValue field if non-nil, zero value otherwise.
 
 ### GetMValueOk
 
-`func (o *CustomAutocompleteElementResponse) GetMValueOk() (*OneOfintegerstring, bool)`
+`func (o *CustomAutocompleteElementResponse) GetMValueOk() (*string, bool)`
 
 GetMValueOk returns a tuple with the MValue field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMValue
 
-`func (o *CustomAutocompleteElementResponse) SetMValue(v OneOfintegerstring)`
+`func (o *CustomAutocompleteElementResponse) SetMValue(v string)`
 
 SetMValue sets MValue field to given value.
 
 
-### SetMValueNil
-
-`func (o *CustomAutocompleteElementResponse) SetMValueNil(b bool)`
-
- SetMValueNil sets the value for MValue to be an explicit nil
-
-### UnsetMValue
-`func (o *CustomAutocompleteElementResponse) UnsetMValue()`
-
-UnsetMValue ensures that no value is present for MValue, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

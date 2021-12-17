@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **TEzsignfolderNote** | **string** | Somes extra notes about the eZsign Folder | 
 **EEzsignfolderSendreminderfrequency** | [**FieldEEzsignfolderSendreminderfrequency**](FieldEEzsignfolderSendreminderfrequency.md) |  | 
 **PkiEzsignfolderID** | **int32** | The unique ID of the Ezsignfolder | 
-**DtEzsignfolderSentdate** | **string** | The date and time at which the Ezsign folder was sent the last time. | 
+**DtEzsignfolderSentdate** | **NullableString** | The date and time at which the Ezsign folder was sent the last time. | 
 **EEzsignfolderStep** | [**FieldEEzsignfolderStep**](FieldEEzsignfolderStep.md) |  | 
 **DtEzsignfolderClose** | **string** | The date and time at which the folder was closed. Either by applying the last signature or by completing it prematurely. | 
 **ObjAudit** | [**CommonAudit**](CommonAudit.md) |  | 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewEzsignfolderResponse
 
-`func NewEzsignfolderResponse(fkiEzsignfoldertypeID int32, fkiEzsigntsarequirementID int32, sEzsignfolderDescription string, tEzsignfolderNote string, eEzsignfolderSendreminderfrequency FieldEEzsignfolderSendreminderfrequency, pkiEzsignfolderID int32, dtEzsignfolderSentdate string, eEzsignfolderStep FieldEEzsignfolderStep, dtEzsignfolderClose string, objAudit CommonAudit, ) *EzsignfolderResponse`
+`func NewEzsignfolderResponse(fkiEzsignfoldertypeID int32, fkiEzsigntsarequirementID int32, sEzsignfolderDescription string, tEzsignfolderNote string, eEzsignfolderSendreminderfrequency FieldEEzsignfolderSendreminderfrequency, pkiEzsignfolderID int32, dtEzsignfolderSentdate NullableString, eEzsignfolderStep FieldEEzsignfolderStep, dtEzsignfolderClose string, objAudit CommonAudit, ) *EzsignfolderResponse`
 
 NewEzsignfolderResponse instantiates a new EzsignfolderResponse object
 This constructor will assign default values to properties that have it defined,
@@ -174,6 +174,16 @@ and a boolean to check if the value has been set.
 SetDtEzsignfolderSentdate sets DtEzsignfolderSentdate field to given value.
 
 
+### SetDtEzsignfolderSentdateNil
+
+`func (o *EzsignfolderResponse) SetDtEzsignfolderSentdateNil(b bool)`
+
+ SetDtEzsignfolderSentdateNil sets the value for DtEzsignfolderSentdate to be an explicit nil
+
+### UnsetDtEzsignfolderSentdate
+`func (o *EzsignfolderResponse) UnsetDtEzsignfolderSentdate()`
+
+UnsetDtEzsignfolderSentdate ensures that no value is present for DtEzsignfolderSentdate, not even an explicit nil
 ### GetEEzsignfolderStep
 
 `func (o *EzsignfolderResponse) GetEEzsignfolderStep() FieldEEzsignfolderStep`

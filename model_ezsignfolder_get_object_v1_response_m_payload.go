@@ -29,7 +29,7 @@ type EzsignfolderGetObjectV1ResponseMPayload struct {
 	// The unique ID of the Ezsignfolder
 	PkiEzsignfolderID int32 `json:"pkiEzsignfolderID"`
 	// The date and time at which the Ezsign folder was sent the last time.
-	DtEzsignfolderSentdate string `json:"dtEzsignfolderSentdate"`
+	DtEzsignfolderSentdate NullableString `json:"dtEzsignfolderSentdate"`
 	EEzsignfolderStep FieldEEzsignfolderStep `json:"eEzsignfolderStep"`
 	// The date and time at which the folder was closed. Either by applying the last signature or by completing it prematurely.
 	DtEzsignfolderClose string `json:"dtEzsignfolderClose"`
@@ -40,7 +40,7 @@ type EzsignfolderGetObjectV1ResponseMPayload struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfolderGetObjectV1ResponseMPayload(fkiEzsignfoldertypeID int32, fkiEzsigntsarequirementID int32, sEzsignfolderDescription string, tEzsignfolderNote string, eEzsignfolderSendreminderfrequency FieldEEzsignfolderSendreminderfrequency, pkiEzsignfolderID int32, dtEzsignfolderSentdate string, eEzsignfolderStep FieldEEzsignfolderStep, dtEzsignfolderClose string, objAudit CommonAudit) *EzsignfolderGetObjectV1ResponseMPayload {
+func NewEzsignfolderGetObjectV1ResponseMPayload(fkiEzsignfoldertypeID int32, fkiEzsigntsarequirementID int32, sEzsignfolderDescription string, tEzsignfolderNote string, eEzsignfolderSendreminderfrequency FieldEEzsignfolderSendreminderfrequency, pkiEzsignfolderID int32, dtEzsignfolderSentdate NullableString, eEzsignfolderStep FieldEEzsignfolderStep, dtEzsignfolderClose string, objAudit CommonAudit) *EzsignfolderGetObjectV1ResponseMPayload {
 	this := EzsignfolderGetObjectV1ResponseMPayload{}
 	this.FkiEzsignfoldertypeID = fkiEzsignfoldertypeID
 	this.FkiEzsigntsarequirementID = fkiEzsigntsarequirementID
@@ -208,27 +208,29 @@ func (o *EzsignfolderGetObjectV1ResponseMPayload) SetPkiEzsignfolderID(v int32) 
 }
 
 // GetDtEzsignfolderSentdate returns the DtEzsignfolderSentdate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *EzsignfolderGetObjectV1ResponseMPayload) GetDtEzsignfolderSentdate() string {
-	if o == nil {
+	if o == nil || o.DtEzsignfolderSentdate.Get() == nil {
 		var ret string
 		return ret
 	}
 
-	return o.DtEzsignfolderSentdate
+	return *o.DtEzsignfolderSentdate.Get()
 }
 
 // GetDtEzsignfolderSentdateOk returns a tuple with the DtEzsignfolderSentdate field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EzsignfolderGetObjectV1ResponseMPayload) GetDtEzsignfolderSentdateOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.DtEzsignfolderSentdate, true
+	return o.DtEzsignfolderSentdate.Get(), o.DtEzsignfolderSentdate.IsSet()
 }
 
 // SetDtEzsignfolderSentdate sets field value
 func (o *EzsignfolderGetObjectV1ResponseMPayload) SetDtEzsignfolderSentdate(v string) {
-	o.DtEzsignfolderSentdate = v
+	o.DtEzsignfolderSentdate.Set(&v)
 }
 
 // GetEEzsignfolderStep returns the EEzsignfolderStep field value
@@ -324,7 +326,7 @@ func (o EzsignfolderGetObjectV1ResponseMPayload) MarshalJSON() ([]byte, error) {
 		toSerialize["pkiEzsignfolderID"] = o.PkiEzsignfolderID
 	}
 	if true {
-		toSerialize["dtEzsignfolderSentdate"] = o.DtEzsignfolderSentdate
+		toSerialize["dtEzsignfolderSentdate"] = o.DtEzsignfolderSentdate.Get()
 	}
 	if true {
 		toSerialize["eEzsignfolderStep"] = o.EEzsignfolderStep

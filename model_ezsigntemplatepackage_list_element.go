@@ -19,9 +19,12 @@ import (
 type EzsigntemplatepackageListElement struct {
 	// The unique ID of the Ezsigntemplatepackage
 	PkiEzsigntemplatepackageID int32 `json:"pkiEzsigntemplatepackageID"`
-	FkiDepartmentID OneOfintegerobject `json:"fkiDepartmentID"`
-	FkiTeamID OneOfintegerobject `json:"fkiTeamID"`
-	FkiEzsignfoldertypeID OneOfintegerobject `json:"fkiEzsignfoldertypeID"`
+	// The unique ID of the Department.
+	FkiDepartmentID NullableInt32 `json:"fkiDepartmentID"`
+	// The unique ID of the Team
+	FkiTeamID NullableInt32 `json:"fkiTeamID"`
+	// The unique ID of the Ezsignfoldertype.
+	FkiEzsignfoldertypeID NullableInt32 `json:"fkiEzsignfoldertypeID"`
 	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
 	FkiLanguageID int32 `json:"fkiLanguageID"`
 	EEzsigntemplatepackageType FieldEEzsigntemplatepackageType `json:"eEzsigntemplatepackageType"`
@@ -37,7 +40,7 @@ type EzsigntemplatepackageListElement struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigntemplatepackageListElement(pkiEzsigntemplatepackageID int32, fkiDepartmentID OneOfintegerobject, fkiTeamID OneOfintegerobject, fkiEzsignfoldertypeID OneOfintegerobject, fkiLanguageID int32, eEzsigntemplatepackageType FieldEEzsigntemplatepackageType, sEzsigntemplatepackageDescription string, bEzsigntemplatepackageIsactive bool, iEzsigntemplatepackagemembership int32) *EzsigntemplatepackageListElement {
+func NewEzsigntemplatepackageListElement(pkiEzsigntemplatepackageID int32, fkiDepartmentID NullableInt32, fkiTeamID NullableInt32, fkiEzsignfoldertypeID NullableInt32, fkiLanguageID int32, eEzsigntemplatepackageType FieldEEzsigntemplatepackageType, sEzsigntemplatepackageDescription string, bEzsigntemplatepackageIsactive bool, iEzsigntemplatepackagemembership int32) *EzsigntemplatepackageListElement {
 	this := EzsigntemplatepackageListElement{}
 	this.PkiEzsigntemplatepackageID = pkiEzsigntemplatepackageID
 	this.FkiDepartmentID = fkiDepartmentID
@@ -84,81 +87,81 @@ func (o *EzsigntemplatepackageListElement) SetPkiEzsigntemplatepackageID(v int32
 }
 
 // GetFkiDepartmentID returns the FkiDepartmentID field value
-// If the value is explicit nil, the zero value for OneOfintegerobject will be returned
-func (o *EzsigntemplatepackageListElement) GetFkiDepartmentID() OneOfintegerobject {
-	if o == nil {
-		var ret OneOfintegerobject
+// If the value is explicit nil, the zero value for int32 will be returned
+func (o *EzsigntemplatepackageListElement) GetFkiDepartmentID() int32 {
+	if o == nil || o.FkiDepartmentID.Get() == nil {
+		var ret int32
 		return ret
 	}
 
-	return o.FkiDepartmentID
+	return *o.FkiDepartmentID.Get()
 }
 
 // GetFkiDepartmentIDOk returns a tuple with the FkiDepartmentID field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *EzsigntemplatepackageListElement) GetFkiDepartmentIDOk() (*OneOfintegerobject, bool) {
-	if o == nil || o.FkiDepartmentID == nil {
+func (o *EzsigntemplatepackageListElement) GetFkiDepartmentIDOk() (*int32, bool) {
+	if o == nil  {
 		return nil, false
 	}
-	return &o.FkiDepartmentID, true
+	return o.FkiDepartmentID.Get(), o.FkiDepartmentID.IsSet()
 }
 
 // SetFkiDepartmentID sets field value
-func (o *EzsigntemplatepackageListElement) SetFkiDepartmentID(v OneOfintegerobject) {
-	o.FkiDepartmentID = v
+func (o *EzsigntemplatepackageListElement) SetFkiDepartmentID(v int32) {
+	o.FkiDepartmentID.Set(&v)
 }
 
 // GetFkiTeamID returns the FkiTeamID field value
-// If the value is explicit nil, the zero value for OneOfintegerobject will be returned
-func (o *EzsigntemplatepackageListElement) GetFkiTeamID() OneOfintegerobject {
-	if o == nil {
-		var ret OneOfintegerobject
+// If the value is explicit nil, the zero value for int32 will be returned
+func (o *EzsigntemplatepackageListElement) GetFkiTeamID() int32 {
+	if o == nil || o.FkiTeamID.Get() == nil {
+		var ret int32
 		return ret
 	}
 
-	return o.FkiTeamID
+	return *o.FkiTeamID.Get()
 }
 
 // GetFkiTeamIDOk returns a tuple with the FkiTeamID field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *EzsigntemplatepackageListElement) GetFkiTeamIDOk() (*OneOfintegerobject, bool) {
-	if o == nil || o.FkiTeamID == nil {
+func (o *EzsigntemplatepackageListElement) GetFkiTeamIDOk() (*int32, bool) {
+	if o == nil  {
 		return nil, false
 	}
-	return &o.FkiTeamID, true
+	return o.FkiTeamID.Get(), o.FkiTeamID.IsSet()
 }
 
 // SetFkiTeamID sets field value
-func (o *EzsigntemplatepackageListElement) SetFkiTeamID(v OneOfintegerobject) {
-	o.FkiTeamID = v
+func (o *EzsigntemplatepackageListElement) SetFkiTeamID(v int32) {
+	o.FkiTeamID.Set(&v)
 }
 
 // GetFkiEzsignfoldertypeID returns the FkiEzsignfoldertypeID field value
-// If the value is explicit nil, the zero value for OneOfintegerobject will be returned
-func (o *EzsigntemplatepackageListElement) GetFkiEzsignfoldertypeID() OneOfintegerobject {
-	if o == nil {
-		var ret OneOfintegerobject
+// If the value is explicit nil, the zero value for int32 will be returned
+func (o *EzsigntemplatepackageListElement) GetFkiEzsignfoldertypeID() int32 {
+	if o == nil || o.FkiEzsignfoldertypeID.Get() == nil {
+		var ret int32
 		return ret
 	}
 
-	return o.FkiEzsignfoldertypeID
+	return *o.FkiEzsignfoldertypeID.Get()
 }
 
 // GetFkiEzsignfoldertypeIDOk returns a tuple with the FkiEzsignfoldertypeID field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *EzsigntemplatepackageListElement) GetFkiEzsignfoldertypeIDOk() (*OneOfintegerobject, bool) {
-	if o == nil || o.FkiEzsignfoldertypeID == nil {
+func (o *EzsigntemplatepackageListElement) GetFkiEzsignfoldertypeIDOk() (*int32, bool) {
+	if o == nil  {
 		return nil, false
 	}
-	return &o.FkiEzsignfoldertypeID, true
+	return o.FkiEzsignfoldertypeID.Get(), o.FkiEzsignfoldertypeID.IsSet()
 }
 
 // SetFkiEzsignfoldertypeID sets field value
-func (o *EzsigntemplatepackageListElement) SetFkiEzsignfoldertypeID(v OneOfintegerobject) {
-	o.FkiEzsignfoldertypeID = v
+func (o *EzsigntemplatepackageListElement) SetFkiEzsignfoldertypeID(v int32) {
+	o.FkiEzsignfoldertypeID.Set(&v)
 }
 
 // GetFkiLanguageID returns the FkiLanguageID field value
@@ -286,14 +289,14 @@ func (o EzsigntemplatepackageListElement) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["pkiEzsigntemplatepackageID"] = o.PkiEzsigntemplatepackageID
 	}
-	if o.FkiDepartmentID != nil {
-		toSerialize["fkiDepartmentID"] = o.FkiDepartmentID
+	if true {
+		toSerialize["fkiDepartmentID"] = o.FkiDepartmentID.Get()
 	}
-	if o.FkiTeamID != nil {
-		toSerialize["fkiTeamID"] = o.FkiTeamID
+	if true {
+		toSerialize["fkiTeamID"] = o.FkiTeamID.Get()
 	}
-	if o.FkiEzsignfoldertypeID != nil {
-		toSerialize["fkiEzsignfoldertypeID"] = o.FkiEzsignfoldertypeID
+	if true {
+		toSerialize["fkiEzsignfoldertypeID"] = o.FkiEzsignfoldertypeID.Get()
 	}
 	if true {
 		toSerialize["fkiLanguageID"] = o.FkiLanguageID

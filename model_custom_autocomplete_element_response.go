@@ -22,14 +22,14 @@ type CustomAutocompleteElementResponse struct {
 	// The Description of the element
 	SLabel string `json:"sLabel"`
 	// The Unique ID of the element
-	MValue OneOfintegerstring `json:"mValue"`
+	MValue string `json:"mValue"`
 }
 
 // NewCustomAutocompleteElementResponse instantiates a new CustomAutocompleteElementResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomAutocompleteElementResponse(sCategory string, sLabel string, mValue OneOfintegerstring) *CustomAutocompleteElementResponse {
+func NewCustomAutocompleteElementResponse(sCategory string, sLabel string, mValue string) *CustomAutocompleteElementResponse {
 	this := CustomAutocompleteElementResponse{}
 	this.SCategory = sCategory
 	this.SLabel = sLabel
@@ -94,10 +94,9 @@ func (o *CustomAutocompleteElementResponse) SetSLabel(v string) {
 }
 
 // GetMValue returns the MValue field value
-// If the value is explicit nil, the zero value for OneOfintegerstring will be returned
-func (o *CustomAutocompleteElementResponse) GetMValue() OneOfintegerstring {
+func (o *CustomAutocompleteElementResponse) GetMValue() string {
 	if o == nil {
-		var ret OneOfintegerstring
+		var ret string
 		return ret
 	}
 
@@ -106,16 +105,15 @@ func (o *CustomAutocompleteElementResponse) GetMValue() OneOfintegerstring {
 
 // GetMValueOk returns a tuple with the MValue field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CustomAutocompleteElementResponse) GetMValueOk() (*OneOfintegerstring, bool) {
-	if o == nil || o.MValue == nil {
+func (o *CustomAutocompleteElementResponse) GetMValueOk() (*string, bool) {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.MValue, true
 }
 
 // SetMValue sets field value
-func (o *CustomAutocompleteElementResponse) SetMValue(v OneOfintegerstring) {
+func (o *CustomAutocompleteElementResponse) SetMValue(v string) {
 	o.MValue = v
 }
 
@@ -127,7 +125,7 @@ func (o CustomAutocompleteElementResponse) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["sLabel"] = o.SLabel
 	}
-	if o.MValue != nil {
+	if true {
 		toSerialize["mValue"] = o.MValue
 	}
 	return json.Marshal(toSerialize)

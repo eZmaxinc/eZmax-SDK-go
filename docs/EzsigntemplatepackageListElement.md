@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiEzsigntemplatepackageID** | **int32** | The unique ID of the Ezsigntemplatepackage | 
-**FkiDepartmentID** | [**OneOfintegerobject**](oneOf&lt;integer,object&gt;.md) |  | 
-**FkiTeamID** | [**OneOfintegerobject**](oneOf&lt;integer,object&gt;.md) |  | 
-**FkiEzsignfoldertypeID** | [**OneOfintegerobject**](oneOf&lt;integer,object&gt;.md) |  | 
+**FkiDepartmentID** | **NullableInt32** | The unique ID of the Department. | 
+**FkiTeamID** | **NullableInt32** | The unique ID of the Team | 
+**FkiEzsignfoldertypeID** | **NullableInt32** | The unique ID of the Ezsignfoldertype. | 
 **FkiLanguageID** | **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
 **EEzsigntemplatepackageType** | [**FieldEEzsigntemplatepackageType**](FieldEEzsigntemplatepackageType.md) |  | 
 **SEzsigntemplatepackageDescription** | **string** | The description of the Ezsigntemplatepackage | 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewEzsigntemplatepackageListElement
 
-`func NewEzsigntemplatepackageListElement(pkiEzsigntemplatepackageID int32, fkiDepartmentID OneOfintegerobject, fkiTeamID OneOfintegerobject, fkiEzsignfoldertypeID OneOfintegerobject, fkiLanguageID int32, eEzsigntemplatepackageType FieldEEzsigntemplatepackageType, sEzsigntemplatepackageDescription string, bEzsigntemplatepackageIsactive bool, iEzsigntemplatepackagemembership int32, ) *EzsigntemplatepackageListElement`
+`func NewEzsigntemplatepackageListElement(pkiEzsigntemplatepackageID int32, fkiDepartmentID NullableInt32, fkiTeamID NullableInt32, fkiEzsignfoldertypeID NullableInt32, fkiLanguageID int32, eEzsigntemplatepackageType FieldEEzsigntemplatepackageType, sEzsigntemplatepackageDescription string, bEzsigntemplatepackageIsactive bool, iEzsigntemplatepackagemembership int32, ) *EzsigntemplatepackageListElement`
 
 NewEzsigntemplatepackageListElement instantiates a new EzsigntemplatepackageListElement object
 This constructor will assign default values to properties that have it defined,
@@ -55,20 +55,20 @@ SetPkiEzsigntemplatepackageID sets PkiEzsigntemplatepackageID field to given val
 
 ### GetFkiDepartmentID
 
-`func (o *EzsigntemplatepackageListElement) GetFkiDepartmentID() OneOfintegerobject`
+`func (o *EzsigntemplatepackageListElement) GetFkiDepartmentID() int32`
 
 GetFkiDepartmentID returns the FkiDepartmentID field if non-nil, zero value otherwise.
 
 ### GetFkiDepartmentIDOk
 
-`func (o *EzsigntemplatepackageListElement) GetFkiDepartmentIDOk() (*OneOfintegerobject, bool)`
+`func (o *EzsigntemplatepackageListElement) GetFkiDepartmentIDOk() (*int32, bool)`
 
 GetFkiDepartmentIDOk returns a tuple with the FkiDepartmentID field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFkiDepartmentID
 
-`func (o *EzsigntemplatepackageListElement) SetFkiDepartmentID(v OneOfintegerobject)`
+`func (o *EzsigntemplatepackageListElement) SetFkiDepartmentID(v int32)`
 
 SetFkiDepartmentID sets FkiDepartmentID field to given value.
 
@@ -85,20 +85,20 @@ SetFkiDepartmentID sets FkiDepartmentID field to given value.
 UnsetFkiDepartmentID ensures that no value is present for FkiDepartmentID, not even an explicit nil
 ### GetFkiTeamID
 
-`func (o *EzsigntemplatepackageListElement) GetFkiTeamID() OneOfintegerobject`
+`func (o *EzsigntemplatepackageListElement) GetFkiTeamID() int32`
 
 GetFkiTeamID returns the FkiTeamID field if non-nil, zero value otherwise.
 
 ### GetFkiTeamIDOk
 
-`func (o *EzsigntemplatepackageListElement) GetFkiTeamIDOk() (*OneOfintegerobject, bool)`
+`func (o *EzsigntemplatepackageListElement) GetFkiTeamIDOk() (*int32, bool)`
 
 GetFkiTeamIDOk returns a tuple with the FkiTeamID field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFkiTeamID
 
-`func (o *EzsigntemplatepackageListElement) SetFkiTeamID(v OneOfintegerobject)`
+`func (o *EzsigntemplatepackageListElement) SetFkiTeamID(v int32)`
 
 SetFkiTeamID sets FkiTeamID field to given value.
 
@@ -115,20 +115,20 @@ SetFkiTeamID sets FkiTeamID field to given value.
 UnsetFkiTeamID ensures that no value is present for FkiTeamID, not even an explicit nil
 ### GetFkiEzsignfoldertypeID
 
-`func (o *EzsigntemplatepackageListElement) GetFkiEzsignfoldertypeID() OneOfintegerobject`
+`func (o *EzsigntemplatepackageListElement) GetFkiEzsignfoldertypeID() int32`
 
 GetFkiEzsignfoldertypeID returns the FkiEzsignfoldertypeID field if non-nil, zero value otherwise.
 
 ### GetFkiEzsignfoldertypeIDOk
 
-`func (o *EzsigntemplatepackageListElement) GetFkiEzsignfoldertypeIDOk() (*OneOfintegerobject, bool)`
+`func (o *EzsigntemplatepackageListElement) GetFkiEzsignfoldertypeIDOk() (*int32, bool)`
 
 GetFkiEzsignfoldertypeIDOk returns a tuple with the FkiEzsignfoldertypeID field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFkiEzsignfoldertypeID
 
-`func (o *EzsigntemplatepackageListElement) SetFkiEzsignfoldertypeID(v OneOfintegerobject)`
+`func (o *EzsigntemplatepackageListElement) SetFkiEzsignfoldertypeID(v int32)`
 
 SetFkiEzsignfoldertypeID sets FkiEzsignfoldertypeID field to given value.
 
