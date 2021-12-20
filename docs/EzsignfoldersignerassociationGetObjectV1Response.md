@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MPayload** | **map[string]interface{}** | Payload for the /1/object/ezsignfoldersignerassociation/getObject API Request | 
+**MPayload** | [**EzsignfoldersignerassociationGetObjectV1ResponseMPayload**](EzsignfoldersignerassociationGetObjectV1ResponseMPayload.md) |  | 
 **ObjDebugPayload** | Pointer to [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | [optional] 
 **ObjDebug** | Pointer to [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewEzsignfoldersignerassociationGetObjectV1Response
 
-`func NewEzsignfoldersignerassociationGetObjectV1Response(mPayload map[string]interface{}, ) *EzsignfoldersignerassociationGetObjectV1Response`
+`func NewEzsignfoldersignerassociationGetObjectV1Response(mPayload EzsignfoldersignerassociationGetObjectV1ResponseMPayload, ) *EzsignfoldersignerassociationGetObjectV1Response`
 
 NewEzsignfoldersignerassociationGetObjectV1Response instantiates a new EzsignfoldersignerassociationGetObjectV1Response object
 This constructor will assign default values to properties that have it defined,
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetMPayload
 
-`func (o *EzsignfoldersignerassociationGetObjectV1Response) GetMPayload() map[string]interface{}`
+`func (o *EzsignfoldersignerassociationGetObjectV1Response) GetMPayload() EzsignfoldersignerassociationGetObjectV1ResponseMPayload`
 
 GetMPayload returns the MPayload field if non-nil, zero value otherwise.
 
 ### GetMPayloadOk
 
-`func (o *EzsignfoldersignerassociationGetObjectV1Response) GetMPayloadOk() (*map[string]interface{}, bool)`
+`func (o *EzsignfoldersignerassociationGetObjectV1Response) GetMPayloadOk() (*EzsignfoldersignerassociationGetObjectV1ResponseMPayload, bool)`
 
 GetMPayloadOk returns a tuple with the MPayload field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMPayload
 
-`func (o *EzsignfoldersignerassociationGetObjectV1Response) SetMPayload(v map[string]interface{})`
+`func (o *EzsignfoldersignerassociationGetObjectV1Response) SetMPayload(v EzsignfoldersignerassociationGetObjectV1ResponseMPayload)`
 
 SetMPayload sets MPayload field to given value.
 

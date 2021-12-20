@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**EzsignfolderCreateObjectV1**](ObjectEzsignfolderApi.md#EzsignfolderCreateObjectV1) | **Post** /1/object/ezsignfolder | Create a new Ezsignfolder
 [**EzsignfolderDeleteObjectV1**](ObjectEzsignfolderApi.md#EzsignfolderDeleteObjectV1) | **Delete** /1/object/ezsignfolder/{pkiEzsignfolderID} | Delete an existing Ezsignfolder
-[**EzsignfolderGetChildrenV1**](ObjectEzsignfolderApi.md#EzsignfolderGetChildrenV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getChildren | Retrieve an existing Ezsignfolder&#39;s children IDs
+[**EzsignfolderGetEzsigndocumentsV1**](ObjectEzsignfolderApi.md#EzsignfolderGetEzsigndocumentsV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsigndocuments | Retrieve an existing Ezsignfolder&#39;s Ezsigndocuments
 [**EzsignfolderGetFormsDataV1**](ObjectEzsignfolderApi.md#EzsignfolderGetFormsDataV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getFormsData | Retrieve an existing Ezsignfolder&#39;s forms data
 [**EzsignfolderGetListV1**](ObjectEzsignfolderApi.md#EzsignfolderGetListV1) | **Get** /1/object/ezsignfolder/getList | Retrieve Ezsignfolder list
 [**EzsignfolderGetObjectV1**](ObjectEzsignfolderApi.md#EzsignfolderGetObjectV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID} | Retrieve an existing Ezsignfolder
@@ -149,13 +149,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## EzsignfolderGetChildrenV1
+## EzsignfolderGetEzsigndocumentsV1
 
-> EzsignfolderGetChildrenV1(ctx, pkiEzsignfolderID).Execute()
+> EzsignfolderGetEzsigndocumentsV1Response EzsignfolderGetEzsigndocumentsV1(ctx, pkiEzsignfolderID).Execute()
 
-Retrieve an existing Ezsignfolder's children IDs
-
-
+Retrieve an existing Ezsignfolder's Ezsigndocuments
 
 ### Example
 
@@ -174,11 +172,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsignfolderApi.EzsignfolderGetChildrenV1(context.Background(), pkiEzsignfolderID).Execute()
+    resp, r, err := api_client.ObjectEzsignfolderApi.EzsignfolderGetEzsigndocumentsV1(context.Background(), pkiEzsignfolderID).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderApi.EzsignfolderGetChildrenV1``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderApi.EzsignfolderGetEzsigndocumentsV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `EzsignfolderGetEzsigndocumentsV1`: EzsignfolderGetEzsigndocumentsV1Response
+    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderApi.EzsignfolderGetEzsigndocumentsV1`: %v\n", resp)
 }
 ```
 
@@ -192,7 +192,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiEzsignfolderGetChildrenV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiEzsignfolderGetEzsigndocumentsV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**EzsignfolderGetEzsigndocumentsV1Response**](EzsignfolderGetEzsigndocumentsV1Response.md)
 
 ### Authorization
 
@@ -364,8 +364,6 @@ Name | Type | Description  | Notes
 > EzsignfolderGetObjectV1Response EzsignfolderGetObjectV1(ctx, pkiEzsignfolderID).Execute()
 
 Retrieve an existing Ezsignfolder
-
-
 
 ### Example
 

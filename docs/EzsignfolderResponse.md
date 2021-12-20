@@ -4,12 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**PkiEzsignfolderID** | **int32** | The unique ID of the Ezsignfolder | 
 **FkiEzsignfoldertypeID** | **int32** | The unique ID of the Ezsignfoldertype. | 
+**SEzsignfoldertypeNameX** | **string** | The name of the Ezsignfoldertype in the language of the requester | 
+**FkiBillingentityinternalID** | **int32** | The unique ID of the Billingentityinternal. | 
+**SBillingentityinternalDescriptionX** | **string** | The description of the Billingentityinternal in the language of the requester | 
 **FkiEzsigntsarequirementID** | **int32** | The unique ID of the Ezsigntsarequirement.  Determine if a Time Stamping Authority should add a timestamp on each of the signature. Valid values:  |Value|Description| |-|-| |1|No. TSA Timestamping will requested. This will make all signatures a lot faster since no round-trip to the TSA server will be required. Timestamping will be made using eZsign server&#39;s time.| |2|Best effort. Timestamping from a Time Stamping Authority will be requested but is not mandatory. In the very improbable case it cannot be completed, the timestamping will be made using eZsign server&#39;s time. **Additional fee applies**| |3|Mandatory. Timestamping from a Time Stamping Authority will be requested and is mandatory. In the very improbable case it cannot be completed, the signature will fail and the user will be asked to retry. **Additional fee applies**| | 
+**SEzsigntsarequirementDescriptionX** | **string** | The description of the Ezsigntsarequirement in the language of the requester | 
 **SEzsignfolderDescription** | **string** | The description of the Ezsignfolder | 
 **TEzsignfolderNote** | **string** | Somes extra notes about the eZsign Folder | 
 **EEzsignfolderSendreminderfrequency** | [**FieldEEzsignfolderSendreminderfrequency**](FieldEEzsignfolderSendreminderfrequency.md) |  | 
-**PkiEzsignfolderID** | **int32** | The unique ID of the Ezsignfolder | 
+**DtEzsignfolderDuedate** | **string** | The maximum date and time at which the Ezsignfolder can be signed. | 
 **DtEzsignfolderSentdate** | **NullableString** | The date and time at which the Ezsign folder was sent the last time. | 
 **EEzsignfolderStep** | [**FieldEEzsignfolderStep**](FieldEEzsignfolderStep.md) |  | 
 **DtEzsignfolderClose** | **string** | The date and time at which the folder was closed. Either by applying the last signature or by completing it prematurely. | 
@@ -19,7 +24,7 @@ Name | Type | Description | Notes
 
 ### NewEzsignfolderResponse
 
-`func NewEzsignfolderResponse(fkiEzsignfoldertypeID int32, fkiEzsigntsarequirementID int32, sEzsignfolderDescription string, tEzsignfolderNote string, eEzsignfolderSendreminderfrequency FieldEEzsignfolderSendreminderfrequency, pkiEzsignfolderID int32, dtEzsignfolderSentdate NullableString, eEzsignfolderStep FieldEEzsignfolderStep, dtEzsignfolderClose string, objAudit CommonAudit, ) *EzsignfolderResponse`
+`func NewEzsignfolderResponse(pkiEzsignfolderID int32, fkiEzsignfoldertypeID int32, sEzsignfoldertypeNameX string, fkiBillingentityinternalID int32, sBillingentityinternalDescriptionX string, fkiEzsigntsarequirementID int32, sEzsigntsarequirementDescriptionX string, sEzsignfolderDescription string, tEzsignfolderNote string, eEzsignfolderSendreminderfrequency FieldEEzsignfolderSendreminderfrequency, dtEzsignfolderDuedate string, dtEzsignfolderSentdate NullableString, eEzsignfolderStep FieldEEzsignfolderStep, dtEzsignfolderClose string, objAudit CommonAudit, ) *EzsignfolderResponse`
 
 NewEzsignfolderResponse instantiates a new EzsignfolderResponse object
 This constructor will assign default values to properties that have it defined,
@@ -33,6 +38,26 @@ will change when the set of required properties is changed
 NewEzsignfolderResponseWithDefaults instantiates a new EzsignfolderResponse object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetPkiEzsignfolderID
+
+`func (o *EzsignfolderResponse) GetPkiEzsignfolderID() int32`
+
+GetPkiEzsignfolderID returns the PkiEzsignfolderID field if non-nil, zero value otherwise.
+
+### GetPkiEzsignfolderIDOk
+
+`func (o *EzsignfolderResponse) GetPkiEzsignfolderIDOk() (*int32, bool)`
+
+GetPkiEzsignfolderIDOk returns a tuple with the PkiEzsignfolderID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPkiEzsignfolderID
+
+`func (o *EzsignfolderResponse) SetPkiEzsignfolderID(v int32)`
+
+SetPkiEzsignfolderID sets PkiEzsignfolderID field to given value.
+
 
 ### GetFkiEzsignfoldertypeID
 
@@ -54,6 +79,66 @@ and a boolean to check if the value has been set.
 SetFkiEzsignfoldertypeID sets FkiEzsignfoldertypeID field to given value.
 
 
+### GetSEzsignfoldertypeNameX
+
+`func (o *EzsignfolderResponse) GetSEzsignfoldertypeNameX() string`
+
+GetSEzsignfoldertypeNameX returns the SEzsignfoldertypeNameX field if non-nil, zero value otherwise.
+
+### GetSEzsignfoldertypeNameXOk
+
+`func (o *EzsignfolderResponse) GetSEzsignfoldertypeNameXOk() (*string, bool)`
+
+GetSEzsignfoldertypeNameXOk returns a tuple with the SEzsignfoldertypeNameX field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzsignfoldertypeNameX
+
+`func (o *EzsignfolderResponse) SetSEzsignfoldertypeNameX(v string)`
+
+SetSEzsignfoldertypeNameX sets SEzsignfoldertypeNameX field to given value.
+
+
+### GetFkiBillingentityinternalID
+
+`func (o *EzsignfolderResponse) GetFkiBillingentityinternalID() int32`
+
+GetFkiBillingentityinternalID returns the FkiBillingentityinternalID field if non-nil, zero value otherwise.
+
+### GetFkiBillingentityinternalIDOk
+
+`func (o *EzsignfolderResponse) GetFkiBillingentityinternalIDOk() (*int32, bool)`
+
+GetFkiBillingentityinternalIDOk returns a tuple with the FkiBillingentityinternalID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiBillingentityinternalID
+
+`func (o *EzsignfolderResponse) SetFkiBillingentityinternalID(v int32)`
+
+SetFkiBillingentityinternalID sets FkiBillingentityinternalID field to given value.
+
+
+### GetSBillingentityinternalDescriptionX
+
+`func (o *EzsignfolderResponse) GetSBillingentityinternalDescriptionX() string`
+
+GetSBillingentityinternalDescriptionX returns the SBillingentityinternalDescriptionX field if non-nil, zero value otherwise.
+
+### GetSBillingentityinternalDescriptionXOk
+
+`func (o *EzsignfolderResponse) GetSBillingentityinternalDescriptionXOk() (*string, bool)`
+
+GetSBillingentityinternalDescriptionXOk returns a tuple with the SBillingentityinternalDescriptionX field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSBillingentityinternalDescriptionX
+
+`func (o *EzsignfolderResponse) SetSBillingentityinternalDescriptionX(v string)`
+
+SetSBillingentityinternalDescriptionX sets SBillingentityinternalDescriptionX field to given value.
+
+
 ### GetFkiEzsigntsarequirementID
 
 `func (o *EzsignfolderResponse) GetFkiEzsigntsarequirementID() int32`
@@ -72,6 +157,26 @@ and a boolean to check if the value has been set.
 `func (o *EzsignfolderResponse) SetFkiEzsigntsarequirementID(v int32)`
 
 SetFkiEzsigntsarequirementID sets FkiEzsigntsarequirementID field to given value.
+
+
+### GetSEzsigntsarequirementDescriptionX
+
+`func (o *EzsignfolderResponse) GetSEzsigntsarequirementDescriptionX() string`
+
+GetSEzsigntsarequirementDescriptionX returns the SEzsigntsarequirementDescriptionX field if non-nil, zero value otherwise.
+
+### GetSEzsigntsarequirementDescriptionXOk
+
+`func (o *EzsignfolderResponse) GetSEzsigntsarequirementDescriptionXOk() (*string, bool)`
+
+GetSEzsigntsarequirementDescriptionXOk returns a tuple with the SEzsigntsarequirementDescriptionX field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzsigntsarequirementDescriptionX
+
+`func (o *EzsignfolderResponse) SetSEzsigntsarequirementDescriptionX(v string)`
+
+SetSEzsigntsarequirementDescriptionX sets SEzsigntsarequirementDescriptionX field to given value.
 
 
 ### GetSEzsignfolderDescription
@@ -134,24 +239,24 @@ and a boolean to check if the value has been set.
 SetEEzsignfolderSendreminderfrequency sets EEzsignfolderSendreminderfrequency field to given value.
 
 
-### GetPkiEzsignfolderID
+### GetDtEzsignfolderDuedate
 
-`func (o *EzsignfolderResponse) GetPkiEzsignfolderID() int32`
+`func (o *EzsignfolderResponse) GetDtEzsignfolderDuedate() string`
 
-GetPkiEzsignfolderID returns the PkiEzsignfolderID field if non-nil, zero value otherwise.
+GetDtEzsignfolderDuedate returns the DtEzsignfolderDuedate field if non-nil, zero value otherwise.
 
-### GetPkiEzsignfolderIDOk
+### GetDtEzsignfolderDuedateOk
 
-`func (o *EzsignfolderResponse) GetPkiEzsignfolderIDOk() (*int32, bool)`
+`func (o *EzsignfolderResponse) GetDtEzsignfolderDuedateOk() (*string, bool)`
 
-GetPkiEzsignfolderIDOk returns a tuple with the PkiEzsignfolderID field if it's non-nil, zero value otherwise
+GetDtEzsignfolderDuedateOk returns a tuple with the DtEzsignfolderDuedate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPkiEzsignfolderID
+### SetDtEzsignfolderDuedate
 
-`func (o *EzsignfolderResponse) SetPkiEzsignfolderID(v int32)`
+`func (o *EzsignfolderResponse) SetDtEzsignfolderDuedate(v string)`
 
-SetPkiEzsignfolderID sets PkiEzsignfolderID field to given value.
+SetDtEzsignfolderDuedate sets DtEzsignfolderDuedate field to given value.
 
 
 ### GetDtEzsignfolderSentdate

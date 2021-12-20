@@ -3,7 +3,7 @@ eZmax API Definition
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.3
+API version: 1.1.4
 Contact: support-api@ezmax.ca
 */
 
@@ -17,8 +17,7 @@ import (
 
 // EzsignfoldersignerassociationGetObjectV1Response Response for the /1/object/ezsignfoldersignerassociation/getObject API Request
 type EzsignfoldersignerassociationGetObjectV1Response struct {
-	// Payload for the /1/object/ezsignfoldersignerassociation/getObject API Request
-	MPayload map[string]interface{} `json:"mPayload"`
+	MPayload EzsignfoldersignerassociationGetObjectV1ResponseMPayload `json:"mPayload"`
 	ObjDebugPayload *CommonResponseObjDebugPayload `json:"objDebugPayload,omitempty"`
 	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
 }
@@ -27,7 +26,7 @@ type EzsignfoldersignerassociationGetObjectV1Response struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfoldersignerassociationGetObjectV1Response(mPayload map[string]interface{}) *EzsignfoldersignerassociationGetObjectV1Response {
+func NewEzsignfoldersignerassociationGetObjectV1Response(mPayload EzsignfoldersignerassociationGetObjectV1ResponseMPayload) *EzsignfoldersignerassociationGetObjectV1Response {
 	this := EzsignfoldersignerassociationGetObjectV1Response{}
 	this.MPayload = mPayload
 	return &this
@@ -42,9 +41,9 @@ func NewEzsignfoldersignerassociationGetObjectV1ResponseWithDefaults() *Ezsignfo
 }
 
 // GetMPayload returns the MPayload field value
-func (o *EzsignfoldersignerassociationGetObjectV1Response) GetMPayload() map[string]interface{} {
+func (o *EzsignfoldersignerassociationGetObjectV1Response) GetMPayload() EzsignfoldersignerassociationGetObjectV1ResponseMPayload {
 	if o == nil {
-		var ret map[string]interface{}
+		var ret EzsignfoldersignerassociationGetObjectV1ResponseMPayload
 		return ret
 	}
 
@@ -53,7 +52,7 @@ func (o *EzsignfoldersignerassociationGetObjectV1Response) GetMPayload() map[str
 
 // GetMPayloadOk returns a tuple with the MPayload field value
 // and a boolean to check if the value has been set.
-func (o *EzsignfoldersignerassociationGetObjectV1Response) GetMPayloadOk() (*map[string]interface{}, bool) {
+func (o *EzsignfoldersignerassociationGetObjectV1Response) GetMPayloadOk() (*EzsignfoldersignerassociationGetObjectV1ResponseMPayload, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -61,7 +60,7 @@ func (o *EzsignfoldersignerassociationGetObjectV1Response) GetMPayloadOk() (*map
 }
 
 // SetMPayload sets field value
-func (o *EzsignfoldersignerassociationGetObjectV1Response) SetMPayload(v map[string]interface{}) {
+func (o *EzsignfoldersignerassociationGetObjectV1Response) SetMPayload(v EzsignfoldersignerassociationGetObjectV1ResponseMPayload) {
 	o.MPayload = v
 }
 

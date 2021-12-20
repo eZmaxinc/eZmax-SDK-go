@@ -3,7 +3,7 @@ eZmax API Definition
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.3
+API version: 1.1.4
 Contact: support-api@ezmax.ca
 */
 
@@ -291,30 +291,26 @@ func (a *ObjectEzsignfolderApiService) EzsignfolderDeleteObjectV1Execute(r ApiEz
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiEzsignfolderGetChildrenV1Request struct {
+type ApiEzsignfolderGetEzsigndocumentsV1Request struct {
 	ctx _context.Context
 	ApiService *ObjectEzsignfolderApiService
 	pkiEzsignfolderID int32
 }
 
 
-func (r ApiEzsignfolderGetChildrenV1Request) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.EzsignfolderGetChildrenV1Execute(r)
+func (r ApiEzsignfolderGetEzsigndocumentsV1Request) Execute() (EzsignfolderGetEzsigndocumentsV1Response, *_nethttp.Response, error) {
+	return r.ApiService.EzsignfolderGetEzsigndocumentsV1Execute(r)
 }
 
 /*
-EzsignfolderGetChildrenV1 Retrieve an existing Ezsignfolder's children IDs
-
-## ⚠️EARLY ADOPTERS WARNING
-
-### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
+EzsignfolderGetEzsigndocumentsV1 Retrieve an existing Ezsignfolder's Ezsigndocuments
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiEzsignfolderID
- @return ApiEzsignfolderGetChildrenV1Request
+ @return ApiEzsignfolderGetEzsigndocumentsV1Request
 */
-func (a *ObjectEzsignfolderApiService) EzsignfolderGetChildrenV1(ctx _context.Context, pkiEzsignfolderID int32) ApiEzsignfolderGetChildrenV1Request {
-	return ApiEzsignfolderGetChildrenV1Request{
+func (a *ObjectEzsignfolderApiService) EzsignfolderGetEzsigndocumentsV1(ctx _context.Context, pkiEzsignfolderID int32) ApiEzsignfolderGetEzsigndocumentsV1Request {
+	return ApiEzsignfolderGetEzsigndocumentsV1Request{
 		ApiService: a,
 		ctx: ctx,
 		pkiEzsignfolderID: pkiEzsignfolderID,
@@ -322,19 +318,21 @@ func (a *ObjectEzsignfolderApiService) EzsignfolderGetChildrenV1(ctx _context.Co
 }
 
 // Execute executes the request
-func (a *ObjectEzsignfolderApiService) EzsignfolderGetChildrenV1Execute(r ApiEzsignfolderGetChildrenV1Request) (*_nethttp.Response, error) {
+//  @return EzsignfolderGetEzsigndocumentsV1Response
+func (a *ObjectEzsignfolderApiService) EzsignfolderGetEzsigndocumentsV1Execute(r ApiEzsignfolderGetEzsigndocumentsV1Request) (EzsignfolderGetEzsigndocumentsV1Response, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
+		localVarReturnValue  EzsignfolderGetEzsigndocumentsV1Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfolderApiService.EzsignfolderGetChildrenV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfolderApiService.EzsignfolderGetEzsigndocumentsV1")
 	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/1/object/ezsignfolder/{pkiEzsignfolderID}/getChildren"
+	localVarPath := localBasePath + "/1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsigndocuments"
 	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsignfolderID"+"}", _neturl.PathEscape(parameterToString(r.pkiEzsignfolderID, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -374,19 +372,19 @@ func (a *ObjectEzsignfolderApiService) EzsignfolderGetChildrenV1Execute(r ApiEzs
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
-		return nil, err
+		return localVarReturnValue, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(req)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
-		return localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -399,14 +397,23 @@ func (a *ObjectEzsignfolderApiService) EzsignfolderGetChildrenV1Execute(r ApiEzs
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
+				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
 		}
-		return localVarHTTPResponse, newErr
+		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
 type ApiEzsignfolderGetFormsDataV1Request struct {
@@ -736,10 +743,6 @@ func (r ApiEzsignfolderGetObjectV1Request) Execute() (EzsignfolderGetObjectV1Res
 
 /*
 EzsignfolderGetObjectV1 Retrieve an existing Ezsignfolder
-
-## ⚠️EARLY ADOPTERS WARNING
-
-### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiEzsignfolderID

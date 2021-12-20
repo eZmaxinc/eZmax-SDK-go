@@ -3,7 +3,7 @@ eZmax API Definition
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.3
+API version: 1.1.4
 Contact: support-api@ezmax.ca
 */
 
@@ -19,7 +19,7 @@ import (
 type EzsigndocumentGetObjectV1ResponseMPayload struct {
 	// The unique ID of the Ezsignfolder
 	FkiEzsignfolderID int32 `json:"fkiEzsignfolderID"`
-	// The maximum date and time at which the document can be signed.
+	// The maximum date and time at which the Ezsigndocument can be signed.
 	DtEzsigndocumentDuedate string `json:"dtEzsigndocumentDuedate"`
 	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
 	FkiLanguageID int32 `json:"fkiLanguageID"`

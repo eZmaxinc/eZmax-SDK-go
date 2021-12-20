@@ -3,7 +3,7 @@ eZmax API Definition
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.3
+API version: 1.1.4
 Contact: support-api@ezmax.ca
 */
 
@@ -17,17 +17,27 @@ import (
 
 // EzsignfolderGetObjectV1ResponseMPayload Payload for the /1/object/ezsignfolder/getObject API Request
 type EzsignfolderGetObjectV1ResponseMPayload struct {
+	// The unique ID of the Ezsignfolder
+	PkiEzsignfolderID int32 `json:"pkiEzsignfolderID"`
 	// The unique ID of the Ezsignfoldertype.
 	FkiEzsignfoldertypeID int32 `json:"fkiEzsignfoldertypeID"`
+	// The name of the Ezsignfoldertype in the language of the requester
+	SEzsignfoldertypeNameX string `json:"sEzsignfoldertypeNameX"`
+	// The unique ID of the Billingentityinternal.
+	FkiBillingentityinternalID int32 `json:"fkiBillingentityinternalID"`
+	// The description of the Billingentityinternal in the language of the requester
+	SBillingentityinternalDescriptionX string `json:"sBillingentityinternalDescriptionX"`
 	// The unique ID of the Ezsigntsarequirement.  Determine if a Time Stamping Authority should add a timestamp on each of the signature. Valid values:  |Value|Description| |-|-| |1|No. TSA Timestamping will requested. This will make all signatures a lot faster since no round-trip to the TSA server will be required. Timestamping will be made using eZsign server's time.| |2|Best effort. Timestamping from a Time Stamping Authority will be requested but is not mandatory. In the very improbable case it cannot be completed, the timestamping will be made using eZsign server's time. **Additional fee applies**| |3|Mandatory. Timestamping from a Time Stamping Authority will be requested and is mandatory. In the very improbable case it cannot be completed, the signature will fail and the user will be asked to retry. **Additional fee applies**|
 	FkiEzsigntsarequirementID int32 `json:"fkiEzsigntsarequirementID"`
+	// The description of the Ezsigntsarequirement in the language of the requester
+	SEzsigntsarequirementDescriptionX string `json:"sEzsigntsarequirementDescriptionX"`
 	// The description of the Ezsignfolder
 	SEzsignfolderDescription string `json:"sEzsignfolderDescription"`
 	// Somes extra notes about the eZsign Folder
 	TEzsignfolderNote string `json:"tEzsignfolderNote"`
 	EEzsignfolderSendreminderfrequency FieldEEzsignfolderSendreminderfrequency `json:"eEzsignfolderSendreminderfrequency"`
-	// The unique ID of the Ezsignfolder
-	PkiEzsignfolderID int32 `json:"pkiEzsignfolderID"`
+	// The maximum date and time at which the Ezsignfolder can be signed.
+	DtEzsignfolderDuedate string `json:"dtEzsignfolderDuedate"`
 	// The date and time at which the Ezsign folder was sent the last time.
 	DtEzsignfolderSentdate NullableString `json:"dtEzsignfolderSentdate"`
 	EEzsignfolderStep FieldEEzsignfolderStep `json:"eEzsignfolderStep"`
@@ -40,14 +50,19 @@ type EzsignfolderGetObjectV1ResponseMPayload struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfolderGetObjectV1ResponseMPayload(fkiEzsignfoldertypeID int32, fkiEzsigntsarequirementID int32, sEzsignfolderDescription string, tEzsignfolderNote string, eEzsignfolderSendreminderfrequency FieldEEzsignfolderSendreminderfrequency, pkiEzsignfolderID int32, dtEzsignfolderSentdate NullableString, eEzsignfolderStep FieldEEzsignfolderStep, dtEzsignfolderClose string, objAudit CommonAudit) *EzsignfolderGetObjectV1ResponseMPayload {
+func NewEzsignfolderGetObjectV1ResponseMPayload(pkiEzsignfolderID int32, fkiEzsignfoldertypeID int32, sEzsignfoldertypeNameX string, fkiBillingentityinternalID int32, sBillingentityinternalDescriptionX string, fkiEzsigntsarequirementID int32, sEzsigntsarequirementDescriptionX string, sEzsignfolderDescription string, tEzsignfolderNote string, eEzsignfolderSendreminderfrequency FieldEEzsignfolderSendreminderfrequency, dtEzsignfolderDuedate string, dtEzsignfolderSentdate NullableString, eEzsignfolderStep FieldEEzsignfolderStep, dtEzsignfolderClose string, objAudit CommonAudit) *EzsignfolderGetObjectV1ResponseMPayload {
 	this := EzsignfolderGetObjectV1ResponseMPayload{}
+	this.PkiEzsignfolderID = pkiEzsignfolderID
 	this.FkiEzsignfoldertypeID = fkiEzsignfoldertypeID
+	this.SEzsignfoldertypeNameX = sEzsignfoldertypeNameX
+	this.FkiBillingentityinternalID = fkiBillingentityinternalID
+	this.SBillingentityinternalDescriptionX = sBillingentityinternalDescriptionX
 	this.FkiEzsigntsarequirementID = fkiEzsigntsarequirementID
+	this.SEzsigntsarequirementDescriptionX = sEzsigntsarequirementDescriptionX
 	this.SEzsignfolderDescription = sEzsignfolderDescription
 	this.TEzsignfolderNote = tEzsignfolderNote
 	this.EEzsignfolderSendreminderfrequency = eEzsignfolderSendreminderfrequency
-	this.PkiEzsignfolderID = pkiEzsignfolderID
+	this.DtEzsignfolderDuedate = dtEzsignfolderDuedate
 	this.DtEzsignfolderSentdate = dtEzsignfolderSentdate
 	this.EEzsignfolderStep = eEzsignfolderStep
 	this.DtEzsignfolderClose = dtEzsignfolderClose
@@ -61,6 +76,30 @@ func NewEzsignfolderGetObjectV1ResponseMPayload(fkiEzsignfoldertypeID int32, fki
 func NewEzsignfolderGetObjectV1ResponseMPayloadWithDefaults() *EzsignfolderGetObjectV1ResponseMPayload {
 	this := EzsignfolderGetObjectV1ResponseMPayload{}
 	return &this
+}
+
+// GetPkiEzsignfolderID returns the PkiEzsignfolderID field value
+func (o *EzsignfolderGetObjectV1ResponseMPayload) GetPkiEzsignfolderID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.PkiEzsignfolderID
+}
+
+// GetPkiEzsignfolderIDOk returns a tuple with the PkiEzsignfolderID field value
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderGetObjectV1ResponseMPayload) GetPkiEzsignfolderIDOk() (*int32, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.PkiEzsignfolderID, true
+}
+
+// SetPkiEzsignfolderID sets field value
+func (o *EzsignfolderGetObjectV1ResponseMPayload) SetPkiEzsignfolderID(v int32) {
+	o.PkiEzsignfolderID = v
 }
 
 // GetFkiEzsignfoldertypeID returns the FkiEzsignfoldertypeID field value
@@ -87,6 +126,78 @@ func (o *EzsignfolderGetObjectV1ResponseMPayload) SetFkiEzsignfoldertypeID(v int
 	o.FkiEzsignfoldertypeID = v
 }
 
+// GetSEzsignfoldertypeNameX returns the SEzsignfoldertypeNameX field value
+func (o *EzsignfolderGetObjectV1ResponseMPayload) GetSEzsignfoldertypeNameX() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SEzsignfoldertypeNameX
+}
+
+// GetSEzsignfoldertypeNameXOk returns a tuple with the SEzsignfoldertypeNameX field value
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderGetObjectV1ResponseMPayload) GetSEzsignfoldertypeNameXOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.SEzsignfoldertypeNameX, true
+}
+
+// SetSEzsignfoldertypeNameX sets field value
+func (o *EzsignfolderGetObjectV1ResponseMPayload) SetSEzsignfoldertypeNameX(v string) {
+	o.SEzsignfoldertypeNameX = v
+}
+
+// GetFkiBillingentityinternalID returns the FkiBillingentityinternalID field value
+func (o *EzsignfolderGetObjectV1ResponseMPayload) GetFkiBillingentityinternalID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiBillingentityinternalID
+}
+
+// GetFkiBillingentityinternalIDOk returns a tuple with the FkiBillingentityinternalID field value
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderGetObjectV1ResponseMPayload) GetFkiBillingentityinternalIDOk() (*int32, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.FkiBillingentityinternalID, true
+}
+
+// SetFkiBillingentityinternalID sets field value
+func (o *EzsignfolderGetObjectV1ResponseMPayload) SetFkiBillingentityinternalID(v int32) {
+	o.FkiBillingentityinternalID = v
+}
+
+// GetSBillingentityinternalDescriptionX returns the SBillingentityinternalDescriptionX field value
+func (o *EzsignfolderGetObjectV1ResponseMPayload) GetSBillingentityinternalDescriptionX() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SBillingentityinternalDescriptionX
+}
+
+// GetSBillingentityinternalDescriptionXOk returns a tuple with the SBillingentityinternalDescriptionX field value
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderGetObjectV1ResponseMPayload) GetSBillingentityinternalDescriptionXOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.SBillingentityinternalDescriptionX, true
+}
+
+// SetSBillingentityinternalDescriptionX sets field value
+func (o *EzsignfolderGetObjectV1ResponseMPayload) SetSBillingentityinternalDescriptionX(v string) {
+	o.SBillingentityinternalDescriptionX = v
+}
+
 // GetFkiEzsigntsarequirementID returns the FkiEzsigntsarequirementID field value
 func (o *EzsignfolderGetObjectV1ResponseMPayload) GetFkiEzsigntsarequirementID() int32 {
 	if o == nil {
@@ -109,6 +220,30 @@ func (o *EzsignfolderGetObjectV1ResponseMPayload) GetFkiEzsigntsarequirementIDOk
 // SetFkiEzsigntsarequirementID sets field value
 func (o *EzsignfolderGetObjectV1ResponseMPayload) SetFkiEzsigntsarequirementID(v int32) {
 	o.FkiEzsigntsarequirementID = v
+}
+
+// GetSEzsigntsarequirementDescriptionX returns the SEzsigntsarequirementDescriptionX field value
+func (o *EzsignfolderGetObjectV1ResponseMPayload) GetSEzsigntsarequirementDescriptionX() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SEzsigntsarequirementDescriptionX
+}
+
+// GetSEzsigntsarequirementDescriptionXOk returns a tuple with the SEzsigntsarequirementDescriptionX field value
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderGetObjectV1ResponseMPayload) GetSEzsigntsarequirementDescriptionXOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.SEzsigntsarequirementDescriptionX, true
+}
+
+// SetSEzsigntsarequirementDescriptionX sets field value
+func (o *EzsignfolderGetObjectV1ResponseMPayload) SetSEzsigntsarequirementDescriptionX(v string) {
+	o.SEzsigntsarequirementDescriptionX = v
 }
 
 // GetSEzsignfolderDescription returns the SEzsignfolderDescription field value
@@ -183,28 +318,28 @@ func (o *EzsignfolderGetObjectV1ResponseMPayload) SetEEzsignfolderSendreminderfr
 	o.EEzsignfolderSendreminderfrequency = v
 }
 
-// GetPkiEzsignfolderID returns the PkiEzsignfolderID field value
-func (o *EzsignfolderGetObjectV1ResponseMPayload) GetPkiEzsignfolderID() int32 {
+// GetDtEzsignfolderDuedate returns the DtEzsignfolderDuedate field value
+func (o *EzsignfolderGetObjectV1ResponseMPayload) GetDtEzsignfolderDuedate() string {
 	if o == nil {
-		var ret int32
+		var ret string
 		return ret
 	}
 
-	return o.PkiEzsignfolderID
+	return o.DtEzsignfolderDuedate
 }
 
-// GetPkiEzsignfolderIDOk returns a tuple with the PkiEzsignfolderID field value
+// GetDtEzsignfolderDuedateOk returns a tuple with the DtEzsignfolderDuedate field value
 // and a boolean to check if the value has been set.
-func (o *EzsignfolderGetObjectV1ResponseMPayload) GetPkiEzsignfolderIDOk() (*int32, bool) {
+func (o *EzsignfolderGetObjectV1ResponseMPayload) GetDtEzsignfolderDuedateOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.PkiEzsignfolderID, true
+	return &o.DtEzsignfolderDuedate, true
 }
 
-// SetPkiEzsignfolderID sets field value
-func (o *EzsignfolderGetObjectV1ResponseMPayload) SetPkiEzsignfolderID(v int32) {
-	o.PkiEzsignfolderID = v
+// SetDtEzsignfolderDuedate sets field value
+func (o *EzsignfolderGetObjectV1ResponseMPayload) SetDtEzsignfolderDuedate(v string) {
+	o.DtEzsignfolderDuedate = v
 }
 
 // GetDtEzsignfolderSentdate returns the DtEzsignfolderSentdate field value
@@ -308,10 +443,25 @@ func (o *EzsignfolderGetObjectV1ResponseMPayload) SetObjAudit(v CommonAudit) {
 func (o EzsignfolderGetObjectV1ResponseMPayload) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
+		toSerialize["pkiEzsignfolderID"] = o.PkiEzsignfolderID
+	}
+	if true {
 		toSerialize["fkiEzsignfoldertypeID"] = o.FkiEzsignfoldertypeID
 	}
 	if true {
+		toSerialize["sEzsignfoldertypeNameX"] = o.SEzsignfoldertypeNameX
+	}
+	if true {
+		toSerialize["fkiBillingentityinternalID"] = o.FkiBillingentityinternalID
+	}
+	if true {
+		toSerialize["sBillingentityinternalDescriptionX"] = o.SBillingentityinternalDescriptionX
+	}
+	if true {
 		toSerialize["fkiEzsigntsarequirementID"] = o.FkiEzsigntsarequirementID
+	}
+	if true {
+		toSerialize["sEzsigntsarequirementDescriptionX"] = o.SEzsigntsarequirementDescriptionX
 	}
 	if true {
 		toSerialize["sEzsignfolderDescription"] = o.SEzsignfolderDescription
@@ -323,7 +473,7 @@ func (o EzsignfolderGetObjectV1ResponseMPayload) MarshalJSON() ([]byte, error) {
 		toSerialize["eEzsignfolderSendreminderfrequency"] = o.EEzsignfolderSendreminderfrequency
 	}
 	if true {
-		toSerialize["pkiEzsignfolderID"] = o.PkiEzsignfolderID
+		toSerialize["dtEzsignfolderDuedate"] = o.DtEzsignfolderDuedate
 	}
 	if true {
 		toSerialize["dtEzsignfolderSentdate"] = o.DtEzsignfolderSentdate.Get()
