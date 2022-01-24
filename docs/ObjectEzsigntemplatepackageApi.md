@@ -36,8 +36,8 @@ func main() {
     sFilter := "sFilter_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsigntemplatepackageApi.EzsigntemplatepackageGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsigntemplatepackageApi.EzsigntemplatepackageGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatepackageApi.EzsigntemplatepackageGetListV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

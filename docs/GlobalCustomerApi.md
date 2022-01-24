@@ -33,8 +33,8 @@ func main() {
     sInfrastructureproductCode := "sInfrastructureproductCode_example" // string | The infrastructure product Code  If undefined, \"appcluster01\" is assumed (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.GlobalCustomerApi.GlobalCustomerGetEndpointV1(context.Background(), pksCustomerCode).SInfrastructureproductCode(sInfrastructureproductCode).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.GlobalCustomerApi.GlobalCustomerGetEndpointV1(context.Background(), pksCustomerCode).SInfrastructureproductCode(sInfrastructureproductCode).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GlobalCustomerApi.GlobalCustomerGetEndpointV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

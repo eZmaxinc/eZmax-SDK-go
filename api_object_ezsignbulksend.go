@@ -13,22 +13,22 @@ package eZmaxApi
 
 import (
 	"bytes"
-	_context "context"
-	_ioutil "io/ioutil"
-	_nethttp "net/http"
-	_neturl "net/url"
+	"context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
 )
 
 // Linger please
 var (
-	_ _context.Context
+	_ context.Context
 )
 
 // ObjectEzsignbulksendApiService ObjectEzsignbulksendApi service
 type ObjectEzsignbulksendApiService service
 
 type ApiEzsignbulksendGetListV1Request struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ObjectEzsignbulksendApiService
 	eOrderBy *string
 	iRowMax *int32
@@ -59,7 +59,7 @@ func (r ApiEzsignbulksendGetListV1Request) SFilter(sFilter string) ApiEzsignbulk
 	return r
 }
 
-func (r ApiEzsignbulksendGetListV1Request) Execute() (EzsignbulksendGetListV1Response, *_nethttp.Response, error) {
+func (r ApiEzsignbulksendGetListV1Request) Execute() (*EzsignbulksendGetListV1Response, *http.Response, error) {
 	return r.ApiService.EzsignbulksendGetListV1Execute(r)
 }
 
@@ -72,10 +72,10 @@ Enum values that can be filtered in query parameter *sFilter*:
 |---|---|
 | eEzsignfoldertypePrivacylevel | User<br>Usergroup |
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiEzsignbulksendGetListV1Request
 */
-func (a *ObjectEzsignbulksendApiService) EzsignbulksendGetListV1(ctx _context.Context) ApiEzsignbulksendGetListV1Request {
+func (a *ObjectEzsignbulksendApiService) EzsignbulksendGetListV1(ctx context.Context) ApiEzsignbulksendGetListV1Request {
 	return ApiEzsignbulksendGetListV1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -84,24 +84,24 @@ func (a *ObjectEzsignbulksendApiService) EzsignbulksendGetListV1(ctx _context.Co
 
 // Execute executes the request
 //  @return EzsignbulksendGetListV1Response
-func (a *ObjectEzsignbulksendApiService) EzsignbulksendGetListV1Execute(r ApiEzsignbulksendGetListV1Request) (EzsignbulksendGetListV1Response, *_nethttp.Response, error) {
+func (a *ObjectEzsignbulksendApiService) EzsignbulksendGetListV1Execute(r ApiEzsignbulksendGetListV1Request) (*EzsignbulksendGetListV1Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  EzsignbulksendGetListV1Response
+		localVarReturnValue  *EzsignbulksendGetListV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignbulksendApiService.EzsignbulksendGetListV1")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/1/object/ezsignbulksend/getList"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.eOrderBy != nil {
 		localVarQueryParams.Add("eOrderBy", parameterToString(*r.eOrderBy, ""))
@@ -159,15 +159,15 @@ func (a *ObjectEzsignbulksendApiService) EzsignbulksendGetListV1Execute(r ApiEzs
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -185,7 +185,7 @@ func (a *ObjectEzsignbulksendApiService) EzsignbulksendGetListV1Execute(r ApiEzs
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}

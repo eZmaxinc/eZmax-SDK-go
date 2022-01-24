@@ -83,11 +83,11 @@ func (o *FranchisereferalincomeRequestCompoundAllOf) GetAObjContact() []ContactR
 
 // GetAObjContactOk returns a tuple with the AObjContact field value
 // and a boolean to check if the value has been set.
-func (o *FranchisereferalincomeRequestCompoundAllOf) GetAObjContactOk() (*[]ContactRequestCompound, bool) {
+func (o *FranchisereferalincomeRequestCompoundAllOf) GetAObjContactOk() ([]ContactRequestCompound, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.AObjContact, true
+	return o.AObjContact, true
 }
 
 // SetAObjContact sets field value

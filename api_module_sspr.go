@@ -13,22 +13,22 @@ package eZmaxApi
 
 import (
 	"bytes"
-	_context "context"
-	_ioutil "io/ioutil"
-	_nethttp "net/http"
-	_neturl "net/url"
+	"context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
 )
 
 // Linger please
 var (
-	_ _context.Context
+	_ context.Context
 )
 
 // ModuleSsprApiService ModuleSsprApi service
 type ModuleSsprApiService service
 
 type ApiSsprResetPasswordRequestV1Request struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ModuleSsprApiService
 	ssprResetPasswordRequestV1Request *SsprResetPasswordRequestV1Request
 }
@@ -38,7 +38,7 @@ func (r ApiSsprResetPasswordRequestV1Request) SsprResetPasswordRequestV1Request(
 	return r
 }
 
-func (r ApiSsprResetPasswordRequestV1Request) Execute() (*_nethttp.Response, error) {
+func (r ApiSsprResetPasswordRequestV1Request) Execute() (*http.Response, error) {
 	return r.ApiService.SsprResetPasswordRequestV1Execute(r)
 }
 
@@ -51,10 +51,10 @@ sEmailAddress must be set if eUserTypeSSPR = EzsignUser
 
 sUserLoginname must be set if eUserTypeSSPR = Native
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSsprResetPasswordRequestV1Request
 */
-func (a *ModuleSsprApiService) SsprResetPasswordRequestV1(ctx _context.Context) ApiSsprResetPasswordRequestV1Request {
+func (a *ModuleSsprApiService) SsprResetPasswordRequestV1(ctx context.Context) ApiSsprResetPasswordRequestV1Request {
 	return ApiSsprResetPasswordRequestV1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -62,23 +62,23 @@ func (a *ModuleSsprApiService) SsprResetPasswordRequestV1(ctx _context.Context) 
 }
 
 // Execute executes the request
-func (a *ModuleSsprApiService) SsprResetPasswordRequestV1Execute(r ApiSsprResetPasswordRequestV1Request) (*_nethttp.Response, error) {
+func (a *ModuleSsprApiService) SsprResetPasswordRequestV1Execute(r ApiSsprResetPasswordRequestV1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModuleSsprApiService.SsprResetPasswordRequestV1")
 	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
+		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/1/module/sspr/resetPasswordRequest"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.ssprResetPasswordRequestV1Request == nil {
 		return nil, reportError("ssprResetPasswordRequestV1Request is required and must be specified")
 	}
@@ -126,15 +126,15 @@ func (a *ModuleSsprApiService) SsprResetPasswordRequestV1Execute(r ApiSsprResetP
 		return localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -164,7 +164,7 @@ func (a *ModuleSsprApiService) SsprResetPasswordRequestV1Execute(r ApiSsprResetP
 }
 
 type ApiSsprResetPasswordV1Request struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ModuleSsprApiService
 	ssprResetPasswordV1Request *SsprResetPasswordV1Request
 }
@@ -174,7 +174,7 @@ func (r ApiSsprResetPasswordV1Request) SsprResetPasswordV1Request(ssprResetPassw
 	return r
 }
 
-func (r ApiSsprResetPasswordV1Request) Execute() (*_nethttp.Response, error) {
+func (r ApiSsprResetPasswordV1Request) Execute() (*http.Response, error) {
 	return r.ApiService.SsprResetPasswordV1Execute(r)
 }
 
@@ -187,10 +187,10 @@ sEmailAddress must be set if eUserTypeSSPR = EzsignUser
 
 sUserLoginname must be set if eUserTypeSSPR = Native
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSsprResetPasswordV1Request
 */
-func (a *ModuleSsprApiService) SsprResetPasswordV1(ctx _context.Context) ApiSsprResetPasswordV1Request {
+func (a *ModuleSsprApiService) SsprResetPasswordV1(ctx context.Context) ApiSsprResetPasswordV1Request {
 	return ApiSsprResetPasswordV1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -198,23 +198,23 @@ func (a *ModuleSsprApiService) SsprResetPasswordV1(ctx _context.Context) ApiSspr
 }
 
 // Execute executes the request
-func (a *ModuleSsprApiService) SsprResetPasswordV1Execute(r ApiSsprResetPasswordV1Request) (*_nethttp.Response, error) {
+func (a *ModuleSsprApiService) SsprResetPasswordV1Execute(r ApiSsprResetPasswordV1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModuleSsprApiService.SsprResetPasswordV1")
 	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
+		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/1/module/sspr/resetPassword"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.ssprResetPasswordV1Request == nil {
 		return nil, reportError("ssprResetPasswordV1Request is required and must be specified")
 	}
@@ -262,15 +262,15 @@ func (a *ModuleSsprApiService) SsprResetPasswordV1Execute(r ApiSsprResetPassword
 		return localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -300,7 +300,7 @@ func (a *ModuleSsprApiService) SsprResetPasswordV1Execute(r ApiSsprResetPassword
 }
 
 type ApiSsprSendUsernamesV1Request struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ModuleSsprApiService
 	ssprSendUsernamesV1Request *SsprSendUsernamesV1Request
 }
@@ -310,7 +310,7 @@ func (r ApiSsprSendUsernamesV1Request) SsprSendUsernamesV1Request(ssprSendUserna
 	return r
 }
 
-func (r ApiSsprSendUsernamesV1Request) Execute() (*_nethttp.Response, error) {
+func (r ApiSsprSendUsernamesV1Request) Execute() (*http.Response, error) {
 	return r.ApiService.SsprSendUsernamesV1Execute(r)
 }
 
@@ -319,10 +319,10 @@ SsprSendUsernamesV1 Send username(s)
 
 This endpoint returns an email with the username(s) matching the email address provided in case of forgotten username
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSsprSendUsernamesV1Request
 */
-func (a *ModuleSsprApiService) SsprSendUsernamesV1(ctx _context.Context) ApiSsprSendUsernamesV1Request {
+func (a *ModuleSsprApiService) SsprSendUsernamesV1(ctx context.Context) ApiSsprSendUsernamesV1Request {
 	return ApiSsprSendUsernamesV1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -330,23 +330,23 @@ func (a *ModuleSsprApiService) SsprSendUsernamesV1(ctx _context.Context) ApiSspr
 }
 
 // Execute executes the request
-func (a *ModuleSsprApiService) SsprSendUsernamesV1Execute(r ApiSsprSendUsernamesV1Request) (*_nethttp.Response, error) {
+func (a *ModuleSsprApiService) SsprSendUsernamesV1Execute(r ApiSsprSendUsernamesV1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModuleSsprApiService.SsprSendUsernamesV1")
 	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
+		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/1/module/sspr/sendUsernames"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.ssprSendUsernamesV1Request == nil {
 		return nil, reportError("ssprSendUsernamesV1Request is required and must be specified")
 	}
@@ -394,15 +394,15 @@ func (a *ModuleSsprApiService) SsprSendUsernamesV1Execute(r ApiSsprSendUsernames
 		return localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -432,7 +432,7 @@ func (a *ModuleSsprApiService) SsprSendUsernamesV1Execute(r ApiSsprSendUsernames
 }
 
 type ApiSsprUnlockAccountRequestV1Request struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ModuleSsprApiService
 	ssprUnlockAccountRequestV1Request *SsprUnlockAccountRequestV1Request
 }
@@ -442,7 +442,7 @@ func (r ApiSsprUnlockAccountRequestV1Request) SsprUnlockAccountRequestV1Request(
 	return r
 }
 
-func (r ApiSsprUnlockAccountRequestV1Request) Execute() (*_nethttp.Response, error) {
+func (r ApiSsprUnlockAccountRequestV1Request) Execute() (*http.Response, error) {
 	return r.ApiService.SsprUnlockAccountRequestV1Execute(r)
 }
 
@@ -455,10 +455,10 @@ sEmailAddress must be set if eUserTypeSSPR = EzsignUser
 
 sUserLoginname must be set if eUserTypeSSPR = Native
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSsprUnlockAccountRequestV1Request
 */
-func (a *ModuleSsprApiService) SsprUnlockAccountRequestV1(ctx _context.Context) ApiSsprUnlockAccountRequestV1Request {
+func (a *ModuleSsprApiService) SsprUnlockAccountRequestV1(ctx context.Context) ApiSsprUnlockAccountRequestV1Request {
 	return ApiSsprUnlockAccountRequestV1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -466,23 +466,23 @@ func (a *ModuleSsprApiService) SsprUnlockAccountRequestV1(ctx _context.Context) 
 }
 
 // Execute executes the request
-func (a *ModuleSsprApiService) SsprUnlockAccountRequestV1Execute(r ApiSsprUnlockAccountRequestV1Request) (*_nethttp.Response, error) {
+func (a *ModuleSsprApiService) SsprUnlockAccountRequestV1Execute(r ApiSsprUnlockAccountRequestV1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModuleSsprApiService.SsprUnlockAccountRequestV1")
 	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
+		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/1/module/sspr/unlockAccountRequest"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.ssprUnlockAccountRequestV1Request == nil {
 		return nil, reportError("ssprUnlockAccountRequestV1Request is required and must be specified")
 	}
@@ -530,15 +530,15 @@ func (a *ModuleSsprApiService) SsprUnlockAccountRequestV1Execute(r ApiSsprUnlock
 		return localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -568,7 +568,7 @@ func (a *ModuleSsprApiService) SsprUnlockAccountRequestV1Execute(r ApiSsprUnlock
 }
 
 type ApiSsprUnlockAccountV1Request struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ModuleSsprApiService
 	ssprUnlockAccountV1Request *SsprUnlockAccountV1Request
 }
@@ -578,7 +578,7 @@ func (r ApiSsprUnlockAccountV1Request) SsprUnlockAccountV1Request(ssprUnlockAcco
 	return r
 }
 
-func (r ApiSsprUnlockAccountV1Request) Execute() (*_nethttp.Response, error) {
+func (r ApiSsprUnlockAccountV1Request) Execute() (*http.Response, error) {
 	return r.ApiService.SsprUnlockAccountV1Execute(r)
 }
 
@@ -591,10 +591,10 @@ sEmailAddress must be set if eUserTypeSSPR = EzsignUser
 
 sUserLoginname must be set if eUserTypeSSPR = Native
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSsprUnlockAccountV1Request
 */
-func (a *ModuleSsprApiService) SsprUnlockAccountV1(ctx _context.Context) ApiSsprUnlockAccountV1Request {
+func (a *ModuleSsprApiService) SsprUnlockAccountV1(ctx context.Context) ApiSsprUnlockAccountV1Request {
 	return ApiSsprUnlockAccountV1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -602,23 +602,23 @@ func (a *ModuleSsprApiService) SsprUnlockAccountV1(ctx _context.Context) ApiSspr
 }
 
 // Execute executes the request
-func (a *ModuleSsprApiService) SsprUnlockAccountV1Execute(r ApiSsprUnlockAccountV1Request) (*_nethttp.Response, error) {
+func (a *ModuleSsprApiService) SsprUnlockAccountV1Execute(r ApiSsprUnlockAccountV1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModuleSsprApiService.SsprUnlockAccountV1")
 	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
+		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/1/module/sspr/unlockAccount"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.ssprUnlockAccountV1Request == nil {
 		return nil, reportError("ssprUnlockAccountV1Request is required and must be specified")
 	}
@@ -666,15 +666,15 @@ func (a *ModuleSsprApiService) SsprUnlockAccountV1Execute(r ApiSsprUnlockAccount
 		return localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -704,7 +704,7 @@ func (a *ModuleSsprApiService) SsprUnlockAccountV1Execute(r ApiSsprUnlockAccount
 }
 
 type ApiSsprValidateTokenV1Request struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ModuleSsprApiService
 	ssprValidateTokenV1Request *SsprValidateTokenV1Request
 }
@@ -714,7 +714,7 @@ func (r ApiSsprValidateTokenV1Request) SsprValidateTokenV1Request(ssprValidateTo
 	return r
 }
 
-func (r ApiSsprValidateTokenV1Request) Execute() (*_nethttp.Response, error) {
+func (r ApiSsprValidateTokenV1Request) Execute() (*http.Response, error) {
 	return r.ApiService.SsprValidateTokenV1Execute(r)
 }
 
@@ -727,10 +727,10 @@ sEmailAddress must be set if eUserTypeSSPR = EzsignUser
 
 sUserLoginname must be set if eUserTypeSSPR = Native
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSsprValidateTokenV1Request
 */
-func (a *ModuleSsprApiService) SsprValidateTokenV1(ctx _context.Context) ApiSsprValidateTokenV1Request {
+func (a *ModuleSsprApiService) SsprValidateTokenV1(ctx context.Context) ApiSsprValidateTokenV1Request {
 	return ApiSsprValidateTokenV1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -738,23 +738,23 @@ func (a *ModuleSsprApiService) SsprValidateTokenV1(ctx _context.Context) ApiSspr
 }
 
 // Execute executes the request
-func (a *ModuleSsprApiService) SsprValidateTokenV1Execute(r ApiSsprValidateTokenV1Request) (*_nethttp.Response, error) {
+func (a *ModuleSsprApiService) SsprValidateTokenV1Execute(r ApiSsprValidateTokenV1Request) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModuleSsprApiService.SsprValidateTokenV1")
 	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
+		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/1/module/sspr/validateToken"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.ssprValidateTokenV1Request == nil {
 		return nil, reportError("ssprValidateTokenV1Request is required and must be specified")
 	}
@@ -802,15 +802,15 @@ func (a *ModuleSsprApiService) SsprValidateTokenV1Execute(r ApiSsprValidateToken
 		return localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}

@@ -158,11 +158,11 @@ func (o *CustomFormDataDocumentResponse) GetAObjFormDataSigner() []CustomFormDat
 
 // GetAObjFormDataSignerOk returns a tuple with the AObjFormDataSigner field value
 // and a boolean to check if the value has been set.
-func (o *CustomFormDataDocumentResponse) GetAObjFormDataSignerOk() (*[]CustomFormDataSignerResponse, bool) {
+func (o *CustomFormDataDocumentResponse) GetAObjFormDataSignerOk() ([]CustomFormDataSignerResponse, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.AObjFormDataSigner, true
+	return o.AObjFormDataSigner, true
 }
 
 // SetAObjFormDataSigner sets field value

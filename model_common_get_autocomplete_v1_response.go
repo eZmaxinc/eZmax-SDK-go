@@ -53,11 +53,11 @@ func (o *CommonGetAutocompleteV1Response) GetMPayload() []CustomAutocompleteElem
 
 // GetMPayloadOk returns a tuple with the MPayload field value
 // and a boolean to check if the value has been set.
-func (o *CommonGetAutocompleteV1Response) GetMPayloadOk() (*[]CustomAutocompleteElementResponse, bool) {
+func (o *CommonGetAutocompleteV1Response) GetMPayloadOk() ([]CustomAutocompleteElementResponse, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.MPayload, true
+	return o.MPayload, true
 }
 
 // SetMPayload sets field value

@@ -33,8 +33,8 @@ func main() {
     sListName := "sListName_example" // string | The list Name
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ModuleListApi.ListGetListpresentationV1(context.Background(), sListName).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ModuleListApi.ListGetListpresentationV1(context.Background(), sListName).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ModuleListApi.ListGetListpresentationV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -104,8 +104,8 @@ func main() {
     listSaveListpresentationV1Request := *openapiclient.NewListSaveListpresentationV1Request([]openapiclient.ListpresentationRequest{*openapiclient.NewListpresentationRequest("SListpresentationDescription_example", "bField1 eq true and iField2 gte 0 and iField2 lte 1000 and sField3 eq 'Other' and eField4 eq 'Paid' and sField5 like '%needle%' and iField6 in '1,2,3' and dtField7 rg '=m,=3mm'", "SListpresentationOrderby_example", []string{"ASColumnName_example"}, int32(100), int32(0), false)}) // ListSaveListpresentationV1Request | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ModuleListApi.ListSaveListpresentationV1(context.Background(), sListName).ListSaveListpresentationV1Request(listSaveListpresentationV1Request).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ModuleListApi.ListSaveListpresentationV1(context.Background(), sListName).ListSaveListpresentationV1Request(listSaveListpresentationV1Request).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ModuleListApi.ListSaveListpresentationV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

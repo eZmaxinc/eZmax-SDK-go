@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**EzsignfolderCreateObjectV1**](ObjectEzsignfolderApi.md#EzsignfolderCreateObjectV1) | **Post** /1/object/ezsignfolder | Create a new Ezsignfolder
 [**EzsignfolderDeleteObjectV1**](ObjectEzsignfolderApi.md#EzsignfolderDeleteObjectV1) | **Delete** /1/object/ezsignfolder/{pkiEzsignfolderID} | Delete an existing Ezsignfolder
 [**EzsignfolderGetEzsigndocumentsV1**](ObjectEzsignfolderApi.md#EzsignfolderGetEzsigndocumentsV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsigndocuments | Retrieve an existing Ezsignfolder&#39;s Ezsigndocuments
+[**EzsignfolderGetEzsignfoldersignerassociationsV1**](ObjectEzsignfolderApi.md#EzsignfolderGetEzsignfoldersignerassociationsV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignfoldersignerassociations | Retrieve an existing Ezsignfolder&#39;s Ezsignfoldersignerassociations
 [**EzsignfolderGetFormsDataV1**](ObjectEzsignfolderApi.md#EzsignfolderGetFormsDataV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getFormsData | Retrieve an existing Ezsignfolder&#39;s forms data
 [**EzsignfolderGetListV1**](ObjectEzsignfolderApi.md#EzsignfolderGetListV1) | **Get** /1/object/ezsignfolder/getList | Retrieve Ezsignfolder list
 [**EzsignfolderGetObjectV1**](ObjectEzsignfolderApi.md#EzsignfolderGetObjectV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID} | Retrieve an existing Ezsignfolder
@@ -39,8 +40,8 @@ func main() {
     ezsignfolderCreateObjectV1Request := []openapiclient.EzsignfolderCreateObjectV1Request{*openapiclient.NewEzsignfolderCreateObjectV1Request()} // []EzsignfolderCreateObjectV1Request | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsignfolderApi.EzsignfolderCreateObjectV1(context.Background()).EzsignfolderCreateObjectV1Request(ezsignfolderCreateObjectV1Request).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsignfolderApi.EzsignfolderCreateObjectV1(context.Background()).EzsignfolderCreateObjectV1Request(ezsignfolderCreateObjectV1Request).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderApi.EzsignfolderCreateObjectV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -103,8 +104,8 @@ func main() {
     pkiEzsignfolderID := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsignfolderApi.EzsignfolderDeleteObjectV1(context.Background(), pkiEzsignfolderID).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsignfolderApi.EzsignfolderDeleteObjectV1(context.Background(), pkiEzsignfolderID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderApi.EzsignfolderDeleteObjectV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -171,8 +172,8 @@ func main() {
     pkiEzsignfolderID := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsignfolderApi.EzsignfolderGetEzsigndocumentsV1(context.Background(), pkiEzsignfolderID).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsignfolderApi.EzsignfolderGetEzsigndocumentsV1(context.Background(), pkiEzsignfolderID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderApi.EzsignfolderGetEzsigndocumentsV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -217,6 +218,74 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## EzsignfolderGetEzsignfoldersignerassociationsV1
+
+> EzsignfolderGetEzsignfoldersignerassociationsV1Response EzsignfolderGetEzsignfoldersignerassociationsV1(ctx, pkiEzsignfolderID).Execute()
+
+Retrieve an existing Ezsignfolder's Ezsignfoldersignerassociations
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    pkiEzsignfolderID := int32(56) // int32 | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsignfolderApi.EzsignfolderGetEzsignfoldersignerassociationsV1(context.Background(), pkiEzsignfolderID).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderApi.EzsignfolderGetEzsignfoldersignerassociationsV1``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `EzsignfolderGetEzsignfoldersignerassociationsV1`: EzsignfolderGetEzsignfoldersignerassociationsV1Response
+    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderApi.EzsignfolderGetEzsignfoldersignerassociationsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsignfolderID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsignfolderGetEzsignfoldersignerassociationsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**EzsignfolderGetEzsignfoldersignerassociationsV1Response**](EzsignfolderGetEzsignfoldersignerassociationsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## EzsignfolderGetFormsDataV1
 
 > EzsignfolderGetFormsDataV1Response EzsignfolderGetFormsDataV1(ctx, pkiEzsignfolderID).Execute()
@@ -239,8 +308,8 @@ func main() {
     pkiEzsignfolderID := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsignfolderApi.EzsignfolderGetFormsDataV1(context.Background(), pkiEzsignfolderID).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsignfolderApi.EzsignfolderGetFormsDataV1(context.Background(), pkiEzsignfolderID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderApi.EzsignfolderGetFormsDataV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -313,8 +382,8 @@ func main() {
     sFilter := "sFilter_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsignfolderApi.EzsignfolderGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsignfolderApi.EzsignfolderGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderApi.EzsignfolderGetListV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -381,8 +450,8 @@ func main() {
     pkiEzsignfolderID := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsignfolderApi.EzsignfolderGetObjectV1(context.Background(), pkiEzsignfolderID).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsignfolderApi.EzsignfolderGetObjectV1(context.Background(), pkiEzsignfolderID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderApi.EzsignfolderGetObjectV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -450,8 +519,8 @@ func main() {
     ezsignfolderSendV1Request := *openapiclient.NewEzsignfolderSendV1Request("TExtraMessage_example") // EzsignfolderSendV1Request | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsignfolderApi.EzsignfolderSendV1(context.Background(), pkiEzsignfolderID).EzsignfolderSendV1Request(ezsignfolderSendV1Request).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsignfolderApi.EzsignfolderSendV1(context.Background(), pkiEzsignfolderID).EzsignfolderSendV1Request(ezsignfolderSendV1Request).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderApi.EzsignfolderSendV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -522,8 +591,8 @@ func main() {
     body := "body_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsignfolderApi.EzsignfolderUnsendV1(context.Background(), pkiEzsignfolderID).Body(body).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsignfolderApi.EzsignfolderUnsendV1(context.Background(), pkiEzsignfolderID).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderApi.EzsignfolderUnsendV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

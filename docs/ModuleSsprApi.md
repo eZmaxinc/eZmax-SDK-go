@@ -37,8 +37,8 @@ func main() {
     ssprResetPasswordRequestV1Request := *openapiclient.NewSsprResetPasswordRequestV1Request("demo", int32(2), openapiclient.Field-eUserTypeSSPR("EzsignUser")) // SsprResetPasswordRequestV1Request | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ModuleSsprApi.SsprResetPasswordRequestV1(context.Background()).SsprResetPasswordRequestV1Request(ssprResetPasswordRequestV1Request).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ModuleSsprApi.SsprResetPasswordRequestV1(context.Background()).SsprResetPasswordRequestV1Request(ssprResetPasswordRequestV1Request).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ModuleSsprApi.SsprResetPasswordRequestV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -101,8 +101,8 @@ func main() {
     ssprResetPasswordV1Request := *openapiclient.NewSsprResetPasswordV1Request("demo", int32(2), openapiclient.Field-eUserTypeSSPR("EzsignUser"), "012345678901234567890123456789012345678901234567890123456789abcd", "Qwerty1234!") // SsprResetPasswordV1Request | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ModuleSsprApi.SsprResetPasswordV1(context.Background()).SsprResetPasswordV1Request(ssprResetPasswordV1Request).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ModuleSsprApi.SsprResetPasswordV1(context.Background()).SsprResetPasswordV1Request(ssprResetPasswordV1Request).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ModuleSsprApi.SsprResetPasswordV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -165,8 +165,8 @@ func main() {
     ssprSendUsernamesV1Request := *openapiclient.NewSsprSendUsernamesV1Request("demo", int32(2), openapiclient.Field-eUserTypeSSPR("EzsignUser"), "example@domain.com") // SsprSendUsernamesV1Request | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ModuleSsprApi.SsprSendUsernamesV1(context.Background()).SsprSendUsernamesV1Request(ssprSendUsernamesV1Request).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ModuleSsprApi.SsprSendUsernamesV1(context.Background()).SsprSendUsernamesV1Request(ssprSendUsernamesV1Request).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ModuleSsprApi.SsprSendUsernamesV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -229,8 +229,8 @@ func main() {
     ssprUnlockAccountRequestV1Request := *openapiclient.NewSsprUnlockAccountRequestV1Request("demo", int32(2), openapiclient.Field-eUserTypeSSPR("EzsignUser")) // SsprUnlockAccountRequestV1Request | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ModuleSsprApi.SsprUnlockAccountRequestV1(context.Background()).SsprUnlockAccountRequestV1Request(ssprUnlockAccountRequestV1Request).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ModuleSsprApi.SsprUnlockAccountRequestV1(context.Background()).SsprUnlockAccountRequestV1Request(ssprUnlockAccountRequestV1Request).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ModuleSsprApi.SsprUnlockAccountRequestV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -293,8 +293,8 @@ func main() {
     ssprUnlockAccountV1Request := *openapiclient.NewSsprUnlockAccountV1Request("demo", int32(2), openapiclient.Field-eUserTypeSSPR("EzsignUser"), "012345678901234567890123456789012345678901234567890123456789abcd") // SsprUnlockAccountV1Request | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ModuleSsprApi.SsprUnlockAccountV1(context.Background()).SsprUnlockAccountV1Request(ssprUnlockAccountV1Request).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ModuleSsprApi.SsprUnlockAccountV1(context.Background()).SsprUnlockAccountV1Request(ssprUnlockAccountV1Request).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ModuleSsprApi.SsprUnlockAccountV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -357,8 +357,8 @@ func main() {
     ssprValidateTokenV1Request := *openapiclient.NewSsprValidateTokenV1Request("demo", int32(2), openapiclient.Field-eUserTypeSSPR("EzsignUser"), "012345678901234567890123456789012345678901234567890123456789abcd") // SsprValidateTokenV1Request | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ModuleSsprApi.SsprValidateTokenV1(context.Background()).SsprValidateTokenV1Request(ssprValidateTokenV1Request).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ModuleSsprApi.SsprValidateTokenV1(context.Background()).SsprValidateTokenV1Request(ssprValidateTokenV1Request).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ModuleSsprApi.SsprValidateTokenV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

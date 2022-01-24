@@ -53,11 +53,11 @@ func (o *EzsigndocumentGetWordsPositionsV1Response) GetMPayload() []CustomWordPo
 
 // GetMPayloadOk returns a tuple with the MPayload field value
 // and a boolean to check if the value has been set.
-func (o *EzsigndocumentGetWordsPositionsV1Response) GetMPayloadOk() (*[]CustomWordPositionWordResponse, bool) {
+func (o *EzsigndocumentGetWordsPositionsV1Response) GetMPayloadOk() ([]CustomWordPositionWordResponse, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.MPayload, true
+	return o.MPayload, true
 }
 
 // SetMPayload sets field value

@@ -13,22 +13,22 @@ package eZmaxApi
 
 import (
 	"bytes"
-	_context "context"
-	_ioutil "io/ioutil"
-	_nethttp "net/http"
-	_neturl "net/url"
+	"context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
 )
 
 // Linger please
 var (
-	_ _context.Context
+	_ context.Context
 )
 
 // ObjectEzsigntemplatepackageApiService ObjectEzsigntemplatepackageApi service
 type ObjectEzsigntemplatepackageApiService service
 
 type ApiEzsigntemplatepackageGetListV1Request struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ObjectEzsigntemplatepackageApiService
 	eOrderBy *string
 	iRowMax *int32
@@ -59,7 +59,7 @@ func (r ApiEzsigntemplatepackageGetListV1Request) SFilter(sFilter string) ApiEzs
 	return r
 }
 
-func (r ApiEzsigntemplatepackageGetListV1Request) Execute() (EzsigntemplatepackageGetListV1Response, *_nethttp.Response, error) {
+func (r ApiEzsigntemplatepackageGetListV1Request) Execute() (*EzsigntemplatepackageGetListV1Response, *http.Response, error) {
 	return r.ApiService.EzsigntemplatepackageGetListV1Execute(r)
 }
 
@@ -72,10 +72,10 @@ Enum values that can be filtered in query parameter *sFilter*:
 |---|---|
 | eEzsigntemplatepackageType | Company<br>Department<br>Team<br>User<br>Usergroup |
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiEzsigntemplatepackageGetListV1Request
 */
-func (a *ObjectEzsigntemplatepackageApiService) EzsigntemplatepackageGetListV1(ctx _context.Context) ApiEzsigntemplatepackageGetListV1Request {
+func (a *ObjectEzsigntemplatepackageApiService) EzsigntemplatepackageGetListV1(ctx context.Context) ApiEzsigntemplatepackageGetListV1Request {
 	return ApiEzsigntemplatepackageGetListV1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -84,24 +84,24 @@ func (a *ObjectEzsigntemplatepackageApiService) EzsigntemplatepackageGetListV1(c
 
 // Execute executes the request
 //  @return EzsigntemplatepackageGetListV1Response
-func (a *ObjectEzsigntemplatepackageApiService) EzsigntemplatepackageGetListV1Execute(r ApiEzsigntemplatepackageGetListV1Request) (EzsigntemplatepackageGetListV1Response, *_nethttp.Response, error) {
+func (a *ObjectEzsigntemplatepackageApiService) EzsigntemplatepackageGetListV1Execute(r ApiEzsigntemplatepackageGetListV1Request) (*EzsigntemplatepackageGetListV1Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  EzsigntemplatepackageGetListV1Response
+		localVarReturnValue  *EzsigntemplatepackageGetListV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigntemplatepackageApiService.EzsigntemplatepackageGetListV1")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/1/object/ezsigntemplatepackage/getList"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.eOrderBy != nil {
 		localVarQueryParams.Add("eOrderBy", parameterToString(*r.eOrderBy, ""))
@@ -159,15 +159,15 @@ func (a *ObjectEzsigntemplatepackageApiService) EzsigntemplatepackageGetListV1Ex
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -185,7 +185,7 @@ func (a *ObjectEzsigntemplatepackageApiService) EzsigntemplatepackageGetListV1Ex
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}

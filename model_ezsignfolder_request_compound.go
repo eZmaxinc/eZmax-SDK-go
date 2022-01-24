@@ -17,8 +17,6 @@ import (
 
 // EzsignfolderRequestCompound An Ezsignfolder Object and children to create a complete structure
 type EzsignfolderRequestCompound struct {
-	// An array of signers that will be invited to sign the Ezsigndocuments
-	AEzsignfoldersignerassociation []EzsignfoldersignerassociationRequest `json:"a_Ezsignfoldersignerassociation"`
 	// The unique ID of the Ezsignfoldertype.
 	FkiEzsignfoldertypeID int32 `json:"fkiEzsignfoldertypeID"`
 	// The unique ID of the Ezsigntsarequirement.  Determine if a Time Stamping Authority should add a timestamp on each of the signature. Valid values:  |Value|Description| |-|-| |1|No. TSA Timestamping will requested. This will make all signatures a lot faster since no round-trip to the TSA server will be required. Timestamping will be made using eZsign server's time.| |2|Best effort. Timestamping from a Time Stamping Authority will be requested but is not mandatory. In the very improbable case it cannot be completed, the timestamping will be made using eZsign server's time. **Additional fee applies**| |3|Mandatory. Timestamping from a Time Stamping Authority will be requested and is mandatory. In the very improbable case it cannot be completed, the signature will fail and the user will be asked to retry. **Additional fee applies**|
@@ -34,9 +32,8 @@ type EzsignfolderRequestCompound struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfolderRequestCompound(aEzsignfoldersignerassociation []EzsignfoldersignerassociationRequest, fkiEzsignfoldertypeID int32, fkiEzsigntsarequirementID int32, sEzsignfolderDescription string, tEzsignfolderNote string, eEzsignfolderSendreminderfrequency FieldEEzsignfolderSendreminderfrequency) *EzsignfolderRequestCompound {
+func NewEzsignfolderRequestCompound(fkiEzsignfoldertypeID int32, fkiEzsigntsarequirementID int32, sEzsignfolderDescription string, tEzsignfolderNote string, eEzsignfolderSendreminderfrequency FieldEEzsignfolderSendreminderfrequency) *EzsignfolderRequestCompound {
 	this := EzsignfolderRequestCompound{}
-	this.AEzsignfoldersignerassociation = aEzsignfoldersignerassociation
 	this.FkiEzsignfoldertypeID = fkiEzsignfoldertypeID
 	this.FkiEzsigntsarequirementID = fkiEzsigntsarequirementID
 	this.SEzsignfolderDescription = sEzsignfolderDescription
@@ -51,30 +48,6 @@ func NewEzsignfolderRequestCompound(aEzsignfoldersignerassociation []Ezsignfolde
 func NewEzsignfolderRequestCompoundWithDefaults() *EzsignfolderRequestCompound {
 	this := EzsignfolderRequestCompound{}
 	return &this
-}
-
-// GetAEzsignfoldersignerassociation returns the AEzsignfoldersignerassociation field value
-func (o *EzsignfolderRequestCompound) GetAEzsignfoldersignerassociation() []EzsignfoldersignerassociationRequest {
-	if o == nil {
-		var ret []EzsignfoldersignerassociationRequest
-		return ret
-	}
-
-	return o.AEzsignfoldersignerassociation
-}
-
-// GetAEzsignfoldersignerassociationOk returns a tuple with the AEzsignfoldersignerassociation field value
-// and a boolean to check if the value has been set.
-func (o *EzsignfolderRequestCompound) GetAEzsignfoldersignerassociationOk() (*[]EzsignfoldersignerassociationRequest, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.AEzsignfoldersignerassociation, true
-}
-
-// SetAEzsignfoldersignerassociation sets field value
-func (o *EzsignfolderRequestCompound) SetAEzsignfoldersignerassociation(v []EzsignfoldersignerassociationRequest) {
-	o.AEzsignfoldersignerassociation = v
 }
 
 // GetFkiEzsignfoldertypeID returns the FkiEzsignfoldertypeID field value
@@ -199,9 +172,6 @@ func (o *EzsignfolderRequestCompound) SetEEzsignfolderSendreminderfrequency(v Fi
 
 func (o EzsignfolderRequestCompound) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["a_Ezsignfoldersignerassociation"] = o.AEzsignfoldersignerassociation
-	}
 	if true {
 		toSerialize["fkiEzsignfoldertypeID"] = o.FkiEzsignfoldertypeID
 	}

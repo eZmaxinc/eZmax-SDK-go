@@ -32,8 +32,8 @@ func main() {
     franchisereferalincomeCreateObjectV1Request := []openapiclient.FranchisereferalincomeCreateObjectV1Request{*openapiclient.NewFranchisereferalincomeCreateObjectV1Request()} // []FranchisereferalincomeCreateObjectV1Request | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectFranchisereferalincomeApi.FranchisereferalincomeCreateObjectV1(context.Background()).FranchisereferalincomeCreateObjectV1Request(franchisereferalincomeCreateObjectV1Request).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectFranchisereferalincomeApi.FranchisereferalincomeCreateObjectV1(context.Background()).FranchisereferalincomeCreateObjectV1Request(franchisereferalincomeCreateObjectV1Request).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectFranchisereferalincomeApi.FranchisereferalincomeCreateObjectV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

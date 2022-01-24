@@ -110,11 +110,11 @@ func (o *CommonResponseObjDebugPayloadGetList) GetARequiredPermission() []int32 
 
 // GetARequiredPermissionOk returns a tuple with the ARequiredPermission field value
 // and a boolean to check if the value has been set.
-func (o *CommonResponseObjDebugPayloadGetList) GetARequiredPermissionOk() (*[]int32, bool) {
+func (o *CommonResponseObjDebugPayloadGetList) GetARequiredPermissionOk() ([]int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.ARequiredPermission, true
+	return o.ARequiredPermission, true
 }
 
 // SetARequiredPermission sets field value

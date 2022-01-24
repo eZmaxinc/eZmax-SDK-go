@@ -13,23 +13,23 @@ package eZmaxApi
 
 import (
 	"bytes"
-	_context "context"
-	_ioutil "io/ioutil"
-	_nethttp "net/http"
-	_neturl "net/url"
+	"context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
 	"strings"
 )
 
 // Linger please
 var (
-	_ _context.Context
+	_ context.Context
 )
 
 // ObjectEzsigndocumentApiService ObjectEzsigndocumentApi service
 type ObjectEzsigndocumentApiService service
 
 type ApiEzsigndocumentApplyEzsigntemplateV1Request struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ObjectEzsigndocumentApiService
 	pkiEzsigndocumentID int32
 	ezsigndocumentApplyEzsigntemplateV1Request *EzsigndocumentApplyEzsigntemplateV1Request
@@ -40,7 +40,7 @@ func (r ApiEzsigndocumentApplyEzsigntemplateV1Request) EzsigndocumentApplyEzsign
 	return r
 }
 
-func (r ApiEzsigndocumentApplyEzsigntemplateV1Request) Execute() (EzsigndocumentApplyEzsigntemplateV1Response, *_nethttp.Response, error) {
+func (r ApiEzsigndocumentApplyEzsigntemplateV1Request) Execute() (*EzsigndocumentApplyEzsigntemplateV1Response, *http.Response, error) {
 	return r.ApiService.EzsigndocumentApplyEzsigntemplateV1Execute(r)
 }
 
@@ -54,13 +54,13 @@ This allows to automatically apply all the form and signature fields on a docume
 
 The document must not already have fields otherwise an error will be returned.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiEzsigndocumentID
  @return ApiEzsigndocumentApplyEzsigntemplateV1Request
 
 Deprecated
 */
-func (a *ObjectEzsigndocumentApiService) EzsigndocumentApplyEzsigntemplateV1(ctx _context.Context, pkiEzsigndocumentID int32) ApiEzsigndocumentApplyEzsigntemplateV1Request {
+func (a *ObjectEzsigndocumentApiService) EzsigndocumentApplyEzsigntemplateV1(ctx context.Context, pkiEzsigndocumentID int32) ApiEzsigndocumentApplyEzsigntemplateV1Request {
 	return ApiEzsigndocumentApplyEzsigntemplateV1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -71,25 +71,25 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentApplyEzsigntemplateV1(ctx
 // Execute executes the request
 //  @return EzsigndocumentApplyEzsigntemplateV1Response
 // Deprecated
-func (a *ObjectEzsigndocumentApiService) EzsigndocumentApplyEzsigntemplateV1Execute(r ApiEzsigndocumentApplyEzsigntemplateV1Request) (EzsigndocumentApplyEzsigntemplateV1Response, *_nethttp.Response, error) {
+func (a *ObjectEzsigndocumentApiService) EzsigndocumentApplyEzsigntemplateV1Execute(r ApiEzsigndocumentApplyEzsigntemplateV1Request) (*EzsigndocumentApplyEzsigntemplateV1Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  EzsigndocumentApplyEzsigntemplateV1Response
+		localVarReturnValue  *EzsigndocumentApplyEzsigntemplateV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigndocumentApiService.EzsigndocumentApplyEzsigntemplateV1")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/1/object/ezsigndocument/{pkiEzsigndocumentID}/applyezsigntemplate"
-	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsigndocumentID"+"}", _neturl.PathEscape(parameterToString(r.pkiEzsigndocumentID, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsigndocumentID"+"}", url.PathEscape(parameterToString(r.pkiEzsigndocumentID, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.ezsigndocumentApplyEzsigntemplateV1Request == nil {
 		return localVarReturnValue, nil, reportError("ezsigndocumentApplyEzsigntemplateV1Request is required and must be specified")
 	}
@@ -137,15 +137,15 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentApplyEzsigntemplateV1Exec
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -173,7 +173,7 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentApplyEzsigntemplateV1Exec
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -184,7 +184,7 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentApplyEzsigntemplateV1Exec
 }
 
 type ApiEzsigndocumentApplyEzsigntemplateV2Request struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ObjectEzsigndocumentApiService
 	pkiEzsigndocumentID int32
 	ezsigndocumentApplyEzsigntemplateV2Request *EzsigndocumentApplyEzsigntemplateV2Request
@@ -195,7 +195,7 @@ func (r ApiEzsigndocumentApplyEzsigntemplateV2Request) EzsigndocumentApplyEzsign
 	return r
 }
 
-func (r ApiEzsigndocumentApplyEzsigntemplateV2Request) Execute() (EzsigndocumentApplyEzsigntemplateV2Response, *_nethttp.Response, error) {
+func (r ApiEzsigndocumentApplyEzsigntemplateV2Request) Execute() (*EzsigndocumentApplyEzsigntemplateV2Response, *http.Response, error) {
 	return r.ApiService.EzsigndocumentApplyEzsigntemplateV2Execute(r)
 }
 
@@ -207,11 +207,11 @@ This allows to automatically apply all the form and signature fields on a docume
 
 The document must not already have fields otherwise an error will be returned.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiEzsigndocumentID
  @return ApiEzsigndocumentApplyEzsigntemplateV2Request
 */
-func (a *ObjectEzsigndocumentApiService) EzsigndocumentApplyEzsigntemplateV2(ctx _context.Context, pkiEzsigndocumentID int32) ApiEzsigndocumentApplyEzsigntemplateV2Request {
+func (a *ObjectEzsigndocumentApiService) EzsigndocumentApplyEzsigntemplateV2(ctx context.Context, pkiEzsigndocumentID int32) ApiEzsigndocumentApplyEzsigntemplateV2Request {
 	return ApiEzsigndocumentApplyEzsigntemplateV2Request{
 		ApiService: a,
 		ctx: ctx,
@@ -221,25 +221,25 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentApplyEzsigntemplateV2(ctx
 
 // Execute executes the request
 //  @return EzsigndocumentApplyEzsigntemplateV2Response
-func (a *ObjectEzsigndocumentApiService) EzsigndocumentApplyEzsigntemplateV2Execute(r ApiEzsigndocumentApplyEzsigntemplateV2Request) (EzsigndocumentApplyEzsigntemplateV2Response, *_nethttp.Response, error) {
+func (a *ObjectEzsigndocumentApiService) EzsigndocumentApplyEzsigntemplateV2Execute(r ApiEzsigndocumentApplyEzsigntemplateV2Request) (*EzsigndocumentApplyEzsigntemplateV2Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  EzsigndocumentApplyEzsigntemplateV2Response
+		localVarReturnValue  *EzsigndocumentApplyEzsigntemplateV2Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigndocumentApiService.EzsigndocumentApplyEzsigntemplateV2")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/2/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplate"
-	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsigndocumentID"+"}", _neturl.PathEscape(parameterToString(r.pkiEzsigndocumentID, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsigndocumentID"+"}", url.PathEscape(parameterToString(r.pkiEzsigndocumentID, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.ezsigndocumentApplyEzsigntemplateV2Request == nil {
 		return localVarReturnValue, nil, reportError("ezsigndocumentApplyEzsigntemplateV2Request is required and must be specified")
 	}
@@ -287,15 +287,15 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentApplyEzsigntemplateV2Exec
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -323,7 +323,7 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentApplyEzsigntemplateV2Exec
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -334,7 +334,7 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentApplyEzsigntemplateV2Exec
 }
 
 type ApiEzsigndocumentCreateObjectV1Request struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ObjectEzsigndocumentApiService
 	ezsigndocumentCreateObjectV1Request *[]EzsigndocumentCreateObjectV1Request
 }
@@ -344,7 +344,7 @@ func (r ApiEzsigndocumentCreateObjectV1Request) EzsigndocumentCreateObjectV1Requ
 	return r
 }
 
-func (r ApiEzsigndocumentCreateObjectV1Request) Execute() (EzsigndocumentCreateObjectV1Response, *_nethttp.Response, error) {
+func (r ApiEzsigndocumentCreateObjectV1Request) Execute() (*EzsigndocumentCreateObjectV1Response, *http.Response, error) {
 	return r.ApiService.EzsigndocumentCreateObjectV1Execute(r)
 }
 
@@ -357,10 +357,10 @@ The array can contain simple (Just the object) or compound (The object and its c
 
 Creating compound elements allows to reduce the multiple requests to create all child objects.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiEzsigndocumentCreateObjectV1Request
 */
-func (a *ObjectEzsigndocumentApiService) EzsigndocumentCreateObjectV1(ctx _context.Context) ApiEzsigndocumentCreateObjectV1Request {
+func (a *ObjectEzsigndocumentApiService) EzsigndocumentCreateObjectV1(ctx context.Context) ApiEzsigndocumentCreateObjectV1Request {
 	return ApiEzsigndocumentCreateObjectV1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -369,24 +369,24 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentCreateObjectV1(ctx _conte
 
 // Execute executes the request
 //  @return EzsigndocumentCreateObjectV1Response
-func (a *ObjectEzsigndocumentApiService) EzsigndocumentCreateObjectV1Execute(r ApiEzsigndocumentCreateObjectV1Request) (EzsigndocumentCreateObjectV1Response, *_nethttp.Response, error) {
+func (a *ObjectEzsigndocumentApiService) EzsigndocumentCreateObjectV1Execute(r ApiEzsigndocumentCreateObjectV1Request) (*EzsigndocumentCreateObjectV1Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  EzsigndocumentCreateObjectV1Response
+		localVarReturnValue  *EzsigndocumentCreateObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigndocumentApiService.EzsigndocumentCreateObjectV1")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/1/object/ezsigndocument"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.ezsigndocumentCreateObjectV1Request == nil {
 		return localVarReturnValue, nil, reportError("ezsigndocumentCreateObjectV1Request is required and must be specified")
 	}
@@ -434,15 +434,15 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentCreateObjectV1Execute(r A
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -470,7 +470,7 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentCreateObjectV1Execute(r A
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -481,24 +481,24 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentCreateObjectV1Execute(r A
 }
 
 type ApiEzsigndocumentDeleteObjectV1Request struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ObjectEzsigndocumentApiService
 	pkiEzsigndocumentID int32
 }
 
 
-func (r ApiEzsigndocumentDeleteObjectV1Request) Execute() (EzsigndocumentDeleteObjectV1Response, *_nethttp.Response, error) {
+func (r ApiEzsigndocumentDeleteObjectV1Request) Execute() (*EzsigndocumentDeleteObjectV1Response, *http.Response, error) {
 	return r.ApiService.EzsigndocumentDeleteObjectV1Execute(r)
 }
 
 /*
 EzsigndocumentDeleteObjectV1 Delete an existing Ezsigndocument
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiEzsigndocumentID
  @return ApiEzsigndocumentDeleteObjectV1Request
 */
-func (a *ObjectEzsigndocumentApiService) EzsigndocumentDeleteObjectV1(ctx _context.Context, pkiEzsigndocumentID int32) ApiEzsigndocumentDeleteObjectV1Request {
+func (a *ObjectEzsigndocumentApiService) EzsigndocumentDeleteObjectV1(ctx context.Context, pkiEzsigndocumentID int32) ApiEzsigndocumentDeleteObjectV1Request {
 	return ApiEzsigndocumentDeleteObjectV1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -508,25 +508,25 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentDeleteObjectV1(ctx _conte
 
 // Execute executes the request
 //  @return EzsigndocumentDeleteObjectV1Response
-func (a *ObjectEzsigndocumentApiService) EzsigndocumentDeleteObjectV1Execute(r ApiEzsigndocumentDeleteObjectV1Request) (EzsigndocumentDeleteObjectV1Response, *_nethttp.Response, error) {
+func (a *ObjectEzsigndocumentApiService) EzsigndocumentDeleteObjectV1Execute(r ApiEzsigndocumentDeleteObjectV1Request) (*EzsigndocumentDeleteObjectV1Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodDelete
+		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  EzsigndocumentDeleteObjectV1Response
+		localVarReturnValue  *EzsigndocumentDeleteObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigndocumentApiService.EzsigndocumentDeleteObjectV1")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/1/object/ezsigndocument/{pkiEzsigndocumentID}"
-	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsigndocumentID"+"}", _neturl.PathEscape(parameterToString(r.pkiEzsigndocumentID, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsigndocumentID"+"}", url.PathEscape(parameterToString(r.pkiEzsigndocumentID, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -569,15 +569,15 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentDeleteObjectV1Execute(r A
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -605,7 +605,7 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentDeleteObjectV1Execute(r A
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -616,14 +616,14 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentDeleteObjectV1Execute(r A
 }
 
 type ApiEzsigndocumentGetDownloadUrlV1Request struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ObjectEzsigndocumentApiService
 	pkiEzsigndocumentID int32
 	eDocumentType string
 }
 
 
-func (r ApiEzsigndocumentGetDownloadUrlV1Request) Execute() (EzsigndocumentGetDownloadUrlV1Response, *_nethttp.Response, error) {
+func (r ApiEzsigndocumentGetDownloadUrlV1Request) Execute() (*EzsigndocumentGetDownloadUrlV1Response, *http.Response, error) {
 	return r.ApiService.EzsigndocumentGetDownloadUrlV1Execute(r)
 }
 
@@ -634,12 +634,12 @@ This endpoint returns URLs to different files that can be downloaded during the 
 
 These links will expire after 5 minutes so the download of the file should be made soon after retrieving the link.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiEzsigndocumentID
  @param eDocumentType The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **Signed** Is the final document once all signatures were applied. 3. **Proofdocument** Is the evidence report. 4. **Proof** Is the complete evidence archive including all of the above and more. 
  @return ApiEzsigndocumentGetDownloadUrlV1Request
 */
-func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetDownloadUrlV1(ctx _context.Context, pkiEzsigndocumentID int32, eDocumentType string) ApiEzsigndocumentGetDownloadUrlV1Request {
+func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetDownloadUrlV1(ctx context.Context, pkiEzsigndocumentID int32, eDocumentType string) ApiEzsigndocumentGetDownloadUrlV1Request {
 	return ApiEzsigndocumentGetDownloadUrlV1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -650,26 +650,26 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetDownloadUrlV1(ctx _con
 
 // Execute executes the request
 //  @return EzsigndocumentGetDownloadUrlV1Response
-func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetDownloadUrlV1Execute(r ApiEzsigndocumentGetDownloadUrlV1Request) (EzsigndocumentGetDownloadUrlV1Response, *_nethttp.Response, error) {
+func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetDownloadUrlV1Execute(r ApiEzsigndocumentGetDownloadUrlV1Request) (*EzsigndocumentGetDownloadUrlV1Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  EzsigndocumentGetDownloadUrlV1Response
+		localVarReturnValue  *EzsigndocumentGetDownloadUrlV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigndocumentApiService.EzsigndocumentGetDownloadUrlV1")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/1/object/ezsigndocument/{pkiEzsigndocumentID}/getDownloadUrl/{eDocumentType}"
-	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsigndocumentID"+"}", _neturl.PathEscape(parameterToString(r.pkiEzsigndocumentID, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"eDocumentType"+"}", _neturl.PathEscape(parameterToString(r.eDocumentType, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsigndocumentID"+"}", url.PathEscape(parameterToString(r.pkiEzsigndocumentID, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"eDocumentType"+"}", url.PathEscape(parameterToString(r.eDocumentType, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -712,15 +712,15 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetDownloadUrlV1Execute(r
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -748,7 +748,7 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetDownloadUrlV1Execute(r
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -759,24 +759,24 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetDownloadUrlV1Execute(r
 }
 
 type ApiEzsigndocumentGetEzsignpagesV1Request struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ObjectEzsigndocumentApiService
 	pkiEzsigndocumentID int32
 }
 
 
-func (r ApiEzsigndocumentGetEzsignpagesV1Request) Execute() (EzsigndocumentGetEzsignpagesV1Response, *_nethttp.Response, error) {
+func (r ApiEzsigndocumentGetEzsignpagesV1Request) Execute() (*EzsigndocumentGetEzsignpagesV1Response, *http.Response, error) {
 	return r.ApiService.EzsigndocumentGetEzsignpagesV1Execute(r)
 }
 
 /*
 EzsigndocumentGetEzsignpagesV1 Retrieve an existing Ezsigndocument's Ezsignpages
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiEzsigndocumentID
  @return ApiEzsigndocumentGetEzsignpagesV1Request
 */
-func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetEzsignpagesV1(ctx _context.Context, pkiEzsigndocumentID int32) ApiEzsigndocumentGetEzsignpagesV1Request {
+func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetEzsignpagesV1(ctx context.Context, pkiEzsigndocumentID int32) ApiEzsigndocumentGetEzsignpagesV1Request {
 	return ApiEzsigndocumentGetEzsignpagesV1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -786,25 +786,25 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetEzsignpagesV1(ctx _con
 
 // Execute executes the request
 //  @return EzsigndocumentGetEzsignpagesV1Response
-func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetEzsignpagesV1Execute(r ApiEzsigndocumentGetEzsignpagesV1Request) (EzsigndocumentGetEzsignpagesV1Response, *_nethttp.Response, error) {
+func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetEzsignpagesV1Execute(r ApiEzsigndocumentGetEzsignpagesV1Request) (*EzsigndocumentGetEzsignpagesV1Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  EzsigndocumentGetEzsignpagesV1Response
+		localVarReturnValue  *EzsigndocumentGetEzsignpagesV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigndocumentApiService.EzsigndocumentGetEzsignpagesV1")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignpages"
-	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsigndocumentID"+"}", _neturl.PathEscape(parameterToString(r.pkiEzsigndocumentID, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsigndocumentID"+"}", url.PathEscape(parameterToString(r.pkiEzsigndocumentID, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -847,15 +847,15 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetEzsignpagesV1Execute(r
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -883,7 +883,7 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetEzsignpagesV1Execute(r
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -894,24 +894,24 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetEzsignpagesV1Execute(r
 }
 
 type ApiEzsigndocumentGetFormDataV1Request struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ObjectEzsigndocumentApiService
 	pkiEzsigndocumentID int32
 }
 
 
-func (r ApiEzsigndocumentGetFormDataV1Request) Execute() (EzsigndocumentGetFormDataV1Response, *_nethttp.Response, error) {
+func (r ApiEzsigndocumentGetFormDataV1Request) Execute() (*EzsigndocumentGetFormDataV1Response, *http.Response, error) {
 	return r.ApiService.EzsigndocumentGetFormDataV1Execute(r)
 }
 
 /*
 EzsigndocumentGetFormDataV1 Retrieve an existing Ezsigndocument's Form Data
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiEzsigndocumentID
  @return ApiEzsigndocumentGetFormDataV1Request
 */
-func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetFormDataV1(ctx _context.Context, pkiEzsigndocumentID int32) ApiEzsigndocumentGetFormDataV1Request {
+func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetFormDataV1(ctx context.Context, pkiEzsigndocumentID int32) ApiEzsigndocumentGetFormDataV1Request {
 	return ApiEzsigndocumentGetFormDataV1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -921,25 +921,25 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetFormDataV1(ctx _contex
 
 // Execute executes the request
 //  @return EzsigndocumentGetFormDataV1Response
-func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetFormDataV1Execute(r ApiEzsigndocumentGetFormDataV1Request) (EzsigndocumentGetFormDataV1Response, *_nethttp.Response, error) {
+func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetFormDataV1Execute(r ApiEzsigndocumentGetFormDataV1Request) (*EzsigndocumentGetFormDataV1Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  EzsigndocumentGetFormDataV1Response
+		localVarReturnValue  *EzsigndocumentGetFormDataV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigndocumentApiService.EzsigndocumentGetFormDataV1")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/1/object/ezsigndocument/{pkiEzsigndocumentID}/getFormData"
-	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsigndocumentID"+"}", _neturl.PathEscape(parameterToString(r.pkiEzsigndocumentID, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsigndocumentID"+"}", url.PathEscape(parameterToString(r.pkiEzsigndocumentID, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -982,15 +982,15 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetFormDataV1Execute(r Ap
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -1028,7 +1028,7 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetFormDataV1Execute(r Ap
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -1039,13 +1039,13 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetFormDataV1Execute(r Ap
 }
 
 type ApiEzsigndocumentGetObjectV1Request struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ObjectEzsigndocumentApiService
 	pkiEzsigndocumentID int32
 }
 
 
-func (r ApiEzsigndocumentGetObjectV1Request) Execute() (EzsigndocumentGetObjectV1Response, *_nethttp.Response, error) {
+func (r ApiEzsigndocumentGetObjectV1Request) Execute() (*EzsigndocumentGetObjectV1Response, *http.Response, error) {
 	return r.ApiService.EzsigndocumentGetObjectV1Execute(r)
 }
 
@@ -1056,11 +1056,11 @@ EzsigndocumentGetObjectV1 Retrieve an existing Ezsigndocument
 
 ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiEzsigndocumentID
  @return ApiEzsigndocumentGetObjectV1Request
 */
-func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetObjectV1(ctx _context.Context, pkiEzsigndocumentID int32) ApiEzsigndocumentGetObjectV1Request {
+func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetObjectV1(ctx context.Context, pkiEzsigndocumentID int32) ApiEzsigndocumentGetObjectV1Request {
 	return ApiEzsigndocumentGetObjectV1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -1070,25 +1070,25 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetObjectV1(ctx _context.
 
 // Execute executes the request
 //  @return EzsigndocumentGetObjectV1Response
-func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetObjectV1Execute(r ApiEzsigndocumentGetObjectV1Request) (EzsigndocumentGetObjectV1Response, *_nethttp.Response, error) {
+func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetObjectV1Execute(r ApiEzsigndocumentGetObjectV1Request) (*EzsigndocumentGetObjectV1Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  EzsigndocumentGetObjectV1Response
+		localVarReturnValue  *EzsigndocumentGetObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigndocumentApiService.EzsigndocumentGetObjectV1")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/1/object/ezsigndocument/{pkiEzsigndocumentID}"
-	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsigndocumentID"+"}", _neturl.PathEscape(parameterToString(r.pkiEzsigndocumentID, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsigndocumentID"+"}", url.PathEscape(parameterToString(r.pkiEzsigndocumentID, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1131,15 +1131,15 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetObjectV1Execute(r ApiE
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -1157,7 +1157,7 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetObjectV1Execute(r ApiE
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -1168,7 +1168,7 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetObjectV1Execute(r ApiE
 }
 
 type ApiEzsigndocumentGetWordsPositionsV1Request struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ObjectEzsigndocumentApiService
 	pkiEzsigndocumentID int32
 	ezsigndocumentGetWordsPositionsV1Request *EzsigndocumentGetWordsPositionsV1Request
@@ -1179,18 +1179,18 @@ func (r ApiEzsigndocumentGetWordsPositionsV1Request) EzsigndocumentGetWordsPosit
 	return r
 }
 
-func (r ApiEzsigndocumentGetWordsPositionsV1Request) Execute() (EzsigndocumentGetWordsPositionsV1Response, *_nethttp.Response, error) {
+func (r ApiEzsigndocumentGetWordsPositionsV1Request) Execute() (*EzsigndocumentGetWordsPositionsV1Response, *http.Response, error) {
 	return r.ApiService.EzsigndocumentGetWordsPositionsV1Execute(r)
 }
 
 /*
 EzsigndocumentGetWordsPositionsV1 Retrieve positions X,Y of given words from a Ezsigndocument
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiEzsigndocumentID
  @return ApiEzsigndocumentGetWordsPositionsV1Request
 */
-func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetWordsPositionsV1(ctx _context.Context, pkiEzsigndocumentID int32) ApiEzsigndocumentGetWordsPositionsV1Request {
+func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetWordsPositionsV1(ctx context.Context, pkiEzsigndocumentID int32) ApiEzsigndocumentGetWordsPositionsV1Request {
 	return ApiEzsigndocumentGetWordsPositionsV1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -1200,25 +1200,25 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetWordsPositionsV1(ctx _
 
 // Execute executes the request
 //  @return EzsigndocumentGetWordsPositionsV1Response
-func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetWordsPositionsV1Execute(r ApiEzsigndocumentGetWordsPositionsV1Request) (EzsigndocumentGetWordsPositionsV1Response, *_nethttp.Response, error) {
+func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetWordsPositionsV1Execute(r ApiEzsigndocumentGetWordsPositionsV1Request) (*EzsigndocumentGetWordsPositionsV1Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  EzsigndocumentGetWordsPositionsV1Response
+		localVarReturnValue  *EzsigndocumentGetWordsPositionsV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigndocumentApiService.EzsigndocumentGetWordsPositionsV1")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions"
-	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsigndocumentID"+"}", _neturl.PathEscape(parameterToString(r.pkiEzsigndocumentID, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsigndocumentID"+"}", url.PathEscape(parameterToString(r.pkiEzsigndocumentID, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.ezsigndocumentGetWordsPositionsV1Request == nil {
 		return localVarReturnValue, nil, reportError("ezsigndocumentGetWordsPositionsV1Request is required and must be specified")
 	}
@@ -1266,15 +1266,15 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetWordsPositionsV1Execut
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -1302,7 +1302,7 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentGetWordsPositionsV1Execut
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}

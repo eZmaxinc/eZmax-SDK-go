@@ -32,8 +32,8 @@ func main() {
     apikeyCreateObjectV1Request := []openapiclient.ApikeyCreateObjectV1Request{*openapiclient.NewApikeyCreateObjectV1Request()} // []ApikeyCreateObjectV1Request | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectApikeyApi.ApikeyCreateObjectV1(context.Background()).ApikeyCreateObjectV1Request(apikeyCreateObjectV1Request).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectApikeyApi.ApikeyCreateObjectV1(context.Background()).ApikeyCreateObjectV1Request(apikeyCreateObjectV1Request).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectApikeyApi.ApikeyCreateObjectV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

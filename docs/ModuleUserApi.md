@@ -32,8 +32,8 @@ func main() {
     userCreateEzsignuserV1Request := []openapiclient.UserCreateEzsignuserV1Request{*openapiclient.NewUserCreateEzsignuserV1Request(int32(2), "John", "Doe", "example@domain.com", "514", "990", "1516")} // []UserCreateEzsignuserV1Request | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ModuleUserApi.UserCreateEzsignuserV1(context.Background()).UserCreateEzsignuserV1Request(userCreateEzsignuserV1Request).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ModuleUserApi.UserCreateEzsignuserV1(context.Background()).UserCreateEzsignuserV1Request(userCreateEzsignuserV1Request).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ModuleUserApi.UserCreateEzsignuserV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

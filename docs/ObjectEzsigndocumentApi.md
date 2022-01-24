@@ -41,8 +41,8 @@ func main() {
     ezsigndocumentApplyEzsigntemplateV1Request := *openapiclient.NewEzsigndocumentApplyEzsigntemplateV1Request(int32(36), []string{"John"}, []int32{int32(20)}) // EzsigndocumentApplyEzsigntemplateV1Request | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsigndocumentApi.EzsigndocumentApplyEzsigntemplateV1(context.Background(), pkiEzsigndocumentID).EzsigndocumentApplyEzsigntemplateV1Request(ezsigndocumentApplyEzsigntemplateV1Request).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsigndocumentApi.EzsigndocumentApplyEzsigntemplateV1(context.Background(), pkiEzsigndocumentID).EzsigndocumentApplyEzsigntemplateV1Request(ezsigndocumentApplyEzsigntemplateV1Request).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentApi.EzsigndocumentApplyEzsigntemplateV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -113,8 +113,8 @@ func main() {
     ezsigndocumentApplyEzsigntemplateV2Request := *openapiclient.NewEzsigndocumentApplyEzsigntemplateV2Request(int32(36), []string{"John"}, []int32{int32(20)}) // EzsigndocumentApplyEzsigntemplateV2Request | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsigndocumentApi.EzsigndocumentApplyEzsigntemplateV2(context.Background(), pkiEzsigndocumentID).EzsigndocumentApplyEzsigntemplateV2Request(ezsigndocumentApplyEzsigntemplateV2Request).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsigndocumentApi.EzsigndocumentApplyEzsigntemplateV2(context.Background(), pkiEzsigndocumentID).EzsigndocumentApplyEzsigntemplateV2Request(ezsigndocumentApplyEzsigntemplateV2Request).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentApi.EzsigndocumentApplyEzsigntemplateV2``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -184,8 +184,8 @@ func main() {
     ezsigndocumentCreateObjectV1Request := []openapiclient.EzsigndocumentCreateObjectV1Request{*openapiclient.NewEzsigndocumentCreateObjectV1Request()} // []EzsigndocumentCreateObjectV1Request | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsigndocumentApi.EzsigndocumentCreateObjectV1(context.Background()).EzsigndocumentCreateObjectV1Request(ezsigndocumentCreateObjectV1Request).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsigndocumentApi.EzsigndocumentCreateObjectV1(context.Background()).EzsigndocumentCreateObjectV1Request(ezsigndocumentCreateObjectV1Request).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentApi.EzsigndocumentCreateObjectV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -248,8 +248,8 @@ func main() {
     pkiEzsigndocumentID := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsigndocumentApi.EzsigndocumentDeleteObjectV1(context.Background(), pkiEzsigndocumentID).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsigndocumentApi.EzsigndocumentDeleteObjectV1(context.Background(), pkiEzsigndocumentID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentApi.EzsigndocumentDeleteObjectV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -319,8 +319,8 @@ func main() {
     eDocumentType := "eDocumentType_example" // string | The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **Signed** Is the final document once all signatures were applied. 3. **Proofdocument** Is the evidence report. 4. **Proof** Is the complete evidence archive including all of the above and more. 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsigndocumentApi.EzsigndocumentGetDownloadUrlV1(context.Background(), pkiEzsigndocumentID, eDocumentType).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsigndocumentApi.EzsigndocumentGetDownloadUrlV1(context.Background(), pkiEzsigndocumentID, eDocumentType).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentApi.EzsigndocumentGetDownloadUrlV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -389,8 +389,8 @@ func main() {
     pkiEzsigndocumentID := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsigndocumentApi.EzsigndocumentGetEzsignpagesV1(context.Background(), pkiEzsigndocumentID).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsigndocumentApi.EzsigndocumentGetEzsignpagesV1(context.Background(), pkiEzsigndocumentID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentApi.EzsigndocumentGetEzsignpagesV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -457,8 +457,8 @@ func main() {
     pkiEzsigndocumentID := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsigndocumentApi.EzsigndocumentGetFormDataV1(context.Background(), pkiEzsigndocumentID).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsigndocumentApi.EzsigndocumentGetFormDataV1(context.Background(), pkiEzsigndocumentID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentApi.EzsigndocumentGetFormDataV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -527,8 +527,8 @@ func main() {
     pkiEzsigndocumentID := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsigndocumentApi.EzsigndocumentGetObjectV1(context.Background(), pkiEzsigndocumentID).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsigndocumentApi.EzsigndocumentGetObjectV1(context.Background(), pkiEzsigndocumentID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentApi.EzsigndocumentGetObjectV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -596,8 +596,8 @@ func main() {
     ezsigndocumentGetWordsPositionsV1Request := *openapiclient.NewEzsigndocumentGetWordsPositionsV1Request("EGet_example", false) // EzsigndocumentGetWordsPositionsV1Request | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsigndocumentApi.EzsigndocumentGetWordsPositionsV1(context.Background(), pkiEzsigndocumentID).EzsigndocumentGetWordsPositionsV1Request(ezsigndocumentGetWordsPositionsV1Request).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsigndocumentApi.EzsigndocumentGetWordsPositionsV1(context.Background(), pkiEzsigndocumentID).EzsigndocumentGetWordsPositionsV1Request(ezsigndocumentGetWordsPositionsV1Request).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentApi.EzsigndocumentGetWordsPositionsV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

@@ -51,11 +51,11 @@ func (o *EzsignfolderCreateObjectV1ResponseMPayload) GetAPkiEzsignfolderID() []i
 
 // GetAPkiEzsignfolderIDOk returns a tuple with the APkiEzsignfolderID field value
 // and a boolean to check if the value has been set.
-func (o *EzsignfolderCreateObjectV1ResponseMPayload) GetAPkiEzsignfolderIDOk() (*[]int32, bool) {
+func (o *EzsignfolderCreateObjectV1ResponseMPayload) GetAPkiEzsignfolderIDOk() ([]int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.APkiEzsignfolderID, true
+	return o.APkiEzsignfolderID, true
 }
 
 // SetAPkiEzsignfolderID sets field value

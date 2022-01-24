@@ -56,11 +56,11 @@ func (o *EzsignbulksendGetListV1ResponseMPayload) GetAObjEzsignbulksend() []Ezsi
 
 // GetAObjEzsignbulksendOk returns a tuple with the AObjEzsignbulksend field value
 // and a boolean to check if the value has been set.
-func (o *EzsignbulksendGetListV1ResponseMPayload) GetAObjEzsignbulksendOk() (*[]EzsignbulksendListElement, bool) {
+func (o *EzsignbulksendGetListV1ResponseMPayload) GetAObjEzsignbulksendOk() ([]EzsignbulksendListElement, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.AObjEzsignbulksend, true
+	return o.AObjEzsignbulksend, true
 }
 
 // SetAObjEzsignbulksend sets field value

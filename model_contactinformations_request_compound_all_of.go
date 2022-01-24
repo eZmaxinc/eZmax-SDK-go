@@ -56,11 +56,11 @@ func (o *ContactinformationsRequestCompoundAllOf) GetAObjAddress() []AddressRequ
 
 // GetAObjAddressOk returns a tuple with the AObjAddress field value
 // and a boolean to check if the value has been set.
-func (o *ContactinformationsRequestCompoundAllOf) GetAObjAddressOk() (*[]AddressRequest, bool) {
+func (o *ContactinformationsRequestCompoundAllOf) GetAObjAddressOk() ([]AddressRequest, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.AObjAddress, true
+	return o.AObjAddress, true
 }
 
 // SetAObjAddress sets field value
@@ -80,11 +80,11 @@ func (o *ContactinformationsRequestCompoundAllOf) GetAObjPhone() []PhoneRequest 
 
 // GetAObjPhoneOk returns a tuple with the AObjPhone field value
 // and a boolean to check if the value has been set.
-func (o *ContactinformationsRequestCompoundAllOf) GetAObjPhoneOk() (*[]PhoneRequest, bool) {
+func (o *ContactinformationsRequestCompoundAllOf) GetAObjPhoneOk() ([]PhoneRequest, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.AObjPhone, true
+	return o.AObjPhone, true
 }
 
 // SetAObjPhone sets field value
@@ -104,11 +104,11 @@ func (o *ContactinformationsRequestCompoundAllOf) GetAObjEmail() []EmailRequest 
 
 // GetAObjEmailOk returns a tuple with the AObjEmail field value
 // and a boolean to check if the value has been set.
-func (o *ContactinformationsRequestCompoundAllOf) GetAObjEmailOk() (*[]EmailRequest, bool) {
+func (o *ContactinformationsRequestCompoundAllOf) GetAObjEmailOk() ([]EmailRequest, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.AObjEmail, true
+	return o.AObjEmail, true
 }
 
 // SetAObjEmail sets field value
@@ -128,11 +128,11 @@ func (o *ContactinformationsRequestCompoundAllOf) GetAObjWebsite() []WebsiteRequ
 
 // GetAObjWebsiteOk returns a tuple with the AObjWebsite field value
 // and a boolean to check if the value has been set.
-func (o *ContactinformationsRequestCompoundAllOf) GetAObjWebsiteOk() (*[]WebsiteRequest, bool) {
+func (o *ContactinformationsRequestCompoundAllOf) GetAObjWebsiteOk() ([]WebsiteRequest, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.AObjWebsite, true
+	return o.AObjWebsite, true
 }
 
 // SetAObjWebsite sets field value

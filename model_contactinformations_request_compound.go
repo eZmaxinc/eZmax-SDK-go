@@ -68,11 +68,11 @@ func (o *ContactinformationsRequestCompound) GetAObjAddress() []AddressRequest {
 
 // GetAObjAddressOk returns a tuple with the AObjAddress field value
 // and a boolean to check if the value has been set.
-func (o *ContactinformationsRequestCompound) GetAObjAddressOk() (*[]AddressRequest, bool) {
+func (o *ContactinformationsRequestCompound) GetAObjAddressOk() ([]AddressRequest, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.AObjAddress, true
+	return o.AObjAddress, true
 }
 
 // SetAObjAddress sets field value
@@ -92,11 +92,11 @@ func (o *ContactinformationsRequestCompound) GetAObjPhone() []PhoneRequest {
 
 // GetAObjPhoneOk returns a tuple with the AObjPhone field value
 // and a boolean to check if the value has been set.
-func (o *ContactinformationsRequestCompound) GetAObjPhoneOk() (*[]PhoneRequest, bool) {
+func (o *ContactinformationsRequestCompound) GetAObjPhoneOk() ([]PhoneRequest, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.AObjPhone, true
+	return o.AObjPhone, true
 }
 
 // SetAObjPhone sets field value
@@ -116,11 +116,11 @@ func (o *ContactinformationsRequestCompound) GetAObjEmail() []EmailRequest {
 
 // GetAObjEmailOk returns a tuple with the AObjEmail field value
 // and a boolean to check if the value has been set.
-func (o *ContactinformationsRequestCompound) GetAObjEmailOk() (*[]EmailRequest, bool) {
+func (o *ContactinformationsRequestCompound) GetAObjEmailOk() ([]EmailRequest, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.AObjEmail, true
+	return o.AObjEmail, true
 }
 
 // SetAObjEmail sets field value
@@ -140,11 +140,11 @@ func (o *ContactinformationsRequestCompound) GetAObjWebsite() []WebsiteRequest {
 
 // GetAObjWebsiteOk returns a tuple with the AObjWebsite field value
 // and a boolean to check if the value has been set.
-func (o *ContactinformationsRequestCompound) GetAObjWebsiteOk() (*[]WebsiteRequest, bool) {
+func (o *ContactinformationsRequestCompound) GetAObjWebsiteOk() ([]WebsiteRequest, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.AObjWebsite, true
+	return o.AObjWebsite, true
 }
 
 // SetAObjWebsite sets field value

@@ -17,14 +17,14 @@ import (
 
 // EzsignfolderGetEzsigndocumentsV1ResponseMPayload Payload for the /1/object/ezsignfolder/{pkiEzsignfolder}/getEzsigndocuments API Request
 type EzsignfolderGetEzsigndocumentsV1ResponseMPayload struct {
-	AObjEzsigndocument []EzsigndocumentResponse `json:"a_objEzsigndocument"`
+	AObjEzsigndocument []EzsigndocumentResponseCompound `json:"a_objEzsigndocument"`
 }
 
 // NewEzsignfolderGetEzsigndocumentsV1ResponseMPayload instantiates a new EzsignfolderGetEzsigndocumentsV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfolderGetEzsigndocumentsV1ResponseMPayload(aObjEzsigndocument []EzsigndocumentResponse) *EzsignfolderGetEzsigndocumentsV1ResponseMPayload {
+func NewEzsignfolderGetEzsigndocumentsV1ResponseMPayload(aObjEzsigndocument []EzsigndocumentResponseCompound) *EzsignfolderGetEzsigndocumentsV1ResponseMPayload {
 	this := EzsignfolderGetEzsigndocumentsV1ResponseMPayload{}
 	this.AObjEzsigndocument = aObjEzsigndocument
 	return &this
@@ -39,9 +39,9 @@ func NewEzsignfolderGetEzsigndocumentsV1ResponseMPayloadWithDefaults() *Ezsignfo
 }
 
 // GetAObjEzsigndocument returns the AObjEzsigndocument field value
-func (o *EzsignfolderGetEzsigndocumentsV1ResponseMPayload) GetAObjEzsigndocument() []EzsigndocumentResponse {
+func (o *EzsignfolderGetEzsigndocumentsV1ResponseMPayload) GetAObjEzsigndocument() []EzsigndocumentResponseCompound {
 	if o == nil {
-		var ret []EzsigndocumentResponse
+		var ret []EzsigndocumentResponseCompound
 		return ret
 	}
 
@@ -50,15 +50,15 @@ func (o *EzsignfolderGetEzsigndocumentsV1ResponseMPayload) GetAObjEzsigndocument
 
 // GetAObjEzsigndocumentOk returns a tuple with the AObjEzsigndocument field value
 // and a boolean to check if the value has been set.
-func (o *EzsignfolderGetEzsigndocumentsV1ResponseMPayload) GetAObjEzsigndocumentOk() (*[]EzsigndocumentResponse, bool) {
+func (o *EzsignfolderGetEzsigndocumentsV1ResponseMPayload) GetAObjEzsigndocumentOk() ([]EzsigndocumentResponseCompound, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.AObjEzsigndocument, true
+	return o.AObjEzsigndocument, true
 }
 
 // SetAObjEzsigndocument sets field value
-func (o *EzsignfolderGetEzsigndocumentsV1ResponseMPayload) SetAObjEzsigndocument(v []EzsigndocumentResponse) {
+func (o *EzsignfolderGetEzsigndocumentsV1ResponseMPayload) SetAObjEzsigndocument(v []EzsigndocumentResponseCompound) {
 	o.AObjEzsigndocument = v
 }
 

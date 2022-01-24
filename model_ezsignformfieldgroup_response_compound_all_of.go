@@ -50,11 +50,11 @@ func (o *EzsignformfieldgroupResponseCompoundAllOf) GetAObjEzsignformfield() []E
 
 // GetAObjEzsignformfieldOk returns a tuple with the AObjEzsignformfield field value
 // and a boolean to check if the value has been set.
-func (o *EzsignformfieldgroupResponseCompoundAllOf) GetAObjEzsignformfieldOk() (*[]EzsignformfieldResponse, bool) {
+func (o *EzsignformfieldgroupResponseCompoundAllOf) GetAObjEzsignformfieldOk() ([]EzsignformfieldResponse, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.AObjEzsignformfield, true
+	return o.AObjEzsignformfield, true
 }
 
 // SetAObjEzsignformfield sets field value

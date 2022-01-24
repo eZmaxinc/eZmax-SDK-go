@@ -50,11 +50,11 @@ func (o *ListGetListpresentationV1ResponseMPayload) GetAObjListpresentation() []
 
 // GetAObjListpresentationOk returns a tuple with the AObjListpresentation field value
 // and a boolean to check if the value has been set.
-func (o *ListGetListpresentationV1ResponseMPayload) GetAObjListpresentationOk() (*[]ListpresentationRequest, bool) {
+func (o *ListGetListpresentationV1ResponseMPayload) GetAObjListpresentationOk() ([]ListpresentationRequest, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.AObjListpresentation, true
+	return o.AObjListpresentation, true
 }
 
 // SetAObjListpresentation sets field value

@@ -13,23 +13,23 @@ package eZmaxApi
 
 import (
 	"bytes"
-	_context "context"
-	_ioutil "io/ioutil"
-	_nethttp "net/http"
-	_neturl "net/url"
+	"context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
 	"strings"
 )
 
 // Linger please
 var (
-	_ _context.Context
+	_ context.Context
 )
 
 // ObjectFranchisebrokerApiService ObjectFranchisebrokerApi service
 type ObjectFranchisebrokerApiService service
 
 type ApiFranchisebrokerGetAutocompleteV1Request struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ObjectFranchisebrokerApiService
 	sSelector string
 	sQuery *string
@@ -41,7 +41,7 @@ func (r ApiFranchisebrokerGetAutocompleteV1Request) SQuery(sQuery string) ApiFra
 	return r
 }
 
-func (r ApiFranchisebrokerGetAutocompleteV1Request) Execute() (CommonGetAutocompleteV1Response, *_nethttp.Response, error) {
+func (r ApiFranchisebrokerGetAutocompleteV1Request) Execute() (*CommonGetAutocompleteV1Response, *http.Response, error) {
 	return r.ApiService.FranchisebrokerGetAutocompleteV1Execute(r)
 }
 
@@ -50,11 +50,11 @@ FranchisebrokerGetAutocompleteV1 Retrieve Franchisebrokers and IDs
 
 Get the list of Franchisebrokers to be used in a dropdown or autocomplete control.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param sSelector The type of Franchisebrokers to return
  @return ApiFranchisebrokerGetAutocompleteV1Request
 */
-func (a *ObjectFranchisebrokerApiService) FranchisebrokerGetAutocompleteV1(ctx _context.Context, sSelector string) ApiFranchisebrokerGetAutocompleteV1Request {
+func (a *ObjectFranchisebrokerApiService) FranchisebrokerGetAutocompleteV1(ctx context.Context, sSelector string) ApiFranchisebrokerGetAutocompleteV1Request {
 	return ApiFranchisebrokerGetAutocompleteV1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -64,25 +64,25 @@ func (a *ObjectFranchisebrokerApiService) FranchisebrokerGetAutocompleteV1(ctx _
 
 // Execute executes the request
 //  @return CommonGetAutocompleteV1Response
-func (a *ObjectFranchisebrokerApiService) FranchisebrokerGetAutocompleteV1Execute(r ApiFranchisebrokerGetAutocompleteV1Request) (CommonGetAutocompleteV1Response, *_nethttp.Response, error) {
+func (a *ObjectFranchisebrokerApiService) FranchisebrokerGetAutocompleteV1Execute(r ApiFranchisebrokerGetAutocompleteV1Request) (*CommonGetAutocompleteV1Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  CommonGetAutocompleteV1Response
+		localVarReturnValue  *CommonGetAutocompleteV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectFranchisebrokerApiService.FranchisebrokerGetAutocompleteV1")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/1/object/franchisebroker/getAutocomplete/{sSelector}"
-	localVarPath = strings.Replace(localVarPath, "{"+"sSelector"+"}", _neturl.PathEscape(parameterToString(r.sSelector, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"sSelector"+"}", url.PathEscape(parameterToString(r.sSelector, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.sQuery != nil {
 		localVarQueryParams.Add("sQuery", parameterToString(*r.sQuery, ""))
@@ -128,15 +128,15 @@ func (a *ObjectFranchisebrokerApiService) FranchisebrokerGetAutocompleteV1Execut
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -145,7 +145,7 @@ func (a *ObjectFranchisebrokerApiService) FranchisebrokerGetAutocompleteV1Execut
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}

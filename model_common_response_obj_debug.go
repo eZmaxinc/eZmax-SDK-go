@@ -159,11 +159,11 @@ func (o *CommonResponseObjDebug) GetAObjSQLQuery() []CommonResponseObjSQLQuery {
 
 // GetAObjSQLQueryOk returns a tuple with the AObjSQLQuery field value
 // and a boolean to check if the value has been set.
-func (o *CommonResponseObjDebug) GetAObjSQLQueryOk() (*[]CommonResponseObjSQLQuery, bool) {
+func (o *CommonResponseObjDebug) GetAObjSQLQueryOk() ([]CommonResponseObjSQLQuery, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.AObjSQLQuery, true
+	return o.AObjSQLQuery, true
 }
 
 // SetAObjSQLQuery sets field value

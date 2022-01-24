@@ -13,23 +13,23 @@ package eZmaxApi
 
 import (
 	"bytes"
-	_context "context"
-	_ioutil "io/ioutil"
-	_nethttp "net/http"
-	_neturl "net/url"
+	"context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
 	"strings"
 )
 
 // Linger please
 var (
-	_ _context.Context
+	_ context.Context
 )
 
 // ObjectEzsignfoldertypeApiService ObjectEzsignfoldertypeApi service
 type ObjectEzsignfoldertypeApiService service
 
 type ApiEzsignfoldertypeGetAutocompleteV1Request struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ObjectEzsignfoldertypeApiService
 	sSelector string
 	sQuery *string
@@ -46,7 +46,7 @@ func (r ApiEzsignfoldertypeGetAutocompleteV1Request) AcceptLanguage(acceptLangua
 	return r
 }
 
-func (r ApiEzsignfoldertypeGetAutocompleteV1Request) Execute() (CommonGetAutocompleteV1Response, *_nethttp.Response, error) {
+func (r ApiEzsignfoldertypeGetAutocompleteV1Request) Execute() (*CommonGetAutocompleteV1Response, *http.Response, error) {
 	return r.ApiService.EzsignfoldertypeGetAutocompleteV1Execute(r)
 }
 
@@ -55,11 +55,11 @@ EzsignfoldertypeGetAutocompleteV1 Retrieve Ezsignfoldertypes and IDs
 
 Get the list of Ezsignfoldertypes to be used in a dropdown or autocomplete control.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param sSelector The type of Ezsignfoldertypes to return
  @return ApiEzsignfoldertypeGetAutocompleteV1Request
 */
-func (a *ObjectEzsignfoldertypeApiService) EzsignfoldertypeGetAutocompleteV1(ctx _context.Context, sSelector string) ApiEzsignfoldertypeGetAutocompleteV1Request {
+func (a *ObjectEzsignfoldertypeApiService) EzsignfoldertypeGetAutocompleteV1(ctx context.Context, sSelector string) ApiEzsignfoldertypeGetAutocompleteV1Request {
 	return ApiEzsignfoldertypeGetAutocompleteV1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -69,25 +69,25 @@ func (a *ObjectEzsignfoldertypeApiService) EzsignfoldertypeGetAutocompleteV1(ctx
 
 // Execute executes the request
 //  @return CommonGetAutocompleteV1Response
-func (a *ObjectEzsignfoldertypeApiService) EzsignfoldertypeGetAutocompleteV1Execute(r ApiEzsignfoldertypeGetAutocompleteV1Request) (CommonGetAutocompleteV1Response, *_nethttp.Response, error) {
+func (a *ObjectEzsignfoldertypeApiService) EzsignfoldertypeGetAutocompleteV1Execute(r ApiEzsignfoldertypeGetAutocompleteV1Request) (*CommonGetAutocompleteV1Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  CommonGetAutocompleteV1Response
+		localVarReturnValue  *CommonGetAutocompleteV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfoldertypeApiService.EzsignfoldertypeGetAutocompleteV1")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/1/object/ezsignfoldertype/getAutocomplete/{sSelector}"
-	localVarPath = strings.Replace(localVarPath, "{"+"sSelector"+"}", _neturl.PathEscape(parameterToString(r.sSelector, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"sSelector"+"}", url.PathEscape(parameterToString(r.sSelector, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.sQuery != nil {
 		localVarQueryParams.Add("sQuery", parameterToString(*r.sQuery, ""))
@@ -136,15 +136,15 @@ func (a *ObjectEzsignfoldertypeApiService) EzsignfoldertypeGetAutocompleteV1Exec
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -153,7 +153,7 @@ func (a *ObjectEzsignfoldertypeApiService) EzsignfoldertypeGetAutocompleteV1Exec
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -164,7 +164,7 @@ func (a *ObjectEzsignfoldertypeApiService) EzsignfoldertypeGetAutocompleteV1Exec
 }
 
 type ApiEzsignfoldertypeGetListV1Request struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ObjectEzsignfoldertypeApiService
 	eOrderBy *string
 	iRowMax *int32
@@ -195,7 +195,7 @@ func (r ApiEzsignfoldertypeGetListV1Request) SFilter(sFilter string) ApiEzsignfo
 	return r
 }
 
-func (r ApiEzsignfoldertypeGetListV1Request) Execute() (EzsignfoldertypeGetListV1Response, *_nethttp.Response, error) {
+func (r ApiEzsignfoldertypeGetListV1Request) Execute() (*EzsignfoldertypeGetListV1Response, *http.Response, error) {
 	return r.ApiService.EzsignfoldertypeGetListV1Execute(r)
 }
 
@@ -208,10 +208,10 @@ Enum values that can be filtered in query parameter *sFilter*:
 |---|---|
 | eEzsignfoldertypePrivacylevel | User<br>Usergroup |
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiEzsignfoldertypeGetListV1Request
 */
-func (a *ObjectEzsignfoldertypeApiService) EzsignfoldertypeGetListV1(ctx _context.Context) ApiEzsignfoldertypeGetListV1Request {
+func (a *ObjectEzsignfoldertypeApiService) EzsignfoldertypeGetListV1(ctx context.Context) ApiEzsignfoldertypeGetListV1Request {
 	return ApiEzsignfoldertypeGetListV1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -220,24 +220,24 @@ func (a *ObjectEzsignfoldertypeApiService) EzsignfoldertypeGetListV1(ctx _contex
 
 // Execute executes the request
 //  @return EzsignfoldertypeGetListV1Response
-func (a *ObjectEzsignfoldertypeApiService) EzsignfoldertypeGetListV1Execute(r ApiEzsignfoldertypeGetListV1Request) (EzsignfoldertypeGetListV1Response, *_nethttp.Response, error) {
+func (a *ObjectEzsignfoldertypeApiService) EzsignfoldertypeGetListV1Execute(r ApiEzsignfoldertypeGetListV1Request) (*EzsignfoldertypeGetListV1Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  EzsignfoldertypeGetListV1Response
+		localVarReturnValue  *EzsignfoldertypeGetListV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfoldertypeApiService.EzsignfoldertypeGetListV1")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/1/object/ezsignfoldertype/getList"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.eOrderBy != nil {
 		localVarQueryParams.Add("eOrderBy", parameterToString(*r.eOrderBy, ""))
@@ -295,15 +295,15 @@ func (a *ObjectEzsignfoldertypeApiService) EzsignfoldertypeGetListV1Execute(r Ap
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -321,7 +321,7 @@ func (a *ObjectEzsignfoldertypeApiService) EzsignfoldertypeGetListV1Execute(r Ap
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}

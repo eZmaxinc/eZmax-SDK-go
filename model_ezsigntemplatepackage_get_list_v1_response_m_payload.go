@@ -56,11 +56,11 @@ func (o *EzsigntemplatepackageGetListV1ResponseMPayload) GetAObjEzsigntemplatepa
 
 // GetAObjEzsigntemplatepackageOk returns a tuple with the AObjEzsigntemplatepackage field value
 // and a boolean to check if the value has been set.
-func (o *EzsigntemplatepackageGetListV1ResponseMPayload) GetAObjEzsigntemplatepackageOk() (*[]EzsigntemplatepackageListElement, bool) {
+func (o *EzsigntemplatepackageGetListV1ResponseMPayload) GetAObjEzsigntemplatepackageOk() ([]EzsigntemplatepackageListElement, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.AObjEzsigntemplatepackage, true
+	return o.AObjEzsigntemplatepackage, true
 }
 
 // SetAObjEzsigntemplatepackage sets field value

@@ -13,23 +13,23 @@ package eZmaxApi
 
 import (
 	"bytes"
-	_context "context"
-	_ioutil "io/ioutil"
-	_nethttp "net/http"
-	_neturl "net/url"
+	"context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
 	"strings"
 )
 
 // Linger please
 var (
-	_ _context.Context
+	_ context.Context
 )
 
 // GlobalCustomerApiService GlobalCustomerApi service
 type GlobalCustomerApiService service
 
 type ApiGlobalCustomerGetEndpointV1Request struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *GlobalCustomerApiService
 	pksCustomerCode string
 	sInfrastructureproductCode *string
@@ -41,7 +41,7 @@ func (r ApiGlobalCustomerGetEndpointV1Request) SInfrastructureproductCode(sInfra
 	return r
 }
 
-func (r ApiGlobalCustomerGetEndpointV1Request) Execute() (GlobalCustomerGetEndpointV1Response, *_nethttp.Response, error) {
+func (r ApiGlobalCustomerGetEndpointV1Request) Execute() (*GlobalCustomerGetEndpointV1Response, *http.Response, error) {
 	return r.ApiService.GlobalCustomerGetEndpointV1Execute(r)
 }
 
@@ -50,11 +50,11 @@ GlobalCustomerGetEndpointV1 Get customer endpoint
 
 Retrieve the customer's specific server endpoint where to send requests. This will help locate the proper region (ie: sInfrastructureregionCode) and the proper environment (ie: sInfrastructureenvironmenttypeDescription) where the customer's data is stored.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pksCustomerCode
  @return ApiGlobalCustomerGetEndpointV1Request
 */
-func (a *GlobalCustomerApiService) GlobalCustomerGetEndpointV1(ctx _context.Context, pksCustomerCode string) ApiGlobalCustomerGetEndpointV1Request {
+func (a *GlobalCustomerApiService) GlobalCustomerGetEndpointV1(ctx context.Context, pksCustomerCode string) ApiGlobalCustomerGetEndpointV1Request {
 	return ApiGlobalCustomerGetEndpointV1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -64,25 +64,25 @@ func (a *GlobalCustomerApiService) GlobalCustomerGetEndpointV1(ctx _context.Cont
 
 // Execute executes the request
 //  @return GlobalCustomerGetEndpointV1Response
-func (a *GlobalCustomerApiService) GlobalCustomerGetEndpointV1Execute(r ApiGlobalCustomerGetEndpointV1Request) (GlobalCustomerGetEndpointV1Response, *_nethttp.Response, error) {
+func (a *GlobalCustomerApiService) GlobalCustomerGetEndpointV1Execute(r ApiGlobalCustomerGetEndpointV1Request) (*GlobalCustomerGetEndpointV1Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  GlobalCustomerGetEndpointV1Response
+		localVarReturnValue  *GlobalCustomerGetEndpointV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GlobalCustomerApiService.GlobalCustomerGetEndpointV1")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/1/customer/{pksCustomerCode}/endpoint"
-	localVarPath = strings.Replace(localVarPath, "{"+"pksCustomerCode"+"}", _neturl.PathEscape(parameterToString(r.pksCustomerCode, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"pksCustomerCode"+"}", url.PathEscape(parameterToString(r.pksCustomerCode, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if strlen(r.pksCustomerCode) < 2 {
 		return localVarReturnValue, nil, reportError("pksCustomerCode must have at least 2 elements")
 	}
@@ -134,15 +134,15 @@ func (a *GlobalCustomerApiService) GlobalCustomerGetEndpointV1Execute(r ApiGloba
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -160,7 +160,7 @@ func (a *GlobalCustomerApiService) GlobalCustomerGetEndpointV1Execute(r ApiGloba
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}

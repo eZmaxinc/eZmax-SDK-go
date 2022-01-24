@@ -34,8 +34,8 @@ func main() {
     ezsignsignatureCreateObjectV1Request := []openapiclient.EzsignsignatureCreateObjectV1Request{*openapiclient.NewEzsignsignatureCreateObjectV1Request()} // []EzsignsignatureCreateObjectV1Request | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsignsignatureApi.EzsignsignatureCreateObjectV1(context.Background()).EzsignsignatureCreateObjectV1Request(ezsignsignatureCreateObjectV1Request).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsignsignatureApi.EzsignsignatureCreateObjectV1(context.Background()).EzsignsignatureCreateObjectV1Request(ezsignsignatureCreateObjectV1Request).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignatureApi.EzsignsignatureCreateObjectV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -98,8 +98,8 @@ func main() {
     pkiEzsignsignatureID := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsignsignatureApi.EzsignsignatureDeleteObjectV1(context.Background(), pkiEzsignsignatureID).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsignsignatureApi.EzsignsignatureDeleteObjectV1(context.Background(), pkiEzsignsignatureID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignatureApi.EzsignsignatureDeleteObjectV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -168,8 +168,8 @@ func main() {
     pkiEzsignsignatureID := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsignsignatureApi.EzsignsignatureGetObjectV1(context.Background(), pkiEzsignsignatureID).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsignsignatureApi.EzsignsignatureGetObjectV1(context.Background(), pkiEzsignsignatureID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignatureApi.EzsignsignatureGetObjectV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

@@ -13,22 +13,22 @@ package eZmaxApi
 
 import (
 	"bytes"
-	_context "context"
-	_ioutil "io/ioutil"
-	_nethttp "net/http"
-	_neturl "net/url"
+	"context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
 )
 
 // Linger please
 var (
-	_ _context.Context
+	_ context.Context
 )
 
 // ModuleUserApiService ModuleUserApi service
 type ModuleUserApiService service
 
 type ApiUserCreateEzsignuserV1Request struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ModuleUserApiService
 	userCreateEzsignuserV1Request *[]UserCreateEzsignuserV1Request
 }
@@ -38,7 +38,7 @@ func (r ApiUserCreateEzsignuserV1Request) UserCreateEzsignuserV1Request(userCrea
 	return r
 }
 
-func (r ApiUserCreateEzsignuserV1Request) Execute() (UserCreateEzsignuserV1Response, *_nethttp.Response, error) {
+func (r ApiUserCreateEzsignuserV1Request) Execute() (*UserCreateEzsignuserV1Response, *http.Response, error) {
 	return r.ApiService.UserCreateEzsignuserV1Execute(r)
 }
 
@@ -49,10 +49,10 @@ The endpoint allows to initiate the creation or a user of type Ezsignuser.
 
 The user will be created only once the email verification process will be completed
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiUserCreateEzsignuserV1Request
 */
-func (a *ModuleUserApiService) UserCreateEzsignuserV1(ctx _context.Context) ApiUserCreateEzsignuserV1Request {
+func (a *ModuleUserApiService) UserCreateEzsignuserV1(ctx context.Context) ApiUserCreateEzsignuserV1Request {
 	return ApiUserCreateEzsignuserV1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -61,24 +61,24 @@ func (a *ModuleUserApiService) UserCreateEzsignuserV1(ctx _context.Context) ApiU
 
 // Execute executes the request
 //  @return UserCreateEzsignuserV1Response
-func (a *ModuleUserApiService) UserCreateEzsignuserV1Execute(r ApiUserCreateEzsignuserV1Request) (UserCreateEzsignuserV1Response, *_nethttp.Response, error) {
+func (a *ModuleUserApiService) UserCreateEzsignuserV1Execute(r ApiUserCreateEzsignuserV1Request) (*UserCreateEzsignuserV1Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  UserCreateEzsignuserV1Response
+		localVarReturnValue  *UserCreateEzsignuserV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModuleUserApiService.UserCreateEzsignuserV1")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/1/module/user/createezsignuser"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.userCreateEzsignuserV1Request == nil {
 		return localVarReturnValue, nil, reportError("userCreateEzsignuserV1Request is required and must be specified")
 	}
@@ -126,15 +126,15 @@ func (a *ModuleUserApiService) UserCreateEzsignuserV1Execute(r ApiUserCreateEzsi
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -143,7 +143,7 @@ func (a *ModuleUserApiService) UserCreateEzsignuserV1Execute(r ApiUserCreateEzsi
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}

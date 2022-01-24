@@ -33,8 +33,8 @@ func main() {
     sQuery := "sQuery_example" // string | Allow to filter the returned results (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectPeriodApi.PeriodGetAutocompleteV1(context.Background(), sSelector).SQuery(sQuery).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectPeriodApi.PeriodGetAutocompleteV1(context.Background(), sSelector).SQuery(sQuery).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectPeriodApi.PeriodGetAutocompleteV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

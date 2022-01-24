@@ -195,11 +195,11 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetARegisteredModules() []st
 
 // GetARegisteredModulesOk returns a tuple with the ARegisteredModules field value
 // and a boolean to check if the value has been set.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetARegisteredModulesOk() (*[]string, bool) {
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetARegisteredModulesOk() ([]string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.ARegisteredModules, true
+	return o.ARegisteredModules, true
 }
 
 // SetARegisteredModules sets field value
@@ -219,11 +219,11 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetAPermissions() []int32 {
 
 // GetAPermissionsOk returns a tuple with the APermissions field value
 // and a boolean to check if the value has been set.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetAPermissionsOk() (*[]int32, bool) {
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetAPermissionsOk() ([]int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.APermissions, true
+	return o.APermissions, true
 }
 
 // SetAPermissions sets field value

@@ -78,11 +78,11 @@ func (o *CustomWordPositionWordResponse) GetAObjWordPositionOccurence() []Custom
 
 // GetAObjWordPositionOccurenceOk returns a tuple with the AObjWordPositionOccurence field value
 // and a boolean to check if the value has been set.
-func (o *CustomWordPositionWordResponse) GetAObjWordPositionOccurenceOk() (*[]CustomWordPositionOccurenceResponse, bool) {
+func (o *CustomWordPositionWordResponse) GetAObjWordPositionOccurenceOk() ([]CustomWordPositionOccurenceResponse, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.AObjWordPositionOccurence, true
+	return o.AObjWordPositionOccurence, true
 }
 
 // SetAObjWordPositionOccurence sets field value

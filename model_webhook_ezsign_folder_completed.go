@@ -103,11 +103,11 @@ func (o *WebhookEzsignFolderCompleted) GetAObjAttempt() []AttemptResponse {
 
 // GetAObjAttemptOk returns a tuple with the AObjAttempt field value
 // and a boolean to check if the value has been set.
-func (o *WebhookEzsignFolderCompleted) GetAObjAttemptOk() (*[]AttemptResponse, bool) {
+func (o *WebhookEzsignFolderCompleted) GetAObjAttemptOk() ([]AttemptResponse, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.AObjAttempt, true
+	return o.AObjAttempt, true
 }
 
 // SetAObjAttempt sets field value

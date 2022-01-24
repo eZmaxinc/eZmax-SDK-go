@@ -22,7 +22,7 @@ type EzsigndocumentGetWordsPositionsV1Request struct {
 	// IF *true*, words will be searched case-sensitive and results will be returned case-sensitive. IF *false*, words will be searched case-insensitive and results will be returned case-insensitive.
 	BWordCaseSensitive bool `json:"bWordCaseSensitive"`
 	// Array of words to find in the document
-	ASWord *[]string `json:"a_sWord,omitempty"`
+	ASWord []string `json:"a_sWord,omitempty"`
 }
 
 // NewEzsigndocumentGetWordsPositionsV1Request instantiates a new EzsigndocumentGetWordsPositionsV1Request object
@@ -98,12 +98,12 @@ func (o *EzsigndocumentGetWordsPositionsV1Request) GetASWord() []string {
 		var ret []string
 		return ret
 	}
-	return *o.ASWord
+	return o.ASWord
 }
 
 // GetASWordOk returns a tuple with the ASWord field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EzsigndocumentGetWordsPositionsV1Request) GetASWordOk() (*[]string, bool) {
+func (o *EzsigndocumentGetWordsPositionsV1Request) GetASWordOk() ([]string, bool) {
 	if o == nil || o.ASWord == nil {
 		return nil, false
 	}
@@ -121,7 +121,7 @@ func (o *EzsigndocumentGetWordsPositionsV1Request) HasASWord() bool {
 
 // SetASWord gets a reference to the given []string and assigns it to the ASWord field.
 func (o *EzsigndocumentGetWordsPositionsV1Request) SetASWord(v []string) {
-	o.ASWord = &v
+	o.ASWord = v
 }
 
 func (o EzsigndocumentGetWordsPositionsV1Request) MarshalJSON() ([]byte, error) {

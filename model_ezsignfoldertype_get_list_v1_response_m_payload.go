@@ -56,11 +56,11 @@ func (o *EzsignfoldertypeGetListV1ResponseMPayload) GetAObjEzsignfoldertype() []
 
 // GetAObjEzsignfoldertypeOk returns a tuple with the AObjEzsignfoldertype field value
 // and a boolean to check if the value has been set.
-func (o *EzsignfoldertypeGetListV1ResponseMPayload) GetAObjEzsignfoldertypeOk() (*[]EzsignfoldertypeListElement, bool) {
+func (o *EzsignfoldertypeGetListV1ResponseMPayload) GetAObjEzsignfoldertypeOk() ([]EzsignfoldertypeListElement, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.AObjEzsignfoldertype, true
+	return o.AObjEzsignfoldertype, true
 }
 
 // SetAObjEzsignfoldertype sets field value

@@ -25,7 +25,7 @@ type EzsignsignatureRequest struct {
 	IEzsignsignatureX int32 `json:"iEzsignsignatureX"`
 	// The Y coordinate (Vertical) where to put the signature block on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the signature block 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.
 	IEzsignsignatureY int32 `json:"iEzsignsignatureY"`
-	// The step when the Ezsignsigner will be invited to sign.
+	// The step when the Ezsignsigner will be invited to sign or fill form fields
 	IEzsignsignatureStep int32 `json:"iEzsignsignatureStep"`
 	EEzsignsignatureType FieldEEzsignsignatureType `json:"eEzsignsignatureType"`
 	// The unique ID of the Ezsigndocument

@@ -141,11 +141,11 @@ func (o *ListpresentationRequest) GetASColumnName() []string {
 
 // GetASColumnNameOk returns a tuple with the ASColumnName field value
 // and a boolean to check if the value has been set.
-func (o *ListpresentationRequest) GetASColumnNameOk() (*[]string, bool) {
+func (o *ListpresentationRequest) GetASColumnNameOk() ([]string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.ASColumnName, true
+	return o.ASColumnName, true
 }
 
 // SetASColumnName sets field value

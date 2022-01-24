@@ -13,22 +13,22 @@ package eZmaxApi
 
 import (
 	"bytes"
-	_context "context"
-	_ioutil "io/ioutil"
-	_nethttp "net/http"
-	_neturl "net/url"
+	"context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
 )
 
 // Linger please
 var (
-	_ _context.Context
+	_ context.Context
 )
 
 // ObjectApikeyApiService ObjectApikeyApi service
 type ObjectApikeyApiService service
 
 type ApiApikeyCreateObjectV1Request struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ObjectApikeyApiService
 	apikeyCreateObjectV1Request *[]ApikeyCreateObjectV1Request
 }
@@ -38,7 +38,7 @@ func (r ApiApikeyCreateObjectV1Request) ApikeyCreateObjectV1Request(apikeyCreate
 	return r
 }
 
-func (r ApiApikeyCreateObjectV1Request) Execute() (ApikeyCreateObjectV1Response, *_nethttp.Response, error) {
+func (r ApiApikeyCreateObjectV1Request) Execute() (*ApikeyCreateObjectV1Response, *http.Response, error) {
 	return r.ApiService.ApikeyCreateObjectV1Execute(r)
 }
 
@@ -51,10 +51,10 @@ The array can contain simple (Just the object) or compound (The object and its c
 
 Creating compound elements allows to reduce the multiple requests to create all child objects.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApikeyCreateObjectV1Request
 */
-func (a *ObjectApikeyApiService) ApikeyCreateObjectV1(ctx _context.Context) ApiApikeyCreateObjectV1Request {
+func (a *ObjectApikeyApiService) ApikeyCreateObjectV1(ctx context.Context) ApiApikeyCreateObjectV1Request {
 	return ApiApikeyCreateObjectV1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -63,24 +63,24 @@ func (a *ObjectApikeyApiService) ApikeyCreateObjectV1(ctx _context.Context) ApiA
 
 // Execute executes the request
 //  @return ApikeyCreateObjectV1Response
-func (a *ObjectApikeyApiService) ApikeyCreateObjectV1Execute(r ApiApikeyCreateObjectV1Request) (ApikeyCreateObjectV1Response, *_nethttp.Response, error) {
+func (a *ObjectApikeyApiService) ApikeyCreateObjectV1Execute(r ApiApikeyCreateObjectV1Request) (*ApikeyCreateObjectV1Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  ApikeyCreateObjectV1Response
+		localVarReturnValue  *ApikeyCreateObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectApikeyApiService.ApikeyCreateObjectV1")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/1/object/apikey"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.apikeyCreateObjectV1Request == nil {
 		return localVarReturnValue, nil, reportError("apikeyCreateObjectV1Request is required and must be specified")
 	}
@@ -128,15 +128,15 @@ func (a *ObjectApikeyApiService) ApikeyCreateObjectV1Execute(r ApiApikeyCreateOb
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -145,7 +145,7 @@ func (a *ObjectApikeyApiService) ApikeyCreateObjectV1Execute(r ApiApikeyCreateOb
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}

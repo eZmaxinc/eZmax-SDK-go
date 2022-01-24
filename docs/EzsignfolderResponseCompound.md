@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **EEzsignfolderSendreminderfrequency** | [**FieldEEzsignfolderSendreminderfrequency**](FieldEEzsignfolderSendreminderfrequency.md) |  | 
 **DtEzsignfolderDuedate** | **string** | The maximum date and time at which the Ezsignfolder can be signed. | 
 **DtEzsignfolderSentdate** | **NullableString** | The date and time at which the Ezsign folder was sent the last time. | 
+**DtEzsignfolderScheduledarchive** | **string** | The scheduled date and time at which the Ezsignfolder should be archived. | 
+**DtEzsignfolderScheduleddestruction** | **string** | The scheduled date and time at which the Ezsignfolder should be Destroyed. | 
 **EEzsignfolderStep** | [**FieldEEzsignfolderStep**](FieldEEzsignfolderStep.md) |  | 
 **DtEzsignfolderClose** | **string** | The date and time at which the folder was closed. Either by applying the last signature or by completing it prematurely. | 
 **ObjAudit** | [**CommonAudit**](CommonAudit.md) |  | 
@@ -24,7 +26,7 @@ Name | Type | Description | Notes
 
 ### NewEzsignfolderResponseCompound
 
-`func NewEzsignfolderResponseCompound(pkiEzsignfolderID int32, fkiEzsignfoldertypeID int32, sEzsignfoldertypeNameX string, fkiBillingentityinternalID int32, sBillingentityinternalDescriptionX string, fkiEzsigntsarequirementID int32, sEzsigntsarequirementDescriptionX string, sEzsignfolderDescription string, tEzsignfolderNote string, eEzsignfolderSendreminderfrequency FieldEEzsignfolderSendreminderfrequency, dtEzsignfolderDuedate string, dtEzsignfolderSentdate NullableString, eEzsignfolderStep FieldEEzsignfolderStep, dtEzsignfolderClose string, objAudit CommonAudit, ) *EzsignfolderResponseCompound`
+`func NewEzsignfolderResponseCompound(pkiEzsignfolderID int32, fkiEzsignfoldertypeID int32, sEzsignfoldertypeNameX string, fkiBillingentityinternalID int32, sBillingentityinternalDescriptionX string, fkiEzsigntsarequirementID int32, sEzsigntsarequirementDescriptionX string, sEzsignfolderDescription string, tEzsignfolderNote string, eEzsignfolderSendreminderfrequency FieldEEzsignfolderSendreminderfrequency, dtEzsignfolderDuedate string, dtEzsignfolderSentdate NullableString, dtEzsignfolderScheduledarchive string, dtEzsignfolderScheduleddestruction string, eEzsignfolderStep FieldEEzsignfolderStep, dtEzsignfolderClose string, objAudit CommonAudit, ) *EzsignfolderResponseCompound`
 
 NewEzsignfolderResponseCompound instantiates a new EzsignfolderResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -289,6 +291,46 @@ SetDtEzsignfolderSentdate sets DtEzsignfolderSentdate field to given value.
 `func (o *EzsignfolderResponseCompound) UnsetDtEzsignfolderSentdate()`
 
 UnsetDtEzsignfolderSentdate ensures that no value is present for DtEzsignfolderSentdate, not even an explicit nil
+### GetDtEzsignfolderScheduledarchive
+
+`func (o *EzsignfolderResponseCompound) GetDtEzsignfolderScheduledarchive() string`
+
+GetDtEzsignfolderScheduledarchive returns the DtEzsignfolderScheduledarchive field if non-nil, zero value otherwise.
+
+### GetDtEzsignfolderScheduledarchiveOk
+
+`func (o *EzsignfolderResponseCompound) GetDtEzsignfolderScheduledarchiveOk() (*string, bool)`
+
+GetDtEzsignfolderScheduledarchiveOk returns a tuple with the DtEzsignfolderScheduledarchive field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDtEzsignfolderScheduledarchive
+
+`func (o *EzsignfolderResponseCompound) SetDtEzsignfolderScheduledarchive(v string)`
+
+SetDtEzsignfolderScheduledarchive sets DtEzsignfolderScheduledarchive field to given value.
+
+
+### GetDtEzsignfolderScheduleddestruction
+
+`func (o *EzsignfolderResponseCompound) GetDtEzsignfolderScheduleddestruction() string`
+
+GetDtEzsignfolderScheduleddestruction returns the DtEzsignfolderScheduleddestruction field if non-nil, zero value otherwise.
+
+### GetDtEzsignfolderScheduleddestructionOk
+
+`func (o *EzsignfolderResponseCompound) GetDtEzsignfolderScheduleddestructionOk() (*string, bool)`
+
+GetDtEzsignfolderScheduleddestructionOk returns a tuple with the DtEzsignfolderScheduleddestruction field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDtEzsignfolderScheduleddestruction
+
+`func (o *EzsignfolderResponseCompound) SetDtEzsignfolderScheduleddestruction(v string)`
+
+SetDtEzsignfolderScheduleddestruction sets DtEzsignfolderScheduleddestruction field to given value.
+
+
 ### GetEEzsignfolderStep
 
 `func (o *EzsignfolderResponseCompound) GetEEzsignfolderStep() FieldEEzsignfolderStep`

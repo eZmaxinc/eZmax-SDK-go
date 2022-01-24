@@ -35,8 +35,8 @@ func main() {
     acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsignfoldertypeApi.EzsignfoldertypeGetAutocompleteV1(context.Background(), sSelector).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsignfoldertypeApi.EzsignfoldertypeGetAutocompleteV1(context.Background(), sSelector).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldertypeApi.EzsignfoldertypeGetAutocompleteV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -111,8 +111,8 @@ func main() {
     sFilter := "sFilter_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsignfoldertypeApi.EzsignfoldertypeGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsignfoldertypeApi.EzsignfoldertypeGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldertypeApi.EzsignfoldertypeGetListV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

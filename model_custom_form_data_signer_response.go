@@ -165,11 +165,11 @@ func (o *CustomFormDataSignerResponse) GetAObjEzsignformfieldgroupCompound() []E
 
 // GetAObjEzsignformfieldgroupCompoundOk returns a tuple with the AObjEzsignformfieldgroupCompound field value
 // and a boolean to check if the value has been set.
-func (o *CustomFormDataSignerResponse) GetAObjEzsignformfieldgroupCompoundOk() (*[]EzsignformfieldgroupResponseCompound, bool) {
+func (o *CustomFormDataSignerResponse) GetAObjEzsignformfieldgroupCompoundOk() ([]EzsignformfieldgroupResponseCompound, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.AObjEzsignformfieldgroupCompound, true
+	return o.AObjEzsignformfieldgroupCompound, true
 }
 
 // SetAObjEzsignformfieldgroupCompound sets field value

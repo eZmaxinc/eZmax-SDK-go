@@ -35,8 +35,8 @@ func main() {
     ezsignfoldersignerassociationCreateObjectV1Request := []openapiclient.EzsignfoldersignerassociationCreateObjectV1Request{*openapiclient.NewEzsignfoldersignerassociationCreateObjectV1Request()} // []EzsignfoldersignerassociationCreateObjectV1Request | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsignfoldersignerassociationApi.EzsignfoldersignerassociationCreateObjectV1(context.Background()).EzsignfoldersignerassociationCreateObjectV1Request(ezsignfoldersignerassociationCreateObjectV1Request).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsignfoldersignerassociationApi.EzsignfoldersignerassociationCreateObjectV1(context.Background()).EzsignfoldersignerassociationCreateObjectV1Request(ezsignfoldersignerassociationCreateObjectV1Request).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldersignerassociationApi.EzsignfoldersignerassociationCreateObjectV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -99,8 +99,8 @@ func main() {
     pkiEzsignfoldersignerassociationID := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsignfoldersignerassociationApi.EzsignfoldersignerassociationDeleteObjectV1(context.Background(), pkiEzsignfoldersignerassociationID).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsignfoldersignerassociationApi.EzsignfoldersignerassociationDeleteObjectV1(context.Background(), pkiEzsignfoldersignerassociationID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldersignerassociationApi.EzsignfoldersignerassociationDeleteObjectV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -169,8 +169,8 @@ func main() {
     pkiEzsignfoldersignerassociationID := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsignfoldersignerassociationApi.EzsignfoldersignerassociationGetInPersonLoginUrlV1(context.Background(), pkiEzsignfoldersignerassociationID).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsignfoldersignerassociationApi.EzsignfoldersignerassociationGetInPersonLoginUrlV1(context.Background(), pkiEzsignfoldersignerassociationID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldersignerassociationApi.EzsignfoldersignerassociationGetInPersonLoginUrlV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -237,8 +237,8 @@ func main() {
     pkiEzsignfoldersignerassociationID := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ObjectEzsignfoldersignerassociationApi.EzsignfoldersignerassociationGetObjectV1(context.Background(), pkiEzsignfoldersignerassociationID).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsignfoldersignerassociationApi.EzsignfoldersignerassociationGetObjectV1(context.Background(), pkiEzsignfoldersignerassociationID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldersignerassociationApi.EzsignfoldersignerassociationGetObjectV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

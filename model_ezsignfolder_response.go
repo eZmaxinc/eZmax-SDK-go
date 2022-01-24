@@ -40,6 +40,10 @@ type EzsignfolderResponse struct {
 	DtEzsignfolderDuedate string `json:"dtEzsignfolderDuedate"`
 	// The date and time at which the Ezsign folder was sent the last time.
 	DtEzsignfolderSentdate NullableString `json:"dtEzsignfolderSentdate"`
+	// The scheduled date and time at which the Ezsignfolder should be archived.
+	DtEzsignfolderScheduledarchive string `json:"dtEzsignfolderScheduledarchive"`
+	// The scheduled date and time at which the Ezsignfolder should be Destroyed.
+	DtEzsignfolderScheduleddestruction string `json:"dtEzsignfolderScheduleddestruction"`
 	EEzsignfolderStep FieldEEzsignfolderStep `json:"eEzsignfolderStep"`
 	// The date and time at which the folder was closed. Either by applying the last signature or by completing it prematurely.
 	DtEzsignfolderClose string `json:"dtEzsignfolderClose"`
@@ -50,7 +54,7 @@ type EzsignfolderResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfolderResponse(pkiEzsignfolderID int32, fkiEzsignfoldertypeID int32, sEzsignfoldertypeNameX string, fkiBillingentityinternalID int32, sBillingentityinternalDescriptionX string, fkiEzsigntsarequirementID int32, sEzsigntsarequirementDescriptionX string, sEzsignfolderDescription string, tEzsignfolderNote string, eEzsignfolderSendreminderfrequency FieldEEzsignfolderSendreminderfrequency, dtEzsignfolderDuedate string, dtEzsignfolderSentdate NullableString, eEzsignfolderStep FieldEEzsignfolderStep, dtEzsignfolderClose string, objAudit CommonAudit) *EzsignfolderResponse {
+func NewEzsignfolderResponse(pkiEzsignfolderID int32, fkiEzsignfoldertypeID int32, sEzsignfoldertypeNameX string, fkiBillingentityinternalID int32, sBillingentityinternalDescriptionX string, fkiEzsigntsarequirementID int32, sEzsigntsarequirementDescriptionX string, sEzsignfolderDescription string, tEzsignfolderNote string, eEzsignfolderSendreminderfrequency FieldEEzsignfolderSendreminderfrequency, dtEzsignfolderDuedate string, dtEzsignfolderSentdate NullableString, dtEzsignfolderScheduledarchive string, dtEzsignfolderScheduleddestruction string, eEzsignfolderStep FieldEEzsignfolderStep, dtEzsignfolderClose string, objAudit CommonAudit) *EzsignfolderResponse {
 	this := EzsignfolderResponse{}
 	this.PkiEzsignfolderID = pkiEzsignfolderID
 	this.FkiEzsignfoldertypeID = fkiEzsignfoldertypeID
@@ -64,6 +68,8 @@ func NewEzsignfolderResponse(pkiEzsignfolderID int32, fkiEzsignfoldertypeID int3
 	this.EEzsignfolderSendreminderfrequency = eEzsignfolderSendreminderfrequency
 	this.DtEzsignfolderDuedate = dtEzsignfolderDuedate
 	this.DtEzsignfolderSentdate = dtEzsignfolderSentdate
+	this.DtEzsignfolderScheduledarchive = dtEzsignfolderScheduledarchive
+	this.DtEzsignfolderScheduleddestruction = dtEzsignfolderScheduleddestruction
 	this.EEzsignfolderStep = eEzsignfolderStep
 	this.DtEzsignfolderClose = dtEzsignfolderClose
 	this.ObjAudit = objAudit
@@ -368,6 +374,54 @@ func (o *EzsignfolderResponse) SetDtEzsignfolderSentdate(v string) {
 	o.DtEzsignfolderSentdate.Set(&v)
 }
 
+// GetDtEzsignfolderScheduledarchive returns the DtEzsignfolderScheduledarchive field value
+func (o *EzsignfolderResponse) GetDtEzsignfolderScheduledarchive() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.DtEzsignfolderScheduledarchive
+}
+
+// GetDtEzsignfolderScheduledarchiveOk returns a tuple with the DtEzsignfolderScheduledarchive field value
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderResponse) GetDtEzsignfolderScheduledarchiveOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.DtEzsignfolderScheduledarchive, true
+}
+
+// SetDtEzsignfolderScheduledarchive sets field value
+func (o *EzsignfolderResponse) SetDtEzsignfolderScheduledarchive(v string) {
+	o.DtEzsignfolderScheduledarchive = v
+}
+
+// GetDtEzsignfolderScheduleddestruction returns the DtEzsignfolderScheduleddestruction field value
+func (o *EzsignfolderResponse) GetDtEzsignfolderScheduleddestruction() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.DtEzsignfolderScheduleddestruction
+}
+
+// GetDtEzsignfolderScheduleddestructionOk returns a tuple with the DtEzsignfolderScheduleddestruction field value
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderResponse) GetDtEzsignfolderScheduleddestructionOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.DtEzsignfolderScheduleddestruction, true
+}
+
+// SetDtEzsignfolderScheduleddestruction sets field value
+func (o *EzsignfolderResponse) SetDtEzsignfolderScheduleddestruction(v string) {
+	o.DtEzsignfolderScheduleddestruction = v
+}
+
 // GetEEzsignfolderStep returns the EEzsignfolderStep field value
 func (o *EzsignfolderResponse) GetEEzsignfolderStep() FieldEEzsignfolderStep {
 	if o == nil {
@@ -477,6 +531,12 @@ func (o EzsignfolderResponse) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["dtEzsignfolderSentdate"] = o.DtEzsignfolderSentdate.Get()
+	}
+	if true {
+		toSerialize["dtEzsignfolderScheduledarchive"] = o.DtEzsignfolderScheduledarchive
+	}
+	if true {
+		toSerialize["dtEzsignfolderScheduleddestruction"] = o.DtEzsignfolderScheduleddestruction
 	}
 	if true {
 		toSerialize["eEzsignfolderStep"] = o.EEzsignfolderStep

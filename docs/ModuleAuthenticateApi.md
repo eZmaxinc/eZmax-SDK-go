@@ -33,8 +33,8 @@ func main() {
     authenticateAuthenticateV2Request := *openapiclient.NewAuthenticateAuthenticateV2Request("demo") // AuthenticateAuthenticateV2Request | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ModuleAuthenticateApi.AuthenticateAuthenticateV2(context.Background(), eSessionType).AuthenticateAuthenticateV2Request(authenticateAuthenticateV2Request).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ModuleAuthenticateApi.AuthenticateAuthenticateV2(context.Background(), eSessionType).AuthenticateAuthenticateV2Request(authenticateAuthenticateV2Request).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ModuleAuthenticateApi.AuthenticateAuthenticateV2``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

@@ -104,11 +104,11 @@ func (o *CustomFormsDataFolderResponse) GetAObjFormDataDocument() []CustomFormDa
 
 // GetAObjFormDataDocumentOk returns a tuple with the AObjFormDataDocument field value
 // and a boolean to check if the value has been set.
-func (o *CustomFormsDataFolderResponse) GetAObjFormDataDocumentOk() (*[]CustomFormDataDocumentResponse, bool) {
+func (o *CustomFormsDataFolderResponse) GetAObjFormDataDocumentOk() ([]CustomFormDataDocumentResponse, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.AObjFormDataDocument, true
+	return o.AObjFormDataDocument, true
 }
 
 // SetAObjFormDataDocument sets field value
