@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**BEzsignsignatureCustomdate** | Pointer to **bool** | Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is \&quot;Name\&quot; or \&quot;Handwritten\&quot;) | [optional] 
+**AObjEzsignsignaturecustomdate** | Pointer to [**[]EzsignsignaturecustomdateRequest**](EzsignsignaturecustomdateRequest.md) | An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don&#39;t want to have a date at all. | [optional] 
 **FkiEzsignfoldersignerassociationID** | **int32** | The unique ID of the Ezsignfoldersignerassociation | 
 **IEzsignpagePagenumber** | **int32** | The page number in the Ezsigndocument | 
 **IEzsignsignatureX** | **int32** | The X coordinate (Horizontal) where to put the signature block on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the signature block 2 inches from the left border of the page, you would use \&quot;200\&quot; for the X coordinate. | 
@@ -30,6 +32,56 @@ will change when the set of required properties is changed
 NewEzsignsignatureRequestCompoundWithDefaults instantiates a new EzsignsignatureRequestCompound object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetBEzsignsignatureCustomdate
+
+`func (o *EzsignsignatureRequestCompound) GetBEzsignsignatureCustomdate() bool`
+
+GetBEzsignsignatureCustomdate returns the BEzsignsignatureCustomdate field if non-nil, zero value otherwise.
+
+### GetBEzsignsignatureCustomdateOk
+
+`func (o *EzsignsignatureRequestCompound) GetBEzsignsignatureCustomdateOk() (*bool, bool)`
+
+GetBEzsignsignatureCustomdateOk returns a tuple with the BEzsignsignatureCustomdate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsignsignatureCustomdate
+
+`func (o *EzsignsignatureRequestCompound) SetBEzsignsignatureCustomdate(v bool)`
+
+SetBEzsignsignatureCustomdate sets BEzsignsignatureCustomdate field to given value.
+
+### HasBEzsignsignatureCustomdate
+
+`func (o *EzsignsignatureRequestCompound) HasBEzsignsignatureCustomdate() bool`
+
+HasBEzsignsignatureCustomdate returns a boolean if a field has been set.
+
+### GetAObjEzsignsignaturecustomdate
+
+`func (o *EzsignsignatureRequestCompound) GetAObjEzsignsignaturecustomdate() []EzsignsignaturecustomdateRequest`
+
+GetAObjEzsignsignaturecustomdate returns the AObjEzsignsignaturecustomdate field if non-nil, zero value otherwise.
+
+### GetAObjEzsignsignaturecustomdateOk
+
+`func (o *EzsignsignatureRequestCompound) GetAObjEzsignsignaturecustomdateOk() (*[]EzsignsignaturecustomdateRequest, bool)`
+
+GetAObjEzsignsignaturecustomdateOk returns a tuple with the AObjEzsignsignaturecustomdate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAObjEzsignsignaturecustomdate
+
+`func (o *EzsignsignatureRequestCompound) SetAObjEzsignsignaturecustomdate(v []EzsignsignaturecustomdateRequest)`
+
+SetAObjEzsignsignaturecustomdate sets AObjEzsignsignaturecustomdate field to given value.
+
+### HasAObjEzsignsignaturecustomdate
+
+`func (o *EzsignsignatureRequestCompound) HasAObjEzsignsignaturecustomdate() bool`
+
+HasAObjEzsignsignaturecustomdate returns a boolean if a field has been set.
 
 ### GetFkiEzsignfoldersignerassociationID
 

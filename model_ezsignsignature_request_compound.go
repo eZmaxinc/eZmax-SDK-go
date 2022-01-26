@@ -17,6 +17,10 @@ import (
 
 // EzsignsignatureRequestCompound An Ezsignsignature Object and children to create a complete structure
 type EzsignsignatureRequestCompound struct {
+	// Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is \"Name\" or \"Handwritten\")
+	BEzsignsignatureCustomdate *bool `json:"bEzsignsignatureCustomdate,omitempty"`
+	// An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.
+	AObjEzsignsignaturecustomdate []EzsignsignaturecustomdateRequest `json:"a_objEzsignsignaturecustomdate,omitempty"`
 	// The unique ID of the Ezsignfoldersignerassociation
 	FkiEzsignfoldersignerassociationID int32 `json:"fkiEzsignfoldersignerassociationID"`
 	// The page number in the Ezsigndocument
@@ -54,6 +58,70 @@ func NewEzsignsignatureRequestCompound(fkiEzsignfoldersignerassociationID int32,
 func NewEzsignsignatureRequestCompoundWithDefaults() *EzsignsignatureRequestCompound {
 	this := EzsignsignatureRequestCompound{}
 	return &this
+}
+
+// GetBEzsignsignatureCustomdate returns the BEzsignsignatureCustomdate field value if set, zero value otherwise.
+func (o *EzsignsignatureRequestCompound) GetBEzsignsignatureCustomdate() bool {
+	if o == nil || o.BEzsignsignatureCustomdate == nil {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignsignatureCustomdate
+}
+
+// GetBEzsignsignatureCustomdateOk returns a tuple with the BEzsignsignatureCustomdate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureRequestCompound) GetBEzsignsignatureCustomdateOk() (*bool, bool) {
+	if o == nil || o.BEzsignsignatureCustomdate == nil {
+		return nil, false
+	}
+	return o.BEzsignsignatureCustomdate, true
+}
+
+// HasBEzsignsignatureCustomdate returns a boolean if a field has been set.
+func (o *EzsignsignatureRequestCompound) HasBEzsignsignatureCustomdate() bool {
+	if o != nil && o.BEzsignsignatureCustomdate != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignsignatureCustomdate gets a reference to the given bool and assigns it to the BEzsignsignatureCustomdate field.
+func (o *EzsignsignatureRequestCompound) SetBEzsignsignatureCustomdate(v bool) {
+	o.BEzsignsignatureCustomdate = &v
+}
+
+// GetAObjEzsignsignaturecustomdate returns the AObjEzsignsignaturecustomdate field value if set, zero value otherwise.
+func (o *EzsignsignatureRequestCompound) GetAObjEzsignsignaturecustomdate() []EzsignsignaturecustomdateRequest {
+	if o == nil || o.AObjEzsignsignaturecustomdate == nil {
+		var ret []EzsignsignaturecustomdateRequest
+		return ret
+	}
+	return o.AObjEzsignsignaturecustomdate
+}
+
+// GetAObjEzsignsignaturecustomdateOk returns a tuple with the AObjEzsignsignaturecustomdate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureRequestCompound) GetAObjEzsignsignaturecustomdateOk() ([]EzsignsignaturecustomdateRequest, bool) {
+	if o == nil || o.AObjEzsignsignaturecustomdate == nil {
+		return nil, false
+	}
+	return o.AObjEzsignsignaturecustomdate, true
+}
+
+// HasAObjEzsignsignaturecustomdate returns a boolean if a field has been set.
+func (o *EzsignsignatureRequestCompound) HasAObjEzsignsignaturecustomdate() bool {
+	if o != nil && o.AObjEzsignsignaturecustomdate != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAObjEzsignsignaturecustomdate gets a reference to the given []EzsignsignaturecustomdateRequest and assigns it to the AObjEzsignsignaturecustomdate field.
+func (o *EzsignsignatureRequestCompound) SetAObjEzsignsignaturecustomdate(v []EzsignsignaturecustomdateRequest) {
+	o.AObjEzsignsignaturecustomdate = v
 }
 
 // GetFkiEzsignfoldersignerassociationID returns the FkiEzsignfoldersignerassociationID field value
@@ -226,6 +294,12 @@ func (o *EzsignsignatureRequestCompound) SetFkiEzsigndocumentID(v int32) {
 
 func (o EzsignsignatureRequestCompound) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.BEzsignsignatureCustomdate != nil {
+		toSerialize["bEzsignsignatureCustomdate"] = o.BEzsignsignatureCustomdate
+	}
+	if o.AObjEzsignsignaturecustomdate != nil {
+		toSerialize["a_objEzsignsignaturecustomdate"] = o.AObjEzsignsignaturecustomdate
+	}
 	if true {
 		toSerialize["fkiEzsignfoldersignerassociationID"] = o.FkiEzsignfoldersignerassociationID
 	}

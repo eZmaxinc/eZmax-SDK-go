@@ -168,6 +168,7 @@ docs/EzsignsignatureGetObjectV1Response.md
 docs/EzsignsignatureGetObjectV1ResponseAllOf.md
 docs/EzsignsignatureRequest.md
 docs/EzsignsignatureRequestCompound.md
+docs/EzsignsignaturecustomdateRequest.md
 docs/EzsignsignerRequest.md
 docs/EzsignsignerRequestCompound.md
 docs/EzsignsignerRequestCompoundAllOf.md
@@ -400,6 +401,7 @@ model_ezsignsignature_get_object_v1_response.go
 model_ezsignsignature_get_object_v1_response_all_of.go
 model_ezsignsignature_request.go
 model_ezsignsignature_request_compound.go
+model_ezsignsignaturecustomdate_request.go
 model_ezsignsigner_request.go
 model_ezsignsigner_request_compound.go
 model_ezsignsigner_request_compound_all_of.go
