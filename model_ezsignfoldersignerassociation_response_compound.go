@@ -17,14 +17,12 @@ import (
 
 // EzsignfoldersignerassociationResponseCompound An Ezsignfoldersignerassociation Object
 type EzsignfoldersignerassociationResponseCompound struct {
+	ObjUser *EzsignfoldersignerassociationResponseCompoundUser `json:"objUser,omitempty"`
+	ObjEzsignsigner *EzsignsignerResponseCompound `json:"objEzsignsigner,omitempty"`
 	// The unique ID of the Ezsignfoldersignerassociation
 	PkiEzsignfoldersignerassociationID int32 `json:"pkiEzsignfoldersignerassociationID"`
 	// The unique ID of the Ezsignfolder
 	FkiEzsignfolderID int32 `json:"fkiEzsignfolderID"`
-	// The unique ID of the Ezsignsigner
-	FkiEzsignsignerID NullableInt32 `json:"fkiEzsignsignerID"`
-	// The unique ID of the User
-	FkiUserID NullableInt32 `json:"fkiUserID"`
 	// If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document.
 	BEzsignfoldersignerassociationReceivecopy bool `json:"bEzsignfoldersignerassociationReceivecopy"`
 }
@@ -33,12 +31,10 @@ type EzsignfoldersignerassociationResponseCompound struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfoldersignerassociationResponseCompound(pkiEzsignfoldersignerassociationID int32, fkiEzsignfolderID int32, fkiEzsignsignerID NullableInt32, fkiUserID NullableInt32, bEzsignfoldersignerassociationReceivecopy bool) *EzsignfoldersignerassociationResponseCompound {
+func NewEzsignfoldersignerassociationResponseCompound(pkiEzsignfoldersignerassociationID int32, fkiEzsignfolderID int32, bEzsignfoldersignerassociationReceivecopy bool) *EzsignfoldersignerassociationResponseCompound {
 	this := EzsignfoldersignerassociationResponseCompound{}
 	this.PkiEzsignfoldersignerassociationID = pkiEzsignfoldersignerassociationID
 	this.FkiEzsignfolderID = fkiEzsignfolderID
-	this.FkiEzsignsignerID = fkiEzsignsignerID
-	this.FkiUserID = fkiUserID
 	this.BEzsignfoldersignerassociationReceivecopy = bEzsignfoldersignerassociationReceivecopy
 	return &this
 }
@@ -49,6 +45,70 @@ func NewEzsignfoldersignerassociationResponseCompound(pkiEzsignfoldersignerassoc
 func NewEzsignfoldersignerassociationResponseCompoundWithDefaults() *EzsignfoldersignerassociationResponseCompound {
 	this := EzsignfoldersignerassociationResponseCompound{}
 	return &this
+}
+
+// GetObjUser returns the ObjUser field value if set, zero value otherwise.
+func (o *EzsignfoldersignerassociationResponseCompound) GetObjUser() EzsignfoldersignerassociationResponseCompoundUser {
+	if o == nil || o.ObjUser == nil {
+		var ret EzsignfoldersignerassociationResponseCompoundUser
+		return ret
+	}
+	return *o.ObjUser
+}
+
+// GetObjUserOk returns a tuple with the ObjUser field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldersignerassociationResponseCompound) GetObjUserOk() (*EzsignfoldersignerassociationResponseCompoundUser, bool) {
+	if o == nil || o.ObjUser == nil {
+		return nil, false
+	}
+	return o.ObjUser, true
+}
+
+// HasObjUser returns a boolean if a field has been set.
+func (o *EzsignfoldersignerassociationResponseCompound) HasObjUser() bool {
+	if o != nil && o.ObjUser != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetObjUser gets a reference to the given EzsignfoldersignerassociationResponseCompoundUser and assigns it to the ObjUser field.
+func (o *EzsignfoldersignerassociationResponseCompound) SetObjUser(v EzsignfoldersignerassociationResponseCompoundUser) {
+	o.ObjUser = &v
+}
+
+// GetObjEzsignsigner returns the ObjEzsignsigner field value if set, zero value otherwise.
+func (o *EzsignfoldersignerassociationResponseCompound) GetObjEzsignsigner() EzsignsignerResponseCompound {
+	if o == nil || o.ObjEzsignsigner == nil {
+		var ret EzsignsignerResponseCompound
+		return ret
+	}
+	return *o.ObjEzsignsigner
+}
+
+// GetObjEzsignsignerOk returns a tuple with the ObjEzsignsigner field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldersignerassociationResponseCompound) GetObjEzsignsignerOk() (*EzsignsignerResponseCompound, bool) {
+	if o == nil || o.ObjEzsignsigner == nil {
+		return nil, false
+	}
+	return o.ObjEzsignsigner, true
+}
+
+// HasObjEzsignsigner returns a boolean if a field has been set.
+func (o *EzsignfoldersignerassociationResponseCompound) HasObjEzsignsigner() bool {
+	if o != nil && o.ObjEzsignsigner != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetObjEzsignsigner gets a reference to the given EzsignsignerResponseCompound and assigns it to the ObjEzsignsigner field.
+func (o *EzsignfoldersignerassociationResponseCompound) SetObjEzsignsigner(v EzsignsignerResponseCompound) {
+	o.ObjEzsignsigner = &v
 }
 
 // GetPkiEzsignfoldersignerassociationID returns the PkiEzsignfoldersignerassociationID field value
@@ -99,58 +159,6 @@ func (o *EzsignfoldersignerassociationResponseCompound) SetFkiEzsignfolderID(v i
 	o.FkiEzsignfolderID = v
 }
 
-// GetFkiEzsignsignerID returns the FkiEzsignsignerID field value
-// If the value is explicit nil, the zero value for int32 will be returned
-func (o *EzsignfoldersignerassociationResponseCompound) GetFkiEzsignsignerID() int32 {
-	if o == nil || o.FkiEzsignsignerID.Get() == nil {
-		var ret int32
-		return ret
-	}
-
-	return *o.FkiEzsignsignerID.Get()
-}
-
-// GetFkiEzsignsignerIDOk returns a tuple with the FkiEzsignsignerID field value
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *EzsignfoldersignerassociationResponseCompound) GetFkiEzsignsignerIDOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return o.FkiEzsignsignerID.Get(), o.FkiEzsignsignerID.IsSet()
-}
-
-// SetFkiEzsignsignerID sets field value
-func (o *EzsignfoldersignerassociationResponseCompound) SetFkiEzsignsignerID(v int32) {
-	o.FkiEzsignsignerID.Set(&v)
-}
-
-// GetFkiUserID returns the FkiUserID field value
-// If the value is explicit nil, the zero value for int32 will be returned
-func (o *EzsignfoldersignerassociationResponseCompound) GetFkiUserID() int32 {
-	if o == nil || o.FkiUserID.Get() == nil {
-		var ret int32
-		return ret
-	}
-
-	return *o.FkiUserID.Get()
-}
-
-// GetFkiUserIDOk returns a tuple with the FkiUserID field value
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *EzsignfoldersignerassociationResponseCompound) GetFkiUserIDOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return o.FkiUserID.Get(), o.FkiUserID.IsSet()
-}
-
-// SetFkiUserID sets field value
-func (o *EzsignfoldersignerassociationResponseCompound) SetFkiUserID(v int32) {
-	o.FkiUserID.Set(&v)
-}
-
 // GetBEzsignfoldersignerassociationReceivecopy returns the BEzsignfoldersignerassociationReceivecopy field value
 func (o *EzsignfoldersignerassociationResponseCompound) GetBEzsignfoldersignerassociationReceivecopy() bool {
 	if o == nil {
@@ -177,17 +185,17 @@ func (o *EzsignfoldersignerassociationResponseCompound) SetBEzsignfoldersigneras
 
 func (o EzsignfoldersignerassociationResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.ObjUser != nil {
+		toSerialize["objUser"] = o.ObjUser
+	}
+	if o.ObjEzsignsigner != nil {
+		toSerialize["objEzsignsigner"] = o.ObjEzsignsigner
+	}
 	if true {
 		toSerialize["pkiEzsignfoldersignerassociationID"] = o.PkiEzsignfoldersignerassociationID
 	}
 	if true {
 		toSerialize["fkiEzsignfolderID"] = o.FkiEzsignfolderID
-	}
-	if true {
-		toSerialize["fkiEzsignsignerID"] = o.FkiEzsignsignerID.Get()
-	}
-	if true {
-		toSerialize["fkiUserID"] = o.FkiUserID.Get()
 	}
 	if true {
 		toSerialize["bEzsignfoldersignerassociationReceivecopy"] = o.BEzsignfoldersignerassociationReceivecopy

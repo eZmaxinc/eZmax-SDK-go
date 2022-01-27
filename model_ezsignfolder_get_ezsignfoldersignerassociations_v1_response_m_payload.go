@@ -17,14 +17,14 @@ import (
 
 // EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload Payload for the /1/object/ezsignfolder/{pkiEzsignfolder}/getEzsignfoldersignerassociations API Request
 type EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload struct {
-	AObjEzsignfoldersignerassociation []EzsignfoldersignerassociationResponse `json:"a_objEzsignfoldersignerassociation"`
+	AObjEzsignfoldersignerassociation []EzsignfoldersignerassociationResponseCompound `json:"a_objEzsignfoldersignerassociation"`
 }
 
 // NewEzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload instantiates a new EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload(aObjEzsignfoldersignerassociation []EzsignfoldersignerassociationResponse) *EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload {
+func NewEzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload(aObjEzsignfoldersignerassociation []EzsignfoldersignerassociationResponseCompound) *EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload {
 	this := EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload{}
 	this.AObjEzsignfoldersignerassociation = aObjEzsignfoldersignerassociation
 	return &this
@@ -39,9 +39,9 @@ func NewEzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayloadWithDefau
 }
 
 // GetAObjEzsignfoldersignerassociation returns the AObjEzsignfoldersignerassociation field value
-func (o *EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload) GetAObjEzsignfoldersignerassociation() []EzsignfoldersignerassociationResponse {
+func (o *EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload) GetAObjEzsignfoldersignerassociation() []EzsignfoldersignerassociationResponseCompound {
 	if o == nil {
-		var ret []EzsignfoldersignerassociationResponse
+		var ret []EzsignfoldersignerassociationResponseCompound
 		return ret
 	}
 
@@ -50,7 +50,7 @@ func (o *EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload) GetAOb
 
 // GetAObjEzsignfoldersignerassociationOk returns a tuple with the AObjEzsignfoldersignerassociation field value
 // and a boolean to check if the value has been set.
-func (o *EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload) GetAObjEzsignfoldersignerassociationOk() ([]EzsignfoldersignerassociationResponse, bool) {
+func (o *EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload) GetAObjEzsignfoldersignerassociationOk() ([]EzsignfoldersignerassociationResponseCompound, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -58,7 +58,7 @@ func (o *EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload) GetAOb
 }
 
 // SetAObjEzsignfoldersignerassociation sets field value
-func (o *EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload) SetAObjEzsignfoldersignerassociation(v []EzsignfoldersignerassociationResponse) {
+func (o *EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload) SetAObjEzsignfoldersignerassociation(v []EzsignfoldersignerassociationResponseCompound) {
 	o.AObjEzsignfoldersignerassociation = v
 }
 

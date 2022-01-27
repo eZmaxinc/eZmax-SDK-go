@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **SContactLastname** | **string** | The Last name of the contact | 
 **FkiLanguageID** | **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
 **SEmailAddress** | Pointer to **string** | The email address. | [optional] 
-**SPhoneNumber** | Pointer to **string** | The Phone number of the contact. Use format \&quot;5149901516\&quot; for North American Numbers (Without \&quot;1\&quot; for long distance code) you would dial like this: 1-514-990-1516. Use format \&quot;498945233886\&quot; for international numbers (Without \&quot;011\&quot;) you would dial like this: +49 89 452 33 88-6. In this example \&quot;49\&quot; is the country code of Germany. | [optional] 
-**SPhoneNumberCell** | Pointer to **string** | The Cell Phone number of the contact. Use format \&quot;5149901516\&quot; for North American Numbers (Without \&quot;1\&quot; for long distance code) you would dial like this: 1-514-990-1516. Use format \&quot;498945233886\&quot; for international numbers (Without \&quot;011\&quot;) you would dial like this: +49 89 452 33 88-6. In this example \&quot;49\&quot; is the country code of Germany. | [optional] 
+**SPhoneE164** | Pointer to **string** | A phone number in E.164 Format | [optional] 
+**SPhoneE164Cell** | Pointer to **string** | A phone number in E.164 Format | [optional] 
 
 ## Methods
 
@@ -115,55 +115,55 @@ SetSEmailAddress sets SEmailAddress field to given value.
 
 HasSEmailAddress returns a boolean if a field has been set.
 
-### GetSPhoneNumber
+### GetSPhoneE164
 
-`func (o *EzsignsignerResponseCompoundContact) GetSPhoneNumber() string`
+`func (o *EzsignsignerResponseCompoundContact) GetSPhoneE164() string`
 
-GetSPhoneNumber returns the SPhoneNumber field if non-nil, zero value otherwise.
+GetSPhoneE164 returns the SPhoneE164 field if non-nil, zero value otherwise.
 
-### GetSPhoneNumberOk
+### GetSPhoneE164Ok
 
-`func (o *EzsignsignerResponseCompoundContact) GetSPhoneNumberOk() (*string, bool)`
+`func (o *EzsignsignerResponseCompoundContact) GetSPhoneE164Ok() (*string, bool)`
 
-GetSPhoneNumberOk returns a tuple with the SPhoneNumber field if it's non-nil, zero value otherwise
+GetSPhoneE164Ok returns a tuple with the SPhoneE164 field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSPhoneNumber
+### SetSPhoneE164
 
-`func (o *EzsignsignerResponseCompoundContact) SetSPhoneNumber(v string)`
+`func (o *EzsignsignerResponseCompoundContact) SetSPhoneE164(v string)`
 
-SetSPhoneNumber sets SPhoneNumber field to given value.
+SetSPhoneE164 sets SPhoneE164 field to given value.
 
-### HasSPhoneNumber
+### HasSPhoneE164
 
-`func (o *EzsignsignerResponseCompoundContact) HasSPhoneNumber() bool`
+`func (o *EzsignsignerResponseCompoundContact) HasSPhoneE164() bool`
 
-HasSPhoneNumber returns a boolean if a field has been set.
+HasSPhoneE164 returns a boolean if a field has been set.
 
-### GetSPhoneNumberCell
+### GetSPhoneE164Cell
 
-`func (o *EzsignsignerResponseCompoundContact) GetSPhoneNumberCell() string`
+`func (o *EzsignsignerResponseCompoundContact) GetSPhoneE164Cell() string`
 
-GetSPhoneNumberCell returns the SPhoneNumberCell field if non-nil, zero value otherwise.
+GetSPhoneE164Cell returns the SPhoneE164Cell field if non-nil, zero value otherwise.
 
-### GetSPhoneNumberCellOk
+### GetSPhoneE164CellOk
 
-`func (o *EzsignsignerResponseCompoundContact) GetSPhoneNumberCellOk() (*string, bool)`
+`func (o *EzsignsignerResponseCompoundContact) GetSPhoneE164CellOk() (*string, bool)`
 
-GetSPhoneNumberCellOk returns a tuple with the SPhoneNumberCell field if it's non-nil, zero value otherwise
+GetSPhoneE164CellOk returns a tuple with the SPhoneE164Cell field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSPhoneNumberCell
+### SetSPhoneE164Cell
 
-`func (o *EzsignsignerResponseCompoundContact) SetSPhoneNumberCell(v string)`
+`func (o *EzsignsignerResponseCompoundContact) SetSPhoneE164Cell(v string)`
 
-SetSPhoneNumberCell sets SPhoneNumberCell field to given value.
+SetSPhoneE164Cell sets SPhoneE164Cell field to given value.
 
-### HasSPhoneNumberCell
+### HasSPhoneE164Cell
 
-`func (o *EzsignsignerResponseCompoundContact) HasSPhoneNumberCell() bool`
+`func (o *EzsignsignerResponseCompoundContact) HasSPhoneE164Cell() bool`
 
-HasSPhoneNumberCell returns a boolean if a field has been set.
+HasSPhoneE164Cell returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
