@@ -254,6 +254,7 @@ docs/WebhookResponse.md
 docs/WebhookUserUserCreated.md
 docs/WebhookUserUserCreatedAllOf.md
 docs/WebsiteRequest.md
+docs/Xxxx.md
 git_push.sh
 go.mod
 go.sum
@@ -470,5 +471,6 @@ model_webhook_response.go
 model_webhook_user_user_created.go
 model_webhook_user_user_created_all_of.go
 model_website_request.go
+model_xxxx.go
 response.go
 utils.go

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**PkiContactID** | **int32** | The unique ID of the Contact | 
 **SContactFirstname** | **string** | The First name of the contact | 
 **SContactLastname** | **string** | The Last name of the contact | 
 **FkiLanguageID** | **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
@@ -15,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewEzsignsignerResponseCompoundContact
 
-`func NewEzsignsignerResponseCompoundContact(sContactFirstname string, sContactLastname string, fkiLanguageID int32, ) *EzsignsignerResponseCompoundContact`
+`func NewEzsignsignerResponseCompoundContact(pkiContactID int32, sContactFirstname string, sContactLastname string, fkiLanguageID int32, ) *EzsignsignerResponseCompoundContact`
 
 NewEzsignsignerResponseCompoundContact instantiates a new EzsignsignerResponseCompoundContact object
 This constructor will assign default values to properties that have it defined,
@@ -29,6 +30,26 @@ will change when the set of required properties is changed
 NewEzsignsignerResponseCompoundContactWithDefaults instantiates a new EzsignsignerResponseCompoundContact object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetPkiContactID
+
+`func (o *EzsignsignerResponseCompoundContact) GetPkiContactID() int32`
+
+GetPkiContactID returns the PkiContactID field if non-nil, zero value otherwise.
+
+### GetPkiContactIDOk
+
+`func (o *EzsignsignerResponseCompoundContact) GetPkiContactIDOk() (*int32, bool)`
+
+GetPkiContactIDOk returns a tuple with the PkiContactID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPkiContactID
+
+`func (o *EzsignsignerResponseCompoundContact) SetPkiContactID(v int32)`
+
+SetPkiContactID sets PkiContactID field to given value.
+
 
 ### GetSContactFirstname
 

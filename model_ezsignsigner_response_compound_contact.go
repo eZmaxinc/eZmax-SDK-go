@@ -17,6 +17,8 @@ import (
 
 // EzsignsignerResponseCompoundContact A Ezsignsigner->Contact Object and children to create a complete structure
 type EzsignsignerResponseCompoundContact struct {
+	// The unique ID of the Contact
+	PkiContactID int32 `json:"pkiContactID"`
 	// The First name of the contact
 	SContactFirstname string `json:"sContactFirstname"`
 	// The Last name of the contact
@@ -35,8 +37,9 @@ type EzsignsignerResponseCompoundContact struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignsignerResponseCompoundContact(sContactFirstname string, sContactLastname string, fkiLanguageID int32) *EzsignsignerResponseCompoundContact {
+func NewEzsignsignerResponseCompoundContact(pkiContactID int32, sContactFirstname string, sContactLastname string, fkiLanguageID int32) *EzsignsignerResponseCompoundContact {
 	this := EzsignsignerResponseCompoundContact{}
+	this.PkiContactID = pkiContactID
 	this.SContactFirstname = sContactFirstname
 	this.SContactLastname = sContactLastname
 	this.FkiLanguageID = fkiLanguageID
@@ -49,6 +52,30 @@ func NewEzsignsignerResponseCompoundContact(sContactFirstname string, sContactLa
 func NewEzsignsignerResponseCompoundContactWithDefaults() *EzsignsignerResponseCompoundContact {
 	this := EzsignsignerResponseCompoundContact{}
 	return &this
+}
+
+// GetPkiContactID returns the PkiContactID field value
+func (o *EzsignsignerResponseCompoundContact) GetPkiContactID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.PkiContactID
+}
+
+// GetPkiContactIDOk returns a tuple with the PkiContactID field value
+// and a boolean to check if the value has been set.
+func (o *EzsignsignerResponseCompoundContact) GetPkiContactIDOk() (*int32, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.PkiContactID, true
+}
+
+// SetPkiContactID sets field value
+func (o *EzsignsignerResponseCompoundContact) SetPkiContactID(v int32) {
+	o.PkiContactID = v
 }
 
 // GetSContactFirstname returns the SContactFirstname field value
@@ -221,6 +248,9 @@ func (o *EzsignsignerResponseCompoundContact) SetSPhoneE164Cell(v string) {
 
 func (o EzsignsignerResponseCompoundContact) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["pkiContactID"] = o.PkiContactID
+	}
 	if true {
 		toSerialize["sContactFirstname"] = o.SContactFirstname
 	}
