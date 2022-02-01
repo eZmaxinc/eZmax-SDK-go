@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SCustomerCode** | **string** | The customer code specific to the client in which the API request is being made | 
 **EActivesessionSessiontype** | **string** | The type of session used for the API request call | 
+**EActivesessionWeekdaystart** | [**FieldEActivesessionWeekdaystart**](FieldEActivesessionWeekdaystart.md) |  | 
 **FkiLanguageID** | **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
 **SCompanyNameX** | **string** | The name of the active Company in the current language | 
 **SDepartmentNameX** | **string** | The name of the active Department in the current language | 
@@ -18,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewActivesessionGetCurrentV1ResponseMPayload
 
-`func NewActivesessionGetCurrentV1ResponseMPayload(sCustomerCode string, eActivesessionSessiontype string, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, aRegisteredModules []string, aPermissions []int32, fkiUserID int32, fkiApikeyID int32, ) *ActivesessionGetCurrentV1ResponseMPayload`
+`func NewActivesessionGetCurrentV1ResponseMPayload(sCustomerCode string, eActivesessionSessiontype string, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, aRegisteredModules []string, aPermissions []int32, fkiUserID int32, fkiApikeyID int32, ) *ActivesessionGetCurrentV1ResponseMPayload`
 
 NewActivesessionGetCurrentV1ResponseMPayload instantiates a new ActivesessionGetCurrentV1ResponseMPayload object
 This constructor will assign default values to properties that have it defined,
@@ -71,6 +72,26 @@ and a boolean to check if the value has been set.
 `func (o *ActivesessionGetCurrentV1ResponseMPayload) SetEActivesessionSessiontype(v string)`
 
 SetEActivesessionSessiontype sets EActivesessionSessiontype field to given value.
+
+
+### GetEActivesessionWeekdaystart
+
+`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionWeekdaystart() FieldEActivesessionWeekdaystart`
+
+GetEActivesessionWeekdaystart returns the EActivesessionWeekdaystart field if non-nil, zero value otherwise.
+
+### GetEActivesessionWeekdaystartOk
+
+`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionWeekdaystartOk() (*FieldEActivesessionWeekdaystart, bool)`
+
+GetEActivesessionWeekdaystartOk returns a tuple with the EActivesessionWeekdaystart field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEActivesessionWeekdaystart
+
+`func (o *ActivesessionGetCurrentV1ResponseMPayload) SetEActivesessionWeekdaystart(v FieldEActivesessionWeekdaystart)`
+
+SetEActivesessionWeekdaystart sets EActivesessionWeekdaystart field to given value.
 
 
 ### GetFkiLanguageID

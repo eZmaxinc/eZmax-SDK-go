@@ -62,6 +62,11 @@ type EzsigndocumentResponseCompound struct {
 // will change when the set of required properties is changed
 func NewEzsigndocumentResponseCompound(iEzsigndocumentStepformtotal int32, iEzsigndocumentStepformcurrent int32, iEzsigndocumentStepsignaturetotal int32, iEzsigndocumentStepsignatureCurrent int32, aObjEzsignfoldersignerassociationstatus []CustomEzsignfoldersignerassociationstatusResponse, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, fkiLanguageID int32, sEzsigndocumentName string, pkiEzsigndocumentID int32, eEzsigndocumentStep FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend string, dtEzsigndocumentLastsend string, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, sEzsigndocumentMD5initial string, sEzsigndocumentMD5signed string, objAudit CommonAudit) *EzsigndocumentResponseCompound {
 	this := EzsigndocumentResponseCompound{}
+	this.IEzsigndocumentStepformtotal = iEzsigndocumentStepformtotal
+	this.IEzsigndocumentStepformcurrent = iEzsigndocumentStepformcurrent
+	this.IEzsigndocumentStepsignaturetotal = iEzsigndocumentStepsignaturetotal
+	this.IEzsigndocumentStepsignatureCurrent = iEzsigndocumentStepsignatureCurrent
+	this.AObjEzsignfoldersignerassociationstatus = aObjEzsignfoldersignerassociationstatus
 	this.FkiEzsignfolderID = fkiEzsignfolderID
 	this.DtEzsigndocumentDuedate = dtEzsigndocumentDuedate
 	this.FkiLanguageID = fkiLanguageID

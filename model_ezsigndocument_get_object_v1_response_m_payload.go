@@ -17,6 +17,15 @@ import (
 
 // EzsigndocumentGetObjectV1ResponseMPayload Payload for the /1/object/ezsigndocument/getObject API Request
 type EzsigndocumentGetObjectV1ResponseMPayload struct {
+	// The total number of steps in the form filling phase
+	IEzsigndocumentStepformtotal int32 `json:"iEzsigndocumentStepformtotal"`
+	// The current step in the form filling phase
+	IEzsigndocumentStepformcurrent int32 `json:"iEzsigndocumentStepformcurrent"`
+	// The total number of steps in the signature filling phase
+	IEzsigndocumentStepsignaturetotal int32 `json:"iEzsigndocumentStepsignaturetotal"`
+	// The current step in the signature phase
+	IEzsigndocumentStepsignatureCurrent int32 `json:"iEzsigndocumentStepsignatureCurrent"`
+	AObjEzsignfoldersignerassociationstatus []CustomEzsignfoldersignerassociationstatusResponse `json:"a_objEzsignfoldersignerassociationstatus"`
 	// The unique ID of the Ezsignfolder
 	FkiEzsignfolderID int32 `json:"fkiEzsignfolderID"`
 	// The maximum date and time at which the Ezsigndocument can be signed.
@@ -51,8 +60,13 @@ type EzsigndocumentGetObjectV1ResponseMPayload struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigndocumentGetObjectV1ResponseMPayload(fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, fkiLanguageID int32, sEzsigndocumentName string, pkiEzsigndocumentID int32, eEzsigndocumentStep FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend string, dtEzsigndocumentLastsend string, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, sEzsigndocumentMD5initial string, sEzsigndocumentMD5signed string, objAudit CommonAudit) *EzsigndocumentGetObjectV1ResponseMPayload {
+func NewEzsigndocumentGetObjectV1ResponseMPayload(iEzsigndocumentStepformtotal int32, iEzsigndocumentStepformcurrent int32, iEzsigndocumentStepsignaturetotal int32, iEzsigndocumentStepsignatureCurrent int32, aObjEzsignfoldersignerassociationstatus []CustomEzsignfoldersignerassociationstatusResponse, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, fkiLanguageID int32, sEzsigndocumentName string, pkiEzsigndocumentID int32, eEzsigndocumentStep FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend string, dtEzsigndocumentLastsend string, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, sEzsigndocumentMD5initial string, sEzsigndocumentMD5signed string, objAudit CommonAudit) *EzsigndocumentGetObjectV1ResponseMPayload {
 	this := EzsigndocumentGetObjectV1ResponseMPayload{}
+	this.IEzsigndocumentStepformtotal = iEzsigndocumentStepformtotal
+	this.IEzsigndocumentStepformcurrent = iEzsigndocumentStepformcurrent
+	this.IEzsigndocumentStepsignaturetotal = iEzsigndocumentStepsignaturetotal
+	this.IEzsigndocumentStepsignatureCurrent = iEzsigndocumentStepsignatureCurrent
+	this.AObjEzsignfoldersignerassociationstatus = aObjEzsignfoldersignerassociationstatus
 	this.FkiEzsignfolderID = fkiEzsignfolderID
 	this.DtEzsigndocumentDuedate = dtEzsigndocumentDuedate
 	this.FkiLanguageID = fkiLanguageID
@@ -77,6 +91,126 @@ func NewEzsigndocumentGetObjectV1ResponseMPayload(fkiEzsignfolderID int32, dtEzs
 func NewEzsigndocumentGetObjectV1ResponseMPayloadWithDefaults() *EzsigndocumentGetObjectV1ResponseMPayload {
 	this := EzsigndocumentGetObjectV1ResponseMPayload{}
 	return &this
+}
+
+// GetIEzsigndocumentStepformtotal returns the IEzsigndocumentStepformtotal field value
+func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetIEzsigndocumentStepformtotal() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IEzsigndocumentStepformtotal
+}
+
+// GetIEzsigndocumentStepformtotalOk returns a tuple with the IEzsigndocumentStepformtotal field value
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetIEzsigndocumentStepformtotalOk() (*int32, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.IEzsigndocumentStepformtotal, true
+}
+
+// SetIEzsigndocumentStepformtotal sets field value
+func (o *EzsigndocumentGetObjectV1ResponseMPayload) SetIEzsigndocumentStepformtotal(v int32) {
+	o.IEzsigndocumentStepformtotal = v
+}
+
+// GetIEzsigndocumentStepformcurrent returns the IEzsigndocumentStepformcurrent field value
+func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetIEzsigndocumentStepformcurrent() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IEzsigndocumentStepformcurrent
+}
+
+// GetIEzsigndocumentStepformcurrentOk returns a tuple with the IEzsigndocumentStepformcurrent field value
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetIEzsigndocumentStepformcurrentOk() (*int32, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.IEzsigndocumentStepformcurrent, true
+}
+
+// SetIEzsigndocumentStepformcurrent sets field value
+func (o *EzsigndocumentGetObjectV1ResponseMPayload) SetIEzsigndocumentStepformcurrent(v int32) {
+	o.IEzsigndocumentStepformcurrent = v
+}
+
+// GetIEzsigndocumentStepsignaturetotal returns the IEzsigndocumentStepsignaturetotal field value
+func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetIEzsigndocumentStepsignaturetotal() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IEzsigndocumentStepsignaturetotal
+}
+
+// GetIEzsigndocumentStepsignaturetotalOk returns a tuple with the IEzsigndocumentStepsignaturetotal field value
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetIEzsigndocumentStepsignaturetotalOk() (*int32, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.IEzsigndocumentStepsignaturetotal, true
+}
+
+// SetIEzsigndocumentStepsignaturetotal sets field value
+func (o *EzsigndocumentGetObjectV1ResponseMPayload) SetIEzsigndocumentStepsignaturetotal(v int32) {
+	o.IEzsigndocumentStepsignaturetotal = v
+}
+
+// GetIEzsigndocumentStepsignatureCurrent returns the IEzsigndocumentStepsignatureCurrent field value
+func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetIEzsigndocumentStepsignatureCurrent() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IEzsigndocumentStepsignatureCurrent
+}
+
+// GetIEzsigndocumentStepsignatureCurrentOk returns a tuple with the IEzsigndocumentStepsignatureCurrent field value
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetIEzsigndocumentStepsignatureCurrentOk() (*int32, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.IEzsigndocumentStepsignatureCurrent, true
+}
+
+// SetIEzsigndocumentStepsignatureCurrent sets field value
+func (o *EzsigndocumentGetObjectV1ResponseMPayload) SetIEzsigndocumentStepsignatureCurrent(v int32) {
+	o.IEzsigndocumentStepsignatureCurrent = v
+}
+
+// GetAObjEzsignfoldersignerassociationstatus returns the AObjEzsignfoldersignerassociationstatus field value
+func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetAObjEzsignfoldersignerassociationstatus() []CustomEzsignfoldersignerassociationstatusResponse {
+	if o == nil {
+		var ret []CustomEzsignfoldersignerassociationstatusResponse
+		return ret
+	}
+
+	return o.AObjEzsignfoldersignerassociationstatus
+}
+
+// GetAObjEzsignfoldersignerassociationstatusOk returns a tuple with the AObjEzsignfoldersignerassociationstatus field value
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetAObjEzsignfoldersignerassociationstatusOk() ([]CustomEzsignfoldersignerassociationstatusResponse, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.AObjEzsignfoldersignerassociationstatus, true
+}
+
+// SetAObjEzsignfoldersignerassociationstatus sets field value
+func (o *EzsigndocumentGetObjectV1ResponseMPayload) SetAObjEzsignfoldersignerassociationstatus(v []CustomEzsignfoldersignerassociationstatusResponse) {
+	o.AObjEzsignfoldersignerassociationstatus = v
 }
 
 // GetFkiEzsignfolderID returns the FkiEzsignfolderID field value
@@ -441,6 +575,21 @@ func (o *EzsigndocumentGetObjectV1ResponseMPayload) SetObjAudit(v CommonAudit) {
 
 func (o EzsigndocumentGetObjectV1ResponseMPayload) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["iEzsigndocumentStepformtotal"] = o.IEzsigndocumentStepformtotal
+	}
+	if true {
+		toSerialize["iEzsigndocumentStepformcurrent"] = o.IEzsigndocumentStepformcurrent
+	}
+	if true {
+		toSerialize["iEzsigndocumentStepsignaturetotal"] = o.IEzsigndocumentStepsignaturetotal
+	}
+	if true {
+		toSerialize["iEzsigndocumentStepsignatureCurrent"] = o.IEzsigndocumentStepsignatureCurrent
+	}
+	if true {
+		toSerialize["a_objEzsignfoldersignerassociationstatus"] = o.AObjEzsignfoldersignerassociationstatus
+	}
 	if true {
 		toSerialize["fkiEzsignfolderID"] = o.FkiEzsignfolderID
 	}

@@ -21,6 +21,7 @@ type ActivesessionGetCurrentV1ResponseMPayload struct {
 	SCustomerCode string `json:"sCustomerCode"`
 	// The type of session used for the API request call
 	EActivesessionSessiontype string `json:"eActivesessionSessiontype"`
+	EActivesessionWeekdaystart FieldEActivesessionWeekdaystart `json:"eActivesessionWeekdaystart"`
 	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
 	FkiLanguageID int32 `json:"fkiLanguageID"`
 	// The name of the active Company in the current language
@@ -41,10 +42,11 @@ type ActivesessionGetCurrentV1ResponseMPayload struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewActivesessionGetCurrentV1ResponseMPayload(sCustomerCode string, eActivesessionSessiontype string, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, aRegisteredModules []string, aPermissions []int32, fkiUserID int32, fkiApikeyID int32) *ActivesessionGetCurrentV1ResponseMPayload {
+func NewActivesessionGetCurrentV1ResponseMPayload(sCustomerCode string, eActivesessionSessiontype string, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, aRegisteredModules []string, aPermissions []int32, fkiUserID int32, fkiApikeyID int32) *ActivesessionGetCurrentV1ResponseMPayload {
 	this := ActivesessionGetCurrentV1ResponseMPayload{}
 	this.SCustomerCode = sCustomerCode
 	this.EActivesessionSessiontype = eActivesessionSessiontype
+	this.EActivesessionWeekdaystart = eActivesessionWeekdaystart
 	this.FkiLanguageID = fkiLanguageID
 	this.SCompanyNameX = sCompanyNameX
 	this.SDepartmentNameX = sDepartmentNameX
@@ -109,6 +111,30 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionSessiontype
 // SetEActivesessionSessiontype sets field value
 func (o *ActivesessionGetCurrentV1ResponseMPayload) SetEActivesessionSessiontype(v string) {
 	o.EActivesessionSessiontype = v
+}
+
+// GetEActivesessionWeekdaystart returns the EActivesessionWeekdaystart field value
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionWeekdaystart() FieldEActivesessionWeekdaystart {
+	if o == nil {
+		var ret FieldEActivesessionWeekdaystart
+		return ret
+	}
+
+	return o.EActivesessionWeekdaystart
+}
+
+// GetEActivesessionWeekdaystartOk returns a tuple with the EActivesessionWeekdaystart field value
+// and a boolean to check if the value has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionWeekdaystartOk() (*FieldEActivesessionWeekdaystart, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.EActivesessionWeekdaystart, true
+}
+
+// SetEActivesessionWeekdaystart sets field value
+func (o *ActivesessionGetCurrentV1ResponseMPayload) SetEActivesessionWeekdaystart(v FieldEActivesessionWeekdaystart) {
+	o.EActivesessionWeekdaystart = v
 }
 
 // GetFkiLanguageID returns the FkiLanguageID field value
@@ -286,6 +312,9 @@ func (o ActivesessionGetCurrentV1ResponseMPayload) MarshalJSON() ([]byte, error)
 	}
 	if true {
 		toSerialize["eActivesessionSessiontype"] = o.EActivesessionSessiontype
+	}
+	if true {
+		toSerialize["eActivesessionWeekdaystart"] = o.EActivesessionWeekdaystart
 	}
 	if true {
 		toSerialize["fkiLanguageID"] = o.FkiLanguageID

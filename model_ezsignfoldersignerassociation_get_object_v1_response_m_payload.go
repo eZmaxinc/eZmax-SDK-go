@@ -17,6 +17,8 @@ import (
 
 // EzsignfoldersignerassociationGetObjectV1ResponseMPayload Payload for the /1/object/ezsignfoldersignerassociation/getObject API Request
 type EzsignfoldersignerassociationGetObjectV1ResponseMPayload struct {
+	ObjUser *EzsignfoldersignerassociationResponseCompoundUser `json:"objUser,omitempty"`
+	ObjEzsignsigner *EzsignsignerResponseCompound `json:"objEzsignsigner,omitempty"`
 	// The unique ID of the Ezsignfoldersignerassociation
 	PkiEzsignfoldersignerassociationID int32 `json:"pkiEzsignfoldersignerassociationID"`
 	// The unique ID of the Ezsignfolder
@@ -43,6 +45,70 @@ func NewEzsignfoldersignerassociationGetObjectV1ResponseMPayload(pkiEzsignfolder
 func NewEzsignfoldersignerassociationGetObjectV1ResponseMPayloadWithDefaults() *EzsignfoldersignerassociationGetObjectV1ResponseMPayload {
 	this := EzsignfoldersignerassociationGetObjectV1ResponseMPayload{}
 	return &this
+}
+
+// GetObjUser returns the ObjUser field value if set, zero value otherwise.
+func (o *EzsignfoldersignerassociationGetObjectV1ResponseMPayload) GetObjUser() EzsignfoldersignerassociationResponseCompoundUser {
+	if o == nil || o.ObjUser == nil {
+		var ret EzsignfoldersignerassociationResponseCompoundUser
+		return ret
+	}
+	return *o.ObjUser
+}
+
+// GetObjUserOk returns a tuple with the ObjUser field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldersignerassociationGetObjectV1ResponseMPayload) GetObjUserOk() (*EzsignfoldersignerassociationResponseCompoundUser, bool) {
+	if o == nil || o.ObjUser == nil {
+		return nil, false
+	}
+	return o.ObjUser, true
+}
+
+// HasObjUser returns a boolean if a field has been set.
+func (o *EzsignfoldersignerassociationGetObjectV1ResponseMPayload) HasObjUser() bool {
+	if o != nil && o.ObjUser != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetObjUser gets a reference to the given EzsignfoldersignerassociationResponseCompoundUser and assigns it to the ObjUser field.
+func (o *EzsignfoldersignerassociationGetObjectV1ResponseMPayload) SetObjUser(v EzsignfoldersignerassociationResponseCompoundUser) {
+	o.ObjUser = &v
+}
+
+// GetObjEzsignsigner returns the ObjEzsignsigner field value if set, zero value otherwise.
+func (o *EzsignfoldersignerassociationGetObjectV1ResponseMPayload) GetObjEzsignsigner() EzsignsignerResponseCompound {
+	if o == nil || o.ObjEzsignsigner == nil {
+		var ret EzsignsignerResponseCompound
+		return ret
+	}
+	return *o.ObjEzsignsigner
+}
+
+// GetObjEzsignsignerOk returns a tuple with the ObjEzsignsigner field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldersignerassociationGetObjectV1ResponseMPayload) GetObjEzsignsignerOk() (*EzsignsignerResponseCompound, bool) {
+	if o == nil || o.ObjEzsignsigner == nil {
+		return nil, false
+	}
+	return o.ObjEzsignsigner, true
+}
+
+// HasObjEzsignsigner returns a boolean if a field has been set.
+func (o *EzsignfoldersignerassociationGetObjectV1ResponseMPayload) HasObjEzsignsigner() bool {
+	if o != nil && o.ObjEzsignsigner != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetObjEzsignsigner gets a reference to the given EzsignsignerResponseCompound and assigns it to the ObjEzsignsigner field.
+func (o *EzsignfoldersignerassociationGetObjectV1ResponseMPayload) SetObjEzsignsigner(v EzsignsignerResponseCompound) {
+	o.ObjEzsignsigner = &v
 }
 
 // GetPkiEzsignfoldersignerassociationID returns the PkiEzsignfoldersignerassociationID field value
@@ -119,6 +185,12 @@ func (o *EzsignfoldersignerassociationGetObjectV1ResponseMPayload) SetBEzsignfol
 
 func (o EzsignfoldersignerassociationGetObjectV1ResponseMPayload) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.ObjUser != nil {
+		toSerialize["objUser"] = o.ObjUser
+	}
+	if o.ObjEzsignsigner != nil {
+		toSerialize["objEzsignsigner"] = o.ObjEzsignsigner
+	}
 	if true {
 		toSerialize["pkiEzsignfoldersignerassociationID"] = o.PkiEzsignfoldersignerassociationID
 	}

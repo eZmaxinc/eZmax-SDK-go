@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ObjUser** | Pointer to [**EzsignfoldersignerassociationResponseCompoundUser**](EzsignfoldersignerassociationResponseCompoundUser.md) |  | [optional] 
+**ObjEzsignsigner** | Pointer to [**EzsignsignerResponseCompound**](EzsignsignerResponseCompound.md) |  | [optional] 
 **PkiEzsignfoldersignerassociationID** | **int32** | The unique ID of the Ezsignfoldersignerassociation | 
 **FkiEzsignfolderID** | **int32** | The unique ID of the Ezsignfolder | 
 **BEzsignfoldersignerassociationReceivecopy** | **bool** | If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain&#39;t required to sign the document. | 
@@ -26,6 +28,56 @@ will change when the set of required properties is changed
 NewEzsignfoldersignerassociationGetObjectV1ResponseMPayloadWithDefaults instantiates a new EzsignfoldersignerassociationGetObjectV1ResponseMPayload object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetObjUser
+
+`func (o *EzsignfoldersignerassociationGetObjectV1ResponseMPayload) GetObjUser() EzsignfoldersignerassociationResponseCompoundUser`
+
+GetObjUser returns the ObjUser field if non-nil, zero value otherwise.
+
+### GetObjUserOk
+
+`func (o *EzsignfoldersignerassociationGetObjectV1ResponseMPayload) GetObjUserOk() (*EzsignfoldersignerassociationResponseCompoundUser, bool)`
+
+GetObjUserOk returns a tuple with the ObjUser field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjUser
+
+`func (o *EzsignfoldersignerassociationGetObjectV1ResponseMPayload) SetObjUser(v EzsignfoldersignerassociationResponseCompoundUser)`
+
+SetObjUser sets ObjUser field to given value.
+
+### HasObjUser
+
+`func (o *EzsignfoldersignerassociationGetObjectV1ResponseMPayload) HasObjUser() bool`
+
+HasObjUser returns a boolean if a field has been set.
+
+### GetObjEzsignsigner
+
+`func (o *EzsignfoldersignerassociationGetObjectV1ResponseMPayload) GetObjEzsignsigner() EzsignsignerResponseCompound`
+
+GetObjEzsignsigner returns the ObjEzsignsigner field if non-nil, zero value otherwise.
+
+### GetObjEzsignsignerOk
+
+`func (o *EzsignfoldersignerassociationGetObjectV1ResponseMPayload) GetObjEzsignsignerOk() (*EzsignsignerResponseCompound, bool)`
+
+GetObjEzsignsignerOk returns a tuple with the ObjEzsignsigner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjEzsignsigner
+
+`func (o *EzsignfoldersignerassociationGetObjectV1ResponseMPayload) SetObjEzsignsigner(v EzsignsignerResponseCompound)`
+
+SetObjEzsignsigner sets ObjEzsignsigner field to given value.
+
+### HasObjEzsignsigner
+
+`func (o *EzsignfoldersignerassociationGetObjectV1ResponseMPayload) HasObjEzsignsigner() bool`
+
+HasObjEzsignsigner returns a boolean if a field has been set.
 
 ### GetPkiEzsignfoldersignerassociationID
 
