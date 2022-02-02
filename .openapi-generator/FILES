@@ -26,6 +26,11 @@ configuration.go
 docs/ActivesessionGetCurrentV1Response.md
 docs/ActivesessionGetCurrentV1ResponseAllOf.md
 docs/ActivesessionGetCurrentV1ResponseMPayload.md
+docs/ActivesessionResponse.md
+docs/ActivesessionResponseCompound.md
+docs/ActivesessionResponseCompoundAllOf.md
+docs/ActivesessionResponseCompoundApikey.md
+docs/ActivesessionResponseCompoundUser.md
 docs/AddressRequest.md
 docs/ApikeyCreateObjectV1Request.md
 docs/ApikeyCreateObjectV1Response.md
@@ -186,6 +191,7 @@ docs/EzsigntemplatepackageGetListV1ResponseAllOf.md
 docs/EzsigntemplatepackageGetListV1ResponseMPayload.md
 docs/EzsigntemplatepackageGetListV1ResponseMPayloadAllOf.md
 docs/EzsigntemplatepackageListElement.md
+docs/FieldEActivesessionSessiontype.md
 docs/FieldEActivesessionWeekdaystart.md
 docs/FieldEEzsigndocumentStep.md
 docs/FieldEEzsignfolderSendreminderfrequency.md
@@ -258,13 +264,17 @@ docs/WebhookResponse.md
 docs/WebhookUserUserCreated.md
 docs/WebhookUserUserCreatedAllOf.md
 docs/WebsiteRequest.md
-docs/Xxxx.md
 git_push.sh
 go.mod
 go.sum
 model_activesession_get_current_v1_response.go
 model_activesession_get_current_v1_response_all_of.go
 model_activesession_get_current_v1_response_m_payload.go
+model_activesession_response.go
+model_activesession_response_compound.go
+model_activesession_response_compound_all_of.go
+model_activesession_response_compound_apikey.go
+model_activesession_response_compound_user.go
 model_address_request.go
 model_apikey_create_object_v1_request.go
 model_apikey_create_object_v1_response.go
@@ -425,6 +435,7 @@ model_ezsigntemplatepackage_get_list_v1_response_all_of.go
 model_ezsigntemplatepackage_get_list_v1_response_m_payload.go
 model_ezsigntemplatepackage_get_list_v1_response_m_payload_all_of.go
 model_ezsigntemplatepackage_list_element.go
+model_field_e_activesession_sessiontype.go
 model_field_e_activesession_weekdaystart.go
 model_field_e_ezsigndocument_step.go
 model_field_e_ezsignfolder_sendreminderfrequency.go
@@ -479,6 +490,5 @@ model_webhook_response.go
 model_webhook_user_user_created.go
 model_webhook_user_user_created_all_of.go
 model_website_request.go
-model_xxxx.go
 response.go
 utils.go

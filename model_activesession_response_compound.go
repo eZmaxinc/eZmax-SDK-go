@@ -15,8 +15,8 @@ import (
 	"encoding/json"
 )
 
-// ActivesessionGetCurrentV1ResponseMPayload Payload for the /1/object/activesession/getCurrent API Request
-type ActivesessionGetCurrentV1ResponseMPayload struct {
+// ActivesessionResponseCompound Payload for the /1/object/activesession/getCurrent API Request
+type ActivesessionResponseCompound struct {
 	// An array of permissions granted to the user or api key
 	APkiPermissionID []int32 `json:"a_pkiPermissionID"`
 	ObjUserReal ActivesessionResponseCompoundUser `json:"objUserReal"`
@@ -38,12 +38,12 @@ type ActivesessionGetCurrentV1ResponseMPayload struct {
 	PksCustomerCode string `json:"pksCustomerCode"`
 }
 
-// NewActivesessionGetCurrentV1ResponseMPayload instantiates a new ActivesessionGetCurrentV1ResponseMPayload object
+// NewActivesessionResponseCompound instantiates a new ActivesessionResponseCompound object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewActivesessionGetCurrentV1ResponseMPayload(aPkiPermissionID []int32, objUserReal ActivesessionResponseCompoundUser, aEModuleInternalname []string, eActivesessionSessiontype FieldEActivesessionSessiontype, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, bActivesessionDebug bool, pksCustomerCode string) *ActivesessionGetCurrentV1ResponseMPayload {
-	this := ActivesessionGetCurrentV1ResponseMPayload{}
+func NewActivesessionResponseCompound(aPkiPermissionID []int32, objUserReal ActivesessionResponseCompoundUser, aEModuleInternalname []string, eActivesessionSessiontype FieldEActivesessionSessiontype, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, bActivesessionDebug bool, pksCustomerCode string) *ActivesessionResponseCompound {
+	this := ActivesessionResponseCompound{}
 	this.APkiPermissionID = aPkiPermissionID
 	this.ObjUserReal = objUserReal
 	this.AEModuleInternalname = aEModuleInternalname
@@ -57,16 +57,16 @@ func NewActivesessionGetCurrentV1ResponseMPayload(aPkiPermissionID []int32, objU
 	return &this
 }
 
-// NewActivesessionGetCurrentV1ResponseMPayloadWithDefaults instantiates a new ActivesessionGetCurrentV1ResponseMPayload object
+// NewActivesessionResponseCompoundWithDefaults instantiates a new ActivesessionResponseCompound object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewActivesessionGetCurrentV1ResponseMPayloadWithDefaults() *ActivesessionGetCurrentV1ResponseMPayload {
-	this := ActivesessionGetCurrentV1ResponseMPayload{}
+func NewActivesessionResponseCompoundWithDefaults() *ActivesessionResponseCompound {
+	this := ActivesessionResponseCompound{}
 	return &this
 }
 
 // GetAPkiPermissionID returns the APkiPermissionID field value
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetAPkiPermissionID() []int32 {
+func (o *ActivesessionResponseCompound) GetAPkiPermissionID() []int32 {
 	if o == nil {
 		var ret []int32
 		return ret
@@ -77,7 +77,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetAPkiPermissionID() []int3
 
 // GetAPkiPermissionIDOk returns a tuple with the APkiPermissionID field value
 // and a boolean to check if the value has been set.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetAPkiPermissionIDOk() ([]int32, bool) {
+func (o *ActivesessionResponseCompound) GetAPkiPermissionIDOk() ([]int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -85,12 +85,12 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetAPkiPermissionIDOk() ([]i
 }
 
 // SetAPkiPermissionID sets field value
-func (o *ActivesessionGetCurrentV1ResponseMPayload) SetAPkiPermissionID(v []int32) {
+func (o *ActivesessionResponseCompound) SetAPkiPermissionID(v []int32) {
 	o.APkiPermissionID = v
 }
 
 // GetObjUserReal returns the ObjUserReal field value
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjUserReal() ActivesessionResponseCompoundUser {
+func (o *ActivesessionResponseCompound) GetObjUserReal() ActivesessionResponseCompoundUser {
 	if o == nil {
 		var ret ActivesessionResponseCompoundUser
 		return ret
@@ -101,7 +101,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjUserReal() Activesessi
 
 // GetObjUserRealOk returns a tuple with the ObjUserReal field value
 // and a boolean to check if the value has been set.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjUserRealOk() (*ActivesessionResponseCompoundUser, bool) {
+func (o *ActivesessionResponseCompound) GetObjUserRealOk() (*ActivesessionResponseCompoundUser, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -109,12 +109,12 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjUserRealOk() (*Actives
 }
 
 // SetObjUserReal sets field value
-func (o *ActivesessionGetCurrentV1ResponseMPayload) SetObjUserReal(v ActivesessionResponseCompoundUser) {
+func (o *ActivesessionResponseCompound) SetObjUserReal(v ActivesessionResponseCompoundUser) {
 	o.ObjUserReal = v
 }
 
 // GetObjUserCloned returns the ObjUserCloned field value if set, zero value otherwise.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjUserCloned() ActivesessionResponseCompoundUser {
+func (o *ActivesessionResponseCompound) GetObjUserCloned() ActivesessionResponseCompoundUser {
 	if o == nil || o.ObjUserCloned == nil {
 		var ret ActivesessionResponseCompoundUser
 		return ret
@@ -124,7 +124,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjUserCloned() Activeses
 
 // GetObjUserClonedOk returns a tuple with the ObjUserCloned field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjUserClonedOk() (*ActivesessionResponseCompoundUser, bool) {
+func (o *ActivesessionResponseCompound) GetObjUserClonedOk() (*ActivesessionResponseCompoundUser, bool) {
 	if o == nil || o.ObjUserCloned == nil {
 		return nil, false
 	}
@@ -132,7 +132,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjUserClonedOk() (*Activ
 }
 
 // HasObjUserCloned returns a boolean if a field has been set.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) HasObjUserCloned() bool {
+func (o *ActivesessionResponseCompound) HasObjUserCloned() bool {
 	if o != nil && o.ObjUserCloned != nil {
 		return true
 	}
@@ -141,12 +141,12 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) HasObjUserCloned() bool {
 }
 
 // SetObjUserCloned gets a reference to the given ActivesessionResponseCompoundUser and assigns it to the ObjUserCloned field.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) SetObjUserCloned(v ActivesessionResponseCompoundUser) {
+func (o *ActivesessionResponseCompound) SetObjUserCloned(v ActivesessionResponseCompoundUser) {
 	o.ObjUserCloned = &v
 }
 
 // GetObjApikey returns the ObjApikey field value if set, zero value otherwise.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjApikey() ActivesessionResponseCompoundApikey {
+func (o *ActivesessionResponseCompound) GetObjApikey() ActivesessionResponseCompoundApikey {
 	if o == nil || o.ObjApikey == nil {
 		var ret ActivesessionResponseCompoundApikey
 		return ret
@@ -156,7 +156,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjApikey() Activesession
 
 // GetObjApikeyOk returns a tuple with the ObjApikey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjApikeyOk() (*ActivesessionResponseCompoundApikey, bool) {
+func (o *ActivesessionResponseCompound) GetObjApikeyOk() (*ActivesessionResponseCompoundApikey, bool) {
 	if o == nil || o.ObjApikey == nil {
 		return nil, false
 	}
@@ -164,7 +164,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjApikeyOk() (*Activeses
 }
 
 // HasObjApikey returns a boolean if a field has been set.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) HasObjApikey() bool {
+func (o *ActivesessionResponseCompound) HasObjApikey() bool {
 	if o != nil && o.ObjApikey != nil {
 		return true
 	}
@@ -173,12 +173,12 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) HasObjApikey() bool {
 }
 
 // SetObjApikey gets a reference to the given ActivesessionResponseCompoundApikey and assigns it to the ObjApikey field.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) SetObjApikey(v ActivesessionResponseCompoundApikey) {
+func (o *ActivesessionResponseCompound) SetObjApikey(v ActivesessionResponseCompoundApikey) {
 	o.ObjApikey = &v
 }
 
 // GetAEModuleInternalname returns the AEModuleInternalname field value
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetAEModuleInternalname() []string {
+func (o *ActivesessionResponseCompound) GetAEModuleInternalname() []string {
 	if o == nil {
 		var ret []string
 		return ret
@@ -189,7 +189,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetAEModuleInternalname() []
 
 // GetAEModuleInternalnameOk returns a tuple with the AEModuleInternalname field value
 // and a boolean to check if the value has been set.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetAEModuleInternalnameOk() ([]string, bool) {
+func (o *ActivesessionResponseCompound) GetAEModuleInternalnameOk() ([]string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -197,12 +197,12 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetAEModuleInternalnameOk() 
 }
 
 // SetAEModuleInternalname sets field value
-func (o *ActivesessionGetCurrentV1ResponseMPayload) SetAEModuleInternalname(v []string) {
+func (o *ActivesessionResponseCompound) SetAEModuleInternalname(v []string) {
 	o.AEModuleInternalname = v
 }
 
 // GetEActivesessionSessiontype returns the EActivesessionSessiontype field value
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionSessiontype() FieldEActivesessionSessiontype {
+func (o *ActivesessionResponseCompound) GetEActivesessionSessiontype() FieldEActivesessionSessiontype {
 	if o == nil {
 		var ret FieldEActivesessionSessiontype
 		return ret
@@ -213,7 +213,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionSessiontype
 
 // GetEActivesessionSessiontypeOk returns a tuple with the EActivesessionSessiontype field value
 // and a boolean to check if the value has been set.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionSessiontypeOk() (*FieldEActivesessionSessiontype, bool) {
+func (o *ActivesessionResponseCompound) GetEActivesessionSessiontypeOk() (*FieldEActivesessionSessiontype, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -221,12 +221,12 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionSessiontype
 }
 
 // SetEActivesessionSessiontype sets field value
-func (o *ActivesessionGetCurrentV1ResponseMPayload) SetEActivesessionSessiontype(v FieldEActivesessionSessiontype) {
+func (o *ActivesessionResponseCompound) SetEActivesessionSessiontype(v FieldEActivesessionSessiontype) {
 	o.EActivesessionSessiontype = v
 }
 
 // GetEActivesessionWeekdaystart returns the EActivesessionWeekdaystart field value
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionWeekdaystart() FieldEActivesessionWeekdaystart {
+func (o *ActivesessionResponseCompound) GetEActivesessionWeekdaystart() FieldEActivesessionWeekdaystart {
 	if o == nil {
 		var ret FieldEActivesessionWeekdaystart
 		return ret
@@ -237,7 +237,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionWeekdaystar
 
 // GetEActivesessionWeekdaystartOk returns a tuple with the EActivesessionWeekdaystart field value
 // and a boolean to check if the value has been set.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionWeekdaystartOk() (*FieldEActivesessionWeekdaystart, bool) {
+func (o *ActivesessionResponseCompound) GetEActivesessionWeekdaystartOk() (*FieldEActivesessionWeekdaystart, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -245,12 +245,12 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionWeekdaystar
 }
 
 // SetEActivesessionWeekdaystart sets field value
-func (o *ActivesessionGetCurrentV1ResponseMPayload) SetEActivesessionWeekdaystart(v FieldEActivesessionWeekdaystart) {
+func (o *ActivesessionResponseCompound) SetEActivesessionWeekdaystart(v FieldEActivesessionWeekdaystart) {
 	o.EActivesessionWeekdaystart = v
 }
 
 // GetFkiLanguageID returns the FkiLanguageID field value
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetFkiLanguageID() int32 {
+func (o *ActivesessionResponseCompound) GetFkiLanguageID() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -261,7 +261,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetFkiLanguageID() int32 {
 
 // GetFkiLanguageIDOk returns a tuple with the FkiLanguageID field value
 // and a boolean to check if the value has been set.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetFkiLanguageIDOk() (*int32, bool) {
+func (o *ActivesessionResponseCompound) GetFkiLanguageIDOk() (*int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -269,12 +269,12 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetFkiLanguageIDOk() (*int32
 }
 
 // SetFkiLanguageID sets field value
-func (o *ActivesessionGetCurrentV1ResponseMPayload) SetFkiLanguageID(v int32) {
+func (o *ActivesessionResponseCompound) SetFkiLanguageID(v int32) {
 	o.FkiLanguageID = v
 }
 
 // GetSCompanyNameX returns the SCompanyNameX field value
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetSCompanyNameX() string {
+func (o *ActivesessionResponseCompound) GetSCompanyNameX() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -285,7 +285,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetSCompanyNameX() string {
 
 // GetSCompanyNameXOk returns a tuple with the SCompanyNameX field value
 // and a boolean to check if the value has been set.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetSCompanyNameXOk() (*string, bool) {
+func (o *ActivesessionResponseCompound) GetSCompanyNameXOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -293,12 +293,12 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetSCompanyNameXOk() (*strin
 }
 
 // SetSCompanyNameX sets field value
-func (o *ActivesessionGetCurrentV1ResponseMPayload) SetSCompanyNameX(v string) {
+func (o *ActivesessionResponseCompound) SetSCompanyNameX(v string) {
 	o.SCompanyNameX = v
 }
 
 // GetSDepartmentNameX returns the SDepartmentNameX field value
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetSDepartmentNameX() string {
+func (o *ActivesessionResponseCompound) GetSDepartmentNameX() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -309,7 +309,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetSDepartmentNameX() string
 
 // GetSDepartmentNameXOk returns a tuple with the SDepartmentNameX field value
 // and a boolean to check if the value has been set.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetSDepartmentNameXOk() (*string, bool) {
+func (o *ActivesessionResponseCompound) GetSDepartmentNameXOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -317,12 +317,12 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetSDepartmentNameXOk() (*st
 }
 
 // SetSDepartmentNameX sets field value
-func (o *ActivesessionGetCurrentV1ResponseMPayload) SetSDepartmentNameX(v string) {
+func (o *ActivesessionResponseCompound) SetSDepartmentNameX(v string) {
 	o.SDepartmentNameX = v
 }
 
 // GetBActivesessionDebug returns the BActivesessionDebug field value
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetBActivesessionDebug() bool {
+func (o *ActivesessionResponseCompound) GetBActivesessionDebug() bool {
 	if o == nil {
 		var ret bool
 		return ret
@@ -333,7 +333,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetBActivesessionDebug() boo
 
 // GetBActivesessionDebugOk returns a tuple with the BActivesessionDebug field value
 // and a boolean to check if the value has been set.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetBActivesessionDebugOk() (*bool, bool) {
+func (o *ActivesessionResponseCompound) GetBActivesessionDebugOk() (*bool, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -341,12 +341,12 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetBActivesessionDebugOk() (
 }
 
 // SetBActivesessionDebug sets field value
-func (o *ActivesessionGetCurrentV1ResponseMPayload) SetBActivesessionDebug(v bool) {
+func (o *ActivesessionResponseCompound) SetBActivesessionDebug(v bool) {
 	o.BActivesessionDebug = v
 }
 
 // GetPksCustomerCode returns the PksCustomerCode field value
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetPksCustomerCode() string {
+func (o *ActivesessionResponseCompound) GetPksCustomerCode() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -357,7 +357,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetPksCustomerCode() string 
 
 // GetPksCustomerCodeOk returns a tuple with the PksCustomerCode field value
 // and a boolean to check if the value has been set.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetPksCustomerCodeOk() (*string, bool) {
+func (o *ActivesessionResponseCompound) GetPksCustomerCodeOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -365,11 +365,11 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetPksCustomerCodeOk() (*str
 }
 
 // SetPksCustomerCode sets field value
-func (o *ActivesessionGetCurrentV1ResponseMPayload) SetPksCustomerCode(v string) {
+func (o *ActivesessionResponseCompound) SetPksCustomerCode(v string) {
 	o.PksCustomerCode = v
 }
 
-func (o ActivesessionGetCurrentV1ResponseMPayload) MarshalJSON() ([]byte, error) {
+func (o ActivesessionResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["a_pkiPermissionID"] = o.APkiPermissionID
@@ -410,38 +410,38 @@ func (o ActivesessionGetCurrentV1ResponseMPayload) MarshalJSON() ([]byte, error)
 	return json.Marshal(toSerialize)
 }
 
-type NullableActivesessionGetCurrentV1ResponseMPayload struct {
-	value *ActivesessionGetCurrentV1ResponseMPayload
+type NullableActivesessionResponseCompound struct {
+	value *ActivesessionResponseCompound
 	isSet bool
 }
 
-func (v NullableActivesessionGetCurrentV1ResponseMPayload) Get() *ActivesessionGetCurrentV1ResponseMPayload {
+func (v NullableActivesessionResponseCompound) Get() *ActivesessionResponseCompound {
 	return v.value
 }
 
-func (v *NullableActivesessionGetCurrentV1ResponseMPayload) Set(val *ActivesessionGetCurrentV1ResponseMPayload) {
+func (v *NullableActivesessionResponseCompound) Set(val *ActivesessionResponseCompound) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableActivesessionGetCurrentV1ResponseMPayload) IsSet() bool {
+func (v NullableActivesessionResponseCompound) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableActivesessionGetCurrentV1ResponseMPayload) Unset() {
+func (v *NullableActivesessionResponseCompound) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableActivesessionGetCurrentV1ResponseMPayload(val *ActivesessionGetCurrentV1ResponseMPayload) *NullableActivesessionGetCurrentV1ResponseMPayload {
-	return &NullableActivesessionGetCurrentV1ResponseMPayload{value: val, isSet: true}
+func NewNullableActivesessionResponseCompound(val *ActivesessionResponseCompound) *NullableActivesessionResponseCompound {
+	return &NullableActivesessionResponseCompound{value: val, isSet: true}
 }
 
-func (v NullableActivesessionGetCurrentV1ResponseMPayload) MarshalJSON() ([]byte, error) {
+func (v NullableActivesessionResponseCompound) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableActivesessionGetCurrentV1ResponseMPayload) UnmarshalJSON(src []byte) error {
+func (v *NullableActivesessionResponseCompound) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

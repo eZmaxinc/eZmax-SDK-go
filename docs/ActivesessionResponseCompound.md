@@ -1,4 +1,4 @@
-# ActivesessionGetCurrentV1ResponseMPayload
+# ActivesessionResponseCompound
 
 ## Properties
 
@@ -19,269 +19,269 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewActivesessionGetCurrentV1ResponseMPayload
+### NewActivesessionResponseCompound
 
-`func NewActivesessionGetCurrentV1ResponseMPayload(aPkiPermissionID []int32, objUserReal ActivesessionResponseCompoundUser, aEModuleInternalname []string, eActivesessionSessiontype FieldEActivesessionSessiontype, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, bActivesessionDebug bool, pksCustomerCode string, ) *ActivesessionGetCurrentV1ResponseMPayload`
+`func NewActivesessionResponseCompound(aPkiPermissionID []int32, objUserReal ActivesessionResponseCompoundUser, aEModuleInternalname []string, eActivesessionSessiontype FieldEActivesessionSessiontype, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, bActivesessionDebug bool, pksCustomerCode string, ) *ActivesessionResponseCompound`
 
-NewActivesessionGetCurrentV1ResponseMPayload instantiates a new ActivesessionGetCurrentV1ResponseMPayload object
+NewActivesessionResponseCompound instantiates a new ActivesessionResponseCompound object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewActivesessionGetCurrentV1ResponseMPayloadWithDefaults
+### NewActivesessionResponseCompoundWithDefaults
 
-`func NewActivesessionGetCurrentV1ResponseMPayloadWithDefaults() *ActivesessionGetCurrentV1ResponseMPayload`
+`func NewActivesessionResponseCompoundWithDefaults() *ActivesessionResponseCompound`
 
-NewActivesessionGetCurrentV1ResponseMPayloadWithDefaults instantiates a new ActivesessionGetCurrentV1ResponseMPayload object
+NewActivesessionResponseCompoundWithDefaults instantiates a new ActivesessionResponseCompound object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetAPkiPermissionID
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetAPkiPermissionID() []int32`
+`func (o *ActivesessionResponseCompound) GetAPkiPermissionID() []int32`
 
 GetAPkiPermissionID returns the APkiPermissionID field if non-nil, zero value otherwise.
 
 ### GetAPkiPermissionIDOk
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetAPkiPermissionIDOk() (*[]int32, bool)`
+`func (o *ActivesessionResponseCompound) GetAPkiPermissionIDOk() (*[]int32, bool)`
 
 GetAPkiPermissionIDOk returns a tuple with the APkiPermissionID field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAPkiPermissionID
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) SetAPkiPermissionID(v []int32)`
+`func (o *ActivesessionResponseCompound) SetAPkiPermissionID(v []int32)`
 
 SetAPkiPermissionID sets APkiPermissionID field to given value.
 
 
 ### GetObjUserReal
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjUserReal() ActivesessionResponseCompoundUser`
+`func (o *ActivesessionResponseCompound) GetObjUserReal() ActivesessionResponseCompoundUser`
 
 GetObjUserReal returns the ObjUserReal field if non-nil, zero value otherwise.
 
 ### GetObjUserRealOk
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjUserRealOk() (*ActivesessionResponseCompoundUser, bool)`
+`func (o *ActivesessionResponseCompound) GetObjUserRealOk() (*ActivesessionResponseCompoundUser, bool)`
 
 GetObjUserRealOk returns a tuple with the ObjUserReal field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObjUserReal
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) SetObjUserReal(v ActivesessionResponseCompoundUser)`
+`func (o *ActivesessionResponseCompound) SetObjUserReal(v ActivesessionResponseCompoundUser)`
 
 SetObjUserReal sets ObjUserReal field to given value.
 
 
 ### GetObjUserCloned
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjUserCloned() ActivesessionResponseCompoundUser`
+`func (o *ActivesessionResponseCompound) GetObjUserCloned() ActivesessionResponseCompoundUser`
 
 GetObjUserCloned returns the ObjUserCloned field if non-nil, zero value otherwise.
 
 ### GetObjUserClonedOk
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjUserClonedOk() (*ActivesessionResponseCompoundUser, bool)`
+`func (o *ActivesessionResponseCompound) GetObjUserClonedOk() (*ActivesessionResponseCompoundUser, bool)`
 
 GetObjUserClonedOk returns a tuple with the ObjUserCloned field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObjUserCloned
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) SetObjUserCloned(v ActivesessionResponseCompoundUser)`
+`func (o *ActivesessionResponseCompound) SetObjUserCloned(v ActivesessionResponseCompoundUser)`
 
 SetObjUserCloned sets ObjUserCloned field to given value.
 
 ### HasObjUserCloned
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) HasObjUserCloned() bool`
+`func (o *ActivesessionResponseCompound) HasObjUserCloned() bool`
 
 HasObjUserCloned returns a boolean if a field has been set.
 
 ### GetObjApikey
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjApikey() ActivesessionResponseCompoundApikey`
+`func (o *ActivesessionResponseCompound) GetObjApikey() ActivesessionResponseCompoundApikey`
 
 GetObjApikey returns the ObjApikey field if non-nil, zero value otherwise.
 
 ### GetObjApikeyOk
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjApikeyOk() (*ActivesessionResponseCompoundApikey, bool)`
+`func (o *ActivesessionResponseCompound) GetObjApikeyOk() (*ActivesessionResponseCompoundApikey, bool)`
 
 GetObjApikeyOk returns a tuple with the ObjApikey field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObjApikey
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) SetObjApikey(v ActivesessionResponseCompoundApikey)`
+`func (o *ActivesessionResponseCompound) SetObjApikey(v ActivesessionResponseCompoundApikey)`
 
 SetObjApikey sets ObjApikey field to given value.
 
 ### HasObjApikey
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) HasObjApikey() bool`
+`func (o *ActivesessionResponseCompound) HasObjApikey() bool`
 
 HasObjApikey returns a boolean if a field has been set.
 
 ### GetAEModuleInternalname
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetAEModuleInternalname() []string`
+`func (o *ActivesessionResponseCompound) GetAEModuleInternalname() []string`
 
 GetAEModuleInternalname returns the AEModuleInternalname field if non-nil, zero value otherwise.
 
 ### GetAEModuleInternalnameOk
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetAEModuleInternalnameOk() (*[]string, bool)`
+`func (o *ActivesessionResponseCompound) GetAEModuleInternalnameOk() (*[]string, bool)`
 
 GetAEModuleInternalnameOk returns a tuple with the AEModuleInternalname field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAEModuleInternalname
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) SetAEModuleInternalname(v []string)`
+`func (o *ActivesessionResponseCompound) SetAEModuleInternalname(v []string)`
 
 SetAEModuleInternalname sets AEModuleInternalname field to given value.
 
 
 ### GetEActivesessionSessiontype
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionSessiontype() FieldEActivesessionSessiontype`
+`func (o *ActivesessionResponseCompound) GetEActivesessionSessiontype() FieldEActivesessionSessiontype`
 
 GetEActivesessionSessiontype returns the EActivesessionSessiontype field if non-nil, zero value otherwise.
 
 ### GetEActivesessionSessiontypeOk
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionSessiontypeOk() (*FieldEActivesessionSessiontype, bool)`
+`func (o *ActivesessionResponseCompound) GetEActivesessionSessiontypeOk() (*FieldEActivesessionSessiontype, bool)`
 
 GetEActivesessionSessiontypeOk returns a tuple with the EActivesessionSessiontype field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEActivesessionSessiontype
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) SetEActivesessionSessiontype(v FieldEActivesessionSessiontype)`
+`func (o *ActivesessionResponseCompound) SetEActivesessionSessiontype(v FieldEActivesessionSessiontype)`
 
 SetEActivesessionSessiontype sets EActivesessionSessiontype field to given value.
 
 
 ### GetEActivesessionWeekdaystart
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionWeekdaystart() FieldEActivesessionWeekdaystart`
+`func (o *ActivesessionResponseCompound) GetEActivesessionWeekdaystart() FieldEActivesessionWeekdaystart`
 
 GetEActivesessionWeekdaystart returns the EActivesessionWeekdaystart field if non-nil, zero value otherwise.
 
 ### GetEActivesessionWeekdaystartOk
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionWeekdaystartOk() (*FieldEActivesessionWeekdaystart, bool)`
+`func (o *ActivesessionResponseCompound) GetEActivesessionWeekdaystartOk() (*FieldEActivesessionWeekdaystart, bool)`
 
 GetEActivesessionWeekdaystartOk returns a tuple with the EActivesessionWeekdaystart field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEActivesessionWeekdaystart
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) SetEActivesessionWeekdaystart(v FieldEActivesessionWeekdaystart)`
+`func (o *ActivesessionResponseCompound) SetEActivesessionWeekdaystart(v FieldEActivesessionWeekdaystart)`
 
 SetEActivesessionWeekdaystart sets EActivesessionWeekdaystart field to given value.
 
 
 ### GetFkiLanguageID
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetFkiLanguageID() int32`
+`func (o *ActivesessionResponseCompound) GetFkiLanguageID() int32`
 
 GetFkiLanguageID returns the FkiLanguageID field if non-nil, zero value otherwise.
 
 ### GetFkiLanguageIDOk
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetFkiLanguageIDOk() (*int32, bool)`
+`func (o *ActivesessionResponseCompound) GetFkiLanguageIDOk() (*int32, bool)`
 
 GetFkiLanguageIDOk returns a tuple with the FkiLanguageID field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFkiLanguageID
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) SetFkiLanguageID(v int32)`
+`func (o *ActivesessionResponseCompound) SetFkiLanguageID(v int32)`
 
 SetFkiLanguageID sets FkiLanguageID field to given value.
 
 
 ### GetSCompanyNameX
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetSCompanyNameX() string`
+`func (o *ActivesessionResponseCompound) GetSCompanyNameX() string`
 
 GetSCompanyNameX returns the SCompanyNameX field if non-nil, zero value otherwise.
 
 ### GetSCompanyNameXOk
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetSCompanyNameXOk() (*string, bool)`
+`func (o *ActivesessionResponseCompound) GetSCompanyNameXOk() (*string, bool)`
 
 GetSCompanyNameXOk returns a tuple with the SCompanyNameX field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSCompanyNameX
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) SetSCompanyNameX(v string)`
+`func (o *ActivesessionResponseCompound) SetSCompanyNameX(v string)`
 
 SetSCompanyNameX sets SCompanyNameX field to given value.
 
 
 ### GetSDepartmentNameX
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetSDepartmentNameX() string`
+`func (o *ActivesessionResponseCompound) GetSDepartmentNameX() string`
 
 GetSDepartmentNameX returns the SDepartmentNameX field if non-nil, zero value otherwise.
 
 ### GetSDepartmentNameXOk
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetSDepartmentNameXOk() (*string, bool)`
+`func (o *ActivesessionResponseCompound) GetSDepartmentNameXOk() (*string, bool)`
 
 GetSDepartmentNameXOk returns a tuple with the SDepartmentNameX field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSDepartmentNameX
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) SetSDepartmentNameX(v string)`
+`func (o *ActivesessionResponseCompound) SetSDepartmentNameX(v string)`
 
 SetSDepartmentNameX sets SDepartmentNameX field to given value.
 
 
 ### GetBActivesessionDebug
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetBActivesessionDebug() bool`
+`func (o *ActivesessionResponseCompound) GetBActivesessionDebug() bool`
 
 GetBActivesessionDebug returns the BActivesessionDebug field if non-nil, zero value otherwise.
 
 ### GetBActivesessionDebugOk
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetBActivesessionDebugOk() (*bool, bool)`
+`func (o *ActivesessionResponseCompound) GetBActivesessionDebugOk() (*bool, bool)`
 
 GetBActivesessionDebugOk returns a tuple with the BActivesessionDebug field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBActivesessionDebug
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) SetBActivesessionDebug(v bool)`
+`func (o *ActivesessionResponseCompound) SetBActivesessionDebug(v bool)`
 
 SetBActivesessionDebug sets BActivesessionDebug field to given value.
 
 
 ### GetPksCustomerCode
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetPksCustomerCode() string`
+`func (o *ActivesessionResponseCompound) GetPksCustomerCode() string`
 
 GetPksCustomerCode returns the PksCustomerCode field if non-nil, zero value otherwise.
 
 ### GetPksCustomerCodeOk
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetPksCustomerCodeOk() (*string, bool)`
+`func (o *ActivesessionResponseCompound) GetPksCustomerCodeOk() (*string, bool)`
 
 GetPksCustomerCodeOk returns a tuple with the PksCustomerCode field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPksCustomerCode
 
-`func (o *ActivesessionGetCurrentV1ResponseMPayload) SetPksCustomerCode(v string)`
+`func (o *ActivesessionResponseCompound) SetPksCustomerCode(v string)`
 
 SetPksCustomerCode sets PksCustomerCode field to given value.
 
