@@ -17,6 +17,8 @@ import (
 
 // FranchisereferalincomeRequest An Franchisereferalincome Object
 type FranchisereferalincomeRequest struct {
+	// The unique ID of the Franchisereferalincome
+	PkiFranchisereferalincomeID *int32 `json:"pkiFranchisereferalincomeID,omitempty"`
 	// The unique ID of the Franchisebroker
 	FkiFranchisebrokerID int32 `json:"fkiFranchisebrokerID"`
 	// The unique ID of the Franchisereferalincomeprogram
@@ -66,6 +68,38 @@ func NewFranchisereferalincomeRequest(fkiFranchisebrokerID int32, fkiFranchisere
 func NewFranchisereferalincomeRequestWithDefaults() *FranchisereferalincomeRequest {
 	this := FranchisereferalincomeRequest{}
 	return &this
+}
+
+// GetPkiFranchisereferalincomeID returns the PkiFranchisereferalincomeID field value if set, zero value otherwise.
+func (o *FranchisereferalincomeRequest) GetPkiFranchisereferalincomeID() int32 {
+	if o == nil || o.PkiFranchisereferalincomeID == nil {
+		var ret int32
+		return ret
+	}
+	return *o.PkiFranchisereferalincomeID
+}
+
+// GetPkiFranchisereferalincomeIDOk returns a tuple with the PkiFranchisereferalincomeID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FranchisereferalincomeRequest) GetPkiFranchisereferalincomeIDOk() (*int32, bool) {
+	if o == nil || o.PkiFranchisereferalincomeID == nil {
+		return nil, false
+	}
+	return o.PkiFranchisereferalincomeID, true
+}
+
+// HasPkiFranchisereferalincomeID returns a boolean if a field has been set.
+func (o *FranchisereferalincomeRequest) HasPkiFranchisereferalincomeID() bool {
+	if o != nil && o.PkiFranchisereferalincomeID != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPkiFranchisereferalincomeID gets a reference to the given int32 and assigns it to the PkiFranchisereferalincomeID field.
+func (o *FranchisereferalincomeRequest) SetPkiFranchisereferalincomeID(v int32) {
+	o.PkiFranchisereferalincomeID = &v
 }
 
 // GetFkiFranchisebrokerID returns the FkiFranchisebrokerID field value
@@ -334,6 +368,9 @@ func (o *FranchisereferalincomeRequest) SetSFranchisereferalincomeRemoteid(v str
 
 func (o FranchisereferalincomeRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.PkiFranchisereferalincomeID != nil {
+		toSerialize["pkiFranchisereferalincomeID"] = o.PkiFranchisereferalincomeID
+	}
 	if true {
 		toSerialize["fkiFranchisebrokerID"] = o.FkiFranchisebrokerID
 	}

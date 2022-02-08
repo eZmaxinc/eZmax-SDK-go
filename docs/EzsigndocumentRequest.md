@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**PkiEzsigndocumentID** | Pointer to **int32** | The unique ID of the Ezsigndocument | [optional] 
 **EEzsigndocumentSource** | **string** | Indicates where to look for the document binary content. | 
 **EEzsigndocumentFormat** | **string** | Indicates the format of the document. | 
 **SEzsigndocumentBase64** | Pointer to **string** | The Base64 encoded binary content of the document.  This field is Required when eEzsigndocumentSource &#x3D; Base64. | [optional] 
@@ -33,6 +34,31 @@ will change when the set of required properties is changed
 NewEzsigndocumentRequestWithDefaults instantiates a new EzsigndocumentRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetPkiEzsigndocumentID
+
+`func (o *EzsigndocumentRequest) GetPkiEzsigndocumentID() int32`
+
+GetPkiEzsigndocumentID returns the PkiEzsigndocumentID field if non-nil, zero value otherwise.
+
+### GetPkiEzsigndocumentIDOk
+
+`func (o *EzsigndocumentRequest) GetPkiEzsigndocumentIDOk() (*int32, bool)`
+
+GetPkiEzsigndocumentIDOk returns a tuple with the PkiEzsigndocumentID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPkiEzsigndocumentID
+
+`func (o *EzsigndocumentRequest) SetPkiEzsigndocumentID(v int32)`
+
+SetPkiEzsigndocumentID sets PkiEzsigndocumentID field to given value.
+
+### HasPkiEzsigndocumentID
+
+`func (o *EzsigndocumentRequest) HasPkiEzsigndocumentID() bool`
+
+HasPkiEzsigndocumentID returns a boolean if a field has been set.
 
 ### GetEEzsigndocumentSource
 

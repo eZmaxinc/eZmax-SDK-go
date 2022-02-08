@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**PkiEzsignfolderID** | Pointer to **int32** | The unique ID of the Ezsignfolder | [optional] 
 **FkiEzsignfoldertypeID** | **int32** | The unique ID of the Ezsignfoldertype. | 
 **FkiEzsigntsarequirementID** | **int32** | The unique ID of the Ezsigntsarequirement.  Determine if a Time Stamping Authority should add a timestamp on each of the signature. Valid values:  |Value|Description| |-|-| |1|No. TSA Timestamping will requested. This will make all signatures a lot faster since no round-trip to the TSA server will be required. Timestamping will be made using eZsign server&#39;s time.| |2|Best effort. Timestamping from a Time Stamping Authority will be requested but is not mandatory. In the very improbable case it cannot be completed, the timestamping will be made using eZsign server&#39;s time. **Additional fee applies**| |3|Mandatory. Timestamping from a Time Stamping Authority will be requested and is mandatory. In the very improbable case it cannot be completed, the signature will fail and the user will be asked to retry. **Additional fee applies**| | 
 **SEzsignfolderDescription** | **string** | The description of the Ezsignfolder | 
@@ -28,6 +29,31 @@ will change when the set of required properties is changed
 NewEzsignfolderRequestWithDefaults instantiates a new EzsignfolderRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetPkiEzsignfolderID
+
+`func (o *EzsignfolderRequest) GetPkiEzsignfolderID() int32`
+
+GetPkiEzsignfolderID returns the PkiEzsignfolderID field if non-nil, zero value otherwise.
+
+### GetPkiEzsignfolderIDOk
+
+`func (o *EzsignfolderRequest) GetPkiEzsignfolderIDOk() (*int32, bool)`
+
+GetPkiEzsignfolderIDOk returns a tuple with the PkiEzsignfolderID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPkiEzsignfolderID
+
+`func (o *EzsignfolderRequest) SetPkiEzsignfolderID(v int32)`
+
+SetPkiEzsignfolderID sets PkiEzsignfolderID field to given value.
+
+### HasPkiEzsignfolderID
+
+`func (o *EzsignfolderRequest) HasPkiEzsignfolderID() bool`
+
+HasPkiEzsignfolderID returns a boolean if a field has been set.
 
 ### GetFkiEzsignfoldertypeID
 

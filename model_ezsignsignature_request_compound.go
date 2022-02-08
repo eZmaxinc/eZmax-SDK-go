@@ -21,6 +21,8 @@ type EzsignsignatureRequestCompound struct {
 	BEzsignsignatureCustomdate *bool `json:"bEzsignsignatureCustomdate,omitempty"`
 	// An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.
 	AObjEzsignsignaturecustomdate []EzsignsignaturecustomdateRequest `json:"a_objEzsignsignaturecustomdate,omitempty"`
+	// The unique ID of the Ezsignsignature
+	PkiEzsignsignatureID *int32 `json:"pkiEzsignsignatureID,omitempty"`
 	// The unique ID of the Ezsignfoldersignerassociation
 	FkiEzsignfoldersignerassociationID int32 `json:"fkiEzsignfoldersignerassociationID"`
 	// The page number in the Ezsigndocument
@@ -122,6 +124,38 @@ func (o *EzsignsignatureRequestCompound) HasAObjEzsignsignaturecustomdate() bool
 // SetAObjEzsignsignaturecustomdate gets a reference to the given []EzsignsignaturecustomdateRequest and assigns it to the AObjEzsignsignaturecustomdate field.
 func (o *EzsignsignatureRequestCompound) SetAObjEzsignsignaturecustomdate(v []EzsignsignaturecustomdateRequest) {
 	o.AObjEzsignsignaturecustomdate = v
+}
+
+// GetPkiEzsignsignatureID returns the PkiEzsignsignatureID field value if set, zero value otherwise.
+func (o *EzsignsignatureRequestCompound) GetPkiEzsignsignatureID() int32 {
+	if o == nil || o.PkiEzsignsignatureID == nil {
+		var ret int32
+		return ret
+	}
+	return *o.PkiEzsignsignatureID
+}
+
+// GetPkiEzsignsignatureIDOk returns a tuple with the PkiEzsignsignatureID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureRequestCompound) GetPkiEzsignsignatureIDOk() (*int32, bool) {
+	if o == nil || o.PkiEzsignsignatureID == nil {
+		return nil, false
+	}
+	return o.PkiEzsignsignatureID, true
+}
+
+// HasPkiEzsignsignatureID returns a boolean if a field has been set.
+func (o *EzsignsignatureRequestCompound) HasPkiEzsignsignatureID() bool {
+	if o != nil && o.PkiEzsignsignatureID != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPkiEzsignsignatureID gets a reference to the given int32 and assigns it to the PkiEzsignsignatureID field.
+func (o *EzsignsignatureRequestCompound) SetPkiEzsignsignatureID(v int32) {
+	o.PkiEzsignsignatureID = &v
 }
 
 // GetFkiEzsignfoldersignerassociationID returns the FkiEzsignfoldersignerassociationID field value
@@ -299,6 +333,9 @@ func (o EzsignsignatureRequestCompound) MarshalJSON() ([]byte, error) {
 	}
 	if o.AObjEzsignsignaturecustomdate != nil {
 		toSerialize["a_objEzsignsignaturecustomdate"] = o.AObjEzsignsignaturecustomdate
+	}
+	if o.PkiEzsignsignatureID != nil {
+		toSerialize["pkiEzsignsignatureID"] = o.PkiEzsignsignatureID
 	}
 	if true {
 		toSerialize["fkiEzsignfoldersignerassociationID"] = o.FkiEzsignfoldersignerassociationID

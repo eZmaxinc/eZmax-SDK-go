@@ -17,6 +17,8 @@ import (
 
 // EzsigndocumentRequestCompound An Ezsigndocument Object and children to create a complete structure
 type EzsigndocumentRequestCompound struct {
+	// The unique ID of the Ezsigndocument
+	PkiEzsigndocumentID *int32 `json:"pkiEzsigndocumentID,omitempty"`
 	// Indicates where to look for the document binary content.
 	EEzsigndocumentSource string `json:"eEzsigndocumentSource"`
 	// Indicates the format of the document.
@@ -68,6 +70,38 @@ func NewEzsigndocumentRequestCompoundWithDefaults() *EzsigndocumentRequestCompou
 	var sEzsigndocumentPassword string = ""
 	this.SEzsigndocumentPassword = &sEzsigndocumentPassword
 	return &this
+}
+
+// GetPkiEzsigndocumentID returns the PkiEzsigndocumentID field value if set, zero value otherwise.
+func (o *EzsigndocumentRequestCompound) GetPkiEzsigndocumentID() int32 {
+	if o == nil || o.PkiEzsigndocumentID == nil {
+		var ret int32
+		return ret
+	}
+	return *o.PkiEzsigndocumentID
+}
+
+// GetPkiEzsigndocumentIDOk returns a tuple with the PkiEzsigndocumentID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentRequestCompound) GetPkiEzsigndocumentIDOk() (*int32, bool) {
+	if o == nil || o.PkiEzsigndocumentID == nil {
+		return nil, false
+	}
+	return o.PkiEzsigndocumentID, true
+}
+
+// HasPkiEzsigndocumentID returns a boolean if a field has been set.
+func (o *EzsigndocumentRequestCompound) HasPkiEzsigndocumentID() bool {
+	if o != nil && o.PkiEzsigndocumentID != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPkiEzsigndocumentID gets a reference to the given int32 and assigns it to the PkiEzsigndocumentID field.
+func (o *EzsigndocumentRequestCompound) SetPkiEzsigndocumentID(v int32) {
+	o.PkiEzsigndocumentID = &v
 }
 
 // GetEEzsigndocumentSource returns the EEzsigndocumentSource field value
@@ -344,6 +378,9 @@ func (o *EzsigndocumentRequestCompound) SetSEzsigndocumentName(v string) {
 
 func (o EzsigndocumentRequestCompound) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.PkiEzsigndocumentID != nil {
+		toSerialize["pkiEzsigndocumentID"] = o.PkiEzsigndocumentID
+	}
 	if true {
 		toSerialize["eEzsigndocumentSource"] = o.EEzsigndocumentSource
 	}

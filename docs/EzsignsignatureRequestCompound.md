@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BEzsignsignatureCustomdate** | Pointer to **bool** | Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is \&quot;Name\&quot; or \&quot;Handwritten\&quot;) | [optional] 
 **AObjEzsignsignaturecustomdate** | Pointer to [**[]EzsignsignaturecustomdateRequest**](EzsignsignaturecustomdateRequest.md) | An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don&#39;t want to have a date at all. | [optional] 
+**PkiEzsignsignatureID** | Pointer to **int32** | The unique ID of the Ezsignsignature | [optional] 
 **FkiEzsignfoldersignerassociationID** | **int32** | The unique ID of the Ezsignfoldersignerassociation | 
 **IEzsignpagePagenumber** | **int32** | The page number in the Ezsigndocument | 
 **IEzsignsignatureX** | **int32** | The X coordinate (Horizontal) where to put the signature block on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the signature block 2 inches from the left border of the page, you would use \&quot;200\&quot; for the X coordinate. | 
@@ -82,6 +83,31 @@ SetAObjEzsignsignaturecustomdate sets AObjEzsignsignaturecustomdate field to giv
 `func (o *EzsignsignatureRequestCompound) HasAObjEzsignsignaturecustomdate() bool`
 
 HasAObjEzsignsignaturecustomdate returns a boolean if a field has been set.
+
+### GetPkiEzsignsignatureID
+
+`func (o *EzsignsignatureRequestCompound) GetPkiEzsignsignatureID() int32`
+
+GetPkiEzsignsignatureID returns the PkiEzsignsignatureID field if non-nil, zero value otherwise.
+
+### GetPkiEzsignsignatureIDOk
+
+`func (o *EzsignsignatureRequestCompound) GetPkiEzsignsignatureIDOk() (*int32, bool)`
+
+GetPkiEzsignsignatureIDOk returns a tuple with the PkiEzsignsignatureID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPkiEzsignsignatureID
+
+`func (o *EzsignsignatureRequestCompound) SetPkiEzsignsignatureID(v int32)`
+
+SetPkiEzsignsignatureID sets PkiEzsignsignatureID field to given value.
+
+### HasPkiEzsignsignatureID
+
+`func (o *EzsignsignatureRequestCompound) HasPkiEzsignsignatureID() bool`
+
+HasPkiEzsignsignatureID returns a boolean if a field has been set.
 
 ### GetFkiEzsignfoldersignerassociationID
 

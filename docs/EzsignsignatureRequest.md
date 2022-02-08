@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**PkiEzsignsignatureID** | Pointer to **int32** | The unique ID of the Ezsignsignature | [optional] 
 **FkiEzsignfoldersignerassociationID** | **int32** | The unique ID of the Ezsignfoldersignerassociation | 
 **IEzsignpagePagenumber** | **int32** | The page number in the Ezsigndocument | 
 **IEzsignsignatureX** | **int32** | The X coordinate (Horizontal) where to put the signature block on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the signature block 2 inches from the left border of the page, you would use \&quot;200\&quot; for the X coordinate. | 
@@ -30,6 +31,31 @@ will change when the set of required properties is changed
 NewEzsignsignatureRequestWithDefaults instantiates a new EzsignsignatureRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetPkiEzsignsignatureID
+
+`func (o *EzsignsignatureRequest) GetPkiEzsignsignatureID() int32`
+
+GetPkiEzsignsignatureID returns the PkiEzsignsignatureID field if non-nil, zero value otherwise.
+
+### GetPkiEzsignsignatureIDOk
+
+`func (o *EzsignsignatureRequest) GetPkiEzsignsignatureIDOk() (*int32, bool)`
+
+GetPkiEzsignsignatureIDOk returns a tuple with the PkiEzsignsignatureID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPkiEzsignsignatureID
+
+`func (o *EzsignsignatureRequest) SetPkiEzsignsignatureID(v int32)`
+
+SetPkiEzsignsignatureID sets PkiEzsignsignatureID field to given value.
+
+### HasPkiEzsignsignatureID
+
+`func (o *EzsignsignatureRequest) HasPkiEzsignsignatureID() bool`
+
+HasPkiEzsignsignatureID returns a boolean if a field has been set.
 
 ### GetFkiEzsignfoldersignerassociationID
 

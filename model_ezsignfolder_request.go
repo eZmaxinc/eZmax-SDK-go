@@ -17,6 +17,8 @@ import (
 
 // EzsignfolderRequest An Ezsignfolder Object
 type EzsignfolderRequest struct {
+	// The unique ID of the Ezsignfolder
+	PkiEzsignfolderID *int32 `json:"pkiEzsignfolderID,omitempty"`
 	// The unique ID of the Ezsignfoldertype.
 	FkiEzsignfoldertypeID int32 `json:"fkiEzsignfoldertypeID"`
 	// The unique ID of the Ezsigntsarequirement.  Determine if a Time Stamping Authority should add a timestamp on each of the signature. Valid values:  |Value|Description| |-|-| |1|No. TSA Timestamping will requested. This will make all signatures a lot faster since no round-trip to the TSA server will be required. Timestamping will be made using eZsign server's time.| |2|Best effort. Timestamping from a Time Stamping Authority will be requested but is not mandatory. In the very improbable case it cannot be completed, the timestamping will be made using eZsign server's time. **Additional fee applies**| |3|Mandatory. Timestamping from a Time Stamping Authority will be requested and is mandatory. In the very improbable case it cannot be completed, the signature will fail and the user will be asked to retry. **Additional fee applies**|
@@ -48,6 +50,38 @@ func NewEzsignfolderRequest(fkiEzsignfoldertypeID int32, fkiEzsigntsarequirement
 func NewEzsignfolderRequestWithDefaults() *EzsignfolderRequest {
 	this := EzsignfolderRequest{}
 	return &this
+}
+
+// GetPkiEzsignfolderID returns the PkiEzsignfolderID field value if set, zero value otherwise.
+func (o *EzsignfolderRequest) GetPkiEzsignfolderID() int32 {
+	if o == nil || o.PkiEzsignfolderID == nil {
+		var ret int32
+		return ret
+	}
+	return *o.PkiEzsignfolderID
+}
+
+// GetPkiEzsignfolderIDOk returns a tuple with the PkiEzsignfolderID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderRequest) GetPkiEzsignfolderIDOk() (*int32, bool) {
+	if o == nil || o.PkiEzsignfolderID == nil {
+		return nil, false
+	}
+	return o.PkiEzsignfolderID, true
+}
+
+// HasPkiEzsignfolderID returns a boolean if a field has been set.
+func (o *EzsignfolderRequest) HasPkiEzsignfolderID() bool {
+	if o != nil && o.PkiEzsignfolderID != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPkiEzsignfolderID gets a reference to the given int32 and assigns it to the PkiEzsignfolderID field.
+func (o *EzsignfolderRequest) SetPkiEzsignfolderID(v int32) {
+	o.PkiEzsignfolderID = &v
 }
 
 // GetFkiEzsignfoldertypeID returns the FkiEzsignfoldertypeID field value
@@ -172,6 +206,9 @@ func (o *EzsignfolderRequest) SetEEzsignfolderSendreminderfrequency(v FieldEEzsi
 
 func (o EzsignfolderRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.PkiEzsignfolderID != nil {
+		toSerialize["pkiEzsignfolderID"] = o.PkiEzsignfolderID
+	}
 	if true {
 		toSerialize["fkiEzsignfoldertypeID"] = o.FkiEzsignfoldertypeID
 	}

@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ObjAddress** | [**AddressRequest**](AddressRequest.md) |  | 
 **AObjContact** | [**[]ContactRequestCompound**](ContactRequestCompound.md) |  | 
+**PkiFranchisereferalincomeID** | Pointer to **int32** | The unique ID of the Franchisereferalincome | [optional] 
 **FkiFranchisebrokerID** | **int32** | The unique ID of the Franchisebroker | 
 **FkiFranchisereferalincomeprogramID** | **int32** | The unique ID of the Franchisereferalincomeprogram | 
 **FkiPeriodID** | **int32** | The unique ID of the Period | 
@@ -76,6 +77,31 @@ and a boolean to check if the value has been set.
 
 SetAObjContact sets AObjContact field to given value.
 
+
+### GetPkiFranchisereferalincomeID
+
+`func (o *FranchisereferalincomeRequestCompound) GetPkiFranchisereferalincomeID() int32`
+
+GetPkiFranchisereferalincomeID returns the PkiFranchisereferalincomeID field if non-nil, zero value otherwise.
+
+### GetPkiFranchisereferalincomeIDOk
+
+`func (o *FranchisereferalincomeRequestCompound) GetPkiFranchisereferalincomeIDOk() (*int32, bool)`
+
+GetPkiFranchisereferalincomeIDOk returns a tuple with the PkiFranchisereferalincomeID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPkiFranchisereferalincomeID
+
+`func (o *FranchisereferalincomeRequestCompound) SetPkiFranchisereferalincomeID(v int32)`
+
+SetPkiFranchisereferalincomeID sets PkiFranchisereferalincomeID field to given value.
+
+### HasPkiFranchisereferalincomeID
+
+`func (o *FranchisereferalincomeRequestCompound) HasPkiFranchisereferalincomeID() bool`
+
+HasPkiFranchisereferalincomeID returns a boolean if a field has been set.
 
 ### GetFkiFranchisebrokerID
 

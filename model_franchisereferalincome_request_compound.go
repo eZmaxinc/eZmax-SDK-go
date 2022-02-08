@@ -19,6 +19,8 @@ import (
 type FranchisereferalincomeRequestCompound struct {
 	ObjAddress AddressRequest `json:"objAddress"`
 	AObjContact []ContactRequestCompound `json:"a_objContact"`
+	// The unique ID of the Franchisereferalincome
+	PkiFranchisereferalincomeID *int32 `json:"pkiFranchisereferalincomeID,omitempty"`
 	// The unique ID of the Franchisebroker
 	FkiFranchisebrokerID int32 `json:"fkiFranchisebrokerID"`
 	// The unique ID of the Franchisereferalincomeprogram
@@ -118,6 +120,38 @@ func (o *FranchisereferalincomeRequestCompound) GetAObjContactOk() ([]ContactReq
 // SetAObjContact sets field value
 func (o *FranchisereferalincomeRequestCompound) SetAObjContact(v []ContactRequestCompound) {
 	o.AObjContact = v
+}
+
+// GetPkiFranchisereferalincomeID returns the PkiFranchisereferalincomeID field value if set, zero value otherwise.
+func (o *FranchisereferalincomeRequestCompound) GetPkiFranchisereferalincomeID() int32 {
+	if o == nil || o.PkiFranchisereferalincomeID == nil {
+		var ret int32
+		return ret
+	}
+	return *o.PkiFranchisereferalincomeID
+}
+
+// GetPkiFranchisereferalincomeIDOk returns a tuple with the PkiFranchisereferalincomeID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FranchisereferalincomeRequestCompound) GetPkiFranchisereferalincomeIDOk() (*int32, bool) {
+	if o == nil || o.PkiFranchisereferalincomeID == nil {
+		return nil, false
+	}
+	return o.PkiFranchisereferalincomeID, true
+}
+
+// HasPkiFranchisereferalincomeID returns a boolean if a field has been set.
+func (o *FranchisereferalincomeRequestCompound) HasPkiFranchisereferalincomeID() bool {
+	if o != nil && o.PkiFranchisereferalincomeID != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPkiFranchisereferalincomeID gets a reference to the given int32 and assigns it to the PkiFranchisereferalincomeID field.
+func (o *FranchisereferalincomeRequestCompound) SetPkiFranchisereferalincomeID(v int32) {
+	o.PkiFranchisereferalincomeID = &v
 }
 
 // GetFkiFranchisebrokerID returns the FkiFranchisebrokerID field value
@@ -391,6 +425,9 @@ func (o FranchisereferalincomeRequestCompound) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["a_objContact"] = o.AObjContact
+	}
+	if o.PkiFranchisereferalincomeID != nil {
+		toSerialize["pkiFranchisereferalincomeID"] = o.PkiFranchisereferalincomeID
 	}
 	if true {
 		toSerialize["fkiFranchisebrokerID"] = o.FkiFranchisebrokerID

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**PkiEzsignfoldersignerassociationID** | Pointer to **int32** | The unique ID of the Ezsignfoldersignerassociation | [optional] 
 **FkiUserID** | Pointer to **int32** | The unique ID of the User | [optional] 
 **FkiEzsignfolderID** | **int32** | The unique ID of the Ezsignfolder | 
 **BEzsignfoldersignerassociationReceivecopy** | Pointer to **bool** | If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain&#39;t required to sign the document. | [optional] 
@@ -26,6 +27,31 @@ will change when the set of required properties is changed
 NewEzsignfoldersignerassociationRequestWithDefaults instantiates a new EzsignfoldersignerassociationRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetPkiEzsignfoldersignerassociationID
+
+`func (o *EzsignfoldersignerassociationRequest) GetPkiEzsignfoldersignerassociationID() int32`
+
+GetPkiEzsignfoldersignerassociationID returns the PkiEzsignfoldersignerassociationID field if non-nil, zero value otherwise.
+
+### GetPkiEzsignfoldersignerassociationIDOk
+
+`func (o *EzsignfoldersignerassociationRequest) GetPkiEzsignfoldersignerassociationIDOk() (*int32, bool)`
+
+GetPkiEzsignfoldersignerassociationIDOk returns a tuple with the PkiEzsignfoldersignerassociationID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPkiEzsignfoldersignerassociationID
+
+`func (o *EzsignfoldersignerassociationRequest) SetPkiEzsignfoldersignerassociationID(v int32)`
+
+SetPkiEzsignfoldersignerassociationID sets PkiEzsignfoldersignerassociationID field to given value.
+
+### HasPkiEzsignfoldersignerassociationID
+
+`func (o *EzsignfoldersignerassociationRequest) HasPkiEzsignfoldersignerassociationID() bool`
+
+HasPkiEzsignfoldersignerassociationID returns a boolean if a field has been set.
 
 ### GetFkiUserID
 

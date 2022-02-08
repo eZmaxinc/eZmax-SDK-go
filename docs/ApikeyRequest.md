@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**PkiApikeyID** | Pointer to **int32** | The unique ID of the Apikey | [optional] 
 **FkiUserID** | **int32** | The unique ID of the User | 
 **ObjApikeyDescription** | [**MultilingualApikeyDescription**](MultilingualApikeyDescription.md) |  | 
 
@@ -25,6 +26,31 @@ will change when the set of required properties is changed
 NewApikeyRequestWithDefaults instantiates a new ApikeyRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetPkiApikeyID
+
+`func (o *ApikeyRequest) GetPkiApikeyID() int32`
+
+GetPkiApikeyID returns the PkiApikeyID field if non-nil, zero value otherwise.
+
+### GetPkiApikeyIDOk
+
+`func (o *ApikeyRequest) GetPkiApikeyIDOk() (*int32, bool)`
+
+GetPkiApikeyIDOk returns a tuple with the PkiApikeyID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPkiApikeyID
+
+`func (o *ApikeyRequest) SetPkiApikeyID(v int32)`
+
+SetPkiApikeyID sets PkiApikeyID field to given value.
+
+### HasPkiApikeyID
+
+`func (o *ApikeyRequest) HasPkiApikeyID() bool`
+
+HasPkiApikeyID returns a boolean if a field has been set.
 
 ### GetFkiUserID
 

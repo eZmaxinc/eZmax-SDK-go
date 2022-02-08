@@ -17,6 +17,8 @@ import (
 
 // ApikeyRequest An Apikey Object
 type ApikeyRequest struct {
+	// The unique ID of the Apikey
+	PkiApikeyID *int32 `json:"pkiApikeyID,omitempty"`
 	// The unique ID of the User
 	FkiUserID int32 `json:"fkiUserID"`
 	ObjApikeyDescription MultilingualApikeyDescription `json:"objApikeyDescription"`
@@ -39,6 +41,38 @@ func NewApikeyRequest(fkiUserID int32, objApikeyDescription MultilingualApikeyDe
 func NewApikeyRequestWithDefaults() *ApikeyRequest {
 	this := ApikeyRequest{}
 	return &this
+}
+
+// GetPkiApikeyID returns the PkiApikeyID field value if set, zero value otherwise.
+func (o *ApikeyRequest) GetPkiApikeyID() int32 {
+	if o == nil || o.PkiApikeyID == nil {
+		var ret int32
+		return ret
+	}
+	return *o.PkiApikeyID
+}
+
+// GetPkiApikeyIDOk returns a tuple with the PkiApikeyID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ApikeyRequest) GetPkiApikeyIDOk() (*int32, bool) {
+	if o == nil || o.PkiApikeyID == nil {
+		return nil, false
+	}
+	return o.PkiApikeyID, true
+}
+
+// HasPkiApikeyID returns a boolean if a field has been set.
+func (o *ApikeyRequest) HasPkiApikeyID() bool {
+	if o != nil && o.PkiApikeyID != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPkiApikeyID gets a reference to the given int32 and assigns it to the PkiApikeyID field.
+func (o *ApikeyRequest) SetPkiApikeyID(v int32) {
+	o.PkiApikeyID = &v
 }
 
 // GetFkiUserID returns the FkiUserID field value
@@ -91,6 +125,9 @@ func (o *ApikeyRequest) SetObjApikeyDescription(v MultilingualApikeyDescription)
 
 func (o ApikeyRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.PkiApikeyID != nil {
+		toSerialize["pkiApikeyID"] = o.PkiApikeyID
+	}
 	if true {
 		toSerialize["fkiUserID"] = o.FkiUserID
 	}

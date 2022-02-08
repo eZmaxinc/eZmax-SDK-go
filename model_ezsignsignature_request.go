@@ -17,6 +17,8 @@ import (
 
 // EzsignsignatureRequest An Ezsignsignature Object
 type EzsignsignatureRequest struct {
+	// The unique ID of the Ezsignsignature
+	PkiEzsignsignatureID *int32 `json:"pkiEzsignsignatureID,omitempty"`
 	// The unique ID of the Ezsignfoldersignerassociation
 	FkiEzsignfoldersignerassociationID int32 `json:"fkiEzsignfoldersignerassociationID"`
 	// The page number in the Ezsigndocument
@@ -54,6 +56,38 @@ func NewEzsignsignatureRequest(fkiEzsignfoldersignerassociationID int32, iEzsign
 func NewEzsignsignatureRequestWithDefaults() *EzsignsignatureRequest {
 	this := EzsignsignatureRequest{}
 	return &this
+}
+
+// GetPkiEzsignsignatureID returns the PkiEzsignsignatureID field value if set, zero value otherwise.
+func (o *EzsignsignatureRequest) GetPkiEzsignsignatureID() int32 {
+	if o == nil || o.PkiEzsignsignatureID == nil {
+		var ret int32
+		return ret
+	}
+	return *o.PkiEzsignsignatureID
+}
+
+// GetPkiEzsignsignatureIDOk returns a tuple with the PkiEzsignsignatureID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureRequest) GetPkiEzsignsignatureIDOk() (*int32, bool) {
+	if o == nil || o.PkiEzsignsignatureID == nil {
+		return nil, false
+	}
+	return o.PkiEzsignsignatureID, true
+}
+
+// HasPkiEzsignsignatureID returns a boolean if a field has been set.
+func (o *EzsignsignatureRequest) HasPkiEzsignsignatureID() bool {
+	if o != nil && o.PkiEzsignsignatureID != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPkiEzsignsignatureID gets a reference to the given int32 and assigns it to the PkiEzsignsignatureID field.
+func (o *EzsignsignatureRequest) SetPkiEzsignsignatureID(v int32) {
+	o.PkiEzsignsignatureID = &v
 }
 
 // GetFkiEzsignfoldersignerassociationID returns the FkiEzsignfoldersignerassociationID field value
@@ -226,6 +260,9 @@ func (o *EzsignsignatureRequest) SetFkiEzsigndocumentID(v int32) {
 
 func (o EzsignsignatureRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.PkiEzsignsignatureID != nil {
+		toSerialize["pkiEzsignsignatureID"] = o.PkiEzsignsignatureID
+	}
 	if true {
 		toSerialize["fkiEzsignfoldersignerassociationID"] = o.FkiEzsignfoldersignerassociationID
 	}

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ObjEzsignsigner** | Pointer to [**EzsignsignerRequestCompound**](EzsignsignerRequestCompound.md) |  | [optional] 
+**PkiEzsignfoldersignerassociationID** | Pointer to **int32** | The unique ID of the Ezsignfoldersignerassociation | [optional] 
 **FkiUserID** | Pointer to **int32** | The unique ID of the User | [optional] 
 **FkiEzsignfolderID** | **int32** | The unique ID of the Ezsignfolder | 
 **BEzsignfoldersignerassociationReceivecopy** | Pointer to **bool** | If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain&#39;t required to sign the document. | [optional] 
@@ -52,6 +53,31 @@ SetObjEzsignsigner sets ObjEzsignsigner field to given value.
 `func (o *EzsignfoldersignerassociationRequestCompound) HasObjEzsignsigner() bool`
 
 HasObjEzsignsigner returns a boolean if a field has been set.
+
+### GetPkiEzsignfoldersignerassociationID
+
+`func (o *EzsignfoldersignerassociationRequestCompound) GetPkiEzsignfoldersignerassociationID() int32`
+
+GetPkiEzsignfoldersignerassociationID returns the PkiEzsignfoldersignerassociationID field if non-nil, zero value otherwise.
+
+### GetPkiEzsignfoldersignerassociationIDOk
+
+`func (o *EzsignfoldersignerassociationRequestCompound) GetPkiEzsignfoldersignerassociationIDOk() (*int32, bool)`
+
+GetPkiEzsignfoldersignerassociationIDOk returns a tuple with the PkiEzsignfoldersignerassociationID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPkiEzsignfoldersignerassociationID
+
+`func (o *EzsignfoldersignerassociationRequestCompound) SetPkiEzsignfoldersignerassociationID(v int32)`
+
+SetPkiEzsignfoldersignerassociationID sets PkiEzsignfoldersignerassociationID field to given value.
+
+### HasPkiEzsignfoldersignerassociationID
+
+`func (o *EzsignfoldersignerassociationRequestCompound) HasPkiEzsignfoldersignerassociationID() bool`
+
+HasPkiEzsignfoldersignerassociationID returns a boolean if a field has been set.
 
 ### GetFkiUserID
 

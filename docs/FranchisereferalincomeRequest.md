@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**PkiFranchisereferalincomeID** | Pointer to **int32** | The unique ID of the Franchisereferalincome | [optional] 
 **FkiFranchisebrokerID** | **int32** | The unique ID of the Franchisebroker | 
 **FkiFranchisereferalincomeprogramID** | **int32** | The unique ID of the Franchisereferalincomeprogram | 
 **FkiPeriodID** | **int32** | The unique ID of the Period | 
@@ -34,6 +35,31 @@ will change when the set of required properties is changed
 NewFranchisereferalincomeRequestWithDefaults instantiates a new FranchisereferalincomeRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetPkiFranchisereferalincomeID
+
+`func (o *FranchisereferalincomeRequest) GetPkiFranchisereferalincomeID() int32`
+
+GetPkiFranchisereferalincomeID returns the PkiFranchisereferalincomeID field if non-nil, zero value otherwise.
+
+### GetPkiFranchisereferalincomeIDOk
+
+`func (o *FranchisereferalincomeRequest) GetPkiFranchisereferalincomeIDOk() (*int32, bool)`
+
+GetPkiFranchisereferalincomeIDOk returns a tuple with the PkiFranchisereferalincomeID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPkiFranchisereferalincomeID
+
+`func (o *FranchisereferalincomeRequest) SetPkiFranchisereferalincomeID(v int32)`
+
+SetPkiFranchisereferalincomeID sets PkiFranchisereferalincomeID field to given value.
+
+### HasPkiFranchisereferalincomeID
+
+`func (o *FranchisereferalincomeRequest) HasPkiFranchisereferalincomeID() bool`
+
+HasPkiFranchisereferalincomeID returns a boolean if a field has been set.
 
 ### GetFkiFranchisebrokerID
 

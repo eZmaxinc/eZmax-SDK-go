@@ -17,6 +17,8 @@ import (
 
 // EzsignfoldersignerassociationRequest An Ezsignfoldersignerassociation Object
 type EzsignfoldersignerassociationRequest struct {
+	// The unique ID of the Ezsignfoldersignerassociation
+	PkiEzsignfoldersignerassociationID *int32 `json:"pkiEzsignfoldersignerassociationID,omitempty"`
 	// The unique ID of the User
 	FkiUserID *int32 `json:"fkiUserID,omitempty"`
 	// The unique ID of the Ezsignfolder
@@ -41,6 +43,38 @@ func NewEzsignfoldersignerassociationRequest(fkiEzsignfolderID int32) *Ezsignfol
 func NewEzsignfoldersignerassociationRequestWithDefaults() *EzsignfoldersignerassociationRequest {
 	this := EzsignfoldersignerassociationRequest{}
 	return &this
+}
+
+// GetPkiEzsignfoldersignerassociationID returns the PkiEzsignfoldersignerassociationID field value if set, zero value otherwise.
+func (o *EzsignfoldersignerassociationRequest) GetPkiEzsignfoldersignerassociationID() int32 {
+	if o == nil || o.PkiEzsignfoldersignerassociationID == nil {
+		var ret int32
+		return ret
+	}
+	return *o.PkiEzsignfoldersignerassociationID
+}
+
+// GetPkiEzsignfoldersignerassociationIDOk returns a tuple with the PkiEzsignfoldersignerassociationID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldersignerassociationRequest) GetPkiEzsignfoldersignerassociationIDOk() (*int32, bool) {
+	if o == nil || o.PkiEzsignfoldersignerassociationID == nil {
+		return nil, false
+	}
+	return o.PkiEzsignfoldersignerassociationID, true
+}
+
+// HasPkiEzsignfoldersignerassociationID returns a boolean if a field has been set.
+func (o *EzsignfoldersignerassociationRequest) HasPkiEzsignfoldersignerassociationID() bool {
+	if o != nil && o.PkiEzsignfoldersignerassociationID != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPkiEzsignfoldersignerassociationID gets a reference to the given int32 and assigns it to the PkiEzsignfoldersignerassociationID field.
+func (o *EzsignfoldersignerassociationRequest) SetPkiEzsignfoldersignerassociationID(v int32) {
+	o.PkiEzsignfoldersignerassociationID = &v
 }
 
 // GetFkiUserID returns the FkiUserID field value if set, zero value otherwise.
@@ -133,6 +167,9 @@ func (o *EzsignfoldersignerassociationRequest) SetBEzsignfoldersignerassociation
 
 func (o EzsignfoldersignerassociationRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.PkiEzsignfoldersignerassociationID != nil {
+		toSerialize["pkiEzsignfoldersignerassociationID"] = o.PkiEzsignfoldersignerassociationID
+	}
 	if o.FkiUserID != nil {
 		toSerialize["fkiUserID"] = o.FkiUserID
 	}
