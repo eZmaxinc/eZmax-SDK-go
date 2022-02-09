@@ -308,7 +308,7 @@ func (r ApiEzsignfolderEditObjectV1Request) Execute() (*EzsignfolderEditObjectV1
 }
 
 /*
-EzsignfolderEditObjectV1 Edit an Ezsignfolder
+EzsignfolderEditObjectV1 Modify an existing Ezsignfolder
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiEzsignfolderID
@@ -403,6 +403,16 @@ func (a *ObjectEzsignfolderApiService) EzsignfolderEditObjectV1Execute(r ApiEzsi
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v CommonResponseError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
