@@ -17,6 +17,8 @@ import (
 
 // EzsignsignaturecustomdateRequest An Ezsignsignaturecustomdate Object
 type EzsignsignaturecustomdateRequest struct {
+	// The unique ID of the Ezsignsignaturecustomdate
+	PkiEzsignsignaturecustomdateID *int32 `json:"pkiEzsignsignaturecustomdateID,omitempty"`
 	// The X coordinate (Horizontal) where to put the custom date block on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the custom date block 2 inches from the left border of the page, you would use \"200\" for the X coordinate.
 	IEzsignsignaturecustomdateX int32 `json:"iEzsignsignaturecustomdateX"`
 	// The Y coordinate (Vertical) where to put the custom date block on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the custom date block 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.
@@ -43,6 +45,38 @@ func NewEzsignsignaturecustomdateRequest(iEzsignsignaturecustomdateX int32, iEzs
 func NewEzsignsignaturecustomdateRequestWithDefaults() *EzsignsignaturecustomdateRequest {
 	this := EzsignsignaturecustomdateRequest{}
 	return &this
+}
+
+// GetPkiEzsignsignaturecustomdateID returns the PkiEzsignsignaturecustomdateID field value if set, zero value otherwise.
+func (o *EzsignsignaturecustomdateRequest) GetPkiEzsignsignaturecustomdateID() int32 {
+	if o == nil || o.PkiEzsignsignaturecustomdateID == nil {
+		var ret int32
+		return ret
+	}
+	return *o.PkiEzsignsignaturecustomdateID
+}
+
+// GetPkiEzsignsignaturecustomdateIDOk returns a tuple with the PkiEzsignsignaturecustomdateID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignaturecustomdateRequest) GetPkiEzsignsignaturecustomdateIDOk() (*int32, bool) {
+	if o == nil || o.PkiEzsignsignaturecustomdateID == nil {
+		return nil, false
+	}
+	return o.PkiEzsignsignaturecustomdateID, true
+}
+
+// HasPkiEzsignsignaturecustomdateID returns a boolean if a field has been set.
+func (o *EzsignsignaturecustomdateRequest) HasPkiEzsignsignaturecustomdateID() bool {
+	if o != nil && o.PkiEzsignsignaturecustomdateID != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPkiEzsignsignaturecustomdateID gets a reference to the given int32 and assigns it to the PkiEzsignsignaturecustomdateID field.
+func (o *EzsignsignaturecustomdateRequest) SetPkiEzsignsignaturecustomdateID(v int32) {
+	o.PkiEzsignsignaturecustomdateID = &v
 }
 
 // GetIEzsignsignaturecustomdateX returns the IEzsignsignaturecustomdateX field value
@@ -119,6 +153,9 @@ func (o *EzsignsignaturecustomdateRequest) SetSEzsignsignaturecustomdateFormat(v
 
 func (o EzsignsignaturecustomdateRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.PkiEzsignsignaturecustomdateID != nil {
+		toSerialize["pkiEzsignsignaturecustomdateID"] = o.PkiEzsignsignaturecustomdateID
+	}
 	if true {
 		toSerialize["iEzsignsignaturecustomdateX"] = o.IEzsignsignaturecustomdateX
 	}
