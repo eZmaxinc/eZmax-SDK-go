@@ -308,7 +308,7 @@ func (r ApiEzsignfolderEditObjectV1Request) Execute() (*EzsignfolderEditObjectV1
 }
 
 /*
-EzsignfolderEditObjectV1 Modify an existing Ezsignfolder
+EzsignfolderEditObjectV1 Edit an existing Ezsignfolder
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiEzsignfolderID

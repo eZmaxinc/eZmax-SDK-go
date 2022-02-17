@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**EzsigndocumentApplyEzsigntemplateV2**](ObjectEzsigndocumentApi.md#EzsigndocumentApplyEzsigntemplateV2) | **Post** /2/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplate | Apply an Ezsign Template to the Ezsigndocument.
 [**EzsigndocumentCreateObjectV1**](ObjectEzsigndocumentApi.md#EzsigndocumentCreateObjectV1) | **Post** /1/object/ezsigndocument | Create a new Ezsigndocument
 [**EzsigndocumentDeleteObjectV1**](ObjectEzsigndocumentApi.md#EzsigndocumentDeleteObjectV1) | **Delete** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Delete an existing Ezsigndocument
+[**EzsigndocumentEditEzsignsignaturesV1**](ObjectEzsigndocumentApi.md#EzsigndocumentEditEzsignsignaturesV1) | **Put** /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignsignatures | Edit multiple ezsignsignatures
 [**EzsigndocumentGetDownloadUrlV1**](ObjectEzsigndocumentApi.md#EzsigndocumentGetDownloadUrlV1) | **Get** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getDownloadUrl/{eDocumentType} | Retrieve a URL to download documents.
 [**EzsigndocumentGetEzsignpagesV1**](ObjectEzsigndocumentApi.md#EzsigndocumentGetEzsignpagesV1) | **Get** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignpages | Retrieve an existing Ezsigndocument&#39;s Ezsignpages
 [**EzsigndocumentGetFormDataV1**](ObjectEzsigndocumentApi.md#EzsigndocumentGetFormDataV1) | **Get** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getFormData | Retrieve an existing Ezsigndocument&#39;s Form Data
@@ -288,6 +289,78 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsigndocumentEditEzsignsignaturesV1
+
+> EzsigndocumentEditEzsignsignaturesV1Response EzsigndocumentEditEzsignsignaturesV1(ctx, pkiEzsigndocumentID).EzsignsignatureRequestCompound(ezsignsignatureRequestCompound).Execute()
+
+Edit multiple ezsignsignatures
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    pkiEzsigndocumentID := int32(56) // int32 | 
+    ezsignsignatureRequestCompound := []openapiclient.EzsignsignatureRequestCompound{*openapiclient.NewEzsignsignatureRequestCompound(int32(20), int32(1), int32(200), int32(300), int32(1), openapiclient.Field-eEzsignsignatureType("Acknowledgement"), int32(97))} // []EzsignsignatureRequestCompound | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsigndocumentApi.EzsigndocumentEditEzsignsignaturesV1(context.Background(), pkiEzsigndocumentID).EzsignsignatureRequestCompound(ezsignsignatureRequestCompound).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentApi.EzsigndocumentEditEzsignsignaturesV1``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `EzsigndocumentEditEzsignsignaturesV1`: EzsigndocumentEditEzsignsignaturesV1Response
+    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigndocumentApi.EzsigndocumentEditEzsignsignaturesV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsigndocumentID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsigndocumentEditEzsignsignaturesV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **ezsignsignatureRequestCompound** | [**[]EzsignsignatureRequestCompound**](EzsignsignatureRequestCompound.md) |  | 
+
+### Return type
+
+[**EzsigndocumentEditEzsignsignaturesV1Response**](EzsigndocumentEditEzsignsignaturesV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
