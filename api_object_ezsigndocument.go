@@ -609,11 +609,11 @@ type ApiEzsigndocumentEditEzsignsignaturesV1Request struct {
 	ctx context.Context
 	ApiService *ObjectEzsigndocumentApiService
 	pkiEzsigndocumentID int32
-	ezsignsignatureRequestCompound *[]EzsignsignatureRequestCompound
+	ezsigndocumentEditEzsignsignaturesV1Request *EzsigndocumentEditEzsignsignaturesV1Request
 }
 
-func (r ApiEzsigndocumentEditEzsignsignaturesV1Request) EzsignsignatureRequestCompound(ezsignsignatureRequestCompound []EzsignsignatureRequestCompound) ApiEzsigndocumentEditEzsignsignaturesV1Request {
-	r.ezsignsignatureRequestCompound = &ezsignsignatureRequestCompound
+func (r ApiEzsigndocumentEditEzsignsignaturesV1Request) EzsigndocumentEditEzsignsignaturesV1Request(ezsigndocumentEditEzsignsignaturesV1Request EzsigndocumentEditEzsignsignaturesV1Request) ApiEzsigndocumentEditEzsignsignaturesV1Request {
+	r.ezsigndocumentEditEzsignsignaturesV1Request = &ezsigndocumentEditEzsignsignaturesV1Request
 	return r
 }
 
@@ -659,8 +659,8 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentEditEzsignsignaturesV1Exe
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.ezsignsignatureRequestCompound == nil {
-		return localVarReturnValue, nil, reportError("ezsignsignatureRequestCompound is required and must be specified")
+	if r.ezsigndocumentEditEzsignsignaturesV1Request == nil {
+		return localVarReturnValue, nil, reportError("ezsigndocumentEditEzsignsignaturesV1Request is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -681,7 +681,7 @@ func (a *ObjectEzsigndocumentApiService) EzsigndocumentEditEzsignsignaturesV1Exe
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.ezsignsignatureRequestCompound
+	localVarPostBody = r.ezsigndocumentEditEzsignsignaturesV1Request
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

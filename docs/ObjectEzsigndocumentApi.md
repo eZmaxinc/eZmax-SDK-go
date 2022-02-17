@@ -298,7 +298,7 @@ Name | Type | Description  | Notes
 
 ## EzsigndocumentEditEzsignsignaturesV1
 
-> EzsigndocumentEditEzsignsignaturesV1Response EzsigndocumentEditEzsignsignaturesV1(ctx, pkiEzsigndocumentID).EzsignsignatureRequestCompound(ezsignsignatureRequestCompound).Execute()
+> EzsigndocumentEditEzsignsignaturesV1Response EzsigndocumentEditEzsignsignaturesV1(ctx, pkiEzsigndocumentID).EzsigndocumentEditEzsignsignaturesV1Request(ezsigndocumentEditEzsignsignaturesV1Request).Execute()
 
 Edit multiple ezsignsignatures
 
@@ -318,11 +318,11 @@ import (
 
 func main() {
     pkiEzsigndocumentID := int32(56) // int32 | 
-    ezsignsignatureRequestCompound := []openapiclient.EzsignsignatureRequestCompound{*openapiclient.NewEzsignsignatureRequestCompound(int32(20), int32(1), int32(200), int32(300), int32(1), openapiclient.Field-eEzsignsignatureType("Acknowledgement"), int32(97))} // []EzsignsignatureRequestCompound | 
+    ezsigndocumentEditEzsignsignaturesV1Request := *openapiclient.NewEzsigndocumentEditEzsignsignaturesV1Request([]openapiclient.EzsignsignatureRequestCompound{*openapiclient.NewEzsignsignatureRequestCompound(int32(20), int32(1), int32(200), int32(300), int32(1), openapiclient.Field-eEzsignsignatureType("Acknowledgement"), int32(97))}) // EzsigndocumentEditEzsignsignaturesV1Request | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsigndocumentApi.EzsigndocumentEditEzsignsignaturesV1(context.Background(), pkiEzsigndocumentID).EzsignsignatureRequestCompound(ezsignsignatureRequestCompound).Execute()
+    resp, r, err := apiClient.ObjectEzsigndocumentApi.EzsigndocumentEditEzsignsignaturesV1(context.Background(), pkiEzsigndocumentID).EzsigndocumentEditEzsignsignaturesV1Request(ezsigndocumentEditEzsignsignaturesV1Request).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentApi.EzsigndocumentEditEzsignsignaturesV1``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -348,7 +348,7 @@ Other parameters are passed through a pointer to a apiEzsigndocumentEditEzsignsi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **ezsignsignatureRequestCompound** | [**[]EzsignsignatureRequestCompound**](EzsignsignatureRequestCompound.md) |  | 
+ **ezsigndocumentEditEzsignsignaturesV1Request** | [**EzsigndocumentEditEzsignsignaturesV1Request**](EzsigndocumentEditEzsignsignaturesV1Request.md) |  | 
 
 ### Return type
 
