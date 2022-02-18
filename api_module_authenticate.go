@@ -20,10 +20,6 @@ import (
 	"strings"
 )
 
-// Linger please
-var (
-	_ context.Context
-)
 
 // ModuleAuthenticateApiService ModuleAuthenticateApi service
 type ModuleAuthenticateApiService service

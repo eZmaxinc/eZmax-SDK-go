@@ -19,10 +19,6 @@ import (
 	"net/url"
 )
 
-// Linger please
-var (
-	_ context.Context
-)
 
 // ObjectEzsignbulksendApiService ObjectEzsignbulksendApi service
 type ObjectEzsignbulksendApiService service

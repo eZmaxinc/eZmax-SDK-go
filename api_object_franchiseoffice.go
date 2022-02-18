@@ -20,10 +20,6 @@ import (
 	"strings"
 )
 
-// Linger please
-var (
-	_ context.Context
-)
 
 // ObjectFranchiseofficeApiService ObjectFranchiseofficeApi service
 type ObjectFranchiseofficeApiService service

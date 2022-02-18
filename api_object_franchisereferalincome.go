@@ -19,10 +19,6 @@ import (
 	"net/url"
 )
 
-// Linger please
-var (
-	_ context.Context
-)
 
 // ObjectFranchisereferalincomeApiService ObjectFranchisereferalincomeApi service
 type ObjectFranchisereferalincomeApiService service

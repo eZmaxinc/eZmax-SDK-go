@@ -20,10 +20,6 @@ import (
 	"strings"
 )
 
-// Linger please
-var (
-	_ context.Context
-)
 
 // ObjectPeriodApiService ObjectPeriodApi service
 type ObjectPeriodApiService service

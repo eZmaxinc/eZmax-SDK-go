@@ -20,10 +20,6 @@ import (
 	"strings"
 )
 
-// Linger please
-var (
-	_ context.Context
-)
 
 // ObjectEzsignsignatureApiService ObjectEzsignsignatureApi service
 type ObjectEzsignsignatureApiService service
