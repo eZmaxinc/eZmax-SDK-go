@@ -68,7 +68,7 @@ func (o *UserResponse) GetPkiUserID() int32 {
 // GetPkiUserIDOk returns a tuple with the PkiUserID field value
 // and a boolean to check if the value has been set.
 func (o *UserResponse) GetPkiUserIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PkiUserID, true
@@ -92,7 +92,7 @@ func (o *UserResponse) GetFkiLanguageID() int32 {
 // GetFkiLanguageIDOk returns a tuple with the FkiLanguageID field value
 // and a boolean to check if the value has been set.
 func (o *UserResponse) GetFkiLanguageIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiLanguageID, true
@@ -116,7 +116,7 @@ func (o *UserResponse) GetEUserType() FieldEUserType {
 // GetEUserTypeOk returns a tuple with the EUserType field value
 // and a boolean to check if the value has been set.
 func (o *UserResponse) GetEUserTypeOk() (*FieldEUserType, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EUserType, true
@@ -140,7 +140,7 @@ func (o *UserResponse) GetSUserFirstname() string {
 // GetSUserFirstnameOk returns a tuple with the SUserFirstname field value
 // and a boolean to check if the value has been set.
 func (o *UserResponse) GetSUserFirstnameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SUserFirstname, true
@@ -164,7 +164,7 @@ func (o *UserResponse) GetSUserLastname() string {
 // GetSUserLastnameOk returns a tuple with the SUserLastname field value
 // and a boolean to check if the value has been set.
 func (o *UserResponse) GetSUserLastnameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SUserLastname, true
@@ -188,7 +188,7 @@ func (o *UserResponse) GetSUserLoginname() string {
 // GetSUserLoginnameOk returns a tuple with the SUserLoginname field value
 // and a boolean to check if the value has been set.
 func (o *UserResponse) GetSUserLoginnameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SUserLoginname, true
@@ -212,7 +212,7 @@ func (o *UserResponse) GetObjAudit() CommonAudit {
 // GetObjAuditOk returns a tuple with the ObjAudit field value
 // and a boolean to check if the value has been set.
 func (o *UserResponse) GetObjAuditOk() (*CommonAudit, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ObjAudit, true

@@ -51,7 +51,7 @@ func (o *EzsignsignatureEditObjectV1Request) GetObjEzsignsignature() Ezsignsigna
 // GetObjEzsignsignatureOk returns a tuple with the ObjEzsignsignature field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignatureEditObjectV1Request) GetObjEzsignsignatureOk() (*EzsignsignatureRequestCompound, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ObjEzsignsignature, true

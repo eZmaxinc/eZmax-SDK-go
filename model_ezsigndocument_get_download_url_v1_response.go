@@ -53,7 +53,7 @@ func (o *EzsigndocumentGetDownloadUrlV1Response) GetMPayload() EzsigndocumentGet
 // GetMPayloadOk returns a tuple with the MPayload field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetDownloadUrlV1Response) GetMPayloadOk() (*EzsigndocumentGetDownloadUrlV1ResponseMPayload, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MPayload, true

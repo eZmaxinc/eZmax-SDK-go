@@ -60,7 +60,7 @@ func (o *CustomEzsignfoldersignerassociationstatusResponse) GetFkiEzsignfoldersi
 // GetFkiEzsignfoldersignerassociationIDOk returns a tuple with the FkiEzsignfoldersignerassociationID field value
 // and a boolean to check if the value has been set.
 func (o *CustomEzsignfoldersignerassociationstatusResponse) GetFkiEzsignfoldersignerassociationIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiEzsignfoldersignerassociationID, true
@@ -84,7 +84,7 @@ func (o *CustomEzsignfoldersignerassociationstatusResponse) GetSEzsignfoldersign
 // GetSEzsignfoldersignerassociationstatusLastnameOk returns a tuple with the SEzsignfoldersignerassociationstatusLastname field value
 // and a boolean to check if the value has been set.
 func (o *CustomEzsignfoldersignerassociationstatusResponse) GetSEzsignfoldersignerassociationstatusLastnameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SEzsignfoldersignerassociationstatusLastname, true
@@ -108,7 +108,7 @@ func (o *CustomEzsignfoldersignerassociationstatusResponse) GetSEzsignfoldersign
 // GetSEzsignfoldersignerassociationstatusFirstnameOk returns a tuple with the SEzsignfoldersignerassociationstatusFirstname field value
 // and a boolean to check if the value has been set.
 func (o *CustomEzsignfoldersignerassociationstatusResponse) GetSEzsignfoldersignerassociationstatusFirstnameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SEzsignfoldersignerassociationstatusFirstname, true
@@ -132,7 +132,7 @@ func (o *CustomEzsignfoldersignerassociationstatusResponse) GetAObjEzsignsignatu
 // GetAObjEzsignsignaturestatusOk returns a tuple with the AObjEzsignsignaturestatus field value
 // and a boolean to check if the value has been set.
 func (o *CustomEzsignfoldersignerassociationstatusResponse) GetAObjEzsignsignaturestatusOk() ([]CustomEzsignsignaturestatusResponse, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjEzsignsignaturestatus, true

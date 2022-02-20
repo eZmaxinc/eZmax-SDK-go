@@ -55,7 +55,7 @@ func (o *ActivesessionResponseCompoundApikey) GetPkiApikeyID() int32 {
 // GetPkiApikeyIDOk returns a tuple with the PkiApikeyID field value
 // and a boolean to check if the value has been set.
 func (o *ActivesessionResponseCompoundApikey) GetPkiApikeyIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PkiApikeyID, true
@@ -79,7 +79,7 @@ func (o *ActivesessionResponseCompoundApikey) GetSApikeyDescriptionX() string {
 // GetSApikeyDescriptionXOk returns a tuple with the SApikeyDescriptionX field value
 // and a boolean to check if the value has been set.
 func (o *ActivesessionResponseCompoundApikey) GetSApikeyDescriptionXOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SApikeyDescriptionX, true

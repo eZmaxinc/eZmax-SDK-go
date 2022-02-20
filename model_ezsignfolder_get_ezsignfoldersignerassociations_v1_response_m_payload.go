@@ -51,7 +51,7 @@ func (o *EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload) GetAOb
 // GetAObjEzsignfoldersignerassociationOk returns a tuple with the AObjEzsignfoldersignerassociation field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload) GetAObjEzsignfoldersignerassociationOk() ([]EzsignfoldersignerassociationResponseCompound, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjEzsignfoldersignerassociation, true

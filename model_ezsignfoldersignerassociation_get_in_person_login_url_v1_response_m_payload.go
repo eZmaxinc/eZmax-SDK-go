@@ -52,7 +52,7 @@ func (o *EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload) Get
 // GetSLoginUrlOk returns a tuple with the SLoginUrl field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload) GetSLoginUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SLoginUrl, true

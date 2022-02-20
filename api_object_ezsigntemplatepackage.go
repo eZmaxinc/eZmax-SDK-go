@@ -38,18 +38,22 @@ func (r ApiEzsigntemplatepackageGetListV1Request) EOrderBy(eOrderBy string) ApiE
 	r.eOrderBy = &eOrderBy
 	return r
 }
+
 func (r ApiEzsigntemplatepackageGetListV1Request) IRowMax(iRowMax int32) ApiEzsigntemplatepackageGetListV1Request {
 	r.iRowMax = &iRowMax
 	return r
 }
+
 func (r ApiEzsigntemplatepackageGetListV1Request) IRowOffset(iRowOffset int32) ApiEzsigntemplatepackageGetListV1Request {
 	r.iRowOffset = &iRowOffset
 	return r
 }
+
 func (r ApiEzsigntemplatepackageGetListV1Request) AcceptLanguage(acceptLanguage HeaderAcceptLanguage) ApiEzsigntemplatepackageGetListV1Request {
 	r.acceptLanguage = &acceptLanguage
 	return r
 }
+
 func (r ApiEzsigntemplatepackageGetListV1Request) SFilter(sFilter string) ApiEzsigntemplatepackageGetListV1Request {
 	r.sFilter = &sFilter
 	return r

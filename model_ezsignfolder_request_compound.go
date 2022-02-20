@@ -97,7 +97,7 @@ func (o *EzsignfolderRequestCompound) GetFkiEzsignfoldertypeID() int32 {
 // GetFkiEzsignfoldertypeIDOk returns a tuple with the FkiEzsignfoldertypeID field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderRequestCompound) GetFkiEzsignfoldertypeIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiEzsignfoldertypeID, true
@@ -121,7 +121,7 @@ func (o *EzsignfolderRequestCompound) GetFkiEzsigntsarequirementID() int32 {
 // GetFkiEzsigntsarequirementIDOk returns a tuple with the FkiEzsigntsarequirementID field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderRequestCompound) GetFkiEzsigntsarequirementIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiEzsigntsarequirementID, true
@@ -145,7 +145,7 @@ func (o *EzsignfolderRequestCompound) GetSEzsignfolderDescription() string {
 // GetSEzsignfolderDescriptionOk returns a tuple with the SEzsignfolderDescription field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderRequestCompound) GetSEzsignfolderDescriptionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SEzsignfolderDescription, true
@@ -169,7 +169,7 @@ func (o *EzsignfolderRequestCompound) GetTEzsignfolderNote() string {
 // GetTEzsignfolderNoteOk returns a tuple with the TEzsignfolderNote field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderRequestCompound) GetTEzsignfolderNoteOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TEzsignfolderNote, true
@@ -193,7 +193,7 @@ func (o *EzsignfolderRequestCompound) GetEEzsignfolderSendreminderfrequency() Fi
 // GetEEzsignfolderSendreminderfrequencyOk returns a tuple with the EEzsignfolderSendreminderfrequency field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderRequestCompound) GetEEzsignfolderSendreminderfrequencyOk() (*FieldEEzsignfolderSendreminderfrequency, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EEzsignfolderSendreminderfrequency, true

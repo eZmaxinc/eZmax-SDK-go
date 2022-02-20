@@ -51,7 +51,7 @@ func (o *WebhookEzsignFolderCompletedAllOf) GetObjEzsignfolder() EzsignfolderRes
 // GetObjEzsignfolderOk returns a tuple with the ObjEzsignfolder field value
 // and a boolean to check if the value has been set.
 func (o *WebhookEzsignFolderCompletedAllOf) GetObjEzsignfolderOk() (*EzsignfolderResponse, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ObjEzsignfolder, true

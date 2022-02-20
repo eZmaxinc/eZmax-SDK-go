@@ -55,7 +55,7 @@ func (o *CustomWordPositionWordResponse) GetSWord() string {
 // GetSWordOk returns a tuple with the SWord field value
 // and a boolean to check if the value has been set.
 func (o *CustomWordPositionWordResponse) GetSWordOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SWord, true
@@ -79,7 +79,7 @@ func (o *CustomWordPositionWordResponse) GetAObjWordPositionOccurence() []Custom
 // GetAObjWordPositionOccurenceOk returns a tuple with the AObjWordPositionOccurence field value
 // and a boolean to check if the value has been set.
 func (o *CustomWordPositionWordResponse) GetAObjWordPositionOccurenceOk() ([]CustomWordPositionOccurenceResponse, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjWordPositionOccurence, true

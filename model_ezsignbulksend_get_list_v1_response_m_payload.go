@@ -57,7 +57,7 @@ func (o *EzsignbulksendGetListV1ResponseMPayload) GetAObjEzsignbulksend() []Ezsi
 // GetAObjEzsignbulksendOk returns a tuple with the AObjEzsignbulksend field value
 // and a boolean to check if the value has been set.
 func (o *EzsignbulksendGetListV1ResponseMPayload) GetAObjEzsignbulksendOk() ([]EzsignbulksendListElement, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjEzsignbulksend, true
@@ -81,7 +81,7 @@ func (o *EzsignbulksendGetListV1ResponseMPayload) GetIRowReturned() int32 {
 // GetIRowReturnedOk returns a tuple with the IRowReturned field value
 // and a boolean to check if the value has been set.
 func (o *EzsignbulksendGetListV1ResponseMPayload) GetIRowReturnedOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IRowReturned, true
@@ -105,7 +105,7 @@ func (o *EzsignbulksendGetListV1ResponseMPayload) GetIRowFiltered() int32 {
 // GetIRowFilteredOk returns a tuple with the IRowFiltered field value
 // and a boolean to check if the value has been set.
 func (o *EzsignbulksendGetListV1ResponseMPayload) GetIRowFilteredOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IRowFiltered, true

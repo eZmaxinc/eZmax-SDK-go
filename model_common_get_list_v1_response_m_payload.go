@@ -55,7 +55,7 @@ func (o *CommonGetListV1ResponseMPayload) GetIRowReturned() int32 {
 // GetIRowReturnedOk returns a tuple with the IRowReturned field value
 // and a boolean to check if the value has been set.
 func (o *CommonGetListV1ResponseMPayload) GetIRowReturnedOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IRowReturned, true
@@ -79,7 +79,7 @@ func (o *CommonGetListV1ResponseMPayload) GetIRowFiltered() int32 {
 // GetIRowFilteredOk returns a tuple with the IRowFiltered field value
 // and a boolean to check if the value has been set.
 func (o *CommonGetListV1ResponseMPayload) GetIRowFilteredOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IRowFiltered, true

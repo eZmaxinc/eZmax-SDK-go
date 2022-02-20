@@ -63,7 +63,7 @@ func (o *EzsignsignerResponse) GetPkiEzsignsignerID() int32 {
 // GetPkiEzsignsignerIDOk returns a tuple with the PkiEzsignsignerID field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignerResponse) GetPkiEzsignsignerIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PkiEzsignsignerID, true
@@ -87,7 +87,7 @@ func (o *EzsignsignerResponse) GetFkiTaxassignmentID() int32 {
 // GetFkiTaxassignmentIDOk returns a tuple with the FkiTaxassignmentID field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignerResponse) GetFkiTaxassignmentIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiTaxassignmentID, true
@@ -143,7 +143,7 @@ func (o *EzsignsignerResponse) GetFkiUserlogintypeID() int32 {
 // GetFkiUserlogintypeIDOk returns a tuple with the FkiUserlogintypeID field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignerResponse) GetFkiUserlogintypeIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiUserlogintypeID, true
@@ -167,7 +167,7 @@ func (o *EzsignsignerResponse) GetSUserlogintypeDescriptionX() string {
 // GetSUserlogintypeDescriptionXOk returns a tuple with the SUserlogintypeDescriptionX field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignerResponse) GetSUserlogintypeDescriptionXOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SUserlogintypeDescriptionX, true

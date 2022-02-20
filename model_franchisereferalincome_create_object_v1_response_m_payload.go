@@ -52,7 +52,7 @@ func (o *FranchisereferalincomeCreateObjectV1ResponseMPayload) GetAPkiFranchiser
 // GetAPkiFranchisereferalincomeIDOk returns a tuple with the APkiFranchisereferalincomeID field value
 // and a boolean to check if the value has been set.
 func (o *FranchisereferalincomeCreateObjectV1ResponseMPayload) GetAPkiFranchisereferalincomeIDOk() ([]int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.APkiFranchisereferalincomeID, true

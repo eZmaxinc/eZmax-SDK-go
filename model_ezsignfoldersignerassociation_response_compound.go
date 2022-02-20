@@ -124,7 +124,7 @@ func (o *EzsignfoldersignerassociationResponseCompound) GetPkiEzsignfoldersigner
 // GetPkiEzsignfoldersignerassociationIDOk returns a tuple with the PkiEzsignfoldersignerassociationID field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfoldersignerassociationResponseCompound) GetPkiEzsignfoldersignerassociationIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PkiEzsignfoldersignerassociationID, true
@@ -148,7 +148,7 @@ func (o *EzsignfoldersignerassociationResponseCompound) GetFkiEzsignfolderID() i
 // GetFkiEzsignfolderIDOk returns a tuple with the FkiEzsignfolderID field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfoldersignerassociationResponseCompound) GetFkiEzsignfolderIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiEzsignfolderID, true
@@ -172,7 +172,7 @@ func (o *EzsignfoldersignerassociationResponseCompound) GetBEzsignfoldersigneras
 // GetBEzsignfoldersignerassociationReceivecopyOk returns a tuple with the BEzsignfoldersignerassociationReceivecopy field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfoldersignerassociationResponseCompound) GetBEzsignfoldersignerassociationReceivecopyOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.BEzsignfoldersignerassociationReceivecopy, true

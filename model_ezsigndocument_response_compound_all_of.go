@@ -63,7 +63,7 @@ func (o *EzsigndocumentResponseCompoundAllOf) GetIEzsigndocumentStepformtotal() 
 // GetIEzsigndocumentStepformtotalOk returns a tuple with the IEzsigndocumentStepformtotal field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentResponseCompoundAllOf) GetIEzsigndocumentStepformtotalOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsigndocumentStepformtotal, true
@@ -87,7 +87,7 @@ func (o *EzsigndocumentResponseCompoundAllOf) GetIEzsigndocumentStepformcurrent(
 // GetIEzsigndocumentStepformcurrentOk returns a tuple with the IEzsigndocumentStepformcurrent field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentResponseCompoundAllOf) GetIEzsigndocumentStepformcurrentOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsigndocumentStepformcurrent, true
@@ -111,7 +111,7 @@ func (o *EzsigndocumentResponseCompoundAllOf) GetIEzsigndocumentStepsignaturetot
 // GetIEzsigndocumentStepsignaturetotalOk returns a tuple with the IEzsigndocumentStepsignaturetotal field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentResponseCompoundAllOf) GetIEzsigndocumentStepsignaturetotalOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsigndocumentStepsignaturetotal, true
@@ -135,7 +135,7 @@ func (o *EzsigndocumentResponseCompoundAllOf) GetIEzsigndocumentStepsignatureCur
 // GetIEzsigndocumentStepsignatureCurrentOk returns a tuple with the IEzsigndocumentStepsignatureCurrent field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentResponseCompoundAllOf) GetIEzsigndocumentStepsignatureCurrentOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsigndocumentStepsignatureCurrent, true
@@ -159,7 +159,7 @@ func (o *EzsigndocumentResponseCompoundAllOf) GetAObjEzsignfoldersignerassociati
 // GetAObjEzsignfoldersignerassociationstatusOk returns a tuple with the AObjEzsignfoldersignerassociationstatus field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentResponseCompoundAllOf) GetAObjEzsignfoldersignerassociationstatusOk() ([]CustomEzsignfoldersignerassociationstatusResponse, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjEzsignfoldersignerassociationstatus, true

@@ -60,7 +60,7 @@ func (o *AuthenticateAuthenticateV2Request) GetPksCustomerCode() string {
 // GetPksCustomerCodeOk returns a tuple with the PksCustomerCode field value
 // and a boolean to check if the value has been set.
 func (o *AuthenticateAuthenticateV2Request) GetPksCustomerCodeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PksCustomerCode, true

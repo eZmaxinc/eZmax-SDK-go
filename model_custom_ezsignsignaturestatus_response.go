@@ -61,7 +61,7 @@ func (o *CustomEzsignsignaturestatusResponse) GetEEzsignsignaturestatusSteptype(
 // GetEEzsignsignaturestatusSteptypeOk returns a tuple with the EEzsignsignaturestatusSteptype field value
 // and a boolean to check if the value has been set.
 func (o *CustomEzsignsignaturestatusResponse) GetEEzsignsignaturestatusSteptypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EEzsignsignaturestatusSteptype, true
@@ -85,7 +85,7 @@ func (o *CustomEzsignsignaturestatusResponse) GetIEzsignsignaturestatusStep() in
 // GetIEzsignsignaturestatusStepOk returns a tuple with the IEzsignsignaturestatusStep field value
 // and a boolean to check if the value has been set.
 func (o *CustomEzsignsignaturestatusResponse) GetIEzsignsignaturestatusStepOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsignsignaturestatusStep, true
@@ -109,7 +109,7 @@ func (o *CustomEzsignsignaturestatusResponse) GetIEzsignsignaturestatusTotal() i
 // GetIEzsignsignaturestatusTotalOk returns a tuple with the IEzsignsignaturestatusTotal field value
 // and a boolean to check if the value has been set.
 func (o *CustomEzsignsignaturestatusResponse) GetIEzsignsignaturestatusTotalOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsignsignaturestatusTotal, true
@@ -133,7 +133,7 @@ func (o *CustomEzsignsignaturestatusResponse) GetIEzsignsignaturestatusSigned() 
 // GetIEzsignsignaturestatusSignedOk returns a tuple with the IEzsignsignaturestatusSigned field value
 // and a boolean to check if the value has been set.
 func (o *CustomEzsignsignaturestatusResponse) GetIEzsignsignaturestatusSignedOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsignsignaturestatusSigned, true

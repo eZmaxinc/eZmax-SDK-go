@@ -158,7 +158,6 @@ type ApiEzsignsignatureDeleteObjectV1Request struct {
 	pkiEzsignsignatureID int32
 }
 
-
 func (r ApiEzsignsignatureDeleteObjectV1Request) Execute() (*EzsignsignatureDeleteObjectV1Response, *http.Response, error) {
 	return r.ApiService.EzsignsignatureDeleteObjectV1Execute(r)
 }
@@ -437,7 +436,6 @@ type ApiEzsignsignatureGetObjectV1Request struct {
 	ApiService *ObjectEzsignsignatureApiService
 	pkiEzsignsignatureID int32
 }
-
 
 func (r ApiEzsignsignatureGetObjectV1Request) Execute() (*EzsignsignatureGetObjectV1Response, *http.Response, error) {
 	return r.ApiService.EzsignsignatureGetObjectV1Execute(r)

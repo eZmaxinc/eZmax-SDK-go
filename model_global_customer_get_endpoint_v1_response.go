@@ -52,7 +52,7 @@ func (o *GlobalCustomerGetEndpointV1Response) GetSEndpointURL() string {
 // GetSEndpointURLOk returns a tuple with the SEndpointURL field value
 // and a boolean to check if the value has been set.
 func (o *GlobalCustomerGetEndpointV1Response) GetSEndpointURLOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SEndpointURL, true

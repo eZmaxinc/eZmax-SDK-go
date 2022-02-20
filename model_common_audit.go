@@ -65,7 +65,7 @@ func (o *CommonAudit) GetFkiUserIDCreated() int32 {
 // GetFkiUserIDCreatedOk returns a tuple with the FkiUserIDCreated field value
 // and a boolean to check if the value has been set.
 func (o *CommonAudit) GetFkiUserIDCreatedOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiUserIDCreated, true
@@ -89,7 +89,7 @@ func (o *CommonAudit) GetFkiUserIDModified() int32 {
 // GetFkiUserIDModifiedOk returns a tuple with the FkiUserIDModified field value
 // and a boolean to check if the value has been set.
 func (o *CommonAudit) GetFkiUserIDModifiedOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiUserIDModified, true
@@ -177,7 +177,7 @@ func (o *CommonAudit) GetDtCreatedDate() string {
 // GetDtCreatedDateOk returns a tuple with the DtCreatedDate field value
 // and a boolean to check if the value has been set.
 func (o *CommonAudit) GetDtCreatedDateOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DtCreatedDate, true
@@ -201,7 +201,7 @@ func (o *CommonAudit) GetDtModifiedDate() string {
 // GetDtModifiedDateOk returns a tuple with the DtModifiedDate field value
 // and a boolean to check if the value has been set.
 func (o *CommonAudit) GetDtModifiedDateOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DtModifiedDate, true

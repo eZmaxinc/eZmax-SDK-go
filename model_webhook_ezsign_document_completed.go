@@ -56,7 +56,7 @@ func (o *WebhookEzsignDocumentCompleted) GetObjEzsigndocument() EzsigndocumentRe
 // GetObjEzsigndocumentOk returns a tuple with the ObjEzsigndocument field value
 // and a boolean to check if the value has been set.
 func (o *WebhookEzsignDocumentCompleted) GetObjEzsigndocumentOk() (*EzsigndocumentResponse, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ObjEzsigndocument, true
@@ -80,7 +80,7 @@ func (o *WebhookEzsignDocumentCompleted) GetObjWebhook() WebhookResponse {
 // GetObjWebhookOk returns a tuple with the ObjWebhook field value
 // and a boolean to check if the value has been set.
 func (o *WebhookEzsignDocumentCompleted) GetObjWebhookOk() (*WebhookResponse, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ObjWebhook, true
@@ -104,7 +104,7 @@ func (o *WebhookEzsignDocumentCompleted) GetAObjAttempt() []AttemptResponse {
 // GetAObjAttemptOk returns a tuple with the AObjAttempt field value
 // and a boolean to check if the value has been set.
 func (o *WebhookEzsignDocumentCompleted) GetAObjAttemptOk() ([]AttemptResponse, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjAttempt, true

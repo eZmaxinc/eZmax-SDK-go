@@ -55,7 +55,7 @@ func (o *AuthenticateAuthenticateV2ResponseMPayload) GetSAuthorization() string 
 // GetSAuthorizationOk returns a tuple with the SAuthorization field value
 // and a boolean to check if the value has been set.
 func (o *AuthenticateAuthenticateV2ResponseMPayload) GetSAuthorizationOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SAuthorization, true
@@ -79,7 +79,7 @@ func (o *AuthenticateAuthenticateV2ResponseMPayload) GetSSecret() string {
 // GetSSecretOk returns a tuple with the SSecret field value
 // and a boolean to check if the value has been set.
 func (o *AuthenticateAuthenticateV2ResponseMPayload) GetSSecretOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SSecret, true

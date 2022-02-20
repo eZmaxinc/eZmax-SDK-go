@@ -54,7 +54,7 @@ func (o *CommonResponseError) GetSErrorMessage() string {
 // GetSErrorMessageOk returns a tuple with the SErrorMessage field value
 // and a boolean to check if the value has been set.
 func (o *CommonResponseError) GetSErrorMessageOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SErrorMessage, true

@@ -37,6 +37,7 @@ func (r ApiEzsignfoldertypeGetAutocompleteV1Request) SQuery(sQuery string) ApiEz
 	r.sQuery = &sQuery
 	return r
 }
+
 func (r ApiEzsignfoldertypeGetAutocompleteV1Request) AcceptLanguage(acceptLanguage HeaderAcceptLanguage) ApiEzsignfoldertypeGetAutocompleteV1Request {
 	r.acceptLanguage = &acceptLanguage
 	return r
@@ -174,18 +175,22 @@ func (r ApiEzsignfoldertypeGetListV1Request) EOrderBy(eOrderBy string) ApiEzsign
 	r.eOrderBy = &eOrderBy
 	return r
 }
+
 func (r ApiEzsignfoldertypeGetListV1Request) IRowMax(iRowMax int32) ApiEzsignfoldertypeGetListV1Request {
 	r.iRowMax = &iRowMax
 	return r
 }
+
 func (r ApiEzsignfoldertypeGetListV1Request) IRowOffset(iRowOffset int32) ApiEzsignfoldertypeGetListV1Request {
 	r.iRowOffset = &iRowOffset
 	return r
 }
+
 func (r ApiEzsignfoldertypeGetListV1Request) AcceptLanguage(acceptLanguage HeaderAcceptLanguage) ApiEzsignfoldertypeGetListV1Request {
 	r.acceptLanguage = &acceptLanguage
 	return r
 }
+
 func (r ApiEzsignfoldertypeGetListV1Request) SFilter(sFilter string) ApiEzsignfoldertypeGetListV1Request {
 	r.sFilter = &sFilter
 	return r

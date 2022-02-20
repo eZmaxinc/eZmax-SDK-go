@@ -51,7 +51,7 @@ func (o *EzsigndocumentPatchObjectV1Request) GetObjEzsigndocument() Ezsigndocume
 // GetObjEzsigndocumentOk returns a tuple with the ObjEzsigndocument field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentPatchObjectV1Request) GetObjEzsigndocumentOk() (*EzsigndocumentRequestPatch, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ObjEzsigndocument, true

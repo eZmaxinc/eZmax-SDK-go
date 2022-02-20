@@ -88,7 +88,7 @@ func (o *ApikeyRequestCompound) GetFkiUserID() int32 {
 // GetFkiUserIDOk returns a tuple with the FkiUserID field value
 // and a boolean to check if the value has been set.
 func (o *ApikeyRequestCompound) GetFkiUserIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiUserID, true
@@ -112,7 +112,7 @@ func (o *ApikeyRequestCompound) GetObjApikeyDescription() MultilingualApikeyDesc
 // GetObjApikeyDescriptionOk returns a tuple with the ObjApikeyDescription field value
 // and a boolean to check if the value has been set.
 func (o *ApikeyRequestCompound) GetObjApikeyDescriptionOk() (*MultilingualApikeyDescription, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ObjApikeyDescription, true

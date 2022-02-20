@@ -65,7 +65,7 @@ func (o *EzsignsignerResponseCompound) GetObjContact() EzsignsignerResponseCompo
 // GetObjContactOk returns a tuple with the ObjContact field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignerResponseCompound) GetObjContactOk() (*EzsignsignerResponseCompoundContact, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ObjContact, true
@@ -89,7 +89,7 @@ func (o *EzsignsignerResponseCompound) GetPkiEzsignsignerID() int32 {
 // GetPkiEzsignsignerIDOk returns a tuple with the PkiEzsignsignerID field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignerResponseCompound) GetPkiEzsignsignerIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PkiEzsignsignerID, true
@@ -113,7 +113,7 @@ func (o *EzsignsignerResponseCompound) GetFkiTaxassignmentID() int32 {
 // GetFkiTaxassignmentIDOk returns a tuple with the FkiTaxassignmentID field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignerResponseCompound) GetFkiTaxassignmentIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiTaxassignmentID, true
@@ -169,7 +169,7 @@ func (o *EzsignsignerResponseCompound) GetFkiUserlogintypeID() int32 {
 // GetFkiUserlogintypeIDOk returns a tuple with the FkiUserlogintypeID field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignerResponseCompound) GetFkiUserlogintypeIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiUserlogintypeID, true
@@ -193,7 +193,7 @@ func (o *EzsignsignerResponseCompound) GetSUserlogintypeDescriptionX() string {
 // GetSUserlogintypeDescriptionXOk returns a tuple with the SUserlogintypeDescriptionX field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignerResponseCompound) GetSUserlogintypeDescriptionXOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SUserlogintypeDescriptionX, true

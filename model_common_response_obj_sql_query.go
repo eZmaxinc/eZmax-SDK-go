@@ -55,7 +55,7 @@ func (o *CommonResponseObjSQLQuery) GetSQuery() string {
 // GetSQueryOk returns a tuple with the SQuery field value
 // and a boolean to check if the value has been set.
 func (o *CommonResponseObjSQLQuery) GetSQueryOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SQuery, true
@@ -79,7 +79,7 @@ func (o *CommonResponseObjSQLQuery) GetFDuration() float32 {
 // GetFDurationOk returns a tuple with the FDuration field value
 // and a boolean to check if the value has been set.
 func (o *CommonResponseObjSQLQuery) GetFDurationOk() (*float32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FDuration, true

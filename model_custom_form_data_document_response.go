@@ -63,7 +63,7 @@ func (o *CustomFormDataDocumentResponse) GetPkiEzsigndocumentID() int32 {
 // GetPkiEzsigndocumentIDOk returns a tuple with the PkiEzsigndocumentID field value
 // and a boolean to check if the value has been set.
 func (o *CustomFormDataDocumentResponse) GetPkiEzsigndocumentIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PkiEzsigndocumentID, true
@@ -87,7 +87,7 @@ func (o *CustomFormDataDocumentResponse) GetFkiEzsignfolderID() int32 {
 // GetFkiEzsignfolderIDOk returns a tuple with the FkiEzsignfolderID field value
 // and a boolean to check if the value has been set.
 func (o *CustomFormDataDocumentResponse) GetFkiEzsignfolderIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiEzsignfolderID, true
@@ -111,7 +111,7 @@ func (o *CustomFormDataDocumentResponse) GetSEzsigndocumentName() string {
 // GetSEzsigndocumentNameOk returns a tuple with the SEzsigndocumentName field value
 // and a boolean to check if the value has been set.
 func (o *CustomFormDataDocumentResponse) GetSEzsigndocumentNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SEzsigndocumentName, true
@@ -135,7 +135,7 @@ func (o *CustomFormDataDocumentResponse) GetDtModifiedDate() string {
 // GetDtModifiedDateOk returns a tuple with the DtModifiedDate field value
 // and a boolean to check if the value has been set.
 func (o *CustomFormDataDocumentResponse) GetDtModifiedDateOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DtModifiedDate, true
@@ -159,7 +159,7 @@ func (o *CustomFormDataDocumentResponse) GetAObjFormDataSigner() []CustomFormDat
 // GetAObjFormDataSignerOk returns a tuple with the AObjFormDataSigner field value
 // and a boolean to check if the value has been set.
 func (o *CustomFormDataDocumentResponse) GetAObjFormDataSignerOk() ([]CustomFormDataSignerResponse, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjFormDataSigner, true

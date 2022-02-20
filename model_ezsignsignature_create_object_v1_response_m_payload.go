@@ -52,7 +52,7 @@ func (o *EzsignsignatureCreateObjectV1ResponseMPayload) GetAPkiEzsignsignatureID
 // GetAPkiEzsignsignatureIDOk returns a tuple with the APkiEzsignsignatureID field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignatureCreateObjectV1ResponseMPayload) GetAPkiEzsignsignatureIDOk() ([]int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.APkiEzsignsignatureID, true

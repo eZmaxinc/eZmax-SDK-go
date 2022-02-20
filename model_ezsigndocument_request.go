@@ -117,7 +117,7 @@ func (o *EzsigndocumentRequest) GetEEzsigndocumentSource() string {
 // GetEEzsigndocumentSourceOk returns a tuple with the EEzsigndocumentSource field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentRequest) GetEEzsigndocumentSourceOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EEzsigndocumentSource, true
@@ -141,7 +141,7 @@ func (o *EzsigndocumentRequest) GetEEzsigndocumentFormat() string {
 // GetEEzsigndocumentFormatOk returns a tuple with the EEzsigndocumentFormat field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentRequest) GetEEzsigndocumentFormatOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EEzsigndocumentFormat, true
@@ -293,7 +293,7 @@ func (o *EzsigndocumentRequest) GetFkiEzsignfolderID() int32 {
 // GetFkiEzsignfolderIDOk returns a tuple with the FkiEzsignfolderID field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentRequest) GetFkiEzsignfolderIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiEzsignfolderID, true
@@ -317,7 +317,7 @@ func (o *EzsigndocumentRequest) GetDtEzsigndocumentDuedate() string {
 // GetDtEzsigndocumentDuedateOk returns a tuple with the DtEzsigndocumentDuedate field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentRequest) GetDtEzsigndocumentDuedateOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DtEzsigndocumentDuedate, true
@@ -341,7 +341,7 @@ func (o *EzsigndocumentRequest) GetFkiLanguageID() int32 {
 // GetFkiLanguageIDOk returns a tuple with the FkiLanguageID field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentRequest) GetFkiLanguageIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiLanguageID, true
@@ -365,7 +365,7 @@ func (o *EzsigndocumentRequest) GetSEzsigndocumentName() string {
 // GetSEzsigndocumentNameOk returns a tuple with the SEzsigndocumentName field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentRequest) GetSEzsigndocumentNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SEzsigndocumentName, true

@@ -56,7 +56,7 @@ func (o *EzsigndocumentApplyEzsigntemplateV2Request) GetFkiEzsigntemplateID() in
 // GetFkiEzsigntemplateIDOk returns a tuple with the FkiEzsigntemplateID field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentApplyEzsigntemplateV2Request) GetFkiEzsigntemplateIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiEzsigntemplateID, true
@@ -80,7 +80,7 @@ func (o *EzsigndocumentApplyEzsigntemplateV2Request) GetASEzsigntemplatesigner()
 // GetASEzsigntemplatesignerOk returns a tuple with the ASEzsigntemplatesigner field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentApplyEzsigntemplateV2Request) GetASEzsigntemplatesignerOk() ([]string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.ASEzsigntemplatesigner, true
@@ -104,7 +104,7 @@ func (o *EzsigndocumentApplyEzsigntemplateV2Request) GetAPkiEzsignfoldersigneras
 // GetAPkiEzsignfoldersignerassociationIDOk returns a tuple with the APkiEzsignfoldersignerassociationID field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentApplyEzsigntemplateV2Request) GetAPkiEzsignfoldersignerassociationIDOk() ([]int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.APkiEzsignfoldersignerassociationID, true

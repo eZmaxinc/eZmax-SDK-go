@@ -73,7 +73,7 @@ func (o *AddressRequest) GetFkiAddresstypeID() int32 {
 // GetFkiAddresstypeIDOk returns a tuple with the FkiAddresstypeID field value
 // and a boolean to check if the value has been set.
 func (o *AddressRequest) GetFkiAddresstypeIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiAddresstypeID, true
@@ -97,7 +97,7 @@ func (o *AddressRequest) GetSAddressCivic() string {
 // GetSAddressCivicOk returns a tuple with the SAddressCivic field value
 // and a boolean to check if the value has been set.
 func (o *AddressRequest) GetSAddressCivicOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SAddressCivic, true
@@ -121,7 +121,7 @@ func (o *AddressRequest) GetSAddressStreet() string {
 // GetSAddressStreetOk returns a tuple with the SAddressStreet field value
 // and a boolean to check if the value has been set.
 func (o *AddressRequest) GetSAddressStreetOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SAddressStreet, true
@@ -145,7 +145,7 @@ func (o *AddressRequest) GetSAddressSuite() string {
 // GetSAddressSuiteOk returns a tuple with the SAddressSuite field value
 // and a boolean to check if the value has been set.
 func (o *AddressRequest) GetSAddressSuiteOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SAddressSuite, true
@@ -169,7 +169,7 @@ func (o *AddressRequest) GetSAddressCity() string {
 // GetSAddressCityOk returns a tuple with the SAddressCity field value
 // and a boolean to check if the value has been set.
 func (o *AddressRequest) GetSAddressCityOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SAddressCity, true
@@ -193,7 +193,7 @@ func (o *AddressRequest) GetFkiProvinceID() int32 {
 // GetFkiProvinceIDOk returns a tuple with the FkiProvinceID field value
 // and a boolean to check if the value has been set.
 func (o *AddressRequest) GetFkiProvinceIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiProvinceID, true
@@ -217,7 +217,7 @@ func (o *AddressRequest) GetFkiCountryID() int32 {
 // GetFkiCountryIDOk returns a tuple with the FkiCountryID field value
 // and a boolean to check if the value has been set.
 func (o *AddressRequest) GetFkiCountryIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiCountryID, true
@@ -241,7 +241,7 @@ func (o *AddressRequest) GetSAddressZip() string {
 // GetSAddressZipOk returns a tuple with the SAddressZip field value
 // and a boolean to check if the value has been set.
 func (o *AddressRequest) GetSAddressZipOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SAddressZip, true

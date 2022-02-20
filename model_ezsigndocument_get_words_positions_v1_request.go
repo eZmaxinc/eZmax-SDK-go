@@ -57,7 +57,7 @@ func (o *EzsigndocumentGetWordsPositionsV1Request) GetEGet() string {
 // GetEGetOk returns a tuple with the EGet field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetWordsPositionsV1Request) GetEGetOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EGet, true
@@ -81,7 +81,7 @@ func (o *EzsigndocumentGetWordsPositionsV1Request) GetBWordCaseSensitive() bool 
 // GetBWordCaseSensitiveOk returns a tuple with the BWordCaseSensitive field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetWordsPositionsV1Request) GetBWordCaseSensitiveOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.BWordCaseSensitive, true

@@ -75,7 +75,7 @@ func (o *EzsigntemplatepackageListElement) GetPkiEzsigntemplatepackageID() int32
 // GetPkiEzsigntemplatepackageIDOk returns a tuple with the PkiEzsigntemplatepackageID field value
 // and a boolean to check if the value has been set.
 func (o *EzsigntemplatepackageListElement) GetPkiEzsigntemplatepackageIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PkiEzsigntemplatepackageID, true
@@ -101,7 +101,7 @@ func (o *EzsigntemplatepackageListElement) GetFkiDepartmentID() int32 {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EzsigntemplatepackageListElement) GetFkiDepartmentIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.FkiDepartmentID.Get(), o.FkiDepartmentID.IsSet()
@@ -127,7 +127,7 @@ func (o *EzsigntemplatepackageListElement) GetFkiTeamID() int32 {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EzsigntemplatepackageListElement) GetFkiTeamIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.FkiTeamID.Get(), o.FkiTeamID.IsSet()
@@ -153,7 +153,7 @@ func (o *EzsigntemplatepackageListElement) GetFkiEzsignfoldertypeID() int32 {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EzsigntemplatepackageListElement) GetFkiEzsignfoldertypeIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.FkiEzsignfoldertypeID.Get(), o.FkiEzsignfoldertypeID.IsSet()
@@ -177,7 +177,7 @@ func (o *EzsigntemplatepackageListElement) GetFkiLanguageID() int32 {
 // GetFkiLanguageIDOk returns a tuple with the FkiLanguageID field value
 // and a boolean to check if the value has been set.
 func (o *EzsigntemplatepackageListElement) GetFkiLanguageIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiLanguageID, true
@@ -201,7 +201,7 @@ func (o *EzsigntemplatepackageListElement) GetEEzsigntemplatepackageType() Field
 // GetEEzsigntemplatepackageTypeOk returns a tuple with the EEzsigntemplatepackageType field value
 // and a boolean to check if the value has been set.
 func (o *EzsigntemplatepackageListElement) GetEEzsigntemplatepackageTypeOk() (*FieldEEzsigntemplatepackageType, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EEzsigntemplatepackageType, true
@@ -225,7 +225,7 @@ func (o *EzsigntemplatepackageListElement) GetSEzsigntemplatepackageDescription(
 // GetSEzsigntemplatepackageDescriptionOk returns a tuple with the SEzsigntemplatepackageDescription field value
 // and a boolean to check if the value has been set.
 func (o *EzsigntemplatepackageListElement) GetSEzsigntemplatepackageDescriptionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SEzsigntemplatepackageDescription, true
@@ -249,7 +249,7 @@ func (o *EzsigntemplatepackageListElement) GetBEzsigntemplatepackageIsactive() b
 // GetBEzsigntemplatepackageIsactiveOk returns a tuple with the BEzsigntemplatepackageIsactive field value
 // and a boolean to check if the value has been set.
 func (o *EzsigntemplatepackageListElement) GetBEzsigntemplatepackageIsactiveOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.BEzsigntemplatepackageIsactive, true
@@ -273,7 +273,7 @@ func (o *EzsigntemplatepackageListElement) GetIEzsigntemplatepackagemembership()
 // GetIEzsigntemplatepackagemembershipOk returns a tuple with the IEzsigntemplatepackagemembership field value
 // and a boolean to check if the value has been set.
 func (o *EzsigntemplatepackageListElement) GetIEzsigntemplatepackagemembershipOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsigntemplatepackagemembership, true

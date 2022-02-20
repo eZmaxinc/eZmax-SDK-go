@@ -28,7 +28,6 @@ type ApiActivesessionGetCurrentV1Request struct {
 	ApiService *ObjectActivesessionApiService
 }
 
-
 func (r ApiActivesessionGetCurrentV1Request) Execute() (*ActivesessionGetCurrentV1Response, *http.Response, error) {
 	return r.ApiService.ActivesessionGetCurrentV1Execute(r)
 }

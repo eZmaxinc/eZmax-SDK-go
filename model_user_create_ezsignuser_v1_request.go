@@ -72,7 +72,7 @@ func (o *UserCreateEzsignuserV1Request) GetFkiLanguageID() int32 {
 // GetFkiLanguageIDOk returns a tuple with the FkiLanguageID field value
 // and a boolean to check if the value has been set.
 func (o *UserCreateEzsignuserV1Request) GetFkiLanguageIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiLanguageID, true
@@ -96,7 +96,7 @@ func (o *UserCreateEzsignuserV1Request) GetSUserFirstname() string {
 // GetSUserFirstnameOk returns a tuple with the SUserFirstname field value
 // and a boolean to check if the value has been set.
 func (o *UserCreateEzsignuserV1Request) GetSUserFirstnameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SUserFirstname, true
@@ -120,7 +120,7 @@ func (o *UserCreateEzsignuserV1Request) GetSUserLastname() string {
 // GetSUserLastnameOk returns a tuple with the SUserLastname field value
 // and a boolean to check if the value has been set.
 func (o *UserCreateEzsignuserV1Request) GetSUserLastnameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SUserLastname, true
@@ -144,7 +144,7 @@ func (o *UserCreateEzsignuserV1Request) GetSEmailAddress() string {
 // GetSEmailAddressOk returns a tuple with the SEmailAddress field value
 // and a boolean to check if the value has been set.
 func (o *UserCreateEzsignuserV1Request) GetSEmailAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SEmailAddress, true
@@ -168,7 +168,7 @@ func (o *UserCreateEzsignuserV1Request) GetSPhoneRegion() string {
 // GetSPhoneRegionOk returns a tuple with the SPhoneRegion field value
 // and a boolean to check if the value has been set.
 func (o *UserCreateEzsignuserV1Request) GetSPhoneRegionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SPhoneRegion, true
@@ -192,7 +192,7 @@ func (o *UserCreateEzsignuserV1Request) GetSPhoneExchange() string {
 // GetSPhoneExchangeOk returns a tuple with the SPhoneExchange field value
 // and a boolean to check if the value has been set.
 func (o *UserCreateEzsignuserV1Request) GetSPhoneExchangeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SPhoneExchange, true
@@ -216,7 +216,7 @@ func (o *UserCreateEzsignuserV1Request) GetSPhoneNumber() string {
 // GetSPhoneNumberOk returns a tuple with the SPhoneNumber field value
 // and a boolean to check if the value has been set.
 func (o *UserCreateEzsignuserV1Request) GetSPhoneNumberOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SPhoneNumber, true

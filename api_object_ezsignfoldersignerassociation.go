@@ -158,7 +158,6 @@ type ApiEzsignfoldersignerassociationDeleteObjectV1Request struct {
 	pkiEzsignfoldersignerassociationID int32
 }
 
-
 func (r ApiEzsignfoldersignerassociationDeleteObjectV1Request) Execute() (*EzsignfoldersignerassociationDeleteObjectV1Response, *http.Response, error) {
 	return r.ApiService.EzsignfoldersignerassociationDeleteObjectV1Execute(r)
 }
@@ -292,7 +291,6 @@ type ApiEzsignfoldersignerassociationGetInPersonLoginUrlV1Request struct {
 	ApiService *ObjectEzsignfoldersignerassociationApiService
 	pkiEzsignfoldersignerassociationID int32
 }
-
 
 func (r ApiEzsignfoldersignerassociationGetInPersonLoginUrlV1Request) Execute() (*EzsignfoldersignerassociationGetInPersonLoginUrlV1Response, *http.Response, error) {
 	return r.ApiService.EzsignfoldersignerassociationGetInPersonLoginUrlV1Execute(r)
@@ -431,7 +429,6 @@ type ApiEzsignfoldersignerassociationGetObjectV1Request struct {
 	ApiService *ObjectEzsignfoldersignerassociationApiService
 	pkiEzsignfoldersignerassociationID int32
 }
-
 
 func (r ApiEzsignfoldersignerassociationGetObjectV1Request) Execute() (*EzsignfoldersignerassociationGetObjectV1Response, *http.Response, error) {
 	return r.ApiService.EzsignfoldersignerassociationGetObjectV1Execute(r)

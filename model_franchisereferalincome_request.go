@@ -115,7 +115,7 @@ func (o *FranchisereferalincomeRequest) GetFkiFranchisebrokerID() int32 {
 // GetFkiFranchisebrokerIDOk returns a tuple with the FkiFranchisebrokerID field value
 // and a boolean to check if the value has been set.
 func (o *FranchisereferalincomeRequest) GetFkiFranchisebrokerIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiFranchisebrokerID, true
@@ -139,7 +139,7 @@ func (o *FranchisereferalincomeRequest) GetFkiFranchisereferalincomeprogramID() 
 // GetFkiFranchisereferalincomeprogramIDOk returns a tuple with the FkiFranchisereferalincomeprogramID field value
 // and a boolean to check if the value has been set.
 func (o *FranchisereferalincomeRequest) GetFkiFranchisereferalincomeprogramIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiFranchisereferalincomeprogramID, true
@@ -163,7 +163,7 @@ func (o *FranchisereferalincomeRequest) GetFkiPeriodID() int32 {
 // GetFkiPeriodIDOk returns a tuple with the FkiPeriodID field value
 // and a boolean to check if the value has been set.
 func (o *FranchisereferalincomeRequest) GetFkiPeriodIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiPeriodID, true
@@ -187,7 +187,7 @@ func (o *FranchisereferalincomeRequest) GetDFranchisereferalincomeLoan() string 
 // GetDFranchisereferalincomeLoanOk returns a tuple with the DFranchisereferalincomeLoan field value
 // and a boolean to check if the value has been set.
 func (o *FranchisereferalincomeRequest) GetDFranchisereferalincomeLoanOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DFranchisereferalincomeLoan, true
@@ -211,7 +211,7 @@ func (o *FranchisereferalincomeRequest) GetDFranchisereferalincomeFranchiseamoun
 // GetDFranchisereferalincomeFranchiseamountOk returns a tuple with the DFranchisereferalincomeFranchiseamount field value
 // and a boolean to check if the value has been set.
 func (o *FranchisereferalincomeRequest) GetDFranchisereferalincomeFranchiseamountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DFranchisereferalincomeFranchiseamount, true
@@ -235,7 +235,7 @@ func (o *FranchisereferalincomeRequest) GetDFranchisereferalincomeFranchisoramou
 // GetDFranchisereferalincomeFranchisoramountOk returns a tuple with the DFranchisereferalincomeFranchisoramount field value
 // and a boolean to check if the value has been set.
 func (o *FranchisereferalincomeRequest) GetDFranchisereferalincomeFranchisoramountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DFranchisereferalincomeFranchisoramount, true
@@ -259,7 +259,7 @@ func (o *FranchisereferalincomeRequest) GetDFranchisereferalincomeAgentamount() 
 // GetDFranchisereferalincomeAgentamountOk returns a tuple with the DFranchisereferalincomeAgentamount field value
 // and a boolean to check if the value has been set.
 func (o *FranchisereferalincomeRequest) GetDFranchisereferalincomeAgentamountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DFranchisereferalincomeAgentamount, true
@@ -283,7 +283,7 @@ func (o *FranchisereferalincomeRequest) GetDtFranchisereferalincomeDisbursed() s
 // GetDtFranchisereferalincomeDisbursedOk returns a tuple with the DtFranchisereferalincomeDisbursed field value
 // and a boolean to check if the value has been set.
 func (o *FranchisereferalincomeRequest) GetDtFranchisereferalincomeDisbursedOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DtFranchisereferalincomeDisbursed, true
@@ -307,7 +307,7 @@ func (o *FranchisereferalincomeRequest) GetTFranchisereferalincomeComment() stri
 // GetTFranchisereferalincomeCommentOk returns a tuple with the TFranchisereferalincomeComment field value
 // and a boolean to check if the value has been set.
 func (o *FranchisereferalincomeRequest) GetTFranchisereferalincomeCommentOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TFranchisereferalincomeComment, true
@@ -331,7 +331,7 @@ func (o *FranchisereferalincomeRequest) GetFkiFranchiseofficeID() int32 {
 // GetFkiFranchiseofficeIDOk returns a tuple with the FkiFranchiseofficeID field value
 // and a boolean to check if the value has been set.
 func (o *FranchisereferalincomeRequest) GetFkiFranchiseofficeIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiFranchiseofficeID, true
@@ -355,7 +355,7 @@ func (o *FranchisereferalincomeRequest) GetSFranchisereferalincomeRemoteid() str
 // GetSFranchisereferalincomeRemoteidOk returns a tuple with the SFranchisereferalincomeRemoteid field value
 // and a boolean to check if the value has been set.
 func (o *FranchisereferalincomeRequest) GetSFranchisereferalincomeRemoteidOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SFranchisereferalincomeRemoteid, true

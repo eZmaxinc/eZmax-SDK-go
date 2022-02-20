@@ -59,7 +59,7 @@ func (o *ActivesessionResponseCompoundAllOf) GetAPkiPermissionID() []int32 {
 // GetAPkiPermissionIDOk returns a tuple with the APkiPermissionID field value
 // and a boolean to check if the value has been set.
 func (o *ActivesessionResponseCompoundAllOf) GetAPkiPermissionIDOk() ([]int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.APkiPermissionID, true
@@ -83,7 +83,7 @@ func (o *ActivesessionResponseCompoundAllOf) GetObjUserReal() ActivesessionRespo
 // GetObjUserRealOk returns a tuple with the ObjUserReal field value
 // and a boolean to check if the value has been set.
 func (o *ActivesessionResponseCompoundAllOf) GetObjUserRealOk() (*ActivesessionResponseCompoundUser, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ObjUserReal, true
@@ -171,7 +171,7 @@ func (o *ActivesessionResponseCompoundAllOf) GetAEModuleInternalname() []string 
 // GetAEModuleInternalnameOk returns a tuple with the AEModuleInternalname field value
 // and a boolean to check if the value has been set.
 func (o *ActivesessionResponseCompoundAllOf) GetAEModuleInternalnameOk() ([]string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AEModuleInternalname, true

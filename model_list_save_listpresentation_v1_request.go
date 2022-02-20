@@ -51,7 +51,7 @@ func (o *ListSaveListpresentationV1Request) GetAObjListpresentation() []Listpres
 // GetAObjListpresentationOk returns a tuple with the AObjListpresentation field value
 // and a boolean to check if the value has been set.
 func (o *ListSaveListpresentationV1Request) GetAObjListpresentationOk() ([]ListpresentationRequest, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjListpresentation, true

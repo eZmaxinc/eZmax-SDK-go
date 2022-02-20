@@ -88,7 +88,7 @@ func (o *CommonResponseErrorSTemporaryFileUrl) GetSErrorMessage() string {
 // GetSErrorMessageOk returns a tuple with the SErrorMessage field value
 // and a boolean to check if the value has been set.
 func (o *CommonResponseErrorSTemporaryFileUrl) GetSErrorMessageOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SErrorMessage, true

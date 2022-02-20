@@ -30,7 +30,6 @@ type ApiListGetListpresentationV1Request struct {
 	sListName string
 }
 
-
 func (r ApiListGetListpresentationV1Request) Execute() (*ListGetListpresentationV1Response, *http.Response, error) {
 	return r.ApiService.ListGetListpresentationV1Execute(r)
 }

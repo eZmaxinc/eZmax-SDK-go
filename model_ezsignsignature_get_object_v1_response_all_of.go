@@ -52,7 +52,7 @@ func (o *EzsignsignatureGetObjectV1ResponseAllOf) GetMPayload() map[string]inter
 // GetMPayloadOk returns a tuple with the MPayload field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignatureGetObjectV1ResponseAllOf) GetMPayloadOk() (map[string]interface{}, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.MPayload, true

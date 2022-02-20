@@ -59,7 +59,7 @@ func (o *EzsignsignerRequest) GetFkiTaxassignmentID() int32 {
 // GetFkiTaxassignmentIDOk returns a tuple with the FkiTaxassignmentID field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignerRequest) GetFkiTaxassignmentIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiTaxassignmentID, true
@@ -115,7 +115,7 @@ func (o *EzsignsignerRequest) GetEEzsignsignerLogintype() string {
 // GetEEzsignsignerLogintypeOk returns a tuple with the EEzsignsignerLogintype field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignerRequest) GetEEzsignsignerLogintypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EEzsignsignerLogintype, true

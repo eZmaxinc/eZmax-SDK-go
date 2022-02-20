@@ -92,7 +92,7 @@ func (o *EzsignsignaturecustomdateRequest) GetIEzsignsignaturecustomdateX() int3
 // GetIEzsignsignaturecustomdateXOk returns a tuple with the IEzsignsignaturecustomdateX field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignaturecustomdateRequest) GetIEzsignsignaturecustomdateXOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsignsignaturecustomdateX, true
@@ -116,7 +116,7 @@ func (o *EzsignsignaturecustomdateRequest) GetIEzsignsignaturecustomdateY() int3
 // GetIEzsignsignaturecustomdateYOk returns a tuple with the IEzsignsignaturecustomdateY field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignaturecustomdateRequest) GetIEzsignsignaturecustomdateYOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsignsignaturecustomdateY, true
@@ -140,7 +140,7 @@ func (o *EzsignsignaturecustomdateRequest) GetSEzsignsignaturecustomdateFormat()
 // GetSEzsignsignaturecustomdateFormatOk returns a tuple with the SEzsignsignaturecustomdateFormat field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignaturecustomdateRequest) GetSEzsignsignaturecustomdateFormatOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SEzsignsignaturecustomdateFormat, true

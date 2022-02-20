@@ -51,7 +51,7 @@ func (o *ContactRequestCompoundAllOf) GetObjContactinformations() Contactinforma
 // GetObjContactinformationsOk returns a tuple with the ObjContactinformations field value
 // and a boolean to check if the value has been set.
 func (o *ContactRequestCompoundAllOf) GetObjContactinformationsOk() (*ContactinformationsRequestCompound, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ObjContactinformations, true

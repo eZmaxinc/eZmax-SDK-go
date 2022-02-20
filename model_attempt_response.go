@@ -58,7 +58,7 @@ func (o *AttemptResponse) GetDtAttemptStart() string {
 // GetDtAttemptStartOk returns a tuple with the DtAttemptStart field value
 // and a boolean to check if the value has been set.
 func (o *AttemptResponse) GetDtAttemptStartOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DtAttemptStart, true
@@ -82,7 +82,7 @@ func (o *AttemptResponse) GetSAttemptResult() string {
 // GetSAttemptResultOk returns a tuple with the SAttemptResult field value
 // and a boolean to check if the value has been set.
 func (o *AttemptResponse) GetSAttemptResultOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SAttemptResult, true
@@ -106,7 +106,7 @@ func (o *AttemptResponse) GetIAttemptDuration() int32 {
 // GetIAttemptDurationOk returns a tuple with the IAttemptDuration field value
 // and a boolean to check if the value has been set.
 func (o *AttemptResponse) GetIAttemptDurationOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IAttemptDuration, true

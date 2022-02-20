@@ -62,7 +62,7 @@ func (o *CustomFormDataSignerResponse) GetFkiEzsignfoldersignerassociationID() i
 // GetFkiEzsignfoldersignerassociationIDOk returns a tuple with the FkiEzsignfoldersignerassociationID field value
 // and a boolean to check if the value has been set.
 func (o *CustomFormDataSignerResponse) GetFkiEzsignfoldersignerassociationIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiEzsignfoldersignerassociationID, true
@@ -118,7 +118,7 @@ func (o *CustomFormDataSignerResponse) GetSContactFirstname() string {
 // GetSContactFirstnameOk returns a tuple with the SContactFirstname field value
 // and a boolean to check if the value has been set.
 func (o *CustomFormDataSignerResponse) GetSContactFirstnameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SContactFirstname, true
@@ -142,7 +142,7 @@ func (o *CustomFormDataSignerResponse) GetSContactLastname() string {
 // GetSContactLastnameOk returns a tuple with the SContactLastname field value
 // and a boolean to check if the value has been set.
 func (o *CustomFormDataSignerResponse) GetSContactLastnameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SContactLastname, true
@@ -166,7 +166,7 @@ func (o *CustomFormDataSignerResponse) GetAObjEzsignformfieldgroupCompound() []E
 // GetAObjEzsignformfieldgroupCompoundOk returns a tuple with the AObjEzsignformfieldgroupCompound field value
 // and a boolean to check if the value has been set.
 func (o *CustomFormDataSignerResponse) GetAObjEzsignformfieldgroupCompoundOk() ([]EzsignformfieldgroupResponseCompound, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjEzsignformfieldgroupCompound, true

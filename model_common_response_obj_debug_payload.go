@@ -58,7 +58,7 @@ func (o *CommonResponseObjDebugPayload) GetIVersionMin() int32 {
 // GetIVersionMinOk returns a tuple with the IVersionMin field value
 // and a boolean to check if the value has been set.
 func (o *CommonResponseObjDebugPayload) GetIVersionMinOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IVersionMin, true
@@ -82,7 +82,7 @@ func (o *CommonResponseObjDebugPayload) GetIVersionMax() int32 {
 // GetIVersionMaxOk returns a tuple with the IVersionMax field value
 // and a boolean to check if the value has been set.
 func (o *CommonResponseObjDebugPayload) GetIVersionMaxOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IVersionMax, true
@@ -106,7 +106,7 @@ func (o *CommonResponseObjDebugPayload) GetARequiredPermission() []int32 {
 // GetARequiredPermissionOk returns a tuple with the ARequiredPermission field value
 // and a boolean to check if the value has been set.
 func (o *CommonResponseObjDebugPayload) GetARequiredPermissionOk() ([]int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.ARequiredPermission, true

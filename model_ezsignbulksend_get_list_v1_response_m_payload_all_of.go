@@ -51,7 +51,7 @@ func (o *EzsignbulksendGetListV1ResponseMPayloadAllOf) GetAObjEzsignbulksend() [
 // GetAObjEzsignbulksendOk returns a tuple with the AObjEzsignbulksend field value
 // and a boolean to check if the value has been set.
 func (o *EzsignbulksendGetListV1ResponseMPayloadAllOf) GetAObjEzsignbulksendOk() ([]EzsignbulksendListElement, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjEzsignbulksend, true

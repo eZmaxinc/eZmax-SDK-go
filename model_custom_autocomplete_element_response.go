@@ -58,7 +58,7 @@ func (o *CustomAutocompleteElementResponse) GetSCategory() string {
 // GetSCategoryOk returns a tuple with the SCategory field value
 // and a boolean to check if the value has been set.
 func (o *CustomAutocompleteElementResponse) GetSCategoryOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SCategory, true
@@ -82,7 +82,7 @@ func (o *CustomAutocompleteElementResponse) GetSLabel() string {
 // GetSLabelOk returns a tuple with the SLabel field value
 // and a boolean to check if the value has been set.
 func (o *CustomAutocompleteElementResponse) GetSLabelOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SLabel, true
@@ -106,7 +106,7 @@ func (o *CustomAutocompleteElementResponse) GetMValue() string {
 // GetMValueOk returns a tuple with the MValue field value
 // and a boolean to check if the value has been set.
 func (o *CustomAutocompleteElementResponse) GetMValueOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MValue, true

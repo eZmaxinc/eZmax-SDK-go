@@ -63,7 +63,7 @@ func (o *EzsigndocumentGetFormDataV1ResponseMPayload) GetPkiEzsigndocumentID() i
 // GetPkiEzsigndocumentIDOk returns a tuple with the PkiEzsigndocumentID field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetFormDataV1ResponseMPayload) GetPkiEzsigndocumentIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PkiEzsigndocumentID, true
@@ -87,7 +87,7 @@ func (o *EzsigndocumentGetFormDataV1ResponseMPayload) GetFkiEzsignfolderID() int
 // GetFkiEzsignfolderIDOk returns a tuple with the FkiEzsignfolderID field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetFormDataV1ResponseMPayload) GetFkiEzsignfolderIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiEzsignfolderID, true
@@ -111,7 +111,7 @@ func (o *EzsigndocumentGetFormDataV1ResponseMPayload) GetSEzsigndocumentName() s
 // GetSEzsigndocumentNameOk returns a tuple with the SEzsigndocumentName field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetFormDataV1ResponseMPayload) GetSEzsigndocumentNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SEzsigndocumentName, true
@@ -135,7 +135,7 @@ func (o *EzsigndocumentGetFormDataV1ResponseMPayload) GetDtModifiedDate() string
 // GetDtModifiedDateOk returns a tuple with the DtModifiedDate field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetFormDataV1ResponseMPayload) GetDtModifiedDateOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DtModifiedDate, true
@@ -159,7 +159,7 @@ func (o *EzsigndocumentGetFormDataV1ResponseMPayload) GetAObjFormDataSigner() []
 // GetAObjFormDataSignerOk returns a tuple with the AObjFormDataSigner field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetFormDataV1ResponseMPayload) GetAObjFormDataSignerOk() ([]CustomFormDataSignerResponse, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjFormDataSigner, true

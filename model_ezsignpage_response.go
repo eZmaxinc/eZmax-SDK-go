@@ -70,7 +70,7 @@ func (o *EzsignpageResponse) GetPkiEzsignpageID() int32 {
 // GetPkiEzsignpageIDOk returns a tuple with the PkiEzsignpageID field value
 // and a boolean to check if the value has been set.
 func (o *EzsignpageResponse) GetPkiEzsignpageIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PkiEzsignpageID, true
@@ -94,7 +94,7 @@ func (o *EzsignpageResponse) GetIEzsignpageWidthimage() int32 {
 // GetIEzsignpageWidthimageOk returns a tuple with the IEzsignpageWidthimage field value
 // and a boolean to check if the value has been set.
 func (o *EzsignpageResponse) GetIEzsignpageWidthimageOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsignpageWidthimage, true
@@ -118,7 +118,7 @@ func (o *EzsignpageResponse) GetIEzsignpageHeightimage() int32 {
 // GetIEzsignpageHeightimageOk returns a tuple with the IEzsignpageHeightimage field value
 // and a boolean to check if the value has been set.
 func (o *EzsignpageResponse) GetIEzsignpageHeightimageOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsignpageHeightimage, true
@@ -142,7 +142,7 @@ func (o *EzsignpageResponse) GetIEzsignpageWidthpdf() int32 {
 // GetIEzsignpageWidthpdfOk returns a tuple with the IEzsignpageWidthpdf field value
 // and a boolean to check if the value has been set.
 func (o *EzsignpageResponse) GetIEzsignpageWidthpdfOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsignpageWidthpdf, true
@@ -166,7 +166,7 @@ func (o *EzsignpageResponse) GetIEzsignpageHeightpdf() int32 {
 // GetIEzsignpageHeightpdfOk returns a tuple with the IEzsignpageHeightpdf field value
 // and a boolean to check if the value has been set.
 func (o *EzsignpageResponse) GetIEzsignpageHeightpdfOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsignpageHeightpdf, true
@@ -190,7 +190,7 @@ func (o *EzsignpageResponse) GetIEzsignpagePagenumber() int32 {
 // GetIEzsignpagePagenumberOk returns a tuple with the IEzsignpagePagenumber field value
 // and a boolean to check if the value has been set.
 func (o *EzsignpageResponse) GetIEzsignpagePagenumberOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsignpagePagenumber, true
@@ -214,7 +214,7 @@ func (o *EzsignpageResponse) GetSImageUrl() string {
 // GetSImageUrlOk returns a tuple with the SImageUrl field value
 // and a boolean to check if the value has been set.
 func (o *EzsignpageResponse) GetSImageUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SImageUrl, true

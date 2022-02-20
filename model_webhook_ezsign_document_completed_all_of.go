@@ -51,7 +51,7 @@ func (o *WebhookEzsignDocumentCompletedAllOf) GetObjEzsigndocument() Ezsigndocum
 // GetObjEzsigndocumentOk returns a tuple with the ObjEzsigndocument field value
 // and a boolean to check if the value has been set.
 func (o *WebhookEzsignDocumentCompletedAllOf) GetObjEzsigndocumentOk() (*EzsigndocumentResponse, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ObjEzsigndocument, true

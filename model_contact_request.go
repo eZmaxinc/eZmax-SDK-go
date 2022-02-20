@@ -66,7 +66,7 @@ func (o *ContactRequest) GetFkiContacttitleID() int32 {
 // GetFkiContacttitleIDOk returns a tuple with the FkiContacttitleID field value
 // and a boolean to check if the value has been set.
 func (o *ContactRequest) GetFkiContacttitleIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiContacttitleID, true
@@ -90,7 +90,7 @@ func (o *ContactRequest) GetFkiLanguageID() int32 {
 // GetFkiLanguageIDOk returns a tuple with the FkiLanguageID field value
 // and a boolean to check if the value has been set.
 func (o *ContactRequest) GetFkiLanguageIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiLanguageID, true
@@ -114,7 +114,7 @@ func (o *ContactRequest) GetSContactFirstname() string {
 // GetSContactFirstnameOk returns a tuple with the SContactFirstname field value
 // and a boolean to check if the value has been set.
 func (o *ContactRequest) GetSContactFirstnameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SContactFirstname, true
@@ -138,7 +138,7 @@ func (o *ContactRequest) GetSContactLastname() string {
 // GetSContactLastnameOk returns a tuple with the SContactLastname field value
 // and a boolean to check if the value has been set.
 func (o *ContactRequest) GetSContactLastnameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SContactLastname, true
@@ -162,7 +162,7 @@ func (o *ContactRequest) GetSContactCompany() string {
 // GetSContactCompanyOk returns a tuple with the SContactCompany field value
 // and a boolean to check if the value has been set.
 func (o *ContactRequest) GetSContactCompanyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SContactCompany, true

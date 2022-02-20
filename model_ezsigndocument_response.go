@@ -92,7 +92,7 @@ func (o *EzsigndocumentResponse) GetFkiEzsignfolderID() int32 {
 // GetFkiEzsignfolderIDOk returns a tuple with the FkiEzsignfolderID field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentResponse) GetFkiEzsignfolderIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiEzsignfolderID, true
@@ -116,7 +116,7 @@ func (o *EzsigndocumentResponse) GetDtEzsigndocumentDuedate() string {
 // GetDtEzsigndocumentDuedateOk returns a tuple with the DtEzsigndocumentDuedate field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentResponse) GetDtEzsigndocumentDuedateOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DtEzsigndocumentDuedate, true
@@ -140,7 +140,7 @@ func (o *EzsigndocumentResponse) GetFkiLanguageID() int32 {
 // GetFkiLanguageIDOk returns a tuple with the FkiLanguageID field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentResponse) GetFkiLanguageIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiLanguageID, true
@@ -164,7 +164,7 @@ func (o *EzsigndocumentResponse) GetSEzsigndocumentName() string {
 // GetSEzsigndocumentNameOk returns a tuple with the SEzsigndocumentName field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentResponse) GetSEzsigndocumentNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SEzsigndocumentName, true
@@ -188,7 +188,7 @@ func (o *EzsigndocumentResponse) GetPkiEzsigndocumentID() int32 {
 // GetPkiEzsigndocumentIDOk returns a tuple with the PkiEzsigndocumentID field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentResponse) GetPkiEzsigndocumentIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PkiEzsigndocumentID, true
@@ -212,7 +212,7 @@ func (o *EzsigndocumentResponse) GetEEzsigndocumentStep() FieldEEzsigndocumentSt
 // GetEEzsigndocumentStepOk returns a tuple with the EEzsigndocumentStep field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentResponse) GetEEzsigndocumentStepOk() (*FieldEEzsigndocumentStep, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EEzsigndocumentStep, true
@@ -236,7 +236,7 @@ func (o *EzsigndocumentResponse) GetDtEzsigndocumentFirstsend() string {
 // GetDtEzsigndocumentFirstsendOk returns a tuple with the DtEzsigndocumentFirstsend field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentResponse) GetDtEzsigndocumentFirstsendOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DtEzsigndocumentFirstsend, true
@@ -260,7 +260,7 @@ func (o *EzsigndocumentResponse) GetDtEzsigndocumentLastsend() string {
 // GetDtEzsigndocumentLastsendOk returns a tuple with the DtEzsigndocumentLastsend field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentResponse) GetDtEzsigndocumentLastsendOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DtEzsigndocumentLastsend, true
@@ -284,7 +284,7 @@ func (o *EzsigndocumentResponse) GetIEzsigndocumentOrder() int32 {
 // GetIEzsigndocumentOrderOk returns a tuple with the IEzsigndocumentOrder field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentResponse) GetIEzsigndocumentOrderOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsigndocumentOrder, true
@@ -308,7 +308,7 @@ func (o *EzsigndocumentResponse) GetIEzsigndocumentPagetotal() int32 {
 // GetIEzsigndocumentPagetotalOk returns a tuple with the IEzsigndocumentPagetotal field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentResponse) GetIEzsigndocumentPagetotalOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsigndocumentPagetotal, true
@@ -332,7 +332,7 @@ func (o *EzsigndocumentResponse) GetIEzsigndocumentSignaturesigned() int32 {
 // GetIEzsigndocumentSignaturesignedOk returns a tuple with the IEzsigndocumentSignaturesigned field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentResponse) GetIEzsigndocumentSignaturesignedOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsigndocumentSignaturesigned, true
@@ -356,7 +356,7 @@ func (o *EzsigndocumentResponse) GetIEzsigndocumentSignaturetotal() int32 {
 // GetIEzsigndocumentSignaturetotalOk returns a tuple with the IEzsigndocumentSignaturetotal field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentResponse) GetIEzsigndocumentSignaturetotalOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsigndocumentSignaturetotal, true
@@ -380,7 +380,7 @@ func (o *EzsigndocumentResponse) GetSEzsigndocumentMD5initial() string {
 // GetSEzsigndocumentMD5initialOk returns a tuple with the SEzsigndocumentMD5initial field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentResponse) GetSEzsigndocumentMD5initialOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SEzsigndocumentMD5initial, true
@@ -404,7 +404,7 @@ func (o *EzsigndocumentResponse) GetSEzsigndocumentMD5signed() string {
 // GetSEzsigndocumentMD5signedOk returns a tuple with the SEzsigndocumentMD5signed field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentResponse) GetSEzsigndocumentMD5signedOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SEzsigndocumentMD5signed, true
@@ -428,7 +428,7 @@ func (o *EzsigndocumentResponse) GetObjAudit() CommonAudit {
 // GetObjAuditOk returns a tuple with the ObjAudit field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentResponse) GetObjAuditOk() (*CommonAudit, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ObjAudit, true

@@ -158,7 +158,6 @@ type ApiEzsignfolderDeleteObjectV1Request struct {
 	pkiEzsignfolderID int32
 }
 
-
 func (r ApiEzsignfolderDeleteObjectV1Request) Execute() (*EzsignfolderDeleteObjectV1Response, *http.Response, error) {
 	return r.ApiService.EzsignfolderDeleteObjectV1Execute(r)
 }
@@ -438,7 +437,6 @@ type ApiEzsignfolderGetEzsigndocumentsV1Request struct {
 	pkiEzsignfolderID int32
 }
 
-
 func (r ApiEzsignfolderGetEzsigndocumentsV1Request) Execute() (*EzsignfolderGetEzsigndocumentsV1Response, *http.Response, error) {
 	return r.ApiService.EzsignfolderGetEzsigndocumentsV1Execute(r)
 }
@@ -563,7 +561,6 @@ type ApiEzsignfolderGetEzsignfoldersignerassociationsV1Request struct {
 	pkiEzsignfolderID int32
 }
 
-
 func (r ApiEzsignfolderGetEzsignfoldersignerassociationsV1Request) Execute() (*EzsignfolderGetEzsignfoldersignerassociationsV1Response, *http.Response, error) {
 	return r.ApiService.EzsignfolderGetEzsignfoldersignerassociationsV1Execute(r)
 }
@@ -687,7 +684,6 @@ type ApiEzsignfolderGetFormsDataV1Request struct {
 	ApiService *ObjectEzsignfolderApiService
 	pkiEzsignfolderID int32
 }
-
 
 func (r ApiEzsignfolderGetFormsDataV1Request) Execute() (*EzsignfolderGetFormsDataV1Response, *http.Response, error) {
 	return r.ApiService.EzsignfolderGetFormsDataV1Execute(r)
@@ -842,18 +838,22 @@ func (r ApiEzsignfolderGetListV1Request) EOrderBy(eOrderBy string) ApiEzsignfold
 	r.eOrderBy = &eOrderBy
 	return r
 }
+
 func (r ApiEzsignfolderGetListV1Request) IRowMax(iRowMax int32) ApiEzsignfolderGetListV1Request {
 	r.iRowMax = &iRowMax
 	return r
 }
+
 func (r ApiEzsignfolderGetListV1Request) IRowOffset(iRowOffset int32) ApiEzsignfolderGetListV1Request {
 	r.iRowOffset = &iRowOffset
 	return r
 }
+
 func (r ApiEzsignfolderGetListV1Request) AcceptLanguage(acceptLanguage HeaderAcceptLanguage) ApiEzsignfolderGetListV1Request {
 	r.acceptLanguage = &acceptLanguage
 	return r
 }
+
 func (r ApiEzsignfolderGetListV1Request) SFilter(sFilter string) ApiEzsignfolderGetListV1Request {
 	r.sFilter = &sFilter
 	return r
@@ -1001,7 +1001,6 @@ type ApiEzsignfolderGetObjectV1Request struct {
 	ApiService *ObjectEzsignfolderApiService
 	pkiEzsignfolderID int32
 }
-
 
 func (r ApiEzsignfolderGetObjectV1Request) Execute() (*EzsignfolderGetObjectV1Response, *http.Response, error) {
 	return r.ApiService.EzsignfolderGetObjectV1Execute(r)

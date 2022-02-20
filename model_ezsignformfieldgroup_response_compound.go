@@ -54,7 +54,7 @@ func (o *EzsignformfieldgroupResponseCompound) GetSEzsignformfieldgroupLabel() s
 // GetSEzsignformfieldgroupLabelOk returns a tuple with the SEzsignformfieldgroupLabel field value
 // and a boolean to check if the value has been set.
 func (o *EzsignformfieldgroupResponseCompound) GetSEzsignformfieldgroupLabelOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SEzsignformfieldgroupLabel, true
@@ -78,7 +78,7 @@ func (o *EzsignformfieldgroupResponseCompound) GetAObjEzsignformfield() []Ezsign
 // GetAObjEzsignformfieldOk returns a tuple with the AObjEzsignformfield field value
 // and a boolean to check if the value has been set.
 func (o *EzsignformfieldgroupResponseCompound) GetAObjEzsignformfieldOk() ([]EzsignformfieldResponse, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjEzsignformfield, true

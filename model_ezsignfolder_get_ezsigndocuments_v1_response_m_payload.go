@@ -51,7 +51,7 @@ func (o *EzsignfolderGetEzsigndocumentsV1ResponseMPayload) GetAObjEzsigndocument
 // GetAObjEzsigndocumentOk returns a tuple with the AObjEzsigndocument field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderGetEzsigndocumentsV1ResponseMPayload) GetAObjEzsigndocumentOk() ([]EzsigndocumentResponseCompound, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjEzsigndocument, true

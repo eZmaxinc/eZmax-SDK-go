@@ -68,7 +68,7 @@ func (o *WebhookResponse) GetPkiWebhookID() int32 {
 // GetPkiWebhookIDOk returns a tuple with the PkiWebhookID field value
 // and a boolean to check if the value has been set.
 func (o *WebhookResponse) GetPkiWebhookIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PkiWebhookID, true
@@ -92,7 +92,7 @@ func (o *WebhookResponse) GetEWebhookModule() string {
 // GetEWebhookModuleOk returns a tuple with the EWebhookModule field value
 // and a boolean to check if the value has been set.
 func (o *WebhookResponse) GetEWebhookModuleOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EWebhookModule, true
@@ -148,7 +148,7 @@ func (o *WebhookResponse) GetPksCustomerCode() string {
 // GetPksCustomerCodeOk returns a tuple with the PksCustomerCode field value
 // and a boolean to check if the value has been set.
 func (o *WebhookResponse) GetPksCustomerCodeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PksCustomerCode, true
@@ -172,7 +172,7 @@ func (o *WebhookResponse) GetSWebhookUrl() string {
 // GetSWebhookUrlOk returns a tuple with the SWebhookUrl field value
 // and a boolean to check if the value has been set.
 func (o *WebhookResponse) GetSWebhookUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SWebhookUrl, true
@@ -196,7 +196,7 @@ func (o *WebhookResponse) GetSWebhookEmailfailed() string {
 // GetSWebhookEmailfailedOk returns a tuple with the SWebhookEmailfailed field value
 // and a boolean to check if the value has been set.
 func (o *WebhookResponse) GetSWebhookEmailfailedOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SWebhookEmailfailed, true

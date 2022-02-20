@@ -106,7 +106,7 @@ func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetIEzsigndocumentStepformto
 // GetIEzsigndocumentStepformtotalOk returns a tuple with the IEzsigndocumentStepformtotal field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetIEzsigndocumentStepformtotalOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsigndocumentStepformtotal, true
@@ -130,7 +130,7 @@ func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetIEzsigndocumentStepformcu
 // GetIEzsigndocumentStepformcurrentOk returns a tuple with the IEzsigndocumentStepformcurrent field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetIEzsigndocumentStepformcurrentOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsigndocumentStepformcurrent, true
@@ -154,7 +154,7 @@ func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetIEzsigndocumentStepsignat
 // GetIEzsigndocumentStepsignaturetotalOk returns a tuple with the IEzsigndocumentStepsignaturetotal field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetIEzsigndocumentStepsignaturetotalOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsigndocumentStepsignaturetotal, true
@@ -178,7 +178,7 @@ func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetIEzsigndocumentStepsignat
 // GetIEzsigndocumentStepsignatureCurrentOk returns a tuple with the IEzsigndocumentStepsignatureCurrent field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetIEzsigndocumentStepsignatureCurrentOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsigndocumentStepsignatureCurrent, true
@@ -202,7 +202,7 @@ func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetAObjEzsignfoldersignerass
 // GetAObjEzsignfoldersignerassociationstatusOk returns a tuple with the AObjEzsignfoldersignerassociationstatus field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetAObjEzsignfoldersignerassociationstatusOk() ([]CustomEzsignfoldersignerassociationstatusResponse, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjEzsignfoldersignerassociationstatus, true
@@ -226,7 +226,7 @@ func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetFkiEzsignfolderID() int32
 // GetFkiEzsignfolderIDOk returns a tuple with the FkiEzsignfolderID field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetFkiEzsignfolderIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiEzsignfolderID, true
@@ -250,7 +250,7 @@ func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetDtEzsigndocumentDuedate()
 // GetDtEzsigndocumentDuedateOk returns a tuple with the DtEzsigndocumentDuedate field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetDtEzsigndocumentDuedateOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DtEzsigndocumentDuedate, true
@@ -274,7 +274,7 @@ func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetFkiLanguageID() int32 {
 // GetFkiLanguageIDOk returns a tuple with the FkiLanguageID field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetFkiLanguageIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiLanguageID, true
@@ -298,7 +298,7 @@ func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetSEzsigndocumentName() str
 // GetSEzsigndocumentNameOk returns a tuple with the SEzsigndocumentName field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetSEzsigndocumentNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SEzsigndocumentName, true
@@ -322,7 +322,7 @@ func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetPkiEzsigndocumentID() int
 // GetPkiEzsigndocumentIDOk returns a tuple with the PkiEzsigndocumentID field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetPkiEzsigndocumentIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PkiEzsigndocumentID, true
@@ -346,7 +346,7 @@ func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetEEzsigndocumentStep() Fie
 // GetEEzsigndocumentStepOk returns a tuple with the EEzsigndocumentStep field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetEEzsigndocumentStepOk() (*FieldEEzsigndocumentStep, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EEzsigndocumentStep, true
@@ -370,7 +370,7 @@ func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetDtEzsigndocumentFirstsend
 // GetDtEzsigndocumentFirstsendOk returns a tuple with the DtEzsigndocumentFirstsend field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetDtEzsigndocumentFirstsendOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DtEzsigndocumentFirstsend, true
@@ -394,7 +394,7 @@ func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetDtEzsigndocumentLastsend(
 // GetDtEzsigndocumentLastsendOk returns a tuple with the DtEzsigndocumentLastsend field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetDtEzsigndocumentLastsendOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DtEzsigndocumentLastsend, true
@@ -418,7 +418,7 @@ func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetIEzsigndocumentOrder() in
 // GetIEzsigndocumentOrderOk returns a tuple with the IEzsigndocumentOrder field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetIEzsigndocumentOrderOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsigndocumentOrder, true
@@ -442,7 +442,7 @@ func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetIEzsigndocumentPagetotal(
 // GetIEzsigndocumentPagetotalOk returns a tuple with the IEzsigndocumentPagetotal field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetIEzsigndocumentPagetotalOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsigndocumentPagetotal, true
@@ -466,7 +466,7 @@ func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetIEzsigndocumentSignatures
 // GetIEzsigndocumentSignaturesignedOk returns a tuple with the IEzsigndocumentSignaturesigned field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetIEzsigndocumentSignaturesignedOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsigndocumentSignaturesigned, true
@@ -490,7 +490,7 @@ func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetIEzsigndocumentSignaturet
 // GetIEzsigndocumentSignaturetotalOk returns a tuple with the IEzsigndocumentSignaturetotal field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetIEzsigndocumentSignaturetotalOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsigndocumentSignaturetotal, true
@@ -514,7 +514,7 @@ func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetSEzsigndocumentMD5initial
 // GetSEzsigndocumentMD5initialOk returns a tuple with the SEzsigndocumentMD5initial field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetSEzsigndocumentMD5initialOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SEzsigndocumentMD5initial, true
@@ -538,7 +538,7 @@ func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetSEzsigndocumentMD5signed(
 // GetSEzsigndocumentMD5signedOk returns a tuple with the SEzsigndocumentMD5signed field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetSEzsigndocumentMD5signedOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SEzsigndocumentMD5signed, true
@@ -562,7 +562,7 @@ func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetObjAudit() CommonAudit {
 // GetObjAuditOk returns a tuple with the ObjAudit field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetObjAuditOk() (*CommonAudit, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ObjAudit, true

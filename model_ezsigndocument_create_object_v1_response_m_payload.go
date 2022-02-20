@@ -52,7 +52,7 @@ func (o *EzsigndocumentCreateObjectV1ResponseMPayload) GetAPkiEzsigndocumentID()
 // GetAPkiEzsigndocumentIDOk returns a tuple with the APkiEzsigndocumentID field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentCreateObjectV1ResponseMPayload) GetAPkiEzsigndocumentIDOk() ([]int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.APkiEzsigndocumentID, true

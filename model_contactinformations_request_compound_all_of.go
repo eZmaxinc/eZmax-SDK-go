@@ -57,7 +57,7 @@ func (o *ContactinformationsRequestCompoundAllOf) GetAObjAddress() []AddressRequ
 // GetAObjAddressOk returns a tuple with the AObjAddress field value
 // and a boolean to check if the value has been set.
 func (o *ContactinformationsRequestCompoundAllOf) GetAObjAddressOk() ([]AddressRequest, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjAddress, true
@@ -81,7 +81,7 @@ func (o *ContactinformationsRequestCompoundAllOf) GetAObjPhone() []PhoneRequest 
 // GetAObjPhoneOk returns a tuple with the AObjPhone field value
 // and a boolean to check if the value has been set.
 func (o *ContactinformationsRequestCompoundAllOf) GetAObjPhoneOk() ([]PhoneRequest, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjPhone, true
@@ -105,7 +105,7 @@ func (o *ContactinformationsRequestCompoundAllOf) GetAObjEmail() []EmailRequest 
 // GetAObjEmailOk returns a tuple with the AObjEmail field value
 // and a boolean to check if the value has been set.
 func (o *ContactinformationsRequestCompoundAllOf) GetAObjEmailOk() ([]EmailRequest, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjEmail, true
@@ -129,7 +129,7 @@ func (o *ContactinformationsRequestCompoundAllOf) GetAObjWebsite() []WebsiteRequ
 // GetAObjWebsiteOk returns a tuple with the AObjWebsite field value
 // and a boolean to check if the value has been set.
 func (o *ContactinformationsRequestCompoundAllOf) GetAObjWebsiteOk() ([]WebsiteRequest, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjWebsite, true

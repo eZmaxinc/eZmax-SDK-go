@@ -64,7 +64,7 @@ func (o *ActivesessionResponseCompoundUser) GetPkiUserID() int32 {
 // GetPkiUserIDOk returns a tuple with the PkiUserID field value
 // and a boolean to check if the value has been set.
 func (o *ActivesessionResponseCompoundUser) GetPkiUserIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PkiUserID, true
@@ -88,7 +88,7 @@ func (o *ActivesessionResponseCompoundUser) GetSAvatarUrl() string {
 // GetSAvatarUrlOk returns a tuple with the SAvatarUrl field value
 // and a boolean to check if the value has been set.
 func (o *ActivesessionResponseCompoundUser) GetSAvatarUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SAvatarUrl, true
@@ -112,7 +112,7 @@ func (o *ActivesessionResponseCompoundUser) GetSUserFirstname() string {
 // GetSUserFirstnameOk returns a tuple with the SUserFirstname field value
 // and a boolean to check if the value has been set.
 func (o *ActivesessionResponseCompoundUser) GetSUserFirstnameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SUserFirstname, true
@@ -136,7 +136,7 @@ func (o *ActivesessionResponseCompoundUser) GetSUserLastname() string {
 // GetSUserLastnameOk returns a tuple with the SUserLastname field value
 // and a boolean to check if the value has been set.
 func (o *ActivesessionResponseCompoundUser) GetSUserLastnameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SUserLastname, true
@@ -160,7 +160,7 @@ func (o *ActivesessionResponseCompoundUser) GetSEmailAddress() string {
 // GetSEmailAddressOk returns a tuple with the SEmailAddress field value
 // and a boolean to check if the value has been set.
 func (o *ActivesessionResponseCompoundUser) GetSEmailAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SEmailAddress, true

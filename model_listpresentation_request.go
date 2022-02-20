@@ -70,7 +70,7 @@ func (o *ListpresentationRequest) GetSListpresentationDescription() string {
 // GetSListpresentationDescriptionOk returns a tuple with the SListpresentationDescription field value
 // and a boolean to check if the value has been set.
 func (o *ListpresentationRequest) GetSListpresentationDescriptionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SListpresentationDescription, true
@@ -94,7 +94,7 @@ func (o *ListpresentationRequest) GetSListpresentationFilter() string {
 // GetSListpresentationFilterOk returns a tuple with the SListpresentationFilter field value
 // and a boolean to check if the value has been set.
 func (o *ListpresentationRequest) GetSListpresentationFilterOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SListpresentationFilter, true
@@ -118,7 +118,7 @@ func (o *ListpresentationRequest) GetSListpresentationOrderby() string {
 // GetSListpresentationOrderbyOk returns a tuple with the SListpresentationOrderby field value
 // and a boolean to check if the value has been set.
 func (o *ListpresentationRequest) GetSListpresentationOrderbyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SListpresentationOrderby, true
@@ -142,7 +142,7 @@ func (o *ListpresentationRequest) GetASColumnName() []string {
 // GetASColumnNameOk returns a tuple with the ASColumnName field value
 // and a boolean to check if the value has been set.
 func (o *ListpresentationRequest) GetASColumnNameOk() ([]string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.ASColumnName, true
@@ -166,7 +166,7 @@ func (o *ListpresentationRequest) GetIListpresentationRowMax() int32 {
 // GetIListpresentationRowMaxOk returns a tuple with the IListpresentationRowMax field value
 // and a boolean to check if the value has been set.
 func (o *ListpresentationRequest) GetIListpresentationRowMaxOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IListpresentationRowMax, true
@@ -190,7 +190,7 @@ func (o *ListpresentationRequest) GetIListpresentationRowOffset() int32 {
 // GetIListpresentationRowOffsetOk returns a tuple with the IListpresentationRowOffset field value
 // and a boolean to check if the value has been set.
 func (o *ListpresentationRequest) GetIListpresentationRowOffsetOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IListpresentationRowOffset, true
@@ -214,7 +214,7 @@ func (o *ListpresentationRequest) GetBListpresentationDefault() bool {
 // GetBListpresentationDefaultOk returns a tuple with the BListpresentationDefault field value
 // and a boolean to check if the value has been set.
 func (o *ListpresentationRequest) GetBListpresentationDefaultOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.BListpresentationDefault, true

@@ -68,7 +68,7 @@ func (o *ActivesessionResponse) GetEActivesessionSessiontype() FieldEActivesessi
 // GetEActivesessionSessiontypeOk returns a tuple with the EActivesessionSessiontype field value
 // and a boolean to check if the value has been set.
 func (o *ActivesessionResponse) GetEActivesessionSessiontypeOk() (*FieldEActivesessionSessiontype, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EActivesessionSessiontype, true
@@ -92,7 +92,7 @@ func (o *ActivesessionResponse) GetEActivesessionWeekdaystart() FieldEActivesess
 // GetEActivesessionWeekdaystartOk returns a tuple with the EActivesessionWeekdaystart field value
 // and a boolean to check if the value has been set.
 func (o *ActivesessionResponse) GetEActivesessionWeekdaystartOk() (*FieldEActivesessionWeekdaystart, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EActivesessionWeekdaystart, true
@@ -116,7 +116,7 @@ func (o *ActivesessionResponse) GetFkiLanguageID() int32 {
 // GetFkiLanguageIDOk returns a tuple with the FkiLanguageID field value
 // and a boolean to check if the value has been set.
 func (o *ActivesessionResponse) GetFkiLanguageIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiLanguageID, true
@@ -140,7 +140,7 @@ func (o *ActivesessionResponse) GetSCompanyNameX() string {
 // GetSCompanyNameXOk returns a tuple with the SCompanyNameX field value
 // and a boolean to check if the value has been set.
 func (o *ActivesessionResponse) GetSCompanyNameXOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SCompanyNameX, true
@@ -164,7 +164,7 @@ func (o *ActivesessionResponse) GetSDepartmentNameX() string {
 // GetSDepartmentNameXOk returns a tuple with the SDepartmentNameX field value
 // and a boolean to check if the value has been set.
 func (o *ActivesessionResponse) GetSDepartmentNameXOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SDepartmentNameX, true
@@ -188,7 +188,7 @@ func (o *ActivesessionResponse) GetBActivesessionDebug() bool {
 // GetBActivesessionDebugOk returns a tuple with the BActivesessionDebug field value
 // and a boolean to check if the value has been set.
 func (o *ActivesessionResponse) GetBActivesessionDebugOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.BActivesessionDebug, true
@@ -212,7 +212,7 @@ func (o *ActivesessionResponse) GetPksCustomerCode() string {
 // GetPksCustomerCodeOk returns a tuple with the PksCustomerCode field value
 // and a boolean to check if the value has been set.
 func (o *ActivesessionResponse) GetPksCustomerCodeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PksCustomerCode, true

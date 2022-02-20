@@ -51,7 +51,7 @@ func (o *ApikeyCreateObjectV1ResponseMPayload) GetAObjApikey() []ApikeyResponse 
 // GetAObjApikeyOk returns a tuple with the AObjApikey field value
 // and a boolean to check if the value has been set.
 func (o *ApikeyCreateObjectV1ResponseMPayload) GetAObjApikeyOk() ([]ApikeyResponse, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjApikey, true

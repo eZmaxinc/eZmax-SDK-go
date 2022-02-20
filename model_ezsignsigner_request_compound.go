@@ -61,7 +61,7 @@ func (o *EzsignsignerRequestCompound) GetObjContact() EzsignsignerRequestCompoun
 // GetObjContactOk returns a tuple with the ObjContact field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignerRequestCompound) GetObjContactOk() (*EzsignsignerRequestCompoundContact, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ObjContact, true
@@ -85,7 +85,7 @@ func (o *EzsignsignerRequestCompound) GetFkiTaxassignmentID() int32 {
 // GetFkiTaxassignmentIDOk returns a tuple with the FkiTaxassignmentID field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignerRequestCompound) GetFkiTaxassignmentIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiTaxassignmentID, true
@@ -141,7 +141,7 @@ func (o *EzsignsignerRequestCompound) GetEEzsignsignerLogintype() string {
 // GetEEzsignsignerLogintypeOk returns a tuple with the EEzsignsignerLogintype field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignerRequestCompound) GetEEzsignsignerLogintypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EEzsignsignerLogintype, true

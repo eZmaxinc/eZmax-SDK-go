@@ -69,7 +69,7 @@ func (o *ContactinformationsRequestCompound) GetAObjAddress() []AddressRequest {
 // GetAObjAddressOk returns a tuple with the AObjAddress field value
 // and a boolean to check if the value has been set.
 func (o *ContactinformationsRequestCompound) GetAObjAddressOk() ([]AddressRequest, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjAddress, true
@@ -93,7 +93,7 @@ func (o *ContactinformationsRequestCompound) GetAObjPhone() []PhoneRequest {
 // GetAObjPhoneOk returns a tuple with the AObjPhone field value
 // and a boolean to check if the value has been set.
 func (o *ContactinformationsRequestCompound) GetAObjPhoneOk() ([]PhoneRequest, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjPhone, true
@@ -117,7 +117,7 @@ func (o *ContactinformationsRequestCompound) GetAObjEmail() []EmailRequest {
 // GetAObjEmailOk returns a tuple with the AObjEmail field value
 // and a boolean to check if the value has been set.
 func (o *ContactinformationsRequestCompound) GetAObjEmailOk() ([]EmailRequest, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjEmail, true
@@ -141,7 +141,7 @@ func (o *ContactinformationsRequestCompound) GetAObjWebsite() []WebsiteRequest {
 // GetAObjWebsiteOk returns a tuple with the AObjWebsite field value
 // and a boolean to check if the value has been set.
 func (o *ContactinformationsRequestCompound) GetAObjWebsiteOk() ([]WebsiteRequest, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjWebsite, true
@@ -165,7 +165,7 @@ func (o *ContactinformationsRequestCompound) GetIAddressDefault() int32 {
 // GetIAddressDefaultOk returns a tuple with the IAddressDefault field value
 // and a boolean to check if the value has been set.
 func (o *ContactinformationsRequestCompound) GetIAddressDefaultOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IAddressDefault, true
@@ -189,7 +189,7 @@ func (o *ContactinformationsRequestCompound) GetIPhoneDefault() int32 {
 // GetIPhoneDefaultOk returns a tuple with the IPhoneDefault field value
 // and a boolean to check if the value has been set.
 func (o *ContactinformationsRequestCompound) GetIPhoneDefaultOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IPhoneDefault, true
@@ -213,7 +213,7 @@ func (o *ContactinformationsRequestCompound) GetIEmailDefault() int32 {
 // GetIEmailDefaultOk returns a tuple with the IEmailDefault field value
 // and a boolean to check if the value has been set.
 func (o *ContactinformationsRequestCompound) GetIEmailDefaultOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEmailDefault, true
@@ -237,7 +237,7 @@ func (o *ContactinformationsRequestCompound) GetIWebsiteDefault() int32 {
 // GetIWebsiteDefaultOk returns a tuple with the IWebsiteDefault field value
 // and a boolean to check if the value has been set.
 func (o *ContactinformationsRequestCompound) GetIWebsiteDefaultOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IWebsiteDefault, true

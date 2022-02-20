@@ -78,7 +78,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetAPkiPermissionID() []int3
 // GetAPkiPermissionIDOk returns a tuple with the APkiPermissionID field value
 // and a boolean to check if the value has been set.
 func (o *ActivesessionGetCurrentV1ResponseMPayload) GetAPkiPermissionIDOk() ([]int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.APkiPermissionID, true
@@ -102,7 +102,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjUserReal() Activesessi
 // GetObjUserRealOk returns a tuple with the ObjUserReal field value
 // and a boolean to check if the value has been set.
 func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjUserRealOk() (*ActivesessionResponseCompoundUser, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ObjUserReal, true
@@ -190,7 +190,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetAEModuleInternalname() []
 // GetAEModuleInternalnameOk returns a tuple with the AEModuleInternalname field value
 // and a boolean to check if the value has been set.
 func (o *ActivesessionGetCurrentV1ResponseMPayload) GetAEModuleInternalnameOk() ([]string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AEModuleInternalname, true
@@ -214,7 +214,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionSessiontype
 // GetEActivesessionSessiontypeOk returns a tuple with the EActivesessionSessiontype field value
 // and a boolean to check if the value has been set.
 func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionSessiontypeOk() (*FieldEActivesessionSessiontype, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EActivesessionSessiontype, true
@@ -238,7 +238,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionWeekdaystar
 // GetEActivesessionWeekdaystartOk returns a tuple with the EActivesessionWeekdaystart field value
 // and a boolean to check if the value has been set.
 func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionWeekdaystartOk() (*FieldEActivesessionWeekdaystart, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EActivesessionWeekdaystart, true
@@ -262,7 +262,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetFkiLanguageID() int32 {
 // GetFkiLanguageIDOk returns a tuple with the FkiLanguageID field value
 // and a boolean to check if the value has been set.
 func (o *ActivesessionGetCurrentV1ResponseMPayload) GetFkiLanguageIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiLanguageID, true
@@ -286,7 +286,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetSCompanyNameX() string {
 // GetSCompanyNameXOk returns a tuple with the SCompanyNameX field value
 // and a boolean to check if the value has been set.
 func (o *ActivesessionGetCurrentV1ResponseMPayload) GetSCompanyNameXOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SCompanyNameX, true
@@ -310,7 +310,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetSDepartmentNameX() string
 // GetSDepartmentNameXOk returns a tuple with the SDepartmentNameX field value
 // and a boolean to check if the value has been set.
 func (o *ActivesessionGetCurrentV1ResponseMPayload) GetSDepartmentNameXOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SDepartmentNameX, true
@@ -334,7 +334,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetBActivesessionDebug() boo
 // GetBActivesessionDebugOk returns a tuple with the BActivesessionDebug field value
 // and a boolean to check if the value has been set.
 func (o *ActivesessionGetCurrentV1ResponseMPayload) GetBActivesessionDebugOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.BActivesessionDebug, true
@@ -358,7 +358,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetPksCustomerCode() string 
 // GetPksCustomerCodeOk returns a tuple with the PksCustomerCode field value
 // and a boolean to check if the value has been set.
 func (o *ActivesessionGetCurrentV1ResponseMPayload) GetPksCustomerCodeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PksCustomerCode, true

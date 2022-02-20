@@ -64,7 +64,7 @@ func (o *CommonResponseObjDebug) GetSMemoryUsage() string {
 // GetSMemoryUsageOk returns a tuple with the SMemoryUsage field value
 // and a boolean to check if the value has been set.
 func (o *CommonResponseObjDebug) GetSMemoryUsageOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SMemoryUsage, true
@@ -88,7 +88,7 @@ func (o *CommonResponseObjDebug) GetSRunTime() string {
 // GetSRunTimeOk returns a tuple with the SRunTime field value
 // and a boolean to check if the value has been set.
 func (o *CommonResponseObjDebug) GetSRunTimeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SRunTime, true
@@ -112,7 +112,7 @@ func (o *CommonResponseObjDebug) GetISQLSelects() int32 {
 // GetISQLSelectsOk returns a tuple with the ISQLSelects field value
 // and a boolean to check if the value has been set.
 func (o *CommonResponseObjDebug) GetISQLSelectsOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ISQLSelects, true
@@ -136,7 +136,7 @@ func (o *CommonResponseObjDebug) GetISQLQueries() int32 {
 // GetISQLQueriesOk returns a tuple with the ISQLQueries field value
 // and a boolean to check if the value has been set.
 func (o *CommonResponseObjDebug) GetISQLQueriesOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ISQLQueries, true
@@ -160,7 +160,7 @@ func (o *CommonResponseObjDebug) GetAObjSQLQuery() []CommonResponseObjSQLQuery {
 // GetAObjSQLQueryOk returns a tuple with the AObjSQLQuery field value
 // and a boolean to check if the value has been set.
 func (o *CommonResponseObjDebug) GetAObjSQLQueryOk() ([]CommonResponseObjSQLQuery, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjSQLQuery, true

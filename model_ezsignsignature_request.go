@@ -103,7 +103,7 @@ func (o *EzsignsignatureRequest) GetFkiEzsignfoldersignerassociationID() int32 {
 // GetFkiEzsignfoldersignerassociationIDOk returns a tuple with the FkiEzsignfoldersignerassociationID field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignatureRequest) GetFkiEzsignfoldersignerassociationIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiEzsignfoldersignerassociationID, true
@@ -127,7 +127,7 @@ func (o *EzsignsignatureRequest) GetIEzsignpagePagenumber() int32 {
 // GetIEzsignpagePagenumberOk returns a tuple with the IEzsignpagePagenumber field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignatureRequest) GetIEzsignpagePagenumberOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsignpagePagenumber, true
@@ -151,7 +151,7 @@ func (o *EzsignsignatureRequest) GetIEzsignsignatureX() int32 {
 // GetIEzsignsignatureXOk returns a tuple with the IEzsignsignatureX field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignatureRequest) GetIEzsignsignatureXOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsignsignatureX, true
@@ -175,7 +175,7 @@ func (o *EzsignsignatureRequest) GetIEzsignsignatureY() int32 {
 // GetIEzsignsignatureYOk returns a tuple with the IEzsignsignatureY field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignatureRequest) GetIEzsignsignatureYOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsignsignatureY, true
@@ -199,7 +199,7 @@ func (o *EzsignsignatureRequest) GetIEzsignsignatureStep() int32 {
 // GetIEzsignsignatureStepOk returns a tuple with the IEzsignsignatureStep field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignatureRequest) GetIEzsignsignatureStepOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IEzsignsignatureStep, true
@@ -223,7 +223,7 @@ func (o *EzsignsignatureRequest) GetEEzsignsignatureType() FieldEEzsignsignature
 // GetEEzsignsignatureTypeOk returns a tuple with the EEzsignsignatureType field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignatureRequest) GetEEzsignsignatureTypeOk() (*FieldEEzsignsignatureType, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EEzsignsignatureType, true
@@ -247,7 +247,7 @@ func (o *EzsignsignatureRequest) GetFkiEzsigndocumentID() int32 {
 // GetFkiEzsigndocumentIDOk returns a tuple with the FkiEzsigndocumentID field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignatureRequest) GetFkiEzsigndocumentIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiEzsigndocumentID, true

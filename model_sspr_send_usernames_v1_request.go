@@ -60,7 +60,7 @@ func (o *SsprSendUsernamesV1Request) GetPksCustomerCode() string {
 // GetPksCustomerCodeOk returns a tuple with the PksCustomerCode field value
 // and a boolean to check if the value has been set.
 func (o *SsprSendUsernamesV1Request) GetPksCustomerCodeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PksCustomerCode, true
@@ -84,7 +84,7 @@ func (o *SsprSendUsernamesV1Request) GetFkiLanguageID() int32 {
 // GetFkiLanguageIDOk returns a tuple with the FkiLanguageID field value
 // and a boolean to check if the value has been set.
 func (o *SsprSendUsernamesV1Request) GetFkiLanguageIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiLanguageID, true
@@ -108,7 +108,7 @@ func (o *SsprSendUsernamesV1Request) GetEUserTypeSSPR() FieldEUserTypeSSPR {
 // GetEUserTypeSSPROk returns a tuple with the EUserTypeSSPR field value
 // and a boolean to check if the value has been set.
 func (o *SsprSendUsernamesV1Request) GetEUserTypeSSPROk() (*FieldEUserTypeSSPR, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EUserTypeSSPR, true
@@ -132,7 +132,7 @@ func (o *SsprSendUsernamesV1Request) GetSEmailAddress() string {
 // GetSEmailAddressOk returns a tuple with the SEmailAddress field value
 // and a boolean to check if the value has been set.
 func (o *SsprSendUsernamesV1Request) GetSEmailAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SEmailAddress, true

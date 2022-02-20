@@ -53,7 +53,7 @@ func (o *ActivesessionGetCurrentV1Response) GetMPayload() ActivesessionGetCurren
 // GetMPayloadOk returns a tuple with the MPayload field value
 // and a boolean to check if the value has been set.
 func (o *ActivesessionGetCurrentV1Response) GetMPayloadOk() (*ActivesessionGetCurrentV1ResponseMPayload, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MPayload, true

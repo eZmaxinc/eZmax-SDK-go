@@ -55,7 +55,7 @@ func (o *EmailRequest) GetFkiEmailtypeID() int32 {
 // GetFkiEmailtypeIDOk returns a tuple with the FkiEmailtypeID field value
 // and a boolean to check if the value has been set.
 func (o *EmailRequest) GetFkiEmailtypeIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiEmailtypeID, true
@@ -79,7 +79,7 @@ func (o *EmailRequest) GetSEmailAddress() string {
 // GetSEmailAddressOk returns a tuple with the SEmailAddress field value
 // and a boolean to check if the value has been set.
 func (o *EmailRequest) GetSEmailAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SEmailAddress, true

@@ -64,7 +64,7 @@ func (o *EzsignsignerRequestCompoundContact) GetSContactFirstname() string {
 // GetSContactFirstnameOk returns a tuple with the SContactFirstname field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignerRequestCompoundContact) GetSContactFirstnameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SContactFirstname, true
@@ -88,7 +88,7 @@ func (o *EzsignsignerRequestCompoundContact) GetSContactLastname() string {
 // GetSContactLastnameOk returns a tuple with the SContactLastname field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignerRequestCompoundContact) GetSContactLastnameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SContactLastname, true
@@ -112,7 +112,7 @@ func (o *EzsignsignerRequestCompoundContact) GetFkiLanguageID() int32 {
 // GetFkiLanguageIDOk returns a tuple with the FkiLanguageID field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignerRequestCompoundContact) GetFkiLanguageIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiLanguageID, true

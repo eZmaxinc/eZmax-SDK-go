@@ -61,7 +61,7 @@ func (o *SsprUnlockAccountRequestV1Request) GetPksCustomerCode() string {
 // GetPksCustomerCodeOk returns a tuple with the PksCustomerCode field value
 // and a boolean to check if the value has been set.
 func (o *SsprUnlockAccountRequestV1Request) GetPksCustomerCodeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PksCustomerCode, true
@@ -85,7 +85,7 @@ func (o *SsprUnlockAccountRequestV1Request) GetFkiLanguageID() int32 {
 // GetFkiLanguageIDOk returns a tuple with the FkiLanguageID field value
 // and a boolean to check if the value has been set.
 func (o *SsprUnlockAccountRequestV1Request) GetFkiLanguageIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiLanguageID, true
@@ -109,7 +109,7 @@ func (o *SsprUnlockAccountRequestV1Request) GetEUserTypeSSPR() FieldEUserTypeSSP
 // GetEUserTypeSSPROk returns a tuple with the EUserTypeSSPR field value
 // and a boolean to check if the value has been set.
 func (o *SsprUnlockAccountRequestV1Request) GetEUserTypeSSPROk() (*FieldEUserTypeSSPR, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EUserTypeSSPR, true

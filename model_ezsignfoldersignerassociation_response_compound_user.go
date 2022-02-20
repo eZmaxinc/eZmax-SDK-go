@@ -64,7 +64,7 @@ func (o *EzsignfoldersignerassociationResponseCompoundUser) GetPkiUserID() int32
 // GetPkiUserIDOk returns a tuple with the PkiUserID field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfoldersignerassociationResponseCompoundUser) GetPkiUserIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PkiUserID, true
@@ -88,7 +88,7 @@ func (o *EzsignfoldersignerassociationResponseCompoundUser) GetFkiLanguageID() i
 // GetFkiLanguageIDOk returns a tuple with the FkiLanguageID field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfoldersignerassociationResponseCompoundUser) GetFkiLanguageIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiLanguageID, true
@@ -112,7 +112,7 @@ func (o *EzsignfoldersignerassociationResponseCompoundUser) GetSUserFirstname() 
 // GetSUserFirstnameOk returns a tuple with the SUserFirstname field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfoldersignerassociationResponseCompoundUser) GetSUserFirstnameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SUserFirstname, true
@@ -136,7 +136,7 @@ func (o *EzsignfoldersignerassociationResponseCompoundUser) GetSUserLastname() s
 // GetSUserLastnameOk returns a tuple with the SUserLastname field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfoldersignerassociationResponseCompoundUser) GetSUserLastnameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SUserLastname, true
@@ -160,7 +160,7 @@ func (o *EzsignfoldersignerassociationResponseCompoundUser) GetSEmailAddress() s
 // GetSEmailAddressOk returns a tuple with the SEmailAddress field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfoldersignerassociationResponseCompoundUser) GetSEmailAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SEmailAddress, true

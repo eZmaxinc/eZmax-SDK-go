@@ -52,7 +52,7 @@ func (o *EzsignfoldersignerassociationCreateObjectV1ResponseMPayload) GetAPkiEzs
 // GetAPkiEzsignfoldersignerassociationIDOk returns a tuple with the APkiEzsignfoldersignerassociationID field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfoldersignerassociationCreateObjectV1ResponseMPayload) GetAPkiEzsignfoldersignerassociationIDOk() ([]int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.APkiEzsignfoldersignerassociationID, true

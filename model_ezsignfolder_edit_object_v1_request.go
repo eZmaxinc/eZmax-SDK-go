@@ -51,7 +51,7 @@ func (o *EzsignfolderEditObjectV1Request) GetObjEzsignfolder() EzsignfolderReque
 // GetObjEzsignfolderOk returns a tuple with the ObjEzsignfolder field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderEditObjectV1Request) GetObjEzsignfolderOk() (*EzsignfolderRequestCompound, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ObjEzsignfolder, true

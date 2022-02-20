@@ -57,7 +57,7 @@ func (o *EzsignfolderGetFormsDataV1ResponseMPayload) GetPkiEzsignfolderID() int3
 // GetPkiEzsignfolderIDOk returns a tuple with the PkiEzsignfolderID field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderGetFormsDataV1ResponseMPayload) GetPkiEzsignfolderIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PkiEzsignfolderID, true
@@ -81,7 +81,7 @@ func (o *EzsignfolderGetFormsDataV1ResponseMPayload) GetSEzsignfolderDescription
 // GetSEzsignfolderDescriptionOk returns a tuple with the SEzsignfolderDescription field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderGetFormsDataV1ResponseMPayload) GetSEzsignfolderDescriptionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SEzsignfolderDescription, true
@@ -105,7 +105,7 @@ func (o *EzsignfolderGetFormsDataV1ResponseMPayload) GetAObjFormDataDocument() [
 // GetAObjFormDataDocumentOk returns a tuple with the AObjFormDataDocument field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderGetFormsDataV1ResponseMPayload) GetAObjFormDataDocumentOk() ([]CustomFormDataDocumentResponse, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjFormDataDocument, true

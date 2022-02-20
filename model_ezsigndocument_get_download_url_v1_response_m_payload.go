@@ -52,7 +52,7 @@ func (o *EzsigndocumentGetDownloadUrlV1ResponseMPayload) GetSDownloadUrl() strin
 // GetSDownloadUrlOk returns a tuple with the SDownloadUrl field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetDownloadUrlV1ResponseMPayload) GetSDownloadUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SDownloadUrl, true

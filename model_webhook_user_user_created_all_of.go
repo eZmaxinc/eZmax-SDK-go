@@ -51,7 +51,7 @@ func (o *WebhookUserUserCreatedAllOf) GetObjUser() UserResponse {
 // GetObjUserOk returns a tuple with the ObjUser field value
 // and a boolean to check if the value has been set.
 func (o *WebhookUserUserCreatedAllOf) GetObjUserOk() (*UserResponse, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ObjUser, true

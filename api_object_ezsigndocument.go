@@ -472,7 +472,6 @@ type ApiEzsigndocumentDeleteObjectV1Request struct {
 	pkiEzsigndocumentID int32
 }
 
-
 func (r ApiEzsigndocumentDeleteObjectV1Request) Execute() (*EzsigndocumentDeleteObjectV1Response, *http.Response, error) {
 	return r.ApiService.EzsigndocumentDeleteObjectV1Execute(r)
 }
@@ -755,7 +754,6 @@ type ApiEzsigndocumentGetDownloadUrlV1Request struct {
 	eDocumentType string
 }
 
-
 func (r ApiEzsigndocumentGetDownloadUrlV1Request) Execute() (*EzsigndocumentGetDownloadUrlV1Response, *http.Response, error) {
 	return r.ApiService.EzsigndocumentGetDownloadUrlV1Execute(r)
 }
@@ -897,7 +895,6 @@ type ApiEzsigndocumentGetEzsignpagesV1Request struct {
 	pkiEzsigndocumentID int32
 }
 
-
 func (r ApiEzsigndocumentGetEzsignpagesV1Request) Execute() (*EzsigndocumentGetEzsignpagesV1Response, *http.Response, error) {
 	return r.ApiService.EzsigndocumentGetEzsignpagesV1Execute(r)
 }
@@ -1031,7 +1028,6 @@ type ApiEzsigndocumentGetFormDataV1Request struct {
 	ApiService *ObjectEzsigndocumentApiService
 	pkiEzsigndocumentID int32
 }
-
 
 func (r ApiEzsigndocumentGetFormDataV1Request) Execute() (*EzsigndocumentGetFormDataV1Response, *http.Response, error) {
 	return r.ApiService.EzsigndocumentGetFormDataV1Execute(r)
@@ -1176,7 +1172,6 @@ type ApiEzsigndocumentGetObjectV1Request struct {
 	ApiService *ObjectEzsigndocumentApiService
 	pkiEzsigndocumentID int32
 }
-
 
 func (r ApiEzsigndocumentGetObjectV1Request) Execute() (*EzsigndocumentGetObjectV1Response, *http.Response, error) {
 	return r.ApiService.EzsigndocumentGetObjectV1Execute(r)

@@ -52,7 +52,7 @@ func (o *EzsignfolderSendV1Request) GetTExtraMessage() string {
 // GetTExtraMessageOk returns a tuple with the TExtraMessage field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderSendV1Request) GetTExtraMessageOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TExtraMessage, true

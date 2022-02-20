@@ -54,7 +54,7 @@ func (o *CommonWebhook) GetObjWebhook() WebhookResponse {
 // GetObjWebhookOk returns a tuple with the ObjWebhook field value
 // and a boolean to check if the value has been set.
 func (o *CommonWebhook) GetObjWebhookOk() (*WebhookResponse, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ObjWebhook, true
@@ -78,7 +78,7 @@ func (o *CommonWebhook) GetAObjAttempt() []AttemptResponse {
 // GetAObjAttemptOk returns a tuple with the AObjAttempt field value
 // and a boolean to check if the value has been set.
 func (o *CommonWebhook) GetAObjAttemptOk() ([]AttemptResponse, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjAttempt, true

@@ -56,7 +56,7 @@ func (o *WebhookUserUserCreated) GetObjUser() UserResponse {
 // GetObjUserOk returns a tuple with the ObjUser field value
 // and a boolean to check if the value has been set.
 func (o *WebhookUserUserCreated) GetObjUserOk() (*UserResponse, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ObjUser, true
@@ -80,7 +80,7 @@ func (o *WebhookUserUserCreated) GetObjWebhook() WebhookResponse {
 // GetObjWebhookOk returns a tuple with the ObjWebhook field value
 // and a boolean to check if the value has been set.
 func (o *WebhookUserUserCreated) GetObjWebhookOk() (*WebhookResponse, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ObjWebhook, true
@@ -104,7 +104,7 @@ func (o *WebhookUserUserCreated) GetAObjAttempt() []AttemptResponse {
 // GetAObjAttemptOk returns a tuple with the AObjAttempt field value
 // and a boolean to check if the value has been set.
 func (o *WebhookUserUserCreated) GetAObjAttemptOk() ([]AttemptResponse, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjAttempt, true

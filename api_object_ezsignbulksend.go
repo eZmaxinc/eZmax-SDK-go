@@ -38,18 +38,22 @@ func (r ApiEzsignbulksendGetListV1Request) EOrderBy(eOrderBy string) ApiEzsignbu
 	r.eOrderBy = &eOrderBy
 	return r
 }
+
 func (r ApiEzsignbulksendGetListV1Request) IRowMax(iRowMax int32) ApiEzsignbulksendGetListV1Request {
 	r.iRowMax = &iRowMax
 	return r
 }
+
 func (r ApiEzsignbulksendGetListV1Request) IRowOffset(iRowOffset int32) ApiEzsignbulksendGetListV1Request {
 	r.iRowOffset = &iRowOffset
 	return r
 }
+
 func (r ApiEzsignbulksendGetListV1Request) AcceptLanguage(acceptLanguage HeaderAcceptLanguage) ApiEzsignbulksendGetListV1Request {
 	r.acceptLanguage = &acceptLanguage
 	return r
 }
+
 func (r ApiEzsignbulksendGetListV1Request) SFilter(sFilter string) ApiEzsignbulksendGetListV1Request {
 	r.sFilter = &sFilter
 	return r

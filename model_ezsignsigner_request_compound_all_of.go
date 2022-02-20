@@ -51,7 +51,7 @@ func (o *EzsignsignerRequestCompoundAllOf) GetObjContact() EzsignsignerRequestCo
 // GetObjContactOk returns a tuple with the ObjContact field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignerRequestCompoundAllOf) GetObjContactOk() (*EzsignsignerRequestCompoundContact, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ObjContact, true

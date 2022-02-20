@@ -58,7 +58,7 @@ func (o *ApikeyResponse) GetObjApikeyDescription() MultilingualApikeyDescription
 // GetObjApikeyDescriptionOk returns a tuple with the ObjApikeyDescription field value
 // and a boolean to check if the value has been set.
 func (o *ApikeyResponse) GetObjApikeyDescriptionOk() (*MultilingualApikeyDescription, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ObjApikeyDescription, true
@@ -114,7 +114,7 @@ func (o *ApikeyResponse) GetPkiApikeyID() int32 {
 // GetPkiApikeyIDOk returns a tuple with the PkiApikeyID field value
 // and a boolean to check if the value has been set.
 func (o *ApikeyResponse) GetPkiApikeyIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PkiApikeyID, true
@@ -138,7 +138,7 @@ func (o *ApikeyResponse) GetObjAudit() CommonAudit {
 // GetObjAuditOk returns a tuple with the ObjAudit field value
 // and a boolean to check if the value has been set.
 func (o *ApikeyResponse) GetObjAuditOk() (*CommonAudit, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ObjAudit, true

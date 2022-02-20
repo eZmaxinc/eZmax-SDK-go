@@ -55,7 +55,7 @@ func (o *UserCreateEzsignuserV1ResponseMPayload) GetASEmailAddressSuccess() []st
 // GetASEmailAddressSuccessOk returns a tuple with the ASEmailAddressSuccess field value
 // and a boolean to check if the value has been set.
 func (o *UserCreateEzsignuserV1ResponseMPayload) GetASEmailAddressSuccessOk() ([]string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.ASEmailAddressSuccess, true
@@ -79,7 +79,7 @@ func (o *UserCreateEzsignuserV1ResponseMPayload) GetASEmailAddressFailure() []st
 // GetASEmailAddressFailureOk returns a tuple with the ASEmailAddressFailure field value
 // and a boolean to check if the value has been set.
 func (o *UserCreateEzsignuserV1ResponseMPayload) GetASEmailAddressFailureOk() ([]string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.ASEmailAddressFailure, true

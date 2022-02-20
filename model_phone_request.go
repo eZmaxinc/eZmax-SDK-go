@@ -64,7 +64,7 @@ func (o *PhoneRequest) GetFkiPhonetypeID() int32 {
 // GetFkiPhonetypeIDOk returns a tuple with the FkiPhonetypeID field value
 // and a boolean to check if the value has been set.
 func (o *PhoneRequest) GetFkiPhonetypeIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiPhonetypeID, true
@@ -88,7 +88,7 @@ func (o *PhoneRequest) GetEPhoneType() FieldEPhoneType {
 // GetEPhoneTypeOk returns a tuple with the EPhoneType field value
 // and a boolean to check if the value has been set.
 func (o *PhoneRequest) GetEPhoneTypeOk() (*FieldEPhoneType, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EPhoneType, true

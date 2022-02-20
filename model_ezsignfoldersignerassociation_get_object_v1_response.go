@@ -53,7 +53,7 @@ func (o *EzsignfoldersignerassociationGetObjectV1Response) GetMPayload() Ezsignf
 // GetMPayloadOk returns a tuple with the MPayload field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfoldersignerassociationGetObjectV1Response) GetMPayloadOk() (*EzsignfoldersignerassociationGetObjectV1ResponseMPayload, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MPayload, true

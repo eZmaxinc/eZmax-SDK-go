@@ -51,7 +51,7 @@ func (o *EzsigndocumentGetFormDataV1ResponseAllOf) GetMPayload() EzsigndocumentG
 // GetMPayloadOk returns a tuple with the MPayload field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetFormDataV1ResponseAllOf) GetMPayloadOk() (*EzsigndocumentGetFormDataV1ResponseMPayload, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MPayload, true

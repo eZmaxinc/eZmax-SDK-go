@@ -52,7 +52,7 @@ func (o *EzsignformfieldgroupResponse) GetSEzsignformfieldgroupLabel() string {
 // GetSEzsignformfieldgroupLabelOk returns a tuple with the SEzsignformfieldgroupLabel field value
 // and a boolean to check if the value has been set.
 func (o *EzsignformfieldgroupResponse) GetSEzsignformfieldgroupLabelOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SEzsignformfieldgroupLabel, true

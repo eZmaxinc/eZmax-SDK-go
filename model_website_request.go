@@ -55,7 +55,7 @@ func (o *WebsiteRequest) GetFkiWebsitetypeID() int32 {
 // GetFkiWebsitetypeIDOk returns a tuple with the FkiWebsitetypeID field value
 // and a boolean to check if the value has been set.
 func (o *WebsiteRequest) GetFkiWebsitetypeIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiWebsitetypeID, true
@@ -79,7 +79,7 @@ func (o *WebsiteRequest) GetSWebsiteAddress() string {
 // GetSWebsiteAddressOk returns a tuple with the SWebsiteAddress field value
 // and a boolean to check if the value has been set.
 func (o *WebsiteRequest) GetSWebsiteAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SWebsiteAddress, true

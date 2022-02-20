@@ -97,7 +97,7 @@ func (o *EzsignfolderResponseCompound) GetPkiEzsignfolderID() int32 {
 // GetPkiEzsignfolderIDOk returns a tuple with the PkiEzsignfolderID field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderResponseCompound) GetPkiEzsignfolderIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PkiEzsignfolderID, true
@@ -121,7 +121,7 @@ func (o *EzsignfolderResponseCompound) GetFkiEzsignfoldertypeID() int32 {
 // GetFkiEzsignfoldertypeIDOk returns a tuple with the FkiEzsignfoldertypeID field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderResponseCompound) GetFkiEzsignfoldertypeIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiEzsignfoldertypeID, true
@@ -145,7 +145,7 @@ func (o *EzsignfolderResponseCompound) GetSEzsignfoldertypeNameX() string {
 // GetSEzsignfoldertypeNameXOk returns a tuple with the SEzsignfoldertypeNameX field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderResponseCompound) GetSEzsignfoldertypeNameXOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SEzsignfoldertypeNameX, true
@@ -169,7 +169,7 @@ func (o *EzsignfolderResponseCompound) GetFkiBillingentityinternalID() int32 {
 // GetFkiBillingentityinternalIDOk returns a tuple with the FkiBillingentityinternalID field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderResponseCompound) GetFkiBillingentityinternalIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiBillingentityinternalID, true
@@ -193,7 +193,7 @@ func (o *EzsignfolderResponseCompound) GetSBillingentityinternalDescriptionX() s
 // GetSBillingentityinternalDescriptionXOk returns a tuple with the SBillingentityinternalDescriptionX field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderResponseCompound) GetSBillingentityinternalDescriptionXOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SBillingentityinternalDescriptionX, true
@@ -217,7 +217,7 @@ func (o *EzsignfolderResponseCompound) GetFkiEzsigntsarequirementID() int32 {
 // GetFkiEzsigntsarequirementIDOk returns a tuple with the FkiEzsigntsarequirementID field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderResponseCompound) GetFkiEzsigntsarequirementIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FkiEzsigntsarequirementID, true
@@ -241,7 +241,7 @@ func (o *EzsignfolderResponseCompound) GetSEzsigntsarequirementDescriptionX() st
 // GetSEzsigntsarequirementDescriptionXOk returns a tuple with the SEzsigntsarequirementDescriptionX field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderResponseCompound) GetSEzsigntsarequirementDescriptionXOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SEzsigntsarequirementDescriptionX, true
@@ -265,7 +265,7 @@ func (o *EzsignfolderResponseCompound) GetSEzsignfolderDescription() string {
 // GetSEzsignfolderDescriptionOk returns a tuple with the SEzsignfolderDescription field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderResponseCompound) GetSEzsignfolderDescriptionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SEzsignfolderDescription, true
@@ -289,7 +289,7 @@ func (o *EzsignfolderResponseCompound) GetTEzsignfolderNote() string {
 // GetTEzsignfolderNoteOk returns a tuple with the TEzsignfolderNote field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderResponseCompound) GetTEzsignfolderNoteOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TEzsignfolderNote, true
@@ -313,7 +313,7 @@ func (o *EzsignfolderResponseCompound) GetEEzsignfolderSendreminderfrequency() F
 // GetEEzsignfolderSendreminderfrequencyOk returns a tuple with the EEzsignfolderSendreminderfrequency field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderResponseCompound) GetEEzsignfolderSendreminderfrequencyOk() (*FieldEEzsignfolderSendreminderfrequency, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EEzsignfolderSendreminderfrequency, true
@@ -337,7 +337,7 @@ func (o *EzsignfolderResponseCompound) GetDtEzsignfolderDuedate() string {
 // GetDtEzsignfolderDuedateOk returns a tuple with the DtEzsignfolderDuedate field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderResponseCompound) GetDtEzsignfolderDuedateOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DtEzsignfolderDuedate, true
@@ -363,7 +363,7 @@ func (o *EzsignfolderResponseCompound) GetDtEzsignfolderSentdate() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EzsignfolderResponseCompound) GetDtEzsignfolderSentdateOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.DtEzsignfolderSentdate.Get(), o.DtEzsignfolderSentdate.IsSet()
@@ -387,7 +387,7 @@ func (o *EzsignfolderResponseCompound) GetDtEzsignfolderScheduledarchive() strin
 // GetDtEzsignfolderScheduledarchiveOk returns a tuple with the DtEzsignfolderScheduledarchive field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderResponseCompound) GetDtEzsignfolderScheduledarchiveOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DtEzsignfolderScheduledarchive, true
@@ -411,7 +411,7 @@ func (o *EzsignfolderResponseCompound) GetDtEzsignfolderScheduleddestruction() s
 // GetDtEzsignfolderScheduleddestructionOk returns a tuple with the DtEzsignfolderScheduleddestruction field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderResponseCompound) GetDtEzsignfolderScheduleddestructionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DtEzsignfolderScheduleddestruction, true
@@ -435,7 +435,7 @@ func (o *EzsignfolderResponseCompound) GetEEzsignfolderStep() FieldEEzsignfolder
 // GetEEzsignfolderStepOk returns a tuple with the EEzsignfolderStep field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderResponseCompound) GetEEzsignfolderStepOk() (*FieldEEzsignfolderStep, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EEzsignfolderStep, true
@@ -459,7 +459,7 @@ func (o *EzsignfolderResponseCompound) GetDtEzsignfolderClose() string {
 // GetDtEzsignfolderCloseOk returns a tuple with the DtEzsignfolderClose field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderResponseCompound) GetDtEzsignfolderCloseOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DtEzsignfolderClose, true
@@ -483,7 +483,7 @@ func (o *EzsignfolderResponseCompound) GetObjAudit() CommonAudit {
 // GetObjAuditOk returns a tuple with the ObjAudit field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderResponseCompound) GetObjAuditOk() (*CommonAudit, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ObjAudit, true

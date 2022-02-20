@@ -54,7 +54,7 @@ func (o *CommonResponseObjDebugPayloadGetListAllOf) GetAFilter() CommonResponseF
 // GetAFilterOk returns a tuple with the AFilter field value
 // and a boolean to check if the value has been set.
 func (o *CommonResponseObjDebugPayloadGetListAllOf) GetAFilterOk() (*CommonResponseFilter, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.AFilter, true
@@ -78,7 +78,7 @@ func (o *CommonResponseObjDebugPayloadGetListAllOf) GetAOrderBy() map[string]str
 // GetAOrderByOk returns a tuple with the AOrderBy field value
 // and a boolean to check if the value has been set.
 func (o *CommonResponseObjDebugPayloadGetListAllOf) GetAOrderByOk() (*map[string]string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.AOrderBy, true

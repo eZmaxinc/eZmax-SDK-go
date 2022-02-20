@@ -63,7 +63,7 @@ func (o *CommonResponseObjDebugPayloadGetList) GetIVersionMin() int32 {
 // GetIVersionMinOk returns a tuple with the IVersionMin field value
 // and a boolean to check if the value has been set.
 func (o *CommonResponseObjDebugPayloadGetList) GetIVersionMinOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IVersionMin, true
@@ -87,7 +87,7 @@ func (o *CommonResponseObjDebugPayloadGetList) GetIVersionMax() int32 {
 // GetIVersionMaxOk returns a tuple with the IVersionMax field value
 // and a boolean to check if the value has been set.
 func (o *CommonResponseObjDebugPayloadGetList) GetIVersionMaxOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IVersionMax, true
@@ -111,7 +111,7 @@ func (o *CommonResponseObjDebugPayloadGetList) GetARequiredPermission() []int32 
 // GetARequiredPermissionOk returns a tuple with the ARequiredPermission field value
 // and a boolean to check if the value has been set.
 func (o *CommonResponseObjDebugPayloadGetList) GetARequiredPermissionOk() ([]int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.ARequiredPermission, true
@@ -135,7 +135,7 @@ func (o *CommonResponseObjDebugPayloadGetList) GetAFilter() CommonResponseFilter
 // GetAFilterOk returns a tuple with the AFilter field value
 // and a boolean to check if the value has been set.
 func (o *CommonResponseObjDebugPayloadGetList) GetAFilterOk() (*CommonResponseFilter, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.AFilter, true
@@ -159,7 +159,7 @@ func (o *CommonResponseObjDebugPayloadGetList) GetAOrderBy() map[string]string {
 // GetAOrderByOk returns a tuple with the AOrderBy field value
 // and a boolean to check if the value has been set.
 func (o *CommonResponseObjDebugPayloadGetList) GetAOrderByOk() (*map[string]string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.AOrderBy, true

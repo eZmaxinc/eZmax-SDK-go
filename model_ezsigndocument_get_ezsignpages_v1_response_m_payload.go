@@ -51,7 +51,7 @@ func (o *EzsigndocumentGetEzsignpagesV1ResponseMPayload) GetAObjEzsignpage() []E
 // GetAObjEzsignpageOk returns a tuple with the AObjEzsignpage field value
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetEzsignpagesV1ResponseMPayload) GetAObjEzsignpageOk() ([]EzsignpageResponse, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjEzsignpage, true

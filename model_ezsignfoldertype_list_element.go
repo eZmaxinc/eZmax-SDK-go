@@ -60,7 +60,7 @@ func (o *EzsignfoldertypeListElement) GetPkiEzsignfoldertypeID() int32 {
 // GetPkiEzsignfoldertypeIDOk returns a tuple with the PkiEzsignfoldertypeID field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfoldertypeListElement) GetPkiEzsignfoldertypeIDOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PkiEzsignfoldertypeID, true
@@ -84,7 +84,7 @@ func (o *EzsignfoldertypeListElement) GetEEzsignfoldertypePrivacylevel() FieldEE
 // GetEEzsignfoldertypePrivacylevelOk returns a tuple with the EEzsignfoldertypePrivacylevel field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfoldertypeListElement) GetEEzsignfoldertypePrivacylevelOk() (*FieldEEzsignfoldertypePrivacylevel, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EEzsignfoldertypePrivacylevel, true
@@ -108,7 +108,7 @@ func (o *EzsignfoldertypeListElement) GetSEzsignfoldertypeNameX() string {
 // GetSEzsignfoldertypeNameXOk returns a tuple with the SEzsignfoldertypeNameX field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfoldertypeListElement) GetSEzsignfoldertypeNameXOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SEzsignfoldertypeNameX, true
@@ -132,7 +132,7 @@ func (o *EzsignfoldertypeListElement) GetBEzsignfoldertypeIsactive() bool {
 // GetBEzsignfoldertypeIsactiveOk returns a tuple with the BEzsignfoldertypeIsactive field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfoldertypeListElement) GetBEzsignfoldertypeIsactiveOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.BEzsignfoldertypeIsactive, true

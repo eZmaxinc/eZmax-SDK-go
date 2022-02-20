@@ -51,7 +51,7 @@ func (o *ListGetListpresentationV1ResponseAllOf) GetMPayload() ListGetListpresen
 // GetMPayloadOk returns a tuple with the MPayload field value
 // and a boolean to check if the value has been set.
 func (o *ListGetListpresentationV1ResponseAllOf) GetMPayloadOk() (*ListGetListpresentationV1ResponseMPayload, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MPayload, true
