@@ -25,6 +25,7 @@ type CustomFormDataSignerResponse struct {
 	SContactFirstname string `json:"sContactFirstname"`
 	// The Last name of the contact
 	SContactLastname string `json:"sContactLastname"`
+	// 
 	AObjEzsignformfieldgroupCompound []EzsignformfieldgroupResponseCompound `json:"a_objEzsignformfieldgroupCompound"`
 }
 

@@ -17,6 +17,7 @@ import (
 
 // EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload Payload for the /1/object/ezsignfolder/{pkiEzsignfolder}/getEzsignfoldersignerassociations API Request
 type EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload struct {
+	// 
 	AObjEzsignfoldersignerassociation []EzsignfoldersignerassociationResponseCompound `json:"a_objEzsignfoldersignerassociation"`
 }
 

@@ -9,10 +9,12 @@ Method | HTTP request | Description
 [**EzsigndocumentCreateObjectV1**](ObjectEzsigndocumentApi.md#EzsigndocumentCreateObjectV1) | **Post** /1/object/ezsigndocument | Create a new Ezsigndocument
 [**EzsigndocumentDeleteObjectV1**](ObjectEzsigndocumentApi.md#EzsigndocumentDeleteObjectV1) | **Delete** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Delete an existing Ezsigndocument
 [**EzsigndocumentEditEzsignsignaturesV1**](ObjectEzsigndocumentApi.md#EzsigndocumentEditEzsignsignaturesV1) | **Put** /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignsignatures | Edit multiple ezsignsignatures
+[**EzsigndocumentEndPrematurelyV1**](ObjectEzsigndocumentApi.md#EzsigndocumentEndPrematurelyV1) | **Post** /1/object/ezsigndocument/{pkiEzsigndocumentID}/endPrematurely | End prematurely
 [**EzsigndocumentGetDownloadUrlV1**](ObjectEzsigndocumentApi.md#EzsigndocumentGetDownloadUrlV1) | **Get** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getDownloadUrl/{eDocumentType} | Retrieve a URL to download documents.
 [**EzsigndocumentGetEzsignpagesV1**](ObjectEzsigndocumentApi.md#EzsigndocumentGetEzsignpagesV1) | **Get** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignpages | Retrieve an existing Ezsigndocument&#39;s Ezsignpages
 [**EzsigndocumentGetFormDataV1**](ObjectEzsigndocumentApi.md#EzsigndocumentGetFormDataV1) | **Get** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getFormData | Retrieve an existing Ezsigndocument&#39;s Form Data
 [**EzsigndocumentGetObjectV1**](ObjectEzsigndocumentApi.md#EzsigndocumentGetObjectV1) | **Get** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Retrieve an existing Ezsigndocument
+[**EzsigndocumentGetTemporaryProofV1**](ObjectEzsigndocumentApi.md#EzsigndocumentGetTemporaryProofV1) | **Get** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getTemporaryProof | Retrieve the temporary proof
 [**EzsigndocumentGetWordsPositionsV1**](ObjectEzsigndocumentApi.md#EzsigndocumentGetWordsPositionsV1) | **Post** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions | Retrieve positions X,Y of given words from a Ezsigndocument
 [**EzsigndocumentPatchObjectV1**](ObjectEzsigndocumentApi.md#EzsigndocumentPatchObjectV1) | **Patch** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Patch an existing Ezsigndocument
 
@@ -234,6 +236,8 @@ Name | Type | Description  | Notes
 
 Delete an existing Ezsigndocument
 
+
+
 ### Example
 
 ```go
@@ -368,6 +372,76 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## EzsigndocumentEndPrematurelyV1
+
+> EzsigndocumentEndPrematurelyV1Response EzsigndocumentEndPrematurelyV1(ctx, pkiEzsigndocumentID).Execute()
+
+End prematurely
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    pkiEzsigndocumentID := int32(56) // int32 | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsigndocumentApi.EzsigndocumentEndPrematurelyV1(context.Background(), pkiEzsigndocumentID).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentApi.EzsigndocumentEndPrematurelyV1``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `EzsigndocumentEndPrematurelyV1`: EzsigndocumentEndPrematurelyV1Response
+    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigndocumentApi.EzsigndocumentEndPrematurelyV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsigndocumentID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsigndocumentEndPrematurelyV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**EzsigndocumentEndPrematurelyV1Response**](EzsigndocumentEndPrematurelyV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## EzsigndocumentGetDownloadUrlV1
 
 > EzsigndocumentGetDownloadUrlV1Response EzsigndocumentGetDownloadUrlV1(ctx, pkiEzsigndocumentID, eDocumentType).Execute()
@@ -447,6 +521,8 @@ Name | Type | Description  | Notes
 
 Retrieve an existing Ezsigndocument's Ezsignpages
 
+
+
 ### Example
 
 ```go
@@ -514,6 +590,8 @@ Name | Type | Description  | Notes
 > EzsigndocumentGetFormDataV1Response EzsigndocumentGetFormDataV1(ctx, pkiEzsigndocumentID).Execute()
 
 Retrieve an existing Ezsigndocument's Form Data
+
+
 
 ### Example
 
@@ -583,8 +661,6 @@ Name | Type | Description  | Notes
 
 Retrieve an existing Ezsigndocument
 
-
-
 ### Example
 
 ```go
@@ -647,11 +723,83 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## EzsigndocumentGetTemporaryProofV1
+
+> EzsigndocumentGetTemporaryProofV1Response EzsigndocumentGetTemporaryProofV1(ctx, pkiEzsigndocumentID).Execute()
+
+Retrieve the temporary proof
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    pkiEzsigndocumentID := int32(56) // int32 | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ObjectEzsigndocumentApi.EzsigndocumentGetTemporaryProofV1(context.Background(), pkiEzsigndocumentID).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentApi.EzsigndocumentGetTemporaryProofV1``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `EzsigndocumentGetTemporaryProofV1`: EzsigndocumentGetTemporaryProofV1Response
+    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigndocumentApi.EzsigndocumentGetTemporaryProofV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsigndocumentID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsigndocumentGetTemporaryProofV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**EzsigndocumentGetTemporaryProofV1Response**](EzsigndocumentGetTemporaryProofV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## EzsigndocumentGetWordsPositionsV1
 
 > EzsigndocumentGetWordsPositionsV1Response EzsigndocumentGetWordsPositionsV1(ctx, pkiEzsigndocumentID).EzsigndocumentGetWordsPositionsV1Request(ezsigndocumentGetWordsPositionsV1Request).Execute()
 
 Retrieve positions X,Y of given words from a Ezsigndocument
+
+
 
 ### Example
 
@@ -722,6 +870,8 @@ Name | Type | Description  | Notes
 > EzsigndocumentPatchObjectV1Response EzsigndocumentPatchObjectV1(ctx, pkiEzsigndocumentID).EzsigndocumentPatchObjectV1Request(ezsigndocumentPatchObjectV1Request).Execute()
 
 Patch an existing Ezsigndocument
+
+
 
 ### Example
 

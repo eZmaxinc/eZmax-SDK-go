@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjEzsignsigner** | Pointer to [**EzsignsignerRequestCompound**](EzsignsignerRequestCompound.md) |  | [optional] 
+**ObjEzsignsigner** | [**EzsignsignerRequestCompound**](EzsignsignerRequestCompound.md) |  | 
 
 ## Methods
 
 ### NewEzsignfoldersignerassociationRequestCompoundAllOf
 
-`func NewEzsignfoldersignerassociationRequestCompoundAllOf() *EzsignfoldersignerassociationRequestCompoundAllOf`
+`func NewEzsignfoldersignerassociationRequestCompoundAllOf(objEzsignsigner EzsignsignerRequestCompound, ) *EzsignfoldersignerassociationRequestCompoundAllOf`
 
 NewEzsignfoldersignerassociationRequestCompoundAllOf instantiates a new EzsignfoldersignerassociationRequestCompoundAllOf object
 This constructor will assign default values to properties that have it defined,
@@ -44,11 +44,6 @@ and a boolean to check if the value has been set.
 
 SetObjEzsignsigner sets ObjEzsignsigner field to given value.
 
-### HasObjEzsignsigner
-
-`func (o *EzsignfoldersignerassociationRequestCompoundAllOf) HasObjEzsignsigner() bool`
-
-HasObjEzsignsigner returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

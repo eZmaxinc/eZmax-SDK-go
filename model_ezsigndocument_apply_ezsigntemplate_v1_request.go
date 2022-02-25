@@ -19,6 +19,7 @@ import (
 type EzsigndocumentApplyEzsigntemplateV1Request struct {
 	// The unique ID of the Ezsigndocument
 	FkiEzsigntemplateID int32 `json:"fkiEzsigntemplateID"`
+	// 
 	ASEzsigntemplatesigner []string `json:"a_sEzsigntemplatesigner"`
 	APkiEzsignfoldersignerassociationID []int32 `json:"a_pkiEzsignfoldersignerassociationID"`
 }

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjEzsignsigner** | Pointer to [**EzsignsignerRequestCompound**](EzsignsignerRequestCompound.md) |  | [optional] 
+**ObjEzsignsigner** | [**EzsignsignerRequestCompound**](EzsignsignerRequestCompound.md) |  | 
 **PkiEzsignfoldersignerassociationID** | Pointer to **int32** | The unique ID of the Ezsignfoldersignerassociation | [optional] 
 **FkiUserID** | Pointer to **int32** | The unique ID of the User | [optional] 
 **FkiEzsignfolderID** | **int32** | The unique ID of the Ezsignfolder | 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewEzsignfoldersignerassociationRequestCompound
 
-`func NewEzsignfoldersignerassociationRequestCompound(fkiEzsignfolderID int32, ) *EzsignfoldersignerassociationRequestCompound`
+`func NewEzsignfoldersignerassociationRequestCompound(objEzsignsigner EzsignsignerRequestCompound, fkiEzsignfolderID int32, ) *EzsignfoldersignerassociationRequestCompound`
 
 NewEzsignfoldersignerassociationRequestCompound instantiates a new EzsignfoldersignerassociationRequestCompound object
 This constructor will assign default values to properties that have it defined,
@@ -48,11 +48,6 @@ and a boolean to check if the value has been set.
 
 SetObjEzsignsigner sets ObjEzsignsigner field to given value.
 
-### HasObjEzsignsigner
-
-`func (o *EzsignfoldersignerassociationRequestCompound) HasObjEzsignsigner() bool`
-
-HasObjEzsignsigner returns a boolean if a field has been set.
 
 ### GetPkiEzsignfoldersignerassociationID
 

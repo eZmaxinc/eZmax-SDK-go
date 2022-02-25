@@ -18,6 +18,7 @@ import (
 // FranchisereferalincomeRequestCompound A Franchisereferalincome Object and children to create a complete structure
 type FranchisereferalincomeRequestCompound struct {
 	ObjAddress AddressRequest `json:"objAddress"`
+	// 
 	AObjContact []ContactRequestCompound `json:"a_objContact"`
 	// The unique ID of the Franchisereferalincome
 	PkiFranchisereferalincomeID *int32 `json:"pkiFranchisereferalincomeID,omitempty"`
@@ -37,10 +38,11 @@ type FranchisereferalincomeRequestCompound struct {
 	DFranchisereferalincomeAgentamount string `json:"dFranchisereferalincomeAgentamount"`
 	// The date the amounts were disbursed
 	DtFranchisereferalincomeDisbursed string `json:"dtFranchisereferalincomeDisbursed"`
-	// A comment about the transaction
+	// Comment about the transaction
 	TFranchisereferalincomeComment string `json:"tFranchisereferalincomeComment"`
 	// The unique ID of the Franchisereoffice
 	FkiFranchiseofficeID int32 `json:"fkiFranchiseofficeID"`
+	// 
 	SFranchisereferalincomeRemoteid string `json:"sFranchisereferalincomeRemoteid"`
 }
 

@@ -19,6 +19,7 @@ import (
 type EzsignformfieldgroupResponseCompound struct {
 	// The Label for the Ezsignformfieldgroup
 	SEzsignformfieldgroupLabel string `json:"sEzsignformfieldgroupLabel"`
+	// 
 	AObjEzsignformfield []EzsignformfieldResponse `json:"a_objEzsignformfield"`
 }
 

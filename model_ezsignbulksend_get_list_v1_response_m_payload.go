@@ -17,6 +17,7 @@ import (
 
 // EzsignbulksendGetListV1ResponseMPayload Payload for the /1/object/ezsignbulksend/getList API Request
 type EzsignbulksendGetListV1ResponseMPayload struct {
+	// 
 	AObjEzsignbulksend []EzsignbulksendListElement `json:"a_objEzsignbulksend"`
 	// The number of rows returned
 	IRowReturned int32 `json:"iRowReturned"`

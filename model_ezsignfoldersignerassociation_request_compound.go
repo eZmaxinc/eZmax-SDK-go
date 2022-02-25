@@ -17,7 +17,7 @@ import (
 
 // EzsignfoldersignerassociationRequestCompound An Ezsignfoldersignerassociation Object and children to create a complete structure
 type EzsignfoldersignerassociationRequestCompound struct {
-	ObjEzsignsigner *EzsignsignerRequestCompound `json:"objEzsignsigner,omitempty"`
+	ObjEzsignsigner EzsignsignerRequestCompound `json:"objEzsignsigner"`
 	// The unique ID of the Ezsignfoldersignerassociation
 	PkiEzsignfoldersignerassociationID *int32 `json:"pkiEzsignfoldersignerassociationID,omitempty"`
 	// The unique ID of the User
@@ -32,8 +32,9 @@ type EzsignfoldersignerassociationRequestCompound struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfoldersignerassociationRequestCompound(fkiEzsignfolderID int32) *EzsignfoldersignerassociationRequestCompound {
+func NewEzsignfoldersignerassociationRequestCompound(objEzsignsigner EzsignsignerRequestCompound, fkiEzsignfolderID int32) *EzsignfoldersignerassociationRequestCompound {
 	this := EzsignfoldersignerassociationRequestCompound{}
+	this.ObjEzsignsigner = objEzsignsigner
 	this.FkiEzsignfolderID = fkiEzsignfolderID
 	return &this
 }
@@ -46,36 +47,28 @@ func NewEzsignfoldersignerassociationRequestCompoundWithDefaults() *Ezsignfolder
 	return &this
 }
 
-// GetObjEzsignsigner returns the ObjEzsignsigner field value if set, zero value otherwise.
+// GetObjEzsignsigner returns the ObjEzsignsigner field value
 func (o *EzsignfoldersignerassociationRequestCompound) GetObjEzsignsigner() EzsignsignerRequestCompound {
-	if o == nil || o.ObjEzsignsigner == nil {
+	if o == nil {
 		var ret EzsignsignerRequestCompound
 		return ret
 	}
-	return *o.ObjEzsignsigner
+
+	return o.ObjEzsignsigner
 }
 
-// GetObjEzsignsignerOk returns a tuple with the ObjEzsignsigner field value if set, nil otherwise
+// GetObjEzsignsignerOk returns a tuple with the ObjEzsignsigner field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfoldersignerassociationRequestCompound) GetObjEzsignsignerOk() (*EzsignsignerRequestCompound, bool) {
-	if o == nil || o.ObjEzsignsigner == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.ObjEzsignsigner, true
+	return &o.ObjEzsignsigner, true
 }
 
-// HasObjEzsignsigner returns a boolean if a field has been set.
-func (o *EzsignfoldersignerassociationRequestCompound) HasObjEzsignsigner() bool {
-	if o != nil && o.ObjEzsignsigner != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetObjEzsignsigner gets a reference to the given EzsignsignerRequestCompound and assigns it to the ObjEzsignsigner field.
+// SetObjEzsignsigner sets field value
 func (o *EzsignfoldersignerassociationRequestCompound) SetObjEzsignsigner(v EzsignsignerRequestCompound) {
-	o.ObjEzsignsigner = &v
+	o.ObjEzsignsigner = v
 }
 
 // GetPkiEzsignfoldersignerassociationID returns the PkiEzsignfoldersignerassociationID field value if set, zero value otherwise.
@@ -200,7 +193,7 @@ func (o *EzsignfoldersignerassociationRequestCompound) SetBEzsignfoldersignerass
 
 func (o EzsignfoldersignerassociationRequestCompound) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.ObjEzsignsigner != nil {
+	if true {
 		toSerialize["objEzsignsigner"] = o.ObjEzsignsigner
 	}
 	if o.PkiEzsignfoldersignerassociationID != nil {

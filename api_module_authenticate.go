@@ -31,6 +31,7 @@ type ApiAuthenticateAuthenticateV2Request struct {
 	authenticateAuthenticateV2Request *AuthenticateAuthenticateV2Request
 }
 
+// 
 func (r ApiAuthenticateAuthenticateV2Request) AuthenticateAuthenticateV2Request(authenticateAuthenticateV2Request AuthenticateAuthenticateV2Request) ApiAuthenticateAuthenticateV2Request {
 	r.authenticateAuthenticateV2Request = &authenticateAuthenticateV2Request
 	return r

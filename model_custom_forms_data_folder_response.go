@@ -21,6 +21,7 @@ type CustomFormsDataFolderResponse struct {
 	PkiEzsignfolderID int32 `json:"pkiEzsignfolderID"`
 	// The description of the Ezsignfolder
 	SEzsignfolderDescription string `json:"sEzsignfolderDescription"`
+	// 
 	AObjFormDataDocument []CustomFormDataDocumentResponse `json:"a_objFormDataDocument"`
 }
 

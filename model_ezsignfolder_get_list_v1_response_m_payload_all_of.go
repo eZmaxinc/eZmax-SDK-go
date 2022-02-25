@@ -17,6 +17,7 @@ import (
 
 // EzsignfolderGetListV1ResponseMPayloadAllOf struct for EzsignfolderGetListV1ResponseMPayloadAllOf
 type EzsignfolderGetListV1ResponseMPayloadAllOf struct {
+	// 
 	AObjEzsignfolder []EzsignfolderListElement `json:"a_objEzsignfolder"`
 }
 

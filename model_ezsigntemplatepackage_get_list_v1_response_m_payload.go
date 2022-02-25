@@ -17,6 +17,7 @@ import (
 
 // EzsigntemplatepackageGetListV1ResponseMPayload Payload for the /1/object/ezsigntemplatepackage/getList API Request
 type EzsigntemplatepackageGetListV1ResponseMPayload struct {
+	// 
 	AObjEzsigntemplatepackage []EzsigntemplatepackageListElement `json:"a_objEzsigntemplatepackage"`
 	// The number of rows returned
 	IRowReturned int32 `json:"iRowReturned"`

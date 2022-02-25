@@ -17,6 +17,7 @@ import (
 
 // EzsignfoldertypeGetListV1ResponseMPayload Payload for the /1/object/ezsignfoldertype/getList API Request
 type EzsignfoldertypeGetListV1ResponseMPayload struct {
+	// 
 	AObjEzsignfoldertype []EzsignfoldertypeListElement `json:"a_objEzsignfoldertype"`
 	// The number of rows returned
 	IRowReturned int32 `json:"iRowReturned"`

@@ -17,6 +17,7 @@ import (
 
 // EzsignfolderGetEzsigndocumentsV1ResponseMPayload Payload for the /1/object/ezsignfolder/{pkiEzsignfolder}/getEzsigndocuments API Request
 type EzsignfolderGetEzsigndocumentsV1ResponseMPayload struct {
+	// 
 	AObjEzsigndocument []EzsigndocumentResponseCompound `json:"a_objEzsigndocument"`
 }
 

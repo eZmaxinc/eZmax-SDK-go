@@ -33,7 +33,7 @@ type EzsignfolderResponseCompound struct {
 	SEzsigntsarequirementDescriptionX string `json:"sEzsigntsarequirementDescriptionX"`
 	// The description of the Ezsignfolder
 	SEzsignfolderDescription string `json:"sEzsignfolderDescription"`
-	// Somes extra notes about the eZsign Folder
+	// Note about the Ezsignfolder
 	TEzsignfolderNote string `json:"tEzsignfolderNote"`
 	EEzsignfolderSendreminderfrequency FieldEEzsignfolderSendreminderfrequency `json:"eEzsignfolderSendreminderfrequency"`
 	// The maximum date and time at which the Ezsignfolder can be signed.

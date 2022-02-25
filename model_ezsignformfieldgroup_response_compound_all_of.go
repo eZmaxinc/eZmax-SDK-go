@@ -17,6 +17,7 @@ import (
 
 // EzsignformfieldgroupResponseCompoundAllOf struct for EzsignformfieldgroupResponseCompoundAllOf
 type EzsignformfieldgroupResponseCompoundAllOf struct {
+	// 
 	AObjEzsignformfield []EzsignformfieldResponse `json:"a_objEzsignformfield"`
 }
 

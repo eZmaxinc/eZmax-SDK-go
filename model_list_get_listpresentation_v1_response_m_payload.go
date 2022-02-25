@@ -17,6 +17,7 @@ import (
 
 // ListGetListpresentationV1ResponseMPayload Payload for the GET /1/module/list/listpresentation/{sListName} API Request
 type ListGetListpresentationV1ResponseMPayload struct {
+	// 
 	AObjListpresentation []ListpresentationRequest `json:"a_objListpresentation"`
 }
 

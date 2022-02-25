@@ -25,7 +25,7 @@ type EzsignfolderRequestCompound struct {
 	FkiEzsigntsarequirementID int32 `json:"fkiEzsigntsarequirementID"`
 	// The description of the Ezsignfolder
 	SEzsignfolderDescription string `json:"sEzsignfolderDescription"`
-	// Somes extra notes about the eZsign Folder
+	// Note about the Ezsignfolder
 	TEzsignfolderNote string `json:"tEzsignfolderNote"`
 	EEzsignfolderSendreminderfrequency FieldEEzsignfolderSendreminderfrequency `json:"eEzsignfolderSendreminderfrequency"`
 }

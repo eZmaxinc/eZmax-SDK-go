@@ -18,6 +18,7 @@ import (
 // FranchisereferalincomeRequestCompoundAllOf struct for FranchisereferalincomeRequestCompoundAllOf
 type FranchisereferalincomeRequestCompoundAllOf struct {
 	ObjAddress *AddressRequest `json:"objAddress,omitempty"`
+	// 
 	AObjContact []ContactRequestCompound `json:"a_objContact"`
 }
 

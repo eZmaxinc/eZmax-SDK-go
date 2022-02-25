@@ -17,9 +17,13 @@ import (
 
 // ContactinformationsRequestCompoundAllOf struct for ContactinformationsRequestCompoundAllOf
 type ContactinformationsRequestCompoundAllOf struct {
+	// 
 	AObjAddress []AddressRequest `json:"a_objAddress"`
+	// 
 	AObjPhone []PhoneRequest `json:"a_objPhone"`
+	// 
 	AObjEmail []EmailRequest `json:"a_objEmail"`
+	// 
 	AObjWebsite []WebsiteRequest `json:"a_objWebsite"`
 }
 

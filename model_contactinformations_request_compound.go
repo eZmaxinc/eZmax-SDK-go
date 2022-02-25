@@ -17,9 +17,13 @@ import (
 
 // ContactinformationsRequestCompound A Contactinformations Object and children to create a complete structure
 type ContactinformationsRequestCompound struct {
+	// 
 	AObjAddress []AddressRequest `json:"a_objAddress"`
+	// 
 	AObjPhone []PhoneRequest `json:"a_objPhone"`
+	// 
 	AObjEmail []EmailRequest `json:"a_objEmail"`
+	// 
 	AObjWebsite []WebsiteRequest `json:"a_objWebsite"`
 	// The index in the a_objAddress array (zero based index) representing the Address object that should become the default one.  You can leave the value to 0 if the array is empty.
 	IAddressDefault int32 `json:"iAddressDefault"`

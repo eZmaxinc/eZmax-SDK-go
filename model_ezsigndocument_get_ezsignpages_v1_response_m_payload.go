@@ -17,6 +17,7 @@ import (
 
 // EzsigndocumentGetEzsignpagesV1ResponseMPayload Payload for the /1/object/ezsigndocument/{pkiEzsigndocument}/getEzsignpages API Request
 type EzsigndocumentGetEzsignpagesV1ResponseMPayload struct {
+	// 
 	AObjEzsignpage []EzsignpageResponse `json:"a_objEzsignpage"`
 }
 

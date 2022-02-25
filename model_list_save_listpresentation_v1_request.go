@@ -17,6 +17,7 @@ import (
 
 // ListSaveListpresentationV1Request Request for the POST /1/module/list/listpresentation/{sListName} API Request
 type ListSaveListpresentationV1Request struct {
+	// 
 	AObjListpresentation []ListpresentationRequest `json:"a_objListpresentation"`
 }
 

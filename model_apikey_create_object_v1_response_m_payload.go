@@ -17,6 +17,7 @@ import (
 
 // ApikeyCreateObjectV1ResponseMPayload Payload for the /1/object/apikey/createObject API Request
 type ApikeyCreateObjectV1ResponseMPayload struct {
+	// 
 	AObjApikey []ApikeyResponse `json:"a_objApikey"`
 }
 

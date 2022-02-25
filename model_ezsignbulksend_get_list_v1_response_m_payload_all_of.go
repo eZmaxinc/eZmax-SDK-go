@@ -17,6 +17,7 @@ import (
 
 // EzsignbulksendGetListV1ResponseMPayloadAllOf struct for EzsignbulksendGetListV1ResponseMPayloadAllOf
 type EzsignbulksendGetListV1ResponseMPayloadAllOf struct {
+	// 
 	AObjEzsignbulksend []EzsignbulksendListElement `json:"a_objEzsignbulksend"`
 }
 

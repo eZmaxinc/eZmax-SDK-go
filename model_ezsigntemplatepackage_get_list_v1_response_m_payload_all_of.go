@@ -17,6 +17,7 @@ import (
 
 // EzsigntemplatepackageGetListV1ResponseMPayloadAllOf struct for EzsigntemplatepackageGetListV1ResponseMPayloadAllOf
 type EzsigntemplatepackageGetListV1ResponseMPayloadAllOf struct {
+	// 
 	AObjEzsigntemplatepackage []EzsigntemplatepackageListElement `json:"a_objEzsigntemplatepackage"`
 }
 

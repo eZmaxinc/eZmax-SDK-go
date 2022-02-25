@@ -35,10 +35,11 @@ type FranchisereferalincomeRequest struct {
 	DFranchisereferalincomeAgentamount string `json:"dFranchisereferalincomeAgentamount"`
 	// The date the amounts were disbursed
 	DtFranchisereferalincomeDisbursed string `json:"dtFranchisereferalincomeDisbursed"`
-	// A comment about the transaction
+	// Comment about the transaction
 	TFranchisereferalincomeComment string `json:"tFranchisereferalincomeComment"`
 	// The unique ID of the Franchisereoffice
 	FkiFranchiseofficeID int32 `json:"fkiFranchiseofficeID"`
+	// 
 	SFranchisereferalincomeRemoteid string `json:"sFranchisereferalincomeRemoteid"`
 }
 
