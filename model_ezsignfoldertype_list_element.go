@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -14,6 +14,9 @@ package eZmaxApi
 import (
 	"encoding/json"
 )
+
+// checks if the EzsignfoldertypeListElement type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsignfoldertypeListElement{}
 
 // EzsignfoldertypeListElement An Ezsignfoldertype List Element
 type EzsignfoldertypeListElement struct {
@@ -144,20 +147,20 @@ func (o *EzsignfoldertypeListElement) SetBEzsignfoldertypeIsactive(v bool) {
 }
 
 func (o EzsignfoldertypeListElement) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["pkiEzsignfoldertypeID"] = o.PkiEzsignfoldertypeID
-	}
-	if true {
-		toSerialize["eEzsignfoldertypePrivacylevel"] = o.EEzsignfoldertypePrivacylevel
-	}
-	if true {
-		toSerialize["sEzsignfoldertypeNameX"] = o.SEzsignfoldertypeNameX
-	}
-	if true {
-		toSerialize["bEzsignfoldertypeIsactive"] = o.BEzsignfoldertypeIsactive
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsignfoldertypeListElement) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["pkiEzsignfoldertypeID"] = o.PkiEzsignfoldertypeID
+	toSerialize["eEzsignfoldertypePrivacylevel"] = o.EEzsignfoldertypePrivacylevel
+	toSerialize["sEzsignfoldertypeNameX"] = o.SEzsignfoldertypeNameX
+	toSerialize["bEzsignfoldertypeIsactive"] = o.BEzsignfoldertypeIsactive
+	return toSerialize, nil
 }
 
 type NullableEzsignfoldertypeListElement struct {

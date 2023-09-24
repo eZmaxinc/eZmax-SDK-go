@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,16 +15,13 @@ import (
 	"encoding/json"
 )
 
-// ActivesessionGetCurrentV1ResponseMPayload Payload for the /1/object/activesession/getCurrent API Request
+// checks if the ActivesessionGetCurrentV1ResponseMPayload type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ActivesessionGetCurrentV1ResponseMPayload{}
+
+// ActivesessionGetCurrentV1ResponseMPayload Payload for GET /1/object/activesession/getCurrent
 type ActivesessionGetCurrentV1ResponseMPayload struct {
-	// An array of permissions granted to the user or api key
-	APkiPermissionID []int32 `json:"a_pkiPermissionID"`
-	ObjUserReal ActivesessionResponseCompoundUser `json:"objUserReal"`
-	ObjUserCloned *ActivesessionResponseCompoundUser `json:"objUserCloned,omitempty"`
-	ObjApikey *ActivesessionResponseCompoundApikey `json:"objApikey,omitempty"`
-	// An Array of Registered modules.  These are the modules that are Licensed to be used by the User or the API Key.
-	AEModuleInternalname []string `json:"a_eModuleInternalname"`
-	EActivesessionSessiontype FieldEActivesessionSessiontype `json:"eActivesessionSessiontype"`
+	EActivesessionUsertype FieldEActivesessionUsertype `json:"eActivesessionUsertype"`
+	EActivesessionOrigin FieldEActivesessionOrigin `json:"eActivesessionOrigin"`
 	EActivesessionWeekdaystart FieldEActivesessionWeekdaystart `json:"eActivesessionWeekdaystart"`
 	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
 	FkiLanguageID int32 `json:"fkiLanguageID"`
@@ -34,26 +31,41 @@ type ActivesessionGetCurrentV1ResponseMPayload struct {
 	SDepartmentNameX string `json:"sDepartmentNameX"`
 	// Whether the active session is in debug or not
 	BActivesessionDebug bool `json:"bActivesessionDebug"`
+	// Whether the active session is superadmin or not
+	BActivesessionIssuperadmin bool `json:"bActivesessionIssuperadmin"`
 	// The customer code assigned to your account
 	PksCustomerCode string `json:"pksCustomerCode"`
+	// The unique ID of the Systemconfigurationtype
+	FkiSystemconfigurationtypeID *int32 `json:"fkiSystemconfigurationtypeID,omitempty"`
+	// The unique ID of the Signature
+	FkiSignatureID *int32 `json:"fkiSignatureID,omitempty"`
+	// An array of permissions granted to the user or api key
+	APkiPermissionID []int32 `json:"a_pkiPermissionID"`
+	ObjUserReal ActivesessionResponseCompoundUser `json:"objUserReal"`
+	ObjUserCloned *ActivesessionResponseCompoundUser `json:"objUserCloned,omitempty"`
+	ObjApikey *ActivesessionResponseCompoundApikey `json:"objApikey,omitempty"`
+	// An Array of Registered modules.  These are the modules that are Licensed to be used by the User or the API Key.
+	AEModuleInternalname []string `json:"a_eModuleInternalname"`
 }
 
 // NewActivesessionGetCurrentV1ResponseMPayload instantiates a new ActivesessionGetCurrentV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewActivesessionGetCurrentV1ResponseMPayload(aPkiPermissionID []int32, objUserReal ActivesessionResponseCompoundUser, aEModuleInternalname []string, eActivesessionSessiontype FieldEActivesessionSessiontype, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, bActivesessionDebug bool, pksCustomerCode string) *ActivesessionGetCurrentV1ResponseMPayload {
+func NewActivesessionGetCurrentV1ResponseMPayload(eActivesessionUsertype FieldEActivesessionUsertype, eActivesessionOrigin FieldEActivesessionOrigin, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, bActivesessionDebug bool, bActivesessionIssuperadmin bool, pksCustomerCode string, aPkiPermissionID []int32, objUserReal ActivesessionResponseCompoundUser, aEModuleInternalname []string) *ActivesessionGetCurrentV1ResponseMPayload {
 	this := ActivesessionGetCurrentV1ResponseMPayload{}
-	this.APkiPermissionID = aPkiPermissionID
-	this.ObjUserReal = objUserReal
-	this.AEModuleInternalname = aEModuleInternalname
-	this.EActivesessionSessiontype = eActivesessionSessiontype
+	this.EActivesessionUsertype = eActivesessionUsertype
+	this.EActivesessionOrigin = eActivesessionOrigin
 	this.EActivesessionWeekdaystart = eActivesessionWeekdaystart
 	this.FkiLanguageID = fkiLanguageID
 	this.SCompanyNameX = sCompanyNameX
 	this.SDepartmentNameX = sDepartmentNameX
 	this.BActivesessionDebug = bActivesessionDebug
+	this.BActivesessionIssuperadmin = bActivesessionIssuperadmin
 	this.PksCustomerCode = pksCustomerCode
+	this.APkiPermissionID = aPkiPermissionID
+	this.ObjUserReal = objUserReal
+	this.AEModuleInternalname = aEModuleInternalname
 	return &this
 }
 
@@ -65,164 +77,52 @@ func NewActivesessionGetCurrentV1ResponseMPayloadWithDefaults() *ActivesessionGe
 	return &this
 }
 
-// GetAPkiPermissionID returns the APkiPermissionID field value
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetAPkiPermissionID() []int32 {
+// GetEActivesessionUsertype returns the EActivesessionUsertype field value
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionUsertype() FieldEActivesessionUsertype {
 	if o == nil {
-		var ret []int32
+		var ret FieldEActivesessionUsertype
 		return ret
 	}
 
-	return o.APkiPermissionID
+	return o.EActivesessionUsertype
 }
 
-// GetAPkiPermissionIDOk returns a tuple with the APkiPermissionID field value
+// GetEActivesessionUsertypeOk returns a tuple with the EActivesessionUsertype field value
 // and a boolean to check if the value has been set.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetAPkiPermissionIDOk() ([]int32, bool) {
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionUsertypeOk() (*FieldEActivesessionUsertype, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.APkiPermissionID, true
+	return &o.EActivesessionUsertype, true
 }
 
-// SetAPkiPermissionID sets field value
-func (o *ActivesessionGetCurrentV1ResponseMPayload) SetAPkiPermissionID(v []int32) {
-	o.APkiPermissionID = v
+// SetEActivesessionUsertype sets field value
+func (o *ActivesessionGetCurrentV1ResponseMPayload) SetEActivesessionUsertype(v FieldEActivesessionUsertype) {
+	o.EActivesessionUsertype = v
 }
 
-// GetObjUserReal returns the ObjUserReal field value
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjUserReal() ActivesessionResponseCompoundUser {
+// GetEActivesessionOrigin returns the EActivesessionOrigin field value
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionOrigin() FieldEActivesessionOrigin {
 	if o == nil {
-		var ret ActivesessionResponseCompoundUser
+		var ret FieldEActivesessionOrigin
 		return ret
 	}
 
-	return o.ObjUserReal
+	return o.EActivesessionOrigin
 }
 
-// GetObjUserRealOk returns a tuple with the ObjUserReal field value
+// GetEActivesessionOriginOk returns a tuple with the EActivesessionOrigin field value
 // and a boolean to check if the value has been set.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjUserRealOk() (*ActivesessionResponseCompoundUser, bool) {
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionOriginOk() (*FieldEActivesessionOrigin, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.ObjUserReal, true
+	return &o.EActivesessionOrigin, true
 }
 
-// SetObjUserReal sets field value
-func (o *ActivesessionGetCurrentV1ResponseMPayload) SetObjUserReal(v ActivesessionResponseCompoundUser) {
-	o.ObjUserReal = v
-}
-
-// GetObjUserCloned returns the ObjUserCloned field value if set, zero value otherwise.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjUserCloned() ActivesessionResponseCompoundUser {
-	if o == nil || o.ObjUserCloned == nil {
-		var ret ActivesessionResponseCompoundUser
-		return ret
-	}
-	return *o.ObjUserCloned
-}
-
-// GetObjUserClonedOk returns a tuple with the ObjUserCloned field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjUserClonedOk() (*ActivesessionResponseCompoundUser, bool) {
-	if o == nil || o.ObjUserCloned == nil {
-		return nil, false
-	}
-	return o.ObjUserCloned, true
-}
-
-// HasObjUserCloned returns a boolean if a field has been set.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) HasObjUserCloned() bool {
-	if o != nil && o.ObjUserCloned != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetObjUserCloned gets a reference to the given ActivesessionResponseCompoundUser and assigns it to the ObjUserCloned field.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) SetObjUserCloned(v ActivesessionResponseCompoundUser) {
-	o.ObjUserCloned = &v
-}
-
-// GetObjApikey returns the ObjApikey field value if set, zero value otherwise.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjApikey() ActivesessionResponseCompoundApikey {
-	if o == nil || o.ObjApikey == nil {
-		var ret ActivesessionResponseCompoundApikey
-		return ret
-	}
-	return *o.ObjApikey
-}
-
-// GetObjApikeyOk returns a tuple with the ObjApikey field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjApikeyOk() (*ActivesessionResponseCompoundApikey, bool) {
-	if o == nil || o.ObjApikey == nil {
-		return nil, false
-	}
-	return o.ObjApikey, true
-}
-
-// HasObjApikey returns a boolean if a field has been set.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) HasObjApikey() bool {
-	if o != nil && o.ObjApikey != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetObjApikey gets a reference to the given ActivesessionResponseCompoundApikey and assigns it to the ObjApikey field.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) SetObjApikey(v ActivesessionResponseCompoundApikey) {
-	o.ObjApikey = &v
-}
-
-// GetAEModuleInternalname returns the AEModuleInternalname field value
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetAEModuleInternalname() []string {
-	if o == nil {
-		var ret []string
-		return ret
-	}
-
-	return o.AEModuleInternalname
-}
-
-// GetAEModuleInternalnameOk returns a tuple with the AEModuleInternalname field value
-// and a boolean to check if the value has been set.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetAEModuleInternalnameOk() ([]string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.AEModuleInternalname, true
-}
-
-// SetAEModuleInternalname sets field value
-func (o *ActivesessionGetCurrentV1ResponseMPayload) SetAEModuleInternalname(v []string) {
-	o.AEModuleInternalname = v
-}
-
-// GetEActivesessionSessiontype returns the EActivesessionSessiontype field value
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionSessiontype() FieldEActivesessionSessiontype {
-	if o == nil {
-		var ret FieldEActivesessionSessiontype
-		return ret
-	}
-
-	return o.EActivesessionSessiontype
-}
-
-// GetEActivesessionSessiontypeOk returns a tuple with the EActivesessionSessiontype field value
-// and a boolean to check if the value has been set.
-func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionSessiontypeOk() (*FieldEActivesessionSessiontype, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.EActivesessionSessiontype, true
-}
-
-// SetEActivesessionSessiontype sets field value
-func (o *ActivesessionGetCurrentV1ResponseMPayload) SetEActivesessionSessiontype(v FieldEActivesessionSessiontype) {
-	o.EActivesessionSessiontype = v
+// SetEActivesessionOrigin sets field value
+func (o *ActivesessionGetCurrentV1ResponseMPayload) SetEActivesessionOrigin(v FieldEActivesessionOrigin) {
+	o.EActivesessionOrigin = v
 }
 
 // GetEActivesessionWeekdaystart returns the EActivesessionWeekdaystart field value
@@ -345,6 +245,30 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) SetBActivesessionDebug(v boo
 	o.BActivesessionDebug = v
 }
 
+// GetBActivesessionIssuperadmin returns the BActivesessionIssuperadmin field value
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetBActivesessionIssuperadmin() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BActivesessionIssuperadmin
+}
+
+// GetBActivesessionIssuperadminOk returns a tuple with the BActivesessionIssuperadmin field value
+// and a boolean to check if the value has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetBActivesessionIssuperadminOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BActivesessionIssuperadmin, true
+}
+
+// SetBActivesessionIssuperadmin sets field value
+func (o *ActivesessionGetCurrentV1ResponseMPayload) SetBActivesessionIssuperadmin(v bool) {
+	o.BActivesessionIssuperadmin = v
+}
+
 // GetPksCustomerCode returns the PksCustomerCode field value
 func (o *ActivesessionGetCurrentV1ResponseMPayload) GetPksCustomerCode() string {
 	if o == nil {
@@ -369,45 +293,241 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) SetPksCustomerCode(v string)
 	o.PksCustomerCode = v
 }
 
+// GetFkiSystemconfigurationtypeID returns the FkiSystemconfigurationtypeID field value if set, zero value otherwise.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetFkiSystemconfigurationtypeID() int32 {
+	if o == nil || IsNil(o.FkiSystemconfigurationtypeID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiSystemconfigurationtypeID
+}
+
+// GetFkiSystemconfigurationtypeIDOk returns a tuple with the FkiSystemconfigurationtypeID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetFkiSystemconfigurationtypeIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiSystemconfigurationtypeID) {
+		return nil, false
+	}
+	return o.FkiSystemconfigurationtypeID, true
+}
+
+// HasFkiSystemconfigurationtypeID returns a boolean if a field has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) HasFkiSystemconfigurationtypeID() bool {
+	if o != nil && !IsNil(o.FkiSystemconfigurationtypeID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiSystemconfigurationtypeID gets a reference to the given int32 and assigns it to the FkiSystemconfigurationtypeID field.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) SetFkiSystemconfigurationtypeID(v int32) {
+	o.FkiSystemconfigurationtypeID = &v
+}
+
+// GetFkiSignatureID returns the FkiSignatureID field value if set, zero value otherwise.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetFkiSignatureID() int32 {
+	if o == nil || IsNil(o.FkiSignatureID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiSignatureID
+}
+
+// GetFkiSignatureIDOk returns a tuple with the FkiSignatureID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetFkiSignatureIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiSignatureID) {
+		return nil, false
+	}
+	return o.FkiSignatureID, true
+}
+
+// HasFkiSignatureID returns a boolean if a field has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) HasFkiSignatureID() bool {
+	if o != nil && !IsNil(o.FkiSignatureID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiSignatureID gets a reference to the given int32 and assigns it to the FkiSignatureID field.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) SetFkiSignatureID(v int32) {
+	o.FkiSignatureID = &v
+}
+
+// GetAPkiPermissionID returns the APkiPermissionID field value
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetAPkiPermissionID() []int32 {
+	if o == nil {
+		var ret []int32
+		return ret
+	}
+
+	return o.APkiPermissionID
+}
+
+// GetAPkiPermissionIDOk returns a tuple with the APkiPermissionID field value
+// and a boolean to check if the value has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetAPkiPermissionIDOk() ([]int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.APkiPermissionID, true
+}
+
+// SetAPkiPermissionID sets field value
+func (o *ActivesessionGetCurrentV1ResponseMPayload) SetAPkiPermissionID(v []int32) {
+	o.APkiPermissionID = v
+}
+
+// GetObjUserReal returns the ObjUserReal field value
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjUserReal() ActivesessionResponseCompoundUser {
+	if o == nil {
+		var ret ActivesessionResponseCompoundUser
+		return ret
+	}
+
+	return o.ObjUserReal
+}
+
+// GetObjUserRealOk returns a tuple with the ObjUserReal field value
+// and a boolean to check if the value has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjUserRealOk() (*ActivesessionResponseCompoundUser, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjUserReal, true
+}
+
+// SetObjUserReal sets field value
+func (o *ActivesessionGetCurrentV1ResponseMPayload) SetObjUserReal(v ActivesessionResponseCompoundUser) {
+	o.ObjUserReal = v
+}
+
+// GetObjUserCloned returns the ObjUserCloned field value if set, zero value otherwise.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjUserCloned() ActivesessionResponseCompoundUser {
+	if o == nil || IsNil(o.ObjUserCloned) {
+		var ret ActivesessionResponseCompoundUser
+		return ret
+	}
+	return *o.ObjUserCloned
+}
+
+// GetObjUserClonedOk returns a tuple with the ObjUserCloned field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjUserClonedOk() (*ActivesessionResponseCompoundUser, bool) {
+	if o == nil || IsNil(o.ObjUserCloned) {
+		return nil, false
+	}
+	return o.ObjUserCloned, true
+}
+
+// HasObjUserCloned returns a boolean if a field has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) HasObjUserCloned() bool {
+	if o != nil && !IsNil(o.ObjUserCloned) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjUserCloned gets a reference to the given ActivesessionResponseCompoundUser and assigns it to the ObjUserCloned field.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) SetObjUserCloned(v ActivesessionResponseCompoundUser) {
+	o.ObjUserCloned = &v
+}
+
+// GetObjApikey returns the ObjApikey field value if set, zero value otherwise.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjApikey() ActivesessionResponseCompoundApikey {
+	if o == nil || IsNil(o.ObjApikey) {
+		var ret ActivesessionResponseCompoundApikey
+		return ret
+	}
+	return *o.ObjApikey
+}
+
+// GetObjApikeyOk returns a tuple with the ObjApikey field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetObjApikeyOk() (*ActivesessionResponseCompoundApikey, bool) {
+	if o == nil || IsNil(o.ObjApikey) {
+		return nil, false
+	}
+	return o.ObjApikey, true
+}
+
+// HasObjApikey returns a boolean if a field has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) HasObjApikey() bool {
+	if o != nil && !IsNil(o.ObjApikey) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjApikey gets a reference to the given ActivesessionResponseCompoundApikey and assigns it to the ObjApikey field.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) SetObjApikey(v ActivesessionResponseCompoundApikey) {
+	o.ObjApikey = &v
+}
+
+// GetAEModuleInternalname returns the AEModuleInternalname field value
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetAEModuleInternalname() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.AEModuleInternalname
+}
+
+// GetAEModuleInternalnameOk returns a tuple with the AEModuleInternalname field value
+// and a boolean to check if the value has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetAEModuleInternalnameOk() ([]string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AEModuleInternalname, true
+}
+
+// SetAEModuleInternalname sets field value
+func (o *ActivesessionGetCurrentV1ResponseMPayload) SetAEModuleInternalname(v []string) {
+	o.AEModuleInternalname = v
+}
+
 func (o ActivesessionGetCurrentV1ResponseMPayload) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["a_pkiPermissionID"] = o.APkiPermissionID
-	}
-	if true {
-		toSerialize["objUserReal"] = o.ObjUserReal
-	}
-	if o.ObjUserCloned != nil {
-		toSerialize["objUserCloned"] = o.ObjUserCloned
-	}
-	if o.ObjApikey != nil {
-		toSerialize["objApikey"] = o.ObjApikey
-	}
-	if true {
-		toSerialize["a_eModuleInternalname"] = o.AEModuleInternalname
-	}
-	if true {
-		toSerialize["eActivesessionSessiontype"] = o.EActivesessionSessiontype
-	}
-	if true {
-		toSerialize["eActivesessionWeekdaystart"] = o.EActivesessionWeekdaystart
-	}
-	if true {
-		toSerialize["fkiLanguageID"] = o.FkiLanguageID
-	}
-	if true {
-		toSerialize["sCompanyNameX"] = o.SCompanyNameX
-	}
-	if true {
-		toSerialize["sDepartmentNameX"] = o.SDepartmentNameX
-	}
-	if true {
-		toSerialize["bActivesessionDebug"] = o.BActivesessionDebug
-	}
-	if true {
-		toSerialize["pksCustomerCode"] = o.PksCustomerCode
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ActivesessionGetCurrentV1ResponseMPayload) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["eActivesessionUsertype"] = o.EActivesessionUsertype
+	toSerialize["eActivesessionOrigin"] = o.EActivesessionOrigin
+	toSerialize["eActivesessionWeekdaystart"] = o.EActivesessionWeekdaystart
+	toSerialize["fkiLanguageID"] = o.FkiLanguageID
+	toSerialize["sCompanyNameX"] = o.SCompanyNameX
+	toSerialize["sDepartmentNameX"] = o.SDepartmentNameX
+	toSerialize["bActivesessionDebug"] = o.BActivesessionDebug
+	toSerialize["bActivesessionIssuperadmin"] = o.BActivesessionIssuperadmin
+	toSerialize["pksCustomerCode"] = o.PksCustomerCode
+	if !IsNil(o.FkiSystemconfigurationtypeID) {
+		toSerialize["fkiSystemconfigurationtypeID"] = o.FkiSystemconfigurationtypeID
+	}
+	if !IsNil(o.FkiSignatureID) {
+		toSerialize["fkiSignatureID"] = o.FkiSignatureID
+	}
+	toSerialize["a_pkiPermissionID"] = o.APkiPermissionID
+	toSerialize["objUserReal"] = o.ObjUserReal
+	if !IsNil(o.ObjUserCloned) {
+		toSerialize["objUserCloned"] = o.ObjUserCloned
+	}
+	if !IsNil(o.ObjApikey) {
+		toSerialize["objApikey"] = o.ObjApikey
+	}
+	toSerialize["a_eModuleInternalname"] = o.AEModuleInternalname
+	return toSerialize, nil
 }
 
 type NullableActivesessionGetCurrentV1ResponseMPayload struct {

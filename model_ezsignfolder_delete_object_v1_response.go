@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,9 +15,12 @@ import (
 	"encoding/json"
 )
 
-// EzsignfolderDeleteObjectV1Response Response for the /1/object/ezsignfolder/deleteObject API Request
+// checks if the EzsignfolderDeleteObjectV1Response type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsignfolderDeleteObjectV1Response{}
+
+// EzsignfolderDeleteObjectV1Response Response for DELETE /1/object/ezsignfolder/{pkiEzsignfolderID}
 type EzsignfolderDeleteObjectV1Response struct {
-	ObjDebugPayload *CommonResponseObjDebugPayload `json:"objDebugPayload,omitempty"`
+	ObjDebugPayload CommonResponseObjDebugPayload `json:"objDebugPayload"`
 	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
 }
 
@@ -25,8 +28,9 @@ type EzsignfolderDeleteObjectV1Response struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfolderDeleteObjectV1Response() *EzsignfolderDeleteObjectV1Response {
+func NewEzsignfolderDeleteObjectV1Response(objDebugPayload CommonResponseObjDebugPayload) *EzsignfolderDeleteObjectV1Response {
 	this := EzsignfolderDeleteObjectV1Response{}
+	this.ObjDebugPayload = objDebugPayload
 	return &this
 }
 
@@ -38,41 +42,33 @@ func NewEzsignfolderDeleteObjectV1ResponseWithDefaults() *EzsignfolderDeleteObje
 	return &this
 }
 
-// GetObjDebugPayload returns the ObjDebugPayload field value if set, zero value otherwise.
+// GetObjDebugPayload returns the ObjDebugPayload field value
 func (o *EzsignfolderDeleteObjectV1Response) GetObjDebugPayload() CommonResponseObjDebugPayload {
-	if o == nil || o.ObjDebugPayload == nil {
+	if o == nil {
 		var ret CommonResponseObjDebugPayload
 		return ret
 	}
-	return *o.ObjDebugPayload
+
+	return o.ObjDebugPayload
 }
 
-// GetObjDebugPayloadOk returns a tuple with the ObjDebugPayload field value if set, nil otherwise
+// GetObjDebugPayloadOk returns a tuple with the ObjDebugPayload field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderDeleteObjectV1Response) GetObjDebugPayloadOk() (*CommonResponseObjDebugPayload, bool) {
-	if o == nil || o.ObjDebugPayload == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.ObjDebugPayload, true
+	return &o.ObjDebugPayload, true
 }
 
-// HasObjDebugPayload returns a boolean if a field has been set.
-func (o *EzsignfolderDeleteObjectV1Response) HasObjDebugPayload() bool {
-	if o != nil && o.ObjDebugPayload != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetObjDebugPayload gets a reference to the given CommonResponseObjDebugPayload and assigns it to the ObjDebugPayload field.
+// SetObjDebugPayload sets field value
 func (o *EzsignfolderDeleteObjectV1Response) SetObjDebugPayload(v CommonResponseObjDebugPayload) {
-	o.ObjDebugPayload = &v
+	o.ObjDebugPayload = v
 }
 
 // GetObjDebug returns the ObjDebug field value if set, zero value otherwise.
 func (o *EzsignfolderDeleteObjectV1Response) GetObjDebug() CommonResponseObjDebug {
-	if o == nil || o.ObjDebug == nil {
+	if o == nil || IsNil(o.ObjDebug) {
 		var ret CommonResponseObjDebug
 		return ret
 	}
@@ -82,7 +78,7 @@ func (o *EzsignfolderDeleteObjectV1Response) GetObjDebug() CommonResponseObjDebu
 // GetObjDebugOk returns a tuple with the ObjDebug field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderDeleteObjectV1Response) GetObjDebugOk() (*CommonResponseObjDebug, bool) {
-	if o == nil || o.ObjDebug == nil {
+	if o == nil || IsNil(o.ObjDebug) {
 		return nil, false
 	}
 	return o.ObjDebug, true
@@ -90,7 +86,7 @@ func (o *EzsignfolderDeleteObjectV1Response) GetObjDebugOk() (*CommonResponseObj
 
 // HasObjDebug returns a boolean if a field has been set.
 func (o *EzsignfolderDeleteObjectV1Response) HasObjDebug() bool {
-	if o != nil && o.ObjDebug != nil {
+	if o != nil && !IsNil(o.ObjDebug) {
 		return true
 	}
 
@@ -103,14 +99,20 @@ func (o *EzsignfolderDeleteObjectV1Response) SetObjDebug(v CommonResponseObjDebu
 }
 
 func (o EzsignfolderDeleteObjectV1Response) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if o.ObjDebugPayload != nil {
-		toSerialize["objDebugPayload"] = o.ObjDebugPayload
-	}
-	if o.ObjDebug != nil {
-		toSerialize["objDebug"] = o.ObjDebug
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsignfolderDeleteObjectV1Response) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["objDebugPayload"] = o.ObjDebugPayload
+	if !IsNil(o.ObjDebug) {
+		toSerialize["objDebug"] = o.ObjDebug
+	}
+	return toSerialize, nil
 }
 
 type NullableEzsignfolderDeleteObjectV1Response struct {

@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,7 +15,10 @@ import (
 	"encoding/json"
 )
 
-// EzsignsignatureCreateObjectV1ResponseMPayload Payload for the /1/object/ezsignsignature/createObject API Request
+// checks if the EzsignsignatureCreateObjectV1ResponseMPayload type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsignsignatureCreateObjectV1ResponseMPayload{}
+
+// EzsignsignatureCreateObjectV1ResponseMPayload Payload for POST /1/object/ezsignsignature
 type EzsignsignatureCreateObjectV1ResponseMPayload struct {
 	// An array of unique IDs representing the object that were requested to be created.  They are returned in the same order as the array containing the objects to be created that was sent in the request.
 	APkiEzsignsignatureID []int32 `json:"a_pkiEzsignsignatureID"`
@@ -64,11 +67,17 @@ func (o *EzsignsignatureCreateObjectV1ResponseMPayload) SetAPkiEzsignsignatureID
 }
 
 func (o EzsignsignatureCreateObjectV1ResponseMPayload) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["a_pkiEzsignsignatureID"] = o.APkiEzsignsignatureID
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsignsignatureCreateObjectV1ResponseMPayload) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["a_pkiEzsignsignatureID"] = o.APkiEzsignsignatureID
+	return toSerialize, nil
 }
 
 type NullableEzsignsignatureCreateObjectV1ResponseMPayload struct {

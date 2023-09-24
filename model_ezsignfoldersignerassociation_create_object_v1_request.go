@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,7 +15,10 @@ import (
 	"encoding/json"
 )
 
-// EzsignfoldersignerassociationCreateObjectV1Request Request for the /1/object/ezsignfoldersignerassociation/createObject API Request
+// checks if the EzsignfoldersignerassociationCreateObjectV1Request type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsignfoldersignerassociationCreateObjectV1Request{}
+
+// EzsignfoldersignerassociationCreateObjectV1Request Request for POST /1/object/ezsignfoldersignerassociation
 type EzsignfoldersignerassociationCreateObjectV1Request struct {
 	ObjEzsignfoldersignerassociation *EzsignfoldersignerassociationRequest `json:"objEzsignfoldersignerassociation,omitempty"`
 	ObjEzsignfoldersignerassociationCompound *EzsignfoldersignerassociationRequestCompound `json:"objEzsignfoldersignerassociationCompound,omitempty"`
@@ -40,7 +43,7 @@ func NewEzsignfoldersignerassociationCreateObjectV1RequestWithDefaults() *Ezsign
 
 // GetObjEzsignfoldersignerassociation returns the ObjEzsignfoldersignerassociation field value if set, zero value otherwise.
 func (o *EzsignfoldersignerassociationCreateObjectV1Request) GetObjEzsignfoldersignerassociation() EzsignfoldersignerassociationRequest {
-	if o == nil || o.ObjEzsignfoldersignerassociation == nil {
+	if o == nil || IsNil(o.ObjEzsignfoldersignerassociation) {
 		var ret EzsignfoldersignerassociationRequest
 		return ret
 	}
@@ -50,7 +53,7 @@ func (o *EzsignfoldersignerassociationCreateObjectV1Request) GetObjEzsignfolders
 // GetObjEzsignfoldersignerassociationOk returns a tuple with the ObjEzsignfoldersignerassociation field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsignfoldersignerassociationCreateObjectV1Request) GetObjEzsignfoldersignerassociationOk() (*EzsignfoldersignerassociationRequest, bool) {
-	if o == nil || o.ObjEzsignfoldersignerassociation == nil {
+	if o == nil || IsNil(o.ObjEzsignfoldersignerassociation) {
 		return nil, false
 	}
 	return o.ObjEzsignfoldersignerassociation, true
@@ -58,7 +61,7 @@ func (o *EzsignfoldersignerassociationCreateObjectV1Request) GetObjEzsignfolders
 
 // HasObjEzsignfoldersignerassociation returns a boolean if a field has been set.
 func (o *EzsignfoldersignerassociationCreateObjectV1Request) HasObjEzsignfoldersignerassociation() bool {
-	if o != nil && o.ObjEzsignfoldersignerassociation != nil {
+	if o != nil && !IsNil(o.ObjEzsignfoldersignerassociation) {
 		return true
 	}
 
@@ -72,7 +75,7 @@ func (o *EzsignfoldersignerassociationCreateObjectV1Request) SetObjEzsignfolders
 
 // GetObjEzsignfoldersignerassociationCompound returns the ObjEzsignfoldersignerassociationCompound field value if set, zero value otherwise.
 func (o *EzsignfoldersignerassociationCreateObjectV1Request) GetObjEzsignfoldersignerassociationCompound() EzsignfoldersignerassociationRequestCompound {
-	if o == nil || o.ObjEzsignfoldersignerassociationCompound == nil {
+	if o == nil || IsNil(o.ObjEzsignfoldersignerassociationCompound) {
 		var ret EzsignfoldersignerassociationRequestCompound
 		return ret
 	}
@@ -82,7 +85,7 @@ func (o *EzsignfoldersignerassociationCreateObjectV1Request) GetObjEzsignfolders
 // GetObjEzsignfoldersignerassociationCompoundOk returns a tuple with the ObjEzsignfoldersignerassociationCompound field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsignfoldersignerassociationCreateObjectV1Request) GetObjEzsignfoldersignerassociationCompoundOk() (*EzsignfoldersignerassociationRequestCompound, bool) {
-	if o == nil || o.ObjEzsignfoldersignerassociationCompound == nil {
+	if o == nil || IsNil(o.ObjEzsignfoldersignerassociationCompound) {
 		return nil, false
 	}
 	return o.ObjEzsignfoldersignerassociationCompound, true
@@ -90,7 +93,7 @@ func (o *EzsignfoldersignerassociationCreateObjectV1Request) GetObjEzsignfolders
 
 // HasObjEzsignfoldersignerassociationCompound returns a boolean if a field has been set.
 func (o *EzsignfoldersignerassociationCreateObjectV1Request) HasObjEzsignfoldersignerassociationCompound() bool {
-	if o != nil && o.ObjEzsignfoldersignerassociationCompound != nil {
+	if o != nil && !IsNil(o.ObjEzsignfoldersignerassociationCompound) {
 		return true
 	}
 
@@ -103,14 +106,22 @@ func (o *EzsignfoldersignerassociationCreateObjectV1Request) SetObjEzsignfolders
 }
 
 func (o EzsignfoldersignerassociationCreateObjectV1Request) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if o.ObjEzsignfoldersignerassociation != nil {
-		toSerialize["objEzsignfoldersignerassociation"] = o.ObjEzsignfoldersignerassociation
-	}
-	if o.ObjEzsignfoldersignerassociationCompound != nil {
-		toSerialize["objEzsignfoldersignerassociationCompound"] = o.ObjEzsignfoldersignerassociationCompound
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsignfoldersignerassociationCreateObjectV1Request) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ObjEzsignfoldersignerassociation) {
+		toSerialize["objEzsignfoldersignerassociation"] = o.ObjEzsignfoldersignerassociation
+	}
+	if !IsNil(o.ObjEzsignfoldersignerassociationCompound) {
+		toSerialize["objEzsignfoldersignerassociationCompound"] = o.ObjEzsignfoldersignerassociationCompound
+	}
+	return toSerialize, nil
 }
 
 type NullableEzsignfoldersignerassociationCreateObjectV1Request struct {

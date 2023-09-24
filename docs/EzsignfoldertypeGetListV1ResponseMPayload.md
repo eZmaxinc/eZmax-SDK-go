@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AObjEzsignfoldertype** | [**[]EzsignfoldertypeListElement**](EzsignfoldertypeListElement.md) |  | 
 **IRowReturned** | **int32** | The number of rows returned | 
 **IRowFiltered** | **int32** | The number of rows matching your filters (if any) or the total number of rows | 
+**AObjEzsignfoldertype** | [**[]EzsignfoldertypeListElement**](EzsignfoldertypeListElement.md) |  | 
 
 ## Methods
 
 ### NewEzsignfoldertypeGetListV1ResponseMPayload
 
-`func NewEzsignfoldertypeGetListV1ResponseMPayload(aObjEzsignfoldertype []EzsignfoldertypeListElement, iRowReturned int32, iRowFiltered int32, ) *EzsignfoldertypeGetListV1ResponseMPayload`
+`func NewEzsignfoldertypeGetListV1ResponseMPayload(iRowReturned int32, iRowFiltered int32, aObjEzsignfoldertype []EzsignfoldertypeListElement, ) *EzsignfoldertypeGetListV1ResponseMPayload`
 
 NewEzsignfoldertypeGetListV1ResponseMPayload instantiates a new EzsignfoldertypeGetListV1ResponseMPayload object
 This constructor will assign default values to properties that have it defined,
@@ -26,26 +26,6 @@ will change when the set of required properties is changed
 NewEzsignfoldertypeGetListV1ResponseMPayloadWithDefaults instantiates a new EzsignfoldertypeGetListV1ResponseMPayload object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetAObjEzsignfoldertype
-
-`func (o *EzsignfoldertypeGetListV1ResponseMPayload) GetAObjEzsignfoldertype() []EzsignfoldertypeListElement`
-
-GetAObjEzsignfoldertype returns the AObjEzsignfoldertype field if non-nil, zero value otherwise.
-
-### GetAObjEzsignfoldertypeOk
-
-`func (o *EzsignfoldertypeGetListV1ResponseMPayload) GetAObjEzsignfoldertypeOk() (*[]EzsignfoldertypeListElement, bool)`
-
-GetAObjEzsignfoldertypeOk returns a tuple with the AObjEzsignfoldertype field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAObjEzsignfoldertype
-
-`func (o *EzsignfoldertypeGetListV1ResponseMPayload) SetAObjEzsignfoldertype(v []EzsignfoldertypeListElement)`
-
-SetAObjEzsignfoldertype sets AObjEzsignfoldertype field to given value.
-
 
 ### GetIRowReturned
 
@@ -85,6 +65,26 @@ and a boolean to check if the value has been set.
 `func (o *EzsignfoldertypeGetListV1ResponseMPayload) SetIRowFiltered(v int32)`
 
 SetIRowFiltered sets IRowFiltered field to given value.
+
+
+### GetAObjEzsignfoldertype
+
+`func (o *EzsignfoldertypeGetListV1ResponseMPayload) GetAObjEzsignfoldertype() []EzsignfoldertypeListElement`
+
+GetAObjEzsignfoldertype returns the AObjEzsignfoldertype field if non-nil, zero value otherwise.
+
+### GetAObjEzsignfoldertypeOk
+
+`func (o *EzsignfoldertypeGetListV1ResponseMPayload) GetAObjEzsignfoldertypeOk() (*[]EzsignfoldertypeListElement, bool)`
+
+GetAObjEzsignfoldertypeOk returns a tuple with the AObjEzsignfoldertype field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAObjEzsignfoldertype
+
+`func (o *EzsignfoldertypeGetListV1ResponseMPayload) SetAObjEzsignfoldertype(v []EzsignfoldertypeListElement)`
+
+SetAObjEzsignfoldertype sets AObjEzsignfoldertype field to given value.
 
 
 

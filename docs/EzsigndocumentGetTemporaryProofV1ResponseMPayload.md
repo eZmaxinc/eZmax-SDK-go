@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AObjEzsigndocumentlog** | [**EzsigndocumentlogResponse**](EzsigndocumentlogResponse.md) |  | 
+**AObjEzsigndocumentlog** | [**[]EzsigndocumentlogResponseCompound**](EzsigndocumentlogResponseCompound.md) |  | 
 
 ## Methods
 
 ### NewEzsigndocumentGetTemporaryProofV1ResponseMPayload
 
-`func NewEzsigndocumentGetTemporaryProofV1ResponseMPayload(aObjEzsigndocumentlog EzsigndocumentlogResponse, ) *EzsigndocumentGetTemporaryProofV1ResponseMPayload`
+`func NewEzsigndocumentGetTemporaryProofV1ResponseMPayload(aObjEzsigndocumentlog []EzsigndocumentlogResponseCompound, ) *EzsigndocumentGetTemporaryProofV1ResponseMPayload`
 
 NewEzsigndocumentGetTemporaryProofV1ResponseMPayload instantiates a new EzsigndocumentGetTemporaryProofV1ResponseMPayload object
 This constructor will assign default values to properties that have it defined,
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAObjEzsigndocumentlog
 
-`func (o *EzsigndocumentGetTemporaryProofV1ResponseMPayload) GetAObjEzsigndocumentlog() EzsigndocumentlogResponse`
+`func (o *EzsigndocumentGetTemporaryProofV1ResponseMPayload) GetAObjEzsigndocumentlog() []EzsigndocumentlogResponseCompound`
 
 GetAObjEzsigndocumentlog returns the AObjEzsigndocumentlog field if non-nil, zero value otherwise.
 
 ### GetAObjEzsigndocumentlogOk
 
-`func (o *EzsigndocumentGetTemporaryProofV1ResponseMPayload) GetAObjEzsigndocumentlogOk() (*EzsigndocumentlogResponse, bool)`
+`func (o *EzsigndocumentGetTemporaryProofV1ResponseMPayload) GetAObjEzsigndocumentlogOk() (*[]EzsigndocumentlogResponseCompound, bool)`
 
 GetAObjEzsigndocumentlogOk returns a tuple with the AObjEzsigndocumentlog field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAObjEzsigndocumentlog
 
-`func (o *EzsigndocumentGetTemporaryProofV1ResponseMPayload) SetAObjEzsigndocumentlog(v EzsigndocumentlogResponse)`
+`func (o *EzsigndocumentGetTemporaryProofV1ResponseMPayload) SetAObjEzsigndocumentlog(v []EzsigndocumentlogResponseCompound)`
 
 SetAObjEzsigndocumentlog sets AObjEzsigndocumentlog field to given value.
 

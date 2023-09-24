@@ -4,27 +4,33 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FkiEzsignfolderID** | **int32** | The unique ID of the Ezsignfolder | 
-**DtEzsigndocumentDuedate** | **string** | The maximum date and time at which the Ezsigndocument can be signed. | 
-**FkiLanguageID** | **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
-**SEzsigndocumentName** | **string** | The name of the document that will be presented to Ezsignfoldersignerassociations | 
 **PkiEzsigndocumentID** | **int32** | The unique ID of the Ezsigndocument | 
+**FkiEzsignfolderID** | **int32** | The unique ID of the Ezsignfolder | 
+**FkiEzsignfoldersignerassociationIDDeclinedtosign** | Pointer to **int32** | The unique ID of the Ezsignfoldersignerassociation | [optional] 
+**DtEzsigndocumentDuedate** | **string** | The maximum date and time at which the Ezsigndocument can be signed. | 
+**DtEzsignformCompleted** | Pointer to **string** | The date and time at which the Ezsignform has been completed. | [optional] 
+**FkiLanguageID** | Pointer to **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | [optional] 
+**SEzsigndocumentName** | **string** | The name of the document that will be presented to Ezsignfoldersignerassociations | 
 **EEzsigndocumentStep** | [**FieldEEzsigndocumentStep**](FieldEEzsigndocumentStep.md) |  | 
-**DtEzsigndocumentFirstsend** | **string** | The date and time when the Ezsigndocument was first sent. | 
-**DtEzsigndocumentLastsend** | **string** | The date and time when the Ezsigndocument was sent the last time. | 
+**DtEzsigndocumentFirstsend** | Pointer to **string** | The date and time when the Ezsigndocument was first sent. | [optional] 
+**DtEzsigndocumentLastsend** | Pointer to **string** | The date and time when the Ezsigndocument was sent the last time. | [optional] 
 **IEzsigndocumentOrder** | **int32** | The order in which the Ezsigndocument will be presented to the signatory in the Ezsignfolder. | 
 **IEzsigndocumentPagetotal** | **int32** | The number of pages in the Ezsigndocument. | 
 **IEzsigndocumentSignaturesigned** | **int32** | The number of signatures that were signed in the document. | 
 **IEzsigndocumentSignaturetotal** | **int32** | The number of total signatures that were requested in the Ezsigndocument. | 
-**SEzsigndocumentMD5initial** | **string** | MD5 Hash of the initial PDF Document before signatures were applied to it. | 
-**SEzsigndocumentMD5signed** | **string** | MD5 Hash of the final PDF Document after all signatures were applied to it. | 
-**ObjAudit** | [**CommonAudit**](CommonAudit.md) |  | 
+**SEzsigndocumentMD5initial** | Pointer to **string** | MD5 Hash of the initial PDF Document before signatures were applied to it. | [optional] 
+**TEzsigndocumentDeclinedtosignreason** | Pointer to **string** | A custom text message that will contain the refusal message if the Ezsigndocument is declined to sign | [optional] 
+**SEzsigndocumentMD5signed** | Pointer to **string** | MD5 Hash of the final PDF Document after all signatures were applied to it. | [optional] 
+**BEzsigndocumentEzsignform** | Pointer to **bool** | If the Ezsigndocument contains an Ezsignform or not | [optional] 
+**BEzsigndocumentHassignedsignatures** | Pointer to **bool** | If the Ezsigndocument contains signed signatures (From internal or external sources) | [optional] 
+**ObjAudit** | Pointer to [**CommonAudit**](CommonAudit.md) |  | [optional] 
+**SEzsigndocumentExternalid** | Pointer to **string** | This field can be used to store an External ID from the client&#39;s system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format.  | [optional] 
 
 ## Methods
 
 ### NewEzsigndocumentResponse
 
-`func NewEzsigndocumentResponse(fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, fkiLanguageID int32, sEzsigndocumentName string, pkiEzsigndocumentID int32, eEzsigndocumentStep FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend string, dtEzsigndocumentLastsend string, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, sEzsigndocumentMD5initial string, sEzsigndocumentMD5signed string, objAudit CommonAudit, ) *EzsigndocumentResponse`
+`func NewEzsigndocumentResponse(pkiEzsigndocumentID int32, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, sEzsigndocumentName string, eEzsigndocumentStep FieldEEzsigndocumentStep, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, ) *EzsigndocumentResponse`
 
 NewEzsigndocumentResponse instantiates a new EzsigndocumentResponse object
 This constructor will assign default values to properties that have it defined,
@@ -38,6 +44,26 @@ will change when the set of required properties is changed
 NewEzsigndocumentResponseWithDefaults instantiates a new EzsigndocumentResponse object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetPkiEzsigndocumentID
+
+`func (o *EzsigndocumentResponse) GetPkiEzsigndocumentID() int32`
+
+GetPkiEzsigndocumentID returns the PkiEzsigndocumentID field if non-nil, zero value otherwise.
+
+### GetPkiEzsigndocumentIDOk
+
+`func (o *EzsigndocumentResponse) GetPkiEzsigndocumentIDOk() (*int32, bool)`
+
+GetPkiEzsigndocumentIDOk returns a tuple with the PkiEzsigndocumentID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPkiEzsigndocumentID
+
+`func (o *EzsigndocumentResponse) SetPkiEzsigndocumentID(v int32)`
+
+SetPkiEzsigndocumentID sets PkiEzsigndocumentID field to given value.
+
 
 ### GetFkiEzsignfolderID
 
@@ -59,6 +85,31 @@ and a boolean to check if the value has been set.
 SetFkiEzsignfolderID sets FkiEzsignfolderID field to given value.
 
 
+### GetFkiEzsignfoldersignerassociationIDDeclinedtosign
+
+`func (o *EzsigndocumentResponse) GetFkiEzsignfoldersignerassociationIDDeclinedtosign() int32`
+
+GetFkiEzsignfoldersignerassociationIDDeclinedtosign returns the FkiEzsignfoldersignerassociationIDDeclinedtosign field if non-nil, zero value otherwise.
+
+### GetFkiEzsignfoldersignerassociationIDDeclinedtosignOk
+
+`func (o *EzsigndocumentResponse) GetFkiEzsignfoldersignerassociationIDDeclinedtosignOk() (*int32, bool)`
+
+GetFkiEzsignfoldersignerassociationIDDeclinedtosignOk returns a tuple with the FkiEzsignfoldersignerassociationIDDeclinedtosign field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiEzsignfoldersignerassociationIDDeclinedtosign
+
+`func (o *EzsigndocumentResponse) SetFkiEzsignfoldersignerassociationIDDeclinedtosign(v int32)`
+
+SetFkiEzsignfoldersignerassociationIDDeclinedtosign sets FkiEzsignfoldersignerassociationIDDeclinedtosign field to given value.
+
+### HasFkiEzsignfoldersignerassociationIDDeclinedtosign
+
+`func (o *EzsigndocumentResponse) HasFkiEzsignfoldersignerassociationIDDeclinedtosign() bool`
+
+HasFkiEzsignfoldersignerassociationIDDeclinedtosign returns a boolean if a field has been set.
+
 ### GetDtEzsigndocumentDuedate
 
 `func (o *EzsigndocumentResponse) GetDtEzsigndocumentDuedate() string`
@@ -79,6 +130,31 @@ and a boolean to check if the value has been set.
 SetDtEzsigndocumentDuedate sets DtEzsigndocumentDuedate field to given value.
 
 
+### GetDtEzsignformCompleted
+
+`func (o *EzsigndocumentResponse) GetDtEzsignformCompleted() string`
+
+GetDtEzsignformCompleted returns the DtEzsignformCompleted field if non-nil, zero value otherwise.
+
+### GetDtEzsignformCompletedOk
+
+`func (o *EzsigndocumentResponse) GetDtEzsignformCompletedOk() (*string, bool)`
+
+GetDtEzsignformCompletedOk returns a tuple with the DtEzsignformCompleted field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDtEzsignformCompleted
+
+`func (o *EzsigndocumentResponse) SetDtEzsignformCompleted(v string)`
+
+SetDtEzsignformCompleted sets DtEzsignformCompleted field to given value.
+
+### HasDtEzsignformCompleted
+
+`func (o *EzsigndocumentResponse) HasDtEzsignformCompleted() bool`
+
+HasDtEzsignformCompleted returns a boolean if a field has been set.
+
 ### GetFkiLanguageID
 
 `func (o *EzsigndocumentResponse) GetFkiLanguageID() int32`
@@ -98,6 +174,11 @@ and a boolean to check if the value has been set.
 
 SetFkiLanguageID sets FkiLanguageID field to given value.
 
+### HasFkiLanguageID
+
+`func (o *EzsigndocumentResponse) HasFkiLanguageID() bool`
+
+HasFkiLanguageID returns a boolean if a field has been set.
 
 ### GetSEzsigndocumentName
 
@@ -117,26 +198,6 @@ and a boolean to check if the value has been set.
 `func (o *EzsigndocumentResponse) SetSEzsigndocumentName(v string)`
 
 SetSEzsigndocumentName sets SEzsigndocumentName field to given value.
-
-
-### GetPkiEzsigndocumentID
-
-`func (o *EzsigndocumentResponse) GetPkiEzsigndocumentID() int32`
-
-GetPkiEzsigndocumentID returns the PkiEzsigndocumentID field if non-nil, zero value otherwise.
-
-### GetPkiEzsigndocumentIDOk
-
-`func (o *EzsigndocumentResponse) GetPkiEzsigndocumentIDOk() (*int32, bool)`
-
-GetPkiEzsigndocumentIDOk returns a tuple with the PkiEzsigndocumentID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPkiEzsigndocumentID
-
-`func (o *EzsigndocumentResponse) SetPkiEzsigndocumentID(v int32)`
-
-SetPkiEzsigndocumentID sets PkiEzsigndocumentID field to given value.
 
 
 ### GetEEzsigndocumentStep
@@ -178,6 +239,11 @@ and a boolean to check if the value has been set.
 
 SetDtEzsigndocumentFirstsend sets DtEzsigndocumentFirstsend field to given value.
 
+### HasDtEzsigndocumentFirstsend
+
+`func (o *EzsigndocumentResponse) HasDtEzsigndocumentFirstsend() bool`
+
+HasDtEzsigndocumentFirstsend returns a boolean if a field has been set.
 
 ### GetDtEzsigndocumentLastsend
 
@@ -198,6 +264,11 @@ and a boolean to check if the value has been set.
 
 SetDtEzsigndocumentLastsend sets DtEzsigndocumentLastsend field to given value.
 
+### HasDtEzsigndocumentLastsend
+
+`func (o *EzsigndocumentResponse) HasDtEzsigndocumentLastsend() bool`
+
+HasDtEzsigndocumentLastsend returns a boolean if a field has been set.
 
 ### GetIEzsigndocumentOrder
 
@@ -298,6 +369,36 @@ and a boolean to check if the value has been set.
 
 SetSEzsigndocumentMD5initial sets SEzsigndocumentMD5initial field to given value.
 
+### HasSEzsigndocumentMD5initial
+
+`func (o *EzsigndocumentResponse) HasSEzsigndocumentMD5initial() bool`
+
+HasSEzsigndocumentMD5initial returns a boolean if a field has been set.
+
+### GetTEzsigndocumentDeclinedtosignreason
+
+`func (o *EzsigndocumentResponse) GetTEzsigndocumentDeclinedtosignreason() string`
+
+GetTEzsigndocumentDeclinedtosignreason returns the TEzsigndocumentDeclinedtosignreason field if non-nil, zero value otherwise.
+
+### GetTEzsigndocumentDeclinedtosignreasonOk
+
+`func (o *EzsigndocumentResponse) GetTEzsigndocumentDeclinedtosignreasonOk() (*string, bool)`
+
+GetTEzsigndocumentDeclinedtosignreasonOk returns a tuple with the TEzsigndocumentDeclinedtosignreason field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTEzsigndocumentDeclinedtosignreason
+
+`func (o *EzsigndocumentResponse) SetTEzsigndocumentDeclinedtosignreason(v string)`
+
+SetTEzsigndocumentDeclinedtosignreason sets TEzsigndocumentDeclinedtosignreason field to given value.
+
+### HasTEzsigndocumentDeclinedtosignreason
+
+`func (o *EzsigndocumentResponse) HasTEzsigndocumentDeclinedtosignreason() bool`
+
+HasTEzsigndocumentDeclinedtosignreason returns a boolean if a field has been set.
 
 ### GetSEzsigndocumentMD5signed
 
@@ -318,6 +419,61 @@ and a boolean to check if the value has been set.
 
 SetSEzsigndocumentMD5signed sets SEzsigndocumentMD5signed field to given value.
 
+### HasSEzsigndocumentMD5signed
+
+`func (o *EzsigndocumentResponse) HasSEzsigndocumentMD5signed() bool`
+
+HasSEzsigndocumentMD5signed returns a boolean if a field has been set.
+
+### GetBEzsigndocumentEzsignform
+
+`func (o *EzsigndocumentResponse) GetBEzsigndocumentEzsignform() bool`
+
+GetBEzsigndocumentEzsignform returns the BEzsigndocumentEzsignform field if non-nil, zero value otherwise.
+
+### GetBEzsigndocumentEzsignformOk
+
+`func (o *EzsigndocumentResponse) GetBEzsigndocumentEzsignformOk() (*bool, bool)`
+
+GetBEzsigndocumentEzsignformOk returns a tuple with the BEzsigndocumentEzsignform field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsigndocumentEzsignform
+
+`func (o *EzsigndocumentResponse) SetBEzsigndocumentEzsignform(v bool)`
+
+SetBEzsigndocumentEzsignform sets BEzsigndocumentEzsignform field to given value.
+
+### HasBEzsigndocumentEzsignform
+
+`func (o *EzsigndocumentResponse) HasBEzsigndocumentEzsignform() bool`
+
+HasBEzsigndocumentEzsignform returns a boolean if a field has been set.
+
+### GetBEzsigndocumentHassignedsignatures
+
+`func (o *EzsigndocumentResponse) GetBEzsigndocumentHassignedsignatures() bool`
+
+GetBEzsigndocumentHassignedsignatures returns the BEzsigndocumentHassignedsignatures field if non-nil, zero value otherwise.
+
+### GetBEzsigndocumentHassignedsignaturesOk
+
+`func (o *EzsigndocumentResponse) GetBEzsigndocumentHassignedsignaturesOk() (*bool, bool)`
+
+GetBEzsigndocumentHassignedsignaturesOk returns a tuple with the BEzsigndocumentHassignedsignatures field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsigndocumentHassignedsignatures
+
+`func (o *EzsigndocumentResponse) SetBEzsigndocumentHassignedsignatures(v bool)`
+
+SetBEzsigndocumentHassignedsignatures sets BEzsigndocumentHassignedsignatures field to given value.
+
+### HasBEzsigndocumentHassignedsignatures
+
+`func (o *EzsigndocumentResponse) HasBEzsigndocumentHassignedsignatures() bool`
+
+HasBEzsigndocumentHassignedsignatures returns a boolean if a field has been set.
 
 ### GetObjAudit
 
@@ -338,6 +494,36 @@ and a boolean to check if the value has been set.
 
 SetObjAudit sets ObjAudit field to given value.
 
+### HasObjAudit
+
+`func (o *EzsigndocumentResponse) HasObjAudit() bool`
+
+HasObjAudit returns a boolean if a field has been set.
+
+### GetSEzsigndocumentExternalid
+
+`func (o *EzsigndocumentResponse) GetSEzsigndocumentExternalid() string`
+
+GetSEzsigndocumentExternalid returns the SEzsigndocumentExternalid field if non-nil, zero value otherwise.
+
+### GetSEzsigndocumentExternalidOk
+
+`func (o *EzsigndocumentResponse) GetSEzsigndocumentExternalidOk() (*string, bool)`
+
+GetSEzsigndocumentExternalidOk returns a tuple with the SEzsigndocumentExternalid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzsigndocumentExternalid
+
+`func (o *EzsigndocumentResponse) SetSEzsigndocumentExternalid(v string)`
+
+SetSEzsigndocumentExternalid sets SEzsigndocumentExternalid field to given value.
+
+### HasSEzsigndocumentExternalid
+
+`func (o *EzsigndocumentResponse) HasSEzsigndocumentExternalid() bool`
+
+HasSEzsigndocumentExternalid returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

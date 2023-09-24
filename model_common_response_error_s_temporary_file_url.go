@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,23 +15,26 @@ import (
 	"encoding/json"
 )
 
+// checks if the CommonResponseErrorSTemporaryFileUrl type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CommonResponseErrorSTemporaryFileUrl{}
+
 // CommonResponseErrorSTemporaryFileUrl Generic Error Message
 type CommonResponseErrorSTemporaryFileUrl struct {
+	// The message giving details about the error
+	SErrorMessage string `json:"sErrorMessage"`
+	EErrorCode FieldEErrorCode `json:"eErrorCode"`
 	// The Temporary File Url of the document that was uploaded. That url can be reused instead of uploading the file again.
 	STemporaryFileUrl *string `json:"sTemporaryFileUrl,omitempty"`
-	// More detail about the error
-	SErrorMessage string `json:"sErrorMessage"`
-	// The error code. See documentation for valid values
-	EErrorCode *string `json:"eErrorCode,omitempty"`
 }
 
 // NewCommonResponseErrorSTemporaryFileUrl instantiates a new CommonResponseErrorSTemporaryFileUrl object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommonResponseErrorSTemporaryFileUrl(sErrorMessage string) *CommonResponseErrorSTemporaryFileUrl {
+func NewCommonResponseErrorSTemporaryFileUrl(sErrorMessage string, eErrorCode FieldEErrorCode) *CommonResponseErrorSTemporaryFileUrl {
 	this := CommonResponseErrorSTemporaryFileUrl{}
 	this.SErrorMessage = sErrorMessage
+	this.EErrorCode = eErrorCode
 	return &this
 }
 
@@ -41,38 +44,6 @@ func NewCommonResponseErrorSTemporaryFileUrl(sErrorMessage string) *CommonRespon
 func NewCommonResponseErrorSTemporaryFileUrlWithDefaults() *CommonResponseErrorSTemporaryFileUrl {
 	this := CommonResponseErrorSTemporaryFileUrl{}
 	return &this
-}
-
-// GetSTemporaryFileUrl returns the STemporaryFileUrl field value if set, zero value otherwise.
-func (o *CommonResponseErrorSTemporaryFileUrl) GetSTemporaryFileUrl() string {
-	if o == nil || o.STemporaryFileUrl == nil {
-		var ret string
-		return ret
-	}
-	return *o.STemporaryFileUrl
-}
-
-// GetSTemporaryFileUrlOk returns a tuple with the STemporaryFileUrl field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CommonResponseErrorSTemporaryFileUrl) GetSTemporaryFileUrlOk() (*string, bool) {
-	if o == nil || o.STemporaryFileUrl == nil {
-		return nil, false
-	}
-	return o.STemporaryFileUrl, true
-}
-
-// HasSTemporaryFileUrl returns a boolean if a field has been set.
-func (o *CommonResponseErrorSTemporaryFileUrl) HasSTemporaryFileUrl() bool {
-	if o != nil && o.STemporaryFileUrl != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetSTemporaryFileUrl gets a reference to the given string and assigns it to the STemporaryFileUrl field.
-func (o *CommonResponseErrorSTemporaryFileUrl) SetSTemporaryFileUrl(v string) {
-	o.STemporaryFileUrl = &v
 }
 
 // GetSErrorMessage returns the SErrorMessage field value
@@ -99,50 +70,78 @@ func (o *CommonResponseErrorSTemporaryFileUrl) SetSErrorMessage(v string) {
 	o.SErrorMessage = v
 }
 
-// GetEErrorCode returns the EErrorCode field value if set, zero value otherwise.
-func (o *CommonResponseErrorSTemporaryFileUrl) GetEErrorCode() string {
-	if o == nil || o.EErrorCode == nil {
+// GetEErrorCode returns the EErrorCode field value
+func (o *CommonResponseErrorSTemporaryFileUrl) GetEErrorCode() FieldEErrorCode {
+	if o == nil {
+		var ret FieldEErrorCode
+		return ret
+	}
+
+	return o.EErrorCode
+}
+
+// GetEErrorCodeOk returns a tuple with the EErrorCode field value
+// and a boolean to check if the value has been set.
+func (o *CommonResponseErrorSTemporaryFileUrl) GetEErrorCodeOk() (*FieldEErrorCode, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EErrorCode, true
+}
+
+// SetEErrorCode sets field value
+func (o *CommonResponseErrorSTemporaryFileUrl) SetEErrorCode(v FieldEErrorCode) {
+	o.EErrorCode = v
+}
+
+// GetSTemporaryFileUrl returns the STemporaryFileUrl field value if set, zero value otherwise.
+func (o *CommonResponseErrorSTemporaryFileUrl) GetSTemporaryFileUrl() string {
+	if o == nil || IsNil(o.STemporaryFileUrl) {
 		var ret string
 		return ret
 	}
-	return *o.EErrorCode
+	return *o.STemporaryFileUrl
 }
 
-// GetEErrorCodeOk returns a tuple with the EErrorCode field value if set, nil otherwise
+// GetSTemporaryFileUrlOk returns a tuple with the STemporaryFileUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CommonResponseErrorSTemporaryFileUrl) GetEErrorCodeOk() (*string, bool) {
-	if o == nil || o.EErrorCode == nil {
+func (o *CommonResponseErrorSTemporaryFileUrl) GetSTemporaryFileUrlOk() (*string, bool) {
+	if o == nil || IsNil(o.STemporaryFileUrl) {
 		return nil, false
 	}
-	return o.EErrorCode, true
+	return o.STemporaryFileUrl, true
 }
 
-// HasEErrorCode returns a boolean if a field has been set.
-func (o *CommonResponseErrorSTemporaryFileUrl) HasEErrorCode() bool {
-	if o != nil && o.EErrorCode != nil {
+// HasSTemporaryFileUrl returns a boolean if a field has been set.
+func (o *CommonResponseErrorSTemporaryFileUrl) HasSTemporaryFileUrl() bool {
+	if o != nil && !IsNil(o.STemporaryFileUrl) {
 		return true
 	}
 
 	return false
 }
 
-// SetEErrorCode gets a reference to the given string and assigns it to the EErrorCode field.
-func (o *CommonResponseErrorSTemporaryFileUrl) SetEErrorCode(v string) {
-	o.EErrorCode = &v
+// SetSTemporaryFileUrl gets a reference to the given string and assigns it to the STemporaryFileUrl field.
+func (o *CommonResponseErrorSTemporaryFileUrl) SetSTemporaryFileUrl(v string) {
+	o.STemporaryFileUrl = &v
 }
 
 func (o CommonResponseErrorSTemporaryFileUrl) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if o.STemporaryFileUrl != nil {
-		toSerialize["sTemporaryFileUrl"] = o.STemporaryFileUrl
-	}
-	if true {
-		toSerialize["sErrorMessage"] = o.SErrorMessage
-	}
-	if o.EErrorCode != nil {
-		toSerialize["eErrorCode"] = o.EErrorCode
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CommonResponseErrorSTemporaryFileUrl) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["sErrorMessage"] = o.SErrorMessage
+	toSerialize["eErrorCode"] = o.EErrorCode
+	if !IsNil(o.STemporaryFileUrl) {
+		toSerialize["sTemporaryFileUrl"] = o.STemporaryFileUrl
+	}
+	return toSerialize, nil
 }
 
 type NullableCommonResponseErrorSTemporaryFileUrl struct {

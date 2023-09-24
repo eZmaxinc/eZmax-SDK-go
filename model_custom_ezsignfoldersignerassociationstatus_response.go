@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,14 +15,21 @@ import (
 	"encoding/json"
 )
 
+// checks if the CustomEzsignfoldersignerassociationstatusResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CustomEzsignfoldersignerassociationstatusResponse{}
+
 // CustomEzsignfoldersignerassociationstatusResponse A Ezsignfoldersignerassociationstatus Object and children to create a complete structure
 type CustomEzsignfoldersignerassociationstatusResponse struct {
 	// The unique ID of the Ezsignfoldersignerassociation
 	FkiEzsignfoldersignerassociationID int32 `json:"fkiEzsignfoldersignerassociationID"`
 	// The last name of the Ezsignsigner
-	SEzsignfoldersignerassociationstatusLastname string `json:"sEzsignfoldersignerassociationstatusLastname"`
+	// Deprecated
+	SEzsignfoldersignerassociationstatusLastname *string `json:"sEzsignfoldersignerassociationstatusLastname,omitempty"`
 	// The first name of the Ezsignsigner
-	SEzsignfoldersignerassociationstatusFirstname string `json:"sEzsignfoldersignerassociationstatusFirstname"`
+	// Deprecated
+	SEzsignfoldersignerassociationstatusFirstname *string `json:"sEzsignfoldersignerassociationstatusFirstname,omitempty"`
+	// The description of the Ezsignsigner
+	SEzsignfoldersignerassociationstatusDescriptionX *string `json:"sEzsignfoldersignerassociationstatusDescriptionX,omitempty"`
 	AObjEzsignsignaturestatus []CustomEzsignsignaturestatusResponse `json:"a_objEzsignsignaturestatus"`
 }
 
@@ -30,11 +37,9 @@ type CustomEzsignfoldersignerassociationstatusResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomEzsignfoldersignerassociationstatusResponse(fkiEzsignfoldersignerassociationID int32, sEzsignfoldersignerassociationstatusLastname string, sEzsignfoldersignerassociationstatusFirstname string, aObjEzsignsignaturestatus []CustomEzsignsignaturestatusResponse) *CustomEzsignfoldersignerassociationstatusResponse {
+func NewCustomEzsignfoldersignerassociationstatusResponse(fkiEzsignfoldersignerassociationID int32, aObjEzsignsignaturestatus []CustomEzsignsignaturestatusResponse) *CustomEzsignfoldersignerassociationstatusResponse {
 	this := CustomEzsignfoldersignerassociationstatusResponse{}
 	this.FkiEzsignfoldersignerassociationID = fkiEzsignfoldersignerassociationID
-	this.SEzsignfoldersignerassociationstatusLastname = sEzsignfoldersignerassociationstatusLastname
-	this.SEzsignfoldersignerassociationstatusFirstname = sEzsignfoldersignerassociationstatusFirstname
 	this.AObjEzsignsignaturestatus = aObjEzsignsignaturestatus
 	return &this
 }
@@ -71,52 +76,106 @@ func (o *CustomEzsignfoldersignerassociationstatusResponse) SetFkiEzsignfoldersi
 	o.FkiEzsignfoldersignerassociationID = v
 }
 
-// GetSEzsignfoldersignerassociationstatusLastname returns the SEzsignfoldersignerassociationstatusLastname field value
+// GetSEzsignfoldersignerassociationstatusLastname returns the SEzsignfoldersignerassociationstatusLastname field value if set, zero value otherwise.
+// Deprecated
 func (o *CustomEzsignfoldersignerassociationstatusResponse) GetSEzsignfoldersignerassociationstatusLastname() string {
-	if o == nil {
+	if o == nil || IsNil(o.SEzsignfoldersignerassociationstatusLastname) {
 		var ret string
 		return ret
 	}
-
-	return o.SEzsignfoldersignerassociationstatusLastname
+	return *o.SEzsignfoldersignerassociationstatusLastname
 }
 
-// GetSEzsignfoldersignerassociationstatusLastnameOk returns a tuple with the SEzsignfoldersignerassociationstatusLastname field value
+// GetSEzsignfoldersignerassociationstatusLastnameOk returns a tuple with the SEzsignfoldersignerassociationstatusLastname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// Deprecated
 func (o *CustomEzsignfoldersignerassociationstatusResponse) GetSEzsignfoldersignerassociationstatusLastnameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SEzsignfoldersignerassociationstatusLastname) {
 		return nil, false
 	}
-	return &o.SEzsignfoldersignerassociationstatusLastname, true
+	return o.SEzsignfoldersignerassociationstatusLastname, true
 }
 
-// SetSEzsignfoldersignerassociationstatusLastname sets field value
+// HasSEzsignfoldersignerassociationstatusLastname returns a boolean if a field has been set.
+func (o *CustomEzsignfoldersignerassociationstatusResponse) HasSEzsignfoldersignerassociationstatusLastname() bool {
+	if o != nil && !IsNil(o.SEzsignfoldersignerassociationstatusLastname) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsignfoldersignerassociationstatusLastname gets a reference to the given string and assigns it to the SEzsignfoldersignerassociationstatusLastname field.
+// Deprecated
 func (o *CustomEzsignfoldersignerassociationstatusResponse) SetSEzsignfoldersignerassociationstatusLastname(v string) {
-	o.SEzsignfoldersignerassociationstatusLastname = v
+	o.SEzsignfoldersignerassociationstatusLastname = &v
 }
 
-// GetSEzsignfoldersignerassociationstatusFirstname returns the SEzsignfoldersignerassociationstatusFirstname field value
+// GetSEzsignfoldersignerassociationstatusFirstname returns the SEzsignfoldersignerassociationstatusFirstname field value if set, zero value otherwise.
+// Deprecated
 func (o *CustomEzsignfoldersignerassociationstatusResponse) GetSEzsignfoldersignerassociationstatusFirstname() string {
-	if o == nil {
+	if o == nil || IsNil(o.SEzsignfoldersignerassociationstatusFirstname) {
 		var ret string
 		return ret
 	}
-
-	return o.SEzsignfoldersignerassociationstatusFirstname
+	return *o.SEzsignfoldersignerassociationstatusFirstname
 }
 
-// GetSEzsignfoldersignerassociationstatusFirstnameOk returns a tuple with the SEzsignfoldersignerassociationstatusFirstname field value
+// GetSEzsignfoldersignerassociationstatusFirstnameOk returns a tuple with the SEzsignfoldersignerassociationstatusFirstname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// Deprecated
 func (o *CustomEzsignfoldersignerassociationstatusResponse) GetSEzsignfoldersignerassociationstatusFirstnameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SEzsignfoldersignerassociationstatusFirstname) {
 		return nil, false
 	}
-	return &o.SEzsignfoldersignerassociationstatusFirstname, true
+	return o.SEzsignfoldersignerassociationstatusFirstname, true
 }
 
-// SetSEzsignfoldersignerassociationstatusFirstname sets field value
+// HasSEzsignfoldersignerassociationstatusFirstname returns a boolean if a field has been set.
+func (o *CustomEzsignfoldersignerassociationstatusResponse) HasSEzsignfoldersignerassociationstatusFirstname() bool {
+	if o != nil && !IsNil(o.SEzsignfoldersignerassociationstatusFirstname) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsignfoldersignerassociationstatusFirstname gets a reference to the given string and assigns it to the SEzsignfoldersignerassociationstatusFirstname field.
+// Deprecated
 func (o *CustomEzsignfoldersignerassociationstatusResponse) SetSEzsignfoldersignerassociationstatusFirstname(v string) {
-	o.SEzsignfoldersignerassociationstatusFirstname = v
+	o.SEzsignfoldersignerassociationstatusFirstname = &v
+}
+
+// GetSEzsignfoldersignerassociationstatusDescriptionX returns the SEzsignfoldersignerassociationstatusDescriptionX field value if set, zero value otherwise.
+func (o *CustomEzsignfoldersignerassociationstatusResponse) GetSEzsignfoldersignerassociationstatusDescriptionX() string {
+	if o == nil || IsNil(o.SEzsignfoldersignerassociationstatusDescriptionX) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsignfoldersignerassociationstatusDescriptionX
+}
+
+// GetSEzsignfoldersignerassociationstatusDescriptionXOk returns a tuple with the SEzsignfoldersignerassociationstatusDescriptionX field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignfoldersignerassociationstatusResponse) GetSEzsignfoldersignerassociationstatusDescriptionXOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsignfoldersignerassociationstatusDescriptionX) {
+		return nil, false
+	}
+	return o.SEzsignfoldersignerassociationstatusDescriptionX, true
+}
+
+// HasSEzsignfoldersignerassociationstatusDescriptionX returns a boolean if a field has been set.
+func (o *CustomEzsignfoldersignerassociationstatusResponse) HasSEzsignfoldersignerassociationstatusDescriptionX() bool {
+	if o != nil && !IsNil(o.SEzsignfoldersignerassociationstatusDescriptionX) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsignfoldersignerassociationstatusDescriptionX gets a reference to the given string and assigns it to the SEzsignfoldersignerassociationstatusDescriptionX field.
+func (o *CustomEzsignfoldersignerassociationstatusResponse) SetSEzsignfoldersignerassociationstatusDescriptionX(v string) {
+	o.SEzsignfoldersignerassociationstatusDescriptionX = &v
 }
 
 // GetAObjEzsignsignaturestatus returns the AObjEzsignsignaturestatus field value
@@ -144,20 +203,27 @@ func (o *CustomEzsignfoldersignerassociationstatusResponse) SetAObjEzsignsignatu
 }
 
 func (o CustomEzsignfoldersignerassociationstatusResponse) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["fkiEzsignfoldersignerassociationID"] = o.FkiEzsignfoldersignerassociationID
-	}
-	if true {
-		toSerialize["sEzsignfoldersignerassociationstatusLastname"] = o.SEzsignfoldersignerassociationstatusLastname
-	}
-	if true {
-		toSerialize["sEzsignfoldersignerassociationstatusFirstname"] = o.SEzsignfoldersignerassociationstatusFirstname
-	}
-	if true {
-		toSerialize["a_objEzsignsignaturestatus"] = o.AObjEzsignsignaturestatus
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CustomEzsignfoldersignerassociationstatusResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["fkiEzsignfoldersignerassociationID"] = o.FkiEzsignfoldersignerassociationID
+	if !IsNil(o.SEzsignfoldersignerassociationstatusLastname) {
+		toSerialize["sEzsignfoldersignerassociationstatusLastname"] = o.SEzsignfoldersignerassociationstatusLastname
+	}
+	if !IsNil(o.SEzsignfoldersignerassociationstatusFirstname) {
+		toSerialize["sEzsignfoldersignerassociationstatusFirstname"] = o.SEzsignfoldersignerassociationstatusFirstname
+	}
+	if !IsNil(o.SEzsignfoldersignerassociationstatusDescriptionX) {
+		toSerialize["sEzsignfoldersignerassociationstatusDescriptionX"] = o.SEzsignfoldersignerassociationstatusDescriptionX
+	}
+	toSerialize["a_objEzsignsignaturestatus"] = o.AObjEzsignsignaturestatus
+	return toSerialize, nil
 }
 
 type NullableCustomEzsignfoldersignerassociationstatusResponse struct {

@@ -4,15 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PkiEzsignfolderID** | **int32** | The unique ID of the Ezsignfolder | 
-**SEzsignfolderDescription** | **string** | The description of the Ezsignfolder | 
-**AObjFormDataDocument** | [**[]CustomFormDataDocumentResponse**](CustomFormDataDocumentResponse.md) |  | 
+**ObjFormsDataFolder** | [**CustomFormsDataFolderResponse**](CustomFormsDataFolderResponse.md) |  | 
 
 ## Methods
 
 ### NewEzsignfolderGetFormsDataV1ResponseMPayload
 
-`func NewEzsignfolderGetFormsDataV1ResponseMPayload(pkiEzsignfolderID int32, sEzsignfolderDescription string, aObjFormDataDocument []CustomFormDataDocumentResponse, ) *EzsignfolderGetFormsDataV1ResponseMPayload`
+`func NewEzsignfolderGetFormsDataV1ResponseMPayload(objFormsDataFolder CustomFormsDataFolderResponse, ) *EzsignfolderGetFormsDataV1ResponseMPayload`
 
 NewEzsignfolderGetFormsDataV1ResponseMPayload instantiates a new EzsignfolderGetFormsDataV1ResponseMPayload object
 This constructor will assign default values to properties that have it defined,
@@ -27,64 +25,24 @@ NewEzsignfolderGetFormsDataV1ResponseMPayloadWithDefaults instantiates a new Ezs
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetPkiEzsignfolderID
+### GetObjFormsDataFolder
 
-`func (o *EzsignfolderGetFormsDataV1ResponseMPayload) GetPkiEzsignfolderID() int32`
+`func (o *EzsignfolderGetFormsDataV1ResponseMPayload) GetObjFormsDataFolder() CustomFormsDataFolderResponse`
 
-GetPkiEzsignfolderID returns the PkiEzsignfolderID field if non-nil, zero value otherwise.
+GetObjFormsDataFolder returns the ObjFormsDataFolder field if non-nil, zero value otherwise.
 
-### GetPkiEzsignfolderIDOk
+### GetObjFormsDataFolderOk
 
-`func (o *EzsignfolderGetFormsDataV1ResponseMPayload) GetPkiEzsignfolderIDOk() (*int32, bool)`
+`func (o *EzsignfolderGetFormsDataV1ResponseMPayload) GetObjFormsDataFolderOk() (*CustomFormsDataFolderResponse, bool)`
 
-GetPkiEzsignfolderIDOk returns a tuple with the PkiEzsignfolderID field if it's non-nil, zero value otherwise
+GetObjFormsDataFolderOk returns a tuple with the ObjFormsDataFolder field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPkiEzsignfolderID
+### SetObjFormsDataFolder
 
-`func (o *EzsignfolderGetFormsDataV1ResponseMPayload) SetPkiEzsignfolderID(v int32)`
+`func (o *EzsignfolderGetFormsDataV1ResponseMPayload) SetObjFormsDataFolder(v CustomFormsDataFolderResponse)`
 
-SetPkiEzsignfolderID sets PkiEzsignfolderID field to given value.
-
-
-### GetSEzsignfolderDescription
-
-`func (o *EzsignfolderGetFormsDataV1ResponseMPayload) GetSEzsignfolderDescription() string`
-
-GetSEzsignfolderDescription returns the SEzsignfolderDescription field if non-nil, zero value otherwise.
-
-### GetSEzsignfolderDescriptionOk
-
-`func (o *EzsignfolderGetFormsDataV1ResponseMPayload) GetSEzsignfolderDescriptionOk() (*string, bool)`
-
-GetSEzsignfolderDescriptionOk returns a tuple with the SEzsignfolderDescription field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSEzsignfolderDescription
-
-`func (o *EzsignfolderGetFormsDataV1ResponseMPayload) SetSEzsignfolderDescription(v string)`
-
-SetSEzsignfolderDescription sets SEzsignfolderDescription field to given value.
-
-
-### GetAObjFormDataDocument
-
-`func (o *EzsignfolderGetFormsDataV1ResponseMPayload) GetAObjFormDataDocument() []CustomFormDataDocumentResponse`
-
-GetAObjFormDataDocument returns the AObjFormDataDocument field if non-nil, zero value otherwise.
-
-### GetAObjFormDataDocumentOk
-
-`func (o *EzsignfolderGetFormsDataV1ResponseMPayload) GetAObjFormDataDocumentOk() (*[]CustomFormDataDocumentResponse, bool)`
-
-GetAObjFormDataDocumentOk returns a tuple with the AObjFormDataDocument field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAObjFormDataDocument
-
-`func (o *EzsignfolderGetFormsDataV1ResponseMPayload) SetAObjFormDataDocument(v []CustomFormDataDocumentResponse)`
-
-SetAObjFormDataDocument sets AObjFormDataDocument field to given value.
+SetObjFormsDataFolder sets ObjFormsDataFolder field to given value.
 
 
 

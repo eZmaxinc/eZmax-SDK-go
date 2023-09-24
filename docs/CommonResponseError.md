@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SErrorMessage** | **string** | More detail about the error | 
-**EErrorCode** | Pointer to **string** | The error code. See documentation for valid values | [optional] 
+**SErrorMessage** | **string** | The message giving details about the error | 
+**EErrorCode** | [**FieldEErrorCode**](FieldEErrorCode.md) |  | 
 
 ## Methods
 
 ### NewCommonResponseError
 
-`func NewCommonResponseError(sErrorMessage string, ) *CommonResponseError`
+`func NewCommonResponseError(sErrorMessage string, eErrorCode FieldEErrorCode, ) *CommonResponseError`
 
 NewCommonResponseError instantiates a new CommonResponseError object
 This constructor will assign default values to properties that have it defined,
@@ -48,28 +48,23 @@ SetSErrorMessage sets SErrorMessage field to given value.
 
 ### GetEErrorCode
 
-`func (o *CommonResponseError) GetEErrorCode() string`
+`func (o *CommonResponseError) GetEErrorCode() FieldEErrorCode`
 
 GetEErrorCode returns the EErrorCode field if non-nil, zero value otherwise.
 
 ### GetEErrorCodeOk
 
-`func (o *CommonResponseError) GetEErrorCodeOk() (*string, bool)`
+`func (o *CommonResponseError) GetEErrorCodeOk() (*FieldEErrorCode, bool)`
 
 GetEErrorCodeOk returns a tuple with the EErrorCode field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEErrorCode
 
-`func (o *CommonResponseError) SetEErrorCode(v string)`
+`func (o *CommonResponseError) SetEErrorCode(v FieldEErrorCode)`
 
 SetEErrorCode sets EErrorCode field to given value.
 
-### HasEErrorCode
-
-`func (o *CommonResponseError) HasEErrorCode() bool`
-
-HasEErrorCode returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

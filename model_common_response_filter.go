@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,10 +15,15 @@ import (
 	"encoding/json"
 )
 
+// checks if the CommonResponseFilter type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CommonResponseFilter{}
+
 // CommonResponseFilter Definition of Filters for getList
 type CommonResponseFilter struct {
 	// List of filters that can be used in *sFilter* (Automatic types)
 	AAutoType *map[string]string `json:"a_AutoType,omitempty"`
+	// List of computed filters that can be used in *sFilter* (Automatic types)
+	AAutoTypeHaving *map[string]string `json:"a_AutoTypeHaving,omitempty"`
 	// List of filters that can be used in *sFilter* (Enum types)
 	AEnum *map[string]map[string]string `json:"a_Enum,omitempty"`
 }
@@ -42,7 +47,7 @@ func NewCommonResponseFilterWithDefaults() *CommonResponseFilter {
 
 // GetAAutoType returns the AAutoType field value if set, zero value otherwise.
 func (o *CommonResponseFilter) GetAAutoType() map[string]string {
-	if o == nil || o.AAutoType == nil {
+	if o == nil || IsNil(o.AAutoType) {
 		var ret map[string]string
 		return ret
 	}
@@ -52,7 +57,7 @@ func (o *CommonResponseFilter) GetAAutoType() map[string]string {
 // GetAAutoTypeOk returns a tuple with the AAutoType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CommonResponseFilter) GetAAutoTypeOk() (*map[string]string, bool) {
-	if o == nil || o.AAutoType == nil {
+	if o == nil || IsNil(o.AAutoType) {
 		return nil, false
 	}
 	return o.AAutoType, true
@@ -60,7 +65,7 @@ func (o *CommonResponseFilter) GetAAutoTypeOk() (*map[string]string, bool) {
 
 // HasAAutoType returns a boolean if a field has been set.
 func (o *CommonResponseFilter) HasAAutoType() bool {
-	if o != nil && o.AAutoType != nil {
+	if o != nil && !IsNil(o.AAutoType) {
 		return true
 	}
 
@@ -72,9 +77,41 @@ func (o *CommonResponseFilter) SetAAutoType(v map[string]string) {
 	o.AAutoType = &v
 }
 
+// GetAAutoTypeHaving returns the AAutoTypeHaving field value if set, zero value otherwise.
+func (o *CommonResponseFilter) GetAAutoTypeHaving() map[string]string {
+	if o == nil || IsNil(o.AAutoTypeHaving) {
+		var ret map[string]string
+		return ret
+	}
+	return *o.AAutoTypeHaving
+}
+
+// GetAAutoTypeHavingOk returns a tuple with the AAutoTypeHaving field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CommonResponseFilter) GetAAutoTypeHavingOk() (*map[string]string, bool) {
+	if o == nil || IsNil(o.AAutoTypeHaving) {
+		return nil, false
+	}
+	return o.AAutoTypeHaving, true
+}
+
+// HasAAutoTypeHaving returns a boolean if a field has been set.
+func (o *CommonResponseFilter) HasAAutoTypeHaving() bool {
+	if o != nil && !IsNil(o.AAutoTypeHaving) {
+		return true
+	}
+
+	return false
+}
+
+// SetAAutoTypeHaving gets a reference to the given map[string]string and assigns it to the AAutoTypeHaving field.
+func (o *CommonResponseFilter) SetAAutoTypeHaving(v map[string]string) {
+	o.AAutoTypeHaving = &v
+}
+
 // GetAEnum returns the AEnum field value if set, zero value otherwise.
 func (o *CommonResponseFilter) GetAEnum() map[string]map[string]string {
-	if o == nil || o.AEnum == nil {
+	if o == nil || IsNil(o.AEnum) {
 		var ret map[string]map[string]string
 		return ret
 	}
@@ -84,7 +121,7 @@ func (o *CommonResponseFilter) GetAEnum() map[string]map[string]string {
 // GetAEnumOk returns a tuple with the AEnum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CommonResponseFilter) GetAEnumOk() (*map[string]map[string]string, bool) {
-	if o == nil || o.AEnum == nil {
+	if o == nil || IsNil(o.AEnum) {
 		return nil, false
 	}
 	return o.AEnum, true
@@ -92,7 +129,7 @@ func (o *CommonResponseFilter) GetAEnumOk() (*map[string]map[string]string, bool
 
 // HasAEnum returns a boolean if a field has been set.
 func (o *CommonResponseFilter) HasAEnum() bool {
-	if o != nil && o.AEnum != nil {
+	if o != nil && !IsNil(o.AEnum) {
 		return true
 	}
 
@@ -105,14 +142,25 @@ func (o *CommonResponseFilter) SetAEnum(v map[string]map[string]string) {
 }
 
 func (o CommonResponseFilter) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if o.AAutoType != nil {
-		toSerialize["a_AutoType"] = o.AAutoType
-	}
-	if o.AEnum != nil {
-		toSerialize["a_Enum"] = o.AEnum
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CommonResponseFilter) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AAutoType) {
+		toSerialize["a_AutoType"] = o.AAutoType
+	}
+	if !IsNil(o.AAutoTypeHaving) {
+		toSerialize["a_AutoTypeHaving"] = o.AAutoTypeHaving
+	}
+	if !IsNil(o.AEnum) {
+		toSerialize["a_Enum"] = o.AEnum
+	}
+	return toSerialize, nil
 }
 
 type NullableCommonResponseFilter struct {

@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -14,6 +14,9 @@ package eZmaxApi
 import (
 	"encoding/json"
 )
+
+// checks if the CommonResponseObjSQLQuery type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CommonResponseObjSQLQuery{}
 
 // CommonResponseObjSQLQuery Definition of objSQLQuery Object
 type CommonResponseObjSQLQuery struct {
@@ -91,14 +94,18 @@ func (o *CommonResponseObjSQLQuery) SetFDuration(v float32) {
 }
 
 func (o CommonResponseObjSQLQuery) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["sQuery"] = o.SQuery
-	}
-	if true {
-		toSerialize["fDuration"] = o.FDuration
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CommonResponseObjSQLQuery) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["sQuery"] = o.SQuery
+	toSerialize["fDuration"] = o.FDuration
+	return toSerialize, nil
 }
 
 type NullableCommonResponseObjSQLQuery struct {

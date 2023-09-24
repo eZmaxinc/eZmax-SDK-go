@@ -5,15 +5,16 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FkiEzsignfoldersignerassociationID** | **int32** | The unique ID of the Ezsignfoldersignerassociation | 
-**SEzsignfoldersignerassociationstatusLastname** | **string** | The last name of the Ezsignsigner | 
-**SEzsignfoldersignerassociationstatusFirstname** | **string** | The first name of the Ezsignsigner | 
+**SEzsignfoldersignerassociationstatusLastname** | Pointer to **string** | The last name of the Ezsignsigner | [optional] 
+**SEzsignfoldersignerassociationstatusFirstname** | Pointer to **string** | The first name of the Ezsignsigner | [optional] 
+**SEzsignfoldersignerassociationstatusDescriptionX** | Pointer to **string** | The description of the Ezsignsigner | [optional] 
 **AObjEzsignsignaturestatus** | [**[]CustomEzsignsignaturestatusResponse**](CustomEzsignsignaturestatusResponse.md) |  | 
 
 ## Methods
 
 ### NewCustomEzsignfoldersignerassociationstatusResponse
 
-`func NewCustomEzsignfoldersignerassociationstatusResponse(fkiEzsignfoldersignerassociationID int32, sEzsignfoldersignerassociationstatusLastname string, sEzsignfoldersignerassociationstatusFirstname string, aObjEzsignsignaturestatus []CustomEzsignsignaturestatusResponse, ) *CustomEzsignfoldersignerassociationstatusResponse`
+`func NewCustomEzsignfoldersignerassociationstatusResponse(fkiEzsignfoldersignerassociationID int32, aObjEzsignsignaturestatus []CustomEzsignsignaturestatusResponse, ) *CustomEzsignfoldersignerassociationstatusResponse`
 
 NewCustomEzsignfoldersignerassociationstatusResponse instantiates a new CustomEzsignfoldersignerassociationstatusResponse object
 This constructor will assign default values to properties that have it defined,
@@ -67,6 +68,11 @@ and a boolean to check if the value has been set.
 
 SetSEzsignfoldersignerassociationstatusLastname sets SEzsignfoldersignerassociationstatusLastname field to given value.
 
+### HasSEzsignfoldersignerassociationstatusLastname
+
+`func (o *CustomEzsignfoldersignerassociationstatusResponse) HasSEzsignfoldersignerassociationstatusLastname() bool`
+
+HasSEzsignfoldersignerassociationstatusLastname returns a boolean if a field has been set.
 
 ### GetSEzsignfoldersignerassociationstatusFirstname
 
@@ -87,6 +93,36 @@ and a boolean to check if the value has been set.
 
 SetSEzsignfoldersignerassociationstatusFirstname sets SEzsignfoldersignerassociationstatusFirstname field to given value.
 
+### HasSEzsignfoldersignerassociationstatusFirstname
+
+`func (o *CustomEzsignfoldersignerassociationstatusResponse) HasSEzsignfoldersignerassociationstatusFirstname() bool`
+
+HasSEzsignfoldersignerassociationstatusFirstname returns a boolean if a field has been set.
+
+### GetSEzsignfoldersignerassociationstatusDescriptionX
+
+`func (o *CustomEzsignfoldersignerassociationstatusResponse) GetSEzsignfoldersignerassociationstatusDescriptionX() string`
+
+GetSEzsignfoldersignerassociationstatusDescriptionX returns the SEzsignfoldersignerassociationstatusDescriptionX field if non-nil, zero value otherwise.
+
+### GetSEzsignfoldersignerassociationstatusDescriptionXOk
+
+`func (o *CustomEzsignfoldersignerassociationstatusResponse) GetSEzsignfoldersignerassociationstatusDescriptionXOk() (*string, bool)`
+
+GetSEzsignfoldersignerassociationstatusDescriptionXOk returns a tuple with the SEzsignfoldersignerassociationstatusDescriptionX field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzsignfoldersignerassociationstatusDescriptionX
+
+`func (o *CustomEzsignfoldersignerassociationstatusResponse) SetSEzsignfoldersignerassociationstatusDescriptionX(v string)`
+
+SetSEzsignfoldersignerassociationstatusDescriptionX sets SEzsignfoldersignerassociationstatusDescriptionX field to given value.
+
+### HasSEzsignfoldersignerassociationstatusDescriptionX
+
+`func (o *CustomEzsignfoldersignerassociationstatusResponse) HasSEzsignfoldersignerassociationstatusDescriptionX() bool`
+
+HasSEzsignfoldersignerassociationstatusDescriptionX returns a boolean if a field has been set.
 
 ### GetAObjEzsignsignaturestatus
 

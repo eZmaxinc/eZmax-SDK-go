@@ -4,19 +4,23 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EActivesessionSessiontype** | [**FieldEActivesessionSessiontype**](FieldEActivesessionSessiontype.md) |  | 
+**EActivesessionUsertype** | [**FieldEActivesessionUsertype**](FieldEActivesessionUsertype.md) |  | 
+**EActivesessionOrigin** | [**FieldEActivesessionOrigin**](FieldEActivesessionOrigin.md) |  | 
 **EActivesessionWeekdaystart** | [**FieldEActivesessionWeekdaystart**](FieldEActivesessionWeekdaystart.md) |  | 
 **FkiLanguageID** | **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
 **SCompanyNameX** | **string** | The Name of the Company in the language of the requester | 
 **SDepartmentNameX** | **string** | The Name of the Department in the language of the requester | 
 **BActivesessionDebug** | **bool** | Whether the active session is in debug or not | 
+**BActivesessionIssuperadmin** | **bool** | Whether the active session is superadmin or not | 
 **PksCustomerCode** | **string** | The customer code assigned to your account | 
+**FkiSystemconfigurationtypeID** | Pointer to **int32** | The unique ID of the Systemconfigurationtype | [optional] 
+**FkiSignatureID** | Pointer to **int32** | The unique ID of the Signature | [optional] 
 
 ## Methods
 
 ### NewActivesessionResponse
 
-`func NewActivesessionResponse(eActivesessionSessiontype FieldEActivesessionSessiontype, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, bActivesessionDebug bool, pksCustomerCode string, ) *ActivesessionResponse`
+`func NewActivesessionResponse(eActivesessionUsertype FieldEActivesessionUsertype, eActivesessionOrigin FieldEActivesessionOrigin, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, bActivesessionDebug bool, bActivesessionIssuperadmin bool, pksCustomerCode string, ) *ActivesessionResponse`
 
 NewActivesessionResponse instantiates a new ActivesessionResponse object
 This constructor will assign default values to properties that have it defined,
@@ -31,24 +35,44 @@ NewActivesessionResponseWithDefaults instantiates a new ActivesessionResponse ob
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetEActivesessionSessiontype
+### GetEActivesessionUsertype
 
-`func (o *ActivesessionResponse) GetEActivesessionSessiontype() FieldEActivesessionSessiontype`
+`func (o *ActivesessionResponse) GetEActivesessionUsertype() FieldEActivesessionUsertype`
 
-GetEActivesessionSessiontype returns the EActivesessionSessiontype field if non-nil, zero value otherwise.
+GetEActivesessionUsertype returns the EActivesessionUsertype field if non-nil, zero value otherwise.
 
-### GetEActivesessionSessiontypeOk
+### GetEActivesessionUsertypeOk
 
-`func (o *ActivesessionResponse) GetEActivesessionSessiontypeOk() (*FieldEActivesessionSessiontype, bool)`
+`func (o *ActivesessionResponse) GetEActivesessionUsertypeOk() (*FieldEActivesessionUsertype, bool)`
 
-GetEActivesessionSessiontypeOk returns a tuple with the EActivesessionSessiontype field if it's non-nil, zero value otherwise
+GetEActivesessionUsertypeOk returns a tuple with the EActivesessionUsertype field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetEActivesessionSessiontype
+### SetEActivesessionUsertype
 
-`func (o *ActivesessionResponse) SetEActivesessionSessiontype(v FieldEActivesessionSessiontype)`
+`func (o *ActivesessionResponse) SetEActivesessionUsertype(v FieldEActivesessionUsertype)`
 
-SetEActivesessionSessiontype sets EActivesessionSessiontype field to given value.
+SetEActivesessionUsertype sets EActivesessionUsertype field to given value.
+
+
+### GetEActivesessionOrigin
+
+`func (o *ActivesessionResponse) GetEActivesessionOrigin() FieldEActivesessionOrigin`
+
+GetEActivesessionOrigin returns the EActivesessionOrigin field if non-nil, zero value otherwise.
+
+### GetEActivesessionOriginOk
+
+`func (o *ActivesessionResponse) GetEActivesessionOriginOk() (*FieldEActivesessionOrigin, bool)`
+
+GetEActivesessionOriginOk returns a tuple with the EActivesessionOrigin field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEActivesessionOrigin
+
+`func (o *ActivesessionResponse) SetEActivesessionOrigin(v FieldEActivesessionOrigin)`
+
+SetEActivesessionOrigin sets EActivesessionOrigin field to given value.
 
 
 ### GetEActivesessionWeekdaystart
@@ -151,6 +175,26 @@ and a boolean to check if the value has been set.
 SetBActivesessionDebug sets BActivesessionDebug field to given value.
 
 
+### GetBActivesessionIssuperadmin
+
+`func (o *ActivesessionResponse) GetBActivesessionIssuperadmin() bool`
+
+GetBActivesessionIssuperadmin returns the BActivesessionIssuperadmin field if non-nil, zero value otherwise.
+
+### GetBActivesessionIssuperadminOk
+
+`func (o *ActivesessionResponse) GetBActivesessionIssuperadminOk() (*bool, bool)`
+
+GetBActivesessionIssuperadminOk returns a tuple with the BActivesessionIssuperadmin field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBActivesessionIssuperadmin
+
+`func (o *ActivesessionResponse) SetBActivesessionIssuperadmin(v bool)`
+
+SetBActivesessionIssuperadmin sets BActivesessionIssuperadmin field to given value.
+
+
 ### GetPksCustomerCode
 
 `func (o *ActivesessionResponse) GetPksCustomerCode() string`
@@ -170,6 +214,56 @@ and a boolean to check if the value has been set.
 
 SetPksCustomerCode sets PksCustomerCode field to given value.
 
+
+### GetFkiSystemconfigurationtypeID
+
+`func (o *ActivesessionResponse) GetFkiSystemconfigurationtypeID() int32`
+
+GetFkiSystemconfigurationtypeID returns the FkiSystemconfigurationtypeID field if non-nil, zero value otherwise.
+
+### GetFkiSystemconfigurationtypeIDOk
+
+`func (o *ActivesessionResponse) GetFkiSystemconfigurationtypeIDOk() (*int32, bool)`
+
+GetFkiSystemconfigurationtypeIDOk returns a tuple with the FkiSystemconfigurationtypeID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiSystemconfigurationtypeID
+
+`func (o *ActivesessionResponse) SetFkiSystemconfigurationtypeID(v int32)`
+
+SetFkiSystemconfigurationtypeID sets FkiSystemconfigurationtypeID field to given value.
+
+### HasFkiSystemconfigurationtypeID
+
+`func (o *ActivesessionResponse) HasFkiSystemconfigurationtypeID() bool`
+
+HasFkiSystemconfigurationtypeID returns a boolean if a field has been set.
+
+### GetFkiSignatureID
+
+`func (o *ActivesessionResponse) GetFkiSignatureID() int32`
+
+GetFkiSignatureID returns the FkiSignatureID field if non-nil, zero value otherwise.
+
+### GetFkiSignatureIDOk
+
+`func (o *ActivesessionResponse) GetFkiSignatureIDOk() (*int32, bool)`
+
+GetFkiSignatureIDOk returns a tuple with the FkiSignatureID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiSignatureID
+
+`func (o *ActivesessionResponse) SetFkiSignatureID(v int32)`
+
+SetFkiSignatureID sets FkiSignatureID field to given value.
+
+### HasFkiSignatureID
+
+`func (o *ActivesessionResponse) HasFkiSignatureID() bool`
+
+HasFkiSignatureID returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

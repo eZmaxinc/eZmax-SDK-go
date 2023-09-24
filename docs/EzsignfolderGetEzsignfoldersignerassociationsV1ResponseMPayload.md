@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AObjEzsignfoldersignerassociation** | [**[]EzsignfoldersignerassociationResponseCompound**](EzsignfoldersignerassociationResponseCompound.md) |  | 
+**AObjEzsignfoldersignerassociation** | [**[]CustomEzsignfoldersignerassociationActionableElementResponse**](CustomEzsignfoldersignerassociationActionableElementResponse.md) |  | 
 
 ## Methods
 
 ### NewEzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload
 
-`func NewEzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload(aObjEzsignfoldersignerassociation []EzsignfoldersignerassociationResponseCompound, ) *EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload`
+`func NewEzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload(aObjEzsignfoldersignerassociation []CustomEzsignfoldersignerassociationActionableElementResponse, ) *EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload`
 
 NewEzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload instantiates a new EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload object
 This constructor will assign default values to properties that have it defined,
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAObjEzsignfoldersignerassociation
 
-`func (o *EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload) GetAObjEzsignfoldersignerassociation() []EzsignfoldersignerassociationResponseCompound`
+`func (o *EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload) GetAObjEzsignfoldersignerassociation() []CustomEzsignfoldersignerassociationActionableElementResponse`
 
 GetAObjEzsignfoldersignerassociation returns the AObjEzsignfoldersignerassociation field if non-nil, zero value otherwise.
 
 ### GetAObjEzsignfoldersignerassociationOk
 
-`func (o *EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload) GetAObjEzsignfoldersignerassociationOk() (*[]EzsignfoldersignerassociationResponseCompound, bool)`
+`func (o *EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload) GetAObjEzsignfoldersignerassociationOk() (*[]CustomEzsignfoldersignerassociationActionableElementResponse, bool)`
 
 GetAObjEzsignfoldersignerassociationOk returns a tuple with the AObjEzsignfoldersignerassociation field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAObjEzsignfoldersignerassociation
 
-`func (o *EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload) SetAObjEzsignfoldersignerassociation(v []EzsignfoldersignerassociationResponseCompound)`
+`func (o *EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload) SetAObjEzsignfoldersignerassociation(v []CustomEzsignfoldersignerassociationActionableElementResponse)`
 
 SetAObjEzsignfoldersignerassociation sets AObjEzsignfoldersignerassociation field to given value.
 

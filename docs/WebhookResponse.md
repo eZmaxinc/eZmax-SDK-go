@@ -4,19 +4,23 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PkiWebhookID** | **int32** | The Webhook ID. This value is visible in the admin interface. | 
-**EWebhookModule** | **string** | The Module generating the Event. | 
-**EWebhookEzsignevent** | Pointer to **string** | This Ezsign Event. This property will be set only if the Module is \&quot;Ezsign\&quot;. | [optional] 
-**PksCustomerCode** | **string** | The customer code assigned to your account | 
-**SWebhookUrl** | **string** | The url being called | 
-**SWebhookEmailfailed** | **string** | The email that will receive the webhook in case all attempts fail. | 
-**EWebhookManagementevent** | Pointer to **string** | This Management Event. This property will be set only if the Module is \&quot;Management\&quot;. | [optional] 
+**PkiWebhookID** | **int32** | The unique ID of the Webhook | 
+**SWebhookDescription** | **string** | The description of the Webhook | 
+**FkiEzsignfoldertypeID** | Pointer to **int32** | The unique ID of the Ezsignfoldertype. | [optional] 
+**SEzsignfoldertypeNameX** | Pointer to **string** | The name of the Ezsignfoldertype in the language of the requester | [optional] 
+**EWebhookModule** | [**FieldEWebhookModule**](FieldEWebhookModule.md) |  | 
+**EWebhookEzsignevent** | Pointer to [**FieldEWebhookEzsignevent**](FieldEWebhookEzsignevent.md) |  | [optional] 
+**EWebhookManagementevent** | Pointer to [**FieldEWebhookManagementevent**](FieldEWebhookManagementevent.md) |  | [optional] 
+**SWebhookUrl** | **string** | The URL of the Webhook callback | 
+**SWebhookEmailfailed** | **string** | The email that will receive the Webhook in case all attempts fail | 
+**BWebhookIsactive** | Pointer to **bool** | Whether the Webhook is active or not | [optional] 
+**BWebhookSkipsslvalidation** | **bool** | Wheter the server&#39;s SSL certificate should be validated or not. Not recommended to skip for production use | 
 
 ## Methods
 
 ### NewWebhookResponse
 
-`func NewWebhookResponse(pkiWebhookID int32, eWebhookModule string, pksCustomerCode string, sWebhookUrl string, sWebhookEmailfailed string, ) *WebhookResponse`
+`func NewWebhookResponse(pkiWebhookID int32, sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookSkipsslvalidation bool, ) *WebhookResponse`
 
 NewWebhookResponse instantiates a new WebhookResponse object
 This constructor will assign default values to properties that have it defined,
@@ -51,42 +55,112 @@ and a boolean to check if the value has been set.
 SetPkiWebhookID sets PkiWebhookID field to given value.
 
 
+### GetSWebhookDescription
+
+`func (o *WebhookResponse) GetSWebhookDescription() string`
+
+GetSWebhookDescription returns the SWebhookDescription field if non-nil, zero value otherwise.
+
+### GetSWebhookDescriptionOk
+
+`func (o *WebhookResponse) GetSWebhookDescriptionOk() (*string, bool)`
+
+GetSWebhookDescriptionOk returns a tuple with the SWebhookDescription field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSWebhookDescription
+
+`func (o *WebhookResponse) SetSWebhookDescription(v string)`
+
+SetSWebhookDescription sets SWebhookDescription field to given value.
+
+
+### GetFkiEzsignfoldertypeID
+
+`func (o *WebhookResponse) GetFkiEzsignfoldertypeID() int32`
+
+GetFkiEzsignfoldertypeID returns the FkiEzsignfoldertypeID field if non-nil, zero value otherwise.
+
+### GetFkiEzsignfoldertypeIDOk
+
+`func (o *WebhookResponse) GetFkiEzsignfoldertypeIDOk() (*int32, bool)`
+
+GetFkiEzsignfoldertypeIDOk returns a tuple with the FkiEzsignfoldertypeID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiEzsignfoldertypeID
+
+`func (o *WebhookResponse) SetFkiEzsignfoldertypeID(v int32)`
+
+SetFkiEzsignfoldertypeID sets FkiEzsignfoldertypeID field to given value.
+
+### HasFkiEzsignfoldertypeID
+
+`func (o *WebhookResponse) HasFkiEzsignfoldertypeID() bool`
+
+HasFkiEzsignfoldertypeID returns a boolean if a field has been set.
+
+### GetSEzsignfoldertypeNameX
+
+`func (o *WebhookResponse) GetSEzsignfoldertypeNameX() string`
+
+GetSEzsignfoldertypeNameX returns the SEzsignfoldertypeNameX field if non-nil, zero value otherwise.
+
+### GetSEzsignfoldertypeNameXOk
+
+`func (o *WebhookResponse) GetSEzsignfoldertypeNameXOk() (*string, bool)`
+
+GetSEzsignfoldertypeNameXOk returns a tuple with the SEzsignfoldertypeNameX field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzsignfoldertypeNameX
+
+`func (o *WebhookResponse) SetSEzsignfoldertypeNameX(v string)`
+
+SetSEzsignfoldertypeNameX sets SEzsignfoldertypeNameX field to given value.
+
+### HasSEzsignfoldertypeNameX
+
+`func (o *WebhookResponse) HasSEzsignfoldertypeNameX() bool`
+
+HasSEzsignfoldertypeNameX returns a boolean if a field has been set.
+
 ### GetEWebhookModule
 
-`func (o *WebhookResponse) GetEWebhookModule() string`
+`func (o *WebhookResponse) GetEWebhookModule() FieldEWebhookModule`
 
 GetEWebhookModule returns the EWebhookModule field if non-nil, zero value otherwise.
 
 ### GetEWebhookModuleOk
 
-`func (o *WebhookResponse) GetEWebhookModuleOk() (*string, bool)`
+`func (o *WebhookResponse) GetEWebhookModuleOk() (*FieldEWebhookModule, bool)`
 
 GetEWebhookModuleOk returns a tuple with the EWebhookModule field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEWebhookModule
 
-`func (o *WebhookResponse) SetEWebhookModule(v string)`
+`func (o *WebhookResponse) SetEWebhookModule(v FieldEWebhookModule)`
 
 SetEWebhookModule sets EWebhookModule field to given value.
 
 
 ### GetEWebhookEzsignevent
 
-`func (o *WebhookResponse) GetEWebhookEzsignevent() string`
+`func (o *WebhookResponse) GetEWebhookEzsignevent() FieldEWebhookEzsignevent`
 
 GetEWebhookEzsignevent returns the EWebhookEzsignevent field if non-nil, zero value otherwise.
 
 ### GetEWebhookEzsigneventOk
 
-`func (o *WebhookResponse) GetEWebhookEzsigneventOk() (*string, bool)`
+`func (o *WebhookResponse) GetEWebhookEzsigneventOk() (*FieldEWebhookEzsignevent, bool)`
 
 GetEWebhookEzsigneventOk returns a tuple with the EWebhookEzsignevent field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEWebhookEzsignevent
 
-`func (o *WebhookResponse) SetEWebhookEzsignevent(v string)`
+`func (o *WebhookResponse) SetEWebhookEzsignevent(v FieldEWebhookEzsignevent)`
 
 SetEWebhookEzsignevent sets EWebhookEzsignevent field to given value.
 
@@ -96,25 +170,30 @@ SetEWebhookEzsignevent sets EWebhookEzsignevent field to given value.
 
 HasEWebhookEzsignevent returns a boolean if a field has been set.
 
-### GetPksCustomerCode
+### GetEWebhookManagementevent
 
-`func (o *WebhookResponse) GetPksCustomerCode() string`
+`func (o *WebhookResponse) GetEWebhookManagementevent() FieldEWebhookManagementevent`
 
-GetPksCustomerCode returns the PksCustomerCode field if non-nil, zero value otherwise.
+GetEWebhookManagementevent returns the EWebhookManagementevent field if non-nil, zero value otherwise.
 
-### GetPksCustomerCodeOk
+### GetEWebhookManagementeventOk
 
-`func (o *WebhookResponse) GetPksCustomerCodeOk() (*string, bool)`
+`func (o *WebhookResponse) GetEWebhookManagementeventOk() (*FieldEWebhookManagementevent, bool)`
 
-GetPksCustomerCodeOk returns a tuple with the PksCustomerCode field if it's non-nil, zero value otherwise
+GetEWebhookManagementeventOk returns a tuple with the EWebhookManagementevent field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPksCustomerCode
+### SetEWebhookManagementevent
 
-`func (o *WebhookResponse) SetPksCustomerCode(v string)`
+`func (o *WebhookResponse) SetEWebhookManagementevent(v FieldEWebhookManagementevent)`
 
-SetPksCustomerCode sets PksCustomerCode field to given value.
+SetEWebhookManagementevent sets EWebhookManagementevent field to given value.
 
+### HasEWebhookManagementevent
+
+`func (o *WebhookResponse) HasEWebhookManagementevent() bool`
+
+HasEWebhookManagementevent returns a boolean if a field has been set.
 
 ### GetSWebhookUrl
 
@@ -156,30 +235,50 @@ and a boolean to check if the value has been set.
 SetSWebhookEmailfailed sets SWebhookEmailfailed field to given value.
 
 
-### GetEWebhookManagementevent
+### GetBWebhookIsactive
 
-`func (o *WebhookResponse) GetEWebhookManagementevent() string`
+`func (o *WebhookResponse) GetBWebhookIsactive() bool`
 
-GetEWebhookManagementevent returns the EWebhookManagementevent field if non-nil, zero value otherwise.
+GetBWebhookIsactive returns the BWebhookIsactive field if non-nil, zero value otherwise.
 
-### GetEWebhookManagementeventOk
+### GetBWebhookIsactiveOk
 
-`func (o *WebhookResponse) GetEWebhookManagementeventOk() (*string, bool)`
+`func (o *WebhookResponse) GetBWebhookIsactiveOk() (*bool, bool)`
 
-GetEWebhookManagementeventOk returns a tuple with the EWebhookManagementevent field if it's non-nil, zero value otherwise
+GetBWebhookIsactiveOk returns a tuple with the BWebhookIsactive field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetEWebhookManagementevent
+### SetBWebhookIsactive
 
-`func (o *WebhookResponse) SetEWebhookManagementevent(v string)`
+`func (o *WebhookResponse) SetBWebhookIsactive(v bool)`
 
-SetEWebhookManagementevent sets EWebhookManagementevent field to given value.
+SetBWebhookIsactive sets BWebhookIsactive field to given value.
 
-### HasEWebhookManagementevent
+### HasBWebhookIsactive
 
-`func (o *WebhookResponse) HasEWebhookManagementevent() bool`
+`func (o *WebhookResponse) HasBWebhookIsactive() bool`
 
-HasEWebhookManagementevent returns a boolean if a field has been set.
+HasBWebhookIsactive returns a boolean if a field has been set.
+
+### GetBWebhookSkipsslvalidation
+
+`func (o *WebhookResponse) GetBWebhookSkipsslvalidation() bool`
+
+GetBWebhookSkipsslvalidation returns the BWebhookSkipsslvalidation field if non-nil, zero value otherwise.
+
+### GetBWebhookSkipsslvalidationOk
+
+`func (o *WebhookResponse) GetBWebhookSkipsslvalidationOk() (*bool, bool)`
+
+GetBWebhookSkipsslvalidationOk returns a tuple with the BWebhookSkipsslvalidation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBWebhookSkipsslvalidation
+
+`func (o *WebhookResponse) SetBWebhookSkipsslvalidation(v bool)`
+
+SetBWebhookSkipsslvalidation sets BWebhookSkipsslvalidation field to given value.
+
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

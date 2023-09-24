@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,21 +15,27 @@ import (
 	"encoding/json"
 )
 
-// UserCreateEzsignuserV1Request Request for the /1/module/user/createEzsignuser API Request
+// checks if the UserCreateEzsignuserV1Request type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UserCreateEzsignuserV1Request{}
+
+// UserCreateEzsignuserV1Request Request for POST /1/module/user/createEzsignuser
 type UserCreateEzsignuserV1Request struct {
 	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
 	FkiLanguageID int32 `json:"fkiLanguageID"`
-	// The First name of the user
+	// The first name of the user
 	SUserFirstname string `json:"sUserFirstname"`
-	// The Last name of the user
+	// The last name of the user
 	SUserLastname string `json:"sUserLastname"`
 	// The email address.
 	SEmailAddress string `json:"sEmailAddress"`
 	// The region of the phone number. (For a North America Number only)  The region is the \"514\" section in this sample phone number: (514) 990-1516 x123
+	// Deprecated
 	SPhoneRegion string `json:"sPhoneRegion"`
 	// The exchange of the phone number. (For a North America Number only)  The exchange is the \"990\" section in this sample phone number: (514) 990-1516 x123
+	// Deprecated
 	SPhoneExchange string `json:"sPhoneExchange"`
 	// The number of the phone number. (For a North America Number only)  The number is the \"1516\" section in this sample phone number: (514) 990-1516 x123
+	// Deprecated
 	SPhoneNumber string `json:"sPhoneNumber"`
 	// The extension of the phone number.  The extension is the \"123\" section in this sample phone number: (514) 990-1516 x123.  It can also be used with international phone numbers
 	SPhoneExtension *string `json:"sPhoneExtension,omitempty"`
@@ -156,6 +162,7 @@ func (o *UserCreateEzsignuserV1Request) SetSEmailAddress(v string) {
 }
 
 // GetSPhoneRegion returns the SPhoneRegion field value
+// Deprecated
 func (o *UserCreateEzsignuserV1Request) GetSPhoneRegion() string {
 	if o == nil {
 		var ret string
@@ -167,6 +174,7 @@ func (o *UserCreateEzsignuserV1Request) GetSPhoneRegion() string {
 
 // GetSPhoneRegionOk returns a tuple with the SPhoneRegion field value
 // and a boolean to check if the value has been set.
+// Deprecated
 func (o *UserCreateEzsignuserV1Request) GetSPhoneRegionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
@@ -175,11 +183,13 @@ func (o *UserCreateEzsignuserV1Request) GetSPhoneRegionOk() (*string, bool) {
 }
 
 // SetSPhoneRegion sets field value
+// Deprecated
 func (o *UserCreateEzsignuserV1Request) SetSPhoneRegion(v string) {
 	o.SPhoneRegion = v
 }
 
 // GetSPhoneExchange returns the SPhoneExchange field value
+// Deprecated
 func (o *UserCreateEzsignuserV1Request) GetSPhoneExchange() string {
 	if o == nil {
 		var ret string
@@ -191,6 +201,7 @@ func (o *UserCreateEzsignuserV1Request) GetSPhoneExchange() string {
 
 // GetSPhoneExchangeOk returns a tuple with the SPhoneExchange field value
 // and a boolean to check if the value has been set.
+// Deprecated
 func (o *UserCreateEzsignuserV1Request) GetSPhoneExchangeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
@@ -199,11 +210,13 @@ func (o *UserCreateEzsignuserV1Request) GetSPhoneExchangeOk() (*string, bool) {
 }
 
 // SetSPhoneExchange sets field value
+// Deprecated
 func (o *UserCreateEzsignuserV1Request) SetSPhoneExchange(v string) {
 	o.SPhoneExchange = v
 }
 
 // GetSPhoneNumber returns the SPhoneNumber field value
+// Deprecated
 func (o *UserCreateEzsignuserV1Request) GetSPhoneNumber() string {
 	if o == nil {
 		var ret string
@@ -215,6 +228,7 @@ func (o *UserCreateEzsignuserV1Request) GetSPhoneNumber() string {
 
 // GetSPhoneNumberOk returns a tuple with the SPhoneNumber field value
 // and a boolean to check if the value has been set.
+// Deprecated
 func (o *UserCreateEzsignuserV1Request) GetSPhoneNumberOk() (*string, bool) {
 	if o == nil {
 		return nil, false
@@ -223,13 +237,14 @@ func (o *UserCreateEzsignuserV1Request) GetSPhoneNumberOk() (*string, bool) {
 }
 
 // SetSPhoneNumber sets field value
+// Deprecated
 func (o *UserCreateEzsignuserV1Request) SetSPhoneNumber(v string) {
 	o.SPhoneNumber = v
 }
 
 // GetSPhoneExtension returns the SPhoneExtension field value if set, zero value otherwise.
 func (o *UserCreateEzsignuserV1Request) GetSPhoneExtension() string {
-	if o == nil || o.SPhoneExtension == nil {
+	if o == nil || IsNil(o.SPhoneExtension) {
 		var ret string
 		return ret
 	}
@@ -239,7 +254,7 @@ func (o *UserCreateEzsignuserV1Request) GetSPhoneExtension() string {
 // GetSPhoneExtensionOk returns a tuple with the SPhoneExtension field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserCreateEzsignuserV1Request) GetSPhoneExtensionOk() (*string, bool) {
-	if o == nil || o.SPhoneExtension == nil {
+	if o == nil || IsNil(o.SPhoneExtension) {
 		return nil, false
 	}
 	return o.SPhoneExtension, true
@@ -247,7 +262,7 @@ func (o *UserCreateEzsignuserV1Request) GetSPhoneExtensionOk() (*string, bool) {
 
 // HasSPhoneExtension returns a boolean if a field has been set.
 func (o *UserCreateEzsignuserV1Request) HasSPhoneExtension() bool {
-	if o != nil && o.SPhoneExtension != nil {
+	if o != nil && !IsNil(o.SPhoneExtension) {
 		return true
 	}
 
@@ -260,32 +275,26 @@ func (o *UserCreateEzsignuserV1Request) SetSPhoneExtension(v string) {
 }
 
 func (o UserCreateEzsignuserV1Request) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["fkiLanguageID"] = o.FkiLanguageID
-	}
-	if true {
-		toSerialize["sUserFirstname"] = o.SUserFirstname
-	}
-	if true {
-		toSerialize["sUserLastname"] = o.SUserLastname
-	}
-	if true {
-		toSerialize["sEmailAddress"] = o.SEmailAddress
-	}
-	if true {
-		toSerialize["sPhoneRegion"] = o.SPhoneRegion
-	}
-	if true {
-		toSerialize["sPhoneExchange"] = o.SPhoneExchange
-	}
-	if true {
-		toSerialize["sPhoneNumber"] = o.SPhoneNumber
-	}
-	if o.SPhoneExtension != nil {
-		toSerialize["sPhoneExtension"] = o.SPhoneExtension
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o UserCreateEzsignuserV1Request) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["fkiLanguageID"] = o.FkiLanguageID
+	toSerialize["sUserFirstname"] = o.SUserFirstname
+	toSerialize["sUserLastname"] = o.SUserLastname
+	toSerialize["sEmailAddress"] = o.SEmailAddress
+	toSerialize["sPhoneRegion"] = o.SPhoneRegion
+	toSerialize["sPhoneExchange"] = o.SPhoneExchange
+	toSerialize["sPhoneNumber"] = o.SPhoneNumber
+	if !IsNil(o.SPhoneExtension) {
+		toSerialize["sPhoneExtension"] = o.SPhoneExtension
+	}
+	return toSerialize, nil
 }
 
 type NullableUserCreateEzsignuserV1Request struct {

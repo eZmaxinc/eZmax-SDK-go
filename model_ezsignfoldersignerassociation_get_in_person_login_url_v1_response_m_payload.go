@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,7 +15,10 @@ import (
 	"encoding/json"
 )
 
-// EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload Payload for the /1/object/ezsignfoldersignerassociation/getInPersonLoginUrl API Request
+// checks if the EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload{}
+
+// EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload Payload for GET /1/object/ezsignfoldersignerassociation/getInPersonLoginUrl
 type EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload struct {
 	// The Url to login to the signing application.    Url will expire after 30 minutes.  
 	SLoginUrl string `json:"sLoginUrl"`
@@ -64,11 +67,17 @@ func (o *EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload) Set
 }
 
 func (o EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["sLoginUrl"] = o.SLoginUrl
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["sLoginUrl"] = o.SLoginUrl
+	return toSerialize, nil
 }
 
 type NullableEzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload struct {

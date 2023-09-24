@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AAutoType** | Pointer to **map[string]string** | List of filters that can be used in *sFilter* (Automatic types) | [optional] 
+**AAutoTypeHaving** | Pointer to **map[string]string** | List of computed filters that can be used in *sFilter* (Automatic types) | [optional] 
 **AEnum** | Pointer to **map[string]map[string]string** | List of filters that can be used in *sFilter* (Enum types) | [optional] 
 
 ## Methods
@@ -50,6 +51,31 @@ SetAAutoType sets AAutoType field to given value.
 `func (o *CommonResponseFilter) HasAAutoType() bool`
 
 HasAAutoType returns a boolean if a field has been set.
+
+### GetAAutoTypeHaving
+
+`func (o *CommonResponseFilter) GetAAutoTypeHaving() map[string]string`
+
+GetAAutoTypeHaving returns the AAutoTypeHaving field if non-nil, zero value otherwise.
+
+### GetAAutoTypeHavingOk
+
+`func (o *CommonResponseFilter) GetAAutoTypeHavingOk() (*map[string]string, bool)`
+
+GetAAutoTypeHavingOk returns a tuple with the AAutoTypeHaving field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAAutoTypeHaving
+
+`func (o *CommonResponseFilter) SetAAutoTypeHaving(v map[string]string)`
+
+SetAAutoTypeHaving sets AAutoTypeHaving field to given value.
+
+### HasAAutoTypeHaving
+
+`func (o *CommonResponseFilter) HasAAutoTypeHaving() bool`
+
+HasAAutoTypeHaving returns a boolean if a field has been set.
 
 ### GetAEnum
 

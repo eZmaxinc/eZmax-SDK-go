@@ -6,13 +6,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiEzsignfoldersignerassociationID** | **int32** | The unique ID of the Ezsignfoldersignerassociation | 
 **FkiEzsignfolderID** | **int32** | The unique ID of the Ezsignfolder | 
+**BEzsignfoldersignerassociationDelayedsend** | **bool** | If this flag is true the signatory is part of a delayed send. | 
 **BEzsignfoldersignerassociationReceivecopy** | **bool** | If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain&#39;t required to sign the document. | 
+**TEzsignfoldersignerassociationMessage** | **string** | A custom text message that will be added to the email sent. | 
 
 ## Methods
 
 ### NewEzsignfoldersignerassociationResponse
 
-`func NewEzsignfoldersignerassociationResponse(pkiEzsignfoldersignerassociationID int32, fkiEzsignfolderID int32, bEzsignfoldersignerassociationReceivecopy bool, ) *EzsignfoldersignerassociationResponse`
+`func NewEzsignfoldersignerassociationResponse(pkiEzsignfoldersignerassociationID int32, fkiEzsignfolderID int32, bEzsignfoldersignerassociationDelayedsend bool, bEzsignfoldersignerassociationReceivecopy bool, tEzsignfoldersignerassociationMessage string, ) *EzsignfoldersignerassociationResponse`
 
 NewEzsignfoldersignerassociationResponse instantiates a new EzsignfoldersignerassociationResponse object
 This constructor will assign default values to properties that have it defined,
@@ -67,6 +69,26 @@ and a boolean to check if the value has been set.
 SetFkiEzsignfolderID sets FkiEzsignfolderID field to given value.
 
 
+### GetBEzsignfoldersignerassociationDelayedsend
+
+`func (o *EzsignfoldersignerassociationResponse) GetBEzsignfoldersignerassociationDelayedsend() bool`
+
+GetBEzsignfoldersignerassociationDelayedsend returns the BEzsignfoldersignerassociationDelayedsend field if non-nil, zero value otherwise.
+
+### GetBEzsignfoldersignerassociationDelayedsendOk
+
+`func (o *EzsignfoldersignerassociationResponse) GetBEzsignfoldersignerassociationDelayedsendOk() (*bool, bool)`
+
+GetBEzsignfoldersignerassociationDelayedsendOk returns a tuple with the BEzsignfoldersignerassociationDelayedsend field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsignfoldersignerassociationDelayedsend
+
+`func (o *EzsignfoldersignerassociationResponse) SetBEzsignfoldersignerassociationDelayedsend(v bool)`
+
+SetBEzsignfoldersignerassociationDelayedsend sets BEzsignfoldersignerassociationDelayedsend field to given value.
+
+
 ### GetBEzsignfoldersignerassociationReceivecopy
 
 `func (o *EzsignfoldersignerassociationResponse) GetBEzsignfoldersignerassociationReceivecopy() bool`
@@ -85,6 +107,26 @@ and a boolean to check if the value has been set.
 `func (o *EzsignfoldersignerassociationResponse) SetBEzsignfoldersignerassociationReceivecopy(v bool)`
 
 SetBEzsignfoldersignerassociationReceivecopy sets BEzsignfoldersignerassociationReceivecopy field to given value.
+
+
+### GetTEzsignfoldersignerassociationMessage
+
+`func (o *EzsignfoldersignerassociationResponse) GetTEzsignfoldersignerassociationMessage() string`
+
+GetTEzsignfoldersignerassociationMessage returns the TEzsignfoldersignerassociationMessage field if non-nil, zero value otherwise.
+
+### GetTEzsignfoldersignerassociationMessageOk
+
+`func (o *EzsignfoldersignerassociationResponse) GetTEzsignfoldersignerassociationMessageOk() (*string, bool)`
+
+GetTEzsignfoldersignerassociationMessageOk returns a tuple with the TEzsignfoldersignerassociationMessage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTEzsignfoldersignerassociationMessage
+
+`func (o *EzsignfoldersignerassociationResponse) SetTEzsignfoldersignerassociationMessage(v string)`
+
+SetTEzsignfoldersignerassociationMessage sets TEzsignfoldersignerassociationMessage field to given value.
 
 
 

@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **SEzsignfolderDescription** | **string** | The description of the Ezsignfolder | 
 **EEzsignfolderStep** | [**FieldEEzsignfolderStep**](FieldEEzsignfolderStep.md) |  | 
 **DtCreatedDate** | **string** | The date and time at which the object was created | 
-**DtEzsignfolderSentdate** | **NullableString** | The date and time at which the Ezsign folder was sent the last time. | 
-**DtDueDate** | **NullableString** | Represent a Date Time. The timezone is the one configured in the User&#39;s profile. | 
+**DtEzsignfolderSentdate** | Pointer to **string** | The date and time at which the Ezsignfolder was sent the last time. | [optional] 
+**DtEzsignfolderDuedate** | Pointer to **string** | The maximum date and time at which the Ezsignfolder can be signed. | [optional] 
 **IEzsigndocument** | **int32** | The total number of Ezsigndocument in the folder | 
 **IEzsigndocumentEdm** | **int32** | The total number of Ezsigndocument in the folder that were saved in the edm system | 
 **IEzsignsignature** | **int32** | The total number of signature blocks in all Ezsigndocuments in the folder | 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewEzsignfolderListElement
 
-`func NewEzsignfolderListElement(pkiEzsignfolderID int32, fkiEzsignfoldertypeID int32, eEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX string, sEzsignfolderDescription string, eEzsignfolderStep FieldEEzsignfolderStep, dtCreatedDate string, dtEzsignfolderSentdate NullableString, dtDueDate NullableString, iEzsigndocument int32, iEzsigndocumentEdm int32, iEzsignsignature int32, iEzsignsignatureSigned int32, ) *EzsignfolderListElement`
+`func NewEzsignfolderListElement(pkiEzsignfolderID int32, fkiEzsignfoldertypeID int32, eEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX string, sEzsignfolderDescription string, eEzsignfolderStep FieldEEzsignfolderStep, dtCreatedDate string, iEzsigndocument int32, iEzsigndocumentEdm int32, iEzsignsignature int32, iEzsignsignatureSigned int32, ) *EzsignfolderListElement`
 
 NewEzsignfolderListElement instantiates a new EzsignfolderListElement object
 This constructor will assign default values to properties that have it defined,
@@ -196,47 +196,37 @@ and a boolean to check if the value has been set.
 
 SetDtEzsignfolderSentdate sets DtEzsignfolderSentdate field to given value.
 
+### HasDtEzsignfolderSentdate
 
-### SetDtEzsignfolderSentdateNil
+`func (o *EzsignfolderListElement) HasDtEzsignfolderSentdate() bool`
 
-`func (o *EzsignfolderListElement) SetDtEzsignfolderSentdateNil(b bool)`
+HasDtEzsignfolderSentdate returns a boolean if a field has been set.
 
- SetDtEzsignfolderSentdateNil sets the value for DtEzsignfolderSentdate to be an explicit nil
+### GetDtEzsignfolderDuedate
 
-### UnsetDtEzsignfolderSentdate
-`func (o *EzsignfolderListElement) UnsetDtEzsignfolderSentdate()`
+`func (o *EzsignfolderListElement) GetDtEzsignfolderDuedate() string`
 
-UnsetDtEzsignfolderSentdate ensures that no value is present for DtEzsignfolderSentdate, not even an explicit nil
-### GetDtDueDate
+GetDtEzsignfolderDuedate returns the DtEzsignfolderDuedate field if non-nil, zero value otherwise.
 
-`func (o *EzsignfolderListElement) GetDtDueDate() string`
+### GetDtEzsignfolderDuedateOk
 
-GetDtDueDate returns the DtDueDate field if non-nil, zero value otherwise.
+`func (o *EzsignfolderListElement) GetDtEzsignfolderDuedateOk() (*string, bool)`
 
-### GetDtDueDateOk
-
-`func (o *EzsignfolderListElement) GetDtDueDateOk() (*string, bool)`
-
-GetDtDueDateOk returns a tuple with the DtDueDate field if it's non-nil, zero value otherwise
+GetDtEzsignfolderDuedateOk returns a tuple with the DtEzsignfolderDuedate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDtDueDate
+### SetDtEzsignfolderDuedate
 
-`func (o *EzsignfolderListElement) SetDtDueDate(v string)`
+`func (o *EzsignfolderListElement) SetDtEzsignfolderDuedate(v string)`
 
-SetDtDueDate sets DtDueDate field to given value.
+SetDtEzsignfolderDuedate sets DtEzsignfolderDuedate field to given value.
 
+### HasDtEzsignfolderDuedate
 
-### SetDtDueDateNil
+`func (o *EzsignfolderListElement) HasDtEzsignfolderDuedate() bool`
 
-`func (o *EzsignfolderListElement) SetDtDueDateNil(b bool)`
+HasDtEzsignfolderDuedate returns a boolean if a field has been set.
 
- SetDtDueDateNil sets the value for DtDueDate to be an explicit nil
-
-### UnsetDtDueDate
-`func (o *EzsignfolderListElement) UnsetDtDueDate()`
-
-UnsetDtDueDate ensures that no value is present for DtDueDate, not even an explicit nil
 ### GetIEzsigndocument
 
 `func (o *EzsignfolderListElement) GetIEzsigndocument() int32`

@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -14,6 +14,9 @@ package eZmaxApi
 import (
 	"encoding/json"
 )
+
+// checks if the CustomWordPositionOccurenceResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CustomWordPositionOccurenceResponse{}
 
 // CustomWordPositionOccurenceResponse A Word Position Object
 type CustomWordPositionOccurenceResponse struct {
@@ -44,7 +47,7 @@ func NewCustomWordPositionOccurenceResponseWithDefaults() *CustomWordPositionOcc
 
 // GetIPage returns the IPage field value if set, zero value otherwise.
 func (o *CustomWordPositionOccurenceResponse) GetIPage() int32 {
-	if o == nil || o.IPage == nil {
+	if o == nil || IsNil(o.IPage) {
 		var ret int32
 		return ret
 	}
@@ -54,7 +57,7 @@ func (o *CustomWordPositionOccurenceResponse) GetIPage() int32 {
 // GetIPageOk returns a tuple with the IPage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CustomWordPositionOccurenceResponse) GetIPageOk() (*int32, bool) {
-	if o == nil || o.IPage == nil {
+	if o == nil || IsNil(o.IPage) {
 		return nil, false
 	}
 	return o.IPage, true
@@ -62,7 +65,7 @@ func (o *CustomWordPositionOccurenceResponse) GetIPageOk() (*int32, bool) {
 
 // HasIPage returns a boolean if a field has been set.
 func (o *CustomWordPositionOccurenceResponse) HasIPage() bool {
-	if o != nil && o.IPage != nil {
+	if o != nil && !IsNil(o.IPage) {
 		return true
 	}
 
@@ -76,7 +79,7 @@ func (o *CustomWordPositionOccurenceResponse) SetIPage(v int32) {
 
 // GetIX returns the IX field value if set, zero value otherwise.
 func (o *CustomWordPositionOccurenceResponse) GetIX() int32 {
-	if o == nil || o.IX == nil {
+	if o == nil || IsNil(o.IX) {
 		var ret int32
 		return ret
 	}
@@ -86,7 +89,7 @@ func (o *CustomWordPositionOccurenceResponse) GetIX() int32 {
 // GetIXOk returns a tuple with the IX field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CustomWordPositionOccurenceResponse) GetIXOk() (*int32, bool) {
-	if o == nil || o.IX == nil {
+	if o == nil || IsNil(o.IX) {
 		return nil, false
 	}
 	return o.IX, true
@@ -94,7 +97,7 @@ func (o *CustomWordPositionOccurenceResponse) GetIXOk() (*int32, bool) {
 
 // HasIX returns a boolean if a field has been set.
 func (o *CustomWordPositionOccurenceResponse) HasIX() bool {
-	if o != nil && o.IX != nil {
+	if o != nil && !IsNil(o.IX) {
 		return true
 	}
 
@@ -108,7 +111,7 @@ func (o *CustomWordPositionOccurenceResponse) SetIX(v int32) {
 
 // GetIY returns the IY field value if set, zero value otherwise.
 func (o *CustomWordPositionOccurenceResponse) GetIY() int32 {
-	if o == nil || o.IY == nil {
+	if o == nil || IsNil(o.IY) {
 		var ret int32
 		return ret
 	}
@@ -118,7 +121,7 @@ func (o *CustomWordPositionOccurenceResponse) GetIY() int32 {
 // GetIYOk returns a tuple with the IY field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CustomWordPositionOccurenceResponse) GetIYOk() (*int32, bool) {
-	if o == nil || o.IY == nil {
+	if o == nil || IsNil(o.IY) {
 		return nil, false
 	}
 	return o.IY, true
@@ -126,7 +129,7 @@ func (o *CustomWordPositionOccurenceResponse) GetIYOk() (*int32, bool) {
 
 // HasIY returns a boolean if a field has been set.
 func (o *CustomWordPositionOccurenceResponse) HasIY() bool {
-	if o != nil && o.IY != nil {
+	if o != nil && !IsNil(o.IY) {
 		return true
 	}
 
@@ -139,17 +142,25 @@ func (o *CustomWordPositionOccurenceResponse) SetIY(v int32) {
 }
 
 func (o CustomWordPositionOccurenceResponse) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if o.IPage != nil {
-		toSerialize["iPage"] = o.IPage
-	}
-	if o.IX != nil {
-		toSerialize["iX"] = o.IX
-	}
-	if o.IY != nil {
-		toSerialize["iY"] = o.IY
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CustomWordPositionOccurenceResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.IPage) {
+		toSerialize["iPage"] = o.IPage
+	}
+	if !IsNil(o.IX) {
+		toSerialize["iX"] = o.IX
+	}
+	if !IsNil(o.IY) {
+		toSerialize["iY"] = o.IY
+	}
+	return toSerialize, nil
 }
 
 type NullableCustomWordPositionOccurenceResponse struct {

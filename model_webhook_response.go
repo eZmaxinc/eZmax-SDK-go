@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,35 +15,44 @@ import (
 	"encoding/json"
 )
 
+// checks if the WebhookResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &WebhookResponse{}
+
 // WebhookResponse A webhook object
 type WebhookResponse struct {
-	// The Webhook ID. This value is visible in the admin interface.
+	// The unique ID of the Webhook
 	PkiWebhookID int32 `json:"pkiWebhookID"`
-	// The Module generating the Event.
-	EWebhookModule string `json:"eWebhookModule"`
-	// This Ezsign Event. This property will be set only if the Module is \"Ezsign\".
-	EWebhookEzsignevent *string `json:"eWebhookEzsignevent,omitempty"`
-	// The customer code assigned to your account
-	PksCustomerCode string `json:"pksCustomerCode"`
-	// The url being called
+	// The description of the Webhook
+	SWebhookDescription string `json:"sWebhookDescription"`
+	// The unique ID of the Ezsignfoldertype.
+	FkiEzsignfoldertypeID *int32 `json:"fkiEzsignfoldertypeID,omitempty"`
+	// The name of the Ezsignfoldertype in the language of the requester
+	SEzsignfoldertypeNameX *string `json:"sEzsignfoldertypeNameX,omitempty"`
+	EWebhookModule FieldEWebhookModule `json:"eWebhookModule"`
+	EWebhookEzsignevent *FieldEWebhookEzsignevent `json:"eWebhookEzsignevent,omitempty"`
+	EWebhookManagementevent *FieldEWebhookManagementevent `json:"eWebhookManagementevent,omitempty"`
+	// The URL of the Webhook callback
 	SWebhookUrl string `json:"sWebhookUrl"`
-	// The email that will receive the webhook in case all attempts fail.
+	// The email that will receive the Webhook in case all attempts fail
 	SWebhookEmailfailed string `json:"sWebhookEmailfailed"`
-	// This Management Event. This property will be set only if the Module is \"Management\".
-	EWebhookManagementevent *string `json:"eWebhookManagementevent,omitempty"`
+	// Whether the Webhook is active or not
+	BWebhookIsactive *bool `json:"bWebhookIsactive,omitempty"`
+	// Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use
+	BWebhookSkipsslvalidation bool `json:"bWebhookSkipsslvalidation"`
 }
 
 // NewWebhookResponse instantiates a new WebhookResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWebhookResponse(pkiWebhookID int32, eWebhookModule string, pksCustomerCode string, sWebhookUrl string, sWebhookEmailfailed string) *WebhookResponse {
+func NewWebhookResponse(pkiWebhookID int32, sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookSkipsslvalidation bool) *WebhookResponse {
 	this := WebhookResponse{}
 	this.PkiWebhookID = pkiWebhookID
+	this.SWebhookDescription = sWebhookDescription
 	this.EWebhookModule = eWebhookModule
-	this.PksCustomerCode = pksCustomerCode
 	this.SWebhookUrl = sWebhookUrl
 	this.SWebhookEmailfailed = sWebhookEmailfailed
+	this.BWebhookSkipsslvalidation = bWebhookSkipsslvalidation
 	return &this
 }
 
@@ -79,10 +88,98 @@ func (o *WebhookResponse) SetPkiWebhookID(v int32) {
 	o.PkiWebhookID = v
 }
 
-// GetEWebhookModule returns the EWebhookModule field value
-func (o *WebhookResponse) GetEWebhookModule() string {
+// GetSWebhookDescription returns the SWebhookDescription field value
+func (o *WebhookResponse) GetSWebhookDescription() string {
 	if o == nil {
 		var ret string
+		return ret
+	}
+
+	return o.SWebhookDescription
+}
+
+// GetSWebhookDescriptionOk returns a tuple with the SWebhookDescription field value
+// and a boolean to check if the value has been set.
+func (o *WebhookResponse) GetSWebhookDescriptionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SWebhookDescription, true
+}
+
+// SetSWebhookDescription sets field value
+func (o *WebhookResponse) SetSWebhookDescription(v string) {
+	o.SWebhookDescription = v
+}
+
+// GetFkiEzsignfoldertypeID returns the FkiEzsignfoldertypeID field value if set, zero value otherwise.
+func (o *WebhookResponse) GetFkiEzsignfoldertypeID() int32 {
+	if o == nil || IsNil(o.FkiEzsignfoldertypeID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEzsignfoldertypeID
+}
+
+// GetFkiEzsignfoldertypeIDOk returns a tuple with the FkiEzsignfoldertypeID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WebhookResponse) GetFkiEzsignfoldertypeIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEzsignfoldertypeID) {
+		return nil, false
+	}
+	return o.FkiEzsignfoldertypeID, true
+}
+
+// HasFkiEzsignfoldertypeID returns a boolean if a field has been set.
+func (o *WebhookResponse) HasFkiEzsignfoldertypeID() bool {
+	if o != nil && !IsNil(o.FkiEzsignfoldertypeID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzsignfoldertypeID gets a reference to the given int32 and assigns it to the FkiEzsignfoldertypeID field.
+func (o *WebhookResponse) SetFkiEzsignfoldertypeID(v int32) {
+	o.FkiEzsignfoldertypeID = &v
+}
+
+// GetSEzsignfoldertypeNameX returns the SEzsignfoldertypeNameX field value if set, zero value otherwise.
+func (o *WebhookResponse) GetSEzsignfoldertypeNameX() string {
+	if o == nil || IsNil(o.SEzsignfoldertypeNameX) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsignfoldertypeNameX
+}
+
+// GetSEzsignfoldertypeNameXOk returns a tuple with the SEzsignfoldertypeNameX field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WebhookResponse) GetSEzsignfoldertypeNameXOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsignfoldertypeNameX) {
+		return nil, false
+	}
+	return o.SEzsignfoldertypeNameX, true
+}
+
+// HasSEzsignfoldertypeNameX returns a boolean if a field has been set.
+func (o *WebhookResponse) HasSEzsignfoldertypeNameX() bool {
+	if o != nil && !IsNil(o.SEzsignfoldertypeNameX) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsignfoldertypeNameX gets a reference to the given string and assigns it to the SEzsignfoldertypeNameX field.
+func (o *WebhookResponse) SetSEzsignfoldertypeNameX(v string) {
+	o.SEzsignfoldertypeNameX = &v
+}
+
+// GetEWebhookModule returns the EWebhookModule field value
+func (o *WebhookResponse) GetEWebhookModule() FieldEWebhookModule {
+	if o == nil {
+		var ret FieldEWebhookModule
 		return ret
 	}
 
@@ -91,7 +188,7 @@ func (o *WebhookResponse) GetEWebhookModule() string {
 
 // GetEWebhookModuleOk returns a tuple with the EWebhookModule field value
 // and a boolean to check if the value has been set.
-func (o *WebhookResponse) GetEWebhookModuleOk() (*string, bool) {
+func (o *WebhookResponse) GetEWebhookModuleOk() (*FieldEWebhookModule, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -99,14 +196,14 @@ func (o *WebhookResponse) GetEWebhookModuleOk() (*string, bool) {
 }
 
 // SetEWebhookModule sets field value
-func (o *WebhookResponse) SetEWebhookModule(v string) {
+func (o *WebhookResponse) SetEWebhookModule(v FieldEWebhookModule) {
 	o.EWebhookModule = v
 }
 
 // GetEWebhookEzsignevent returns the EWebhookEzsignevent field value if set, zero value otherwise.
-func (o *WebhookResponse) GetEWebhookEzsignevent() string {
-	if o == nil || o.EWebhookEzsignevent == nil {
-		var ret string
+func (o *WebhookResponse) GetEWebhookEzsignevent() FieldEWebhookEzsignevent {
+	if o == nil || IsNil(o.EWebhookEzsignevent) {
+		var ret FieldEWebhookEzsignevent
 		return ret
 	}
 	return *o.EWebhookEzsignevent
@@ -114,8 +211,8 @@ func (o *WebhookResponse) GetEWebhookEzsignevent() string {
 
 // GetEWebhookEzsigneventOk returns a tuple with the EWebhookEzsignevent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WebhookResponse) GetEWebhookEzsigneventOk() (*string, bool) {
-	if o == nil || o.EWebhookEzsignevent == nil {
+func (o *WebhookResponse) GetEWebhookEzsigneventOk() (*FieldEWebhookEzsignevent, bool) {
+	if o == nil || IsNil(o.EWebhookEzsignevent) {
 		return nil, false
 	}
 	return o.EWebhookEzsignevent, true
@@ -123,40 +220,48 @@ func (o *WebhookResponse) GetEWebhookEzsigneventOk() (*string, bool) {
 
 // HasEWebhookEzsignevent returns a boolean if a field has been set.
 func (o *WebhookResponse) HasEWebhookEzsignevent() bool {
-	if o != nil && o.EWebhookEzsignevent != nil {
+	if o != nil && !IsNil(o.EWebhookEzsignevent) {
 		return true
 	}
 
 	return false
 }
 
-// SetEWebhookEzsignevent gets a reference to the given string and assigns it to the EWebhookEzsignevent field.
-func (o *WebhookResponse) SetEWebhookEzsignevent(v string) {
+// SetEWebhookEzsignevent gets a reference to the given FieldEWebhookEzsignevent and assigns it to the EWebhookEzsignevent field.
+func (o *WebhookResponse) SetEWebhookEzsignevent(v FieldEWebhookEzsignevent) {
 	o.EWebhookEzsignevent = &v
 }
 
-// GetPksCustomerCode returns the PksCustomerCode field value
-func (o *WebhookResponse) GetPksCustomerCode() string {
-	if o == nil {
-		var ret string
+// GetEWebhookManagementevent returns the EWebhookManagementevent field value if set, zero value otherwise.
+func (o *WebhookResponse) GetEWebhookManagementevent() FieldEWebhookManagementevent {
+	if o == nil || IsNil(o.EWebhookManagementevent) {
+		var ret FieldEWebhookManagementevent
 		return ret
 	}
-
-	return o.PksCustomerCode
+	return *o.EWebhookManagementevent
 }
 
-// GetPksCustomerCodeOk returns a tuple with the PksCustomerCode field value
+// GetEWebhookManagementeventOk returns a tuple with the EWebhookManagementevent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WebhookResponse) GetPksCustomerCodeOk() (*string, bool) {
-	if o == nil {
+func (o *WebhookResponse) GetEWebhookManagementeventOk() (*FieldEWebhookManagementevent, bool) {
+	if o == nil || IsNil(o.EWebhookManagementevent) {
 		return nil, false
 	}
-	return &o.PksCustomerCode, true
+	return o.EWebhookManagementevent, true
 }
 
-// SetPksCustomerCode sets field value
-func (o *WebhookResponse) SetPksCustomerCode(v string) {
-	o.PksCustomerCode = v
+// HasEWebhookManagementevent returns a boolean if a field has been set.
+func (o *WebhookResponse) HasEWebhookManagementevent() bool {
+	if o != nil && !IsNil(o.EWebhookManagementevent) {
+		return true
+	}
+
+	return false
+}
+
+// SetEWebhookManagementevent gets a reference to the given FieldEWebhookManagementevent and assigns it to the EWebhookManagementevent field.
+func (o *WebhookResponse) SetEWebhookManagementevent(v FieldEWebhookManagementevent) {
+	o.EWebhookManagementevent = &v
 }
 
 // GetSWebhookUrl returns the SWebhookUrl field value
@@ -207,62 +312,94 @@ func (o *WebhookResponse) SetSWebhookEmailfailed(v string) {
 	o.SWebhookEmailfailed = v
 }
 
-// GetEWebhookManagementevent returns the EWebhookManagementevent field value if set, zero value otherwise.
-func (o *WebhookResponse) GetEWebhookManagementevent() string {
-	if o == nil || o.EWebhookManagementevent == nil {
-		var ret string
+// GetBWebhookIsactive returns the BWebhookIsactive field value if set, zero value otherwise.
+func (o *WebhookResponse) GetBWebhookIsactive() bool {
+	if o == nil || IsNil(o.BWebhookIsactive) {
+		var ret bool
 		return ret
 	}
-	return *o.EWebhookManagementevent
+	return *o.BWebhookIsactive
 }
 
-// GetEWebhookManagementeventOk returns a tuple with the EWebhookManagementevent field value if set, nil otherwise
+// GetBWebhookIsactiveOk returns a tuple with the BWebhookIsactive field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WebhookResponse) GetEWebhookManagementeventOk() (*string, bool) {
-	if o == nil || o.EWebhookManagementevent == nil {
+func (o *WebhookResponse) GetBWebhookIsactiveOk() (*bool, bool) {
+	if o == nil || IsNil(o.BWebhookIsactive) {
 		return nil, false
 	}
-	return o.EWebhookManagementevent, true
+	return o.BWebhookIsactive, true
 }
 
-// HasEWebhookManagementevent returns a boolean if a field has been set.
-func (o *WebhookResponse) HasEWebhookManagementevent() bool {
-	if o != nil && o.EWebhookManagementevent != nil {
+// HasBWebhookIsactive returns a boolean if a field has been set.
+func (o *WebhookResponse) HasBWebhookIsactive() bool {
+	if o != nil && !IsNil(o.BWebhookIsactive) {
 		return true
 	}
 
 	return false
 }
 
-// SetEWebhookManagementevent gets a reference to the given string and assigns it to the EWebhookManagementevent field.
-func (o *WebhookResponse) SetEWebhookManagementevent(v string) {
-	o.EWebhookManagementevent = &v
+// SetBWebhookIsactive gets a reference to the given bool and assigns it to the BWebhookIsactive field.
+func (o *WebhookResponse) SetBWebhookIsactive(v bool) {
+	o.BWebhookIsactive = &v
+}
+
+// GetBWebhookSkipsslvalidation returns the BWebhookSkipsslvalidation field value
+func (o *WebhookResponse) GetBWebhookSkipsslvalidation() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BWebhookSkipsslvalidation
+}
+
+// GetBWebhookSkipsslvalidationOk returns a tuple with the BWebhookSkipsslvalidation field value
+// and a boolean to check if the value has been set.
+func (o *WebhookResponse) GetBWebhookSkipsslvalidationOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BWebhookSkipsslvalidation, true
+}
+
+// SetBWebhookSkipsslvalidation sets field value
+func (o *WebhookResponse) SetBWebhookSkipsslvalidation(v bool) {
+	o.BWebhookSkipsslvalidation = v
 }
 
 func (o WebhookResponse) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["pkiWebhookID"] = o.PkiWebhookID
-	}
-	if true {
-		toSerialize["eWebhookModule"] = o.EWebhookModule
-	}
-	if o.EWebhookEzsignevent != nil {
-		toSerialize["eWebhookEzsignevent"] = o.EWebhookEzsignevent
-	}
-	if true {
-		toSerialize["pksCustomerCode"] = o.PksCustomerCode
-	}
-	if true {
-		toSerialize["sWebhookUrl"] = o.SWebhookUrl
-	}
-	if true {
-		toSerialize["sWebhookEmailfailed"] = o.SWebhookEmailfailed
-	}
-	if o.EWebhookManagementevent != nil {
-		toSerialize["eWebhookManagementevent"] = o.EWebhookManagementevent
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o WebhookResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["pkiWebhookID"] = o.PkiWebhookID
+	toSerialize["sWebhookDescription"] = o.SWebhookDescription
+	if !IsNil(o.FkiEzsignfoldertypeID) {
+		toSerialize["fkiEzsignfoldertypeID"] = o.FkiEzsignfoldertypeID
+	}
+	if !IsNil(o.SEzsignfoldertypeNameX) {
+		toSerialize["sEzsignfoldertypeNameX"] = o.SEzsignfoldertypeNameX
+	}
+	toSerialize["eWebhookModule"] = o.EWebhookModule
+	if !IsNil(o.EWebhookEzsignevent) {
+		toSerialize["eWebhookEzsignevent"] = o.EWebhookEzsignevent
+	}
+	if !IsNil(o.EWebhookManagementevent) {
+		toSerialize["eWebhookManagementevent"] = o.EWebhookManagementevent
+	}
+	toSerialize["sWebhookUrl"] = o.SWebhookUrl
+	toSerialize["sWebhookEmailfailed"] = o.SWebhookEmailfailed
+	if !IsNil(o.BWebhookIsactive) {
+		toSerialize["bWebhookIsactive"] = o.BWebhookIsactive
+	}
+	toSerialize["bWebhookSkipsslvalidation"] = o.BWebhookSkipsslvalidation
+	return toSerialize, nil
 }
 
 type NullableWebhookResponse struct {

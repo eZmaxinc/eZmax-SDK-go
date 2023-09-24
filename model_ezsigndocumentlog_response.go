@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,12 +15,15 @@ import (
 	"encoding/json"
 )
 
+// checks if the EzsigndocumentlogResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsigndocumentlogResponse{}
+
 // EzsigndocumentlogResponse An Ezsigndocumentlog Object
 type EzsigndocumentlogResponse struct {
 	// The unique ID of the User
-	FkiUserID NullableInt32 `json:"fkiUserID"`
+	FkiUserID *int32 `json:"fkiUserID,omitempty"`
 	// The unique ID of the Ezsignsigner
-	FkiEzsignsignerID NullableInt32 `json:"fkiEzsignsignerID"`
+	FkiEzsignsignerID *int32 `json:"fkiEzsignsignerID,omitempty"`
 	// The date and time at which the event was logged
 	DtEzsigndocumentlogDatetime string `json:"dtEzsigndocumentlogDatetime"`
 	EEzsigndocumentlogType FieldEEzsigndocumentlogType `json:"eEzsigndocumentlogType"`
@@ -38,10 +41,8 @@ type EzsigndocumentlogResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigndocumentlogResponse(fkiUserID NullableInt32, fkiEzsignsignerID NullableInt32, dtEzsigndocumentlogDatetime string, eEzsigndocumentlogType FieldEEzsigndocumentlogType, sEzsigndocumentlogDetail string, sEzsigndocumentlogLastname string, sEzsigndocumentlogFirstname string, sEzsigndocumentlogIP string) *EzsigndocumentlogResponse {
+func NewEzsigndocumentlogResponse(dtEzsigndocumentlogDatetime string, eEzsigndocumentlogType FieldEEzsigndocumentlogType, sEzsigndocumentlogDetail string, sEzsigndocumentlogLastname string, sEzsigndocumentlogFirstname string, sEzsigndocumentlogIP string) *EzsigndocumentlogResponse {
 	this := EzsigndocumentlogResponse{}
-	this.FkiUserID = fkiUserID
-	this.FkiEzsignsignerID = fkiEzsignsignerID
 	this.DtEzsigndocumentlogDatetime = dtEzsigndocumentlogDatetime
 	this.EEzsigndocumentlogType = eEzsigndocumentlogType
 	this.SEzsigndocumentlogDetail = sEzsigndocumentlogDetail
@@ -59,56 +60,68 @@ func NewEzsigndocumentlogResponseWithDefaults() *EzsigndocumentlogResponse {
 	return &this
 }
 
-// GetFkiUserID returns the FkiUserID field value
-// If the value is explicit nil, the zero value for int32 will be returned
+// GetFkiUserID returns the FkiUserID field value if set, zero value otherwise.
 func (o *EzsigndocumentlogResponse) GetFkiUserID() int32 {
-	if o == nil || o.FkiUserID.Get() == nil {
+	if o == nil || IsNil(o.FkiUserID) {
 		var ret int32
 		return ret
 	}
-
-	return *o.FkiUserID.Get()
+	return *o.FkiUserID
 }
 
-// GetFkiUserIDOk returns a tuple with the FkiUserID field value
+// GetFkiUserIDOk returns a tuple with the FkiUserID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EzsigndocumentlogResponse) GetFkiUserIDOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FkiUserID) {
 		return nil, false
 	}
-	return o.FkiUserID.Get(), o.FkiUserID.IsSet()
+	return o.FkiUserID, true
 }
 
-// SetFkiUserID sets field value
+// HasFkiUserID returns a boolean if a field has been set.
+func (o *EzsigndocumentlogResponse) HasFkiUserID() bool {
+	if o != nil && !IsNil(o.FkiUserID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiUserID gets a reference to the given int32 and assigns it to the FkiUserID field.
 func (o *EzsigndocumentlogResponse) SetFkiUserID(v int32) {
-	o.FkiUserID.Set(&v)
+	o.FkiUserID = &v
 }
 
-// GetFkiEzsignsignerID returns the FkiEzsignsignerID field value
-// If the value is explicit nil, the zero value for int32 will be returned
+// GetFkiEzsignsignerID returns the FkiEzsignsignerID field value if set, zero value otherwise.
 func (o *EzsigndocumentlogResponse) GetFkiEzsignsignerID() int32 {
-	if o == nil || o.FkiEzsignsignerID.Get() == nil {
+	if o == nil || IsNil(o.FkiEzsignsignerID) {
 		var ret int32
 		return ret
 	}
-
-	return *o.FkiEzsignsignerID.Get()
+	return *o.FkiEzsignsignerID
 }
 
-// GetFkiEzsignsignerIDOk returns a tuple with the FkiEzsignsignerID field value
+// GetFkiEzsignsignerIDOk returns a tuple with the FkiEzsignsignerID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EzsigndocumentlogResponse) GetFkiEzsignsignerIDOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FkiEzsignsignerID) {
 		return nil, false
 	}
-	return o.FkiEzsignsignerID.Get(), o.FkiEzsignsignerID.IsSet()
+	return o.FkiEzsignsignerID, true
 }
 
-// SetFkiEzsignsignerID sets field value
+// HasFkiEzsignsignerID returns a boolean if a field has been set.
+func (o *EzsigndocumentlogResponse) HasFkiEzsignsignerID() bool {
+	if o != nil && !IsNil(o.FkiEzsignsignerID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzsignsignerID gets a reference to the given int32 and assigns it to the FkiEzsignsignerID field.
 func (o *EzsigndocumentlogResponse) SetFkiEzsignsignerID(v int32) {
-	o.FkiEzsignsignerID.Set(&v)
+	o.FkiEzsignsignerID = &v
 }
 
 // GetDtEzsigndocumentlogDatetime returns the DtEzsigndocumentlogDatetime field value
@@ -256,32 +269,28 @@ func (o *EzsigndocumentlogResponse) SetSEzsigndocumentlogIP(v string) {
 }
 
 func (o EzsigndocumentlogResponse) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["fkiUserID"] = o.FkiUserID.Get()
-	}
-	if true {
-		toSerialize["fkiEzsignsignerID"] = o.FkiEzsignsignerID.Get()
-	}
-	if true {
-		toSerialize["dtEzsigndocumentlogDatetime"] = o.DtEzsigndocumentlogDatetime
-	}
-	if true {
-		toSerialize["eEzsigndocumentlogType"] = o.EEzsigndocumentlogType
-	}
-	if true {
-		toSerialize["sEzsigndocumentlogDetail"] = o.SEzsigndocumentlogDetail
-	}
-	if true {
-		toSerialize["sEzsigndocumentlogLastname"] = o.SEzsigndocumentlogLastname
-	}
-	if true {
-		toSerialize["sEzsigndocumentlogFirstname"] = o.SEzsigndocumentlogFirstname
-	}
-	if true {
-		toSerialize["sEzsigndocumentlogIP"] = o.SEzsigndocumentlogIP
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsigndocumentlogResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.FkiUserID) {
+		toSerialize["fkiUserID"] = o.FkiUserID
+	}
+	if !IsNil(o.FkiEzsignsignerID) {
+		toSerialize["fkiEzsignsignerID"] = o.FkiEzsignsignerID
+	}
+	toSerialize["dtEzsigndocumentlogDatetime"] = o.DtEzsigndocumentlogDatetime
+	toSerialize["eEzsigndocumentlogType"] = o.EEzsigndocumentlogType
+	toSerialize["sEzsigndocumentlogDetail"] = o.SEzsigndocumentlogDetail
+	toSerialize["sEzsigndocumentlogLastname"] = o.SEzsigndocumentlogLastname
+	toSerialize["sEzsigndocumentlogFirstname"] = o.SEzsigndocumentlogFirstname
+	toSerialize["sEzsigndocumentlogIP"] = o.SEzsigndocumentlogIP
+	return toSerialize, nil
 }
 
 type NullableEzsigndocumentlogResponse struct {

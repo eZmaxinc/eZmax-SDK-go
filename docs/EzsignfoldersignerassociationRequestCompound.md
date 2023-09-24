@@ -4,17 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjEzsignsigner** | [**EzsignsignerRequestCompound**](EzsignsignerRequestCompound.md) |  | 
 **PkiEzsignfoldersignerassociationID** | Pointer to **int32** | The unique ID of the Ezsignfoldersignerassociation | [optional] 
 **FkiUserID** | Pointer to **int32** | The unique ID of the User | [optional] 
+**FkiEzsignsignergroupID** | Pointer to **int32** | The unique ID of the Ezsignsignergroup | [optional] 
 **FkiEzsignfolderID** | **int32** | The unique ID of the Ezsignfolder | 
 **BEzsignfoldersignerassociationReceivecopy** | Pointer to **bool** | If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain&#39;t required to sign the document. | [optional] 
+**TEzsignfoldersignerassociationMessage** | Pointer to **string** | A custom text message that will be added to the email sent. | [optional] 
+**ObjEzsignsigner** | Pointer to [**EzsignsignerRequestCompound**](EzsignsignerRequestCompound.md) |  | [optional] 
 
 ## Methods
 
 ### NewEzsignfoldersignerassociationRequestCompound
 
-`func NewEzsignfoldersignerassociationRequestCompound(objEzsignsigner EzsignsignerRequestCompound, fkiEzsignfolderID int32, ) *EzsignfoldersignerassociationRequestCompound`
+`func NewEzsignfoldersignerassociationRequestCompound(fkiEzsignfolderID int32, ) *EzsignfoldersignerassociationRequestCompound`
 
 NewEzsignfoldersignerassociationRequestCompound instantiates a new EzsignfoldersignerassociationRequestCompound object
 This constructor will assign default values to properties that have it defined,
@@ -28,26 +30,6 @@ will change when the set of required properties is changed
 NewEzsignfoldersignerassociationRequestCompoundWithDefaults instantiates a new EzsignfoldersignerassociationRequestCompound object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetObjEzsignsigner
-
-`func (o *EzsignfoldersignerassociationRequestCompound) GetObjEzsignsigner() EzsignsignerRequestCompound`
-
-GetObjEzsignsigner returns the ObjEzsignsigner field if non-nil, zero value otherwise.
-
-### GetObjEzsignsignerOk
-
-`func (o *EzsignfoldersignerassociationRequestCompound) GetObjEzsignsignerOk() (*EzsignsignerRequestCompound, bool)`
-
-GetObjEzsignsignerOk returns a tuple with the ObjEzsignsigner field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetObjEzsignsigner
-
-`func (o *EzsignfoldersignerassociationRequestCompound) SetObjEzsignsigner(v EzsignsignerRequestCompound)`
-
-SetObjEzsignsigner sets ObjEzsignsigner field to given value.
-
 
 ### GetPkiEzsignfoldersignerassociationID
 
@@ -99,6 +81,31 @@ SetFkiUserID sets FkiUserID field to given value.
 
 HasFkiUserID returns a boolean if a field has been set.
 
+### GetFkiEzsignsignergroupID
+
+`func (o *EzsignfoldersignerassociationRequestCompound) GetFkiEzsignsignergroupID() int32`
+
+GetFkiEzsignsignergroupID returns the FkiEzsignsignergroupID field if non-nil, zero value otherwise.
+
+### GetFkiEzsignsignergroupIDOk
+
+`func (o *EzsignfoldersignerassociationRequestCompound) GetFkiEzsignsignergroupIDOk() (*int32, bool)`
+
+GetFkiEzsignsignergroupIDOk returns a tuple with the FkiEzsignsignergroupID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiEzsignsignergroupID
+
+`func (o *EzsignfoldersignerassociationRequestCompound) SetFkiEzsignsignergroupID(v int32)`
+
+SetFkiEzsignsignergroupID sets FkiEzsignsignergroupID field to given value.
+
+### HasFkiEzsignsignergroupID
+
+`func (o *EzsignfoldersignerassociationRequestCompound) HasFkiEzsignsignergroupID() bool`
+
+HasFkiEzsignsignergroupID returns a boolean if a field has been set.
+
 ### GetFkiEzsignfolderID
 
 `func (o *EzsignfoldersignerassociationRequestCompound) GetFkiEzsignfolderID() int32`
@@ -143,6 +150,56 @@ SetBEzsignfoldersignerassociationReceivecopy sets BEzsignfoldersignerassociation
 `func (o *EzsignfoldersignerassociationRequestCompound) HasBEzsignfoldersignerassociationReceivecopy() bool`
 
 HasBEzsignfoldersignerassociationReceivecopy returns a boolean if a field has been set.
+
+### GetTEzsignfoldersignerassociationMessage
+
+`func (o *EzsignfoldersignerassociationRequestCompound) GetTEzsignfoldersignerassociationMessage() string`
+
+GetTEzsignfoldersignerassociationMessage returns the TEzsignfoldersignerassociationMessage field if non-nil, zero value otherwise.
+
+### GetTEzsignfoldersignerassociationMessageOk
+
+`func (o *EzsignfoldersignerassociationRequestCompound) GetTEzsignfoldersignerassociationMessageOk() (*string, bool)`
+
+GetTEzsignfoldersignerassociationMessageOk returns a tuple with the TEzsignfoldersignerassociationMessage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTEzsignfoldersignerassociationMessage
+
+`func (o *EzsignfoldersignerassociationRequestCompound) SetTEzsignfoldersignerassociationMessage(v string)`
+
+SetTEzsignfoldersignerassociationMessage sets TEzsignfoldersignerassociationMessage field to given value.
+
+### HasTEzsignfoldersignerassociationMessage
+
+`func (o *EzsignfoldersignerassociationRequestCompound) HasTEzsignfoldersignerassociationMessage() bool`
+
+HasTEzsignfoldersignerassociationMessage returns a boolean if a field has been set.
+
+### GetObjEzsignsigner
+
+`func (o *EzsignfoldersignerassociationRequestCompound) GetObjEzsignsigner() EzsignsignerRequestCompound`
+
+GetObjEzsignsigner returns the ObjEzsignsigner field if non-nil, zero value otherwise.
+
+### GetObjEzsignsignerOk
+
+`func (o *EzsignfoldersignerassociationRequestCompound) GetObjEzsignsignerOk() (*EzsignsignerRequestCompound, bool)`
+
+GetObjEzsignsignerOk returns a tuple with the ObjEzsignsigner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjEzsignsigner
+
+`func (o *EzsignfoldersignerassociationRequestCompound) SetObjEzsignsigner(v EzsignsignerRequestCompound)`
+
+SetObjEzsignsigner sets ObjEzsignsigner field to given value.
+
+### HasObjEzsignsigner
+
+`func (o *EzsignfoldersignerassociationRequestCompound) HasObjEzsignsigner() bool`
+
+HasObjEzsignsigner returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

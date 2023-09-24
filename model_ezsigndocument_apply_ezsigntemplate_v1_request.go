@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,11 +15,13 @@ import (
 	"encoding/json"
 )
 
-// EzsigndocumentApplyEzsigntemplateV1Request Request for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/applyezsigntemplate API Request
+// checks if the EzsigndocumentApplyEzsigntemplateV1Request type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsigndocumentApplyEzsigntemplateV1Request{}
+
+// EzsigndocumentApplyEzsigntemplateV1Request Request for POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/applyezsigntemplate
 type EzsigndocumentApplyEzsigntemplateV1Request struct {
-	// The unique ID of the Ezsigndocument
+	// The unique ID of the Ezsigntemplate
 	FkiEzsigntemplateID int32 `json:"fkiEzsigntemplateID"`
-	// 
 	ASEzsigntemplatesigner []string `json:"a_sEzsigntemplatesigner"`
 	APkiEzsignfoldersignerassociationID []int32 `json:"a_pkiEzsignfoldersignerassociationID"`
 }
@@ -117,17 +119,19 @@ func (o *EzsigndocumentApplyEzsigntemplateV1Request) SetAPkiEzsignfoldersigneras
 }
 
 func (o EzsigndocumentApplyEzsigntemplateV1Request) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["fkiEzsigntemplateID"] = o.FkiEzsigntemplateID
-	}
-	if true {
-		toSerialize["a_sEzsigntemplatesigner"] = o.ASEzsigntemplatesigner
-	}
-	if true {
-		toSerialize["a_pkiEzsignfoldersignerassociationID"] = o.APkiEzsignfoldersignerassociationID
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsigndocumentApplyEzsigntemplateV1Request) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["fkiEzsigntemplateID"] = o.FkiEzsigntemplateID
+	toSerialize["a_sEzsigntemplatesigner"] = o.ASEzsigntemplatesigner
+	toSerialize["a_pkiEzsignfoldersignerassociationID"] = o.APkiEzsignfoldersignerassociationID
+	return toSerialize, nil
 }
 
 type NullableEzsigndocumentApplyEzsigntemplateV1Request struct {

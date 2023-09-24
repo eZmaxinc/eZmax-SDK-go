@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjContactinformations** | [**ContactinformationsRequestCompound**](ContactinformationsRequestCompound.md) |  | 
 **FkiContacttitleID** | **int32** | The unique ID of the Contacttitle.  Valid values:  |Value|Description| |-|-| |1|Ms.| |2|Mr.| |4|(Blank)| |5|Me (For Notaries)| | 
 **FkiLanguageID** | **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
 **SContactFirstname** | **string** | The First name of the contact | 
 **SContactLastname** | **string** | The Last name of the contact | 
 **SContactCompany** | **string** | The Company name of the contact | 
 **DtContactBirthdate** | Pointer to **string** | The Birth Date of the contact | [optional] 
+**ObjContactinformations** | [**ContactinformationsRequestCompound**](ContactinformationsRequestCompound.md) |  | 
 
 ## Methods
 
 ### NewContactRequestCompound
 
-`func NewContactRequestCompound(objContactinformations ContactinformationsRequestCompound, fkiContacttitleID int32, fkiLanguageID int32, sContactFirstname string, sContactLastname string, sContactCompany string, ) *ContactRequestCompound`
+`func NewContactRequestCompound(fkiContacttitleID int32, fkiLanguageID int32, sContactFirstname string, sContactLastname string, sContactCompany string, objContactinformations ContactinformationsRequestCompound, ) *ContactRequestCompound`
 
 NewContactRequestCompound instantiates a new ContactRequestCompound object
 This constructor will assign default values to properties that have it defined,
@@ -30,26 +30,6 @@ will change when the set of required properties is changed
 NewContactRequestCompoundWithDefaults instantiates a new ContactRequestCompound object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetObjContactinformations
-
-`func (o *ContactRequestCompound) GetObjContactinformations() ContactinformationsRequestCompound`
-
-GetObjContactinformations returns the ObjContactinformations field if non-nil, zero value otherwise.
-
-### GetObjContactinformationsOk
-
-`func (o *ContactRequestCompound) GetObjContactinformationsOk() (*ContactinformationsRequestCompound, bool)`
-
-GetObjContactinformationsOk returns a tuple with the ObjContactinformations field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetObjContactinformations
-
-`func (o *ContactRequestCompound) SetObjContactinformations(v ContactinformationsRequestCompound)`
-
-SetObjContactinformations sets ObjContactinformations field to given value.
-
 
 ### GetFkiContacttitleID
 
@@ -175,6 +155,26 @@ SetDtContactBirthdate sets DtContactBirthdate field to given value.
 `func (o *ContactRequestCompound) HasDtContactBirthdate() bool`
 
 HasDtContactBirthdate returns a boolean if a field has been set.
+
+### GetObjContactinformations
+
+`func (o *ContactRequestCompound) GetObjContactinformations() ContactinformationsRequestCompound`
+
+GetObjContactinformations returns the ObjContactinformations field if non-nil, zero value otherwise.
+
+### GetObjContactinformationsOk
+
+`func (o *ContactRequestCompound) GetObjContactinformationsOk() (*ContactinformationsRequestCompound, bool)`
+
+GetObjContactinformationsOk returns a tuple with the ObjContactinformations field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjContactinformations
+
+`func (o *ContactRequestCompound) SetObjContactinformations(v ContactinformationsRequestCompound)`
+
+SetObjContactinformations sets ObjContactinformations field to given value.
+
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

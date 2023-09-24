@@ -8,19 +8,19 @@ Name | Type | Description | Notes
 **FkiEzsignfoldertypeID** | **int32** | The unique ID of the Ezsignfoldertype. | 
 **SEzsignbulksendDescription** | **string** | The description of the Ezsignbulksend | 
 **SEzsignfoldertypeNameX** | **string** | The name of the Ezsignfoldertype in the language of the requester | 
-**EEzsignfoldertypePrivacylevel** | [**FieldEEzsignfoldertypePrivacylevel**](FieldEEzsignfoldertypePrivacylevel.md) |  | 
-**BEzsignbulksendIsactive** | **bool** | Whether the Ezsignbulksend is active or not | 
+**BEzsignbulksendNeedvalidation** | **bool** | Whether the Ezsigntemplatepackage was automatically modified and needs a manual validation | 
 **IEzsignbulksendtransmission** | **int32** | The total number of Ezsignbulksendtransmissions in the Ezsignbulksend | 
 **IEzsignfolder** | **int32** | The total number of Ezsignfolders in the Ezsignbulksend | 
 **IEzsigndocument** | **int32** | The total number of Ezsigndocuments in the Ezsignbulksend | 
 **IEzsignsignature** | **int32** | The total number of Ezsignsignature in the Ezsignbulksend | 
 **IEzsignsignatureSigned** | **int32** | The total number of already signed Ezsignsignature blocks in the Ezsignbulksend | 
+**BEzsignbulksendIsactive** | **bool** | Whether the Ezsignbulksend is active or not | 
 
 ## Methods
 
 ### NewEzsignbulksendListElement
 
-`func NewEzsignbulksendListElement(pkiEzsignbulksendID int32, fkiEzsignfoldertypeID int32, sEzsignbulksendDescription string, sEzsignfoldertypeNameX string, eEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel, bEzsignbulksendIsactive bool, iEzsignbulksendtransmission int32, iEzsignfolder int32, iEzsigndocument int32, iEzsignsignature int32, iEzsignsignatureSigned int32, ) *EzsignbulksendListElement`
+`func NewEzsignbulksendListElement(pkiEzsignbulksendID int32, fkiEzsignfoldertypeID int32, sEzsignbulksendDescription string, sEzsignfoldertypeNameX string, bEzsignbulksendNeedvalidation bool, iEzsignbulksendtransmission int32, iEzsignfolder int32, iEzsigndocument int32, iEzsignsignature int32, iEzsignsignatureSigned int32, bEzsignbulksendIsactive bool, ) *EzsignbulksendListElement`
 
 NewEzsignbulksendListElement instantiates a new EzsignbulksendListElement object
 This constructor will assign default values to properties that have it defined,
@@ -115,44 +115,24 @@ and a boolean to check if the value has been set.
 SetSEzsignfoldertypeNameX sets SEzsignfoldertypeNameX field to given value.
 
 
-### GetEEzsignfoldertypePrivacylevel
+### GetBEzsignbulksendNeedvalidation
 
-`func (o *EzsignbulksendListElement) GetEEzsignfoldertypePrivacylevel() FieldEEzsignfoldertypePrivacylevel`
+`func (o *EzsignbulksendListElement) GetBEzsignbulksendNeedvalidation() bool`
 
-GetEEzsignfoldertypePrivacylevel returns the EEzsignfoldertypePrivacylevel field if non-nil, zero value otherwise.
+GetBEzsignbulksendNeedvalidation returns the BEzsignbulksendNeedvalidation field if non-nil, zero value otherwise.
 
-### GetEEzsignfoldertypePrivacylevelOk
+### GetBEzsignbulksendNeedvalidationOk
 
-`func (o *EzsignbulksendListElement) GetEEzsignfoldertypePrivacylevelOk() (*FieldEEzsignfoldertypePrivacylevel, bool)`
+`func (o *EzsignbulksendListElement) GetBEzsignbulksendNeedvalidationOk() (*bool, bool)`
 
-GetEEzsignfoldertypePrivacylevelOk returns a tuple with the EEzsignfoldertypePrivacylevel field if it's non-nil, zero value otherwise
+GetBEzsignbulksendNeedvalidationOk returns a tuple with the BEzsignbulksendNeedvalidation field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetEEzsignfoldertypePrivacylevel
+### SetBEzsignbulksendNeedvalidation
 
-`func (o *EzsignbulksendListElement) SetEEzsignfoldertypePrivacylevel(v FieldEEzsignfoldertypePrivacylevel)`
+`func (o *EzsignbulksendListElement) SetBEzsignbulksendNeedvalidation(v bool)`
 
-SetEEzsignfoldertypePrivacylevel sets EEzsignfoldertypePrivacylevel field to given value.
-
-
-### GetBEzsignbulksendIsactive
-
-`func (o *EzsignbulksendListElement) GetBEzsignbulksendIsactive() bool`
-
-GetBEzsignbulksendIsactive returns the BEzsignbulksendIsactive field if non-nil, zero value otherwise.
-
-### GetBEzsignbulksendIsactiveOk
-
-`func (o *EzsignbulksendListElement) GetBEzsignbulksendIsactiveOk() (*bool, bool)`
-
-GetBEzsignbulksendIsactiveOk returns a tuple with the BEzsignbulksendIsactive field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBEzsignbulksendIsactive
-
-`func (o *EzsignbulksendListElement) SetBEzsignbulksendIsactive(v bool)`
-
-SetBEzsignbulksendIsactive sets BEzsignbulksendIsactive field to given value.
+SetBEzsignbulksendNeedvalidation sets BEzsignbulksendNeedvalidation field to given value.
 
 
 ### GetIEzsignbulksendtransmission
@@ -253,6 +233,26 @@ and a boolean to check if the value has been set.
 `func (o *EzsignbulksendListElement) SetIEzsignsignatureSigned(v int32)`
 
 SetIEzsignsignatureSigned sets IEzsignsignatureSigned field to given value.
+
+
+### GetBEzsignbulksendIsactive
+
+`func (o *EzsignbulksendListElement) GetBEzsignbulksendIsactive() bool`
+
+GetBEzsignbulksendIsactive returns the BEzsignbulksendIsactive field if non-nil, zero value otherwise.
+
+### GetBEzsignbulksendIsactiveOk
+
+`func (o *EzsignbulksendListElement) GetBEzsignbulksendIsactiveOk() (*bool, bool)`
+
+GetBEzsignbulksendIsactiveOk returns a tuple with the BEzsignbulksendIsactive field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsignbulksendIsactive
+
+`func (o *EzsignbulksendListElement) SetBEzsignbulksendIsactive(v bool)`
+
+SetBEzsignbulksendIsactive sets BEzsignbulksendIsactive field to given value.
 
 
 

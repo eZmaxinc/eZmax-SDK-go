@@ -4,14 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjDebugPayload** | Pointer to [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | [optional] 
+**ObjDebugPayload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
 **ObjDebug** | Pointer to [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
+**MPayload** | [**EzsigndocumentEditEzsignsignaturesV1ResponseMPayload**](EzsigndocumentEditEzsignsignaturesV1ResponseMPayload.md) |  | 
 
 ## Methods
 
 ### NewEzsigndocumentEditEzsignsignaturesV1Response
 
-`func NewEzsigndocumentEditEzsignsignaturesV1Response() *EzsigndocumentEditEzsignsignaturesV1Response`
+`func NewEzsigndocumentEditEzsignsignaturesV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload EzsigndocumentEditEzsignsignaturesV1ResponseMPayload, ) *EzsigndocumentEditEzsignsignaturesV1Response`
 
 NewEzsigndocumentEditEzsignsignaturesV1Response instantiates a new EzsigndocumentEditEzsignsignaturesV1Response object
 This constructor will assign default values to properties that have it defined,
@@ -45,11 +46,6 @@ and a boolean to check if the value has been set.
 
 SetObjDebugPayload sets ObjDebugPayload field to given value.
 
-### HasObjDebugPayload
-
-`func (o *EzsigndocumentEditEzsignsignaturesV1Response) HasObjDebugPayload() bool`
-
-HasObjDebugPayload returns a boolean if a field has been set.
 
 ### GetObjDebug
 
@@ -75,6 +71,26 @@ SetObjDebug sets ObjDebug field to given value.
 `func (o *EzsigndocumentEditEzsignsignaturesV1Response) HasObjDebug() bool`
 
 HasObjDebug returns a boolean if a field has been set.
+
+### GetMPayload
+
+`func (o *EzsigndocumentEditEzsignsignaturesV1Response) GetMPayload() EzsigndocumentEditEzsignsignaturesV1ResponseMPayload`
+
+GetMPayload returns the MPayload field if non-nil, zero value otherwise.
+
+### GetMPayloadOk
+
+`func (o *EzsigndocumentEditEzsignsignaturesV1Response) GetMPayloadOk() (*EzsigndocumentEditEzsignsignaturesV1ResponseMPayload, bool)`
+
+GetMPayloadOk returns a tuple with the MPayload field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMPayload
+
+`func (o *EzsigndocumentEditEzsignsignaturesV1Response) SetMPayload(v EzsigndocumentEditEzsignsignaturesV1ResponseMPayload)`
+
+SetMPayload sets MPayload field to given value.
+
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

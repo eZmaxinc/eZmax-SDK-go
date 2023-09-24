@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CustomFormDataDocumentResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CustomFormDataDocumentResponse{}
+
 // CustomFormDataDocumentResponse A form Data Document Object 
 type CustomFormDataDocumentResponse struct {
 	// The unique ID of the Ezsigndocument
@@ -25,7 +28,6 @@ type CustomFormDataDocumentResponse struct {
 	SEzsigndocumentName string `json:"sEzsigndocumentName"`
 	// The date and time at which the object was last modified
 	DtModifiedDate string `json:"dtModifiedDate"`
-	// 
 	AObjFormDataSigner []CustomFormDataSignerResponse `json:"a_objFormDataSigner"`
 }
 
@@ -172,23 +174,21 @@ func (o *CustomFormDataDocumentResponse) SetAObjFormDataSigner(v []CustomFormDat
 }
 
 func (o CustomFormDataDocumentResponse) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["pkiEzsigndocumentID"] = o.PkiEzsigndocumentID
-	}
-	if true {
-		toSerialize["fkiEzsignfolderID"] = o.FkiEzsignfolderID
-	}
-	if true {
-		toSerialize["sEzsigndocumentName"] = o.SEzsigndocumentName
-	}
-	if true {
-		toSerialize["dtModifiedDate"] = o.DtModifiedDate
-	}
-	if true {
-		toSerialize["a_objFormDataSigner"] = o.AObjFormDataSigner
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CustomFormDataDocumentResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["pkiEzsigndocumentID"] = o.PkiEzsigndocumentID
+	toSerialize["fkiEzsignfolderID"] = o.FkiEzsignfolderID
+	toSerialize["sEzsigndocumentName"] = o.SEzsigndocumentName
+	toSerialize["dtModifiedDate"] = o.DtModifiedDate
+	toSerialize["a_objFormDataSigner"] = o.AObjFormDataSigner
+	return toSerialize, nil
 }
 
 type NullableCustomFormDataDocumentResponse struct {

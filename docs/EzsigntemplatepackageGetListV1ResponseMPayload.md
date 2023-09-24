@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AObjEzsigntemplatepackage** | [**[]EzsigntemplatepackageListElement**](EzsigntemplatepackageListElement.md) |  | 
 **IRowReturned** | **int32** | The number of rows returned | 
 **IRowFiltered** | **int32** | The number of rows matching your filters (if any) or the total number of rows | 
+**AObjEzsigntemplatepackage** | [**[]EzsigntemplatepackageListElement**](EzsigntemplatepackageListElement.md) |  | 
 
 ## Methods
 
 ### NewEzsigntemplatepackageGetListV1ResponseMPayload
 
-`func NewEzsigntemplatepackageGetListV1ResponseMPayload(aObjEzsigntemplatepackage []EzsigntemplatepackageListElement, iRowReturned int32, iRowFiltered int32, ) *EzsigntemplatepackageGetListV1ResponseMPayload`
+`func NewEzsigntemplatepackageGetListV1ResponseMPayload(iRowReturned int32, iRowFiltered int32, aObjEzsigntemplatepackage []EzsigntemplatepackageListElement, ) *EzsigntemplatepackageGetListV1ResponseMPayload`
 
 NewEzsigntemplatepackageGetListV1ResponseMPayload instantiates a new EzsigntemplatepackageGetListV1ResponseMPayload object
 This constructor will assign default values to properties that have it defined,
@@ -26,26 +26,6 @@ will change when the set of required properties is changed
 NewEzsigntemplatepackageGetListV1ResponseMPayloadWithDefaults instantiates a new EzsigntemplatepackageGetListV1ResponseMPayload object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetAObjEzsigntemplatepackage
-
-`func (o *EzsigntemplatepackageGetListV1ResponseMPayload) GetAObjEzsigntemplatepackage() []EzsigntemplatepackageListElement`
-
-GetAObjEzsigntemplatepackage returns the AObjEzsigntemplatepackage field if non-nil, zero value otherwise.
-
-### GetAObjEzsigntemplatepackageOk
-
-`func (o *EzsigntemplatepackageGetListV1ResponseMPayload) GetAObjEzsigntemplatepackageOk() (*[]EzsigntemplatepackageListElement, bool)`
-
-GetAObjEzsigntemplatepackageOk returns a tuple with the AObjEzsigntemplatepackage field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAObjEzsigntemplatepackage
-
-`func (o *EzsigntemplatepackageGetListV1ResponseMPayload) SetAObjEzsigntemplatepackage(v []EzsigntemplatepackageListElement)`
-
-SetAObjEzsigntemplatepackage sets AObjEzsigntemplatepackage field to given value.
-
 
 ### GetIRowReturned
 
@@ -85,6 +65,26 @@ and a boolean to check if the value has been set.
 `func (o *EzsigntemplatepackageGetListV1ResponseMPayload) SetIRowFiltered(v int32)`
 
 SetIRowFiltered sets IRowFiltered field to given value.
+
+
+### GetAObjEzsigntemplatepackage
+
+`func (o *EzsigntemplatepackageGetListV1ResponseMPayload) GetAObjEzsigntemplatepackage() []EzsigntemplatepackageListElement`
+
+GetAObjEzsigntemplatepackage returns the AObjEzsigntemplatepackage field if non-nil, zero value otherwise.
+
+### GetAObjEzsigntemplatepackageOk
+
+`func (o *EzsigntemplatepackageGetListV1ResponseMPayload) GetAObjEzsigntemplatepackageOk() (*[]EzsigntemplatepackageListElement, bool)`
+
+GetAObjEzsigntemplatepackageOk returns a tuple with the AObjEzsigntemplatepackage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAObjEzsigntemplatepackage
+
+`func (o *EzsigntemplatepackageGetListV1ResponseMPayload) SetAObjEzsigntemplatepackage(v []EzsigntemplatepackageListElement)`
+
+SetAObjEzsigntemplatepackage sets AObjEzsigntemplatepackage field to given value.
 
 
 

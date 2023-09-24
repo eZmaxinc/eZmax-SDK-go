@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,15 +15,18 @@ import (
 	"encoding/json"
 )
 
+// checks if the EzsignsignaturecustomdateRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsignsignaturecustomdateRequest{}
+
 // EzsignsignaturecustomdateRequest An Ezsignsignaturecustomdate Object
 type EzsignsignaturecustomdateRequest struct {
 	// The unique ID of the Ezsignsignaturecustomdate
 	PkiEzsignsignaturecustomdateID *int32 `json:"pkiEzsignsignaturecustomdateID,omitempty"`
-	// The X coordinate (Horizontal) where to put the custom date block on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the custom date block 2 inches from the left border of the page, you would use \"200\" for the X coordinate.
+	// The X coordinate (Horizontal) where to put the Ezsignsignaturecustomdate on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignaturecustomdate block 2 inches from the left border of the page, you would use \"200\" for the X coordinate.
 	IEzsignsignaturecustomdateX int32 `json:"iEzsignsignaturecustomdateX"`
-	// The Y coordinate (Vertical) where to put the custom date block on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the custom date block 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.
+	// The Y coordinate (Vertical) where to put the Ezsignsignaturecustomdate on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignaturecustomdate block 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.
 	IEzsignsignaturecustomdateY int32 `json:"iEzsignsignaturecustomdateY"`
-	// The custom date format to use  You can use the codes below and they will be replaced at signature time. Text values like month and day names will be rendered in the proper language. Other text will be left as-is.  The codes examples below are based on the following datetime: Thursday, January 6, 2022 at 08:07:09 EST  For example, the format \"Signature date: {MM}/{DD}/{YYYY} {hh}:{mm}\" would become \"Signature date: 01/06/2022 08:07\"  **Year**  | Code | Example | | - | - | | {YYYY} | 2022 |  **Month**  | Code | Example | | - | - | | {MonthCapitalize} | Janvier | | {Month} | janvier | | {MM} | 01 | | {M} | 1 |  **Day**  | Code | Example | | - | - | | {DayCapitalize} | Jeudi | | {Day} | jeudi | | {DD} | 06 | | {D} | 6 |  **Hour**  | Code | Example | | - | - | | {hh} | 08 |  **Minute**  | Code | Example | | - | - | | {mm} | 07 |  **Second**  | Code | Example | | - | - | | {ss} | 09 |        **Timezone**  | Code | Example | | - | - | | {Z} | EST |       **Time**  | Code | Example | | - | - | | {Time} | 08:07:09 |   | {TimeZ} | 08:07:09 EST |     **Date**  | Code | Example | | - | - | | {Date} | 2022-01-06 |   | {DateText} | 1er Janvier 2022 |  **Full**  | Code | Example | | - | - | | {DateTime} | 2022-01-06 08:07:09 |   | {DateTimeZ} | 2022-01-06 08:07:09 EST | 
+	// The custom date format to use  You can use the codes below and they will be replaced at signature time. Text values like month and day names will be rendered in the proper language. Other text will be left as-is.  The codes examples below are based on the following datetime: Thursday, January 6, 2022 at 08:07:09 EST  For example, the format \"Signature date: {MM}/{DD}/{YYYY} {hh}:{mm}\" would become \"Signature date: 01/06/2022 08:07\"  **Year**  | Code | Example | | - | - | | {YYYY} | 2022 | | {YY} | 22 |  **Month**  | Code | Example | | - | - | | {MonthCapitalize} | Janvier | | {Month} | janvier | | {MM} | 01 | | {M} | 1 |  **Day**  | Code | Example | | - | - | | {DayCapitalize} | Jeudi | | {Day} | jeudi | | {DD} | 06 | | {D} | 6 |  **Hour**  | Code | Example | | - | - | | {hh} | 08 |  **Minute**  | Code | Example | | - | - | | {mm} | 07 |  **Second**  | Code | Example | | - | - | | {ss} | 09 |        **Timezone**  | Code | Example | | - | - | | {Z} | EST |       **Time**  | Code | Example | | - | - | | {Time} | 08:07:09 |   | {TimeZ} | 08:07:09 EST |     **Date**  | Code | Example | | - | - | | {Date} | 2022-01-06 |   | {DateText} | 1er Janvier 2022 |  **Full**  | Code | Example | | - | - | | {DateTime} | 2022-01-06 08:07:09 |   | {DateTimeZ} | 2022-01-06 08:07:09 EST | 
 	SEzsignsignaturecustomdateFormat string `json:"sEzsignsignaturecustomdateFormat"`
 }
 
@@ -49,7 +52,7 @@ func NewEzsignsignaturecustomdateRequestWithDefaults() *Ezsignsignaturecustomdat
 
 // GetPkiEzsignsignaturecustomdateID returns the PkiEzsignsignaturecustomdateID field value if set, zero value otherwise.
 func (o *EzsignsignaturecustomdateRequest) GetPkiEzsignsignaturecustomdateID() int32 {
-	if o == nil || o.PkiEzsignsignaturecustomdateID == nil {
+	if o == nil || IsNil(o.PkiEzsignsignaturecustomdateID) {
 		var ret int32
 		return ret
 	}
@@ -59,7 +62,7 @@ func (o *EzsignsignaturecustomdateRequest) GetPkiEzsignsignaturecustomdateID() i
 // GetPkiEzsignsignaturecustomdateIDOk returns a tuple with the PkiEzsignsignaturecustomdateID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsignsignaturecustomdateRequest) GetPkiEzsignsignaturecustomdateIDOk() (*int32, bool) {
-	if o == nil || o.PkiEzsignsignaturecustomdateID == nil {
+	if o == nil || IsNil(o.PkiEzsignsignaturecustomdateID) {
 		return nil, false
 	}
 	return o.PkiEzsignsignaturecustomdateID, true
@@ -67,7 +70,7 @@ func (o *EzsignsignaturecustomdateRequest) GetPkiEzsignsignaturecustomdateIDOk()
 
 // HasPkiEzsignsignaturecustomdateID returns a boolean if a field has been set.
 func (o *EzsignsignaturecustomdateRequest) HasPkiEzsignsignaturecustomdateID() bool {
-	if o != nil && o.PkiEzsignsignaturecustomdateID != nil {
+	if o != nil && !IsNil(o.PkiEzsignsignaturecustomdateID) {
 		return true
 	}
 
@@ -152,20 +155,22 @@ func (o *EzsignsignaturecustomdateRequest) SetSEzsignsignaturecustomdateFormat(v
 }
 
 func (o EzsignsignaturecustomdateRequest) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if o.PkiEzsignsignaturecustomdateID != nil {
-		toSerialize["pkiEzsignsignaturecustomdateID"] = o.PkiEzsignsignaturecustomdateID
-	}
-	if true {
-		toSerialize["iEzsignsignaturecustomdateX"] = o.IEzsignsignaturecustomdateX
-	}
-	if true {
-		toSerialize["iEzsignsignaturecustomdateY"] = o.IEzsignsignaturecustomdateY
-	}
-	if true {
-		toSerialize["sEzsignsignaturecustomdateFormat"] = o.SEzsignsignaturecustomdateFormat
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsignsignaturecustomdateRequest) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.PkiEzsignsignaturecustomdateID) {
+		toSerialize["pkiEzsignsignaturecustomdateID"] = o.PkiEzsignsignaturecustomdateID
+	}
+	toSerialize["iEzsignsignaturecustomdateX"] = o.IEzsignsignaturecustomdateX
+	toSerialize["iEzsignsignaturecustomdateY"] = o.IEzsignsignaturecustomdateY
+	toSerialize["sEzsignsignaturecustomdateFormat"] = o.SEzsignsignaturecustomdateFormat
+	return toSerialize, nil
 }
 
 type NullableEzsignsignaturecustomdateRequest struct {

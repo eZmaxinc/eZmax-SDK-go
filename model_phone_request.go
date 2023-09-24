@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,31 +15,42 @@ import (
 	"encoding/json"
 )
 
+// checks if the PhoneRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &PhoneRequest{}
+
 // PhoneRequest A Phone Object
 type PhoneRequest struct {
+	// The unique ID of the Phone.
+	PkiPhoneID *int32 `json:"pkiPhoneID,omitempty"`
 	// The unique ID of the Phonetype.  Valid values:  |Value|Description| |-|-| |1|Office| |2|Home| |3|Mobile| |4|Fax| |5|Pager| |6|Toll Free|
 	FkiPhonetypeID int32 `json:"fkiPhonetypeID"`
-	EPhoneType FieldEPhoneType `json:"ePhoneType"`
+	// Deprecated
+	EPhoneType *FieldEPhoneType `json:"ePhoneType,omitempty"`
 	// The region of the phone number. (For a North America Number only)  The region is the \"514\" section in this sample phone number: (514) 990-1516 x123
+	// Deprecated
 	SPhoneRegion *string `json:"sPhoneRegion,omitempty"`
 	// The exchange of the phone number. (For a North America Number only)  The exchange is the \"990\" section in this sample phone number: (514) 990-1516 x123
+	// Deprecated
 	SPhoneExchange *string `json:"sPhoneExchange,omitempty"`
 	// The number of the phone number. (For a North America Number only)  The number is the \"1516\" section in this sample phone number: (514) 990-1516 x123
+	// Deprecated
 	SPhoneNumber *string `json:"sPhoneNumber,omitempty"`
-	// A phone number in E.164 Format
+	// The international phone number.
+	// Deprecated
 	SPhoneInternational *string `json:"sPhoneInternational,omitempty"`
 	// The extension of the phone number.  The extension is the \"123\" section in this sample phone number: (514) 990-1516 x123.  It can also be used with international phone numbers
 	SPhoneExtension *string `json:"sPhoneExtension,omitempty"`
+	// A phone number in E.164 Format
+	SPhoneE164 *string `json:"sPhoneE164,omitempty"`
 }
 
 // NewPhoneRequest instantiates a new PhoneRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPhoneRequest(fkiPhonetypeID int32, ePhoneType FieldEPhoneType) *PhoneRequest {
+func NewPhoneRequest(fkiPhonetypeID int32) *PhoneRequest {
 	this := PhoneRequest{}
 	this.FkiPhonetypeID = fkiPhonetypeID
-	this.EPhoneType = ePhoneType
 	return &this
 }
 
@@ -49,6 +60,38 @@ func NewPhoneRequest(fkiPhonetypeID int32, ePhoneType FieldEPhoneType) *PhoneReq
 func NewPhoneRequestWithDefaults() *PhoneRequest {
 	this := PhoneRequest{}
 	return &this
+}
+
+// GetPkiPhoneID returns the PkiPhoneID field value if set, zero value otherwise.
+func (o *PhoneRequest) GetPkiPhoneID() int32 {
+	if o == nil || IsNil(o.PkiPhoneID) {
+		var ret int32
+		return ret
+	}
+	return *o.PkiPhoneID
+}
+
+// GetPkiPhoneIDOk returns a tuple with the PkiPhoneID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PhoneRequest) GetPkiPhoneIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.PkiPhoneID) {
+		return nil, false
+	}
+	return o.PkiPhoneID, true
+}
+
+// HasPkiPhoneID returns a boolean if a field has been set.
+func (o *PhoneRequest) HasPkiPhoneID() bool {
+	if o != nil && !IsNil(o.PkiPhoneID) {
+		return true
+	}
+
+	return false
+}
+
+// SetPkiPhoneID gets a reference to the given int32 and assigns it to the PkiPhoneID field.
+func (o *PhoneRequest) SetPkiPhoneID(v int32) {
+	o.PkiPhoneID = &v
 }
 
 // GetFkiPhonetypeID returns the FkiPhonetypeID field value
@@ -75,33 +118,45 @@ func (o *PhoneRequest) SetFkiPhonetypeID(v int32) {
 	o.FkiPhonetypeID = v
 }
 
-// GetEPhoneType returns the EPhoneType field value
+// GetEPhoneType returns the EPhoneType field value if set, zero value otherwise.
+// Deprecated
 func (o *PhoneRequest) GetEPhoneType() FieldEPhoneType {
-	if o == nil {
+	if o == nil || IsNil(o.EPhoneType) {
 		var ret FieldEPhoneType
 		return ret
 	}
-
-	return o.EPhoneType
+	return *o.EPhoneType
 }
 
-// GetEPhoneTypeOk returns a tuple with the EPhoneType field value
+// GetEPhoneTypeOk returns a tuple with the EPhoneType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// Deprecated
 func (o *PhoneRequest) GetEPhoneTypeOk() (*FieldEPhoneType, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.EPhoneType) {
 		return nil, false
 	}
-	return &o.EPhoneType, true
+	return o.EPhoneType, true
 }
 
-// SetEPhoneType sets field value
+// HasEPhoneType returns a boolean if a field has been set.
+func (o *PhoneRequest) HasEPhoneType() bool {
+	if o != nil && !IsNil(o.EPhoneType) {
+		return true
+	}
+
+	return false
+}
+
+// SetEPhoneType gets a reference to the given FieldEPhoneType and assigns it to the EPhoneType field.
+// Deprecated
 func (o *PhoneRequest) SetEPhoneType(v FieldEPhoneType) {
-	o.EPhoneType = v
+	o.EPhoneType = &v
 }
 
 // GetSPhoneRegion returns the SPhoneRegion field value if set, zero value otherwise.
+// Deprecated
 func (o *PhoneRequest) GetSPhoneRegion() string {
-	if o == nil || o.SPhoneRegion == nil {
+	if o == nil || IsNil(o.SPhoneRegion) {
 		var ret string
 		return ret
 	}
@@ -110,8 +165,9 @@ func (o *PhoneRequest) GetSPhoneRegion() string {
 
 // GetSPhoneRegionOk returns a tuple with the SPhoneRegion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// Deprecated
 func (o *PhoneRequest) GetSPhoneRegionOk() (*string, bool) {
-	if o == nil || o.SPhoneRegion == nil {
+	if o == nil || IsNil(o.SPhoneRegion) {
 		return nil, false
 	}
 	return o.SPhoneRegion, true
@@ -119,7 +175,7 @@ func (o *PhoneRequest) GetSPhoneRegionOk() (*string, bool) {
 
 // HasSPhoneRegion returns a boolean if a field has been set.
 func (o *PhoneRequest) HasSPhoneRegion() bool {
-	if o != nil && o.SPhoneRegion != nil {
+	if o != nil && !IsNil(o.SPhoneRegion) {
 		return true
 	}
 
@@ -127,13 +183,15 @@ func (o *PhoneRequest) HasSPhoneRegion() bool {
 }
 
 // SetSPhoneRegion gets a reference to the given string and assigns it to the SPhoneRegion field.
+// Deprecated
 func (o *PhoneRequest) SetSPhoneRegion(v string) {
 	o.SPhoneRegion = &v
 }
 
 // GetSPhoneExchange returns the SPhoneExchange field value if set, zero value otherwise.
+// Deprecated
 func (o *PhoneRequest) GetSPhoneExchange() string {
-	if o == nil || o.SPhoneExchange == nil {
+	if o == nil || IsNil(o.SPhoneExchange) {
 		var ret string
 		return ret
 	}
@@ -142,8 +200,9 @@ func (o *PhoneRequest) GetSPhoneExchange() string {
 
 // GetSPhoneExchangeOk returns a tuple with the SPhoneExchange field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// Deprecated
 func (o *PhoneRequest) GetSPhoneExchangeOk() (*string, bool) {
-	if o == nil || o.SPhoneExchange == nil {
+	if o == nil || IsNil(o.SPhoneExchange) {
 		return nil, false
 	}
 	return o.SPhoneExchange, true
@@ -151,7 +210,7 @@ func (o *PhoneRequest) GetSPhoneExchangeOk() (*string, bool) {
 
 // HasSPhoneExchange returns a boolean if a field has been set.
 func (o *PhoneRequest) HasSPhoneExchange() bool {
-	if o != nil && o.SPhoneExchange != nil {
+	if o != nil && !IsNil(o.SPhoneExchange) {
 		return true
 	}
 
@@ -159,13 +218,15 @@ func (o *PhoneRequest) HasSPhoneExchange() bool {
 }
 
 // SetSPhoneExchange gets a reference to the given string and assigns it to the SPhoneExchange field.
+// Deprecated
 func (o *PhoneRequest) SetSPhoneExchange(v string) {
 	o.SPhoneExchange = &v
 }
 
 // GetSPhoneNumber returns the SPhoneNumber field value if set, zero value otherwise.
+// Deprecated
 func (o *PhoneRequest) GetSPhoneNumber() string {
-	if o == nil || o.SPhoneNumber == nil {
+	if o == nil || IsNil(o.SPhoneNumber) {
 		var ret string
 		return ret
 	}
@@ -174,8 +235,9 @@ func (o *PhoneRequest) GetSPhoneNumber() string {
 
 // GetSPhoneNumberOk returns a tuple with the SPhoneNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// Deprecated
 func (o *PhoneRequest) GetSPhoneNumberOk() (*string, bool) {
-	if o == nil || o.SPhoneNumber == nil {
+	if o == nil || IsNil(o.SPhoneNumber) {
 		return nil, false
 	}
 	return o.SPhoneNumber, true
@@ -183,7 +245,7 @@ func (o *PhoneRequest) GetSPhoneNumberOk() (*string, bool) {
 
 // HasSPhoneNumber returns a boolean if a field has been set.
 func (o *PhoneRequest) HasSPhoneNumber() bool {
-	if o != nil && o.SPhoneNumber != nil {
+	if o != nil && !IsNil(o.SPhoneNumber) {
 		return true
 	}
 
@@ -191,13 +253,15 @@ func (o *PhoneRequest) HasSPhoneNumber() bool {
 }
 
 // SetSPhoneNumber gets a reference to the given string and assigns it to the SPhoneNumber field.
+// Deprecated
 func (o *PhoneRequest) SetSPhoneNumber(v string) {
 	o.SPhoneNumber = &v
 }
 
 // GetSPhoneInternational returns the SPhoneInternational field value if set, zero value otherwise.
+// Deprecated
 func (o *PhoneRequest) GetSPhoneInternational() string {
-	if o == nil || o.SPhoneInternational == nil {
+	if o == nil || IsNil(o.SPhoneInternational) {
 		var ret string
 		return ret
 	}
@@ -206,8 +270,9 @@ func (o *PhoneRequest) GetSPhoneInternational() string {
 
 // GetSPhoneInternationalOk returns a tuple with the SPhoneInternational field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// Deprecated
 func (o *PhoneRequest) GetSPhoneInternationalOk() (*string, bool) {
-	if o == nil || o.SPhoneInternational == nil {
+	if o == nil || IsNil(o.SPhoneInternational) {
 		return nil, false
 	}
 	return o.SPhoneInternational, true
@@ -215,7 +280,7 @@ func (o *PhoneRequest) GetSPhoneInternationalOk() (*string, bool) {
 
 // HasSPhoneInternational returns a boolean if a field has been set.
 func (o *PhoneRequest) HasSPhoneInternational() bool {
-	if o != nil && o.SPhoneInternational != nil {
+	if o != nil && !IsNil(o.SPhoneInternational) {
 		return true
 	}
 
@@ -223,13 +288,14 @@ func (o *PhoneRequest) HasSPhoneInternational() bool {
 }
 
 // SetSPhoneInternational gets a reference to the given string and assigns it to the SPhoneInternational field.
+// Deprecated
 func (o *PhoneRequest) SetSPhoneInternational(v string) {
 	o.SPhoneInternational = &v
 }
 
 // GetSPhoneExtension returns the SPhoneExtension field value if set, zero value otherwise.
 func (o *PhoneRequest) GetSPhoneExtension() string {
-	if o == nil || o.SPhoneExtension == nil {
+	if o == nil || IsNil(o.SPhoneExtension) {
 		var ret string
 		return ret
 	}
@@ -239,7 +305,7 @@ func (o *PhoneRequest) GetSPhoneExtension() string {
 // GetSPhoneExtensionOk returns a tuple with the SPhoneExtension field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PhoneRequest) GetSPhoneExtensionOk() (*string, bool) {
-	if o == nil || o.SPhoneExtension == nil {
+	if o == nil || IsNil(o.SPhoneExtension) {
 		return nil, false
 	}
 	return o.SPhoneExtension, true
@@ -247,7 +313,7 @@ func (o *PhoneRequest) GetSPhoneExtensionOk() (*string, bool) {
 
 // HasSPhoneExtension returns a boolean if a field has been set.
 func (o *PhoneRequest) HasSPhoneExtension() bool {
-	if o != nil && o.SPhoneExtension != nil {
+	if o != nil && !IsNil(o.SPhoneExtension) {
 		return true
 	}
 
@@ -259,30 +325,74 @@ func (o *PhoneRequest) SetSPhoneExtension(v string) {
 	o.SPhoneExtension = &v
 }
 
+// GetSPhoneE164 returns the SPhoneE164 field value if set, zero value otherwise.
+func (o *PhoneRequest) GetSPhoneE164() string {
+	if o == nil || IsNil(o.SPhoneE164) {
+		var ret string
+		return ret
+	}
+	return *o.SPhoneE164
+}
+
+// GetSPhoneE164Ok returns a tuple with the SPhoneE164 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PhoneRequest) GetSPhoneE164Ok() (*string, bool) {
+	if o == nil || IsNil(o.SPhoneE164) {
+		return nil, false
+	}
+	return o.SPhoneE164, true
+}
+
+// HasSPhoneE164 returns a boolean if a field has been set.
+func (o *PhoneRequest) HasSPhoneE164() bool {
+	if o != nil && !IsNil(o.SPhoneE164) {
+		return true
+	}
+
+	return false
+}
+
+// SetSPhoneE164 gets a reference to the given string and assigns it to the SPhoneE164 field.
+func (o *PhoneRequest) SetSPhoneE164(v string) {
+	o.SPhoneE164 = &v
+}
+
 func (o PhoneRequest) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["fkiPhonetypeID"] = o.FkiPhonetypeID
-	}
-	if true {
-		toSerialize["ePhoneType"] = o.EPhoneType
-	}
-	if o.SPhoneRegion != nil {
-		toSerialize["sPhoneRegion"] = o.SPhoneRegion
-	}
-	if o.SPhoneExchange != nil {
-		toSerialize["sPhoneExchange"] = o.SPhoneExchange
-	}
-	if o.SPhoneNumber != nil {
-		toSerialize["sPhoneNumber"] = o.SPhoneNumber
-	}
-	if o.SPhoneInternational != nil {
-		toSerialize["sPhoneInternational"] = o.SPhoneInternational
-	}
-	if o.SPhoneExtension != nil {
-		toSerialize["sPhoneExtension"] = o.SPhoneExtension
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o PhoneRequest) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.PkiPhoneID) {
+		toSerialize["pkiPhoneID"] = o.PkiPhoneID
+	}
+	toSerialize["fkiPhonetypeID"] = o.FkiPhonetypeID
+	if !IsNil(o.EPhoneType) {
+		toSerialize["ePhoneType"] = o.EPhoneType
+	}
+	if !IsNil(o.SPhoneRegion) {
+		toSerialize["sPhoneRegion"] = o.SPhoneRegion
+	}
+	if !IsNil(o.SPhoneExchange) {
+		toSerialize["sPhoneExchange"] = o.SPhoneExchange
+	}
+	if !IsNil(o.SPhoneNumber) {
+		toSerialize["sPhoneNumber"] = o.SPhoneNumber
+	}
+	if !IsNil(o.SPhoneInternational) {
+		toSerialize["sPhoneInternational"] = o.SPhoneInternational
+	}
+	if !IsNil(o.SPhoneExtension) {
+		toSerialize["sPhoneExtension"] = o.SPhoneExtension
+	}
+	if !IsNil(o.SPhoneE164) {
+		toSerialize["sPhoneE164"] = o.SPhoneE164
+	}
+	return toSerialize, nil
 }
 
 type NullablePhoneRequest struct {

@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,23 +15,30 @@ import (
 	"encoding/json"
 )
 
+// checks if the EzsigndocumentResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsigndocumentResponse{}
+
 // EzsigndocumentResponse An Ezsigndocument Object
 type EzsigndocumentResponse struct {
-	// The unique ID of the Ezsignfolder
-	FkiEzsignfolderID int32 `json:"fkiEzsignfolderID"`
-	// The maximum date and time at which the Ezsigndocument can be signed.
-	DtEzsigndocumentDuedate string `json:"dtEzsigndocumentDuedate"`
-	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
-	FkiLanguageID int32 `json:"fkiLanguageID"`
-	// The name of the document that will be presented to Ezsignfoldersignerassociations
-	SEzsigndocumentName string `json:"sEzsigndocumentName"`
 	// The unique ID of the Ezsigndocument
 	PkiEzsigndocumentID int32 `json:"pkiEzsigndocumentID"`
+	// The unique ID of the Ezsignfolder
+	FkiEzsignfolderID int32 `json:"fkiEzsignfolderID"`
+	// The unique ID of the Ezsignfoldersignerassociation
+	FkiEzsignfoldersignerassociationIDDeclinedtosign *int32 `json:"fkiEzsignfoldersignerassociationIDDeclinedtosign,omitempty"`
+	// The maximum date and time at which the Ezsigndocument can be signed.
+	DtEzsigndocumentDuedate string `json:"dtEzsigndocumentDuedate"`
+	// The date and time at which the Ezsignform has been completed.
+	DtEzsignformCompleted *string `json:"dtEzsignformCompleted,omitempty"`
+	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
+	FkiLanguageID *int32 `json:"fkiLanguageID,omitempty"`
+	// The name of the document that will be presented to Ezsignfoldersignerassociations
+	SEzsigndocumentName string `json:"sEzsigndocumentName"`
 	EEzsigndocumentStep FieldEEzsigndocumentStep `json:"eEzsigndocumentStep"`
 	// The date and time when the Ezsigndocument was first sent.
-	DtEzsigndocumentFirstsend string `json:"dtEzsigndocumentFirstsend"`
+	DtEzsigndocumentFirstsend *string `json:"dtEzsigndocumentFirstsend,omitempty"`
 	// The date and time when the Ezsigndocument was sent the last time.
-	DtEzsigndocumentLastsend string `json:"dtEzsigndocumentLastsend"`
+	DtEzsigndocumentLastsend *string `json:"dtEzsigndocumentLastsend,omitempty"`
 	// The order in which the Ezsigndocument will be presented to the signatory in the Ezsignfolder.
 	IEzsigndocumentOrder int32 `json:"iEzsigndocumentOrder"`
 	// The number of pages in the Ezsigndocument.
@@ -41,33 +48,35 @@ type EzsigndocumentResponse struct {
 	// The number of total signatures that were requested in the Ezsigndocument.
 	IEzsigndocumentSignaturetotal int32 `json:"iEzsigndocumentSignaturetotal"`
 	// MD5 Hash of the initial PDF Document before signatures were applied to it.
-	SEzsigndocumentMD5initial string `json:"sEzsigndocumentMD5initial"`
+	SEzsigndocumentMD5initial *string `json:"sEzsigndocumentMD5initial,omitempty"`
+	// A custom text message that will contain the refusal message if the Ezsigndocument is declined to sign
+	TEzsigndocumentDeclinedtosignreason *string `json:"tEzsigndocumentDeclinedtosignreason,omitempty"`
 	// MD5 Hash of the final PDF Document after all signatures were applied to it.
-	SEzsigndocumentMD5signed string `json:"sEzsigndocumentMD5signed"`
-	ObjAudit CommonAudit `json:"objAudit"`
+	SEzsigndocumentMD5signed *string `json:"sEzsigndocumentMD5signed,omitempty"`
+	// If the Ezsigndocument contains an Ezsignform or not
+	BEzsigndocumentEzsignform *bool `json:"bEzsigndocumentEzsignform,omitempty"`
+	// If the Ezsigndocument contains signed signatures (From internal or external sources)
+	BEzsigndocumentHassignedsignatures *bool `json:"bEzsigndocumentHassignedsignatures,omitempty"`
+	ObjAudit *CommonAudit `json:"objAudit,omitempty"`
+	// This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format. 
+	SEzsigndocumentExternalid *string `json:"sEzsigndocumentExternalid,omitempty"`
 }
 
 // NewEzsigndocumentResponse instantiates a new EzsigndocumentResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigndocumentResponse(fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, fkiLanguageID int32, sEzsigndocumentName string, pkiEzsigndocumentID int32, eEzsigndocumentStep FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend string, dtEzsigndocumentLastsend string, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, sEzsigndocumentMD5initial string, sEzsigndocumentMD5signed string, objAudit CommonAudit) *EzsigndocumentResponse {
+func NewEzsigndocumentResponse(pkiEzsigndocumentID int32, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, sEzsigndocumentName string, eEzsigndocumentStep FieldEEzsigndocumentStep, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32) *EzsigndocumentResponse {
 	this := EzsigndocumentResponse{}
+	this.PkiEzsigndocumentID = pkiEzsigndocumentID
 	this.FkiEzsignfolderID = fkiEzsignfolderID
 	this.DtEzsigndocumentDuedate = dtEzsigndocumentDuedate
-	this.FkiLanguageID = fkiLanguageID
 	this.SEzsigndocumentName = sEzsigndocumentName
-	this.PkiEzsigndocumentID = pkiEzsigndocumentID
 	this.EEzsigndocumentStep = eEzsigndocumentStep
-	this.DtEzsigndocumentFirstsend = dtEzsigndocumentFirstsend
-	this.DtEzsigndocumentLastsend = dtEzsigndocumentLastsend
 	this.IEzsigndocumentOrder = iEzsigndocumentOrder
 	this.IEzsigndocumentPagetotal = iEzsigndocumentPagetotal
 	this.IEzsigndocumentSignaturesigned = iEzsigndocumentSignaturesigned
 	this.IEzsigndocumentSignaturetotal = iEzsigndocumentSignaturetotal
-	this.SEzsigndocumentMD5initial = sEzsigndocumentMD5initial
-	this.SEzsigndocumentMD5signed = sEzsigndocumentMD5signed
-	this.ObjAudit = objAudit
 	return &this
 }
 
@@ -77,102 +86,6 @@ func NewEzsigndocumentResponse(fkiEzsignfolderID int32, dtEzsigndocumentDuedate 
 func NewEzsigndocumentResponseWithDefaults() *EzsigndocumentResponse {
 	this := EzsigndocumentResponse{}
 	return &this
-}
-
-// GetFkiEzsignfolderID returns the FkiEzsignfolderID field value
-func (o *EzsigndocumentResponse) GetFkiEzsignfolderID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.FkiEzsignfolderID
-}
-
-// GetFkiEzsignfolderIDOk returns a tuple with the FkiEzsignfolderID field value
-// and a boolean to check if the value has been set.
-func (o *EzsigndocumentResponse) GetFkiEzsignfolderIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FkiEzsignfolderID, true
-}
-
-// SetFkiEzsignfolderID sets field value
-func (o *EzsigndocumentResponse) SetFkiEzsignfolderID(v int32) {
-	o.FkiEzsignfolderID = v
-}
-
-// GetDtEzsigndocumentDuedate returns the DtEzsigndocumentDuedate field value
-func (o *EzsigndocumentResponse) GetDtEzsigndocumentDuedate() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.DtEzsigndocumentDuedate
-}
-
-// GetDtEzsigndocumentDuedateOk returns a tuple with the DtEzsigndocumentDuedate field value
-// and a boolean to check if the value has been set.
-func (o *EzsigndocumentResponse) GetDtEzsigndocumentDuedateOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.DtEzsigndocumentDuedate, true
-}
-
-// SetDtEzsigndocumentDuedate sets field value
-func (o *EzsigndocumentResponse) SetDtEzsigndocumentDuedate(v string) {
-	o.DtEzsigndocumentDuedate = v
-}
-
-// GetFkiLanguageID returns the FkiLanguageID field value
-func (o *EzsigndocumentResponse) GetFkiLanguageID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.FkiLanguageID
-}
-
-// GetFkiLanguageIDOk returns a tuple with the FkiLanguageID field value
-// and a boolean to check if the value has been set.
-func (o *EzsigndocumentResponse) GetFkiLanguageIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FkiLanguageID, true
-}
-
-// SetFkiLanguageID sets field value
-func (o *EzsigndocumentResponse) SetFkiLanguageID(v int32) {
-	o.FkiLanguageID = v
-}
-
-// GetSEzsigndocumentName returns the SEzsigndocumentName field value
-func (o *EzsigndocumentResponse) GetSEzsigndocumentName() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SEzsigndocumentName
-}
-
-// GetSEzsigndocumentNameOk returns a tuple with the SEzsigndocumentName field value
-// and a boolean to check if the value has been set.
-func (o *EzsigndocumentResponse) GetSEzsigndocumentNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SEzsigndocumentName, true
-}
-
-// SetSEzsigndocumentName sets field value
-func (o *EzsigndocumentResponse) SetSEzsigndocumentName(v string) {
-	o.SEzsigndocumentName = v
 }
 
 // GetPkiEzsigndocumentID returns the PkiEzsigndocumentID field value
@@ -199,6 +112,174 @@ func (o *EzsigndocumentResponse) SetPkiEzsigndocumentID(v int32) {
 	o.PkiEzsigndocumentID = v
 }
 
+// GetFkiEzsignfolderID returns the FkiEzsignfolderID field value
+func (o *EzsigndocumentResponse) GetFkiEzsignfolderID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiEzsignfolderID
+}
+
+// GetFkiEzsignfolderIDOk returns a tuple with the FkiEzsignfolderID field value
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentResponse) GetFkiEzsignfolderIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiEzsignfolderID, true
+}
+
+// SetFkiEzsignfolderID sets field value
+func (o *EzsigndocumentResponse) SetFkiEzsignfolderID(v int32) {
+	o.FkiEzsignfolderID = v
+}
+
+// GetFkiEzsignfoldersignerassociationIDDeclinedtosign returns the FkiEzsignfoldersignerassociationIDDeclinedtosign field value if set, zero value otherwise.
+func (o *EzsigndocumentResponse) GetFkiEzsignfoldersignerassociationIDDeclinedtosign() int32 {
+	if o == nil || IsNil(o.FkiEzsignfoldersignerassociationIDDeclinedtosign) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEzsignfoldersignerassociationIDDeclinedtosign
+}
+
+// GetFkiEzsignfoldersignerassociationIDDeclinedtosignOk returns a tuple with the FkiEzsignfoldersignerassociationIDDeclinedtosign field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentResponse) GetFkiEzsignfoldersignerassociationIDDeclinedtosignOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEzsignfoldersignerassociationIDDeclinedtosign) {
+		return nil, false
+	}
+	return o.FkiEzsignfoldersignerassociationIDDeclinedtosign, true
+}
+
+// HasFkiEzsignfoldersignerassociationIDDeclinedtosign returns a boolean if a field has been set.
+func (o *EzsigndocumentResponse) HasFkiEzsignfoldersignerassociationIDDeclinedtosign() bool {
+	if o != nil && !IsNil(o.FkiEzsignfoldersignerassociationIDDeclinedtosign) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzsignfoldersignerassociationIDDeclinedtosign gets a reference to the given int32 and assigns it to the FkiEzsignfoldersignerassociationIDDeclinedtosign field.
+func (o *EzsigndocumentResponse) SetFkiEzsignfoldersignerassociationIDDeclinedtosign(v int32) {
+	o.FkiEzsignfoldersignerassociationIDDeclinedtosign = &v
+}
+
+// GetDtEzsigndocumentDuedate returns the DtEzsigndocumentDuedate field value
+func (o *EzsigndocumentResponse) GetDtEzsigndocumentDuedate() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.DtEzsigndocumentDuedate
+}
+
+// GetDtEzsigndocumentDuedateOk returns a tuple with the DtEzsigndocumentDuedate field value
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentResponse) GetDtEzsigndocumentDuedateOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.DtEzsigndocumentDuedate, true
+}
+
+// SetDtEzsigndocumentDuedate sets field value
+func (o *EzsigndocumentResponse) SetDtEzsigndocumentDuedate(v string) {
+	o.DtEzsigndocumentDuedate = v
+}
+
+// GetDtEzsignformCompleted returns the DtEzsignformCompleted field value if set, zero value otherwise.
+func (o *EzsigndocumentResponse) GetDtEzsignformCompleted() string {
+	if o == nil || IsNil(o.DtEzsignformCompleted) {
+		var ret string
+		return ret
+	}
+	return *o.DtEzsignformCompleted
+}
+
+// GetDtEzsignformCompletedOk returns a tuple with the DtEzsignformCompleted field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentResponse) GetDtEzsignformCompletedOk() (*string, bool) {
+	if o == nil || IsNil(o.DtEzsignformCompleted) {
+		return nil, false
+	}
+	return o.DtEzsignformCompleted, true
+}
+
+// HasDtEzsignformCompleted returns a boolean if a field has been set.
+func (o *EzsigndocumentResponse) HasDtEzsignformCompleted() bool {
+	if o != nil && !IsNil(o.DtEzsignformCompleted) {
+		return true
+	}
+
+	return false
+}
+
+// SetDtEzsignformCompleted gets a reference to the given string and assigns it to the DtEzsignformCompleted field.
+func (o *EzsigndocumentResponse) SetDtEzsignformCompleted(v string) {
+	o.DtEzsignformCompleted = &v
+}
+
+// GetFkiLanguageID returns the FkiLanguageID field value if set, zero value otherwise.
+func (o *EzsigndocumentResponse) GetFkiLanguageID() int32 {
+	if o == nil || IsNil(o.FkiLanguageID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiLanguageID
+}
+
+// GetFkiLanguageIDOk returns a tuple with the FkiLanguageID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentResponse) GetFkiLanguageIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiLanguageID) {
+		return nil, false
+	}
+	return o.FkiLanguageID, true
+}
+
+// HasFkiLanguageID returns a boolean if a field has been set.
+func (o *EzsigndocumentResponse) HasFkiLanguageID() bool {
+	if o != nil && !IsNil(o.FkiLanguageID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiLanguageID gets a reference to the given int32 and assigns it to the FkiLanguageID field.
+func (o *EzsigndocumentResponse) SetFkiLanguageID(v int32) {
+	o.FkiLanguageID = &v
+}
+
+// GetSEzsigndocumentName returns the SEzsigndocumentName field value
+func (o *EzsigndocumentResponse) GetSEzsigndocumentName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SEzsigndocumentName
+}
+
+// GetSEzsigndocumentNameOk returns a tuple with the SEzsigndocumentName field value
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentResponse) GetSEzsigndocumentNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SEzsigndocumentName, true
+}
+
+// SetSEzsigndocumentName sets field value
+func (o *EzsigndocumentResponse) SetSEzsigndocumentName(v string) {
+	o.SEzsigndocumentName = v
+}
+
 // GetEEzsigndocumentStep returns the EEzsigndocumentStep field value
 func (o *EzsigndocumentResponse) GetEEzsigndocumentStep() FieldEEzsigndocumentStep {
 	if o == nil {
@@ -223,52 +304,68 @@ func (o *EzsigndocumentResponse) SetEEzsigndocumentStep(v FieldEEzsigndocumentSt
 	o.EEzsigndocumentStep = v
 }
 
-// GetDtEzsigndocumentFirstsend returns the DtEzsigndocumentFirstsend field value
+// GetDtEzsigndocumentFirstsend returns the DtEzsigndocumentFirstsend field value if set, zero value otherwise.
 func (o *EzsigndocumentResponse) GetDtEzsigndocumentFirstsend() string {
-	if o == nil {
+	if o == nil || IsNil(o.DtEzsigndocumentFirstsend) {
 		var ret string
 		return ret
 	}
-
-	return o.DtEzsigndocumentFirstsend
+	return *o.DtEzsigndocumentFirstsend
 }
 
-// GetDtEzsigndocumentFirstsendOk returns a tuple with the DtEzsigndocumentFirstsend field value
+// GetDtEzsigndocumentFirstsendOk returns a tuple with the DtEzsigndocumentFirstsend field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentResponse) GetDtEzsigndocumentFirstsendOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DtEzsigndocumentFirstsend) {
 		return nil, false
 	}
-	return &o.DtEzsigndocumentFirstsend, true
+	return o.DtEzsigndocumentFirstsend, true
 }
 
-// SetDtEzsigndocumentFirstsend sets field value
+// HasDtEzsigndocumentFirstsend returns a boolean if a field has been set.
+func (o *EzsigndocumentResponse) HasDtEzsigndocumentFirstsend() bool {
+	if o != nil && !IsNil(o.DtEzsigndocumentFirstsend) {
+		return true
+	}
+
+	return false
+}
+
+// SetDtEzsigndocumentFirstsend gets a reference to the given string and assigns it to the DtEzsigndocumentFirstsend field.
 func (o *EzsigndocumentResponse) SetDtEzsigndocumentFirstsend(v string) {
-	o.DtEzsigndocumentFirstsend = v
+	o.DtEzsigndocumentFirstsend = &v
 }
 
-// GetDtEzsigndocumentLastsend returns the DtEzsigndocumentLastsend field value
+// GetDtEzsigndocumentLastsend returns the DtEzsigndocumentLastsend field value if set, zero value otherwise.
 func (o *EzsigndocumentResponse) GetDtEzsigndocumentLastsend() string {
-	if o == nil {
+	if o == nil || IsNil(o.DtEzsigndocumentLastsend) {
 		var ret string
 		return ret
 	}
-
-	return o.DtEzsigndocumentLastsend
+	return *o.DtEzsigndocumentLastsend
 }
 
-// GetDtEzsigndocumentLastsendOk returns a tuple with the DtEzsigndocumentLastsend field value
+// GetDtEzsigndocumentLastsendOk returns a tuple with the DtEzsigndocumentLastsend field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentResponse) GetDtEzsigndocumentLastsendOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DtEzsigndocumentLastsend) {
 		return nil, false
 	}
-	return &o.DtEzsigndocumentLastsend, true
+	return o.DtEzsigndocumentLastsend, true
 }
 
-// SetDtEzsigndocumentLastsend sets field value
+// HasDtEzsigndocumentLastsend returns a boolean if a field has been set.
+func (o *EzsigndocumentResponse) HasDtEzsigndocumentLastsend() bool {
+	if o != nil && !IsNil(o.DtEzsigndocumentLastsend) {
+		return true
+	}
+
+	return false
+}
+
+// SetDtEzsigndocumentLastsend gets a reference to the given string and assigns it to the DtEzsigndocumentLastsend field.
 func (o *EzsigndocumentResponse) SetDtEzsigndocumentLastsend(v string) {
-	o.DtEzsigndocumentLastsend = v
+	o.DtEzsigndocumentLastsend = &v
 }
 
 // GetIEzsigndocumentOrder returns the IEzsigndocumentOrder field value
@@ -367,126 +464,286 @@ func (o *EzsigndocumentResponse) SetIEzsigndocumentSignaturetotal(v int32) {
 	o.IEzsigndocumentSignaturetotal = v
 }
 
-// GetSEzsigndocumentMD5initial returns the SEzsigndocumentMD5initial field value
+// GetSEzsigndocumentMD5initial returns the SEzsigndocumentMD5initial field value if set, zero value otherwise.
 func (o *EzsigndocumentResponse) GetSEzsigndocumentMD5initial() string {
-	if o == nil {
+	if o == nil || IsNil(o.SEzsigndocumentMD5initial) {
 		var ret string
 		return ret
 	}
-
-	return o.SEzsigndocumentMD5initial
+	return *o.SEzsigndocumentMD5initial
 }
 
-// GetSEzsigndocumentMD5initialOk returns a tuple with the SEzsigndocumentMD5initial field value
+// GetSEzsigndocumentMD5initialOk returns a tuple with the SEzsigndocumentMD5initial field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentResponse) GetSEzsigndocumentMD5initialOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SEzsigndocumentMD5initial) {
 		return nil, false
 	}
-	return &o.SEzsigndocumentMD5initial, true
+	return o.SEzsigndocumentMD5initial, true
 }
 
-// SetSEzsigndocumentMD5initial sets field value
+// HasSEzsigndocumentMD5initial returns a boolean if a field has been set.
+func (o *EzsigndocumentResponse) HasSEzsigndocumentMD5initial() bool {
+	if o != nil && !IsNil(o.SEzsigndocumentMD5initial) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsigndocumentMD5initial gets a reference to the given string and assigns it to the SEzsigndocumentMD5initial field.
 func (o *EzsigndocumentResponse) SetSEzsigndocumentMD5initial(v string) {
-	o.SEzsigndocumentMD5initial = v
+	o.SEzsigndocumentMD5initial = &v
 }
 
-// GetSEzsigndocumentMD5signed returns the SEzsigndocumentMD5signed field value
-func (o *EzsigndocumentResponse) GetSEzsigndocumentMD5signed() string {
-	if o == nil {
+// GetTEzsigndocumentDeclinedtosignreason returns the TEzsigndocumentDeclinedtosignreason field value if set, zero value otherwise.
+func (o *EzsigndocumentResponse) GetTEzsigndocumentDeclinedtosignreason() string {
+	if o == nil || IsNil(o.TEzsigndocumentDeclinedtosignreason) {
 		var ret string
 		return ret
 	}
-
-	return o.SEzsigndocumentMD5signed
+	return *o.TEzsigndocumentDeclinedtosignreason
 }
 
-// GetSEzsigndocumentMD5signedOk returns a tuple with the SEzsigndocumentMD5signed field value
+// GetTEzsigndocumentDeclinedtosignreasonOk returns a tuple with the TEzsigndocumentDeclinedtosignreason field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EzsigndocumentResponse) GetSEzsigndocumentMD5signedOk() (*string, bool) {
-	if o == nil {
+func (o *EzsigndocumentResponse) GetTEzsigndocumentDeclinedtosignreasonOk() (*string, bool) {
+	if o == nil || IsNil(o.TEzsigndocumentDeclinedtosignreason) {
 		return nil, false
 	}
-	return &o.SEzsigndocumentMD5signed, true
+	return o.TEzsigndocumentDeclinedtosignreason, true
 }
 
-// SetSEzsigndocumentMD5signed sets field value
+// HasTEzsigndocumentDeclinedtosignreason returns a boolean if a field has been set.
+func (o *EzsigndocumentResponse) HasTEzsigndocumentDeclinedtosignreason() bool {
+	if o != nil && !IsNil(o.TEzsigndocumentDeclinedtosignreason) {
+		return true
+	}
+
+	return false
+}
+
+// SetTEzsigndocumentDeclinedtosignreason gets a reference to the given string and assigns it to the TEzsigndocumentDeclinedtosignreason field.
+func (o *EzsigndocumentResponse) SetTEzsigndocumentDeclinedtosignreason(v string) {
+	o.TEzsigndocumentDeclinedtosignreason = &v
+}
+
+// GetSEzsigndocumentMD5signed returns the SEzsigndocumentMD5signed field value if set, zero value otherwise.
+func (o *EzsigndocumentResponse) GetSEzsigndocumentMD5signed() string {
+	if o == nil || IsNil(o.SEzsigndocumentMD5signed) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsigndocumentMD5signed
+}
+
+// GetSEzsigndocumentMD5signedOk returns a tuple with the SEzsigndocumentMD5signed field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentResponse) GetSEzsigndocumentMD5signedOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsigndocumentMD5signed) {
+		return nil, false
+	}
+	return o.SEzsigndocumentMD5signed, true
+}
+
+// HasSEzsigndocumentMD5signed returns a boolean if a field has been set.
+func (o *EzsigndocumentResponse) HasSEzsigndocumentMD5signed() bool {
+	if o != nil && !IsNil(o.SEzsigndocumentMD5signed) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsigndocumentMD5signed gets a reference to the given string and assigns it to the SEzsigndocumentMD5signed field.
 func (o *EzsigndocumentResponse) SetSEzsigndocumentMD5signed(v string) {
-	o.SEzsigndocumentMD5signed = v
+	o.SEzsigndocumentMD5signed = &v
 }
 
-// GetObjAudit returns the ObjAudit field value
+// GetBEzsigndocumentEzsignform returns the BEzsigndocumentEzsignform field value if set, zero value otherwise.
+func (o *EzsigndocumentResponse) GetBEzsigndocumentEzsignform() bool {
+	if o == nil || IsNil(o.BEzsigndocumentEzsignform) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsigndocumentEzsignform
+}
+
+// GetBEzsigndocumentEzsignformOk returns a tuple with the BEzsigndocumentEzsignform field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentResponse) GetBEzsigndocumentEzsignformOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsigndocumentEzsignform) {
+		return nil, false
+	}
+	return o.BEzsigndocumentEzsignform, true
+}
+
+// HasBEzsigndocumentEzsignform returns a boolean if a field has been set.
+func (o *EzsigndocumentResponse) HasBEzsigndocumentEzsignform() bool {
+	if o != nil && !IsNil(o.BEzsigndocumentEzsignform) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsigndocumentEzsignform gets a reference to the given bool and assigns it to the BEzsigndocumentEzsignform field.
+func (o *EzsigndocumentResponse) SetBEzsigndocumentEzsignform(v bool) {
+	o.BEzsigndocumentEzsignform = &v
+}
+
+// GetBEzsigndocumentHassignedsignatures returns the BEzsigndocumentHassignedsignatures field value if set, zero value otherwise.
+func (o *EzsigndocumentResponse) GetBEzsigndocumentHassignedsignatures() bool {
+	if o == nil || IsNil(o.BEzsigndocumentHassignedsignatures) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsigndocumentHassignedsignatures
+}
+
+// GetBEzsigndocumentHassignedsignaturesOk returns a tuple with the BEzsigndocumentHassignedsignatures field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentResponse) GetBEzsigndocumentHassignedsignaturesOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsigndocumentHassignedsignatures) {
+		return nil, false
+	}
+	return o.BEzsigndocumentHassignedsignatures, true
+}
+
+// HasBEzsigndocumentHassignedsignatures returns a boolean if a field has been set.
+func (o *EzsigndocumentResponse) HasBEzsigndocumentHassignedsignatures() bool {
+	if o != nil && !IsNil(o.BEzsigndocumentHassignedsignatures) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsigndocumentHassignedsignatures gets a reference to the given bool and assigns it to the BEzsigndocumentHassignedsignatures field.
+func (o *EzsigndocumentResponse) SetBEzsigndocumentHassignedsignatures(v bool) {
+	o.BEzsigndocumentHassignedsignatures = &v
+}
+
+// GetObjAudit returns the ObjAudit field value if set, zero value otherwise.
 func (o *EzsigndocumentResponse) GetObjAudit() CommonAudit {
-	if o == nil {
+	if o == nil || IsNil(o.ObjAudit) {
 		var ret CommonAudit
 		return ret
 	}
-
-	return o.ObjAudit
+	return *o.ObjAudit
 }
 
-// GetObjAuditOk returns a tuple with the ObjAudit field value
+// GetObjAuditOk returns a tuple with the ObjAudit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentResponse) GetObjAuditOk() (*CommonAudit, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ObjAudit) {
 		return nil, false
 	}
-	return &o.ObjAudit, true
+	return o.ObjAudit, true
 }
 
-// SetObjAudit sets field value
+// HasObjAudit returns a boolean if a field has been set.
+func (o *EzsigndocumentResponse) HasObjAudit() bool {
+	if o != nil && !IsNil(o.ObjAudit) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjAudit gets a reference to the given CommonAudit and assigns it to the ObjAudit field.
 func (o *EzsigndocumentResponse) SetObjAudit(v CommonAudit) {
-	o.ObjAudit = v
+	o.ObjAudit = &v
+}
+
+// GetSEzsigndocumentExternalid returns the SEzsigndocumentExternalid field value if set, zero value otherwise.
+func (o *EzsigndocumentResponse) GetSEzsigndocumentExternalid() string {
+	if o == nil || IsNil(o.SEzsigndocumentExternalid) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsigndocumentExternalid
+}
+
+// GetSEzsigndocumentExternalidOk returns a tuple with the SEzsigndocumentExternalid field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentResponse) GetSEzsigndocumentExternalidOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsigndocumentExternalid) {
+		return nil, false
+	}
+	return o.SEzsigndocumentExternalid, true
+}
+
+// HasSEzsigndocumentExternalid returns a boolean if a field has been set.
+func (o *EzsigndocumentResponse) HasSEzsigndocumentExternalid() bool {
+	if o != nil && !IsNil(o.SEzsigndocumentExternalid) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsigndocumentExternalid gets a reference to the given string and assigns it to the SEzsigndocumentExternalid field.
+func (o *EzsigndocumentResponse) SetSEzsigndocumentExternalid(v string) {
+	o.SEzsigndocumentExternalid = &v
 }
 
 func (o EzsigndocumentResponse) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["fkiEzsignfolderID"] = o.FkiEzsignfolderID
-	}
-	if true {
-		toSerialize["dtEzsigndocumentDuedate"] = o.DtEzsigndocumentDuedate
-	}
-	if true {
-		toSerialize["fkiLanguageID"] = o.FkiLanguageID
-	}
-	if true {
-		toSerialize["sEzsigndocumentName"] = o.SEzsigndocumentName
-	}
-	if true {
-		toSerialize["pkiEzsigndocumentID"] = o.PkiEzsigndocumentID
-	}
-	if true {
-		toSerialize["eEzsigndocumentStep"] = o.EEzsigndocumentStep
-	}
-	if true {
-		toSerialize["dtEzsigndocumentFirstsend"] = o.DtEzsigndocumentFirstsend
-	}
-	if true {
-		toSerialize["dtEzsigndocumentLastsend"] = o.DtEzsigndocumentLastsend
-	}
-	if true {
-		toSerialize["iEzsigndocumentOrder"] = o.IEzsigndocumentOrder
-	}
-	if true {
-		toSerialize["iEzsigndocumentPagetotal"] = o.IEzsigndocumentPagetotal
-	}
-	if true {
-		toSerialize["iEzsigndocumentSignaturesigned"] = o.IEzsigndocumentSignaturesigned
-	}
-	if true {
-		toSerialize["iEzsigndocumentSignaturetotal"] = o.IEzsigndocumentSignaturetotal
-	}
-	if true {
-		toSerialize["sEzsigndocumentMD5initial"] = o.SEzsigndocumentMD5initial
-	}
-	if true {
-		toSerialize["sEzsigndocumentMD5signed"] = o.SEzsigndocumentMD5signed
-	}
-	if true {
-		toSerialize["objAudit"] = o.ObjAudit
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsigndocumentResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["pkiEzsigndocumentID"] = o.PkiEzsigndocumentID
+	toSerialize["fkiEzsignfolderID"] = o.FkiEzsignfolderID
+	if !IsNil(o.FkiEzsignfoldersignerassociationIDDeclinedtosign) {
+		toSerialize["fkiEzsignfoldersignerassociationIDDeclinedtosign"] = o.FkiEzsignfoldersignerassociationIDDeclinedtosign
+	}
+	toSerialize["dtEzsigndocumentDuedate"] = o.DtEzsigndocumentDuedate
+	if !IsNil(o.DtEzsignformCompleted) {
+		toSerialize["dtEzsignformCompleted"] = o.DtEzsignformCompleted
+	}
+	if !IsNil(o.FkiLanguageID) {
+		toSerialize["fkiLanguageID"] = o.FkiLanguageID
+	}
+	toSerialize["sEzsigndocumentName"] = o.SEzsigndocumentName
+	toSerialize["eEzsigndocumentStep"] = o.EEzsigndocumentStep
+	if !IsNil(o.DtEzsigndocumentFirstsend) {
+		toSerialize["dtEzsigndocumentFirstsend"] = o.DtEzsigndocumentFirstsend
+	}
+	if !IsNil(o.DtEzsigndocumentLastsend) {
+		toSerialize["dtEzsigndocumentLastsend"] = o.DtEzsigndocumentLastsend
+	}
+	toSerialize["iEzsigndocumentOrder"] = o.IEzsigndocumentOrder
+	toSerialize["iEzsigndocumentPagetotal"] = o.IEzsigndocumentPagetotal
+	toSerialize["iEzsigndocumentSignaturesigned"] = o.IEzsigndocumentSignaturesigned
+	toSerialize["iEzsigndocumentSignaturetotal"] = o.IEzsigndocumentSignaturetotal
+	if !IsNil(o.SEzsigndocumentMD5initial) {
+		toSerialize["sEzsigndocumentMD5initial"] = o.SEzsigndocumentMD5initial
+	}
+	if !IsNil(o.TEzsigndocumentDeclinedtosignreason) {
+		toSerialize["tEzsigndocumentDeclinedtosignreason"] = o.TEzsigndocumentDeclinedtosignreason
+	}
+	if !IsNil(o.SEzsigndocumentMD5signed) {
+		toSerialize["sEzsigndocumentMD5signed"] = o.SEzsigndocumentMD5signed
+	}
+	if !IsNil(o.BEzsigndocumentEzsignform) {
+		toSerialize["bEzsigndocumentEzsignform"] = o.BEzsigndocumentEzsignform
+	}
+	if !IsNil(o.BEzsigndocumentHassignedsignatures) {
+		toSerialize["bEzsigndocumentHassignedsignatures"] = o.BEzsigndocumentHassignedsignatures
+	}
+	if !IsNil(o.ObjAudit) {
+		toSerialize["objAudit"] = o.ObjAudit
+	}
+	if !IsNil(o.SEzsigndocumentExternalid) {
+		toSerialize["sEzsigndocumentExternalid"] = o.SEzsigndocumentExternalid
+	}
+	return toSerialize, nil
 }
 
 type NullableEzsigndocumentResponse struct {

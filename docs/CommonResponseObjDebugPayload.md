@@ -7,12 +7,13 @@ Name | Type | Description | Notes
 **IVersionMin** | **int32** | The minimum version of the function that can be called | 
 **IVersionMax** | **int32** | The maximum version of the function that can be called | 
 **ARequiredPermission** | **[]int32** | An array of permissions required to access this function.  If the value \&quot;0\&quot; is present in the array, anyone can call this function.  You must have one of the permission to access the function. You don&#39;t need to have all of them. | 
+**BVersionDeprecated** | **bool** | Wheter the current route is deprecated or not | 
 
 ## Methods
 
 ### NewCommonResponseObjDebugPayload
 
-`func NewCommonResponseObjDebugPayload(iVersionMin int32, iVersionMax int32, aRequiredPermission []int32, ) *CommonResponseObjDebugPayload`
+`func NewCommonResponseObjDebugPayload(iVersionMin int32, iVersionMax int32, aRequiredPermission []int32, bVersionDeprecated bool, ) *CommonResponseObjDebugPayload`
 
 NewCommonResponseObjDebugPayload instantiates a new CommonResponseObjDebugPayload object
 This constructor will assign default values to properties that have it defined,
@@ -85,6 +86,26 @@ and a boolean to check if the value has been set.
 `func (o *CommonResponseObjDebugPayload) SetARequiredPermission(v []int32)`
 
 SetARequiredPermission sets ARequiredPermission field to given value.
+
+
+### GetBVersionDeprecated
+
+`func (o *CommonResponseObjDebugPayload) GetBVersionDeprecated() bool`
+
+GetBVersionDeprecated returns the BVersionDeprecated field if non-nil, zero value otherwise.
+
+### GetBVersionDeprecatedOk
+
+`func (o *CommonResponseObjDebugPayload) GetBVersionDeprecatedOk() (*bool, bool)`
+
+GetBVersionDeprecatedOk returns a tuple with the BVersionDeprecated field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBVersionDeprecated
+
+`func (o *CommonResponseObjDebugPayload) SetBVersionDeprecated(v bool)`
+
+SetBVersionDeprecated sets BVersionDeprecated field to given value.
 
 
 

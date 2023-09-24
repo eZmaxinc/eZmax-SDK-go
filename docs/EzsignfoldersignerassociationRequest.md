@@ -6,8 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiEzsignfoldersignerassociationID** | Pointer to **int32** | The unique ID of the Ezsignfoldersignerassociation | [optional] 
 **FkiUserID** | Pointer to **int32** | The unique ID of the User | [optional] 
+**FkiEzsignsignergroupID** | Pointer to **int32** | The unique ID of the Ezsignsignergroup | [optional] 
 **FkiEzsignfolderID** | **int32** | The unique ID of the Ezsignfolder | 
 **BEzsignfoldersignerassociationReceivecopy** | Pointer to **bool** | If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain&#39;t required to sign the document. | [optional] 
+**TEzsignfoldersignerassociationMessage** | Pointer to **string** | A custom text message that will be added to the email sent. | [optional] 
 
 ## Methods
 
@@ -78,6 +80,31 @@ SetFkiUserID sets FkiUserID field to given value.
 
 HasFkiUserID returns a boolean if a field has been set.
 
+### GetFkiEzsignsignergroupID
+
+`func (o *EzsignfoldersignerassociationRequest) GetFkiEzsignsignergroupID() int32`
+
+GetFkiEzsignsignergroupID returns the FkiEzsignsignergroupID field if non-nil, zero value otherwise.
+
+### GetFkiEzsignsignergroupIDOk
+
+`func (o *EzsignfoldersignerassociationRequest) GetFkiEzsignsignergroupIDOk() (*int32, bool)`
+
+GetFkiEzsignsignergroupIDOk returns a tuple with the FkiEzsignsignergroupID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiEzsignsignergroupID
+
+`func (o *EzsignfoldersignerassociationRequest) SetFkiEzsignsignergroupID(v int32)`
+
+SetFkiEzsignsignergroupID sets FkiEzsignsignergroupID field to given value.
+
+### HasFkiEzsignsignergroupID
+
+`func (o *EzsignfoldersignerassociationRequest) HasFkiEzsignsignergroupID() bool`
+
+HasFkiEzsignsignergroupID returns a boolean if a field has been set.
+
 ### GetFkiEzsignfolderID
 
 `func (o *EzsignfoldersignerassociationRequest) GetFkiEzsignfolderID() int32`
@@ -122,6 +149,31 @@ SetBEzsignfoldersignerassociationReceivecopy sets BEzsignfoldersignerassociation
 `func (o *EzsignfoldersignerassociationRequest) HasBEzsignfoldersignerassociationReceivecopy() bool`
 
 HasBEzsignfoldersignerassociationReceivecopy returns a boolean if a field has been set.
+
+### GetTEzsignfoldersignerassociationMessage
+
+`func (o *EzsignfoldersignerassociationRequest) GetTEzsignfoldersignerassociationMessage() string`
+
+GetTEzsignfoldersignerassociationMessage returns the TEzsignfoldersignerassociationMessage field if non-nil, zero value otherwise.
+
+### GetTEzsignfoldersignerassociationMessageOk
+
+`func (o *EzsignfoldersignerassociationRequest) GetTEzsignfoldersignerassociationMessageOk() (*string, bool)`
+
+GetTEzsignfoldersignerassociationMessageOk returns a tuple with the TEzsignfoldersignerassociationMessage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTEzsignfoldersignerassociationMessage
+
+`func (o *EzsignfoldersignerassociationRequest) SetTEzsignfoldersignerassociationMessage(v string)`
+
+SetTEzsignfoldersignerassociationMessage sets TEzsignfoldersignerassociationMessage field to given value.
+
+### HasTEzsignfoldersignerassociationMessage
+
+`func (o *EzsignfoldersignerassociationRequest) HasTEzsignfoldersignerassociationMessage() bool`
+
+HasTEzsignfoldersignerassociationMessage returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

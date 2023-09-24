@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,7 +15,10 @@ import (
 	"encoding/json"
 )
 
-// EzsignsignatureEditObjectV1Request Request for the /1/object/ezsignsignature/editObject API Request
+// checks if the EzsignsignatureEditObjectV1Request type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsignsignatureEditObjectV1Request{}
+
+// EzsignsignatureEditObjectV1Request Request for PUT /1/object/ezsignsignature/{pkiEzsignsignatureID}
 type EzsignsignatureEditObjectV1Request struct {
 	ObjEzsignsignature EzsignsignatureRequestCompound `json:"objEzsignsignature"`
 }
@@ -63,11 +66,17 @@ func (o *EzsignsignatureEditObjectV1Request) SetObjEzsignsignature(v Ezsignsigna
 }
 
 func (o EzsignsignatureEditObjectV1Request) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["objEzsignsignature"] = o.ObjEzsignsignature
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsignsignatureEditObjectV1Request) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["objEzsignsignature"] = o.ObjEzsignsignature
+	return toSerialize, nil
 }
 
 type NullableEzsignsignatureEditObjectV1Request struct {

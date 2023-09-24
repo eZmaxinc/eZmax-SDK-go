@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **PkiApikeyID** | Pointer to **int32** | The unique ID of the Apikey | [optional] 
 **FkiUserID** | **int32** | The unique ID of the User | 
 **ObjApikeyDescription** | [**MultilingualApikeyDescription**](MultilingualApikeyDescription.md) |  | 
+**BApikeyIsactive** | Pointer to **bool** | Whether the apikey is active or not | [optional] 
+**BApikeyIssigned** | Pointer to **bool** | Whether the apikey is signed or not | [optional] 
 
 ## Methods
 
@@ -91,6 +93,56 @@ and a boolean to check if the value has been set.
 
 SetObjApikeyDescription sets ObjApikeyDescription field to given value.
 
+
+### GetBApikeyIsactive
+
+`func (o *ApikeyRequest) GetBApikeyIsactive() bool`
+
+GetBApikeyIsactive returns the BApikeyIsactive field if non-nil, zero value otherwise.
+
+### GetBApikeyIsactiveOk
+
+`func (o *ApikeyRequest) GetBApikeyIsactiveOk() (*bool, bool)`
+
+GetBApikeyIsactiveOk returns a tuple with the BApikeyIsactive field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBApikeyIsactive
+
+`func (o *ApikeyRequest) SetBApikeyIsactive(v bool)`
+
+SetBApikeyIsactive sets BApikeyIsactive field to given value.
+
+### HasBApikeyIsactive
+
+`func (o *ApikeyRequest) HasBApikeyIsactive() bool`
+
+HasBApikeyIsactive returns a boolean if a field has been set.
+
+### GetBApikeyIssigned
+
+`func (o *ApikeyRequest) GetBApikeyIssigned() bool`
+
+GetBApikeyIssigned returns the BApikeyIssigned field if non-nil, zero value otherwise.
+
+### GetBApikeyIssignedOk
+
+`func (o *ApikeyRequest) GetBApikeyIssignedOk() (*bool, bool)`
+
+GetBApikeyIssignedOk returns a tuple with the BApikeyIssigned field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBApikeyIssigned
+
+`func (o *ApikeyRequest) SetBApikeyIssigned(v bool)`
+
+SetBApikeyIssigned sets BApikeyIssigned field to given value.
+
+### HasBApikeyIssigned
+
+`func (o *ApikeyRequest) HasBApikeyIssigned() bool`
+
+HasBApikeyIssigned returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -5,16 +5,21 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiUserID** | **int32** | The unique ID of the User | 
+**FkiTimezoneID** | **int32** | The unique ID of the Timezone | 
 **SAvatarUrl** | **string** | The url of the picture used as avatar | 
-**SUserFirstname** | **string** | The First name of the user | 
-**SUserLastname** | **string** | The Last name of the user | 
+**SUserFirstname** | **string** | The first name of the user | 
+**SUserLastname** | **string** | The last name of the user | 
 **SEmailAddress** | **string** | The email address. | 
+**EUserEzsignsendreminderfrequency** | [**FieldEUserEzsignsendreminderfrequency**](FieldEUserEzsignsendreminderfrequency.md) |  | 
+**IUserInterfacecolor** | **int32** | The int32 representation of the interface color. For example, RGB color #39435B would be 3752795 | 
+**BUserInterfacedark** | **bool** | Whether to use a dark mode interface | 
+**IUserListresult** | **int32** | The number of rows to return by default in lists | 
 
 ## Methods
 
 ### NewActivesessionResponseCompoundUser
 
-`func NewActivesessionResponseCompoundUser(pkiUserID int32, sAvatarUrl string, sUserFirstname string, sUserLastname string, sEmailAddress string, ) *ActivesessionResponseCompoundUser`
+`func NewActivesessionResponseCompoundUser(pkiUserID int32, fkiTimezoneID int32, sAvatarUrl string, sUserFirstname string, sUserLastname string, sEmailAddress string, eUserEzsignsendreminderfrequency FieldEUserEzsignsendreminderfrequency, iUserInterfacecolor int32, bUserInterfacedark bool, iUserListresult int32, ) *ActivesessionResponseCompoundUser`
 
 NewActivesessionResponseCompoundUser instantiates a new ActivesessionResponseCompoundUser object
 This constructor will assign default values to properties that have it defined,
@@ -47,6 +52,26 @@ and a boolean to check if the value has been set.
 `func (o *ActivesessionResponseCompoundUser) SetPkiUserID(v int32)`
 
 SetPkiUserID sets PkiUserID field to given value.
+
+
+### GetFkiTimezoneID
+
+`func (o *ActivesessionResponseCompoundUser) GetFkiTimezoneID() int32`
+
+GetFkiTimezoneID returns the FkiTimezoneID field if non-nil, zero value otherwise.
+
+### GetFkiTimezoneIDOk
+
+`func (o *ActivesessionResponseCompoundUser) GetFkiTimezoneIDOk() (*int32, bool)`
+
+GetFkiTimezoneIDOk returns a tuple with the FkiTimezoneID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiTimezoneID
+
+`func (o *ActivesessionResponseCompoundUser) SetFkiTimezoneID(v int32)`
+
+SetFkiTimezoneID sets FkiTimezoneID field to given value.
 
 
 ### GetSAvatarUrl
@@ -127,6 +152,86 @@ and a boolean to check if the value has been set.
 `func (o *ActivesessionResponseCompoundUser) SetSEmailAddress(v string)`
 
 SetSEmailAddress sets SEmailAddress field to given value.
+
+
+### GetEUserEzsignsendreminderfrequency
+
+`func (o *ActivesessionResponseCompoundUser) GetEUserEzsignsendreminderfrequency() FieldEUserEzsignsendreminderfrequency`
+
+GetEUserEzsignsendreminderfrequency returns the EUserEzsignsendreminderfrequency field if non-nil, zero value otherwise.
+
+### GetEUserEzsignsendreminderfrequencyOk
+
+`func (o *ActivesessionResponseCompoundUser) GetEUserEzsignsendreminderfrequencyOk() (*FieldEUserEzsignsendreminderfrequency, bool)`
+
+GetEUserEzsignsendreminderfrequencyOk returns a tuple with the EUserEzsignsendreminderfrequency field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEUserEzsignsendreminderfrequency
+
+`func (o *ActivesessionResponseCompoundUser) SetEUserEzsignsendreminderfrequency(v FieldEUserEzsignsendreminderfrequency)`
+
+SetEUserEzsignsendreminderfrequency sets EUserEzsignsendreminderfrequency field to given value.
+
+
+### GetIUserInterfacecolor
+
+`func (o *ActivesessionResponseCompoundUser) GetIUserInterfacecolor() int32`
+
+GetIUserInterfacecolor returns the IUserInterfacecolor field if non-nil, zero value otherwise.
+
+### GetIUserInterfacecolorOk
+
+`func (o *ActivesessionResponseCompoundUser) GetIUserInterfacecolorOk() (*int32, bool)`
+
+GetIUserInterfacecolorOk returns a tuple with the IUserInterfacecolor field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIUserInterfacecolor
+
+`func (o *ActivesessionResponseCompoundUser) SetIUserInterfacecolor(v int32)`
+
+SetIUserInterfacecolor sets IUserInterfacecolor field to given value.
+
+
+### GetBUserInterfacedark
+
+`func (o *ActivesessionResponseCompoundUser) GetBUserInterfacedark() bool`
+
+GetBUserInterfacedark returns the BUserInterfacedark field if non-nil, zero value otherwise.
+
+### GetBUserInterfacedarkOk
+
+`func (o *ActivesessionResponseCompoundUser) GetBUserInterfacedarkOk() (*bool, bool)`
+
+GetBUserInterfacedarkOk returns a tuple with the BUserInterfacedark field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBUserInterfacedark
+
+`func (o *ActivesessionResponseCompoundUser) SetBUserInterfacedark(v bool)`
+
+SetBUserInterfacedark sets BUserInterfacedark field to given value.
+
+
+### GetIUserListresult
+
+`func (o *ActivesessionResponseCompoundUser) GetIUserListresult() int32`
+
+GetIUserListresult returns the IUserListresult field if non-nil, zero value otherwise.
+
+### GetIUserListresultOk
+
+`func (o *ActivesessionResponseCompoundUser) GetIUserListresultOk() (*int32, bool)`
+
+GetIUserListresultOk returns a tuple with the IUserListresult field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIUserListresult
+
+`func (o *ActivesessionResponseCompoundUser) SetIUserListresult(v int32)`
+
+SetIUserListresult sets IUserListresult field to given value.
 
 
 

@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,9 +15,11 @@ import (
 	"encoding/json"
 )
 
-// EzsignfolderGetEzsigndocumentsV1ResponseMPayload Payload for the /1/object/ezsignfolder/{pkiEzsignfolder}/getEzsigndocuments API Request
+// checks if the EzsignfolderGetEzsigndocumentsV1ResponseMPayload type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsignfolderGetEzsigndocumentsV1ResponseMPayload{}
+
+// EzsignfolderGetEzsigndocumentsV1ResponseMPayload Payload for GET /1/object/ezsignfolder/{pkiEzsignfolder}/getEzsigndocuments
 type EzsignfolderGetEzsigndocumentsV1ResponseMPayload struct {
-	// 
 	AObjEzsigndocument []EzsigndocumentResponseCompound `json:"a_objEzsigndocument"`
 }
 
@@ -64,11 +66,17 @@ func (o *EzsignfolderGetEzsigndocumentsV1ResponseMPayload) SetAObjEzsigndocument
 }
 
 func (o EzsignfolderGetEzsigndocumentsV1ResponseMPayload) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["a_objEzsigndocument"] = o.AObjEzsigndocument
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsignfolderGetEzsigndocumentsV1ResponseMPayload) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["a_objEzsigndocument"] = o.AObjEzsigndocument
+	return toSerialize, nil
 }
 
 type NullableEzsignfolderGetEzsigndocumentsV1ResponseMPayload struct {

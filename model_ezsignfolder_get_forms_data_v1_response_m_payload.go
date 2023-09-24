@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,25 +15,21 @@ import (
 	"encoding/json"
 )
 
-// EzsignfolderGetFormsDataV1ResponseMPayload Payload for the /1/object/ezsignfolder/{pkiEzsigndocument}/getFormsData API Request
+// checks if the EzsignfolderGetFormsDataV1ResponseMPayload type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsignfolderGetFormsDataV1ResponseMPayload{}
+
+// EzsignfolderGetFormsDataV1ResponseMPayload Payload for GET /1/object/ezsignfolder/{pkiEzsigndocument}/getFormsData
 type EzsignfolderGetFormsDataV1ResponseMPayload struct {
-	// The unique ID of the Ezsignfolder
-	PkiEzsignfolderID int32 `json:"pkiEzsignfolderID"`
-	// The description of the Ezsignfolder
-	SEzsignfolderDescription string `json:"sEzsignfolderDescription"`
-	// 
-	AObjFormDataDocument []CustomFormDataDocumentResponse `json:"a_objFormDataDocument"`
+	ObjFormsDataFolder CustomFormsDataFolderResponse `json:"objFormsDataFolder"`
 }
 
 // NewEzsignfolderGetFormsDataV1ResponseMPayload instantiates a new EzsignfolderGetFormsDataV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfolderGetFormsDataV1ResponseMPayload(pkiEzsignfolderID int32, sEzsignfolderDescription string, aObjFormDataDocument []CustomFormDataDocumentResponse) *EzsignfolderGetFormsDataV1ResponseMPayload {
+func NewEzsignfolderGetFormsDataV1ResponseMPayload(objFormsDataFolder CustomFormsDataFolderResponse) *EzsignfolderGetFormsDataV1ResponseMPayload {
 	this := EzsignfolderGetFormsDataV1ResponseMPayload{}
-	this.PkiEzsignfolderID = pkiEzsignfolderID
-	this.SEzsignfolderDescription = sEzsignfolderDescription
-	this.AObjFormDataDocument = aObjFormDataDocument
+	this.ObjFormsDataFolder = objFormsDataFolder
 	return &this
 }
 
@@ -45,90 +41,42 @@ func NewEzsignfolderGetFormsDataV1ResponseMPayloadWithDefaults() *EzsignfolderGe
 	return &this
 }
 
-// GetPkiEzsignfolderID returns the PkiEzsignfolderID field value
-func (o *EzsignfolderGetFormsDataV1ResponseMPayload) GetPkiEzsignfolderID() int32 {
+// GetObjFormsDataFolder returns the ObjFormsDataFolder field value
+func (o *EzsignfolderGetFormsDataV1ResponseMPayload) GetObjFormsDataFolder() CustomFormsDataFolderResponse {
 	if o == nil {
-		var ret int32
+		var ret CustomFormsDataFolderResponse
 		return ret
 	}
 
-	return o.PkiEzsignfolderID
+	return o.ObjFormsDataFolder
 }
 
-// GetPkiEzsignfolderIDOk returns a tuple with the PkiEzsignfolderID field value
+// GetObjFormsDataFolderOk returns a tuple with the ObjFormsDataFolder field value
 // and a boolean to check if the value has been set.
-func (o *EzsignfolderGetFormsDataV1ResponseMPayload) GetPkiEzsignfolderIDOk() (*int32, bool) {
+func (o *EzsignfolderGetFormsDataV1ResponseMPayload) GetObjFormsDataFolderOk() (*CustomFormsDataFolderResponse, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.PkiEzsignfolderID, true
+	return &o.ObjFormsDataFolder, true
 }
 
-// SetPkiEzsignfolderID sets field value
-func (o *EzsignfolderGetFormsDataV1ResponseMPayload) SetPkiEzsignfolderID(v int32) {
-	o.PkiEzsignfolderID = v
-}
-
-// GetSEzsignfolderDescription returns the SEzsignfolderDescription field value
-func (o *EzsignfolderGetFormsDataV1ResponseMPayload) GetSEzsignfolderDescription() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SEzsignfolderDescription
-}
-
-// GetSEzsignfolderDescriptionOk returns a tuple with the SEzsignfolderDescription field value
-// and a boolean to check if the value has been set.
-func (o *EzsignfolderGetFormsDataV1ResponseMPayload) GetSEzsignfolderDescriptionOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SEzsignfolderDescription, true
-}
-
-// SetSEzsignfolderDescription sets field value
-func (o *EzsignfolderGetFormsDataV1ResponseMPayload) SetSEzsignfolderDescription(v string) {
-	o.SEzsignfolderDescription = v
-}
-
-// GetAObjFormDataDocument returns the AObjFormDataDocument field value
-func (o *EzsignfolderGetFormsDataV1ResponseMPayload) GetAObjFormDataDocument() []CustomFormDataDocumentResponse {
-	if o == nil {
-		var ret []CustomFormDataDocumentResponse
-		return ret
-	}
-
-	return o.AObjFormDataDocument
-}
-
-// GetAObjFormDataDocumentOk returns a tuple with the AObjFormDataDocument field value
-// and a boolean to check if the value has been set.
-func (o *EzsignfolderGetFormsDataV1ResponseMPayload) GetAObjFormDataDocumentOk() ([]CustomFormDataDocumentResponse, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.AObjFormDataDocument, true
-}
-
-// SetAObjFormDataDocument sets field value
-func (o *EzsignfolderGetFormsDataV1ResponseMPayload) SetAObjFormDataDocument(v []CustomFormDataDocumentResponse) {
-	o.AObjFormDataDocument = v
+// SetObjFormsDataFolder sets field value
+func (o *EzsignfolderGetFormsDataV1ResponseMPayload) SetObjFormsDataFolder(v CustomFormsDataFolderResponse) {
+	o.ObjFormsDataFolder = v
 }
 
 func (o EzsignfolderGetFormsDataV1ResponseMPayload) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["pkiEzsignfolderID"] = o.PkiEzsignfolderID
-	}
-	if true {
-		toSerialize["sEzsignfolderDescription"] = o.SEzsignfolderDescription
-	}
-	if true {
-		toSerialize["a_objFormDataDocument"] = o.AObjFormDataDocument
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsignfolderGetFormsDataV1ResponseMPayload) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["objFormsDataFolder"] = o.ObjFormsDataFolder
+	return toSerialize, nil
 }
 
 type NullableEzsignfolderGetFormsDataV1ResponseMPayload struct {

@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MPayload** | [**FranchisereferalincomeCreateObjectV1ResponseMPayload**](FranchisereferalincomeCreateObjectV1ResponseMPayload.md) |  | 
-**ObjDebugPayload** | Pointer to [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | [optional] 
+**ObjDebugPayload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
 **ObjDebug** | Pointer to [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
+**MPayload** | [**FranchisereferalincomeCreateObjectV1ResponseMPayload**](FranchisereferalincomeCreateObjectV1ResponseMPayload.md) |  | 
 
 ## Methods
 
 ### NewFranchisereferalincomeCreateObjectV1Response
 
-`func NewFranchisereferalincomeCreateObjectV1Response(mPayload FranchisereferalincomeCreateObjectV1ResponseMPayload, ) *FranchisereferalincomeCreateObjectV1Response`
+`func NewFranchisereferalincomeCreateObjectV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload FranchisereferalincomeCreateObjectV1ResponseMPayload, ) *FranchisereferalincomeCreateObjectV1Response`
 
 NewFranchisereferalincomeCreateObjectV1Response instantiates a new FranchisereferalincomeCreateObjectV1Response object
 This constructor will assign default values to properties that have it defined,
@@ -26,26 +26,6 @@ will change when the set of required properties is changed
 NewFranchisereferalincomeCreateObjectV1ResponseWithDefaults instantiates a new FranchisereferalincomeCreateObjectV1Response object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetMPayload
-
-`func (o *FranchisereferalincomeCreateObjectV1Response) GetMPayload() FranchisereferalincomeCreateObjectV1ResponseMPayload`
-
-GetMPayload returns the MPayload field if non-nil, zero value otherwise.
-
-### GetMPayloadOk
-
-`func (o *FranchisereferalincomeCreateObjectV1Response) GetMPayloadOk() (*FranchisereferalincomeCreateObjectV1ResponseMPayload, bool)`
-
-GetMPayloadOk returns a tuple with the MPayload field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMPayload
-
-`func (o *FranchisereferalincomeCreateObjectV1Response) SetMPayload(v FranchisereferalincomeCreateObjectV1ResponseMPayload)`
-
-SetMPayload sets MPayload field to given value.
-
 
 ### GetObjDebugPayload
 
@@ -66,11 +46,6 @@ and a boolean to check if the value has been set.
 
 SetObjDebugPayload sets ObjDebugPayload field to given value.
 
-### HasObjDebugPayload
-
-`func (o *FranchisereferalincomeCreateObjectV1Response) HasObjDebugPayload() bool`
-
-HasObjDebugPayload returns a boolean if a field has been set.
 
 ### GetObjDebug
 
@@ -96,6 +71,26 @@ SetObjDebug sets ObjDebug field to given value.
 `func (o *FranchisereferalincomeCreateObjectV1Response) HasObjDebug() bool`
 
 HasObjDebug returns a boolean if a field has been set.
+
+### GetMPayload
+
+`func (o *FranchisereferalincomeCreateObjectV1Response) GetMPayload() FranchisereferalincomeCreateObjectV1ResponseMPayload`
+
+GetMPayload returns the MPayload field if non-nil, zero value otherwise.
+
+### GetMPayloadOk
+
+`func (o *FranchisereferalincomeCreateObjectV1Response) GetMPayloadOk() (*FranchisereferalincomeCreateObjectV1ResponseMPayload, bool)`
+
+GetMPayloadOk returns a tuple with the MPayload field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMPayload
+
+`func (o *FranchisereferalincomeCreateObjectV1Response) SetMPayload(v FranchisereferalincomeCreateObjectV1ResponseMPayload)`
+
+SetMPayload sets MPayload field to given value.
+
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

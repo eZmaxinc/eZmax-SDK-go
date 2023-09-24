@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,19 +15,23 @@ import (
 	"encoding/json"
 )
 
-// EzsigndocumentCreateObjectV1Response Response for the /1/object/ezsigndocument/createObject API Request
+// checks if the EzsigndocumentCreateObjectV1Response type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsigndocumentCreateObjectV1Response{}
+
+// EzsigndocumentCreateObjectV1Response Response for POST /1/object/ezsigndocument
 type EzsigndocumentCreateObjectV1Response struct {
-	MPayload EzsigndocumentCreateObjectV1ResponseMPayload `json:"mPayload"`
-	ObjDebugPayload *CommonResponseObjDebugPayload `json:"objDebugPayload,omitempty"`
+	ObjDebugPayload CommonResponseObjDebugPayload `json:"objDebugPayload"`
 	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
+	MPayload EzsigndocumentCreateObjectV1ResponseMPayload `json:"mPayload"`
 }
 
 // NewEzsigndocumentCreateObjectV1Response instantiates a new EzsigndocumentCreateObjectV1Response object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigndocumentCreateObjectV1Response(mPayload EzsigndocumentCreateObjectV1ResponseMPayload) *EzsigndocumentCreateObjectV1Response {
+func NewEzsigndocumentCreateObjectV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload EzsigndocumentCreateObjectV1ResponseMPayload) *EzsigndocumentCreateObjectV1Response {
 	this := EzsigndocumentCreateObjectV1Response{}
+	this.ObjDebugPayload = objDebugPayload
 	this.MPayload = mPayload
 	return &this
 }
@@ -38,6 +42,62 @@ func NewEzsigndocumentCreateObjectV1Response(mPayload EzsigndocumentCreateObject
 func NewEzsigndocumentCreateObjectV1ResponseWithDefaults() *EzsigndocumentCreateObjectV1Response {
 	this := EzsigndocumentCreateObjectV1Response{}
 	return &this
+}
+
+// GetObjDebugPayload returns the ObjDebugPayload field value
+func (o *EzsigndocumentCreateObjectV1Response) GetObjDebugPayload() CommonResponseObjDebugPayload {
+	if o == nil {
+		var ret CommonResponseObjDebugPayload
+		return ret
+	}
+
+	return o.ObjDebugPayload
+}
+
+// GetObjDebugPayloadOk returns a tuple with the ObjDebugPayload field value
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentCreateObjectV1Response) GetObjDebugPayloadOk() (*CommonResponseObjDebugPayload, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjDebugPayload, true
+}
+
+// SetObjDebugPayload sets field value
+func (o *EzsigndocumentCreateObjectV1Response) SetObjDebugPayload(v CommonResponseObjDebugPayload) {
+	o.ObjDebugPayload = v
+}
+
+// GetObjDebug returns the ObjDebug field value if set, zero value otherwise.
+func (o *EzsigndocumentCreateObjectV1Response) GetObjDebug() CommonResponseObjDebug {
+	if o == nil || IsNil(o.ObjDebug) {
+		var ret CommonResponseObjDebug
+		return ret
+	}
+	return *o.ObjDebug
+}
+
+// GetObjDebugOk returns a tuple with the ObjDebug field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentCreateObjectV1Response) GetObjDebugOk() (*CommonResponseObjDebug, bool) {
+	if o == nil || IsNil(o.ObjDebug) {
+		return nil, false
+	}
+	return o.ObjDebug, true
+}
+
+// HasObjDebug returns a boolean if a field has been set.
+func (o *EzsigndocumentCreateObjectV1Response) HasObjDebug() bool {
+	if o != nil && !IsNil(o.ObjDebug) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjDebug gets a reference to the given CommonResponseObjDebug and assigns it to the ObjDebug field.
+func (o *EzsigndocumentCreateObjectV1Response) SetObjDebug(v CommonResponseObjDebug) {
+	o.ObjDebug = &v
 }
 
 // GetMPayload returns the MPayload field value
@@ -64,82 +124,22 @@ func (o *EzsigndocumentCreateObjectV1Response) SetMPayload(v EzsigndocumentCreat
 	o.MPayload = v
 }
 
-// GetObjDebugPayload returns the ObjDebugPayload field value if set, zero value otherwise.
-func (o *EzsigndocumentCreateObjectV1Response) GetObjDebugPayload() CommonResponseObjDebugPayload {
-	if o == nil || o.ObjDebugPayload == nil {
-		var ret CommonResponseObjDebugPayload
-		return ret
-	}
-	return *o.ObjDebugPayload
-}
-
-// GetObjDebugPayloadOk returns a tuple with the ObjDebugPayload field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *EzsigndocumentCreateObjectV1Response) GetObjDebugPayloadOk() (*CommonResponseObjDebugPayload, bool) {
-	if o == nil || o.ObjDebugPayload == nil {
-		return nil, false
-	}
-	return o.ObjDebugPayload, true
-}
-
-// HasObjDebugPayload returns a boolean if a field has been set.
-func (o *EzsigndocumentCreateObjectV1Response) HasObjDebugPayload() bool {
-	if o != nil && o.ObjDebugPayload != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetObjDebugPayload gets a reference to the given CommonResponseObjDebugPayload and assigns it to the ObjDebugPayload field.
-func (o *EzsigndocumentCreateObjectV1Response) SetObjDebugPayload(v CommonResponseObjDebugPayload) {
-	o.ObjDebugPayload = &v
-}
-
-// GetObjDebug returns the ObjDebug field value if set, zero value otherwise.
-func (o *EzsigndocumentCreateObjectV1Response) GetObjDebug() CommonResponseObjDebug {
-	if o == nil || o.ObjDebug == nil {
-		var ret CommonResponseObjDebug
-		return ret
-	}
-	return *o.ObjDebug
-}
-
-// GetObjDebugOk returns a tuple with the ObjDebug field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *EzsigndocumentCreateObjectV1Response) GetObjDebugOk() (*CommonResponseObjDebug, bool) {
-	if o == nil || o.ObjDebug == nil {
-		return nil, false
-	}
-	return o.ObjDebug, true
-}
-
-// HasObjDebug returns a boolean if a field has been set.
-func (o *EzsigndocumentCreateObjectV1Response) HasObjDebug() bool {
-	if o != nil && o.ObjDebug != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetObjDebug gets a reference to the given CommonResponseObjDebug and assigns it to the ObjDebug field.
-func (o *EzsigndocumentCreateObjectV1Response) SetObjDebug(v CommonResponseObjDebug) {
-	o.ObjDebug = &v
-}
-
 func (o EzsigndocumentCreateObjectV1Response) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["mPayload"] = o.MPayload
-	}
-	if o.ObjDebugPayload != nil {
-		toSerialize["objDebugPayload"] = o.ObjDebugPayload
-	}
-	if o.ObjDebug != nil {
-		toSerialize["objDebug"] = o.ObjDebug
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsigndocumentCreateObjectV1Response) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["objDebugPayload"] = o.ObjDebugPayload
+	if !IsNil(o.ObjDebug) {
+		toSerialize["objDebug"] = o.ObjDebug
+	}
+	toSerialize["mPayload"] = o.MPayload
+	return toSerialize, nil
 }
 
 type NullableEzsigndocumentCreateObjectV1Response struct {

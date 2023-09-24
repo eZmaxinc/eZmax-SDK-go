@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,8 +15,13 @@ import (
 	"encoding/json"
 )
 
-// EmailRequest A Contact Object
+// checks if the EmailRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EmailRequest{}
+
+// EmailRequest An Email Object
 type EmailRequest struct {
+	// The unique ID of the Email
+	PkiEmailID *int32 `json:"pkiEmailID,omitempty"`
 	// The unique ID of the Emailtype.  Valid values:  |Value|Description| |-|-| |1|Office| |2|Home|
 	FkiEmailtypeID int32 `json:"fkiEmailtypeID"`
 	// The email address.
@@ -40,6 +45,38 @@ func NewEmailRequest(fkiEmailtypeID int32, sEmailAddress string) *EmailRequest {
 func NewEmailRequestWithDefaults() *EmailRequest {
 	this := EmailRequest{}
 	return &this
+}
+
+// GetPkiEmailID returns the PkiEmailID field value if set, zero value otherwise.
+func (o *EmailRequest) GetPkiEmailID() int32 {
+	if o == nil || IsNil(o.PkiEmailID) {
+		var ret int32
+		return ret
+	}
+	return *o.PkiEmailID
+}
+
+// GetPkiEmailIDOk returns a tuple with the PkiEmailID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EmailRequest) GetPkiEmailIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.PkiEmailID) {
+		return nil, false
+	}
+	return o.PkiEmailID, true
+}
+
+// HasPkiEmailID returns a boolean if a field has been set.
+func (o *EmailRequest) HasPkiEmailID() bool {
+	if o != nil && !IsNil(o.PkiEmailID) {
+		return true
+	}
+
+	return false
+}
+
+// SetPkiEmailID gets a reference to the given int32 and assigns it to the PkiEmailID field.
+func (o *EmailRequest) SetPkiEmailID(v int32) {
+	o.PkiEmailID = &v
 }
 
 // GetFkiEmailtypeID returns the FkiEmailtypeID field value
@@ -91,14 +128,21 @@ func (o *EmailRequest) SetSEmailAddress(v string) {
 }
 
 func (o EmailRequest) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["fkiEmailtypeID"] = o.FkiEmailtypeID
-	}
-	if true {
-		toSerialize["sEmailAddress"] = o.SEmailAddress
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EmailRequest) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.PkiEmailID) {
+		toSerialize["pkiEmailID"] = o.PkiEmailID
+	}
+	toSerialize["fkiEmailtypeID"] = o.FkiEmailtypeID
+	toSerialize["sEmailAddress"] = o.SEmailAddress
+	return toSerialize, nil
 }
 
 type NullableEmailRequest struct {

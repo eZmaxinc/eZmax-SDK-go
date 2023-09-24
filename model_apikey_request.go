@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ApikeyRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ApikeyRequest{}
+
 // ApikeyRequest An Apikey Object
 type ApikeyRequest struct {
 	// The unique ID of the Apikey
@@ -22,6 +25,10 @@ type ApikeyRequest struct {
 	// The unique ID of the User
 	FkiUserID int32 `json:"fkiUserID"`
 	ObjApikeyDescription MultilingualApikeyDescription `json:"objApikeyDescription"`
+	// Whether the apikey is active or not
+	BApikeyIsactive *bool `json:"bApikeyIsactive,omitempty"`
+	// Whether the apikey is signed or not
+	BApikeyIssigned *bool `json:"bApikeyIssigned,omitempty"`
 }
 
 // NewApikeyRequest instantiates a new ApikeyRequest object
@@ -45,7 +52,7 @@ func NewApikeyRequestWithDefaults() *ApikeyRequest {
 
 // GetPkiApikeyID returns the PkiApikeyID field value if set, zero value otherwise.
 func (o *ApikeyRequest) GetPkiApikeyID() int32 {
-	if o == nil || o.PkiApikeyID == nil {
+	if o == nil || IsNil(o.PkiApikeyID) {
 		var ret int32
 		return ret
 	}
@@ -55,7 +62,7 @@ func (o *ApikeyRequest) GetPkiApikeyID() int32 {
 // GetPkiApikeyIDOk returns a tuple with the PkiApikeyID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ApikeyRequest) GetPkiApikeyIDOk() (*int32, bool) {
-	if o == nil || o.PkiApikeyID == nil {
+	if o == nil || IsNil(o.PkiApikeyID) {
 		return nil, false
 	}
 	return o.PkiApikeyID, true
@@ -63,7 +70,7 @@ func (o *ApikeyRequest) GetPkiApikeyIDOk() (*int32, bool) {
 
 // HasPkiApikeyID returns a boolean if a field has been set.
 func (o *ApikeyRequest) HasPkiApikeyID() bool {
-	if o != nil && o.PkiApikeyID != nil {
+	if o != nil && !IsNil(o.PkiApikeyID) {
 		return true
 	}
 
@@ -123,18 +130,92 @@ func (o *ApikeyRequest) SetObjApikeyDescription(v MultilingualApikeyDescription)
 	o.ObjApikeyDescription = v
 }
 
+// GetBApikeyIsactive returns the BApikeyIsactive field value if set, zero value otherwise.
+func (o *ApikeyRequest) GetBApikeyIsactive() bool {
+	if o == nil || IsNil(o.BApikeyIsactive) {
+		var ret bool
+		return ret
+	}
+	return *o.BApikeyIsactive
+}
+
+// GetBApikeyIsactiveOk returns a tuple with the BApikeyIsactive field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ApikeyRequest) GetBApikeyIsactiveOk() (*bool, bool) {
+	if o == nil || IsNil(o.BApikeyIsactive) {
+		return nil, false
+	}
+	return o.BApikeyIsactive, true
+}
+
+// HasBApikeyIsactive returns a boolean if a field has been set.
+func (o *ApikeyRequest) HasBApikeyIsactive() bool {
+	if o != nil && !IsNil(o.BApikeyIsactive) {
+		return true
+	}
+
+	return false
+}
+
+// SetBApikeyIsactive gets a reference to the given bool and assigns it to the BApikeyIsactive field.
+func (o *ApikeyRequest) SetBApikeyIsactive(v bool) {
+	o.BApikeyIsactive = &v
+}
+
+// GetBApikeyIssigned returns the BApikeyIssigned field value if set, zero value otherwise.
+func (o *ApikeyRequest) GetBApikeyIssigned() bool {
+	if o == nil || IsNil(o.BApikeyIssigned) {
+		var ret bool
+		return ret
+	}
+	return *o.BApikeyIssigned
+}
+
+// GetBApikeyIssignedOk returns a tuple with the BApikeyIssigned field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ApikeyRequest) GetBApikeyIssignedOk() (*bool, bool) {
+	if o == nil || IsNil(o.BApikeyIssigned) {
+		return nil, false
+	}
+	return o.BApikeyIssigned, true
+}
+
+// HasBApikeyIssigned returns a boolean if a field has been set.
+func (o *ApikeyRequest) HasBApikeyIssigned() bool {
+	if o != nil && !IsNil(o.BApikeyIssigned) {
+		return true
+	}
+
+	return false
+}
+
+// SetBApikeyIssigned gets a reference to the given bool and assigns it to the BApikeyIssigned field.
+func (o *ApikeyRequest) SetBApikeyIssigned(v bool) {
+	o.BApikeyIssigned = &v
+}
+
 func (o ApikeyRequest) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if o.PkiApikeyID != nil {
-		toSerialize["pkiApikeyID"] = o.PkiApikeyID
-	}
-	if true {
-		toSerialize["fkiUserID"] = o.FkiUserID
-	}
-	if true {
-		toSerialize["objApikeyDescription"] = o.ObjApikeyDescription
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ApikeyRequest) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.PkiApikeyID) {
+		toSerialize["pkiApikeyID"] = o.PkiApikeyID
+	}
+	toSerialize["fkiUserID"] = o.FkiUserID
+	toSerialize["objApikeyDescription"] = o.ObjApikeyDescription
+	if !IsNil(o.BApikeyIsactive) {
+		toSerialize["bApikeyIsactive"] = o.BApikeyIsactive
+	}
+	if !IsNil(o.BApikeyIssigned) {
+		toSerialize["bApikeyIssigned"] = o.BApikeyIssigned
+	}
+	return toSerialize, nil
 }
 
 type NullableApikeyRequest struct {

@@ -4,18 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FkiUserIDCreated** | **int32** | The unique ID of the User | 
-**FkiUserIDModified** | **int32** | The unique ID of the User | 
-**FkiApikeyIDCreated** | Pointer to **int32** | The unique ID of the Apikey | [optional] 
-**FkiApikeyIDModified** | Pointer to **int32** | The unique ID of the Apikey | [optional] 
-**DtCreatedDate** | **string** | Represent a Date Time. The timezone is the one configured in the User&#39;s profile. | 
-**DtModifiedDate** | **string** | Represent a Date Time. The timezone is the one configured in the User&#39;s profile. | 
+**ObjAuditdetailCreated** | [**CommonAuditdetail**](CommonAuditdetail.md) |  | 
+**ObjAuditdetailModified** | Pointer to [**CommonAuditdetail**](CommonAuditdetail.md) |  | [optional] 
 
 ## Methods
 
 ### NewCommonAudit
 
-`func NewCommonAudit(fkiUserIDCreated int32, fkiUserIDModified int32, dtCreatedDate string, dtModifiedDate string, ) *CommonAudit`
+`func NewCommonAudit(objAuditdetailCreated CommonAuditdetail, ) *CommonAudit`
 
 NewCommonAudit instantiates a new CommonAudit object
 This constructor will assign default values to properties that have it defined,
@@ -30,135 +26,50 @@ NewCommonAuditWithDefaults instantiates a new CommonAudit object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetFkiUserIDCreated
+### GetObjAuditdetailCreated
 
-`func (o *CommonAudit) GetFkiUserIDCreated() int32`
+`func (o *CommonAudit) GetObjAuditdetailCreated() CommonAuditdetail`
 
-GetFkiUserIDCreated returns the FkiUserIDCreated field if non-nil, zero value otherwise.
+GetObjAuditdetailCreated returns the ObjAuditdetailCreated field if non-nil, zero value otherwise.
 
-### GetFkiUserIDCreatedOk
+### GetObjAuditdetailCreatedOk
 
-`func (o *CommonAudit) GetFkiUserIDCreatedOk() (*int32, bool)`
+`func (o *CommonAudit) GetObjAuditdetailCreatedOk() (*CommonAuditdetail, bool)`
 
-GetFkiUserIDCreatedOk returns a tuple with the FkiUserIDCreated field if it's non-nil, zero value otherwise
+GetObjAuditdetailCreatedOk returns a tuple with the ObjAuditdetailCreated field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFkiUserIDCreated
+### SetObjAuditdetailCreated
 
-`func (o *CommonAudit) SetFkiUserIDCreated(v int32)`
+`func (o *CommonAudit) SetObjAuditdetailCreated(v CommonAuditdetail)`
 
-SetFkiUserIDCreated sets FkiUserIDCreated field to given value.
+SetObjAuditdetailCreated sets ObjAuditdetailCreated field to given value.
 
 
-### GetFkiUserIDModified
+### GetObjAuditdetailModified
 
-`func (o *CommonAudit) GetFkiUserIDModified() int32`
+`func (o *CommonAudit) GetObjAuditdetailModified() CommonAuditdetail`
 
-GetFkiUserIDModified returns the FkiUserIDModified field if non-nil, zero value otherwise.
+GetObjAuditdetailModified returns the ObjAuditdetailModified field if non-nil, zero value otherwise.
 
-### GetFkiUserIDModifiedOk
+### GetObjAuditdetailModifiedOk
 
-`func (o *CommonAudit) GetFkiUserIDModifiedOk() (*int32, bool)`
+`func (o *CommonAudit) GetObjAuditdetailModifiedOk() (*CommonAuditdetail, bool)`
 
-GetFkiUserIDModifiedOk returns a tuple with the FkiUserIDModified field if it's non-nil, zero value otherwise
+GetObjAuditdetailModifiedOk returns a tuple with the ObjAuditdetailModified field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFkiUserIDModified
+### SetObjAuditdetailModified
 
-`func (o *CommonAudit) SetFkiUserIDModified(v int32)`
+`func (o *CommonAudit) SetObjAuditdetailModified(v CommonAuditdetail)`
 
-SetFkiUserIDModified sets FkiUserIDModified field to given value.
+SetObjAuditdetailModified sets ObjAuditdetailModified field to given value.
 
+### HasObjAuditdetailModified
 
-### GetFkiApikeyIDCreated
+`func (o *CommonAudit) HasObjAuditdetailModified() bool`
 
-`func (o *CommonAudit) GetFkiApikeyIDCreated() int32`
-
-GetFkiApikeyIDCreated returns the FkiApikeyIDCreated field if non-nil, zero value otherwise.
-
-### GetFkiApikeyIDCreatedOk
-
-`func (o *CommonAudit) GetFkiApikeyIDCreatedOk() (*int32, bool)`
-
-GetFkiApikeyIDCreatedOk returns a tuple with the FkiApikeyIDCreated field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFkiApikeyIDCreated
-
-`func (o *CommonAudit) SetFkiApikeyIDCreated(v int32)`
-
-SetFkiApikeyIDCreated sets FkiApikeyIDCreated field to given value.
-
-### HasFkiApikeyIDCreated
-
-`func (o *CommonAudit) HasFkiApikeyIDCreated() bool`
-
-HasFkiApikeyIDCreated returns a boolean if a field has been set.
-
-### GetFkiApikeyIDModified
-
-`func (o *CommonAudit) GetFkiApikeyIDModified() int32`
-
-GetFkiApikeyIDModified returns the FkiApikeyIDModified field if non-nil, zero value otherwise.
-
-### GetFkiApikeyIDModifiedOk
-
-`func (o *CommonAudit) GetFkiApikeyIDModifiedOk() (*int32, bool)`
-
-GetFkiApikeyIDModifiedOk returns a tuple with the FkiApikeyIDModified field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFkiApikeyIDModified
-
-`func (o *CommonAudit) SetFkiApikeyIDModified(v int32)`
-
-SetFkiApikeyIDModified sets FkiApikeyIDModified field to given value.
-
-### HasFkiApikeyIDModified
-
-`func (o *CommonAudit) HasFkiApikeyIDModified() bool`
-
-HasFkiApikeyIDModified returns a boolean if a field has been set.
-
-### GetDtCreatedDate
-
-`func (o *CommonAudit) GetDtCreatedDate() string`
-
-GetDtCreatedDate returns the DtCreatedDate field if non-nil, zero value otherwise.
-
-### GetDtCreatedDateOk
-
-`func (o *CommonAudit) GetDtCreatedDateOk() (*string, bool)`
-
-GetDtCreatedDateOk returns a tuple with the DtCreatedDate field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDtCreatedDate
-
-`func (o *CommonAudit) SetDtCreatedDate(v string)`
-
-SetDtCreatedDate sets DtCreatedDate field to given value.
-
-
-### GetDtModifiedDate
-
-`func (o *CommonAudit) GetDtModifiedDate() string`
-
-GetDtModifiedDate returns the DtModifiedDate field if non-nil, zero value otherwise.
-
-### GetDtModifiedDateOk
-
-`func (o *CommonAudit) GetDtModifiedDateOk() (*string, bool)`
-
-GetDtModifiedDateOk returns a tuple with the DtModifiedDate field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDtModifiedDate
-
-`func (o *CommonAudit) SetDtModifiedDate(v string)`
-
-SetDtModifiedDate sets DtModifiedDate field to given value.
-
+HasObjAuditdetailModified returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

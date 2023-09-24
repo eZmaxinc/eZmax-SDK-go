@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -14,6 +14,9 @@ package eZmaxApi
 import (
 	"encoding/json"
 )
+
+// checks if the AttemptResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &AttemptResponse{}
 
 // AttemptResponse An Attempt object
 type AttemptResponse struct {
@@ -118,17 +121,19 @@ func (o *AttemptResponse) SetIAttemptDuration(v int32) {
 }
 
 func (o AttemptResponse) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["dtAttemptStart"] = o.DtAttemptStart
-	}
-	if true {
-		toSerialize["sAttemptResult"] = o.SAttemptResult
-	}
-	if true {
-		toSerialize["iAttemptDuration"] = o.IAttemptDuration
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o AttemptResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["dtAttemptStart"] = o.DtAttemptStart
+	toSerialize["sAttemptResult"] = o.SAttemptResult
+	toSerialize["iAttemptDuration"] = o.IAttemptDuration
+	return toSerialize, nil
 }
 
 type NullableAttemptResponse struct {

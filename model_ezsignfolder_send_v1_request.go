@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,9 +15,12 @@ import (
 	"encoding/json"
 )
 
-// EzsignfolderSendV1Request Request for the /1/object/ezsignfolder/{pkiEzsignfolderID}/send API Request
+// checks if the EzsignfolderSendV1Request type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsignfolderSendV1Request{}
+
+// EzsignfolderSendV1Request Request for POST /1/object/ezsignfolder/{pkiEzsignfolderID}/send
 type EzsignfolderSendV1Request struct {
-	// A custom text message that will be added to the email sent to signatories inviting them to sign.  You can send an empty string and only the generic message will be sent.
+	// A custom text message that will be added to the email sent.
 	TExtraMessage string `json:"tExtraMessage"`
 }
 
@@ -64,11 +67,17 @@ func (o *EzsignfolderSendV1Request) SetTExtraMessage(v string) {
 }
 
 func (o EzsignfolderSendV1Request) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["tExtraMessage"] = o.TExtraMessage
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsignfolderSendV1Request) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["tExtraMessage"] = o.TExtraMessage
+	return toSerialize, nil
 }
 
 type NullableEzsignfolderSendV1Request struct {

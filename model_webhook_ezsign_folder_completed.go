@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,23 +15,26 @@ import (
 	"encoding/json"
 )
 
+// checks if the WebhookEzsignFolderCompleted type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &WebhookEzsignFolderCompleted{}
+
 // WebhookEzsignFolderCompleted This is the base Webhook object
 type WebhookEzsignFolderCompleted struct {
-	ObjEzsignfolder EzsignfolderResponse `json:"objEzsignfolder"`
-	ObjWebhook WebhookResponse `json:"objWebhook"`
+	ObjWebhook CustomWebhookResponse `json:"objWebhook"`
 	// An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.
-	AObjAttempt []AttemptResponse `json:"a_objAttempt"`
+	AObjAttempt []AttemptResponseCompound `json:"a_objAttempt"`
+	ObjEzsignfolder EzsignfolderResponse `json:"objEzsignfolder"`
 }
 
 // NewWebhookEzsignFolderCompleted instantiates a new WebhookEzsignFolderCompleted object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWebhookEzsignFolderCompleted(objEzsignfolder EzsignfolderResponse, objWebhook WebhookResponse, aObjAttempt []AttemptResponse) *WebhookEzsignFolderCompleted {
+func NewWebhookEzsignFolderCompleted(objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound, objEzsignfolder EzsignfolderResponse) *WebhookEzsignFolderCompleted {
 	this := WebhookEzsignFolderCompleted{}
-	this.ObjEzsignfolder = objEzsignfolder
 	this.ObjWebhook = objWebhook
 	this.AObjAttempt = aObjAttempt
+	this.ObjEzsignfolder = objEzsignfolder
 	return &this
 }
 
@@ -41,6 +44,54 @@ func NewWebhookEzsignFolderCompleted(objEzsignfolder EzsignfolderResponse, objWe
 func NewWebhookEzsignFolderCompletedWithDefaults() *WebhookEzsignFolderCompleted {
 	this := WebhookEzsignFolderCompleted{}
 	return &this
+}
+
+// GetObjWebhook returns the ObjWebhook field value
+func (o *WebhookEzsignFolderCompleted) GetObjWebhook() CustomWebhookResponse {
+	if o == nil {
+		var ret CustomWebhookResponse
+		return ret
+	}
+
+	return o.ObjWebhook
+}
+
+// GetObjWebhookOk returns a tuple with the ObjWebhook field value
+// and a boolean to check if the value has been set.
+func (o *WebhookEzsignFolderCompleted) GetObjWebhookOk() (*CustomWebhookResponse, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjWebhook, true
+}
+
+// SetObjWebhook sets field value
+func (o *WebhookEzsignFolderCompleted) SetObjWebhook(v CustomWebhookResponse) {
+	o.ObjWebhook = v
+}
+
+// GetAObjAttempt returns the AObjAttempt field value
+func (o *WebhookEzsignFolderCompleted) GetAObjAttempt() []AttemptResponseCompound {
+	if o == nil {
+		var ret []AttemptResponseCompound
+		return ret
+	}
+
+	return o.AObjAttempt
+}
+
+// GetAObjAttemptOk returns a tuple with the AObjAttempt field value
+// and a boolean to check if the value has been set.
+func (o *WebhookEzsignFolderCompleted) GetAObjAttemptOk() ([]AttemptResponseCompound, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AObjAttempt, true
+}
+
+// SetAObjAttempt sets field value
+func (o *WebhookEzsignFolderCompleted) SetAObjAttempt(v []AttemptResponseCompound) {
+	o.AObjAttempt = v
 }
 
 // GetObjEzsignfolder returns the ObjEzsignfolder field value
@@ -67,66 +118,20 @@ func (o *WebhookEzsignFolderCompleted) SetObjEzsignfolder(v EzsignfolderResponse
 	o.ObjEzsignfolder = v
 }
 
-// GetObjWebhook returns the ObjWebhook field value
-func (o *WebhookEzsignFolderCompleted) GetObjWebhook() WebhookResponse {
-	if o == nil {
-		var ret WebhookResponse
-		return ret
-	}
-
-	return o.ObjWebhook
-}
-
-// GetObjWebhookOk returns a tuple with the ObjWebhook field value
-// and a boolean to check if the value has been set.
-func (o *WebhookEzsignFolderCompleted) GetObjWebhookOk() (*WebhookResponse, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ObjWebhook, true
-}
-
-// SetObjWebhook sets field value
-func (o *WebhookEzsignFolderCompleted) SetObjWebhook(v WebhookResponse) {
-	o.ObjWebhook = v
-}
-
-// GetAObjAttempt returns the AObjAttempt field value
-func (o *WebhookEzsignFolderCompleted) GetAObjAttempt() []AttemptResponse {
-	if o == nil {
-		var ret []AttemptResponse
-		return ret
-	}
-
-	return o.AObjAttempt
-}
-
-// GetAObjAttemptOk returns a tuple with the AObjAttempt field value
-// and a boolean to check if the value has been set.
-func (o *WebhookEzsignFolderCompleted) GetAObjAttemptOk() ([]AttemptResponse, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.AObjAttempt, true
-}
-
-// SetAObjAttempt sets field value
-func (o *WebhookEzsignFolderCompleted) SetAObjAttempt(v []AttemptResponse) {
-	o.AObjAttempt = v
-}
-
 func (o WebhookEzsignFolderCompleted) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["objEzsignfolder"] = o.ObjEzsignfolder
-	}
-	if true {
-		toSerialize["objWebhook"] = o.ObjWebhook
-	}
-	if true {
-		toSerialize["a_objAttempt"] = o.AObjAttempt
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o WebhookEzsignFolderCompleted) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["objWebhook"] = o.ObjWebhook
+	toSerialize["a_objAttempt"] = o.AObjAttempt
+	toSerialize["objEzsignfolder"] = o.ObjEzsignfolder
+	return toSerialize, nil
 }
 
 type NullableWebhookEzsignFolderCompleted struct {

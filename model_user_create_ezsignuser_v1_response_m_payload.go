@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,7 +15,10 @@ import (
 	"encoding/json"
 )
 
-// UserCreateEzsignuserV1ResponseMPayload Payload for the /1/module/user/createEzsignuser API Request
+// checks if the UserCreateEzsignuserV1ResponseMPayload type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UserCreateEzsignuserV1ResponseMPayload{}
+
+// UserCreateEzsignuserV1ResponseMPayload Payload for POST /1/module/user/createEzsignuser
 type UserCreateEzsignuserV1ResponseMPayload struct {
 	// An array of email addresses that succeeded.
 	ASEmailAddressSuccess []string `json:"a_sEmailAddressSuccess"`
@@ -91,14 +94,18 @@ func (o *UserCreateEzsignuserV1ResponseMPayload) SetASEmailAddressFailure(v []st
 }
 
 func (o UserCreateEzsignuserV1ResponseMPayload) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["a_sEmailAddressSuccess"] = o.ASEmailAddressSuccess
-	}
-	if true {
-		toSerialize["a_sEmailAddressFailure"] = o.ASEmailAddressFailure
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o UserCreateEzsignuserV1ResponseMPayload) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["a_sEmailAddressSuccess"] = o.ASEmailAddressSuccess
+	toSerialize["a_sEmailAddressFailure"] = o.ASEmailAddressFailure
+	return toSerialize, nil
 }
 
 type NullableUserCreateEzsignuserV1ResponseMPayload struct {

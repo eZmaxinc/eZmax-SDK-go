@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -14,6 +14,9 @@ package eZmaxApi
 import (
 	"encoding/json"
 )
+
+// checks if the ContactRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ContactRequest{}
 
 // ContactRequest A Contact Object
 type ContactRequest struct {
@@ -175,7 +178,7 @@ func (o *ContactRequest) SetSContactCompany(v string) {
 
 // GetDtContactBirthdate returns the DtContactBirthdate field value if set, zero value otherwise.
 func (o *ContactRequest) GetDtContactBirthdate() string {
-	if o == nil || o.DtContactBirthdate == nil {
+	if o == nil || IsNil(o.DtContactBirthdate) {
 		var ret string
 		return ret
 	}
@@ -185,7 +188,7 @@ func (o *ContactRequest) GetDtContactBirthdate() string {
 // GetDtContactBirthdateOk returns a tuple with the DtContactBirthdate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ContactRequest) GetDtContactBirthdateOk() (*string, bool) {
-	if o == nil || o.DtContactBirthdate == nil {
+	if o == nil || IsNil(o.DtContactBirthdate) {
 		return nil, false
 	}
 	return o.DtContactBirthdate, true
@@ -193,7 +196,7 @@ func (o *ContactRequest) GetDtContactBirthdateOk() (*string, bool) {
 
 // HasDtContactBirthdate returns a boolean if a field has been set.
 func (o *ContactRequest) HasDtContactBirthdate() bool {
-	if o != nil && o.DtContactBirthdate != nil {
+	if o != nil && !IsNil(o.DtContactBirthdate) {
 		return true
 	}
 
@@ -206,26 +209,24 @@ func (o *ContactRequest) SetDtContactBirthdate(v string) {
 }
 
 func (o ContactRequest) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["fkiContacttitleID"] = o.FkiContacttitleID
-	}
-	if true {
-		toSerialize["fkiLanguageID"] = o.FkiLanguageID
-	}
-	if true {
-		toSerialize["sContactFirstname"] = o.SContactFirstname
-	}
-	if true {
-		toSerialize["sContactLastname"] = o.SContactLastname
-	}
-	if true {
-		toSerialize["sContactCompany"] = o.SContactCompany
-	}
-	if o.DtContactBirthdate != nil {
-		toSerialize["dtContactBirthdate"] = o.DtContactBirthdate
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ContactRequest) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["fkiContacttitleID"] = o.FkiContacttitleID
+	toSerialize["fkiLanguageID"] = o.FkiLanguageID
+	toSerialize["sContactFirstname"] = o.SContactFirstname
+	toSerialize["sContactLastname"] = o.SContactLastname
+	toSerialize["sContactCompany"] = o.SContactCompany
+	if !IsNil(o.DtContactBirthdate) {
+		toSerialize["dtContactBirthdate"] = o.DtContactBirthdate
+	}
+	return toSerialize, nil
 }
 
 type NullableContactRequest struct {

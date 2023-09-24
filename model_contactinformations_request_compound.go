@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,16 +15,11 @@ import (
 	"encoding/json"
 )
 
+// checks if the ContactinformationsRequestCompound type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ContactinformationsRequestCompound{}
+
 // ContactinformationsRequestCompound A Contactinformations Object and children to create a complete structure
 type ContactinformationsRequestCompound struct {
-	// 
-	AObjAddress []AddressRequest `json:"a_objAddress"`
-	// 
-	AObjPhone []PhoneRequest `json:"a_objPhone"`
-	// 
-	AObjEmail []EmailRequest `json:"a_objEmail"`
-	// 
-	AObjWebsite []WebsiteRequest `json:"a_objWebsite"`
 	// The index in the a_objAddress array (zero based index) representing the Address object that should become the default one.  You can leave the value to 0 if the array is empty.
 	IAddressDefault int32 `json:"iAddressDefault"`
 	// The index in the a_objPhone array (zero based index) representing the Phone object that should become the default one.  You can leave the value to 0 if the array is empty.
@@ -33,22 +28,26 @@ type ContactinformationsRequestCompound struct {
 	IEmailDefault int32 `json:"iEmailDefault"`
 	// The index in the a_objWebsite array (zero based index) representing the Website object that should become the default one.  You can leave the value to 0 if the array is empty.
 	IWebsiteDefault int32 `json:"iWebsiteDefault"`
+	AObjAddress []AddressRequestCompound `json:"a_objAddress"`
+	AObjPhone []PhoneRequestCompound `json:"a_objPhone"`
+	AObjEmail []EmailRequestCompound `json:"a_objEmail"`
+	AObjWebsite []WebsiteRequestCompound `json:"a_objWebsite"`
 }
 
 // NewContactinformationsRequestCompound instantiates a new ContactinformationsRequestCompound object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewContactinformationsRequestCompound(aObjAddress []AddressRequest, aObjPhone []PhoneRequest, aObjEmail []EmailRequest, aObjWebsite []WebsiteRequest, iAddressDefault int32, iPhoneDefault int32, iEmailDefault int32, iWebsiteDefault int32) *ContactinformationsRequestCompound {
+func NewContactinformationsRequestCompound(iAddressDefault int32, iPhoneDefault int32, iEmailDefault int32, iWebsiteDefault int32, aObjAddress []AddressRequestCompound, aObjPhone []PhoneRequestCompound, aObjEmail []EmailRequestCompound, aObjWebsite []WebsiteRequestCompound) *ContactinformationsRequestCompound {
 	this := ContactinformationsRequestCompound{}
-	this.AObjAddress = aObjAddress
-	this.AObjPhone = aObjPhone
-	this.AObjEmail = aObjEmail
-	this.AObjWebsite = aObjWebsite
 	this.IAddressDefault = iAddressDefault
 	this.IPhoneDefault = iPhoneDefault
 	this.IEmailDefault = iEmailDefault
 	this.IWebsiteDefault = iWebsiteDefault
+	this.AObjAddress = aObjAddress
+	this.AObjPhone = aObjPhone
+	this.AObjEmail = aObjEmail
+	this.AObjWebsite = aObjWebsite
 	return &this
 }
 
@@ -58,102 +57,6 @@ func NewContactinformationsRequestCompound(aObjAddress []AddressRequest, aObjPho
 func NewContactinformationsRequestCompoundWithDefaults() *ContactinformationsRequestCompound {
 	this := ContactinformationsRequestCompound{}
 	return &this
-}
-
-// GetAObjAddress returns the AObjAddress field value
-func (o *ContactinformationsRequestCompound) GetAObjAddress() []AddressRequest {
-	if o == nil {
-		var ret []AddressRequest
-		return ret
-	}
-
-	return o.AObjAddress
-}
-
-// GetAObjAddressOk returns a tuple with the AObjAddress field value
-// and a boolean to check if the value has been set.
-func (o *ContactinformationsRequestCompound) GetAObjAddressOk() ([]AddressRequest, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.AObjAddress, true
-}
-
-// SetAObjAddress sets field value
-func (o *ContactinformationsRequestCompound) SetAObjAddress(v []AddressRequest) {
-	o.AObjAddress = v
-}
-
-// GetAObjPhone returns the AObjPhone field value
-func (o *ContactinformationsRequestCompound) GetAObjPhone() []PhoneRequest {
-	if o == nil {
-		var ret []PhoneRequest
-		return ret
-	}
-
-	return o.AObjPhone
-}
-
-// GetAObjPhoneOk returns a tuple with the AObjPhone field value
-// and a boolean to check if the value has been set.
-func (o *ContactinformationsRequestCompound) GetAObjPhoneOk() ([]PhoneRequest, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.AObjPhone, true
-}
-
-// SetAObjPhone sets field value
-func (o *ContactinformationsRequestCompound) SetAObjPhone(v []PhoneRequest) {
-	o.AObjPhone = v
-}
-
-// GetAObjEmail returns the AObjEmail field value
-func (o *ContactinformationsRequestCompound) GetAObjEmail() []EmailRequest {
-	if o == nil {
-		var ret []EmailRequest
-		return ret
-	}
-
-	return o.AObjEmail
-}
-
-// GetAObjEmailOk returns a tuple with the AObjEmail field value
-// and a boolean to check if the value has been set.
-func (o *ContactinformationsRequestCompound) GetAObjEmailOk() ([]EmailRequest, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.AObjEmail, true
-}
-
-// SetAObjEmail sets field value
-func (o *ContactinformationsRequestCompound) SetAObjEmail(v []EmailRequest) {
-	o.AObjEmail = v
-}
-
-// GetAObjWebsite returns the AObjWebsite field value
-func (o *ContactinformationsRequestCompound) GetAObjWebsite() []WebsiteRequest {
-	if o == nil {
-		var ret []WebsiteRequest
-		return ret
-	}
-
-	return o.AObjWebsite
-}
-
-// GetAObjWebsiteOk returns a tuple with the AObjWebsite field value
-// and a boolean to check if the value has been set.
-func (o *ContactinformationsRequestCompound) GetAObjWebsiteOk() ([]WebsiteRequest, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.AObjWebsite, true
-}
-
-// SetAObjWebsite sets field value
-func (o *ContactinformationsRequestCompound) SetAObjWebsite(v []WebsiteRequest) {
-	o.AObjWebsite = v
 }
 
 // GetIAddressDefault returns the IAddressDefault field value
@@ -252,33 +155,121 @@ func (o *ContactinformationsRequestCompound) SetIWebsiteDefault(v int32) {
 	o.IWebsiteDefault = v
 }
 
+// GetAObjAddress returns the AObjAddress field value
+func (o *ContactinformationsRequestCompound) GetAObjAddress() []AddressRequestCompound {
+	if o == nil {
+		var ret []AddressRequestCompound
+		return ret
+	}
+
+	return o.AObjAddress
+}
+
+// GetAObjAddressOk returns a tuple with the AObjAddress field value
+// and a boolean to check if the value has been set.
+func (o *ContactinformationsRequestCompound) GetAObjAddressOk() ([]AddressRequestCompound, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AObjAddress, true
+}
+
+// SetAObjAddress sets field value
+func (o *ContactinformationsRequestCompound) SetAObjAddress(v []AddressRequestCompound) {
+	o.AObjAddress = v
+}
+
+// GetAObjPhone returns the AObjPhone field value
+func (o *ContactinformationsRequestCompound) GetAObjPhone() []PhoneRequestCompound {
+	if o == nil {
+		var ret []PhoneRequestCompound
+		return ret
+	}
+
+	return o.AObjPhone
+}
+
+// GetAObjPhoneOk returns a tuple with the AObjPhone field value
+// and a boolean to check if the value has been set.
+func (o *ContactinformationsRequestCompound) GetAObjPhoneOk() ([]PhoneRequestCompound, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AObjPhone, true
+}
+
+// SetAObjPhone sets field value
+func (o *ContactinformationsRequestCompound) SetAObjPhone(v []PhoneRequestCompound) {
+	o.AObjPhone = v
+}
+
+// GetAObjEmail returns the AObjEmail field value
+func (o *ContactinformationsRequestCompound) GetAObjEmail() []EmailRequestCompound {
+	if o == nil {
+		var ret []EmailRequestCompound
+		return ret
+	}
+
+	return o.AObjEmail
+}
+
+// GetAObjEmailOk returns a tuple with the AObjEmail field value
+// and a boolean to check if the value has been set.
+func (o *ContactinformationsRequestCompound) GetAObjEmailOk() ([]EmailRequestCompound, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AObjEmail, true
+}
+
+// SetAObjEmail sets field value
+func (o *ContactinformationsRequestCompound) SetAObjEmail(v []EmailRequestCompound) {
+	o.AObjEmail = v
+}
+
+// GetAObjWebsite returns the AObjWebsite field value
+func (o *ContactinformationsRequestCompound) GetAObjWebsite() []WebsiteRequestCompound {
+	if o == nil {
+		var ret []WebsiteRequestCompound
+		return ret
+	}
+
+	return o.AObjWebsite
+}
+
+// GetAObjWebsiteOk returns a tuple with the AObjWebsite field value
+// and a boolean to check if the value has been set.
+func (o *ContactinformationsRequestCompound) GetAObjWebsiteOk() ([]WebsiteRequestCompound, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AObjWebsite, true
+}
+
+// SetAObjWebsite sets field value
+func (o *ContactinformationsRequestCompound) SetAObjWebsite(v []WebsiteRequestCompound) {
+	o.AObjWebsite = v
+}
+
 func (o ContactinformationsRequestCompound) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["a_objAddress"] = o.AObjAddress
-	}
-	if true {
-		toSerialize["a_objPhone"] = o.AObjPhone
-	}
-	if true {
-		toSerialize["a_objEmail"] = o.AObjEmail
-	}
-	if true {
-		toSerialize["a_objWebsite"] = o.AObjWebsite
-	}
-	if true {
-		toSerialize["iAddressDefault"] = o.IAddressDefault
-	}
-	if true {
-		toSerialize["iPhoneDefault"] = o.IPhoneDefault
-	}
-	if true {
-		toSerialize["iEmailDefault"] = o.IEmailDefault
-	}
-	if true {
-		toSerialize["iWebsiteDefault"] = o.IWebsiteDefault
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ContactinformationsRequestCompound) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["iAddressDefault"] = o.IAddressDefault
+	toSerialize["iPhoneDefault"] = o.IPhoneDefault
+	toSerialize["iEmailDefault"] = o.IEmailDefault
+	toSerialize["iWebsiteDefault"] = o.IWebsiteDefault
+	toSerialize["a_objAddress"] = o.AObjAddress
+	toSerialize["a_objPhone"] = o.AObjPhone
+	toSerialize["a_objEmail"] = o.AObjEmail
+	toSerialize["a_objWebsite"] = o.AObjWebsite
+	return toSerialize, nil
 }
 
 type NullableContactinformationsRequestCompound struct {

@@ -4,8 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjAddress** | [**AddressRequest**](AddressRequest.md) |  | 
-**AObjContact** | [**[]ContactRequestCompound**](ContactRequestCompound.md) |  | 
 **PkiFranchisereferalincomeID** | Pointer to **int32** | The unique ID of the Franchisereferalincome | [optional] 
 **FkiFranchisebrokerID** | **int32** | The unique ID of the Franchisebroker | 
 **FkiFranchisereferalincomeprogramID** | **int32** | The unique ID of the Franchisereferalincomeprogram | 
@@ -18,12 +16,14 @@ Name | Type | Description | Notes
 **TFranchisereferalincomeComment** | **string** | Comment about the transaction | 
 **FkiFranchiseofficeID** | **int32** | The unique ID of the Franchisereoffice | 
 **SFranchisereferalincomeRemoteid** | **string** |  | 
+**ObjAddress** | [**AddressRequest**](AddressRequest.md) |  | 
+**AObjContact** | [**[]ContactRequestCompound**](ContactRequestCompound.md) |  | 
 
 ## Methods
 
 ### NewFranchisereferalincomeRequestCompound
 
-`func NewFranchisereferalincomeRequestCompound(objAddress AddressRequest, aObjContact []ContactRequestCompound, fkiFranchisebrokerID int32, fkiFranchisereferalincomeprogramID int32, fkiPeriodID int32, dFranchisereferalincomeLoan string, dFranchisereferalincomeFranchiseamount string, dFranchisereferalincomeFranchisoramount string, dFranchisereferalincomeAgentamount string, dtFranchisereferalincomeDisbursed string, tFranchisereferalincomeComment string, fkiFranchiseofficeID int32, sFranchisereferalincomeRemoteid string, ) *FranchisereferalincomeRequestCompound`
+`func NewFranchisereferalincomeRequestCompound(fkiFranchisebrokerID int32, fkiFranchisereferalincomeprogramID int32, fkiPeriodID int32, dFranchisereferalincomeLoan string, dFranchisereferalincomeFranchiseamount string, dFranchisereferalincomeFranchisoramount string, dFranchisereferalincomeAgentamount string, dtFranchisereferalincomeDisbursed string, tFranchisereferalincomeComment string, fkiFranchiseofficeID int32, sFranchisereferalincomeRemoteid string, objAddress AddressRequest, aObjContact []ContactRequestCompound, ) *FranchisereferalincomeRequestCompound`
 
 NewFranchisereferalincomeRequestCompound instantiates a new FranchisereferalincomeRequestCompound object
 This constructor will assign default values to properties that have it defined,
@@ -37,46 +37,6 @@ will change when the set of required properties is changed
 NewFranchisereferalincomeRequestCompoundWithDefaults instantiates a new FranchisereferalincomeRequestCompound object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetObjAddress
-
-`func (o *FranchisereferalincomeRequestCompound) GetObjAddress() AddressRequest`
-
-GetObjAddress returns the ObjAddress field if non-nil, zero value otherwise.
-
-### GetObjAddressOk
-
-`func (o *FranchisereferalincomeRequestCompound) GetObjAddressOk() (*AddressRequest, bool)`
-
-GetObjAddressOk returns a tuple with the ObjAddress field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetObjAddress
-
-`func (o *FranchisereferalincomeRequestCompound) SetObjAddress(v AddressRequest)`
-
-SetObjAddress sets ObjAddress field to given value.
-
-
-### GetAObjContact
-
-`func (o *FranchisereferalincomeRequestCompound) GetAObjContact() []ContactRequestCompound`
-
-GetAObjContact returns the AObjContact field if non-nil, zero value otherwise.
-
-### GetAObjContactOk
-
-`func (o *FranchisereferalincomeRequestCompound) GetAObjContactOk() (*[]ContactRequestCompound, bool)`
-
-GetAObjContactOk returns a tuple with the AObjContact field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAObjContact
-
-`func (o *FranchisereferalincomeRequestCompound) SetAObjContact(v []ContactRequestCompound)`
-
-SetAObjContact sets AObjContact field to given value.
-
 
 ### GetPkiFranchisereferalincomeID
 
@@ -321,6 +281,46 @@ and a boolean to check if the value has been set.
 `func (o *FranchisereferalincomeRequestCompound) SetSFranchisereferalincomeRemoteid(v string)`
 
 SetSFranchisereferalincomeRemoteid sets SFranchisereferalincomeRemoteid field to given value.
+
+
+### GetObjAddress
+
+`func (o *FranchisereferalincomeRequestCompound) GetObjAddress() AddressRequest`
+
+GetObjAddress returns the ObjAddress field if non-nil, zero value otherwise.
+
+### GetObjAddressOk
+
+`func (o *FranchisereferalincomeRequestCompound) GetObjAddressOk() (*AddressRequest, bool)`
+
+GetObjAddressOk returns a tuple with the ObjAddress field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjAddress
+
+`func (o *FranchisereferalincomeRequestCompound) SetObjAddress(v AddressRequest)`
+
+SetObjAddress sets ObjAddress field to given value.
+
+
+### GetAObjContact
+
+`func (o *FranchisereferalincomeRequestCompound) GetAObjContact() []ContactRequestCompound`
+
+GetAObjContact returns the AObjContact field if non-nil, zero value otherwise.
+
+### GetAObjContactOk
+
+`func (o *FranchisereferalincomeRequestCompound) GetAObjContactOk() (*[]ContactRequestCompound, bool)`
+
+GetAObjContactOk returns a tuple with the AObjContact field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAObjContact
+
+`func (o *FranchisereferalincomeRequestCompound) SetAObjContact(v []ContactRequestCompound)`
+
+SetAObjContact sets AObjContact field to given value.
 
 
 

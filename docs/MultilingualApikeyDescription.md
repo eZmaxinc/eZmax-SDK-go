@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SApikeyDescription1** | Pointer to **string** | Value in French | [optional] 
-**SApikeyDescription2** | Pointer to **string** | Value in English | [optional] 
+**SApikeyDescription1** | Pointer to **string** | The description of the Apikey in French | [optional] 
+**SApikeyDescription2** | Pointer to **string** | The description of the Apikey in English | [optional] 
 
 ## Methods
 

@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CommonResponseObjDebugPayload type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CommonResponseObjDebugPayload{}
+
 // CommonResponseObjDebugPayload This is a debug object containing debugging information on the actual function
 type CommonResponseObjDebugPayload struct {
 	// The minimum version of the function that can be called
@@ -23,17 +26,20 @@ type CommonResponseObjDebugPayload struct {
 	IVersionMax int32 `json:"iVersionMax"`
 	// An array of permissions required to access this function.  If the value \"0\" is present in the array, anyone can call this function.  You must have one of the permission to access the function. You don't need to have all of them.
 	ARequiredPermission []int32 `json:"a_RequiredPermission"`
+	// Wheter the current route is deprecated or not
+	BVersionDeprecated bool `json:"bVersionDeprecated"`
 }
 
 // NewCommonResponseObjDebugPayload instantiates a new CommonResponseObjDebugPayload object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommonResponseObjDebugPayload(iVersionMin int32, iVersionMax int32, aRequiredPermission []int32) *CommonResponseObjDebugPayload {
+func NewCommonResponseObjDebugPayload(iVersionMin int32, iVersionMax int32, aRequiredPermission []int32, bVersionDeprecated bool) *CommonResponseObjDebugPayload {
 	this := CommonResponseObjDebugPayload{}
 	this.IVersionMin = iVersionMin
 	this.IVersionMax = iVersionMax
 	this.ARequiredPermission = aRequiredPermission
+	this.BVersionDeprecated = bVersionDeprecated
 	return &this
 }
 
@@ -117,18 +123,45 @@ func (o *CommonResponseObjDebugPayload) SetARequiredPermission(v []int32) {
 	o.ARequiredPermission = v
 }
 
+// GetBVersionDeprecated returns the BVersionDeprecated field value
+func (o *CommonResponseObjDebugPayload) GetBVersionDeprecated() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BVersionDeprecated
+}
+
+// GetBVersionDeprecatedOk returns a tuple with the BVersionDeprecated field value
+// and a boolean to check if the value has been set.
+func (o *CommonResponseObjDebugPayload) GetBVersionDeprecatedOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BVersionDeprecated, true
+}
+
+// SetBVersionDeprecated sets field value
+func (o *CommonResponseObjDebugPayload) SetBVersionDeprecated(v bool) {
+	o.BVersionDeprecated = v
+}
+
 func (o CommonResponseObjDebugPayload) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["iVersionMin"] = o.IVersionMin
-	}
-	if true {
-		toSerialize["iVersionMax"] = o.IVersionMax
-	}
-	if true {
-		toSerialize["a_RequiredPermission"] = o.ARequiredPermission
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CommonResponseObjDebugPayload) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["iVersionMin"] = o.IVersionMin
+	toSerialize["iVersionMax"] = o.IVersionMax
+	toSerialize["a_RequiredPermission"] = o.ARequiredPermission
+	toSerialize["bVersionDeprecated"] = o.BVersionDeprecated
+	return toSerialize, nil
 }
 
 type NullableCommonResponseObjDebugPayload struct {

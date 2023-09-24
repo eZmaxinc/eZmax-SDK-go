@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,25 +15,27 @@ import (
 	"encoding/json"
 )
 
-// EzsignbulksendGetListV1ResponseMPayload Payload for the /1/object/ezsignbulksend/getList API Request
+// checks if the EzsignbulksendGetListV1ResponseMPayload type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsignbulksendGetListV1ResponseMPayload{}
+
+// EzsignbulksendGetListV1ResponseMPayload Payload for GET /1/object/ezsignbulksend/getList
 type EzsignbulksendGetListV1ResponseMPayload struct {
-	// 
-	AObjEzsignbulksend []EzsignbulksendListElement `json:"a_objEzsignbulksend"`
 	// The number of rows returned
 	IRowReturned int32 `json:"iRowReturned"`
 	// The number of rows matching your filters (if any) or the total number of rows
 	IRowFiltered int32 `json:"iRowFiltered"`
+	AObjEzsignbulksend []EzsignbulksendListElement `json:"a_objEzsignbulksend"`
 }
 
 // NewEzsignbulksendGetListV1ResponseMPayload instantiates a new EzsignbulksendGetListV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignbulksendGetListV1ResponseMPayload(aObjEzsignbulksend []EzsignbulksendListElement, iRowReturned int32, iRowFiltered int32) *EzsignbulksendGetListV1ResponseMPayload {
+func NewEzsignbulksendGetListV1ResponseMPayload(iRowReturned int32, iRowFiltered int32, aObjEzsignbulksend []EzsignbulksendListElement) *EzsignbulksendGetListV1ResponseMPayload {
 	this := EzsignbulksendGetListV1ResponseMPayload{}
-	this.AObjEzsignbulksend = aObjEzsignbulksend
 	this.IRowReturned = iRowReturned
 	this.IRowFiltered = iRowFiltered
+	this.AObjEzsignbulksend = aObjEzsignbulksend
 	return &this
 }
 
@@ -43,30 +45,6 @@ func NewEzsignbulksendGetListV1ResponseMPayload(aObjEzsignbulksend []Ezsignbulks
 func NewEzsignbulksendGetListV1ResponseMPayloadWithDefaults() *EzsignbulksendGetListV1ResponseMPayload {
 	this := EzsignbulksendGetListV1ResponseMPayload{}
 	return &this
-}
-
-// GetAObjEzsignbulksend returns the AObjEzsignbulksend field value
-func (o *EzsignbulksendGetListV1ResponseMPayload) GetAObjEzsignbulksend() []EzsignbulksendListElement {
-	if o == nil {
-		var ret []EzsignbulksendListElement
-		return ret
-	}
-
-	return o.AObjEzsignbulksend
-}
-
-// GetAObjEzsignbulksendOk returns a tuple with the AObjEzsignbulksend field value
-// and a boolean to check if the value has been set.
-func (o *EzsignbulksendGetListV1ResponseMPayload) GetAObjEzsignbulksendOk() ([]EzsignbulksendListElement, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.AObjEzsignbulksend, true
-}
-
-// SetAObjEzsignbulksend sets field value
-func (o *EzsignbulksendGetListV1ResponseMPayload) SetAObjEzsignbulksend(v []EzsignbulksendListElement) {
-	o.AObjEzsignbulksend = v
 }
 
 // GetIRowReturned returns the IRowReturned field value
@@ -117,18 +95,44 @@ func (o *EzsignbulksendGetListV1ResponseMPayload) SetIRowFiltered(v int32) {
 	o.IRowFiltered = v
 }
 
+// GetAObjEzsignbulksend returns the AObjEzsignbulksend field value
+func (o *EzsignbulksendGetListV1ResponseMPayload) GetAObjEzsignbulksend() []EzsignbulksendListElement {
+	if o == nil {
+		var ret []EzsignbulksendListElement
+		return ret
+	}
+
+	return o.AObjEzsignbulksend
+}
+
+// GetAObjEzsignbulksendOk returns a tuple with the AObjEzsignbulksend field value
+// and a boolean to check if the value has been set.
+func (o *EzsignbulksendGetListV1ResponseMPayload) GetAObjEzsignbulksendOk() ([]EzsignbulksendListElement, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AObjEzsignbulksend, true
+}
+
+// SetAObjEzsignbulksend sets field value
+func (o *EzsignbulksendGetListV1ResponseMPayload) SetAObjEzsignbulksend(v []EzsignbulksendListElement) {
+	o.AObjEzsignbulksend = v
+}
+
 func (o EzsignbulksendGetListV1ResponseMPayload) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["a_objEzsignbulksend"] = o.AObjEzsignbulksend
-	}
-	if true {
-		toSerialize["iRowReturned"] = o.IRowReturned
-	}
-	if true {
-		toSerialize["iRowFiltered"] = o.IRowFiltered
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsignbulksendGetListV1ResponseMPayload) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["iRowReturned"] = o.IRowReturned
+	toSerialize["iRowFiltered"] = o.IRowFiltered
+	toSerialize["a_objEzsignbulksend"] = o.AObjEzsignbulksend
+	return toSerialize, nil
 }
 
 type NullableEzsignbulksendGetListV1ResponseMPayload struct {

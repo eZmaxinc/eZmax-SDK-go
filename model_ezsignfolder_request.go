@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the EzsignfolderRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsignfolderRequest{}
+
 // EzsignfolderRequest An Ezsignfolder Object
 type EzsignfolderRequest struct {
 	// The unique ID of the Ezsignfolder
@@ -22,22 +25,23 @@ type EzsignfolderRequest struct {
 	// The unique ID of the Ezsignfoldertype.
 	FkiEzsignfoldertypeID int32 `json:"fkiEzsignfoldertypeID"`
 	// The unique ID of the Ezsigntsarequirement.  Determine if a Time Stamping Authority should add a timestamp on each of the signature. Valid values:  |Value|Description| |-|-| |1|No. TSA Timestamping will requested. This will make all signatures a lot faster since no round-trip to the TSA server will be required. Timestamping will be made using eZsign server's time.| |2|Best effort. Timestamping from a Time Stamping Authority will be requested but is not mandatory. In the very improbable case it cannot be completed, the timestamping will be made using eZsign server's time. **Additional fee applies**| |3|Mandatory. Timestamping from a Time Stamping Authority will be requested and is mandatory. In the very improbable case it cannot be completed, the signature will fail and the user will be asked to retry. **Additional fee applies**|
-	FkiEzsigntsarequirementID int32 `json:"fkiEzsigntsarequirementID"`
+	FkiEzsigntsarequirementID *int32 `json:"fkiEzsigntsarequirementID,omitempty"`
 	// The description of the Ezsignfolder
 	SEzsignfolderDescription string `json:"sEzsignfolderDescription"`
 	// Note about the Ezsignfolder
 	TEzsignfolderNote string `json:"tEzsignfolderNote"`
 	EEzsignfolderSendreminderfrequency FieldEEzsignfolderSendreminderfrequency `json:"eEzsignfolderSendreminderfrequency"`
+	// This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format. 
+	SEzsignfolderExternalid *string `json:"sEzsignfolderExternalid,omitempty"`
 }
 
 // NewEzsignfolderRequest instantiates a new EzsignfolderRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfolderRequest(fkiEzsignfoldertypeID int32, fkiEzsigntsarequirementID int32, sEzsignfolderDescription string, tEzsignfolderNote string, eEzsignfolderSendreminderfrequency FieldEEzsignfolderSendreminderfrequency) *EzsignfolderRequest {
+func NewEzsignfolderRequest(fkiEzsignfoldertypeID int32, sEzsignfolderDescription string, tEzsignfolderNote string, eEzsignfolderSendreminderfrequency FieldEEzsignfolderSendreminderfrequency) *EzsignfolderRequest {
 	this := EzsignfolderRequest{}
 	this.FkiEzsignfoldertypeID = fkiEzsignfoldertypeID
-	this.FkiEzsigntsarequirementID = fkiEzsigntsarequirementID
 	this.SEzsignfolderDescription = sEzsignfolderDescription
 	this.TEzsignfolderNote = tEzsignfolderNote
 	this.EEzsignfolderSendreminderfrequency = eEzsignfolderSendreminderfrequency
@@ -54,7 +58,7 @@ func NewEzsignfolderRequestWithDefaults() *EzsignfolderRequest {
 
 // GetPkiEzsignfolderID returns the PkiEzsignfolderID field value if set, zero value otherwise.
 func (o *EzsignfolderRequest) GetPkiEzsignfolderID() int32 {
-	if o == nil || o.PkiEzsignfolderID == nil {
+	if o == nil || IsNil(o.PkiEzsignfolderID) {
 		var ret int32
 		return ret
 	}
@@ -64,7 +68,7 @@ func (o *EzsignfolderRequest) GetPkiEzsignfolderID() int32 {
 // GetPkiEzsignfolderIDOk returns a tuple with the PkiEzsignfolderID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderRequest) GetPkiEzsignfolderIDOk() (*int32, bool) {
-	if o == nil || o.PkiEzsignfolderID == nil {
+	if o == nil || IsNil(o.PkiEzsignfolderID) {
 		return nil, false
 	}
 	return o.PkiEzsignfolderID, true
@@ -72,7 +76,7 @@ func (o *EzsignfolderRequest) GetPkiEzsignfolderIDOk() (*int32, bool) {
 
 // HasPkiEzsignfolderID returns a boolean if a field has been set.
 func (o *EzsignfolderRequest) HasPkiEzsignfolderID() bool {
-	if o != nil && o.PkiEzsignfolderID != nil {
+	if o != nil && !IsNil(o.PkiEzsignfolderID) {
 		return true
 	}
 
@@ -108,28 +112,36 @@ func (o *EzsignfolderRequest) SetFkiEzsignfoldertypeID(v int32) {
 	o.FkiEzsignfoldertypeID = v
 }
 
-// GetFkiEzsigntsarequirementID returns the FkiEzsigntsarequirementID field value
+// GetFkiEzsigntsarequirementID returns the FkiEzsigntsarequirementID field value if set, zero value otherwise.
 func (o *EzsignfolderRequest) GetFkiEzsigntsarequirementID() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.FkiEzsigntsarequirementID) {
 		var ret int32
 		return ret
 	}
-
-	return o.FkiEzsigntsarequirementID
+	return *o.FkiEzsigntsarequirementID
 }
 
-// GetFkiEzsigntsarequirementIDOk returns a tuple with the FkiEzsigntsarequirementID field value
+// GetFkiEzsigntsarequirementIDOk returns a tuple with the FkiEzsigntsarequirementID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderRequest) GetFkiEzsigntsarequirementIDOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FkiEzsigntsarequirementID) {
 		return nil, false
 	}
-	return &o.FkiEzsigntsarequirementID, true
+	return o.FkiEzsigntsarequirementID, true
 }
 
-// SetFkiEzsigntsarequirementID sets field value
+// HasFkiEzsigntsarequirementID returns a boolean if a field has been set.
+func (o *EzsignfolderRequest) HasFkiEzsigntsarequirementID() bool {
+	if o != nil && !IsNil(o.FkiEzsigntsarequirementID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzsigntsarequirementID gets a reference to the given int32 and assigns it to the FkiEzsigntsarequirementID field.
 func (o *EzsignfolderRequest) SetFkiEzsigntsarequirementID(v int32) {
-	o.FkiEzsigntsarequirementID = v
+	o.FkiEzsigntsarequirementID = &v
 }
 
 // GetSEzsignfolderDescription returns the SEzsignfolderDescription field value
@@ -204,27 +216,62 @@ func (o *EzsignfolderRequest) SetEEzsignfolderSendreminderfrequency(v FieldEEzsi
 	o.EEzsignfolderSendreminderfrequency = v
 }
 
+// GetSEzsignfolderExternalid returns the SEzsignfolderExternalid field value if set, zero value otherwise.
+func (o *EzsignfolderRequest) GetSEzsignfolderExternalid() string {
+	if o == nil || IsNil(o.SEzsignfolderExternalid) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsignfolderExternalid
+}
+
+// GetSEzsignfolderExternalidOk returns a tuple with the SEzsignfolderExternalid field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderRequest) GetSEzsignfolderExternalidOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsignfolderExternalid) {
+		return nil, false
+	}
+	return o.SEzsignfolderExternalid, true
+}
+
+// HasSEzsignfolderExternalid returns a boolean if a field has been set.
+func (o *EzsignfolderRequest) HasSEzsignfolderExternalid() bool {
+	if o != nil && !IsNil(o.SEzsignfolderExternalid) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsignfolderExternalid gets a reference to the given string and assigns it to the SEzsignfolderExternalid field.
+func (o *EzsignfolderRequest) SetSEzsignfolderExternalid(v string) {
+	o.SEzsignfolderExternalid = &v
+}
+
 func (o EzsignfolderRequest) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if o.PkiEzsignfolderID != nil {
-		toSerialize["pkiEzsignfolderID"] = o.PkiEzsignfolderID
-	}
-	if true {
-		toSerialize["fkiEzsignfoldertypeID"] = o.FkiEzsignfoldertypeID
-	}
-	if true {
-		toSerialize["fkiEzsigntsarequirementID"] = o.FkiEzsigntsarequirementID
-	}
-	if true {
-		toSerialize["sEzsignfolderDescription"] = o.SEzsignfolderDescription
-	}
-	if true {
-		toSerialize["tEzsignfolderNote"] = o.TEzsignfolderNote
-	}
-	if true {
-		toSerialize["eEzsignfolderSendreminderfrequency"] = o.EEzsignfolderSendreminderfrequency
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsignfolderRequest) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.PkiEzsignfolderID) {
+		toSerialize["pkiEzsignfolderID"] = o.PkiEzsignfolderID
+	}
+	toSerialize["fkiEzsignfoldertypeID"] = o.FkiEzsignfoldertypeID
+	if !IsNil(o.FkiEzsigntsarequirementID) {
+		toSerialize["fkiEzsigntsarequirementID"] = o.FkiEzsigntsarequirementID
+	}
+	toSerialize["sEzsignfolderDescription"] = o.SEzsignfolderDescription
+	toSerialize["tEzsignfolderNote"] = o.TEzsignfolderNote
+	toSerialize["eEzsignfolderSendreminderfrequency"] = o.EEzsignfolderSendreminderfrequency
+	if !IsNil(o.SEzsignfolderExternalid) {
+		toSerialize["sEzsignfolderExternalid"] = o.SEzsignfolderExternalid
+	}
+	return toSerialize, nil
 }
 
 type NullableEzsignfolderRequest struct {

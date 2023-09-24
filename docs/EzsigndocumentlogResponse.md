@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FkiUserID** | **NullableInt32** | The unique ID of the User | 
-**FkiEzsignsignerID** | **NullableInt32** | The unique ID of the Ezsignsigner | 
+**FkiUserID** | Pointer to **int32** | The unique ID of the User | [optional] 
+**FkiEzsignsignerID** | Pointer to **int32** | The unique ID of the Ezsignsigner | [optional] 
 **DtEzsigndocumentlogDatetime** | **string** | The date and time at which the event was logged | 
 **EEzsigndocumentlogType** | [**FieldEEzsigndocumentlogType**](FieldEEzsigndocumentlogType.md) |  | 
 **SEzsigndocumentlogDetail** | **string** | The detail of the Ezsigndocumentlog | 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewEzsigndocumentlogResponse
 
-`func NewEzsigndocumentlogResponse(fkiUserID NullableInt32, fkiEzsignsignerID NullableInt32, dtEzsigndocumentlogDatetime string, eEzsigndocumentlogType FieldEEzsigndocumentlogType, sEzsigndocumentlogDetail string, sEzsigndocumentlogLastname string, sEzsigndocumentlogFirstname string, sEzsigndocumentlogIP string, ) *EzsigndocumentlogResponse`
+`func NewEzsigndocumentlogResponse(dtEzsigndocumentlogDatetime string, eEzsigndocumentlogType FieldEEzsigndocumentlogType, sEzsigndocumentlogDetail string, sEzsigndocumentlogLastname string, sEzsigndocumentlogFirstname string, sEzsigndocumentlogIP string, ) *EzsigndocumentlogResponse`
 
 NewEzsigndocumentlogResponse instantiates a new EzsigndocumentlogResponse object
 This constructor will assign default values to properties that have it defined,
@@ -51,17 +51,12 @@ and a boolean to check if the value has been set.
 
 SetFkiUserID sets FkiUserID field to given value.
 
+### HasFkiUserID
 
-### SetFkiUserIDNil
+`func (o *EzsigndocumentlogResponse) HasFkiUserID() bool`
 
-`func (o *EzsigndocumentlogResponse) SetFkiUserIDNil(b bool)`
+HasFkiUserID returns a boolean if a field has been set.
 
- SetFkiUserIDNil sets the value for FkiUserID to be an explicit nil
-
-### UnsetFkiUserID
-`func (o *EzsigndocumentlogResponse) UnsetFkiUserID()`
-
-UnsetFkiUserID ensures that no value is present for FkiUserID, not even an explicit nil
 ### GetFkiEzsignsignerID
 
 `func (o *EzsigndocumentlogResponse) GetFkiEzsignsignerID() int32`
@@ -81,17 +76,12 @@ and a boolean to check if the value has been set.
 
 SetFkiEzsignsignerID sets FkiEzsignsignerID field to given value.
 
+### HasFkiEzsignsignerID
 
-### SetFkiEzsignsignerIDNil
+`func (o *EzsigndocumentlogResponse) HasFkiEzsignsignerID() bool`
 
-`func (o *EzsigndocumentlogResponse) SetFkiEzsignsignerIDNil(b bool)`
+HasFkiEzsignsignerID returns a boolean if a field has been set.
 
- SetFkiEzsignsignerIDNil sets the value for FkiEzsignsignerID to be an explicit nil
-
-### UnsetFkiEzsignsignerID
-`func (o *EzsigndocumentlogResponse) UnsetFkiEzsignsignerID()`
-
-UnsetFkiEzsignsignerID ensures that no value is present for FkiEzsignsignerID, not even an explicit nil
 ### GetDtEzsigndocumentlogDatetime
 
 `func (o *EzsigndocumentlogResponse) GetDtEzsigndocumentlogDatetime() string`

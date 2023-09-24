@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,7 +15,10 @@ import (
 	"encoding/json"
 )
 
-// EzsigndocumentGetDownloadUrlV1ResponseMPayload Payload for the /1/object/ezsigndocument/{pkiEzsigndocument}/getDownloadUrl API Request
+// checks if the EzsigndocumentGetDownloadUrlV1ResponseMPayload type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsigndocumentGetDownloadUrlV1ResponseMPayload{}
+
+// EzsigndocumentGetDownloadUrlV1ResponseMPayload Payload for GET /1/object/ezsigndocument/{pkiEzsigndocument}/getDownloadUrl
 type EzsigndocumentGetDownloadUrlV1ResponseMPayload struct {
 	// The Url to the requested document.  Url will expire after 5 minutes.
 	SDownloadUrl string `json:"sDownloadUrl"`
@@ -64,11 +67,17 @@ func (o *EzsigndocumentGetDownloadUrlV1ResponseMPayload) SetSDownloadUrl(v strin
 }
 
 func (o EzsigndocumentGetDownloadUrlV1ResponseMPayload) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["sDownloadUrl"] = o.SDownloadUrl
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsigndocumentGetDownloadUrlV1ResponseMPayload) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["sDownloadUrl"] = o.SDownloadUrl
+	return toSerialize, nil
 }
 
 type NullableEzsigndocumentGetDownloadUrlV1ResponseMPayload struct {

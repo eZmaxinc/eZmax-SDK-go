@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -14,6 +14,9 @@ package eZmaxApi
 import (
 	"encoding/json"
 )
+
+// checks if the CustomEzsignsignaturestatusResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CustomEzsignsignaturestatusResponse{}
 
 // CustomEzsignsignaturestatusResponse A Ezsignsignaturestatus Object and children to create a complete structure
 type CustomEzsignsignaturestatusResponse struct {
@@ -145,20 +148,20 @@ func (o *CustomEzsignsignaturestatusResponse) SetIEzsignsignaturestatusSigned(v 
 }
 
 func (o CustomEzsignsignaturestatusResponse) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["eEzsignsignaturestatusSteptype"] = o.EEzsignsignaturestatusSteptype
-	}
-	if true {
-		toSerialize["iEzsignsignaturestatusStep"] = o.IEzsignsignaturestatusStep
-	}
-	if true {
-		toSerialize["iEzsignsignaturestatusTotal"] = o.IEzsignsignaturestatusTotal
-	}
-	if true {
-		toSerialize["iEzsignsignaturestatusSigned"] = o.IEzsignsignaturestatusSigned
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CustomEzsignsignaturestatusResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["eEzsignsignaturestatusSteptype"] = o.EEzsignsignaturestatusSteptype
+	toSerialize["iEzsignsignaturestatusStep"] = o.IEzsignsignaturestatusStep
+	toSerialize["iEzsignsignaturestatusTotal"] = o.IEzsignsignaturestatusTotal
+	toSerialize["iEzsignsignaturestatusSigned"] = o.IEzsignsignaturestatusSigned
+	return toSerialize, nil
 }
 
 type NullableCustomEzsignsignaturestatusResponse struct {

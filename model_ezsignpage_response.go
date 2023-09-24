@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -14,6 +14,9 @@ package eZmaxApi
 import (
 	"encoding/json"
 )
+
+// checks if the EzsignpageResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsignpageResponse{}
 
 // EzsignpageResponse An Ezsignpage Object
 type EzsignpageResponse struct {
@@ -30,14 +33,14 @@ type EzsignpageResponse struct {
 	// The page number in the Ezsigndocument
 	IEzsignpagePagenumber int32 `json:"iEzsignpagePagenumber"`
 	// The Url to the Ezsignpage's rasterized image.  Url will expire after 5 minutes.
-	SImageUrl string `json:"sImageUrl"`
+	SComputedImageurl string `json:"sComputedImageurl"`
 }
 
 // NewEzsignpageResponse instantiates a new EzsignpageResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignpageResponse(pkiEzsignpageID int32, iEzsignpageWidthimage int32, iEzsignpageHeightimage int32, iEzsignpageWidthpdf int32, iEzsignpageHeightpdf int32, iEzsignpagePagenumber int32, sImageUrl string) *EzsignpageResponse {
+func NewEzsignpageResponse(pkiEzsignpageID int32, iEzsignpageWidthimage int32, iEzsignpageHeightimage int32, iEzsignpageWidthpdf int32, iEzsignpageHeightpdf int32, iEzsignpagePagenumber int32, sComputedImageurl string) *EzsignpageResponse {
 	this := EzsignpageResponse{}
 	this.PkiEzsignpageID = pkiEzsignpageID
 	this.IEzsignpageWidthimage = iEzsignpageWidthimage
@@ -45,7 +48,7 @@ func NewEzsignpageResponse(pkiEzsignpageID int32, iEzsignpageWidthimage int32, i
 	this.IEzsignpageWidthpdf = iEzsignpageWidthpdf
 	this.IEzsignpageHeightpdf = iEzsignpageHeightpdf
 	this.IEzsignpagePagenumber = iEzsignpagePagenumber
-	this.SImageUrl = sImageUrl
+	this.SComputedImageurl = sComputedImageurl
 	return &this
 }
 
@@ -201,54 +204,48 @@ func (o *EzsignpageResponse) SetIEzsignpagePagenumber(v int32) {
 	o.IEzsignpagePagenumber = v
 }
 
-// GetSImageUrl returns the SImageUrl field value
-func (o *EzsignpageResponse) GetSImageUrl() string {
+// GetSComputedImageurl returns the SComputedImageurl field value
+func (o *EzsignpageResponse) GetSComputedImageurl() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.SImageUrl
+	return o.SComputedImageurl
 }
 
-// GetSImageUrlOk returns a tuple with the SImageUrl field value
+// GetSComputedImageurlOk returns a tuple with the SComputedImageurl field value
 // and a boolean to check if the value has been set.
-func (o *EzsignpageResponse) GetSImageUrlOk() (*string, bool) {
+func (o *EzsignpageResponse) GetSComputedImageurlOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.SImageUrl, true
+	return &o.SComputedImageurl, true
 }
 
-// SetSImageUrl sets field value
-func (o *EzsignpageResponse) SetSImageUrl(v string) {
-	o.SImageUrl = v
+// SetSComputedImageurl sets field value
+func (o *EzsignpageResponse) SetSComputedImageurl(v string) {
+	o.SComputedImageurl = v
 }
 
 func (o EzsignpageResponse) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["pkiEzsignpageID"] = o.PkiEzsignpageID
-	}
-	if true {
-		toSerialize["iEzsignpageWidthimage"] = o.IEzsignpageWidthimage
-	}
-	if true {
-		toSerialize["iEzsignpageHeightimage"] = o.IEzsignpageHeightimage
-	}
-	if true {
-		toSerialize["iEzsignpageWidthpdf"] = o.IEzsignpageWidthpdf
-	}
-	if true {
-		toSerialize["iEzsignpageHeightpdf"] = o.IEzsignpageHeightpdf
-	}
-	if true {
-		toSerialize["iEzsignpagePagenumber"] = o.IEzsignpagePagenumber
-	}
-	if true {
-		toSerialize["sImageUrl"] = o.SImageUrl
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsignpageResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["pkiEzsignpageID"] = o.PkiEzsignpageID
+	toSerialize["iEzsignpageWidthimage"] = o.IEzsignpageWidthimage
+	toSerialize["iEzsignpageHeightimage"] = o.IEzsignpageHeightimage
+	toSerialize["iEzsignpageWidthpdf"] = o.IEzsignpageWidthpdf
+	toSerialize["iEzsignpageHeightpdf"] = o.IEzsignpageHeightpdf
+	toSerialize["iEzsignpagePagenumber"] = o.IEzsignpagePagenumber
+	toSerialize["sComputedImageurl"] = o.SComputedImageurl
+	return toSerialize, nil
 }
 
 type NullableEzsignpageResponse struct {

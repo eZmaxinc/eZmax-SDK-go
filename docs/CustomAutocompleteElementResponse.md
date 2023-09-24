@@ -6,13 +6,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SCategory** | **string** | The Category for the dropdown or an empty string if not categorized | 
 **SLabel** | **string** | The Description of the element | 
-**MValue** | **string** | The Unique ID of the element | 
+**SValue** | **string** | The Unique ID of the element | 
+**MValue** | Pointer to **string** | The Unique ID of the element | [optional] 
+**BActive** | **bool** | Indicates if the element is active | 
 
 ## Methods
 
 ### NewCustomAutocompleteElementResponse
 
-`func NewCustomAutocompleteElementResponse(sCategory string, sLabel string, mValue string, ) *CustomAutocompleteElementResponse`
+`func NewCustomAutocompleteElementResponse(sCategory string, sLabel string, sValue string, bActive bool, ) *CustomAutocompleteElementResponse`
 
 NewCustomAutocompleteElementResponse instantiates a new CustomAutocompleteElementResponse object
 This constructor will assign default values to properties that have it defined,
@@ -67,6 +69,26 @@ and a boolean to check if the value has been set.
 SetSLabel sets SLabel field to given value.
 
 
+### GetSValue
+
+`func (o *CustomAutocompleteElementResponse) GetSValue() string`
+
+GetSValue returns the SValue field if non-nil, zero value otherwise.
+
+### GetSValueOk
+
+`func (o *CustomAutocompleteElementResponse) GetSValueOk() (*string, bool)`
+
+GetSValueOk returns a tuple with the SValue field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSValue
+
+`func (o *CustomAutocompleteElementResponse) SetSValue(v string)`
+
+SetSValue sets SValue field to given value.
+
+
 ### GetMValue
 
 `func (o *CustomAutocompleteElementResponse) GetMValue() string`
@@ -85,6 +107,31 @@ and a boolean to check if the value has been set.
 `func (o *CustomAutocompleteElementResponse) SetMValue(v string)`
 
 SetMValue sets MValue field to given value.
+
+### HasMValue
+
+`func (o *CustomAutocompleteElementResponse) HasMValue() bool`
+
+HasMValue returns a boolean if a field has been set.
+
+### GetBActive
+
+`func (o *CustomAutocompleteElementResponse) GetBActive() bool`
+
+GetBActive returns the BActive field if non-nil, zero value otherwise.
+
+### GetBActiveOk
+
+`func (o *CustomAutocompleteElementResponse) GetBActiveOk() (*bool, bool)`
+
+GetBActiveOk returns a tuple with the BActive field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBActive
+
+`func (o *CustomAutocompleteElementResponse) SetBActive(v bool)`
+
+SetBActive sets BActive field to given value.
 
 
 

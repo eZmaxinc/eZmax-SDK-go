@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CustomFormDataSignerResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CustomFormDataSignerResponse{}
+
 // CustomFormDataSignerResponse A form Data Signer Object
 type CustomFormDataSignerResponse struct {
 	// The unique ID of the Ezsignfoldersignerassociation
@@ -25,20 +28,19 @@ type CustomFormDataSignerResponse struct {
 	SContactFirstname string `json:"sContactFirstname"`
 	// The Last name of the contact
 	SContactLastname string `json:"sContactLastname"`
-	// 
-	AObjEzsignformfieldgroupCompound []EzsignformfieldgroupResponseCompound `json:"a_objEzsignformfieldgroupCompound"`
+	AObjEzsignformfieldgroup []CustomFormDataEzsignformfieldgroupResponse `json:"a_objEzsignformfieldgroup"`
 }
 
 // NewCustomFormDataSignerResponse instantiates a new CustomFormDataSignerResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomFormDataSignerResponse(fkiEzsignfoldersignerassociationID int32, sContactFirstname string, sContactLastname string, aObjEzsignformfieldgroupCompound []EzsignformfieldgroupResponseCompound) *CustomFormDataSignerResponse {
+func NewCustomFormDataSignerResponse(fkiEzsignfoldersignerassociationID int32, sContactFirstname string, sContactLastname string, aObjEzsignformfieldgroup []CustomFormDataEzsignformfieldgroupResponse) *CustomFormDataSignerResponse {
 	this := CustomFormDataSignerResponse{}
 	this.FkiEzsignfoldersignerassociationID = fkiEzsignfoldersignerassociationID
 	this.SContactFirstname = sContactFirstname
 	this.SContactLastname = sContactLastname
-	this.AObjEzsignformfieldgroupCompound = aObjEzsignformfieldgroupCompound
+	this.AObjEzsignformfieldgroup = aObjEzsignformfieldgroup
 	return &this
 }
 
@@ -76,7 +78,7 @@ func (o *CustomFormDataSignerResponse) SetFkiEzsignfoldersignerassociationID(v i
 
 // GetFkiUserID returns the FkiUserID field value if set, zero value otherwise.
 func (o *CustomFormDataSignerResponse) GetFkiUserID() int32 {
-	if o == nil || o.FkiUserID == nil {
+	if o == nil || IsNil(o.FkiUserID) {
 		var ret int32
 		return ret
 	}
@@ -86,7 +88,7 @@ func (o *CustomFormDataSignerResponse) GetFkiUserID() int32 {
 // GetFkiUserIDOk returns a tuple with the FkiUserID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CustomFormDataSignerResponse) GetFkiUserIDOk() (*int32, bool) {
-	if o == nil || o.FkiUserID == nil {
+	if o == nil || IsNil(o.FkiUserID) {
 		return nil, false
 	}
 	return o.FkiUserID, true
@@ -94,7 +96,7 @@ func (o *CustomFormDataSignerResponse) GetFkiUserIDOk() (*int32, bool) {
 
 // HasFkiUserID returns a boolean if a field has been set.
 func (o *CustomFormDataSignerResponse) HasFkiUserID() bool {
-	if o != nil && o.FkiUserID != nil {
+	if o != nil && !IsNil(o.FkiUserID) {
 		return true
 	}
 
@@ -154,48 +156,48 @@ func (o *CustomFormDataSignerResponse) SetSContactLastname(v string) {
 	o.SContactLastname = v
 }
 
-// GetAObjEzsignformfieldgroupCompound returns the AObjEzsignformfieldgroupCompound field value
-func (o *CustomFormDataSignerResponse) GetAObjEzsignformfieldgroupCompound() []EzsignformfieldgroupResponseCompound {
+// GetAObjEzsignformfieldgroup returns the AObjEzsignformfieldgroup field value
+func (o *CustomFormDataSignerResponse) GetAObjEzsignformfieldgroup() []CustomFormDataEzsignformfieldgroupResponse {
 	if o == nil {
-		var ret []EzsignformfieldgroupResponseCompound
+		var ret []CustomFormDataEzsignformfieldgroupResponse
 		return ret
 	}
 
-	return o.AObjEzsignformfieldgroupCompound
+	return o.AObjEzsignformfieldgroup
 }
 
-// GetAObjEzsignformfieldgroupCompoundOk returns a tuple with the AObjEzsignformfieldgroupCompound field value
+// GetAObjEzsignformfieldgroupOk returns a tuple with the AObjEzsignformfieldgroup field value
 // and a boolean to check if the value has been set.
-func (o *CustomFormDataSignerResponse) GetAObjEzsignformfieldgroupCompoundOk() ([]EzsignformfieldgroupResponseCompound, bool) {
+func (o *CustomFormDataSignerResponse) GetAObjEzsignformfieldgroupOk() ([]CustomFormDataEzsignformfieldgroupResponse, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.AObjEzsignformfieldgroupCompound, true
+	return o.AObjEzsignformfieldgroup, true
 }
 
-// SetAObjEzsignformfieldgroupCompound sets field value
-func (o *CustomFormDataSignerResponse) SetAObjEzsignformfieldgroupCompound(v []EzsignformfieldgroupResponseCompound) {
-	o.AObjEzsignformfieldgroupCompound = v
+// SetAObjEzsignformfieldgroup sets field value
+func (o *CustomFormDataSignerResponse) SetAObjEzsignformfieldgroup(v []CustomFormDataEzsignformfieldgroupResponse) {
+	o.AObjEzsignformfieldgroup = v
 }
 
 func (o CustomFormDataSignerResponse) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["fkiEzsignfoldersignerassociationID"] = o.FkiEzsignfoldersignerassociationID
-	}
-	if o.FkiUserID != nil {
-		toSerialize["fkiUserID"] = o.FkiUserID
-	}
-	if true {
-		toSerialize["sContactFirstname"] = o.SContactFirstname
-	}
-	if true {
-		toSerialize["sContactLastname"] = o.SContactLastname
-	}
-	if true {
-		toSerialize["a_objEzsignformfieldgroupCompound"] = o.AObjEzsignformfieldgroupCompound
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CustomFormDataSignerResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["fkiEzsignfoldersignerassociationID"] = o.FkiEzsignfoldersignerassociationID
+	if !IsNil(o.FkiUserID) {
+		toSerialize["fkiUserID"] = o.FkiUserID
+	}
+	toSerialize["sContactFirstname"] = o.SContactFirstname
+	toSerialize["sContactLastname"] = o.SContactLastname
+	toSerialize["a_objEzsignformfieldgroup"] = o.AObjEzsignformfieldgroup
+	return toSerialize, nil
 }
 
 type NullableCustomFormDataSignerResponse struct {

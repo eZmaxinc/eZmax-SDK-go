@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,7 +15,10 @@ import (
 	"encoding/json"
 )
 
-// GlobalCustomerGetEndpointV1Response Response for the /1/customer/{pksCustomerCode}/endpoint API Request
+// checks if the GlobalCustomerGetEndpointV1Response type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GlobalCustomerGetEndpointV1Response{}
+
+// GlobalCustomerGetEndpointV1Response Response for GET /1/customer/{pksCustomerCode}/endpoint
 type GlobalCustomerGetEndpointV1Response struct {
 	// The endpoint's URL
 	SEndpointURL string `json:"sEndpointURL"`
@@ -64,11 +67,17 @@ func (o *GlobalCustomerGetEndpointV1Response) SetSEndpointURL(v string) {
 }
 
 func (o GlobalCustomerGetEndpointV1Response) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["sEndpointURL"] = o.SEndpointURL
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o GlobalCustomerGetEndpointV1Response) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["sEndpointURL"] = o.SEndpointURL
+	return toSerialize, nil
 }
 
 type NullableGlobalCustomerGetEndpointV1Response struct {

@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -14,6 +14,9 @@ package eZmaxApi
 import (
 	"encoding/json"
 )
+
+// checks if the EzsignfolderListElement type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsignfolderListElement{}
 
 // EzsignfolderListElement An Ezsignfolder List Element
 type EzsignfolderListElement struct {
@@ -29,10 +32,10 @@ type EzsignfolderListElement struct {
 	EEzsignfolderStep FieldEEzsignfolderStep `json:"eEzsignfolderStep"`
 	// The date and time at which the object was created
 	DtCreatedDate string `json:"dtCreatedDate"`
-	// The date and time at which the Ezsign folder was sent the last time.
-	DtEzsignfolderSentdate NullableString `json:"dtEzsignfolderSentdate"`
-	// Represent a Date Time. The timezone is the one configured in the User's profile.
-	DtDueDate NullableString `json:"dtDueDate"`
+	// The date and time at which the Ezsignfolder was sent the last time.
+	DtEzsignfolderSentdate *string `json:"dtEzsignfolderSentdate,omitempty"`
+	// The maximum date and time at which the Ezsignfolder can be signed.
+	DtEzsignfolderDuedate *string `json:"dtEzsignfolderDuedate,omitempty"`
 	// The total number of Ezsigndocument in the folder
 	IEzsigndocument int32 `json:"iEzsigndocument"`
 	// The total number of Ezsigndocument in the folder that were saved in the edm system
@@ -47,7 +50,7 @@ type EzsignfolderListElement struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfolderListElement(pkiEzsignfolderID int32, fkiEzsignfoldertypeID int32, eEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX string, sEzsignfolderDescription string, eEzsignfolderStep FieldEEzsignfolderStep, dtCreatedDate string, dtEzsignfolderSentdate NullableString, dtDueDate NullableString, iEzsigndocument int32, iEzsigndocumentEdm int32, iEzsignsignature int32, iEzsignsignatureSigned int32) *EzsignfolderListElement {
+func NewEzsignfolderListElement(pkiEzsignfolderID int32, fkiEzsignfoldertypeID int32, eEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX string, sEzsignfolderDescription string, eEzsignfolderStep FieldEEzsignfolderStep, dtCreatedDate string, iEzsigndocument int32, iEzsigndocumentEdm int32, iEzsignsignature int32, iEzsignsignatureSigned int32) *EzsignfolderListElement {
 	this := EzsignfolderListElement{}
 	this.PkiEzsignfolderID = pkiEzsignfolderID
 	this.FkiEzsignfoldertypeID = fkiEzsignfoldertypeID
@@ -56,8 +59,6 @@ func NewEzsignfolderListElement(pkiEzsignfolderID int32, fkiEzsignfoldertypeID i
 	this.SEzsignfolderDescription = sEzsignfolderDescription
 	this.EEzsignfolderStep = eEzsignfolderStep
 	this.DtCreatedDate = dtCreatedDate
-	this.DtEzsignfolderSentdate = dtEzsignfolderSentdate
-	this.DtDueDate = dtDueDate
 	this.IEzsigndocument = iEzsigndocument
 	this.IEzsigndocumentEdm = iEzsigndocumentEdm
 	this.IEzsignsignature = iEzsignsignature
@@ -241,56 +242,68 @@ func (o *EzsignfolderListElement) SetDtCreatedDate(v string) {
 	o.DtCreatedDate = v
 }
 
-// GetDtEzsignfolderSentdate returns the DtEzsignfolderSentdate field value
-// If the value is explicit nil, the zero value for string will be returned
+// GetDtEzsignfolderSentdate returns the DtEzsignfolderSentdate field value if set, zero value otherwise.
 func (o *EzsignfolderListElement) GetDtEzsignfolderSentdate() string {
-	if o == nil || o.DtEzsignfolderSentdate.Get() == nil {
+	if o == nil || IsNil(o.DtEzsignfolderSentdate) {
 		var ret string
 		return ret
 	}
-
-	return *o.DtEzsignfolderSentdate.Get()
+	return *o.DtEzsignfolderSentdate
 }
 
-// GetDtEzsignfolderSentdateOk returns a tuple with the DtEzsignfolderSentdate field value
+// GetDtEzsignfolderSentdateOk returns a tuple with the DtEzsignfolderSentdate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EzsignfolderListElement) GetDtEzsignfolderSentdateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DtEzsignfolderSentdate) {
 		return nil, false
 	}
-	return o.DtEzsignfolderSentdate.Get(), o.DtEzsignfolderSentdate.IsSet()
+	return o.DtEzsignfolderSentdate, true
 }
 
-// SetDtEzsignfolderSentdate sets field value
+// HasDtEzsignfolderSentdate returns a boolean if a field has been set.
+func (o *EzsignfolderListElement) HasDtEzsignfolderSentdate() bool {
+	if o != nil && !IsNil(o.DtEzsignfolderSentdate) {
+		return true
+	}
+
+	return false
+}
+
+// SetDtEzsignfolderSentdate gets a reference to the given string and assigns it to the DtEzsignfolderSentdate field.
 func (o *EzsignfolderListElement) SetDtEzsignfolderSentdate(v string) {
-	o.DtEzsignfolderSentdate.Set(&v)
+	o.DtEzsignfolderSentdate = &v
 }
 
-// GetDtDueDate returns the DtDueDate field value
-// If the value is explicit nil, the zero value for string will be returned
-func (o *EzsignfolderListElement) GetDtDueDate() string {
-	if o == nil || o.DtDueDate.Get() == nil {
+// GetDtEzsignfolderDuedate returns the DtEzsignfolderDuedate field value if set, zero value otherwise.
+func (o *EzsignfolderListElement) GetDtEzsignfolderDuedate() string {
+	if o == nil || IsNil(o.DtEzsignfolderDuedate) {
 		var ret string
 		return ret
 	}
-
-	return *o.DtDueDate.Get()
+	return *o.DtEzsignfolderDuedate
 }
 
-// GetDtDueDateOk returns a tuple with the DtDueDate field value
+// GetDtEzsignfolderDuedateOk returns a tuple with the DtEzsignfolderDuedate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *EzsignfolderListElement) GetDtDueDateOk() (*string, bool) {
-	if o == nil {
+func (o *EzsignfolderListElement) GetDtEzsignfolderDuedateOk() (*string, bool) {
+	if o == nil || IsNil(o.DtEzsignfolderDuedate) {
 		return nil, false
 	}
-	return o.DtDueDate.Get(), o.DtDueDate.IsSet()
+	return o.DtEzsignfolderDuedate, true
 }
 
-// SetDtDueDate sets field value
-func (o *EzsignfolderListElement) SetDtDueDate(v string) {
-	o.DtDueDate.Set(&v)
+// HasDtEzsignfolderDuedate returns a boolean if a field has been set.
+func (o *EzsignfolderListElement) HasDtEzsignfolderDuedate() bool {
+	if o != nil && !IsNil(o.DtEzsignfolderDuedate) {
+		return true
+	}
+
+	return false
+}
+
+// SetDtEzsignfolderDuedate gets a reference to the given string and assigns it to the DtEzsignfolderDuedate field.
+func (o *EzsignfolderListElement) SetDtEzsignfolderDuedate(v string) {
+	o.DtEzsignfolderDuedate = &v
 }
 
 // GetIEzsigndocument returns the IEzsigndocument field value
@@ -390,47 +403,33 @@ func (o *EzsignfolderListElement) SetIEzsignsignatureSigned(v int32) {
 }
 
 func (o EzsignfolderListElement) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["pkiEzsignfolderID"] = o.PkiEzsignfolderID
-	}
-	if true {
-		toSerialize["fkiEzsignfoldertypeID"] = o.FkiEzsignfoldertypeID
-	}
-	if true {
-		toSerialize["eEzsignfoldertypePrivacylevel"] = o.EEzsignfoldertypePrivacylevel
-	}
-	if true {
-		toSerialize["sEzsignfoldertypeNameX"] = o.SEzsignfoldertypeNameX
-	}
-	if true {
-		toSerialize["sEzsignfolderDescription"] = o.SEzsignfolderDescription
-	}
-	if true {
-		toSerialize["eEzsignfolderStep"] = o.EEzsignfolderStep
-	}
-	if true {
-		toSerialize["dtCreatedDate"] = o.DtCreatedDate
-	}
-	if true {
-		toSerialize["dtEzsignfolderSentdate"] = o.DtEzsignfolderSentdate.Get()
-	}
-	if true {
-		toSerialize["dtDueDate"] = o.DtDueDate.Get()
-	}
-	if true {
-		toSerialize["iEzsigndocument"] = o.IEzsigndocument
-	}
-	if true {
-		toSerialize["iEzsigndocumentEdm"] = o.IEzsigndocumentEdm
-	}
-	if true {
-		toSerialize["iEzsignsignature"] = o.IEzsignsignature
-	}
-	if true {
-		toSerialize["iEzsignsignatureSigned"] = o.IEzsignsignatureSigned
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsignfolderListElement) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["pkiEzsignfolderID"] = o.PkiEzsignfolderID
+	toSerialize["fkiEzsignfoldertypeID"] = o.FkiEzsignfoldertypeID
+	toSerialize["eEzsignfoldertypePrivacylevel"] = o.EEzsignfoldertypePrivacylevel
+	toSerialize["sEzsignfoldertypeNameX"] = o.SEzsignfoldertypeNameX
+	toSerialize["sEzsignfolderDescription"] = o.SEzsignfolderDescription
+	toSerialize["eEzsignfolderStep"] = o.EEzsignfolderStep
+	toSerialize["dtCreatedDate"] = o.DtCreatedDate
+	if !IsNil(o.DtEzsignfolderSentdate) {
+		toSerialize["dtEzsignfolderSentdate"] = o.DtEzsignfolderSentdate
+	}
+	if !IsNil(o.DtEzsignfolderDuedate) {
+		toSerialize["dtEzsignfolderDuedate"] = o.DtEzsignfolderDuedate
+	}
+	toSerialize["iEzsigndocument"] = o.IEzsigndocument
+	toSerialize["iEzsigndocumentEdm"] = o.IEzsigndocumentEdm
+	toSerialize["iEzsignsignature"] = o.IEzsignsignature
+	toSerialize["iEzsignsignatureSigned"] = o.IEzsignsignatureSigned
+	return toSerialize, nil
 }
 
 type NullableEzsignfolderListElement struct {

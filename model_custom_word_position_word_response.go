@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -14,6 +14,9 @@ package eZmaxApi
 import (
 	"encoding/json"
 )
+
+// checks if the CustomWordPositionWordResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CustomWordPositionWordResponse{}
 
 // CustomWordPositionWordResponse A Word Position Object
 type CustomWordPositionWordResponse struct {
@@ -91,14 +94,18 @@ func (o *CustomWordPositionWordResponse) SetAObjWordPositionOccurence(v []Custom
 }
 
 func (o CustomWordPositionWordResponse) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["sWord"] = o.SWord
-	}
-	if true {
-		toSerialize["a_objWordPositionOccurence"] = o.AObjWordPositionOccurence
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CustomWordPositionWordResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["sWord"] = o.SWord
+	toSerialize["a_objWordPositionOccurence"] = o.AObjWordPositionOccurence
+	return toSerialize, nil
 }
 
 type NullableCustomWordPositionWordResponse struct {

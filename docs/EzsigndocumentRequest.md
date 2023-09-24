@@ -5,22 +5,26 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiEzsigndocumentID** | Pointer to **int32** | The unique ID of the Ezsigndocument | [optional] 
+**FkiEzsignfolderID** | **int32** | The unique ID of the Ezsignfolder | 
+**FkiEzsigntemplateID** | Pointer to **int32** | The unique ID of the Ezsigntemplate | [optional] 
+**FkiEzsignfoldersignerassociationID** | Pointer to **int32** | The unique ID of the Ezsignfoldersignerassociation | [optional] 
+**FkiLanguageID** | **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
 **EEzsigndocumentSource** | **string** | Indicates where to look for the document binary content. | 
-**EEzsigndocumentFormat** | **string** | Indicates the format of the document. | 
+**EEzsigndocumentFormat** | Pointer to **string** | Indicates the format of the document. | [optional] 
 **SEzsigndocumentBase64** | Pointer to **string** | The Base64 encoded binary content of the document.  This field is Required when eEzsigndocumentSource &#x3D; Base64. | [optional] 
 **SEzsigndocumentUrl** | Pointer to **string** | The url where the document content resides.  This field is Required when eEzsigndocumentSource &#x3D; Url. | [optional] 
 **BEzsigndocumentForcerepair** | Pointer to **bool** | Try to repair the document or flatten it if it cannot be used for electronic signature.  | [optional] [default to true]
-**SEzsigndocumentPassword** | Pointer to **string** | If the source document is password protected, the password to open/modify it. | [optional] [default to ""]
-**FkiEzsignfolderID** | **int32** | The unique ID of the Ezsignfolder | 
+**SEzsigndocumentPassword** | Pointer to **string** | If the source document is password protected, the password to open/modify it. | [optional] 
+**EEzsigndocumentForm** | Pointer to **string** | If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsignformfieldgroups and assign them to the specified **fkiEzsignfoldersignerassociationID** | [optional] 
 **DtEzsigndocumentDuedate** | **string** | The maximum date and time at which the Ezsigndocument can be signed. | 
-**FkiLanguageID** | **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
 **SEzsigndocumentName** | **string** | The name of the document that will be presented to Ezsignfoldersignerassociations | 
+**SEzsigndocumentExternalid** | Pointer to **string** | This field can be used to store an External ID from the client&#39;s system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format.  | [optional] 
 
 ## Methods
 
 ### NewEzsigndocumentRequest
 
-`func NewEzsigndocumentRequest(eEzsigndocumentSource string, eEzsigndocumentFormat string, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, fkiLanguageID int32, sEzsigndocumentName string, ) *EzsigndocumentRequest`
+`func NewEzsigndocumentRequest(fkiEzsignfolderID int32, fkiLanguageID int32, eEzsigndocumentSource string, dtEzsigndocumentDuedate string, sEzsigndocumentName string, ) *EzsigndocumentRequest`
 
 NewEzsigndocumentRequest instantiates a new EzsigndocumentRequest object
 This constructor will assign default values to properties that have it defined,
@@ -59,6 +63,96 @@ SetPkiEzsigndocumentID sets PkiEzsigndocumentID field to given value.
 `func (o *EzsigndocumentRequest) HasPkiEzsigndocumentID() bool`
 
 HasPkiEzsigndocumentID returns a boolean if a field has been set.
+
+### GetFkiEzsignfolderID
+
+`func (o *EzsigndocumentRequest) GetFkiEzsignfolderID() int32`
+
+GetFkiEzsignfolderID returns the FkiEzsignfolderID field if non-nil, zero value otherwise.
+
+### GetFkiEzsignfolderIDOk
+
+`func (o *EzsigndocumentRequest) GetFkiEzsignfolderIDOk() (*int32, bool)`
+
+GetFkiEzsignfolderIDOk returns a tuple with the FkiEzsignfolderID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiEzsignfolderID
+
+`func (o *EzsigndocumentRequest) SetFkiEzsignfolderID(v int32)`
+
+SetFkiEzsignfolderID sets FkiEzsignfolderID field to given value.
+
+
+### GetFkiEzsigntemplateID
+
+`func (o *EzsigndocumentRequest) GetFkiEzsigntemplateID() int32`
+
+GetFkiEzsigntemplateID returns the FkiEzsigntemplateID field if non-nil, zero value otherwise.
+
+### GetFkiEzsigntemplateIDOk
+
+`func (o *EzsigndocumentRequest) GetFkiEzsigntemplateIDOk() (*int32, bool)`
+
+GetFkiEzsigntemplateIDOk returns a tuple with the FkiEzsigntemplateID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiEzsigntemplateID
+
+`func (o *EzsigndocumentRequest) SetFkiEzsigntemplateID(v int32)`
+
+SetFkiEzsigntemplateID sets FkiEzsigntemplateID field to given value.
+
+### HasFkiEzsigntemplateID
+
+`func (o *EzsigndocumentRequest) HasFkiEzsigntemplateID() bool`
+
+HasFkiEzsigntemplateID returns a boolean if a field has been set.
+
+### GetFkiEzsignfoldersignerassociationID
+
+`func (o *EzsigndocumentRequest) GetFkiEzsignfoldersignerassociationID() int32`
+
+GetFkiEzsignfoldersignerassociationID returns the FkiEzsignfoldersignerassociationID field if non-nil, zero value otherwise.
+
+### GetFkiEzsignfoldersignerassociationIDOk
+
+`func (o *EzsigndocumentRequest) GetFkiEzsignfoldersignerassociationIDOk() (*int32, bool)`
+
+GetFkiEzsignfoldersignerassociationIDOk returns a tuple with the FkiEzsignfoldersignerassociationID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiEzsignfoldersignerassociationID
+
+`func (o *EzsigndocumentRequest) SetFkiEzsignfoldersignerassociationID(v int32)`
+
+SetFkiEzsignfoldersignerassociationID sets FkiEzsignfoldersignerassociationID field to given value.
+
+### HasFkiEzsignfoldersignerassociationID
+
+`func (o *EzsigndocumentRequest) HasFkiEzsignfoldersignerassociationID() bool`
+
+HasFkiEzsignfoldersignerassociationID returns a boolean if a field has been set.
+
+### GetFkiLanguageID
+
+`func (o *EzsigndocumentRequest) GetFkiLanguageID() int32`
+
+GetFkiLanguageID returns the FkiLanguageID field if non-nil, zero value otherwise.
+
+### GetFkiLanguageIDOk
+
+`func (o *EzsigndocumentRequest) GetFkiLanguageIDOk() (*int32, bool)`
+
+GetFkiLanguageIDOk returns a tuple with the FkiLanguageID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiLanguageID
+
+`func (o *EzsigndocumentRequest) SetFkiLanguageID(v int32)`
+
+SetFkiLanguageID sets FkiLanguageID field to given value.
+
 
 ### GetEEzsigndocumentSource
 
@@ -99,6 +193,11 @@ and a boolean to check if the value has been set.
 
 SetEEzsigndocumentFormat sets EEzsigndocumentFormat field to given value.
 
+### HasEEzsigndocumentFormat
+
+`func (o *EzsigndocumentRequest) HasEEzsigndocumentFormat() bool`
+
+HasEEzsigndocumentFormat returns a boolean if a field has been set.
 
 ### GetSEzsigndocumentBase64
 
@@ -200,25 +299,30 @@ SetSEzsigndocumentPassword sets SEzsigndocumentPassword field to given value.
 
 HasSEzsigndocumentPassword returns a boolean if a field has been set.
 
-### GetFkiEzsignfolderID
+### GetEEzsigndocumentForm
 
-`func (o *EzsigndocumentRequest) GetFkiEzsignfolderID() int32`
+`func (o *EzsigndocumentRequest) GetEEzsigndocumentForm() string`
 
-GetFkiEzsignfolderID returns the FkiEzsignfolderID field if non-nil, zero value otherwise.
+GetEEzsigndocumentForm returns the EEzsigndocumentForm field if non-nil, zero value otherwise.
 
-### GetFkiEzsignfolderIDOk
+### GetEEzsigndocumentFormOk
 
-`func (o *EzsigndocumentRequest) GetFkiEzsignfolderIDOk() (*int32, bool)`
+`func (o *EzsigndocumentRequest) GetEEzsigndocumentFormOk() (*string, bool)`
 
-GetFkiEzsignfolderIDOk returns a tuple with the FkiEzsignfolderID field if it's non-nil, zero value otherwise
+GetEEzsigndocumentFormOk returns a tuple with the EEzsigndocumentForm field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFkiEzsignfolderID
+### SetEEzsigndocumentForm
 
-`func (o *EzsigndocumentRequest) SetFkiEzsignfolderID(v int32)`
+`func (o *EzsigndocumentRequest) SetEEzsigndocumentForm(v string)`
 
-SetFkiEzsignfolderID sets FkiEzsignfolderID field to given value.
+SetEEzsigndocumentForm sets EEzsigndocumentForm field to given value.
 
+### HasEEzsigndocumentForm
+
+`func (o *EzsigndocumentRequest) HasEEzsigndocumentForm() bool`
+
+HasEEzsigndocumentForm returns a boolean if a field has been set.
 
 ### GetDtEzsigndocumentDuedate
 
@@ -240,26 +344,6 @@ and a boolean to check if the value has been set.
 SetDtEzsigndocumentDuedate sets DtEzsigndocumentDuedate field to given value.
 
 
-### GetFkiLanguageID
-
-`func (o *EzsigndocumentRequest) GetFkiLanguageID() int32`
-
-GetFkiLanguageID returns the FkiLanguageID field if non-nil, zero value otherwise.
-
-### GetFkiLanguageIDOk
-
-`func (o *EzsigndocumentRequest) GetFkiLanguageIDOk() (*int32, bool)`
-
-GetFkiLanguageIDOk returns a tuple with the FkiLanguageID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFkiLanguageID
-
-`func (o *EzsigndocumentRequest) SetFkiLanguageID(v int32)`
-
-SetFkiLanguageID sets FkiLanguageID field to given value.
-
-
 ### GetSEzsigndocumentName
 
 `func (o *EzsigndocumentRequest) GetSEzsigndocumentName() string`
@@ -279,6 +363,31 @@ and a boolean to check if the value has been set.
 
 SetSEzsigndocumentName sets SEzsigndocumentName field to given value.
 
+
+### GetSEzsigndocumentExternalid
+
+`func (o *EzsigndocumentRequest) GetSEzsigndocumentExternalid() string`
+
+GetSEzsigndocumentExternalid returns the SEzsigndocumentExternalid field if non-nil, zero value otherwise.
+
+### GetSEzsigndocumentExternalidOk
+
+`func (o *EzsigndocumentRequest) GetSEzsigndocumentExternalidOk() (*string, bool)`
+
+GetSEzsigndocumentExternalidOk returns a tuple with the SEzsigndocumentExternalid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzsigndocumentExternalid
+
+`func (o *EzsigndocumentRequest) SetSEzsigndocumentExternalid(v string)`
+
+SetSEzsigndocumentExternalid sets SEzsigndocumentExternalid field to given value.
+
+### HasSEzsigndocumentExternalid
+
+`func (o *EzsigndocumentRequest) HasSEzsigndocumentExternalid() bool`
+
+HasSEzsigndocumentExternalid returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

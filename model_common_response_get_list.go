@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,9 +15,12 @@ import (
 	"encoding/json"
 )
 
+// checks if the CommonResponseGetList type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CommonResponseGetList{}
+
 // CommonResponseGetList All API response will inherit this based Response
 type CommonResponseGetList struct {
-	ObjDebugPayload *CommonResponseObjDebugPayloadGetList `json:"objDebugPayload,omitempty"`
+	ObjDebugPayload CommonResponseObjDebugPayloadGetList `json:"objDebugPayload"`
 	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
 }
 
@@ -25,8 +28,9 @@ type CommonResponseGetList struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommonResponseGetList() *CommonResponseGetList {
+func NewCommonResponseGetList(objDebugPayload CommonResponseObjDebugPayloadGetList) *CommonResponseGetList {
 	this := CommonResponseGetList{}
+	this.ObjDebugPayload = objDebugPayload
 	return &this
 }
 
@@ -38,41 +42,33 @@ func NewCommonResponseGetListWithDefaults() *CommonResponseGetList {
 	return &this
 }
 
-// GetObjDebugPayload returns the ObjDebugPayload field value if set, zero value otherwise.
+// GetObjDebugPayload returns the ObjDebugPayload field value
 func (o *CommonResponseGetList) GetObjDebugPayload() CommonResponseObjDebugPayloadGetList {
-	if o == nil || o.ObjDebugPayload == nil {
+	if o == nil {
 		var ret CommonResponseObjDebugPayloadGetList
 		return ret
 	}
-	return *o.ObjDebugPayload
+
+	return o.ObjDebugPayload
 }
 
-// GetObjDebugPayloadOk returns a tuple with the ObjDebugPayload field value if set, nil otherwise
+// GetObjDebugPayloadOk returns a tuple with the ObjDebugPayload field value
 // and a boolean to check if the value has been set.
 func (o *CommonResponseGetList) GetObjDebugPayloadOk() (*CommonResponseObjDebugPayloadGetList, bool) {
-	if o == nil || o.ObjDebugPayload == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.ObjDebugPayload, true
+	return &o.ObjDebugPayload, true
 }
 
-// HasObjDebugPayload returns a boolean if a field has been set.
-func (o *CommonResponseGetList) HasObjDebugPayload() bool {
-	if o != nil && o.ObjDebugPayload != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetObjDebugPayload gets a reference to the given CommonResponseObjDebugPayloadGetList and assigns it to the ObjDebugPayload field.
+// SetObjDebugPayload sets field value
 func (o *CommonResponseGetList) SetObjDebugPayload(v CommonResponseObjDebugPayloadGetList) {
-	o.ObjDebugPayload = &v
+	o.ObjDebugPayload = v
 }
 
 // GetObjDebug returns the ObjDebug field value if set, zero value otherwise.
 func (o *CommonResponseGetList) GetObjDebug() CommonResponseObjDebug {
-	if o == nil || o.ObjDebug == nil {
+	if o == nil || IsNil(o.ObjDebug) {
 		var ret CommonResponseObjDebug
 		return ret
 	}
@@ -82,7 +78,7 @@ func (o *CommonResponseGetList) GetObjDebug() CommonResponseObjDebug {
 // GetObjDebugOk returns a tuple with the ObjDebug field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CommonResponseGetList) GetObjDebugOk() (*CommonResponseObjDebug, bool) {
-	if o == nil || o.ObjDebug == nil {
+	if o == nil || IsNil(o.ObjDebug) {
 		return nil, false
 	}
 	return o.ObjDebug, true
@@ -90,7 +86,7 @@ func (o *CommonResponseGetList) GetObjDebugOk() (*CommonResponseObjDebug, bool) 
 
 // HasObjDebug returns a boolean if a field has been set.
 func (o *CommonResponseGetList) HasObjDebug() bool {
-	if o != nil && o.ObjDebug != nil {
+	if o != nil && !IsNil(o.ObjDebug) {
 		return true
 	}
 
@@ -103,14 +99,20 @@ func (o *CommonResponseGetList) SetObjDebug(v CommonResponseObjDebug) {
 }
 
 func (o CommonResponseGetList) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if o.ObjDebugPayload != nil {
-		toSerialize["objDebugPayload"] = o.ObjDebugPayload
-	}
-	if o.ObjDebug != nil {
-		toSerialize["objDebug"] = o.ObjDebug
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CommonResponseGetList) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["objDebugPayload"] = o.ObjDebugPayload
+	if !IsNil(o.ObjDebug) {
+		toSerialize["objDebug"] = o.ObjDebug
+	}
+	return toSerialize, nil
 }
 
 type NullableCommonResponseGetList struct {

@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -14,6 +14,9 @@ package eZmaxApi
 import (
 	"encoding/json"
 )
+
+// checks if the FranchisereferalincomeRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &FranchisereferalincomeRequest{}
 
 // FranchisereferalincomeRequest An Franchisereferalincome Object
 type FranchisereferalincomeRequest struct {
@@ -73,7 +76,7 @@ func NewFranchisereferalincomeRequestWithDefaults() *FranchisereferalincomeReque
 
 // GetPkiFranchisereferalincomeID returns the PkiFranchisereferalincomeID field value if set, zero value otherwise.
 func (o *FranchisereferalincomeRequest) GetPkiFranchisereferalincomeID() int32 {
-	if o == nil || o.PkiFranchisereferalincomeID == nil {
+	if o == nil || IsNil(o.PkiFranchisereferalincomeID) {
 		var ret int32
 		return ret
 	}
@@ -83,7 +86,7 @@ func (o *FranchisereferalincomeRequest) GetPkiFranchisereferalincomeID() int32 {
 // GetPkiFranchisereferalincomeIDOk returns a tuple with the PkiFranchisereferalincomeID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FranchisereferalincomeRequest) GetPkiFranchisereferalincomeIDOk() (*int32, bool) {
-	if o == nil || o.PkiFranchisereferalincomeID == nil {
+	if o == nil || IsNil(o.PkiFranchisereferalincomeID) {
 		return nil, false
 	}
 	return o.PkiFranchisereferalincomeID, true
@@ -91,7 +94,7 @@ func (o *FranchisereferalincomeRequest) GetPkiFranchisereferalincomeIDOk() (*int
 
 // HasPkiFranchisereferalincomeID returns a boolean if a field has been set.
 func (o *FranchisereferalincomeRequest) HasPkiFranchisereferalincomeID() bool {
-	if o != nil && o.PkiFranchisereferalincomeID != nil {
+	if o != nil && !IsNil(o.PkiFranchisereferalincomeID) {
 		return true
 	}
 
@@ -368,44 +371,30 @@ func (o *FranchisereferalincomeRequest) SetSFranchisereferalincomeRemoteid(v str
 }
 
 func (o FranchisereferalincomeRequest) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if o.PkiFranchisereferalincomeID != nil {
-		toSerialize["pkiFranchisereferalincomeID"] = o.PkiFranchisereferalincomeID
-	}
-	if true {
-		toSerialize["fkiFranchisebrokerID"] = o.FkiFranchisebrokerID
-	}
-	if true {
-		toSerialize["fkiFranchisereferalincomeprogramID"] = o.FkiFranchisereferalincomeprogramID
-	}
-	if true {
-		toSerialize["fkiPeriodID"] = o.FkiPeriodID
-	}
-	if true {
-		toSerialize["dFranchisereferalincomeLoan"] = o.DFranchisereferalincomeLoan
-	}
-	if true {
-		toSerialize["dFranchisereferalincomeFranchiseamount"] = o.DFranchisereferalincomeFranchiseamount
-	}
-	if true {
-		toSerialize["dFranchisereferalincomeFranchisoramount"] = o.DFranchisereferalincomeFranchisoramount
-	}
-	if true {
-		toSerialize["dFranchisereferalincomeAgentamount"] = o.DFranchisereferalincomeAgentamount
-	}
-	if true {
-		toSerialize["dtFranchisereferalincomeDisbursed"] = o.DtFranchisereferalincomeDisbursed
-	}
-	if true {
-		toSerialize["tFranchisereferalincomeComment"] = o.TFranchisereferalincomeComment
-	}
-	if true {
-		toSerialize["fkiFranchiseofficeID"] = o.FkiFranchiseofficeID
-	}
-	if true {
-		toSerialize["sFranchisereferalincomeRemoteid"] = o.SFranchisereferalincomeRemoteid
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o FranchisereferalincomeRequest) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.PkiFranchisereferalincomeID) {
+		toSerialize["pkiFranchisereferalincomeID"] = o.PkiFranchisereferalincomeID
+	}
+	toSerialize["fkiFranchisebrokerID"] = o.FkiFranchisebrokerID
+	toSerialize["fkiFranchisereferalincomeprogramID"] = o.FkiFranchisereferalincomeprogramID
+	toSerialize["fkiPeriodID"] = o.FkiPeriodID
+	toSerialize["dFranchisereferalincomeLoan"] = o.DFranchisereferalincomeLoan
+	toSerialize["dFranchisereferalincomeFranchiseamount"] = o.DFranchisereferalincomeFranchiseamount
+	toSerialize["dFranchisereferalincomeFranchisoramount"] = o.DFranchisereferalincomeFranchisoramount
+	toSerialize["dFranchisereferalincomeAgentamount"] = o.DFranchisereferalincomeAgentamount
+	toSerialize["dtFranchisereferalincomeDisbursed"] = o.DtFranchisereferalincomeDisbursed
+	toSerialize["tFranchisereferalincomeComment"] = o.TFranchisereferalincomeComment
+	toSerialize["fkiFranchiseofficeID"] = o.FkiFranchiseofficeID
+	toSerialize["sFranchisereferalincomeRemoteid"] = o.SFranchisereferalincomeRemoteid
+	return toSerialize, nil
 }
 
 type NullableFranchisereferalincomeRequest struct {

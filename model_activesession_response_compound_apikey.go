@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -14,6 +14,9 @@ package eZmaxApi
 import (
 	"encoding/json"
 )
+
+// checks if the ActivesessionResponseCompoundApikey type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ActivesessionResponseCompoundApikey{}
 
 // ActivesessionResponseCompoundApikey An Activesession->Apikey object and children to create a complete structure
 type ActivesessionResponseCompoundApikey struct {
@@ -91,14 +94,18 @@ func (o *ActivesessionResponseCompoundApikey) SetSApikeyDescriptionX(v string) {
 }
 
 func (o ActivesessionResponseCompoundApikey) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["pkiApikeyID"] = o.PkiApikeyID
-	}
-	if true {
-		toSerialize["sApikeyDescriptionX"] = o.SApikeyDescriptionX
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ActivesessionResponseCompoundApikey) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["pkiApikeyID"] = o.PkiApikeyID
+	toSerialize["sApikeyDescriptionX"] = o.SApikeyDescriptionX
+	return toSerialize, nil
 }
 
 type NullableActivesessionResponseCompoundApikey struct {

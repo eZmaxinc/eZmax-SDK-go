@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,7 +15,10 @@ import (
 	"encoding/json"
 )
 
-// EzsigndocumentGetWordsPositionsV1Request Request for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions API Request
+// checks if the EzsigndocumentGetWordsPositionsV1Request type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsigndocumentGetWordsPositionsV1Request{}
+
+// EzsigndocumentGetWordsPositionsV1Request Request for POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions
 type EzsigndocumentGetWordsPositionsV1Request struct {
 	// Specify if you want to retrieve *All* words or specific *Words* from the document. If you specify *Words*, you must send the list of words to search for in *a_sWord*.
 	EGet string `json:"eGet"`
@@ -94,7 +97,7 @@ func (o *EzsigndocumentGetWordsPositionsV1Request) SetBWordCaseSensitive(v bool)
 
 // GetASWord returns the ASWord field value if set, zero value otherwise.
 func (o *EzsigndocumentGetWordsPositionsV1Request) GetASWord() []string {
-	if o == nil || o.ASWord == nil {
+	if o == nil || IsNil(o.ASWord) {
 		var ret []string
 		return ret
 	}
@@ -104,7 +107,7 @@ func (o *EzsigndocumentGetWordsPositionsV1Request) GetASWord() []string {
 // GetASWordOk returns a tuple with the ASWord field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentGetWordsPositionsV1Request) GetASWordOk() ([]string, bool) {
-	if o == nil || o.ASWord == nil {
+	if o == nil || IsNil(o.ASWord) {
 		return nil, false
 	}
 	return o.ASWord, true
@@ -112,7 +115,7 @@ func (o *EzsigndocumentGetWordsPositionsV1Request) GetASWordOk() ([]string, bool
 
 // HasASWord returns a boolean if a field has been set.
 func (o *EzsigndocumentGetWordsPositionsV1Request) HasASWord() bool {
-	if o != nil && o.ASWord != nil {
+	if o != nil && !IsNil(o.ASWord) {
 		return true
 	}
 
@@ -125,17 +128,21 @@ func (o *EzsigndocumentGetWordsPositionsV1Request) SetASWord(v []string) {
 }
 
 func (o EzsigndocumentGetWordsPositionsV1Request) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["eGet"] = o.EGet
-	}
-	if true {
-		toSerialize["bWordCaseSensitive"] = o.BWordCaseSensitive
-	}
-	if o.ASWord != nil {
-		toSerialize["a_sWord"] = o.ASWord
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsigndocumentGetWordsPositionsV1Request) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["eGet"] = o.EGet
+	toSerialize["bWordCaseSensitive"] = o.BWordCaseSensitive
+	if !IsNil(o.ASWord) {
+		toSerialize["a_sWord"] = o.ASWord
+	}
+	return toSerialize, nil
 }
 
 type NullableEzsigndocumentGetWordsPositionsV1Request struct {

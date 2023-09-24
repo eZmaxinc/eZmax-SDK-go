@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,31 +15,21 @@ import (
 	"encoding/json"
 )
 
-// EzsigndocumentGetFormDataV1ResponseMPayload Payload for the /1/object/ezsigndocument/{pkiEzsigndocument}/getFormData API Request
+// checks if the EzsigndocumentGetFormDataV1ResponseMPayload type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsigndocumentGetFormDataV1ResponseMPayload{}
+
+// EzsigndocumentGetFormDataV1ResponseMPayload Payload for GET /1/object/ezsigndocument/{pkiEzsigndocument}/getFormData
 type EzsigndocumentGetFormDataV1ResponseMPayload struct {
-	// The unique ID of the Ezsigndocument
-	PkiEzsigndocumentID int32 `json:"pkiEzsigndocumentID"`
-	// The unique ID of the Ezsignfolder
-	FkiEzsignfolderID int32 `json:"fkiEzsignfolderID"`
-	// The name of the document that will be presented to Ezsignfoldersignerassociations
-	SEzsigndocumentName string `json:"sEzsigndocumentName"`
-	// The date and time at which the object was last modified
-	DtModifiedDate string `json:"dtModifiedDate"`
-	// 
-	AObjFormDataSigner []CustomFormDataSignerResponse `json:"a_objFormDataSigner"`
+	ObjFormDataDocument CustomFormDataDocumentResponse `json:"objFormDataDocument"`
 }
 
 // NewEzsigndocumentGetFormDataV1ResponseMPayload instantiates a new EzsigndocumentGetFormDataV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigndocumentGetFormDataV1ResponseMPayload(pkiEzsigndocumentID int32, fkiEzsignfolderID int32, sEzsigndocumentName string, dtModifiedDate string, aObjFormDataSigner []CustomFormDataSignerResponse) *EzsigndocumentGetFormDataV1ResponseMPayload {
+func NewEzsigndocumentGetFormDataV1ResponseMPayload(objFormDataDocument CustomFormDataDocumentResponse) *EzsigndocumentGetFormDataV1ResponseMPayload {
 	this := EzsigndocumentGetFormDataV1ResponseMPayload{}
-	this.PkiEzsigndocumentID = pkiEzsigndocumentID
-	this.FkiEzsignfolderID = fkiEzsignfolderID
-	this.SEzsigndocumentName = sEzsigndocumentName
-	this.DtModifiedDate = dtModifiedDate
-	this.AObjFormDataSigner = aObjFormDataSigner
+	this.ObjFormDataDocument = objFormDataDocument
 	return &this
 }
 
@@ -51,144 +41,42 @@ func NewEzsigndocumentGetFormDataV1ResponseMPayloadWithDefaults() *Ezsigndocumen
 	return &this
 }
 
-// GetPkiEzsigndocumentID returns the PkiEzsigndocumentID field value
-func (o *EzsigndocumentGetFormDataV1ResponseMPayload) GetPkiEzsigndocumentID() int32 {
+// GetObjFormDataDocument returns the ObjFormDataDocument field value
+func (o *EzsigndocumentGetFormDataV1ResponseMPayload) GetObjFormDataDocument() CustomFormDataDocumentResponse {
 	if o == nil {
-		var ret int32
+		var ret CustomFormDataDocumentResponse
 		return ret
 	}
 
-	return o.PkiEzsigndocumentID
+	return o.ObjFormDataDocument
 }
 
-// GetPkiEzsigndocumentIDOk returns a tuple with the PkiEzsigndocumentID field value
+// GetObjFormDataDocumentOk returns a tuple with the ObjFormDataDocument field value
 // and a boolean to check if the value has been set.
-func (o *EzsigndocumentGetFormDataV1ResponseMPayload) GetPkiEzsigndocumentIDOk() (*int32, bool) {
+func (o *EzsigndocumentGetFormDataV1ResponseMPayload) GetObjFormDataDocumentOk() (*CustomFormDataDocumentResponse, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.PkiEzsigndocumentID, true
+	return &o.ObjFormDataDocument, true
 }
 
-// SetPkiEzsigndocumentID sets field value
-func (o *EzsigndocumentGetFormDataV1ResponseMPayload) SetPkiEzsigndocumentID(v int32) {
-	o.PkiEzsigndocumentID = v
-}
-
-// GetFkiEzsignfolderID returns the FkiEzsignfolderID field value
-func (o *EzsigndocumentGetFormDataV1ResponseMPayload) GetFkiEzsignfolderID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.FkiEzsignfolderID
-}
-
-// GetFkiEzsignfolderIDOk returns a tuple with the FkiEzsignfolderID field value
-// and a boolean to check if the value has been set.
-func (o *EzsigndocumentGetFormDataV1ResponseMPayload) GetFkiEzsignfolderIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FkiEzsignfolderID, true
-}
-
-// SetFkiEzsignfolderID sets field value
-func (o *EzsigndocumentGetFormDataV1ResponseMPayload) SetFkiEzsignfolderID(v int32) {
-	o.FkiEzsignfolderID = v
-}
-
-// GetSEzsigndocumentName returns the SEzsigndocumentName field value
-func (o *EzsigndocumentGetFormDataV1ResponseMPayload) GetSEzsigndocumentName() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SEzsigndocumentName
-}
-
-// GetSEzsigndocumentNameOk returns a tuple with the SEzsigndocumentName field value
-// and a boolean to check if the value has been set.
-func (o *EzsigndocumentGetFormDataV1ResponseMPayload) GetSEzsigndocumentNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SEzsigndocumentName, true
-}
-
-// SetSEzsigndocumentName sets field value
-func (o *EzsigndocumentGetFormDataV1ResponseMPayload) SetSEzsigndocumentName(v string) {
-	o.SEzsigndocumentName = v
-}
-
-// GetDtModifiedDate returns the DtModifiedDate field value
-func (o *EzsigndocumentGetFormDataV1ResponseMPayload) GetDtModifiedDate() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.DtModifiedDate
-}
-
-// GetDtModifiedDateOk returns a tuple with the DtModifiedDate field value
-// and a boolean to check if the value has been set.
-func (o *EzsigndocumentGetFormDataV1ResponseMPayload) GetDtModifiedDateOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.DtModifiedDate, true
-}
-
-// SetDtModifiedDate sets field value
-func (o *EzsigndocumentGetFormDataV1ResponseMPayload) SetDtModifiedDate(v string) {
-	o.DtModifiedDate = v
-}
-
-// GetAObjFormDataSigner returns the AObjFormDataSigner field value
-func (o *EzsigndocumentGetFormDataV1ResponseMPayload) GetAObjFormDataSigner() []CustomFormDataSignerResponse {
-	if o == nil {
-		var ret []CustomFormDataSignerResponse
-		return ret
-	}
-
-	return o.AObjFormDataSigner
-}
-
-// GetAObjFormDataSignerOk returns a tuple with the AObjFormDataSigner field value
-// and a boolean to check if the value has been set.
-func (o *EzsigndocumentGetFormDataV1ResponseMPayload) GetAObjFormDataSignerOk() ([]CustomFormDataSignerResponse, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.AObjFormDataSigner, true
-}
-
-// SetAObjFormDataSigner sets field value
-func (o *EzsigndocumentGetFormDataV1ResponseMPayload) SetAObjFormDataSigner(v []CustomFormDataSignerResponse) {
-	o.AObjFormDataSigner = v
+// SetObjFormDataDocument sets field value
+func (o *EzsigndocumentGetFormDataV1ResponseMPayload) SetObjFormDataDocument(v CustomFormDataDocumentResponse) {
+	o.ObjFormDataDocument = v
 }
 
 func (o EzsigndocumentGetFormDataV1ResponseMPayload) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["pkiEzsigndocumentID"] = o.PkiEzsigndocumentID
-	}
-	if true {
-		toSerialize["fkiEzsignfolderID"] = o.FkiEzsignfolderID
-	}
-	if true {
-		toSerialize["sEzsigndocumentName"] = o.SEzsigndocumentName
-	}
-	if true {
-		toSerialize["dtModifiedDate"] = o.DtModifiedDate
-	}
-	if true {
-		toSerialize["a_objFormDataSigner"] = o.AObjFormDataSigner
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsigndocumentGetFormDataV1ResponseMPayload) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["objFormDataDocument"] = o.ObjFormDataDocument
+	return toSerialize, nil
 }
 
 type NullableEzsigndocumentGetFormDataV1ResponseMPayload struct {

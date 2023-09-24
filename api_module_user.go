@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -14,18 +14,18 @@ package eZmaxApi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 )
 
 
-// ModuleUserApiService ModuleUserApi service
-type ModuleUserApiService service
+// ModuleUserAPIService ModuleUserAPI service
+type ModuleUserAPIService service
 
 type ApiUserCreateEzsignuserV1Request struct {
 	ctx context.Context
-	ApiService *ModuleUserApiService
+	ApiService *ModuleUserAPIService
 	userCreateEzsignuserV1Request *[]UserCreateEzsignuserV1Request
 }
 
@@ -48,7 +48,7 @@ The user will be created only once the email verification process will be comple
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiUserCreateEzsignuserV1Request
 */
-func (a *ModuleUserApiService) UserCreateEzsignuserV1(ctx context.Context) ApiUserCreateEzsignuserV1Request {
+func (a *ModuleUserAPIService) UserCreateEzsignuserV1(ctx context.Context) ApiUserCreateEzsignuserV1Request {
 	return ApiUserCreateEzsignuserV1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -57,7 +57,7 @@ func (a *ModuleUserApiService) UserCreateEzsignuserV1(ctx context.Context) ApiUs
 
 // Execute executes the request
 //  @return UserCreateEzsignuserV1Response
-func (a *ModuleUserApiService) UserCreateEzsignuserV1Execute(r ApiUserCreateEzsignuserV1Request) (*UserCreateEzsignuserV1Response, *http.Response, error) {
+func (a *ModuleUserAPIService) UserCreateEzsignuserV1Execute(r ApiUserCreateEzsignuserV1Request) (*UserCreateEzsignuserV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -65,7 +65,7 @@ func (a *ModuleUserApiService) UserCreateEzsignuserV1Execute(r ApiUserCreateEzsi
 		localVarReturnValue  *UserCreateEzsignuserV1Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModuleUserApiService.UserCreateEzsignuserV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ModuleUserAPIService.UserCreateEzsignuserV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -122,9 +122,9 @@ func (a *ModuleUserApiService) UserCreateEzsignuserV1Execute(r ApiUserCreateEzsi
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}

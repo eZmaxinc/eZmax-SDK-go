@@ -1,0 +1,77 @@
+# EzsigntemplateformfieldgroupsignerRequestCompound
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**PkiEzsigntemplateformfieldgroupsignerID** | Pointer to **int32** | The unique ID of the Ezsigntemplateformfieldgroupsigner | [optional] 
+**FkiEzsigntemplatesignerID** | **int32** | The unique ID of the Ezsigntemplatesigner | 
+
+## Methods
+
+### NewEzsigntemplateformfieldgroupsignerRequestCompound
+
+`func NewEzsigntemplateformfieldgroupsignerRequestCompound(fkiEzsigntemplatesignerID int32, ) *EzsigntemplateformfieldgroupsignerRequestCompound`
+
+NewEzsigntemplateformfieldgroupsignerRequestCompound instantiates a new EzsigntemplateformfieldgroupsignerRequestCompound object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewEzsigntemplateformfieldgroupsignerRequestCompoundWithDefaults
+
+`func NewEzsigntemplateformfieldgroupsignerRequestCompoundWithDefaults() *EzsigntemplateformfieldgroupsignerRequestCompound`
+
+NewEzsigntemplateformfieldgroupsignerRequestCompoundWithDefaults instantiates a new EzsigntemplateformfieldgroupsignerRequestCompound object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetPkiEzsigntemplateformfieldgroupsignerID
+
+`func (o *EzsigntemplateformfieldgroupsignerRequestCompound) GetPkiEzsigntemplateformfieldgroupsignerID() int32`
+
+GetPkiEzsigntemplateformfieldgroupsignerID returns the PkiEzsigntemplateformfieldgroupsignerID field if non-nil, zero value otherwise.
+
+### GetPkiEzsigntemplateformfieldgroupsignerIDOk
+
+`func (o *EzsigntemplateformfieldgroupsignerRequestCompound) GetPkiEzsigntemplateformfieldgroupsignerIDOk() (*int32, bool)`
+
+GetPkiEzsigntemplateformfieldgroupsignerIDOk returns a tuple with the PkiEzsigntemplateformfieldgroupsignerID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPkiEzsigntemplateformfieldgroupsignerID
+
+`func (o *EzsigntemplateformfieldgroupsignerRequestCompound) SetPkiEzsigntemplateformfieldgroupsignerID(v int32)`
+
+SetPkiEzsigntemplateformfieldgroupsignerID sets PkiEzsigntemplateformfieldgroupsignerID field to given value.
+
+### HasPkiEzsigntemplateformfieldgroupsignerID
+
+`func (o *EzsigntemplateformfieldgroupsignerRequestCompound) HasPkiEzsigntemplateformfieldgroupsignerID() bool`
+
+HasPkiEzsigntemplateformfieldgroupsignerID returns a boolean if a field has been set.
+
+### GetFkiEzsigntemplatesignerID
+
+`func (o *EzsigntemplateformfieldgroupsignerRequestCompound) GetFkiEzsigntemplatesignerID() int32`
+
+GetFkiEzsigntemplatesignerID returns the FkiEzsigntemplatesignerID field if non-nil, zero value otherwise.
+
+### GetFkiEzsigntemplatesignerIDOk
+
+`func (o *EzsigntemplateformfieldgroupsignerRequestCompound) GetFkiEzsigntemplatesignerIDOk() (*int32, bool)`
+
+GetFkiEzsigntemplatesignerIDOk returns a tuple with the FkiEzsigntemplatesignerID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiEzsigntemplatesignerID
+
+`func (o *EzsigntemplateformfieldgroupsignerRequestCompound) SetFkiEzsigntemplatesignerID(v int32)`
+
+SetFkiEzsigntemplatesignerID sets FkiEzsigntemplatesignerID field to given value.
+
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

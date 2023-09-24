@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,7 +15,10 @@ import (
 	"encoding/json"
 )
 
-// FranchisereferalincomeCreateObjectV1Request Request for the /1/object/franchisereferalincome/createObject API Request
+// checks if the FranchisereferalincomeCreateObjectV1Request type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &FranchisereferalincomeCreateObjectV1Request{}
+
+// FranchisereferalincomeCreateObjectV1Request Request for POST /1/object/franchisereferalincome
 type FranchisereferalincomeCreateObjectV1Request struct {
 	ObjFranchisereferalincome *FranchisereferalincomeRequest `json:"objFranchisereferalincome,omitempty"`
 	ObjFranchisereferalincomeCompound *FranchisereferalincomeRequestCompound `json:"objFranchisereferalincomeCompound,omitempty"`
@@ -40,7 +43,7 @@ func NewFranchisereferalincomeCreateObjectV1RequestWithDefaults() *Franchiserefe
 
 // GetObjFranchisereferalincome returns the ObjFranchisereferalincome field value if set, zero value otherwise.
 func (o *FranchisereferalincomeCreateObjectV1Request) GetObjFranchisereferalincome() FranchisereferalincomeRequest {
-	if o == nil || o.ObjFranchisereferalincome == nil {
+	if o == nil || IsNil(o.ObjFranchisereferalincome) {
 		var ret FranchisereferalincomeRequest
 		return ret
 	}
@@ -50,7 +53,7 @@ func (o *FranchisereferalincomeCreateObjectV1Request) GetObjFranchisereferalinco
 // GetObjFranchisereferalincomeOk returns a tuple with the ObjFranchisereferalincome field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FranchisereferalincomeCreateObjectV1Request) GetObjFranchisereferalincomeOk() (*FranchisereferalincomeRequest, bool) {
-	if o == nil || o.ObjFranchisereferalincome == nil {
+	if o == nil || IsNil(o.ObjFranchisereferalincome) {
 		return nil, false
 	}
 	return o.ObjFranchisereferalincome, true
@@ -58,7 +61,7 @@ func (o *FranchisereferalincomeCreateObjectV1Request) GetObjFranchisereferalinco
 
 // HasObjFranchisereferalincome returns a boolean if a field has been set.
 func (o *FranchisereferalincomeCreateObjectV1Request) HasObjFranchisereferalincome() bool {
-	if o != nil && o.ObjFranchisereferalincome != nil {
+	if o != nil && !IsNil(o.ObjFranchisereferalincome) {
 		return true
 	}
 
@@ -72,7 +75,7 @@ func (o *FranchisereferalincomeCreateObjectV1Request) SetObjFranchisereferalinco
 
 // GetObjFranchisereferalincomeCompound returns the ObjFranchisereferalincomeCompound field value if set, zero value otherwise.
 func (o *FranchisereferalincomeCreateObjectV1Request) GetObjFranchisereferalincomeCompound() FranchisereferalincomeRequestCompound {
-	if o == nil || o.ObjFranchisereferalincomeCompound == nil {
+	if o == nil || IsNil(o.ObjFranchisereferalincomeCompound) {
 		var ret FranchisereferalincomeRequestCompound
 		return ret
 	}
@@ -82,7 +85,7 @@ func (o *FranchisereferalincomeCreateObjectV1Request) GetObjFranchisereferalinco
 // GetObjFranchisereferalincomeCompoundOk returns a tuple with the ObjFranchisereferalincomeCompound field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FranchisereferalincomeCreateObjectV1Request) GetObjFranchisereferalincomeCompoundOk() (*FranchisereferalincomeRequestCompound, bool) {
-	if o == nil || o.ObjFranchisereferalincomeCompound == nil {
+	if o == nil || IsNil(o.ObjFranchisereferalincomeCompound) {
 		return nil, false
 	}
 	return o.ObjFranchisereferalincomeCompound, true
@@ -90,7 +93,7 @@ func (o *FranchisereferalincomeCreateObjectV1Request) GetObjFranchisereferalinco
 
 // HasObjFranchisereferalincomeCompound returns a boolean if a field has been set.
 func (o *FranchisereferalincomeCreateObjectV1Request) HasObjFranchisereferalincomeCompound() bool {
-	if o != nil && o.ObjFranchisereferalincomeCompound != nil {
+	if o != nil && !IsNil(o.ObjFranchisereferalincomeCompound) {
 		return true
 	}
 
@@ -103,14 +106,22 @@ func (o *FranchisereferalincomeCreateObjectV1Request) SetObjFranchisereferalinco
 }
 
 func (o FranchisereferalincomeCreateObjectV1Request) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if o.ObjFranchisereferalincome != nil {
-		toSerialize["objFranchisereferalincome"] = o.ObjFranchisereferalincome
-	}
-	if o.ObjFranchisereferalincomeCompound != nil {
-		toSerialize["objFranchisereferalincomeCompound"] = o.ObjFranchisereferalincomeCompound
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o FranchisereferalincomeCreateObjectV1Request) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ObjFranchisereferalincome) {
+		toSerialize["objFranchisereferalincome"] = o.ObjFranchisereferalincome
+	}
+	if !IsNil(o.ObjFranchisereferalincomeCompound) {
+		toSerialize["objFranchisereferalincomeCompound"] = o.ObjFranchisereferalincomeCompound
+	}
+	return toSerialize, nil
 }
 
 type NullableFranchisereferalincomeCreateObjectV1Request struct {

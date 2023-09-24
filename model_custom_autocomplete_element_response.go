@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,25 +15,34 @@ import (
 	"encoding/json"
 )
 
-// CustomAutocompleteElementResponse Generic Autocomplete Response
+// checks if the CustomAutocompleteElementResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CustomAutocompleteElementResponse{}
+
+// CustomAutocompleteElementResponse Generic AutocompleteElement Response
 type CustomAutocompleteElementResponse struct {
 	// The Category for the dropdown or an empty string if not categorized
 	SCategory string `json:"sCategory"`
 	// The Description of the element
 	SLabel string `json:"sLabel"`
 	// The Unique ID of the element
-	MValue string `json:"mValue"`
+	SValue string `json:"sValue"`
+	// The Unique ID of the element
+	// Deprecated
+	MValue *string `json:"mValue,omitempty"`
+	// Indicates if the element is active
+	BActive bool `json:"bActive"`
 }
 
 // NewCustomAutocompleteElementResponse instantiates a new CustomAutocompleteElementResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomAutocompleteElementResponse(sCategory string, sLabel string, mValue string) *CustomAutocompleteElementResponse {
+func NewCustomAutocompleteElementResponse(sCategory string, sLabel string, sValue string, bActive bool) *CustomAutocompleteElementResponse {
 	this := CustomAutocompleteElementResponse{}
 	this.SCategory = sCategory
 	this.SLabel = sLabel
-	this.MValue = mValue
+	this.SValue = sValue
+	this.BActive = bActive
 	return &this
 }
 
@@ -93,42 +102,107 @@ func (o *CustomAutocompleteElementResponse) SetSLabel(v string) {
 	o.SLabel = v
 }
 
-// GetMValue returns the MValue field value
-func (o *CustomAutocompleteElementResponse) GetMValue() string {
+// GetSValue returns the SValue field value
+func (o *CustomAutocompleteElementResponse) GetSValue() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.MValue
+	return o.SValue
 }
 
-// GetMValueOk returns a tuple with the MValue field value
+// GetSValueOk returns a tuple with the SValue field value
 // and a boolean to check if the value has been set.
-func (o *CustomAutocompleteElementResponse) GetMValueOk() (*string, bool) {
+func (o *CustomAutocompleteElementResponse) GetSValueOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.MValue, true
+	return &o.SValue, true
 }
 
-// SetMValue sets field value
+// SetSValue sets field value
+func (o *CustomAutocompleteElementResponse) SetSValue(v string) {
+	o.SValue = v
+}
+
+// GetMValue returns the MValue field value if set, zero value otherwise.
+// Deprecated
+func (o *CustomAutocompleteElementResponse) GetMValue() string {
+	if o == nil || IsNil(o.MValue) {
+		var ret string
+		return ret
+	}
+	return *o.MValue
+}
+
+// GetMValueOk returns a tuple with the MValue field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// Deprecated
+func (o *CustomAutocompleteElementResponse) GetMValueOk() (*string, bool) {
+	if o == nil || IsNil(o.MValue) {
+		return nil, false
+	}
+	return o.MValue, true
+}
+
+// HasMValue returns a boolean if a field has been set.
+func (o *CustomAutocompleteElementResponse) HasMValue() bool {
+	if o != nil && !IsNil(o.MValue) {
+		return true
+	}
+
+	return false
+}
+
+// SetMValue gets a reference to the given string and assigns it to the MValue field.
+// Deprecated
 func (o *CustomAutocompleteElementResponse) SetMValue(v string) {
-	o.MValue = v
+	o.MValue = &v
+}
+
+// GetBActive returns the BActive field value
+func (o *CustomAutocompleteElementResponse) GetBActive() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BActive
+}
+
+// GetBActiveOk returns a tuple with the BActive field value
+// and a boolean to check if the value has been set.
+func (o *CustomAutocompleteElementResponse) GetBActiveOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BActive, true
+}
+
+// SetBActive sets field value
+func (o *CustomAutocompleteElementResponse) SetBActive(v bool) {
+	o.BActive = v
 }
 
 func (o CustomAutocompleteElementResponse) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["sCategory"] = o.SCategory
-	}
-	if true {
-		toSerialize["sLabel"] = o.SLabel
-	}
-	if true {
-		toSerialize["mValue"] = o.MValue
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CustomAutocompleteElementResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["sCategory"] = o.SCategory
+	toSerialize["sLabel"] = o.SLabel
+	toSerialize["sValue"] = o.SValue
+	if !IsNil(o.MValue) {
+		toSerialize["mValue"] = o.MValue
+	}
+	toSerialize["bActive"] = o.BActive
+	return toSerialize, nil
 }
 
 type NullableCustomAutocompleteElementResponse struct {

@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,25 +15,27 @@ import (
 	"encoding/json"
 )
 
-// EzsignfolderGetListV1ResponseMPayload Payload for the /1/object/ezsignfolder/getList API Request
+// checks if the EzsignfolderGetListV1ResponseMPayload type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsignfolderGetListV1ResponseMPayload{}
+
+// EzsignfolderGetListV1ResponseMPayload Payload for GET /1/object/ezsignfolder/getList
 type EzsignfolderGetListV1ResponseMPayload struct {
-	// 
-	AObjEzsignfolder []EzsignfolderListElement `json:"a_objEzsignfolder"`
 	// The number of rows returned
 	IRowReturned int32 `json:"iRowReturned"`
 	// The number of rows matching your filters (if any) or the total number of rows
 	IRowFiltered int32 `json:"iRowFiltered"`
+	AObjEzsignfolder []EzsignfolderListElement `json:"a_objEzsignfolder"`
 }
 
 // NewEzsignfolderGetListV1ResponseMPayload instantiates a new EzsignfolderGetListV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfolderGetListV1ResponseMPayload(aObjEzsignfolder []EzsignfolderListElement, iRowReturned int32, iRowFiltered int32) *EzsignfolderGetListV1ResponseMPayload {
+func NewEzsignfolderGetListV1ResponseMPayload(iRowReturned int32, iRowFiltered int32, aObjEzsignfolder []EzsignfolderListElement) *EzsignfolderGetListV1ResponseMPayload {
 	this := EzsignfolderGetListV1ResponseMPayload{}
-	this.AObjEzsignfolder = aObjEzsignfolder
 	this.IRowReturned = iRowReturned
 	this.IRowFiltered = iRowFiltered
+	this.AObjEzsignfolder = aObjEzsignfolder
 	return &this
 }
 
@@ -43,30 +45,6 @@ func NewEzsignfolderGetListV1ResponseMPayload(aObjEzsignfolder []EzsignfolderLis
 func NewEzsignfolderGetListV1ResponseMPayloadWithDefaults() *EzsignfolderGetListV1ResponseMPayload {
 	this := EzsignfolderGetListV1ResponseMPayload{}
 	return &this
-}
-
-// GetAObjEzsignfolder returns the AObjEzsignfolder field value
-func (o *EzsignfolderGetListV1ResponseMPayload) GetAObjEzsignfolder() []EzsignfolderListElement {
-	if o == nil {
-		var ret []EzsignfolderListElement
-		return ret
-	}
-
-	return o.AObjEzsignfolder
-}
-
-// GetAObjEzsignfolderOk returns a tuple with the AObjEzsignfolder field value
-// and a boolean to check if the value has been set.
-func (o *EzsignfolderGetListV1ResponseMPayload) GetAObjEzsignfolderOk() ([]EzsignfolderListElement, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.AObjEzsignfolder, true
-}
-
-// SetAObjEzsignfolder sets field value
-func (o *EzsignfolderGetListV1ResponseMPayload) SetAObjEzsignfolder(v []EzsignfolderListElement) {
-	o.AObjEzsignfolder = v
 }
 
 // GetIRowReturned returns the IRowReturned field value
@@ -117,18 +95,44 @@ func (o *EzsignfolderGetListV1ResponseMPayload) SetIRowFiltered(v int32) {
 	o.IRowFiltered = v
 }
 
+// GetAObjEzsignfolder returns the AObjEzsignfolder field value
+func (o *EzsignfolderGetListV1ResponseMPayload) GetAObjEzsignfolder() []EzsignfolderListElement {
+	if o == nil {
+		var ret []EzsignfolderListElement
+		return ret
+	}
+
+	return o.AObjEzsignfolder
+}
+
+// GetAObjEzsignfolderOk returns a tuple with the AObjEzsignfolder field value
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderGetListV1ResponseMPayload) GetAObjEzsignfolderOk() ([]EzsignfolderListElement, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AObjEzsignfolder, true
+}
+
+// SetAObjEzsignfolder sets field value
+func (o *EzsignfolderGetListV1ResponseMPayload) SetAObjEzsignfolder(v []EzsignfolderListElement) {
+	o.AObjEzsignfolder = v
+}
+
 func (o EzsignfolderGetListV1ResponseMPayload) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["a_objEzsignfolder"] = o.AObjEzsignfolder
-	}
-	if true {
-		toSerialize["iRowReturned"] = o.IRowReturned
-	}
-	if true {
-		toSerialize["iRowFiltered"] = o.IRowFiltered
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsignfolderGetListV1ResponseMPayload) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["iRowReturned"] = o.IRowReturned
+	toSerialize["iRowFiltered"] = o.IRowFiltered
+	toSerialize["a_objEzsignfolder"] = o.AObjEzsignfolder
+	return toSerialize, nil
 }
 
 type NullableEzsignfolderGetListV1ResponseMPayload struct {

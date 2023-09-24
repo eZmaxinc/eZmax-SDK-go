@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -14,6 +14,9 @@ package eZmaxApi
 import (
 	"encoding/json"
 )
+
+// checks if the CommonResponseObjDebug type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CommonResponseObjDebug{}
 
 // CommonResponseObjDebug This is a generic debug object that is returned by all API requests
 type CommonResponseObjDebug struct {
@@ -172,23 +175,21 @@ func (o *CommonResponseObjDebug) SetAObjSQLQuery(v []CommonResponseObjSQLQuery) 
 }
 
 func (o CommonResponseObjDebug) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["sMemoryUsage"] = o.SMemoryUsage
-	}
-	if true {
-		toSerialize["sRunTime"] = o.SRunTime
-	}
-	if true {
-		toSerialize["iSQLSelects"] = o.ISQLSelects
-	}
-	if true {
-		toSerialize["iSQLQueries"] = o.ISQLQueries
-	}
-	if true {
-		toSerialize["a_objSQLQuery"] = o.AObjSQLQuery
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CommonResponseObjDebug) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["sMemoryUsage"] = o.SMemoryUsage
+	toSerialize["sRunTime"] = o.SRunTime
+	toSerialize["iSQLSelects"] = o.ISQLSelects
+	toSerialize["iSQLQueries"] = o.ISQLQueries
+	toSerialize["a_objSQLQuery"] = o.AObjSQLQuery
+	return toSerialize, nil
 }
 
 type NullableCommonResponseObjDebug struct {

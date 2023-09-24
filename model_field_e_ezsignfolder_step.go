@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -22,21 +22,25 @@ type FieldEEzsignfolderStep string
 // List of Field-eEzsignfolderStep
 const (
 	UNSENT FieldEEzsignfolderStep = "Unsent"
+	PENDING_SEND FieldEEzsignfolderStep = "PendingSend"
 	SENT FieldEEzsignfolderStep = "Sent"
 	PARTIALLY_SIGNED FieldEEzsignfolderStep = "PartiallySigned"
 	EXPIRED FieldEEzsignfolderStep = "Expired"
 	COMPLETED FieldEEzsignfolderStep = "Completed"
 	ARCHIVED FieldEEzsignfolderStep = "Archived"
+	DISPOSED FieldEEzsignfolderStep = "Disposed"
 )
 
 // All allowed values of FieldEEzsignfolderStep enum
 var AllowedFieldEEzsignfolderStepEnumValues = []FieldEEzsignfolderStep{
 	"Unsent",
+	"PendingSend",
 	"Sent",
 	"PartiallySigned",
 	"Expired",
 	"Completed",
 	"Archived",
+	"Disposed",
 }
 
 func (v *FieldEEzsignfolderStep) UnmarshalJSON(src []byte) error {

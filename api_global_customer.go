@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -14,19 +14,19 @@ package eZmaxApi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// GlobalCustomerApiService GlobalCustomerApi service
-type GlobalCustomerApiService service
+// GlobalCustomerAPIService GlobalCustomerAPI service
+type GlobalCustomerAPIService service
 
 type ApiGlobalCustomerGetEndpointV1Request struct {
 	ctx context.Context
-	ApiService *GlobalCustomerApiService
+	ApiService *GlobalCustomerAPIService
 	pksCustomerCode string
 	sInfrastructureproductCode *string
 }
@@ -49,8 +49,10 @@ Retrieve the customer's specific server endpoint where to send requests. This wi
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pksCustomerCode
  @return ApiGlobalCustomerGetEndpointV1Request
+
+Deprecated
 */
-func (a *GlobalCustomerApiService) GlobalCustomerGetEndpointV1(ctx context.Context, pksCustomerCode string) ApiGlobalCustomerGetEndpointV1Request {
+func (a *GlobalCustomerAPIService) GlobalCustomerGetEndpointV1(ctx context.Context, pksCustomerCode string) ApiGlobalCustomerGetEndpointV1Request {
 	return ApiGlobalCustomerGetEndpointV1Request{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +62,8 @@ func (a *GlobalCustomerApiService) GlobalCustomerGetEndpointV1(ctx context.Conte
 
 // Execute executes the request
 //  @return GlobalCustomerGetEndpointV1Response
-func (a *GlobalCustomerApiService) GlobalCustomerGetEndpointV1Execute(r ApiGlobalCustomerGetEndpointV1Request) (*GlobalCustomerGetEndpointV1Response, *http.Response, error) {
+// Deprecated
+func (a *GlobalCustomerAPIService) GlobalCustomerGetEndpointV1Execute(r ApiGlobalCustomerGetEndpointV1Request) (*GlobalCustomerGetEndpointV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,13 +71,13 @@ func (a *GlobalCustomerApiService) GlobalCustomerGetEndpointV1Execute(r ApiGloba
 		localVarReturnValue  *GlobalCustomerGetEndpointV1Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GlobalCustomerApiService.GlobalCustomerGetEndpointV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GlobalCustomerAPIService.GlobalCustomerGetEndpointV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/1/customer/{pksCustomerCode}/endpoint"
-	localVarPath = strings.Replace(localVarPath, "{"+"pksCustomerCode"+"}", url.PathEscape(parameterToString(r.pksCustomerCode, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"pksCustomerCode"+"}", url.PathEscape(parameterValueToString(r.pksCustomerCode, "pksCustomerCode")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -87,7 +90,7 @@ func (a *GlobalCustomerApiService) GlobalCustomerGetEndpointV1Execute(r ApiGloba
 	}
 
 	if r.sInfrastructureproductCode != nil {
-		localVarQueryParams.Add("sInfrastructureproductCode", parameterToString(*r.sInfrastructureproductCode, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sInfrastructureproductCode", r.sInfrastructureproductCode, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -106,20 +109,6 @@ func (a *GlobalCustomerApiService) GlobalCustomerGetEndpointV1Execute(r ApiGloba
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Authorization"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -130,9 +119,9 @@ func (a *GlobalCustomerApiService) GlobalCustomerGetEndpointV1Execute(r ApiGloba
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -149,7 +138,8 @@ func (a *GlobalCustomerApiService) GlobalCustomerGetEndpointV1Execute(r ApiGloba
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

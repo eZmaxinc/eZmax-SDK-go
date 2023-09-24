@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,11 +15,14 @@ import (
 	"encoding/json"
 )
 
-// MultilingualApikeyDescription Description of the API Key  
+// checks if the MultilingualApikeyDescription type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &MultilingualApikeyDescription{}
+
+// MultilingualApikeyDescription Description of the API Key
 type MultilingualApikeyDescription struct {
-	// Value in French
+	// The description of the Apikey in French
 	SApikeyDescription1 *string `json:"sApikeyDescription1,omitempty"`
-	// Value in English
+	// The description of the Apikey in English
 	SApikeyDescription2 *string `json:"sApikeyDescription2,omitempty"`
 }
 
@@ -42,7 +45,7 @@ func NewMultilingualApikeyDescriptionWithDefaults() *MultilingualApikeyDescripti
 
 // GetSApikeyDescription1 returns the SApikeyDescription1 field value if set, zero value otherwise.
 func (o *MultilingualApikeyDescription) GetSApikeyDescription1() string {
-	if o == nil || o.SApikeyDescription1 == nil {
+	if o == nil || IsNil(o.SApikeyDescription1) {
 		var ret string
 		return ret
 	}
@@ -52,7 +55,7 @@ func (o *MultilingualApikeyDescription) GetSApikeyDescription1() string {
 // GetSApikeyDescription1Ok returns a tuple with the SApikeyDescription1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MultilingualApikeyDescription) GetSApikeyDescription1Ok() (*string, bool) {
-	if o == nil || o.SApikeyDescription1 == nil {
+	if o == nil || IsNil(o.SApikeyDescription1) {
 		return nil, false
 	}
 	return o.SApikeyDescription1, true
@@ -60,7 +63,7 @@ func (o *MultilingualApikeyDescription) GetSApikeyDescription1Ok() (*string, boo
 
 // HasSApikeyDescription1 returns a boolean if a field has been set.
 func (o *MultilingualApikeyDescription) HasSApikeyDescription1() bool {
-	if o != nil && o.SApikeyDescription1 != nil {
+	if o != nil && !IsNil(o.SApikeyDescription1) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *MultilingualApikeyDescription) SetSApikeyDescription1(v string) {
 
 // GetSApikeyDescription2 returns the SApikeyDescription2 field value if set, zero value otherwise.
 func (o *MultilingualApikeyDescription) GetSApikeyDescription2() string {
-	if o == nil || o.SApikeyDescription2 == nil {
+	if o == nil || IsNil(o.SApikeyDescription2) {
 		var ret string
 		return ret
 	}
@@ -84,7 +87,7 @@ func (o *MultilingualApikeyDescription) GetSApikeyDescription2() string {
 // GetSApikeyDescription2Ok returns a tuple with the SApikeyDescription2 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MultilingualApikeyDescription) GetSApikeyDescription2Ok() (*string, bool) {
-	if o == nil || o.SApikeyDescription2 == nil {
+	if o == nil || IsNil(o.SApikeyDescription2) {
 		return nil, false
 	}
 	return o.SApikeyDescription2, true
@@ -92,7 +95,7 @@ func (o *MultilingualApikeyDescription) GetSApikeyDescription2Ok() (*string, boo
 
 // HasSApikeyDescription2 returns a boolean if a field has been set.
 func (o *MultilingualApikeyDescription) HasSApikeyDescription2() bool {
-	if o != nil && o.SApikeyDescription2 != nil {
+	if o != nil && !IsNil(o.SApikeyDescription2) {
 		return true
 	}
 
@@ -105,14 +108,22 @@ func (o *MultilingualApikeyDescription) SetSApikeyDescription2(v string) {
 }
 
 func (o MultilingualApikeyDescription) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if o.SApikeyDescription1 != nil {
-		toSerialize["sApikeyDescription1"] = o.SApikeyDescription1
-	}
-	if o.SApikeyDescription2 != nil {
-		toSerialize["sApikeyDescription2"] = o.SApikeyDescription2
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o MultilingualApikeyDescription) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.SApikeyDescription1) {
+		toSerialize["sApikeyDescription1"] = o.SApikeyDescription1
+	}
+	if !IsNil(o.SApikeyDescription2) {
+		toSerialize["sApikeyDescription2"] = o.SApikeyDescription2
+	}
+	return toSerialize, nil
 }
 
 type NullableMultilingualApikeyDescription struct {

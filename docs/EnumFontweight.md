@@ -1,0 +1,13 @@
+# EnumFontweight
+
+## Enum
+
+
+* `NORMAL` (value: `"Normal"`)
+
+* `BOLD` (value: `"Bold"`)
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

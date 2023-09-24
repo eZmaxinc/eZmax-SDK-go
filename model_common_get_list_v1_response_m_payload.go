@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -14,6 +14,9 @@ package eZmaxApi
 import (
 	"encoding/json"
 )
+
+// checks if the CommonGetListV1ResponseMPayload type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CommonGetListV1ResponseMPayload{}
 
 // CommonGetListV1ResponseMPayload Generic List Response
 type CommonGetListV1ResponseMPayload struct {
@@ -91,14 +94,18 @@ func (o *CommonGetListV1ResponseMPayload) SetIRowFiltered(v int32) {
 }
 
 func (o CommonGetListV1ResponseMPayload) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["iRowReturned"] = o.IRowReturned
-	}
-	if true {
-		toSerialize["iRowFiltered"] = o.IRowFiltered
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CommonGetListV1ResponseMPayload) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["iRowReturned"] = o.IRowReturned
+	toSerialize["iRowFiltered"] = o.IRowFiltered
+	return toSerialize, nil
 }
 
 type NullableCommonGetListV1ResponseMPayload struct {

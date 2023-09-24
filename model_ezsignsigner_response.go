@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the EzsignsignerResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsignsignerResponse{}
+
 // EzsignsignerResponse An Ezsignsigner Object
 type EzsignsignerResponse struct {
 	// The unique ID of the Ezsignsigner
@@ -23,7 +26,7 @@ type EzsignsignerResponse struct {
 	FkiTaxassignmentID int32 `json:"fkiTaxassignmentID"`
 	// The unique ID of the Secretquestion.  Valid values:  |Value|Description| |-|-| |1|The name of the hospital in which you were born| |2|The name of your grade school| |3|The last name of your favorite teacher| |4|Your favorite sports team| |5|Your favorite TV show| |6|Your favorite movie| |7|The name of the street on which you grew up| |8|The name of your first employer| |9|Your first car| |10|Your favorite food| |11|The name of your first pet| |12|Favorite musician/band| |13|What instrument you play| |14|Your father's middle name| |15|Your mother's maiden name| |16|Name of your eldest child| |17|Your spouse's middle name| |18|Favorite restaurant| |19|Childhood nickname| |20|Favorite vacation destination| |21|Your boat's name| |22|Date of Birth (YYYY-MM-DD)|
 	FkiSecretquestionID *int32 `json:"fkiSecretquestionID,omitempty"`
-	// The unique ID of the Userlogintype
+	// The unique ID of the Userlogintype  Valid values:  |Value|Description|Detail| |-|-|-| |1|**Email Only**|The Ezsignsigner will receive a secure link by email| |2|**Email and phone or SMS**|The Ezsignsigner will receive a secure link by email and will need to authenticate using SMS or Phone call. **Additional fee applies**| |3|**Email and secret question**|The Ezsignsigner will receive a secure link by email and will need to authenticate using a predefined question and answer| |4|**In person only**|The Ezsignsigner will only be able to sign \"In-Person\" and there won't be any authentication. No email will be sent for invitation to sign. Make sure you evaluate the risk of signature denial and at minimum, we recommend you use a handwritten signature type| |5|**In person with phone or SMS**|The Ezsignsigner will only be able to sign \"In-Person\" and will need to authenticate using SMS or Phone call. No email will be sent for invitation to sign. **Additional fee applies**|
 	FkiUserlogintypeID int32 `json:"fkiUserlogintypeID"`
 	// The description of the Userlogintype in the language of the requester
 	SUserlogintypeDescriptionX string `json:"sUserlogintypeDescriptionX"`
@@ -100,7 +103,7 @@ func (o *EzsignsignerResponse) SetFkiTaxassignmentID(v int32) {
 
 // GetFkiSecretquestionID returns the FkiSecretquestionID field value if set, zero value otherwise.
 func (o *EzsignsignerResponse) GetFkiSecretquestionID() int32 {
-	if o == nil || o.FkiSecretquestionID == nil {
+	if o == nil || IsNil(o.FkiSecretquestionID) {
 		var ret int32
 		return ret
 	}
@@ -110,7 +113,7 @@ func (o *EzsignsignerResponse) GetFkiSecretquestionID() int32 {
 // GetFkiSecretquestionIDOk returns a tuple with the FkiSecretquestionID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsignsignerResponse) GetFkiSecretquestionIDOk() (*int32, bool) {
-	if o == nil || o.FkiSecretquestionID == nil {
+	if o == nil || IsNil(o.FkiSecretquestionID) {
 		return nil, false
 	}
 	return o.FkiSecretquestionID, true
@@ -118,7 +121,7 @@ func (o *EzsignsignerResponse) GetFkiSecretquestionIDOk() (*int32, bool) {
 
 // HasFkiSecretquestionID returns a boolean if a field has been set.
 func (o *EzsignsignerResponse) HasFkiSecretquestionID() bool {
-	if o != nil && o.FkiSecretquestionID != nil {
+	if o != nil && !IsNil(o.FkiSecretquestionID) {
 		return true
 	}
 
@@ -179,23 +182,23 @@ func (o *EzsignsignerResponse) SetSUserlogintypeDescriptionX(v string) {
 }
 
 func (o EzsignsignerResponse) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["pkiEzsignsignerID"] = o.PkiEzsignsignerID
-	}
-	if true {
-		toSerialize["fkiTaxassignmentID"] = o.FkiTaxassignmentID
-	}
-	if o.FkiSecretquestionID != nil {
-		toSerialize["fkiSecretquestionID"] = o.FkiSecretquestionID
-	}
-	if true {
-		toSerialize["fkiUserlogintypeID"] = o.FkiUserlogintypeID
-	}
-	if true {
-		toSerialize["sUserlogintypeDescriptionX"] = o.SUserlogintypeDescriptionX
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsignsignerResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["pkiEzsignsignerID"] = o.PkiEzsignsignerID
+	toSerialize["fkiTaxassignmentID"] = o.FkiTaxassignmentID
+	if !IsNil(o.FkiSecretquestionID) {
+		toSerialize["fkiSecretquestionID"] = o.FkiSecretquestionID
+	}
+	toSerialize["fkiUserlogintypeID"] = o.FkiUserlogintypeID
+	toSerialize["sUserlogintypeDescriptionX"] = o.SUserlogintypeDescriptionX
+	return toSerialize, nil
 }
 
 type NullableEzsignsignerResponse struct {

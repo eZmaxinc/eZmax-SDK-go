@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -44,6 +44,9 @@ const (
 	SIGNATURE_ATTACHMENT_REFUSED FieldEEzsigndocumentlogType = "SignatureAttachmentRefused"
 	SIGNATURE_ATTACHMENT_DELETED FieldEEzsigndocumentlogType = "SignatureAttachmentDeleted"
 	DECLINED_TO_SIGN FieldEEzsigndocumentlogType = "DeclinedToSign"
+	DELAYED_SEND_EMAIL FieldEEzsigndocumentlogType = "DelayedSendEmail"
+	REGENERATE_PAGE FieldEEzsigndocumentlogType = "RegeneratePage"
+	REGENERATE_PAGE_FORM FieldEEzsigndocumentlogType = "RegeneratePageForm"
 )
 
 // All allowed values of FieldEEzsigndocumentlogType enum
@@ -71,6 +74,9 @@ var AllowedFieldEEzsigndocumentlogTypeEnumValues = []FieldEEzsigndocumentlogType
 	"SignatureAttachmentRefused",
 	"SignatureAttachmentDeleted",
 	"DeclinedToSign",
+	"DelayedSendEmail",
+	"RegeneratePage",
+	"RegeneratePageForm",
 }
 
 func (v *FieldEEzsigndocumentlogType) UnmarshalJSON(src []byte) error {

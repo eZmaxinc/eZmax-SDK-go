@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the EzsignbulksendListElement type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsignbulksendListElement{}
+
 // EzsignbulksendListElement An Ezsignbulksend List Element
 type EzsignbulksendListElement struct {
 	// The unique ID of the Ezsignbulksend
@@ -25,9 +28,8 @@ type EzsignbulksendListElement struct {
 	SEzsignbulksendDescription string `json:"sEzsignbulksendDescription"`
 	// The name of the Ezsignfoldertype in the language of the requester
 	SEzsignfoldertypeNameX string `json:"sEzsignfoldertypeNameX"`
-	EEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel `json:"eEzsignfoldertypePrivacylevel"`
-	// Whether the Ezsignbulksend is active or not
-	BEzsignbulksendIsactive bool `json:"bEzsignbulksendIsactive"`
+	// Whether the Ezsigntemplatepackage was automatically modified and needs a manual validation
+	BEzsignbulksendNeedvalidation bool `json:"bEzsignbulksendNeedvalidation"`
 	// The total number of Ezsignbulksendtransmissions in the Ezsignbulksend
 	IEzsignbulksendtransmission int32 `json:"iEzsignbulksendtransmission"`
 	// The total number of Ezsignfolders in the Ezsignbulksend
@@ -38,25 +40,27 @@ type EzsignbulksendListElement struct {
 	IEzsignsignature int32 `json:"iEzsignsignature"`
 	// The total number of already signed Ezsignsignature blocks in the Ezsignbulksend
 	IEzsignsignatureSigned int32 `json:"iEzsignsignatureSigned"`
+	// Whether the Ezsignbulksend is active or not
+	BEzsignbulksendIsactive bool `json:"bEzsignbulksendIsactive"`
 }
 
 // NewEzsignbulksendListElement instantiates a new EzsignbulksendListElement object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignbulksendListElement(pkiEzsignbulksendID int32, fkiEzsignfoldertypeID int32, sEzsignbulksendDescription string, sEzsignfoldertypeNameX string, eEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel, bEzsignbulksendIsactive bool, iEzsignbulksendtransmission int32, iEzsignfolder int32, iEzsigndocument int32, iEzsignsignature int32, iEzsignsignatureSigned int32) *EzsignbulksendListElement {
+func NewEzsignbulksendListElement(pkiEzsignbulksendID int32, fkiEzsignfoldertypeID int32, sEzsignbulksendDescription string, sEzsignfoldertypeNameX string, bEzsignbulksendNeedvalidation bool, iEzsignbulksendtransmission int32, iEzsignfolder int32, iEzsigndocument int32, iEzsignsignature int32, iEzsignsignatureSigned int32, bEzsignbulksendIsactive bool) *EzsignbulksendListElement {
 	this := EzsignbulksendListElement{}
 	this.PkiEzsignbulksendID = pkiEzsignbulksendID
 	this.FkiEzsignfoldertypeID = fkiEzsignfoldertypeID
 	this.SEzsignbulksendDescription = sEzsignbulksendDescription
 	this.SEzsignfoldertypeNameX = sEzsignfoldertypeNameX
-	this.EEzsignfoldertypePrivacylevel = eEzsignfoldertypePrivacylevel
-	this.BEzsignbulksendIsactive = bEzsignbulksendIsactive
+	this.BEzsignbulksendNeedvalidation = bEzsignbulksendNeedvalidation
 	this.IEzsignbulksendtransmission = iEzsignbulksendtransmission
 	this.IEzsignfolder = iEzsignfolder
 	this.IEzsigndocument = iEzsigndocument
 	this.IEzsignsignature = iEzsignsignature
 	this.IEzsignsignatureSigned = iEzsignsignatureSigned
+	this.BEzsignbulksendIsactive = bEzsignbulksendIsactive
 	return &this
 }
 
@@ -164,52 +168,28 @@ func (o *EzsignbulksendListElement) SetSEzsignfoldertypeNameX(v string) {
 	o.SEzsignfoldertypeNameX = v
 }
 
-// GetEEzsignfoldertypePrivacylevel returns the EEzsignfoldertypePrivacylevel field value
-func (o *EzsignbulksendListElement) GetEEzsignfoldertypePrivacylevel() FieldEEzsignfoldertypePrivacylevel {
-	if o == nil {
-		var ret FieldEEzsignfoldertypePrivacylevel
-		return ret
-	}
-
-	return o.EEzsignfoldertypePrivacylevel
-}
-
-// GetEEzsignfoldertypePrivacylevelOk returns a tuple with the EEzsignfoldertypePrivacylevel field value
-// and a boolean to check if the value has been set.
-func (o *EzsignbulksendListElement) GetEEzsignfoldertypePrivacylevelOk() (*FieldEEzsignfoldertypePrivacylevel, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.EEzsignfoldertypePrivacylevel, true
-}
-
-// SetEEzsignfoldertypePrivacylevel sets field value
-func (o *EzsignbulksendListElement) SetEEzsignfoldertypePrivacylevel(v FieldEEzsignfoldertypePrivacylevel) {
-	o.EEzsignfoldertypePrivacylevel = v
-}
-
-// GetBEzsignbulksendIsactive returns the BEzsignbulksendIsactive field value
-func (o *EzsignbulksendListElement) GetBEzsignbulksendIsactive() bool {
+// GetBEzsignbulksendNeedvalidation returns the BEzsignbulksendNeedvalidation field value
+func (o *EzsignbulksendListElement) GetBEzsignbulksendNeedvalidation() bool {
 	if o == nil {
 		var ret bool
 		return ret
 	}
 
-	return o.BEzsignbulksendIsactive
+	return o.BEzsignbulksendNeedvalidation
 }
 
-// GetBEzsignbulksendIsactiveOk returns a tuple with the BEzsignbulksendIsactive field value
+// GetBEzsignbulksendNeedvalidationOk returns a tuple with the BEzsignbulksendNeedvalidation field value
 // and a boolean to check if the value has been set.
-func (o *EzsignbulksendListElement) GetBEzsignbulksendIsactiveOk() (*bool, bool) {
+func (o *EzsignbulksendListElement) GetBEzsignbulksendNeedvalidationOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.BEzsignbulksendIsactive, true
+	return &o.BEzsignbulksendNeedvalidation, true
 }
 
-// SetBEzsignbulksendIsactive sets field value
-func (o *EzsignbulksendListElement) SetBEzsignbulksendIsactive(v bool) {
-	o.BEzsignbulksendIsactive = v
+// SetBEzsignbulksendNeedvalidation sets field value
+func (o *EzsignbulksendListElement) SetBEzsignbulksendNeedvalidation(v bool) {
+	o.BEzsignbulksendNeedvalidation = v
 }
 
 // GetIEzsignbulksendtransmission returns the IEzsignbulksendtransmission field value
@@ -332,42 +312,52 @@ func (o *EzsignbulksendListElement) SetIEzsignsignatureSigned(v int32) {
 	o.IEzsignsignatureSigned = v
 }
 
+// GetBEzsignbulksendIsactive returns the BEzsignbulksendIsactive field value
+func (o *EzsignbulksendListElement) GetBEzsignbulksendIsactive() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BEzsignbulksendIsactive
+}
+
+// GetBEzsignbulksendIsactiveOk returns a tuple with the BEzsignbulksendIsactive field value
+// and a boolean to check if the value has been set.
+func (o *EzsignbulksendListElement) GetBEzsignbulksendIsactiveOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BEzsignbulksendIsactive, true
+}
+
+// SetBEzsignbulksendIsactive sets field value
+func (o *EzsignbulksendListElement) SetBEzsignbulksendIsactive(v bool) {
+	o.BEzsignbulksendIsactive = v
+}
+
 func (o EzsignbulksendListElement) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["pkiEzsignbulksendID"] = o.PkiEzsignbulksendID
-	}
-	if true {
-		toSerialize["fkiEzsignfoldertypeID"] = o.FkiEzsignfoldertypeID
-	}
-	if true {
-		toSerialize["sEzsignbulksendDescription"] = o.SEzsignbulksendDescription
-	}
-	if true {
-		toSerialize["sEzsignfoldertypeNameX"] = o.SEzsignfoldertypeNameX
-	}
-	if true {
-		toSerialize["eEzsignfoldertypePrivacylevel"] = o.EEzsignfoldertypePrivacylevel
-	}
-	if true {
-		toSerialize["bEzsignbulksendIsactive"] = o.BEzsignbulksendIsactive
-	}
-	if true {
-		toSerialize["iEzsignbulksendtransmission"] = o.IEzsignbulksendtransmission
-	}
-	if true {
-		toSerialize["iEzsignfolder"] = o.IEzsignfolder
-	}
-	if true {
-		toSerialize["iEzsigndocument"] = o.IEzsigndocument
-	}
-	if true {
-		toSerialize["iEzsignsignature"] = o.IEzsignsignature
-	}
-	if true {
-		toSerialize["iEzsignsignatureSigned"] = o.IEzsignsignatureSigned
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsignbulksendListElement) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["pkiEzsignbulksendID"] = o.PkiEzsignbulksendID
+	toSerialize["fkiEzsignfoldertypeID"] = o.FkiEzsignfoldertypeID
+	toSerialize["sEzsignbulksendDescription"] = o.SEzsignbulksendDescription
+	toSerialize["sEzsignfoldertypeNameX"] = o.SEzsignfoldertypeNameX
+	toSerialize["bEzsignbulksendNeedvalidation"] = o.BEzsignbulksendNeedvalidation
+	toSerialize["iEzsignbulksendtransmission"] = o.IEzsignbulksendtransmission
+	toSerialize["iEzsignfolder"] = o.IEzsignfolder
+	toSerialize["iEzsigndocument"] = o.IEzsigndocument
+	toSerialize["iEzsignsignature"] = o.IEzsignsignature
+	toSerialize["iEzsignsignatureSigned"] = o.IEzsignsignatureSigned
+	toSerialize["bEzsignbulksendIsactive"] = o.BEzsignbulksendIsactive
+	return toSerialize, nil
 }
 
 type NullableEzsignbulksendListElement struct {

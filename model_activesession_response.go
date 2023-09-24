@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,9 +15,13 @@ import (
 	"encoding/json"
 )
 
+// checks if the ActivesessionResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ActivesessionResponse{}
+
 // ActivesessionResponse An Activesession Object
 type ActivesessionResponse struct {
-	EActivesessionSessiontype FieldEActivesessionSessiontype `json:"eActivesessionSessiontype"`
+	EActivesessionUsertype FieldEActivesessionUsertype `json:"eActivesessionUsertype"`
+	EActivesessionOrigin FieldEActivesessionOrigin `json:"eActivesessionOrigin"`
 	EActivesessionWeekdaystart FieldEActivesessionWeekdaystart `json:"eActivesessionWeekdaystart"`
 	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
 	FkiLanguageID int32 `json:"fkiLanguageID"`
@@ -27,22 +31,30 @@ type ActivesessionResponse struct {
 	SDepartmentNameX string `json:"sDepartmentNameX"`
 	// Whether the active session is in debug or not
 	BActivesessionDebug bool `json:"bActivesessionDebug"`
+	// Whether the active session is superadmin or not
+	BActivesessionIssuperadmin bool `json:"bActivesessionIssuperadmin"`
 	// The customer code assigned to your account
 	PksCustomerCode string `json:"pksCustomerCode"`
+	// The unique ID of the Systemconfigurationtype
+	FkiSystemconfigurationtypeID *int32 `json:"fkiSystemconfigurationtypeID,omitempty"`
+	// The unique ID of the Signature
+	FkiSignatureID *int32 `json:"fkiSignatureID,omitempty"`
 }
 
 // NewActivesessionResponse instantiates a new ActivesessionResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewActivesessionResponse(eActivesessionSessiontype FieldEActivesessionSessiontype, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, bActivesessionDebug bool, pksCustomerCode string) *ActivesessionResponse {
+func NewActivesessionResponse(eActivesessionUsertype FieldEActivesessionUsertype, eActivesessionOrigin FieldEActivesessionOrigin, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, bActivesessionDebug bool, bActivesessionIssuperadmin bool, pksCustomerCode string) *ActivesessionResponse {
 	this := ActivesessionResponse{}
-	this.EActivesessionSessiontype = eActivesessionSessiontype
+	this.EActivesessionUsertype = eActivesessionUsertype
+	this.EActivesessionOrigin = eActivesessionOrigin
 	this.EActivesessionWeekdaystart = eActivesessionWeekdaystart
 	this.FkiLanguageID = fkiLanguageID
 	this.SCompanyNameX = sCompanyNameX
 	this.SDepartmentNameX = sDepartmentNameX
 	this.BActivesessionDebug = bActivesessionDebug
+	this.BActivesessionIssuperadmin = bActivesessionIssuperadmin
 	this.PksCustomerCode = pksCustomerCode
 	return &this
 }
@@ -55,28 +67,52 @@ func NewActivesessionResponseWithDefaults() *ActivesessionResponse {
 	return &this
 }
 
-// GetEActivesessionSessiontype returns the EActivesessionSessiontype field value
-func (o *ActivesessionResponse) GetEActivesessionSessiontype() FieldEActivesessionSessiontype {
+// GetEActivesessionUsertype returns the EActivesessionUsertype field value
+func (o *ActivesessionResponse) GetEActivesessionUsertype() FieldEActivesessionUsertype {
 	if o == nil {
-		var ret FieldEActivesessionSessiontype
+		var ret FieldEActivesessionUsertype
 		return ret
 	}
 
-	return o.EActivesessionSessiontype
+	return o.EActivesessionUsertype
 }
 
-// GetEActivesessionSessiontypeOk returns a tuple with the EActivesessionSessiontype field value
+// GetEActivesessionUsertypeOk returns a tuple with the EActivesessionUsertype field value
 // and a boolean to check if the value has been set.
-func (o *ActivesessionResponse) GetEActivesessionSessiontypeOk() (*FieldEActivesessionSessiontype, bool) {
+func (o *ActivesessionResponse) GetEActivesessionUsertypeOk() (*FieldEActivesessionUsertype, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.EActivesessionSessiontype, true
+	return &o.EActivesessionUsertype, true
 }
 
-// SetEActivesessionSessiontype sets field value
-func (o *ActivesessionResponse) SetEActivesessionSessiontype(v FieldEActivesessionSessiontype) {
-	o.EActivesessionSessiontype = v
+// SetEActivesessionUsertype sets field value
+func (o *ActivesessionResponse) SetEActivesessionUsertype(v FieldEActivesessionUsertype) {
+	o.EActivesessionUsertype = v
+}
+
+// GetEActivesessionOrigin returns the EActivesessionOrigin field value
+func (o *ActivesessionResponse) GetEActivesessionOrigin() FieldEActivesessionOrigin {
+	if o == nil {
+		var ret FieldEActivesessionOrigin
+		return ret
+	}
+
+	return o.EActivesessionOrigin
+}
+
+// GetEActivesessionOriginOk returns a tuple with the EActivesessionOrigin field value
+// and a boolean to check if the value has been set.
+func (o *ActivesessionResponse) GetEActivesessionOriginOk() (*FieldEActivesessionOrigin, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EActivesessionOrigin, true
+}
+
+// SetEActivesessionOrigin sets field value
+func (o *ActivesessionResponse) SetEActivesessionOrigin(v FieldEActivesessionOrigin) {
+	o.EActivesessionOrigin = v
 }
 
 // GetEActivesessionWeekdaystart returns the EActivesessionWeekdaystart field value
@@ -199,6 +235,30 @@ func (o *ActivesessionResponse) SetBActivesessionDebug(v bool) {
 	o.BActivesessionDebug = v
 }
 
+// GetBActivesessionIssuperadmin returns the BActivesessionIssuperadmin field value
+func (o *ActivesessionResponse) GetBActivesessionIssuperadmin() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BActivesessionIssuperadmin
+}
+
+// GetBActivesessionIssuperadminOk returns a tuple with the BActivesessionIssuperadmin field value
+// and a boolean to check if the value has been set.
+func (o *ActivesessionResponse) GetBActivesessionIssuperadminOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BActivesessionIssuperadmin, true
+}
+
+// SetBActivesessionIssuperadmin sets field value
+func (o *ActivesessionResponse) SetBActivesessionIssuperadmin(v bool) {
+	o.BActivesessionIssuperadmin = v
+}
+
 // GetPksCustomerCode returns the PksCustomerCode field value
 func (o *ActivesessionResponse) GetPksCustomerCode() string {
 	if o == nil {
@@ -223,30 +283,96 @@ func (o *ActivesessionResponse) SetPksCustomerCode(v string) {
 	o.PksCustomerCode = v
 }
 
+// GetFkiSystemconfigurationtypeID returns the FkiSystemconfigurationtypeID field value if set, zero value otherwise.
+func (o *ActivesessionResponse) GetFkiSystemconfigurationtypeID() int32 {
+	if o == nil || IsNil(o.FkiSystemconfigurationtypeID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiSystemconfigurationtypeID
+}
+
+// GetFkiSystemconfigurationtypeIDOk returns a tuple with the FkiSystemconfigurationtypeID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ActivesessionResponse) GetFkiSystemconfigurationtypeIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiSystemconfigurationtypeID) {
+		return nil, false
+	}
+	return o.FkiSystemconfigurationtypeID, true
+}
+
+// HasFkiSystemconfigurationtypeID returns a boolean if a field has been set.
+func (o *ActivesessionResponse) HasFkiSystemconfigurationtypeID() bool {
+	if o != nil && !IsNil(o.FkiSystemconfigurationtypeID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiSystemconfigurationtypeID gets a reference to the given int32 and assigns it to the FkiSystemconfigurationtypeID field.
+func (o *ActivesessionResponse) SetFkiSystemconfigurationtypeID(v int32) {
+	o.FkiSystemconfigurationtypeID = &v
+}
+
+// GetFkiSignatureID returns the FkiSignatureID field value if set, zero value otherwise.
+func (o *ActivesessionResponse) GetFkiSignatureID() int32 {
+	if o == nil || IsNil(o.FkiSignatureID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiSignatureID
+}
+
+// GetFkiSignatureIDOk returns a tuple with the FkiSignatureID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ActivesessionResponse) GetFkiSignatureIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiSignatureID) {
+		return nil, false
+	}
+	return o.FkiSignatureID, true
+}
+
+// HasFkiSignatureID returns a boolean if a field has been set.
+func (o *ActivesessionResponse) HasFkiSignatureID() bool {
+	if o != nil && !IsNil(o.FkiSignatureID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiSignatureID gets a reference to the given int32 and assigns it to the FkiSignatureID field.
+func (o *ActivesessionResponse) SetFkiSignatureID(v int32) {
+	o.FkiSignatureID = &v
+}
+
 func (o ActivesessionResponse) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["eActivesessionSessiontype"] = o.EActivesessionSessiontype
-	}
-	if true {
-		toSerialize["eActivesessionWeekdaystart"] = o.EActivesessionWeekdaystart
-	}
-	if true {
-		toSerialize["fkiLanguageID"] = o.FkiLanguageID
-	}
-	if true {
-		toSerialize["sCompanyNameX"] = o.SCompanyNameX
-	}
-	if true {
-		toSerialize["sDepartmentNameX"] = o.SDepartmentNameX
-	}
-	if true {
-		toSerialize["bActivesessionDebug"] = o.BActivesessionDebug
-	}
-	if true {
-		toSerialize["pksCustomerCode"] = o.PksCustomerCode
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ActivesessionResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["eActivesessionUsertype"] = o.EActivesessionUsertype
+	toSerialize["eActivesessionOrigin"] = o.EActivesessionOrigin
+	toSerialize["eActivesessionWeekdaystart"] = o.EActivesessionWeekdaystart
+	toSerialize["fkiLanguageID"] = o.FkiLanguageID
+	toSerialize["sCompanyNameX"] = o.SCompanyNameX
+	toSerialize["sDepartmentNameX"] = o.SDepartmentNameX
+	toSerialize["bActivesessionDebug"] = o.BActivesessionDebug
+	toSerialize["bActivesessionIssuperadmin"] = o.BActivesessionIssuperadmin
+	toSerialize["pksCustomerCode"] = o.PksCustomerCode
+	if !IsNil(o.FkiSystemconfigurationtypeID) {
+		toSerialize["fkiSystemconfigurationtypeID"] = o.FkiSystemconfigurationtypeID
+	}
+	if !IsNil(o.FkiSignatureID) {
+		toSerialize["fkiSignatureID"] = o.FkiSignatureID
+	}
+	return toSerialize, nil
 }
 
 type NullableActivesessionResponse struct {

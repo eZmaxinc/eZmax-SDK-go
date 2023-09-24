@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -14,6 +14,9 @@ package eZmaxApi
 import (
 	"encoding/json"
 )
+
+// checks if the EzsignsignerResponseCompoundContact type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsignsignerResponseCompoundContact{}
 
 // EzsignsignerResponseCompoundContact A Ezsignsigner->Contact Object and children to create a complete structure
 type EzsignsignerResponseCompoundContact struct {
@@ -29,6 +32,8 @@ type EzsignsignerResponseCompoundContact struct {
 	SEmailAddress *string `json:"sEmailAddress,omitempty"`
 	// A phone number in E.164 Format
 	SPhoneE164 *string `json:"sPhoneE164,omitempty"`
+	// The extension of the phone number.  The extension is the \"123\" section in this sample phone number: (514) 990-1516 x123.  It can also be used with international phone numbers
+	SPhoneExtension *string `json:"sPhoneExtension,omitempty"`
 	// A phone number in E.164 Format
 	SPhoneE164Cell *string `json:"sPhoneE164Cell,omitempty"`
 }
@@ -152,7 +157,7 @@ func (o *EzsignsignerResponseCompoundContact) SetFkiLanguageID(v int32) {
 
 // GetSEmailAddress returns the SEmailAddress field value if set, zero value otherwise.
 func (o *EzsignsignerResponseCompoundContact) GetSEmailAddress() string {
-	if o == nil || o.SEmailAddress == nil {
+	if o == nil || IsNil(o.SEmailAddress) {
 		var ret string
 		return ret
 	}
@@ -162,7 +167,7 @@ func (o *EzsignsignerResponseCompoundContact) GetSEmailAddress() string {
 // GetSEmailAddressOk returns a tuple with the SEmailAddress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsignsignerResponseCompoundContact) GetSEmailAddressOk() (*string, bool) {
-	if o == nil || o.SEmailAddress == nil {
+	if o == nil || IsNil(o.SEmailAddress) {
 		return nil, false
 	}
 	return o.SEmailAddress, true
@@ -170,7 +175,7 @@ func (o *EzsignsignerResponseCompoundContact) GetSEmailAddressOk() (*string, boo
 
 // HasSEmailAddress returns a boolean if a field has been set.
 func (o *EzsignsignerResponseCompoundContact) HasSEmailAddress() bool {
-	if o != nil && o.SEmailAddress != nil {
+	if o != nil && !IsNil(o.SEmailAddress) {
 		return true
 	}
 
@@ -184,7 +189,7 @@ func (o *EzsignsignerResponseCompoundContact) SetSEmailAddress(v string) {
 
 // GetSPhoneE164 returns the SPhoneE164 field value if set, zero value otherwise.
 func (o *EzsignsignerResponseCompoundContact) GetSPhoneE164() string {
-	if o == nil || o.SPhoneE164 == nil {
+	if o == nil || IsNil(o.SPhoneE164) {
 		var ret string
 		return ret
 	}
@@ -194,7 +199,7 @@ func (o *EzsignsignerResponseCompoundContact) GetSPhoneE164() string {
 // GetSPhoneE164Ok returns a tuple with the SPhoneE164 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsignsignerResponseCompoundContact) GetSPhoneE164Ok() (*string, bool) {
-	if o == nil || o.SPhoneE164 == nil {
+	if o == nil || IsNil(o.SPhoneE164) {
 		return nil, false
 	}
 	return o.SPhoneE164, true
@@ -202,7 +207,7 @@ func (o *EzsignsignerResponseCompoundContact) GetSPhoneE164Ok() (*string, bool) 
 
 // HasSPhoneE164 returns a boolean if a field has been set.
 func (o *EzsignsignerResponseCompoundContact) HasSPhoneE164() bool {
-	if o != nil && o.SPhoneE164 != nil {
+	if o != nil && !IsNil(o.SPhoneE164) {
 		return true
 	}
 
@@ -214,9 +219,41 @@ func (o *EzsignsignerResponseCompoundContact) SetSPhoneE164(v string) {
 	o.SPhoneE164 = &v
 }
 
+// GetSPhoneExtension returns the SPhoneExtension field value if set, zero value otherwise.
+func (o *EzsignsignerResponseCompoundContact) GetSPhoneExtension() string {
+	if o == nil || IsNil(o.SPhoneExtension) {
+		var ret string
+		return ret
+	}
+	return *o.SPhoneExtension
+}
+
+// GetSPhoneExtensionOk returns a tuple with the SPhoneExtension field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignerResponseCompoundContact) GetSPhoneExtensionOk() (*string, bool) {
+	if o == nil || IsNil(o.SPhoneExtension) {
+		return nil, false
+	}
+	return o.SPhoneExtension, true
+}
+
+// HasSPhoneExtension returns a boolean if a field has been set.
+func (o *EzsignsignerResponseCompoundContact) HasSPhoneExtension() bool {
+	if o != nil && !IsNil(o.SPhoneExtension) {
+		return true
+	}
+
+	return false
+}
+
+// SetSPhoneExtension gets a reference to the given string and assigns it to the SPhoneExtension field.
+func (o *EzsignsignerResponseCompoundContact) SetSPhoneExtension(v string) {
+	o.SPhoneExtension = &v
+}
+
 // GetSPhoneE164Cell returns the SPhoneE164Cell field value if set, zero value otherwise.
 func (o *EzsignsignerResponseCompoundContact) GetSPhoneE164Cell() string {
-	if o == nil || o.SPhoneE164Cell == nil {
+	if o == nil || IsNil(o.SPhoneE164Cell) {
 		var ret string
 		return ret
 	}
@@ -226,7 +263,7 @@ func (o *EzsignsignerResponseCompoundContact) GetSPhoneE164Cell() string {
 // GetSPhoneE164CellOk returns a tuple with the SPhoneE164Cell field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsignsignerResponseCompoundContact) GetSPhoneE164CellOk() (*string, bool) {
-	if o == nil || o.SPhoneE164Cell == nil {
+	if o == nil || IsNil(o.SPhoneE164Cell) {
 		return nil, false
 	}
 	return o.SPhoneE164Cell, true
@@ -234,7 +271,7 @@ func (o *EzsignsignerResponseCompoundContact) GetSPhoneE164CellOk() (*string, bo
 
 // HasSPhoneE164Cell returns a boolean if a field has been set.
 func (o *EzsignsignerResponseCompoundContact) HasSPhoneE164Cell() bool {
-	if o != nil && o.SPhoneE164Cell != nil {
+	if o != nil && !IsNil(o.SPhoneE164Cell) {
 		return true
 	}
 
@@ -247,29 +284,32 @@ func (o *EzsignsignerResponseCompoundContact) SetSPhoneE164Cell(v string) {
 }
 
 func (o EzsignsignerResponseCompoundContact) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["pkiContactID"] = o.PkiContactID
-	}
-	if true {
-		toSerialize["sContactFirstname"] = o.SContactFirstname
-	}
-	if true {
-		toSerialize["sContactLastname"] = o.SContactLastname
-	}
-	if true {
-		toSerialize["fkiLanguageID"] = o.FkiLanguageID
-	}
-	if o.SEmailAddress != nil {
-		toSerialize["sEmailAddress"] = o.SEmailAddress
-	}
-	if o.SPhoneE164 != nil {
-		toSerialize["sPhoneE164"] = o.SPhoneE164
-	}
-	if o.SPhoneE164Cell != nil {
-		toSerialize["sPhoneE164Cell"] = o.SPhoneE164Cell
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsignsignerResponseCompoundContact) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["pkiContactID"] = o.PkiContactID
+	toSerialize["sContactFirstname"] = o.SContactFirstname
+	toSerialize["sContactLastname"] = o.SContactLastname
+	toSerialize["fkiLanguageID"] = o.FkiLanguageID
+	if !IsNil(o.SEmailAddress) {
+		toSerialize["sEmailAddress"] = o.SEmailAddress
+	}
+	if !IsNil(o.SPhoneE164) {
+		toSerialize["sPhoneE164"] = o.SPhoneE164
+	}
+	if !IsNil(o.SPhoneExtension) {
+		toSerialize["sPhoneExtension"] = o.SPhoneExtension
+	}
+	if !IsNil(o.SPhoneE164Cell) {
+		toSerialize["sPhoneE164Cell"] = o.SPhoneE164Cell
+	}
+	return toSerialize, nil
 }
 
 type NullableEzsignsignerResponseCompoundContact struct {

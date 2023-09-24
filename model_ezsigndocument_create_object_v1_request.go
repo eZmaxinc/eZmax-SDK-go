@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,7 +15,10 @@ import (
 	"encoding/json"
 )
 
-// EzsigndocumentCreateObjectV1Request Request for the /1/object/ezsigndocument/createObject API Request
+// checks if the EzsigndocumentCreateObjectV1Request type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsigndocumentCreateObjectV1Request{}
+
+// EzsigndocumentCreateObjectV1Request Request for POST /1/object/ezsigndocument
 type EzsigndocumentCreateObjectV1Request struct {
 	ObjEzsigndocument *EzsigndocumentRequest `json:"objEzsigndocument,omitempty"`
 	ObjEzsigndocumentCompound *EzsigndocumentRequestCompound `json:"objEzsigndocumentCompound,omitempty"`
@@ -40,7 +43,7 @@ func NewEzsigndocumentCreateObjectV1RequestWithDefaults() *EzsigndocumentCreateO
 
 // GetObjEzsigndocument returns the ObjEzsigndocument field value if set, zero value otherwise.
 func (o *EzsigndocumentCreateObjectV1Request) GetObjEzsigndocument() EzsigndocumentRequest {
-	if o == nil || o.ObjEzsigndocument == nil {
+	if o == nil || IsNil(o.ObjEzsigndocument) {
 		var ret EzsigndocumentRequest
 		return ret
 	}
@@ -50,7 +53,7 @@ func (o *EzsigndocumentCreateObjectV1Request) GetObjEzsigndocument() Ezsigndocum
 // GetObjEzsigndocumentOk returns a tuple with the ObjEzsigndocument field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentCreateObjectV1Request) GetObjEzsigndocumentOk() (*EzsigndocumentRequest, bool) {
-	if o == nil || o.ObjEzsigndocument == nil {
+	if o == nil || IsNil(o.ObjEzsigndocument) {
 		return nil, false
 	}
 	return o.ObjEzsigndocument, true
@@ -58,7 +61,7 @@ func (o *EzsigndocumentCreateObjectV1Request) GetObjEzsigndocumentOk() (*Ezsignd
 
 // HasObjEzsigndocument returns a boolean if a field has been set.
 func (o *EzsigndocumentCreateObjectV1Request) HasObjEzsigndocument() bool {
-	if o != nil && o.ObjEzsigndocument != nil {
+	if o != nil && !IsNil(o.ObjEzsigndocument) {
 		return true
 	}
 
@@ -72,7 +75,7 @@ func (o *EzsigndocumentCreateObjectV1Request) SetObjEzsigndocument(v Ezsigndocum
 
 // GetObjEzsigndocumentCompound returns the ObjEzsigndocumentCompound field value if set, zero value otherwise.
 func (o *EzsigndocumentCreateObjectV1Request) GetObjEzsigndocumentCompound() EzsigndocumentRequestCompound {
-	if o == nil || o.ObjEzsigndocumentCompound == nil {
+	if o == nil || IsNil(o.ObjEzsigndocumentCompound) {
 		var ret EzsigndocumentRequestCompound
 		return ret
 	}
@@ -82,7 +85,7 @@ func (o *EzsigndocumentCreateObjectV1Request) GetObjEzsigndocumentCompound() Ezs
 // GetObjEzsigndocumentCompoundOk returns a tuple with the ObjEzsigndocumentCompound field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentCreateObjectV1Request) GetObjEzsigndocumentCompoundOk() (*EzsigndocumentRequestCompound, bool) {
-	if o == nil || o.ObjEzsigndocumentCompound == nil {
+	if o == nil || IsNil(o.ObjEzsigndocumentCompound) {
 		return nil, false
 	}
 	return o.ObjEzsigndocumentCompound, true
@@ -90,7 +93,7 @@ func (o *EzsigndocumentCreateObjectV1Request) GetObjEzsigndocumentCompoundOk() (
 
 // HasObjEzsigndocumentCompound returns a boolean if a field has been set.
 func (o *EzsigndocumentCreateObjectV1Request) HasObjEzsigndocumentCompound() bool {
-	if o != nil && o.ObjEzsigndocumentCompound != nil {
+	if o != nil && !IsNil(o.ObjEzsigndocumentCompound) {
 		return true
 	}
 
@@ -103,14 +106,22 @@ func (o *EzsigndocumentCreateObjectV1Request) SetObjEzsigndocumentCompound(v Ezs
 }
 
 func (o EzsigndocumentCreateObjectV1Request) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if o.ObjEzsigndocument != nil {
-		toSerialize["objEzsigndocument"] = o.ObjEzsigndocument
-	}
-	if o.ObjEzsigndocumentCompound != nil {
-		toSerialize["objEzsigndocumentCompound"] = o.ObjEzsigndocumentCompound
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsigndocumentCreateObjectV1Request) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ObjEzsigndocument) {
+		toSerialize["objEzsigndocument"] = o.ObjEzsigndocument
+	}
+	if !IsNil(o.ObjEzsigndocumentCompound) {
+		toSerialize["objEzsigndocumentCompound"] = o.ObjEzsigndocumentCompound
+	}
+	return toSerialize, nil
 }
 
 type NullableEzsigndocumentCreateObjectV1Request struct {

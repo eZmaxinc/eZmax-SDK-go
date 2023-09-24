@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,19 +15,56 @@ import (
 	"encoding/json"
 )
 
+// checks if the EzsignformfieldgroupResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsignformfieldgroupResponse{}
+
 // EzsignformfieldgroupResponse An Ezsignformfieldgroup Object
 type EzsignformfieldgroupResponse struct {
+	// The unique ID of the Ezsignformfieldgroup
+	PkiEzsignformfieldgroupID int32 `json:"pkiEzsignformfieldgroupID"`
+	// The unique ID of the Ezsigndocument
+	FkiEzsigndocumentID int32 `json:"fkiEzsigndocumentID"`
+	EEzsignformfieldgroupType FieldEEzsignformfieldgroupType `json:"eEzsignformfieldgroupType"`
+	EEzsignformfieldgroupSignerrequirement FieldEEzsignformfieldgroupSignerrequirement `json:"eEzsignformfieldgroupSignerrequirement"`
 	// The Label for the Ezsignformfieldgroup
 	SEzsignformfieldgroupLabel string `json:"sEzsignformfieldgroupLabel"`
+	// The step when the Ezsignsigner will be invited to fill the form fields
+	IEzsignformfieldgroupStep int32 `json:"iEzsignformfieldgroupStep"`
+	// The default value for the Ezsignformfieldgroup
+	SEzsignformfieldgroupDefaultvalue *string `json:"sEzsignformfieldgroupDefaultvalue,omitempty"`
+	// The minimum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup
+	IEzsignformfieldgroupFilledmin int32 `json:"iEzsignformfieldgroupFilledmin"`
+	// The maximum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup
+	IEzsignformfieldgroupFilledmax int32 `json:"iEzsignformfieldgroupFilledmax"`
+	// Whether the Ezsignformfieldgroup is read only or not.
+	BEzsignformfieldgroupReadonly bool `json:"bEzsignformfieldgroupReadonly"`
+	// The maximum length for the value in the Ezsignformfieldgroup  This can only be set if eEzsignformfieldgroupType is **Text** or **Textarea**
+	IEzsignformfieldgroupMaxlength *int32 `json:"iEzsignformfieldgroupMaxlength,omitempty"`
+	// Whether the Ezsignformfieldgroup is encrypted in the database or not. Encrypted values are not displayed on the Ezsigndocument. This can only be set if eEzsignformfieldgroupType is **Text** or **Textarea**
+	BEzsignformfieldgroupEncrypted *bool `json:"bEzsignformfieldgroupEncrypted,omitempty"`
+	EEzsignformfieldgroupTextvalidation *EnumTextvalidation `json:"eEzsignformfieldgroupTextvalidation,omitempty"`
+	// A regular expression to indicate what values are acceptable for the Ezsignformfieldgroup.  This can only be set if eEzsignformfieldgroupType is **Text** or **Textarea**
+	SEzsignformfieldgroupRegexp *string `json:"sEzsignformfieldgroupRegexp,omitempty"`
+	// A tooltip that will be presented to Ezsignsigner about the Ezsignformfieldgroup
+	TEzsignformfieldgroupTooltip *string `json:"tEzsignformfieldgroupTooltip,omitempty"`
+	EEzsignformfieldgroupTooltipposition *FieldEEzsignformfieldgroupTooltipposition `json:"eEzsignformfieldgroupTooltipposition,omitempty"`
 }
 
 // NewEzsignformfieldgroupResponse instantiates a new EzsignformfieldgroupResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignformfieldgroupResponse(sEzsignformfieldgroupLabel string) *EzsignformfieldgroupResponse {
+func NewEzsignformfieldgroupResponse(pkiEzsignformfieldgroupID int32, fkiEzsigndocumentID int32, eEzsignformfieldgroupType FieldEEzsignformfieldgroupType, eEzsignformfieldgroupSignerrequirement FieldEEzsignformfieldgroupSignerrequirement, sEzsignformfieldgroupLabel string, iEzsignformfieldgroupStep int32, iEzsignformfieldgroupFilledmin int32, iEzsignformfieldgroupFilledmax int32, bEzsignformfieldgroupReadonly bool) *EzsignformfieldgroupResponse {
 	this := EzsignformfieldgroupResponse{}
+	this.PkiEzsignformfieldgroupID = pkiEzsignformfieldgroupID
+	this.FkiEzsigndocumentID = fkiEzsigndocumentID
+	this.EEzsignformfieldgroupType = eEzsignformfieldgroupType
+	this.EEzsignformfieldgroupSignerrequirement = eEzsignformfieldgroupSignerrequirement
 	this.SEzsignformfieldgroupLabel = sEzsignformfieldgroupLabel
+	this.IEzsignformfieldgroupStep = iEzsignformfieldgroupStep
+	this.IEzsignformfieldgroupFilledmin = iEzsignformfieldgroupFilledmin
+	this.IEzsignformfieldgroupFilledmax = iEzsignformfieldgroupFilledmax
+	this.BEzsignformfieldgroupReadonly = bEzsignformfieldgroupReadonly
 	return &this
 }
 
@@ -37,6 +74,102 @@ func NewEzsignformfieldgroupResponse(sEzsignformfieldgroupLabel string) *Ezsignf
 func NewEzsignformfieldgroupResponseWithDefaults() *EzsignformfieldgroupResponse {
 	this := EzsignformfieldgroupResponse{}
 	return &this
+}
+
+// GetPkiEzsignformfieldgroupID returns the PkiEzsignformfieldgroupID field value
+func (o *EzsignformfieldgroupResponse) GetPkiEzsignformfieldgroupID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.PkiEzsignformfieldgroupID
+}
+
+// GetPkiEzsignformfieldgroupIDOk returns a tuple with the PkiEzsignformfieldgroupID field value
+// and a boolean to check if the value has been set.
+func (o *EzsignformfieldgroupResponse) GetPkiEzsignformfieldgroupIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PkiEzsignformfieldgroupID, true
+}
+
+// SetPkiEzsignformfieldgroupID sets field value
+func (o *EzsignformfieldgroupResponse) SetPkiEzsignformfieldgroupID(v int32) {
+	o.PkiEzsignformfieldgroupID = v
+}
+
+// GetFkiEzsigndocumentID returns the FkiEzsigndocumentID field value
+func (o *EzsignformfieldgroupResponse) GetFkiEzsigndocumentID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiEzsigndocumentID
+}
+
+// GetFkiEzsigndocumentIDOk returns a tuple with the FkiEzsigndocumentID field value
+// and a boolean to check if the value has been set.
+func (o *EzsignformfieldgroupResponse) GetFkiEzsigndocumentIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiEzsigndocumentID, true
+}
+
+// SetFkiEzsigndocumentID sets field value
+func (o *EzsignformfieldgroupResponse) SetFkiEzsigndocumentID(v int32) {
+	o.FkiEzsigndocumentID = v
+}
+
+// GetEEzsignformfieldgroupType returns the EEzsignformfieldgroupType field value
+func (o *EzsignformfieldgroupResponse) GetEEzsignformfieldgroupType() FieldEEzsignformfieldgroupType {
+	if o == nil {
+		var ret FieldEEzsignformfieldgroupType
+		return ret
+	}
+
+	return o.EEzsignformfieldgroupType
+}
+
+// GetEEzsignformfieldgroupTypeOk returns a tuple with the EEzsignformfieldgroupType field value
+// and a boolean to check if the value has been set.
+func (o *EzsignformfieldgroupResponse) GetEEzsignformfieldgroupTypeOk() (*FieldEEzsignformfieldgroupType, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EEzsignformfieldgroupType, true
+}
+
+// SetEEzsignformfieldgroupType sets field value
+func (o *EzsignformfieldgroupResponse) SetEEzsignformfieldgroupType(v FieldEEzsignformfieldgroupType) {
+	o.EEzsignformfieldgroupType = v
+}
+
+// GetEEzsignformfieldgroupSignerrequirement returns the EEzsignformfieldgroupSignerrequirement field value
+func (o *EzsignformfieldgroupResponse) GetEEzsignformfieldgroupSignerrequirement() FieldEEzsignformfieldgroupSignerrequirement {
+	if o == nil {
+		var ret FieldEEzsignformfieldgroupSignerrequirement
+		return ret
+	}
+
+	return o.EEzsignformfieldgroupSignerrequirement
+}
+
+// GetEEzsignformfieldgroupSignerrequirementOk returns a tuple with the EEzsignformfieldgroupSignerrequirement field value
+// and a boolean to check if the value has been set.
+func (o *EzsignformfieldgroupResponse) GetEEzsignformfieldgroupSignerrequirementOk() (*FieldEEzsignformfieldgroupSignerrequirement, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EEzsignformfieldgroupSignerrequirement, true
+}
+
+// SetEEzsignformfieldgroupSignerrequirement sets field value
+func (o *EzsignformfieldgroupResponse) SetEEzsignformfieldgroupSignerrequirement(v FieldEEzsignformfieldgroupSignerrequirement) {
+	o.EEzsignformfieldgroupSignerrequirement = v
 }
 
 // GetSEzsignformfieldgroupLabel returns the SEzsignformfieldgroupLabel field value
@@ -63,12 +196,367 @@ func (o *EzsignformfieldgroupResponse) SetSEzsignformfieldgroupLabel(v string) {
 	o.SEzsignformfieldgroupLabel = v
 }
 
+// GetIEzsignformfieldgroupStep returns the IEzsignformfieldgroupStep field value
+func (o *EzsignformfieldgroupResponse) GetIEzsignformfieldgroupStep() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IEzsignformfieldgroupStep
+}
+
+// GetIEzsignformfieldgroupStepOk returns a tuple with the IEzsignformfieldgroupStep field value
+// and a boolean to check if the value has been set.
+func (o *EzsignformfieldgroupResponse) GetIEzsignformfieldgroupStepOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IEzsignformfieldgroupStep, true
+}
+
+// SetIEzsignformfieldgroupStep sets field value
+func (o *EzsignformfieldgroupResponse) SetIEzsignformfieldgroupStep(v int32) {
+	o.IEzsignformfieldgroupStep = v
+}
+
+// GetSEzsignformfieldgroupDefaultvalue returns the SEzsignformfieldgroupDefaultvalue field value if set, zero value otherwise.
+func (o *EzsignformfieldgroupResponse) GetSEzsignformfieldgroupDefaultvalue() string {
+	if o == nil || IsNil(o.SEzsignformfieldgroupDefaultvalue) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsignformfieldgroupDefaultvalue
+}
+
+// GetSEzsignformfieldgroupDefaultvalueOk returns a tuple with the SEzsignformfieldgroupDefaultvalue field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignformfieldgroupResponse) GetSEzsignformfieldgroupDefaultvalueOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsignformfieldgroupDefaultvalue) {
+		return nil, false
+	}
+	return o.SEzsignformfieldgroupDefaultvalue, true
+}
+
+// HasSEzsignformfieldgroupDefaultvalue returns a boolean if a field has been set.
+func (o *EzsignformfieldgroupResponse) HasSEzsignformfieldgroupDefaultvalue() bool {
+	if o != nil && !IsNil(o.SEzsignformfieldgroupDefaultvalue) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsignformfieldgroupDefaultvalue gets a reference to the given string and assigns it to the SEzsignformfieldgroupDefaultvalue field.
+func (o *EzsignformfieldgroupResponse) SetSEzsignformfieldgroupDefaultvalue(v string) {
+	o.SEzsignformfieldgroupDefaultvalue = &v
+}
+
+// GetIEzsignformfieldgroupFilledmin returns the IEzsignformfieldgroupFilledmin field value
+func (o *EzsignformfieldgroupResponse) GetIEzsignformfieldgroupFilledmin() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IEzsignformfieldgroupFilledmin
+}
+
+// GetIEzsignformfieldgroupFilledminOk returns a tuple with the IEzsignformfieldgroupFilledmin field value
+// and a boolean to check if the value has been set.
+func (o *EzsignformfieldgroupResponse) GetIEzsignformfieldgroupFilledminOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IEzsignformfieldgroupFilledmin, true
+}
+
+// SetIEzsignformfieldgroupFilledmin sets field value
+func (o *EzsignformfieldgroupResponse) SetIEzsignformfieldgroupFilledmin(v int32) {
+	o.IEzsignformfieldgroupFilledmin = v
+}
+
+// GetIEzsignformfieldgroupFilledmax returns the IEzsignformfieldgroupFilledmax field value
+func (o *EzsignformfieldgroupResponse) GetIEzsignformfieldgroupFilledmax() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IEzsignformfieldgroupFilledmax
+}
+
+// GetIEzsignformfieldgroupFilledmaxOk returns a tuple with the IEzsignformfieldgroupFilledmax field value
+// and a boolean to check if the value has been set.
+func (o *EzsignformfieldgroupResponse) GetIEzsignformfieldgroupFilledmaxOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IEzsignformfieldgroupFilledmax, true
+}
+
+// SetIEzsignformfieldgroupFilledmax sets field value
+func (o *EzsignformfieldgroupResponse) SetIEzsignformfieldgroupFilledmax(v int32) {
+	o.IEzsignformfieldgroupFilledmax = v
+}
+
+// GetBEzsignformfieldgroupReadonly returns the BEzsignformfieldgroupReadonly field value
+func (o *EzsignformfieldgroupResponse) GetBEzsignformfieldgroupReadonly() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BEzsignformfieldgroupReadonly
+}
+
+// GetBEzsignformfieldgroupReadonlyOk returns a tuple with the BEzsignformfieldgroupReadonly field value
+// and a boolean to check if the value has been set.
+func (o *EzsignformfieldgroupResponse) GetBEzsignformfieldgroupReadonlyOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BEzsignformfieldgroupReadonly, true
+}
+
+// SetBEzsignformfieldgroupReadonly sets field value
+func (o *EzsignformfieldgroupResponse) SetBEzsignformfieldgroupReadonly(v bool) {
+	o.BEzsignformfieldgroupReadonly = v
+}
+
+// GetIEzsignformfieldgroupMaxlength returns the IEzsignformfieldgroupMaxlength field value if set, zero value otherwise.
+func (o *EzsignformfieldgroupResponse) GetIEzsignformfieldgroupMaxlength() int32 {
+	if o == nil || IsNil(o.IEzsignformfieldgroupMaxlength) {
+		var ret int32
+		return ret
+	}
+	return *o.IEzsignformfieldgroupMaxlength
+}
+
+// GetIEzsignformfieldgroupMaxlengthOk returns a tuple with the IEzsignformfieldgroupMaxlength field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignformfieldgroupResponse) GetIEzsignformfieldgroupMaxlengthOk() (*int32, bool) {
+	if o == nil || IsNil(o.IEzsignformfieldgroupMaxlength) {
+		return nil, false
+	}
+	return o.IEzsignformfieldgroupMaxlength, true
+}
+
+// HasIEzsignformfieldgroupMaxlength returns a boolean if a field has been set.
+func (o *EzsignformfieldgroupResponse) HasIEzsignformfieldgroupMaxlength() bool {
+	if o != nil && !IsNil(o.IEzsignformfieldgroupMaxlength) {
+		return true
+	}
+
+	return false
+}
+
+// SetIEzsignformfieldgroupMaxlength gets a reference to the given int32 and assigns it to the IEzsignformfieldgroupMaxlength field.
+func (o *EzsignformfieldgroupResponse) SetIEzsignformfieldgroupMaxlength(v int32) {
+	o.IEzsignformfieldgroupMaxlength = &v
+}
+
+// GetBEzsignformfieldgroupEncrypted returns the BEzsignformfieldgroupEncrypted field value if set, zero value otherwise.
+func (o *EzsignformfieldgroupResponse) GetBEzsignformfieldgroupEncrypted() bool {
+	if o == nil || IsNil(o.BEzsignformfieldgroupEncrypted) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignformfieldgroupEncrypted
+}
+
+// GetBEzsignformfieldgroupEncryptedOk returns a tuple with the BEzsignformfieldgroupEncrypted field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignformfieldgroupResponse) GetBEzsignformfieldgroupEncryptedOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignformfieldgroupEncrypted) {
+		return nil, false
+	}
+	return o.BEzsignformfieldgroupEncrypted, true
+}
+
+// HasBEzsignformfieldgroupEncrypted returns a boolean if a field has been set.
+func (o *EzsignformfieldgroupResponse) HasBEzsignformfieldgroupEncrypted() bool {
+	if o != nil && !IsNil(o.BEzsignformfieldgroupEncrypted) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignformfieldgroupEncrypted gets a reference to the given bool and assigns it to the BEzsignformfieldgroupEncrypted field.
+func (o *EzsignformfieldgroupResponse) SetBEzsignformfieldgroupEncrypted(v bool) {
+	o.BEzsignformfieldgroupEncrypted = &v
+}
+
+// GetEEzsignformfieldgroupTextvalidation returns the EEzsignformfieldgroupTextvalidation field value if set, zero value otherwise.
+func (o *EzsignformfieldgroupResponse) GetEEzsignformfieldgroupTextvalidation() EnumTextvalidation {
+	if o == nil || IsNil(o.EEzsignformfieldgroupTextvalidation) {
+		var ret EnumTextvalidation
+		return ret
+	}
+	return *o.EEzsignformfieldgroupTextvalidation
+}
+
+// GetEEzsignformfieldgroupTextvalidationOk returns a tuple with the EEzsignformfieldgroupTextvalidation field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignformfieldgroupResponse) GetEEzsignformfieldgroupTextvalidationOk() (*EnumTextvalidation, bool) {
+	if o == nil || IsNil(o.EEzsignformfieldgroupTextvalidation) {
+		return nil, false
+	}
+	return o.EEzsignformfieldgroupTextvalidation, true
+}
+
+// HasEEzsignformfieldgroupTextvalidation returns a boolean if a field has been set.
+func (o *EzsignformfieldgroupResponse) HasEEzsignformfieldgroupTextvalidation() bool {
+	if o != nil && !IsNil(o.EEzsignformfieldgroupTextvalidation) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsignformfieldgroupTextvalidation gets a reference to the given EnumTextvalidation and assigns it to the EEzsignformfieldgroupTextvalidation field.
+func (o *EzsignformfieldgroupResponse) SetEEzsignformfieldgroupTextvalidation(v EnumTextvalidation) {
+	o.EEzsignformfieldgroupTextvalidation = &v
+}
+
+// GetSEzsignformfieldgroupRegexp returns the SEzsignformfieldgroupRegexp field value if set, zero value otherwise.
+func (o *EzsignformfieldgroupResponse) GetSEzsignformfieldgroupRegexp() string {
+	if o == nil || IsNil(o.SEzsignformfieldgroupRegexp) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsignformfieldgroupRegexp
+}
+
+// GetSEzsignformfieldgroupRegexpOk returns a tuple with the SEzsignformfieldgroupRegexp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignformfieldgroupResponse) GetSEzsignformfieldgroupRegexpOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsignformfieldgroupRegexp) {
+		return nil, false
+	}
+	return o.SEzsignformfieldgroupRegexp, true
+}
+
+// HasSEzsignformfieldgroupRegexp returns a boolean if a field has been set.
+func (o *EzsignformfieldgroupResponse) HasSEzsignformfieldgroupRegexp() bool {
+	if o != nil && !IsNil(o.SEzsignformfieldgroupRegexp) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsignformfieldgroupRegexp gets a reference to the given string and assigns it to the SEzsignformfieldgroupRegexp field.
+func (o *EzsignformfieldgroupResponse) SetSEzsignformfieldgroupRegexp(v string) {
+	o.SEzsignformfieldgroupRegexp = &v
+}
+
+// GetTEzsignformfieldgroupTooltip returns the TEzsignformfieldgroupTooltip field value if set, zero value otherwise.
+func (o *EzsignformfieldgroupResponse) GetTEzsignformfieldgroupTooltip() string {
+	if o == nil || IsNil(o.TEzsignformfieldgroupTooltip) {
+		var ret string
+		return ret
+	}
+	return *o.TEzsignformfieldgroupTooltip
+}
+
+// GetTEzsignformfieldgroupTooltipOk returns a tuple with the TEzsignformfieldgroupTooltip field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignformfieldgroupResponse) GetTEzsignformfieldgroupTooltipOk() (*string, bool) {
+	if o == nil || IsNil(o.TEzsignformfieldgroupTooltip) {
+		return nil, false
+	}
+	return o.TEzsignformfieldgroupTooltip, true
+}
+
+// HasTEzsignformfieldgroupTooltip returns a boolean if a field has been set.
+func (o *EzsignformfieldgroupResponse) HasTEzsignformfieldgroupTooltip() bool {
+	if o != nil && !IsNil(o.TEzsignformfieldgroupTooltip) {
+		return true
+	}
+
+	return false
+}
+
+// SetTEzsignformfieldgroupTooltip gets a reference to the given string and assigns it to the TEzsignformfieldgroupTooltip field.
+func (o *EzsignformfieldgroupResponse) SetTEzsignformfieldgroupTooltip(v string) {
+	o.TEzsignformfieldgroupTooltip = &v
+}
+
+// GetEEzsignformfieldgroupTooltipposition returns the EEzsignformfieldgroupTooltipposition field value if set, zero value otherwise.
+func (o *EzsignformfieldgroupResponse) GetEEzsignformfieldgroupTooltipposition() FieldEEzsignformfieldgroupTooltipposition {
+	if o == nil || IsNil(o.EEzsignformfieldgroupTooltipposition) {
+		var ret FieldEEzsignformfieldgroupTooltipposition
+		return ret
+	}
+	return *o.EEzsignformfieldgroupTooltipposition
+}
+
+// GetEEzsignformfieldgroupTooltippositionOk returns a tuple with the EEzsignformfieldgroupTooltipposition field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignformfieldgroupResponse) GetEEzsignformfieldgroupTooltippositionOk() (*FieldEEzsignformfieldgroupTooltipposition, bool) {
+	if o == nil || IsNil(o.EEzsignformfieldgroupTooltipposition) {
+		return nil, false
+	}
+	return o.EEzsignformfieldgroupTooltipposition, true
+}
+
+// HasEEzsignformfieldgroupTooltipposition returns a boolean if a field has been set.
+func (o *EzsignformfieldgroupResponse) HasEEzsignformfieldgroupTooltipposition() bool {
+	if o != nil && !IsNil(o.EEzsignformfieldgroupTooltipposition) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsignformfieldgroupTooltipposition gets a reference to the given FieldEEzsignformfieldgroupTooltipposition and assigns it to the EEzsignformfieldgroupTooltipposition field.
+func (o *EzsignformfieldgroupResponse) SetEEzsignformfieldgroupTooltipposition(v FieldEEzsignformfieldgroupTooltipposition) {
+	o.EEzsignformfieldgroupTooltipposition = &v
+}
+
 func (o EzsignformfieldgroupResponse) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["sEzsignformfieldgroupLabel"] = o.SEzsignformfieldgroupLabel
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsignformfieldgroupResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["pkiEzsignformfieldgroupID"] = o.PkiEzsignformfieldgroupID
+	toSerialize["fkiEzsigndocumentID"] = o.FkiEzsigndocumentID
+	toSerialize["eEzsignformfieldgroupType"] = o.EEzsignformfieldgroupType
+	toSerialize["eEzsignformfieldgroupSignerrequirement"] = o.EEzsignformfieldgroupSignerrequirement
+	toSerialize["sEzsignformfieldgroupLabel"] = o.SEzsignformfieldgroupLabel
+	toSerialize["iEzsignformfieldgroupStep"] = o.IEzsignformfieldgroupStep
+	if !IsNil(o.SEzsignformfieldgroupDefaultvalue) {
+		toSerialize["sEzsignformfieldgroupDefaultvalue"] = o.SEzsignformfieldgroupDefaultvalue
+	}
+	toSerialize["iEzsignformfieldgroupFilledmin"] = o.IEzsignformfieldgroupFilledmin
+	toSerialize["iEzsignformfieldgroupFilledmax"] = o.IEzsignformfieldgroupFilledmax
+	toSerialize["bEzsignformfieldgroupReadonly"] = o.BEzsignformfieldgroupReadonly
+	if !IsNil(o.IEzsignformfieldgroupMaxlength) {
+		toSerialize["iEzsignformfieldgroupMaxlength"] = o.IEzsignformfieldgroupMaxlength
+	}
+	if !IsNil(o.BEzsignformfieldgroupEncrypted) {
+		toSerialize["bEzsignformfieldgroupEncrypted"] = o.BEzsignformfieldgroupEncrypted
+	}
+	if !IsNil(o.EEzsignformfieldgroupTextvalidation) {
+		toSerialize["eEzsignformfieldgroupTextvalidation"] = o.EEzsignformfieldgroupTextvalidation
+	}
+	if !IsNil(o.SEzsignformfieldgroupRegexp) {
+		toSerialize["sEzsignformfieldgroupRegexp"] = o.SEzsignformfieldgroupRegexp
+	}
+	if !IsNil(o.TEzsignformfieldgroupTooltip) {
+		toSerialize["tEzsignformfieldgroupTooltip"] = o.TEzsignformfieldgroupTooltip
+	}
+	if !IsNil(o.EEzsignformfieldgroupTooltipposition) {
+		toSerialize["eEzsignformfieldgroupTooltipposition"] = o.EEzsignformfieldgroupTooltipposition
+	}
+	return toSerialize, nil
 }
 
 type NullableEzsignformfieldgroupResponse struct {

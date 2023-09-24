@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,18 +15,21 @@ import (
 	"encoding/json"
 )
 
+// checks if the CommonWebhook type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CommonWebhook{}
+
 // CommonWebhook This is the base Webhook object
 type CommonWebhook struct {
-	ObjWebhook WebhookResponse `json:"objWebhook"`
+	ObjWebhook CustomWebhookResponse `json:"objWebhook"`
 	// An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.
-	AObjAttempt []AttemptResponse `json:"a_objAttempt"`
+	AObjAttempt []AttemptResponseCompound `json:"a_objAttempt"`
 }
 
 // NewCommonWebhook instantiates a new CommonWebhook object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommonWebhook(objWebhook WebhookResponse, aObjAttempt []AttemptResponse) *CommonWebhook {
+func NewCommonWebhook(objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound) *CommonWebhook {
 	this := CommonWebhook{}
 	this.ObjWebhook = objWebhook
 	this.AObjAttempt = aObjAttempt
@@ -42,9 +45,9 @@ func NewCommonWebhookWithDefaults() *CommonWebhook {
 }
 
 // GetObjWebhook returns the ObjWebhook field value
-func (o *CommonWebhook) GetObjWebhook() WebhookResponse {
+func (o *CommonWebhook) GetObjWebhook() CustomWebhookResponse {
 	if o == nil {
-		var ret WebhookResponse
+		var ret CustomWebhookResponse
 		return ret
 	}
 
@@ -53,7 +56,7 @@ func (o *CommonWebhook) GetObjWebhook() WebhookResponse {
 
 // GetObjWebhookOk returns a tuple with the ObjWebhook field value
 // and a boolean to check if the value has been set.
-func (o *CommonWebhook) GetObjWebhookOk() (*WebhookResponse, bool) {
+func (o *CommonWebhook) GetObjWebhookOk() (*CustomWebhookResponse, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -61,14 +64,14 @@ func (o *CommonWebhook) GetObjWebhookOk() (*WebhookResponse, bool) {
 }
 
 // SetObjWebhook sets field value
-func (o *CommonWebhook) SetObjWebhook(v WebhookResponse) {
+func (o *CommonWebhook) SetObjWebhook(v CustomWebhookResponse) {
 	o.ObjWebhook = v
 }
 
 // GetAObjAttempt returns the AObjAttempt field value
-func (o *CommonWebhook) GetAObjAttempt() []AttemptResponse {
+func (o *CommonWebhook) GetAObjAttempt() []AttemptResponseCompound {
 	if o == nil {
-		var ret []AttemptResponse
+		var ret []AttemptResponseCompound
 		return ret
 	}
 
@@ -77,7 +80,7 @@ func (o *CommonWebhook) GetAObjAttempt() []AttemptResponse {
 
 // GetAObjAttemptOk returns a tuple with the AObjAttempt field value
 // and a boolean to check if the value has been set.
-func (o *CommonWebhook) GetAObjAttemptOk() ([]AttemptResponse, bool) {
+func (o *CommonWebhook) GetAObjAttemptOk() ([]AttemptResponseCompound, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -85,19 +88,23 @@ func (o *CommonWebhook) GetAObjAttemptOk() ([]AttemptResponse, bool) {
 }
 
 // SetAObjAttempt sets field value
-func (o *CommonWebhook) SetAObjAttempt(v []AttemptResponse) {
+func (o *CommonWebhook) SetAObjAttempt(v []AttemptResponseCompound) {
 	o.AObjAttempt = v
 }
 
 func (o CommonWebhook) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["objWebhook"] = o.ObjWebhook
-	}
-	if true {
-		toSerialize["a_objAttempt"] = o.AObjAttempt
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CommonWebhook) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["objWebhook"] = o.ObjWebhook
+	toSerialize["a_objAttempt"] = o.AObjAttempt
+	return toSerialize, nil
 }
 
 type NullableCommonWebhook struct {

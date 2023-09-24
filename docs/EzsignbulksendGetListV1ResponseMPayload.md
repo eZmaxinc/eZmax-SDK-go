@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AObjEzsignbulksend** | [**[]EzsignbulksendListElement**](EzsignbulksendListElement.md) |  | 
 **IRowReturned** | **int32** | The number of rows returned | 
 **IRowFiltered** | **int32** | The number of rows matching your filters (if any) or the total number of rows | 
+**AObjEzsignbulksend** | [**[]EzsignbulksendListElement**](EzsignbulksendListElement.md) |  | 
 
 ## Methods
 
 ### NewEzsignbulksendGetListV1ResponseMPayload
 
-`func NewEzsignbulksendGetListV1ResponseMPayload(aObjEzsignbulksend []EzsignbulksendListElement, iRowReturned int32, iRowFiltered int32, ) *EzsignbulksendGetListV1ResponseMPayload`
+`func NewEzsignbulksendGetListV1ResponseMPayload(iRowReturned int32, iRowFiltered int32, aObjEzsignbulksend []EzsignbulksendListElement, ) *EzsignbulksendGetListV1ResponseMPayload`
 
 NewEzsignbulksendGetListV1ResponseMPayload instantiates a new EzsignbulksendGetListV1ResponseMPayload object
 This constructor will assign default values to properties that have it defined,
@@ -26,26 +26,6 @@ will change when the set of required properties is changed
 NewEzsignbulksendGetListV1ResponseMPayloadWithDefaults instantiates a new EzsignbulksendGetListV1ResponseMPayload object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetAObjEzsignbulksend
-
-`func (o *EzsignbulksendGetListV1ResponseMPayload) GetAObjEzsignbulksend() []EzsignbulksendListElement`
-
-GetAObjEzsignbulksend returns the AObjEzsignbulksend field if non-nil, zero value otherwise.
-
-### GetAObjEzsignbulksendOk
-
-`func (o *EzsignbulksendGetListV1ResponseMPayload) GetAObjEzsignbulksendOk() (*[]EzsignbulksendListElement, bool)`
-
-GetAObjEzsignbulksendOk returns a tuple with the AObjEzsignbulksend field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAObjEzsignbulksend
-
-`func (o *EzsignbulksendGetListV1ResponseMPayload) SetAObjEzsignbulksend(v []EzsignbulksendListElement)`
-
-SetAObjEzsignbulksend sets AObjEzsignbulksend field to given value.
-
 
 ### GetIRowReturned
 
@@ -85,6 +65,26 @@ and a boolean to check if the value has been set.
 `func (o *EzsignbulksendGetListV1ResponseMPayload) SetIRowFiltered(v int32)`
 
 SetIRowFiltered sets IRowFiltered field to given value.
+
+
+### GetAObjEzsignbulksend
+
+`func (o *EzsignbulksendGetListV1ResponseMPayload) GetAObjEzsignbulksend() []EzsignbulksendListElement`
+
+GetAObjEzsignbulksend returns the AObjEzsignbulksend field if non-nil, zero value otherwise.
+
+### GetAObjEzsignbulksendOk
+
+`func (o *EzsignbulksendGetListV1ResponseMPayload) GetAObjEzsignbulksendOk() (*[]EzsignbulksendListElement, bool)`
+
+GetAObjEzsignbulksendOk returns a tuple with the AObjEzsignbulksend field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAObjEzsignbulksend
+
+`func (o *EzsignbulksendGetListV1ResponseMPayload) SetAObjEzsignbulksend(v []EzsignbulksendListElement)`
+
+SetAObjEzsignbulksend sets AObjEzsignbulksend field to given value.
 
 
 

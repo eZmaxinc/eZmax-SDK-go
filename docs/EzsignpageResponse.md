@@ -10,13 +10,13 @@ Name | Type | Description | Notes
 **IEzsignpageWidthpdf** | **int32** | The Width of the page in points calculated at 72 DPI | 
 **IEzsignpageHeightpdf** | **int32** | The Height of the page in points calculated at 72 DPI | 
 **IEzsignpagePagenumber** | **int32** | The page number in the Ezsigndocument | 
-**SImageUrl** | **string** | The Url to the Ezsignpage&#39;s rasterized image.  Url will expire after 5 minutes. | 
+**SComputedImageurl** | **string** | The Url to the Ezsignpage&#39;s rasterized image.  Url will expire after 5 minutes. | 
 
 ## Methods
 
 ### NewEzsignpageResponse
 
-`func NewEzsignpageResponse(pkiEzsignpageID int32, iEzsignpageWidthimage int32, iEzsignpageHeightimage int32, iEzsignpageWidthpdf int32, iEzsignpageHeightpdf int32, iEzsignpagePagenumber int32, sImageUrl string, ) *EzsignpageResponse`
+`func NewEzsignpageResponse(pkiEzsignpageID int32, iEzsignpageWidthimage int32, iEzsignpageHeightimage int32, iEzsignpageWidthpdf int32, iEzsignpageHeightpdf int32, iEzsignpagePagenumber int32, sComputedImageurl string, ) *EzsignpageResponse`
 
 NewEzsignpageResponse instantiates a new EzsignpageResponse object
 This constructor will assign default values to properties that have it defined,
@@ -151,24 +151,24 @@ and a boolean to check if the value has been set.
 SetIEzsignpagePagenumber sets IEzsignpagePagenumber field to given value.
 
 
-### GetSImageUrl
+### GetSComputedImageurl
 
-`func (o *EzsignpageResponse) GetSImageUrl() string`
+`func (o *EzsignpageResponse) GetSComputedImageurl() string`
 
-GetSImageUrl returns the SImageUrl field if non-nil, zero value otherwise.
+GetSComputedImageurl returns the SComputedImageurl field if non-nil, zero value otherwise.
 
-### GetSImageUrlOk
+### GetSComputedImageurlOk
 
-`func (o *EzsignpageResponse) GetSImageUrlOk() (*string, bool)`
+`func (o *EzsignpageResponse) GetSComputedImageurlOk() (*string, bool)`
 
-GetSImageUrlOk returns a tuple with the SImageUrl field if it's non-nil, zero value otherwise
+GetSComputedImageurlOk returns a tuple with the SComputedImageurl field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSImageUrl
+### SetSComputedImageurl
 
-`func (o *EzsignpageResponse) SetSImageUrl(v string)`
+`func (o *EzsignpageResponse) SetSComputedImageurl(v string)`
 
-SetSImageUrl sets SImageUrl field to given value.
+SetSComputedImageurl sets SComputedImageurl field to given value.
 
 
 

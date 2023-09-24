@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -14,6 +14,9 @@ package eZmaxApi
 import (
 	"encoding/json"
 )
+
+// checks if the AddressRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &AddressRequest{}
 
 // AddressRequest An Address Object
 type AddressRequest struct {
@@ -253,32 +256,24 @@ func (o *AddressRequest) SetSAddressZip(v string) {
 }
 
 func (o AddressRequest) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["fkiAddresstypeID"] = o.FkiAddresstypeID
-	}
-	if true {
-		toSerialize["sAddressCivic"] = o.SAddressCivic
-	}
-	if true {
-		toSerialize["sAddressStreet"] = o.SAddressStreet
-	}
-	if true {
-		toSerialize["sAddressSuite"] = o.SAddressSuite
-	}
-	if true {
-		toSerialize["sAddressCity"] = o.SAddressCity
-	}
-	if true {
-		toSerialize["fkiProvinceID"] = o.FkiProvinceID
-	}
-	if true {
-		toSerialize["fkiCountryID"] = o.FkiCountryID
-	}
-	if true {
-		toSerialize["sAddressZip"] = o.SAddressZip
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o AddressRequest) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["fkiAddresstypeID"] = o.FkiAddresstypeID
+	toSerialize["sAddressCivic"] = o.SAddressCivic
+	toSerialize["sAddressStreet"] = o.SAddressStreet
+	toSerialize["sAddressSuite"] = o.SAddressSuite
+	toSerialize["sAddressCity"] = o.SAddressCity
+	toSerialize["fkiProvinceID"] = o.FkiProvinceID
+	toSerialize["fkiCountryID"] = o.FkiCountryID
+	toSerialize["sAddressZip"] = o.SAddressZip
+	return toSerialize, nil
 }
 
 type NullableAddressRequest struct {

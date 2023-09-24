@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,19 +15,23 @@ import (
 	"encoding/json"
 )
 
-// EzsignbulksendGetListV1Response Response for the /1/object/ezsignbulksend/getList API Request
+// checks if the EzsignbulksendGetListV1Response type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsignbulksendGetListV1Response{}
+
+// EzsignbulksendGetListV1Response Response for GET /1/object/ezsignbulksend/getList
 type EzsignbulksendGetListV1Response struct {
-	MPayload EzsignbulksendGetListV1ResponseMPayload `json:"mPayload"`
-	ObjDebugPayload *CommonResponseObjDebugPayloadGetList `json:"objDebugPayload,omitempty"`
+	ObjDebugPayload CommonResponseObjDebugPayloadGetList `json:"objDebugPayload"`
 	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
+	MPayload EzsignbulksendGetListV1ResponseMPayload `json:"mPayload"`
 }
 
 // NewEzsignbulksendGetListV1Response instantiates a new EzsignbulksendGetListV1Response object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignbulksendGetListV1Response(mPayload EzsignbulksendGetListV1ResponseMPayload) *EzsignbulksendGetListV1Response {
+func NewEzsignbulksendGetListV1Response(objDebugPayload CommonResponseObjDebugPayloadGetList, mPayload EzsignbulksendGetListV1ResponseMPayload) *EzsignbulksendGetListV1Response {
 	this := EzsignbulksendGetListV1Response{}
+	this.ObjDebugPayload = objDebugPayload
 	this.MPayload = mPayload
 	return &this
 }
@@ -38,6 +42,62 @@ func NewEzsignbulksendGetListV1Response(mPayload EzsignbulksendGetListV1Response
 func NewEzsignbulksendGetListV1ResponseWithDefaults() *EzsignbulksendGetListV1Response {
 	this := EzsignbulksendGetListV1Response{}
 	return &this
+}
+
+// GetObjDebugPayload returns the ObjDebugPayload field value
+func (o *EzsignbulksendGetListV1Response) GetObjDebugPayload() CommonResponseObjDebugPayloadGetList {
+	if o == nil {
+		var ret CommonResponseObjDebugPayloadGetList
+		return ret
+	}
+
+	return o.ObjDebugPayload
+}
+
+// GetObjDebugPayloadOk returns a tuple with the ObjDebugPayload field value
+// and a boolean to check if the value has been set.
+func (o *EzsignbulksendGetListV1Response) GetObjDebugPayloadOk() (*CommonResponseObjDebugPayloadGetList, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjDebugPayload, true
+}
+
+// SetObjDebugPayload sets field value
+func (o *EzsignbulksendGetListV1Response) SetObjDebugPayload(v CommonResponseObjDebugPayloadGetList) {
+	o.ObjDebugPayload = v
+}
+
+// GetObjDebug returns the ObjDebug field value if set, zero value otherwise.
+func (o *EzsignbulksendGetListV1Response) GetObjDebug() CommonResponseObjDebug {
+	if o == nil || IsNil(o.ObjDebug) {
+		var ret CommonResponseObjDebug
+		return ret
+	}
+	return *o.ObjDebug
+}
+
+// GetObjDebugOk returns a tuple with the ObjDebug field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignbulksendGetListV1Response) GetObjDebugOk() (*CommonResponseObjDebug, bool) {
+	if o == nil || IsNil(o.ObjDebug) {
+		return nil, false
+	}
+	return o.ObjDebug, true
+}
+
+// HasObjDebug returns a boolean if a field has been set.
+func (o *EzsignbulksendGetListV1Response) HasObjDebug() bool {
+	if o != nil && !IsNil(o.ObjDebug) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjDebug gets a reference to the given CommonResponseObjDebug and assigns it to the ObjDebug field.
+func (o *EzsignbulksendGetListV1Response) SetObjDebug(v CommonResponseObjDebug) {
+	o.ObjDebug = &v
 }
 
 // GetMPayload returns the MPayload field value
@@ -64,82 +124,22 @@ func (o *EzsignbulksendGetListV1Response) SetMPayload(v EzsignbulksendGetListV1R
 	o.MPayload = v
 }
 
-// GetObjDebugPayload returns the ObjDebugPayload field value if set, zero value otherwise.
-func (o *EzsignbulksendGetListV1Response) GetObjDebugPayload() CommonResponseObjDebugPayloadGetList {
-	if o == nil || o.ObjDebugPayload == nil {
-		var ret CommonResponseObjDebugPayloadGetList
-		return ret
-	}
-	return *o.ObjDebugPayload
-}
-
-// GetObjDebugPayloadOk returns a tuple with the ObjDebugPayload field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *EzsignbulksendGetListV1Response) GetObjDebugPayloadOk() (*CommonResponseObjDebugPayloadGetList, bool) {
-	if o == nil || o.ObjDebugPayload == nil {
-		return nil, false
-	}
-	return o.ObjDebugPayload, true
-}
-
-// HasObjDebugPayload returns a boolean if a field has been set.
-func (o *EzsignbulksendGetListV1Response) HasObjDebugPayload() bool {
-	if o != nil && o.ObjDebugPayload != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetObjDebugPayload gets a reference to the given CommonResponseObjDebugPayloadGetList and assigns it to the ObjDebugPayload field.
-func (o *EzsignbulksendGetListV1Response) SetObjDebugPayload(v CommonResponseObjDebugPayloadGetList) {
-	o.ObjDebugPayload = &v
-}
-
-// GetObjDebug returns the ObjDebug field value if set, zero value otherwise.
-func (o *EzsignbulksendGetListV1Response) GetObjDebug() CommonResponseObjDebug {
-	if o == nil || o.ObjDebug == nil {
-		var ret CommonResponseObjDebug
-		return ret
-	}
-	return *o.ObjDebug
-}
-
-// GetObjDebugOk returns a tuple with the ObjDebug field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *EzsignbulksendGetListV1Response) GetObjDebugOk() (*CommonResponseObjDebug, bool) {
-	if o == nil || o.ObjDebug == nil {
-		return nil, false
-	}
-	return o.ObjDebug, true
-}
-
-// HasObjDebug returns a boolean if a field has been set.
-func (o *EzsignbulksendGetListV1Response) HasObjDebug() bool {
-	if o != nil && o.ObjDebug != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetObjDebug gets a reference to the given CommonResponseObjDebug and assigns it to the ObjDebug field.
-func (o *EzsignbulksendGetListV1Response) SetObjDebug(v CommonResponseObjDebug) {
-	o.ObjDebug = &v
-}
-
 func (o EzsignbulksendGetListV1Response) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["mPayload"] = o.MPayload
-	}
-	if o.ObjDebugPayload != nil {
-		toSerialize["objDebugPayload"] = o.ObjDebugPayload
-	}
-	if o.ObjDebug != nil {
-		toSerialize["objDebug"] = o.ObjDebug
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsignbulksendGetListV1Response) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["objDebugPayload"] = o.ObjDebugPayload
+	if !IsNil(o.ObjDebug) {
+		toSerialize["objDebug"] = o.ObjDebug
+	}
+	toSerialize["mPayload"] = o.MPayload
+	return toSerialize, nil
 }
 
 type NullableEzsignbulksendGetListV1Response struct {

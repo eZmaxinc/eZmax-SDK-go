@@ -49,6 +49,12 @@
 
 * `DECLINED_TO_SIGN` (value: `"DeclinedToSign"`)
 
+* `DELAYED_SEND_EMAIL` (value: `"DelayedSendEmail"`)
+
+* `REGENERATE_PAGE` (value: `"RegeneratePage"`)
+
+* `REGENERATE_PAGE_FORM` (value: `"RegeneratePageForm"`)
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

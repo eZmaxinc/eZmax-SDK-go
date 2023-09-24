@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,15 +15,18 @@ import (
 	"encoding/json"
 )
 
+// checks if the EzsignfoldersignerassociationResponseCompoundUser type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsignfoldersignerassociationResponseCompoundUser{}
+
 // EzsignfoldersignerassociationResponseCompoundUser A Ezsignfoldersignerassociation->User Object and children to create a complete structure
 type EzsignfoldersignerassociationResponseCompoundUser struct {
 	// The unique ID of the User
 	PkiUserID int32 `json:"pkiUserID"`
 	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
 	FkiLanguageID int32 `json:"fkiLanguageID"`
-	// The First name of the user
+	// The first name of the user
 	SUserFirstname string `json:"sUserFirstname"`
-	// The Last name of the user
+	// The last name of the user
 	SUserLastname string `json:"sUserLastname"`
 	// The email address.
 	SEmailAddress string `json:"sEmailAddress"`
@@ -172,23 +175,21 @@ func (o *EzsignfoldersignerassociationResponseCompoundUser) SetSEmailAddress(v s
 }
 
 func (o EzsignfoldersignerassociationResponseCompoundUser) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["pkiUserID"] = o.PkiUserID
-	}
-	if true {
-		toSerialize["fkiLanguageID"] = o.FkiLanguageID
-	}
-	if true {
-		toSerialize["sUserFirstname"] = o.SUserFirstname
-	}
-	if true {
-		toSerialize["sUserLastname"] = o.SUserLastname
-	}
-	if true {
-		toSerialize["sEmailAddress"] = o.SEmailAddress
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsignfoldersignerassociationResponseCompoundUser) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["pkiUserID"] = o.PkiUserID
+	toSerialize["fkiLanguageID"] = o.FkiLanguageID
+	toSerialize["sUserFirstname"] = o.SUserFirstname
+	toSerialize["sUserLastname"] = o.SUserLastname
+	toSerialize["sEmailAddress"] = o.SEmailAddress
+	return toSerialize, nil
 }
 
 type NullableEzsignfoldersignerassociationResponseCompoundUser struct {

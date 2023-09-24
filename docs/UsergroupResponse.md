@@ -1,0 +1,72 @@
+# UsergroupResponse
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**PkiUsergroupID** | **int32** | The unique ID of the Usergroup | 
+**ObjUsergroupName** | [**MultilingualUsergroupName**](MultilingualUsergroupName.md) |  | 
+
+## Methods
+
+### NewUsergroupResponse
+
+`func NewUsergroupResponse(pkiUsergroupID int32, objUsergroupName MultilingualUsergroupName, ) *UsergroupResponse`
+
+NewUsergroupResponse instantiates a new UsergroupResponse object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewUsergroupResponseWithDefaults
+
+`func NewUsergroupResponseWithDefaults() *UsergroupResponse`
+
+NewUsergroupResponseWithDefaults instantiates a new UsergroupResponse object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetPkiUsergroupID
+
+`func (o *UsergroupResponse) GetPkiUsergroupID() int32`
+
+GetPkiUsergroupID returns the PkiUsergroupID field if non-nil, zero value otherwise.
+
+### GetPkiUsergroupIDOk
+
+`func (o *UsergroupResponse) GetPkiUsergroupIDOk() (*int32, bool)`
+
+GetPkiUsergroupIDOk returns a tuple with the PkiUsergroupID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPkiUsergroupID
+
+`func (o *UsergroupResponse) SetPkiUsergroupID(v int32)`
+
+SetPkiUsergroupID sets PkiUsergroupID field to given value.
+
+
+### GetObjUsergroupName
+
+`func (o *UsergroupResponse) GetObjUsergroupName() MultilingualUsergroupName`
+
+GetObjUsergroupName returns the ObjUsergroupName field if non-nil, zero value otherwise.
+
+### GetObjUsergroupNameOk
+
+`func (o *UsergroupResponse) GetObjUsergroupNameOk() (*MultilingualUsergroupName, bool)`
+
+GetObjUsergroupNameOk returns a tuple with the ObjUsergroupName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjUsergroupName
+
+`func (o *UsergroupResponse) SetObjUsergroupName(v MultilingualUsergroupName)`
+
+SetObjUsergroupName sets ObjUsergroupName field to given value.
+
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,31 +15,48 @@ import (
 	"encoding/json"
 )
 
+// checks if the ActivesessionResponseCompoundUser type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ActivesessionResponseCompoundUser{}
+
 // ActivesessionResponseCompoundUser An Activesession->User Object and children to create a complete structure
 type ActivesessionResponseCompoundUser struct {
 	// The unique ID of the User
 	PkiUserID int32 `json:"pkiUserID"`
+	// The unique ID of the Timezone
+	FkiTimezoneID int32 `json:"fkiTimezoneID"`
 	// The url of the picture used as avatar
 	SAvatarUrl string `json:"sAvatarUrl"`
-	// The First name of the user
+	// The first name of the user
 	SUserFirstname string `json:"sUserFirstname"`
-	// The Last name of the user
+	// The last name of the user
 	SUserLastname string `json:"sUserLastname"`
 	// The email address.
 	SEmailAddress string `json:"sEmailAddress"`
+	EUserEzsignsendreminderfrequency FieldEUserEzsignsendreminderfrequency `json:"eUserEzsignsendreminderfrequency"`
+	// The int32 representation of the interface color. For example, RGB color #39435B would be 3752795
+	IUserInterfacecolor int32 `json:"iUserInterfacecolor"`
+	// Whether to use a dark mode interface
+	BUserInterfacedark bool `json:"bUserInterfacedark"`
+	// The number of rows to return by default in lists
+	IUserListresult int32 `json:"iUserListresult"`
 }
 
 // NewActivesessionResponseCompoundUser instantiates a new ActivesessionResponseCompoundUser object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewActivesessionResponseCompoundUser(pkiUserID int32, sAvatarUrl string, sUserFirstname string, sUserLastname string, sEmailAddress string) *ActivesessionResponseCompoundUser {
+func NewActivesessionResponseCompoundUser(pkiUserID int32, fkiTimezoneID int32, sAvatarUrl string, sUserFirstname string, sUserLastname string, sEmailAddress string, eUserEzsignsendreminderfrequency FieldEUserEzsignsendreminderfrequency, iUserInterfacecolor int32, bUserInterfacedark bool, iUserListresult int32) *ActivesessionResponseCompoundUser {
 	this := ActivesessionResponseCompoundUser{}
 	this.PkiUserID = pkiUserID
+	this.FkiTimezoneID = fkiTimezoneID
 	this.SAvatarUrl = sAvatarUrl
 	this.SUserFirstname = sUserFirstname
 	this.SUserLastname = sUserLastname
 	this.SEmailAddress = sEmailAddress
+	this.EUserEzsignsendreminderfrequency = eUserEzsignsendreminderfrequency
+	this.IUserInterfacecolor = iUserInterfacecolor
+	this.BUserInterfacedark = bUserInterfacedark
+	this.IUserListresult = iUserListresult
 	return &this
 }
 
@@ -73,6 +90,30 @@ func (o *ActivesessionResponseCompoundUser) GetPkiUserIDOk() (*int32, bool) {
 // SetPkiUserID sets field value
 func (o *ActivesessionResponseCompoundUser) SetPkiUserID(v int32) {
 	o.PkiUserID = v
+}
+
+// GetFkiTimezoneID returns the FkiTimezoneID field value
+func (o *ActivesessionResponseCompoundUser) GetFkiTimezoneID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiTimezoneID
+}
+
+// GetFkiTimezoneIDOk returns a tuple with the FkiTimezoneID field value
+// and a boolean to check if the value has been set.
+func (o *ActivesessionResponseCompoundUser) GetFkiTimezoneIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiTimezoneID, true
+}
+
+// SetFkiTimezoneID sets field value
+func (o *ActivesessionResponseCompoundUser) SetFkiTimezoneID(v int32) {
+	o.FkiTimezoneID = v
 }
 
 // GetSAvatarUrl returns the SAvatarUrl field value
@@ -171,24 +212,123 @@ func (o *ActivesessionResponseCompoundUser) SetSEmailAddress(v string) {
 	o.SEmailAddress = v
 }
 
+// GetEUserEzsignsendreminderfrequency returns the EUserEzsignsendreminderfrequency field value
+func (o *ActivesessionResponseCompoundUser) GetEUserEzsignsendreminderfrequency() FieldEUserEzsignsendreminderfrequency {
+	if o == nil {
+		var ret FieldEUserEzsignsendreminderfrequency
+		return ret
+	}
+
+	return o.EUserEzsignsendreminderfrequency
+}
+
+// GetEUserEzsignsendreminderfrequencyOk returns a tuple with the EUserEzsignsendreminderfrequency field value
+// and a boolean to check if the value has been set.
+func (o *ActivesessionResponseCompoundUser) GetEUserEzsignsendreminderfrequencyOk() (*FieldEUserEzsignsendreminderfrequency, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EUserEzsignsendreminderfrequency, true
+}
+
+// SetEUserEzsignsendreminderfrequency sets field value
+func (o *ActivesessionResponseCompoundUser) SetEUserEzsignsendreminderfrequency(v FieldEUserEzsignsendreminderfrequency) {
+	o.EUserEzsignsendreminderfrequency = v
+}
+
+// GetIUserInterfacecolor returns the IUserInterfacecolor field value
+func (o *ActivesessionResponseCompoundUser) GetIUserInterfacecolor() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IUserInterfacecolor
+}
+
+// GetIUserInterfacecolorOk returns a tuple with the IUserInterfacecolor field value
+// and a boolean to check if the value has been set.
+func (o *ActivesessionResponseCompoundUser) GetIUserInterfacecolorOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IUserInterfacecolor, true
+}
+
+// SetIUserInterfacecolor sets field value
+func (o *ActivesessionResponseCompoundUser) SetIUserInterfacecolor(v int32) {
+	o.IUserInterfacecolor = v
+}
+
+// GetBUserInterfacedark returns the BUserInterfacedark field value
+func (o *ActivesessionResponseCompoundUser) GetBUserInterfacedark() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BUserInterfacedark
+}
+
+// GetBUserInterfacedarkOk returns a tuple with the BUserInterfacedark field value
+// and a boolean to check if the value has been set.
+func (o *ActivesessionResponseCompoundUser) GetBUserInterfacedarkOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BUserInterfacedark, true
+}
+
+// SetBUserInterfacedark sets field value
+func (o *ActivesessionResponseCompoundUser) SetBUserInterfacedark(v bool) {
+	o.BUserInterfacedark = v
+}
+
+// GetIUserListresult returns the IUserListresult field value
+func (o *ActivesessionResponseCompoundUser) GetIUserListresult() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IUserListresult
+}
+
+// GetIUserListresultOk returns a tuple with the IUserListresult field value
+// and a boolean to check if the value has been set.
+func (o *ActivesessionResponseCompoundUser) GetIUserListresultOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IUserListresult, true
+}
+
+// SetIUserListresult sets field value
+func (o *ActivesessionResponseCompoundUser) SetIUserListresult(v int32) {
+	o.IUserListresult = v
+}
+
 func (o ActivesessionResponseCompoundUser) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["pkiUserID"] = o.PkiUserID
-	}
-	if true {
-		toSerialize["sAvatarUrl"] = o.SAvatarUrl
-	}
-	if true {
-		toSerialize["sUserFirstname"] = o.SUserFirstname
-	}
-	if true {
-		toSerialize["sUserLastname"] = o.SUserLastname
-	}
-	if true {
-		toSerialize["sEmailAddress"] = o.SEmailAddress
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ActivesessionResponseCompoundUser) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["pkiUserID"] = o.PkiUserID
+	toSerialize["fkiTimezoneID"] = o.FkiTimezoneID
+	toSerialize["sAvatarUrl"] = o.SAvatarUrl
+	toSerialize["sUserFirstname"] = o.SUserFirstname
+	toSerialize["sUserLastname"] = o.SUserLastname
+	toSerialize["sEmailAddress"] = o.SEmailAddress
+	toSerialize["eUserEzsignsendreminderfrequency"] = o.EUserEzsignsendreminderfrequency
+	toSerialize["iUserInterfacecolor"] = o.IUserInterfacecolor
+	toSerialize["bUserInterfacedark"] = o.BUserInterfacedark
+	toSerialize["iUserListresult"] = o.IUserListresult
+	return toSerialize, nil
 }
 
 type NullableActivesessionResponseCompoundUser struct {

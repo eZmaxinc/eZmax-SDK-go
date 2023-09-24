@@ -4,16 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjApikeyDescription** | [**MultilingualApikeyDescription**](MultilingualApikeyDescription.md) |  | 
-**SComputedToken** | Pointer to **string** | The secret token for the API key.  This will be returned only on creation. | [optional] 
 **PkiApikeyID** | **int32** | The unique ID of the Apikey | 
+**FkiUserID** | **int32** | The unique ID of the User | 
+**ObjApikeyDescription** | [**MultilingualApikeyDescription**](MultilingualApikeyDescription.md) |  | 
+**ObjContactName** | [**CustomContactNameResponse**](CustomContactNameResponse.md) |  | 
+**SApikeyApikey** | Pointer to **string** | The Apikey for the API key.  This will be hidden if we are not creating or regenerating the Apikey. | [optional] 
+**SApikeySecret** | Pointer to **string** | The Secret for the API key.  This will be hidden if we are not creating or regenerating the Apikey. | [optional] 
+**BApikeyIsactive** | **bool** | Whether the apikey is active or not | 
+**BApikeyIssigned** | Pointer to **bool** | Whether the apikey is signed or not | [optional] 
 **ObjAudit** | [**CommonAudit**](CommonAudit.md) |  | 
 
 ## Methods
 
 ### NewApikeyResponse
 
-`func NewApikeyResponse(objApikeyDescription MultilingualApikeyDescription, pkiApikeyID int32, objAudit CommonAudit, ) *ApikeyResponse`
+`func NewApikeyResponse(pkiApikeyID int32, fkiUserID int32, objApikeyDescription MultilingualApikeyDescription, objContactName CustomContactNameResponse, bApikeyIsactive bool, objAudit CommonAudit, ) *ApikeyResponse`
 
 NewApikeyResponse instantiates a new ApikeyResponse object
 This constructor will assign default values to properties that have it defined,
@@ -27,6 +32,46 @@ will change when the set of required properties is changed
 NewApikeyResponseWithDefaults instantiates a new ApikeyResponse object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetPkiApikeyID
+
+`func (o *ApikeyResponse) GetPkiApikeyID() int32`
+
+GetPkiApikeyID returns the PkiApikeyID field if non-nil, zero value otherwise.
+
+### GetPkiApikeyIDOk
+
+`func (o *ApikeyResponse) GetPkiApikeyIDOk() (*int32, bool)`
+
+GetPkiApikeyIDOk returns a tuple with the PkiApikeyID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPkiApikeyID
+
+`func (o *ApikeyResponse) SetPkiApikeyID(v int32)`
+
+SetPkiApikeyID sets PkiApikeyID field to given value.
+
+
+### GetFkiUserID
+
+`func (o *ApikeyResponse) GetFkiUserID() int32`
+
+GetFkiUserID returns the FkiUserID field if non-nil, zero value otherwise.
+
+### GetFkiUserIDOk
+
+`func (o *ApikeyResponse) GetFkiUserIDOk() (*int32, bool)`
+
+GetFkiUserIDOk returns a tuple with the FkiUserID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiUserID
+
+`func (o *ApikeyResponse) SetFkiUserID(v int32)`
+
+SetFkiUserID sets FkiUserID field to given value.
+
 
 ### GetObjApikeyDescription
 
@@ -48,50 +93,120 @@ and a boolean to check if the value has been set.
 SetObjApikeyDescription sets ObjApikeyDescription field to given value.
 
 
-### GetSComputedToken
+### GetObjContactName
 
-`func (o *ApikeyResponse) GetSComputedToken() string`
+`func (o *ApikeyResponse) GetObjContactName() CustomContactNameResponse`
 
-GetSComputedToken returns the SComputedToken field if non-nil, zero value otherwise.
+GetObjContactName returns the ObjContactName field if non-nil, zero value otherwise.
 
-### GetSComputedTokenOk
+### GetObjContactNameOk
 
-`func (o *ApikeyResponse) GetSComputedTokenOk() (*string, bool)`
+`func (o *ApikeyResponse) GetObjContactNameOk() (*CustomContactNameResponse, bool)`
 
-GetSComputedTokenOk returns a tuple with the SComputedToken field if it's non-nil, zero value otherwise
+GetObjContactNameOk returns a tuple with the ObjContactName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSComputedToken
+### SetObjContactName
 
-`func (o *ApikeyResponse) SetSComputedToken(v string)`
+`func (o *ApikeyResponse) SetObjContactName(v CustomContactNameResponse)`
 
-SetSComputedToken sets SComputedToken field to given value.
+SetObjContactName sets ObjContactName field to given value.
 
-### HasSComputedToken
 
-`func (o *ApikeyResponse) HasSComputedToken() bool`
+### GetSApikeyApikey
 
-HasSComputedToken returns a boolean if a field has been set.
+`func (o *ApikeyResponse) GetSApikeyApikey() string`
 
-### GetPkiApikeyID
+GetSApikeyApikey returns the SApikeyApikey field if non-nil, zero value otherwise.
 
-`func (o *ApikeyResponse) GetPkiApikeyID() int32`
+### GetSApikeyApikeyOk
 
-GetPkiApikeyID returns the PkiApikeyID field if non-nil, zero value otherwise.
+`func (o *ApikeyResponse) GetSApikeyApikeyOk() (*string, bool)`
 
-### GetPkiApikeyIDOk
-
-`func (o *ApikeyResponse) GetPkiApikeyIDOk() (*int32, bool)`
-
-GetPkiApikeyIDOk returns a tuple with the PkiApikeyID field if it's non-nil, zero value otherwise
+GetSApikeyApikeyOk returns a tuple with the SApikeyApikey field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPkiApikeyID
+### SetSApikeyApikey
 
-`func (o *ApikeyResponse) SetPkiApikeyID(v int32)`
+`func (o *ApikeyResponse) SetSApikeyApikey(v string)`
 
-SetPkiApikeyID sets PkiApikeyID field to given value.
+SetSApikeyApikey sets SApikeyApikey field to given value.
 
+### HasSApikeyApikey
+
+`func (o *ApikeyResponse) HasSApikeyApikey() bool`
+
+HasSApikeyApikey returns a boolean if a field has been set.
+
+### GetSApikeySecret
+
+`func (o *ApikeyResponse) GetSApikeySecret() string`
+
+GetSApikeySecret returns the SApikeySecret field if non-nil, zero value otherwise.
+
+### GetSApikeySecretOk
+
+`func (o *ApikeyResponse) GetSApikeySecretOk() (*string, bool)`
+
+GetSApikeySecretOk returns a tuple with the SApikeySecret field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSApikeySecret
+
+`func (o *ApikeyResponse) SetSApikeySecret(v string)`
+
+SetSApikeySecret sets SApikeySecret field to given value.
+
+### HasSApikeySecret
+
+`func (o *ApikeyResponse) HasSApikeySecret() bool`
+
+HasSApikeySecret returns a boolean if a field has been set.
+
+### GetBApikeyIsactive
+
+`func (o *ApikeyResponse) GetBApikeyIsactive() bool`
+
+GetBApikeyIsactive returns the BApikeyIsactive field if non-nil, zero value otherwise.
+
+### GetBApikeyIsactiveOk
+
+`func (o *ApikeyResponse) GetBApikeyIsactiveOk() (*bool, bool)`
+
+GetBApikeyIsactiveOk returns a tuple with the BApikeyIsactive field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBApikeyIsactive
+
+`func (o *ApikeyResponse) SetBApikeyIsactive(v bool)`
+
+SetBApikeyIsactive sets BApikeyIsactive field to given value.
+
+
+### GetBApikeyIssigned
+
+`func (o *ApikeyResponse) GetBApikeyIssigned() bool`
+
+GetBApikeyIssigned returns the BApikeyIssigned field if non-nil, zero value otherwise.
+
+### GetBApikeyIssignedOk
+
+`func (o *ApikeyResponse) GetBApikeyIssignedOk() (*bool, bool)`
+
+GetBApikeyIssignedOk returns a tuple with the BApikeyIssigned field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBApikeyIssigned
+
+`func (o *ApikeyResponse) SetBApikeyIssigned(v bool)`
+
+SetBApikeyIssigned sets BApikeyIssigned field to given value.
+
+### HasBApikeyIssigned
+
+`func (o *ApikeyResponse) HasBApikeyIssigned() bool`
+
+HasBApikeyIssigned returns a boolean if a field has been set.
 
 ### GetObjAudit
 

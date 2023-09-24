@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CommonResponseObjDebugPayloadGetList type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CommonResponseObjDebugPayloadGetList{}
+
 // CommonResponseObjDebugPayloadGetList This is a debug object containing debugging information on the actual function
 type CommonResponseObjDebugPayloadGetList struct {
 	// The minimum version of the function that can be called
@@ -23,22 +26,31 @@ type CommonResponseObjDebugPayloadGetList struct {
 	IVersionMax int32 `json:"iVersionMax"`
 	// An array of permissions required to access this function.  If the value \"0\" is present in the array, anyone can call this function.  You must have one of the permission to access the function. You don't need to have all of them.
 	ARequiredPermission []int32 `json:"a_RequiredPermission"`
+	// Wheter the current route is deprecated or not
+	BVersionDeprecated bool `json:"bVersionDeprecated"`
 	AFilter CommonResponseFilter `json:"a_Filter"`
 	// List of available values for *eOrderBy*
 	AOrderBy map[string]string `json:"a_OrderBy"`
+	// The maximum numbers of results to be returned
+	IRowMax int32 `json:"iRowMax"`
+	// The starting element from where to start retrieving the results. For example if you started at iRowOffset=0 and asked for iRowMax=100, to get the next 100 results, you could specify iRowOffset=100&iRowMax=100,
+	IRowOffset int32 `json:"iRowOffset"`
 }
 
 // NewCommonResponseObjDebugPayloadGetList instantiates a new CommonResponseObjDebugPayloadGetList object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommonResponseObjDebugPayloadGetList(iVersionMin int32, iVersionMax int32, aRequiredPermission []int32, aFilter CommonResponseFilter, aOrderBy map[string]string) *CommonResponseObjDebugPayloadGetList {
+func NewCommonResponseObjDebugPayloadGetList(iVersionMin int32, iVersionMax int32, aRequiredPermission []int32, bVersionDeprecated bool, aFilter CommonResponseFilter, aOrderBy map[string]string, iRowMax int32, iRowOffset int32) *CommonResponseObjDebugPayloadGetList {
 	this := CommonResponseObjDebugPayloadGetList{}
 	this.IVersionMin = iVersionMin
 	this.IVersionMax = iVersionMax
 	this.ARequiredPermission = aRequiredPermission
+	this.BVersionDeprecated = bVersionDeprecated
 	this.AFilter = aFilter
 	this.AOrderBy = aOrderBy
+	this.IRowMax = iRowMax
+	this.IRowOffset = iRowOffset
 	return &this
 }
 
@@ -47,6 +59,10 @@ func NewCommonResponseObjDebugPayloadGetList(iVersionMin int32, iVersionMax int3
 // but it doesn't guarantee that properties required by API are set
 func NewCommonResponseObjDebugPayloadGetListWithDefaults() *CommonResponseObjDebugPayloadGetList {
 	this := CommonResponseObjDebugPayloadGetList{}
+	var iRowMax int32 = 10000
+	this.IRowMax = iRowMax
+	var iRowOffset int32 = 0
+	this.IRowOffset = iRowOffset
 	return &this
 }
 
@@ -122,6 +138,30 @@ func (o *CommonResponseObjDebugPayloadGetList) SetARequiredPermission(v []int32)
 	o.ARequiredPermission = v
 }
 
+// GetBVersionDeprecated returns the BVersionDeprecated field value
+func (o *CommonResponseObjDebugPayloadGetList) GetBVersionDeprecated() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BVersionDeprecated
+}
+
+// GetBVersionDeprecatedOk returns a tuple with the BVersionDeprecated field value
+// and a boolean to check if the value has been set.
+func (o *CommonResponseObjDebugPayloadGetList) GetBVersionDeprecatedOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BVersionDeprecated, true
+}
+
+// SetBVersionDeprecated sets field value
+func (o *CommonResponseObjDebugPayloadGetList) SetBVersionDeprecated(v bool) {
+	o.BVersionDeprecated = v
+}
+
 // GetAFilter returns the AFilter field value
 func (o *CommonResponseObjDebugPayloadGetList) GetAFilter() CommonResponseFilter {
 	if o == nil {
@@ -170,24 +210,73 @@ func (o *CommonResponseObjDebugPayloadGetList) SetAOrderBy(v map[string]string) 
 	o.AOrderBy = v
 }
 
+// GetIRowMax returns the IRowMax field value
+func (o *CommonResponseObjDebugPayloadGetList) GetIRowMax() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IRowMax
+}
+
+// GetIRowMaxOk returns a tuple with the IRowMax field value
+// and a boolean to check if the value has been set.
+func (o *CommonResponseObjDebugPayloadGetList) GetIRowMaxOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IRowMax, true
+}
+
+// SetIRowMax sets field value
+func (o *CommonResponseObjDebugPayloadGetList) SetIRowMax(v int32) {
+	o.IRowMax = v
+}
+
+// GetIRowOffset returns the IRowOffset field value
+func (o *CommonResponseObjDebugPayloadGetList) GetIRowOffset() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IRowOffset
+}
+
+// GetIRowOffsetOk returns a tuple with the IRowOffset field value
+// and a boolean to check if the value has been set.
+func (o *CommonResponseObjDebugPayloadGetList) GetIRowOffsetOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IRowOffset, true
+}
+
+// SetIRowOffset sets field value
+func (o *CommonResponseObjDebugPayloadGetList) SetIRowOffset(v int32) {
+	o.IRowOffset = v
+}
+
 func (o CommonResponseObjDebugPayloadGetList) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["iVersionMin"] = o.IVersionMin
-	}
-	if true {
-		toSerialize["iVersionMax"] = o.IVersionMax
-	}
-	if true {
-		toSerialize["a_RequiredPermission"] = o.ARequiredPermission
-	}
-	if true {
-		toSerialize["a_Filter"] = o.AFilter
-	}
-	if true {
-		toSerialize["a_OrderBy"] = o.AOrderBy
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CommonResponseObjDebugPayloadGetList) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["iVersionMin"] = o.IVersionMin
+	toSerialize["iVersionMax"] = o.IVersionMax
+	toSerialize["a_RequiredPermission"] = o.ARequiredPermission
+	toSerialize["bVersionDeprecated"] = o.BVersionDeprecated
+	toSerialize["a_Filter"] = o.AFilter
+	toSerialize["a_OrderBy"] = o.AOrderBy
+	toSerialize["iRowMax"] = o.IRowMax
+	toSerialize["iRowOffset"] = o.IRowOffset
+	return toSerialize, nil
 }
 
 type NullableCommonResponseObjDebugPayloadGetList struct {

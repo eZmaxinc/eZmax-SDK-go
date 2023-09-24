@@ -8,13 +8,13 @@ Name | Type | Description | Notes
 **FkiUserID** | Pointer to **int32** | The unique ID of the User | [optional] 
 **SContactFirstname** | **string** | The First name of the contact | 
 **SContactLastname** | **string** | The Last name of the contact | 
-**AObjEzsignformfieldgroupCompound** | [**[]EzsignformfieldgroupResponseCompound**](EzsignformfieldgroupResponseCompound.md) |  | 
+**AObjEzsignformfieldgroup** | [**[]CustomFormDataEzsignformfieldgroupResponse**](CustomFormDataEzsignformfieldgroupResponse.md) |  | 
 
 ## Methods
 
 ### NewCustomFormDataSignerResponse
 
-`func NewCustomFormDataSignerResponse(fkiEzsignfoldersignerassociationID int32, sContactFirstname string, sContactLastname string, aObjEzsignformfieldgroupCompound []EzsignformfieldgroupResponseCompound, ) *CustomFormDataSignerResponse`
+`func NewCustomFormDataSignerResponse(fkiEzsignfoldersignerassociationID int32, sContactFirstname string, sContactLastname string, aObjEzsignformfieldgroup []CustomFormDataEzsignformfieldgroupResponse, ) *CustomFormDataSignerResponse`
 
 NewCustomFormDataSignerResponse instantiates a new CustomFormDataSignerResponse object
 This constructor will assign default values to properties that have it defined,
@@ -114,24 +114,24 @@ and a boolean to check if the value has been set.
 SetSContactLastname sets SContactLastname field to given value.
 
 
-### GetAObjEzsignformfieldgroupCompound
+### GetAObjEzsignformfieldgroup
 
-`func (o *CustomFormDataSignerResponse) GetAObjEzsignformfieldgroupCompound() []EzsignformfieldgroupResponseCompound`
+`func (o *CustomFormDataSignerResponse) GetAObjEzsignformfieldgroup() []CustomFormDataEzsignformfieldgroupResponse`
 
-GetAObjEzsignformfieldgroupCompound returns the AObjEzsignformfieldgroupCompound field if non-nil, zero value otherwise.
+GetAObjEzsignformfieldgroup returns the AObjEzsignformfieldgroup field if non-nil, zero value otherwise.
 
-### GetAObjEzsignformfieldgroupCompoundOk
+### GetAObjEzsignformfieldgroupOk
 
-`func (o *CustomFormDataSignerResponse) GetAObjEzsignformfieldgroupCompoundOk() (*[]EzsignformfieldgroupResponseCompound, bool)`
+`func (o *CustomFormDataSignerResponse) GetAObjEzsignformfieldgroupOk() (*[]CustomFormDataEzsignformfieldgroupResponse, bool)`
 
-GetAObjEzsignformfieldgroupCompoundOk returns a tuple with the AObjEzsignformfieldgroupCompound field if it's non-nil, zero value otherwise
+GetAObjEzsignformfieldgroupOk returns a tuple with the AObjEzsignformfieldgroup field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAObjEzsignformfieldgroupCompound
+### SetAObjEzsignformfieldgroup
 
-`func (o *CustomFormDataSignerResponse) SetAObjEzsignformfieldgroupCompound(v []EzsignformfieldgroupResponseCompound)`
+`func (o *CustomFormDataSignerResponse) SetAObjEzsignformfieldgroup(v []CustomFormDataEzsignformfieldgroupResponse)`
 
-SetAObjEzsignformfieldgroupCompound sets AObjEzsignformfieldgroupCompound field to given value.
+SetAObjEzsignformfieldgroup sets AObjEzsignformfieldgroup field to given value.
 
 
 

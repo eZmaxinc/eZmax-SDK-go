@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,17 +15,19 @@ import (
 	"encoding/json"
 )
 
-// EzsigndocumentGetEzsignpagesV1ResponseMPayload Payload for the /1/object/ezsigndocument/{pkiEzsigndocument}/getEzsignpages API Request
+// checks if the EzsigndocumentGetEzsignpagesV1ResponseMPayload type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsigndocumentGetEzsignpagesV1ResponseMPayload{}
+
+// EzsigndocumentGetEzsignpagesV1ResponseMPayload Payload for GET /1/object/ezsigndocument/{pkiEzsigndocument}/getEzsignpages
 type EzsigndocumentGetEzsignpagesV1ResponseMPayload struct {
-	// 
-	AObjEzsignpage []EzsignpageResponse `json:"a_objEzsignpage"`
+	AObjEzsignpage []EzsignpageResponseCompound `json:"a_objEzsignpage"`
 }
 
 // NewEzsigndocumentGetEzsignpagesV1ResponseMPayload instantiates a new EzsigndocumentGetEzsignpagesV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigndocumentGetEzsignpagesV1ResponseMPayload(aObjEzsignpage []EzsignpageResponse) *EzsigndocumentGetEzsignpagesV1ResponseMPayload {
+func NewEzsigndocumentGetEzsignpagesV1ResponseMPayload(aObjEzsignpage []EzsignpageResponseCompound) *EzsigndocumentGetEzsignpagesV1ResponseMPayload {
 	this := EzsigndocumentGetEzsignpagesV1ResponseMPayload{}
 	this.AObjEzsignpage = aObjEzsignpage
 	return &this
@@ -40,9 +42,9 @@ func NewEzsigndocumentGetEzsignpagesV1ResponseMPayloadWithDefaults() *Ezsigndocu
 }
 
 // GetAObjEzsignpage returns the AObjEzsignpage field value
-func (o *EzsigndocumentGetEzsignpagesV1ResponseMPayload) GetAObjEzsignpage() []EzsignpageResponse {
+func (o *EzsigndocumentGetEzsignpagesV1ResponseMPayload) GetAObjEzsignpage() []EzsignpageResponseCompound {
 	if o == nil {
-		var ret []EzsignpageResponse
+		var ret []EzsignpageResponseCompound
 		return ret
 	}
 
@@ -51,7 +53,7 @@ func (o *EzsigndocumentGetEzsignpagesV1ResponseMPayload) GetAObjEzsignpage() []E
 
 // GetAObjEzsignpageOk returns a tuple with the AObjEzsignpage field value
 // and a boolean to check if the value has been set.
-func (o *EzsigndocumentGetEzsignpagesV1ResponseMPayload) GetAObjEzsignpageOk() ([]EzsignpageResponse, bool) {
+func (o *EzsigndocumentGetEzsignpagesV1ResponseMPayload) GetAObjEzsignpageOk() ([]EzsignpageResponseCompound, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -59,16 +61,22 @@ func (o *EzsigndocumentGetEzsignpagesV1ResponseMPayload) GetAObjEzsignpageOk() (
 }
 
 // SetAObjEzsignpage sets field value
-func (o *EzsigndocumentGetEzsignpagesV1ResponseMPayload) SetAObjEzsignpage(v []EzsignpageResponse) {
+func (o *EzsigndocumentGetEzsignpagesV1ResponseMPayload) SetAObjEzsignpage(v []EzsignpageResponseCompound) {
 	o.AObjEzsignpage = v
 }
 
 func (o EzsigndocumentGetEzsignpagesV1ResponseMPayload) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["a_objEzsignpage"] = o.AObjEzsignpage
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsigndocumentGetEzsignpagesV1ResponseMPayload) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["a_objEzsignpage"] = o.AObjEzsignpage
+	return toSerialize, nil
 }
 
 type NullableEzsigndocumentGetEzsignpagesV1ResponseMPayload struct {

@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,9 +15,11 @@ import (
 	"encoding/json"
 )
 
+// checks if the ContactRequestCompound type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ContactRequestCompound{}
+
 // ContactRequestCompound A Contact Object and children to create a complete structure
 type ContactRequestCompound struct {
-	ObjContactinformations ContactinformationsRequestCompound `json:"objContactinformations"`
 	// The unique ID of the Contacttitle.  Valid values:  |Value|Description| |-|-| |1|Ms.| |2|Mr.| |4|(Blank)| |5|Me (For Notaries)|
 	FkiContacttitleID int32 `json:"fkiContacttitleID"`
 	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
@@ -30,20 +32,21 @@ type ContactRequestCompound struct {
 	SContactCompany string `json:"sContactCompany"`
 	// The Birth Date of the contact
 	DtContactBirthdate *string `json:"dtContactBirthdate,omitempty"`
+	ObjContactinformations ContactinformationsRequestCompound `json:"objContactinformations"`
 }
 
 // NewContactRequestCompound instantiates a new ContactRequestCompound object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewContactRequestCompound(objContactinformations ContactinformationsRequestCompound, fkiContacttitleID int32, fkiLanguageID int32, sContactFirstname string, sContactLastname string, sContactCompany string) *ContactRequestCompound {
+func NewContactRequestCompound(fkiContacttitleID int32, fkiLanguageID int32, sContactFirstname string, sContactLastname string, sContactCompany string, objContactinformations ContactinformationsRequestCompound) *ContactRequestCompound {
 	this := ContactRequestCompound{}
-	this.ObjContactinformations = objContactinformations
 	this.FkiContacttitleID = fkiContacttitleID
 	this.FkiLanguageID = fkiLanguageID
 	this.SContactFirstname = sContactFirstname
 	this.SContactLastname = sContactLastname
 	this.SContactCompany = sContactCompany
+	this.ObjContactinformations = objContactinformations
 	return &this
 }
 
@@ -53,30 +56,6 @@ func NewContactRequestCompound(objContactinformations ContactinformationsRequest
 func NewContactRequestCompoundWithDefaults() *ContactRequestCompound {
 	this := ContactRequestCompound{}
 	return &this
-}
-
-// GetObjContactinformations returns the ObjContactinformations field value
-func (o *ContactRequestCompound) GetObjContactinformations() ContactinformationsRequestCompound {
-	if o == nil {
-		var ret ContactinformationsRequestCompound
-		return ret
-	}
-
-	return o.ObjContactinformations
-}
-
-// GetObjContactinformationsOk returns a tuple with the ObjContactinformations field value
-// and a boolean to check if the value has been set.
-func (o *ContactRequestCompound) GetObjContactinformationsOk() (*ContactinformationsRequestCompound, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ObjContactinformations, true
-}
-
-// SetObjContactinformations sets field value
-func (o *ContactRequestCompound) SetObjContactinformations(v ContactinformationsRequestCompound) {
-	o.ObjContactinformations = v
 }
 
 // GetFkiContacttitleID returns the FkiContacttitleID field value
@@ -201,7 +180,7 @@ func (o *ContactRequestCompound) SetSContactCompany(v string) {
 
 // GetDtContactBirthdate returns the DtContactBirthdate field value if set, zero value otherwise.
 func (o *ContactRequestCompound) GetDtContactBirthdate() string {
-	if o == nil || o.DtContactBirthdate == nil {
+	if o == nil || IsNil(o.DtContactBirthdate) {
 		var ret string
 		return ret
 	}
@@ -211,7 +190,7 @@ func (o *ContactRequestCompound) GetDtContactBirthdate() string {
 // GetDtContactBirthdateOk returns a tuple with the DtContactBirthdate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ContactRequestCompound) GetDtContactBirthdateOk() (*string, bool) {
-	if o == nil || o.DtContactBirthdate == nil {
+	if o == nil || IsNil(o.DtContactBirthdate) {
 		return nil, false
 	}
 	return o.DtContactBirthdate, true
@@ -219,7 +198,7 @@ func (o *ContactRequestCompound) GetDtContactBirthdateOk() (*string, bool) {
 
 // HasDtContactBirthdate returns a boolean if a field has been set.
 func (o *ContactRequestCompound) HasDtContactBirthdate() bool {
-	if o != nil && o.DtContactBirthdate != nil {
+	if o != nil && !IsNil(o.DtContactBirthdate) {
 		return true
 	}
 
@@ -231,30 +210,50 @@ func (o *ContactRequestCompound) SetDtContactBirthdate(v string) {
 	o.DtContactBirthdate = &v
 }
 
+// GetObjContactinformations returns the ObjContactinformations field value
+func (o *ContactRequestCompound) GetObjContactinformations() ContactinformationsRequestCompound {
+	if o == nil {
+		var ret ContactinformationsRequestCompound
+		return ret
+	}
+
+	return o.ObjContactinformations
+}
+
+// GetObjContactinformationsOk returns a tuple with the ObjContactinformations field value
+// and a boolean to check if the value has been set.
+func (o *ContactRequestCompound) GetObjContactinformationsOk() (*ContactinformationsRequestCompound, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjContactinformations, true
+}
+
+// SetObjContactinformations sets field value
+func (o *ContactRequestCompound) SetObjContactinformations(v ContactinformationsRequestCompound) {
+	o.ObjContactinformations = v
+}
+
 func (o ContactRequestCompound) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["objContactinformations"] = o.ObjContactinformations
-	}
-	if true {
-		toSerialize["fkiContacttitleID"] = o.FkiContacttitleID
-	}
-	if true {
-		toSerialize["fkiLanguageID"] = o.FkiLanguageID
-	}
-	if true {
-		toSerialize["sContactFirstname"] = o.SContactFirstname
-	}
-	if true {
-		toSerialize["sContactLastname"] = o.SContactLastname
-	}
-	if true {
-		toSerialize["sContactCompany"] = o.SContactCompany
-	}
-	if o.DtContactBirthdate != nil {
-		toSerialize["dtContactBirthdate"] = o.DtContactBirthdate
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ContactRequestCompound) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["fkiContacttitleID"] = o.FkiContacttitleID
+	toSerialize["fkiLanguageID"] = o.FkiLanguageID
+	toSerialize["sContactFirstname"] = o.SContactFirstname
+	toSerialize["sContactLastname"] = o.SContactLastname
+	toSerialize["sContactCompany"] = o.SContactCompany
+	if !IsNil(o.DtContactBirthdate) {
+		toSerialize["dtContactBirthdate"] = o.DtContactBirthdate
+	}
+	toSerialize["objContactinformations"] = o.ObjContactinformations
+	return toSerialize, nil
 }
 
 type NullableContactRequestCompound struct {

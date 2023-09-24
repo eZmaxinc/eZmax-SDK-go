@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,7 +15,10 @@ import (
 	"encoding/json"
 )
 
-// EzsignfolderCreateObjectV1Request Request for the /1/object/ezsignfolder/createObject API Request
+// checks if the EzsignfolderCreateObjectV1Request type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsignfolderCreateObjectV1Request{}
+
+// EzsignfolderCreateObjectV1Request Request for POST /1/object/ezsignfolder
 type EzsignfolderCreateObjectV1Request struct {
 	ObjEzsignfolder *EzsignfolderRequest `json:"objEzsignfolder,omitempty"`
 	ObjEzsignfolderCompound *EzsignfolderRequestCompound `json:"objEzsignfolderCompound,omitempty"`
@@ -40,7 +43,7 @@ func NewEzsignfolderCreateObjectV1RequestWithDefaults() *EzsignfolderCreateObjec
 
 // GetObjEzsignfolder returns the ObjEzsignfolder field value if set, zero value otherwise.
 func (o *EzsignfolderCreateObjectV1Request) GetObjEzsignfolder() EzsignfolderRequest {
-	if o == nil || o.ObjEzsignfolder == nil {
+	if o == nil || IsNil(o.ObjEzsignfolder) {
 		var ret EzsignfolderRequest
 		return ret
 	}
@@ -50,7 +53,7 @@ func (o *EzsignfolderCreateObjectV1Request) GetObjEzsignfolder() EzsignfolderReq
 // GetObjEzsignfolderOk returns a tuple with the ObjEzsignfolder field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderCreateObjectV1Request) GetObjEzsignfolderOk() (*EzsignfolderRequest, bool) {
-	if o == nil || o.ObjEzsignfolder == nil {
+	if o == nil || IsNil(o.ObjEzsignfolder) {
 		return nil, false
 	}
 	return o.ObjEzsignfolder, true
@@ -58,7 +61,7 @@ func (o *EzsignfolderCreateObjectV1Request) GetObjEzsignfolderOk() (*Ezsignfolde
 
 // HasObjEzsignfolder returns a boolean if a field has been set.
 func (o *EzsignfolderCreateObjectV1Request) HasObjEzsignfolder() bool {
-	if o != nil && o.ObjEzsignfolder != nil {
+	if o != nil && !IsNil(o.ObjEzsignfolder) {
 		return true
 	}
 
@@ -72,7 +75,7 @@ func (o *EzsignfolderCreateObjectV1Request) SetObjEzsignfolder(v EzsignfolderReq
 
 // GetObjEzsignfolderCompound returns the ObjEzsignfolderCompound field value if set, zero value otherwise.
 func (o *EzsignfolderCreateObjectV1Request) GetObjEzsignfolderCompound() EzsignfolderRequestCompound {
-	if o == nil || o.ObjEzsignfolderCompound == nil {
+	if o == nil || IsNil(o.ObjEzsignfolderCompound) {
 		var ret EzsignfolderRequestCompound
 		return ret
 	}
@@ -82,7 +85,7 @@ func (o *EzsignfolderCreateObjectV1Request) GetObjEzsignfolderCompound() Ezsignf
 // GetObjEzsignfolderCompoundOk returns a tuple with the ObjEzsignfolderCompound field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderCreateObjectV1Request) GetObjEzsignfolderCompoundOk() (*EzsignfolderRequestCompound, bool) {
-	if o == nil || o.ObjEzsignfolderCompound == nil {
+	if o == nil || IsNil(o.ObjEzsignfolderCompound) {
 		return nil, false
 	}
 	return o.ObjEzsignfolderCompound, true
@@ -90,7 +93,7 @@ func (o *EzsignfolderCreateObjectV1Request) GetObjEzsignfolderCompoundOk() (*Ezs
 
 // HasObjEzsignfolderCompound returns a boolean if a field has been set.
 func (o *EzsignfolderCreateObjectV1Request) HasObjEzsignfolderCompound() bool {
-	if o != nil && o.ObjEzsignfolderCompound != nil {
+	if o != nil && !IsNil(o.ObjEzsignfolderCompound) {
 		return true
 	}
 
@@ -103,14 +106,22 @@ func (o *EzsignfolderCreateObjectV1Request) SetObjEzsignfolderCompound(v Ezsignf
 }
 
 func (o EzsignfolderCreateObjectV1Request) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if o.ObjEzsignfolder != nil {
-		toSerialize["objEzsignfolder"] = o.ObjEzsignfolder
-	}
-	if o.ObjEzsignfolderCompound != nil {
-		toSerialize["objEzsignfolderCompound"] = o.ObjEzsignfolderCompound
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsignfolderCreateObjectV1Request) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ObjEzsignfolder) {
+		toSerialize["objEzsignfolder"] = o.ObjEzsignfolder
+	}
+	if !IsNil(o.ObjEzsignfolderCompound) {
+		toSerialize["objEzsignfolderCompound"] = o.ObjEzsignfolderCompound
+	}
+	return toSerialize, nil
 }
 
 type NullableEzsignfolderCreateObjectV1Request struct {

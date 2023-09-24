@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,7 +15,10 @@ import (
 	"encoding/json"
 )
 
-// EzsignsignatureCreateObjectV1Request Request for the /1/object/ezsignsignature/createObject API Request
+// checks if the EzsignsignatureCreateObjectV1Request type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsignsignatureCreateObjectV1Request{}
+
+// EzsignsignatureCreateObjectV1Request Request for POST /1/object/ezsignsignature
 type EzsignsignatureCreateObjectV1Request struct {
 	ObjEzsignsignature *EzsignsignatureRequest `json:"objEzsignsignature,omitempty"`
 	ObjEzsignsignatureCompound *EzsignsignatureRequestCompound `json:"objEzsignsignatureCompound,omitempty"`
@@ -40,7 +43,7 @@ func NewEzsignsignatureCreateObjectV1RequestWithDefaults() *EzsignsignatureCreat
 
 // GetObjEzsignsignature returns the ObjEzsignsignature field value if set, zero value otherwise.
 func (o *EzsignsignatureCreateObjectV1Request) GetObjEzsignsignature() EzsignsignatureRequest {
-	if o == nil || o.ObjEzsignsignature == nil {
+	if o == nil || IsNil(o.ObjEzsignsignature) {
 		var ret EzsignsignatureRequest
 		return ret
 	}
@@ -50,7 +53,7 @@ func (o *EzsignsignatureCreateObjectV1Request) GetObjEzsignsignature() Ezsignsig
 // GetObjEzsignsignatureOk returns a tuple with the ObjEzsignsignature field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsignsignatureCreateObjectV1Request) GetObjEzsignsignatureOk() (*EzsignsignatureRequest, bool) {
-	if o == nil || o.ObjEzsignsignature == nil {
+	if o == nil || IsNil(o.ObjEzsignsignature) {
 		return nil, false
 	}
 	return o.ObjEzsignsignature, true
@@ -58,7 +61,7 @@ func (o *EzsignsignatureCreateObjectV1Request) GetObjEzsignsignatureOk() (*Ezsig
 
 // HasObjEzsignsignature returns a boolean if a field has been set.
 func (o *EzsignsignatureCreateObjectV1Request) HasObjEzsignsignature() bool {
-	if o != nil && o.ObjEzsignsignature != nil {
+	if o != nil && !IsNil(o.ObjEzsignsignature) {
 		return true
 	}
 
@@ -72,7 +75,7 @@ func (o *EzsignsignatureCreateObjectV1Request) SetObjEzsignsignature(v Ezsignsig
 
 // GetObjEzsignsignatureCompound returns the ObjEzsignsignatureCompound field value if set, zero value otherwise.
 func (o *EzsignsignatureCreateObjectV1Request) GetObjEzsignsignatureCompound() EzsignsignatureRequestCompound {
-	if o == nil || o.ObjEzsignsignatureCompound == nil {
+	if o == nil || IsNil(o.ObjEzsignsignatureCompound) {
 		var ret EzsignsignatureRequestCompound
 		return ret
 	}
@@ -82,7 +85,7 @@ func (o *EzsignsignatureCreateObjectV1Request) GetObjEzsignsignatureCompound() E
 // GetObjEzsignsignatureCompoundOk returns a tuple with the ObjEzsignsignatureCompound field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsignsignatureCreateObjectV1Request) GetObjEzsignsignatureCompoundOk() (*EzsignsignatureRequestCompound, bool) {
-	if o == nil || o.ObjEzsignsignatureCompound == nil {
+	if o == nil || IsNil(o.ObjEzsignsignatureCompound) {
 		return nil, false
 	}
 	return o.ObjEzsignsignatureCompound, true
@@ -90,7 +93,7 @@ func (o *EzsignsignatureCreateObjectV1Request) GetObjEzsignsignatureCompoundOk()
 
 // HasObjEzsignsignatureCompound returns a boolean if a field has been set.
 func (o *EzsignsignatureCreateObjectV1Request) HasObjEzsignsignatureCompound() bool {
-	if o != nil && o.ObjEzsignsignatureCompound != nil {
+	if o != nil && !IsNil(o.ObjEzsignsignatureCompound) {
 		return true
 	}
 
@@ -103,14 +106,22 @@ func (o *EzsignsignatureCreateObjectV1Request) SetObjEzsignsignatureCompound(v E
 }
 
 func (o EzsignsignatureCreateObjectV1Request) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if o.ObjEzsignsignature != nil {
-		toSerialize["objEzsignsignature"] = o.ObjEzsignsignature
-	}
-	if o.ObjEzsignsignatureCompound != nil {
-		toSerialize["objEzsignsignatureCompound"] = o.ObjEzsignsignatureCompound
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsignsignatureCreateObjectV1Request) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ObjEzsignsignature) {
+		toSerialize["objEzsignsignature"] = o.ObjEzsignsignature
+	}
+	if !IsNil(o.ObjEzsignsignatureCompound) {
+		toSerialize["objEzsignsignatureCompound"] = o.ObjEzsignsignatureCompound
+	}
+	return toSerialize, nil
 }
 
 type NullableEzsignsignatureCreateObjectV1Request struct {

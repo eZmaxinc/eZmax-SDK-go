@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,32 +15,22 @@ import (
 	"encoding/json"
 )
 
-// CommonAudit Gives informations about the user that created the object and the last user to have modified it.  If the object was never modified after creation, both Created and Modified informations will be the same.  Apikey details will only be provided if the changes were made by an API key.  
+// checks if the CommonAudit type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CommonAudit{}
+
+// CommonAudit Gives informations about the user that created the object and the last user to have modified it.  If the object was never modified after creation, objAuditdetailModified won't be returned. 
 type CommonAudit struct {
-	// The unique ID of the User
-	FkiUserIDCreated int32 `json:"fkiUserIDCreated"`
-	// The unique ID of the User
-	FkiUserIDModified int32 `json:"fkiUserIDModified"`
-	// The unique ID of the Apikey
-	FkiApikeyIDCreated *int32 `json:"fkiApikeyIDCreated,omitempty"`
-	// The unique ID of the Apikey
-	FkiApikeyIDModified *int32 `json:"fkiApikeyIDModified,omitempty"`
-	// Represent a Date Time. The timezone is the one configured in the User's profile.
-	DtCreatedDate string `json:"dtCreatedDate"`
-	// Represent a Date Time. The timezone is the one configured in the User's profile.
-	DtModifiedDate string `json:"dtModifiedDate"`
+	ObjAuditdetailCreated CommonAuditdetail `json:"objAuditdetailCreated"`
+	ObjAuditdetailModified *CommonAuditdetail `json:"objAuditdetailModified,omitempty"`
 }
 
 // NewCommonAudit instantiates a new CommonAudit object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommonAudit(fkiUserIDCreated int32, fkiUserIDModified int32, dtCreatedDate string, dtModifiedDate string) *CommonAudit {
+func NewCommonAudit(objAuditdetailCreated CommonAuditdetail) *CommonAudit {
 	this := CommonAudit{}
-	this.FkiUserIDCreated = fkiUserIDCreated
-	this.FkiUserIDModified = fkiUserIDModified
-	this.DtCreatedDate = dtCreatedDate
-	this.DtModifiedDate = dtModifiedDate
+	this.ObjAuditdetailCreated = objAuditdetailCreated
 	return &this
 }
 
@@ -52,187 +42,77 @@ func NewCommonAuditWithDefaults() *CommonAudit {
 	return &this
 }
 
-// GetFkiUserIDCreated returns the FkiUserIDCreated field value
-func (o *CommonAudit) GetFkiUserIDCreated() int32 {
+// GetObjAuditdetailCreated returns the ObjAuditdetailCreated field value
+func (o *CommonAudit) GetObjAuditdetailCreated() CommonAuditdetail {
 	if o == nil {
-		var ret int32
+		var ret CommonAuditdetail
 		return ret
 	}
 
-	return o.FkiUserIDCreated
+	return o.ObjAuditdetailCreated
 }
 
-// GetFkiUserIDCreatedOk returns a tuple with the FkiUserIDCreated field value
+// GetObjAuditdetailCreatedOk returns a tuple with the ObjAuditdetailCreated field value
 // and a boolean to check if the value has been set.
-func (o *CommonAudit) GetFkiUserIDCreatedOk() (*int32, bool) {
+func (o *CommonAudit) GetObjAuditdetailCreatedOk() (*CommonAuditdetail, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.FkiUserIDCreated, true
+	return &o.ObjAuditdetailCreated, true
 }
 
-// SetFkiUserIDCreated sets field value
-func (o *CommonAudit) SetFkiUserIDCreated(v int32) {
-	o.FkiUserIDCreated = v
+// SetObjAuditdetailCreated sets field value
+func (o *CommonAudit) SetObjAuditdetailCreated(v CommonAuditdetail) {
+	o.ObjAuditdetailCreated = v
 }
 
-// GetFkiUserIDModified returns the FkiUserIDModified field value
-func (o *CommonAudit) GetFkiUserIDModified() int32 {
-	if o == nil {
-		var ret int32
+// GetObjAuditdetailModified returns the ObjAuditdetailModified field value if set, zero value otherwise.
+func (o *CommonAudit) GetObjAuditdetailModified() CommonAuditdetail {
+	if o == nil || IsNil(o.ObjAuditdetailModified) {
+		var ret CommonAuditdetail
 		return ret
 	}
-
-	return o.FkiUserIDModified
+	return *o.ObjAuditdetailModified
 }
 
-// GetFkiUserIDModifiedOk returns a tuple with the FkiUserIDModified field value
+// GetObjAuditdetailModifiedOk returns a tuple with the ObjAuditdetailModified field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CommonAudit) GetFkiUserIDModifiedOk() (*int32, bool) {
-	if o == nil {
+func (o *CommonAudit) GetObjAuditdetailModifiedOk() (*CommonAuditdetail, bool) {
+	if o == nil || IsNil(o.ObjAuditdetailModified) {
 		return nil, false
 	}
-	return &o.FkiUserIDModified, true
+	return o.ObjAuditdetailModified, true
 }
 
-// SetFkiUserIDModified sets field value
-func (o *CommonAudit) SetFkiUserIDModified(v int32) {
-	o.FkiUserIDModified = v
-}
-
-// GetFkiApikeyIDCreated returns the FkiApikeyIDCreated field value if set, zero value otherwise.
-func (o *CommonAudit) GetFkiApikeyIDCreated() int32 {
-	if o == nil || o.FkiApikeyIDCreated == nil {
-		var ret int32
-		return ret
-	}
-	return *o.FkiApikeyIDCreated
-}
-
-// GetFkiApikeyIDCreatedOk returns a tuple with the FkiApikeyIDCreated field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CommonAudit) GetFkiApikeyIDCreatedOk() (*int32, bool) {
-	if o == nil || o.FkiApikeyIDCreated == nil {
-		return nil, false
-	}
-	return o.FkiApikeyIDCreated, true
-}
-
-// HasFkiApikeyIDCreated returns a boolean if a field has been set.
-func (o *CommonAudit) HasFkiApikeyIDCreated() bool {
-	if o != nil && o.FkiApikeyIDCreated != nil {
+// HasObjAuditdetailModified returns a boolean if a field has been set.
+func (o *CommonAudit) HasObjAuditdetailModified() bool {
+	if o != nil && !IsNil(o.ObjAuditdetailModified) {
 		return true
 	}
 
 	return false
 }
 
-// SetFkiApikeyIDCreated gets a reference to the given int32 and assigns it to the FkiApikeyIDCreated field.
-func (o *CommonAudit) SetFkiApikeyIDCreated(v int32) {
-	o.FkiApikeyIDCreated = &v
-}
-
-// GetFkiApikeyIDModified returns the FkiApikeyIDModified field value if set, zero value otherwise.
-func (o *CommonAudit) GetFkiApikeyIDModified() int32 {
-	if o == nil || o.FkiApikeyIDModified == nil {
-		var ret int32
-		return ret
-	}
-	return *o.FkiApikeyIDModified
-}
-
-// GetFkiApikeyIDModifiedOk returns a tuple with the FkiApikeyIDModified field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CommonAudit) GetFkiApikeyIDModifiedOk() (*int32, bool) {
-	if o == nil || o.FkiApikeyIDModified == nil {
-		return nil, false
-	}
-	return o.FkiApikeyIDModified, true
-}
-
-// HasFkiApikeyIDModified returns a boolean if a field has been set.
-func (o *CommonAudit) HasFkiApikeyIDModified() bool {
-	if o != nil && o.FkiApikeyIDModified != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetFkiApikeyIDModified gets a reference to the given int32 and assigns it to the FkiApikeyIDModified field.
-func (o *CommonAudit) SetFkiApikeyIDModified(v int32) {
-	o.FkiApikeyIDModified = &v
-}
-
-// GetDtCreatedDate returns the DtCreatedDate field value
-func (o *CommonAudit) GetDtCreatedDate() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.DtCreatedDate
-}
-
-// GetDtCreatedDateOk returns a tuple with the DtCreatedDate field value
-// and a boolean to check if the value has been set.
-func (o *CommonAudit) GetDtCreatedDateOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.DtCreatedDate, true
-}
-
-// SetDtCreatedDate sets field value
-func (o *CommonAudit) SetDtCreatedDate(v string) {
-	o.DtCreatedDate = v
-}
-
-// GetDtModifiedDate returns the DtModifiedDate field value
-func (o *CommonAudit) GetDtModifiedDate() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.DtModifiedDate
-}
-
-// GetDtModifiedDateOk returns a tuple with the DtModifiedDate field value
-// and a boolean to check if the value has been set.
-func (o *CommonAudit) GetDtModifiedDateOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.DtModifiedDate, true
-}
-
-// SetDtModifiedDate sets field value
-func (o *CommonAudit) SetDtModifiedDate(v string) {
-	o.DtModifiedDate = v
+// SetObjAuditdetailModified gets a reference to the given CommonAuditdetail and assigns it to the ObjAuditdetailModified field.
+func (o *CommonAudit) SetObjAuditdetailModified(v CommonAuditdetail) {
+	o.ObjAuditdetailModified = &v
 }
 
 func (o CommonAudit) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["fkiUserIDCreated"] = o.FkiUserIDCreated
-	}
-	if true {
-		toSerialize["fkiUserIDModified"] = o.FkiUserIDModified
-	}
-	if o.FkiApikeyIDCreated != nil {
-		toSerialize["fkiApikeyIDCreated"] = o.FkiApikeyIDCreated
-	}
-	if o.FkiApikeyIDModified != nil {
-		toSerialize["fkiApikeyIDModified"] = o.FkiApikeyIDModified
-	}
-	if true {
-		toSerialize["dtCreatedDate"] = o.DtCreatedDate
-	}
-	if true {
-		toSerialize["dtModifiedDate"] = o.DtModifiedDate
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CommonAudit) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["objAuditdetailCreated"] = o.ObjAuditdetailCreated
+	if !IsNil(o.ObjAuditdetailModified) {
+		toSerialize["objAuditdetailModified"] = o.ObjAuditdetailModified
+	}
+	return toSerialize, nil
 }
 
 type NullableCommonAudit struct {

@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,21 +15,24 @@ import (
 	"encoding/json"
 )
 
+// checks if the CommonResponseError type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CommonResponseError{}
+
 // CommonResponseError Generic Error Message
 type CommonResponseError struct {
-	// More detail about the error
+	// The message giving details about the error
 	SErrorMessage string `json:"sErrorMessage"`
-	// The error code. See documentation for valid values
-	EErrorCode *string `json:"eErrorCode,omitempty"`
+	EErrorCode FieldEErrorCode `json:"eErrorCode"`
 }
 
 // NewCommonResponseError instantiates a new CommonResponseError object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommonResponseError(sErrorMessage string) *CommonResponseError {
+func NewCommonResponseError(sErrorMessage string, eErrorCode FieldEErrorCode) *CommonResponseError {
 	this := CommonResponseError{}
 	this.SErrorMessage = sErrorMessage
+	this.EErrorCode = eErrorCode
 	return &this
 }
 
@@ -65,47 +68,43 @@ func (o *CommonResponseError) SetSErrorMessage(v string) {
 	o.SErrorMessage = v
 }
 
-// GetEErrorCode returns the EErrorCode field value if set, zero value otherwise.
-func (o *CommonResponseError) GetEErrorCode() string {
-	if o == nil || o.EErrorCode == nil {
-		var ret string
+// GetEErrorCode returns the EErrorCode field value
+func (o *CommonResponseError) GetEErrorCode() FieldEErrorCode {
+	if o == nil {
+		var ret FieldEErrorCode
 		return ret
 	}
-	return *o.EErrorCode
+
+	return o.EErrorCode
 }
 
-// GetEErrorCodeOk returns a tuple with the EErrorCode field value if set, nil otherwise
+// GetEErrorCodeOk returns a tuple with the EErrorCode field value
 // and a boolean to check if the value has been set.
-func (o *CommonResponseError) GetEErrorCodeOk() (*string, bool) {
-	if o == nil || o.EErrorCode == nil {
+func (o *CommonResponseError) GetEErrorCodeOk() (*FieldEErrorCode, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.EErrorCode, true
+	return &o.EErrorCode, true
 }
 
-// HasEErrorCode returns a boolean if a field has been set.
-func (o *CommonResponseError) HasEErrorCode() bool {
-	if o != nil && o.EErrorCode != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetEErrorCode gets a reference to the given string and assigns it to the EErrorCode field.
-func (o *CommonResponseError) SetEErrorCode(v string) {
-	o.EErrorCode = &v
+// SetEErrorCode sets field value
+func (o *CommonResponseError) SetEErrorCode(v FieldEErrorCode) {
+	o.EErrorCode = v
 }
 
 func (o CommonResponseError) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["sErrorMessage"] = o.SErrorMessage
-	}
-	if o.EErrorCode != nil {
-		toSerialize["eErrorCode"] = o.EErrorCode
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o CommonResponseError) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["sErrorMessage"] = o.SErrorMessage
+	toSerialize["eErrorCode"] = o.EErrorCode
+	return toSerialize, nil
 }
 
 type NullableCommonResponseError struct {

@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,13 +15,25 @@ import (
 	"encoding/json"
 )
 
+// checks if the ApikeyResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ApikeyResponse{}
+
 // ApikeyResponse An Apikey Object
 type ApikeyResponse struct {
-	ObjApikeyDescription MultilingualApikeyDescription `json:"objApikeyDescription"`
-	// The secret token for the API key.  This will be returned only on creation.
-	SComputedToken *string `json:"sComputedToken,omitempty"`
 	// The unique ID of the Apikey
 	PkiApikeyID int32 `json:"pkiApikeyID"`
+	// The unique ID of the User
+	FkiUserID int32 `json:"fkiUserID"`
+	ObjApikeyDescription MultilingualApikeyDescription `json:"objApikeyDescription"`
+	ObjContactName CustomContactNameResponse `json:"objContactName"`
+	// The Apikey for the API key.  This will be hidden if we are not creating or regenerating the Apikey.
+	SApikeyApikey *string `json:"sApikeyApikey,omitempty"`
+	// The Secret for the API key.  This will be hidden if we are not creating or regenerating the Apikey.
+	SApikeySecret *string `json:"sApikeySecret,omitempty"`
+	// Whether the apikey is active or not
+	BApikeyIsactive bool `json:"bApikeyIsactive"`
+	// Whether the apikey is signed or not
+	BApikeyIssigned *bool `json:"bApikeyIssigned,omitempty"`
 	ObjAudit CommonAudit `json:"objAudit"`
 }
 
@@ -29,10 +41,13 @@ type ApikeyResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApikeyResponse(objApikeyDescription MultilingualApikeyDescription, pkiApikeyID int32, objAudit CommonAudit) *ApikeyResponse {
+func NewApikeyResponse(pkiApikeyID int32, fkiUserID int32, objApikeyDescription MultilingualApikeyDescription, objContactName CustomContactNameResponse, bApikeyIsactive bool, objAudit CommonAudit) *ApikeyResponse {
 	this := ApikeyResponse{}
-	this.ObjApikeyDescription = objApikeyDescription
 	this.PkiApikeyID = pkiApikeyID
+	this.FkiUserID = fkiUserID
+	this.ObjApikeyDescription = objApikeyDescription
+	this.ObjContactName = objContactName
+	this.BApikeyIsactive = bApikeyIsactive
 	this.ObjAudit = objAudit
 	return &this
 }
@@ -43,6 +58,54 @@ func NewApikeyResponse(objApikeyDescription MultilingualApikeyDescription, pkiAp
 func NewApikeyResponseWithDefaults() *ApikeyResponse {
 	this := ApikeyResponse{}
 	return &this
+}
+
+// GetPkiApikeyID returns the PkiApikeyID field value
+func (o *ApikeyResponse) GetPkiApikeyID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.PkiApikeyID
+}
+
+// GetPkiApikeyIDOk returns a tuple with the PkiApikeyID field value
+// and a boolean to check if the value has been set.
+func (o *ApikeyResponse) GetPkiApikeyIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PkiApikeyID, true
+}
+
+// SetPkiApikeyID sets field value
+func (o *ApikeyResponse) SetPkiApikeyID(v int32) {
+	o.PkiApikeyID = v
+}
+
+// GetFkiUserID returns the FkiUserID field value
+func (o *ApikeyResponse) GetFkiUserID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiUserID
+}
+
+// GetFkiUserIDOk returns a tuple with the FkiUserID field value
+// and a boolean to check if the value has been set.
+func (o *ApikeyResponse) GetFkiUserIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiUserID, true
+}
+
+// SetFkiUserID sets field value
+func (o *ApikeyResponse) SetFkiUserID(v int32) {
+	o.FkiUserID = v
 }
 
 // GetObjApikeyDescription returns the ObjApikeyDescription field value
@@ -69,60 +132,148 @@ func (o *ApikeyResponse) SetObjApikeyDescription(v MultilingualApikeyDescription
 	o.ObjApikeyDescription = v
 }
 
-// GetSComputedToken returns the SComputedToken field value if set, zero value otherwise.
-func (o *ApikeyResponse) GetSComputedToken() string {
-	if o == nil || o.SComputedToken == nil {
+// GetObjContactName returns the ObjContactName field value
+func (o *ApikeyResponse) GetObjContactName() CustomContactNameResponse {
+	if o == nil {
+		var ret CustomContactNameResponse
+		return ret
+	}
+
+	return o.ObjContactName
+}
+
+// GetObjContactNameOk returns a tuple with the ObjContactName field value
+// and a boolean to check if the value has been set.
+func (o *ApikeyResponse) GetObjContactNameOk() (*CustomContactNameResponse, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjContactName, true
+}
+
+// SetObjContactName sets field value
+func (o *ApikeyResponse) SetObjContactName(v CustomContactNameResponse) {
+	o.ObjContactName = v
+}
+
+// GetSApikeyApikey returns the SApikeyApikey field value if set, zero value otherwise.
+func (o *ApikeyResponse) GetSApikeyApikey() string {
+	if o == nil || IsNil(o.SApikeyApikey) {
 		var ret string
 		return ret
 	}
-	return *o.SComputedToken
+	return *o.SApikeyApikey
 }
 
-// GetSComputedTokenOk returns a tuple with the SComputedToken field value if set, nil otherwise
+// GetSApikeyApikeyOk returns a tuple with the SApikeyApikey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApikeyResponse) GetSComputedTokenOk() (*string, bool) {
-	if o == nil || o.SComputedToken == nil {
+func (o *ApikeyResponse) GetSApikeyApikeyOk() (*string, bool) {
+	if o == nil || IsNil(o.SApikeyApikey) {
 		return nil, false
 	}
-	return o.SComputedToken, true
+	return o.SApikeyApikey, true
 }
 
-// HasSComputedToken returns a boolean if a field has been set.
-func (o *ApikeyResponse) HasSComputedToken() bool {
-	if o != nil && o.SComputedToken != nil {
+// HasSApikeyApikey returns a boolean if a field has been set.
+func (o *ApikeyResponse) HasSApikeyApikey() bool {
+	if o != nil && !IsNil(o.SApikeyApikey) {
 		return true
 	}
 
 	return false
 }
 
-// SetSComputedToken gets a reference to the given string and assigns it to the SComputedToken field.
-func (o *ApikeyResponse) SetSComputedToken(v string) {
-	o.SComputedToken = &v
+// SetSApikeyApikey gets a reference to the given string and assigns it to the SApikeyApikey field.
+func (o *ApikeyResponse) SetSApikeyApikey(v string) {
+	o.SApikeyApikey = &v
 }
 
-// GetPkiApikeyID returns the PkiApikeyID field value
-func (o *ApikeyResponse) GetPkiApikeyID() int32 {
+// GetSApikeySecret returns the SApikeySecret field value if set, zero value otherwise.
+func (o *ApikeyResponse) GetSApikeySecret() string {
+	if o == nil || IsNil(o.SApikeySecret) {
+		var ret string
+		return ret
+	}
+	return *o.SApikeySecret
+}
+
+// GetSApikeySecretOk returns a tuple with the SApikeySecret field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ApikeyResponse) GetSApikeySecretOk() (*string, bool) {
+	if o == nil || IsNil(o.SApikeySecret) {
+		return nil, false
+	}
+	return o.SApikeySecret, true
+}
+
+// HasSApikeySecret returns a boolean if a field has been set.
+func (o *ApikeyResponse) HasSApikeySecret() bool {
+	if o != nil && !IsNil(o.SApikeySecret) {
+		return true
+	}
+
+	return false
+}
+
+// SetSApikeySecret gets a reference to the given string and assigns it to the SApikeySecret field.
+func (o *ApikeyResponse) SetSApikeySecret(v string) {
+	o.SApikeySecret = &v
+}
+
+// GetBApikeyIsactive returns the BApikeyIsactive field value
+func (o *ApikeyResponse) GetBApikeyIsactive() bool {
 	if o == nil {
-		var ret int32
+		var ret bool
 		return ret
 	}
 
-	return o.PkiApikeyID
+	return o.BApikeyIsactive
 }
 
-// GetPkiApikeyIDOk returns a tuple with the PkiApikeyID field value
+// GetBApikeyIsactiveOk returns a tuple with the BApikeyIsactive field value
 // and a boolean to check if the value has been set.
-func (o *ApikeyResponse) GetPkiApikeyIDOk() (*int32, bool) {
+func (o *ApikeyResponse) GetBApikeyIsactiveOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.PkiApikeyID, true
+	return &o.BApikeyIsactive, true
 }
 
-// SetPkiApikeyID sets field value
-func (o *ApikeyResponse) SetPkiApikeyID(v int32) {
-	o.PkiApikeyID = v
+// SetBApikeyIsactive sets field value
+func (o *ApikeyResponse) SetBApikeyIsactive(v bool) {
+	o.BApikeyIsactive = v
+}
+
+// GetBApikeyIssigned returns the BApikeyIssigned field value if set, zero value otherwise.
+func (o *ApikeyResponse) GetBApikeyIssigned() bool {
+	if o == nil || IsNil(o.BApikeyIssigned) {
+		var ret bool
+		return ret
+	}
+	return *o.BApikeyIssigned
+}
+
+// GetBApikeyIssignedOk returns a tuple with the BApikeyIssigned field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ApikeyResponse) GetBApikeyIssignedOk() (*bool, bool) {
+	if o == nil || IsNil(o.BApikeyIssigned) {
+		return nil, false
+	}
+	return o.BApikeyIssigned, true
+}
+
+// HasBApikeyIssigned returns a boolean if a field has been set.
+func (o *ApikeyResponse) HasBApikeyIssigned() bool {
+	if o != nil && !IsNil(o.BApikeyIssigned) {
+		return true
+	}
+
+	return false
+}
+
+// SetBApikeyIssigned gets a reference to the given bool and assigns it to the BApikeyIssigned field.
+func (o *ApikeyResponse) SetBApikeyIssigned(v bool) {
+	o.BApikeyIssigned = &v
 }
 
 // GetObjAudit returns the ObjAudit field value
@@ -150,20 +301,31 @@ func (o *ApikeyResponse) SetObjAudit(v CommonAudit) {
 }
 
 func (o ApikeyResponse) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["objApikeyDescription"] = o.ObjApikeyDescription
-	}
-	if o.SComputedToken != nil {
-		toSerialize["sComputedToken"] = o.SComputedToken
-	}
-	if true {
-		toSerialize["pkiApikeyID"] = o.PkiApikeyID
-	}
-	if true {
-		toSerialize["objAudit"] = o.ObjAudit
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o ApikeyResponse) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["pkiApikeyID"] = o.PkiApikeyID
+	toSerialize["fkiUserID"] = o.FkiUserID
+	toSerialize["objApikeyDescription"] = o.ObjApikeyDescription
+	toSerialize["objContactName"] = o.ObjContactName
+	if !IsNil(o.SApikeyApikey) {
+		toSerialize["sApikeyApikey"] = o.SApikeyApikey
+	}
+	if !IsNil(o.SApikeySecret) {
+		toSerialize["sApikeySecret"] = o.SApikeySecret
+	}
+	toSerialize["bApikeyIsactive"] = o.BApikeyIsactive
+	if !IsNil(o.BApikeyIssigned) {
+		toSerialize["bApikeyIssigned"] = o.BApikeyIssigned
+	}
+	toSerialize["objAudit"] = o.ObjAudit
+	return toSerialize, nil
 }
 
 type NullableApikeyResponse struct {

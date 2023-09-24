@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AObjEzsignpage** | [**[]EzsignpageResponse**](EzsignpageResponse.md) |  | 
+**AObjEzsignpage** | [**[]EzsignpageResponseCompound**](EzsignpageResponseCompound.md) |  | 
 
 ## Methods
 
 ### NewEzsigndocumentGetEzsignpagesV1ResponseMPayload
 
-`func NewEzsigndocumentGetEzsignpagesV1ResponseMPayload(aObjEzsignpage []EzsignpageResponse, ) *EzsigndocumentGetEzsignpagesV1ResponseMPayload`
+`func NewEzsigndocumentGetEzsignpagesV1ResponseMPayload(aObjEzsignpage []EzsignpageResponseCompound, ) *EzsigndocumentGetEzsignpagesV1ResponseMPayload`
 
 NewEzsigndocumentGetEzsignpagesV1ResponseMPayload instantiates a new EzsigndocumentGetEzsignpagesV1ResponseMPayload object
 This constructor will assign default values to properties that have it defined,
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAObjEzsignpage
 
-`func (o *EzsigndocumentGetEzsignpagesV1ResponseMPayload) GetAObjEzsignpage() []EzsignpageResponse`
+`func (o *EzsigndocumentGetEzsignpagesV1ResponseMPayload) GetAObjEzsignpage() []EzsignpageResponseCompound`
 
 GetAObjEzsignpage returns the AObjEzsignpage field if non-nil, zero value otherwise.
 
 ### GetAObjEzsignpageOk
 
-`func (o *EzsigndocumentGetEzsignpagesV1ResponseMPayload) GetAObjEzsignpageOk() (*[]EzsignpageResponse, bool)`
+`func (o *EzsigndocumentGetEzsignpagesV1ResponseMPayload) GetAObjEzsignpageOk() (*[]EzsignpageResponseCompound, bool)`
 
 GetAObjEzsignpageOk returns a tuple with the AObjEzsignpage field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAObjEzsignpage
 
-`func (o *EzsigndocumentGetEzsignpagesV1ResponseMPayload) SetAObjEzsignpage(v []EzsignpageResponse)`
+`func (o *EzsigndocumentGetEzsignpagesV1ResponseMPayload) SetAObjEzsignpage(v []EzsignpageResponseCompound)`
 
 SetAObjEzsignpage sets AObjEzsignpage field to given value.
 

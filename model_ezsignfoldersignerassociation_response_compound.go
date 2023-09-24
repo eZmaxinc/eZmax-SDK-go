@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,27 +15,37 @@ import (
 	"encoding/json"
 )
 
+// checks if the EzsignfoldersignerassociationResponseCompound type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsignfoldersignerassociationResponseCompound{}
+
 // EzsignfoldersignerassociationResponseCompound An Ezsignfoldersignerassociation Object
 type EzsignfoldersignerassociationResponseCompound struct {
-	ObjUser *EzsignfoldersignerassociationResponseCompoundUser `json:"objUser,omitempty"`
-	ObjEzsignsigner *EzsignsignerResponseCompound `json:"objEzsignsigner,omitempty"`
 	// The unique ID of the Ezsignfoldersignerassociation
 	PkiEzsignfoldersignerassociationID int32 `json:"pkiEzsignfoldersignerassociationID"`
 	// The unique ID of the Ezsignfolder
 	FkiEzsignfolderID int32 `json:"fkiEzsignfolderID"`
+	// If this flag is true the signatory is part of a delayed send.
+	BEzsignfoldersignerassociationDelayedsend bool `json:"bEzsignfoldersignerassociationDelayedsend"`
 	// If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document.
 	BEzsignfoldersignerassociationReceivecopy bool `json:"bEzsignfoldersignerassociationReceivecopy"`
+	// A custom text message that will be added to the email sent.
+	TEzsignfoldersignerassociationMessage string `json:"tEzsignfoldersignerassociationMessage"`
+	ObjEzsignsignergroup *EzsignsignergroupResponseCompound `json:"objEzsignsignergroup,omitempty"`
+	ObjUser *EzsignfoldersignerassociationResponseCompoundUser `json:"objUser,omitempty"`
+	ObjEzsignsigner *EzsignsignerResponseCompound `json:"objEzsignsigner,omitempty"`
 }
 
 // NewEzsignfoldersignerassociationResponseCompound instantiates a new EzsignfoldersignerassociationResponseCompound object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfoldersignerassociationResponseCompound(pkiEzsignfoldersignerassociationID int32, fkiEzsignfolderID int32, bEzsignfoldersignerassociationReceivecopy bool) *EzsignfoldersignerassociationResponseCompound {
+func NewEzsignfoldersignerassociationResponseCompound(pkiEzsignfoldersignerassociationID int32, fkiEzsignfolderID int32, bEzsignfoldersignerassociationDelayedsend bool, bEzsignfoldersignerassociationReceivecopy bool, tEzsignfoldersignerassociationMessage string) *EzsignfoldersignerassociationResponseCompound {
 	this := EzsignfoldersignerassociationResponseCompound{}
 	this.PkiEzsignfoldersignerassociationID = pkiEzsignfoldersignerassociationID
 	this.FkiEzsignfolderID = fkiEzsignfolderID
+	this.BEzsignfoldersignerassociationDelayedsend = bEzsignfoldersignerassociationDelayedsend
 	this.BEzsignfoldersignerassociationReceivecopy = bEzsignfoldersignerassociationReceivecopy
+	this.TEzsignfoldersignerassociationMessage = tEzsignfoldersignerassociationMessage
 	return &this
 }
 
@@ -45,70 +55,6 @@ func NewEzsignfoldersignerassociationResponseCompound(pkiEzsignfoldersignerassoc
 func NewEzsignfoldersignerassociationResponseCompoundWithDefaults() *EzsignfoldersignerassociationResponseCompound {
 	this := EzsignfoldersignerassociationResponseCompound{}
 	return &this
-}
-
-// GetObjUser returns the ObjUser field value if set, zero value otherwise.
-func (o *EzsignfoldersignerassociationResponseCompound) GetObjUser() EzsignfoldersignerassociationResponseCompoundUser {
-	if o == nil || o.ObjUser == nil {
-		var ret EzsignfoldersignerassociationResponseCompoundUser
-		return ret
-	}
-	return *o.ObjUser
-}
-
-// GetObjUserOk returns a tuple with the ObjUser field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *EzsignfoldersignerassociationResponseCompound) GetObjUserOk() (*EzsignfoldersignerassociationResponseCompoundUser, bool) {
-	if o == nil || o.ObjUser == nil {
-		return nil, false
-	}
-	return o.ObjUser, true
-}
-
-// HasObjUser returns a boolean if a field has been set.
-func (o *EzsignfoldersignerassociationResponseCompound) HasObjUser() bool {
-	if o != nil && o.ObjUser != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetObjUser gets a reference to the given EzsignfoldersignerassociationResponseCompoundUser and assigns it to the ObjUser field.
-func (o *EzsignfoldersignerassociationResponseCompound) SetObjUser(v EzsignfoldersignerassociationResponseCompoundUser) {
-	o.ObjUser = &v
-}
-
-// GetObjEzsignsigner returns the ObjEzsignsigner field value if set, zero value otherwise.
-func (o *EzsignfoldersignerassociationResponseCompound) GetObjEzsignsigner() EzsignsignerResponseCompound {
-	if o == nil || o.ObjEzsignsigner == nil {
-		var ret EzsignsignerResponseCompound
-		return ret
-	}
-	return *o.ObjEzsignsigner
-}
-
-// GetObjEzsignsignerOk returns a tuple with the ObjEzsignsigner field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *EzsignfoldersignerassociationResponseCompound) GetObjEzsignsignerOk() (*EzsignsignerResponseCompound, bool) {
-	if o == nil || o.ObjEzsignsigner == nil {
-		return nil, false
-	}
-	return o.ObjEzsignsigner, true
-}
-
-// HasObjEzsignsigner returns a boolean if a field has been set.
-func (o *EzsignfoldersignerassociationResponseCompound) HasObjEzsignsigner() bool {
-	if o != nil && o.ObjEzsignsigner != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetObjEzsignsigner gets a reference to the given EzsignsignerResponseCompound and assigns it to the ObjEzsignsigner field.
-func (o *EzsignfoldersignerassociationResponseCompound) SetObjEzsignsigner(v EzsignsignerResponseCompound) {
-	o.ObjEzsignsigner = &v
 }
 
 // GetPkiEzsignfoldersignerassociationID returns the PkiEzsignfoldersignerassociationID field value
@@ -159,6 +105,30 @@ func (o *EzsignfoldersignerassociationResponseCompound) SetFkiEzsignfolderID(v i
 	o.FkiEzsignfolderID = v
 }
 
+// GetBEzsignfoldersignerassociationDelayedsend returns the BEzsignfoldersignerassociationDelayedsend field value
+func (o *EzsignfoldersignerassociationResponseCompound) GetBEzsignfoldersignerassociationDelayedsend() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BEzsignfoldersignerassociationDelayedsend
+}
+
+// GetBEzsignfoldersignerassociationDelayedsendOk returns a tuple with the BEzsignfoldersignerassociationDelayedsend field value
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldersignerassociationResponseCompound) GetBEzsignfoldersignerassociationDelayedsendOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BEzsignfoldersignerassociationDelayedsend, true
+}
+
+// SetBEzsignfoldersignerassociationDelayedsend sets field value
+func (o *EzsignfoldersignerassociationResponseCompound) SetBEzsignfoldersignerassociationDelayedsend(v bool) {
+	o.BEzsignfoldersignerassociationDelayedsend = v
+}
+
 // GetBEzsignfoldersignerassociationReceivecopy returns the BEzsignfoldersignerassociationReceivecopy field value
 func (o *EzsignfoldersignerassociationResponseCompound) GetBEzsignfoldersignerassociationReceivecopy() bool {
 	if o == nil {
@@ -183,24 +153,151 @@ func (o *EzsignfoldersignerassociationResponseCompound) SetBEzsignfoldersigneras
 	o.BEzsignfoldersignerassociationReceivecopy = v
 }
 
+// GetTEzsignfoldersignerassociationMessage returns the TEzsignfoldersignerassociationMessage field value
+func (o *EzsignfoldersignerassociationResponseCompound) GetTEzsignfoldersignerassociationMessage() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.TEzsignfoldersignerassociationMessage
+}
+
+// GetTEzsignfoldersignerassociationMessageOk returns a tuple with the TEzsignfoldersignerassociationMessage field value
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldersignerassociationResponseCompound) GetTEzsignfoldersignerassociationMessageOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TEzsignfoldersignerassociationMessage, true
+}
+
+// SetTEzsignfoldersignerassociationMessage sets field value
+func (o *EzsignfoldersignerassociationResponseCompound) SetTEzsignfoldersignerassociationMessage(v string) {
+	o.TEzsignfoldersignerassociationMessage = v
+}
+
+// GetObjEzsignsignergroup returns the ObjEzsignsignergroup field value if set, zero value otherwise.
+func (o *EzsignfoldersignerassociationResponseCompound) GetObjEzsignsignergroup() EzsignsignergroupResponseCompound {
+	if o == nil || IsNil(o.ObjEzsignsignergroup) {
+		var ret EzsignsignergroupResponseCompound
+		return ret
+	}
+	return *o.ObjEzsignsignergroup
+}
+
+// GetObjEzsignsignergroupOk returns a tuple with the ObjEzsignsignergroup field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldersignerassociationResponseCompound) GetObjEzsignsignergroupOk() (*EzsignsignergroupResponseCompound, bool) {
+	if o == nil || IsNil(o.ObjEzsignsignergroup) {
+		return nil, false
+	}
+	return o.ObjEzsignsignergroup, true
+}
+
+// HasObjEzsignsignergroup returns a boolean if a field has been set.
+func (o *EzsignfoldersignerassociationResponseCompound) HasObjEzsignsignergroup() bool {
+	if o != nil && !IsNil(o.ObjEzsignsignergroup) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjEzsignsignergroup gets a reference to the given EzsignsignergroupResponseCompound and assigns it to the ObjEzsignsignergroup field.
+func (o *EzsignfoldersignerassociationResponseCompound) SetObjEzsignsignergroup(v EzsignsignergroupResponseCompound) {
+	o.ObjEzsignsignergroup = &v
+}
+
+// GetObjUser returns the ObjUser field value if set, zero value otherwise.
+func (o *EzsignfoldersignerassociationResponseCompound) GetObjUser() EzsignfoldersignerassociationResponseCompoundUser {
+	if o == nil || IsNil(o.ObjUser) {
+		var ret EzsignfoldersignerassociationResponseCompoundUser
+		return ret
+	}
+	return *o.ObjUser
+}
+
+// GetObjUserOk returns a tuple with the ObjUser field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldersignerassociationResponseCompound) GetObjUserOk() (*EzsignfoldersignerassociationResponseCompoundUser, bool) {
+	if o == nil || IsNil(o.ObjUser) {
+		return nil, false
+	}
+	return o.ObjUser, true
+}
+
+// HasObjUser returns a boolean if a field has been set.
+func (o *EzsignfoldersignerassociationResponseCompound) HasObjUser() bool {
+	if o != nil && !IsNil(o.ObjUser) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjUser gets a reference to the given EzsignfoldersignerassociationResponseCompoundUser and assigns it to the ObjUser field.
+func (o *EzsignfoldersignerassociationResponseCompound) SetObjUser(v EzsignfoldersignerassociationResponseCompoundUser) {
+	o.ObjUser = &v
+}
+
+// GetObjEzsignsigner returns the ObjEzsignsigner field value if set, zero value otherwise.
+func (o *EzsignfoldersignerassociationResponseCompound) GetObjEzsignsigner() EzsignsignerResponseCompound {
+	if o == nil || IsNil(o.ObjEzsignsigner) {
+		var ret EzsignsignerResponseCompound
+		return ret
+	}
+	return *o.ObjEzsignsigner
+}
+
+// GetObjEzsignsignerOk returns a tuple with the ObjEzsignsigner field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldersignerassociationResponseCompound) GetObjEzsignsignerOk() (*EzsignsignerResponseCompound, bool) {
+	if o == nil || IsNil(o.ObjEzsignsigner) {
+		return nil, false
+	}
+	return o.ObjEzsignsigner, true
+}
+
+// HasObjEzsignsigner returns a boolean if a field has been set.
+func (o *EzsignfoldersignerassociationResponseCompound) HasObjEzsignsigner() bool {
+	if o != nil && !IsNil(o.ObjEzsignsigner) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjEzsignsigner gets a reference to the given EzsignsignerResponseCompound and assigns it to the ObjEzsignsigner field.
+func (o *EzsignfoldersignerassociationResponseCompound) SetObjEzsignsigner(v EzsignsignerResponseCompound) {
+	o.ObjEzsignsigner = &v
+}
+
 func (o EzsignfoldersignerassociationResponseCompound) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if o.ObjUser != nil {
-		toSerialize["objUser"] = o.ObjUser
-	}
-	if o.ObjEzsignsigner != nil {
-		toSerialize["objEzsignsigner"] = o.ObjEzsignsigner
-	}
-	if true {
-		toSerialize["pkiEzsignfoldersignerassociationID"] = o.PkiEzsignfoldersignerassociationID
-	}
-	if true {
-		toSerialize["fkiEzsignfolderID"] = o.FkiEzsignfolderID
-	}
-	if true {
-		toSerialize["bEzsignfoldersignerassociationReceivecopy"] = o.BEzsignfoldersignerassociationReceivecopy
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsignfoldersignerassociationResponseCompound) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["pkiEzsignfoldersignerassociationID"] = o.PkiEzsignfoldersignerassociationID
+	toSerialize["fkiEzsignfolderID"] = o.FkiEzsignfolderID
+	toSerialize["bEzsignfoldersignerassociationDelayedsend"] = o.BEzsignfoldersignerassociationDelayedsend
+	toSerialize["bEzsignfoldersignerassociationReceivecopy"] = o.BEzsignfoldersignerassociationReceivecopy
+	toSerialize["tEzsignfoldersignerassociationMessage"] = o.TEzsignfoldersignerassociationMessage
+	if !IsNil(o.ObjEzsignsignergroup) {
+		toSerialize["objEzsignsignergroup"] = o.ObjEzsignsignergroup
+	}
+	if !IsNil(o.ObjUser) {
+		toSerialize["objUser"] = o.ObjUser
+	}
+	if !IsNil(o.ObjEzsignsigner) {
+		toSerialize["objEzsignsigner"] = o.ObjEzsignsigner
+	}
+	return toSerialize, nil
 }
 
 type NullableEzsignfoldersignerassociationResponseCompound struct {

@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,25 +15,27 @@ import (
 	"encoding/json"
 )
 
-// EzsigntemplatepackageGetListV1ResponseMPayload Payload for the /1/object/ezsigntemplatepackage/getList API Request
+// checks if the EzsigntemplatepackageGetListV1ResponseMPayload type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsigntemplatepackageGetListV1ResponseMPayload{}
+
+// EzsigntemplatepackageGetListV1ResponseMPayload Payload for GET /1/object/ezsigntemplatepackage/getList
 type EzsigntemplatepackageGetListV1ResponseMPayload struct {
-	// 
-	AObjEzsigntemplatepackage []EzsigntemplatepackageListElement `json:"a_objEzsigntemplatepackage"`
 	// The number of rows returned
 	IRowReturned int32 `json:"iRowReturned"`
 	// The number of rows matching your filters (if any) or the total number of rows
 	IRowFiltered int32 `json:"iRowFiltered"`
+	AObjEzsigntemplatepackage []EzsigntemplatepackageListElement `json:"a_objEzsigntemplatepackage"`
 }
 
 // NewEzsigntemplatepackageGetListV1ResponseMPayload instantiates a new EzsigntemplatepackageGetListV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigntemplatepackageGetListV1ResponseMPayload(aObjEzsigntemplatepackage []EzsigntemplatepackageListElement, iRowReturned int32, iRowFiltered int32) *EzsigntemplatepackageGetListV1ResponseMPayload {
+func NewEzsigntemplatepackageGetListV1ResponseMPayload(iRowReturned int32, iRowFiltered int32, aObjEzsigntemplatepackage []EzsigntemplatepackageListElement) *EzsigntemplatepackageGetListV1ResponseMPayload {
 	this := EzsigntemplatepackageGetListV1ResponseMPayload{}
-	this.AObjEzsigntemplatepackage = aObjEzsigntemplatepackage
 	this.IRowReturned = iRowReturned
 	this.IRowFiltered = iRowFiltered
+	this.AObjEzsigntemplatepackage = aObjEzsigntemplatepackage
 	return &this
 }
 
@@ -43,30 +45,6 @@ func NewEzsigntemplatepackageGetListV1ResponseMPayload(aObjEzsigntemplatepackage
 func NewEzsigntemplatepackageGetListV1ResponseMPayloadWithDefaults() *EzsigntemplatepackageGetListV1ResponseMPayload {
 	this := EzsigntemplatepackageGetListV1ResponseMPayload{}
 	return &this
-}
-
-// GetAObjEzsigntemplatepackage returns the AObjEzsigntemplatepackage field value
-func (o *EzsigntemplatepackageGetListV1ResponseMPayload) GetAObjEzsigntemplatepackage() []EzsigntemplatepackageListElement {
-	if o == nil {
-		var ret []EzsigntemplatepackageListElement
-		return ret
-	}
-
-	return o.AObjEzsigntemplatepackage
-}
-
-// GetAObjEzsigntemplatepackageOk returns a tuple with the AObjEzsigntemplatepackage field value
-// and a boolean to check if the value has been set.
-func (o *EzsigntemplatepackageGetListV1ResponseMPayload) GetAObjEzsigntemplatepackageOk() ([]EzsigntemplatepackageListElement, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.AObjEzsigntemplatepackage, true
-}
-
-// SetAObjEzsigntemplatepackage sets field value
-func (o *EzsigntemplatepackageGetListV1ResponseMPayload) SetAObjEzsigntemplatepackage(v []EzsigntemplatepackageListElement) {
-	o.AObjEzsigntemplatepackage = v
 }
 
 // GetIRowReturned returns the IRowReturned field value
@@ -117,18 +95,44 @@ func (o *EzsigntemplatepackageGetListV1ResponseMPayload) SetIRowFiltered(v int32
 	o.IRowFiltered = v
 }
 
+// GetAObjEzsigntemplatepackage returns the AObjEzsigntemplatepackage field value
+func (o *EzsigntemplatepackageGetListV1ResponseMPayload) GetAObjEzsigntemplatepackage() []EzsigntemplatepackageListElement {
+	if o == nil {
+		var ret []EzsigntemplatepackageListElement
+		return ret
+	}
+
+	return o.AObjEzsigntemplatepackage
+}
+
+// GetAObjEzsigntemplatepackageOk returns a tuple with the AObjEzsigntemplatepackage field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatepackageGetListV1ResponseMPayload) GetAObjEzsigntemplatepackageOk() ([]EzsigntemplatepackageListElement, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AObjEzsigntemplatepackage, true
+}
+
+// SetAObjEzsigntemplatepackage sets field value
+func (o *EzsigntemplatepackageGetListV1ResponseMPayload) SetAObjEzsigntemplatepackage(v []EzsigntemplatepackageListElement) {
+	o.AObjEzsigntemplatepackage = v
+}
+
 func (o EzsigntemplatepackageGetListV1ResponseMPayload) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["a_objEzsigntemplatepackage"] = o.AObjEzsigntemplatepackage
-	}
-	if true {
-		toSerialize["iRowReturned"] = o.IRowReturned
-	}
-	if true {
-		toSerialize["iRowFiltered"] = o.IRowFiltered
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsigntemplatepackageGetListV1ResponseMPayload) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["iRowReturned"] = o.IRowReturned
+	toSerialize["iRowFiltered"] = o.IRowFiltered
+	toSerialize["a_objEzsigntemplatepackage"] = o.AObjEzsigntemplatepackage
+	return toSerialize, nil
 }
 
 type NullableEzsigntemplatepackageGetListV1ResponseMPayload struct {

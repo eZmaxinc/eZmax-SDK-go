@@ -6,16 +6,17 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiEzsignfolderID** | Pointer to **int32** | The unique ID of the Ezsignfolder | [optional] 
 **FkiEzsignfoldertypeID** | **int32** | The unique ID of the Ezsignfoldertype. | 
-**FkiEzsigntsarequirementID** | **int32** | The unique ID of the Ezsigntsarequirement.  Determine if a Time Stamping Authority should add a timestamp on each of the signature. Valid values:  |Value|Description| |-|-| |1|No. TSA Timestamping will requested. This will make all signatures a lot faster since no round-trip to the TSA server will be required. Timestamping will be made using eZsign server&#39;s time.| |2|Best effort. Timestamping from a Time Stamping Authority will be requested but is not mandatory. In the very improbable case it cannot be completed, the timestamping will be made using eZsign server&#39;s time. **Additional fee applies**| |3|Mandatory. Timestamping from a Time Stamping Authority will be requested and is mandatory. In the very improbable case it cannot be completed, the signature will fail and the user will be asked to retry. **Additional fee applies**| | 
+**FkiEzsigntsarequirementID** | Pointer to **int32** | The unique ID of the Ezsigntsarequirement.  Determine if a Time Stamping Authority should add a timestamp on each of the signature. Valid values:  |Value|Description| |-|-| |1|No. TSA Timestamping will requested. This will make all signatures a lot faster since no round-trip to the TSA server will be required. Timestamping will be made using eZsign server&#39;s time.| |2|Best effort. Timestamping from a Time Stamping Authority will be requested but is not mandatory. In the very improbable case it cannot be completed, the timestamping will be made using eZsign server&#39;s time. **Additional fee applies**| |3|Mandatory. Timestamping from a Time Stamping Authority will be requested and is mandatory. In the very improbable case it cannot be completed, the signature will fail and the user will be asked to retry. **Additional fee applies**| | [optional] 
 **SEzsignfolderDescription** | **string** | The description of the Ezsignfolder | 
 **TEzsignfolderNote** | **string** | Note about the Ezsignfolder | 
 **EEzsignfolderSendreminderfrequency** | [**FieldEEzsignfolderSendreminderfrequency**](FieldEEzsignfolderSendreminderfrequency.md) |  | 
+**SEzsignfolderExternalid** | Pointer to **string** | This field can be used to store an External ID from the client&#39;s system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format.  | [optional] 
 
 ## Methods
 
 ### NewEzsignfolderRequestCompound
 
-`func NewEzsignfolderRequestCompound(fkiEzsignfoldertypeID int32, fkiEzsigntsarequirementID int32, sEzsignfolderDescription string, tEzsignfolderNote string, eEzsignfolderSendreminderfrequency FieldEEzsignfolderSendreminderfrequency, ) *EzsignfolderRequestCompound`
+`func NewEzsignfolderRequestCompound(fkiEzsignfoldertypeID int32, sEzsignfolderDescription string, tEzsignfolderNote string, eEzsignfolderSendreminderfrequency FieldEEzsignfolderSendreminderfrequency, ) *EzsignfolderRequestCompound`
 
 NewEzsignfolderRequestCompound instantiates a new EzsignfolderRequestCompound object
 This constructor will assign default values to properties that have it defined,
@@ -94,6 +95,11 @@ and a boolean to check if the value has been set.
 
 SetFkiEzsigntsarequirementID sets FkiEzsigntsarequirementID field to given value.
 
+### HasFkiEzsigntsarequirementID
+
+`func (o *EzsignfolderRequestCompound) HasFkiEzsigntsarequirementID() bool`
+
+HasFkiEzsigntsarequirementID returns a boolean if a field has been set.
 
 ### GetSEzsignfolderDescription
 
@@ -154,6 +160,31 @@ and a boolean to check if the value has been set.
 
 SetEEzsignfolderSendreminderfrequency sets EEzsignfolderSendreminderfrequency field to given value.
 
+
+### GetSEzsignfolderExternalid
+
+`func (o *EzsignfolderRequestCompound) GetSEzsignfolderExternalid() string`
+
+GetSEzsignfolderExternalid returns the SEzsignfolderExternalid field if non-nil, zero value otherwise.
+
+### GetSEzsignfolderExternalidOk
+
+`func (o *EzsignfolderRequestCompound) GetSEzsignfolderExternalidOk() (*string, bool)`
+
+GetSEzsignfolderExternalidOk returns a tuple with the SEzsignfolderExternalid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzsignfolderExternalid
+
+`func (o *EzsignfolderRequestCompound) SetSEzsignfolderExternalid(v string)`
+
+SetSEzsignfolderExternalid sets SEzsignfolderExternalid field to given value.
+
+### HasSEzsignfolderExternalid
+
+`func (o *EzsignfolderRequestCompound) HasSEzsignfolderExternalid() bool`
+
+HasSEzsignfolderExternalid returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

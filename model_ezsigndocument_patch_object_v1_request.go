@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,7 +15,10 @@ import (
 	"encoding/json"
 )
 
-// EzsigndocumentPatchObjectV1Request Request for the /1/object/ezsigndocument/pathObject API Request
+// checks if the EzsigndocumentPatchObjectV1Request type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsigndocumentPatchObjectV1Request{}
+
+// EzsigndocumentPatchObjectV1Request Request for PATCH /1/object/ezsigndocument/{pkiEzsigndocumentID}
 type EzsigndocumentPatchObjectV1Request struct {
 	ObjEzsigndocument EzsigndocumentRequestPatch `json:"objEzsigndocument"`
 }
@@ -63,11 +66,17 @@ func (o *EzsigndocumentPatchObjectV1Request) SetObjEzsigndocument(v Ezsigndocume
 }
 
 func (o EzsigndocumentPatchObjectV1Request) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["objEzsigndocument"] = o.ObjEzsigndocument
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsigndocumentPatchObjectV1Request) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["objEzsigndocument"] = o.ObjEzsigndocument
+	return toSerialize, nil
 }
 
 type NullableEzsigndocumentPatchObjectV1Request struct {

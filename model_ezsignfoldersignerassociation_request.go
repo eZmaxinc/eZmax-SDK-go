@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,16 +15,23 @@ import (
 	"encoding/json"
 )
 
+// checks if the EzsignfoldersignerassociationRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsignfoldersignerassociationRequest{}
+
 // EzsignfoldersignerassociationRequest An Ezsignfoldersignerassociation Object
 type EzsignfoldersignerassociationRequest struct {
 	// The unique ID of the Ezsignfoldersignerassociation
 	PkiEzsignfoldersignerassociationID *int32 `json:"pkiEzsignfoldersignerassociationID,omitempty"`
 	// The unique ID of the User
 	FkiUserID *int32 `json:"fkiUserID,omitempty"`
+	// The unique ID of the Ezsignsignergroup
+	FkiEzsignsignergroupID *int32 `json:"fkiEzsignsignergroupID,omitempty"`
 	// The unique ID of the Ezsignfolder
 	FkiEzsignfolderID int32 `json:"fkiEzsignfolderID"`
 	// If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document.
 	BEzsignfoldersignerassociationReceivecopy *bool `json:"bEzsignfoldersignerassociationReceivecopy,omitempty"`
+	// A custom text message that will be added to the email sent.
+	TEzsignfoldersignerassociationMessage *string `json:"tEzsignfoldersignerassociationMessage,omitempty"`
 }
 
 // NewEzsignfoldersignerassociationRequest instantiates a new EzsignfoldersignerassociationRequest object
@@ -47,7 +54,7 @@ func NewEzsignfoldersignerassociationRequestWithDefaults() *Ezsignfoldersigneras
 
 // GetPkiEzsignfoldersignerassociationID returns the PkiEzsignfoldersignerassociationID field value if set, zero value otherwise.
 func (o *EzsignfoldersignerassociationRequest) GetPkiEzsignfoldersignerassociationID() int32 {
-	if o == nil || o.PkiEzsignfoldersignerassociationID == nil {
+	if o == nil || IsNil(o.PkiEzsignfoldersignerassociationID) {
 		var ret int32
 		return ret
 	}
@@ -57,7 +64,7 @@ func (o *EzsignfoldersignerassociationRequest) GetPkiEzsignfoldersignerassociati
 // GetPkiEzsignfoldersignerassociationIDOk returns a tuple with the PkiEzsignfoldersignerassociationID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsignfoldersignerassociationRequest) GetPkiEzsignfoldersignerassociationIDOk() (*int32, bool) {
-	if o == nil || o.PkiEzsignfoldersignerassociationID == nil {
+	if o == nil || IsNil(o.PkiEzsignfoldersignerassociationID) {
 		return nil, false
 	}
 	return o.PkiEzsignfoldersignerassociationID, true
@@ -65,7 +72,7 @@ func (o *EzsignfoldersignerassociationRequest) GetPkiEzsignfoldersignerassociati
 
 // HasPkiEzsignfoldersignerassociationID returns a boolean if a field has been set.
 func (o *EzsignfoldersignerassociationRequest) HasPkiEzsignfoldersignerassociationID() bool {
-	if o != nil && o.PkiEzsignfoldersignerassociationID != nil {
+	if o != nil && !IsNil(o.PkiEzsignfoldersignerassociationID) {
 		return true
 	}
 
@@ -79,7 +86,7 @@ func (o *EzsignfoldersignerassociationRequest) SetPkiEzsignfoldersignerassociati
 
 // GetFkiUserID returns the FkiUserID field value if set, zero value otherwise.
 func (o *EzsignfoldersignerassociationRequest) GetFkiUserID() int32 {
-	if o == nil || o.FkiUserID == nil {
+	if o == nil || IsNil(o.FkiUserID) {
 		var ret int32
 		return ret
 	}
@@ -89,7 +96,7 @@ func (o *EzsignfoldersignerassociationRequest) GetFkiUserID() int32 {
 // GetFkiUserIDOk returns a tuple with the FkiUserID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsignfoldersignerassociationRequest) GetFkiUserIDOk() (*int32, bool) {
-	if o == nil || o.FkiUserID == nil {
+	if o == nil || IsNil(o.FkiUserID) {
 		return nil, false
 	}
 	return o.FkiUserID, true
@@ -97,7 +104,7 @@ func (o *EzsignfoldersignerassociationRequest) GetFkiUserIDOk() (*int32, bool) {
 
 // HasFkiUserID returns a boolean if a field has been set.
 func (o *EzsignfoldersignerassociationRequest) HasFkiUserID() bool {
-	if o != nil && o.FkiUserID != nil {
+	if o != nil && !IsNil(o.FkiUserID) {
 		return true
 	}
 
@@ -107,6 +114,38 @@ func (o *EzsignfoldersignerassociationRequest) HasFkiUserID() bool {
 // SetFkiUserID gets a reference to the given int32 and assigns it to the FkiUserID field.
 func (o *EzsignfoldersignerassociationRequest) SetFkiUserID(v int32) {
 	o.FkiUserID = &v
+}
+
+// GetFkiEzsignsignergroupID returns the FkiEzsignsignergroupID field value if set, zero value otherwise.
+func (o *EzsignfoldersignerassociationRequest) GetFkiEzsignsignergroupID() int32 {
+	if o == nil || IsNil(o.FkiEzsignsignergroupID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEzsignsignergroupID
+}
+
+// GetFkiEzsignsignergroupIDOk returns a tuple with the FkiEzsignsignergroupID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldersignerassociationRequest) GetFkiEzsignsignergroupIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEzsignsignergroupID) {
+		return nil, false
+	}
+	return o.FkiEzsignsignergroupID, true
+}
+
+// HasFkiEzsignsignergroupID returns a boolean if a field has been set.
+func (o *EzsignfoldersignerassociationRequest) HasFkiEzsignsignergroupID() bool {
+	if o != nil && !IsNil(o.FkiEzsignsignergroupID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzsignsignergroupID gets a reference to the given int32 and assigns it to the FkiEzsignsignergroupID field.
+func (o *EzsignfoldersignerassociationRequest) SetFkiEzsignsignergroupID(v int32) {
+	o.FkiEzsignsignergroupID = &v
 }
 
 // GetFkiEzsignfolderID returns the FkiEzsignfolderID field value
@@ -135,7 +174,7 @@ func (o *EzsignfoldersignerassociationRequest) SetFkiEzsignfolderID(v int32) {
 
 // GetBEzsignfoldersignerassociationReceivecopy returns the BEzsignfoldersignerassociationReceivecopy field value if set, zero value otherwise.
 func (o *EzsignfoldersignerassociationRequest) GetBEzsignfoldersignerassociationReceivecopy() bool {
-	if o == nil || o.BEzsignfoldersignerassociationReceivecopy == nil {
+	if o == nil || IsNil(o.BEzsignfoldersignerassociationReceivecopy) {
 		var ret bool
 		return ret
 	}
@@ -145,7 +184,7 @@ func (o *EzsignfoldersignerassociationRequest) GetBEzsignfoldersignerassociation
 // GetBEzsignfoldersignerassociationReceivecopyOk returns a tuple with the BEzsignfoldersignerassociationReceivecopy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsignfoldersignerassociationRequest) GetBEzsignfoldersignerassociationReceivecopyOk() (*bool, bool) {
-	if o == nil || o.BEzsignfoldersignerassociationReceivecopy == nil {
+	if o == nil || IsNil(o.BEzsignfoldersignerassociationReceivecopy) {
 		return nil, false
 	}
 	return o.BEzsignfoldersignerassociationReceivecopy, true
@@ -153,7 +192,7 @@ func (o *EzsignfoldersignerassociationRequest) GetBEzsignfoldersignerassociation
 
 // HasBEzsignfoldersignerassociationReceivecopy returns a boolean if a field has been set.
 func (o *EzsignfoldersignerassociationRequest) HasBEzsignfoldersignerassociationReceivecopy() bool {
-	if o != nil && o.BEzsignfoldersignerassociationReceivecopy != nil {
+	if o != nil && !IsNil(o.BEzsignfoldersignerassociationReceivecopy) {
 		return true
 	}
 
@@ -165,21 +204,65 @@ func (o *EzsignfoldersignerassociationRequest) SetBEzsignfoldersignerassociation
 	o.BEzsignfoldersignerassociationReceivecopy = &v
 }
 
+// GetTEzsignfoldersignerassociationMessage returns the TEzsignfoldersignerassociationMessage field value if set, zero value otherwise.
+func (o *EzsignfoldersignerassociationRequest) GetTEzsignfoldersignerassociationMessage() string {
+	if o == nil || IsNil(o.TEzsignfoldersignerassociationMessage) {
+		var ret string
+		return ret
+	}
+	return *o.TEzsignfoldersignerassociationMessage
+}
+
+// GetTEzsignfoldersignerassociationMessageOk returns a tuple with the TEzsignfoldersignerassociationMessage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldersignerassociationRequest) GetTEzsignfoldersignerassociationMessageOk() (*string, bool) {
+	if o == nil || IsNil(o.TEzsignfoldersignerassociationMessage) {
+		return nil, false
+	}
+	return o.TEzsignfoldersignerassociationMessage, true
+}
+
+// HasTEzsignfoldersignerassociationMessage returns a boolean if a field has been set.
+func (o *EzsignfoldersignerassociationRequest) HasTEzsignfoldersignerassociationMessage() bool {
+	if o != nil && !IsNil(o.TEzsignfoldersignerassociationMessage) {
+		return true
+	}
+
+	return false
+}
+
+// SetTEzsignfoldersignerassociationMessage gets a reference to the given string and assigns it to the TEzsignfoldersignerassociationMessage field.
+func (o *EzsignfoldersignerassociationRequest) SetTEzsignfoldersignerassociationMessage(v string) {
+	o.TEzsignfoldersignerassociationMessage = &v
+}
+
 func (o EzsignfoldersignerassociationRequest) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if o.PkiEzsignfoldersignerassociationID != nil {
-		toSerialize["pkiEzsignfoldersignerassociationID"] = o.PkiEzsignfoldersignerassociationID
-	}
-	if o.FkiUserID != nil {
-		toSerialize["fkiUserID"] = o.FkiUserID
-	}
-	if true {
-		toSerialize["fkiEzsignfolderID"] = o.FkiEzsignfolderID
-	}
-	if o.BEzsignfoldersignerassociationReceivecopy != nil {
-		toSerialize["bEzsignfoldersignerassociationReceivecopy"] = o.BEzsignfoldersignerassociationReceivecopy
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsignfoldersignerassociationRequest) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.PkiEzsignfoldersignerassociationID) {
+		toSerialize["pkiEzsignfoldersignerassociationID"] = o.PkiEzsignfoldersignerassociationID
+	}
+	if !IsNil(o.FkiUserID) {
+		toSerialize["fkiUserID"] = o.FkiUserID
+	}
+	if !IsNil(o.FkiEzsignsignergroupID) {
+		toSerialize["fkiEzsignsignergroupID"] = o.FkiEzsignsignergroupID
+	}
+	toSerialize["fkiEzsignfolderID"] = o.FkiEzsignfolderID
+	if !IsNil(o.BEzsignfoldersignerassociationReceivecopy) {
+		toSerialize["bEzsignfoldersignerassociationReceivecopy"] = o.BEzsignfoldersignerassociationReceivecopy
+	}
+	if !IsNil(o.TEzsignfoldersignerassociationMessage) {
+		toSerialize["tEzsignfoldersignerassociationMessage"] = o.TEzsignfoldersignerassociationMessage
+	}
+	return toSerialize, nil
 }
 
 type NullableEzsignfoldersignerassociationRequest struct {

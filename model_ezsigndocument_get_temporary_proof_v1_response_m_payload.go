@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,16 +15,19 @@ import (
 	"encoding/json"
 )
 
-// EzsigndocumentGetTemporaryProofV1ResponseMPayload Payload for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/getTemporaryProof API Request
+// checks if the EzsigndocumentGetTemporaryProofV1ResponseMPayload type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsigndocumentGetTemporaryProofV1ResponseMPayload{}
+
+// EzsigndocumentGetTemporaryProofV1ResponseMPayload Payload for GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getTemporaryProof
 type EzsigndocumentGetTemporaryProofV1ResponseMPayload struct {
-	AObjEzsigndocumentlog EzsigndocumentlogResponse `json:"a_objEzsigndocumentlog"`
+	AObjEzsigndocumentlog []EzsigndocumentlogResponseCompound `json:"a_objEzsigndocumentlog"`
 }
 
 // NewEzsigndocumentGetTemporaryProofV1ResponseMPayload instantiates a new EzsigndocumentGetTemporaryProofV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigndocumentGetTemporaryProofV1ResponseMPayload(aObjEzsigndocumentlog EzsigndocumentlogResponse) *EzsigndocumentGetTemporaryProofV1ResponseMPayload {
+func NewEzsigndocumentGetTemporaryProofV1ResponseMPayload(aObjEzsigndocumentlog []EzsigndocumentlogResponseCompound) *EzsigndocumentGetTemporaryProofV1ResponseMPayload {
 	this := EzsigndocumentGetTemporaryProofV1ResponseMPayload{}
 	this.AObjEzsigndocumentlog = aObjEzsigndocumentlog
 	return &this
@@ -39,9 +42,9 @@ func NewEzsigndocumentGetTemporaryProofV1ResponseMPayloadWithDefaults() *Ezsignd
 }
 
 // GetAObjEzsigndocumentlog returns the AObjEzsigndocumentlog field value
-func (o *EzsigndocumentGetTemporaryProofV1ResponseMPayload) GetAObjEzsigndocumentlog() EzsigndocumentlogResponse {
+func (o *EzsigndocumentGetTemporaryProofV1ResponseMPayload) GetAObjEzsigndocumentlog() []EzsigndocumentlogResponseCompound {
 	if o == nil {
-		var ret EzsigndocumentlogResponse
+		var ret []EzsigndocumentlogResponseCompound
 		return ret
 	}
 
@@ -50,24 +53,30 @@ func (o *EzsigndocumentGetTemporaryProofV1ResponseMPayload) GetAObjEzsigndocumen
 
 // GetAObjEzsigndocumentlogOk returns a tuple with the AObjEzsigndocumentlog field value
 // and a boolean to check if the value has been set.
-func (o *EzsigndocumentGetTemporaryProofV1ResponseMPayload) GetAObjEzsigndocumentlogOk() (*EzsigndocumentlogResponse, bool) {
+func (o *EzsigndocumentGetTemporaryProofV1ResponseMPayload) GetAObjEzsigndocumentlogOk() ([]EzsigndocumentlogResponseCompound, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.AObjEzsigndocumentlog, true
+	return o.AObjEzsigndocumentlog, true
 }
 
 // SetAObjEzsigndocumentlog sets field value
-func (o *EzsigndocumentGetTemporaryProofV1ResponseMPayload) SetAObjEzsigndocumentlog(v EzsigndocumentlogResponse) {
+func (o *EzsigndocumentGetTemporaryProofV1ResponseMPayload) SetAObjEzsigndocumentlog(v []EzsigndocumentlogResponseCompound) {
 	o.AObjEzsigndocumentlog = v
 }
 
 func (o EzsigndocumentGetTemporaryProofV1ResponseMPayload) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["a_objEzsigndocumentlog"] = o.AObjEzsigndocumentlog
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsigndocumentGetTemporaryProofV1ResponseMPayload) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["a_objEzsigndocumentlog"] = o.AObjEzsigndocumentlog
+	return toSerialize, nil
 }
 
 type NullableEzsigndocumentGetTemporaryProofV1ResponseMPayload struct {

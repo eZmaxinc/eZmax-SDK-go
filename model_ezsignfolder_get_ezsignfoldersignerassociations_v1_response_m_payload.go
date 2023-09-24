@@ -1,9 +1,9 @@
 /*
-eZmax API Definition
+eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.1.4
+API version: 1.2.0
 Contact: support-api@ezmax.ca
 */
 
@@ -15,17 +15,19 @@ import (
 	"encoding/json"
 )
 
-// EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload Payload for the /1/object/ezsignfolder/{pkiEzsignfolder}/getEzsignfoldersignerassociations API Request
+// checks if the EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload{}
+
+// EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload Payload for GET /1/object/ezsignfolder/{pkiEzsignfolder}/getEzsignfoldersignerassociations
 type EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload struct {
-	// 
-	AObjEzsignfoldersignerassociation []EzsignfoldersignerassociationResponseCompound `json:"a_objEzsignfoldersignerassociation"`
+	AObjEzsignfoldersignerassociation []CustomEzsignfoldersignerassociationActionableElementResponse `json:"a_objEzsignfoldersignerassociation"`
 }
 
 // NewEzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload instantiates a new EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload(aObjEzsignfoldersignerassociation []EzsignfoldersignerassociationResponseCompound) *EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload {
+func NewEzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload(aObjEzsignfoldersignerassociation []CustomEzsignfoldersignerassociationActionableElementResponse) *EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload {
 	this := EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload{}
 	this.AObjEzsignfoldersignerassociation = aObjEzsignfoldersignerassociation
 	return &this
@@ -40,9 +42,9 @@ func NewEzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayloadWithDefau
 }
 
 // GetAObjEzsignfoldersignerassociation returns the AObjEzsignfoldersignerassociation field value
-func (o *EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload) GetAObjEzsignfoldersignerassociation() []EzsignfoldersignerassociationResponseCompound {
+func (o *EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload) GetAObjEzsignfoldersignerassociation() []CustomEzsignfoldersignerassociationActionableElementResponse {
 	if o == nil {
-		var ret []EzsignfoldersignerassociationResponseCompound
+		var ret []CustomEzsignfoldersignerassociationActionableElementResponse
 		return ret
 	}
 
@@ -51,7 +53,7 @@ func (o *EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload) GetAOb
 
 // GetAObjEzsignfoldersignerassociationOk returns a tuple with the AObjEzsignfoldersignerassociation field value
 // and a boolean to check if the value has been set.
-func (o *EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload) GetAObjEzsignfoldersignerassociationOk() ([]EzsignfoldersignerassociationResponseCompound, bool) {
+func (o *EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload) GetAObjEzsignfoldersignerassociationOk() ([]CustomEzsignfoldersignerassociationActionableElementResponse, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -59,16 +61,22 @@ func (o *EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload) GetAOb
 }
 
 // SetAObjEzsignfoldersignerassociation sets field value
-func (o *EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload) SetAObjEzsignfoldersignerassociation(v []EzsignfoldersignerassociationResponseCompound) {
+func (o *EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload) SetAObjEzsignfoldersignerassociation(v []CustomEzsignfoldersignerassociationActionableElementResponse) {
 	o.AObjEzsignfoldersignerassociation = v
 }
 
 func (o EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["a_objEzsignfoldersignerassociation"] = o.AObjEzsignfoldersignerassociation
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
+}
+
+func (o EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["a_objEzsignfoldersignerassociation"] = o.AObjEzsignfoldersignerassociation
+	return toSerialize, nil
 }
 
 type NullableEzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload struct {

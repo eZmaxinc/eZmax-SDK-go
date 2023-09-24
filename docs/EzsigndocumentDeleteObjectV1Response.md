@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjDebugPayload** | Pointer to [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | [optional] 
+**ObjDebugPayload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
 **ObjDebug** | Pointer to [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 
 ## Methods
 
 ### NewEzsigndocumentDeleteObjectV1Response
 
-`func NewEzsigndocumentDeleteObjectV1Response() *EzsigndocumentDeleteObjectV1Response`
+`func NewEzsigndocumentDeleteObjectV1Response(objDebugPayload CommonResponseObjDebugPayload, ) *EzsigndocumentDeleteObjectV1Response`
 
 NewEzsigndocumentDeleteObjectV1Response instantiates a new EzsigndocumentDeleteObjectV1Response object
 This constructor will assign default values to properties that have it defined,
@@ -45,11 +45,6 @@ and a boolean to check if the value has been set.
 
 SetObjDebugPayload sets ObjDebugPayload field to given value.
 
-### HasObjDebugPayload
-
-`func (o *EzsigndocumentDeleteObjectV1Response) HasObjDebugPayload() bool`
-
-HasObjDebugPayload returns a boolean if a field has been set.
 
 ### GetObjDebug
 
