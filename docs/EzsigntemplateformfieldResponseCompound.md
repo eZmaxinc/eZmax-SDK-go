@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **IEzsigntemplateformfieldY** | **int32** | The Y coordinate (Vertical) where to put the Ezsigntemplateformfield on the Ezsigntemplatepage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplateformfield 3 inches from the top border of the page, you would use \&quot;300\&quot; for the Y coordinate. | 
 **IEzsigntemplateformfieldWidth** | **int32** | The Width of the Ezsigntemplateformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsigntemplateformfieldgroupType.  | eEzsigntemplateformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22-65535     | | Radio                     | 22           | | Text                      | 22-65535     | | Textarea                  | 22-65535     | | 
 **IEzsigntemplateformfieldHeight** | **int32** | The Height of the Ezsigntemplateformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsigntemplateformfieldgroupType.  | eEzsigntemplateformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22           | | Radio                     | 22           | | Text                      | 22           | | Textarea                  | 22-65535     |  | 
+**BEzsigntemplateformfieldAutocomplete** | Pointer to **bool** | Whether the Ezsigntemplateformfield allows the use of the autocomplete of the browser.  This can only be set if eEzsigntemplateformfieldgroupType is **Text** | [optional] 
 **BEzsigntemplateformfieldSelected** | Pointer to **bool** | Whether the Ezsigntemplateformfield is selected or not by default.  This can only be set if eEzsigntemplateformfieldgroupType is **Checkbox** or **Radio** | [optional] 
 
 ## Methods
@@ -197,6 +198,31 @@ and a boolean to check if the value has been set.
 
 SetIEzsigntemplateformfieldHeight sets IEzsigntemplateformfieldHeight field to given value.
 
+
+### GetBEzsigntemplateformfieldAutocomplete
+
+`func (o *EzsigntemplateformfieldResponseCompound) GetBEzsigntemplateformfieldAutocomplete() bool`
+
+GetBEzsigntemplateformfieldAutocomplete returns the BEzsigntemplateformfieldAutocomplete field if non-nil, zero value otherwise.
+
+### GetBEzsigntemplateformfieldAutocompleteOk
+
+`func (o *EzsigntemplateformfieldResponseCompound) GetBEzsigntemplateformfieldAutocompleteOk() (*bool, bool)`
+
+GetBEzsigntemplateformfieldAutocompleteOk returns a tuple with the BEzsigntemplateformfieldAutocomplete field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsigntemplateformfieldAutocomplete
+
+`func (o *EzsigntemplateformfieldResponseCompound) SetBEzsigntemplateformfieldAutocomplete(v bool)`
+
+SetBEzsigntemplateformfieldAutocomplete sets BEzsigntemplateformfieldAutocomplete field to given value.
+
+### HasBEzsigntemplateformfieldAutocomplete
+
+`func (o *EzsigntemplateformfieldResponseCompound) HasBEzsigntemplateformfieldAutocomplete() bool`
+
+HasBEzsigntemplateformfieldAutocomplete returns a boolean if a field has been set.
 
 ### GetBEzsigntemplateformfieldSelected
 

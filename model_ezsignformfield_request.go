@@ -36,6 +36,8 @@ type EzsignformfieldRequest struct {
 	IEzsignformfieldWidth int32 `json:"iEzsignformfieldWidth"`
 	// The Height of the Ezsignformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsignformfieldgroupType.  | eEzsignformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22           | | Radio                     | 22           | | Text                      | 22           | | Textarea                  | 22-65535     | 
 	IEzsignformfieldHeight int32 `json:"iEzsignformfieldHeight"`
+	// Whether the Ezsignformfield allows the use of the autocomplete of the browser.  This can only be set if eEzsignformfieldgroupType is **Text**
+	BEzsignformfieldAutocomplete *bool `json:"bEzsignformfieldAutocomplete,omitempty"`
 	// Whether the Ezsignformfield is selected or not by default.  This can only be set if eEzsignformfieldgroupType is **Checkbox** or **Radio**
 	BEzsignformfieldSelected *bool `json:"bEzsignformfieldSelected,omitempty"`
 	// This is the value enterred for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is **Dropdown**, **Text** or **Textarea**
@@ -273,6 +275,38 @@ func (o *EzsignformfieldRequest) SetIEzsignformfieldHeight(v int32) {
 	o.IEzsignformfieldHeight = v
 }
 
+// GetBEzsignformfieldAutocomplete returns the BEzsignformfieldAutocomplete field value if set, zero value otherwise.
+func (o *EzsignformfieldRequest) GetBEzsignformfieldAutocomplete() bool {
+	if o == nil || IsNil(o.BEzsignformfieldAutocomplete) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignformfieldAutocomplete
+}
+
+// GetBEzsignformfieldAutocompleteOk returns a tuple with the BEzsignformfieldAutocomplete field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignformfieldRequest) GetBEzsignformfieldAutocompleteOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignformfieldAutocomplete) {
+		return nil, false
+	}
+	return o.BEzsignformfieldAutocomplete, true
+}
+
+// HasBEzsignformfieldAutocomplete returns a boolean if a field has been set.
+func (o *EzsignformfieldRequest) HasBEzsignformfieldAutocomplete() bool {
+	if o != nil && !IsNil(o.BEzsignformfieldAutocomplete) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignformfieldAutocomplete gets a reference to the given bool and assigns it to the BEzsignformfieldAutocomplete field.
+func (o *EzsignformfieldRequest) SetBEzsignformfieldAutocomplete(v bool) {
+	o.BEzsignformfieldAutocomplete = &v
+}
+
 // GetBEzsignformfieldSelected returns the BEzsignformfieldSelected field value if set, zero value otherwise.
 func (o *EzsignformfieldRequest) GetBEzsignformfieldSelected() bool {
 	if o == nil || IsNil(o.BEzsignformfieldSelected) {
@@ -359,6 +393,9 @@ func (o EzsignformfieldRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize["iEzsignformfieldY"] = o.IEzsignformfieldY
 	toSerialize["iEzsignformfieldWidth"] = o.IEzsignformfieldWidth
 	toSerialize["iEzsignformfieldHeight"] = o.IEzsignformfieldHeight
+	if !IsNil(o.BEzsignformfieldAutocomplete) {
+		toSerialize["bEzsignformfieldAutocomplete"] = o.BEzsignformfieldAutocomplete
+	}
 	if !IsNil(o.BEzsignformfieldSelected) {
 		toSerialize["bEzsignformfieldSelected"] = o.BEzsignformfieldSelected
 	}

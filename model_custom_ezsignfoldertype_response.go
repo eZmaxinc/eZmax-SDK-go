@@ -23,11 +23,11 @@ type CustomEzsignfoldertypeResponse struct {
 	// The unique ID of the Ezsignfoldertype.
 	PkiEzsignfoldertypeID int32 `json:"pkiEzsignfoldertypeID"`
 	// The name of the Ezsignfoldertype in the language of the requester
-	SEzsignfoldertypeNameX string `json:"sEzsignfoldertypeNameX"`
+	SEzsignfoldertypeNameX *string `json:"sEzsignfoldertypeNameX,omitempty"`
 	// Whether we include the proof with the signed Ezsigndocument for Ezsignsigners
-	BEzsignfoldertypeIncludeproofsigner bool `json:"bEzsignfoldertypeIncludeproofsigner"`
+	BEzsignfoldertypeIncludeproofsigner *bool `json:"bEzsignfoldertypeIncludeproofsigner,omitempty"`
 	// Whether we include the proof with the signed Ezsigndocument for users
-	BEzsignfoldertypeIncludeproofuser bool `json:"bEzsignfoldertypeIncludeproofuser"`
+	BEzsignfoldertypeIncludeproofuser *bool `json:"bEzsignfoldertypeIncludeproofuser,omitempty"`
 	// Wheter if delegation of signature is allowed to another user or not
 	BEzsignfoldertypeDelegate *bool `json:"bEzsignfoldertypeDelegate,omitempty"`
 	// Wheter if Reassignment of signature is allowed to another signatory or not
@@ -38,12 +38,9 @@ type CustomEzsignfoldertypeResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomEzsignfoldertypeResponse(pkiEzsignfoldertypeID int32, sEzsignfoldertypeNameX string, bEzsignfoldertypeIncludeproofsigner bool, bEzsignfoldertypeIncludeproofuser bool) *CustomEzsignfoldertypeResponse {
+func NewCustomEzsignfoldertypeResponse(pkiEzsignfoldertypeID int32) *CustomEzsignfoldertypeResponse {
 	this := CustomEzsignfoldertypeResponse{}
 	this.PkiEzsignfoldertypeID = pkiEzsignfoldertypeID
-	this.SEzsignfoldertypeNameX = sEzsignfoldertypeNameX
-	this.BEzsignfoldertypeIncludeproofsigner = bEzsignfoldertypeIncludeproofsigner
-	this.BEzsignfoldertypeIncludeproofuser = bEzsignfoldertypeIncludeproofuser
 	return &this
 }
 
@@ -79,76 +76,100 @@ func (o *CustomEzsignfoldertypeResponse) SetPkiEzsignfoldertypeID(v int32) {
 	o.PkiEzsignfoldertypeID = v
 }
 
-// GetSEzsignfoldertypeNameX returns the SEzsignfoldertypeNameX field value
+// GetSEzsignfoldertypeNameX returns the SEzsignfoldertypeNameX field value if set, zero value otherwise.
 func (o *CustomEzsignfoldertypeResponse) GetSEzsignfoldertypeNameX() string {
-	if o == nil {
+	if o == nil || IsNil(o.SEzsignfoldertypeNameX) {
 		var ret string
 		return ret
 	}
-
-	return o.SEzsignfoldertypeNameX
+	return *o.SEzsignfoldertypeNameX
 }
 
-// GetSEzsignfoldertypeNameXOk returns a tuple with the SEzsignfoldertypeNameX field value
+// GetSEzsignfoldertypeNameXOk returns a tuple with the SEzsignfoldertypeNameX field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CustomEzsignfoldertypeResponse) GetSEzsignfoldertypeNameXOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SEzsignfoldertypeNameX) {
 		return nil, false
 	}
-	return &o.SEzsignfoldertypeNameX, true
+	return o.SEzsignfoldertypeNameX, true
 }
 
-// SetSEzsignfoldertypeNameX sets field value
+// HasSEzsignfoldertypeNameX returns a boolean if a field has been set.
+func (o *CustomEzsignfoldertypeResponse) HasSEzsignfoldertypeNameX() bool {
+	if o != nil && !IsNil(o.SEzsignfoldertypeNameX) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsignfoldertypeNameX gets a reference to the given string and assigns it to the SEzsignfoldertypeNameX field.
 func (o *CustomEzsignfoldertypeResponse) SetSEzsignfoldertypeNameX(v string) {
-	o.SEzsignfoldertypeNameX = v
+	o.SEzsignfoldertypeNameX = &v
 }
 
-// GetBEzsignfoldertypeIncludeproofsigner returns the BEzsignfoldertypeIncludeproofsigner field value
+// GetBEzsignfoldertypeIncludeproofsigner returns the BEzsignfoldertypeIncludeproofsigner field value if set, zero value otherwise.
 func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeIncludeproofsigner() bool {
-	if o == nil {
+	if o == nil || IsNil(o.BEzsignfoldertypeIncludeproofsigner) {
 		var ret bool
 		return ret
 	}
-
-	return o.BEzsignfoldertypeIncludeproofsigner
+	return *o.BEzsignfoldertypeIncludeproofsigner
 }
 
-// GetBEzsignfoldertypeIncludeproofsignerOk returns a tuple with the BEzsignfoldertypeIncludeproofsigner field value
+// GetBEzsignfoldertypeIncludeproofsignerOk returns a tuple with the BEzsignfoldertypeIncludeproofsigner field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeIncludeproofsignerOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BEzsignfoldertypeIncludeproofsigner) {
 		return nil, false
 	}
-	return &o.BEzsignfoldertypeIncludeproofsigner, true
+	return o.BEzsignfoldertypeIncludeproofsigner, true
 }
 
-// SetBEzsignfoldertypeIncludeproofsigner sets field value
+// HasBEzsignfoldertypeIncludeproofsigner returns a boolean if a field has been set.
+func (o *CustomEzsignfoldertypeResponse) HasBEzsignfoldertypeIncludeproofsigner() bool {
+	if o != nil && !IsNil(o.BEzsignfoldertypeIncludeproofsigner) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignfoldertypeIncludeproofsigner gets a reference to the given bool and assigns it to the BEzsignfoldertypeIncludeproofsigner field.
 func (o *CustomEzsignfoldertypeResponse) SetBEzsignfoldertypeIncludeproofsigner(v bool) {
-	o.BEzsignfoldertypeIncludeproofsigner = v
+	o.BEzsignfoldertypeIncludeproofsigner = &v
 }
 
-// GetBEzsignfoldertypeIncludeproofuser returns the BEzsignfoldertypeIncludeproofuser field value
+// GetBEzsignfoldertypeIncludeproofuser returns the BEzsignfoldertypeIncludeproofuser field value if set, zero value otherwise.
 func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeIncludeproofuser() bool {
-	if o == nil {
+	if o == nil || IsNil(o.BEzsignfoldertypeIncludeproofuser) {
 		var ret bool
 		return ret
 	}
-
-	return o.BEzsignfoldertypeIncludeproofuser
+	return *o.BEzsignfoldertypeIncludeproofuser
 }
 
-// GetBEzsignfoldertypeIncludeproofuserOk returns a tuple with the BEzsignfoldertypeIncludeproofuser field value
+// GetBEzsignfoldertypeIncludeproofuserOk returns a tuple with the BEzsignfoldertypeIncludeproofuser field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeIncludeproofuserOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BEzsignfoldertypeIncludeproofuser) {
 		return nil, false
 	}
-	return &o.BEzsignfoldertypeIncludeproofuser, true
+	return o.BEzsignfoldertypeIncludeproofuser, true
 }
 
-// SetBEzsignfoldertypeIncludeproofuser sets field value
+// HasBEzsignfoldertypeIncludeproofuser returns a boolean if a field has been set.
+func (o *CustomEzsignfoldertypeResponse) HasBEzsignfoldertypeIncludeproofuser() bool {
+	if o != nil && !IsNil(o.BEzsignfoldertypeIncludeproofuser) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignfoldertypeIncludeproofuser gets a reference to the given bool and assigns it to the BEzsignfoldertypeIncludeproofuser field.
 func (o *CustomEzsignfoldertypeResponse) SetBEzsignfoldertypeIncludeproofuser(v bool) {
-	o.BEzsignfoldertypeIncludeproofuser = v
+	o.BEzsignfoldertypeIncludeproofuser = &v
 }
 
 // GetBEzsignfoldertypeDelegate returns the BEzsignfoldertypeDelegate field value if set, zero value otherwise.
@@ -226,9 +247,15 @@ func (o CustomEzsignfoldertypeResponse) MarshalJSON() ([]byte, error) {
 func (o CustomEzsignfoldertypeResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiEzsignfoldertypeID"] = o.PkiEzsignfoldertypeID
-	toSerialize["sEzsignfoldertypeNameX"] = o.SEzsignfoldertypeNameX
-	toSerialize["bEzsignfoldertypeIncludeproofsigner"] = o.BEzsignfoldertypeIncludeproofsigner
-	toSerialize["bEzsignfoldertypeIncludeproofuser"] = o.BEzsignfoldertypeIncludeproofuser
+	if !IsNil(o.SEzsignfoldertypeNameX) {
+		toSerialize["sEzsignfoldertypeNameX"] = o.SEzsignfoldertypeNameX
+	}
+	if !IsNil(o.BEzsignfoldertypeIncludeproofsigner) {
+		toSerialize["bEzsignfoldertypeIncludeproofsigner"] = o.BEzsignfoldertypeIncludeproofsigner
+	}
+	if !IsNil(o.BEzsignfoldertypeIncludeproofuser) {
+		toSerialize["bEzsignfoldertypeIncludeproofuser"] = o.BEzsignfoldertypeIncludeproofuser
+	}
 	if !IsNil(o.BEzsignfoldertypeDelegate) {
 		toSerialize["bEzsignfoldertypeDelegate"] = o.BEzsignfoldertypeDelegate
 	}

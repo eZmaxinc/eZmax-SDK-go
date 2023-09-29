@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **IEzsignformfieldY** | **int32** | The Y coordinate (Vertical) where to put the Ezsignformfield on the Ezsignpage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignformfield 3 inches from the top border of the page, you would use \&quot;300\&quot; for the Y coordinate. | 
 **IEzsignformfieldWidth** | **int32** | The Width of the Ezsignformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsignformfieldgroupType.  | eEzsignformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22-65535     | | Radio                     | 22           | | Text                      | 22-65535     | | Textarea                  | 22-65535     | | 
 **IEzsignformfieldHeight** | **int32** | The Height of the Ezsignformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsignformfieldgroupType.  | eEzsignformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22           | | Radio                     | 22           | | Text                      | 22           | | Textarea                  | 22-65535     |  | 
+**BEzsignformfieldAutocomplete** | Pointer to **bool** | Whether the Ezsignformfield allows the use of the autocomplete of the browser.  This can only be set if eEzsignformfieldgroupType is **Text** | [optional] 
 **BEzsignformfieldSelected** | Pointer to **bool** | Whether the Ezsignformfield is selected or not by default.  This can only be set if eEzsignformfieldgroupType is **Checkbox** or **Radio** | [optional] 
 **SEzsignformfieldEnteredvalue** | Pointer to **string** | This is the value enterred for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is **Dropdown**, **Text** or **Textarea** | [optional] 
 
@@ -203,6 +204,31 @@ and a boolean to check if the value has been set.
 
 SetIEzsignformfieldHeight sets IEzsignformfieldHeight field to given value.
 
+
+### GetBEzsignformfieldAutocomplete
+
+`func (o *EzsignformfieldRequestCompound) GetBEzsignformfieldAutocomplete() bool`
+
+GetBEzsignformfieldAutocomplete returns the BEzsignformfieldAutocomplete field if non-nil, zero value otherwise.
+
+### GetBEzsignformfieldAutocompleteOk
+
+`func (o *EzsignformfieldRequestCompound) GetBEzsignformfieldAutocompleteOk() (*bool, bool)`
+
+GetBEzsignformfieldAutocompleteOk returns a tuple with the BEzsignformfieldAutocomplete field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsignformfieldAutocomplete
+
+`func (o *EzsignformfieldRequestCompound) SetBEzsignformfieldAutocomplete(v bool)`
+
+SetBEzsignformfieldAutocomplete sets BEzsignformfieldAutocomplete field to given value.
+
+### HasBEzsignformfieldAutocomplete
+
+`func (o *EzsignformfieldRequestCompound) HasBEzsignformfieldAutocomplete() bool`
+
+HasBEzsignformfieldAutocomplete returns a boolean if a field has been set.
 
 ### GetBEzsignformfieldSelected
 

@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiEzsignfoldertypeID** | **int32** | The unique ID of the Ezsignfoldertype. | 
-**SEzsignfoldertypeNameX** | **string** | The name of the Ezsignfoldertype in the language of the requester | 
-**BEzsignfoldertypeIncludeproofsigner** | **bool** | Whether we include the proof with the signed Ezsigndocument for Ezsignsigners | 
-**BEzsignfoldertypeIncludeproofuser** | **bool** | Whether we include the proof with the signed Ezsigndocument for users | 
+**SEzsignfoldertypeNameX** | Pointer to **string** | The name of the Ezsignfoldertype in the language of the requester | [optional] 
+**BEzsignfoldertypeIncludeproofsigner** | Pointer to **bool** | Whether we include the proof with the signed Ezsigndocument for Ezsignsigners | [optional] 
+**BEzsignfoldertypeIncludeproofuser** | Pointer to **bool** | Whether we include the proof with the signed Ezsigndocument for users | [optional] 
 **BEzsignfoldertypeDelegate** | Pointer to **bool** | Wheter if delegation of signature is allowed to another user or not | [optional] 
 **BEzsignfoldertypeReassign** | Pointer to **bool** | Wheter if Reassignment of signature is allowed to another signatory or not | [optional] 
 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewCustomEzsignfoldertypeResponse
 
-`func NewCustomEzsignfoldertypeResponse(pkiEzsignfoldertypeID int32, sEzsignfoldertypeNameX string, bEzsignfoldertypeIncludeproofsigner bool, bEzsignfoldertypeIncludeproofuser bool, ) *CustomEzsignfoldertypeResponse`
+`func NewCustomEzsignfoldertypeResponse(pkiEzsignfoldertypeID int32, ) *CustomEzsignfoldertypeResponse`
 
 NewCustomEzsignfoldertypeResponse instantiates a new CustomEzsignfoldertypeResponse object
 This constructor will assign default values to properties that have it defined,
@@ -69,6 +69,11 @@ and a boolean to check if the value has been set.
 
 SetSEzsignfoldertypeNameX sets SEzsignfoldertypeNameX field to given value.
 
+### HasSEzsignfoldertypeNameX
+
+`func (o *CustomEzsignfoldertypeResponse) HasSEzsignfoldertypeNameX() bool`
+
+HasSEzsignfoldertypeNameX returns a boolean if a field has been set.
 
 ### GetBEzsignfoldertypeIncludeproofsigner
 
@@ -89,6 +94,11 @@ and a boolean to check if the value has been set.
 
 SetBEzsignfoldertypeIncludeproofsigner sets BEzsignfoldertypeIncludeproofsigner field to given value.
 
+### HasBEzsignfoldertypeIncludeproofsigner
+
+`func (o *CustomEzsignfoldertypeResponse) HasBEzsignfoldertypeIncludeproofsigner() bool`
+
+HasBEzsignfoldertypeIncludeproofsigner returns a boolean if a field has been set.
 
 ### GetBEzsignfoldertypeIncludeproofuser
 
@@ -109,6 +119,11 @@ and a boolean to check if the value has been set.
 
 SetBEzsignfoldertypeIncludeproofuser sets BEzsignfoldertypeIncludeproofuser field to given value.
 
+### HasBEzsignfoldertypeIncludeproofuser
+
+`func (o *CustomEzsignfoldertypeResponse) HasBEzsignfoldertypeIncludeproofuser() bool`
+
+HasBEzsignfoldertypeIncludeproofuser returns a boolean if a field has been set.
 
 ### GetBEzsignfoldertypeDelegate
 

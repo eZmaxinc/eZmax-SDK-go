@@ -31,7 +31,7 @@ type EzsignformfieldgroupRequestCompound struct {
 	// The step when the Ezsignsigner will be invited to fill the form fields
 	IEzsignformfieldgroupStep int32 `json:"iEzsignformfieldgroupStep"`
 	// The default value for the Ezsignformfieldgroup
-	SEzsignformfieldgroupDefaultvalue string `json:"sEzsignformfieldgroupDefaultvalue"`
+	SEzsignformfieldgroupDefaultvalue *string `json:"sEzsignformfieldgroupDefaultvalue,omitempty"`
 	// The minimum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup
 	IEzsignformfieldgroupFilledmin int32 `json:"iEzsignformfieldgroupFilledmin"`
 	// The maximum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup
@@ -57,14 +57,13 @@ type EzsignformfieldgroupRequestCompound struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignformfieldgroupRequestCompound(fkiEzsigndocumentID int32, eEzsignformfieldgroupType FieldEEzsignformfieldgroupType, eEzsignformfieldgroupSignerrequirement FieldEEzsignformfieldgroupSignerrequirement, sEzsignformfieldgroupLabel string, iEzsignformfieldgroupStep int32, sEzsignformfieldgroupDefaultvalue string, iEzsignformfieldgroupFilledmin int32, iEzsignformfieldgroupFilledmax int32, bEzsignformfieldgroupReadonly bool, aObjEzsignformfieldgroupsigner []EzsignformfieldgroupsignerRequestCompound, aObjEzsignformfield []EzsignformfieldRequestCompound) *EzsignformfieldgroupRequestCompound {
+func NewEzsignformfieldgroupRequestCompound(fkiEzsigndocumentID int32, eEzsignformfieldgroupType FieldEEzsignformfieldgroupType, eEzsignformfieldgroupSignerrequirement FieldEEzsignformfieldgroupSignerrequirement, sEzsignformfieldgroupLabel string, iEzsignformfieldgroupStep int32, iEzsignformfieldgroupFilledmin int32, iEzsignformfieldgroupFilledmax int32, bEzsignformfieldgroupReadonly bool, aObjEzsignformfieldgroupsigner []EzsignformfieldgroupsignerRequestCompound, aObjEzsignformfield []EzsignformfieldRequestCompound) *EzsignformfieldgroupRequestCompound {
 	this := EzsignformfieldgroupRequestCompound{}
 	this.FkiEzsigndocumentID = fkiEzsigndocumentID
 	this.EEzsignformfieldgroupType = eEzsignformfieldgroupType
 	this.EEzsignformfieldgroupSignerrequirement = eEzsignformfieldgroupSignerrequirement
 	this.SEzsignformfieldgroupLabel = sEzsignformfieldgroupLabel
 	this.IEzsignformfieldgroupStep = iEzsignformfieldgroupStep
-	this.SEzsignformfieldgroupDefaultvalue = sEzsignformfieldgroupDefaultvalue
 	this.IEzsignformfieldgroupFilledmin = iEzsignformfieldgroupFilledmin
 	this.IEzsignformfieldgroupFilledmax = iEzsignformfieldgroupFilledmax
 	this.BEzsignformfieldgroupReadonly = bEzsignformfieldgroupReadonly
@@ -233,28 +232,36 @@ func (o *EzsignformfieldgroupRequestCompound) SetIEzsignformfieldgroupStep(v int
 	o.IEzsignformfieldgroupStep = v
 }
 
-// GetSEzsignformfieldgroupDefaultvalue returns the SEzsignformfieldgroupDefaultvalue field value
+// GetSEzsignformfieldgroupDefaultvalue returns the SEzsignformfieldgroupDefaultvalue field value if set, zero value otherwise.
 func (o *EzsignformfieldgroupRequestCompound) GetSEzsignformfieldgroupDefaultvalue() string {
-	if o == nil {
+	if o == nil || IsNil(o.SEzsignformfieldgroupDefaultvalue) {
 		var ret string
 		return ret
 	}
-
-	return o.SEzsignformfieldgroupDefaultvalue
+	return *o.SEzsignformfieldgroupDefaultvalue
 }
 
-// GetSEzsignformfieldgroupDefaultvalueOk returns a tuple with the SEzsignformfieldgroupDefaultvalue field value
+// GetSEzsignformfieldgroupDefaultvalueOk returns a tuple with the SEzsignformfieldgroupDefaultvalue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsignformfieldgroupRequestCompound) GetSEzsignformfieldgroupDefaultvalueOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SEzsignformfieldgroupDefaultvalue) {
 		return nil, false
 	}
-	return &o.SEzsignformfieldgroupDefaultvalue, true
+	return o.SEzsignformfieldgroupDefaultvalue, true
 }
 
-// SetSEzsignformfieldgroupDefaultvalue sets field value
+// HasSEzsignformfieldgroupDefaultvalue returns a boolean if a field has been set.
+func (o *EzsignformfieldgroupRequestCompound) HasSEzsignformfieldgroupDefaultvalue() bool {
+	if o != nil && !IsNil(o.SEzsignformfieldgroupDefaultvalue) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsignformfieldgroupDefaultvalue gets a reference to the given string and assigns it to the SEzsignformfieldgroupDefaultvalue field.
 func (o *EzsignformfieldgroupRequestCompound) SetSEzsignformfieldgroupDefaultvalue(v string) {
-	o.SEzsignformfieldgroupDefaultvalue = v
+	o.SEzsignformfieldgroupDefaultvalue = &v
 }
 
 // GetIEzsignformfieldgroupFilledmin returns the IEzsignformfieldgroupFilledmin field value
@@ -619,7 +626,9 @@ func (o EzsignformfieldgroupRequestCompound) ToMap() (map[string]interface{}, er
 	toSerialize["eEzsignformfieldgroupSignerrequirement"] = o.EEzsignformfieldgroupSignerrequirement
 	toSerialize["sEzsignformfieldgroupLabel"] = o.SEzsignformfieldgroupLabel
 	toSerialize["iEzsignformfieldgroupStep"] = o.IEzsignformfieldgroupStep
-	toSerialize["sEzsignformfieldgroupDefaultvalue"] = o.SEzsignformfieldgroupDefaultvalue
+	if !IsNil(o.SEzsignformfieldgroupDefaultvalue) {
+		toSerialize["sEzsignformfieldgroupDefaultvalue"] = o.SEzsignformfieldgroupDefaultvalue
+	}
 	toSerialize["iEzsignformfieldgroupFilledmin"] = o.IEzsignformfieldgroupFilledmin
 	toSerialize["iEzsignformfieldgroupFilledmax"] = o.IEzsignformfieldgroupFilledmax
 	toSerialize["bEzsignformfieldgroupReadonly"] = o.BEzsignformfieldgroupReadonly

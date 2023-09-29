@@ -1817,7 +1817,7 @@ These links will expire after 5 minutes so the download of the file should be ma
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiEzsigndocumentID
- @param eDocumentType The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **Signed** Is the final document once all signatures were applied. 3. **Proofdocument** Is the evidence report. 4. **Proof** Is the complete evidence archive including all of the above and more. 
+ @param eDocumentType The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **SignatureReady** Is the version containing the annotations/form to show the signer. 3. **Signed** Is the final document once all signatures were applied. 4. **Proofdocument** Is the evidence report. 5. **Proof** Is the complete evidence archive including all of the above and more. 
  @return ApiEzsigndocumentGetDownloadUrlV1Request
 */
 func (a *ObjectEzsigndocumentAPIService) EzsigndocumentGetDownloadUrlV1(ctx context.Context, pkiEzsigndocumentID int32, eDocumentType string) ApiEzsigndocumentGetDownloadUrlV1Request {

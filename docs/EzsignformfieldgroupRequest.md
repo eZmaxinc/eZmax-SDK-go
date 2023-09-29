@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **EEzsignformfieldgroupSignerrequirement** | [**FieldEEzsignformfieldgroupSignerrequirement**](FieldEEzsignformfieldgroupSignerrequirement.md) |  | 
 **SEzsignformfieldgroupLabel** | **string** | The Label for the Ezsignformfieldgroup | 
 **IEzsignformfieldgroupStep** | **int32** | The step when the Ezsignsigner will be invited to fill the form fields | 
-**SEzsignformfieldgroupDefaultvalue** | **string** | The default value for the Ezsignformfieldgroup | 
+**SEzsignformfieldgroupDefaultvalue** | Pointer to **string** | The default value for the Ezsignformfieldgroup | [optional] 
 **IEzsignformfieldgroupFilledmin** | **int32** | The minimum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup | 
 **IEzsignformfieldgroupFilledmax** | **int32** | The maximum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup | 
 **BEzsignformfieldgroupReadonly** | **bool** | Whether the Ezsignformfieldgroup is read only or not. | 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewEzsignformfieldgroupRequest
 
-`func NewEzsignformfieldgroupRequest(fkiEzsigndocumentID int32, eEzsignformfieldgroupType FieldEEzsignformfieldgroupType, eEzsignformfieldgroupSignerrequirement FieldEEzsignformfieldgroupSignerrequirement, sEzsignformfieldgroupLabel string, iEzsignformfieldgroupStep int32, sEzsignformfieldgroupDefaultvalue string, iEzsignformfieldgroupFilledmin int32, iEzsignformfieldgroupFilledmax int32, bEzsignformfieldgroupReadonly bool, ) *EzsignformfieldgroupRequest`
+`func NewEzsignformfieldgroupRequest(fkiEzsigndocumentID int32, eEzsignformfieldgroupType FieldEEzsignformfieldgroupType, eEzsignformfieldgroupSignerrequirement FieldEEzsignformfieldgroupSignerrequirement, sEzsignformfieldgroupLabel string, iEzsignformfieldgroupStep int32, iEzsignformfieldgroupFilledmin int32, iEzsignformfieldgroupFilledmax int32, bEzsignformfieldgroupReadonly bool, ) *EzsignformfieldgroupRequest`
 
 NewEzsignformfieldgroupRequest instantiates a new EzsignformfieldgroupRequest object
 This constructor will assign default values to properties that have it defined,
@@ -184,6 +184,11 @@ and a boolean to check if the value has been set.
 
 SetSEzsignformfieldgroupDefaultvalue sets SEzsignformfieldgroupDefaultvalue field to given value.
 
+### HasSEzsignformfieldgroupDefaultvalue
+
+`func (o *EzsignformfieldgroupRequest) HasSEzsignformfieldgroupDefaultvalue() bool`
+
+HasSEzsignformfieldgroupDefaultvalue returns a boolean if a field has been set.
 
 ### GetIEzsignformfieldgroupFilledmin
 

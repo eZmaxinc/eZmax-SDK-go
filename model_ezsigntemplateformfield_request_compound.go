@@ -36,6 +36,8 @@ type EzsigntemplateformfieldRequestCompound struct {
 	IEzsigntemplateformfieldWidth int32 `json:"iEzsigntemplateformfieldWidth"`
 	// The Height of the Ezsigntemplateformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsigntemplateformfieldgroupType.  | eEzsigntemplateformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22           | | Radio                     | 22           | | Text                      | 22           | | Textarea                  | 22-65535     | 
 	IEzsigntemplateformfieldHeight int32 `json:"iEzsigntemplateformfieldHeight"`
+	// Whether the Ezsigntemplateformfield allows the use of the autocomplete of the browser.  This can only be set if eEzsigntemplateformfieldgroupType is **Text**
+	BEzsigntemplateformfieldAutocomplete *bool `json:"bEzsigntemplateformfieldAutocomplete,omitempty"`
 	// Whether the Ezsigntemplateformfield is selected or not by default.  This can only be set if eEzsigntemplateformfieldgroupType is **Checkbox** or **Radio**
 	BEzsigntemplateformfieldSelected *bool `json:"bEzsigntemplateformfieldSelected,omitempty"`
 }
@@ -271,6 +273,38 @@ func (o *EzsigntemplateformfieldRequestCompound) SetIEzsigntemplateformfieldHeig
 	o.IEzsigntemplateformfieldHeight = v
 }
 
+// GetBEzsigntemplateformfieldAutocomplete returns the BEzsigntemplateformfieldAutocomplete field value if set, zero value otherwise.
+func (o *EzsigntemplateformfieldRequestCompound) GetBEzsigntemplateformfieldAutocomplete() bool {
+	if o == nil || IsNil(o.BEzsigntemplateformfieldAutocomplete) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsigntemplateformfieldAutocomplete
+}
+
+// GetBEzsigntemplateformfieldAutocompleteOk returns a tuple with the BEzsigntemplateformfieldAutocomplete field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateformfieldRequestCompound) GetBEzsigntemplateformfieldAutocompleteOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsigntemplateformfieldAutocomplete) {
+		return nil, false
+	}
+	return o.BEzsigntemplateformfieldAutocomplete, true
+}
+
+// HasBEzsigntemplateformfieldAutocomplete returns a boolean if a field has been set.
+func (o *EzsigntemplateformfieldRequestCompound) HasBEzsigntemplateformfieldAutocomplete() bool {
+	if o != nil && !IsNil(o.BEzsigntemplateformfieldAutocomplete) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsigntemplateformfieldAutocomplete gets a reference to the given bool and assigns it to the BEzsigntemplateformfieldAutocomplete field.
+func (o *EzsigntemplateformfieldRequestCompound) SetBEzsigntemplateformfieldAutocomplete(v bool) {
+	o.BEzsigntemplateformfieldAutocomplete = &v
+}
+
 // GetBEzsigntemplateformfieldSelected returns the BEzsigntemplateformfieldSelected field value if set, zero value otherwise.
 func (o *EzsigntemplateformfieldRequestCompound) GetBEzsigntemplateformfieldSelected() bool {
 	if o == nil || IsNil(o.BEzsigntemplateformfieldSelected) {
@@ -325,6 +359,9 @@ func (o EzsigntemplateformfieldRequestCompound) ToMap() (map[string]interface{},
 	toSerialize["iEzsigntemplateformfieldY"] = o.IEzsigntemplateformfieldY
 	toSerialize["iEzsigntemplateformfieldWidth"] = o.IEzsigntemplateformfieldWidth
 	toSerialize["iEzsigntemplateformfieldHeight"] = o.IEzsigntemplateformfieldHeight
+	if !IsNil(o.BEzsigntemplateformfieldAutocomplete) {
+		toSerialize["bEzsigntemplateformfieldAutocomplete"] = o.BEzsigntemplateformfieldAutocomplete
+	}
 	if !IsNil(o.BEzsigntemplateformfieldSelected) {
 		toSerialize["bEzsigntemplateformfieldSelected"] = o.BEzsigntemplateformfieldSelected
 	}
