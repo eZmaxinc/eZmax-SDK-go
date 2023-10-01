@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AObjCompany** | Pointer to [**[]CompanyAutocompleteElementResponse**](CompanyAutocompleteElementResponse.md) | An array of Company autocomplete element response. | [optional] 
+**AObjCompany** | [**[]CompanyAutocompleteElementResponse**](CompanyAutocompleteElementResponse.md) | An array of Company autocomplete element response. | 
 
 ## Methods
 
 ### NewCompanyGetAutocompleteV2ResponseMPayload
 
-`func NewCompanyGetAutocompleteV2ResponseMPayload() *CompanyGetAutocompleteV2ResponseMPayload`
+`func NewCompanyGetAutocompleteV2ResponseMPayload(aObjCompany []CompanyAutocompleteElementResponse, ) *CompanyGetAutocompleteV2ResponseMPayload`
 
 NewCompanyGetAutocompleteV2ResponseMPayload instantiates a new CompanyGetAutocompleteV2ResponseMPayload object
 This constructor will assign default values to properties that have it defined,
@@ -44,11 +44,6 @@ and a boolean to check if the value has been set.
 
 SetAObjCompany sets AObjCompany field to given value.
 
-### HasAObjCompany
-
-`func (o *CompanyGetAutocompleteV2ResponseMPayload) HasAObjCompany() bool`
-
-HasAObjCompany returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

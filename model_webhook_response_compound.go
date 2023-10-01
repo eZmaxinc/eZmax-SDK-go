@@ -40,14 +40,14 @@ type WebhookResponseCompound struct {
 	// Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use
 	BWebhookSkipsslvalidation bool `json:"bWebhookSkipsslvalidation"`
 	// The concatenated string to describe the Webhook event
-	SWebhookEvent string `json:"sWebhookEvent"`
+	SWebhookEvent *string `json:"sWebhookEvent,omitempty"`
 }
 
 // NewWebhookResponseCompound instantiates a new WebhookResponseCompound object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWebhookResponseCompound(pkiWebhookID int32, sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookSkipsslvalidation bool, sWebhookEvent string) *WebhookResponseCompound {
+func NewWebhookResponseCompound(pkiWebhookID int32, sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookSkipsslvalidation bool) *WebhookResponseCompound {
 	this := WebhookResponseCompound{}
 	this.PkiWebhookID = pkiWebhookID
 	this.SWebhookDescription = sWebhookDescription
@@ -55,7 +55,6 @@ func NewWebhookResponseCompound(pkiWebhookID int32, sWebhookDescription string, 
 	this.SWebhookUrl = sWebhookUrl
 	this.SWebhookEmailfailed = sWebhookEmailfailed
 	this.BWebhookSkipsslvalidation = bWebhookSkipsslvalidation
-	this.SWebhookEvent = sWebhookEvent
 	return &this
 }
 
@@ -371,28 +370,36 @@ func (o *WebhookResponseCompound) SetBWebhookSkipsslvalidation(v bool) {
 	o.BWebhookSkipsslvalidation = v
 }
 
-// GetSWebhookEvent returns the SWebhookEvent field value
+// GetSWebhookEvent returns the SWebhookEvent field value if set, zero value otherwise.
 func (o *WebhookResponseCompound) GetSWebhookEvent() string {
-	if o == nil {
+	if o == nil || IsNil(o.SWebhookEvent) {
 		var ret string
 		return ret
 	}
-
-	return o.SWebhookEvent
+	return *o.SWebhookEvent
 }
 
-// GetSWebhookEventOk returns a tuple with the SWebhookEvent field value
+// GetSWebhookEventOk returns a tuple with the SWebhookEvent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WebhookResponseCompound) GetSWebhookEventOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SWebhookEvent) {
 		return nil, false
 	}
-	return &o.SWebhookEvent, true
+	return o.SWebhookEvent, true
 }
 
-// SetSWebhookEvent sets field value
+// HasSWebhookEvent returns a boolean if a field has been set.
+func (o *WebhookResponseCompound) HasSWebhookEvent() bool {
+	if o != nil && !IsNil(o.SWebhookEvent) {
+		return true
+	}
+
+	return false
+}
+
+// SetSWebhookEvent gets a reference to the given string and assigns it to the SWebhookEvent field.
 func (o *WebhookResponseCompound) SetSWebhookEvent(v string) {
-	o.SWebhookEvent = v
+	o.SWebhookEvent = &v
 }
 
 func (o WebhookResponseCompound) MarshalJSON() ([]byte, error) {
@@ -426,7 +433,9 @@ func (o WebhookResponseCompound) ToMap() (map[string]interface{}, error) {
 		toSerialize["bWebhookIsactive"] = o.BWebhookIsactive
 	}
 	toSerialize["bWebhookSkipsslvalidation"] = o.BWebhookSkipsslvalidation
-	toSerialize["sWebhookEvent"] = o.SWebhookEvent
+	if !IsNil(o.SWebhookEvent) {
+		toSerialize["sWebhookEvent"] = o.SWebhookEvent
+	}
 	return toSerialize, nil
 }
 

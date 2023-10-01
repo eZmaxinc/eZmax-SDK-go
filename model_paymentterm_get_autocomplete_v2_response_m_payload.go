@@ -21,15 +21,16 @@ var _ MappedNullable = &PaymenttermGetAutocompleteV2ResponseMPayload{}
 // PaymenttermGetAutocompleteV2ResponseMPayload Payload for POST /2/object/paymentterm/getAutocomplete
 type PaymenttermGetAutocompleteV2ResponseMPayload struct {
 	// An array of Paymentterm autocomplete element response.
-	AObjPaymentterm []PaymenttermAutocompleteElementResponse `json:"a_objPaymentterm,omitempty"`
+	AObjPaymentterm []PaymenttermAutocompleteElementResponse `json:"a_objPaymentterm"`
 }
 
 // NewPaymenttermGetAutocompleteV2ResponseMPayload instantiates a new PaymenttermGetAutocompleteV2ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPaymenttermGetAutocompleteV2ResponseMPayload() *PaymenttermGetAutocompleteV2ResponseMPayload {
+func NewPaymenttermGetAutocompleteV2ResponseMPayload(aObjPaymentterm []PaymenttermAutocompleteElementResponse) *PaymenttermGetAutocompleteV2ResponseMPayload {
 	this := PaymenttermGetAutocompleteV2ResponseMPayload{}
+	this.AObjPaymentterm = aObjPaymentterm
 	return &this
 }
 
@@ -41,34 +42,26 @@ func NewPaymenttermGetAutocompleteV2ResponseMPayloadWithDefaults() *PaymenttermG
 	return &this
 }
 
-// GetAObjPaymentterm returns the AObjPaymentterm field value if set, zero value otherwise.
+// GetAObjPaymentterm returns the AObjPaymentterm field value
 func (o *PaymenttermGetAutocompleteV2ResponseMPayload) GetAObjPaymentterm() []PaymenttermAutocompleteElementResponse {
-	if o == nil || IsNil(o.AObjPaymentterm) {
+	if o == nil {
 		var ret []PaymenttermAutocompleteElementResponse
 		return ret
 	}
+
 	return o.AObjPaymentterm
 }
 
-// GetAObjPaymenttermOk returns a tuple with the AObjPaymentterm field value if set, nil otherwise
+// GetAObjPaymenttermOk returns a tuple with the AObjPaymentterm field value
 // and a boolean to check if the value has been set.
 func (o *PaymenttermGetAutocompleteV2ResponseMPayload) GetAObjPaymenttermOk() ([]PaymenttermAutocompleteElementResponse, bool) {
-	if o == nil || IsNil(o.AObjPaymentterm) {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjPaymentterm, true
 }
 
-// HasAObjPaymentterm returns a boolean if a field has been set.
-func (o *PaymenttermGetAutocompleteV2ResponseMPayload) HasAObjPaymentterm() bool {
-	if o != nil && !IsNil(o.AObjPaymentterm) {
-		return true
-	}
-
-	return false
-}
-
-// SetAObjPaymentterm gets a reference to the given []PaymenttermAutocompleteElementResponse and assigns it to the AObjPaymentterm field.
+// SetAObjPaymentterm sets field value
 func (o *PaymenttermGetAutocompleteV2ResponseMPayload) SetAObjPaymentterm(v []PaymenttermAutocompleteElementResponse) {
 	o.AObjPaymentterm = v
 }
@@ -83,9 +76,7 @@ func (o PaymenttermGetAutocompleteV2ResponseMPayload) MarshalJSON() ([]byte, err
 
 func (o PaymenttermGetAutocompleteV2ResponseMPayload) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.AObjPaymentterm) {
-		toSerialize["a_objPaymentterm"] = o.AObjPaymentterm
-	}
+	toSerialize["a_objPaymentterm"] = o.AObjPaymentterm
 	return toSerialize, nil
 }
 

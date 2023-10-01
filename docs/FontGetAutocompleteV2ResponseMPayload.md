@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AObjFont** | Pointer to [**[]FontAutocompleteElementResponse**](FontAutocompleteElementResponse.md) | An array of Font autocomplete element response. | [optional] 
+**AObjFont** | [**[]FontAutocompleteElementResponse**](FontAutocompleteElementResponse.md) | An array of Font autocomplete element response. | 
 
 ## Methods
 
 ### NewFontGetAutocompleteV2ResponseMPayload
 
-`func NewFontGetAutocompleteV2ResponseMPayload() *FontGetAutocompleteV2ResponseMPayload`
+`func NewFontGetAutocompleteV2ResponseMPayload(aObjFont []FontAutocompleteElementResponse, ) *FontGetAutocompleteV2ResponseMPayload`
 
 NewFontGetAutocompleteV2ResponseMPayload instantiates a new FontGetAutocompleteV2ResponseMPayload object
 This constructor will assign default values to properties that have it defined,
@@ -44,11 +44,6 @@ and a boolean to check if the value has been set.
 
 SetAObjFont sets AObjFont field to given value.
 
-### HasAObjFont
-
-`func (o *FontGetAutocompleteV2ResponseMPayload) HasAObjFont() bool`
-
-HasAObjFont returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

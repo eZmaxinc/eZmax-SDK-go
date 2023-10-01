@@ -8,13 +8,13 @@ Name | Type | Description | Notes
 **FkiModuleID** | **int32** | The unique ID of the Module | 
 **SModulesectionInternalname** | **string** | The Internal name of the Module section. | 
 **SModulesectionNameX** | **string** | The Name of the Modulesection in the language of the requester | 
-**AObjPermission** | [**[]PermissionResponseCompound**](PermissionResponseCompound.md) |  | 
+**AObjPermission** | Pointer to [**[]PermissionResponseCompound**](PermissionResponseCompound.md) |  | [optional] 
 
 ## Methods
 
 ### NewModulesectionResponseCompound
 
-`func NewModulesectionResponseCompound(pkiModulesectionID int32, fkiModuleID int32, sModulesectionInternalname string, sModulesectionNameX string, aObjPermission []PermissionResponseCompound, ) *ModulesectionResponseCompound`
+`func NewModulesectionResponseCompound(pkiModulesectionID int32, fkiModuleID int32, sModulesectionInternalname string, sModulesectionNameX string, ) *ModulesectionResponseCompound`
 
 NewModulesectionResponseCompound instantiates a new ModulesectionResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -128,6 +128,11 @@ and a boolean to check if the value has been set.
 
 SetAObjPermission sets AObjPermission field to given value.
 
+### HasAObjPermission
+
+`func (o *ModulesectionResponseCompound) HasAObjPermission() bool`
+
+HasAObjPermission returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

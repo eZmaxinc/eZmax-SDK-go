@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **BActivesessionDebug** | **bool** | Whether the active session is in debug or not | 
 **BActivesessionIssuperadmin** | **bool** | Whether the active session is superadmin or not | 
 **PksCustomerCode** | **string** | The customer code assigned to your account | 
-**FkiSystemconfigurationtypeID** | Pointer to **int32** | The unique ID of the Systemconfigurationtype | [optional] 
+**FkiSystemconfigurationtypeID** | **int32** | The unique ID of the Systemconfigurationtype | 
 **FkiSignatureID** | Pointer to **int32** | The unique ID of the Signature | [optional] 
 **APkiPermissionID** | **[]int32** | An array of permissions granted to the user or api key | 
 **ObjUserReal** | [**ActivesessionResponseCompoundUser**](ActivesessionResponseCompoundUser.md) |  | 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewActivesessionResponseCompound
 
-`func NewActivesessionResponseCompound(eActivesessionUsertype FieldEActivesessionUsertype, eActivesessionOrigin FieldEActivesessionOrigin, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, bActivesessionDebug bool, bActivesessionIssuperadmin bool, pksCustomerCode string, aPkiPermissionID []int32, objUserReal ActivesessionResponseCompoundUser, aEModuleInternalname []string, ) *ActivesessionResponseCompound`
+`func NewActivesessionResponseCompound(eActivesessionUsertype FieldEActivesessionUsertype, eActivesessionOrigin FieldEActivesessionOrigin, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, bActivesessionDebug bool, bActivesessionIssuperadmin bool, pksCustomerCode string, fkiSystemconfigurationtypeID int32, aPkiPermissionID []int32, objUserReal ActivesessionResponseCompoundUser, aEModuleInternalname []string, ) *ActivesessionResponseCompound`
 
 NewActivesessionResponseCompound instantiates a new ActivesessionResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -239,11 +239,6 @@ and a boolean to check if the value has been set.
 
 SetFkiSystemconfigurationtypeID sets FkiSystemconfigurationtypeID field to given value.
 
-### HasFkiSystemconfigurationtypeID
-
-`func (o *ActivesessionResponseCompound) HasFkiSystemconfigurationtypeID() bool`
-
-HasFkiSystemconfigurationtypeID returns a boolean if a field has been set.
 
 ### GetFkiSignatureID
 

@@ -21,15 +21,16 @@ var _ MappedNullable = &VariableexpenseGetAutocompleteV2ResponseMPayload{}
 // VariableexpenseGetAutocompleteV2ResponseMPayload Payload for POST /2/object/variableexpense/getAutocomplete
 type VariableexpenseGetAutocompleteV2ResponseMPayload struct {
 	// An array of Variableexpense autocomplete element response.
-	AObjVariableexpense []VariableexpenseAutocompleteElementResponse `json:"a_objVariableexpense,omitempty"`
+	AObjVariableexpense []VariableexpenseAutocompleteElementResponse `json:"a_objVariableexpense"`
 }
 
 // NewVariableexpenseGetAutocompleteV2ResponseMPayload instantiates a new VariableexpenseGetAutocompleteV2ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewVariableexpenseGetAutocompleteV2ResponseMPayload() *VariableexpenseGetAutocompleteV2ResponseMPayload {
+func NewVariableexpenseGetAutocompleteV2ResponseMPayload(aObjVariableexpense []VariableexpenseAutocompleteElementResponse) *VariableexpenseGetAutocompleteV2ResponseMPayload {
 	this := VariableexpenseGetAutocompleteV2ResponseMPayload{}
+	this.AObjVariableexpense = aObjVariableexpense
 	return &this
 }
 
@@ -41,34 +42,26 @@ func NewVariableexpenseGetAutocompleteV2ResponseMPayloadWithDefaults() *Variable
 	return &this
 }
 
-// GetAObjVariableexpense returns the AObjVariableexpense field value if set, zero value otherwise.
+// GetAObjVariableexpense returns the AObjVariableexpense field value
 func (o *VariableexpenseGetAutocompleteV2ResponseMPayload) GetAObjVariableexpense() []VariableexpenseAutocompleteElementResponse {
-	if o == nil || IsNil(o.AObjVariableexpense) {
+	if o == nil {
 		var ret []VariableexpenseAutocompleteElementResponse
 		return ret
 	}
+
 	return o.AObjVariableexpense
 }
 
-// GetAObjVariableexpenseOk returns a tuple with the AObjVariableexpense field value if set, nil otherwise
+// GetAObjVariableexpenseOk returns a tuple with the AObjVariableexpense field value
 // and a boolean to check if the value has been set.
 func (o *VariableexpenseGetAutocompleteV2ResponseMPayload) GetAObjVariableexpenseOk() ([]VariableexpenseAutocompleteElementResponse, bool) {
-	if o == nil || IsNil(o.AObjVariableexpense) {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjVariableexpense, true
 }
 
-// HasAObjVariableexpense returns a boolean if a field has been set.
-func (o *VariableexpenseGetAutocompleteV2ResponseMPayload) HasAObjVariableexpense() bool {
-	if o != nil && !IsNil(o.AObjVariableexpense) {
-		return true
-	}
-
-	return false
-}
-
-// SetAObjVariableexpense gets a reference to the given []VariableexpenseAutocompleteElementResponse and assigns it to the AObjVariableexpense field.
+// SetAObjVariableexpense sets field value
 func (o *VariableexpenseGetAutocompleteV2ResponseMPayload) SetAObjVariableexpense(v []VariableexpenseAutocompleteElementResponse) {
 	o.AObjVariableexpense = v
 }
@@ -83,9 +76,7 @@ func (o VariableexpenseGetAutocompleteV2ResponseMPayload) MarshalJSON() ([]byte,
 
 func (o VariableexpenseGetAutocompleteV2ResponseMPayload) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.AObjVariableexpense) {
-		toSerialize["a_objVariableexpense"] = o.AObjVariableexpense
-	}
+	toSerialize["a_objVariableexpense"] = o.AObjVariableexpense
 	return toSerialize, nil
 }
 

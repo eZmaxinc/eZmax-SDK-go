@@ -13,13 +13,13 @@ Name | Type | Description | Notes
 **ObjUser** | Pointer to [**EzsignfoldersignerassociationResponseCompoundUser**](EzsignfoldersignerassociationResponseCompoundUser.md) |  | [optional] 
 **ObjEzsignsigner** | Pointer to [**EzsignsignerResponseCompound**](EzsignsignerResponseCompound.md) |  | [optional] 
 **BEzsignfoldersignerassociationHasactionableelementsCurrent** | **bool** | Indicates if the Ezsignfoldersignerassociation has actionable elements in the current step | 
-**BEzsignfoldersignerassociationHasactionableelementsFuture** | Pointer to **bool** | Indicates if the Ezsignfoldersignerassociation has actionable elements in a future step | [optional] 
+**BEzsignfoldersignerassociationHasactionableelementsFuture** | **bool** | Indicates if the Ezsignfoldersignerassociation has actionable elements in a future step | 
 
 ## Methods
 
 ### NewCustomEzsignfoldersignerassociationActionableElementResponse
 
-`func NewCustomEzsignfoldersignerassociationActionableElementResponse(pkiEzsignfoldersignerassociationID int32, fkiEzsignfolderID int32, bEzsignfoldersignerassociationDelayedsend bool, bEzsignfoldersignerassociationReceivecopy bool, tEzsignfoldersignerassociationMessage string, bEzsignfoldersignerassociationHasactionableelementsCurrent bool, ) *CustomEzsignfoldersignerassociationActionableElementResponse`
+`func NewCustomEzsignfoldersignerassociationActionableElementResponse(pkiEzsignfoldersignerassociationID int32, fkiEzsignfolderID int32, bEzsignfoldersignerassociationDelayedsend bool, bEzsignfoldersignerassociationReceivecopy bool, tEzsignfoldersignerassociationMessage string, bEzsignfoldersignerassociationHasactionableelementsCurrent bool, bEzsignfoldersignerassociationHasactionableelementsFuture bool, ) *CustomEzsignfoldersignerassociationActionableElementResponse`
 
 NewCustomEzsignfoldersignerassociationActionableElementResponse instantiates a new CustomEzsignfoldersignerassociationActionableElementResponse object
 This constructor will assign default values to properties that have it defined,
@@ -248,11 +248,6 @@ and a boolean to check if the value has been set.
 
 SetBEzsignfoldersignerassociationHasactionableelementsFuture sets BEzsignfoldersignerassociationHasactionableelementsFuture field to given value.
 
-### HasBEzsignfoldersignerassociationHasactionableelementsFuture
-
-`func (o *CustomEzsignfoldersignerassociationActionableElementResponse) HasBEzsignfoldersignerassociationHasactionableelementsFuture() bool`
-
-HasBEzsignfoldersignerassociationHasactionableelementsFuture returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

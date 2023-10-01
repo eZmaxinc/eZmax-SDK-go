@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AObjEzmaxproduct** | Pointer to [**[]EzmaxproductAutocompleteElementResponse**](EzmaxproductAutocompleteElementResponse.md) | An array of Ezmaxproduct autocomplete element response. | [optional] 
+**AObjEzmaxproduct** | [**[]EzmaxproductAutocompleteElementResponse**](EzmaxproductAutocompleteElementResponse.md) | An array of Ezmaxproduct autocomplete element response. | 
 
 ## Methods
 
 ### NewEzmaxproductGetAutocompleteV2ResponseMPayload
 
-`func NewEzmaxproductGetAutocompleteV2ResponseMPayload() *EzmaxproductGetAutocompleteV2ResponseMPayload`
+`func NewEzmaxproductGetAutocompleteV2ResponseMPayload(aObjEzmaxproduct []EzmaxproductAutocompleteElementResponse, ) *EzmaxproductGetAutocompleteV2ResponseMPayload`
 
 NewEzmaxproductGetAutocompleteV2ResponseMPayload instantiates a new EzmaxproductGetAutocompleteV2ResponseMPayload object
 This constructor will assign default values to properties that have it defined,
@@ -44,11 +44,6 @@ and a boolean to check if the value has been set.
 
 SetAObjEzmaxproduct sets AObjEzmaxproduct field to given value.
 
-### HasAObjEzmaxproduct
-
-`func (o *EzmaxproductGetAutocompleteV2ResponseMPayload) HasAObjEzmaxproduct() bool`
-
-HasAObjEzmaxproduct returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

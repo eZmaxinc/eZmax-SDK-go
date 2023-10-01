@@ -21,15 +21,16 @@ var _ MappedNullable = &CompanyGetAutocompleteV2ResponseMPayload{}
 // CompanyGetAutocompleteV2ResponseMPayload Payload for POST /2/object/company/getAutocomplete
 type CompanyGetAutocompleteV2ResponseMPayload struct {
 	// An array of Company autocomplete element response.
-	AObjCompany []CompanyAutocompleteElementResponse `json:"a_objCompany,omitempty"`
+	AObjCompany []CompanyAutocompleteElementResponse `json:"a_objCompany"`
 }
 
 // NewCompanyGetAutocompleteV2ResponseMPayload instantiates a new CompanyGetAutocompleteV2ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCompanyGetAutocompleteV2ResponseMPayload() *CompanyGetAutocompleteV2ResponseMPayload {
+func NewCompanyGetAutocompleteV2ResponseMPayload(aObjCompany []CompanyAutocompleteElementResponse) *CompanyGetAutocompleteV2ResponseMPayload {
 	this := CompanyGetAutocompleteV2ResponseMPayload{}
+	this.AObjCompany = aObjCompany
 	return &this
 }
 
@@ -41,34 +42,26 @@ func NewCompanyGetAutocompleteV2ResponseMPayloadWithDefaults() *CompanyGetAutoco
 	return &this
 }
 
-// GetAObjCompany returns the AObjCompany field value if set, zero value otherwise.
+// GetAObjCompany returns the AObjCompany field value
 func (o *CompanyGetAutocompleteV2ResponseMPayload) GetAObjCompany() []CompanyAutocompleteElementResponse {
-	if o == nil || IsNil(o.AObjCompany) {
+	if o == nil {
 		var ret []CompanyAutocompleteElementResponse
 		return ret
 	}
+
 	return o.AObjCompany
 }
 
-// GetAObjCompanyOk returns a tuple with the AObjCompany field value if set, nil otherwise
+// GetAObjCompanyOk returns a tuple with the AObjCompany field value
 // and a boolean to check if the value has been set.
 func (o *CompanyGetAutocompleteV2ResponseMPayload) GetAObjCompanyOk() ([]CompanyAutocompleteElementResponse, bool) {
-	if o == nil || IsNil(o.AObjCompany) {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjCompany, true
 }
 
-// HasAObjCompany returns a boolean if a field has been set.
-func (o *CompanyGetAutocompleteV2ResponseMPayload) HasAObjCompany() bool {
-	if o != nil && !IsNil(o.AObjCompany) {
-		return true
-	}
-
-	return false
-}
-
-// SetAObjCompany gets a reference to the given []CompanyAutocompleteElementResponse and assigns it to the AObjCompany field.
+// SetAObjCompany sets field value
 func (o *CompanyGetAutocompleteV2ResponseMPayload) SetAObjCompany(v []CompanyAutocompleteElementResponse) {
 	o.AObjCompany = v
 }
@@ -83,9 +76,7 @@ func (o CompanyGetAutocompleteV2ResponseMPayload) MarshalJSON() ([]byte, error) 
 
 func (o CompanyGetAutocompleteV2ResponseMPayload) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.AObjCompany) {
-		toSerialize["a_objCompany"] = o.AObjCompany
-	}
+	toSerialize["a_objCompany"] = o.AObjCompany
 	return toSerialize, nil
 }
 

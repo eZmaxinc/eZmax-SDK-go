@@ -21,15 +21,16 @@ var _ MappedNullable = &FontGetAutocompleteV2ResponseMPayload{}
 // FontGetAutocompleteV2ResponseMPayload Payload for POST /2/object/font/getAutocomplete
 type FontGetAutocompleteV2ResponseMPayload struct {
 	// An array of Font autocomplete element response.
-	AObjFont []FontAutocompleteElementResponse `json:"a_objFont,omitempty"`
+	AObjFont []FontAutocompleteElementResponse `json:"a_objFont"`
 }
 
 // NewFontGetAutocompleteV2ResponseMPayload instantiates a new FontGetAutocompleteV2ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFontGetAutocompleteV2ResponseMPayload() *FontGetAutocompleteV2ResponseMPayload {
+func NewFontGetAutocompleteV2ResponseMPayload(aObjFont []FontAutocompleteElementResponse) *FontGetAutocompleteV2ResponseMPayload {
 	this := FontGetAutocompleteV2ResponseMPayload{}
+	this.AObjFont = aObjFont
 	return &this
 }
 
@@ -41,34 +42,26 @@ func NewFontGetAutocompleteV2ResponseMPayloadWithDefaults() *FontGetAutocomplete
 	return &this
 }
 
-// GetAObjFont returns the AObjFont field value if set, zero value otherwise.
+// GetAObjFont returns the AObjFont field value
 func (o *FontGetAutocompleteV2ResponseMPayload) GetAObjFont() []FontAutocompleteElementResponse {
-	if o == nil || IsNil(o.AObjFont) {
+	if o == nil {
 		var ret []FontAutocompleteElementResponse
 		return ret
 	}
+
 	return o.AObjFont
 }
 
-// GetAObjFontOk returns a tuple with the AObjFont field value if set, nil otherwise
+// GetAObjFontOk returns a tuple with the AObjFont field value
 // and a boolean to check if the value has been set.
 func (o *FontGetAutocompleteV2ResponseMPayload) GetAObjFontOk() ([]FontAutocompleteElementResponse, bool) {
-	if o == nil || IsNil(o.AObjFont) {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjFont, true
 }
 
-// HasAObjFont returns a boolean if a field has been set.
-func (o *FontGetAutocompleteV2ResponseMPayload) HasAObjFont() bool {
-	if o != nil && !IsNil(o.AObjFont) {
-		return true
-	}
-
-	return false
-}
-
-// SetAObjFont gets a reference to the given []FontAutocompleteElementResponse and assigns it to the AObjFont field.
+// SetAObjFont sets field value
 func (o *FontGetAutocompleteV2ResponseMPayload) SetAObjFont(v []FontAutocompleteElementResponse) {
 	o.AObjFont = v
 }
@@ -83,9 +76,7 @@ func (o FontGetAutocompleteV2ResponseMPayload) MarshalJSON() ([]byte, error) {
 
 func (o FontGetAutocompleteV2ResponseMPayload) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.AObjFont) {
-		toSerialize["a_objFont"] = o.AObjFont
-	}
+	toSerialize["a_objFont"] = o.AObjFont
 	return toSerialize, nil
 }
 

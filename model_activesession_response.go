@@ -36,7 +36,7 @@ type ActivesessionResponse struct {
 	// The customer code assigned to your account
 	PksCustomerCode string `json:"pksCustomerCode"`
 	// The unique ID of the Systemconfigurationtype
-	FkiSystemconfigurationtypeID *int32 `json:"fkiSystemconfigurationtypeID,omitempty"`
+	FkiSystemconfigurationtypeID int32 `json:"fkiSystemconfigurationtypeID"`
 	// The unique ID of the Signature
 	FkiSignatureID *int32 `json:"fkiSignatureID,omitempty"`
 }
@@ -45,7 +45,7 @@ type ActivesessionResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewActivesessionResponse(eActivesessionUsertype FieldEActivesessionUsertype, eActivesessionOrigin FieldEActivesessionOrigin, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, bActivesessionDebug bool, bActivesessionIssuperadmin bool, pksCustomerCode string) *ActivesessionResponse {
+func NewActivesessionResponse(eActivesessionUsertype FieldEActivesessionUsertype, eActivesessionOrigin FieldEActivesessionOrigin, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, bActivesessionDebug bool, bActivesessionIssuperadmin bool, pksCustomerCode string, fkiSystemconfigurationtypeID int32) *ActivesessionResponse {
 	this := ActivesessionResponse{}
 	this.EActivesessionUsertype = eActivesessionUsertype
 	this.EActivesessionOrigin = eActivesessionOrigin
@@ -56,6 +56,7 @@ func NewActivesessionResponse(eActivesessionUsertype FieldEActivesessionUsertype
 	this.BActivesessionDebug = bActivesessionDebug
 	this.BActivesessionIssuperadmin = bActivesessionIssuperadmin
 	this.PksCustomerCode = pksCustomerCode
+	this.FkiSystemconfigurationtypeID = fkiSystemconfigurationtypeID
 	return &this
 }
 
@@ -283,36 +284,28 @@ func (o *ActivesessionResponse) SetPksCustomerCode(v string) {
 	o.PksCustomerCode = v
 }
 
-// GetFkiSystemconfigurationtypeID returns the FkiSystemconfigurationtypeID field value if set, zero value otherwise.
+// GetFkiSystemconfigurationtypeID returns the FkiSystemconfigurationtypeID field value
 func (o *ActivesessionResponse) GetFkiSystemconfigurationtypeID() int32 {
-	if o == nil || IsNil(o.FkiSystemconfigurationtypeID) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.FkiSystemconfigurationtypeID
+
+	return o.FkiSystemconfigurationtypeID
 }
 
-// GetFkiSystemconfigurationtypeIDOk returns a tuple with the FkiSystemconfigurationtypeID field value if set, nil otherwise
+// GetFkiSystemconfigurationtypeIDOk returns a tuple with the FkiSystemconfigurationtypeID field value
 // and a boolean to check if the value has been set.
 func (o *ActivesessionResponse) GetFkiSystemconfigurationtypeIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.FkiSystemconfigurationtypeID) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FkiSystemconfigurationtypeID, true
+	return &o.FkiSystemconfigurationtypeID, true
 }
 
-// HasFkiSystemconfigurationtypeID returns a boolean if a field has been set.
-func (o *ActivesessionResponse) HasFkiSystemconfigurationtypeID() bool {
-	if o != nil && !IsNil(o.FkiSystemconfigurationtypeID) {
-		return true
-	}
-
-	return false
-}
-
-// SetFkiSystemconfigurationtypeID gets a reference to the given int32 and assigns it to the FkiSystemconfigurationtypeID field.
+// SetFkiSystemconfigurationtypeID sets field value
 func (o *ActivesessionResponse) SetFkiSystemconfigurationtypeID(v int32) {
-	o.FkiSystemconfigurationtypeID = &v
+	o.FkiSystemconfigurationtypeID = v
 }
 
 // GetFkiSignatureID returns the FkiSignatureID field value if set, zero value otherwise.
@@ -366,9 +359,7 @@ func (o ActivesessionResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["bActivesessionDebug"] = o.BActivesessionDebug
 	toSerialize["bActivesessionIssuperadmin"] = o.BActivesessionIssuperadmin
 	toSerialize["pksCustomerCode"] = o.PksCustomerCode
-	if !IsNil(o.FkiSystemconfigurationtypeID) {
-		toSerialize["fkiSystemconfigurationtypeID"] = o.FkiSystemconfigurationtypeID
-	}
+	toSerialize["fkiSystemconfigurationtypeID"] = o.FkiSystemconfigurationtypeID
 	if !IsNil(o.FkiSignatureID) {
 		toSerialize["fkiSignatureID"] = o.FkiSignatureID
 	}

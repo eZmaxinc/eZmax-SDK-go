@@ -21,15 +21,16 @@ var _ MappedNullable = &EmailtypeGetAutocompleteV2ResponseMPayload{}
 // EmailtypeGetAutocompleteV2ResponseMPayload Payload for POST /2/object/emailtype/getAutocomplete
 type EmailtypeGetAutocompleteV2ResponseMPayload struct {
 	// An array of Emailtype autocomplete element response.
-	AObjEmailtype []EmailtypeAutocompleteElementResponse `json:"a_objEmailtype,omitempty"`
+	AObjEmailtype []EmailtypeAutocompleteElementResponse `json:"a_objEmailtype"`
 }
 
 // NewEmailtypeGetAutocompleteV2ResponseMPayload instantiates a new EmailtypeGetAutocompleteV2ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEmailtypeGetAutocompleteV2ResponseMPayload() *EmailtypeGetAutocompleteV2ResponseMPayload {
+func NewEmailtypeGetAutocompleteV2ResponseMPayload(aObjEmailtype []EmailtypeAutocompleteElementResponse) *EmailtypeGetAutocompleteV2ResponseMPayload {
 	this := EmailtypeGetAutocompleteV2ResponseMPayload{}
+	this.AObjEmailtype = aObjEmailtype
 	return &this
 }
 
@@ -41,34 +42,26 @@ func NewEmailtypeGetAutocompleteV2ResponseMPayloadWithDefaults() *EmailtypeGetAu
 	return &this
 }
 
-// GetAObjEmailtype returns the AObjEmailtype field value if set, zero value otherwise.
+// GetAObjEmailtype returns the AObjEmailtype field value
 func (o *EmailtypeGetAutocompleteV2ResponseMPayload) GetAObjEmailtype() []EmailtypeAutocompleteElementResponse {
-	if o == nil || IsNil(o.AObjEmailtype) {
+	if o == nil {
 		var ret []EmailtypeAutocompleteElementResponse
 		return ret
 	}
+
 	return o.AObjEmailtype
 }
 
-// GetAObjEmailtypeOk returns a tuple with the AObjEmailtype field value if set, nil otherwise
+// GetAObjEmailtypeOk returns a tuple with the AObjEmailtype field value
 // and a boolean to check if the value has been set.
 func (o *EmailtypeGetAutocompleteV2ResponseMPayload) GetAObjEmailtypeOk() ([]EmailtypeAutocompleteElementResponse, bool) {
-	if o == nil || IsNil(o.AObjEmailtype) {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjEmailtype, true
 }
 
-// HasAObjEmailtype returns a boolean if a field has been set.
-func (o *EmailtypeGetAutocompleteV2ResponseMPayload) HasAObjEmailtype() bool {
-	if o != nil && !IsNil(o.AObjEmailtype) {
-		return true
-	}
-
-	return false
-}
-
-// SetAObjEmailtype gets a reference to the given []EmailtypeAutocompleteElementResponse and assigns it to the AObjEmailtype field.
+// SetAObjEmailtype sets field value
 func (o *EmailtypeGetAutocompleteV2ResponseMPayload) SetAObjEmailtype(v []EmailtypeAutocompleteElementResponse) {
 	o.AObjEmailtype = v
 }
@@ -83,9 +76,7 @@ func (o EmailtypeGetAutocompleteV2ResponseMPayload) MarshalJSON() ([]byte, error
 
 func (o EmailtypeGetAutocompleteV2ResponseMPayload) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.AObjEmailtype) {
-		toSerialize["a_objEmailtype"] = o.AObjEmailtype
-	}
+	toSerialize["a_objEmailtype"] = o.AObjEmailtype
 	return toSerialize, nil
 }
 

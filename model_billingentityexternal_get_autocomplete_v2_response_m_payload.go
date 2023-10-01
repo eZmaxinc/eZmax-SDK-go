@@ -21,15 +21,16 @@ var _ MappedNullable = &BillingentityexternalGetAutocompleteV2ResponseMPayload{}
 // BillingentityexternalGetAutocompleteV2ResponseMPayload Payload for POST /2/object/billingentityexternal/getAutocomplete
 type BillingentityexternalGetAutocompleteV2ResponseMPayload struct {
 	// An array of Billingentityexternal autocomplete element response.
-	AObjBillingentityexternal []BillingentityexternalAutocompleteElementResponse `json:"a_objBillingentityexternal,omitempty"`
+	AObjBillingentityexternal []BillingentityexternalAutocompleteElementResponse `json:"a_objBillingentityexternal"`
 }
 
 // NewBillingentityexternalGetAutocompleteV2ResponseMPayload instantiates a new BillingentityexternalGetAutocompleteV2ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBillingentityexternalGetAutocompleteV2ResponseMPayload() *BillingentityexternalGetAutocompleteV2ResponseMPayload {
+func NewBillingentityexternalGetAutocompleteV2ResponseMPayload(aObjBillingentityexternal []BillingentityexternalAutocompleteElementResponse) *BillingentityexternalGetAutocompleteV2ResponseMPayload {
 	this := BillingentityexternalGetAutocompleteV2ResponseMPayload{}
+	this.AObjBillingentityexternal = aObjBillingentityexternal
 	return &this
 }
 
@@ -41,34 +42,26 @@ func NewBillingentityexternalGetAutocompleteV2ResponseMPayloadWithDefaults() *Bi
 	return &this
 }
 
-// GetAObjBillingentityexternal returns the AObjBillingentityexternal field value if set, zero value otherwise.
+// GetAObjBillingentityexternal returns the AObjBillingentityexternal field value
 func (o *BillingentityexternalGetAutocompleteV2ResponseMPayload) GetAObjBillingentityexternal() []BillingentityexternalAutocompleteElementResponse {
-	if o == nil || IsNil(o.AObjBillingentityexternal) {
+	if o == nil {
 		var ret []BillingentityexternalAutocompleteElementResponse
 		return ret
 	}
+
 	return o.AObjBillingentityexternal
 }
 
-// GetAObjBillingentityexternalOk returns a tuple with the AObjBillingentityexternal field value if set, nil otherwise
+// GetAObjBillingentityexternalOk returns a tuple with the AObjBillingentityexternal field value
 // and a boolean to check if the value has been set.
 func (o *BillingentityexternalGetAutocompleteV2ResponseMPayload) GetAObjBillingentityexternalOk() ([]BillingentityexternalAutocompleteElementResponse, bool) {
-	if o == nil || IsNil(o.AObjBillingentityexternal) {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjBillingentityexternal, true
 }
 
-// HasAObjBillingentityexternal returns a boolean if a field has been set.
-func (o *BillingentityexternalGetAutocompleteV2ResponseMPayload) HasAObjBillingentityexternal() bool {
-	if o != nil && !IsNil(o.AObjBillingentityexternal) {
-		return true
-	}
-
-	return false
-}
-
-// SetAObjBillingentityexternal gets a reference to the given []BillingentityexternalAutocompleteElementResponse and assigns it to the AObjBillingentityexternal field.
+// SetAObjBillingentityexternal sets field value
 func (o *BillingentityexternalGetAutocompleteV2ResponseMPayload) SetAObjBillingentityexternal(v []BillingentityexternalAutocompleteElementResponse) {
 	o.AObjBillingentityexternal = v
 }
@@ -83,9 +76,7 @@ func (o BillingentityexternalGetAutocompleteV2ResponseMPayload) MarshalJSON() ([
 
 func (o BillingentityexternalGetAutocompleteV2ResponseMPayload) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.AObjBillingentityexternal) {
-		toSerialize["a_objBillingentityexternal"] = o.AObjBillingentityexternal
-	}
+	toSerialize["a_objBillingentityexternal"] = o.AObjBillingentityexternal
 	return toSerialize, nil
 }
 

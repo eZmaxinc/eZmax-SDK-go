@@ -24,7 +24,7 @@ type NotificationtestGetElementsV1ResponseMPayload struct {
 	PkiNotificationtestID int32 `json:"pkiNotificationtestID"`
 	// The function name of the Notificationtest
 	SNotificationtestFunction string `json:"sNotificationtestFunction"`
-	ASVariableobjectProperty []string `json:"a_sVariableobjectProperty,omitempty"`
+	ASVariableobjectProperty []string `json:"a_sVariableobjectProperty"`
 	AObjVariableobject []map[string]interface{} `json:"a_objVariableobject"`
 }
 
@@ -32,10 +32,11 @@ type NotificationtestGetElementsV1ResponseMPayload struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNotificationtestGetElementsV1ResponseMPayload(pkiNotificationtestID int32, sNotificationtestFunction string, aObjVariableobject []map[string]interface{}) *NotificationtestGetElementsV1ResponseMPayload {
+func NewNotificationtestGetElementsV1ResponseMPayload(pkiNotificationtestID int32, sNotificationtestFunction string, aSVariableobjectProperty []string, aObjVariableobject []map[string]interface{}) *NotificationtestGetElementsV1ResponseMPayload {
 	this := NotificationtestGetElementsV1ResponseMPayload{}
 	this.PkiNotificationtestID = pkiNotificationtestID
 	this.SNotificationtestFunction = sNotificationtestFunction
+	this.ASVariableobjectProperty = aSVariableobjectProperty
 	this.AObjVariableobject = aObjVariableobject
 	return &this
 }
@@ -96,34 +97,26 @@ func (o *NotificationtestGetElementsV1ResponseMPayload) SetSNotificationtestFunc
 	o.SNotificationtestFunction = v
 }
 
-// GetASVariableobjectProperty returns the ASVariableobjectProperty field value if set, zero value otherwise.
+// GetASVariableobjectProperty returns the ASVariableobjectProperty field value
 func (o *NotificationtestGetElementsV1ResponseMPayload) GetASVariableobjectProperty() []string {
-	if o == nil || IsNil(o.ASVariableobjectProperty) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
+
 	return o.ASVariableobjectProperty
 }
 
-// GetASVariableobjectPropertyOk returns a tuple with the ASVariableobjectProperty field value if set, nil otherwise
+// GetASVariableobjectPropertyOk returns a tuple with the ASVariableobjectProperty field value
 // and a boolean to check if the value has been set.
 func (o *NotificationtestGetElementsV1ResponseMPayload) GetASVariableobjectPropertyOk() ([]string, bool) {
-	if o == nil || IsNil(o.ASVariableobjectProperty) {
+	if o == nil {
 		return nil, false
 	}
 	return o.ASVariableobjectProperty, true
 }
 
-// HasASVariableobjectProperty returns a boolean if a field has been set.
-func (o *NotificationtestGetElementsV1ResponseMPayload) HasASVariableobjectProperty() bool {
-	if o != nil && !IsNil(o.ASVariableobjectProperty) {
-		return true
-	}
-
-	return false
-}
-
-// SetASVariableobjectProperty gets a reference to the given []string and assigns it to the ASVariableobjectProperty field.
+// SetASVariableobjectProperty sets field value
 func (o *NotificationtestGetElementsV1ResponseMPayload) SetASVariableobjectProperty(v []string) {
 	o.ASVariableobjectProperty = v
 }
@@ -164,9 +157,7 @@ func (o NotificationtestGetElementsV1ResponseMPayload) ToMap() (map[string]inter
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiNotificationtestID"] = o.PkiNotificationtestID
 	toSerialize["sNotificationtestFunction"] = o.SNotificationtestFunction
-	if !IsNil(o.ASVariableobjectProperty) {
-		toSerialize["a_sVariableobjectProperty"] = o.ASVariableobjectProperty
-	}
+	toSerialize["a_sVariableobjectProperty"] = o.ASVariableobjectProperty
 	toSerialize["a_objVariableobject"] = o.AObjVariableobject
 	return toSerialize, nil
 }

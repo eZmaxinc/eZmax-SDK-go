@@ -18,7 +18,7 @@ import (
 // checks if the CommonResponseErrorEzsignformValidation type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &CommonResponseErrorEzsignformValidation{}
 
-// CommonResponseErrorEzsignformValidation struct for CommonResponseErrorEzsignformValidation
+// CommonResponseErrorEzsignformValidation Generic Error Message
 type CommonResponseErrorEzsignformValidation struct {
 	// The message giving details about the error
 	SErrorMessage string `json:"sErrorMessage"`

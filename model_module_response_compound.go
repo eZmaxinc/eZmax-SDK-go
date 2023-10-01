@@ -32,14 +32,14 @@ type ModuleResponseCompound struct {
 	BModuleRegistered bool `json:"bModuleRegistered"`
 	// Whether the Module is registered or not for api use
 	BModuleRegisteredapi bool `json:"bModuleRegisteredapi"`
-	AObjModulesection []ModulesectionResponseCompound `json:"a_objModulesection"`
+	AObjModulesection []ModulesectionResponseCompound `json:"a_objModulesection,omitempty"`
 }
 
 // NewModuleResponseCompound instantiates a new ModuleResponseCompound object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModuleResponseCompound(pkiModuleID int32, fkiModulegroupID int32, eModuleInternalname string, sModuleNameX string, bModuleRegistered bool, bModuleRegisteredapi bool, aObjModulesection []ModulesectionResponseCompound) *ModuleResponseCompound {
+func NewModuleResponseCompound(pkiModuleID int32, fkiModulegroupID int32, eModuleInternalname string, sModuleNameX string, bModuleRegistered bool, bModuleRegisteredapi bool) *ModuleResponseCompound {
 	this := ModuleResponseCompound{}
 	this.PkiModuleID = pkiModuleID
 	this.FkiModulegroupID = fkiModulegroupID
@@ -47,7 +47,6 @@ func NewModuleResponseCompound(pkiModuleID int32, fkiModulegroupID int32, eModul
 	this.SModuleNameX = sModuleNameX
 	this.BModuleRegistered = bModuleRegistered
 	this.BModuleRegisteredapi = bModuleRegisteredapi
-	this.AObjModulesection = aObjModulesection
 	return &this
 }
 
@@ -203,26 +202,34 @@ func (o *ModuleResponseCompound) SetBModuleRegisteredapi(v bool) {
 	o.BModuleRegisteredapi = v
 }
 
-// GetAObjModulesection returns the AObjModulesection field value
+// GetAObjModulesection returns the AObjModulesection field value if set, zero value otherwise.
 func (o *ModuleResponseCompound) GetAObjModulesection() []ModulesectionResponseCompound {
-	if o == nil {
+	if o == nil || IsNil(o.AObjModulesection) {
 		var ret []ModulesectionResponseCompound
 		return ret
 	}
-
 	return o.AObjModulesection
 }
 
-// GetAObjModulesectionOk returns a tuple with the AObjModulesection field value
+// GetAObjModulesectionOk returns a tuple with the AObjModulesection field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModuleResponseCompound) GetAObjModulesectionOk() ([]ModulesectionResponseCompound, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AObjModulesection) {
 		return nil, false
 	}
 	return o.AObjModulesection, true
 }
 
-// SetAObjModulesection sets field value
+// HasAObjModulesection returns a boolean if a field has been set.
+func (o *ModuleResponseCompound) HasAObjModulesection() bool {
+	if o != nil && !IsNil(o.AObjModulesection) {
+		return true
+	}
+
+	return false
+}
+
+// SetAObjModulesection gets a reference to the given []ModulesectionResponseCompound and assigns it to the AObjModulesection field.
 func (o *ModuleResponseCompound) SetAObjModulesection(v []ModulesectionResponseCompound) {
 	o.AObjModulesection = v
 }
@@ -243,7 +250,9 @@ func (o ModuleResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize["sModuleNameX"] = o.SModuleNameX
 	toSerialize["bModuleRegistered"] = o.BModuleRegistered
 	toSerialize["bModuleRegisteredapi"] = o.BModuleRegisteredapi
-	toSerialize["a_objModulesection"] = o.AObjModulesection
+	if !IsNil(o.AObjModulesection) {
+		toSerialize["a_objModulesection"] = o.AObjModulesection
+	}
 	return toSerialize, nil
 }
 

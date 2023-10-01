@@ -10,13 +10,13 @@ Name | Type | Description | Notes
 **SModuleNameX** | **string** | The Name of the Module in the language of the requester | 
 **BModuleRegistered** | **bool** | Whether the Module is registered or not | 
 **BModuleRegisteredapi** | **bool** | Whether the Module is registered or not for api use | 
-**AObjModulesection** | [**[]ModulesectionResponseCompound**](ModulesectionResponseCompound.md) |  | 
+**AObjModulesection** | Pointer to [**[]ModulesectionResponseCompound**](ModulesectionResponseCompound.md) |  | [optional] 
 
 ## Methods
 
 ### NewModuleResponseCompound
 
-`func NewModuleResponseCompound(pkiModuleID int32, fkiModulegroupID int32, eModuleInternalname string, sModuleNameX string, bModuleRegistered bool, bModuleRegisteredapi bool, aObjModulesection []ModulesectionResponseCompound, ) *ModuleResponseCompound`
+`func NewModuleResponseCompound(pkiModuleID int32, fkiModulegroupID int32, eModuleInternalname string, sModuleNameX string, bModuleRegistered bool, bModuleRegisteredapi bool, ) *ModuleResponseCompound`
 
 NewModuleResponseCompound instantiates a new ModuleResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -170,6 +170,11 @@ and a boolean to check if the value has been set.
 
 SetAObjModulesection sets AObjModulesection field to given value.
 
+### HasAObjModulesection
+
+`func (o *ModuleResponseCompound) HasAObjModulesection() bool`
+
+HasAObjModulesection returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

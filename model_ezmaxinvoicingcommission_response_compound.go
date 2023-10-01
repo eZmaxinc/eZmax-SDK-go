@@ -36,20 +36,19 @@ type EzmaxinvoicingcommissionResponseCompound struct {
 	IEzmaxinvoicingcommissionDays int32 `json:"iEzmaxinvoicingcommissionDays"`
 	// The amount of Ezmaxinvoicingcommission
 	DEzmaxinvoicingcommissionAmount string `json:"dEzmaxinvoicingcommissionAmount"`
-	ObjContactName CustomContactNameResponse `json:"objContactName"`
+	ObjContactName *CustomContactNameResponse `json:"objContactName,omitempty"`
 }
 
 // NewEzmaxinvoicingcommissionResponseCompound instantiates a new EzmaxinvoicingcommissionResponseCompound object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzmaxinvoicingcommissionResponseCompound(dtEzmaxinvoicingcommissionStart string, dtEzmaxinvoicingcommissionEnd string, iEzmaxinvoicingcommissionDays int32, dEzmaxinvoicingcommissionAmount string, objContactName CustomContactNameResponse) *EzmaxinvoicingcommissionResponseCompound {
+func NewEzmaxinvoicingcommissionResponseCompound(dtEzmaxinvoicingcommissionStart string, dtEzmaxinvoicingcommissionEnd string, iEzmaxinvoicingcommissionDays int32, dEzmaxinvoicingcommissionAmount string) *EzmaxinvoicingcommissionResponseCompound {
 	this := EzmaxinvoicingcommissionResponseCompound{}
 	this.DtEzmaxinvoicingcommissionStart = dtEzmaxinvoicingcommissionStart
 	this.DtEzmaxinvoicingcommissionEnd = dtEzmaxinvoicingcommissionEnd
 	this.IEzmaxinvoicingcommissionDays = iEzmaxinvoicingcommissionDays
 	this.DEzmaxinvoicingcommissionAmount = dEzmaxinvoicingcommissionAmount
-	this.ObjContactName = objContactName
 	return &this
 }
 
@@ -285,28 +284,36 @@ func (o *EzmaxinvoicingcommissionResponseCompound) SetDEzmaxinvoicingcommissionA
 	o.DEzmaxinvoicingcommissionAmount = v
 }
 
-// GetObjContactName returns the ObjContactName field value
+// GetObjContactName returns the ObjContactName field value if set, zero value otherwise.
 func (o *EzmaxinvoicingcommissionResponseCompound) GetObjContactName() CustomContactNameResponse {
-	if o == nil {
+	if o == nil || IsNil(o.ObjContactName) {
 		var ret CustomContactNameResponse
 		return ret
 	}
-
-	return o.ObjContactName
+	return *o.ObjContactName
 }
 
-// GetObjContactNameOk returns a tuple with the ObjContactName field value
+// GetObjContactNameOk returns a tuple with the ObjContactName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzmaxinvoicingcommissionResponseCompound) GetObjContactNameOk() (*CustomContactNameResponse, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ObjContactName) {
 		return nil, false
 	}
-	return &o.ObjContactName, true
+	return o.ObjContactName, true
 }
 
-// SetObjContactName sets field value
+// HasObjContactName returns a boolean if a field has been set.
+func (o *EzmaxinvoicingcommissionResponseCompound) HasObjContactName() bool {
+	if o != nil && !IsNil(o.ObjContactName) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjContactName gets a reference to the given CustomContactNameResponse and assigns it to the ObjContactName field.
 func (o *EzmaxinvoicingcommissionResponseCompound) SetObjContactName(v CustomContactNameResponse) {
-	o.ObjContactName = v
+	o.ObjContactName = &v
 }
 
 func (o EzmaxinvoicingcommissionResponseCompound) MarshalJSON() ([]byte, error) {
@@ -335,7 +342,9 @@ func (o EzmaxinvoicingcommissionResponseCompound) ToMap() (map[string]interface{
 	toSerialize["dtEzmaxinvoicingcommissionEnd"] = o.DtEzmaxinvoicingcommissionEnd
 	toSerialize["iEzmaxinvoicingcommissionDays"] = o.IEzmaxinvoicingcommissionDays
 	toSerialize["dEzmaxinvoicingcommissionAmount"] = o.DEzmaxinvoicingcommissionAmount
-	toSerialize["objContactName"] = o.ObjContactName
+	if !IsNil(o.ObjContactName) {
+		toSerialize["objContactName"] = o.ObjContactName
+	}
 	return toSerialize, nil
 }
 

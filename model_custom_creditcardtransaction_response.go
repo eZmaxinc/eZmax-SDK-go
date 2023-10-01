@@ -20,7 +20,7 @@ var _ MappedNullable = &CustomCreditcardtransactionResponse{}
 
 // CustomCreditcardtransactionResponse A custom Creditcardtransaction Object
 type CustomCreditcardtransactionResponse struct {
-	ECreditcardtypeCodename *FieldECreditcardtypeCodename `json:"eCreditcardtypeCodename,omitempty"`
+	ECreditcardtypeCodename FieldECreditcardtypeCodename `json:"eCreditcardtypeCodename"`
 	// The amount of the Creditcardtransaction
 	DCreditcardtransactionAmount string `json:"dCreditcardtransactionAmount"`
 	// The partially decrypted credit card number used in the Creditcardtransaction
@@ -33,8 +33,9 @@ type CustomCreditcardtransactionResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomCreditcardtransactionResponse(dCreditcardtransactionAmount string, sCreditcardtransactionPartiallydecryptednumber string, sCreditcardtransactionReferencenumber string) *CustomCreditcardtransactionResponse {
+func NewCustomCreditcardtransactionResponse(eCreditcardtypeCodename FieldECreditcardtypeCodename, dCreditcardtransactionAmount string, sCreditcardtransactionPartiallydecryptednumber string, sCreditcardtransactionReferencenumber string) *CustomCreditcardtransactionResponse {
 	this := CustomCreditcardtransactionResponse{}
+	this.ECreditcardtypeCodename = eCreditcardtypeCodename
 	this.DCreditcardtransactionAmount = dCreditcardtransactionAmount
 	this.SCreditcardtransactionPartiallydecryptednumber = sCreditcardtransactionPartiallydecryptednumber
 	this.SCreditcardtransactionReferencenumber = sCreditcardtransactionReferencenumber
@@ -49,36 +50,28 @@ func NewCustomCreditcardtransactionResponseWithDefaults() *CustomCreditcardtrans
 	return &this
 }
 
-// GetECreditcardtypeCodename returns the ECreditcardtypeCodename field value if set, zero value otherwise.
+// GetECreditcardtypeCodename returns the ECreditcardtypeCodename field value
 func (o *CustomCreditcardtransactionResponse) GetECreditcardtypeCodename() FieldECreditcardtypeCodename {
-	if o == nil || IsNil(o.ECreditcardtypeCodename) {
+	if o == nil {
 		var ret FieldECreditcardtypeCodename
 		return ret
 	}
-	return *o.ECreditcardtypeCodename
+
+	return o.ECreditcardtypeCodename
 }
 
-// GetECreditcardtypeCodenameOk returns a tuple with the ECreditcardtypeCodename field value if set, nil otherwise
+// GetECreditcardtypeCodenameOk returns a tuple with the ECreditcardtypeCodename field value
 // and a boolean to check if the value has been set.
 func (o *CustomCreditcardtransactionResponse) GetECreditcardtypeCodenameOk() (*FieldECreditcardtypeCodename, bool) {
-	if o == nil || IsNil(o.ECreditcardtypeCodename) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ECreditcardtypeCodename, true
+	return &o.ECreditcardtypeCodename, true
 }
 
-// HasECreditcardtypeCodename returns a boolean if a field has been set.
-func (o *CustomCreditcardtransactionResponse) HasECreditcardtypeCodename() bool {
-	if o != nil && !IsNil(o.ECreditcardtypeCodename) {
-		return true
-	}
-
-	return false
-}
-
-// SetECreditcardtypeCodename gets a reference to the given FieldECreditcardtypeCodename and assigns it to the ECreditcardtypeCodename field.
+// SetECreditcardtypeCodename sets field value
 func (o *CustomCreditcardtransactionResponse) SetECreditcardtypeCodename(v FieldECreditcardtypeCodename) {
-	o.ECreditcardtypeCodename = &v
+	o.ECreditcardtypeCodename = v
 }
 
 // GetDCreditcardtransactionAmount returns the DCreditcardtransactionAmount field value
@@ -163,9 +156,7 @@ func (o CustomCreditcardtransactionResponse) MarshalJSON() ([]byte, error) {
 
 func (o CustomCreditcardtransactionResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ECreditcardtypeCodename) {
-		toSerialize["eCreditcardtypeCodename"] = o.ECreditcardtypeCodename
-	}
+	toSerialize["eCreditcardtypeCodename"] = o.ECreditcardtypeCodename
 	toSerialize["dCreditcardtransactionAmount"] = o.DCreditcardtransactionAmount
 	toSerialize["sCreditcardtransactionPartiallydecryptednumber"] = o.SCreditcardtransactionPartiallydecryptednumber
 	toSerialize["sCreditcardtransactionReferencenumber"] = o.SCreditcardtransactionReferencenumber

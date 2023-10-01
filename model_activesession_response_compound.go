@@ -36,7 +36,7 @@ type ActivesessionResponseCompound struct {
 	// The customer code assigned to your account
 	PksCustomerCode string `json:"pksCustomerCode"`
 	// The unique ID of the Systemconfigurationtype
-	FkiSystemconfigurationtypeID *int32 `json:"fkiSystemconfigurationtypeID,omitempty"`
+	FkiSystemconfigurationtypeID int32 `json:"fkiSystemconfigurationtypeID"`
 	// The unique ID of the Signature
 	FkiSignatureID *int32 `json:"fkiSignatureID,omitempty"`
 	// An array of permissions granted to the user or api key
@@ -52,7 +52,7 @@ type ActivesessionResponseCompound struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewActivesessionResponseCompound(eActivesessionUsertype FieldEActivesessionUsertype, eActivesessionOrigin FieldEActivesessionOrigin, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, bActivesessionDebug bool, bActivesessionIssuperadmin bool, pksCustomerCode string, aPkiPermissionID []int32, objUserReal ActivesessionResponseCompoundUser, aEModuleInternalname []string) *ActivesessionResponseCompound {
+func NewActivesessionResponseCompound(eActivesessionUsertype FieldEActivesessionUsertype, eActivesessionOrigin FieldEActivesessionOrigin, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, bActivesessionDebug bool, bActivesessionIssuperadmin bool, pksCustomerCode string, fkiSystemconfigurationtypeID int32, aPkiPermissionID []int32, objUserReal ActivesessionResponseCompoundUser, aEModuleInternalname []string) *ActivesessionResponseCompound {
 	this := ActivesessionResponseCompound{}
 	this.EActivesessionUsertype = eActivesessionUsertype
 	this.EActivesessionOrigin = eActivesessionOrigin
@@ -63,6 +63,7 @@ func NewActivesessionResponseCompound(eActivesessionUsertype FieldEActivesession
 	this.BActivesessionDebug = bActivesessionDebug
 	this.BActivesessionIssuperadmin = bActivesessionIssuperadmin
 	this.PksCustomerCode = pksCustomerCode
+	this.FkiSystemconfigurationtypeID = fkiSystemconfigurationtypeID
 	this.APkiPermissionID = aPkiPermissionID
 	this.ObjUserReal = objUserReal
 	this.AEModuleInternalname = aEModuleInternalname
@@ -293,36 +294,28 @@ func (o *ActivesessionResponseCompound) SetPksCustomerCode(v string) {
 	o.PksCustomerCode = v
 }
 
-// GetFkiSystemconfigurationtypeID returns the FkiSystemconfigurationtypeID field value if set, zero value otherwise.
+// GetFkiSystemconfigurationtypeID returns the FkiSystemconfigurationtypeID field value
 func (o *ActivesessionResponseCompound) GetFkiSystemconfigurationtypeID() int32 {
-	if o == nil || IsNil(o.FkiSystemconfigurationtypeID) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.FkiSystemconfigurationtypeID
+
+	return o.FkiSystemconfigurationtypeID
 }
 
-// GetFkiSystemconfigurationtypeIDOk returns a tuple with the FkiSystemconfigurationtypeID field value if set, nil otherwise
+// GetFkiSystemconfigurationtypeIDOk returns a tuple with the FkiSystemconfigurationtypeID field value
 // and a boolean to check if the value has been set.
 func (o *ActivesessionResponseCompound) GetFkiSystemconfigurationtypeIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.FkiSystemconfigurationtypeID) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FkiSystemconfigurationtypeID, true
+	return &o.FkiSystemconfigurationtypeID, true
 }
 
-// HasFkiSystemconfigurationtypeID returns a boolean if a field has been set.
-func (o *ActivesessionResponseCompound) HasFkiSystemconfigurationtypeID() bool {
-	if o != nil && !IsNil(o.FkiSystemconfigurationtypeID) {
-		return true
-	}
-
-	return false
-}
-
-// SetFkiSystemconfigurationtypeID gets a reference to the given int32 and assigns it to the FkiSystemconfigurationtypeID field.
+// SetFkiSystemconfigurationtypeID sets field value
 func (o *ActivesessionResponseCompound) SetFkiSystemconfigurationtypeID(v int32) {
-	o.FkiSystemconfigurationtypeID = &v
+	o.FkiSystemconfigurationtypeID = v
 }
 
 // GetFkiSignatureID returns the FkiSignatureID field value if set, zero value otherwise.
@@ -512,9 +505,7 @@ func (o ActivesessionResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize["bActivesessionDebug"] = o.BActivesessionDebug
 	toSerialize["bActivesessionIssuperadmin"] = o.BActivesessionIssuperadmin
 	toSerialize["pksCustomerCode"] = o.PksCustomerCode
-	if !IsNil(o.FkiSystemconfigurationtypeID) {
-		toSerialize["fkiSystemconfigurationtypeID"] = o.FkiSystemconfigurationtypeID
-	}
+	toSerialize["fkiSystemconfigurationtypeID"] = o.FkiSystemconfigurationtypeID
 	if !IsNil(o.FkiSignatureID) {
 		toSerialize["fkiSignatureID"] = o.FkiSignatureID
 	}

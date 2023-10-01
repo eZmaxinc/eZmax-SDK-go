@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiModulegroupID** | **int32** | The unique ID of the Modulegroup | 
 **SModulegroupNameX** | **string** | The name of the Modulegroup in the language of the requester | 
-**AObjModule** | [**[]ModuleResponseCompound**](ModuleResponseCompound.md) |  | 
+**AObjModule** | Pointer to [**[]ModuleResponseCompound**](ModuleResponseCompound.md) |  | [optional] 
 
 ## Methods
 
 ### NewModulegroupResponseCompound
 
-`func NewModulegroupResponseCompound(pkiModulegroupID int32, sModulegroupNameX string, aObjModule []ModuleResponseCompound, ) *ModulegroupResponseCompound`
+`func NewModulegroupResponseCompound(pkiModulegroupID int32, sModulegroupNameX string, ) *ModulegroupResponseCompound`
 
 NewModulegroupResponseCompound instantiates a new ModulegroupResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -86,6 +86,11 @@ and a boolean to check if the value has been set.
 
 SetAObjModule sets AObjModule field to given value.
 
+### HasAObjModule
+
+`func (o *ModulegroupResponseCompound) HasAObjModule() bool`
+
+HasAObjModule returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

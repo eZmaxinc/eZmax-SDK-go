@@ -12,13 +12,13 @@ Name | Type | Description | Notes
 **DtEzmaxinvoicingcommissionEnd** | **string** | The end date for the Ezmaxinvoicingcommission | 
 **IEzmaxinvoicingcommissionDays** | **int32** | This is the number of days during the month on which the Ezmaxinvoigcommission applies | 
 **DEzmaxinvoicingcommissionAmount** | **string** | The amount of Ezmaxinvoicingcommission | 
-**ObjContactName** | [**CustomContactNameResponse**](CustomContactNameResponse.md) |  | 
+**ObjContactName** | Pointer to [**CustomContactNameResponse**](CustomContactNameResponse.md) |  | [optional] 
 
 ## Methods
 
 ### NewEzmaxinvoicingcommissionResponseCompound
 
-`func NewEzmaxinvoicingcommissionResponseCompound(dtEzmaxinvoicingcommissionStart string, dtEzmaxinvoicingcommissionEnd string, iEzmaxinvoicingcommissionDays int32, dEzmaxinvoicingcommissionAmount string, objContactName CustomContactNameResponse, ) *EzmaxinvoicingcommissionResponseCompound`
+`func NewEzmaxinvoicingcommissionResponseCompound(dtEzmaxinvoicingcommissionStart string, dtEzmaxinvoicingcommissionEnd string, iEzmaxinvoicingcommissionDays int32, dEzmaxinvoicingcommissionAmount string, ) *EzmaxinvoicingcommissionResponseCompound`
 
 NewEzmaxinvoicingcommissionResponseCompound instantiates a new EzmaxinvoicingcommissionResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -232,6 +232,11 @@ and a boolean to check if the value has been set.
 
 SetObjContactName sets ObjContactName field to given value.
 
+### HasObjContactName
+
+`func (o *EzmaxinvoicingcommissionResponseCompound) HasObjContactName() bool`
+
+HasObjContactName returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

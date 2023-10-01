@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AObjFranchisebroker** | Pointer to [**[]FranchisebrokerAutocompleteElementResponse**](FranchisebrokerAutocompleteElementResponse.md) | An array of Franchisebroker autocomplete element response. | [optional] 
+**AObjFranchisebroker** | [**[]FranchisebrokerAutocompleteElementResponse**](FranchisebrokerAutocompleteElementResponse.md) | An array of Franchisebroker autocomplete element response. | 
 
 ## Methods
 
 ### NewFranchisebrokerGetAutocompleteV2ResponseMPayload
 
-`func NewFranchisebrokerGetAutocompleteV2ResponseMPayload() *FranchisebrokerGetAutocompleteV2ResponseMPayload`
+`func NewFranchisebrokerGetAutocompleteV2ResponseMPayload(aObjFranchisebroker []FranchisebrokerAutocompleteElementResponse, ) *FranchisebrokerGetAutocompleteV2ResponseMPayload`
 
 NewFranchisebrokerGetAutocompleteV2ResponseMPayload instantiates a new FranchisebrokerGetAutocompleteV2ResponseMPayload object
 This constructor will assign default values to properties that have it defined,
@@ -44,11 +44,6 @@ and a boolean to check if the value has been set.
 
 SetAObjFranchisebroker sets AObjFranchisebroker field to given value.
 
-### HasAObjFranchisebroker
-
-`func (o *FranchisebrokerGetAutocompleteV2ResponseMPayload) HasAObjFranchisebroker() bool`
-
-HasAObjFranchisebroker returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

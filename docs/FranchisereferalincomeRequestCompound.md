@@ -16,14 +16,14 @@ Name | Type | Description | Notes
 **TFranchisereferalincomeComment** | **string** | Comment about the transaction | 
 **FkiFranchiseofficeID** | **int32** | The unique ID of the Franchisereoffice | 
 **SFranchisereferalincomeRemoteid** | **string** |  | 
-**ObjAddress** | [**AddressRequest**](AddressRequest.md) |  | 
+**ObjAddress** | Pointer to [**AddressRequest**](AddressRequest.md) |  | [optional] 
 **AObjContact** | [**[]ContactRequestCompound**](ContactRequestCompound.md) |  | 
 
 ## Methods
 
 ### NewFranchisereferalincomeRequestCompound
 
-`func NewFranchisereferalincomeRequestCompound(fkiFranchisebrokerID int32, fkiFranchisereferalincomeprogramID int32, fkiPeriodID int32, dFranchisereferalincomeLoan string, dFranchisereferalincomeFranchiseamount string, dFranchisereferalincomeFranchisoramount string, dFranchisereferalincomeAgentamount string, dtFranchisereferalincomeDisbursed string, tFranchisereferalincomeComment string, fkiFranchiseofficeID int32, sFranchisereferalincomeRemoteid string, objAddress AddressRequest, aObjContact []ContactRequestCompound, ) *FranchisereferalincomeRequestCompound`
+`func NewFranchisereferalincomeRequestCompound(fkiFranchisebrokerID int32, fkiFranchisereferalincomeprogramID int32, fkiPeriodID int32, dFranchisereferalincomeLoan string, dFranchisereferalincomeFranchiseamount string, dFranchisereferalincomeFranchisoramount string, dFranchisereferalincomeAgentamount string, dtFranchisereferalincomeDisbursed string, tFranchisereferalincomeComment string, fkiFranchiseofficeID int32, sFranchisereferalincomeRemoteid string, aObjContact []ContactRequestCompound, ) *FranchisereferalincomeRequestCompound`
 
 NewFranchisereferalincomeRequestCompound instantiates a new FranchisereferalincomeRequestCompound object
 This constructor will assign default values to properties that have it defined,
@@ -302,6 +302,11 @@ and a boolean to check if the value has been set.
 
 SetObjAddress sets ObjAddress field to given value.
 
+### HasObjAddress
+
+`func (o *FranchisereferalincomeRequestCompound) HasObjAddress() bool`
+
+HasObjAddress returns a boolean if a field has been set.
 
 ### GetAObjContact
 

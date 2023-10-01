@@ -21,15 +21,16 @@ var _ MappedNullable = &PhonetypeGetAutocompleteV2ResponseMPayload{}
 // PhonetypeGetAutocompleteV2ResponseMPayload Payload for POST /2/object/phonetype/getAutocomplete
 type PhonetypeGetAutocompleteV2ResponseMPayload struct {
 	// An array of Phonetype autocomplete element response.
-	AObjPhonetype []PhonetypeAutocompleteElementResponse `json:"a_objPhonetype,omitempty"`
+	AObjPhonetype []PhonetypeAutocompleteElementResponse `json:"a_objPhonetype"`
 }
 
 // NewPhonetypeGetAutocompleteV2ResponseMPayload instantiates a new PhonetypeGetAutocompleteV2ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPhonetypeGetAutocompleteV2ResponseMPayload() *PhonetypeGetAutocompleteV2ResponseMPayload {
+func NewPhonetypeGetAutocompleteV2ResponseMPayload(aObjPhonetype []PhonetypeAutocompleteElementResponse) *PhonetypeGetAutocompleteV2ResponseMPayload {
 	this := PhonetypeGetAutocompleteV2ResponseMPayload{}
+	this.AObjPhonetype = aObjPhonetype
 	return &this
 }
 
@@ -41,34 +42,26 @@ func NewPhonetypeGetAutocompleteV2ResponseMPayloadWithDefaults() *PhonetypeGetAu
 	return &this
 }
 
-// GetAObjPhonetype returns the AObjPhonetype field value if set, zero value otherwise.
+// GetAObjPhonetype returns the AObjPhonetype field value
 func (o *PhonetypeGetAutocompleteV2ResponseMPayload) GetAObjPhonetype() []PhonetypeAutocompleteElementResponse {
-	if o == nil || IsNil(o.AObjPhonetype) {
+	if o == nil {
 		var ret []PhonetypeAutocompleteElementResponse
 		return ret
 	}
+
 	return o.AObjPhonetype
 }
 
-// GetAObjPhonetypeOk returns a tuple with the AObjPhonetype field value if set, nil otherwise
+// GetAObjPhonetypeOk returns a tuple with the AObjPhonetype field value
 // and a boolean to check if the value has been set.
 func (o *PhonetypeGetAutocompleteV2ResponseMPayload) GetAObjPhonetypeOk() ([]PhonetypeAutocompleteElementResponse, bool) {
-	if o == nil || IsNil(o.AObjPhonetype) {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjPhonetype, true
 }
 
-// HasAObjPhonetype returns a boolean if a field has been set.
-func (o *PhonetypeGetAutocompleteV2ResponseMPayload) HasAObjPhonetype() bool {
-	if o != nil && !IsNil(o.AObjPhonetype) {
-		return true
-	}
-
-	return false
-}
-
-// SetAObjPhonetype gets a reference to the given []PhonetypeAutocompleteElementResponse and assigns it to the AObjPhonetype field.
+// SetAObjPhonetype sets field value
 func (o *PhonetypeGetAutocompleteV2ResponseMPayload) SetAObjPhonetype(v []PhonetypeAutocompleteElementResponse) {
 	o.AObjPhonetype = v
 }
@@ -83,9 +76,7 @@ func (o PhonetypeGetAutocompleteV2ResponseMPayload) MarshalJSON() ([]byte, error
 
 func (o PhonetypeGetAutocompleteV2ResponseMPayload) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.AObjPhonetype) {
-		toSerialize["a_objPhonetype"] = o.AObjPhonetype
-	}
+	toSerialize["a_objPhonetype"] = o.AObjPhonetype
 	return toSerialize, nil
 }
 

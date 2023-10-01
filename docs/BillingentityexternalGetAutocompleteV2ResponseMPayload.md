@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AObjBillingentityexternal** | Pointer to [**[]BillingentityexternalAutocompleteElementResponse**](BillingentityexternalAutocompleteElementResponse.md) | An array of Billingentityexternal autocomplete element response. | [optional] 
+**AObjBillingentityexternal** | [**[]BillingentityexternalAutocompleteElementResponse**](BillingentityexternalAutocompleteElementResponse.md) | An array of Billingentityexternal autocomplete element response. | 
 
 ## Methods
 
 ### NewBillingentityexternalGetAutocompleteV2ResponseMPayload
 
-`func NewBillingentityexternalGetAutocompleteV2ResponseMPayload() *BillingentityexternalGetAutocompleteV2ResponseMPayload`
+`func NewBillingentityexternalGetAutocompleteV2ResponseMPayload(aObjBillingentityexternal []BillingentityexternalAutocompleteElementResponse, ) *BillingentityexternalGetAutocompleteV2ResponseMPayload`
 
 NewBillingentityexternalGetAutocompleteV2ResponseMPayload instantiates a new BillingentityexternalGetAutocompleteV2ResponseMPayload object
 This constructor will assign default values to properties that have it defined,
@@ -44,11 +44,6 @@ and a boolean to check if the value has been set.
 
 SetAObjBillingentityexternal sets AObjBillingentityexternal field to given value.
 
-### HasAObjBillingentityexternal
-
-`func (o *BillingentityexternalGetAutocompleteV2ResponseMPayload) HasAObjBillingentityexternal() bool`
-
-HasAObjBillingentityexternal returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

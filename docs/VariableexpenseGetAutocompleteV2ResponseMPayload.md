@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AObjVariableexpense** | Pointer to [**[]VariableexpenseAutocompleteElementResponse**](VariableexpenseAutocompleteElementResponse.md) | An array of Variableexpense autocomplete element response. | [optional] 
+**AObjVariableexpense** | [**[]VariableexpenseAutocompleteElementResponse**](VariableexpenseAutocompleteElementResponse.md) | An array of Variableexpense autocomplete element response. | 
 
 ## Methods
 
 ### NewVariableexpenseGetAutocompleteV2ResponseMPayload
 
-`func NewVariableexpenseGetAutocompleteV2ResponseMPayload() *VariableexpenseGetAutocompleteV2ResponseMPayload`
+`func NewVariableexpenseGetAutocompleteV2ResponseMPayload(aObjVariableexpense []VariableexpenseAutocompleteElementResponse, ) *VariableexpenseGetAutocompleteV2ResponseMPayload`
 
 NewVariableexpenseGetAutocompleteV2ResponseMPayload instantiates a new VariableexpenseGetAutocompleteV2ResponseMPayload object
 This constructor will assign default values to properties that have it defined,
@@ -44,11 +44,6 @@ and a boolean to check if the value has been set.
 
 SetAObjVariableexpense sets AObjVariableexpense field to given value.
 
-### HasAObjVariableexpense
-
-`func (o *VariableexpenseGetAutocompleteV2ResponseMPayload) HasAObjVariableexpense() bool`
-
-HasAObjVariableexpense returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

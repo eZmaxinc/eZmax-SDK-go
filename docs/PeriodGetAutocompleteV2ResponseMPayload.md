@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AObjPeriod** | Pointer to [**[]PeriodAutocompleteElementResponse**](PeriodAutocompleteElementResponse.md) | An array of Period autocomplete element response. | [optional] 
+**AObjPeriod** | [**[]PeriodAutocompleteElementResponse**](PeriodAutocompleteElementResponse.md) | An array of Period autocomplete element response. | 
 
 ## Methods
 
 ### NewPeriodGetAutocompleteV2ResponseMPayload
 
-`func NewPeriodGetAutocompleteV2ResponseMPayload() *PeriodGetAutocompleteV2ResponseMPayload`
+`func NewPeriodGetAutocompleteV2ResponseMPayload(aObjPeriod []PeriodAutocompleteElementResponse, ) *PeriodGetAutocompleteV2ResponseMPayload`
 
 NewPeriodGetAutocompleteV2ResponseMPayload instantiates a new PeriodGetAutocompleteV2ResponseMPayload object
 This constructor will assign default values to properties that have it defined,
@@ -44,11 +44,6 @@ and a boolean to check if the value has been set.
 
 SetAObjPeriod sets AObjPeriod field to given value.
 
-### HasAObjPeriod
-
-`func (o *PeriodGetAutocompleteV2ResponseMPayload) HasAObjPeriod() bool`
-
-HasAObjPeriod returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

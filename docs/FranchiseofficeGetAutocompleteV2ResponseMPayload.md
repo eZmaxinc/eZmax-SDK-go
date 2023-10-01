@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AObjFranchiseoffice** | Pointer to [**[]FranchiseofficeAutocompleteElementResponse**](FranchiseofficeAutocompleteElementResponse.md) | An array of Franchiseoffice autocomplete element response. | [optional] 
+**AObjFranchiseoffice** | [**[]FranchiseofficeAutocompleteElementResponse**](FranchiseofficeAutocompleteElementResponse.md) | An array of Franchiseoffice autocomplete element response. | 
 
 ## Methods
 
 ### NewFranchiseofficeGetAutocompleteV2ResponseMPayload
 
-`func NewFranchiseofficeGetAutocompleteV2ResponseMPayload() *FranchiseofficeGetAutocompleteV2ResponseMPayload`
+`func NewFranchiseofficeGetAutocompleteV2ResponseMPayload(aObjFranchiseoffice []FranchiseofficeAutocompleteElementResponse, ) *FranchiseofficeGetAutocompleteV2ResponseMPayload`
 
 NewFranchiseofficeGetAutocompleteV2ResponseMPayload instantiates a new FranchiseofficeGetAutocompleteV2ResponseMPayload object
 This constructor will assign default values to properties that have it defined,
@@ -44,11 +44,6 @@ and a boolean to check if the value has been set.
 
 SetAObjFranchiseoffice sets AObjFranchiseoffice field to given value.
 
-### HasAObjFranchiseoffice
-
-`func (o *FranchiseofficeGetAutocompleteV2ResponseMPayload) HasAObjFranchiseoffice() bool`
-
-HasAObjFranchiseoffice returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

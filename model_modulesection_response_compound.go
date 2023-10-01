@@ -28,20 +28,19 @@ type ModulesectionResponseCompound struct {
 	SModulesectionInternalname string `json:"sModulesectionInternalname"`
 	// The Name of the Modulesection in the language of the requester
 	SModulesectionNameX string `json:"sModulesectionNameX"`
-	AObjPermission []PermissionResponseCompound `json:"a_objPermission"`
+	AObjPermission []PermissionResponseCompound `json:"a_objPermission,omitempty"`
 }
 
 // NewModulesectionResponseCompound instantiates a new ModulesectionResponseCompound object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModulesectionResponseCompound(pkiModulesectionID int32, fkiModuleID int32, sModulesectionInternalname string, sModulesectionNameX string, aObjPermission []PermissionResponseCompound) *ModulesectionResponseCompound {
+func NewModulesectionResponseCompound(pkiModulesectionID int32, fkiModuleID int32, sModulesectionInternalname string, sModulesectionNameX string) *ModulesectionResponseCompound {
 	this := ModulesectionResponseCompound{}
 	this.PkiModulesectionID = pkiModulesectionID
 	this.FkiModuleID = fkiModuleID
 	this.SModulesectionInternalname = sModulesectionInternalname
 	this.SModulesectionNameX = sModulesectionNameX
-	this.AObjPermission = aObjPermission
 	return &this
 }
 
@@ -149,26 +148,34 @@ func (o *ModulesectionResponseCompound) SetSModulesectionNameX(v string) {
 	o.SModulesectionNameX = v
 }
 
-// GetAObjPermission returns the AObjPermission field value
+// GetAObjPermission returns the AObjPermission field value if set, zero value otherwise.
 func (o *ModulesectionResponseCompound) GetAObjPermission() []PermissionResponseCompound {
-	if o == nil {
+	if o == nil || IsNil(o.AObjPermission) {
 		var ret []PermissionResponseCompound
 		return ret
 	}
-
 	return o.AObjPermission
 }
 
-// GetAObjPermissionOk returns a tuple with the AObjPermission field value
+// GetAObjPermissionOk returns a tuple with the AObjPermission field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModulesectionResponseCompound) GetAObjPermissionOk() ([]PermissionResponseCompound, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AObjPermission) {
 		return nil, false
 	}
 	return o.AObjPermission, true
 }
 
-// SetAObjPermission sets field value
+// HasAObjPermission returns a boolean if a field has been set.
+func (o *ModulesectionResponseCompound) HasAObjPermission() bool {
+	if o != nil && !IsNil(o.AObjPermission) {
+		return true
+	}
+
+	return false
+}
+
+// SetAObjPermission gets a reference to the given []PermissionResponseCompound and assigns it to the AObjPermission field.
 func (o *ModulesectionResponseCompound) SetAObjPermission(v []PermissionResponseCompound) {
 	o.AObjPermission = v
 }
@@ -187,7 +194,9 @@ func (o ModulesectionResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize["fkiModuleID"] = o.FkiModuleID
 	toSerialize["sModulesectionInternalname"] = o.SModulesectionInternalname
 	toSerialize["sModulesectionNameX"] = o.SModulesectionNameX
-	toSerialize["a_objPermission"] = o.AObjPermission
+	if !IsNil(o.AObjPermission) {
+		toSerialize["a_objPermission"] = o.AObjPermission
+	}
 	return toSerialize, nil
 }
 

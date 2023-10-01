@@ -36,14 +36,14 @@ type CustomEzsignfoldersignerassociationActionableElementResponse struct {
 	// Indicates if the Ezsignfoldersignerassociation has actionable elements in the current step
 	BEzsignfoldersignerassociationHasactionableelementsCurrent bool `json:"bEzsignfoldersignerassociationHasactionableelementsCurrent"`
 	// Indicates if the Ezsignfoldersignerassociation has actionable elements in a future step
-	BEzsignfoldersignerassociationHasactionableelementsFuture *bool `json:"bEzsignfoldersignerassociationHasactionableelementsFuture,omitempty"`
+	BEzsignfoldersignerassociationHasactionableelementsFuture bool `json:"bEzsignfoldersignerassociationHasactionableelementsFuture"`
 }
 
 // NewCustomEzsignfoldersignerassociationActionableElementResponse instantiates a new CustomEzsignfoldersignerassociationActionableElementResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomEzsignfoldersignerassociationActionableElementResponse(pkiEzsignfoldersignerassociationID int32, fkiEzsignfolderID int32, bEzsignfoldersignerassociationDelayedsend bool, bEzsignfoldersignerassociationReceivecopy bool, tEzsignfoldersignerassociationMessage string, bEzsignfoldersignerassociationHasactionableelementsCurrent bool) *CustomEzsignfoldersignerassociationActionableElementResponse {
+func NewCustomEzsignfoldersignerassociationActionableElementResponse(pkiEzsignfoldersignerassociationID int32, fkiEzsignfolderID int32, bEzsignfoldersignerassociationDelayedsend bool, bEzsignfoldersignerassociationReceivecopy bool, tEzsignfoldersignerassociationMessage string, bEzsignfoldersignerassociationHasactionableelementsCurrent bool, bEzsignfoldersignerassociationHasactionableelementsFuture bool) *CustomEzsignfoldersignerassociationActionableElementResponse {
 	this := CustomEzsignfoldersignerassociationActionableElementResponse{}
 	this.PkiEzsignfoldersignerassociationID = pkiEzsignfoldersignerassociationID
 	this.FkiEzsignfolderID = fkiEzsignfolderID
@@ -51,6 +51,7 @@ func NewCustomEzsignfoldersignerassociationActionableElementResponse(pkiEzsignfo
 	this.BEzsignfoldersignerassociationReceivecopy = bEzsignfoldersignerassociationReceivecopy
 	this.TEzsignfoldersignerassociationMessage = tEzsignfoldersignerassociationMessage
 	this.BEzsignfoldersignerassociationHasactionableelementsCurrent = bEzsignfoldersignerassociationHasactionableelementsCurrent
+	this.BEzsignfoldersignerassociationHasactionableelementsFuture = bEzsignfoldersignerassociationHasactionableelementsFuture
 	return &this
 }
 
@@ -302,36 +303,28 @@ func (o *CustomEzsignfoldersignerassociationActionableElementResponse) SetBEzsig
 	o.BEzsignfoldersignerassociationHasactionableelementsCurrent = v
 }
 
-// GetBEzsignfoldersignerassociationHasactionableelementsFuture returns the BEzsignfoldersignerassociationHasactionableelementsFuture field value if set, zero value otherwise.
+// GetBEzsignfoldersignerassociationHasactionableelementsFuture returns the BEzsignfoldersignerassociationHasactionableelementsFuture field value
 func (o *CustomEzsignfoldersignerassociationActionableElementResponse) GetBEzsignfoldersignerassociationHasactionableelementsFuture() bool {
-	if o == nil || IsNil(o.BEzsignfoldersignerassociationHasactionableelementsFuture) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.BEzsignfoldersignerassociationHasactionableelementsFuture
+
+	return o.BEzsignfoldersignerassociationHasactionableelementsFuture
 }
 
-// GetBEzsignfoldersignerassociationHasactionableelementsFutureOk returns a tuple with the BEzsignfoldersignerassociationHasactionableelementsFuture field value if set, nil otherwise
+// GetBEzsignfoldersignerassociationHasactionableelementsFutureOk returns a tuple with the BEzsignfoldersignerassociationHasactionableelementsFuture field value
 // and a boolean to check if the value has been set.
 func (o *CustomEzsignfoldersignerassociationActionableElementResponse) GetBEzsignfoldersignerassociationHasactionableelementsFutureOk() (*bool, bool) {
-	if o == nil || IsNil(o.BEzsignfoldersignerassociationHasactionableelementsFuture) {
+	if o == nil {
 		return nil, false
 	}
-	return o.BEzsignfoldersignerassociationHasactionableelementsFuture, true
+	return &o.BEzsignfoldersignerassociationHasactionableelementsFuture, true
 }
 
-// HasBEzsignfoldersignerassociationHasactionableelementsFuture returns a boolean if a field has been set.
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) HasBEzsignfoldersignerassociationHasactionableelementsFuture() bool {
-	if o != nil && !IsNil(o.BEzsignfoldersignerassociationHasactionableelementsFuture) {
-		return true
-	}
-
-	return false
-}
-
-// SetBEzsignfoldersignerassociationHasactionableelementsFuture gets a reference to the given bool and assigns it to the BEzsignfoldersignerassociationHasactionableelementsFuture field.
+// SetBEzsignfoldersignerassociationHasactionableelementsFuture sets field value
 func (o *CustomEzsignfoldersignerassociationActionableElementResponse) SetBEzsignfoldersignerassociationHasactionableelementsFuture(v bool) {
-	o.BEzsignfoldersignerassociationHasactionableelementsFuture = &v
+	o.BEzsignfoldersignerassociationHasactionableelementsFuture = v
 }
 
 func (o CustomEzsignfoldersignerassociationActionableElementResponse) MarshalJSON() ([]byte, error) {
@@ -359,9 +352,7 @@ func (o CustomEzsignfoldersignerassociationActionableElementResponse) ToMap() (m
 		toSerialize["objEzsignsigner"] = o.ObjEzsignsigner
 	}
 	toSerialize["bEzsignfoldersignerassociationHasactionableelementsCurrent"] = o.BEzsignfoldersignerassociationHasactionableelementsCurrent
-	if !IsNil(o.BEzsignfoldersignerassociationHasactionableelementsFuture) {
-		toSerialize["bEzsignfoldersignerassociationHasactionableelementsFuture"] = o.BEzsignfoldersignerassociationHasactionableelementsFuture
-	}
+	toSerialize["bEzsignfoldersignerassociationHasactionableelementsFuture"] = o.BEzsignfoldersignerassociationHasactionableelementsFuture
 	return toSerialize, nil
 }
 

@@ -44,7 +44,7 @@ type FranchisereferalincomeRequestCompound struct {
 	FkiFranchiseofficeID int32 `json:"fkiFranchiseofficeID"`
 	// 
 	SFranchisereferalincomeRemoteid string `json:"sFranchisereferalincomeRemoteid"`
-	ObjAddress AddressRequest `json:"objAddress"`
+	ObjAddress *AddressRequest `json:"objAddress,omitempty"`
 	AObjContact []ContactRequestCompound `json:"a_objContact"`
 }
 
@@ -52,7 +52,7 @@ type FranchisereferalincomeRequestCompound struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFranchisereferalincomeRequestCompound(fkiFranchisebrokerID int32, fkiFranchisereferalincomeprogramID int32, fkiPeriodID int32, dFranchisereferalincomeLoan string, dFranchisereferalincomeFranchiseamount string, dFranchisereferalincomeFranchisoramount string, dFranchisereferalincomeAgentamount string, dtFranchisereferalincomeDisbursed string, tFranchisereferalincomeComment string, fkiFranchiseofficeID int32, sFranchisereferalincomeRemoteid string, objAddress AddressRequest, aObjContact []ContactRequestCompound) *FranchisereferalincomeRequestCompound {
+func NewFranchisereferalincomeRequestCompound(fkiFranchisebrokerID int32, fkiFranchisereferalincomeprogramID int32, fkiPeriodID int32, dFranchisereferalincomeLoan string, dFranchisereferalincomeFranchiseamount string, dFranchisereferalincomeFranchisoramount string, dFranchisereferalincomeAgentamount string, dtFranchisereferalincomeDisbursed string, tFranchisereferalincomeComment string, fkiFranchiseofficeID int32, sFranchisereferalincomeRemoteid string, aObjContact []ContactRequestCompound) *FranchisereferalincomeRequestCompound {
 	this := FranchisereferalincomeRequestCompound{}
 	this.FkiFranchisebrokerID = fkiFranchisebrokerID
 	this.FkiFranchisereferalincomeprogramID = fkiFranchisereferalincomeprogramID
@@ -65,7 +65,6 @@ func NewFranchisereferalincomeRequestCompound(fkiFranchisebrokerID int32, fkiFra
 	this.TFranchisereferalincomeComment = tFranchisereferalincomeComment
 	this.FkiFranchiseofficeID = fkiFranchiseofficeID
 	this.SFranchisereferalincomeRemoteid = sFranchisereferalincomeRemoteid
-	this.ObjAddress = objAddress
 	this.AObjContact = aObjContact
 	return &this
 }
@@ -374,28 +373,36 @@ func (o *FranchisereferalincomeRequestCompound) SetSFranchisereferalincomeRemote
 	o.SFranchisereferalincomeRemoteid = v
 }
 
-// GetObjAddress returns the ObjAddress field value
+// GetObjAddress returns the ObjAddress field value if set, zero value otherwise.
 func (o *FranchisereferalincomeRequestCompound) GetObjAddress() AddressRequest {
-	if o == nil {
+	if o == nil || IsNil(o.ObjAddress) {
 		var ret AddressRequest
 		return ret
 	}
-
-	return o.ObjAddress
+	return *o.ObjAddress
 }
 
-// GetObjAddressOk returns a tuple with the ObjAddress field value
+// GetObjAddressOk returns a tuple with the ObjAddress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FranchisereferalincomeRequestCompound) GetObjAddressOk() (*AddressRequest, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ObjAddress) {
 		return nil, false
 	}
-	return &o.ObjAddress, true
+	return o.ObjAddress, true
 }
 
-// SetObjAddress sets field value
+// HasObjAddress returns a boolean if a field has been set.
+func (o *FranchisereferalincomeRequestCompound) HasObjAddress() bool {
+	if o != nil && !IsNil(o.ObjAddress) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjAddress gets a reference to the given AddressRequest and assigns it to the ObjAddress field.
 func (o *FranchisereferalincomeRequestCompound) SetObjAddress(v AddressRequest) {
-	o.ObjAddress = v
+	o.ObjAddress = &v
 }
 
 // GetAObjContact returns the AObjContact field value
@@ -446,7 +453,9 @@ func (o FranchisereferalincomeRequestCompound) ToMap() (map[string]interface{}, 
 	toSerialize["tFranchisereferalincomeComment"] = o.TFranchisereferalincomeComment
 	toSerialize["fkiFranchiseofficeID"] = o.FkiFranchiseofficeID
 	toSerialize["sFranchisereferalincomeRemoteid"] = o.SFranchisereferalincomeRemoteid
-	toSerialize["objAddress"] = o.ObjAddress
+	if !IsNil(o.ObjAddress) {
+		toSerialize["objAddress"] = o.ObjAddress
+	}
 	toSerialize["a_objContact"] = o.AObjContact
 	return toSerialize, nil
 }

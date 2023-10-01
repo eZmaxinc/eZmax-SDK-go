@@ -24,18 +24,17 @@ type ModulegroupResponseCompound struct {
 	PkiModulegroupID int32 `json:"pkiModulegroupID"`
 	// The name of the Modulegroup in the language of the requester
 	SModulegroupNameX string `json:"sModulegroupNameX"`
-	AObjModule []ModuleResponseCompound `json:"a_objModule"`
+	AObjModule []ModuleResponseCompound `json:"a_objModule,omitempty"`
 }
 
 // NewModulegroupResponseCompound instantiates a new ModulegroupResponseCompound object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModulegroupResponseCompound(pkiModulegroupID int32, sModulegroupNameX string, aObjModule []ModuleResponseCompound) *ModulegroupResponseCompound {
+func NewModulegroupResponseCompound(pkiModulegroupID int32, sModulegroupNameX string) *ModulegroupResponseCompound {
 	this := ModulegroupResponseCompound{}
 	this.PkiModulegroupID = pkiModulegroupID
 	this.SModulegroupNameX = sModulegroupNameX
-	this.AObjModule = aObjModule
 	return &this
 }
 
@@ -95,26 +94,34 @@ func (o *ModulegroupResponseCompound) SetSModulegroupNameX(v string) {
 	o.SModulegroupNameX = v
 }
 
-// GetAObjModule returns the AObjModule field value
+// GetAObjModule returns the AObjModule field value if set, zero value otherwise.
 func (o *ModulegroupResponseCompound) GetAObjModule() []ModuleResponseCompound {
-	if o == nil {
+	if o == nil || IsNil(o.AObjModule) {
 		var ret []ModuleResponseCompound
 		return ret
 	}
-
 	return o.AObjModule
 }
 
-// GetAObjModuleOk returns a tuple with the AObjModule field value
+// GetAObjModuleOk returns a tuple with the AObjModule field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ModulegroupResponseCompound) GetAObjModuleOk() ([]ModuleResponseCompound, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AObjModule) {
 		return nil, false
 	}
 	return o.AObjModule, true
 }
 
-// SetAObjModule sets field value
+// HasAObjModule returns a boolean if a field has been set.
+func (o *ModulegroupResponseCompound) HasAObjModule() bool {
+	if o != nil && !IsNil(o.AObjModule) {
+		return true
+	}
+
+	return false
+}
+
+// SetAObjModule gets a reference to the given []ModuleResponseCompound and assigns it to the AObjModule field.
 func (o *ModulegroupResponseCompound) SetAObjModule(v []ModuleResponseCompound) {
 	o.AObjModule = v
 }
@@ -131,7 +138,9 @@ func (o ModulegroupResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiModulegroupID"] = o.PkiModulegroupID
 	toSerialize["sModulegroupNameX"] = o.SModulegroupNameX
-	toSerialize["a_objModule"] = o.AObjModule
+	if !IsNil(o.AObjModule) {
+		toSerialize["a_objModule"] = o.AObjModule
+	}
 	return toSerialize, nil
 }
 

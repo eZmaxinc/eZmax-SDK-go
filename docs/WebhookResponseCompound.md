@@ -15,13 +15,13 @@ Name | Type | Description | Notes
 **SWebhookEmailfailed** | **string** | The email that will receive the Webhook in case all attempts fail | 
 **BWebhookIsactive** | Pointer to **bool** | Whether the Webhook is active or not | [optional] 
 **BWebhookSkipsslvalidation** | **bool** | Wheter the server&#39;s SSL certificate should be validated or not. Not recommended to skip for production use | 
-**SWebhookEvent** | **string** | The concatenated string to describe the Webhook event | 
+**SWebhookEvent** | Pointer to **string** | The concatenated string to describe the Webhook event | [optional] 
 
 ## Methods
 
 ### NewWebhookResponseCompound
 
-`func NewWebhookResponseCompound(pkiWebhookID int32, sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookSkipsslvalidation bool, sWebhookEvent string, ) *WebhookResponseCompound`
+`func NewWebhookResponseCompound(pkiWebhookID int32, sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookSkipsslvalidation bool, ) *WebhookResponseCompound`
 
 NewWebhookResponseCompound instantiates a new WebhookResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -300,6 +300,11 @@ and a boolean to check if the value has been set.
 
 SetSWebhookEvent sets SWebhookEvent field to given value.
 
+### HasSWebhookEvent
+
+`func (o *WebhookResponseCompound) HasSWebhookEvent() bool`
+
+HasSWebhookEvent returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

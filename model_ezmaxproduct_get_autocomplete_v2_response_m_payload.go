@@ -21,15 +21,16 @@ var _ MappedNullable = &EzmaxproductGetAutocompleteV2ResponseMPayload{}
 // EzmaxproductGetAutocompleteV2ResponseMPayload Payload for POST /2/object/ezmaxproduct/getAutocomplete
 type EzmaxproductGetAutocompleteV2ResponseMPayload struct {
 	// An array of Ezmaxproduct autocomplete element response.
-	AObjEzmaxproduct []EzmaxproductAutocompleteElementResponse `json:"a_objEzmaxproduct,omitempty"`
+	AObjEzmaxproduct []EzmaxproductAutocompleteElementResponse `json:"a_objEzmaxproduct"`
 }
 
 // NewEzmaxproductGetAutocompleteV2ResponseMPayload instantiates a new EzmaxproductGetAutocompleteV2ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzmaxproductGetAutocompleteV2ResponseMPayload() *EzmaxproductGetAutocompleteV2ResponseMPayload {
+func NewEzmaxproductGetAutocompleteV2ResponseMPayload(aObjEzmaxproduct []EzmaxproductAutocompleteElementResponse) *EzmaxproductGetAutocompleteV2ResponseMPayload {
 	this := EzmaxproductGetAutocompleteV2ResponseMPayload{}
+	this.AObjEzmaxproduct = aObjEzmaxproduct
 	return &this
 }
 
@@ -41,34 +42,26 @@ func NewEzmaxproductGetAutocompleteV2ResponseMPayloadWithDefaults() *Ezmaxproduc
 	return &this
 }
 
-// GetAObjEzmaxproduct returns the AObjEzmaxproduct field value if set, zero value otherwise.
+// GetAObjEzmaxproduct returns the AObjEzmaxproduct field value
 func (o *EzmaxproductGetAutocompleteV2ResponseMPayload) GetAObjEzmaxproduct() []EzmaxproductAutocompleteElementResponse {
-	if o == nil || IsNil(o.AObjEzmaxproduct) {
+	if o == nil {
 		var ret []EzmaxproductAutocompleteElementResponse
 		return ret
 	}
+
 	return o.AObjEzmaxproduct
 }
 
-// GetAObjEzmaxproductOk returns a tuple with the AObjEzmaxproduct field value if set, nil otherwise
+// GetAObjEzmaxproductOk returns a tuple with the AObjEzmaxproduct field value
 // and a boolean to check if the value has been set.
 func (o *EzmaxproductGetAutocompleteV2ResponseMPayload) GetAObjEzmaxproductOk() ([]EzmaxproductAutocompleteElementResponse, bool) {
-	if o == nil || IsNil(o.AObjEzmaxproduct) {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjEzmaxproduct, true
 }
 
-// HasAObjEzmaxproduct returns a boolean if a field has been set.
-func (o *EzmaxproductGetAutocompleteV2ResponseMPayload) HasAObjEzmaxproduct() bool {
-	if o != nil && !IsNil(o.AObjEzmaxproduct) {
-		return true
-	}
-
-	return false
-}
-
-// SetAObjEzmaxproduct gets a reference to the given []EzmaxproductAutocompleteElementResponse and assigns it to the AObjEzmaxproduct field.
+// SetAObjEzmaxproduct sets field value
 func (o *EzmaxproductGetAutocompleteV2ResponseMPayload) SetAObjEzmaxproduct(v []EzmaxproductAutocompleteElementResponse) {
 	o.AObjEzmaxproduct = v
 }
@@ -83,9 +76,7 @@ func (o EzmaxproductGetAutocompleteV2ResponseMPayload) MarshalJSON() ([]byte, er
 
 func (o EzmaxproductGetAutocompleteV2ResponseMPayload) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.AObjEzmaxproduct) {
-		toSerialize["a_objEzmaxproduct"] = o.AObjEzmaxproduct
-	}
+	toSerialize["a_objEzmaxproduct"] = o.AObjEzmaxproduct
 	return toSerialize, nil
 }
 

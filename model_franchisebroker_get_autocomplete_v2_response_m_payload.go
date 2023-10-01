@@ -21,15 +21,16 @@ var _ MappedNullable = &FranchisebrokerGetAutocompleteV2ResponseMPayload{}
 // FranchisebrokerGetAutocompleteV2ResponseMPayload Payload for POST /2/object/franchisebroker/getAutocomplete
 type FranchisebrokerGetAutocompleteV2ResponseMPayload struct {
 	// An array of Franchisebroker autocomplete element response.
-	AObjFranchisebroker []FranchisebrokerAutocompleteElementResponse `json:"a_objFranchisebroker,omitempty"`
+	AObjFranchisebroker []FranchisebrokerAutocompleteElementResponse `json:"a_objFranchisebroker"`
 }
 
 // NewFranchisebrokerGetAutocompleteV2ResponseMPayload instantiates a new FranchisebrokerGetAutocompleteV2ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFranchisebrokerGetAutocompleteV2ResponseMPayload() *FranchisebrokerGetAutocompleteV2ResponseMPayload {
+func NewFranchisebrokerGetAutocompleteV2ResponseMPayload(aObjFranchisebroker []FranchisebrokerAutocompleteElementResponse) *FranchisebrokerGetAutocompleteV2ResponseMPayload {
 	this := FranchisebrokerGetAutocompleteV2ResponseMPayload{}
+	this.AObjFranchisebroker = aObjFranchisebroker
 	return &this
 }
 
@@ -41,34 +42,26 @@ func NewFranchisebrokerGetAutocompleteV2ResponseMPayloadWithDefaults() *Franchis
 	return &this
 }
 
-// GetAObjFranchisebroker returns the AObjFranchisebroker field value if set, zero value otherwise.
+// GetAObjFranchisebroker returns the AObjFranchisebroker field value
 func (o *FranchisebrokerGetAutocompleteV2ResponseMPayload) GetAObjFranchisebroker() []FranchisebrokerAutocompleteElementResponse {
-	if o == nil || IsNil(o.AObjFranchisebroker) {
+	if o == nil {
 		var ret []FranchisebrokerAutocompleteElementResponse
 		return ret
 	}
+
 	return o.AObjFranchisebroker
 }
 
-// GetAObjFranchisebrokerOk returns a tuple with the AObjFranchisebroker field value if set, nil otherwise
+// GetAObjFranchisebrokerOk returns a tuple with the AObjFranchisebroker field value
 // and a boolean to check if the value has been set.
 func (o *FranchisebrokerGetAutocompleteV2ResponseMPayload) GetAObjFranchisebrokerOk() ([]FranchisebrokerAutocompleteElementResponse, bool) {
-	if o == nil || IsNil(o.AObjFranchisebroker) {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjFranchisebroker, true
 }
 
-// HasAObjFranchisebroker returns a boolean if a field has been set.
-func (o *FranchisebrokerGetAutocompleteV2ResponseMPayload) HasAObjFranchisebroker() bool {
-	if o != nil && !IsNil(o.AObjFranchisebroker) {
-		return true
-	}
-
-	return false
-}
-
-// SetAObjFranchisebroker gets a reference to the given []FranchisebrokerAutocompleteElementResponse and assigns it to the AObjFranchisebroker field.
+// SetAObjFranchisebroker sets field value
 func (o *FranchisebrokerGetAutocompleteV2ResponseMPayload) SetAObjFranchisebroker(v []FranchisebrokerAutocompleteElementResponse) {
 	o.AObjFranchisebroker = v
 }
@@ -83,9 +76,7 @@ func (o FranchisebrokerGetAutocompleteV2ResponseMPayload) MarshalJSON() ([]byte,
 
 func (o FranchisebrokerGetAutocompleteV2ResponseMPayload) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.AObjFranchisebroker) {
-		toSerialize["a_objFranchisebroker"] = o.AObjFranchisebroker
-	}
+	toSerialize["a_objFranchisebroker"] = o.AObjFranchisebroker
 	return toSerialize, nil
 }
 

@@ -21,15 +21,16 @@ var _ MappedNullable = &PeriodGetAutocompleteV2ResponseMPayload{}
 // PeriodGetAutocompleteV2ResponseMPayload Payload for POST /2/object/period/getAutocomplete
 type PeriodGetAutocompleteV2ResponseMPayload struct {
 	// An array of Period autocomplete element response.
-	AObjPeriod []PeriodAutocompleteElementResponse `json:"a_objPeriod,omitempty"`
+	AObjPeriod []PeriodAutocompleteElementResponse `json:"a_objPeriod"`
 }
 
 // NewPeriodGetAutocompleteV2ResponseMPayload instantiates a new PeriodGetAutocompleteV2ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPeriodGetAutocompleteV2ResponseMPayload() *PeriodGetAutocompleteV2ResponseMPayload {
+func NewPeriodGetAutocompleteV2ResponseMPayload(aObjPeriod []PeriodAutocompleteElementResponse) *PeriodGetAutocompleteV2ResponseMPayload {
 	this := PeriodGetAutocompleteV2ResponseMPayload{}
+	this.AObjPeriod = aObjPeriod
 	return &this
 }
 
@@ -41,34 +42,26 @@ func NewPeriodGetAutocompleteV2ResponseMPayloadWithDefaults() *PeriodGetAutocomp
 	return &this
 }
 
-// GetAObjPeriod returns the AObjPeriod field value if set, zero value otherwise.
+// GetAObjPeriod returns the AObjPeriod field value
 func (o *PeriodGetAutocompleteV2ResponseMPayload) GetAObjPeriod() []PeriodAutocompleteElementResponse {
-	if o == nil || IsNil(o.AObjPeriod) {
+	if o == nil {
 		var ret []PeriodAutocompleteElementResponse
 		return ret
 	}
+
 	return o.AObjPeriod
 }
 
-// GetAObjPeriodOk returns a tuple with the AObjPeriod field value if set, nil otherwise
+// GetAObjPeriodOk returns a tuple with the AObjPeriod field value
 // and a boolean to check if the value has been set.
 func (o *PeriodGetAutocompleteV2ResponseMPayload) GetAObjPeriodOk() ([]PeriodAutocompleteElementResponse, bool) {
-	if o == nil || IsNil(o.AObjPeriod) {
+	if o == nil {
 		return nil, false
 	}
 	return o.AObjPeriod, true
 }
 
-// HasAObjPeriod returns a boolean if a field has been set.
-func (o *PeriodGetAutocompleteV2ResponseMPayload) HasAObjPeriod() bool {
-	if o != nil && !IsNil(o.AObjPeriod) {
-		return true
-	}
-
-	return false
-}
-
-// SetAObjPeriod gets a reference to the given []PeriodAutocompleteElementResponse and assigns it to the AObjPeriod field.
+// SetAObjPeriod sets field value
 func (o *PeriodGetAutocompleteV2ResponseMPayload) SetAObjPeriod(v []PeriodAutocompleteElementResponse) {
 	o.AObjPeriod = v
 }
@@ -83,9 +76,7 @@ func (o PeriodGetAutocompleteV2ResponseMPayload) MarshalJSON() ([]byte, error) {
 
 func (o PeriodGetAutocompleteV2ResponseMPayload) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.AObjPeriod) {
-		toSerialize["a_objPeriod"] = o.AObjPeriod
-	}
+	toSerialize["a_objPeriod"] = o.AObjPeriod
 	return toSerialize, nil
 }
 

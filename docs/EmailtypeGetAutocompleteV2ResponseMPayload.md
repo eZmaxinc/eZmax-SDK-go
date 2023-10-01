@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AObjEmailtype** | Pointer to [**[]EmailtypeAutocompleteElementResponse**](EmailtypeAutocompleteElementResponse.md) | An array of Emailtype autocomplete element response. | [optional] 
+**AObjEmailtype** | [**[]EmailtypeAutocompleteElementResponse**](EmailtypeAutocompleteElementResponse.md) | An array of Emailtype autocomplete element response. | 
 
 ## Methods
 
 ### NewEmailtypeGetAutocompleteV2ResponseMPayload
 
-`func NewEmailtypeGetAutocompleteV2ResponseMPayload() *EmailtypeGetAutocompleteV2ResponseMPayload`
+`func NewEmailtypeGetAutocompleteV2ResponseMPayload(aObjEmailtype []EmailtypeAutocompleteElementResponse, ) *EmailtypeGetAutocompleteV2ResponseMPayload`
 
 NewEmailtypeGetAutocompleteV2ResponseMPayload instantiates a new EmailtypeGetAutocompleteV2ResponseMPayload object
 This constructor will assign default values to properties that have it defined,
@@ -44,11 +44,6 @@ and a boolean to check if the value has been set.
 
 SetAObjEmailtype sets AObjEmailtype field to given value.
 
-### HasAObjEmailtype
-
-`func (o *EmailtypeGetAutocompleteV2ResponseMPayload) HasAObjEmailtype() bool`
-
-HasAObjEmailtype returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

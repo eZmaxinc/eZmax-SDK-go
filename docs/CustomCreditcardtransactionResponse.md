@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ECreditcardtypeCodename** | Pointer to [**FieldECreditcardtypeCodename**](FieldECreditcardtypeCodename.md) |  | [optional] 
+**ECreditcardtypeCodename** | [**FieldECreditcardtypeCodename**](FieldECreditcardtypeCodename.md) |  | 
 **DCreditcardtransactionAmount** | **string** | The amount of the Creditcardtransaction | 
 **SCreditcardtransactionPartiallydecryptednumber** | **string** | The partially decrypted credit card number used in the Creditcardtransaction | 
 **SCreditcardtransactionReferencenumber** | **string** | The reference number on the creditcard service for the Creditcardtransaction | 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewCustomCreditcardtransactionResponse
 
-`func NewCustomCreditcardtransactionResponse(dCreditcardtransactionAmount string, sCreditcardtransactionPartiallydecryptednumber string, sCreditcardtransactionReferencenumber string, ) *CustomCreditcardtransactionResponse`
+`func NewCustomCreditcardtransactionResponse(eCreditcardtypeCodename FieldECreditcardtypeCodename, dCreditcardtransactionAmount string, sCreditcardtransactionPartiallydecryptednumber string, sCreditcardtransactionReferencenumber string, ) *CustomCreditcardtransactionResponse`
 
 NewCustomCreditcardtransactionResponse instantiates a new CustomCreditcardtransactionResponse object
 This constructor will assign default values to properties that have it defined,
@@ -47,11 +47,6 @@ and a boolean to check if the value has been set.
 
 SetECreditcardtypeCodename sets ECreditcardtypeCodename field to given value.
 
-### HasECreditcardtypeCodename
-
-`func (o *CustomCreditcardtransactionResponse) HasECreditcardtypeCodename() bool`
-
-HasECreditcardtypeCodename returns a boolean if a field has been set.
 
 ### GetDCreditcardtransactionAmount
 

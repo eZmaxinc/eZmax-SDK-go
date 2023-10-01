@@ -6,14 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiNotificationtestID** | **int32** | The unique ID of the Notificationtest | 
 **SNotificationtestFunction** | **string** | The function name of the Notificationtest | 
-**ASVariableobjectProperty** | Pointer to **[]string** |  | [optional] 
+**ASVariableobjectProperty** | **[]string** |  | 
 **AObjVariableobject** | **[]map[string]interface{}** |  | 
 
 ## Methods
 
 ### NewNotificationtestGetElementsV1ResponseMPayload
 
-`func NewNotificationtestGetElementsV1ResponseMPayload(pkiNotificationtestID int32, sNotificationtestFunction string, aObjVariableobject []map[string]interface{}, ) *NotificationtestGetElementsV1ResponseMPayload`
+`func NewNotificationtestGetElementsV1ResponseMPayload(pkiNotificationtestID int32, sNotificationtestFunction string, aSVariableobjectProperty []string, aObjVariableobject []map[string]interface{}, ) *NotificationtestGetElementsV1ResponseMPayload`
 
 NewNotificationtestGetElementsV1ResponseMPayload instantiates a new NotificationtestGetElementsV1ResponseMPayload object
 This constructor will assign default values to properties that have it defined,
@@ -87,11 +87,6 @@ and a boolean to check if the value has been set.
 
 SetASVariableobjectProperty sets ASVariableobjectProperty field to given value.
 
-### HasASVariableobjectProperty
-
-`func (o *NotificationtestGetElementsV1ResponseMPayload) HasASVariableobjectProperty() bool`
-
-HasASVariableobjectProperty returns a boolean if a field has been set.
 
 ### GetAObjVariableobject
 

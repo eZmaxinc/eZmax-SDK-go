@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AObjPhonetype** | Pointer to [**[]PhonetypeAutocompleteElementResponse**](PhonetypeAutocompleteElementResponse.md) | An array of Phonetype autocomplete element response. | [optional] 
+**AObjPhonetype** | [**[]PhonetypeAutocompleteElementResponse**](PhonetypeAutocompleteElementResponse.md) | An array of Phonetype autocomplete element response. | 
 
 ## Methods
 
 ### NewPhonetypeGetAutocompleteV2ResponseMPayload
 
-`func NewPhonetypeGetAutocompleteV2ResponseMPayload() *PhonetypeGetAutocompleteV2ResponseMPayload`
+`func NewPhonetypeGetAutocompleteV2ResponseMPayload(aObjPhonetype []PhonetypeAutocompleteElementResponse, ) *PhonetypeGetAutocompleteV2ResponseMPayload`
 
 NewPhonetypeGetAutocompleteV2ResponseMPayload instantiates a new PhonetypeGetAutocompleteV2ResponseMPayload object
 This constructor will assign default values to properties that have it defined,
@@ -44,11 +44,6 @@ and a boolean to check if the value has been set.
 
 SetAObjPhonetype sets AObjPhonetype field to given value.
 
-### HasAObjPhonetype
-
-`func (o *PhonetypeGetAutocompleteV2ResponseMPayload) HasAObjPhonetype() bool`
-
-HasAObjPhonetype returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AObjPaymentterm** | Pointer to [**[]PaymenttermAutocompleteElementResponse**](PaymenttermAutocompleteElementResponse.md) | An array of Paymentterm autocomplete element response. | [optional] 
+**AObjPaymentterm** | [**[]PaymenttermAutocompleteElementResponse**](PaymenttermAutocompleteElementResponse.md) | An array of Paymentterm autocomplete element response. | 
 
 ## Methods
 
 ### NewPaymenttermGetAutocompleteV2ResponseMPayload
 
-`func NewPaymenttermGetAutocompleteV2ResponseMPayload() *PaymenttermGetAutocompleteV2ResponseMPayload`
+`func NewPaymenttermGetAutocompleteV2ResponseMPayload(aObjPaymentterm []PaymenttermAutocompleteElementResponse, ) *PaymenttermGetAutocompleteV2ResponseMPayload`
 
 NewPaymenttermGetAutocompleteV2ResponseMPayload instantiates a new PaymenttermGetAutocompleteV2ResponseMPayload object
 This constructor will assign default values to properties that have it defined,
@@ -44,11 +44,6 @@ and a boolean to check if the value has been set.
 
 SetAObjPaymentterm sets AObjPaymentterm field to given value.
 
-### HasAObjPaymentterm
-
-`func (o *PaymenttermGetAutocompleteV2ResponseMPayload) HasAObjPaymentterm() bool`
-
-HasAObjPaymentterm returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
