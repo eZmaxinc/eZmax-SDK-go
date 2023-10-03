@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TEzsignfolderMessage** | **string** | A custom text message that will be added to the email sent. | 
+**TEzsignfolderMessage** | Pointer to **string** | A custom text message that will be added to the email sent. | [optional] 
 **DtEzsignfolderDelayedsenddate** | Pointer to **string** | The date and time at which the Ezsignfolder will be sent in the future. | [optional] 
 **AFkiEzsignfoldersignerassociationID** | **[]int32** |  | 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewEzsignfolderSendV3Request
 
-`func NewEzsignfolderSendV3Request(tEzsignfolderMessage string, aFkiEzsignfoldersignerassociationID []int32, ) *EzsignfolderSendV3Request`
+`func NewEzsignfolderSendV3Request(aFkiEzsignfoldersignerassociationID []int32, ) *EzsignfolderSendV3Request`
 
 NewEzsignfolderSendV3Request instantiates a new EzsignfolderSendV3Request object
 This constructor will assign default values to properties that have it defined,
@@ -46,6 +46,11 @@ and a boolean to check if the value has been set.
 
 SetTEzsignfolderMessage sets TEzsignfolderMessage field to given value.
 
+### HasTEzsignfolderMessage
+
+`func (o *EzsignfolderSendV3Request) HasTEzsignfolderMessage() bool`
+
+HasTEzsignfolderMessage returns a boolean if a field has been set.
 
 ### GetDtEzsignfolderDelayedsenddate
 

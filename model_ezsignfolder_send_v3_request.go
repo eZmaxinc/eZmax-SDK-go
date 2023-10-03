@@ -21,7 +21,7 @@ var _ MappedNullable = &EzsignfolderSendV3Request{}
 // EzsignfolderSendV3Request Request for POST /3/object/ezsignfolder/{pkiEzsignfolderID}/send
 type EzsignfolderSendV3Request struct {
 	// A custom text message that will be added to the email sent.
-	TEzsignfolderMessage string `json:"tEzsignfolderMessage"`
+	TEzsignfolderMessage *string `json:"tEzsignfolderMessage,omitempty"`
 	// The date and time at which the Ezsignfolder will be sent in the future.
 	DtEzsignfolderDelayedsenddate *string `json:"dtEzsignfolderDelayedsenddate,omitempty"`
 	AFkiEzsignfoldersignerassociationID []int32 `json:"a_fkiEzsignfoldersignerassociationID"`
@@ -31,9 +31,8 @@ type EzsignfolderSendV3Request struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfolderSendV3Request(tEzsignfolderMessage string, aFkiEzsignfoldersignerassociationID []int32) *EzsignfolderSendV3Request {
+func NewEzsignfolderSendV3Request(aFkiEzsignfoldersignerassociationID []int32) *EzsignfolderSendV3Request {
 	this := EzsignfolderSendV3Request{}
-	this.TEzsignfolderMessage = tEzsignfolderMessage
 	this.AFkiEzsignfoldersignerassociationID = aFkiEzsignfoldersignerassociationID
 	return &this
 }
@@ -46,28 +45,36 @@ func NewEzsignfolderSendV3RequestWithDefaults() *EzsignfolderSendV3Request {
 	return &this
 }
 
-// GetTEzsignfolderMessage returns the TEzsignfolderMessage field value
+// GetTEzsignfolderMessage returns the TEzsignfolderMessage field value if set, zero value otherwise.
 func (o *EzsignfolderSendV3Request) GetTEzsignfolderMessage() string {
-	if o == nil {
+	if o == nil || IsNil(o.TEzsignfolderMessage) {
 		var ret string
 		return ret
 	}
-
-	return o.TEzsignfolderMessage
+	return *o.TEzsignfolderMessage
 }
 
-// GetTEzsignfolderMessageOk returns a tuple with the TEzsignfolderMessage field value
+// GetTEzsignfolderMessageOk returns a tuple with the TEzsignfolderMessage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderSendV3Request) GetTEzsignfolderMessageOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TEzsignfolderMessage) {
 		return nil, false
 	}
-	return &o.TEzsignfolderMessage, true
+	return o.TEzsignfolderMessage, true
 }
 
-// SetTEzsignfolderMessage sets field value
+// HasTEzsignfolderMessage returns a boolean if a field has been set.
+func (o *EzsignfolderSendV3Request) HasTEzsignfolderMessage() bool {
+	if o != nil && !IsNil(o.TEzsignfolderMessage) {
+		return true
+	}
+
+	return false
+}
+
+// SetTEzsignfolderMessage gets a reference to the given string and assigns it to the TEzsignfolderMessage field.
 func (o *EzsignfolderSendV3Request) SetTEzsignfolderMessage(v string) {
-	o.TEzsignfolderMessage = v
+	o.TEzsignfolderMessage = &v
 }
 
 // GetDtEzsignfolderDelayedsenddate returns the DtEzsignfolderDelayedsenddate field value if set, zero value otherwise.
@@ -136,7 +143,9 @@ func (o EzsignfolderSendV3Request) MarshalJSON() ([]byte, error) {
 
 func (o EzsignfolderSendV3Request) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["tEzsignfolderMessage"] = o.TEzsignfolderMessage
+	if !IsNil(o.TEzsignfolderMessage) {
+		toSerialize["tEzsignfolderMessage"] = o.TEzsignfolderMessage
+	}
 	if !IsNil(o.DtEzsignfolderDelayedsenddate) {
 		toSerialize["dtEzsignfolderDelayedsenddate"] = o.DtEzsignfolderDelayedsenddate
 	}

@@ -261,7 +261,7 @@ import (
 )
 
 func main() {
-    ezsignfolderCreateObjectV2Request := *openapiclient.NewEzsignfolderCreateObjectV2Request([]openapiclient.EzsignfolderRequestCompound{*openapiclient.NewEzsignfolderRequestCompound(int32(5), "Test eZsign Folder", "This is a note", openapiclient.Field-eEzsignfolderSendreminderfrequency("None"))}) // EzsignfolderCreateObjectV2Request | 
+    ezsignfolderCreateObjectV2Request := *openapiclient.NewEzsignfolderCreateObjectV2Request([]openapiclient.EzsignfolderRequestCompound{*openapiclient.NewEzsignfolderRequestCompound(int32(5), "Test eZsign Folder", openapiclient.Field-eEzsignfolderSendreminderfrequency("None"))}) // EzsignfolderCreateObjectV2Request | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -534,7 +534,7 @@ import (
 
 func main() {
     pkiEzsignfolderID := int32(56) // int32 | 
-    ezsignfolderEditObjectV1Request := *openapiclient.NewEzsignfolderEditObjectV1Request(*openapiclient.NewEzsignfolderRequestCompound(int32(5), "Test eZsign Folder", "This is a note", openapiclient.Field-eEzsignfolderSendreminderfrequency("None"))) // EzsignfolderEditObjectV1Request | 
+    ezsignfolderEditObjectV1Request := *openapiclient.NewEzsignfolderEditObjectV1Request(*openapiclient.NewEzsignfolderRequestCompound(int32(5), "Test eZsign Folder", openapiclient.Field-eEzsignfolderSendreminderfrequency("None"))) // EzsignfolderEditObjectV1Request | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1682,15 +1682,7 @@ import (
 
 func main() {
     pkiEzsignfolderID := int32(56) // int32 | 
-    ezsignfolderSendV3Request := *openapiclient.NewEzsignfolderSendV3Request("Hi everyone,
-
-This is the document I need you to review.
-
-Could you sign it before Monday please.
-
-Best Regards.
-
-Mary", []int32{int32(20)}) // EzsignfolderSendV3Request | 
+    ezsignfolderSendV3Request := *openapiclient.NewEzsignfolderSendV3Request([]int32{int32(20)}) // EzsignfolderSendV3Request | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

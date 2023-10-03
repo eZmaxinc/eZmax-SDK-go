@@ -29,7 +29,7 @@ type EzsignfolderRequest struct {
 	// The description of the Ezsignfolder
 	SEzsignfolderDescription string `json:"sEzsignfolderDescription"`
 	// Note about the Ezsignfolder
-	TEzsignfolderNote string `json:"tEzsignfolderNote"`
+	TEzsignfolderNote *string `json:"tEzsignfolderNote,omitempty"`
 	EEzsignfolderSendreminderfrequency FieldEEzsignfolderSendreminderfrequency `json:"eEzsignfolderSendreminderfrequency"`
 	// This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format. 
 	SEzsignfolderExternalid *string `json:"sEzsignfolderExternalid,omitempty"`
@@ -39,11 +39,10 @@ type EzsignfolderRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfolderRequest(fkiEzsignfoldertypeID int32, sEzsignfolderDescription string, tEzsignfolderNote string, eEzsignfolderSendreminderfrequency FieldEEzsignfolderSendreminderfrequency) *EzsignfolderRequest {
+func NewEzsignfolderRequest(fkiEzsignfoldertypeID int32, sEzsignfolderDescription string, eEzsignfolderSendreminderfrequency FieldEEzsignfolderSendreminderfrequency) *EzsignfolderRequest {
 	this := EzsignfolderRequest{}
 	this.FkiEzsignfoldertypeID = fkiEzsignfoldertypeID
 	this.SEzsignfolderDescription = sEzsignfolderDescription
-	this.TEzsignfolderNote = tEzsignfolderNote
 	this.EEzsignfolderSendreminderfrequency = eEzsignfolderSendreminderfrequency
 	return &this
 }
@@ -168,28 +167,36 @@ func (o *EzsignfolderRequest) SetSEzsignfolderDescription(v string) {
 	o.SEzsignfolderDescription = v
 }
 
-// GetTEzsignfolderNote returns the TEzsignfolderNote field value
+// GetTEzsignfolderNote returns the TEzsignfolderNote field value if set, zero value otherwise.
 func (o *EzsignfolderRequest) GetTEzsignfolderNote() string {
-	if o == nil {
+	if o == nil || IsNil(o.TEzsignfolderNote) {
 		var ret string
 		return ret
 	}
-
-	return o.TEzsignfolderNote
+	return *o.TEzsignfolderNote
 }
 
-// GetTEzsignfolderNoteOk returns a tuple with the TEzsignfolderNote field value
+// GetTEzsignfolderNoteOk returns a tuple with the TEzsignfolderNote field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderRequest) GetTEzsignfolderNoteOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TEzsignfolderNote) {
 		return nil, false
 	}
-	return &o.TEzsignfolderNote, true
+	return o.TEzsignfolderNote, true
 }
 
-// SetTEzsignfolderNote sets field value
+// HasTEzsignfolderNote returns a boolean if a field has been set.
+func (o *EzsignfolderRequest) HasTEzsignfolderNote() bool {
+	if o != nil && !IsNil(o.TEzsignfolderNote) {
+		return true
+	}
+
+	return false
+}
+
+// SetTEzsignfolderNote gets a reference to the given string and assigns it to the TEzsignfolderNote field.
 func (o *EzsignfolderRequest) SetTEzsignfolderNote(v string) {
-	o.TEzsignfolderNote = v
+	o.TEzsignfolderNote = &v
 }
 
 // GetEEzsignfolderSendreminderfrequency returns the EEzsignfolderSendreminderfrequency field value
@@ -266,7 +273,9 @@ func (o EzsignfolderRequest) ToMap() (map[string]interface{}, error) {
 		toSerialize["fkiEzsigntsarequirementID"] = o.FkiEzsigntsarequirementID
 	}
 	toSerialize["sEzsignfolderDescription"] = o.SEzsignfolderDescription
-	toSerialize["tEzsignfolderNote"] = o.TEzsignfolderNote
+	if !IsNil(o.TEzsignfolderNote) {
+		toSerialize["tEzsignfolderNote"] = o.TEzsignfolderNote
+	}
 	toSerialize["eEzsignfolderSendreminderfrequency"] = o.EEzsignfolderSendreminderfrequency
 	if !IsNil(o.SEzsignfolderExternalid) {
 		toSerialize["sEzsignfolderExternalid"] = o.SEzsignfolderExternalid
