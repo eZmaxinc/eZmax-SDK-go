@@ -57,6 +57,7 @@ type EzsigntemplatesignatureResponse struct {
 	// A regular expression to indicate what values are acceptable for the Ezsigntemplatesignature.  This can only be set if eEzsigntemplatesignatureType is **Text** or **Textarea**
 	SEzsigntemplatesignatureRegexp *string `json:"sEzsigntemplatesignatureRegexp,omitempty"`
 	EEzsigntemplatesignatureTextvalidation *EnumTextvalidation `json:"eEzsigntemplatesignatureTextvalidation,omitempty"`
+	EEzsigntemplatesignatureDependencyrequirement *FieldEEzsigntemplatesignatureDependencyrequirement `json:"eEzsigntemplatesignatureDependencyrequirement,omitempty"`
 }
 
 // NewEzsigntemplatesignatureResponse instantiates a new EzsigntemplatesignatureResponse object
@@ -692,6 +693,38 @@ func (o *EzsigntemplatesignatureResponse) SetEEzsigntemplatesignatureTextvalidat
 	o.EEzsigntemplatesignatureTextvalidation = &v
 }
 
+// GetEEzsigntemplatesignatureDependencyrequirement returns the EEzsigntemplatesignatureDependencyrequirement field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureResponse) GetEEzsigntemplatesignatureDependencyrequirement() FieldEEzsigntemplatesignatureDependencyrequirement {
+	if o == nil || IsNil(o.EEzsigntemplatesignatureDependencyrequirement) {
+		var ret FieldEEzsigntemplatesignatureDependencyrequirement
+		return ret
+	}
+	return *o.EEzsigntemplatesignatureDependencyrequirement
+}
+
+// GetEEzsigntemplatesignatureDependencyrequirementOk returns a tuple with the EEzsigntemplatesignatureDependencyrequirement field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureResponse) GetEEzsigntemplatesignatureDependencyrequirementOk() (*FieldEEzsigntemplatesignatureDependencyrequirement, bool) {
+	if o == nil || IsNil(o.EEzsigntemplatesignatureDependencyrequirement) {
+		return nil, false
+	}
+	return o.EEzsigntemplatesignatureDependencyrequirement, true
+}
+
+// HasEEzsigntemplatesignatureDependencyrequirement returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureResponse) HasEEzsigntemplatesignatureDependencyrequirement() bool {
+	if o != nil && !IsNil(o.EEzsigntemplatesignatureDependencyrequirement) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsigntemplatesignatureDependencyrequirement gets a reference to the given FieldEEzsigntemplatesignatureDependencyrequirement and assigns it to the EEzsigntemplatesignatureDependencyrequirement field.
+func (o *EzsigntemplatesignatureResponse) SetEEzsigntemplatesignatureDependencyrequirement(v FieldEEzsigntemplatesignatureDependencyrequirement) {
+	o.EEzsigntemplatesignatureDependencyrequirement = &v
+}
+
 func (o EzsigntemplatesignatureResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -748,6 +781,9 @@ func (o EzsigntemplatesignatureResponse) ToMap() (map[string]interface{}, error)
 	}
 	if !IsNil(o.EEzsigntemplatesignatureTextvalidation) {
 		toSerialize["eEzsigntemplatesignatureTextvalidation"] = o.EEzsigntemplatesignatureTextvalidation
+	}
+	if !IsNil(o.EEzsigntemplatesignatureDependencyrequirement) {
+		toSerialize["eEzsigntemplatesignatureDependencyrequirement"] = o.EEzsigntemplatesignatureDependencyrequirement
 	}
 	return toSerialize, nil
 }

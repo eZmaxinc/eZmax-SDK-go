@@ -40,6 +40,8 @@ type EzsigntemplateformfieldResponseCompound struct {
 	BEzsigntemplateformfieldAutocomplete *bool `json:"bEzsigntemplateformfieldAutocomplete,omitempty"`
 	// Whether the Ezsigntemplateformfield is selected or not by default.  This can only be set if eEzsigntemplateformfieldgroupType is **Checkbox** or **Radio**
 	BEzsigntemplateformfieldSelected *bool `json:"bEzsigntemplateformfieldSelected,omitempty"`
+	EEzsigntemplateformfieldDependencyrequirement *FieldEEzsigntemplateformfieldDependencyrequirement `json:"eEzsigntemplateformfieldDependencyrequirement,omitempty"`
+	AObjEzsigntemplateelementdependency []EzsigntemplateelementdependencyResponseCompound `json:"a_objEzsigntemplateelementdependency,omitempty"`
 }
 
 // NewEzsigntemplateformfieldResponseCompound instantiates a new EzsigntemplateformfieldResponseCompound object
@@ -330,6 +332,70 @@ func (o *EzsigntemplateformfieldResponseCompound) SetBEzsigntemplateformfieldSel
 	o.BEzsigntemplateformfieldSelected = &v
 }
 
+// GetEEzsigntemplateformfieldDependencyrequirement returns the EEzsigntemplateformfieldDependencyrequirement field value if set, zero value otherwise.
+func (o *EzsigntemplateformfieldResponseCompound) GetEEzsigntemplateformfieldDependencyrequirement() FieldEEzsigntemplateformfieldDependencyrequirement {
+	if o == nil || IsNil(o.EEzsigntemplateformfieldDependencyrequirement) {
+		var ret FieldEEzsigntemplateformfieldDependencyrequirement
+		return ret
+	}
+	return *o.EEzsigntemplateformfieldDependencyrequirement
+}
+
+// GetEEzsigntemplateformfieldDependencyrequirementOk returns a tuple with the EEzsigntemplateformfieldDependencyrequirement field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateformfieldResponseCompound) GetEEzsigntemplateformfieldDependencyrequirementOk() (*FieldEEzsigntemplateformfieldDependencyrequirement, bool) {
+	if o == nil || IsNil(o.EEzsigntemplateformfieldDependencyrequirement) {
+		return nil, false
+	}
+	return o.EEzsigntemplateformfieldDependencyrequirement, true
+}
+
+// HasEEzsigntemplateformfieldDependencyrequirement returns a boolean if a field has been set.
+func (o *EzsigntemplateformfieldResponseCompound) HasEEzsigntemplateformfieldDependencyrequirement() bool {
+	if o != nil && !IsNil(o.EEzsigntemplateformfieldDependencyrequirement) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsigntemplateformfieldDependencyrequirement gets a reference to the given FieldEEzsigntemplateformfieldDependencyrequirement and assigns it to the EEzsigntemplateformfieldDependencyrequirement field.
+func (o *EzsigntemplateformfieldResponseCompound) SetEEzsigntemplateformfieldDependencyrequirement(v FieldEEzsigntemplateformfieldDependencyrequirement) {
+	o.EEzsigntemplateformfieldDependencyrequirement = &v
+}
+
+// GetAObjEzsigntemplateelementdependency returns the AObjEzsigntemplateelementdependency field value if set, zero value otherwise.
+func (o *EzsigntemplateformfieldResponseCompound) GetAObjEzsigntemplateelementdependency() []EzsigntemplateelementdependencyResponseCompound {
+	if o == nil || IsNil(o.AObjEzsigntemplateelementdependency) {
+		var ret []EzsigntemplateelementdependencyResponseCompound
+		return ret
+	}
+	return o.AObjEzsigntemplateelementdependency
+}
+
+// GetAObjEzsigntemplateelementdependencyOk returns a tuple with the AObjEzsigntemplateelementdependency field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateformfieldResponseCompound) GetAObjEzsigntemplateelementdependencyOk() ([]EzsigntemplateelementdependencyResponseCompound, bool) {
+	if o == nil || IsNil(o.AObjEzsigntemplateelementdependency) {
+		return nil, false
+	}
+	return o.AObjEzsigntemplateelementdependency, true
+}
+
+// HasAObjEzsigntemplateelementdependency returns a boolean if a field has been set.
+func (o *EzsigntemplateformfieldResponseCompound) HasAObjEzsigntemplateelementdependency() bool {
+	if o != nil && !IsNil(o.AObjEzsigntemplateelementdependency) {
+		return true
+	}
+
+	return false
+}
+
+// SetAObjEzsigntemplateelementdependency gets a reference to the given []EzsigntemplateelementdependencyResponseCompound and assigns it to the AObjEzsigntemplateelementdependency field.
+func (o *EzsigntemplateformfieldResponseCompound) SetAObjEzsigntemplateelementdependency(v []EzsigntemplateelementdependencyResponseCompound) {
+	o.AObjEzsigntemplateelementdependency = v
+}
+
 func (o EzsigntemplateformfieldResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -355,6 +421,12 @@ func (o EzsigntemplateformfieldResponseCompound) ToMap() (map[string]interface{}
 	}
 	if !IsNil(o.BEzsigntemplateformfieldSelected) {
 		toSerialize["bEzsigntemplateformfieldSelected"] = o.BEzsigntemplateformfieldSelected
+	}
+	if !IsNil(o.EEzsigntemplateformfieldDependencyrequirement) {
+		toSerialize["eEzsigntemplateformfieldDependencyrequirement"] = o.EEzsigntemplateformfieldDependencyrequirement
+	}
+	if !IsNil(o.AObjEzsigntemplateelementdependency) {
+		toSerialize["a_objEzsigntemplateelementdependency"] = o.AObjEzsigntemplateelementdependency
 	}
 	return toSerialize, nil
 }

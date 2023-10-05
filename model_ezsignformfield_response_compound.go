@@ -42,6 +42,8 @@ type EzsignformfieldResponseCompound struct {
 	BEzsignformfieldSelected *bool `json:"bEzsignformfieldSelected,omitempty"`
 	// This is the value enterred for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is **Dropdown**, **Text** or **Textarea**
 	SEzsignformfieldEnteredvalue *string `json:"sEzsignformfieldEnteredvalue,omitempty"`
+	EEzsignformfieldDependencyrequirement *FieldEEzsignformfieldDependencyrequirement `json:"eEzsignformfieldDependencyrequirement,omitempty"`
+	AObjEzsignelementdependency []EzsignelementdependencyResponseCompound `json:"a_objEzsignelementdependency,omitempty"`
 }
 
 // NewEzsignformfieldResponseCompound instantiates a new EzsignformfieldResponseCompound object
@@ -364,6 +366,70 @@ func (o *EzsignformfieldResponseCompound) SetSEzsignformfieldEnteredvalue(v stri
 	o.SEzsignformfieldEnteredvalue = &v
 }
 
+// GetEEzsignformfieldDependencyrequirement returns the EEzsignformfieldDependencyrequirement field value if set, zero value otherwise.
+func (o *EzsignformfieldResponseCompound) GetEEzsignformfieldDependencyrequirement() FieldEEzsignformfieldDependencyrequirement {
+	if o == nil || IsNil(o.EEzsignformfieldDependencyrequirement) {
+		var ret FieldEEzsignformfieldDependencyrequirement
+		return ret
+	}
+	return *o.EEzsignformfieldDependencyrequirement
+}
+
+// GetEEzsignformfieldDependencyrequirementOk returns a tuple with the EEzsignformfieldDependencyrequirement field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignformfieldResponseCompound) GetEEzsignformfieldDependencyrequirementOk() (*FieldEEzsignformfieldDependencyrequirement, bool) {
+	if o == nil || IsNil(o.EEzsignformfieldDependencyrequirement) {
+		return nil, false
+	}
+	return o.EEzsignformfieldDependencyrequirement, true
+}
+
+// HasEEzsignformfieldDependencyrequirement returns a boolean if a field has been set.
+func (o *EzsignformfieldResponseCompound) HasEEzsignformfieldDependencyrequirement() bool {
+	if o != nil && !IsNil(o.EEzsignformfieldDependencyrequirement) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsignformfieldDependencyrequirement gets a reference to the given FieldEEzsignformfieldDependencyrequirement and assigns it to the EEzsignformfieldDependencyrequirement field.
+func (o *EzsignformfieldResponseCompound) SetEEzsignformfieldDependencyrequirement(v FieldEEzsignformfieldDependencyrequirement) {
+	o.EEzsignformfieldDependencyrequirement = &v
+}
+
+// GetAObjEzsignelementdependency returns the AObjEzsignelementdependency field value if set, zero value otherwise.
+func (o *EzsignformfieldResponseCompound) GetAObjEzsignelementdependency() []EzsignelementdependencyResponseCompound {
+	if o == nil || IsNil(o.AObjEzsignelementdependency) {
+		var ret []EzsignelementdependencyResponseCompound
+		return ret
+	}
+	return o.AObjEzsignelementdependency
+}
+
+// GetAObjEzsignelementdependencyOk returns a tuple with the AObjEzsignelementdependency field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignformfieldResponseCompound) GetAObjEzsignelementdependencyOk() ([]EzsignelementdependencyResponseCompound, bool) {
+	if o == nil || IsNil(o.AObjEzsignelementdependency) {
+		return nil, false
+	}
+	return o.AObjEzsignelementdependency, true
+}
+
+// HasAObjEzsignelementdependency returns a boolean if a field has been set.
+func (o *EzsignformfieldResponseCompound) HasAObjEzsignelementdependency() bool {
+	if o != nil && !IsNil(o.AObjEzsignelementdependency) {
+		return true
+	}
+
+	return false
+}
+
+// SetAObjEzsignelementdependency gets a reference to the given []EzsignelementdependencyResponseCompound and assigns it to the AObjEzsignelementdependency field.
+func (o *EzsignformfieldResponseCompound) SetAObjEzsignelementdependency(v []EzsignelementdependencyResponseCompound) {
+	o.AObjEzsignelementdependency = v
+}
+
 func (o EzsignformfieldResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -392,6 +458,12 @@ func (o EzsignformfieldResponseCompound) ToMap() (map[string]interface{}, error)
 	}
 	if !IsNil(o.SEzsignformfieldEnteredvalue) {
 		toSerialize["sEzsignformfieldEnteredvalue"] = o.SEzsignformfieldEnteredvalue
+	}
+	if !IsNil(o.EEzsignformfieldDependencyrequirement) {
+		toSerialize["eEzsignformfieldDependencyrequirement"] = o.EEzsignformfieldDependencyrequirement
+	}
+	if !IsNil(o.AObjEzsignelementdependency) {
+		toSerialize["a_objEzsignelementdependency"] = o.AObjEzsignelementdependency
 	}
 	return toSerialize, nil
 }

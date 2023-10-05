@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **IEzsignsignatureMaxlength** | Pointer to **int32** | The maximum length for the value in the Ezsignsignature  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** | [optional] 
 **EEzsignsignatureTextvalidation** | Pointer to [**EnumTextvalidation**](EnumTextvalidation.md) |  | [optional] 
 **SEzsignsignatureRegexp** | Pointer to **string** | A regular expression to indicate what values are acceptable for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** and eEzsignsignatureTextvalidation is **Custom** | [optional] 
+**EEzsignsignatureDependencyrequirement** | Pointer to [**FieldEEzsignsignatureDependencyrequirement**](FieldEEzsignsignatureDependencyrequirement.md) |  | [optional] 
 
 ## Methods
 
@@ -534,6 +535,31 @@ SetSEzsignsignatureRegexp sets SEzsignsignatureRegexp field to given value.
 `func (o *EzsignsignatureRequest) HasSEzsignsignatureRegexp() bool`
 
 HasSEzsignsignatureRegexp returns a boolean if a field has been set.
+
+### GetEEzsignsignatureDependencyrequirement
+
+`func (o *EzsignsignatureRequest) GetEEzsignsignatureDependencyrequirement() FieldEEzsignsignatureDependencyrequirement`
+
+GetEEzsignsignatureDependencyrequirement returns the EEzsignsignatureDependencyrequirement field if non-nil, zero value otherwise.
+
+### GetEEzsignsignatureDependencyrequirementOk
+
+`func (o *EzsignsignatureRequest) GetEEzsignsignatureDependencyrequirementOk() (*FieldEEzsignsignatureDependencyrequirement, bool)`
+
+GetEEzsignsignatureDependencyrequirementOk returns a tuple with the EEzsignsignatureDependencyrequirement field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsignsignatureDependencyrequirement
+
+`func (o *EzsignsignatureRequest) SetEEzsignsignatureDependencyrequirement(v FieldEEzsignsignatureDependencyrequirement)`
+
+SetEEzsignsignatureDependencyrequirement sets EEzsignsignatureDependencyrequirement field to given value.
+
+### HasEEzsignsignatureDependencyrequirement
+
+`func (o *EzsignsignatureRequest) HasEEzsignsignatureDependencyrequirement() bool`
+
+HasEEzsignsignatureDependencyrequirement returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

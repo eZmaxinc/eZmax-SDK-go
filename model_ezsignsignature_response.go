@@ -61,6 +61,7 @@ type EzsignsignatureResponse struct {
 	// The maximum length for the value in the Ezsignsignature  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea**
 	IEzsignsignatureMaxlength *int32 `json:"iEzsignsignatureMaxlength,omitempty"`
 	EEzsignsignatureTextvalidation *EnumTextvalidation `json:"eEzsignsignatureTextvalidation,omitempty"`
+	EEzsignsignatureDependencyrequirement *FieldEEzsignsignatureDependencyrequirement `json:"eEzsignsignatureDependencyrequirement,omitempty"`
 	// A regular expression to indicate what values are acceptable for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** and eEzsignsignatureTextvalidation is **Custom**
 	SEzsignsignatureRegexp *string `json:"sEzsignsignatureRegexp,omitempty"`
 	ObjContactName CustomContactNameResponse `json:"objContactName"`
@@ -766,6 +767,38 @@ func (o *EzsignsignatureResponse) SetEEzsignsignatureTextvalidation(v EnumTextva
 	o.EEzsignsignatureTextvalidation = &v
 }
 
+// GetEEzsignsignatureDependencyrequirement returns the EEzsignsignatureDependencyrequirement field value if set, zero value otherwise.
+func (o *EzsignsignatureResponse) GetEEzsignsignatureDependencyrequirement() FieldEEzsignsignatureDependencyrequirement {
+	if o == nil || IsNil(o.EEzsignsignatureDependencyrequirement) {
+		var ret FieldEEzsignsignatureDependencyrequirement
+		return ret
+	}
+	return *o.EEzsignsignatureDependencyrequirement
+}
+
+// GetEEzsignsignatureDependencyrequirementOk returns a tuple with the EEzsignsignatureDependencyrequirement field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureResponse) GetEEzsignsignatureDependencyrequirementOk() (*FieldEEzsignsignatureDependencyrequirement, bool) {
+	if o == nil || IsNil(o.EEzsignsignatureDependencyrequirement) {
+		return nil, false
+	}
+	return o.EEzsignsignatureDependencyrequirement, true
+}
+
+// HasEEzsignsignatureDependencyrequirement returns a boolean if a field has been set.
+func (o *EzsignsignatureResponse) HasEEzsignsignatureDependencyrequirement() bool {
+	if o != nil && !IsNil(o.EEzsignsignatureDependencyrequirement) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsignsignatureDependencyrequirement gets a reference to the given FieldEEzsignsignatureDependencyrequirement and assigns it to the EEzsignsignatureDependencyrequirement field.
+func (o *EzsignsignatureResponse) SetEEzsignsignatureDependencyrequirement(v FieldEEzsignsignatureDependencyrequirement) {
+	o.EEzsignsignatureDependencyrequirement = &v
+}
+
 // GetSEzsignsignatureRegexp returns the SEzsignsignatureRegexp field value if set, zero value otherwise.
 func (o *EzsignsignatureResponse) GetSEzsignsignatureRegexp() string {
 	if o == nil || IsNil(o.SEzsignsignatureRegexp) {
@@ -948,6 +981,9 @@ func (o EzsignsignatureResponse) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.EEzsignsignatureTextvalidation) {
 		toSerialize["eEzsignsignatureTextvalidation"] = o.EEzsignsignatureTextvalidation
+	}
+	if !IsNil(o.EEzsignsignatureDependencyrequirement) {
+		toSerialize["eEzsignsignatureDependencyrequirement"] = o.EEzsignsignatureDependencyrequirement
 	}
 	if !IsNil(o.SEzsignsignatureRegexp) {
 		toSerialize["sEzsignsignatureRegexp"] = o.SEzsignsignatureRegexp

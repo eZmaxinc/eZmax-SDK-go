@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **IEzsigntemplatesignatureMaxlength** | Pointer to **int32** | The maximum length for the value in the Ezsigntemplatesignature  This can only be set if eEzsigntemplatesignatureType is **FieldText** or **FieldTextarea** | [optional] 
 **SEzsigntemplatesignatureRegexp** | Pointer to **string** | A regular expression to indicate what values are acceptable for the Ezsigntemplatesignature.  This can only be set if eEzsigntemplatesignatureType is **Text** or **Textarea** | [optional] 
 **EEzsigntemplatesignatureTextvalidation** | Pointer to [**EnumTextvalidation**](EnumTextvalidation.md) |  | [optional] 
+**EEzsigntemplatesignatureDependencyrequirement** | Pointer to [**FieldEEzsigntemplatesignatureDependencyrequirement**](FieldEEzsigntemplatesignatureDependencyrequirement.md) |  | [optional] 
 
 ## Methods
 
@@ -529,6 +530,31 @@ SetEEzsigntemplatesignatureTextvalidation sets EEzsigntemplatesignatureTextvalid
 `func (o *EzsigntemplatesignatureResponse) HasEEzsigntemplatesignatureTextvalidation() bool`
 
 HasEEzsigntemplatesignatureTextvalidation returns a boolean if a field has been set.
+
+### GetEEzsigntemplatesignatureDependencyrequirement
+
+`func (o *EzsigntemplatesignatureResponse) GetEEzsigntemplatesignatureDependencyrequirement() FieldEEzsigntemplatesignatureDependencyrequirement`
+
+GetEEzsigntemplatesignatureDependencyrequirement returns the EEzsigntemplatesignatureDependencyrequirement field if non-nil, zero value otherwise.
+
+### GetEEzsigntemplatesignatureDependencyrequirementOk
+
+`func (o *EzsigntemplatesignatureResponse) GetEEzsigntemplatesignatureDependencyrequirementOk() (*FieldEEzsigntemplatesignatureDependencyrequirement, bool)`
+
+GetEEzsigntemplatesignatureDependencyrequirementOk returns a tuple with the EEzsigntemplatesignatureDependencyrequirement field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsigntemplatesignatureDependencyrequirement
+
+`func (o *EzsigntemplatesignatureResponse) SetEEzsigntemplatesignatureDependencyrequirement(v FieldEEzsigntemplatesignatureDependencyrequirement)`
+
+SetEEzsigntemplatesignatureDependencyrequirement sets EEzsigntemplatesignatureDependencyrequirement field to given value.
+
+### HasEEzsigntemplatesignatureDependencyrequirement
+
+`func (o *EzsigntemplatesignatureResponse) HasEEzsigntemplatesignatureDependencyrequirement() bool`
+
+HasEEzsigntemplatesignatureDependencyrequirement returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

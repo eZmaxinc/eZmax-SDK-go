@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **IEzsigntemplateformfieldHeight** | **int32** | The Height of the Ezsigntemplateformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsigntemplateformfieldgroupType.  | eEzsigntemplateformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22           | | Radio                     | 22           | | Text                      | 22           | | Textarea                  | 22-65535     |  | 
 **BEzsigntemplateformfieldAutocomplete** | Pointer to **bool** | Whether the Ezsigntemplateformfield allows the use of the autocomplete of the browser.  This can only be set if eEzsigntemplateformfieldgroupType is **Text** | [optional] 
 **BEzsigntemplateformfieldSelected** | Pointer to **bool** | Whether the Ezsigntemplateformfield is selected or not by default.  This can only be set if eEzsigntemplateformfieldgroupType is **Checkbox** or **Radio** | [optional] 
+**EEzsigntemplateformfieldDependencyrequirement** | Pointer to [**FieldEEzsigntemplateformfieldDependencyrequirement**](FieldEEzsigntemplateformfieldDependencyrequirement.md) |  | [optional] 
 
 ## Methods
 
@@ -253,6 +254,31 @@ SetBEzsigntemplateformfieldSelected sets BEzsigntemplateformfieldSelected field 
 `func (o *EzsigntemplateformfieldRequest) HasBEzsigntemplateformfieldSelected() bool`
 
 HasBEzsigntemplateformfieldSelected returns a boolean if a field has been set.
+
+### GetEEzsigntemplateformfieldDependencyrequirement
+
+`func (o *EzsigntemplateformfieldRequest) GetEEzsigntemplateformfieldDependencyrequirement() FieldEEzsigntemplateformfieldDependencyrequirement`
+
+GetEEzsigntemplateformfieldDependencyrequirement returns the EEzsigntemplateformfieldDependencyrequirement field if non-nil, zero value otherwise.
+
+### GetEEzsigntemplateformfieldDependencyrequirementOk
+
+`func (o *EzsigntemplateformfieldRequest) GetEEzsigntemplateformfieldDependencyrequirementOk() (*FieldEEzsigntemplateformfieldDependencyrequirement, bool)`
+
+GetEEzsigntemplateformfieldDependencyrequirementOk returns a tuple with the EEzsigntemplateformfieldDependencyrequirement field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsigntemplateformfieldDependencyrequirement
+
+`func (o *EzsigntemplateformfieldRequest) SetEEzsigntemplateformfieldDependencyrequirement(v FieldEEzsigntemplateformfieldDependencyrequirement)`
+
+SetEEzsigntemplateformfieldDependencyrequirement sets EEzsigntemplateformfieldDependencyrequirement field to given value.
+
+### HasEEzsigntemplateformfieldDependencyrequirement
+
+`func (o *EzsigntemplateformfieldRequest) HasEEzsigntemplateformfieldDependencyrequirement() bool`
+
+HasEEzsigntemplateformfieldDependencyrequirement returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

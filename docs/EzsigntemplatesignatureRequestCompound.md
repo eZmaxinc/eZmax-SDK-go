@@ -25,8 +25,10 @@ Name | Type | Description | Notes
 **IEzsigntemplatesignatureMaxlength** | Pointer to **int32** | The maximum length for the value in the Ezsigntemplatesignature  This can only be set if eEzsigntemplatesignatureType is **FieldText** or **FieldTextarea** | [optional] 
 **SEzsigntemplatesignatureRegexp** | Pointer to **string** | A regular expression to indicate what values are acceptable for the Ezsigntemplatesignature.  This can only be set if eEzsigntemplatesignatureType is **Text** or **Textarea** | [optional] 
 **EEzsigntemplatesignatureTextvalidation** | Pointer to [**EnumTextvalidation**](EnumTextvalidation.md) |  | [optional] 
+**EEzsigntemplatesignatureDependencyrequirement** | Pointer to [**FieldEEzsigntemplatesignatureDependencyrequirement**](FieldEEzsigntemplatesignatureDependencyrequirement.md) |  | [optional] 
 **BEzsigntemplatesignatureCustomdate** | Pointer to **bool** | Whether the Ezsigntemplatesignature has a custom date format or not. (Only possible when eEzsigntemplatesignatureType is **Name** or **Handwritten**) | [optional] 
 **AObjEzsigntemplatesignaturecustomdate** | Pointer to [**[]EzsigntemplatesignaturecustomdateRequestCompound**](EzsigntemplatesignaturecustomdateRequestCompound.md) | An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsigntemplatesignatureCustomdate is true.  Use an empty array if you don&#39;t want to have a date at all. | [optional] 
+**AObjEzsigntemplateelementdependency** | Pointer to [**[]EzsigntemplateelementdependencyRequestCompound**](EzsigntemplateelementdependencyRequestCompound.md) |  | [optional] 
 
 ## Methods
 
@@ -537,6 +539,31 @@ SetEEzsigntemplatesignatureTextvalidation sets EEzsigntemplatesignatureTextvalid
 
 HasEEzsigntemplatesignatureTextvalidation returns a boolean if a field has been set.
 
+### GetEEzsigntemplatesignatureDependencyrequirement
+
+`func (o *EzsigntemplatesignatureRequestCompound) GetEEzsigntemplatesignatureDependencyrequirement() FieldEEzsigntemplatesignatureDependencyrequirement`
+
+GetEEzsigntemplatesignatureDependencyrequirement returns the EEzsigntemplatesignatureDependencyrequirement field if non-nil, zero value otherwise.
+
+### GetEEzsigntemplatesignatureDependencyrequirementOk
+
+`func (o *EzsigntemplatesignatureRequestCompound) GetEEzsigntemplatesignatureDependencyrequirementOk() (*FieldEEzsigntemplatesignatureDependencyrequirement, bool)`
+
+GetEEzsigntemplatesignatureDependencyrequirementOk returns a tuple with the EEzsigntemplatesignatureDependencyrequirement field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsigntemplatesignatureDependencyrequirement
+
+`func (o *EzsigntemplatesignatureRequestCompound) SetEEzsigntemplatesignatureDependencyrequirement(v FieldEEzsigntemplatesignatureDependencyrequirement)`
+
+SetEEzsigntemplatesignatureDependencyrequirement sets EEzsigntemplatesignatureDependencyrequirement field to given value.
+
+### HasEEzsigntemplatesignatureDependencyrequirement
+
+`func (o *EzsigntemplatesignatureRequestCompound) HasEEzsigntemplatesignatureDependencyrequirement() bool`
+
+HasEEzsigntemplatesignatureDependencyrequirement returns a boolean if a field has been set.
+
 ### GetBEzsigntemplatesignatureCustomdate
 
 `func (o *EzsigntemplatesignatureRequestCompound) GetBEzsigntemplatesignatureCustomdate() bool`
@@ -586,6 +613,31 @@ SetAObjEzsigntemplatesignaturecustomdate sets AObjEzsigntemplatesignaturecustomd
 `func (o *EzsigntemplatesignatureRequestCompound) HasAObjEzsigntemplatesignaturecustomdate() bool`
 
 HasAObjEzsigntemplatesignaturecustomdate returns a boolean if a field has been set.
+
+### GetAObjEzsigntemplateelementdependency
+
+`func (o *EzsigntemplatesignatureRequestCompound) GetAObjEzsigntemplateelementdependency() []EzsigntemplateelementdependencyRequestCompound`
+
+GetAObjEzsigntemplateelementdependency returns the AObjEzsigntemplateelementdependency field if non-nil, zero value otherwise.
+
+### GetAObjEzsigntemplateelementdependencyOk
+
+`func (o *EzsigntemplatesignatureRequestCompound) GetAObjEzsigntemplateelementdependencyOk() (*[]EzsigntemplateelementdependencyRequestCompound, bool)`
+
+GetAObjEzsigntemplateelementdependencyOk returns a tuple with the AObjEzsigntemplateelementdependency field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAObjEzsigntemplateelementdependency
+
+`func (o *EzsigntemplatesignatureRequestCompound) SetAObjEzsigntemplateelementdependency(v []EzsigntemplateelementdependencyRequestCompound)`
+
+SetAObjEzsigntemplateelementdependency sets AObjEzsigntemplateelementdependency field to given value.
+
+### HasAObjEzsigntemplateelementdependency
+
+`func (o *EzsigntemplatesignatureRequestCompound) HasAObjEzsigntemplateelementdependency() bool`
+
+HasAObjEzsigntemplateelementdependency returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

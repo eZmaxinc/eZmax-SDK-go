@@ -47,6 +47,7 @@ const (
 	DELAYED_SEND_EMAIL FieldEEzsigndocumentlogType = "DelayedSendEmail"
 	REGENERATE_PAGE FieldEEzsigndocumentlogType = "RegeneratePage"
 	REGENERATE_PAGE_FORM FieldEEzsigndocumentlogType = "RegeneratePageForm"
+	REASSIGN FieldEEzsigndocumentlogType = "Reassign"
 )
 
 // All allowed values of FieldEEzsigndocumentlogType enum
@@ -77,6 +78,7 @@ var AllowedFieldEEzsigndocumentlogTypeEnumValues = []FieldEEzsigndocumentlogType
 	"DelayedSendEmail",
 	"RegeneratePage",
 	"RegeneratePageForm",
+	"Reassign",
 }
 
 func (v *FieldEEzsigndocumentlogType) UnmarshalJSON(src []byte) error {

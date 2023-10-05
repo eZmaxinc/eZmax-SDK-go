@@ -40,6 +40,7 @@ type EzsigntemplateformfieldRequest struct {
 	BEzsigntemplateformfieldAutocomplete *bool `json:"bEzsigntemplateformfieldAutocomplete,omitempty"`
 	// Whether the Ezsigntemplateformfield is selected or not by default.  This can only be set if eEzsigntemplateformfieldgroupType is **Checkbox** or **Radio**
 	BEzsigntemplateformfieldSelected *bool `json:"bEzsigntemplateformfieldSelected,omitempty"`
+	EEzsigntemplateformfieldDependencyrequirement *FieldEEzsigntemplateformfieldDependencyrequirement `json:"eEzsigntemplateformfieldDependencyrequirement,omitempty"`
 }
 
 // NewEzsigntemplateformfieldRequest instantiates a new EzsigntemplateformfieldRequest object
@@ -337,6 +338,38 @@ func (o *EzsigntemplateformfieldRequest) SetBEzsigntemplateformfieldSelected(v b
 	o.BEzsigntemplateformfieldSelected = &v
 }
 
+// GetEEzsigntemplateformfieldDependencyrequirement returns the EEzsigntemplateformfieldDependencyrequirement field value if set, zero value otherwise.
+func (o *EzsigntemplateformfieldRequest) GetEEzsigntemplateformfieldDependencyrequirement() FieldEEzsigntemplateformfieldDependencyrequirement {
+	if o == nil || IsNil(o.EEzsigntemplateformfieldDependencyrequirement) {
+		var ret FieldEEzsigntemplateformfieldDependencyrequirement
+		return ret
+	}
+	return *o.EEzsigntemplateformfieldDependencyrequirement
+}
+
+// GetEEzsigntemplateformfieldDependencyrequirementOk returns a tuple with the EEzsigntemplateformfieldDependencyrequirement field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateformfieldRequest) GetEEzsigntemplateformfieldDependencyrequirementOk() (*FieldEEzsigntemplateformfieldDependencyrequirement, bool) {
+	if o == nil || IsNil(o.EEzsigntemplateformfieldDependencyrequirement) {
+		return nil, false
+	}
+	return o.EEzsigntemplateformfieldDependencyrequirement, true
+}
+
+// HasEEzsigntemplateformfieldDependencyrequirement returns a boolean if a field has been set.
+func (o *EzsigntemplateformfieldRequest) HasEEzsigntemplateformfieldDependencyrequirement() bool {
+	if o != nil && !IsNil(o.EEzsigntemplateformfieldDependencyrequirement) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsigntemplateformfieldDependencyrequirement gets a reference to the given FieldEEzsigntemplateformfieldDependencyrequirement and assigns it to the EEzsigntemplateformfieldDependencyrequirement field.
+func (o *EzsigntemplateformfieldRequest) SetEEzsigntemplateformfieldDependencyrequirement(v FieldEEzsigntemplateformfieldDependencyrequirement) {
+	o.EEzsigntemplateformfieldDependencyrequirement = &v
+}
+
 func (o EzsigntemplateformfieldRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -364,6 +397,9 @@ func (o EzsigntemplateformfieldRequest) ToMap() (map[string]interface{}, error) 
 	}
 	if !IsNil(o.BEzsigntemplateformfieldSelected) {
 		toSerialize["bEzsigntemplateformfieldSelected"] = o.BEzsigntemplateformfieldSelected
+	}
+	if !IsNil(o.EEzsigntemplateformfieldDependencyrequirement) {
+		toSerialize["eEzsigntemplateformfieldDependencyrequirement"] = o.EEzsigntemplateformfieldDependencyrequirement
 	}
 	return toSerialize, nil
 }

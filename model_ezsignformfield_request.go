@@ -42,6 +42,7 @@ type EzsignformfieldRequest struct {
 	BEzsignformfieldSelected *bool `json:"bEzsignformfieldSelected,omitempty"`
 	// This is the value enterred for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is **Dropdown**, **Text** or **Textarea**
 	SEzsignformfieldEnteredvalue *string `json:"sEzsignformfieldEnteredvalue,omitempty"`
+	EEzsignformfieldDependencyrequirement *FieldEEzsignformfieldDependencyrequirement `json:"eEzsignformfieldDependencyrequirement,omitempty"`
 }
 
 // NewEzsignformfieldRequest instantiates a new EzsignformfieldRequest object
@@ -371,6 +372,38 @@ func (o *EzsignformfieldRequest) SetSEzsignformfieldEnteredvalue(v string) {
 	o.SEzsignformfieldEnteredvalue = &v
 }
 
+// GetEEzsignformfieldDependencyrequirement returns the EEzsignformfieldDependencyrequirement field value if set, zero value otherwise.
+func (o *EzsignformfieldRequest) GetEEzsignformfieldDependencyrequirement() FieldEEzsignformfieldDependencyrequirement {
+	if o == nil || IsNil(o.EEzsignformfieldDependencyrequirement) {
+		var ret FieldEEzsignformfieldDependencyrequirement
+		return ret
+	}
+	return *o.EEzsignformfieldDependencyrequirement
+}
+
+// GetEEzsignformfieldDependencyrequirementOk returns a tuple with the EEzsignformfieldDependencyrequirement field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignformfieldRequest) GetEEzsignformfieldDependencyrequirementOk() (*FieldEEzsignformfieldDependencyrequirement, bool) {
+	if o == nil || IsNil(o.EEzsignformfieldDependencyrequirement) {
+		return nil, false
+	}
+	return o.EEzsignformfieldDependencyrequirement, true
+}
+
+// HasEEzsignformfieldDependencyrequirement returns a boolean if a field has been set.
+func (o *EzsignformfieldRequest) HasEEzsignformfieldDependencyrequirement() bool {
+	if o != nil && !IsNil(o.EEzsignformfieldDependencyrequirement) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsignformfieldDependencyrequirement gets a reference to the given FieldEEzsignformfieldDependencyrequirement and assigns it to the EEzsignformfieldDependencyrequirement field.
+func (o *EzsignformfieldRequest) SetEEzsignformfieldDependencyrequirement(v FieldEEzsignformfieldDependencyrequirement) {
+	o.EEzsignformfieldDependencyrequirement = &v
+}
+
 func (o EzsignformfieldRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -401,6 +434,9 @@ func (o EzsignformfieldRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.SEzsignformfieldEnteredvalue) {
 		toSerialize["sEzsignformfieldEnteredvalue"] = o.SEzsignformfieldEnteredvalue
+	}
+	if !IsNil(o.EEzsignformfieldDependencyrequirement) {
+		toSerialize["eEzsignformfieldDependencyrequirement"] = o.EEzsignformfieldDependencyrequirement
 	}
 	return toSerialize, nil
 }

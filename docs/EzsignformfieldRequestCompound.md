@@ -15,6 +15,8 @@ Name | Type | Description | Notes
 **BEzsignformfieldAutocomplete** | Pointer to **bool** | Whether the Ezsignformfield allows the use of the autocomplete of the browser.  This can only be set if eEzsignformfieldgroupType is **Text** | [optional] 
 **BEzsignformfieldSelected** | Pointer to **bool** | Whether the Ezsignformfield is selected or not by default.  This can only be set if eEzsignformfieldgroupType is **Checkbox** or **Radio** | [optional] 
 **SEzsignformfieldEnteredvalue** | Pointer to **string** | This is the value enterred for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is **Dropdown**, **Text** or **Textarea** | [optional] 
+**EEzsignformfieldDependencyrequirement** | Pointer to [**FieldEEzsignformfieldDependencyrequirement**](FieldEEzsignformfieldDependencyrequirement.md) |  | [optional] 
+**AObjEzsignelementdependency** | Pointer to [**[]EzsignelementdependencyRequestCompound**](EzsignelementdependencyRequestCompound.md) |  | [optional] 
 
 ## Methods
 
@@ -279,6 +281,56 @@ SetSEzsignformfieldEnteredvalue sets SEzsignformfieldEnteredvalue field to given
 `func (o *EzsignformfieldRequestCompound) HasSEzsignformfieldEnteredvalue() bool`
 
 HasSEzsignformfieldEnteredvalue returns a boolean if a field has been set.
+
+### GetEEzsignformfieldDependencyrequirement
+
+`func (o *EzsignformfieldRequestCompound) GetEEzsignformfieldDependencyrequirement() FieldEEzsignformfieldDependencyrequirement`
+
+GetEEzsignformfieldDependencyrequirement returns the EEzsignformfieldDependencyrequirement field if non-nil, zero value otherwise.
+
+### GetEEzsignformfieldDependencyrequirementOk
+
+`func (o *EzsignformfieldRequestCompound) GetEEzsignformfieldDependencyrequirementOk() (*FieldEEzsignformfieldDependencyrequirement, bool)`
+
+GetEEzsignformfieldDependencyrequirementOk returns a tuple with the EEzsignformfieldDependencyrequirement field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsignformfieldDependencyrequirement
+
+`func (o *EzsignformfieldRequestCompound) SetEEzsignformfieldDependencyrequirement(v FieldEEzsignformfieldDependencyrequirement)`
+
+SetEEzsignformfieldDependencyrequirement sets EEzsignformfieldDependencyrequirement field to given value.
+
+### HasEEzsignformfieldDependencyrequirement
+
+`func (o *EzsignformfieldRequestCompound) HasEEzsignformfieldDependencyrequirement() bool`
+
+HasEEzsignformfieldDependencyrequirement returns a boolean if a field has been set.
+
+### GetAObjEzsignelementdependency
+
+`func (o *EzsignformfieldRequestCompound) GetAObjEzsignelementdependency() []EzsignelementdependencyRequestCompound`
+
+GetAObjEzsignelementdependency returns the AObjEzsignelementdependency field if non-nil, zero value otherwise.
+
+### GetAObjEzsignelementdependencyOk
+
+`func (o *EzsignformfieldRequestCompound) GetAObjEzsignelementdependencyOk() (*[]EzsignelementdependencyRequestCompound, bool)`
+
+GetAObjEzsignelementdependencyOk returns a tuple with the AObjEzsignelementdependency field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAObjEzsignelementdependency
+
+`func (o *EzsignformfieldRequestCompound) SetAObjEzsignelementdependency(v []EzsignelementdependencyRequestCompound)`
+
+SetAObjEzsignelementdependency sets AObjEzsignelementdependency field to given value.
+
+### HasAObjEzsignelementdependency
+
+`func (o *EzsignformfieldRequestCompound) HasAObjEzsignelementdependency() bool`
+
+HasAObjEzsignelementdependency returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

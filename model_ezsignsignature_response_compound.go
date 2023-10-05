@@ -61,6 +61,7 @@ type EzsignsignatureResponseCompound struct {
 	// The maximum length for the value in the Ezsignsignature  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea**
 	IEzsignsignatureMaxlength *int32 `json:"iEzsignsignatureMaxlength,omitempty"`
 	EEzsignsignatureTextvalidation *EnumTextvalidation `json:"eEzsignsignatureTextvalidation,omitempty"`
+	EEzsignsignatureDependencyrequirement *FieldEEzsignsignatureDependencyrequirement `json:"eEzsignsignatureDependencyrequirement,omitempty"`
 	// A regular expression to indicate what values are acceptable for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** and eEzsignsignatureTextvalidation is **Custom**
 	SEzsignsignatureRegexp *string `json:"sEzsignsignatureRegexp,omitempty"`
 	ObjContactName CustomContactNameResponse `json:"objContactName"`
@@ -71,6 +72,7 @@ type EzsignsignatureResponseCompound struct {
 	// An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.
 	AObjEzsignsignaturecustomdate []EzsignsignaturecustomdateResponseCompound `json:"a_objEzsignsignaturecustomdate,omitempty"`
 	ObjCreditcardtransaction *CustomCreditcardtransactionResponse `json:"objCreditcardtransaction,omitempty"`
+	AObjEzsignelementdependency []EzsignelementdependencyResponseCompound `json:"a_objEzsignelementdependency,omitempty"`
 }
 
 // NewEzsignsignatureResponseCompound instantiates a new EzsignsignatureResponseCompound object
@@ -771,6 +773,38 @@ func (o *EzsignsignatureResponseCompound) SetEEzsignsignatureTextvalidation(v En
 	o.EEzsignsignatureTextvalidation = &v
 }
 
+// GetEEzsignsignatureDependencyrequirement returns the EEzsignsignatureDependencyrequirement field value if set, zero value otherwise.
+func (o *EzsignsignatureResponseCompound) GetEEzsignsignatureDependencyrequirement() FieldEEzsignsignatureDependencyrequirement {
+	if o == nil || IsNil(o.EEzsignsignatureDependencyrequirement) {
+		var ret FieldEEzsignsignatureDependencyrequirement
+		return ret
+	}
+	return *o.EEzsignsignatureDependencyrequirement
+}
+
+// GetEEzsignsignatureDependencyrequirementOk returns a tuple with the EEzsignsignatureDependencyrequirement field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureResponseCompound) GetEEzsignsignatureDependencyrequirementOk() (*FieldEEzsignsignatureDependencyrequirement, bool) {
+	if o == nil || IsNil(o.EEzsignsignatureDependencyrequirement) {
+		return nil, false
+	}
+	return o.EEzsignsignatureDependencyrequirement, true
+}
+
+// HasEEzsignsignatureDependencyrequirement returns a boolean if a field has been set.
+func (o *EzsignsignatureResponseCompound) HasEEzsignsignatureDependencyrequirement() bool {
+	if o != nil && !IsNil(o.EEzsignsignatureDependencyrequirement) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsignsignatureDependencyrequirement gets a reference to the given FieldEEzsignsignatureDependencyrequirement and assigns it to the EEzsignsignatureDependencyrequirement field.
+func (o *EzsignsignatureResponseCompound) SetEEzsignsignatureDependencyrequirement(v FieldEEzsignsignatureDependencyrequirement) {
+	o.EEzsignsignatureDependencyrequirement = &v
+}
+
 // GetSEzsignsignatureRegexp returns the SEzsignsignatureRegexp field value if set, zero value otherwise.
 func (o *EzsignsignatureResponseCompound) GetSEzsignsignatureRegexp() string {
 	if o == nil || IsNil(o.SEzsignsignatureRegexp) {
@@ -987,6 +1021,38 @@ func (o *EzsignsignatureResponseCompound) SetObjCreditcardtransaction(v CustomCr
 	o.ObjCreditcardtransaction = &v
 }
 
+// GetAObjEzsignelementdependency returns the AObjEzsignelementdependency field value if set, zero value otherwise.
+func (o *EzsignsignatureResponseCompound) GetAObjEzsignelementdependency() []EzsignelementdependencyResponseCompound {
+	if o == nil || IsNil(o.AObjEzsignelementdependency) {
+		var ret []EzsignelementdependencyResponseCompound
+		return ret
+	}
+	return o.AObjEzsignelementdependency
+}
+
+// GetAObjEzsignelementdependencyOk returns a tuple with the AObjEzsignelementdependency field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureResponseCompound) GetAObjEzsignelementdependencyOk() ([]EzsignelementdependencyResponseCompound, bool) {
+	if o == nil || IsNil(o.AObjEzsignelementdependency) {
+		return nil, false
+	}
+	return o.AObjEzsignelementdependency, true
+}
+
+// HasAObjEzsignelementdependency returns a boolean if a field has been set.
+func (o *EzsignsignatureResponseCompound) HasAObjEzsignelementdependency() bool {
+	if o != nil && !IsNil(o.AObjEzsignelementdependency) {
+		return true
+	}
+
+	return false
+}
+
+// SetAObjEzsignelementdependency gets a reference to the given []EzsignelementdependencyResponseCompound and assigns it to the AObjEzsignelementdependency field.
+func (o *EzsignsignatureResponseCompound) SetAObjEzsignelementdependency(v []EzsignelementdependencyResponseCompound) {
+	o.AObjEzsignelementdependency = v
+}
+
 func (o EzsignsignatureResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1050,6 +1116,9 @@ func (o EzsignsignatureResponseCompound) ToMap() (map[string]interface{}, error)
 	if !IsNil(o.EEzsignsignatureTextvalidation) {
 		toSerialize["eEzsignsignatureTextvalidation"] = o.EEzsignsignatureTextvalidation
 	}
+	if !IsNil(o.EEzsignsignatureDependencyrequirement) {
+		toSerialize["eEzsignsignatureDependencyrequirement"] = o.EEzsignsignatureDependencyrequirement
+	}
 	if !IsNil(o.SEzsignsignatureRegexp) {
 		toSerialize["sEzsignsignatureRegexp"] = o.SEzsignsignatureRegexp
 	}
@@ -1068,6 +1137,9 @@ func (o EzsignsignatureResponseCompound) ToMap() (map[string]interface{}, error)
 	}
 	if !IsNil(o.ObjCreditcardtransaction) {
 		toSerialize["objCreditcardtransaction"] = o.ObjCreditcardtransaction
+	}
+	if !IsNil(o.AObjEzsignelementdependency) {
+		toSerialize["a_objEzsignelementdependency"] = o.AObjEzsignelementdependency
 	}
 	return toSerialize, nil
 }

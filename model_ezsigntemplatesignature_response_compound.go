@@ -57,10 +57,12 @@ type EzsigntemplatesignatureResponseCompound struct {
 	// A regular expression to indicate what values are acceptable for the Ezsigntemplatesignature.  This can only be set if eEzsigntemplatesignatureType is **Text** or **Textarea**
 	SEzsigntemplatesignatureRegexp *string `json:"sEzsigntemplatesignatureRegexp,omitempty"`
 	EEzsigntemplatesignatureTextvalidation *EnumTextvalidation `json:"eEzsigntemplatesignatureTextvalidation,omitempty"`
+	EEzsigntemplatesignatureDependencyrequirement *FieldEEzsigntemplatesignatureDependencyrequirement `json:"eEzsigntemplatesignatureDependencyrequirement,omitempty"`
 	// Whether the Ezsigntemplatesignature has a custom date format or not. (Only possible when eEzsigntemplatesignatureType is **Name** or **Handwritten**)
 	BEzsigntemplatesignatureCustomdate *bool `json:"bEzsigntemplatesignatureCustomdate,omitempty"`
 	// An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsigntemplatesignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.
 	AObjEzsigntemplatesignaturecustomdate []EzsigntemplatesignaturecustomdateResponseCompound `json:"a_objEzsigntemplatesignaturecustomdate,omitempty"`
+	AObjEzsigntemplateelementdependency []EzsigntemplateelementdependencyResponseCompound `json:"a_objEzsigntemplateelementdependency,omitempty"`
 }
 
 // NewEzsigntemplatesignatureResponseCompound instantiates a new EzsigntemplatesignatureResponseCompound object
@@ -696,6 +698,38 @@ func (o *EzsigntemplatesignatureResponseCompound) SetEEzsigntemplatesignatureTex
 	o.EEzsigntemplatesignatureTextvalidation = &v
 }
 
+// GetEEzsigntemplatesignatureDependencyrequirement returns the EEzsigntemplatesignatureDependencyrequirement field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureResponseCompound) GetEEzsigntemplatesignatureDependencyrequirement() FieldEEzsigntemplatesignatureDependencyrequirement {
+	if o == nil || IsNil(o.EEzsigntemplatesignatureDependencyrequirement) {
+		var ret FieldEEzsigntemplatesignatureDependencyrequirement
+		return ret
+	}
+	return *o.EEzsigntemplatesignatureDependencyrequirement
+}
+
+// GetEEzsigntemplatesignatureDependencyrequirementOk returns a tuple with the EEzsigntemplatesignatureDependencyrequirement field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureResponseCompound) GetEEzsigntemplatesignatureDependencyrequirementOk() (*FieldEEzsigntemplatesignatureDependencyrequirement, bool) {
+	if o == nil || IsNil(o.EEzsigntemplatesignatureDependencyrequirement) {
+		return nil, false
+	}
+	return o.EEzsigntemplatesignatureDependencyrequirement, true
+}
+
+// HasEEzsigntemplatesignatureDependencyrequirement returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureResponseCompound) HasEEzsigntemplatesignatureDependencyrequirement() bool {
+	if o != nil && !IsNil(o.EEzsigntemplatesignatureDependencyrequirement) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsigntemplatesignatureDependencyrequirement gets a reference to the given FieldEEzsigntemplatesignatureDependencyrequirement and assigns it to the EEzsigntemplatesignatureDependencyrequirement field.
+func (o *EzsigntemplatesignatureResponseCompound) SetEEzsigntemplatesignatureDependencyrequirement(v FieldEEzsigntemplatesignatureDependencyrequirement) {
+	o.EEzsigntemplatesignatureDependencyrequirement = &v
+}
+
 // GetBEzsigntemplatesignatureCustomdate returns the BEzsigntemplatesignatureCustomdate field value if set, zero value otherwise.
 func (o *EzsigntemplatesignatureResponseCompound) GetBEzsigntemplatesignatureCustomdate() bool {
 	if o == nil || IsNil(o.BEzsigntemplatesignatureCustomdate) {
@@ -760,6 +794,38 @@ func (o *EzsigntemplatesignatureResponseCompound) SetAObjEzsigntemplatesignature
 	o.AObjEzsigntemplatesignaturecustomdate = v
 }
 
+// GetAObjEzsigntemplateelementdependency returns the AObjEzsigntemplateelementdependency field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureResponseCompound) GetAObjEzsigntemplateelementdependency() []EzsigntemplateelementdependencyResponseCompound {
+	if o == nil || IsNil(o.AObjEzsigntemplateelementdependency) {
+		var ret []EzsigntemplateelementdependencyResponseCompound
+		return ret
+	}
+	return o.AObjEzsigntemplateelementdependency
+}
+
+// GetAObjEzsigntemplateelementdependencyOk returns a tuple with the AObjEzsigntemplateelementdependency field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureResponseCompound) GetAObjEzsigntemplateelementdependencyOk() ([]EzsigntemplateelementdependencyResponseCompound, bool) {
+	if o == nil || IsNil(o.AObjEzsigntemplateelementdependency) {
+		return nil, false
+	}
+	return o.AObjEzsigntemplateelementdependency, true
+}
+
+// HasAObjEzsigntemplateelementdependency returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureResponseCompound) HasAObjEzsigntemplateelementdependency() bool {
+	if o != nil && !IsNil(o.AObjEzsigntemplateelementdependency) {
+		return true
+	}
+
+	return false
+}
+
+// SetAObjEzsigntemplateelementdependency gets a reference to the given []EzsigntemplateelementdependencyResponseCompound and assigns it to the AObjEzsigntemplateelementdependency field.
+func (o *EzsigntemplatesignatureResponseCompound) SetAObjEzsigntemplateelementdependency(v []EzsigntemplateelementdependencyResponseCompound) {
+	o.AObjEzsigntemplateelementdependency = v
+}
+
 func (o EzsigntemplatesignatureResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -817,11 +883,17 @@ func (o EzsigntemplatesignatureResponseCompound) ToMap() (map[string]interface{}
 	if !IsNil(o.EEzsigntemplatesignatureTextvalidation) {
 		toSerialize["eEzsigntemplatesignatureTextvalidation"] = o.EEzsigntemplatesignatureTextvalidation
 	}
+	if !IsNil(o.EEzsigntemplatesignatureDependencyrequirement) {
+		toSerialize["eEzsigntemplatesignatureDependencyrequirement"] = o.EEzsigntemplatesignatureDependencyrequirement
+	}
 	if !IsNil(o.BEzsigntemplatesignatureCustomdate) {
 		toSerialize["bEzsigntemplatesignatureCustomdate"] = o.BEzsigntemplatesignatureCustomdate
 	}
 	if !IsNil(o.AObjEzsigntemplatesignaturecustomdate) {
 		toSerialize["a_objEzsigntemplatesignaturecustomdate"] = o.AObjEzsigntemplatesignaturecustomdate
+	}
+	if !IsNil(o.AObjEzsigntemplateelementdependency) {
+		toSerialize["a_objEzsigntemplateelementdependency"] = o.AObjEzsigntemplateelementdependency
 	}
 	return toSerialize, nil
 }

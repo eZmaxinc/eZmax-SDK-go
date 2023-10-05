@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **SEzsignsignatureDescription** | Pointer to **string** | The value entered while signing Ezsignsignature of eEzsignsignatureType **City**, **FieldText** and **FieldTextarea** | [optional] 
 **IEzsignsignatureMaxlength** | Pointer to **int32** | The maximum length for the value in the Ezsignsignature  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** | [optional] 
 **EEzsignsignatureTextvalidation** | Pointer to [**EnumTextvalidation**](EnumTextvalidation.md) |  | [optional] 
+**EEzsignsignatureDependencyrequirement** | Pointer to [**FieldEEzsignsignatureDependencyrequirement**](FieldEEzsignsignatureDependencyrequirement.md) |  | [optional] 
 **SEzsignsignatureRegexp** | Pointer to **string** | A regular expression to indicate what values are acceptable for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** and eEzsignsignatureTextvalidation is **Custom** | [optional] 
 **ObjContactName** | [**CustomContactNameResponse**](CustomContactNameResponse.md) |  | 
 **ObjContactNameDelegation** | Pointer to [**CustomContactNameResponse**](CustomContactNameResponse.md) |  | [optional] 
@@ -34,6 +35,7 @@ Name | Type | Description | Notes
 **BEzsignsignatureCustomdate** | Pointer to **bool** | Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is **Name** or **Handwritten**) | [optional] 
 **AObjEzsignsignaturecustomdate** | Pointer to [**[]EzsignsignaturecustomdateResponseCompound**](EzsignsignaturecustomdateResponseCompound.md) | An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don&#39;t want to have a date at all. | [optional] 
 **ObjCreditcardtransaction** | Pointer to [**CustomCreditcardtransactionResponse**](CustomCreditcardtransactionResponse.md) |  | [optional] 
+**AObjEzsignelementdependency** | Pointer to [**[]EzsignelementdependencyResponseCompound**](EzsignelementdependencyResponseCompound.md) |  | [optional] 
 
 ## Methods
 
@@ -589,6 +591,31 @@ SetEEzsignsignatureTextvalidation sets EEzsignsignatureTextvalidation field to g
 
 HasEEzsignsignatureTextvalidation returns a boolean if a field has been set.
 
+### GetEEzsignsignatureDependencyrequirement
+
+`func (o *EzsignsignatureResponseCompound) GetEEzsignsignatureDependencyrequirement() FieldEEzsignsignatureDependencyrequirement`
+
+GetEEzsignsignatureDependencyrequirement returns the EEzsignsignatureDependencyrequirement field if non-nil, zero value otherwise.
+
+### GetEEzsignsignatureDependencyrequirementOk
+
+`func (o *EzsignsignatureResponseCompound) GetEEzsignsignatureDependencyrequirementOk() (*FieldEEzsignsignatureDependencyrequirement, bool)`
+
+GetEEzsignsignatureDependencyrequirementOk returns a tuple with the EEzsignsignatureDependencyrequirement field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsignsignatureDependencyrequirement
+
+`func (o *EzsignsignatureResponseCompound) SetEEzsignsignatureDependencyrequirement(v FieldEEzsignsignatureDependencyrequirement)`
+
+SetEEzsignsignatureDependencyrequirement sets EEzsignsignatureDependencyrequirement field to given value.
+
+### HasEEzsignsignatureDependencyrequirement
+
+`func (o *EzsignsignatureResponseCompound) HasEEzsignsignatureDependencyrequirement() bool`
+
+HasEEzsignsignatureDependencyrequirement returns a boolean if a field has been set.
+
 ### GetSEzsignsignatureRegexp
 
 `func (o *EzsignsignatureResponseCompound) GetSEzsignsignatureRegexp() string`
@@ -758,6 +785,31 @@ SetObjCreditcardtransaction sets ObjCreditcardtransaction field to given value.
 `func (o *EzsignsignatureResponseCompound) HasObjCreditcardtransaction() bool`
 
 HasObjCreditcardtransaction returns a boolean if a field has been set.
+
+### GetAObjEzsignelementdependency
+
+`func (o *EzsignsignatureResponseCompound) GetAObjEzsignelementdependency() []EzsignelementdependencyResponseCompound`
+
+GetAObjEzsignelementdependency returns the AObjEzsignelementdependency field if non-nil, zero value otherwise.
+
+### GetAObjEzsignelementdependencyOk
+
+`func (o *EzsignsignatureResponseCompound) GetAObjEzsignelementdependencyOk() (*[]EzsignelementdependencyResponseCompound, bool)`
+
+GetAObjEzsignelementdependencyOk returns a tuple with the AObjEzsignelementdependency field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAObjEzsignelementdependency
+
+`func (o *EzsignsignatureResponseCompound) SetAObjEzsignelementdependency(v []EzsignelementdependencyResponseCompound)`
+
+SetAObjEzsignelementdependency sets AObjEzsignelementdependency field to given value.
+
+### HasAObjEzsignelementdependency
+
+`func (o *EzsignsignatureResponseCompound) HasAObjEzsignelementdependency() bool`
+
+HasAObjEzsignelementdependency returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
