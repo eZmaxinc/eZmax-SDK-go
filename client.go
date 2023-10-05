@@ -142,6 +142,8 @@ type APIClient struct {
 
 	ObjectFranchisereferalincomeAPI *ObjectFranchisereferalincomeAPIService
 
+	ObjectLanguageAPI *ObjectLanguageAPIService
+
 	ObjectModulegroupAPI *ObjectModulegroupAPIService
 
 	ObjectNotificationsectionAPI *ObjectNotificationsectionAPIService
@@ -255,6 +257,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectFranchisebrokerAPI = (*ObjectFranchisebrokerAPIService)(&c.common)
 	c.ObjectFranchiseofficeAPI = (*ObjectFranchiseofficeAPIService)(&c.common)
 	c.ObjectFranchisereferalincomeAPI = (*ObjectFranchisereferalincomeAPIService)(&c.common)
+	c.ObjectLanguageAPI = (*ObjectLanguageAPIService)(&c.common)
 	c.ObjectModulegroupAPI = (*ObjectModulegroupAPIService)(&c.common)
 	c.ObjectNotificationsectionAPI = (*ObjectNotificationsectionAPIService)(&c.common)
 	c.ObjectNotificationtestAPI = (*ObjectNotificationtestAPIService)(&c.common)

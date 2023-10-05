@@ -49,6 +49,7 @@ api_object_font.go
 api_object_franchisebroker.go
 api_object_franchiseoffice.go
 api_object_franchisereferalincome.go
+api_object_language.go
 api_object_modulegroup.go
 api_object_notificationsection.go
 api_object_notificationtest.go
@@ -861,6 +862,9 @@ docs/GlobalEzmaxclientVersionV1Response.md
 docs/GlobalEzmaxcustomerAPI.md
 docs/GlobalEzmaxcustomerGetConfigurationV1Response.md
 docs/HeaderAcceptLanguage.md
+docs/LanguageAutocompleteElementResponse.md
+docs/LanguageGetAutocompleteV2Response.md
+docs/LanguageGetAutocompleteV2ResponseMPayload.md
 docs/ModuleEzsignAPI.md
 docs/ModuleReportAPI.md
 docs/ModuleResponse.md
@@ -931,6 +935,7 @@ docs/ObjectFontAPI.md
 docs/ObjectFranchisebrokerAPI.md
 docs/ObjectFranchiseofficeAPI.md
 docs/ObjectFranchisereferalincomeAPI.md
+docs/ObjectLanguageAPI.md
 docs/ObjectModulegroupAPI.md
 docs/ObjectNotificationsectionAPI.md
 docs/ObjectNotificationtestAPI.md
@@ -1995,6 +2000,9 @@ model_global_customer_get_endpoint_v1_response.go
 model_global_ezmaxclient_version_v1_response.go
 model_global_ezmaxcustomer_get_configuration_v1_response.go
 model_header_accept_language.go
+model_language_autocomplete_element_response.go
+model_language_get_autocomplete_v2_response.go
+model_language_get_autocomplete_v2_response_m_payload.go
 model_module_response.go
 model_module_response_compound.go
 model_modulegroup_get_all_v1_response.go
@@ -2323,6 +2331,7 @@ test/api_object_font_test.go
 test/api_object_franchisebroker_test.go
 test/api_object_franchiseoffice_test.go
 test/api_object_franchisereferalincome_test.go
+test/api_object_language_test.go
 test/api_object_modulegroup_test.go
 test/api_object_notificationsection_test.go
 test/api_object_notificationtest_test.go
