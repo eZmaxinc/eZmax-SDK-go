@@ -26,6 +26,8 @@ const (
 	SENDCODE FieldEEzsigndocumentlogType = "Sendcode"
 	BADCODE FieldEEzsigndocumentlogType = "Badcode"
 	GOODCODE FieldEEzsigndocumentlogType = "Goodcode"
+	BADRESPONSE FieldEEzsigndocumentlogType = "Badresponse"
+	GOODRESPONSE FieldEEzsigndocumentlogType = "Goodresponse"
 	AUTHENTICATION FieldEEzsigndocumentlogType = "Authentication"
 	CREATEPAGE FieldEEzsigndocumentlogType = "Createpage"
 	DOWNLOAD FieldEEzsigndocumentlogType = "Download"
@@ -45,6 +47,8 @@ const (
 	SIGNATURE_ATTACHMENT_DELETED FieldEEzsigndocumentlogType = "SignatureAttachmentDeleted"
 	DECLINED_TO_SIGN FieldEEzsigndocumentlogType = "DeclinedToSign"
 	DELAYED_SEND_EMAIL FieldEEzsigndocumentlogType = "DelayedSendEmail"
+	ANNOTATION_ADDED FieldEEzsigndocumentlogType = "AnnotationAdded"
+	FLATTEN FieldEEzsigndocumentlogType = "Flatten"
 	REGENERATE_PAGE FieldEEzsigndocumentlogType = "RegeneratePage"
 	REGENERATE_PAGE_FORM FieldEEzsigndocumentlogType = "RegeneratePageForm"
 	REASSIGN FieldEEzsigndocumentlogType = "Reassign"
@@ -57,6 +61,8 @@ var AllowedFieldEEzsigndocumentlogTypeEnumValues = []FieldEEzsigndocumentlogType
 	"Sendcode",
 	"Badcode",
 	"Goodcode",
+	"Badresponse",
+	"Goodresponse",
 	"Authentication",
 	"Createpage",
 	"Download",
@@ -76,6 +82,8 @@ var AllowedFieldEEzsigndocumentlogTypeEnumValues = []FieldEEzsigndocumentlogType
 	"SignatureAttachmentDeleted",
 	"DeclinedToSign",
 	"DelayedSendEmail",
+	"AnnotationAdded",
+	"Flatten",
 	"RegeneratePage",
 	"RegeneratePageForm",
 	"Reassign",

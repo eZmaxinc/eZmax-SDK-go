@@ -68,6 +68,7 @@ api_object_user.go
 api_object_usergroup.go
 api_object_usergroupdelegation.go
 api_object_usergroupmembership.go
+api_object_userlogintype.go
 api_object_userstaged.go
 api_object_variableexpense.go
 api_object_versionhistory.go
@@ -954,6 +955,7 @@ docs/ObjectUserAPI.md
 docs/ObjectUsergroupAPI.md
 docs/ObjectUsergroupdelegationAPI.md
 docs/ObjectUsergroupmembershipAPI.md
+docs/ObjectUserlogintypeAPI.md
 docs/ObjectUserstagedAPI.md
 docs/ObjectVariableexpenseAPI.md
 docs/ObjectVersionhistoryAPI.md
@@ -1149,6 +1151,9 @@ docs/UsergroupmembershipRequest.md
 docs/UsergroupmembershipRequestCompound.md
 docs/UsergroupmembershipResponse.md
 docs/UsergroupmembershipResponseCompound.md
+docs/UserlogintypeAutocompleteElementResponse.md
+docs/UserlogintypeGetAutocompleteV2Response.md
+docs/UserlogintypeGetAutocompleteV2ResponseMPayload.md
 docs/UserstagedCreateUserV1Response.md
 docs/UserstagedCreateUserV1ResponseMPayload.md
 docs/UserstagedDeleteObjectV1Response.md
@@ -2218,6 +2223,9 @@ model_usergroupmembership_request.go
 model_usergroupmembership_request_compound.go
 model_usergroupmembership_response.go
 model_usergroupmembership_response_compound.go
+model_userlogintype_autocomplete_element_response.go
+model_userlogintype_get_autocomplete_v2_response.go
+model_userlogintype_get_autocomplete_v2_response_m_payload.go
 model_userstaged_create_user_v1_response.go
 model_userstaged_create_user_v1_response_m_payload.go
 model_userstaged_delete_object_v1_response.go
@@ -2350,6 +2358,7 @@ test/api_object_user_test.go
 test/api_object_usergroup_test.go
 test/api_object_usergroupdelegation_test.go
 test/api_object_usergroupmembership_test.go
+test/api_object_userlogintype_test.go
 test/api_object_userstaged_test.go
 test/api_object_variableexpense_test.go
 test/api_object_versionhistory_test.go

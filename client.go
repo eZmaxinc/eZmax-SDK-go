@@ -180,6 +180,8 @@ type APIClient struct {
 
 	ObjectUsergroupmembershipAPI *ObjectUsergroupmembershipAPIService
 
+	ObjectUserlogintypeAPI *ObjectUserlogintypeAPIService
+
 	ObjectUserstagedAPI *ObjectUserstagedAPIService
 
 	ObjectVariableexpenseAPI *ObjectVariableexpenseAPIService
@@ -276,6 +278,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectUsergroupAPI = (*ObjectUsergroupAPIService)(&c.common)
 	c.ObjectUsergroupdelegationAPI = (*ObjectUsergroupdelegationAPIService)(&c.common)
 	c.ObjectUsergroupmembershipAPI = (*ObjectUsergroupmembershipAPIService)(&c.common)
+	c.ObjectUserlogintypeAPI = (*ObjectUserlogintypeAPIService)(&c.common)
 	c.ObjectUserstagedAPI = (*ObjectUserstagedAPIService)(&c.common)
 	c.ObjectVariableexpenseAPI = (*ObjectVariableexpenseAPIService)(&c.common)
 	c.ObjectVersionhistoryAPI = (*ObjectVersionhistoryAPIService)(&c.common)
