@@ -608,7 +608,7 @@ import (
 
 func main() {
     eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
-    iRowMax := int32(56) // int32 |  (optional) (default to 10000)
+    iRowMax := int32(56) // int32 |  (optional)
     iRowOffset := int32(56) // int32 |  (optional) (default to 0)
     acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
     sFilter := "sFilter_example" // string |  (optional)
@@ -637,7 +637,7 @@ Other parameters are passed through a pointer to a apiEzsignbulksendGetListV1Req
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **eOrderBy** | **string** | Specify how you want the results to be sorted | 
- **iRowMax** | **int32** |  | [default to 10000]
+ **iRowMax** | **int32** |  | 
  **iRowOffset** | **int32** |  | [default to 0]
  **acceptLanguage** | [**HeaderAcceptLanguage**](HeaderAcceptLanguage.md) |  | 
  **sFilter** | **string** |  | 

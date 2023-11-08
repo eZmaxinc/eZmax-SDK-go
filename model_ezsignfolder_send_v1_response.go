@@ -18,7 +18,7 @@ import (
 // checks if the EzsignfolderSendV1Response type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &EzsignfolderSendV1Response{}
 
-// EzsignfolderSendV1Response Response for POST /1/object/ezsignfolder/{pkiEzsignfolderID}/send
+// EzsignfolderSendV1Response Response for GET /1/object/attachment/{pkiAttachmentID}/download
 type EzsignfolderSendV1Response struct {
 	ObjDebugPayload CommonResponseObjDebugPayload `json:"objDebugPayload"`
 	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`

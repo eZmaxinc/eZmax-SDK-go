@@ -22,13 +22,11 @@ func Test_eZmaxApi_ObjectCommunicationAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ObjectCommunicationAPIService CommunicationGetObjectV2", func(t *testing.T) {
+	t.Run("Test ObjectCommunicationAPIService CommunicationSendV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var pkiCommunicationID int32
-
-		resp, httpRes, err := apiClient.ObjectCommunicationAPI.CommunicationGetObjectV2(context.Background(), pkiCommunicationID).Execute()
+		resp, httpRes, err := apiClient.ObjectCommunicationAPI.CommunicationSendV1(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

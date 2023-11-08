@@ -36,7 +36,7 @@ type WebhookResponse struct {
 	// The email that will receive the Webhook in case all attempts fail
 	SWebhookEmailfailed string `json:"sWebhookEmailfailed"`
 	// Whether the Webhook is active or not
-	BWebhookIsactive *bool `json:"bWebhookIsactive,omitempty"`
+	BWebhookIsactive bool `json:"bWebhookIsactive"`
 	// Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use
 	BWebhookSkipsslvalidation bool `json:"bWebhookSkipsslvalidation"`
 }
@@ -45,13 +45,14 @@ type WebhookResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWebhookResponse(pkiWebhookID int32, sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookSkipsslvalidation bool) *WebhookResponse {
+func NewWebhookResponse(pkiWebhookID int32, sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookIsactive bool, bWebhookSkipsslvalidation bool) *WebhookResponse {
 	this := WebhookResponse{}
 	this.PkiWebhookID = pkiWebhookID
 	this.SWebhookDescription = sWebhookDescription
 	this.EWebhookModule = eWebhookModule
 	this.SWebhookUrl = sWebhookUrl
 	this.SWebhookEmailfailed = sWebhookEmailfailed
+	this.BWebhookIsactive = bWebhookIsactive
 	this.BWebhookSkipsslvalidation = bWebhookSkipsslvalidation
 	return &this
 }
@@ -312,36 +313,28 @@ func (o *WebhookResponse) SetSWebhookEmailfailed(v string) {
 	o.SWebhookEmailfailed = v
 }
 
-// GetBWebhookIsactive returns the BWebhookIsactive field value if set, zero value otherwise.
+// GetBWebhookIsactive returns the BWebhookIsactive field value
 func (o *WebhookResponse) GetBWebhookIsactive() bool {
-	if o == nil || IsNil(o.BWebhookIsactive) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.BWebhookIsactive
+
+	return o.BWebhookIsactive
 }
 
-// GetBWebhookIsactiveOk returns a tuple with the BWebhookIsactive field value if set, nil otherwise
+// GetBWebhookIsactiveOk returns a tuple with the BWebhookIsactive field value
 // and a boolean to check if the value has been set.
 func (o *WebhookResponse) GetBWebhookIsactiveOk() (*bool, bool) {
-	if o == nil || IsNil(o.BWebhookIsactive) {
+	if o == nil {
 		return nil, false
 	}
-	return o.BWebhookIsactive, true
+	return &o.BWebhookIsactive, true
 }
 
-// HasBWebhookIsactive returns a boolean if a field has been set.
-func (o *WebhookResponse) HasBWebhookIsactive() bool {
-	if o != nil && !IsNil(o.BWebhookIsactive) {
-		return true
-	}
-
-	return false
-}
-
-// SetBWebhookIsactive gets a reference to the given bool and assigns it to the BWebhookIsactive field.
+// SetBWebhookIsactive sets field value
 func (o *WebhookResponse) SetBWebhookIsactive(v bool) {
-	o.BWebhookIsactive = &v
+	o.BWebhookIsactive = v
 }
 
 // GetBWebhookSkipsslvalidation returns the BWebhookSkipsslvalidation field value
@@ -395,9 +388,7 @@ func (o WebhookResponse) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["sWebhookUrl"] = o.SWebhookUrl
 	toSerialize["sWebhookEmailfailed"] = o.SWebhookEmailfailed
-	if !IsNil(o.BWebhookIsactive) {
-		toSerialize["bWebhookIsactive"] = o.BWebhookIsactive
-	}
+	toSerialize["bWebhookIsactive"] = o.BWebhookIsactive
 	toSerialize["bWebhookSkipsslvalidation"] = o.BWebhookSkipsslvalidation
 	return toSerialize, nil
 }

@@ -170,6 +170,34 @@ func Test_eZmaxApi_ObjectEzsignfolderAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test ObjectEzsignfolderAPIService EzsignfolderGetCommunicationrecipientsV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiEzsignfolderID int32
+
+		resp, httpRes, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetCommunicationrecipientsV1(context.Background(), pkiEzsignfolderID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ObjectEzsignfolderAPIService EzsignfolderGetCommunicationsendersV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiEzsignfolderID int32
+
+		resp, httpRes, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetCommunicationsendersV1(context.Background(), pkiEzsignfolderID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ObjectEzsignfolderAPIService EzsignfolderGetEzsigndocumentsV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

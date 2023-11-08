@@ -530,9 +530,6 @@ func (a *ObjectBillingentityinternalAPIService) BillingentityinternalGetListV1Ex
 	}
 	if r.iRowMax != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowMax", r.iRowMax, "")
-	} else {
-		var defaultValue int32 = 10000
-		r.iRowMax = &defaultValue
 	}
 	if r.iRowOffset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowOffset", r.iRowOffset, "")

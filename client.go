@@ -66,11 +66,15 @@ type APIClient struct {
 
 	ObjectApikeyAPI *ObjectApikeyAPIService
 
+	ObjectAttachmentAPI *ObjectAttachmentAPIService
+
 	ObjectBillingentityexternalAPI *ObjectBillingentityexternalAPIService
 
 	ObjectBillingentityinternalAPI *ObjectBillingentityinternalAPIService
 
 	ObjectBrandingAPI *ObjectBrandingAPIService
+
+	ObjectBuyercontractAPI *ObjectBuyercontractAPIService
 
 	ObjectClonehistoryAPI *ObjectClonehistoryAPIService
 
@@ -81,6 +85,8 @@ type APIClient struct {
 	ObjectCorsAPI *ObjectCorsAPIService
 
 	ObjectDepartmentAPI *ObjectDepartmentAPIService
+
+	ObjectElectronicfundstransferAPI *ObjectElectronicfundstransferAPIService
 
 	ObjectEmailtypeAPI *ObjectEmailtypeAPIService
 
@@ -142,6 +148,14 @@ type APIClient struct {
 
 	ObjectFranchisereferalincomeAPI *ObjectFranchisereferalincomeAPIService
 
+	ObjectInscriptionAPI *ObjectInscriptionAPIService
+
+	ObjectInscriptionnotauthenticatedAPI *ObjectInscriptionnotauthenticatedAPIService
+
+	ObjectInscriptiontempAPI *ObjectInscriptiontempAPIService
+
+	ObjectInvoiceAPI *ObjectInvoiceAPIService
+
 	ObjectLanguageAPI *ObjectLanguageAPIService
 
 	ObjectModulegroupAPI *ObjectModulegroupAPIService
@@ -150,6 +164,8 @@ type APIClient struct {
 
 	ObjectNotificationtestAPI *ObjectNotificationtestAPIService
 
+	ObjectOtherincomeAPI *ObjectOtherincomeAPIService
+
 	ObjectPaymenttermAPI *ObjectPaymenttermAPIService
 
 	ObjectPeriodAPI *ObjectPeriodAPIService
@@ -157,6 +173,8 @@ type APIClient struct {
 	ObjectPermissionAPI *ObjectPermissionAPIService
 
 	ObjectPhonetypeAPI *ObjectPhonetypeAPIService
+
+	ObjectRejectedoffertopurchaseAPI *ObjectRejectedoffertopurchaseAPIService
 
 	ObjectSecretquestionAPI *ObjectSecretquestionAPIService
 
@@ -221,14 +239,17 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ModuleUserAPI = (*ModuleUserAPIService)(&c.common)
 	c.ObjectActivesessionAPI = (*ObjectActivesessionAPIService)(&c.common)
 	c.ObjectApikeyAPI = (*ObjectApikeyAPIService)(&c.common)
+	c.ObjectAttachmentAPI = (*ObjectAttachmentAPIService)(&c.common)
 	c.ObjectBillingentityexternalAPI = (*ObjectBillingentityexternalAPIService)(&c.common)
 	c.ObjectBillingentityinternalAPI = (*ObjectBillingentityinternalAPIService)(&c.common)
 	c.ObjectBrandingAPI = (*ObjectBrandingAPIService)(&c.common)
+	c.ObjectBuyercontractAPI = (*ObjectBuyercontractAPIService)(&c.common)
 	c.ObjectClonehistoryAPI = (*ObjectClonehistoryAPIService)(&c.common)
 	c.ObjectCommunicationAPI = (*ObjectCommunicationAPIService)(&c.common)
 	c.ObjectCompanyAPI = (*ObjectCompanyAPIService)(&c.common)
 	c.ObjectCorsAPI = (*ObjectCorsAPIService)(&c.common)
 	c.ObjectDepartmentAPI = (*ObjectDepartmentAPIService)(&c.common)
+	c.ObjectElectronicfundstransferAPI = (*ObjectElectronicfundstransferAPIService)(&c.common)
 	c.ObjectEmailtypeAPI = (*ObjectEmailtypeAPIService)(&c.common)
 	c.ObjectEzmaxinvoicingAPI = (*ObjectEzmaxinvoicingAPIService)(&c.common)
 	c.ObjectEzmaxproductAPI = (*ObjectEzmaxproductAPIService)(&c.common)
@@ -259,14 +280,20 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectFranchisebrokerAPI = (*ObjectFranchisebrokerAPIService)(&c.common)
 	c.ObjectFranchiseofficeAPI = (*ObjectFranchiseofficeAPIService)(&c.common)
 	c.ObjectFranchisereferalincomeAPI = (*ObjectFranchisereferalincomeAPIService)(&c.common)
+	c.ObjectInscriptionAPI = (*ObjectInscriptionAPIService)(&c.common)
+	c.ObjectInscriptionnotauthenticatedAPI = (*ObjectInscriptionnotauthenticatedAPIService)(&c.common)
+	c.ObjectInscriptiontempAPI = (*ObjectInscriptiontempAPIService)(&c.common)
+	c.ObjectInvoiceAPI = (*ObjectInvoiceAPIService)(&c.common)
 	c.ObjectLanguageAPI = (*ObjectLanguageAPIService)(&c.common)
 	c.ObjectModulegroupAPI = (*ObjectModulegroupAPIService)(&c.common)
 	c.ObjectNotificationsectionAPI = (*ObjectNotificationsectionAPIService)(&c.common)
 	c.ObjectNotificationtestAPI = (*ObjectNotificationtestAPIService)(&c.common)
+	c.ObjectOtherincomeAPI = (*ObjectOtherincomeAPIService)(&c.common)
 	c.ObjectPaymenttermAPI = (*ObjectPaymenttermAPIService)(&c.common)
 	c.ObjectPeriodAPI = (*ObjectPeriodAPIService)(&c.common)
 	c.ObjectPermissionAPI = (*ObjectPermissionAPIService)(&c.common)
 	c.ObjectPhonetypeAPI = (*ObjectPhonetypeAPIService)(&c.common)
+	c.ObjectRejectedoffertopurchaseAPI = (*ObjectRejectedoffertopurchaseAPIService)(&c.common)
 	c.ObjectSecretquestionAPI = (*ObjectSecretquestionAPIService)(&c.common)
 	c.ObjectSessionhistoryAPI = (*ObjectSessionhistoryAPIService)(&c.common)
 	c.ObjectSignatureAPI = (*ObjectSignatureAPIService)(&c.common)

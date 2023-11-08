@@ -31,7 +31,7 @@ type CommonResponseObjDebugPayloadGetList struct {
 	AFilter CommonResponseFilter `json:"a_Filter"`
 	// List of available values for *eOrderBy*
 	AOrderBy map[string]string `json:"a_OrderBy"`
-	// The maximum numbers of results to be returned
+	// The maximum numbers of results to be returned.  When the content-type is **application/json** there is an implicit default of 10 000.  When it's **application/vnd.openxmlformats-officedocument.spreadsheetml.sheet** the is no implicit default so if you do not specify iRowMax, all records will be returned.
 	IRowMax int32 `json:"iRowMax"`
 	// The starting element from where to start retrieving the results. For example if you started at iRowOffset=0 and asked for iRowMax=100, to get the next 100 results, you could specify iRowOffset=100&iRowMax=100,
 	IRowOffset int32 `json:"iRowOffset"`
@@ -59,8 +59,6 @@ func NewCommonResponseObjDebugPayloadGetList(iVersionMin int32, iVersionMax int3
 // but it doesn't guarantee that properties required by API are set
 func NewCommonResponseObjDebugPayloadGetListWithDefaults() *CommonResponseObjDebugPayloadGetList {
 	this := CommonResponseObjDebugPayloadGetList{}
-	var iRowMax int32 = 10000
-	this.IRowMax = iRowMax
 	var iRowOffset int32 = 0
 	this.IRowOffset = iRowOffset
 	return &this

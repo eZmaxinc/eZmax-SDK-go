@@ -16,7 +16,7 @@ import (
 	"fmt"
 )
 
-// FieldECommunicationrecipientType The type for the Communicationrecipient
+// FieldECommunicationrecipientType The type for the Communicationrecipient.  Only used when eCommunicationType is **Email**
 type FieldECommunicationrecipientType string
 
 // List of Field-eCommunicationrecipientType

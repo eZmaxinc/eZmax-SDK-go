@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **EWebhookManagementevent** | Pointer to [**FieldEWebhookManagementevent**](FieldEWebhookManagementevent.md) |  | [optional] 
 **SWebhookUrl** | **string** | The URL of the Webhook callback | 
 **SWebhookEmailfailed** | **string** | The email that will receive the Webhook in case all attempts fail | 
-**BWebhookIsactive** | Pointer to **bool** | Whether the Webhook is active or not | [optional] 
+**BWebhookIsactive** | **bool** | Whether the Webhook is active or not | 
 **BWebhookSkipsslvalidation** | **bool** | Wheter the server&#39;s SSL certificate should be validated or not. Not recommended to skip for production use | 
 **SWebhookEvent** | Pointer to **string** | The concatenated string to describe the Webhook event | [optional] 
 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewWebhookResponseCompound
 
-`func NewWebhookResponseCompound(pkiWebhookID int32, sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookSkipsslvalidation bool, ) *WebhookResponseCompound`
+`func NewWebhookResponseCompound(pkiWebhookID int32, sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookIsactive bool, bWebhookSkipsslvalidation bool, ) *WebhookResponseCompound`
 
 NewWebhookResponseCompound instantiates a new WebhookResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -255,11 +255,6 @@ and a boolean to check if the value has been set.
 
 SetBWebhookIsactive sets BWebhookIsactive field to given value.
 
-### HasBWebhookIsactive
-
-`func (o *WebhookResponseCompound) HasBWebhookIsactive() bool`
-
-HasBWebhookIsactive returns a boolean if a field has been set.
 
 ### GetBWebhookSkipsslvalidation
 

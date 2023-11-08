@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **EWebhookManagementevent** | Pointer to [**FieldEWebhookManagementevent**](FieldEWebhookManagementevent.md) |  | [optional] 
 **SWebhookUrl** | **string** | The URL of the Webhook callback | 
 **SWebhookEmailfailed** | **string** | The email that will receive the Webhook in case all attempts fail | 
-**BWebhookIsactive** | Pointer to **bool** | Whether the Webhook is active or not | [optional] 
+**BWebhookIsactive** | **bool** | Whether the Webhook is active or not | 
 **BWebhookSkipsslvalidation** | **bool** | Wheter the server&#39;s SSL certificate should be validated or not. Not recommended to skip for production use | 
 **PksCustomerCode** | **string** | The customer code assigned to your account | 
 **BWebhookTest** | **bool** | Wheter the webhook received is a manual test or a real event | 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewCustomWebhookResponse
 
-`func NewCustomWebhookResponse(pkiWebhookID int32, sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookSkipsslvalidation bool, pksCustomerCode string, bWebhookTest bool, ) *CustomWebhookResponse`
+`func NewCustomWebhookResponse(pkiWebhookID int32, sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookIsactive bool, bWebhookSkipsslvalidation bool, pksCustomerCode string, bWebhookTest bool, ) *CustomWebhookResponse`
 
 NewCustomWebhookResponse instantiates a new CustomWebhookResponse object
 This constructor will assign default values to properties that have it defined,
@@ -256,11 +256,6 @@ and a boolean to check if the value has been set.
 
 SetBWebhookIsactive sets BWebhookIsactive field to given value.
 
-### HasBWebhookIsactive
-
-`func (o *CustomWebhookResponse) HasBWebhookIsactive() bool`
-
-HasBWebhookIsactive returns a boolean if a field has been set.
 
 ### GetBWebhookSkipsslvalidation
 

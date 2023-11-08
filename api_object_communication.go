@@ -17,67 +17,68 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
 // ObjectCommunicationAPIService ObjectCommunicationAPI service
 type ObjectCommunicationAPIService service
 
-type ApiCommunicationGetObjectV2Request struct {
+type ApiCommunicationSendV1Request struct {
 	ctx context.Context
 	ApiService *ObjectCommunicationAPIService
-	pkiCommunicationID int32
+	communicationSendV1Request *CommunicationSendV1Request
 }
 
-func (r ApiCommunicationGetObjectV2Request) Execute() (*CommunicationGetObjectV2Response, *http.Response, error) {
-	return r.ApiService.CommunicationGetObjectV2Execute(r)
+func (r ApiCommunicationSendV1Request) CommunicationSendV1Request(communicationSendV1Request CommunicationSendV1Request) ApiCommunicationSendV1Request {
+	r.communicationSendV1Request = &communicationSendV1Request
+	return r
+}
+
+func (r ApiCommunicationSendV1Request) Execute() (*CommunicationSendV1Response, *http.Response, error) {
+	return r.ApiService.CommunicationSendV1Execute(r)
 }
 
 /*
-CommunicationGetObjectV2 Retrieve an existing Communication
+CommunicationSendV1 Send a new Communication
 
-
+The endpoint allows to send one or many elements at once.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pkiCommunicationID
- @return ApiCommunicationGetObjectV2Request
+ @return ApiCommunicationSendV1Request
 */
-func (a *ObjectCommunicationAPIService) CommunicationGetObjectV2(ctx context.Context, pkiCommunicationID int32) ApiCommunicationGetObjectV2Request {
-	return ApiCommunicationGetObjectV2Request{
+func (a *ObjectCommunicationAPIService) CommunicationSendV1(ctx context.Context) ApiCommunicationSendV1Request {
+	return ApiCommunicationSendV1Request{
 		ApiService: a,
 		ctx: ctx,
-		pkiCommunicationID: pkiCommunicationID,
 	}
 }
 
 // Execute executes the request
-//  @return CommunicationGetObjectV2Response
-func (a *ObjectCommunicationAPIService) CommunicationGetObjectV2Execute(r ApiCommunicationGetObjectV2Request) (*CommunicationGetObjectV2Response, *http.Response, error) {
+//  @return CommunicationSendV1Response
+func (a *ObjectCommunicationAPIService) CommunicationSendV1Execute(r ApiCommunicationSendV1Request) (*CommunicationSendV1Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommunicationGetObjectV2Response
+		localVarReturnValue  *CommunicationSendV1Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectCommunicationAPIService.CommunicationGetObjectV2")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectCommunicationAPIService.CommunicationSendV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/2/object/communication/{pkiCommunicationID}"
-	localVarPath = strings.Replace(localVarPath, "{"+"pkiCommunicationID"+"}", url.PathEscape(parameterValueToString(r.pkiCommunicationID, "pkiCommunicationID")), -1)
+	localVarPath := localBasePath + "/1/object/communication/send"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.pkiCommunicationID < 0 {
-		return localVarReturnValue, nil, reportError("pkiCommunicationID must be greater than 0")
+	if r.communicationSendV1Request == nil {
+		return localVarReturnValue, nil, reportError("communicationSendV1Request is required and must be specified")
 	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -93,6 +94,8 @@ func (a *ObjectCommunicationAPIService) CommunicationGetObjectV2Execute(r ApiCom
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.communicationSendV1Request
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -128,16 +131,6 @@ func (a *ObjectCommunicationAPIService) CommunicationGetObjectV2Execute(r ApiCom
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v CommonResponseError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
