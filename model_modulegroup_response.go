@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ModulegroupResponse type satisfies the MappedNullable interface at compile time
@@ -25,6 +27,8 @@ type ModulegroupResponse struct {
 	// The name of the Modulegroup in the language of the requester
 	SModulegroupNameX string `json:"sModulegroupNameX"`
 }
+
+type _ModulegroupResponse ModulegroupResponse
 
 // NewModulegroupResponse instantiates a new ModulegroupResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -106,6 +110,44 @@ func (o ModulegroupResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["pkiModulegroupID"] = o.PkiModulegroupID
 	toSerialize["sModulegroupNameX"] = o.SModulegroupNameX
 	return toSerialize, nil
+}
+
+func (o *ModulegroupResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiModulegroupID",
+		"sModulegroupNameX",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varModulegroupResponse := _ModulegroupResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varModulegroupResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ModulegroupResponse(varModulegroupResponse)
+
+	return err
 }
 
 type NullableModulegroupResponse struct {

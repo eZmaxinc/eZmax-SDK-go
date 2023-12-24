@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the VariableexpenseAutocompleteElementResponse type satisfies the MappedNullable interface at compile time
@@ -27,6 +29,8 @@ type VariableexpenseAutocompleteElementResponse struct {
 	// Whether the variableexpense is active or not
 	BVariableexpenseIsactive bool `json:"bVariableexpenseIsactive"`
 }
+
+type _VariableexpenseAutocompleteElementResponse VariableexpenseAutocompleteElementResponse
 
 // NewVariableexpenseAutocompleteElementResponse instantiates a new VariableexpenseAutocompleteElementResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -134,6 +138,45 @@ func (o VariableexpenseAutocompleteElementResponse) ToMap() (map[string]interfac
 	toSerialize["pkiVariableexpenseID"] = o.PkiVariableexpenseID
 	toSerialize["bVariableexpenseIsactive"] = o.BVariableexpenseIsactive
 	return toSerialize, nil
+}
+
+func (o *VariableexpenseAutocompleteElementResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"sVariableexpenseDescriptionX",
+		"pkiVariableexpenseID",
+		"bVariableexpenseIsactive",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varVariableexpenseAutocompleteElementResponse := _VariableexpenseAutocompleteElementResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varVariableexpenseAutocompleteElementResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = VariableexpenseAutocompleteElementResponse(varVariableexpenseAutocompleteElementResponse)
+
+	return err
 }
 
 type NullableVariableexpenseAutocompleteElementResponse struct {

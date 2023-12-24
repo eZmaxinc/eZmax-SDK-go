@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the TaxassignmentAutocompleteElementResponse type satisfies the MappedNullable interface at compile time
@@ -27,6 +29,8 @@ type TaxassignmentAutocompleteElementResponse struct {
 	// Whether the Taxassignment is active or not
 	BTaxassignmentIsactive bool `json:"bTaxassignmentIsactive"`
 }
+
+type _TaxassignmentAutocompleteElementResponse TaxassignmentAutocompleteElementResponse
 
 // NewTaxassignmentAutocompleteElementResponse instantiates a new TaxassignmentAutocompleteElementResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -134,6 +138,45 @@ func (o TaxassignmentAutocompleteElementResponse) ToMap() (map[string]interface{
 	toSerialize["pkiTaxassignmentID"] = o.PkiTaxassignmentID
 	toSerialize["bTaxassignmentIsactive"] = o.BTaxassignmentIsactive
 	return toSerialize, nil
+}
+
+func (o *TaxassignmentAutocompleteElementResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"sTaxassignmentDescriptionX",
+		"pkiTaxassignmentID",
+		"bTaxassignmentIsactive",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varTaxassignmentAutocompleteElementResponse := _TaxassignmentAutocompleteElementResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varTaxassignmentAutocompleteElementResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = TaxassignmentAutocompleteElementResponse(varTaxassignmentAutocompleteElementResponse)
+
+	return err
 }
 
 type NullableTaxassignmentAutocompleteElementResponse struct {

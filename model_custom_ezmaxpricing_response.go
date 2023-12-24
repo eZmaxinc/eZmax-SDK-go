@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the CustomEzmaxpricingResponse type satisfies the MappedNullable interface at compile time
@@ -29,6 +31,8 @@ type CustomEzmaxpricingResponse struct {
 	// The end date of the Ezmaxpricing
 	DtEzmaxpricingEnd *string `json:"dtEzmaxpricingEnd,omitempty"`
 }
+
+type _CustomEzmaxpricingResponse CustomEzmaxpricingResponse
 
 // NewCustomEzmaxpricingResponse instantiates a new CustomEzmaxpricingResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -171,6 +175,45 @@ func (o CustomEzmaxpricingResponse) ToMap() (map[string]interface{}, error) {
 		toSerialize["dtEzmaxpricingEnd"] = o.DtEzmaxpricingEnd
 	}
 	return toSerialize, nil
+}
+
+func (o *CustomEzmaxpricingResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiEzmaxpricingID",
+		"dEzmaxpricingRebateezsignallagents",
+		"dtEzmaxpricingStart",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varCustomEzmaxpricingResponse := _CustomEzmaxpricingResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varCustomEzmaxpricingResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = CustomEzmaxpricingResponse(varCustomEzmaxpricingResponse)
+
+	return err
 }
 
 type NullableCustomEzmaxpricingResponse struct {

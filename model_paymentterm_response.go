@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the PaymenttermResponse type satisfies the MappedNullable interface at compile time
@@ -32,6 +34,8 @@ type PaymenttermResponse struct {
 	BPaymenttermIsactive bool `json:"bPaymenttermIsactive"`
 	ObjAudit CommonAudit `json:"objAudit"`
 }
+
+type _PaymenttermResponse PaymenttermResponse
 
 // NewPaymenttermResponse instantiates a new PaymenttermResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -243,6 +247,49 @@ func (o PaymenttermResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["bPaymenttermIsactive"] = o.BPaymenttermIsactive
 	toSerialize["objAudit"] = o.ObjAudit
 	return toSerialize, nil
+}
+
+func (o *PaymenttermResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiPaymenttermID",
+		"sPaymenttermCode",
+		"ePaymenttermType",
+		"iPaymenttermDay",
+		"objPaymenttermDescription",
+		"bPaymenttermIsactive",
+		"objAudit",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varPaymenttermResponse := _PaymenttermResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varPaymenttermResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PaymenttermResponse(varPaymenttermResponse)
+
+	return err
 }
 
 type NullablePaymenttermResponse struct {

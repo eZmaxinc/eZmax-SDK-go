@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiCommunicationrecipientID** | Pointer to **int32** | The unique ID of the Communicationrecipient. | [optional] 
 **FkiAgentID** | Pointer to **int32** | The unique ID of the Agent. | [optional] 
-**FkiAgentincorporationID** | Pointer to **int32** | The unique ID of the Agentincorporation. | [optional] 
 **FkiBrokerID** | Pointer to **int32** | The unique ID of the Broker. | [optional] 
+**FkiContactID** | Pointer to **int32** | The unique ID of the Contact | [optional] 
 **FkiCustomerID** | Pointer to **int32** | The unique ID of the Customer. | [optional] 
 **FkiEmployeeID** | Pointer to **int32** | The unique ID of the Employee. | [optional] 
 **FkiAssistantID** | Pointer to **int32** | The unique ID of the Assistant. | [optional] 
@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **FkiNotaryID** | Pointer to **int32** | The unique ID of the Notary. | [optional] 
 **FkiSupplierID** | Pointer to **int32** | The unique ID of the Supplier. | [optional] 
 **FkiUserID** | Pointer to **int32** | The unique ID of the User | [optional] 
+**FkiMailboxsharedID** | Pointer to **int32** | The unique ID of the Mailboxshared | [optional] 
+**FkiPhonelinesharedID** | Pointer to **int32** | The unique ID of the Phonelineshared | [optional] 
 **ECommunicationrecipientType** | Pointer to [**FieldECommunicationrecipientType**](FieldECommunicationrecipientType.md) |  | [optional] 
 
 ## Methods
@@ -87,31 +89,6 @@ SetFkiAgentID sets FkiAgentID field to given value.
 
 HasFkiAgentID returns a boolean if a field has been set.
 
-### GetFkiAgentincorporationID
-
-`func (o *CommunicationrecipientRequestCompound) GetFkiAgentincorporationID() int32`
-
-GetFkiAgentincorporationID returns the FkiAgentincorporationID field if non-nil, zero value otherwise.
-
-### GetFkiAgentincorporationIDOk
-
-`func (o *CommunicationrecipientRequestCompound) GetFkiAgentincorporationIDOk() (*int32, bool)`
-
-GetFkiAgentincorporationIDOk returns a tuple with the FkiAgentincorporationID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFkiAgentincorporationID
-
-`func (o *CommunicationrecipientRequestCompound) SetFkiAgentincorporationID(v int32)`
-
-SetFkiAgentincorporationID sets FkiAgentincorporationID field to given value.
-
-### HasFkiAgentincorporationID
-
-`func (o *CommunicationrecipientRequestCompound) HasFkiAgentincorporationID() bool`
-
-HasFkiAgentincorporationID returns a boolean if a field has been set.
-
 ### GetFkiBrokerID
 
 `func (o *CommunicationrecipientRequestCompound) GetFkiBrokerID() int32`
@@ -136,6 +113,31 @@ SetFkiBrokerID sets FkiBrokerID field to given value.
 `func (o *CommunicationrecipientRequestCompound) HasFkiBrokerID() bool`
 
 HasFkiBrokerID returns a boolean if a field has been set.
+
+### GetFkiContactID
+
+`func (o *CommunicationrecipientRequestCompound) GetFkiContactID() int32`
+
+GetFkiContactID returns the FkiContactID field if non-nil, zero value otherwise.
+
+### GetFkiContactIDOk
+
+`func (o *CommunicationrecipientRequestCompound) GetFkiContactIDOk() (*int32, bool)`
+
+GetFkiContactIDOk returns a tuple with the FkiContactID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiContactID
+
+`func (o *CommunicationrecipientRequestCompound) SetFkiContactID(v int32)`
+
+SetFkiContactID sets FkiContactID field to given value.
+
+### HasFkiContactID
+
+`func (o *CommunicationrecipientRequestCompound) HasFkiContactID() bool`
+
+HasFkiContactID returns a boolean if a field has been set.
 
 ### GetFkiCustomerID
 
@@ -336,6 +338,56 @@ SetFkiUserID sets FkiUserID field to given value.
 `func (o *CommunicationrecipientRequestCompound) HasFkiUserID() bool`
 
 HasFkiUserID returns a boolean if a field has been set.
+
+### GetFkiMailboxsharedID
+
+`func (o *CommunicationrecipientRequestCompound) GetFkiMailboxsharedID() int32`
+
+GetFkiMailboxsharedID returns the FkiMailboxsharedID field if non-nil, zero value otherwise.
+
+### GetFkiMailboxsharedIDOk
+
+`func (o *CommunicationrecipientRequestCompound) GetFkiMailboxsharedIDOk() (*int32, bool)`
+
+GetFkiMailboxsharedIDOk returns a tuple with the FkiMailboxsharedID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiMailboxsharedID
+
+`func (o *CommunicationrecipientRequestCompound) SetFkiMailboxsharedID(v int32)`
+
+SetFkiMailboxsharedID sets FkiMailboxsharedID field to given value.
+
+### HasFkiMailboxsharedID
+
+`func (o *CommunicationrecipientRequestCompound) HasFkiMailboxsharedID() bool`
+
+HasFkiMailboxsharedID returns a boolean if a field has been set.
+
+### GetFkiPhonelinesharedID
+
+`func (o *CommunicationrecipientRequestCompound) GetFkiPhonelinesharedID() int32`
+
+GetFkiPhonelinesharedID returns the FkiPhonelinesharedID field if non-nil, zero value otherwise.
+
+### GetFkiPhonelinesharedIDOk
+
+`func (o *CommunicationrecipientRequestCompound) GetFkiPhonelinesharedIDOk() (*int32, bool)`
+
+GetFkiPhonelinesharedIDOk returns a tuple with the FkiPhonelinesharedID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiPhonelinesharedID
+
+`func (o *CommunicationrecipientRequestCompound) SetFkiPhonelinesharedID(v int32)`
+
+SetFkiPhonelinesharedID sets FkiPhonelinesharedID field to given value.
+
+### HasFkiPhonelinesharedID
+
+`func (o *CommunicationrecipientRequestCompound) HasFkiPhonelinesharedID() bool`
+
+HasFkiPhonelinesharedID returns a boolean if a field has been set.
 
 ### GetECommunicationrecipientType
 

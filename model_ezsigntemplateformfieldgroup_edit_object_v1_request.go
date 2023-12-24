@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigntemplateformfieldgroupEditObjectV1Request type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &EzsigntemplateformfieldgroupEditObjectV1Request{}
 type EzsigntemplateformfieldgroupEditObjectV1Request struct {
 	ObjEzsigntemplateformfieldgroup EzsigntemplateformfieldgroupRequestCompound `json:"objEzsigntemplateformfieldgroup"`
 }
+
+type _EzsigntemplateformfieldgroupEditObjectV1Request EzsigntemplateformfieldgroupEditObjectV1Request
 
 // NewEzsigntemplateformfieldgroupEditObjectV1Request instantiates a new EzsigntemplateformfieldgroupEditObjectV1Request object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o EzsigntemplateformfieldgroupEditObjectV1Request) ToMap() (map[string]int
 	toSerialize := map[string]interface{}{}
 	toSerialize["objEzsigntemplateformfieldgroup"] = o.ObjEzsigntemplateformfieldgroup
 	return toSerialize, nil
+}
+
+func (o *EzsigntemplateformfieldgroupEditObjectV1Request) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"objEzsigntemplateformfieldgroup",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigntemplateformfieldgroupEditObjectV1Request := _EzsigntemplateformfieldgroupEditObjectV1Request{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigntemplateformfieldgroupEditObjectV1Request)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigntemplateformfieldgroupEditObjectV1Request(varEzsigntemplateformfieldgroupEditObjectV1Request)
+
+	return err
 }
 
 type NullableEzsigntemplateformfieldgroupEditObjectV1Request struct {

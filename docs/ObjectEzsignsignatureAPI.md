@@ -29,24 +29,24 @@ Create a new Ezsignsignature
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    ezsignsignatureCreateObjectV1Request := []openapiclient.EzsignsignatureCreateObjectV1Request{*openapiclient.NewEzsignsignatureCreateObjectV1Request()} // []EzsignsignatureCreateObjectV1Request | 
+	ezsignsignatureCreateObjectV1Request := []openapiclient.EzsignsignatureCreateObjectV1Request{*openapiclient.NewEzsignsignatureCreateObjectV1Request()} // []EzsignsignatureCreateObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignsignatureAPI.EzsignsignatureCreateObjectV1(context.Background()).EzsignsignatureCreateObjectV1Request(ezsignsignatureCreateObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignatureAPI.EzsignsignatureCreateObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignsignatureCreateObjectV1`: EzsignsignatureCreateObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsignatureAPI.EzsignsignatureCreateObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignsignatureAPI.EzsignsignatureCreateObjectV1(context.Background()).EzsignsignatureCreateObjectV1Request(ezsignsignatureCreateObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignatureAPI.EzsignsignatureCreateObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignsignatureCreateObjectV1`: EzsignsignatureCreateObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsignatureAPI.EzsignsignatureCreateObjectV1`: %v\n", resp)
 }
 ```
 
@@ -95,24 +95,24 @@ Create a new Ezsignsignature
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    ezsignsignatureCreateObjectV2Request := *openapiclient.NewEzsignsignatureCreateObjectV2Request([]openapiclient.EzsignsignatureRequestCompound{*openapiclient.NewEzsignsignatureRequestCompound(int32(20), int32(1), int32(200), int32(300), int32(1), openapiclient.Field-eEzsignsignatureType("Acknowledgement"), int32(97))}) // EzsignsignatureCreateObjectV2Request | 
+	ezsignsignatureCreateObjectV2Request := *openapiclient.NewEzsignsignatureCreateObjectV2Request([]openapiclient.EzsignsignatureRequestCompound{*openapiclient.NewEzsignsignatureRequestCompound(int32(20), int32(1), int32(200), int32(300), int32(1), openapiclient.Field-eEzsignsignatureType("Acknowledgement"), int32(97))}) // EzsignsignatureCreateObjectV2Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignsignatureAPI.EzsignsignatureCreateObjectV2(context.Background()).EzsignsignatureCreateObjectV2Request(ezsignsignatureCreateObjectV2Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignatureAPI.EzsignsignatureCreateObjectV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignsignatureCreateObjectV2`: EzsignsignatureCreateObjectV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsignatureAPI.EzsignsignatureCreateObjectV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignsignatureAPI.EzsignsignatureCreateObjectV2(context.Background()).EzsignsignatureCreateObjectV2Request(ezsignsignatureCreateObjectV2Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignatureAPI.EzsignsignatureCreateObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignsignatureCreateObjectV2`: EzsignsignatureCreateObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsignatureAPI.EzsignsignatureCreateObjectV2`: %v\n", resp)
 }
 ```
 
@@ -161,24 +161,24 @@ Delete an existing Ezsignsignature
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignsignatureID := int32(56) // int32 | 
+	pkiEzsignsignatureID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignsignatureAPI.EzsignsignatureDeleteObjectV1(context.Background(), pkiEzsignsignatureID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignatureAPI.EzsignsignatureDeleteObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignsignatureDeleteObjectV1`: EzsignsignatureDeleteObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsignatureAPI.EzsignsignatureDeleteObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignsignatureAPI.EzsignsignatureDeleteObjectV1(context.Background(), pkiEzsignsignatureID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignatureAPI.EzsignsignatureDeleteObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignsignatureDeleteObjectV1`: EzsignsignatureDeleteObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsignatureAPI.EzsignsignatureDeleteObjectV1`: %v\n", resp)
 }
 ```
 
@@ -231,25 +231,25 @@ Edit an existing Ezsignsignature
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignsignatureID := int32(56) // int32 | 
-    ezsignsignatureEditObjectV1Request := *openapiclient.NewEzsignsignatureEditObjectV1Request(*openapiclient.NewEzsignsignatureRequestCompound(int32(20), int32(1), int32(200), int32(300), int32(1), openapiclient.Field-eEzsignsignatureType("Acknowledgement"), int32(97))) // EzsignsignatureEditObjectV1Request | 
+	pkiEzsignsignatureID := int32(56) // int32 | 
+	ezsignsignatureEditObjectV1Request := *openapiclient.NewEzsignsignatureEditObjectV1Request(*openapiclient.NewEzsignsignatureRequestCompound(int32(20), int32(1), int32(200), int32(300), int32(1), openapiclient.Field-eEzsignsignatureType("Acknowledgement"), int32(97))) // EzsignsignatureEditObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignsignatureAPI.EzsignsignatureEditObjectV1(context.Background(), pkiEzsignsignatureID).EzsignsignatureEditObjectV1Request(ezsignsignatureEditObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignatureAPI.EzsignsignatureEditObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignsignatureEditObjectV1`: EzsignsignatureEditObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsignatureAPI.EzsignsignatureEditObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignsignatureAPI.EzsignsignatureEditObjectV1(context.Background(), pkiEzsignsignatureID).EzsignsignatureEditObjectV1Request(ezsignsignatureEditObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignatureAPI.EzsignsignatureEditObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignsignatureEditObjectV1`: EzsignsignatureEditObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsignatureAPI.EzsignsignatureEditObjectV1`: %v\n", resp)
 }
 ```
 
@@ -301,24 +301,24 @@ Retrieve an existing Ezsignsignature's Ezsignsignatureattachments
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignsignatureID := int32(56) // int32 | 
+	pkiEzsignsignatureID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignsignatureAPI.EzsignsignatureGetEzsignsignatureattachmentV1(context.Background(), pkiEzsignsignatureID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignatureAPI.EzsignsignatureGetEzsignsignatureattachmentV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignsignatureGetEzsignsignatureattachmentV1`: EzsignsignatureGetEzsignsignatureattachmentV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsignatureAPI.EzsignsignatureGetEzsignsignatureattachmentV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignsignatureAPI.EzsignsignatureGetEzsignsignatureattachmentV1(context.Background(), pkiEzsignsignatureID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignatureAPI.EzsignsignatureGetEzsignsignatureattachmentV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignsignatureGetEzsignsignatureattachmentV1`: EzsignsignatureGetEzsignsignatureattachmentV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsignatureAPI.EzsignsignatureGetEzsignsignatureattachmentV1`: %v\n", resp)
 }
 ```
 
@@ -371,23 +371,23 @@ Retrieve all automatic Ezsignsignatures
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignsignatureAPI.EzsignsignatureGetEzsignsignaturesAutomaticV1(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignatureAPI.EzsignsignatureGetEzsignsignaturesAutomaticV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignsignatureGetEzsignsignaturesAutomaticV1`: EzsignsignatureGetEzsignsignaturesAutomaticV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsignatureAPI.EzsignsignatureGetEzsignsignaturesAutomaticV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignsignatureAPI.EzsignsignatureGetEzsignsignaturesAutomaticV1(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignatureAPI.EzsignsignatureGetEzsignsignaturesAutomaticV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignsignatureGetEzsignsignaturesAutomaticV1`: EzsignsignatureGetEzsignsignaturesAutomaticV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsignatureAPI.EzsignsignatureGetEzsignsignaturesAutomaticV1`: %v\n", resp)
 }
 ```
 
@@ -432,24 +432,24 @@ Retrieve an existing Ezsignsignature
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignsignatureID := int32(56) // int32 | 
+	pkiEzsignsignatureID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignsignatureAPI.EzsignsignatureGetObjectV2(context.Background(), pkiEzsignsignatureID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignatureAPI.EzsignsignatureGetObjectV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignsignatureGetObjectV2`: EzsignsignatureGetObjectV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsignatureAPI.EzsignsignatureGetObjectV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignsignatureAPI.EzsignsignatureGetObjectV2(context.Background(), pkiEzsignsignatureID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignatureAPI.EzsignsignatureGetObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignsignatureGetObjectV2`: EzsignsignatureGetObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsignatureAPI.EzsignsignatureGetObjectV2`: %v\n", resp)
 }
 ```
 
@@ -502,25 +502,25 @@ Sign the Ezsignsignature
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignsignatureID := int32(56) // int32 | 
-    ezsignsignatureSignV1Request := *openapiclient.NewEzsignsignatureSignV1Request(false) // EzsignsignatureSignV1Request | 
+	pkiEzsignsignatureID := int32(56) // int32 | 
+	ezsignsignatureSignV1Request := *openapiclient.NewEzsignsignatureSignV1Request(false) // EzsignsignatureSignV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignsignatureAPI.EzsignsignatureSignV1(context.Background(), pkiEzsignsignatureID).EzsignsignatureSignV1Request(ezsignsignatureSignV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignatureAPI.EzsignsignatureSignV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignsignatureSignV1`: EzsignsignatureSignV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsignatureAPI.EzsignsignatureSignV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignsignatureAPI.EzsignsignatureSignV1(context.Background(), pkiEzsignsignatureID).EzsignsignatureSignV1Request(ezsignsignatureSignV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignatureAPI.EzsignsignatureSignV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignsignatureSignV1`: EzsignsignatureSignV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsignatureAPI.EzsignsignatureSignV1`: %v\n", resp)
 }
 ```
 

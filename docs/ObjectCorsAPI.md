@@ -25,24 +25,24 @@ Create a new Cors
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    corsCreateObjectV1Request := *openapiclient.NewCorsCreateObjectV1Request([]openapiclient.CorsRequestCompound{*openapiclient.NewCorsRequestCompound(int32(99), "Https://www.example.com")}) // CorsCreateObjectV1Request | 
+	corsCreateObjectV1Request := *openapiclient.NewCorsCreateObjectV1Request([]openapiclient.CorsRequestCompound{*openapiclient.NewCorsRequestCompound(int32(99), "Https://www.example.com")}) // CorsCreateObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectCorsAPI.CorsCreateObjectV1(context.Background()).CorsCreateObjectV1Request(corsCreateObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectCorsAPI.CorsCreateObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CorsCreateObjectV1`: CorsCreateObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectCorsAPI.CorsCreateObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectCorsAPI.CorsCreateObjectV1(context.Background()).CorsCreateObjectV1Request(corsCreateObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectCorsAPI.CorsCreateObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CorsCreateObjectV1`: CorsCreateObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectCorsAPI.CorsCreateObjectV1`: %v\n", resp)
 }
 ```
 
@@ -91,24 +91,24 @@ Delete an existing Cors
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiCorsID := int32(56) // int32 | The unique ID of the Cors
+	pkiCorsID := int32(56) // int32 | The unique ID of the Cors
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectCorsAPI.CorsDeleteObjectV1(context.Background(), pkiCorsID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectCorsAPI.CorsDeleteObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CorsDeleteObjectV1`: CorsDeleteObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectCorsAPI.CorsDeleteObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectCorsAPI.CorsDeleteObjectV1(context.Background(), pkiCorsID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectCorsAPI.CorsDeleteObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CorsDeleteObjectV1`: CorsDeleteObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectCorsAPI.CorsDeleteObjectV1`: %v\n", resp)
 }
 ```
 
@@ -161,25 +161,25 @@ Edit an existing Cors
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiCorsID := int32(56) // int32 | The unique ID of the Cors
-    corsEditObjectV1Request := *openapiclient.NewCorsEditObjectV1Request(*openapiclient.NewCorsRequestCompound(int32(99), "Https://www.example.com")) // CorsEditObjectV1Request | 
+	pkiCorsID := int32(56) // int32 | The unique ID of the Cors
+	corsEditObjectV1Request := *openapiclient.NewCorsEditObjectV1Request(*openapiclient.NewCorsRequestCompound(int32(99), "Https://www.example.com")) // CorsEditObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectCorsAPI.CorsEditObjectV1(context.Background(), pkiCorsID).CorsEditObjectV1Request(corsEditObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectCorsAPI.CorsEditObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CorsEditObjectV1`: CorsEditObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectCorsAPI.CorsEditObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectCorsAPI.CorsEditObjectV1(context.Background(), pkiCorsID).CorsEditObjectV1Request(corsEditObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectCorsAPI.CorsEditObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CorsEditObjectV1`: CorsEditObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectCorsAPI.CorsEditObjectV1`: %v\n", resp)
 }
 ```
 
@@ -233,24 +233,24 @@ Retrieve an existing Cors
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiCorsID := int32(56) // int32 | The unique ID of the Cors
+	pkiCorsID := int32(56) // int32 | The unique ID of the Cors
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectCorsAPI.CorsGetObjectV2(context.Background(), pkiCorsID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectCorsAPI.CorsGetObjectV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CorsGetObjectV2`: CorsGetObjectV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectCorsAPI.CorsGetObjectV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectCorsAPI.CorsGetObjectV2(context.Background(), pkiCorsID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectCorsAPI.CorsGetObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CorsGetObjectV2`: CorsGetObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectCorsAPI.CorsGetObjectV2`: %v\n", resp)
 }
 ```
 

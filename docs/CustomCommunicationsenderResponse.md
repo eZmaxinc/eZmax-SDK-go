@@ -8,10 +8,12 @@ Name | Type | Description | Notes
 **FkiBrokerID** | Pointer to **int32** | The unique ID of the Broker. | [optional] 
 **FkiUserID** | Pointer to **int32** | The unique ID of the User | [optional] 
 **FkiMailboxsharedID** | Pointer to **int32** | The unique ID of the Mailboxshared | [optional] 
+**FkiPhonelinesharedID** | Pointer to **int32** | The unique ID of the Phonelineshared | [optional] 
 **ECommunicationsenderObjecttype** | **string** |  | 
 **ObjContactName** | [**CustomContactNameResponse**](CustomContactNameResponse.md) |  | 
-**SEmailAddress** | Pointer to **string** | The email address. | [optional] 
-**SPhoneE164** | Pointer to **string** | A phone number in E.164 Format | [optional] 
+**ObjEmail** | Pointer to [**EmailResponseCompound**](EmailResponseCompound.md) |  | [optional] 
+**ObjPhoneFax** | Pointer to [**PhoneResponseCompound**](PhoneResponseCompound.md) |  | [optional] 
+**ObjPhoneSMS** | Pointer to [**PhoneResponseCompound**](PhoneResponseCompound.md) |  | [optional] 
 
 ## Methods
 
@@ -132,6 +134,31 @@ SetFkiMailboxsharedID sets FkiMailboxsharedID field to given value.
 
 HasFkiMailboxsharedID returns a boolean if a field has been set.
 
+### GetFkiPhonelinesharedID
+
+`func (o *CustomCommunicationsenderResponse) GetFkiPhonelinesharedID() int32`
+
+GetFkiPhonelinesharedID returns the FkiPhonelinesharedID field if non-nil, zero value otherwise.
+
+### GetFkiPhonelinesharedIDOk
+
+`func (o *CustomCommunicationsenderResponse) GetFkiPhonelinesharedIDOk() (*int32, bool)`
+
+GetFkiPhonelinesharedIDOk returns a tuple with the FkiPhonelinesharedID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiPhonelinesharedID
+
+`func (o *CustomCommunicationsenderResponse) SetFkiPhonelinesharedID(v int32)`
+
+SetFkiPhonelinesharedID sets FkiPhonelinesharedID field to given value.
+
+### HasFkiPhonelinesharedID
+
+`func (o *CustomCommunicationsenderResponse) HasFkiPhonelinesharedID() bool`
+
+HasFkiPhonelinesharedID returns a boolean if a field has been set.
+
 ### GetECommunicationsenderObjecttype
 
 `func (o *CustomCommunicationsenderResponse) GetECommunicationsenderObjecttype() string`
@@ -172,55 +199,80 @@ and a boolean to check if the value has been set.
 SetObjContactName sets ObjContactName field to given value.
 
 
-### GetSEmailAddress
+### GetObjEmail
 
-`func (o *CustomCommunicationsenderResponse) GetSEmailAddress() string`
+`func (o *CustomCommunicationsenderResponse) GetObjEmail() EmailResponseCompound`
 
-GetSEmailAddress returns the SEmailAddress field if non-nil, zero value otherwise.
+GetObjEmail returns the ObjEmail field if non-nil, zero value otherwise.
 
-### GetSEmailAddressOk
+### GetObjEmailOk
 
-`func (o *CustomCommunicationsenderResponse) GetSEmailAddressOk() (*string, bool)`
+`func (o *CustomCommunicationsenderResponse) GetObjEmailOk() (*EmailResponseCompound, bool)`
 
-GetSEmailAddressOk returns a tuple with the SEmailAddress field if it's non-nil, zero value otherwise
+GetObjEmailOk returns a tuple with the ObjEmail field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSEmailAddress
+### SetObjEmail
 
-`func (o *CustomCommunicationsenderResponse) SetSEmailAddress(v string)`
+`func (o *CustomCommunicationsenderResponse) SetObjEmail(v EmailResponseCompound)`
 
-SetSEmailAddress sets SEmailAddress field to given value.
+SetObjEmail sets ObjEmail field to given value.
 
-### HasSEmailAddress
+### HasObjEmail
 
-`func (o *CustomCommunicationsenderResponse) HasSEmailAddress() bool`
+`func (o *CustomCommunicationsenderResponse) HasObjEmail() bool`
 
-HasSEmailAddress returns a boolean if a field has been set.
+HasObjEmail returns a boolean if a field has been set.
 
-### GetSPhoneE164
+### GetObjPhoneFax
 
-`func (o *CustomCommunicationsenderResponse) GetSPhoneE164() string`
+`func (o *CustomCommunicationsenderResponse) GetObjPhoneFax() PhoneResponseCompound`
 
-GetSPhoneE164 returns the SPhoneE164 field if non-nil, zero value otherwise.
+GetObjPhoneFax returns the ObjPhoneFax field if non-nil, zero value otherwise.
 
-### GetSPhoneE164Ok
+### GetObjPhoneFaxOk
 
-`func (o *CustomCommunicationsenderResponse) GetSPhoneE164Ok() (*string, bool)`
+`func (o *CustomCommunicationsenderResponse) GetObjPhoneFaxOk() (*PhoneResponseCompound, bool)`
 
-GetSPhoneE164Ok returns a tuple with the SPhoneE164 field if it's non-nil, zero value otherwise
+GetObjPhoneFaxOk returns a tuple with the ObjPhoneFax field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSPhoneE164
+### SetObjPhoneFax
 
-`func (o *CustomCommunicationsenderResponse) SetSPhoneE164(v string)`
+`func (o *CustomCommunicationsenderResponse) SetObjPhoneFax(v PhoneResponseCompound)`
 
-SetSPhoneE164 sets SPhoneE164 field to given value.
+SetObjPhoneFax sets ObjPhoneFax field to given value.
 
-### HasSPhoneE164
+### HasObjPhoneFax
 
-`func (o *CustomCommunicationsenderResponse) HasSPhoneE164() bool`
+`func (o *CustomCommunicationsenderResponse) HasObjPhoneFax() bool`
 
-HasSPhoneE164 returns a boolean if a field has been set.
+HasObjPhoneFax returns a boolean if a field has been set.
+
+### GetObjPhoneSMS
+
+`func (o *CustomCommunicationsenderResponse) GetObjPhoneSMS() PhoneResponseCompound`
+
+GetObjPhoneSMS returns the ObjPhoneSMS field if non-nil, zero value otherwise.
+
+### GetObjPhoneSMSOk
+
+`func (o *CustomCommunicationsenderResponse) GetObjPhoneSMSOk() (*PhoneResponseCompound, bool)`
+
+GetObjPhoneSMSOk returns a tuple with the ObjPhoneSMS field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjPhoneSMS
+
+`func (o *CustomCommunicationsenderResponse) SetObjPhoneSMS(v PhoneResponseCompound)`
+
+SetObjPhoneSMS sets ObjPhoneSMS field to given value.
+
+### HasObjPhoneSMS
+
+`func (o *CustomCommunicationsenderResponse) HasObjPhoneSMS() bool`
+
+HasObjPhoneSMS returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

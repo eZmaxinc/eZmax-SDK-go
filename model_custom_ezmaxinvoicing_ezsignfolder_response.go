@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the CustomEzmaxinvoicingEzsignfolderResponse type satisfies the MappedNullable interface at compile time
@@ -33,6 +35,8 @@ type CustomEzmaxinvoicingEzsignfolderResponse struct {
 	// Whether you have access to the Ezsignfolder or not
 	BEzsignfolderAllowed bool `json:"bEzsignfolderAllowed"`
 }
+
+type _CustomEzmaxinvoicingEzsignfolderResponse CustomEzmaxinvoicingEzsignfolderResponse
 
 // NewCustomEzmaxinvoicingEzsignfolderResponse instantiates a new CustomEzmaxinvoicingEzsignfolderResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -218,6 +222,48 @@ func (o CustomEzmaxinvoicingEzsignfolderResponse) ToMap() (map[string]interface{
 	toSerialize["bEzsignfolderPaymentused"] = o.BEzsignfolderPaymentused
 	toSerialize["bEzsignfolderAllowed"] = o.BEzsignfolderAllowed
 	return toSerialize, nil
+}
+
+func (o *CustomEzmaxinvoicingEzsignfolderResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"fkiEzsignfolderID",
+		"sEzsignfolderDescription",
+		"bEzsigntsarequirementBillable",
+		"bEzsignfolderMfaused",
+		"bEzsignfolderPaymentused",
+		"bEzsignfolderAllowed",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varCustomEzmaxinvoicingEzsignfolderResponse := _CustomEzmaxinvoicingEzsignfolderResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varCustomEzmaxinvoicingEzsignfolderResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = CustomEzmaxinvoicingEzsignfolderResponse(varCustomEzmaxinvoicingEzsignfolderResponse)
+
+	return err
 }
 
 type NullableCustomEzmaxinvoicingEzsignfolderResponse struct {

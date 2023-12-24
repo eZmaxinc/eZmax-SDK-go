@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the PermissionResponse type satisfies the MappedNullable interface at compile time
@@ -35,6 +37,8 @@ type PermissionResponse struct {
 	// The Name of the Company in the language of the requester
 	SCompanyNameX *string `json:"sCompanyNameX,omitempty"`
 }
+
+type _PermissionResponse PermissionResponse
 
 // NewPermissionResponse instantiates a new PermissionResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -291,6 +295,44 @@ func (o PermissionResponse) ToMap() (map[string]interface{}, error) {
 		toSerialize["sCompanyNameX"] = o.SCompanyNameX
 	}
 	return toSerialize, nil
+}
+
+func (o *PermissionResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiPermissionID",
+		"fkiModulesectionID",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varPermissionResponse := _PermissionResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varPermissionResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PermissionResponse(varPermissionResponse)
+
+	return err
 }
 
 type NullablePermissionResponse struct {

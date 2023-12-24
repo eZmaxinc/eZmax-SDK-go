@@ -25,24 +25,24 @@ Create a new Permission
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    permissionCreateObjectV1Request := *openapiclient.NewPermissionCreateObjectV1Request([]openapiclient.PermissionRequestCompound{*openapiclient.NewPermissionRequestCompound(int32(53))}) // PermissionCreateObjectV1Request | 
+	permissionCreateObjectV1Request := *openapiclient.NewPermissionCreateObjectV1Request([]openapiclient.PermissionRequestCompound{*openapiclient.NewPermissionRequestCompound(int32(53))}) // PermissionCreateObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectPermissionAPI.PermissionCreateObjectV1(context.Background()).PermissionCreateObjectV1Request(permissionCreateObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectPermissionAPI.PermissionCreateObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PermissionCreateObjectV1`: PermissionCreateObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectPermissionAPI.PermissionCreateObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectPermissionAPI.PermissionCreateObjectV1(context.Background()).PermissionCreateObjectV1Request(permissionCreateObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectPermissionAPI.PermissionCreateObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PermissionCreateObjectV1`: PermissionCreateObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectPermissionAPI.PermissionCreateObjectV1`: %v\n", resp)
 }
 ```
 
@@ -91,24 +91,24 @@ Delete an existing Permission
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiPermissionID := int32(56) // int32 | The unique ID of the Permission
+	pkiPermissionID := int32(56) // int32 | The unique ID of the Permission
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectPermissionAPI.PermissionDeleteObjectV1(context.Background(), pkiPermissionID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectPermissionAPI.PermissionDeleteObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PermissionDeleteObjectV1`: PermissionDeleteObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectPermissionAPI.PermissionDeleteObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectPermissionAPI.PermissionDeleteObjectV1(context.Background(), pkiPermissionID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectPermissionAPI.PermissionDeleteObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PermissionDeleteObjectV1`: PermissionDeleteObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectPermissionAPI.PermissionDeleteObjectV1`: %v\n", resp)
 }
 ```
 
@@ -161,25 +161,25 @@ Edit an existing Permission
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiPermissionID := int32(56) // int32 | The unique ID of the Permission
-    permissionEditObjectV1Request := *openapiclient.NewPermissionEditObjectV1Request(*openapiclient.NewPermissionRequestCompound(int32(53))) // PermissionEditObjectV1Request | 
+	pkiPermissionID := int32(56) // int32 | The unique ID of the Permission
+	permissionEditObjectV1Request := *openapiclient.NewPermissionEditObjectV1Request(*openapiclient.NewPermissionRequestCompound(int32(53))) // PermissionEditObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectPermissionAPI.PermissionEditObjectV1(context.Background(), pkiPermissionID).PermissionEditObjectV1Request(permissionEditObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectPermissionAPI.PermissionEditObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PermissionEditObjectV1`: PermissionEditObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectPermissionAPI.PermissionEditObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectPermissionAPI.PermissionEditObjectV1(context.Background(), pkiPermissionID).PermissionEditObjectV1Request(permissionEditObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectPermissionAPI.PermissionEditObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PermissionEditObjectV1`: PermissionEditObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectPermissionAPI.PermissionEditObjectV1`: %v\n", resp)
 }
 ```
 
@@ -233,24 +233,24 @@ Retrieve an existing Permission
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiPermissionID := int32(56) // int32 | The unique ID of the Permission
+	pkiPermissionID := int32(56) // int32 | The unique ID of the Permission
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectPermissionAPI.PermissionGetObjectV2(context.Background(), pkiPermissionID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectPermissionAPI.PermissionGetObjectV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PermissionGetObjectV2`: PermissionGetObjectV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectPermissionAPI.PermissionGetObjectV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectPermissionAPI.PermissionGetObjectV2(context.Background(), pkiPermissionID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectPermissionAPI.PermissionGetObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PermissionGetObjectV2`: PermissionGetObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectPermissionAPI.PermissionGetObjectV2`: %v\n", resp)
 }
 ```
 

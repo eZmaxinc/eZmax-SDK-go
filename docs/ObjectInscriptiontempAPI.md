@@ -22,24 +22,24 @@ Retrieve Communication list
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiInscriptiontempID := int32(56) // int32 | 
+	pkiInscriptiontempID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectInscriptiontempAPI.InscriptiontempGetCommunicationListV1(context.Background(), pkiInscriptiontempID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectInscriptiontempAPI.InscriptiontempGetCommunicationListV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `InscriptiontempGetCommunicationListV1`: InscriptiontempGetCommunicationListV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectInscriptiontempAPI.InscriptiontempGetCommunicationListV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectInscriptiontempAPI.InscriptiontempGetCommunicationListV1(context.Background(), pkiInscriptiontempID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectInscriptiontempAPI.InscriptiontempGetCommunicationListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InscriptiontempGetCommunicationListV1`: InscriptiontempGetCommunicationListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectInscriptiontempAPI.InscriptiontempGetCommunicationListV1`: %v\n", resp)
 }
 ```
 

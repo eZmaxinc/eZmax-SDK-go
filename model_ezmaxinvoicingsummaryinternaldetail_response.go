@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzmaxinvoicingsummaryinternaldetailResponse type satisfies the MappedNullable interface at compile time
@@ -45,6 +47,8 @@ type EzmaxinvoicingsummaryinternaldetailResponse struct {
 	// The help message of the Ezmaxproduct in the language of the requester
 	TEzmaxproductHelpX string `json:"tEzmaxproductHelpX"`
 }
+
+type _EzmaxinvoicingsummaryinternaldetailResponse EzmaxinvoicingsummaryinternaldetailResponse
 
 // NewEzmaxinvoicingsummaryinternaldetailResponse instantiates a new EzmaxinvoicingsummaryinternaldetailResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -404,6 +408,52 @@ func (o EzmaxinvoicingsummaryinternaldetailResponse) ToMap() (map[string]interfa
 	toSerialize["bEzmaxinvoicingsummaryinternaldetailAdjustment"] = o.BEzmaxinvoicingsummaryinternaldetailAdjustment
 	toSerialize["tEzmaxproductHelpX"] = o.TEzmaxproductHelpX
 	return toSerialize, nil
+}
+
+func (o *EzmaxinvoicingsummaryinternaldetailResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"fkiEzmaxproductID",
+		"sEzmaxproductDescriptionX",
+		"fkiBillingentityexternalID",
+		"sBillingentityexternalDescription",
+		"dEzmaxinvoicingsummaryinternaldetailCountreal",
+		"dEzmaxinvoicingsummaryinternaldetailSubtotal",
+		"dEzmaxinvoicingsummaryinternaldetailRebate",
+		"dEzmaxinvoicingsummaryinternaldetailTotal",
+		"bEzmaxinvoicingsummaryinternaldetailAdjustment",
+		"tEzmaxproductHelpX",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzmaxinvoicingsummaryinternaldetailResponse := _EzmaxinvoicingsummaryinternaldetailResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzmaxinvoicingsummaryinternaldetailResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzmaxinvoicingsummaryinternaldetailResponse(varEzmaxinvoicingsummaryinternaldetailResponse)
+
+	return err
 }
 
 type NullableEzmaxinvoicingsummaryinternaldetailResponse struct {

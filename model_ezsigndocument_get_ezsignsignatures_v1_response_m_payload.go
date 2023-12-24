@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigndocumentGetEzsignsignaturesV1ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &EzsigndocumentGetEzsignsignaturesV1ResponseMPayload{}
 type EzsigndocumentGetEzsignsignaturesV1ResponseMPayload struct {
 	AObjEzsignsignature []EzsignsignatureResponseCompound `json:"a_objEzsignsignature"`
 }
+
+type _EzsigndocumentGetEzsignsignaturesV1ResponseMPayload EzsigndocumentGetEzsignsignaturesV1ResponseMPayload
 
 // NewEzsigndocumentGetEzsignsignaturesV1ResponseMPayload instantiates a new EzsigndocumentGetEzsignsignaturesV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o EzsigndocumentGetEzsignsignaturesV1ResponseMPayload) ToMap() (map[string
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_objEzsignsignature"] = o.AObjEzsignsignature
 	return toSerialize, nil
+}
+
+func (o *EzsigndocumentGetEzsignsignaturesV1ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"a_objEzsignsignature",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigndocumentGetEzsignsignaturesV1ResponseMPayload := _EzsigndocumentGetEzsignsignaturesV1ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigndocumentGetEzsignsignaturesV1ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigndocumentGetEzsignsignaturesV1ResponseMPayload(varEzsigndocumentGetEzsignsignaturesV1ResponseMPayload)
+
+	return err
 }
 
 type NullableEzsigndocumentGetEzsignsignaturesV1ResponseMPayload struct {

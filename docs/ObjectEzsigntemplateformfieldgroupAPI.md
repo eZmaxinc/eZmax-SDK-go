@@ -25,24 +25,24 @@ Create a new Ezsigntemplateformfieldgroup
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    ezsigntemplateformfieldgroupCreateObjectV1Request := *openapiclient.NewEzsigntemplateformfieldgroupCreateObjectV1Request([]openapiclient.EzsigntemplateformfieldgroupRequestCompound{*openapiclient.NewEzsigntemplateformfieldgroupRequestCompound(int32(133), openapiclient.Field-eEzsigntemplateformfieldgroupType("Text"), openapiclient.Field-eEzsigntemplateformfieldgroupSignerrequirement("All"), "Allergies", int32(1), "Foo", int32(1), int32(2), false, []openapiclient.EzsigntemplateformfieldgroupsignerRequestCompound{*openapiclient.NewEzsigntemplateformfieldgroupsignerRequestCompound(int32(9))}, []openapiclient.EzsigntemplateformfieldRequestCompound{*openapiclient.NewEzsigntemplateformfieldRequestCompound(int32(1), "Peanuts", int32(200), int32(300), int32(102), int32(22))})}) // EzsigntemplateformfieldgroupCreateObjectV1Request | 
+	ezsigntemplateformfieldgroupCreateObjectV1Request := *openapiclient.NewEzsigntemplateformfieldgroupCreateObjectV1Request([]openapiclient.EzsigntemplateformfieldgroupRequestCompound{*openapiclient.NewEzsigntemplateformfieldgroupRequestCompound(int32(133), openapiclient.Field-eEzsigntemplateformfieldgroupType("Text"), openapiclient.Field-eEzsigntemplateformfieldgroupSignerrequirement("All"), "Allergies", int32(1), "Foo", int32(1), int32(2), false, []openapiclient.EzsigntemplateformfieldgroupsignerRequestCompound{*openapiclient.NewEzsigntemplateformfieldgroupsignerRequestCompound(int32(9))}, []openapiclient.EzsigntemplateformfieldRequestCompound{*openapiclient.NewEzsigntemplateformfieldRequestCompound(int32(1), "Peanuts", int32(200), int32(300), int32(102), int32(22))})}) // EzsigntemplateformfieldgroupCreateObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsigntemplateformfieldgroupAPI.EzsigntemplateformfieldgroupCreateObjectV1(context.Background()).EzsigntemplateformfieldgroupCreateObjectV1Request(ezsigntemplateformfieldgroupCreateObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplateformfieldgroupAPI.EzsigntemplateformfieldgroupCreateObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsigntemplateformfieldgroupCreateObjectV1`: EzsigntemplateformfieldgroupCreateObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplateformfieldgroupAPI.EzsigntemplateformfieldgroupCreateObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigntemplateformfieldgroupAPI.EzsigntemplateformfieldgroupCreateObjectV1(context.Background()).EzsigntemplateformfieldgroupCreateObjectV1Request(ezsigntemplateformfieldgroupCreateObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplateformfieldgroupAPI.EzsigntemplateformfieldgroupCreateObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigntemplateformfieldgroupCreateObjectV1`: EzsigntemplateformfieldgroupCreateObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplateformfieldgroupAPI.EzsigntemplateformfieldgroupCreateObjectV1`: %v\n", resp)
 }
 ```
 
@@ -91,24 +91,24 @@ Delete an existing Ezsigntemplateformfieldgroup
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsigntemplateformfieldgroupID := int32(56) // int32 | 
+	pkiEzsigntemplateformfieldgroupID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsigntemplateformfieldgroupAPI.EzsigntemplateformfieldgroupDeleteObjectV1(context.Background(), pkiEzsigntemplateformfieldgroupID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplateformfieldgroupAPI.EzsigntemplateformfieldgroupDeleteObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsigntemplateformfieldgroupDeleteObjectV1`: EzsigntemplateformfieldgroupDeleteObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplateformfieldgroupAPI.EzsigntemplateformfieldgroupDeleteObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigntemplateformfieldgroupAPI.EzsigntemplateformfieldgroupDeleteObjectV1(context.Background(), pkiEzsigntemplateformfieldgroupID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplateformfieldgroupAPI.EzsigntemplateformfieldgroupDeleteObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigntemplateformfieldgroupDeleteObjectV1`: EzsigntemplateformfieldgroupDeleteObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplateformfieldgroupAPI.EzsigntemplateformfieldgroupDeleteObjectV1`: %v\n", resp)
 }
 ```
 
@@ -161,25 +161,25 @@ Edit an existing Ezsigntemplateformfieldgroup
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsigntemplateformfieldgroupID := int32(56) // int32 | 
-    ezsigntemplateformfieldgroupEditObjectV1Request := *openapiclient.NewEzsigntemplateformfieldgroupEditObjectV1Request(*openapiclient.NewEzsigntemplateformfieldgroupRequestCompound(int32(133), openapiclient.Field-eEzsigntemplateformfieldgroupType("Text"), openapiclient.Field-eEzsigntemplateformfieldgroupSignerrequirement("All"), "Allergies", int32(1), "Foo", int32(1), int32(2), false, []openapiclient.EzsigntemplateformfieldgroupsignerRequestCompound{*openapiclient.NewEzsigntemplateformfieldgroupsignerRequestCompound(int32(9))}, []openapiclient.EzsigntemplateformfieldRequestCompound{*openapiclient.NewEzsigntemplateformfieldRequestCompound(int32(1), "Peanuts", int32(200), int32(300), int32(102), int32(22))})) // EzsigntemplateformfieldgroupEditObjectV1Request | 
+	pkiEzsigntemplateformfieldgroupID := int32(56) // int32 | 
+	ezsigntemplateformfieldgroupEditObjectV1Request := *openapiclient.NewEzsigntemplateformfieldgroupEditObjectV1Request(*openapiclient.NewEzsigntemplateformfieldgroupRequestCompound(int32(133), openapiclient.Field-eEzsigntemplateformfieldgroupType("Text"), openapiclient.Field-eEzsigntemplateformfieldgroupSignerrequirement("All"), "Allergies", int32(1), "Foo", int32(1), int32(2), false, []openapiclient.EzsigntemplateformfieldgroupsignerRequestCompound{*openapiclient.NewEzsigntemplateformfieldgroupsignerRequestCompound(int32(9))}, []openapiclient.EzsigntemplateformfieldRequestCompound{*openapiclient.NewEzsigntemplateformfieldRequestCompound(int32(1), "Peanuts", int32(200), int32(300), int32(102), int32(22))})) // EzsigntemplateformfieldgroupEditObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsigntemplateformfieldgroupAPI.EzsigntemplateformfieldgroupEditObjectV1(context.Background(), pkiEzsigntemplateformfieldgroupID).EzsigntemplateformfieldgroupEditObjectV1Request(ezsigntemplateformfieldgroupEditObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplateformfieldgroupAPI.EzsigntemplateformfieldgroupEditObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsigntemplateformfieldgroupEditObjectV1`: EzsigntemplateformfieldgroupEditObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplateformfieldgroupAPI.EzsigntemplateformfieldgroupEditObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigntemplateformfieldgroupAPI.EzsigntemplateformfieldgroupEditObjectV1(context.Background(), pkiEzsigntemplateformfieldgroupID).EzsigntemplateformfieldgroupEditObjectV1Request(ezsigntemplateformfieldgroupEditObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplateformfieldgroupAPI.EzsigntemplateformfieldgroupEditObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigntemplateformfieldgroupEditObjectV1`: EzsigntemplateformfieldgroupEditObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplateformfieldgroupAPI.EzsigntemplateformfieldgroupEditObjectV1`: %v\n", resp)
 }
 ```
 
@@ -233,24 +233,24 @@ Retrieve an existing Ezsigntemplateformfieldgroup
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsigntemplateformfieldgroupID := int32(56) // int32 | 
+	pkiEzsigntemplateformfieldgroupID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsigntemplateformfieldgroupAPI.EzsigntemplateformfieldgroupGetObjectV2(context.Background(), pkiEzsigntemplateformfieldgroupID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplateformfieldgroupAPI.EzsigntemplateformfieldgroupGetObjectV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsigntemplateformfieldgroupGetObjectV2`: EzsigntemplateformfieldgroupGetObjectV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplateformfieldgroupAPI.EzsigntemplateformfieldgroupGetObjectV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigntemplateformfieldgroupAPI.EzsigntemplateformfieldgroupGetObjectV2(context.Background(), pkiEzsigntemplateformfieldgroupID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplateformfieldgroupAPI.EzsigntemplateformfieldgroupGetObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigntemplateformfieldgroupGetObjectV2`: EzsigntemplateformfieldgroupGetObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplateformfieldgroupAPI.EzsigntemplateformfieldgroupGetObjectV2`: %v\n", resp)
 }
 ```
 

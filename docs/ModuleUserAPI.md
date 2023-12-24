@@ -22,24 +22,24 @@ Create a new User of type Ezsignuser
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    userCreateEzsignuserV1Request := []openapiclient.UserCreateEzsignuserV1Request{*openapiclient.NewUserCreateEzsignuserV1Request(int32(2), "John", "Doe", "email@example.com", "514", "990", "1516")} // []UserCreateEzsignuserV1Request | 
+	userCreateEzsignuserV1Request := []openapiclient.UserCreateEzsignuserV1Request{*openapiclient.NewUserCreateEzsignuserV1Request(int32(2), "John", "Doe", "email@example.com", "514", "990", "1516")} // []UserCreateEzsignuserV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ModuleUserAPI.UserCreateEzsignuserV1(context.Background()).UserCreateEzsignuserV1Request(userCreateEzsignuserV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ModuleUserAPI.UserCreateEzsignuserV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UserCreateEzsignuserV1`: UserCreateEzsignuserV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ModuleUserAPI.UserCreateEzsignuserV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ModuleUserAPI.UserCreateEzsignuserV1(context.Background()).UserCreateEzsignuserV1Request(userCreateEzsignuserV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ModuleUserAPI.UserCreateEzsignuserV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UserCreateEzsignuserV1`: UserCreateEzsignuserV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ModuleUserAPI.UserCreateEzsignuserV1`: %v\n", resp)
 }
 ```
 

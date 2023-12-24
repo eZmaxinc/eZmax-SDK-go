@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignbulksenddocumentmappingGetObjectV2ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &EzsignbulksenddocumentmappingGetObjectV2ResponseMPayload
 type EzsignbulksenddocumentmappingGetObjectV2ResponseMPayload struct {
 	ObjEzsignbulksenddocumentmapping EzsignbulksenddocumentmappingResponseCompound `json:"objEzsignbulksenddocumentmapping"`
 }
+
+type _EzsignbulksenddocumentmappingGetObjectV2ResponseMPayload EzsignbulksenddocumentmappingGetObjectV2ResponseMPayload
 
 // NewEzsignbulksenddocumentmappingGetObjectV2ResponseMPayload instantiates a new EzsignbulksenddocumentmappingGetObjectV2ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o EzsignbulksenddocumentmappingGetObjectV2ResponseMPayload) ToMap() (map[s
 	toSerialize := map[string]interface{}{}
 	toSerialize["objEzsignbulksenddocumentmapping"] = o.ObjEzsignbulksenddocumentmapping
 	return toSerialize, nil
+}
+
+func (o *EzsignbulksenddocumentmappingGetObjectV2ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"objEzsignbulksenddocumentmapping",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignbulksenddocumentmappingGetObjectV2ResponseMPayload := _EzsignbulksenddocumentmappingGetObjectV2ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignbulksenddocumentmappingGetObjectV2ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignbulksenddocumentmappingGetObjectV2ResponseMPayload(varEzsignbulksenddocumentmappingGetObjectV2ResponseMPayload)
+
+	return err
 }
 
 type NullableEzsignbulksenddocumentmappingGetObjectV2ResponseMPayload struct {

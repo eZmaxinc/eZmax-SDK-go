@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the CustomEzsignfoldertransmissionResponse type satisfies the MappedNullable interface at compile time
@@ -31,6 +33,8 @@ type CustomEzsignfoldertransmissionResponse struct {
 	IEzsignfolderSignaturesigned int32 `json:"iEzsignfolderSignaturesigned"`
 	AObjEzsignfoldertransmissionSigner []CustomEzsignfoldertransmissionSignerResponse `json:"a_objEzsignfoldertransmissionSigner"`
 }
+
+type _CustomEzsignfoldertransmissionResponse CustomEzsignfoldertransmissionResponse
 
 // NewCustomEzsignfoldertransmissionResponse instantiates a new CustomEzsignfoldertransmissionResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -216,6 +220,48 @@ func (o CustomEzsignfoldertransmissionResponse) ToMap() (map[string]interface{},
 	toSerialize["iEzsignfolderSignaturesigned"] = o.IEzsignfolderSignaturesigned
 	toSerialize["a_objEzsignfoldertransmissionSigner"] = o.AObjEzsignfoldertransmissionSigner
 	return toSerialize, nil
+}
+
+func (o *CustomEzsignfoldertransmissionResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiEzsignfolderID",
+		"sEzsignfolderDescription",
+		"eEzsignfolderStep",
+		"iEzsignfolderSignaturetotal",
+		"iEzsignfolderSignaturesigned",
+		"a_objEzsignfoldertransmissionSigner",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varCustomEzsignfoldertransmissionResponse := _CustomEzsignfoldertransmissionResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varCustomEzsignfoldertransmissionResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = CustomEzsignfoldertransmissionResponse(varCustomEzsignfoldertransmissionResponse)
+
+	return err
 }
 
 type NullableCustomEzsignfoldertransmissionResponse struct {

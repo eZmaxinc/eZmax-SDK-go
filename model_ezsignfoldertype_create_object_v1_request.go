@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignfoldertypeCreateObjectV1Request type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &EzsignfoldertypeCreateObjectV1Request{}
 type EzsignfoldertypeCreateObjectV1Request struct {
 	AObjEzsignfoldertype []EzsignfoldertypeRequestCompound `json:"a_objEzsignfoldertype"`
 }
+
+type _EzsignfoldertypeCreateObjectV1Request EzsignfoldertypeCreateObjectV1Request
 
 // NewEzsignfoldertypeCreateObjectV1Request instantiates a new EzsignfoldertypeCreateObjectV1Request object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o EzsignfoldertypeCreateObjectV1Request) ToMap() (map[string]interface{}, 
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_objEzsignfoldertype"] = o.AObjEzsignfoldertype
 	return toSerialize, nil
+}
+
+func (o *EzsignfoldertypeCreateObjectV1Request) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"a_objEzsignfoldertype",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignfoldertypeCreateObjectV1Request := _EzsignfoldertypeCreateObjectV1Request{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignfoldertypeCreateObjectV1Request)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignfoldertypeCreateObjectV1Request(varEzsignfoldertypeCreateObjectV1Request)
+
+	return err
 }
 
 type NullableEzsignfoldertypeCreateObjectV1Request struct {

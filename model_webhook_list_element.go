@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the WebhookListElement type satisfies the MappedNullable interface at compile time
@@ -35,13 +37,17 @@ type WebhookListElement struct {
 	EWebhookManagementevent *FieldEWebhookManagementevent `json:"eWebhookManagementevent,omitempty"`
 	// Whether the Webhook is active or not
 	BWebhookIsactive bool `json:"bWebhookIsactive"`
+	// Whether the requests will be signed or not
+	BWebhookIssigned bool `json:"bWebhookIssigned"`
 }
+
+type _WebhookListElement WebhookListElement
 
 // NewWebhookListElement instantiates a new WebhookListElement object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWebhookListElement(pkiWebhookID int32, sWebhookDescription string, sWebhookUrl string, sWebhookEvent string, sWebhookEmailfailed string, eWebhookModule FieldEWebhookModule, bWebhookIsactive bool) *WebhookListElement {
+func NewWebhookListElement(pkiWebhookID int32, sWebhookDescription string, sWebhookUrl string, sWebhookEvent string, sWebhookEmailfailed string, eWebhookModule FieldEWebhookModule, bWebhookIsactive bool, bWebhookIssigned bool) *WebhookListElement {
 	this := WebhookListElement{}
 	this.PkiWebhookID = pkiWebhookID
 	this.SWebhookDescription = sWebhookDescription
@@ -50,6 +56,7 @@ func NewWebhookListElement(pkiWebhookID int32, sWebhookDescription string, sWebh
 	this.SWebhookEmailfailed = sWebhookEmailfailed
 	this.EWebhookModule = eWebhookModule
 	this.BWebhookIsactive = bWebhookIsactive
+	this.BWebhookIssigned = bWebhookIssigned
 	return &this
 }
 
@@ -293,6 +300,30 @@ func (o *WebhookListElement) SetBWebhookIsactive(v bool) {
 	o.BWebhookIsactive = v
 }
 
+// GetBWebhookIssigned returns the BWebhookIssigned field value
+func (o *WebhookListElement) GetBWebhookIssigned() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BWebhookIssigned
+}
+
+// GetBWebhookIssignedOk returns a tuple with the BWebhookIssigned field value
+// and a boolean to check if the value has been set.
+func (o *WebhookListElement) GetBWebhookIssignedOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BWebhookIssigned, true
+}
+
+// SetBWebhookIssigned sets field value
+func (o *WebhookListElement) SetBWebhookIssigned(v bool) {
+	o.BWebhookIssigned = v
+}
+
 func (o WebhookListElement) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -316,7 +347,52 @@ func (o WebhookListElement) ToMap() (map[string]interface{}, error) {
 		toSerialize["eWebhookManagementevent"] = o.EWebhookManagementevent
 	}
 	toSerialize["bWebhookIsactive"] = o.BWebhookIsactive
+	toSerialize["bWebhookIssigned"] = o.BWebhookIssigned
 	return toSerialize, nil
+}
+
+func (o *WebhookListElement) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiWebhookID",
+		"sWebhookDescription",
+		"sWebhookUrl",
+		"sWebhookEvent",
+		"sWebhookEmailfailed",
+		"eWebhookModule",
+		"bWebhookIsactive",
+		"bWebhookIssigned",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varWebhookListElement := _WebhookListElement{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varWebhookListElement)
+
+	if err != nil {
+		return err
+	}
+
+	*o = WebhookListElement(varWebhookListElement)
+
+	return err
 }
 
 type NullableWebhookListElement struct {

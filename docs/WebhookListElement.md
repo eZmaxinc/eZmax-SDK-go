@@ -13,12 +13,13 @@ Name | Type | Description | Notes
 **EWebhookEzsignevent** | Pointer to [**FieldEWebhookEzsignevent**](FieldEWebhookEzsignevent.md) |  | [optional] 
 **EWebhookManagementevent** | Pointer to [**FieldEWebhookManagementevent**](FieldEWebhookManagementevent.md) |  | [optional] 
 **BWebhookIsactive** | **bool** | Whether the Webhook is active or not | 
+**BWebhookIssigned** | **bool** | Whether the requests will be signed or not | 
 
 ## Methods
 
 ### NewWebhookListElement
 
-`func NewWebhookListElement(pkiWebhookID int32, sWebhookDescription string, sWebhookUrl string, sWebhookEvent string, sWebhookEmailfailed string, eWebhookModule FieldEWebhookModule, bWebhookIsactive bool, ) *WebhookListElement`
+`func NewWebhookListElement(pkiWebhookID int32, sWebhookDescription string, sWebhookUrl string, sWebhookEvent string, sWebhookEmailfailed string, eWebhookModule FieldEWebhookModule, bWebhookIsactive bool, bWebhookIssigned bool, ) *WebhookListElement`
 
 NewWebhookListElement instantiates a new WebhookListElement object
 This constructor will assign default values to properties that have it defined,
@@ -221,6 +222,26 @@ and a boolean to check if the value has been set.
 `func (o *WebhookListElement) SetBWebhookIsactive(v bool)`
 
 SetBWebhookIsactive sets BWebhookIsactive field to given value.
+
+
+### GetBWebhookIssigned
+
+`func (o *WebhookListElement) GetBWebhookIssigned() bool`
+
+GetBWebhookIssigned returns the BWebhookIssigned field if non-nil, zero value otherwise.
+
+### GetBWebhookIssignedOk
+
+`func (o *WebhookListElement) GetBWebhookIssignedOk() (*bool, bool)`
+
+GetBWebhookIssignedOk returns a tuple with the BWebhookIssigned field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBWebhookIssigned
+
+`func (o *WebhookListElement) SetBWebhookIssigned(v bool)`
+
+SetBWebhookIssigned sets BWebhookIssigned field to given value.
 
 
 

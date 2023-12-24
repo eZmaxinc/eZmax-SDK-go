@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignsignatureSignV1Request type satisfies the MappedNullable interface at compile time
@@ -20,6 +22,8 @@ var _ MappedNullable = &EzsignsignatureSignV1Request{}
 
 // EzsignsignatureSignV1Request Request for POST /1/object/ezsignsignature/{pkiEzsignsignatureID}/sign
 type EzsignsignatureSignV1Request struct {
+	// The unique ID of the Ezsignsigningreason
+	FkiEzsignsigningreasonID *int32 `json:"fkiEzsignsigningreasonID,omitempty"`
 	// The value required for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **City**, **FieldText** or **FieldTextarea**
 	SValue *string `json:"sValue,omitempty"`
 	// Whether the attachment are accepted or refused.  This can only be set if eEzsignsignatureType is **AttachmentsConfirmation**
@@ -32,6 +36,8 @@ type EzsignsignatureSignV1Request struct {
 	// Indicates if the Ezsignsignature was part of an automatic process or not.  This can only be true if eEzsignsignatureType is **Acknowledgement**, **City**, **Handwritten**, **Initials**, **Name** or **Stamp**. 
 	BIsAutomatic bool `json:"bIsAutomatic"`
 }
+
+type _EzsignsignatureSignV1Request EzsignsignatureSignV1Request
 
 // NewEzsignsignatureSignV1Request instantiates a new EzsignsignatureSignV1Request object
 // This constructor will assign default values to properties that have it defined,
@@ -49,6 +55,38 @@ func NewEzsignsignatureSignV1Request(bIsAutomatic bool) *EzsignsignatureSignV1Re
 func NewEzsignsignatureSignV1RequestWithDefaults() *EzsignsignatureSignV1Request {
 	this := EzsignsignatureSignV1Request{}
 	return &this
+}
+
+// GetFkiEzsignsigningreasonID returns the FkiEzsignsigningreasonID field value if set, zero value otherwise.
+func (o *EzsignsignatureSignV1Request) GetFkiEzsignsigningreasonID() int32 {
+	if o == nil || IsNil(o.FkiEzsignsigningreasonID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEzsignsigningreasonID
+}
+
+// GetFkiEzsignsigningreasonIDOk returns a tuple with the FkiEzsignsigningreasonID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureSignV1Request) GetFkiEzsignsigningreasonIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEzsignsigningreasonID) {
+		return nil, false
+	}
+	return o.FkiEzsignsigningreasonID, true
+}
+
+// HasFkiEzsignsigningreasonID returns a boolean if a field has been set.
+func (o *EzsignsignatureSignV1Request) HasFkiEzsignsigningreasonID() bool {
+	if o != nil && !IsNil(o.FkiEzsignsigningreasonID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzsignsigningreasonID gets a reference to the given int32 and assigns it to the FkiEzsignsigningreasonID field.
+func (o *EzsignsignatureSignV1Request) SetFkiEzsignsigningreasonID(v int32) {
+	o.FkiEzsignsigningreasonID = &v
 }
 
 // GetSValue returns the SValue field value if set, zero value otherwise.
@@ -245,6 +283,9 @@ func (o EzsignsignatureSignV1Request) MarshalJSON() ([]byte, error) {
 
 func (o EzsignsignatureSignV1Request) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.FkiEzsignsigningreasonID) {
+		toSerialize["fkiEzsignsigningreasonID"] = o.FkiEzsignsigningreasonID
+	}
 	if !IsNil(o.SValue) {
 		toSerialize["sValue"] = o.SValue
 	}
@@ -262,6 +303,43 @@ func (o EzsignsignatureSignV1Request) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["bIsAutomatic"] = o.BIsAutomatic
 	return toSerialize, nil
+}
+
+func (o *EzsignsignatureSignV1Request) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"bIsAutomatic",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignsignatureSignV1Request := _EzsignsignatureSignV1Request{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignsignatureSignV1Request)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignsignatureSignV1Request(varEzsignsignatureSignV1Request)
+
+	return err
 }
 
 type NullableEzsignsignatureSignV1Request struct {

@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignfoldersignerassociationCreateObjectV2Request type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &EzsignfoldersignerassociationCreateObjectV2Request{}
 type EzsignfoldersignerassociationCreateObjectV2Request struct {
 	AObjEzsignfoldersignerassociation []EzsignfoldersignerassociationRequestCompound `json:"a_objEzsignfoldersignerassociation"`
 }
+
+type _EzsignfoldersignerassociationCreateObjectV2Request EzsignfoldersignerassociationCreateObjectV2Request
 
 // NewEzsignfoldersignerassociationCreateObjectV2Request instantiates a new EzsignfoldersignerassociationCreateObjectV2Request object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o EzsignfoldersignerassociationCreateObjectV2Request) ToMap() (map[string]
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_objEzsignfoldersignerassociation"] = o.AObjEzsignfoldersignerassociation
 	return toSerialize, nil
+}
+
+func (o *EzsignfoldersignerassociationCreateObjectV2Request) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"a_objEzsignfoldersignerassociation",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignfoldersignerassociationCreateObjectV2Request := _EzsignfoldersignerassociationCreateObjectV2Request{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignfoldersignerassociationCreateObjectV2Request)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignfoldersignerassociationCreateObjectV2Request(varEzsignfoldersignerassociationCreateObjectV2Request)
+
+	return err
 }
 
 type NullableEzsignfoldersignerassociationCreateObjectV2Request struct {

@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ContactRequestCompound type satisfies the MappedNullable interface at compile time
@@ -34,6 +36,8 @@ type ContactRequestCompound struct {
 	DtContactBirthdate *string `json:"dtContactBirthdate,omitempty"`
 	ObjContactinformations ContactinformationsRequestCompound `json:"objContactinformations"`
 }
+
+type _ContactRequestCompound ContactRequestCompound
 
 // NewContactRequestCompound instantiates a new ContactRequestCompound object
 // This constructor will assign default values to properties that have it defined,
@@ -254,6 +258,48 @@ func (o ContactRequestCompound) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["objContactinformations"] = o.ObjContactinformations
 	return toSerialize, nil
+}
+
+func (o *ContactRequestCompound) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"fkiContacttitleID",
+		"fkiLanguageID",
+		"sContactFirstname",
+		"sContactLastname",
+		"sContactCompany",
+		"objContactinformations",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varContactRequestCompound := _ContactRequestCompound{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varContactRequestCompound)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ContactRequestCompound(varContactRequestCompound)
+
+	return err
 }
 
 type NullableContactRequestCompound struct {

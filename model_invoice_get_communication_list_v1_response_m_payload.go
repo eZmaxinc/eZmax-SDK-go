@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the InvoiceGetCommunicationListV1ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &InvoiceGetCommunicationListV1ResponseMPayload{}
 type InvoiceGetCommunicationListV1ResponseMPayload struct {
 	AObjCommunication []CustomCommunicationListElementResponse `json:"a_objCommunication"`
 }
+
+type _InvoiceGetCommunicationListV1ResponseMPayload InvoiceGetCommunicationListV1ResponseMPayload
 
 // NewInvoiceGetCommunicationListV1ResponseMPayload instantiates a new InvoiceGetCommunicationListV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o InvoiceGetCommunicationListV1ResponseMPayload) ToMap() (map[string]inter
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_objCommunication"] = o.AObjCommunication
 	return toSerialize, nil
+}
+
+func (o *InvoiceGetCommunicationListV1ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"a_objCommunication",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varInvoiceGetCommunicationListV1ResponseMPayload := _InvoiceGetCommunicationListV1ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varInvoiceGetCommunicationListV1ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = InvoiceGetCommunicationListV1ResponseMPayload(varInvoiceGetCommunicationListV1ResponseMPayload)
+
+	return err
 }
 
 type NullableInvoiceGetCommunicationListV1ResponseMPayload struct {

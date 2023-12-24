@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the CommonReport type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &CommonReport{}
 type CommonReport struct {
 	AObjReportsection []CommonReportsection `json:"a_objReportsection"`
 }
+
+type _CommonReport CommonReport
 
 // NewCommonReport instantiates a new CommonReport object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o CommonReport) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_objReportsection"] = o.AObjReportsection
 	return toSerialize, nil
+}
+
+func (o *CommonReport) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"a_objReportsection",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varCommonReport := _CommonReport{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varCommonReport)
+
+	if err != nil {
+		return err
+	}
+
+	*o = CommonReport(varCommonReport)
+
+	return err
 }
 
 type NullableCommonReport struct {

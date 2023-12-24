@@ -25,24 +25,24 @@ Create a new Subnet
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    subnetCreateObjectV1Request := *openapiclient.NewSubnetCreateObjectV1Request([]openapiclient.SubnetRequestCompound{*openapiclient.NewSubnetRequestCompound(*openapiclient.NewMultilingualSubnetDescription(), int64(134744064), int64(4294967040))}) // SubnetCreateObjectV1Request | 
+	subnetCreateObjectV1Request := *openapiclient.NewSubnetCreateObjectV1Request([]openapiclient.SubnetRequestCompound{*openapiclient.NewSubnetRequestCompound(*openapiclient.NewMultilingualSubnetDescription(), int64(134744064), int64(4294967040))}) // SubnetCreateObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectSubnetAPI.SubnetCreateObjectV1(context.Background()).SubnetCreateObjectV1Request(subnetCreateObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectSubnetAPI.SubnetCreateObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SubnetCreateObjectV1`: SubnetCreateObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectSubnetAPI.SubnetCreateObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectSubnetAPI.SubnetCreateObjectV1(context.Background()).SubnetCreateObjectV1Request(subnetCreateObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSubnetAPI.SubnetCreateObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SubnetCreateObjectV1`: SubnetCreateObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectSubnetAPI.SubnetCreateObjectV1`: %v\n", resp)
 }
 ```
 
@@ -91,24 +91,24 @@ Delete an existing Subnet
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiSubnetID := int32(56) // int32 | The unique ID of the Subnet
+	pkiSubnetID := int32(56) // int32 | The unique ID of the Subnet
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectSubnetAPI.SubnetDeleteObjectV1(context.Background(), pkiSubnetID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectSubnetAPI.SubnetDeleteObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SubnetDeleteObjectV1`: SubnetDeleteObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectSubnetAPI.SubnetDeleteObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectSubnetAPI.SubnetDeleteObjectV1(context.Background(), pkiSubnetID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSubnetAPI.SubnetDeleteObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SubnetDeleteObjectV1`: SubnetDeleteObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectSubnetAPI.SubnetDeleteObjectV1`: %v\n", resp)
 }
 ```
 
@@ -161,25 +161,25 @@ Edit an existing Subnet
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiSubnetID := int32(56) // int32 | The unique ID of the Subnet
-    subnetEditObjectV1Request := *openapiclient.NewSubnetEditObjectV1Request(*openapiclient.NewSubnetRequestCompound(*openapiclient.NewMultilingualSubnetDescription(), int64(134744064), int64(4294967040))) // SubnetEditObjectV1Request | 
+	pkiSubnetID := int32(56) // int32 | The unique ID of the Subnet
+	subnetEditObjectV1Request := *openapiclient.NewSubnetEditObjectV1Request(*openapiclient.NewSubnetRequestCompound(*openapiclient.NewMultilingualSubnetDescription(), int64(134744064), int64(4294967040))) // SubnetEditObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectSubnetAPI.SubnetEditObjectV1(context.Background(), pkiSubnetID).SubnetEditObjectV1Request(subnetEditObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectSubnetAPI.SubnetEditObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SubnetEditObjectV1`: SubnetEditObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectSubnetAPI.SubnetEditObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectSubnetAPI.SubnetEditObjectV1(context.Background(), pkiSubnetID).SubnetEditObjectV1Request(subnetEditObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSubnetAPI.SubnetEditObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SubnetEditObjectV1`: SubnetEditObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectSubnetAPI.SubnetEditObjectV1`: %v\n", resp)
 }
 ```
 
@@ -233,24 +233,24 @@ Retrieve an existing Subnet
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiSubnetID := int32(56) // int32 | The unique ID of the Subnet
+	pkiSubnetID := int32(56) // int32 | The unique ID of the Subnet
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectSubnetAPI.SubnetGetObjectV2(context.Background(), pkiSubnetID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectSubnetAPI.SubnetGetObjectV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SubnetGetObjectV2`: SubnetGetObjectV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectSubnetAPI.SubnetGetObjectV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectSubnetAPI.SubnetGetObjectV2(context.Background(), pkiSubnetID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSubnetAPI.SubnetGetObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SubnetGetObjectV2`: SubnetGetObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectSubnetAPI.SubnetGetObjectV2`: %v\n", resp)
 }
 ```
 

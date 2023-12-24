@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the DepartmentGetAutocompleteV2ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -23,6 +25,8 @@ type DepartmentGetAutocompleteV2ResponseMPayload struct {
 	// An array of Department autocomplete element response.
 	AObjDepartment []DepartmentAutocompleteElementResponse `json:"a_objDepartment"`
 }
+
+type _DepartmentGetAutocompleteV2ResponseMPayload DepartmentGetAutocompleteV2ResponseMPayload
 
 // NewDepartmentGetAutocompleteV2ResponseMPayload instantiates a new DepartmentGetAutocompleteV2ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -78,6 +82,43 @@ func (o DepartmentGetAutocompleteV2ResponseMPayload) ToMap() (map[string]interfa
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_objDepartment"] = o.AObjDepartment
 	return toSerialize, nil
+}
+
+func (o *DepartmentGetAutocompleteV2ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"a_objDepartment",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varDepartmentGetAutocompleteV2ResponseMPayload := _DepartmentGetAutocompleteV2ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varDepartmentGetAutocompleteV2ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = DepartmentGetAutocompleteV2ResponseMPayload(varDepartmentGetAutocompleteV2ResponseMPayload)
+
+	return err
 }
 
 type NullableDepartmentGetAutocompleteV2ResponseMPayload struct {

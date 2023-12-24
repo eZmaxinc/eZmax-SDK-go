@@ -26,24 +26,24 @@ Create a new Paymentterm
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    paymenttermCreateObjectV1Request := *openapiclient.NewPaymenttermCreateObjectV1Request([]openapiclient.PaymenttermRequestCompound{*openapiclient.NewPaymenttermRequestCompound("0030", openapiclient.Field-ePaymenttermType("Days"), int32(30), *openapiclient.NewMultilingualPaymenttermDescription(), true)}) // PaymenttermCreateObjectV1Request | 
+	paymenttermCreateObjectV1Request := *openapiclient.NewPaymenttermCreateObjectV1Request([]openapiclient.PaymenttermRequestCompound{*openapiclient.NewPaymenttermRequestCompound("0030", openapiclient.Field-ePaymenttermType("Days"), int32(30), *openapiclient.NewMultilingualPaymenttermDescription(), true)}) // PaymenttermCreateObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectPaymenttermAPI.PaymenttermCreateObjectV1(context.Background()).PaymenttermCreateObjectV1Request(paymenttermCreateObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectPaymenttermAPI.PaymenttermCreateObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PaymenttermCreateObjectV1`: PaymenttermCreateObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectPaymenttermAPI.PaymenttermCreateObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectPaymenttermAPI.PaymenttermCreateObjectV1(context.Background()).PaymenttermCreateObjectV1Request(paymenttermCreateObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectPaymenttermAPI.PaymenttermCreateObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PaymenttermCreateObjectV1`: PaymenttermCreateObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectPaymenttermAPI.PaymenttermCreateObjectV1`: %v\n", resp)
 }
 ```
 
@@ -92,25 +92,25 @@ Edit an existing Paymentterm
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiPaymenttermID := int32(56) // int32 | 
-    paymenttermEditObjectV1Request := *openapiclient.NewPaymenttermEditObjectV1Request(*openapiclient.NewPaymenttermRequestCompound("0030", openapiclient.Field-ePaymenttermType("Days"), int32(30), *openapiclient.NewMultilingualPaymenttermDescription(), true)) // PaymenttermEditObjectV1Request | 
+	pkiPaymenttermID := int32(56) // int32 | 
+	paymenttermEditObjectV1Request := *openapiclient.NewPaymenttermEditObjectV1Request(*openapiclient.NewPaymenttermRequestCompound("0030", openapiclient.Field-ePaymenttermType("Days"), int32(30), *openapiclient.NewMultilingualPaymenttermDescription(), true)) // PaymenttermEditObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectPaymenttermAPI.PaymenttermEditObjectV1(context.Background(), pkiPaymenttermID).PaymenttermEditObjectV1Request(paymenttermEditObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectPaymenttermAPI.PaymenttermEditObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PaymenttermEditObjectV1`: PaymenttermEditObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectPaymenttermAPI.PaymenttermEditObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectPaymenttermAPI.PaymenttermEditObjectV1(context.Background(), pkiPaymenttermID).PaymenttermEditObjectV1Request(paymenttermEditObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectPaymenttermAPI.PaymenttermEditObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PaymenttermEditObjectV1`: PaymenttermEditObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectPaymenttermAPI.PaymenttermEditObjectV1`: %v\n", resp)
 }
 ```
 
@@ -164,27 +164,27 @@ Retrieve Paymentterms and IDs
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    sSelector := "sSelector_example" // string | The type of Paymentterms to return
-    eFilterActive := "eFilterActive_example" // string | Specify which results we want to display. (optional) (default to "Active")
-    sQuery := "sQuery_example" // string | Allow to filter the returned results (optional)
-    acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
+	sSelector := "sSelector_example" // string | The type of Paymentterms to return
+	eFilterActive := "eFilterActive_example" // string | Specify which results we want to display. (optional) (default to "Active")
+	sQuery := "sQuery_example" // string | Allow to filter the returned results (optional)
+	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectPaymenttermAPI.PaymenttermGetAutocompleteV2(context.Background(), sSelector).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectPaymenttermAPI.PaymenttermGetAutocompleteV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PaymenttermGetAutocompleteV2`: PaymenttermGetAutocompleteV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectPaymenttermAPI.PaymenttermGetAutocompleteV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectPaymenttermAPI.PaymenttermGetAutocompleteV2(context.Background(), sSelector).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectPaymenttermAPI.PaymenttermGetAutocompleteV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PaymenttermGetAutocompleteV2`: PaymenttermGetAutocompleteV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectPaymenttermAPI.PaymenttermGetAutocompleteV2`: %v\n", resp)
 }
 ```
 
@@ -238,28 +238,28 @@ Retrieve Paymentterm list
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
-    iRowMax := int32(56) // int32 |  (optional)
-    iRowOffset := int32(56) // int32 |  (optional) (default to 0)
-    acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
-    sFilter := "sFilter_example" // string |  (optional)
+	eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
+	iRowMax := int32(56) // int32 |  (optional)
+	iRowOffset := int32(56) // int32 |  (optional) (default to 0)
+	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
+	sFilter := "sFilter_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectPaymenttermAPI.PaymenttermGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectPaymenttermAPI.PaymenttermGetListV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PaymenttermGetListV1`: PaymenttermGetListV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectPaymenttermAPI.PaymenttermGetListV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectPaymenttermAPI.PaymenttermGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectPaymenttermAPI.PaymenttermGetListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PaymenttermGetListV1`: PaymenttermGetListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectPaymenttermAPI.PaymenttermGetListV1`: %v\n", resp)
 }
 ```
 
@@ -312,24 +312,24 @@ Retrieve an existing Paymentterm
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiPaymenttermID := int32(56) // int32 | 
+	pkiPaymenttermID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectPaymenttermAPI.PaymenttermGetObjectV2(context.Background(), pkiPaymenttermID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectPaymenttermAPI.PaymenttermGetObjectV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PaymenttermGetObjectV2`: PaymenttermGetObjectV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectPaymenttermAPI.PaymenttermGetObjectV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectPaymenttermAPI.PaymenttermGetObjectV2(context.Background(), pkiPaymenttermID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectPaymenttermAPI.PaymenttermGetObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PaymenttermGetObjectV2`: PaymenttermGetObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectPaymenttermAPI.PaymenttermGetObjectV2`: %v\n", resp)
 }
 ```
 

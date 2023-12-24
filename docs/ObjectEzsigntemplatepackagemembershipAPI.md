@@ -24,24 +24,24 @@ Create a new Ezsigntemplatepackagemembership
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    ezsigntemplatepackagemembershipCreateObjectV1Request := *openapiclient.NewEzsigntemplatepackagemembershipCreateObjectV1Request([]openapiclient.EzsigntemplatepackagemembershipRequestCompound{*openapiclient.NewEzsigntemplatepackagemembershipRequestCompound(int32(99), int32(36))}) // EzsigntemplatepackagemembershipCreateObjectV1Request | 
+	ezsigntemplatepackagemembershipCreateObjectV1Request := *openapiclient.NewEzsigntemplatepackagemembershipCreateObjectV1Request([]openapiclient.EzsigntemplatepackagemembershipRequestCompound{*openapiclient.NewEzsigntemplatepackagemembershipRequestCompound(int32(99), int32(36))}) // EzsigntemplatepackagemembershipCreateObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsigntemplatepackagemembershipAPI.EzsigntemplatepackagemembershipCreateObjectV1(context.Background()).EzsigntemplatepackagemembershipCreateObjectV1Request(ezsigntemplatepackagemembershipCreateObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatepackagemembershipAPI.EzsigntemplatepackagemembershipCreateObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsigntemplatepackagemembershipCreateObjectV1`: EzsigntemplatepackagemembershipCreateObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatepackagemembershipAPI.EzsigntemplatepackagemembershipCreateObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigntemplatepackagemembershipAPI.EzsigntemplatepackagemembershipCreateObjectV1(context.Background()).EzsigntemplatepackagemembershipCreateObjectV1Request(ezsigntemplatepackagemembershipCreateObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatepackagemembershipAPI.EzsigntemplatepackagemembershipCreateObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigntemplatepackagemembershipCreateObjectV1`: EzsigntemplatepackagemembershipCreateObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatepackagemembershipAPI.EzsigntemplatepackagemembershipCreateObjectV1`: %v\n", resp)
 }
 ```
 
@@ -90,24 +90,24 @@ Delete an existing Ezsigntemplatepackagemembership
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsigntemplatepackagemembershipID := int32(56) // int32 | 
+	pkiEzsigntemplatepackagemembershipID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsigntemplatepackagemembershipAPI.EzsigntemplatepackagemembershipDeleteObjectV1(context.Background(), pkiEzsigntemplatepackagemembershipID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatepackagemembershipAPI.EzsigntemplatepackagemembershipDeleteObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsigntemplatepackagemembershipDeleteObjectV1`: EzsigntemplatepackagemembershipDeleteObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatepackagemembershipAPI.EzsigntemplatepackagemembershipDeleteObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigntemplatepackagemembershipAPI.EzsigntemplatepackagemembershipDeleteObjectV1(context.Background(), pkiEzsigntemplatepackagemembershipID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatepackagemembershipAPI.EzsigntemplatepackagemembershipDeleteObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigntemplatepackagemembershipDeleteObjectV1`: EzsigntemplatepackagemembershipDeleteObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatepackagemembershipAPI.EzsigntemplatepackagemembershipDeleteObjectV1`: %v\n", resp)
 }
 ```
 
@@ -160,24 +160,24 @@ Retrieve an existing Ezsigntemplatepackagemembership
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsigntemplatepackagemembershipID := int32(56) // int32 | 
+	pkiEzsigntemplatepackagemembershipID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsigntemplatepackagemembershipAPI.EzsigntemplatepackagemembershipGetObjectV2(context.Background(), pkiEzsigntemplatepackagemembershipID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatepackagemembershipAPI.EzsigntemplatepackagemembershipGetObjectV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsigntemplatepackagemembershipGetObjectV2`: EzsigntemplatepackagemembershipGetObjectV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatepackagemembershipAPI.EzsigntemplatepackagemembershipGetObjectV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigntemplatepackagemembershipAPI.EzsigntemplatepackagemembershipGetObjectV2(context.Background(), pkiEzsigntemplatepackagemembershipID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatepackagemembershipAPI.EzsigntemplatepackagemembershipGetObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigntemplatepackagemembershipGetObjectV2`: EzsigntemplatepackagemembershipGetObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatepackagemembershipAPI.EzsigntemplatepackagemembershipGetObjectV2`: %v\n", resp)
 }
 ```
 

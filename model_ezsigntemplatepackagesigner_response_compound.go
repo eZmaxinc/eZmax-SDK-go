@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigntemplatepackagesignerResponseCompound type satisfies the MappedNullable interface at compile time
@@ -27,6 +29,8 @@ type EzsigntemplatepackagesignerResponseCompound struct {
 	// The description of the Ezsigntemplatepackagesigner
 	SEzsigntemplatepackagesignerDescription string `json:"sEzsigntemplatepackagesignerDescription"`
 }
+
+type _EzsigntemplatepackagesignerResponseCompound EzsigntemplatepackagesignerResponseCompound
 
 // NewEzsigntemplatepackagesignerResponseCompound instantiates a new EzsigntemplatepackagesignerResponseCompound object
 // This constructor will assign default values to properties that have it defined,
@@ -134,6 +138,45 @@ func (o EzsigntemplatepackagesignerResponseCompound) ToMap() (map[string]interfa
 	toSerialize["fkiEzsigntemplatepackageID"] = o.FkiEzsigntemplatepackageID
 	toSerialize["sEzsigntemplatepackagesignerDescription"] = o.SEzsigntemplatepackagesignerDescription
 	return toSerialize, nil
+}
+
+func (o *EzsigntemplatepackagesignerResponseCompound) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiEzsigntemplatepackagesignerID",
+		"fkiEzsigntemplatepackageID",
+		"sEzsigntemplatepackagesignerDescription",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigntemplatepackagesignerResponseCompound := _EzsigntemplatepackagesignerResponseCompound{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigntemplatepackagesignerResponseCompound)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigntemplatepackagesignerResponseCompound(varEzsigntemplatepackagesignerResponseCompound)
+
+	return err
 }
 
 type NullableEzsigntemplatepackagesignerResponseCompound struct {

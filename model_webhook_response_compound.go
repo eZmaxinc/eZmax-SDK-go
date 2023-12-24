@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the WebhookResponseCompound type satisfies the MappedNullable interface at compile time
@@ -35,19 +37,27 @@ type WebhookResponseCompound struct {
 	SWebhookUrl string `json:"sWebhookUrl"`
 	// The email that will receive the Webhook in case all attempts fail
 	SWebhookEmailfailed string `json:"sWebhookEmailfailed"`
+	// The Apikey for the Webhook.  This will be hidden if we are not creating or regenerating the Apikey.
+	SWebhookApikey *string `json:"sWebhookApikey,omitempty"`
+	// The Secret for the Webhook.  This will be hidden if we are not creating or regenerating the Apikey.
+	SWebhookSecret *string `json:"sWebhookSecret,omitempty"`
 	// Whether the Webhook is active or not
 	BWebhookIsactive bool `json:"bWebhookIsactive"`
+	// Whether the requests will be signed or not
+	BWebhookIssigned bool `json:"bWebhookIssigned"`
 	// Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use
 	BWebhookSkipsslvalidation bool `json:"bWebhookSkipsslvalidation"`
 	// The concatenated string to describe the Webhook event
 	SWebhookEvent *string `json:"sWebhookEvent,omitempty"`
 }
 
+type _WebhookResponseCompound WebhookResponseCompound
+
 // NewWebhookResponseCompound instantiates a new WebhookResponseCompound object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWebhookResponseCompound(pkiWebhookID int32, sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookIsactive bool, bWebhookSkipsslvalidation bool) *WebhookResponseCompound {
+func NewWebhookResponseCompound(pkiWebhookID int32, sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookIsactive bool, bWebhookIssigned bool, bWebhookSkipsslvalidation bool) *WebhookResponseCompound {
 	this := WebhookResponseCompound{}
 	this.PkiWebhookID = pkiWebhookID
 	this.SWebhookDescription = sWebhookDescription
@@ -55,6 +65,7 @@ func NewWebhookResponseCompound(pkiWebhookID int32, sWebhookDescription string, 
 	this.SWebhookUrl = sWebhookUrl
 	this.SWebhookEmailfailed = sWebhookEmailfailed
 	this.BWebhookIsactive = bWebhookIsactive
+	this.BWebhookIssigned = bWebhookIssigned
 	this.BWebhookSkipsslvalidation = bWebhookSkipsslvalidation
 	return &this
 }
@@ -315,6 +326,70 @@ func (o *WebhookResponseCompound) SetSWebhookEmailfailed(v string) {
 	o.SWebhookEmailfailed = v
 }
 
+// GetSWebhookApikey returns the SWebhookApikey field value if set, zero value otherwise.
+func (o *WebhookResponseCompound) GetSWebhookApikey() string {
+	if o == nil || IsNil(o.SWebhookApikey) {
+		var ret string
+		return ret
+	}
+	return *o.SWebhookApikey
+}
+
+// GetSWebhookApikeyOk returns a tuple with the SWebhookApikey field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WebhookResponseCompound) GetSWebhookApikeyOk() (*string, bool) {
+	if o == nil || IsNil(o.SWebhookApikey) {
+		return nil, false
+	}
+	return o.SWebhookApikey, true
+}
+
+// HasSWebhookApikey returns a boolean if a field has been set.
+func (o *WebhookResponseCompound) HasSWebhookApikey() bool {
+	if o != nil && !IsNil(o.SWebhookApikey) {
+		return true
+	}
+
+	return false
+}
+
+// SetSWebhookApikey gets a reference to the given string and assigns it to the SWebhookApikey field.
+func (o *WebhookResponseCompound) SetSWebhookApikey(v string) {
+	o.SWebhookApikey = &v
+}
+
+// GetSWebhookSecret returns the SWebhookSecret field value if set, zero value otherwise.
+func (o *WebhookResponseCompound) GetSWebhookSecret() string {
+	if o == nil || IsNil(o.SWebhookSecret) {
+		var ret string
+		return ret
+	}
+	return *o.SWebhookSecret
+}
+
+// GetSWebhookSecretOk returns a tuple with the SWebhookSecret field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WebhookResponseCompound) GetSWebhookSecretOk() (*string, bool) {
+	if o == nil || IsNil(o.SWebhookSecret) {
+		return nil, false
+	}
+	return o.SWebhookSecret, true
+}
+
+// HasSWebhookSecret returns a boolean if a field has been set.
+func (o *WebhookResponseCompound) HasSWebhookSecret() bool {
+	if o != nil && !IsNil(o.SWebhookSecret) {
+		return true
+	}
+
+	return false
+}
+
+// SetSWebhookSecret gets a reference to the given string and assigns it to the SWebhookSecret field.
+func (o *WebhookResponseCompound) SetSWebhookSecret(v string) {
+	o.SWebhookSecret = &v
+}
+
 // GetBWebhookIsactive returns the BWebhookIsactive field value
 func (o *WebhookResponseCompound) GetBWebhookIsactive() bool {
 	if o == nil {
@@ -337,6 +412,30 @@ func (o *WebhookResponseCompound) GetBWebhookIsactiveOk() (*bool, bool) {
 // SetBWebhookIsactive sets field value
 func (o *WebhookResponseCompound) SetBWebhookIsactive(v bool) {
 	o.BWebhookIsactive = v
+}
+
+// GetBWebhookIssigned returns the BWebhookIssigned field value
+func (o *WebhookResponseCompound) GetBWebhookIssigned() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BWebhookIssigned
+}
+
+// GetBWebhookIssignedOk returns a tuple with the BWebhookIssigned field value
+// and a boolean to check if the value has been set.
+func (o *WebhookResponseCompound) GetBWebhookIssignedOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BWebhookIssigned, true
+}
+
+// SetBWebhookIssigned sets field value
+func (o *WebhookResponseCompound) SetBWebhookIssigned(v bool) {
+	o.BWebhookIssigned = v
 }
 
 // GetBWebhookSkipsslvalidation returns the BWebhookSkipsslvalidation field value
@@ -422,12 +521,63 @@ func (o WebhookResponseCompound) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["sWebhookUrl"] = o.SWebhookUrl
 	toSerialize["sWebhookEmailfailed"] = o.SWebhookEmailfailed
+	if !IsNil(o.SWebhookApikey) {
+		toSerialize["sWebhookApikey"] = o.SWebhookApikey
+	}
+	if !IsNil(o.SWebhookSecret) {
+		toSerialize["sWebhookSecret"] = o.SWebhookSecret
+	}
 	toSerialize["bWebhookIsactive"] = o.BWebhookIsactive
+	toSerialize["bWebhookIssigned"] = o.BWebhookIssigned
 	toSerialize["bWebhookSkipsslvalidation"] = o.BWebhookSkipsslvalidation
 	if !IsNil(o.SWebhookEvent) {
 		toSerialize["sWebhookEvent"] = o.SWebhookEvent
 	}
 	return toSerialize, nil
+}
+
+func (o *WebhookResponseCompound) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiWebhookID",
+		"sWebhookDescription",
+		"eWebhookModule",
+		"sWebhookUrl",
+		"sWebhookEmailfailed",
+		"bWebhookIsactive",
+		"bWebhookIssigned",
+		"bWebhookSkipsslvalidation",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varWebhookResponseCompound := _WebhookResponseCompound{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varWebhookResponseCompound)
+
+	if err != nil {
+		return err
+	}
+
+	*o = WebhookResponseCompound(varWebhookResponseCompound)
+
+	return err
 }
 
 type NullableWebhookResponseCompound struct {

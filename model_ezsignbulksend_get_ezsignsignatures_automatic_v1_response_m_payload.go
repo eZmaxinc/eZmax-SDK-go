@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignbulksendGetEzsignsignaturesAutomaticV1ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -24,6 +26,8 @@ type EzsignbulksendGetEzsignsignaturesAutomaticV1ResponseMPayload struct {
 	AEEzsignsignatureType []FieldEEzsignsignatureType `json:"a_eEzsignsignatureType"`
 	AObjEzsignfolder []CustomEzsignfolderEzsignsignaturesAutomaticResponse `json:"a_objEzsignfolder"`
 }
+
+type _EzsignbulksendGetEzsignsignaturesAutomaticV1ResponseMPayload EzsignbulksendGetEzsignsignaturesAutomaticV1ResponseMPayload
 
 // NewEzsignbulksendGetEzsignsignaturesAutomaticV1ResponseMPayload instantiates a new EzsignbulksendGetEzsignsignaturesAutomaticV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -105,6 +109,44 @@ func (o EzsignbulksendGetEzsignsignaturesAutomaticV1ResponseMPayload) ToMap() (m
 	toSerialize["a_eEzsignsignatureType"] = o.AEEzsignsignatureType
 	toSerialize["a_objEzsignfolder"] = o.AObjEzsignfolder
 	return toSerialize, nil
+}
+
+func (o *EzsignbulksendGetEzsignsignaturesAutomaticV1ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"a_eEzsignsignatureType",
+		"a_objEzsignfolder",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignbulksendGetEzsignsignaturesAutomaticV1ResponseMPayload := _EzsignbulksendGetEzsignsignaturesAutomaticV1ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignbulksendGetEzsignsignaturesAutomaticV1ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignbulksendGetEzsignsignaturesAutomaticV1ResponseMPayload(varEzsignbulksendGetEzsignsignaturesAutomaticV1ResponseMPayload)
+
+	return err
 }
 
 type NullableEzsignbulksendGetEzsignsignaturesAutomaticV1ResponseMPayload struct {

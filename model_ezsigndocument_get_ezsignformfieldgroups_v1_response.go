@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigndocumentGetEzsignformfieldgroupsV1Response type satisfies the MappedNullable interface at compile time
@@ -24,6 +26,8 @@ type EzsigndocumentGetEzsignformfieldgroupsV1Response struct {
 	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
 	MPayload EzsigndocumentGetEzsignformfieldgroupsV1ResponseMPayload `json:"mPayload"`
 }
+
+type _EzsigndocumentGetEzsignformfieldgroupsV1Response EzsigndocumentGetEzsignformfieldgroupsV1Response
 
 // NewEzsigndocumentGetEzsignformfieldgroupsV1Response instantiates a new EzsigndocumentGetEzsignformfieldgroupsV1Response object
 // This constructor will assign default values to properties that have it defined,
@@ -140,6 +144,44 @@ func (o EzsigndocumentGetEzsignformfieldgroupsV1Response) ToMap() (map[string]in
 	}
 	toSerialize["mPayload"] = o.MPayload
 	return toSerialize, nil
+}
+
+func (o *EzsigndocumentGetEzsignformfieldgroupsV1Response) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"objDebugPayload",
+		"mPayload",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigndocumentGetEzsignformfieldgroupsV1Response := _EzsigndocumentGetEzsignformfieldgroupsV1Response{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigndocumentGetEzsignformfieldgroupsV1Response)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigndocumentGetEzsignformfieldgroupsV1Response(varEzsigndocumentGetEzsignformfieldgroupsV1Response)
+
+	return err
 }
 
 type NullableEzsigndocumentGetEzsignformfieldgroupsV1Response struct {

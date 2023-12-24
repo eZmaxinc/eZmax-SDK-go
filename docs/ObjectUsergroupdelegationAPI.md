@@ -25,24 +25,24 @@ Create a new Usergroupdelegation
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    usergroupdelegationCreateObjectV1Request := *openapiclient.NewUsergroupdelegationCreateObjectV1Request([]openapiclient.UsergroupdelegationRequestCompound{*openapiclient.NewUsergroupdelegationRequestCompound(int32(2), int32(70))}) // UsergroupdelegationCreateObjectV1Request | 
+	usergroupdelegationCreateObjectV1Request := *openapiclient.NewUsergroupdelegationCreateObjectV1Request([]openapiclient.UsergroupdelegationRequestCompound{*openapiclient.NewUsergroupdelegationRequestCompound(int32(2), int32(70))}) // UsergroupdelegationCreateObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUsergroupdelegationAPI.UsergroupdelegationCreateObjectV1(context.Background()).UsergroupdelegationCreateObjectV1Request(usergroupdelegationCreateObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupdelegationAPI.UsergroupdelegationCreateObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UsergroupdelegationCreateObjectV1`: UsergroupdelegationCreateObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupdelegationAPI.UsergroupdelegationCreateObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUsergroupdelegationAPI.UsergroupdelegationCreateObjectV1(context.Background()).UsergroupdelegationCreateObjectV1Request(usergroupdelegationCreateObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupdelegationAPI.UsergroupdelegationCreateObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UsergroupdelegationCreateObjectV1`: UsergroupdelegationCreateObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupdelegationAPI.UsergroupdelegationCreateObjectV1`: %v\n", resp)
 }
 ```
 
@@ -91,24 +91,24 @@ Delete an existing Usergroupdelegation
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiUsergroupdelegationID := int32(56) // int32 | The unique ID of the Usergroupdelegation
+	pkiUsergroupdelegationID := int32(56) // int32 | The unique ID of the Usergroupdelegation
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUsergroupdelegationAPI.UsergroupdelegationDeleteObjectV1(context.Background(), pkiUsergroupdelegationID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupdelegationAPI.UsergroupdelegationDeleteObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UsergroupdelegationDeleteObjectV1`: UsergroupdelegationDeleteObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupdelegationAPI.UsergroupdelegationDeleteObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUsergroupdelegationAPI.UsergroupdelegationDeleteObjectV1(context.Background(), pkiUsergroupdelegationID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupdelegationAPI.UsergroupdelegationDeleteObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UsergroupdelegationDeleteObjectV1`: UsergroupdelegationDeleteObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupdelegationAPI.UsergroupdelegationDeleteObjectV1`: %v\n", resp)
 }
 ```
 
@@ -161,25 +161,25 @@ Edit an existing Usergroupdelegation
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiUsergroupdelegationID := int32(56) // int32 | The unique ID of the Usergroupdelegation
-    usergroupdelegationEditObjectV1Request := *openapiclient.NewUsergroupdelegationEditObjectV1Request(*openapiclient.NewUsergroupdelegationRequestCompound(int32(2), int32(70))) // UsergroupdelegationEditObjectV1Request | 
+	pkiUsergroupdelegationID := int32(56) // int32 | The unique ID of the Usergroupdelegation
+	usergroupdelegationEditObjectV1Request := *openapiclient.NewUsergroupdelegationEditObjectV1Request(*openapiclient.NewUsergroupdelegationRequestCompound(int32(2), int32(70))) // UsergroupdelegationEditObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUsergroupdelegationAPI.UsergroupdelegationEditObjectV1(context.Background(), pkiUsergroupdelegationID).UsergroupdelegationEditObjectV1Request(usergroupdelegationEditObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupdelegationAPI.UsergroupdelegationEditObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UsergroupdelegationEditObjectV1`: UsergroupdelegationEditObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupdelegationAPI.UsergroupdelegationEditObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUsergroupdelegationAPI.UsergroupdelegationEditObjectV1(context.Background(), pkiUsergroupdelegationID).UsergroupdelegationEditObjectV1Request(usergroupdelegationEditObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupdelegationAPI.UsergroupdelegationEditObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UsergroupdelegationEditObjectV1`: UsergroupdelegationEditObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupdelegationAPI.UsergroupdelegationEditObjectV1`: %v\n", resp)
 }
 ```
 
@@ -233,24 +233,24 @@ Retrieve an existing Usergroupdelegation
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiUsergroupdelegationID := int32(56) // int32 | The unique ID of the Usergroupdelegation
+	pkiUsergroupdelegationID := int32(56) // int32 | The unique ID of the Usergroupdelegation
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUsergroupdelegationAPI.UsergroupdelegationGetObjectV2(context.Background(), pkiUsergroupdelegationID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupdelegationAPI.UsergroupdelegationGetObjectV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UsergroupdelegationGetObjectV2`: UsergroupdelegationGetObjectV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupdelegationAPI.UsergroupdelegationGetObjectV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUsergroupdelegationAPI.UsergroupdelegationGetObjectV2(context.Background(), pkiUsergroupdelegationID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupdelegationAPI.UsergroupdelegationGetObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UsergroupdelegationGetObjectV2`: UsergroupdelegationGetObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupdelegationAPI.UsergroupdelegationGetObjectV2`: %v\n", resp)
 }
 ```
 

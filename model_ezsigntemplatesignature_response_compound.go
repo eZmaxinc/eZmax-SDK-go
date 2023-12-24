@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigntemplatesignatureResponseCompound type satisfies the MappedNullable interface at compile time
@@ -64,6 +66,8 @@ type EzsigntemplatesignatureResponseCompound struct {
 	AObjEzsigntemplatesignaturecustomdate []EzsigntemplatesignaturecustomdateResponseCompound `json:"a_objEzsigntemplatesignaturecustomdate,omitempty"`
 	AObjEzsigntemplateelementdependency []EzsigntemplateelementdependencyResponseCompound `json:"a_objEzsigntemplateelementdependency,omitempty"`
 }
+
+type _EzsigntemplatesignatureResponseCompound EzsigntemplatesignatureResponseCompound
 
 // NewEzsigntemplatesignatureResponseCompound instantiates a new EzsigntemplatesignatureResponseCompound object
 // This constructor will assign default values to properties that have it defined,
@@ -896,6 +900,50 @@ func (o EzsigntemplatesignatureResponseCompound) ToMap() (map[string]interface{}
 		toSerialize["a_objEzsigntemplateelementdependency"] = o.AObjEzsigntemplateelementdependency
 	}
 	return toSerialize, nil
+}
+
+func (o *EzsigntemplatesignatureResponseCompound) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiEzsigntemplatesignatureID",
+		"fkiEzsigntemplatedocumentID",
+		"fkiEzsigntemplatesignerID",
+		"iEzsigntemplatedocumentpagePagenumber",
+		"iEzsigntemplatesignatureX",
+		"iEzsigntemplatesignatureY",
+		"iEzsigntemplatesignatureStep",
+		"eEzsigntemplatesignatureType",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigntemplatesignatureResponseCompound := _EzsigntemplatesignatureResponseCompound{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigntemplatesignatureResponseCompound)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigntemplatesignatureResponseCompound(varEzsigntemplatesignatureResponseCompound)
+
+	return err
 }
 
 type NullableEzsigntemplatesignatureResponseCompound struct {

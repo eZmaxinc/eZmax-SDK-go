@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the SecretquestionAutocompleteElementResponse type satisfies the MappedNullable interface at compile time
@@ -27,6 +29,8 @@ type SecretquestionAutocompleteElementResponse struct {
 	// Whether the Secretquestion is active or not
 	BSecretquestionIsactive bool `json:"bSecretquestionIsactive"`
 }
+
+type _SecretquestionAutocompleteElementResponse SecretquestionAutocompleteElementResponse
 
 // NewSecretquestionAutocompleteElementResponse instantiates a new SecretquestionAutocompleteElementResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -134,6 +138,45 @@ func (o SecretquestionAutocompleteElementResponse) ToMap() (map[string]interface
 	toSerialize["pkiSecretquestionID"] = o.PkiSecretquestionID
 	toSerialize["bSecretquestionIsactive"] = o.BSecretquestionIsactive
 	return toSerialize, nil
+}
+
+func (o *SecretquestionAutocompleteElementResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"sSecretquestionTextX",
+		"pkiSecretquestionID",
+		"bSecretquestionIsactive",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varSecretquestionAutocompleteElementResponse := _SecretquestionAutocompleteElementResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varSecretquestionAutocompleteElementResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = SecretquestionAutocompleteElementResponse(varSecretquestionAutocompleteElementResponse)
+
+	return err
 }
 
 type NullableSecretquestionAutocompleteElementResponse struct {

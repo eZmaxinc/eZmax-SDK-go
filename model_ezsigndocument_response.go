@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigndocumentResponse type satisfies the MappedNullable interface at compile time
@@ -60,13 +62,17 @@ type EzsigndocumentResponse struct {
 	ObjAudit *CommonAudit `json:"objAudit,omitempty"`
 	// This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format. 
 	SEzsigndocumentExternalid *string `json:"sEzsigndocumentExternalid,omitempty"`
+	// The number of Ezsigndocumentattachment total
+	IEzsigndocumentEzsignsignatureattachmenttotal int32 `json:"iEzsigndocumentEzsignsignatureattachmenttotal"`
 }
+
+type _EzsigndocumentResponse EzsigndocumentResponse
 
 // NewEzsigndocumentResponse instantiates a new EzsigndocumentResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigndocumentResponse(pkiEzsigndocumentID int32, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, sEzsigndocumentName string, eEzsigndocumentStep FieldEEzsigndocumentStep, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32) *EzsigndocumentResponse {
+func NewEzsigndocumentResponse(pkiEzsigndocumentID int32, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, sEzsigndocumentName string, eEzsigndocumentStep FieldEEzsigndocumentStep, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, iEzsigndocumentEzsignsignatureattachmenttotal int32) *EzsigndocumentResponse {
 	this := EzsigndocumentResponse{}
 	this.PkiEzsigndocumentID = pkiEzsigndocumentID
 	this.FkiEzsignfolderID = fkiEzsignfolderID
@@ -77,6 +83,7 @@ func NewEzsigndocumentResponse(pkiEzsigndocumentID int32, fkiEzsignfolderID int3
 	this.IEzsigndocumentPagetotal = iEzsigndocumentPagetotal
 	this.IEzsigndocumentSignaturesigned = iEzsigndocumentSignaturesigned
 	this.IEzsigndocumentSignaturetotal = iEzsigndocumentSignaturetotal
+	this.IEzsigndocumentEzsignsignatureattachmenttotal = iEzsigndocumentEzsignsignatureattachmenttotal
 	return &this
 }
 
@@ -688,6 +695,30 @@ func (o *EzsigndocumentResponse) SetSEzsigndocumentExternalid(v string) {
 	o.SEzsigndocumentExternalid = &v
 }
 
+// GetIEzsigndocumentEzsignsignatureattachmenttotal returns the IEzsigndocumentEzsignsignatureattachmenttotal field value
+func (o *EzsigndocumentResponse) GetIEzsigndocumentEzsignsignatureattachmenttotal() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IEzsigndocumentEzsignsignatureattachmenttotal
+}
+
+// GetIEzsigndocumentEzsignsignatureattachmenttotalOk returns a tuple with the IEzsigndocumentEzsignsignatureattachmenttotal field value
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentResponse) GetIEzsigndocumentEzsignsignatureattachmenttotalOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IEzsigndocumentEzsignsignatureattachmenttotal, true
+}
+
+// SetIEzsigndocumentEzsignsignatureattachmenttotal sets field value
+func (o *EzsigndocumentResponse) SetIEzsigndocumentEzsignsignatureattachmenttotal(v int32) {
+	o.IEzsigndocumentEzsignsignatureattachmenttotal = v
+}
+
 func (o EzsigndocumentResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -743,7 +774,54 @@ func (o EzsigndocumentResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.SEzsigndocumentExternalid) {
 		toSerialize["sEzsigndocumentExternalid"] = o.SEzsigndocumentExternalid
 	}
+	toSerialize["iEzsigndocumentEzsignsignatureattachmenttotal"] = o.IEzsigndocumentEzsignsignatureattachmenttotal
 	return toSerialize, nil
+}
+
+func (o *EzsigndocumentResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiEzsigndocumentID",
+		"fkiEzsignfolderID",
+		"dtEzsigndocumentDuedate",
+		"sEzsigndocumentName",
+		"eEzsigndocumentStep",
+		"iEzsigndocumentOrder",
+		"iEzsigndocumentPagetotal",
+		"iEzsigndocumentSignaturesigned",
+		"iEzsigndocumentSignaturetotal",
+		"iEzsigndocumentEzsignsignatureattachmenttotal",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigndocumentResponse := _EzsigndocumentResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigndocumentResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigndocumentResponse(varEzsigndocumentResponse)
+
+	return err
 }
 
 type NullableEzsigndocumentResponse struct {

@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzmaxinvoicingcommissionResponseCompound type satisfies the MappedNullable interface at compile time
@@ -38,6 +40,8 @@ type EzmaxinvoicingcommissionResponseCompound struct {
 	DEzmaxinvoicingcommissionAmount string `json:"dEzmaxinvoicingcommissionAmount"`
 	ObjContactName *CustomContactNameResponse `json:"objContactName,omitempty"`
 }
+
+type _EzmaxinvoicingcommissionResponseCompound EzmaxinvoicingcommissionResponseCompound
 
 // NewEzmaxinvoicingcommissionResponseCompound instantiates a new EzmaxinvoicingcommissionResponseCompound object
 // This constructor will assign default values to properties that have it defined,
@@ -346,6 +350,46 @@ func (o EzmaxinvoicingcommissionResponseCompound) ToMap() (map[string]interface{
 		toSerialize["objContactName"] = o.ObjContactName
 	}
 	return toSerialize, nil
+}
+
+func (o *EzmaxinvoicingcommissionResponseCompound) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"dtEzmaxinvoicingcommissionStart",
+		"dtEzmaxinvoicingcommissionEnd",
+		"iEzmaxinvoicingcommissionDays",
+		"dEzmaxinvoicingcommissionAmount",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzmaxinvoicingcommissionResponseCompound := _EzmaxinvoicingcommissionResponseCompound{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzmaxinvoicingcommissionResponseCompound)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzmaxinvoicingcommissionResponseCompound(varEzmaxinvoicingcommissionResponseCompound)
+
+	return err
 }
 
 type NullableEzmaxinvoicingcommissionResponseCompound struct {

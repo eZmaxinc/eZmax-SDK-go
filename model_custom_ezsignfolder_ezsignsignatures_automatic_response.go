@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the CustomEzsignfolderEzsignsignaturesAutomaticResponse type satisfies the MappedNullable interface at compile time
@@ -26,6 +28,8 @@ type CustomEzsignfolderEzsignsignaturesAutomaticResponse struct {
 	SEzsignfolderDescription string `json:"sEzsignfolderDescription"`
 	AObjEzsigndocument []CustomEzsigndocumentEzsignsignaturesAutomaticResponse `json:"a_objEzsigndocument"`
 }
+
+type _CustomEzsignfolderEzsignsignaturesAutomaticResponse CustomEzsignfolderEzsignsignaturesAutomaticResponse
 
 // NewCustomEzsignfolderEzsignsignaturesAutomaticResponse instantiates a new CustomEzsignfolderEzsignsignaturesAutomaticResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -133,6 +137,45 @@ func (o CustomEzsignfolderEzsignsignaturesAutomaticResponse) ToMap() (map[string
 	toSerialize["sEzsignfolderDescription"] = o.SEzsignfolderDescription
 	toSerialize["a_objEzsigndocument"] = o.AObjEzsigndocument
 	return toSerialize, nil
+}
+
+func (o *CustomEzsignfolderEzsignsignaturesAutomaticResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiEzsignfolderID",
+		"sEzsignfolderDescription",
+		"a_objEzsigndocument",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varCustomEzsignfolderEzsignsignaturesAutomaticResponse := _CustomEzsignfolderEzsignsignaturesAutomaticResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varCustomEzsignfolderEzsignsignaturesAutomaticResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = CustomEzsignfolderEzsignsignaturesAutomaticResponse(varCustomEzsignfolderEzsignsignaturesAutomaticResponse)
+
+	return err
 }
 
 type NullableCustomEzsignfolderEzsignsignaturesAutomaticResponse struct {

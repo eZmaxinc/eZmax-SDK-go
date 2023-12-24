@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the BrandingAutocompleteElementResponse type satisfies the MappedNullable interface at compile time
@@ -27,6 +29,8 @@ type BrandingAutocompleteElementResponse struct {
 	// Whether the Branding is active or not
 	BBrandingIsactive bool `json:"bBrandingIsactive"`
 }
+
+type _BrandingAutocompleteElementResponse BrandingAutocompleteElementResponse
 
 // NewBrandingAutocompleteElementResponse instantiates a new BrandingAutocompleteElementResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -134,6 +138,45 @@ func (o BrandingAutocompleteElementResponse) ToMap() (map[string]interface{}, er
 	toSerialize["pkiBrandingID"] = o.PkiBrandingID
 	toSerialize["bBrandingIsactive"] = o.BBrandingIsactive
 	return toSerialize, nil
+}
+
+func (o *BrandingAutocompleteElementResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"sBrandingDescriptionX",
+		"pkiBrandingID",
+		"bBrandingIsactive",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varBrandingAutocompleteElementResponse := _BrandingAutocompleteElementResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varBrandingAutocompleteElementResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = BrandingAutocompleteElementResponse(varBrandingAutocompleteElementResponse)
+
+	return err
 }
 
 type NullableBrandingAutocompleteElementResponse struct {

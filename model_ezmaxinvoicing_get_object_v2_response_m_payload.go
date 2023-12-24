@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzmaxinvoicingGetObjectV2ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &EzmaxinvoicingGetObjectV2ResponseMPayload{}
 type EzmaxinvoicingGetObjectV2ResponseMPayload struct {
 	ObjEzmaxinvoicing EzmaxinvoicingResponseCompound `json:"objEzmaxinvoicing"`
 }
+
+type _EzmaxinvoicingGetObjectV2ResponseMPayload EzmaxinvoicingGetObjectV2ResponseMPayload
 
 // NewEzmaxinvoicingGetObjectV2ResponseMPayload instantiates a new EzmaxinvoicingGetObjectV2ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o EzmaxinvoicingGetObjectV2ResponseMPayload) ToMap() (map[string]interface
 	toSerialize := map[string]interface{}{}
 	toSerialize["objEzmaxinvoicing"] = o.ObjEzmaxinvoicing
 	return toSerialize, nil
+}
+
+func (o *EzmaxinvoicingGetObjectV2ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"objEzmaxinvoicing",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzmaxinvoicingGetObjectV2ResponseMPayload := _EzmaxinvoicingGetObjectV2ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzmaxinvoicingGetObjectV2ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzmaxinvoicingGetObjectV2ResponseMPayload(varEzmaxinvoicingGetObjectV2ResponseMPayload)
+
+	return err
 }
 
 type NullableEzmaxinvoicingGetObjectV2ResponseMPayload struct {

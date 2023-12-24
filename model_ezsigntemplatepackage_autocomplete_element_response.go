@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigntemplatepackageAutocompleteElementResponse type satisfies the MappedNullable interface at compile time
@@ -30,6 +32,8 @@ type EzsigntemplatepackageAutocompleteElementResponse struct {
 	// Indicates if the element is disabled in the context
 	BDisabled bool `json:"bDisabled"`
 }
+
+type _EzsigntemplatepackageAutocompleteElementResponse EzsigntemplatepackageAutocompleteElementResponse
 
 // NewEzsigntemplatepackageAutocompleteElementResponse instantiates a new EzsigntemplatepackageAutocompleteElementResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -189,6 +193,47 @@ func (o EzsigntemplatepackageAutocompleteElementResponse) ToMap() (map[string]in
 	toSerialize["bEzsigntemplatepackageIsactive"] = o.BEzsigntemplatepackageIsactive
 	toSerialize["bDisabled"] = o.BDisabled
 	return toSerialize, nil
+}
+
+func (o *EzsigntemplatepackageAutocompleteElementResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"eEzsignfoldertypePrivacylevel",
+		"sEzsigntemplatepackageDescription",
+		"pkiEzsigntemplatepackageID",
+		"bEzsigntemplatepackageIsactive",
+		"bDisabled",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigntemplatepackageAutocompleteElementResponse := _EzsigntemplatepackageAutocompleteElementResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigntemplatepackageAutocompleteElementResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigntemplatepackageAutocompleteElementResponse(varEzsigntemplatepackageAutocompleteElementResponse)
+
+	return err
 }
 
 type NullableEzsigntemplatepackageAutocompleteElementResponse struct {

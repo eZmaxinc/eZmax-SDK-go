@@ -25,27 +25,27 @@ Retrieve Ezmaxinvoicings and IDs
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    sSelector := "sSelector_example" // string | The type of Ezmaxinvoicings to return
-    eFilterActive := "eFilterActive_example" // string | Specify which results we want to display. Active is the default value. (optional)
-    sQuery := "sQuery_example" // string | Allow to filter the returned results (optional)
-    acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
+	sSelector := "sSelector_example" // string | The type of Ezmaxinvoicings to return
+	eFilterActive := "eFilterActive_example" // string | Specify which results we want to display. Active is the default value. (optional)
+	sQuery := "sQuery_example" // string | Allow to filter the returned results (optional)
+	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzmaxinvoicingAPI.EzmaxinvoicingGetAutocompleteV1(context.Background(), sSelector).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzmaxinvoicingAPI.EzmaxinvoicingGetAutocompleteV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzmaxinvoicingGetAutocompleteV1`: CommonGetAutocompleteV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzmaxinvoicingAPI.EzmaxinvoicingGetAutocompleteV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzmaxinvoicingAPI.EzmaxinvoicingGetAutocompleteV1(context.Background(), sSelector).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzmaxinvoicingAPI.EzmaxinvoicingGetAutocompleteV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzmaxinvoicingGetAutocompleteV1`: CommonGetAutocompleteV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzmaxinvoicingAPI.EzmaxinvoicingGetAutocompleteV1`: %v\n", resp)
 }
 ```
 
@@ -101,27 +101,27 @@ Retrieve Ezmaxinvoicings and IDs
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    sSelector := "sSelector_example" // string | The type of Ezmaxinvoicings to return
-    eFilterActive := "eFilterActive_example" // string | Specify which results we want to display. (optional) (default to "Active")
-    sQuery := "sQuery_example" // string | Allow to filter the returned results (optional)
-    acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
+	sSelector := "sSelector_example" // string | The type of Ezmaxinvoicings to return
+	eFilterActive := "eFilterActive_example" // string | Specify which results we want to display. (optional) (default to "Active")
+	sQuery := "sQuery_example" // string | Allow to filter the returned results (optional)
+	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzmaxinvoicingAPI.EzmaxinvoicingGetAutocompleteV2(context.Background(), sSelector).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzmaxinvoicingAPI.EzmaxinvoicingGetAutocompleteV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzmaxinvoicingGetAutocompleteV2`: EzmaxinvoicingGetAutocompleteV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzmaxinvoicingAPI.EzmaxinvoicingGetAutocompleteV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzmaxinvoicingAPI.EzmaxinvoicingGetAutocompleteV2(context.Background(), sSelector).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzmaxinvoicingAPI.EzmaxinvoicingGetAutocompleteV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzmaxinvoicingGetAutocompleteV2`: EzmaxinvoicingGetAutocompleteV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzmaxinvoicingAPI.EzmaxinvoicingGetAutocompleteV2`: %v\n", resp)
 }
 ```
 
@@ -177,24 +177,24 @@ Retrieve an existing Ezmaxinvoicing
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzmaxinvoicingID := int32(56) // int32 | 
+	pkiEzmaxinvoicingID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzmaxinvoicingAPI.EzmaxinvoicingGetObjectV2(context.Background(), pkiEzmaxinvoicingID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzmaxinvoicingAPI.EzmaxinvoicingGetObjectV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzmaxinvoicingGetObjectV2`: EzmaxinvoicingGetObjectV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzmaxinvoicingAPI.EzmaxinvoicingGetObjectV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzmaxinvoicingAPI.EzmaxinvoicingGetObjectV2(context.Background(), pkiEzmaxinvoicingID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzmaxinvoicingAPI.EzmaxinvoicingGetObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzmaxinvoicingGetObjectV2`: EzmaxinvoicingGetObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzmaxinvoicingAPI.EzmaxinvoicingGetObjectV2`: %v\n", resp)
 }
 ```
 
@@ -247,23 +247,23 @@ Retrieve provisional Ezmaxinvoicing
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzmaxinvoicingAPI.EzmaxinvoicingGetProvisionalV1(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzmaxinvoicingAPI.EzmaxinvoicingGetProvisionalV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzmaxinvoicingGetProvisionalV1`: EzmaxinvoicingGetProvisionalV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzmaxinvoicingAPI.EzmaxinvoicingGetProvisionalV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzmaxinvoicingAPI.EzmaxinvoicingGetProvisionalV1(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzmaxinvoicingAPI.EzmaxinvoicingGetProvisionalV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzmaxinvoicingGetProvisionalV1`: EzmaxinvoicingGetProvisionalV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzmaxinvoicingAPI.EzmaxinvoicingGetProvisionalV1`: %v\n", resp)
 }
 ```
 

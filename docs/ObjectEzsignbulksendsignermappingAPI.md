@@ -24,24 +24,24 @@ Create a new Ezsignbulksendsignermapping
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    ezsignbulksendsignermappingCreateObjectV1Request := *openapiclient.NewEzsignbulksendsignermappingCreateObjectV1Request([]openapiclient.EzsignbulksendsignermappingRequestCompound{*openapiclient.NewEzsignbulksendsignermappingRequestCompound(int32(8), "Supervisor")}) // EzsignbulksendsignermappingCreateObjectV1Request | 
+	ezsignbulksendsignermappingCreateObjectV1Request := *openapiclient.NewEzsignbulksendsignermappingCreateObjectV1Request([]openapiclient.EzsignbulksendsignermappingRequestCompound{*openapiclient.NewEzsignbulksendsignermappingRequestCompound(int32(8), "Supervisor")}) // EzsignbulksendsignermappingCreateObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignbulksendsignermappingAPI.EzsignbulksendsignermappingCreateObjectV1(context.Background()).EzsignbulksendsignermappingCreateObjectV1Request(ezsignbulksendsignermappingCreateObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendsignermappingAPI.EzsignbulksendsignermappingCreateObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignbulksendsignermappingCreateObjectV1`: EzsignbulksendsignermappingCreateObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendsignermappingAPI.EzsignbulksendsignermappingCreateObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignbulksendsignermappingAPI.EzsignbulksendsignermappingCreateObjectV1(context.Background()).EzsignbulksendsignermappingCreateObjectV1Request(ezsignbulksendsignermappingCreateObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendsignermappingAPI.EzsignbulksendsignermappingCreateObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignbulksendsignermappingCreateObjectV1`: EzsignbulksendsignermappingCreateObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendsignermappingAPI.EzsignbulksendsignermappingCreateObjectV1`: %v\n", resp)
 }
 ```
 
@@ -90,24 +90,24 @@ Delete an existing Ezsignbulksendsignermapping
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignbulksendsignermappingID := int32(56) // int32 | 
+	pkiEzsignbulksendsignermappingID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignbulksendsignermappingAPI.EzsignbulksendsignermappingDeleteObjectV1(context.Background(), pkiEzsignbulksendsignermappingID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendsignermappingAPI.EzsignbulksendsignermappingDeleteObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignbulksendsignermappingDeleteObjectV1`: EzsignbulksendsignermappingDeleteObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendsignermappingAPI.EzsignbulksendsignermappingDeleteObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignbulksendsignermappingAPI.EzsignbulksendsignermappingDeleteObjectV1(context.Background(), pkiEzsignbulksendsignermappingID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendsignermappingAPI.EzsignbulksendsignermappingDeleteObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignbulksendsignermappingDeleteObjectV1`: EzsignbulksendsignermappingDeleteObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendsignermappingAPI.EzsignbulksendsignermappingDeleteObjectV1`: %v\n", resp)
 }
 ```
 
@@ -160,24 +160,24 @@ Retrieve an existing Ezsignbulksendsignermapping
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignbulksendsignermappingID := int32(56) // int32 | 
+	pkiEzsignbulksendsignermappingID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignbulksendsignermappingAPI.EzsignbulksendsignermappingGetObjectV2(context.Background(), pkiEzsignbulksendsignermappingID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendsignermappingAPI.EzsignbulksendsignermappingGetObjectV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignbulksendsignermappingGetObjectV2`: EzsignbulksendsignermappingGetObjectV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendsignermappingAPI.EzsignbulksendsignermappingGetObjectV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignbulksendsignermappingAPI.EzsignbulksendsignermappingGetObjectV2(context.Background(), pkiEzsignbulksendsignermappingID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendsignermappingAPI.EzsignbulksendsignermappingGetObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignbulksendsignermappingGetObjectV2`: EzsignbulksendsignermappingGetObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendsignermappingAPI.EzsignbulksendsignermappingGetObjectV2`: %v\n", resp)
 }
 ```
 

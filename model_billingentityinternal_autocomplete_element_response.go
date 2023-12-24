@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the BillingentityinternalAutocompleteElementResponse type satisfies the MappedNullable interface at compile time
@@ -27,6 +29,8 @@ type BillingentityinternalAutocompleteElementResponse struct {
 	// Whether the Billingentityinternal is active or not
 	BBillingentityinternalIsactive bool `json:"bBillingentityinternalIsactive"`
 }
+
+type _BillingentityinternalAutocompleteElementResponse BillingentityinternalAutocompleteElementResponse
 
 // NewBillingentityinternalAutocompleteElementResponse instantiates a new BillingentityinternalAutocompleteElementResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -134,6 +138,45 @@ func (o BillingentityinternalAutocompleteElementResponse) ToMap() (map[string]in
 	toSerialize["sBillingentityinternalDescriptionX"] = o.SBillingentityinternalDescriptionX
 	toSerialize["bBillingentityinternalIsactive"] = o.BBillingentityinternalIsactive
 	return toSerialize, nil
+}
+
+func (o *BillingentityinternalAutocompleteElementResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiBillingentityinternalID",
+		"sBillingentityinternalDescriptionX",
+		"bBillingentityinternalIsactive",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varBillingentityinternalAutocompleteElementResponse := _BillingentityinternalAutocompleteElementResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varBillingentityinternalAutocompleteElementResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = BillingentityinternalAutocompleteElementResponse(varBillingentityinternalAutocompleteElementResponse)
+
+	return err
 }
 
 type NullableBillingentityinternalAutocompleteElementResponse struct {

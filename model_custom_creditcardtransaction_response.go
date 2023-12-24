@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the CustomCreditcardtransactionResponse type satisfies the MappedNullable interface at compile time
@@ -28,6 +30,8 @@ type CustomCreditcardtransactionResponse struct {
 	// The reference number on the creditcard service for the Creditcardtransaction
 	SCreditcardtransactionReferencenumber string `json:"sCreditcardtransactionReferencenumber"`
 }
+
+type _CustomCreditcardtransactionResponse CustomCreditcardtransactionResponse
 
 // NewCustomCreditcardtransactionResponse instantiates a new CustomCreditcardtransactionResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -161,6 +165,46 @@ func (o CustomCreditcardtransactionResponse) ToMap() (map[string]interface{}, er
 	toSerialize["sCreditcardtransactionPartiallydecryptednumber"] = o.SCreditcardtransactionPartiallydecryptednumber
 	toSerialize["sCreditcardtransactionReferencenumber"] = o.SCreditcardtransactionReferencenumber
 	return toSerialize, nil
+}
+
+func (o *CustomCreditcardtransactionResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"eCreditcardtypeCodename",
+		"dCreditcardtransactionAmount",
+		"sCreditcardtransactionPartiallydecryptednumber",
+		"sCreditcardtransactionReferencenumber",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varCustomCreditcardtransactionResponse := _CustomCreditcardtransactionResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varCustomCreditcardtransactionResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = CustomCreditcardtransactionResponse(varCustomCreditcardtransactionResponse)
+
+	return err
 }
 
 type NullableCustomCreditcardtransactionResponse struct {

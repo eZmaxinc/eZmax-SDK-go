@@ -23,25 +23,25 @@ Edit an existing Systemconfiguration
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiSystemconfigurationID := int32(56) // int32 | The unique ID of the Systemconfiguration
-    systemconfigurationEditObjectV1Request := *openapiclient.NewSystemconfigurationEditObjectV1Request(*openapiclient.NewSystemconfigurationRequestCompound(openapiclient.Field-eSystemconfigurationNewexternaluseraction("Stage"), openapiclient.Field-eSystemconfigurationLanguage1("fr_QC"), openapiclient.Field-eSystemconfigurationLanguage2("en_CA"), true, true)) // SystemconfigurationEditObjectV1Request | 
+	pkiSystemconfigurationID := int32(56) // int32 | The unique ID of the Systemconfiguration
+	systemconfigurationEditObjectV1Request := *openapiclient.NewSystemconfigurationEditObjectV1Request(*openapiclient.NewSystemconfigurationRequestCompound(openapiclient.Field-eSystemconfigurationNewexternaluseraction("Stage"), openapiclient.Field-eSystemconfigurationLanguage1("fr_QC"), openapiclient.Field-eSystemconfigurationLanguage2("en_CA"), true, true)) // SystemconfigurationEditObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectSystemconfigurationAPI.SystemconfigurationEditObjectV1(context.Background(), pkiSystemconfigurationID).SystemconfigurationEditObjectV1Request(systemconfigurationEditObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectSystemconfigurationAPI.SystemconfigurationEditObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SystemconfigurationEditObjectV1`: SystemconfigurationEditObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectSystemconfigurationAPI.SystemconfigurationEditObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectSystemconfigurationAPI.SystemconfigurationEditObjectV1(context.Background(), pkiSystemconfigurationID).SystemconfigurationEditObjectV1Request(systemconfigurationEditObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSystemconfigurationAPI.SystemconfigurationEditObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SystemconfigurationEditObjectV1`: SystemconfigurationEditObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectSystemconfigurationAPI.SystemconfigurationEditObjectV1`: %v\n", resp)
 }
 ```
 
@@ -95,24 +95,24 @@ Retrieve an existing Systemconfiguration
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiSystemconfigurationID := int32(56) // int32 | The unique ID of the Systemconfiguration
+	pkiSystemconfigurationID := int32(56) // int32 | The unique ID of the Systemconfiguration
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectSystemconfigurationAPI.SystemconfigurationGetObjectV2(context.Background(), pkiSystemconfigurationID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectSystemconfigurationAPI.SystemconfigurationGetObjectV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SystemconfigurationGetObjectV2`: SystemconfigurationGetObjectV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectSystemconfigurationAPI.SystemconfigurationGetObjectV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectSystemconfigurationAPI.SystemconfigurationGetObjectV2(context.Background(), pkiSystemconfigurationID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSystemconfigurationAPI.SystemconfigurationGetObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SystemconfigurationGetObjectV2`: SystemconfigurationGetObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectSystemconfigurationAPI.SystemconfigurationGetObjectV2`: %v\n", resp)
 }
 ```
 

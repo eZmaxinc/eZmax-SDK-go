@@ -23,23 +23,23 @@ Get Current Activesession
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectActivesessionAPI.ActivesessionGetCurrentV1(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectActivesessionAPI.ActivesessionGetCurrentV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ActivesessionGetCurrentV1`: ActivesessionGetCurrentV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectActivesessionAPI.ActivesessionGetCurrentV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectActivesessionAPI.ActivesessionGetCurrentV1(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectActivesessionAPI.ActivesessionGetCurrentV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ActivesessionGetCurrentV1`: ActivesessionGetCurrentV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectActivesessionAPI.ActivesessionGetCurrentV1`: %v\n", resp)
 }
 ```
 
@@ -82,28 +82,28 @@ Retrieve Activesession list
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
-    iRowMax := int32(56) // int32 |  (optional)
-    iRowOffset := int32(56) // int32 |  (optional) (default to 0)
-    acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
-    sFilter := "sFilter_example" // string |  (optional)
+	eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
+	iRowMax := int32(56) // int32 |  (optional)
+	iRowOffset := int32(56) // int32 |  (optional) (default to 0)
+	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
+	sFilter := "sFilter_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectActivesessionAPI.ActivesessionGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectActivesessionAPI.ActivesessionGetListV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ActivesessionGetListV1`: ActivesessionGetListV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectActivesessionAPI.ActivesessionGetListV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectActivesessionAPI.ActivesessionGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectActivesessionAPI.ActivesessionGetListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ActivesessionGetListV1`: ActivesessionGetListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectActivesessionAPI.ActivesessionGetListV1`: %v\n", resp)
 }
 ```
 

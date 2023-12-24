@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the GlobalEzmaxclientVersionV1Response type satisfies the MappedNullable interface at compile time
@@ -22,15 +24,20 @@ var _ MappedNullable = &GlobalEzmaxclientVersionV1Response{}
 type GlobalEzmaxclientVersionV1Response struct {
 	// The version on the store
 	SEzmaxclientVersion string `json:"sEzmaxclientVersion"`
+	// The latest OS version of the system running the application at the time of release
+	SEzmaxclientOslatestversion string `json:"sEzmaxclientOslatestversion"`
 }
+
+type _GlobalEzmaxclientVersionV1Response GlobalEzmaxclientVersionV1Response
 
 // NewGlobalEzmaxclientVersionV1Response instantiates a new GlobalEzmaxclientVersionV1Response object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGlobalEzmaxclientVersionV1Response(sEzmaxclientVersion string) *GlobalEzmaxclientVersionV1Response {
+func NewGlobalEzmaxclientVersionV1Response(sEzmaxclientVersion string, sEzmaxclientOslatestversion string) *GlobalEzmaxclientVersionV1Response {
 	this := GlobalEzmaxclientVersionV1Response{}
 	this.SEzmaxclientVersion = sEzmaxclientVersion
+	this.SEzmaxclientOslatestversion = sEzmaxclientOslatestversion
 	return &this
 }
 
@@ -39,6 +46,8 @@ func NewGlobalEzmaxclientVersionV1Response(sEzmaxclientVersion string) *GlobalEz
 // but it doesn't guarantee that properties required by API are set
 func NewGlobalEzmaxclientVersionV1ResponseWithDefaults() *GlobalEzmaxclientVersionV1Response {
 	this := GlobalEzmaxclientVersionV1Response{}
+	var sEzmaxclientOslatestversion string = "11"
+	this.SEzmaxclientOslatestversion = sEzmaxclientOslatestversion
 	return &this
 }
 
@@ -66,6 +75,30 @@ func (o *GlobalEzmaxclientVersionV1Response) SetSEzmaxclientVersion(v string) {
 	o.SEzmaxclientVersion = v
 }
 
+// GetSEzmaxclientOslatestversion returns the SEzmaxclientOslatestversion field value
+func (o *GlobalEzmaxclientVersionV1Response) GetSEzmaxclientOslatestversion() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SEzmaxclientOslatestversion
+}
+
+// GetSEzmaxclientOslatestversionOk returns a tuple with the SEzmaxclientOslatestversion field value
+// and a boolean to check if the value has been set.
+func (o *GlobalEzmaxclientVersionV1Response) GetSEzmaxclientOslatestversionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SEzmaxclientOslatestversion, true
+}
+
+// SetSEzmaxclientOslatestversion sets field value
+func (o *GlobalEzmaxclientVersionV1Response) SetSEzmaxclientOslatestversion(v string) {
+	o.SEzmaxclientOslatestversion = v
+}
+
 func (o GlobalEzmaxclientVersionV1Response) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -77,7 +110,46 @@ func (o GlobalEzmaxclientVersionV1Response) MarshalJSON() ([]byte, error) {
 func (o GlobalEzmaxclientVersionV1Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["sEzmaxclientVersion"] = o.SEzmaxclientVersion
+	toSerialize["sEzmaxclientOslatestversion"] = o.SEzmaxclientOslatestversion
 	return toSerialize, nil
+}
+
+func (o *GlobalEzmaxclientVersionV1Response) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"sEzmaxclientVersion",
+		"sEzmaxclientOslatestversion",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varGlobalEzmaxclientVersionV1Response := _GlobalEzmaxclientVersionV1Response{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varGlobalEzmaxclientVersionV1Response)
+
+	if err != nil {
+		return err
+	}
+
+	*o = GlobalEzmaxclientVersionV1Response(varGlobalEzmaxclientVersionV1Response)
+
+	return err
 }
 
 type NullableGlobalEzmaxclientVersionV1Response struct {

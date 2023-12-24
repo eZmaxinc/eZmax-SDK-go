@@ -22,13 +22,13 @@ func Test_eZmaxApi_ObjectElectronicfundstransferAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ObjectElectronicfundstransferAPIService EletronicfundstransferGetCommunicationListV1", func(t *testing.T) {
+	t.Run("Test ObjectElectronicfundstransferAPIService ElectronicfundstransferGetCommunicationListV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pkiElectronicfundstransferID int32
 
-		resp, httpRes, err := apiClient.ObjectElectronicfundstransferAPI.EletronicfundstransferGetCommunicationListV1(context.Background(), pkiElectronicfundstransferID).Execute()
+		resp, httpRes, err := apiClient.ObjectElectronicfundstransferAPI.ElectronicfundstransferGetCommunicationListV1(context.Background(), pkiElectronicfundstransferID).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

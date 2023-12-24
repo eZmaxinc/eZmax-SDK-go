@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigntemplateAutocompleteElementResponse type satisfies the MappedNullable interface at compile time
@@ -28,6 +30,8 @@ type EzsigntemplateAutocompleteElementResponse struct {
 	// Whether the Ezsigntemplate is active or not
 	BEzsigntemplateIsactive bool `json:"bEzsigntemplateIsactive"`
 }
+
+type _EzsigntemplateAutocompleteElementResponse EzsigntemplateAutocompleteElementResponse
 
 // NewEzsigntemplateAutocompleteElementResponse instantiates a new EzsigntemplateAutocompleteElementResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -161,6 +165,46 @@ func (o EzsigntemplateAutocompleteElementResponse) ToMap() (map[string]interface
 	toSerialize["pkiEzsigntemplateID"] = o.PkiEzsigntemplateID
 	toSerialize["bEzsigntemplateIsactive"] = o.BEzsigntemplateIsactive
 	return toSerialize, nil
+}
+
+func (o *EzsigntemplateAutocompleteElementResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"eEzsignfoldertypePrivacylevel",
+		"sEzsigntemplateDescription",
+		"pkiEzsigntemplateID",
+		"bEzsigntemplateIsactive",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigntemplateAutocompleteElementResponse := _EzsigntemplateAutocompleteElementResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigntemplateAutocompleteElementResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigntemplateAutocompleteElementResponse(varEzsigntemplateAutocompleteElementResponse)
+
+	return err
 }
 
 type NullableEzsigntemplateAutocompleteElementResponse struct {

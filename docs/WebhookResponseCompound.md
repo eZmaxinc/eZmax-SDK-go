@@ -13,7 +13,10 @@ Name | Type | Description | Notes
 **EWebhookManagementevent** | Pointer to [**FieldEWebhookManagementevent**](FieldEWebhookManagementevent.md) |  | [optional] 
 **SWebhookUrl** | **string** | The URL of the Webhook callback | 
 **SWebhookEmailfailed** | **string** | The email that will receive the Webhook in case all attempts fail | 
+**SWebhookApikey** | Pointer to **string** | The Apikey for the Webhook.  This will be hidden if we are not creating or regenerating the Apikey. | [optional] 
+**SWebhookSecret** | Pointer to **string** | The Secret for the Webhook.  This will be hidden if we are not creating or regenerating the Apikey. | [optional] 
 **BWebhookIsactive** | **bool** | Whether the Webhook is active or not | 
+**BWebhookIssigned** | **bool** | Whether the requests will be signed or not | 
 **BWebhookSkipsslvalidation** | **bool** | Wheter the server&#39;s SSL certificate should be validated or not. Not recommended to skip for production use | 
 **SWebhookEvent** | Pointer to **string** | The concatenated string to describe the Webhook event | [optional] 
 
@@ -21,7 +24,7 @@ Name | Type | Description | Notes
 
 ### NewWebhookResponseCompound
 
-`func NewWebhookResponseCompound(pkiWebhookID int32, sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookIsactive bool, bWebhookSkipsslvalidation bool, ) *WebhookResponseCompound`
+`func NewWebhookResponseCompound(pkiWebhookID int32, sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookIsactive bool, bWebhookIssigned bool, bWebhookSkipsslvalidation bool, ) *WebhookResponseCompound`
 
 NewWebhookResponseCompound instantiates a new WebhookResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -236,6 +239,56 @@ and a boolean to check if the value has been set.
 SetSWebhookEmailfailed sets SWebhookEmailfailed field to given value.
 
 
+### GetSWebhookApikey
+
+`func (o *WebhookResponseCompound) GetSWebhookApikey() string`
+
+GetSWebhookApikey returns the SWebhookApikey field if non-nil, zero value otherwise.
+
+### GetSWebhookApikeyOk
+
+`func (o *WebhookResponseCompound) GetSWebhookApikeyOk() (*string, bool)`
+
+GetSWebhookApikeyOk returns a tuple with the SWebhookApikey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSWebhookApikey
+
+`func (o *WebhookResponseCompound) SetSWebhookApikey(v string)`
+
+SetSWebhookApikey sets SWebhookApikey field to given value.
+
+### HasSWebhookApikey
+
+`func (o *WebhookResponseCompound) HasSWebhookApikey() bool`
+
+HasSWebhookApikey returns a boolean if a field has been set.
+
+### GetSWebhookSecret
+
+`func (o *WebhookResponseCompound) GetSWebhookSecret() string`
+
+GetSWebhookSecret returns the SWebhookSecret field if non-nil, zero value otherwise.
+
+### GetSWebhookSecretOk
+
+`func (o *WebhookResponseCompound) GetSWebhookSecretOk() (*string, bool)`
+
+GetSWebhookSecretOk returns a tuple with the SWebhookSecret field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSWebhookSecret
+
+`func (o *WebhookResponseCompound) SetSWebhookSecret(v string)`
+
+SetSWebhookSecret sets SWebhookSecret field to given value.
+
+### HasSWebhookSecret
+
+`func (o *WebhookResponseCompound) HasSWebhookSecret() bool`
+
+HasSWebhookSecret returns a boolean if a field has been set.
+
 ### GetBWebhookIsactive
 
 `func (o *WebhookResponseCompound) GetBWebhookIsactive() bool`
@@ -254,6 +307,26 @@ and a boolean to check if the value has been set.
 `func (o *WebhookResponseCompound) SetBWebhookIsactive(v bool)`
 
 SetBWebhookIsactive sets BWebhookIsactive field to given value.
+
+
+### GetBWebhookIssigned
+
+`func (o *WebhookResponseCompound) GetBWebhookIssigned() bool`
+
+GetBWebhookIssigned returns the BWebhookIssigned field if non-nil, zero value otherwise.
+
+### GetBWebhookIssignedOk
+
+`func (o *WebhookResponseCompound) GetBWebhookIssignedOk() (*bool, bool)`
+
+GetBWebhookIssignedOk returns a tuple with the BWebhookIssigned field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBWebhookIssigned
+
+`func (o *WebhookResponseCompound) SetBWebhookIssigned(v bool)`
+
+SetBWebhookIssigned sets BWebhookIssigned field to given value.
 
 
 ### GetBWebhookSkipsslvalidation

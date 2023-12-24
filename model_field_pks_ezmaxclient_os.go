@@ -22,6 +22,7 @@ type FieldPksEzmaxclientOs string
 // List of Field-pksEzmaxclientOs
 const (
 	I_OS FieldPksEzmaxclientOs = "iOS"
+	I_PAD_OS FieldPksEzmaxclientOs = "iPadOS"
 	MAC_OS FieldPksEzmaxclientOs = "macOS"
 	WINDOWS FieldPksEzmaxclientOs = "Windows"
 )
@@ -29,6 +30,7 @@ const (
 // All allowed values of FieldPksEzmaxclientOs enum
 var AllowedFieldPksEzmaxclientOsEnumValues = []FieldPksEzmaxclientOs{
 	"iOS",
+	"iPadOS",
 	"macOS",
 	"Windows",
 }

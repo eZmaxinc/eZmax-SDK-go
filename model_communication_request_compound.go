@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the CommunicationRequestCompound type satisfies the MappedNullable interface at compile time
@@ -42,6 +44,8 @@ type CommunicationRequestCompound struct {
 	AObjCommunicationreference []CommunicationreferenceRequestCompound `json:"a_objCommunicationreference"`
 	AObjCommunicationexternalrecipient []CommunicationexternalrecipientRequestCompound `json:"a_objCommunicationexternalrecipient"`
 }
+
+type _CommunicationRequestCompound CommunicationRequestCompound
 
 // NewCommunicationRequestCompound instantiates a new CommunicationRequestCompound object
 // This constructor will assign default values to properties that have it defined,
@@ -498,6 +502,49 @@ func (o CommunicationRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize["a_objCommunicationreference"] = o.AObjCommunicationreference
 	toSerialize["a_objCommunicationexternalrecipient"] = o.AObjCommunicationexternalrecipient
 	return toSerialize, nil
+}
+
+func (o *CommunicationRequestCompound) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"eCommunicationType",
+		"tCommunicationBody",
+		"bCommunicationPrivate",
+		"a_objCommunicationattachment",
+		"a_objCommunicationrecipient",
+		"a_objCommunicationreference",
+		"a_objCommunicationexternalrecipient",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varCommunicationRequestCompound := _CommunicationRequestCompound{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varCommunicationRequestCompound)
+
+	if err != nil {
+		return err
+	}
+
+	*o = CommunicationRequestCompound(varCommunicationRequestCompound)
+
+	return err
 }
 
 type NullableCommunicationRequestCompound struct {

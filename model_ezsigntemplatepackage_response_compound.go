@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigntemplatepackageResponseCompound type satisfies the MappedNullable interface at compile time
@@ -41,6 +43,8 @@ type EzsigntemplatepackageResponseCompound struct {
 	AObjEzsigntemplatepackagesigner []EzsigntemplatepackagesignerResponseCompound `json:"a_objEzsigntemplatepackagesigner"`
 	AObjEzsigntemplatepackagemembership []EzsigntemplatepackagemembershipResponseCompound `json:"a_objEzsigntemplatepackagemembership"`
 }
+
+type _EzsigntemplatepackageResponseCompound EzsigntemplatepackageResponseCompound
 
 // NewEzsigntemplatepackageResponseCompound instantiates a new EzsigntemplatepackageResponseCompound object
 // This constructor will assign default values to properties that have it defined,
@@ -356,6 +360,53 @@ func (o EzsigntemplatepackageResponseCompound) ToMap() (map[string]interface{}, 
 	toSerialize["a_objEzsigntemplatepackagesigner"] = o.AObjEzsigntemplatepackagesigner
 	toSerialize["a_objEzsigntemplatepackagemembership"] = o.AObjEzsigntemplatepackagemembership
 	return toSerialize, nil
+}
+
+func (o *EzsigntemplatepackageResponseCompound) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiEzsigntemplatepackageID",
+		"fkiEzsignfoldertypeID",
+		"fkiLanguageID",
+		"sLanguageNameX",
+		"sEzsigntemplatepackageDescription",
+		"bEzsigntemplatepackageAdminonly",
+		"bEzsigntemplatepackageNeedvalidation",
+		"bEzsigntemplatepackageIsactive",
+		"sEzsignfoldertypeNameX",
+		"a_objEzsigntemplatepackagesigner",
+		"a_objEzsigntemplatepackagemembership",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigntemplatepackageResponseCompound := _EzsigntemplatepackageResponseCompound{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigntemplatepackageResponseCompound)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigntemplatepackageResponseCompound(varEzsigntemplatepackageResponseCompound)
+
+	return err
 }
 
 type NullableEzsigntemplatepackageResponseCompound struct {

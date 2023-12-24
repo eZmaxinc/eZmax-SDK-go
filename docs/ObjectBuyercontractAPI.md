@@ -22,24 +22,24 @@ Retrieve Communication list
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiBuyercontractID := int32(56) // int32 | 
+	pkiBuyercontractID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectBuyercontractAPI.BuyercontractGetCommunicationListV1(context.Background(), pkiBuyercontractID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectBuyercontractAPI.BuyercontractGetCommunicationListV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `BuyercontractGetCommunicationListV1`: BuyercontractGetCommunicationListV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectBuyercontractAPI.BuyercontractGetCommunicationListV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectBuyercontractAPI.BuyercontractGetCommunicationListV1(context.Background(), pkiBuyercontractID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBuyercontractAPI.BuyercontractGetCommunicationListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BuyercontractGetCommunicationListV1`: BuyercontractGetCommunicationListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectBuyercontractAPI.BuyercontractGetCommunicationListV1`: %v\n", resp)
 }
 ```
 

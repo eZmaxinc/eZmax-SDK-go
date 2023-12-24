@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the VariableexpenseCreateObjectV1Response type satisfies the MappedNullable interface at compile time
@@ -24,6 +26,8 @@ type VariableexpenseCreateObjectV1Response struct {
 	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
 	MPayload VariableexpenseCreateObjectV1ResponseMPayload `json:"mPayload"`
 }
+
+type _VariableexpenseCreateObjectV1Response VariableexpenseCreateObjectV1Response
 
 // NewVariableexpenseCreateObjectV1Response instantiates a new VariableexpenseCreateObjectV1Response object
 // This constructor will assign default values to properties that have it defined,
@@ -140,6 +144,44 @@ func (o VariableexpenseCreateObjectV1Response) ToMap() (map[string]interface{}, 
 	}
 	toSerialize["mPayload"] = o.MPayload
 	return toSerialize, nil
+}
+
+func (o *VariableexpenseCreateObjectV1Response) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"objDebugPayload",
+		"mPayload",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varVariableexpenseCreateObjectV1Response := _VariableexpenseCreateObjectV1Response{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varVariableexpenseCreateObjectV1Response)
+
+	if err != nil {
+		return err
+	}
+
+	*o = VariableexpenseCreateObjectV1Response(varVariableexpenseCreateObjectV1Response)
+
+	return err
 }
 
 type NullableVariableexpenseCreateObjectV1Response struct {

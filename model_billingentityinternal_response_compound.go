@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the BillingentityinternalResponseCompound type satisfies the MappedNullable interface at compile time
@@ -25,6 +27,8 @@ type BillingentityinternalResponseCompound struct {
 	ObjBillingentityinternalDescription MultilingualBillingentityinternalDescription `json:"objBillingentityinternalDescription"`
 	AObjBillingentityinternalproduct []BillingentityinternalproductResponseCompound `json:"a_objBillingentityinternalproduct"`
 }
+
+type _BillingentityinternalResponseCompound BillingentityinternalResponseCompound
 
 // NewBillingentityinternalResponseCompound instantiates a new BillingentityinternalResponseCompound object
 // This constructor will assign default values to properties that have it defined,
@@ -132,6 +136,45 @@ func (o BillingentityinternalResponseCompound) ToMap() (map[string]interface{}, 
 	toSerialize["objBillingentityinternalDescription"] = o.ObjBillingentityinternalDescription
 	toSerialize["a_objBillingentityinternalproduct"] = o.AObjBillingentityinternalproduct
 	return toSerialize, nil
+}
+
+func (o *BillingentityinternalResponseCompound) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiBillingentityinternalID",
+		"objBillingentityinternalDescription",
+		"a_objBillingentityinternalproduct",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varBillingentityinternalResponseCompound := _BillingentityinternalResponseCompound{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varBillingentityinternalResponseCompound)
+
+	if err != nil {
+		return err
+	}
+
+	*o = BillingentityinternalResponseCompound(varBillingentityinternalResponseCompound)
+
+	return err
 }
 
 type NullableBillingentityinternalResponseCompound struct {

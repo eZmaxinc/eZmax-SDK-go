@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the SubnetRequestCompound type satisfies the MappedNullable interface at compile time
@@ -32,6 +34,8 @@ type SubnetRequestCompound struct {
 	// The mask of the Subnet  in integer form. For example 255.255.255.0 would be 4294967040
 	ISubnetMask int64 `json:"iSubnetMask"`
 }
+
+type _SubnetRequestCompound SubnetRequestCompound
 
 // NewSubnetRequestCompound instantiates a new SubnetRequestCompound object
 // This constructor will assign default values to properties that have it defined,
@@ -244,6 +248,45 @@ func (o SubnetRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize["iSubnetNetwork"] = o.ISubnetNetwork
 	toSerialize["iSubnetMask"] = o.ISubnetMask
 	return toSerialize, nil
+}
+
+func (o *SubnetRequestCompound) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"objSubnetDescription",
+		"iSubnetNetwork",
+		"iSubnetMask",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varSubnetRequestCompound := _SubnetRequestCompound{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varSubnetRequestCompound)
+
+	if err != nil {
+		return err
+	}
+
+	*o = SubnetRequestCompound(varSubnetRequestCompound)
+
+	return err
 }
 
 type NullableSubnetRequestCompound struct {

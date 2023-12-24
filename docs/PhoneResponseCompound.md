@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **EPhoneType** | Pointer to [**FieldEPhoneType**](FieldEPhoneType.md) |  | [optional] 
 **SPhoneE164** | Pointer to **string** | A phone number in E.164 Format | [optional] 
 **SPhoneExtension** | Pointer to **string** | The extension of the phone number.  The extension is the \&quot;123\&quot; section in this sample phone number: (514) 990-1516 x123.  It can also be used with international phone numbers | [optional] 
+**BPhoneInternational** | Pointer to **bool** | Indicate the phone number is an international phone number. | [optional] 
 
 ## Methods
 
@@ -143,6 +144,31 @@ SetSPhoneExtension sets SPhoneExtension field to given value.
 `func (o *PhoneResponseCompound) HasSPhoneExtension() bool`
 
 HasSPhoneExtension returns a boolean if a field has been set.
+
+### GetBPhoneInternational
+
+`func (o *PhoneResponseCompound) GetBPhoneInternational() bool`
+
+GetBPhoneInternational returns the BPhoneInternational field if non-nil, zero value otherwise.
+
+### GetBPhoneInternationalOk
+
+`func (o *PhoneResponseCompound) GetBPhoneInternationalOk() (*bool, bool)`
+
+GetBPhoneInternationalOk returns a tuple with the BPhoneInternational field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBPhoneInternational
+
+`func (o *PhoneResponseCompound) SetBPhoneInternational(v bool)`
+
+SetBPhoneInternational sets BPhoneInternational field to given value.
+
+### HasBPhoneInternational
+
+`func (o *PhoneResponseCompound) HasBPhoneInternational() bool`
+
+HasBPhoneInternational returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

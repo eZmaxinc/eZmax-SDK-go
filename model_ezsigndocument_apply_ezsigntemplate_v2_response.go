@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigndocumentApplyEzsigntemplateV2Response type satisfies the MappedNullable interface at compile time
@@ -23,6 +25,8 @@ type EzsigndocumentApplyEzsigntemplateV2Response struct {
 	ObjDebugPayload CommonResponseObjDebugPayload `json:"objDebugPayload"`
 	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
 }
+
+type _EzsigndocumentApplyEzsigntemplateV2Response EzsigndocumentApplyEzsigntemplateV2Response
 
 // NewEzsigndocumentApplyEzsigntemplateV2Response instantiates a new EzsigndocumentApplyEzsigntemplateV2Response object
 // This constructor will assign default values to properties that have it defined,
@@ -113,6 +117,43 @@ func (o EzsigndocumentApplyEzsigntemplateV2Response) ToMap() (map[string]interfa
 		toSerialize["objDebug"] = o.ObjDebug
 	}
 	return toSerialize, nil
+}
+
+func (o *EzsigndocumentApplyEzsigntemplateV2Response) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"objDebugPayload",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigndocumentApplyEzsigntemplateV2Response := _EzsigndocumentApplyEzsigntemplateV2Response{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigndocumentApplyEzsigntemplateV2Response)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigndocumentApplyEzsigntemplateV2Response(varEzsigndocumentApplyEzsigntemplateV2Response)
+
+	return err
 }
 
 type NullableEzsigndocumentApplyEzsigntemplateV2Response struct {

@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the BrandingResponseCompound type satisfies the MappedNullable interface at compile time
@@ -49,6 +51,8 @@ type BrandingResponseCompound struct {
 	// The url of the picture used as logo in the Branding
 	SBrandingLogourl *string `json:"sBrandingLogourl,omitempty"`
 }
+
+type _BrandingResponseCompound BrandingResponseCompound
 
 // NewBrandingResponseCompound instantiates a new BrandingResponseCompound object
 // This constructor will assign default values to properties that have it defined,
@@ -504,6 +508,53 @@ func (o BrandingResponseCompound) ToMap() (map[string]interface{}, error) {
 		toSerialize["sBrandingLogourl"] = o.SBrandingLogourl
 	}
 	return toSerialize, nil
+}
+
+func (o *BrandingResponseCompound) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiBrandingID",
+		"objBrandingDescription",
+		"sBrandingDescriptionX",
+		"eBrandingLogo",
+		"iBrandingColortext",
+		"iBrandingColortextlinkbox",
+		"iBrandingColortextbutton",
+		"iBrandingColorbackground",
+		"iBrandingColorbackgroundbutton",
+		"iBrandingColorbackgroundsmallbox",
+		"bBrandingIsactive",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varBrandingResponseCompound := _BrandingResponseCompound{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varBrandingResponseCompound)
+
+	if err != nil {
+		return err
+	}
+
+	*o = BrandingResponseCompound(varBrandingResponseCompound)
+
+	return err
 }
 
 type NullableBrandingResponseCompound struct {

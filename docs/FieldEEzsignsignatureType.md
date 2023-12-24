@@ -13,6 +13,8 @@
 
 * `NAME` (value: `"Name"`)
 
+* `NAME_REASON` (value: `"NameReason"`)
+
 * `ATTACHMENTS` (value: `"Attachments"`)
 
 * `ATTACHMENTS_CONFIRMATION` (value: `"AttachmentsConfirmation"`)

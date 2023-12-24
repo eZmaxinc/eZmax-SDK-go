@@ -22,24 +22,24 @@ Retrieve Communication list
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiRejectedoffertopurchaseID := int32(56) // int32 | 
+	pkiRejectedoffertopurchaseID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectRejectedoffertopurchaseAPI.RejectedoffertopurchaseGetCommunicationListV1(context.Background(), pkiRejectedoffertopurchaseID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectRejectedoffertopurchaseAPI.RejectedoffertopurchaseGetCommunicationListV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `RejectedoffertopurchaseGetCommunicationListV1`: RejectedoffertopurchaseGetCommunicationListV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectRejectedoffertopurchaseAPI.RejectedoffertopurchaseGetCommunicationListV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectRejectedoffertopurchaseAPI.RejectedoffertopurchaseGetCommunicationListV1(context.Background(), pkiRejectedoffertopurchaseID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectRejectedoffertopurchaseAPI.RejectedoffertopurchaseGetCommunicationListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `RejectedoffertopurchaseGetCommunicationListV1`: RejectedoffertopurchaseGetCommunicationListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectRejectedoffertopurchaseAPI.RejectedoffertopurchaseGetCommunicationListV1`: %v\n", resp)
 }
 ```
 

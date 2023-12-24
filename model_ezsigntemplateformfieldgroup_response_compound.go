@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigntemplateformfieldgroupResponseCompound type satisfies the MappedNullable interface at compile time
@@ -52,6 +54,8 @@ type EzsigntemplateformfieldgroupResponseCompound struct {
 	AObjDropdownElement []CustomDropdownElementResponseCompound `json:"a_objDropdownElement,omitempty"`
 	AObjEzsigntemplateformfield []EzsigntemplateformfieldResponseCompound `json:"a_objEzsigntemplateformfield"`
 }
+
+type _EzsigntemplateformfieldgroupResponseCompound EzsigntemplateformfieldgroupResponseCompound
 
 // NewEzsigntemplateformfieldgroupResponseCompound instantiates a new EzsigntemplateformfieldgroupResponseCompound object
 // This constructor will assign default values to properties that have it defined,
@@ -647,6 +651,53 @@ func (o EzsigntemplateformfieldgroupResponseCompound) ToMap() (map[string]interf
 	}
 	toSerialize["a_objEzsigntemplateformfield"] = o.AObjEzsigntemplateformfield
 	return toSerialize, nil
+}
+
+func (o *EzsigntemplateformfieldgroupResponseCompound) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiEzsigntemplateformfieldgroupID",
+		"fkiEzsigntemplatedocumentID",
+		"eEzsigntemplateformfieldgroupType",
+		"eEzsigntemplateformfieldgroupSignerrequirement",
+		"sEzsigntemplateformfieldgroupLabel",
+		"iEzsigntemplateformfieldgroupStep",
+		"iEzsigntemplateformfieldgroupFilledmin",
+		"iEzsigntemplateformfieldgroupFilledmax",
+		"bEzsigntemplateformfieldgroupReadonly",
+		"a_objEzsigntemplateformfieldgroupsigner",
+		"a_objEzsigntemplateformfield",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigntemplateformfieldgroupResponseCompound := _EzsigntemplateformfieldgroupResponseCompound{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigntemplateformfieldgroupResponseCompound)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigntemplateformfieldgroupResponseCompound(varEzsigntemplateformfieldgroupResponseCompound)
+
+	return err
 }
 
 type NullableEzsigntemplateformfieldgroupResponseCompound struct {

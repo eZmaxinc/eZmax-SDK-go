@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the AddressRequestCompound type satisfies the MappedNullable interface at compile time
@@ -37,6 +39,8 @@ type AddressRequestCompound struct {
 	// The Postal/Zip Code  The value must be entered without spaces
 	SAddressZip string `json:"sAddressZip"`
 }
+
+type _AddressRequestCompound AddressRequestCompound
 
 // NewAddressRequestCompound instantiates a new AddressRequestCompound object
 // This constructor will assign default values to properties that have it defined,
@@ -274,6 +278,50 @@ func (o AddressRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize["fkiCountryID"] = o.FkiCountryID
 	toSerialize["sAddressZip"] = o.SAddressZip
 	return toSerialize, nil
+}
+
+func (o *AddressRequestCompound) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"fkiAddresstypeID",
+		"sAddressCivic",
+		"sAddressStreet",
+		"sAddressSuite",
+		"sAddressCity",
+		"fkiProvinceID",
+		"fkiCountryID",
+		"sAddressZip",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varAddressRequestCompound := _AddressRequestCompound{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varAddressRequestCompound)
+
+	if err != nil {
+		return err
+	}
+
+	*o = AddressRequestCompound(varAddressRequestCompound)
+
+	return err
 }
 
 type NullableAddressRequestCompound struct {

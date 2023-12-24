@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzmaxinvoicinguserResponse type satisfies the MappedNullable interface at compile time
@@ -38,6 +40,8 @@ type EzmaxinvoicinguserResponse struct {
 	BEzmaxinvoicinguserBillableezsign bool `json:"bEzmaxinvoicinguserBillableezsign"`
 	EEzmaxinvoicinguserVariationezsign FieldEEzmaxinvoicinguserVariationezsign `json:"eEzmaxinvoicinguserVariationezsign"`
 }
+
+type _EzmaxinvoicinguserResponse EzmaxinvoicinguserResponse
 
 // NewEzmaxinvoicinguserResponse instantiates a new EzmaxinvoicinguserResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -319,6 +323,49 @@ func (o EzmaxinvoicinguserResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["bEzmaxinvoicinguserBillableezsign"] = o.BEzmaxinvoicinguserBillableezsign
 	toSerialize["eEzmaxinvoicinguserVariationezsign"] = o.EEzmaxinvoicinguserVariationezsign
 	return toSerialize, nil
+}
+
+func (o *EzmaxinvoicinguserResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"fkiBillingentityinternalID",
+		"sBillingentityinternalDescriptionX",
+		"fkiUserID",
+		"iEzmaxinvoicinguserEzsigndocument",
+		"bEzmaxinvoicinguserEzsignaccount",
+		"bEzmaxinvoicinguserBillableezsign",
+		"eEzmaxinvoicinguserVariationezsign",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzmaxinvoicinguserResponse := _EzmaxinvoicinguserResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzmaxinvoicinguserResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzmaxinvoicinguserResponse(varEzmaxinvoicinguserResponse)
+
+	return err
 }
 
 type NullableEzmaxinvoicinguserResponse struct {

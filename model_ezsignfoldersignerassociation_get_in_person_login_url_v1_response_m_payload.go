@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -23,6 +25,8 @@ type EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload struct {
 	// The Url to login to the signing application.    Url will expire after 30 minutes.  
 	SLoginUrl string `json:"sLoginUrl"`
 }
+
+type _EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload
 
 // NewEzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload instantiates a new EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -78,6 +82,43 @@ func (o EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload) ToMa
 	toSerialize := map[string]interface{}{}
 	toSerialize["sLoginUrl"] = o.SLoginUrl
 	return toSerialize, nil
+}
+
+func (o *EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"sLoginUrl",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload := _EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload(varEzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload)
+
+	return err
 }
 
 type NullableEzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload struct {

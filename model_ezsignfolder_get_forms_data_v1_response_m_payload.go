@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignfolderGetFormsDataV1ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &EzsignfolderGetFormsDataV1ResponseMPayload{}
 type EzsignfolderGetFormsDataV1ResponseMPayload struct {
 	ObjFormsDataFolder CustomFormsDataFolderResponse `json:"objFormsDataFolder"`
 }
+
+type _EzsignfolderGetFormsDataV1ResponseMPayload EzsignfolderGetFormsDataV1ResponseMPayload
 
 // NewEzsignfolderGetFormsDataV1ResponseMPayload instantiates a new EzsignfolderGetFormsDataV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o EzsignfolderGetFormsDataV1ResponseMPayload) ToMap() (map[string]interfac
 	toSerialize := map[string]interface{}{}
 	toSerialize["objFormsDataFolder"] = o.ObjFormsDataFolder
 	return toSerialize, nil
+}
+
+func (o *EzsignfolderGetFormsDataV1ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"objFormsDataFolder",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignfolderGetFormsDataV1ResponseMPayload := _EzsignfolderGetFormsDataV1ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignfolderGetFormsDataV1ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignfolderGetFormsDataV1ResponseMPayload(varEzsignfolderGetFormsDataV1ResponseMPayload)
+
+	return err
 }
 
 type NullableEzsignfolderGetFormsDataV1ResponseMPayload struct {

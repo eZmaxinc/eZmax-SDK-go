@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the FranchiseofficeAutocompleteElementResponse type satisfies the MappedNullable interface at compile time
@@ -27,6 +29,8 @@ type FranchiseofficeAutocompleteElementResponse struct {
 	// Whether the Franchiseoffice is active or not
 	BFranchiseofficeIsactive bool `json:"bFranchiseofficeIsactive"`
 }
+
+type _FranchiseofficeAutocompleteElementResponse FranchiseofficeAutocompleteElementResponse
 
 // NewFranchiseofficeAutocompleteElementResponse instantiates a new FranchiseofficeAutocompleteElementResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -134,6 +138,45 @@ func (o FranchiseofficeAutocompleteElementResponse) ToMap() (map[string]interfac
 	toSerialize["pkiFranchiseofficeID"] = o.PkiFranchiseofficeID
 	toSerialize["bFranchiseofficeIsactive"] = o.BFranchiseofficeIsactive
 	return toSerialize, nil
+}
+
+func (o *FranchiseofficeAutocompleteElementResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"sFranchiseofficeDescription",
+		"pkiFranchiseofficeID",
+		"bFranchiseofficeIsactive",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varFranchiseofficeAutocompleteElementResponse := _FranchiseofficeAutocompleteElementResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varFranchiseofficeAutocompleteElementResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = FranchiseofficeAutocompleteElementResponse(varFranchiseofficeAutocompleteElementResponse)
+
+	return err
 }
 
 type NullableFranchiseofficeAutocompleteElementResponse struct {

@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigntemplatepackageEditObjectV1Request type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &EzsigntemplatepackageEditObjectV1Request{}
 type EzsigntemplatepackageEditObjectV1Request struct {
 	ObjEzsigntemplatepackage EzsigntemplatepackageRequestCompound `json:"objEzsigntemplatepackage"`
 }
+
+type _EzsigntemplatepackageEditObjectV1Request EzsigntemplatepackageEditObjectV1Request
 
 // NewEzsigntemplatepackageEditObjectV1Request instantiates a new EzsigntemplatepackageEditObjectV1Request object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o EzsigntemplatepackageEditObjectV1Request) ToMap() (map[string]interface{
 	toSerialize := map[string]interface{}{}
 	toSerialize["objEzsigntemplatepackage"] = o.ObjEzsigntemplatepackage
 	return toSerialize, nil
+}
+
+func (o *EzsigntemplatepackageEditObjectV1Request) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"objEzsigntemplatepackage",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigntemplatepackageEditObjectV1Request := _EzsigntemplatepackageEditObjectV1Request{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigntemplatepackageEditObjectV1Request)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigntemplatepackageEditObjectV1Request(varEzsigntemplatepackageEditObjectV1Request)
+
+	return err
 }
 
 type NullableEzsigntemplatepackageEditObjectV1Request struct {

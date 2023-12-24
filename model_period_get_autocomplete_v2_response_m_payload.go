@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the PeriodGetAutocompleteV2ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -23,6 +25,8 @@ type PeriodGetAutocompleteV2ResponseMPayload struct {
 	// An array of Period autocomplete element response.
 	AObjPeriod []PeriodAutocompleteElementResponse `json:"a_objPeriod"`
 }
+
+type _PeriodGetAutocompleteV2ResponseMPayload PeriodGetAutocompleteV2ResponseMPayload
 
 // NewPeriodGetAutocompleteV2ResponseMPayload instantiates a new PeriodGetAutocompleteV2ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -78,6 +82,43 @@ func (o PeriodGetAutocompleteV2ResponseMPayload) ToMap() (map[string]interface{}
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_objPeriod"] = o.AObjPeriod
 	return toSerialize, nil
+}
+
+func (o *PeriodGetAutocompleteV2ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"a_objPeriod",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varPeriodGetAutocompleteV2ResponseMPayload := _PeriodGetAutocompleteV2ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varPeriodGetAutocompleteV2ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PeriodGetAutocompleteV2ResponseMPayload(varPeriodGetAutocompleteV2ResponseMPayload)
+
+	return err
 }
 
 type NullablePeriodGetAutocompleteV2ResponseMPayload struct {

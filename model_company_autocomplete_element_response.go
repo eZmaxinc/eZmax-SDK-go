@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the CompanyAutocompleteElementResponse type satisfies the MappedNullable interface at compile time
@@ -27,6 +29,8 @@ type CompanyAutocompleteElementResponse struct {
 	// Whether the Company is active or not
 	BCompanyIsactive bool `json:"bCompanyIsactive"`
 }
+
+type _CompanyAutocompleteElementResponse CompanyAutocompleteElementResponse
 
 // NewCompanyAutocompleteElementResponse instantiates a new CompanyAutocompleteElementResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -134,6 +138,45 @@ func (o CompanyAutocompleteElementResponse) ToMap() (map[string]interface{}, err
 	toSerialize["sCompanyNameX"] = o.SCompanyNameX
 	toSerialize["bCompanyIsactive"] = o.BCompanyIsactive
 	return toSerialize, nil
+}
+
+func (o *CompanyAutocompleteElementResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiCompanyID",
+		"sCompanyNameX",
+		"bCompanyIsactive",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varCompanyAutocompleteElementResponse := _CompanyAutocompleteElementResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varCompanyAutocompleteElementResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = CompanyAutocompleteElementResponse(varCompanyAutocompleteElementResponse)
+
+	return err
 }
 
 type NullableCompanyAutocompleteElementResponse struct {

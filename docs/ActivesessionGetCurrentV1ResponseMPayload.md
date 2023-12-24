@@ -15,6 +15,9 @@ Name | Type | Description | Notes
 **PksCustomerCode** | **string** | The customer code assigned to your account | 
 **FkiSystemconfigurationtypeID** | **int32** | The unique ID of the Systemconfigurationtype | 
 **FkiSignatureID** | Pointer to **int32** | The unique ID of the Signature | [optional] 
+**EUserEzsignaccess** | [**FieldEUserEzsignaccess**](FieldEUserEzsignaccess.md) |  | 
+**EUserEzsignprepaid** | Pointer to [**FieldEUserEzsignprepaid**](FieldEUserEzsignprepaid.md) |  | [optional] 
+**DtUserEzsignprepaidexpiration** | Pointer to **string** | The eZsign prepaid expiration date | [optional] 
 **APkiPermissionID** | **[]int32** | An array of permissions granted to the user or api key | 
 **ObjUserReal** | [**ActivesessionResponseCompoundUser**](ActivesessionResponseCompoundUser.md) |  | 
 **ObjUserCloned** | Pointer to [**ActivesessionResponseCompoundUser**](ActivesessionResponseCompoundUser.md) |  | [optional] 
@@ -25,7 +28,7 @@ Name | Type | Description | Notes
 
 ### NewActivesessionGetCurrentV1ResponseMPayload
 
-`func NewActivesessionGetCurrentV1ResponseMPayload(eActivesessionUsertype FieldEActivesessionUsertype, eActivesessionOrigin FieldEActivesessionOrigin, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, bActivesessionDebug bool, bActivesessionIssuperadmin bool, pksCustomerCode string, fkiSystemconfigurationtypeID int32, aPkiPermissionID []int32, objUserReal ActivesessionResponseCompoundUser, aEModuleInternalname []string, ) *ActivesessionGetCurrentV1ResponseMPayload`
+`func NewActivesessionGetCurrentV1ResponseMPayload(eActivesessionUsertype FieldEActivesessionUsertype, eActivesessionOrigin FieldEActivesessionOrigin, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, bActivesessionDebug bool, bActivesessionIssuperadmin bool, pksCustomerCode string, fkiSystemconfigurationtypeID int32, eUserEzsignaccess FieldEUserEzsignaccess, aPkiPermissionID []int32, objUserReal ActivesessionResponseCompoundUser, aEModuleInternalname []string, ) *ActivesessionGetCurrentV1ResponseMPayload`
 
 NewActivesessionGetCurrentV1ResponseMPayload instantiates a new ActivesessionGetCurrentV1ResponseMPayload object
 This constructor will assign default values to properties that have it defined,
@@ -264,6 +267,76 @@ SetFkiSignatureID sets FkiSignatureID field to given value.
 `func (o *ActivesessionGetCurrentV1ResponseMPayload) HasFkiSignatureID() bool`
 
 HasFkiSignatureID returns a boolean if a field has been set.
+
+### GetEUserEzsignaccess
+
+`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEUserEzsignaccess() FieldEUserEzsignaccess`
+
+GetEUserEzsignaccess returns the EUserEzsignaccess field if non-nil, zero value otherwise.
+
+### GetEUserEzsignaccessOk
+
+`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEUserEzsignaccessOk() (*FieldEUserEzsignaccess, bool)`
+
+GetEUserEzsignaccessOk returns a tuple with the EUserEzsignaccess field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEUserEzsignaccess
+
+`func (o *ActivesessionGetCurrentV1ResponseMPayload) SetEUserEzsignaccess(v FieldEUserEzsignaccess)`
+
+SetEUserEzsignaccess sets EUserEzsignaccess field to given value.
+
+
+### GetEUserEzsignprepaid
+
+`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEUserEzsignprepaid() FieldEUserEzsignprepaid`
+
+GetEUserEzsignprepaid returns the EUserEzsignprepaid field if non-nil, zero value otherwise.
+
+### GetEUserEzsignprepaidOk
+
+`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEUserEzsignprepaidOk() (*FieldEUserEzsignprepaid, bool)`
+
+GetEUserEzsignprepaidOk returns a tuple with the EUserEzsignprepaid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEUserEzsignprepaid
+
+`func (o *ActivesessionGetCurrentV1ResponseMPayload) SetEUserEzsignprepaid(v FieldEUserEzsignprepaid)`
+
+SetEUserEzsignprepaid sets EUserEzsignprepaid field to given value.
+
+### HasEUserEzsignprepaid
+
+`func (o *ActivesessionGetCurrentV1ResponseMPayload) HasEUserEzsignprepaid() bool`
+
+HasEUserEzsignprepaid returns a boolean if a field has been set.
+
+### GetDtUserEzsignprepaidexpiration
+
+`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetDtUserEzsignprepaidexpiration() string`
+
+GetDtUserEzsignprepaidexpiration returns the DtUserEzsignprepaidexpiration field if non-nil, zero value otherwise.
+
+### GetDtUserEzsignprepaidexpirationOk
+
+`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetDtUserEzsignprepaidexpirationOk() (*string, bool)`
+
+GetDtUserEzsignprepaidexpirationOk returns a tuple with the DtUserEzsignprepaidexpiration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDtUserEzsignprepaidexpiration
+
+`func (o *ActivesessionGetCurrentV1ResponseMPayload) SetDtUserEzsignprepaidexpiration(v string)`
+
+SetDtUserEzsignprepaidexpiration sets DtUserEzsignprepaidexpiration field to given value.
+
+### HasDtUserEzsignprepaidexpiration
+
+`func (o *ActivesessionGetCurrentV1ResponseMPayload) HasDtUserEzsignprepaidexpiration() bool`
+
+HasDtUserEzsignprepaidexpiration returns a boolean if a field has been set.
 
 ### GetAPkiPermissionID
 

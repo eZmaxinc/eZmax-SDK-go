@@ -20,24 +20,24 @@ Retrieve all Modulegroups
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    eContext := "eContext_example" // string | The context of the Modulegroup
+	eContext := "eContext_example" // string | The context of the Modulegroup
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectModulegroupAPI.ModulegroupGetAllV1(context.Background(), eContext).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectModulegroupAPI.ModulegroupGetAllV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ModulegroupGetAllV1`: ModulegroupGetAllV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectModulegroupAPI.ModulegroupGetAllV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectModulegroupAPI.ModulegroupGetAllV1(context.Background(), eContext).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectModulegroupAPI.ModulegroupGetAllV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ModulegroupGetAllV1`: ModulegroupGetAllV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectModulegroupAPI.ModulegroupGetAllV1`: %v\n", resp)
 }
 ```
 

@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigntemplateRequestCompound type satisfies the MappedNullable interface at compile time
@@ -31,6 +33,8 @@ type EzsigntemplateRequestCompound struct {
 	// Whether the Ezsigntemplate can be accessed by admin users only (eUserType=Normal)
 	BEzsigntemplateAdminonly bool `json:"bEzsigntemplateAdminonly"`
 }
+
+type _EzsigntemplateRequestCompound EzsigntemplateRequestCompound
 
 // NewEzsigntemplateRequestCompound instantiates a new EzsigntemplateRequestCompound object
 // This constructor will assign default values to properties that have it defined,
@@ -199,6 +203,46 @@ func (o EzsigntemplateRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize["sEzsigntemplateDescription"] = o.SEzsigntemplateDescription
 	toSerialize["bEzsigntemplateAdminonly"] = o.BEzsigntemplateAdminonly
 	return toSerialize, nil
+}
+
+func (o *EzsigntemplateRequestCompound) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"fkiEzsignfoldertypeID",
+		"fkiLanguageID",
+		"sEzsigntemplateDescription",
+		"bEzsigntemplateAdminonly",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigntemplateRequestCompound := _EzsigntemplateRequestCompound{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigntemplateRequestCompound)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigntemplateRequestCompound(varEzsigntemplateRequestCompound)
+
+	return err
 }
 
 type NullableEzsigntemplateRequestCompound struct {

@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ActivesessionResponseCompoundUser type satisfies the MappedNullable interface at compile time
@@ -40,6 +42,8 @@ type ActivesessionResponseCompoundUser struct {
 	// The number of rows to return by default in lists
 	IUserListresult int32 `json:"iUserListresult"`
 }
+
+type _ActivesessionResponseCompoundUser ActivesessionResponseCompoundUser
 
 // NewActivesessionResponseCompoundUser instantiates a new ActivesessionResponseCompoundUser object
 // This constructor will assign default values to properties that have it defined,
@@ -329,6 +333,52 @@ func (o ActivesessionResponseCompoundUser) ToMap() (map[string]interface{}, erro
 	toSerialize["bUserInterfacedark"] = o.BUserInterfacedark
 	toSerialize["iUserListresult"] = o.IUserListresult
 	return toSerialize, nil
+}
+
+func (o *ActivesessionResponseCompoundUser) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiUserID",
+		"fkiTimezoneID",
+		"sAvatarUrl",
+		"sUserFirstname",
+		"sUserLastname",
+		"sEmailAddress",
+		"eUserEzsignsendreminderfrequency",
+		"iUserInterfacecolor",
+		"bUserInterfacedark",
+		"iUserListresult",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varActivesessionResponseCompoundUser := _ActivesessionResponseCompoundUser{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varActivesessionResponseCompoundUser)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ActivesessionResponseCompoundUser(varActivesessionResponseCompoundUser)
+
+	return err
 }
 
 type NullableActivesessionResponseCompoundUser struct {

@@ -4,13 +4,13 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**EletronicfundstransferGetCommunicationListV1**](ObjectElectronicfundstransferAPI.md#EletronicfundstransferGetCommunicationListV1) | **Get** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationList | Retrieve Communication list
+[**ElectronicfundstransferGetCommunicationListV1**](ObjectElectronicfundstransferAPI.md#ElectronicfundstransferGetCommunicationListV1) | **Get** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationList | Retrieve Communication list
 
 
 
-## EletronicfundstransferGetCommunicationListV1
+## ElectronicfundstransferGetCommunicationListV1
 
-> ElectronicfundstransferGetCommunicationListV1Response EletronicfundstransferGetCommunicationListV1(ctx, pkiElectronicfundstransferID).Execute()
+> ElectronicfundstransferGetCommunicationListV1Response ElectronicfundstransferGetCommunicationListV1(ctx, pkiElectronicfundstransferID).Execute()
 
 Retrieve Communication list
 
@@ -22,24 +22,24 @@ Retrieve Communication list
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiElectronicfundstransferID := int32(56) // int32 | 
+	pkiElectronicfundstransferID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectElectronicfundstransferAPI.EletronicfundstransferGetCommunicationListV1(context.Background(), pkiElectronicfundstransferID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectElectronicfundstransferAPI.EletronicfundstransferGetCommunicationListV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EletronicfundstransferGetCommunicationListV1`: ElectronicfundstransferGetCommunicationListV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectElectronicfundstransferAPI.EletronicfundstransferGetCommunicationListV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectElectronicfundstransferAPI.ElectronicfundstransferGetCommunicationListV1(context.Background(), pkiElectronicfundstransferID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectElectronicfundstransferAPI.ElectronicfundstransferGetCommunicationListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ElectronicfundstransferGetCommunicationListV1`: ElectronicfundstransferGetCommunicationListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectElectronicfundstransferAPI.ElectronicfundstransferGetCommunicationListV1`: %v\n", resp)
 }
 ```
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiEletronicfundstransferGetCommunicationListV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiElectronicfundstransferGetCommunicationListV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes

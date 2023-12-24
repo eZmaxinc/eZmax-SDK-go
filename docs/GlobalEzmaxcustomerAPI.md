@@ -22,24 +22,24 @@ Get ezmaxcustomer configuration
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pksEzmaxcustomerCode := "pksEzmaxcustomerCode_example" // string | 
+	pksEzmaxcustomerCode := "pksEzmaxcustomerCode_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GlobalEzmaxcustomerAPI.GlobalEzmaxcustomerGetConfigurationV1(context.Background(), pksEzmaxcustomerCode).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GlobalEzmaxcustomerAPI.GlobalEzmaxcustomerGetConfigurationV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GlobalEzmaxcustomerGetConfigurationV1`: GlobalEzmaxcustomerGetConfigurationV1Response
-    fmt.Fprintf(os.Stdout, "Response from `GlobalEzmaxcustomerAPI.GlobalEzmaxcustomerGetConfigurationV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.GlobalEzmaxcustomerAPI.GlobalEzmaxcustomerGetConfigurationV1(context.Background(), pksEzmaxcustomerCode).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `GlobalEzmaxcustomerAPI.GlobalEzmaxcustomerGetConfigurationV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GlobalEzmaxcustomerGetConfigurationV1`: GlobalEzmaxcustomerGetConfigurationV1Response
+	fmt.Fprintf(os.Stdout, "Response from `GlobalEzmaxcustomerAPI.GlobalEzmaxcustomerGetConfigurationV1`: %v\n", resp)
 }
 ```
 

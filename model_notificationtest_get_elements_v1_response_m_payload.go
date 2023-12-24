@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the NotificationtestGetElementsV1ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -27,6 +29,8 @@ type NotificationtestGetElementsV1ResponseMPayload struct {
 	ASVariableobjectProperty []string `json:"a_sVariableobjectProperty"`
 	AObjVariableobject []map[string]interface{} `json:"a_objVariableobject"`
 }
+
+type _NotificationtestGetElementsV1ResponseMPayload NotificationtestGetElementsV1ResponseMPayload
 
 // NewNotificationtestGetElementsV1ResponseMPayload instantiates a new NotificationtestGetElementsV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -160,6 +164,46 @@ func (o NotificationtestGetElementsV1ResponseMPayload) ToMap() (map[string]inter
 	toSerialize["a_sVariableobjectProperty"] = o.ASVariableobjectProperty
 	toSerialize["a_objVariableobject"] = o.AObjVariableobject
 	return toSerialize, nil
+}
+
+func (o *NotificationtestGetElementsV1ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiNotificationtestID",
+		"sNotificationtestFunction",
+		"a_sVariableobjectProperty",
+		"a_objVariableobject",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varNotificationtestGetElementsV1ResponseMPayload := _NotificationtestGetElementsV1ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varNotificationtestGetElementsV1ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = NotificationtestGetElementsV1ResponseMPayload(varNotificationtestGetElementsV1ResponseMPayload)
+
+	return err
 }
 
 type NullableNotificationtestGetElementsV1ResponseMPayload struct {

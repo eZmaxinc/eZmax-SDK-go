@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the UserGetSubnetsV1ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &UserGetSubnetsV1ResponseMPayload{}
 type UserGetSubnetsV1ResponseMPayload struct {
 	AObjSubnet []SubnetResponseCompound `json:"a_objSubnet"`
 }
+
+type _UserGetSubnetsV1ResponseMPayload UserGetSubnetsV1ResponseMPayload
 
 // NewUserGetSubnetsV1ResponseMPayload instantiates a new UserGetSubnetsV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o UserGetSubnetsV1ResponseMPayload) ToMap() (map[string]interface{}, error
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_objSubnet"] = o.AObjSubnet
 	return toSerialize, nil
+}
+
+func (o *UserGetSubnetsV1ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"a_objSubnet",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varUserGetSubnetsV1ResponseMPayload := _UserGetSubnetsV1ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varUserGetSubnetsV1ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UserGetSubnetsV1ResponseMPayload(varUserGetSubnetsV1ResponseMPayload)
+
+	return err
 }
 
 type NullableUserGetSubnetsV1ResponseMPayload struct {

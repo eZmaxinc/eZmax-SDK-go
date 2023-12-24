@@ -24,27 +24,27 @@ import (
 // ObjectElectronicfundstransferAPIService ObjectElectronicfundstransferAPI service
 type ObjectElectronicfundstransferAPIService service
 
-type ApiEletronicfundstransferGetCommunicationListV1Request struct {
+type ApiElectronicfundstransferGetCommunicationListV1Request struct {
 	ctx context.Context
 	ApiService *ObjectElectronicfundstransferAPIService
 	pkiElectronicfundstransferID int32
 }
 
-func (r ApiEletronicfundstransferGetCommunicationListV1Request) Execute() (*ElectronicfundstransferGetCommunicationListV1Response, *http.Response, error) {
-	return r.ApiService.EletronicfundstransferGetCommunicationListV1Execute(r)
+func (r ApiElectronicfundstransferGetCommunicationListV1Request) Execute() (*ElectronicfundstransferGetCommunicationListV1Response, *http.Response, error) {
+	return r.ApiService.ElectronicfundstransferGetCommunicationListV1Execute(r)
 }
 
 /*
-EletronicfundstransferGetCommunicationListV1 Retrieve Communication list
+ElectronicfundstransferGetCommunicationListV1 Retrieve Communication list
 
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiElectronicfundstransferID
- @return ApiEletronicfundstransferGetCommunicationListV1Request
+ @return ApiElectronicfundstransferGetCommunicationListV1Request
 */
-func (a *ObjectElectronicfundstransferAPIService) EletronicfundstransferGetCommunicationListV1(ctx context.Context, pkiElectronicfundstransferID int32) ApiEletronicfundstransferGetCommunicationListV1Request {
-	return ApiEletronicfundstransferGetCommunicationListV1Request{
+func (a *ObjectElectronicfundstransferAPIService) ElectronicfundstransferGetCommunicationListV1(ctx context.Context, pkiElectronicfundstransferID int32) ApiElectronicfundstransferGetCommunicationListV1Request {
+	return ApiElectronicfundstransferGetCommunicationListV1Request{
 		ApiService: a,
 		ctx: ctx,
 		pkiElectronicfundstransferID: pkiElectronicfundstransferID,
@@ -53,7 +53,7 @@ func (a *ObjectElectronicfundstransferAPIService) EletronicfundstransferGetCommu
 
 // Execute executes the request
 //  @return ElectronicfundstransferGetCommunicationListV1Response
-func (a *ObjectElectronicfundstransferAPIService) EletronicfundstransferGetCommunicationListV1Execute(r ApiEletronicfundstransferGetCommunicationListV1Request) (*ElectronicfundstransferGetCommunicationListV1Response, *http.Response, error) {
+func (a *ObjectElectronicfundstransferAPIService) ElectronicfundstransferGetCommunicationListV1Execute(r ApiElectronicfundstransferGetCommunicationListV1Request) (*ElectronicfundstransferGetCommunicationListV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -61,7 +61,7 @@ func (a *ObjectElectronicfundstransferAPIService) EletronicfundstransferGetCommu
 		localVarReturnValue  *ElectronicfundstransferGetCommunicationListV1Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectElectronicfundstransferAPIService.EletronicfundstransferGetCommunicationListV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectElectronicfundstransferAPIService.ElectronicfundstransferGetCommunicationListV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

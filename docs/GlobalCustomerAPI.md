@@ -22,25 +22,25 @@ Get customer endpoint
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pksCustomerCode := "pksCustomerCode_example" // string | 
-    sInfrastructureproductCode := "sInfrastructureproductCode_example" // string | The infrastructure product Code  If undefined, \"appcluster01\" is assumed (optional)
+	pksCustomerCode := "pksCustomerCode_example" // string | 
+	sInfrastructureproductCode := "sInfrastructureproductCode_example" // string | The infrastructure product Code  If undefined, \"appcluster01\" is assumed (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GlobalCustomerAPI.GlobalCustomerGetEndpointV1(context.Background(), pksCustomerCode).SInfrastructureproductCode(sInfrastructureproductCode).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GlobalCustomerAPI.GlobalCustomerGetEndpointV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GlobalCustomerGetEndpointV1`: GlobalCustomerGetEndpointV1Response
-    fmt.Fprintf(os.Stdout, "Response from `GlobalCustomerAPI.GlobalCustomerGetEndpointV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.GlobalCustomerAPI.GlobalCustomerGetEndpointV1(context.Background(), pksCustomerCode).SInfrastructureproductCode(sInfrastructureproductCode).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `GlobalCustomerAPI.GlobalCustomerGetEndpointV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GlobalCustomerGetEndpointV1`: GlobalCustomerGetEndpointV1Response
+	fmt.Fprintf(os.Stdout, "Response from `GlobalCustomerAPI.GlobalCustomerGetEndpointV1`: %v\n", resp)
 }
 ```
 

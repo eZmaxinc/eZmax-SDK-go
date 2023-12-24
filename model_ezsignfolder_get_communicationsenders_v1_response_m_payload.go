@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignfolderGetCommunicationsendersV1ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &EzsignfolderGetCommunicationsendersV1ResponseMPayload{}
 type EzsignfolderGetCommunicationsendersV1ResponseMPayload struct {
 	AObjCommunicationsenders []CustomCommunicationsenderResponse `json:"a_objCommunicationsenders"`
 }
+
+type _EzsignfolderGetCommunicationsendersV1ResponseMPayload EzsignfolderGetCommunicationsendersV1ResponseMPayload
 
 // NewEzsignfolderGetCommunicationsendersV1ResponseMPayload instantiates a new EzsignfolderGetCommunicationsendersV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o EzsignfolderGetCommunicationsendersV1ResponseMPayload) ToMap() (map[stri
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_objCommunicationsenders"] = o.AObjCommunicationsenders
 	return toSerialize, nil
+}
+
+func (o *EzsignfolderGetCommunicationsendersV1ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"a_objCommunicationsenders",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignfolderGetCommunicationsendersV1ResponseMPayload := _EzsignfolderGetCommunicationsendersV1ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignfolderGetCommunicationsendersV1ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignfolderGetCommunicationsendersV1ResponseMPayload(varEzsignfolderGetCommunicationsendersV1ResponseMPayload)
+
+	return err
 }
 
 type NullableEzsignfolderGetCommunicationsendersV1ResponseMPayload struct {

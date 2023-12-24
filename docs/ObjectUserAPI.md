@@ -32,24 +32,24 @@ Create a new User
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    userCreateObjectV1Request := *openapiclient.NewUserCreateObjectV1Request([]openapiclient.UserRequestCompound{*openapiclient.NewUserRequestCompound(int32(1), int32(21), int32(247), int32(2), *openapiclient.NewEmailRequestCompound(int32(1), "email@example.com"), int32(1), openapiclient.Field-eUserType("AgentBroker"), openapiclient.Field-eUserLogintype("Password"), "John", "Doe", "JohnDoe", openapiclient.Field-eUserEzsignaccess("No"), true)}) // UserCreateObjectV1Request | 
+	userCreateObjectV1Request := *openapiclient.NewUserCreateObjectV1Request([]openapiclient.UserRequestCompound{*openapiclient.NewUserRequestCompound(int32(1), int32(21), int32(247), int32(2), *openapiclient.NewEmailRequestCompound(int32(1), "email@example.com"), int32(1), openapiclient.Field-eUserType("AgentBroker"), openapiclient.Field-eUserLogintype("Password"), "John", "Doe", "JohnDoe", openapiclient.Field-eUserEzsignaccess("No"), true)}) // UserCreateObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUserAPI.UserCreateObjectV1(context.Background()).UserCreateObjectV1Request(userCreateObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserCreateObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UserCreateObjectV1`: UserCreateObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserCreateObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUserAPI.UserCreateObjectV1(context.Background()).UserCreateObjectV1Request(userCreateObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserCreateObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UserCreateObjectV1`: UserCreateObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserCreateObjectV1`: %v\n", resp)
 }
 ```
 
@@ -98,25 +98,25 @@ Edit an existing User
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiUserID := int32(56) // int32 | The unique ID of the User
-    userEditObjectV1Request := *openapiclient.NewUserEditObjectV1Request(*openapiclient.NewUserRequestCompound(int32(1), int32(21), int32(247), int32(2), *openapiclient.NewEmailRequestCompound(int32(1), "email@example.com"), int32(1), openapiclient.Field-eUserType("AgentBroker"), openapiclient.Field-eUserLogintype("Password"), "John", "Doe", "JohnDoe", openapiclient.Field-eUserEzsignaccess("No"), true)) // UserEditObjectV1Request | 
+	pkiUserID := int32(56) // int32 | The unique ID of the User
+	userEditObjectV1Request := *openapiclient.NewUserEditObjectV1Request(*openapiclient.NewUserRequestCompound(int32(1), int32(21), int32(247), int32(2), *openapiclient.NewEmailRequestCompound(int32(1), "email@example.com"), int32(1), openapiclient.Field-eUserType("AgentBroker"), openapiclient.Field-eUserLogintype("Password"), "John", "Doe", "JohnDoe", openapiclient.Field-eUserEzsignaccess("No"), true)) // UserEditObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUserAPI.UserEditObjectV1(context.Background(), pkiUserID).UserEditObjectV1Request(userEditObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserEditObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UserEditObjectV1`: UserEditObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserEditObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUserAPI.UserEditObjectV1(context.Background(), pkiUserID).UserEditObjectV1Request(userEditObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserEditObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UserEditObjectV1`: UserEditObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserEditObjectV1`: %v\n", resp)
 }
 ```
 
@@ -170,25 +170,25 @@ Edit multiple Permissions
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiUserID := int32(56) // int32 | 
-    userEditPermissionsV1Request := *openapiclient.NewUserEditPermissionsV1Request([]openapiclient.PermissionRequestCompound{*openapiclient.NewPermissionRequestCompound(int32(53))}) // UserEditPermissionsV1Request | 
+	pkiUserID := int32(56) // int32 | 
+	userEditPermissionsV1Request := *openapiclient.NewUserEditPermissionsV1Request([]openapiclient.PermissionRequestCompound{*openapiclient.NewPermissionRequestCompound(int32(53))}) // UserEditPermissionsV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUserAPI.UserEditPermissionsV1(context.Background(), pkiUserID).UserEditPermissionsV1Request(userEditPermissionsV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserEditPermissionsV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UserEditPermissionsV1`: UserEditPermissionsV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserEditPermissionsV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUserAPI.UserEditPermissionsV1(context.Background(), pkiUserID).UserEditPermissionsV1Request(userEditPermissionsV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserEditPermissionsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UserEditPermissionsV1`: UserEditPermissionsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserEditPermissionsV1`: %v\n", resp)
 }
 ```
 
@@ -240,24 +240,24 @@ Retrieve an existing User's Apikeys
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiUserID := int32(56) // int32 | 
+	pkiUserID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUserAPI.UserGetApikeysV1(context.Background(), pkiUserID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserGetApikeysV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UserGetApikeysV1`: UserGetApikeysV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserGetApikeysV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUserAPI.UserGetApikeysV1(context.Background(), pkiUserID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserGetApikeysV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UserGetApikeysV1`: UserGetApikeysV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserGetApikeysV1`: %v\n", resp)
 }
 ```
 
@@ -310,27 +310,27 @@ Retrieve Users and IDs
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    sSelector := "sSelector_example" // string | The type of Users to return
-    eFilterActive := "eFilterActive_example" // string | Specify which results we want to display. (optional) (default to "Active")
-    sQuery := "sQuery_example" // string | Allow to filter the returned results (optional)
-    acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
+	sSelector := "sSelector_example" // string | The type of Users to return
+	eFilterActive := "eFilterActive_example" // string | Specify which results we want to display. (optional) (default to "Active")
+	sQuery := "sQuery_example" // string | Allow to filter the returned results (optional)
+	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUserAPI.UserGetAutocompleteV2(context.Background(), sSelector).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserGetAutocompleteV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UserGetAutocompleteV2`: UserGetAutocompleteV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserGetAutocompleteV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUserAPI.UserGetAutocompleteV2(context.Background(), sSelector).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserGetAutocompleteV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UserGetAutocompleteV2`: UserGetAutocompleteV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserGetAutocompleteV2`: %v\n", resp)
 }
 ```
 
@@ -386,24 +386,24 @@ Retrieve an existing User's Effective Permissions
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiUserID := int32(56) // int32 | 
+	pkiUserID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUserAPI.UserGetEffectivePermissionsV1(context.Background(), pkiUserID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserGetEffectivePermissionsV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UserGetEffectivePermissionsV1`: UserGetEffectivePermissionsV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserGetEffectivePermissionsV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUserAPI.UserGetEffectivePermissionsV1(context.Background(), pkiUserID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserGetEffectivePermissionsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UserGetEffectivePermissionsV1`: UserGetEffectivePermissionsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserGetEffectivePermissionsV1`: %v\n", resp)
 }
 ```
 
@@ -456,28 +456,28 @@ Retrieve User list
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
-    iRowMax := int32(56) // int32 |  (optional)
-    iRowOffset := int32(56) // int32 |  (optional) (default to 0)
-    acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
-    sFilter := "sFilter_example" // string |  (optional)
+	eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
+	iRowMax := int32(56) // int32 |  (optional)
+	iRowOffset := int32(56) // int32 |  (optional) (default to 0)
+	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
+	sFilter := "sFilter_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUserAPI.UserGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserGetListV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UserGetListV1`: UserGetListV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserGetListV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUserAPI.UserGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserGetListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UserGetListV1`: UserGetListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserGetListV1`: %v\n", resp)
 }
 ```
 
@@ -530,24 +530,24 @@ Retrieve an existing User
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiUserID := int32(56) // int32 | The unique ID of the User
+	pkiUserID := int32(56) // int32 | The unique ID of the User
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUserAPI.UserGetObjectV2(context.Background(), pkiUserID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserGetObjectV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UserGetObjectV2`: UserGetObjectV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserGetObjectV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUserAPI.UserGetObjectV2(context.Background(), pkiUserID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserGetObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UserGetObjectV2`: UserGetObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserGetObjectV2`: %v\n", resp)
 }
 ```
 
@@ -598,24 +598,24 @@ Retrieve an existing User's Permissions
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiUserID := int32(56) // int32 | 
+	pkiUserID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUserAPI.UserGetPermissionsV1(context.Background(), pkiUserID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserGetPermissionsV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UserGetPermissionsV1`: UserGetPermissionsV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserGetPermissionsV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUserAPI.UserGetPermissionsV1(context.Background(), pkiUserID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserGetPermissionsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UserGetPermissionsV1`: UserGetPermissionsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserGetPermissionsV1`: %v\n", resp)
 }
 ```
 
@@ -666,24 +666,24 @@ Retrieve an existing User's Subnets
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiUserID := int32(56) // int32 | 
+	pkiUserID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUserAPI.UserGetSubnetsV1(context.Background(), pkiUserID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserGetSubnetsV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UserGetSubnetsV1`: UserGetSubnetsV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserGetSubnetsV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUserAPI.UserGetSubnetsV1(context.Background(), pkiUserID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserGetSubnetsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UserGetSubnetsV1`: UserGetSubnetsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserGetSubnetsV1`: %v\n", resp)
 }
 ```
 
@@ -736,25 +736,25 @@ Send password reset
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiUserID := int32(56) // int32 | 
-    body := map[string]interface{}{ ... } // map[string]interface{} | 
+	pkiUserID := int32(56) // int32 | 
+	body := map[string]interface{}{ ... } // map[string]interface{} | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUserAPI.UserSendPasswordResetV1(context.Background(), pkiUserID).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserSendPasswordResetV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UserSendPasswordResetV1`: UserSendPasswordResetV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserSendPasswordResetV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUserAPI.UserSendPasswordResetV1(context.Background(), pkiUserID).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserSendPasswordResetV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UserSendPasswordResetV1`: UserSendPasswordResetV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserSendPasswordResetV1`: %v\n", resp)
 }
 ```
 

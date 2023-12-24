@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ContactinformationsRequest type satisfies the MappedNullable interface at compile time
@@ -29,6 +31,8 @@ type ContactinformationsRequest struct {
 	// The index in the a_objWebsite array (zero based index) representing the Website object that should become the default one.  You can leave the value to 0 if the array is empty.
 	IWebsiteDefault int32 `json:"iWebsiteDefault"`
 }
+
+type _ContactinformationsRequest ContactinformationsRequest
 
 // NewContactinformationsRequest instantiates a new ContactinformationsRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -162,6 +166,46 @@ func (o ContactinformationsRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize["iEmailDefault"] = o.IEmailDefault
 	toSerialize["iWebsiteDefault"] = o.IWebsiteDefault
 	return toSerialize, nil
+}
+
+func (o *ContactinformationsRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"iAddressDefault",
+		"iPhoneDefault",
+		"iEmailDefault",
+		"iWebsiteDefault",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varContactinformationsRequest := _ContactinformationsRequest{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varContactinformationsRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ContactinformationsRequest(varContactinformationsRequest)
+
+	return err
 }
 
 type NullableContactinformationsRequest struct {

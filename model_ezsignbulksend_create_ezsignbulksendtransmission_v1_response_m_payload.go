@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignbulksendCreateEzsignbulksendtransmissionV1ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &EzsignbulksendCreateEzsignbulksendtransmissionV1Response
 type EzsignbulksendCreateEzsignbulksendtransmissionV1ResponseMPayload struct {
 	ObjEzsignbulksendtransmission EzsignbulksendtransmissionResponse `json:"objEzsignbulksendtransmission"`
 }
+
+type _EzsignbulksendCreateEzsignbulksendtransmissionV1ResponseMPayload EzsignbulksendCreateEzsignbulksendtransmissionV1ResponseMPayload
 
 // NewEzsignbulksendCreateEzsignbulksendtransmissionV1ResponseMPayload instantiates a new EzsignbulksendCreateEzsignbulksendtransmissionV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o EzsignbulksendCreateEzsignbulksendtransmissionV1ResponseMPayload) ToMap(
 	toSerialize := map[string]interface{}{}
 	toSerialize["objEzsignbulksendtransmission"] = o.ObjEzsignbulksendtransmission
 	return toSerialize, nil
+}
+
+func (o *EzsignbulksendCreateEzsignbulksendtransmissionV1ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"objEzsignbulksendtransmission",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignbulksendCreateEzsignbulksendtransmissionV1ResponseMPayload := _EzsignbulksendCreateEzsignbulksendtransmissionV1ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignbulksendCreateEzsignbulksendtransmissionV1ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignbulksendCreateEzsignbulksendtransmissionV1ResponseMPayload(varEzsignbulksendCreateEzsignbulksendtransmissionV1ResponseMPayload)
+
+	return err
 }
 
 type NullableEzsignbulksendCreateEzsignbulksendtransmissionV1ResponseMPayload struct {

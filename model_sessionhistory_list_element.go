@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the SessionhistoryListElement type satisfies the MappedNullable interface at compile time
@@ -40,6 +42,8 @@ type SessionhistoryListElement struct {
 	// The login name of the User.
 	SUserLoginname *string `json:"sUserLoginname,omitempty"`
 }
+
+type _SessionhistoryListElement SessionhistoryListElement
 
 // NewSessionhistoryListElement instantiates a new SessionhistoryListElement object
 // This constructor will assign default values to properties that have it defined,
@@ -365,6 +369,48 @@ func (o SessionhistoryListElement) ToMap() (map[string]interface{}, error) {
 		toSerialize["sUserLoginname"] = o.SUserLoginname
 	}
 	return toSerialize, nil
+}
+
+func (o *SessionhistoryListElement) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiSessionhistoryID",
+		"dtSessionhistoryFirsthit",
+		"dtSessionhistoryLasthit",
+		"eSessionhistoryEndby",
+		"sSessionhistoryDuration",
+		"sSessionhistoryIP",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varSessionhistoryListElement := _SessionhistoryListElement{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varSessionhistoryListElement)
+
+	if err != nil {
+		return err
+	}
+
+	*o = SessionhistoryListElement(varSessionhistoryListElement)
+
+	return err
 }
 
 type NullableSessionhistoryListElement struct {

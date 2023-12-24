@@ -32,24 +32,24 @@ Create a new Usergroup
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    usergroupCreateObjectV1Request := *openapiclient.NewUsergroupCreateObjectV1Request([]openapiclient.UsergroupRequestCompound{*openapiclient.NewUsergroupRequestCompound(*openapiclient.NewMultilingualUsergroupName())}) // UsergroupCreateObjectV1Request | 
+	usergroupCreateObjectV1Request := *openapiclient.NewUsergroupCreateObjectV1Request([]openapiclient.UsergroupRequestCompound{*openapiclient.NewUsergroupRequestCompound(*openapiclient.NewMultilingualUsergroupName())}) // UsergroupCreateObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUsergroupAPI.UsergroupCreateObjectV1(context.Background()).UsergroupCreateObjectV1Request(usergroupCreateObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupAPI.UsergroupCreateObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UsergroupCreateObjectV1`: UsergroupCreateObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupAPI.UsergroupCreateObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUsergroupAPI.UsergroupCreateObjectV1(context.Background()).UsergroupCreateObjectV1Request(usergroupCreateObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupAPI.UsergroupCreateObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UsergroupCreateObjectV1`: UsergroupCreateObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupAPI.UsergroupCreateObjectV1`: %v\n", resp)
 }
 ```
 
@@ -98,25 +98,25 @@ Edit an existing Usergroup
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiUsergroupID := int32(56) // int32 | 
-    usergroupEditObjectV1Request := *openapiclient.NewUsergroupEditObjectV1Request(*openapiclient.NewUsergroupRequestCompound(*openapiclient.NewMultilingualUsergroupName())) // UsergroupEditObjectV1Request | 
+	pkiUsergroupID := int32(56) // int32 | 
+	usergroupEditObjectV1Request := *openapiclient.NewUsergroupEditObjectV1Request(*openapiclient.NewUsergroupRequestCompound(*openapiclient.NewMultilingualUsergroupName())) // UsergroupEditObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUsergroupAPI.UsergroupEditObjectV1(context.Background(), pkiUsergroupID).UsergroupEditObjectV1Request(usergroupEditObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupAPI.UsergroupEditObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UsergroupEditObjectV1`: UsergroupEditObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupAPI.UsergroupEditObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUsergroupAPI.UsergroupEditObjectV1(context.Background(), pkiUsergroupID).UsergroupEditObjectV1Request(usergroupEditObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupAPI.UsergroupEditObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UsergroupEditObjectV1`: UsergroupEditObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupAPI.UsergroupEditObjectV1`: %v\n", resp)
 }
 ```
 
@@ -170,25 +170,25 @@ Edit multiple Permissions
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiUsergroupID := int32(56) // int32 | 
-    usergroupEditPermissionsV1Request := *openapiclient.NewUsergroupEditPermissionsV1Request([]openapiclient.PermissionRequestCompound{*openapiclient.NewPermissionRequestCompound(int32(53))}) // UsergroupEditPermissionsV1Request | 
+	pkiUsergroupID := int32(56) // int32 | 
+	usergroupEditPermissionsV1Request := *openapiclient.NewUsergroupEditPermissionsV1Request([]openapiclient.PermissionRequestCompound{*openapiclient.NewPermissionRequestCompound(int32(53))}) // UsergroupEditPermissionsV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUsergroupAPI.UsergroupEditPermissionsV1(context.Background(), pkiUsergroupID).UsergroupEditPermissionsV1Request(usergroupEditPermissionsV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupAPI.UsergroupEditPermissionsV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UsergroupEditPermissionsV1`: UsergroupEditPermissionsV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupAPI.UsergroupEditPermissionsV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUsergroupAPI.UsergroupEditPermissionsV1(context.Background(), pkiUsergroupID).UsergroupEditPermissionsV1Request(usergroupEditPermissionsV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupAPI.UsergroupEditPermissionsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UsergroupEditPermissionsV1`: UsergroupEditPermissionsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupAPI.UsergroupEditPermissionsV1`: %v\n", resp)
 }
 ```
 
@@ -242,25 +242,25 @@ Edit multiple Usergroupdelegations
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiUsergroupID := int32(56) // int32 | 
-    usergroupEditUsergroupdelegationsV1Request := *openapiclient.NewUsergroupEditUsergroupdelegationsV1Request([]openapiclient.UsergroupdelegationRequestCompound{*openapiclient.NewUsergroupdelegationRequestCompound(int32(2), int32(70))}) // UsergroupEditUsergroupdelegationsV1Request | 
+	pkiUsergroupID := int32(56) // int32 | 
+	usergroupEditUsergroupdelegationsV1Request := *openapiclient.NewUsergroupEditUsergroupdelegationsV1Request([]openapiclient.UsergroupdelegationRequestCompound{*openapiclient.NewUsergroupdelegationRequestCompound(int32(2), int32(70))}) // UsergroupEditUsergroupdelegationsV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUsergroupAPI.UsergroupEditUsergroupdelegationsV1(context.Background(), pkiUsergroupID).UsergroupEditUsergroupdelegationsV1Request(usergroupEditUsergroupdelegationsV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupAPI.UsergroupEditUsergroupdelegationsV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UsergroupEditUsergroupdelegationsV1`: UsergroupEditUsergroupdelegationsV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupAPI.UsergroupEditUsergroupdelegationsV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUsergroupAPI.UsergroupEditUsergroupdelegationsV1(context.Background(), pkiUsergroupID).UsergroupEditUsergroupdelegationsV1Request(usergroupEditUsergroupdelegationsV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupAPI.UsergroupEditUsergroupdelegationsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UsergroupEditUsergroupdelegationsV1`: UsergroupEditUsergroupdelegationsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupAPI.UsergroupEditUsergroupdelegationsV1`: %v\n", resp)
 }
 ```
 
@@ -314,25 +314,25 @@ Edit multiple Usergroupmemberships
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiUsergroupID := int32(56) // int32 | 
-    usergroupEditUsergroupmembershipsV1Request := *openapiclient.NewUsergroupEditUsergroupmembershipsV1Request([]openapiclient.UsergroupmembershipRequestCompound{*openapiclient.NewUsergroupmembershipRequestCompound(int32(2), int32(70))}) // UsergroupEditUsergroupmembershipsV1Request | 
+	pkiUsergroupID := int32(56) // int32 | 
+	usergroupEditUsergroupmembershipsV1Request := *openapiclient.NewUsergroupEditUsergroupmembershipsV1Request([]openapiclient.UsergroupmembershipRequestCompound{*openapiclient.NewUsergroupmembershipRequestCompound(int32(2), int32(70))}) // UsergroupEditUsergroupmembershipsV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUsergroupAPI.UsergroupEditUsergroupmembershipsV1(context.Background(), pkiUsergroupID).UsergroupEditUsergroupmembershipsV1Request(usergroupEditUsergroupmembershipsV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupAPI.UsergroupEditUsergroupmembershipsV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UsergroupEditUsergroupmembershipsV1`: UsergroupEditUsergroupmembershipsV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupAPI.UsergroupEditUsergroupmembershipsV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUsergroupAPI.UsergroupEditUsergroupmembershipsV1(context.Background(), pkiUsergroupID).UsergroupEditUsergroupmembershipsV1Request(usergroupEditUsergroupmembershipsV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupAPI.UsergroupEditUsergroupmembershipsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UsergroupEditUsergroupmembershipsV1`: UsergroupEditUsergroupmembershipsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupAPI.UsergroupEditUsergroupmembershipsV1`: %v\n", resp)
 }
 ```
 
@@ -386,27 +386,27 @@ Retrieve Usergroups and IDs
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    sSelector := "sSelector_example" // string | The type of Usergroups to return
-    eFilterActive := "eFilterActive_example" // string | Specify which results we want to display. (optional) (default to "Active")
-    sQuery := "sQuery_example" // string | Allow to filter the returned results (optional)
-    acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
+	sSelector := "sSelector_example" // string | The type of Usergroups to return
+	eFilterActive := "eFilterActive_example" // string | Specify which results we want to display. (optional) (default to "Active")
+	sQuery := "sQuery_example" // string | Allow to filter the returned results (optional)
+	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUsergroupAPI.UsergroupGetAutocompleteV2(context.Background(), sSelector).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupAPI.UsergroupGetAutocompleteV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UsergroupGetAutocompleteV2`: UsergroupGetAutocompleteV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupAPI.UsergroupGetAutocompleteV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUsergroupAPI.UsergroupGetAutocompleteV2(context.Background(), sSelector).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupAPI.UsergroupGetAutocompleteV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UsergroupGetAutocompleteV2`: UsergroupGetAutocompleteV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupAPI.UsergroupGetAutocompleteV2`: %v\n", resp)
 }
 ```
 
@@ -462,28 +462,28 @@ Retrieve Usergroup list
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
-    iRowMax := int32(56) // int32 |  (optional)
-    iRowOffset := int32(56) // int32 |  (optional) (default to 0)
-    acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
-    sFilter := "sFilter_example" // string |  (optional)
+	eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
+	iRowMax := int32(56) // int32 |  (optional)
+	iRowOffset := int32(56) // int32 |  (optional) (default to 0)
+	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
+	sFilter := "sFilter_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUsergroupAPI.UsergroupGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupAPI.UsergroupGetListV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UsergroupGetListV1`: UsergroupGetListV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupAPI.UsergroupGetListV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUsergroupAPI.UsergroupGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupAPI.UsergroupGetListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UsergroupGetListV1`: UsergroupGetListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupAPI.UsergroupGetListV1`: %v\n", resp)
 }
 ```
 
@@ -536,24 +536,24 @@ Retrieve an existing Usergroup
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiUsergroupID := int32(56) // int32 | 
+	pkiUsergroupID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUsergroupAPI.UsergroupGetObjectV2(context.Background(), pkiUsergroupID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupAPI.UsergroupGetObjectV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UsergroupGetObjectV2`: UsergroupGetObjectV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupAPI.UsergroupGetObjectV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUsergroupAPI.UsergroupGetObjectV2(context.Background(), pkiUsergroupID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupAPI.UsergroupGetObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UsergroupGetObjectV2`: UsergroupGetObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupAPI.UsergroupGetObjectV2`: %v\n", resp)
 }
 ```
 
@@ -604,24 +604,24 @@ Retrieve an existing Usergroup's Permissions
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiUsergroupID := int32(56) // int32 | 
+	pkiUsergroupID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUsergroupAPI.UsergroupGetPermissionsV1(context.Background(), pkiUsergroupID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupAPI.UsergroupGetPermissionsV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UsergroupGetPermissionsV1`: UsergroupGetPermissionsV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupAPI.UsergroupGetPermissionsV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUsergroupAPI.UsergroupGetPermissionsV1(context.Background(), pkiUsergroupID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupAPI.UsergroupGetPermissionsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UsergroupGetPermissionsV1`: UsergroupGetPermissionsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupAPI.UsergroupGetPermissionsV1`: %v\n", resp)
 }
 ```
 
@@ -672,24 +672,24 @@ Retrieve an existing Usergroup's Usergroupdelegations
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiUsergroupID := int32(56) // int32 | 
+	pkiUsergroupID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUsergroupAPI.UsergroupGetUsergroupdelegationsV1(context.Background(), pkiUsergroupID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupAPI.UsergroupGetUsergroupdelegationsV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UsergroupGetUsergroupdelegationsV1`: UsergroupGetUsergroupdelegationsV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupAPI.UsergroupGetUsergroupdelegationsV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUsergroupAPI.UsergroupGetUsergroupdelegationsV1(context.Background(), pkiUsergroupID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupAPI.UsergroupGetUsergroupdelegationsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UsergroupGetUsergroupdelegationsV1`: UsergroupGetUsergroupdelegationsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupAPI.UsergroupGetUsergroupdelegationsV1`: %v\n", resp)
 }
 ```
 
@@ -740,24 +740,24 @@ Retrieve an existing Usergroup's Usergroupmemberships
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiUsergroupID := int32(56) // int32 | 
+	pkiUsergroupID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUsergroupAPI.UsergroupGetUsergroupmembershipsV1(context.Background(), pkiUsergroupID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupAPI.UsergroupGetUsergroupmembershipsV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UsergroupGetUsergroupmembershipsV1`: UsergroupGetUsergroupmembershipsV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupAPI.UsergroupGetUsergroupmembershipsV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUsergroupAPI.UsergroupGetUsergroupmembershipsV1(context.Background(), pkiUsergroupID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupAPI.UsergroupGetUsergroupmembershipsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UsergroupGetUsergroupmembershipsV1`: UsergroupGetUsergroupmembershipsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupAPI.UsergroupGetUsergroupmembershipsV1`: %v\n", resp)
 }
 ```
 

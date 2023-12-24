@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignfoldertypeCreateObjectV1ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -23,6 +25,8 @@ type EzsignfoldertypeCreateObjectV1ResponseMPayload struct {
 	// An array of unique IDs representing the object that were requested to be created.  They are returned in the same order as the array containing the objects to be created that was sent in the request.
 	APkiEzsignfoldertypeID []int32 `json:"a_pkiEzsignfoldertypeID"`
 }
+
+type _EzsignfoldertypeCreateObjectV1ResponseMPayload EzsignfoldertypeCreateObjectV1ResponseMPayload
 
 // NewEzsignfoldertypeCreateObjectV1ResponseMPayload instantiates a new EzsignfoldertypeCreateObjectV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -78,6 +82,43 @@ func (o EzsignfoldertypeCreateObjectV1ResponseMPayload) ToMap() (map[string]inte
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_pkiEzsignfoldertypeID"] = o.APkiEzsignfoldertypeID
 	return toSerialize, nil
+}
+
+func (o *EzsignfoldertypeCreateObjectV1ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"a_pkiEzsignfoldertypeID",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignfoldertypeCreateObjectV1ResponseMPayload := _EzsignfoldertypeCreateObjectV1ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignfoldertypeCreateObjectV1ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignfoldertypeCreateObjectV1ResponseMPayload(varEzsignfoldertypeCreateObjectV1ResponseMPayload)
+
+	return err
 }
 
 type NullableEzsignfoldertypeCreateObjectV1ResponseMPayload struct {

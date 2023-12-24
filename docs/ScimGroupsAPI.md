@@ -24,24 +24,24 @@ Create a new Usergroup
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    scimGroup := *openapiclient.NewScimGroup("Administration") // ScimGroup | 
+	scimGroup := *openapiclient.NewScimGroup("Administration") // ScimGroup | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ScimGroupsAPI.GroupsCreateObjectScimV2(context.Background()).ScimGroup(scimGroup).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ScimGroupsAPI.GroupsCreateObjectScimV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GroupsCreateObjectScimV2`: ScimGroup
-    fmt.Fprintf(os.Stdout, "Response from `ScimGroupsAPI.GroupsCreateObjectScimV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ScimGroupsAPI.GroupsCreateObjectScimV2(context.Background()).ScimGroup(scimGroup).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ScimGroupsAPI.GroupsCreateObjectScimV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GroupsCreateObjectScimV2`: ScimGroup
+	fmt.Fprintf(os.Stdout, "Response from `ScimGroupsAPI.GroupsCreateObjectScimV2`: %v\n", resp)
 }
 ```
 
@@ -88,22 +88,22 @@ Delete an existing Usergroup
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    groupId := "groupId_example" // string | 
+	groupId := "groupId_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ScimGroupsAPI.GroupsDeleteObjectScimV2(context.Background(), groupId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ScimGroupsAPI.GroupsDeleteObjectScimV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ScimGroupsAPI.GroupsDeleteObjectScimV2(context.Background(), groupId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ScimGroupsAPI.GroupsDeleteObjectScimV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -154,25 +154,25 @@ Edit an existing Usergroup
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    groupId := "groupId_example" // string | 
-    scimGroup := *openapiclient.NewScimGroup("Administration") // ScimGroup | 
+	groupId := "groupId_example" // string | 
+	scimGroup := *openapiclient.NewScimGroup("Administration") // ScimGroup | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ScimGroupsAPI.GroupsEditObjectScimV2(context.Background(), groupId).ScimGroup(scimGroup).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ScimGroupsAPI.GroupsEditObjectScimV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GroupsEditObjectScimV2`: ScimGroup
-    fmt.Fprintf(os.Stdout, "Response from `ScimGroupsAPI.GroupsEditObjectScimV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ScimGroupsAPI.GroupsEditObjectScimV2(context.Background(), groupId).ScimGroup(scimGroup).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ScimGroupsAPI.GroupsEditObjectScimV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GroupsEditObjectScimV2`: ScimGroup
+	fmt.Fprintf(os.Stdout, "Response from `ScimGroupsAPI.GroupsEditObjectScimV2`: %v\n", resp)
 }
 ```
 
@@ -224,24 +224,24 @@ Retrieve Usergroup list
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    filter := "filter_example" // string | Filter expression for searching groups (optional)
+	filter := "filter_example" // string | Filter expression for searching groups (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ScimGroupsAPI.GroupsGetListScimV2(context.Background()).Filter(filter).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ScimGroupsAPI.GroupsGetListScimV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GroupsGetListScimV2`: ScimGroup
-    fmt.Fprintf(os.Stdout, "Response from `ScimGroupsAPI.GroupsGetListScimV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ScimGroupsAPI.GroupsGetListScimV2(context.Background()).Filter(filter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ScimGroupsAPI.GroupsGetListScimV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GroupsGetListScimV2`: ScimGroup
+	fmt.Fprintf(os.Stdout, "Response from `ScimGroupsAPI.GroupsGetListScimV2`: %v\n", resp)
 }
 ```
 
@@ -288,24 +288,24 @@ Retrieve an existing Usergroup
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    groupId := "groupId_example" // string | 
+	groupId := "groupId_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ScimGroupsAPI.GroupsGetObjectScimV2(context.Background(), groupId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ScimGroupsAPI.GroupsGetObjectScimV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GroupsGetObjectScimV2`: ScimGroup
-    fmt.Fprintf(os.Stdout, "Response from `ScimGroupsAPI.GroupsGetObjectScimV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ScimGroupsAPI.GroupsGetObjectScimV2(context.Background(), groupId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ScimGroupsAPI.GroupsGetObjectScimV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GroupsGetObjectScimV2`: ScimGroup
+	fmt.Fprintf(os.Stdout, "Response from `ScimGroupsAPI.GroupsGetObjectScimV2`: %v\n", resp)
 }
 ```
 

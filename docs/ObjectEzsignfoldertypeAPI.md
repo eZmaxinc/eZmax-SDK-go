@@ -27,24 +27,24 @@ Create a new Ezsignfoldertype
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    ezsignfoldertypeCreateObjectV1Request := *openapiclient.NewEzsignfoldertypeCreateObjectV1Request([]openapiclient.EzsignfoldertypeRequestCompound{*openapiclient.NewEzsignfoldertypeRequestCompound(*openapiclient.NewMultilingualEzsignfoldertypeName(), int32(78), openapiclient.Field-eEzsignfoldertypePrivacylevel("User"), int32(30), openapiclient.Field-eEzsignfoldertypeDisposal("No"), int32(5), false, false, false, false, false, false, false, true, true, true)}) // EzsignfoldertypeCreateObjectV1Request | 
+	ezsignfoldertypeCreateObjectV1Request := *openapiclient.NewEzsignfoldertypeCreateObjectV1Request([]openapiclient.EzsignfoldertypeRequestCompound{*openapiclient.NewEzsignfoldertypeRequestCompound(*openapiclient.NewMultilingualEzsignfoldertypeName(), int32(78), openapiclient.Field-eEzsignfoldertypePrivacylevel("User"), int32(30), openapiclient.Field-eEzsignfoldertypeDisposal("No"), int32(5), false, false, false, false, false, false, true, true)}) // EzsignfoldertypeCreateObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfoldertypeAPI.EzsignfoldertypeCreateObjectV1(context.Background()).EzsignfoldertypeCreateObjectV1Request(ezsignfoldertypeCreateObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldertypeAPI.EzsignfoldertypeCreateObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfoldertypeCreateObjectV1`: EzsignfoldertypeCreateObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfoldertypeAPI.EzsignfoldertypeCreateObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfoldertypeAPI.EzsignfoldertypeCreateObjectV1(context.Background()).EzsignfoldertypeCreateObjectV1Request(ezsignfoldertypeCreateObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldertypeAPI.EzsignfoldertypeCreateObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfoldertypeCreateObjectV1`: EzsignfoldertypeCreateObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfoldertypeAPI.EzsignfoldertypeCreateObjectV1`: %v\n", resp)
 }
 ```
 
@@ -93,25 +93,25 @@ Edit an existing Ezsignfoldertype
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignfoldertypeID := int32(56) // int32 | 
-    ezsignfoldertypeEditObjectV1Request := *openapiclient.NewEzsignfoldertypeEditObjectV1Request(*openapiclient.NewEzsignfoldertypeRequestCompound(*openapiclient.NewMultilingualEzsignfoldertypeName(), int32(78), openapiclient.Field-eEzsignfoldertypePrivacylevel("User"), int32(30), openapiclient.Field-eEzsignfoldertypeDisposal("No"), int32(5), false, false, false, false, false, false, false, true, true, true)) // EzsignfoldertypeEditObjectV1Request | 
+	pkiEzsignfoldertypeID := int32(56) // int32 | 
+	ezsignfoldertypeEditObjectV1Request := *openapiclient.NewEzsignfoldertypeEditObjectV1Request(*openapiclient.NewEzsignfoldertypeRequestCompound(*openapiclient.NewMultilingualEzsignfoldertypeName(), int32(78), openapiclient.Field-eEzsignfoldertypePrivacylevel("User"), int32(30), openapiclient.Field-eEzsignfoldertypeDisposal("No"), int32(5), false, false, false, false, false, false, true, true)) // EzsignfoldertypeEditObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfoldertypeAPI.EzsignfoldertypeEditObjectV1(context.Background(), pkiEzsignfoldertypeID).EzsignfoldertypeEditObjectV1Request(ezsignfoldertypeEditObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldertypeAPI.EzsignfoldertypeEditObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfoldertypeEditObjectV1`: EzsignfoldertypeEditObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfoldertypeAPI.EzsignfoldertypeEditObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfoldertypeAPI.EzsignfoldertypeEditObjectV1(context.Background(), pkiEzsignfoldertypeID).EzsignfoldertypeEditObjectV1Request(ezsignfoldertypeEditObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldertypeAPI.EzsignfoldertypeEditObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfoldertypeEditObjectV1`: EzsignfoldertypeEditObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfoldertypeAPI.EzsignfoldertypeEditObjectV1`: %v\n", resp)
 }
 ```
 
@@ -165,27 +165,27 @@ Retrieve Ezsignfoldertypes and IDs
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    sSelector := "sSelector_example" // string | The type of Ezsignfoldertypes to return
-    eFilterActive := "eFilterActive_example" // string | Specify which results we want to display. (optional) (default to "Active")
-    sQuery := "sQuery_example" // string | Allow to filter the returned results (optional)
-    acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
+	sSelector := "sSelector_example" // string | The type of Ezsignfoldertypes to return
+	eFilterActive := "eFilterActive_example" // string | Specify which results we want to display. (optional) (default to "Active")
+	sQuery := "sQuery_example" // string | Allow to filter the returned results (optional)
+	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfoldertypeAPI.EzsignfoldertypeGetAutocompleteV1(context.Background(), sSelector).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldertypeAPI.EzsignfoldertypeGetAutocompleteV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfoldertypeGetAutocompleteV1`: CommonGetAutocompleteV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfoldertypeAPI.EzsignfoldertypeGetAutocompleteV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfoldertypeAPI.EzsignfoldertypeGetAutocompleteV1(context.Background(), sSelector).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldertypeAPI.EzsignfoldertypeGetAutocompleteV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfoldertypeGetAutocompleteV1`: CommonGetAutocompleteV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfoldertypeAPI.EzsignfoldertypeGetAutocompleteV1`: %v\n", resp)
 }
 ```
 
@@ -241,27 +241,27 @@ Retrieve Ezsignfoldertypes and IDs
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    sSelector := "sSelector_example" // string | The type of Ezsignfoldertypes to return
-    eFilterActive := "eFilterActive_example" // string | Specify which results we want to display. (optional) (default to "Active")
-    sQuery := "sQuery_example" // string | Allow to filter the returned results (optional)
-    acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
+	sSelector := "sSelector_example" // string | The type of Ezsignfoldertypes to return
+	eFilterActive := "eFilterActive_example" // string | Specify which results we want to display. (optional) (default to "Active")
+	sQuery := "sQuery_example" // string | Allow to filter the returned results (optional)
+	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfoldertypeAPI.EzsignfoldertypeGetAutocompleteV2(context.Background(), sSelector).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldertypeAPI.EzsignfoldertypeGetAutocompleteV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfoldertypeGetAutocompleteV2`: EzsignfoldertypeGetAutocompleteV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfoldertypeAPI.EzsignfoldertypeGetAutocompleteV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfoldertypeAPI.EzsignfoldertypeGetAutocompleteV2(context.Background(), sSelector).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldertypeAPI.EzsignfoldertypeGetAutocompleteV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfoldertypeGetAutocompleteV2`: EzsignfoldertypeGetAutocompleteV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfoldertypeAPI.EzsignfoldertypeGetAutocompleteV2`: %v\n", resp)
 }
 ```
 
@@ -317,28 +317,28 @@ Retrieve Ezsignfoldertype list
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
-    iRowMax := int32(56) // int32 |  (optional)
-    iRowOffset := int32(56) // int32 |  (optional) (default to 0)
-    acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
-    sFilter := "sFilter_example" // string |  (optional)
+	eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
+	iRowMax := int32(56) // int32 |  (optional)
+	iRowOffset := int32(56) // int32 |  (optional) (default to 0)
+	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
+	sFilter := "sFilter_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfoldertypeAPI.EzsignfoldertypeGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldertypeAPI.EzsignfoldertypeGetListV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfoldertypeGetListV1`: EzsignfoldertypeGetListV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfoldertypeAPI.EzsignfoldertypeGetListV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfoldertypeAPI.EzsignfoldertypeGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldertypeAPI.EzsignfoldertypeGetListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfoldertypeGetListV1`: EzsignfoldertypeGetListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfoldertypeAPI.EzsignfoldertypeGetListV1`: %v\n", resp)
 }
 ```
 
@@ -391,24 +391,24 @@ Retrieve an existing Ezsignfoldertype
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignfoldertypeID := int32(56) // int32 | 
+	pkiEzsignfoldertypeID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfoldertypeAPI.EzsignfoldertypeGetObjectV2(context.Background(), pkiEzsignfoldertypeID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldertypeAPI.EzsignfoldertypeGetObjectV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfoldertypeGetObjectV2`: EzsignfoldertypeGetObjectV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfoldertypeAPI.EzsignfoldertypeGetObjectV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfoldertypeAPI.EzsignfoldertypeGetObjectV2(context.Background(), pkiEzsignfoldertypeID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldertypeAPI.EzsignfoldertypeGetObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfoldertypeGetObjectV2`: EzsignfoldertypeGetObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfoldertypeAPI.EzsignfoldertypeGetObjectV2`: %v\n", resp)
 }
 ```
 

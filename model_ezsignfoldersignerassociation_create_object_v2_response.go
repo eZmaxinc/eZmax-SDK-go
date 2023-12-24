@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignfoldersignerassociationCreateObjectV2Response type satisfies the MappedNullable interface at compile time
@@ -24,6 +26,8 @@ type EzsignfoldersignerassociationCreateObjectV2Response struct {
 	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
 	MPayload EzsignfoldersignerassociationCreateObjectV2ResponseMPayload `json:"mPayload"`
 }
+
+type _EzsignfoldersignerassociationCreateObjectV2Response EzsignfoldersignerassociationCreateObjectV2Response
 
 // NewEzsignfoldersignerassociationCreateObjectV2Response instantiates a new EzsignfoldersignerassociationCreateObjectV2Response object
 // This constructor will assign default values to properties that have it defined,
@@ -140,6 +144,44 @@ func (o EzsignfoldersignerassociationCreateObjectV2Response) ToMap() (map[string
 	}
 	toSerialize["mPayload"] = o.MPayload
 	return toSerialize, nil
+}
+
+func (o *EzsignfoldersignerassociationCreateObjectV2Response) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"objDebugPayload",
+		"mPayload",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignfoldersignerassociationCreateObjectV2Response := _EzsignfoldersignerassociationCreateObjectV2Response{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignfoldersignerassociationCreateObjectV2Response)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignfoldersignerassociationCreateObjectV2Response(varEzsignfoldersignerassociationCreateObjectV2Response)
+
+	return err
 }
 
 type NullableEzsignfoldersignerassociationCreateObjectV2Response struct {

@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the WebhookGetHistoryV1ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &WebhookGetHistoryV1ResponseMPayload{}
 type WebhookGetHistoryV1ResponseMPayload struct {
 	AObjWebhooklog []CustomWebhooklogResponse `json:"a_objWebhooklog"`
 }
+
+type _WebhookGetHistoryV1ResponseMPayload WebhookGetHistoryV1ResponseMPayload
 
 // NewWebhookGetHistoryV1ResponseMPayload instantiates a new WebhookGetHistoryV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o WebhookGetHistoryV1ResponseMPayload) ToMap() (map[string]interface{}, er
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_objWebhooklog"] = o.AObjWebhooklog
 	return toSerialize, nil
+}
+
+func (o *WebhookGetHistoryV1ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"a_objWebhooklog",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varWebhookGetHistoryV1ResponseMPayload := _WebhookGetHistoryV1ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varWebhookGetHistoryV1ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = WebhookGetHistoryV1ResponseMPayload(varWebhookGetHistoryV1ResponseMPayload)
+
+	return err
 }
 
 type NullableWebhookGetHistoryV1ResponseMPayload struct {

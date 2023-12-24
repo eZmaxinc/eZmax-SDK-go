@@ -26,6 +26,8 @@ const (
 	DROPDOWN FieldEEzsigntemplateformfieldgroupType = "Dropdown"
 	RADIO FieldEEzsigntemplateformfieldgroupType = "Radio"
 	CHECKBOX FieldEEzsigntemplateformfieldgroupType = "Checkbox"
+	NUMBER FieldEEzsigntemplateformfieldgroupType = "Number"
+	DATE FieldEEzsigntemplateformfieldgroupType = "Date"
 )
 
 // All allowed values of FieldEEzsigntemplateformfieldgroupType enum
@@ -35,6 +37,8 @@ var AllowedFieldEEzsigntemplateformfieldgroupTypeEnumValues = []FieldEEzsigntemp
 	"Dropdown",
 	"Radio",
 	"Checkbox",
+	"Number",
+	"Date",
 }
 
 func (v *FieldEEzsigntemplateformfieldgroupType) UnmarshalJSON(src []byte) error {

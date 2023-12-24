@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the OtherincomeGetCommunicationListV1ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &OtherincomeGetCommunicationListV1ResponseMPayload{}
 type OtherincomeGetCommunicationListV1ResponseMPayload struct {
 	AObjCommunication []CustomCommunicationListElementResponse `json:"a_objCommunication"`
 }
+
+type _OtherincomeGetCommunicationListV1ResponseMPayload OtherincomeGetCommunicationListV1ResponseMPayload
 
 // NewOtherincomeGetCommunicationListV1ResponseMPayload instantiates a new OtherincomeGetCommunicationListV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o OtherincomeGetCommunicationListV1ResponseMPayload) ToMap() (map[string]i
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_objCommunication"] = o.AObjCommunication
 	return toSerialize, nil
+}
+
+func (o *OtherincomeGetCommunicationListV1ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"a_objCommunication",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varOtherincomeGetCommunicationListV1ResponseMPayload := _OtherincomeGetCommunicationListV1ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOtherincomeGetCommunicationListV1ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OtherincomeGetCommunicationListV1ResponseMPayload(varOtherincomeGetCommunicationListV1ResponseMPayload)
+
+	return err
 }
 
 type NullableOtherincomeGetCommunicationListV1ResponseMPayload struct {

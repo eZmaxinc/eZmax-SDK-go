@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzmaxinvoicingsummaryglobalResponseCompound type satisfies the MappedNullable interface at compile time
@@ -60,6 +62,8 @@ type EzmaxinvoicingsummaryglobalResponseCompound struct {
 	TEzmaxproductHelpX string `json:"tEzmaxproductHelpX"`
 	AObjEzmaxinvoicingcommission []EzmaxinvoicingcommissionResponseCompound `json:"a_objEzmaxinvoicingcommission,omitempty"`
 }
+
+type _EzmaxinvoicingsummaryglobalResponseCompound EzmaxinvoicingsummaryglobalResponseCompound
 
 // NewEzmaxinvoicingsummaryglobalResponseCompound instantiates a new EzmaxinvoicingsummaryglobalResponseCompound object
 // This constructor will assign default values to properties that have it defined,
@@ -663,6 +667,56 @@ func (o EzmaxinvoicingsummaryglobalResponseCompound) ToMap() (map[string]interfa
 		toSerialize["a_objEzmaxinvoicingcommission"] = o.AObjEzmaxinvoicingcommission
 	}
 	return toSerialize, nil
+}
+
+func (o *EzmaxinvoicingsummaryglobalResponseCompound) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"fkiEzmaxproductID",
+		"sEzmaxproductDescriptionX",
+		"dtEzmaxinvoicingsummaryglobalStart",
+		"dtEzmaxinvoicingsummaryglobalEnd",
+		"iEzmaxinvoicingsummaryglobalDays",
+		"dEzmaxinvoicingsummaryglobalCountreal",
+		"dEzmaxinvoicingsummaryglobalCountbilled",
+		"dEzmaxinvoicingsummaryglobalSubtotal",
+		"dEzmaxinvoicingsummaryglobalRebateamount",
+		"dEzmaxinvoicingsummaryglobalRebatepercent",
+		"dEzmaxinvoicingsummaryglobalRebatetotal",
+		"dEzmaxinvoicingsummaryglobalTotal",
+		"bEzmaxinvoicingsummaryglobalAdjustment",
+		"tEzmaxproductHelpX",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzmaxinvoicingsummaryglobalResponseCompound := _EzmaxinvoicingsummaryglobalResponseCompound{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzmaxinvoicingsummaryglobalResponseCompound)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzmaxinvoicingsummaryglobalResponseCompound(varEzmaxinvoicingsummaryglobalResponseCompound)
+
+	return err
 }
 
 type NullableEzmaxinvoicingsummaryglobalResponseCompound struct {

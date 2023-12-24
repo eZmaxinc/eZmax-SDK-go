@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **BEzsigndocumentHassignedsignatures** | Pointer to **bool** | If the Ezsigndocument contains signed signatures (From internal or external sources) | [optional] 
 **ObjAudit** | Pointer to [**CommonAudit**](CommonAudit.md) |  | [optional] 
 **SEzsigndocumentExternalid** | Pointer to **string** | This field can be used to store an External ID from the client&#39;s system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format.  | [optional] 
+**IEzsigndocumentEzsignsignatureattachmenttotal** | **int32** | The number of Ezsigndocumentattachment total | 
 **EEzsigndocumentSteptype** | [**ComputedEEzsigndocumentSteptype**](ComputedEEzsigndocumentSteptype.md) |  | 
 **IEzsigndocumentStepformtotal** | **int32** | The total number of steps in the form filling phase | 
 **IEzsigndocumentStepformcurrent** | **int32** | The current step in the form filling phase | 
@@ -36,7 +37,7 @@ Name | Type | Description | Notes
 
 ### NewEzsigndocumentResponseCompound
 
-`func NewEzsigndocumentResponseCompound(pkiEzsigndocumentID int32, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, sEzsigndocumentName string, eEzsigndocumentStep FieldEEzsigndocumentStep, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, eEzsigndocumentSteptype ComputedEEzsigndocumentSteptype, iEzsigndocumentStepformtotal int32, iEzsigndocumentStepformcurrent int32, iEzsigndocumentStepsignaturetotal int32, iEzsigndocumentStepsignatureCurrent int32, aObjEzsignfoldersignerassociationstatus []CustomEzsignfoldersignerassociationstatusResponse, ) *EzsigndocumentResponseCompound`
+`func NewEzsigndocumentResponseCompound(pkiEzsigndocumentID int32, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, sEzsigndocumentName string, eEzsigndocumentStep FieldEEzsigndocumentStep, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, iEzsigndocumentEzsignsignatureattachmenttotal int32, eEzsigndocumentSteptype ComputedEEzsigndocumentSteptype, iEzsigndocumentStepformtotal int32, iEzsigndocumentStepformcurrent int32, iEzsigndocumentStepsignaturetotal int32, iEzsigndocumentStepsignatureCurrent int32, aObjEzsignfoldersignerassociationstatus []CustomEzsignfoldersignerassociationstatusResponse, ) *EzsigndocumentResponseCompound`
 
 NewEzsigndocumentResponseCompound instantiates a new EzsigndocumentResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -530,6 +531,26 @@ SetSEzsigndocumentExternalid sets SEzsigndocumentExternalid field to given value
 `func (o *EzsigndocumentResponseCompound) HasSEzsigndocumentExternalid() bool`
 
 HasSEzsigndocumentExternalid returns a boolean if a field has been set.
+
+### GetIEzsigndocumentEzsignsignatureattachmenttotal
+
+`func (o *EzsigndocumentResponseCompound) GetIEzsigndocumentEzsignsignatureattachmenttotal() int32`
+
+GetIEzsigndocumentEzsignsignatureattachmenttotal returns the IEzsigndocumentEzsignsignatureattachmenttotal field if non-nil, zero value otherwise.
+
+### GetIEzsigndocumentEzsignsignatureattachmenttotalOk
+
+`func (o *EzsigndocumentResponseCompound) GetIEzsigndocumentEzsignsignatureattachmenttotalOk() (*int32, bool)`
+
+GetIEzsigndocumentEzsignsignatureattachmenttotalOk returns a tuple with the IEzsigndocumentEzsignsignatureattachmenttotal field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIEzsigndocumentEzsignsignatureattachmenttotal
+
+`func (o *EzsigndocumentResponseCompound) SetIEzsigndocumentEzsignsignatureattachmenttotal(v int32)`
+
+SetIEzsigndocumentEzsignsignatureattachmenttotal sets IEzsigndocumentEzsignsignatureattachmenttotal field to given value.
+
 
 ### GetEEzsigndocumentSteptype
 

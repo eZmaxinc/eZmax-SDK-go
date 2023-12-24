@@ -30,24 +30,24 @@ Create a new Apikey
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    apikeyCreateObjectV2Request := *openapiclient.NewApikeyCreateObjectV2Request([]openapiclient.ApikeyRequestCompound{*openapiclient.NewApikeyRequestCompound(int32(70), *openapiclient.NewMultilingualApikeyDescription())}) // ApikeyCreateObjectV2Request | 
+	apikeyCreateObjectV2Request := *openapiclient.NewApikeyCreateObjectV2Request([]openapiclient.ApikeyRequestCompound{*openapiclient.NewApikeyRequestCompound(int32(70), *openapiclient.NewMultilingualApikeyDescription())}) // ApikeyCreateObjectV2Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectApikeyAPI.ApikeyCreateObjectV2(context.Background()).ApikeyCreateObjectV2Request(apikeyCreateObjectV2Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectApikeyAPI.ApikeyCreateObjectV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApikeyCreateObjectV2`: ApikeyCreateObjectV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectApikeyAPI.ApikeyCreateObjectV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectApikeyAPI.ApikeyCreateObjectV2(context.Background()).ApikeyCreateObjectV2Request(apikeyCreateObjectV2Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectApikeyAPI.ApikeyCreateObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApikeyCreateObjectV2`: ApikeyCreateObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectApikeyAPI.ApikeyCreateObjectV2`: %v\n", resp)
 }
 ```
 
@@ -96,25 +96,25 @@ Edit an existing Apikey
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiApikeyID := int32(56) // int32 | The unique ID of the Apikey
-    apikeyEditObjectV1Request := *openapiclient.NewApikeyEditObjectV1Request(*openapiclient.NewApikeyRequestCompound(int32(70), *openapiclient.NewMultilingualApikeyDescription())) // ApikeyEditObjectV1Request | 
+	pkiApikeyID := int32(56) // int32 | The unique ID of the Apikey
+	apikeyEditObjectV1Request := *openapiclient.NewApikeyEditObjectV1Request(*openapiclient.NewApikeyRequestCompound(int32(70), *openapiclient.NewMultilingualApikeyDescription())) // ApikeyEditObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectApikeyAPI.ApikeyEditObjectV1(context.Background(), pkiApikeyID).ApikeyEditObjectV1Request(apikeyEditObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectApikeyAPI.ApikeyEditObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApikeyEditObjectV1`: ApikeyEditObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectApikeyAPI.ApikeyEditObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectApikeyAPI.ApikeyEditObjectV1(context.Background(), pkiApikeyID).ApikeyEditObjectV1Request(apikeyEditObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectApikeyAPI.ApikeyEditObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApikeyEditObjectV1`: ApikeyEditObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectApikeyAPI.ApikeyEditObjectV1`: %v\n", resp)
 }
 ```
 
@@ -168,25 +168,25 @@ Edit multiple Permissions
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiApikeyID := int32(56) // int32 | 
-    apikeyEditPermissionsV1Request := *openapiclient.NewApikeyEditPermissionsV1Request([]openapiclient.PermissionRequestCompound{*openapiclient.NewPermissionRequestCompound(int32(53))}) // ApikeyEditPermissionsV1Request | 
+	pkiApikeyID := int32(56) // int32 | 
+	apikeyEditPermissionsV1Request := *openapiclient.NewApikeyEditPermissionsV1Request([]openapiclient.PermissionRequestCompound{*openapiclient.NewPermissionRequestCompound(int32(53))}) // ApikeyEditPermissionsV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectApikeyAPI.ApikeyEditPermissionsV1(context.Background(), pkiApikeyID).ApikeyEditPermissionsV1Request(apikeyEditPermissionsV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectApikeyAPI.ApikeyEditPermissionsV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApikeyEditPermissionsV1`: ApikeyEditPermissionsV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectApikeyAPI.ApikeyEditPermissionsV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectApikeyAPI.ApikeyEditPermissionsV1(context.Background(), pkiApikeyID).ApikeyEditPermissionsV1Request(apikeyEditPermissionsV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectApikeyAPI.ApikeyEditPermissionsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApikeyEditPermissionsV1`: ApikeyEditPermissionsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectApikeyAPI.ApikeyEditPermissionsV1`: %v\n", resp)
 }
 ```
 
@@ -238,24 +238,24 @@ Retrieve an existing Apikey's cors
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiApikeyID := int32(56) // int32 | 
+	pkiApikeyID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectApikeyAPI.ApikeyGetCorsV1(context.Background(), pkiApikeyID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectApikeyAPI.ApikeyGetCorsV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApikeyGetCorsV1`: ApikeyGetCorsV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectApikeyAPI.ApikeyGetCorsV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectApikeyAPI.ApikeyGetCorsV1(context.Background(), pkiApikeyID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectApikeyAPI.ApikeyGetCorsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApikeyGetCorsV1`: ApikeyGetCorsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectApikeyAPI.ApikeyGetCorsV1`: %v\n", resp)
 }
 ```
 
@@ -308,28 +308,28 @@ Retrieve Apikey list
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
-    iRowMax := int32(56) // int32 |  (optional)
-    iRowOffset := int32(56) // int32 |  (optional) (default to 0)
-    acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
-    sFilter := "sFilter_example" // string |  (optional)
+	eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
+	iRowMax := int32(56) // int32 |  (optional)
+	iRowOffset := int32(56) // int32 |  (optional) (default to 0)
+	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
+	sFilter := "sFilter_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectApikeyAPI.ApikeyGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectApikeyAPI.ApikeyGetListV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApikeyGetListV1`: ApikeyGetListV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectApikeyAPI.ApikeyGetListV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectApikeyAPI.ApikeyGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectApikeyAPI.ApikeyGetListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApikeyGetListV1`: ApikeyGetListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectApikeyAPI.ApikeyGetListV1`: %v\n", resp)
 }
 ```
 
@@ -382,24 +382,24 @@ Retrieve an existing Apikey
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiApikeyID := int32(56) // int32 | The unique ID of the Apikey
+	pkiApikeyID := int32(56) // int32 | The unique ID of the Apikey
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectApikeyAPI.ApikeyGetObjectV2(context.Background(), pkiApikeyID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectApikeyAPI.ApikeyGetObjectV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApikeyGetObjectV2`: ApikeyGetObjectV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectApikeyAPI.ApikeyGetObjectV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectApikeyAPI.ApikeyGetObjectV2(context.Background(), pkiApikeyID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectApikeyAPI.ApikeyGetObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApikeyGetObjectV2`: ApikeyGetObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectApikeyAPI.ApikeyGetObjectV2`: %v\n", resp)
 }
 ```
 
@@ -450,24 +450,24 @@ Retrieve an existing Apikey's Permissions
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiApikeyID := int32(56) // int32 | 
+	pkiApikeyID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectApikeyAPI.ApikeyGetPermissionsV1(context.Background(), pkiApikeyID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectApikeyAPI.ApikeyGetPermissionsV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApikeyGetPermissionsV1`: ApikeyGetPermissionsV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectApikeyAPI.ApikeyGetPermissionsV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectApikeyAPI.ApikeyGetPermissionsV1(context.Background(), pkiApikeyID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectApikeyAPI.ApikeyGetPermissionsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApikeyGetPermissionsV1`: ApikeyGetPermissionsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectApikeyAPI.ApikeyGetPermissionsV1`: %v\n", resp)
 }
 ```
 
@@ -518,24 +518,24 @@ Retrieve an existing Apikey's subnets
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiApikeyID := int32(56) // int32 | 
+	pkiApikeyID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectApikeyAPI.ApikeyGetSubnetsV1(context.Background(), pkiApikeyID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectApikeyAPI.ApikeyGetSubnetsV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApikeyGetSubnetsV1`: ApikeyGetSubnetsV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectApikeyAPI.ApikeyGetSubnetsV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectApikeyAPI.ApikeyGetSubnetsV1(context.Background(), pkiApikeyID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectApikeyAPI.ApikeyGetSubnetsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApikeyGetSubnetsV1`: ApikeyGetSubnetsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectApikeyAPI.ApikeyGetSubnetsV1`: %v\n", resp)
 }
 ```
 
@@ -588,25 +588,25 @@ Regenerate the Apikey
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiApikeyID := int32(56) // int32 | 
-    apikeyRegenerateV1Request := *openapiclient.NewApikeyRegenerateV1Request() // ApikeyRegenerateV1Request | 
+	pkiApikeyID := int32(56) // int32 | 
+	apikeyRegenerateV1Request := *openapiclient.NewApikeyRegenerateV1Request() // ApikeyRegenerateV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectApikeyAPI.ApikeyRegenerateV1(context.Background(), pkiApikeyID).ApikeyRegenerateV1Request(apikeyRegenerateV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectApikeyAPI.ApikeyRegenerateV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApikeyRegenerateV1`: ApikeyRegenerateV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectApikeyAPI.ApikeyRegenerateV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectApikeyAPI.ApikeyRegenerateV1(context.Background(), pkiApikeyID).ApikeyRegenerateV1Request(apikeyRegenerateV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectApikeyAPI.ApikeyRegenerateV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApikeyRegenerateV1`: ApikeyRegenerateV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectApikeyAPI.ApikeyRegenerateV1`: %v\n", resp)
 }
 ```
 

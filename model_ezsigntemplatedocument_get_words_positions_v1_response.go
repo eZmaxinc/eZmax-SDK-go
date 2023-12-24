@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigntemplatedocumentGetWordsPositionsV1Response type satisfies the MappedNullable interface at compile time
@@ -25,6 +27,8 @@ type EzsigntemplatedocumentGetWordsPositionsV1Response struct {
 	// Payload for POST /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getWordsPositions
 	MPayload []CustomWordPositionWordResponse `json:"mPayload"`
 }
+
+type _EzsigntemplatedocumentGetWordsPositionsV1Response EzsigntemplatedocumentGetWordsPositionsV1Response
 
 // NewEzsigntemplatedocumentGetWordsPositionsV1Response instantiates a new EzsigntemplatedocumentGetWordsPositionsV1Response object
 // This constructor will assign default values to properties that have it defined,
@@ -141,6 +145,44 @@ func (o EzsigntemplatedocumentGetWordsPositionsV1Response) ToMap() (map[string]i
 	}
 	toSerialize["mPayload"] = o.MPayload
 	return toSerialize, nil
+}
+
+func (o *EzsigntemplatedocumentGetWordsPositionsV1Response) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"objDebugPayload",
+		"mPayload",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigntemplatedocumentGetWordsPositionsV1Response := _EzsigntemplatedocumentGetWordsPositionsV1Response{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigntemplatedocumentGetWordsPositionsV1Response)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigntemplatedocumentGetWordsPositionsV1Response(varEzsigntemplatedocumentGetWordsPositionsV1Response)
+
+	return err
 }
 
 type NullableEzsigntemplatedocumentGetWordsPositionsV1Response struct {

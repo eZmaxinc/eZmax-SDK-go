@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the BillingentityexternalGetAutocompleteV2ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -23,6 +25,8 @@ type BillingentityexternalGetAutocompleteV2ResponseMPayload struct {
 	// An array of Billingentityexternal autocomplete element response.
 	AObjBillingentityexternal []BillingentityexternalAutocompleteElementResponse `json:"a_objBillingentityexternal"`
 }
+
+type _BillingentityexternalGetAutocompleteV2ResponseMPayload BillingentityexternalGetAutocompleteV2ResponseMPayload
 
 // NewBillingentityexternalGetAutocompleteV2ResponseMPayload instantiates a new BillingentityexternalGetAutocompleteV2ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -78,6 +82,43 @@ func (o BillingentityexternalGetAutocompleteV2ResponseMPayload) ToMap() (map[str
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_objBillingentityexternal"] = o.AObjBillingentityexternal
 	return toSerialize, nil
+}
+
+func (o *BillingentityexternalGetAutocompleteV2ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"a_objBillingentityexternal",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varBillingentityexternalGetAutocompleteV2ResponseMPayload := _BillingentityexternalGetAutocompleteV2ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varBillingentityexternalGetAutocompleteV2ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = BillingentityexternalGetAutocompleteV2ResponseMPayload(varBillingentityexternalGetAutocompleteV2ResponseMPayload)
+
+	return err
 }
 
 type NullableBillingentityexternalGetAutocompleteV2ResponseMPayload struct {

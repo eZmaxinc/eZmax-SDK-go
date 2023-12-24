@@ -25,12 +25,13 @@ Name | Type | Description | Notes
 **BEzsigndocumentHassignedsignatures** | Pointer to **bool** | If the Ezsigndocument contains signed signatures (From internal or external sources) | [optional] 
 **ObjAudit** | Pointer to [**CommonAudit**](CommonAudit.md) |  | [optional] 
 **SEzsigndocumentExternalid** | Pointer to **string** | This field can be used to store an External ID from the client&#39;s system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format.  | [optional] 
+**IEzsigndocumentEzsignsignatureattachmenttotal** | **int32** | The number of Ezsigndocumentattachment total | 
 
 ## Methods
 
 ### NewEzsigndocumentResponse
 
-`func NewEzsigndocumentResponse(pkiEzsigndocumentID int32, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, sEzsigndocumentName string, eEzsigndocumentStep FieldEEzsigndocumentStep, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, ) *EzsigndocumentResponse`
+`func NewEzsigndocumentResponse(pkiEzsigndocumentID int32, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, sEzsigndocumentName string, eEzsigndocumentStep FieldEEzsigndocumentStep, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, iEzsigndocumentEzsignsignatureattachmenttotal int32, ) *EzsigndocumentResponse`
 
 NewEzsigndocumentResponse instantiates a new EzsigndocumentResponse object
 This constructor will assign default values to properties that have it defined,
@@ -524,6 +525,26 @@ SetSEzsigndocumentExternalid sets SEzsigndocumentExternalid field to given value
 `func (o *EzsigndocumentResponse) HasSEzsigndocumentExternalid() bool`
 
 HasSEzsigndocumentExternalid returns a boolean if a field has been set.
+
+### GetIEzsigndocumentEzsignsignatureattachmenttotal
+
+`func (o *EzsigndocumentResponse) GetIEzsigndocumentEzsignsignatureattachmenttotal() int32`
+
+GetIEzsigndocumentEzsignsignatureattachmenttotal returns the IEzsigndocumentEzsignsignatureattachmenttotal field if non-nil, zero value otherwise.
+
+### GetIEzsigndocumentEzsignsignatureattachmenttotalOk
+
+`func (o *EzsigndocumentResponse) GetIEzsigndocumentEzsignsignatureattachmenttotalOk() (*int32, bool)`
+
+GetIEzsigndocumentEzsignsignatureattachmenttotalOk returns a tuple with the IEzsigndocumentEzsignsignatureattachmenttotal field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIEzsigndocumentEzsignsignatureattachmenttotal
+
+`func (o *EzsigndocumentResponse) SetIEzsigndocumentEzsignsignatureattachmenttotal(v int32)`
+
+SetIEzsigndocumentEzsignsignatureattachmenttotal sets IEzsigndocumentEzsignsignatureattachmenttotal field to given value.
+
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigntemplatedocumentGetWordsPositionsV1Request type satisfies the MappedNullable interface at compile time
@@ -27,6 +29,8 @@ type EzsigntemplatedocumentGetWordsPositionsV1Request struct {
 	// Array of words to find in the document
 	ASWord []string `json:"a_sWord,omitempty"`
 }
+
+type _EzsigntemplatedocumentGetWordsPositionsV1Request EzsigntemplatedocumentGetWordsPositionsV1Request
 
 // NewEzsigntemplatedocumentGetWordsPositionsV1Request instantiates a new EzsigntemplatedocumentGetWordsPositionsV1Request object
 // This constructor will assign default values to properties that have it defined,
@@ -143,6 +147,44 @@ func (o EzsigntemplatedocumentGetWordsPositionsV1Request) ToMap() (map[string]in
 		toSerialize["a_sWord"] = o.ASWord
 	}
 	return toSerialize, nil
+}
+
+func (o *EzsigntemplatedocumentGetWordsPositionsV1Request) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"eGet",
+		"bWordCaseSensitive",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigntemplatedocumentGetWordsPositionsV1Request := _EzsigntemplatedocumentGetWordsPositionsV1Request{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigntemplatedocumentGetWordsPositionsV1Request)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigntemplatedocumentGetWordsPositionsV1Request(varEzsigntemplatedocumentGetWordsPositionsV1Request)
+
+	return err
 }
 
 type NullableEzsigntemplatedocumentGetWordsPositionsV1Request struct {

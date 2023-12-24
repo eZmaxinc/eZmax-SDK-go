@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigntemplateformfieldResponseCompound type satisfies the MappedNullable interface at compile time
@@ -43,6 +45,8 @@ type EzsigntemplateformfieldResponseCompound struct {
 	EEzsigntemplateformfieldDependencyrequirement *FieldEEzsigntemplateformfieldDependencyrequirement `json:"eEzsigntemplateformfieldDependencyrequirement,omitempty"`
 	AObjEzsigntemplateelementdependency []EzsigntemplateelementdependencyResponseCompound `json:"a_objEzsigntemplateelementdependency,omitempty"`
 }
+
+type _EzsigntemplateformfieldResponseCompound EzsigntemplateformfieldResponseCompound
 
 // NewEzsigntemplateformfieldResponseCompound instantiates a new EzsigntemplateformfieldResponseCompound object
 // This constructor will assign default values to properties that have it defined,
@@ -429,6 +433,49 @@ func (o EzsigntemplateformfieldResponseCompound) ToMap() (map[string]interface{}
 		toSerialize["a_objEzsigntemplateelementdependency"] = o.AObjEzsigntemplateelementdependency
 	}
 	return toSerialize, nil
+}
+
+func (o *EzsigntemplateformfieldResponseCompound) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiEzsigntemplateformfieldID",
+		"iEzsigntemplatedocumentpagePagenumber",
+		"sEzsigntemplateformfieldLabel",
+		"iEzsigntemplateformfieldX",
+		"iEzsigntemplateformfieldY",
+		"iEzsigntemplateformfieldWidth",
+		"iEzsigntemplateformfieldHeight",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigntemplateformfieldResponseCompound := _EzsigntemplateformfieldResponseCompound{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigntemplateformfieldResponseCompound)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigntemplateformfieldResponseCompound(varEzsigntemplateformfieldResponseCompound)
+
+	return err
 }
 
 type NullableEzsigntemplateformfieldResponseCompound struct {

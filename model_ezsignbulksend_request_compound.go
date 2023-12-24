@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignbulksendRequestCompound type satisfies the MappedNullable interface at compile time
@@ -35,6 +37,8 @@ type EzsignbulksendRequestCompound struct {
 	// Whether the Ezsignbulksend is active or not
 	BEzsignbulksendIsactive bool `json:"bEzsignbulksendIsactive"`
 }
+
+type _EzsignbulksendRequestCompound EzsignbulksendRequestCompound
 
 // NewEzsignbulksendRequestCompound instantiates a new EzsignbulksendRequestCompound object
 // This constructor will assign default values to properties that have it defined,
@@ -255,6 +259,48 @@ func (o EzsignbulksendRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize["bEzsignbulksendNeedvalidation"] = o.BEzsignbulksendNeedvalidation
 	toSerialize["bEzsignbulksendIsactive"] = o.BEzsignbulksendIsactive
 	return toSerialize, nil
+}
+
+func (o *EzsignbulksendRequestCompound) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"fkiEzsignfoldertypeID",
+		"fkiLanguageID",
+		"sEzsignbulksendDescription",
+		"tEzsignbulksendNote",
+		"bEzsignbulksendNeedvalidation",
+		"bEzsignbulksendIsactive",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignbulksendRequestCompound := _EzsignbulksendRequestCompound{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignbulksendRequestCompound)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignbulksendRequestCompound(varEzsignbulksendRequestCompound)
+
+	return err
 }
 
 type NullableEzsignbulksendRequestCompound struct {

@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the PhoneResponseCompound type satisfies the MappedNullable interface at compile time
@@ -30,7 +32,11 @@ type PhoneResponseCompound struct {
 	SPhoneE164 *string `json:"sPhoneE164,omitempty"`
 	// The extension of the phone number.  The extension is the \"123\" section in this sample phone number: (514) 990-1516 x123.  It can also be used with international phone numbers
 	SPhoneExtension *string `json:"sPhoneExtension,omitempty"`
+	// Indicate the phone number is an international phone number.
+	BPhoneInternational *bool `json:"bPhoneInternational,omitempty"`
 }
+
+type _PhoneResponseCompound PhoneResponseCompound
 
 // NewPhoneResponseCompound instantiates a new PhoneResponseCompound object
 // This constructor will assign default values to properties that have it defined,
@@ -198,6 +204,38 @@ func (o *PhoneResponseCompound) SetSPhoneExtension(v string) {
 	o.SPhoneExtension = &v
 }
 
+// GetBPhoneInternational returns the BPhoneInternational field value if set, zero value otherwise.
+func (o *PhoneResponseCompound) GetBPhoneInternational() bool {
+	if o == nil || IsNil(o.BPhoneInternational) {
+		var ret bool
+		return ret
+	}
+	return *o.BPhoneInternational
+}
+
+// GetBPhoneInternationalOk returns a tuple with the BPhoneInternational field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PhoneResponseCompound) GetBPhoneInternationalOk() (*bool, bool) {
+	if o == nil || IsNil(o.BPhoneInternational) {
+		return nil, false
+	}
+	return o.BPhoneInternational, true
+}
+
+// HasBPhoneInternational returns a boolean if a field has been set.
+func (o *PhoneResponseCompound) HasBPhoneInternational() bool {
+	if o != nil && !IsNil(o.BPhoneInternational) {
+		return true
+	}
+
+	return false
+}
+
+// SetBPhoneInternational gets a reference to the given bool and assigns it to the BPhoneInternational field.
+func (o *PhoneResponseCompound) SetBPhoneInternational(v bool) {
+	o.BPhoneInternational = &v
+}
+
 func (o PhoneResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -219,7 +257,48 @@ func (o PhoneResponseCompound) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.SPhoneExtension) {
 		toSerialize["sPhoneExtension"] = o.SPhoneExtension
 	}
+	if !IsNil(o.BPhoneInternational) {
+		toSerialize["bPhoneInternational"] = o.BPhoneInternational
+	}
 	return toSerialize, nil
+}
+
+func (o *PhoneResponseCompound) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiPhoneID",
+		"fkiPhonetypeID",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varPhoneResponseCompound := _PhoneResponseCompound{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varPhoneResponseCompound)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PhoneResponseCompound(varPhoneResponseCompound)
+
+	return err
 }
 
 type NullablePhoneResponseCompound struct {

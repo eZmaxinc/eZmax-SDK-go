@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigntsarequirementGetAutocompleteV2ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -23,6 +25,8 @@ type EzsigntsarequirementGetAutocompleteV2ResponseMPayload struct {
 	// An array of Ezsigntsarequirement autocomplete element response.
 	AObjEzsigntsarequirement []EzsigntsarequirementAutocompleteElementResponse `json:"a_objEzsigntsarequirement"`
 }
+
+type _EzsigntsarequirementGetAutocompleteV2ResponseMPayload EzsigntsarequirementGetAutocompleteV2ResponseMPayload
 
 // NewEzsigntsarequirementGetAutocompleteV2ResponseMPayload instantiates a new EzsigntsarequirementGetAutocompleteV2ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -78,6 +82,43 @@ func (o EzsigntsarequirementGetAutocompleteV2ResponseMPayload) ToMap() (map[stri
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_objEzsigntsarequirement"] = o.AObjEzsigntsarequirement
 	return toSerialize, nil
+}
+
+func (o *EzsigntsarequirementGetAutocompleteV2ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"a_objEzsigntsarequirement",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigntsarequirementGetAutocompleteV2ResponseMPayload := _EzsigntsarequirementGetAutocompleteV2ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigntsarequirementGetAutocompleteV2ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigntsarequirementGetAutocompleteV2ResponseMPayload(varEzsigntsarequirementGetAutocompleteV2ResponseMPayload)
+
+	return err
 }
 
 type NullableEzsigntsarequirementGetAutocompleteV2ResponseMPayload struct {

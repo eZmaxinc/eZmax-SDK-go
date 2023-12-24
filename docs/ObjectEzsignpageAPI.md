@@ -20,25 +20,25 @@ Consult an Ezsignpage
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignpageID := int32(56) // int32 | 
-    body := map[string]interface{}{ ... } // map[string]interface{} | 
+	pkiEzsignpageID := int32(56) // int32 | 
+	body := map[string]interface{}{ ... } // map[string]interface{} | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignpageAPI.EzsignpageConsultV1(context.Background(), pkiEzsignpageID).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignpageAPI.EzsignpageConsultV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignpageConsultV1`: EzsignpageConsultV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignpageAPI.EzsignpageConsultV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignpageAPI.EzsignpageConsultV1(context.Background(), pkiEzsignpageID).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignpageAPI.EzsignpageConsultV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignpageConsultV1`: EzsignpageConsultV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignpageAPI.EzsignpageConsultV1`: %v\n", resp)
 }
 ```
 

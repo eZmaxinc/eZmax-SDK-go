@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignfoldertypeGetObjectV2ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &EzsignfoldertypeGetObjectV2ResponseMPayload{}
 type EzsignfoldertypeGetObjectV2ResponseMPayload struct {
 	ObjEzsignfoldertype EzsignfoldertypeResponseCompound `json:"objEzsignfoldertype"`
 }
+
+type _EzsignfoldertypeGetObjectV2ResponseMPayload EzsignfoldertypeGetObjectV2ResponseMPayload
 
 // NewEzsignfoldertypeGetObjectV2ResponseMPayload instantiates a new EzsignfoldertypeGetObjectV2ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o EzsignfoldertypeGetObjectV2ResponseMPayload) ToMap() (map[string]interfa
 	toSerialize := map[string]interface{}{}
 	toSerialize["objEzsignfoldertype"] = o.ObjEzsignfoldertype
 	return toSerialize, nil
+}
+
+func (o *EzsignfoldertypeGetObjectV2ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"objEzsignfoldertype",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignfoldertypeGetObjectV2ResponseMPayload := _EzsignfoldertypeGetObjectV2ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignfoldertypeGetObjectV2ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignfoldertypeGetObjectV2ResponseMPayload(varEzsignfoldertypeGetObjectV2ResponseMPayload)
+
+	return err
 }
 
 type NullableEzsignfoldertypeGetObjectV2ResponseMPayload struct {

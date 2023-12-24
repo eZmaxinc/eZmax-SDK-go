@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigntemplatepackagesignerEditObjectV1Request type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &EzsigntemplatepackagesignerEditObjectV1Request{}
 type EzsigntemplatepackagesignerEditObjectV1Request struct {
 	ObjEzsigntemplatepackagesigner EzsigntemplatepackagesignerRequestCompound `json:"objEzsigntemplatepackagesigner"`
 }
+
+type _EzsigntemplatepackagesignerEditObjectV1Request EzsigntemplatepackagesignerEditObjectV1Request
 
 // NewEzsigntemplatepackagesignerEditObjectV1Request instantiates a new EzsigntemplatepackagesignerEditObjectV1Request object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o EzsigntemplatepackagesignerEditObjectV1Request) ToMap() (map[string]inte
 	toSerialize := map[string]interface{}{}
 	toSerialize["objEzsigntemplatepackagesigner"] = o.ObjEzsigntemplatepackagesigner
 	return toSerialize, nil
+}
+
+func (o *EzsigntemplatepackagesignerEditObjectV1Request) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"objEzsigntemplatepackagesigner",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigntemplatepackagesignerEditObjectV1Request := _EzsigntemplatepackagesignerEditObjectV1Request{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigntemplatepackagesignerEditObjectV1Request)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigntemplatepackagesignerEditObjectV1Request(varEzsigntemplatepackagesignerEditObjectV1Request)
+
+	return err
 }
 
 type NullableEzsigntemplatepackagesignerEditObjectV1Request struct {

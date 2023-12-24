@@ -26,25 +26,25 @@ Create a User from a Userstaged and then map it
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiUserstagedID := int32(56) // int32 | 
-    body := map[string]interface{}{ ... } // map[string]interface{} | 
+	pkiUserstagedID := int32(56) // int32 | 
+	body := map[string]interface{}{ ... } // map[string]interface{} | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUserstagedAPI.UserstagedCreateUserV1(context.Background(), pkiUserstagedID).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserstagedAPI.UserstagedCreateUserV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UserstagedCreateUserV1`: UserstagedCreateUserV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUserstagedAPI.UserstagedCreateUserV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUserstagedAPI.UserstagedCreateUserV1(context.Background(), pkiUserstagedID).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserstagedAPI.UserstagedCreateUserV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UserstagedCreateUserV1`: UserstagedCreateUserV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUserstagedAPI.UserstagedCreateUserV1`: %v\n", resp)
 }
 ```
 
@@ -98,24 +98,24 @@ Delete an existing Userstaged
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiUserstagedID := int32(56) // int32 | 
+	pkiUserstagedID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUserstagedAPI.UserstagedDeleteObjectV1(context.Background(), pkiUserstagedID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserstagedAPI.UserstagedDeleteObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UserstagedDeleteObjectV1`: UserstagedDeleteObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUserstagedAPI.UserstagedDeleteObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUserstagedAPI.UserstagedDeleteObjectV1(context.Background(), pkiUserstagedID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserstagedAPI.UserstagedDeleteObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UserstagedDeleteObjectV1`: UserstagedDeleteObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUserstagedAPI.UserstagedDeleteObjectV1`: %v\n", resp)
 }
 ```
 
@@ -168,28 +168,28 @@ Retrieve Userstaged list
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
-    iRowMax := int32(56) // int32 |  (optional)
-    iRowOffset := int32(56) // int32 |  (optional) (default to 0)
-    acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
-    sFilter := "sFilter_example" // string |  (optional)
+	eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
+	iRowMax := int32(56) // int32 |  (optional)
+	iRowOffset := int32(56) // int32 |  (optional) (default to 0)
+	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
+	sFilter := "sFilter_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUserstagedAPI.UserstagedGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserstagedAPI.UserstagedGetListV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UserstagedGetListV1`: UserstagedGetListV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUserstagedAPI.UserstagedGetListV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUserstagedAPI.UserstagedGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserstagedAPI.UserstagedGetListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UserstagedGetListV1`: UserstagedGetListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUserstagedAPI.UserstagedGetListV1`: %v\n", resp)
 }
 ```
 
@@ -242,24 +242,24 @@ Retrieve an existing Userstaged
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiUserstagedID := int32(56) // int32 | 
+	pkiUserstagedID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUserstagedAPI.UserstagedGetObjectV2(context.Background(), pkiUserstagedID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserstagedAPI.UserstagedGetObjectV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UserstagedGetObjectV2`: UserstagedGetObjectV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUserstagedAPI.UserstagedGetObjectV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUserstagedAPI.UserstagedGetObjectV2(context.Background(), pkiUserstagedID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserstagedAPI.UserstagedGetObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UserstagedGetObjectV2`: UserstagedGetObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUserstagedAPI.UserstagedGetObjectV2`: %v\n", resp)
 }
 ```
 
@@ -312,25 +312,25 @@ Map the Userstaged to an existing user
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiUserstagedID := int32(56) // int32 | 
-    userstagedMapV1Request := *openapiclient.NewUserstagedMapV1Request(int32(70)) // UserstagedMapV1Request | 
+	pkiUserstagedID := int32(56) // int32 | 
+	userstagedMapV1Request := *openapiclient.NewUserstagedMapV1Request(int32(70)) // UserstagedMapV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUserstagedAPI.UserstagedMapV1(context.Background(), pkiUserstagedID).UserstagedMapV1Request(userstagedMapV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserstagedAPI.UserstagedMapV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UserstagedMapV1`: UserstagedMapV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUserstagedAPI.UserstagedMapV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUserstagedAPI.UserstagedMapV1(context.Background(), pkiUserstagedID).UserstagedMapV1Request(userstagedMapV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserstagedAPI.UserstagedMapV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UserstagedMapV1`: UserstagedMapV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUserstagedAPI.UserstagedMapV1`: %v\n", resp)
 }
 ```
 

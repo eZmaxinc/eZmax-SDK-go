@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzmaxinvoicingGetProvisionalV1ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -54,6 +56,8 @@ type EzmaxinvoicingGetProvisionalV1ResponseMPayload struct {
 	AObjEzmaxinvoicingezsignfolder []CustomEzmaxinvoicingEzsignfolderResponse `json:"a_objEzmaxinvoicingezsignfolder"`
 	AObjEzmaxinvoicingezsigndocument []CustomEzmaxinvoicingEzsigndocumentResponse `json:"a_objEzmaxinvoicingezsigndocument"`
 }
+
+type _EzmaxinvoicingGetProvisionalV1ResponseMPayload EzmaxinvoicingGetProvisionalV1ResponseMPayload
 
 // NewEzmaxinvoicingGetProvisionalV1ResponseMPayload instantiates a new EzmaxinvoicingGetProvisionalV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -673,6 +677,62 @@ func (o EzmaxinvoicingGetProvisionalV1ResponseMPayload) ToMap() (map[string]inte
 	toSerialize["a_objEzmaxinvoicingezsignfolder"] = o.AObjEzmaxinvoicingezsignfolder
 	toSerialize["a_objEzmaxinvoicingezsigndocument"] = o.AObjEzmaxinvoicingezsigndocument
 	return toSerialize, nil
+}
+
+func (o *EzmaxinvoicingGetProvisionalV1ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"fkiEzmaxinvoicingcontractID",
+		"fkiEzmaxpricingID",
+		"fkiSystemconfigurationtypeID",
+		"sSystemconfigurationtypeDescriptionX",
+		"yyyymmEzmaxinvoicing",
+		"iEzmaxinvoicingDays",
+		"eEzmaxinvoicingPaymenttype",
+		"dEzmaxinvoicingRebatepaymenttype",
+		"iEzmaxinvoicingContractlength",
+		"dEzmaxinvoicingRebatecontractlength",
+		"bEzmaxinvoicingRebateEzsignallagents",
+		"objEzmaxinvoicingcontract",
+		"objEzmaxpricing",
+		"a_objEzmaxinvoicingsummaryglobal",
+		"a_objEzmaxinvoicingsummaryexternal",
+		"a_objEzmaxinvoicingsummaryinternal",
+		"a_objEzmaxinvoicingagent",
+		"a_objEzmaxinvoicinguser",
+		"a_objEzmaxinvoicingezsignfolder",
+		"a_objEzmaxinvoicingezsigndocument",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzmaxinvoicingGetProvisionalV1ResponseMPayload := _EzmaxinvoicingGetProvisionalV1ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzmaxinvoicingGetProvisionalV1ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzmaxinvoicingGetProvisionalV1ResponseMPayload(varEzmaxinvoicingGetProvisionalV1ResponseMPayload)
+
+	return err
 }
 
 type NullableEzmaxinvoicingGetProvisionalV1ResponseMPayload struct {

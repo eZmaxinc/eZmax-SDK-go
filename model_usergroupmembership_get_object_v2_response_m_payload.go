@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the UsergroupmembershipGetObjectV2ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &UsergroupmembershipGetObjectV2ResponseMPayload{}
 type UsergroupmembershipGetObjectV2ResponseMPayload struct {
 	ObjUsergroupmembership UsergroupmembershipResponseCompound `json:"objUsergroupmembership"`
 }
+
+type _UsergroupmembershipGetObjectV2ResponseMPayload UsergroupmembershipGetObjectV2ResponseMPayload
 
 // NewUsergroupmembershipGetObjectV2ResponseMPayload instantiates a new UsergroupmembershipGetObjectV2ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o UsergroupmembershipGetObjectV2ResponseMPayload) ToMap() (map[string]inte
 	toSerialize := map[string]interface{}{}
 	toSerialize["objUsergroupmembership"] = o.ObjUsergroupmembership
 	return toSerialize, nil
+}
+
+func (o *UsergroupmembershipGetObjectV2ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"objUsergroupmembership",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varUsergroupmembershipGetObjectV2ResponseMPayload := _UsergroupmembershipGetObjectV2ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varUsergroupmembershipGetObjectV2ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UsergroupmembershipGetObjectV2ResponseMPayload(varUsergroupmembershipGetObjectV2ResponseMPayload)
+
+	return err
 }
 
 type NullableUsergroupmembershipGetObjectV2ResponseMPayload struct {

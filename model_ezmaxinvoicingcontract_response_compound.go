@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzmaxinvoicingcontractResponseCompound type satisfies the MappedNullable interface at compile time
@@ -37,6 +39,8 @@ type EzmaxinvoicingcontractResponseCompound struct {
 	BEzmaxinvoicingcontractEzsignallagents bool `json:"bEzmaxinvoicingcontractEzsignallagents"`
 	ObjAudit CommonAudit `json:"objAudit"`
 }
+
+type _EzmaxinvoicingcontractResponseCompound EzmaxinvoicingcontractResponseCompound
 
 // NewEzmaxinvoicingcontractResponseCompound instantiates a new EzmaxinvoicingcontractResponseCompound object
 // This constructor will assign default values to properties that have it defined,
@@ -300,6 +304,51 @@ func (o EzmaxinvoicingcontractResponseCompound) ToMap() (map[string]interface{},
 	toSerialize["bEzmaxinvoicingcontractEzsignallagents"] = o.BEzmaxinvoicingcontractEzsignallagents
 	toSerialize["objAudit"] = o.ObjAudit
 	return toSerialize, nil
+}
+
+func (o *EzmaxinvoicingcontractResponseCompound) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiEzmaxinvoicingcontractID",
+		"eEzmaxinvoicingcontractPaymenttype",
+		"iEzmaxinvoicingcontractLength",
+		"dtEzmaxinvoicingcontractStart",
+		"dtEzmaxinvoicingcontractEnd",
+		"dEzmaxinvoicingcontractLicense",
+		"dEzmaxinvoicingcontract121qa",
+		"bEzmaxinvoicingcontractEzsignallagents",
+		"objAudit",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzmaxinvoicingcontractResponseCompound := _EzmaxinvoicingcontractResponseCompound{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzmaxinvoicingcontractResponseCompound)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzmaxinvoicingcontractResponseCompound(varEzmaxinvoicingcontractResponseCompound)
+
+	return err
 }
 
 type NullableEzmaxinvoicingcontractResponseCompound struct {

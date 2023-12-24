@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the SecretquestionGetAutocompleteV2ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -23,6 +25,8 @@ type SecretquestionGetAutocompleteV2ResponseMPayload struct {
 	// An array of Secretquestion autocomplete element response.
 	AObjSecretquestion []SecretquestionAutocompleteElementResponse `json:"a_objSecretquestion"`
 }
+
+type _SecretquestionGetAutocompleteV2ResponseMPayload SecretquestionGetAutocompleteV2ResponseMPayload
 
 // NewSecretquestionGetAutocompleteV2ResponseMPayload instantiates a new SecretquestionGetAutocompleteV2ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -78,6 +82,43 @@ func (o SecretquestionGetAutocompleteV2ResponseMPayload) ToMap() (map[string]int
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_objSecretquestion"] = o.AObjSecretquestion
 	return toSerialize, nil
+}
+
+func (o *SecretquestionGetAutocompleteV2ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"a_objSecretquestion",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varSecretquestionGetAutocompleteV2ResponseMPayload := _SecretquestionGetAutocompleteV2ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varSecretquestionGetAutocompleteV2ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = SecretquestionGetAutocompleteV2ResponseMPayload(varSecretquestionGetAutocompleteV2ResponseMPayload)
+
+	return err
 }
 
 type NullableSecretquestionGetAutocompleteV2ResponseMPayload struct {

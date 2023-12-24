@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigndocumentGetEzsignpagesV1ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &EzsigndocumentGetEzsignpagesV1ResponseMPayload{}
 type EzsigndocumentGetEzsignpagesV1ResponseMPayload struct {
 	AObjEzsignpage []EzsignpageResponseCompound `json:"a_objEzsignpage"`
 }
+
+type _EzsigndocumentGetEzsignpagesV1ResponseMPayload EzsigndocumentGetEzsignpagesV1ResponseMPayload
 
 // NewEzsigndocumentGetEzsignpagesV1ResponseMPayload instantiates a new EzsigndocumentGetEzsignpagesV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o EzsigndocumentGetEzsignpagesV1ResponseMPayload) ToMap() (map[string]inte
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_objEzsignpage"] = o.AObjEzsignpage
 	return toSerialize, nil
+}
+
+func (o *EzsigndocumentGetEzsignpagesV1ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"a_objEzsignpage",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigndocumentGetEzsignpagesV1ResponseMPayload := _EzsigndocumentGetEzsignpagesV1ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigndocumentGetEzsignpagesV1ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigndocumentGetEzsignpagesV1ResponseMPayload(varEzsigndocumentGetEzsignpagesV1ResponseMPayload)
+
+	return err
 }
 
 type NullableEzsigndocumentGetEzsignpagesV1ResponseMPayload struct {

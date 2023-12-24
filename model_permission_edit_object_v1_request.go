@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the PermissionEditObjectV1Request type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &PermissionEditObjectV1Request{}
 type PermissionEditObjectV1Request struct {
 	ObjPermission PermissionRequestCompound `json:"objPermission"`
 }
+
+type _PermissionEditObjectV1Request PermissionEditObjectV1Request
 
 // NewPermissionEditObjectV1Request instantiates a new PermissionEditObjectV1Request object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o PermissionEditObjectV1Request) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["objPermission"] = o.ObjPermission
 	return toSerialize, nil
+}
+
+func (o *PermissionEditObjectV1Request) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"objPermission",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varPermissionEditObjectV1Request := _PermissionEditObjectV1Request{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varPermissionEditObjectV1Request)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PermissionEditObjectV1Request(varPermissionEditObjectV1Request)
+
+	return err
 }
 
 type NullablePermissionEditObjectV1Request struct {

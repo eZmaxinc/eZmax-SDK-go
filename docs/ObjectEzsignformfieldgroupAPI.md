@@ -25,24 +25,24 @@ Create a new Ezsignformfieldgroup
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    ezsignformfieldgroupCreateObjectV1Request := *openapiclient.NewEzsignformfieldgroupCreateObjectV1Request([]openapiclient.EzsignformfieldgroupRequestCompound{*openapiclient.NewEzsignformfieldgroupRequestCompound(int32(97), openapiclient.Field-eEzsignformfieldgroupType("Text"), openapiclient.Field-eEzsignformfieldgroupSignerrequirement("All"), "Allergies", int32(1), int32(1), int32(2), false, []openapiclient.EzsignformfieldgroupsignerRequestCompound{*openapiclient.NewEzsignformfieldgroupsignerRequestCompound(int32(20))}, []openapiclient.EzsignformfieldRequestCompound{*openapiclient.NewEzsignformfieldRequestCompound(int32(1), "Peanuts", int32(200), int32(300), int32(102), int32(22))})}) // EzsignformfieldgroupCreateObjectV1Request | 
+	ezsignformfieldgroupCreateObjectV1Request := *openapiclient.NewEzsignformfieldgroupCreateObjectV1Request([]openapiclient.EzsignformfieldgroupRequestCompound{*openapiclient.NewEzsignformfieldgroupRequestCompound(int32(97), openapiclient.Field-eEzsignformfieldgroupType("Text"), openapiclient.Field-eEzsignformfieldgroupSignerrequirement("All"), "Allergies", int32(1), int32(1), int32(2), false, []openapiclient.EzsignformfieldgroupsignerRequestCompound{*openapiclient.NewEzsignformfieldgroupsignerRequestCompound(int32(20))}, []openapiclient.EzsignformfieldRequestCompound{*openapiclient.NewEzsignformfieldRequestCompound(int32(1), "Peanuts", int32(200), int32(300), int32(102), int32(22))})}) // EzsignformfieldgroupCreateObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignformfieldgroupAPI.EzsignformfieldgroupCreateObjectV1(context.Background()).EzsignformfieldgroupCreateObjectV1Request(ezsignformfieldgroupCreateObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignformfieldgroupAPI.EzsignformfieldgroupCreateObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignformfieldgroupCreateObjectV1`: EzsignformfieldgroupCreateObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignformfieldgroupAPI.EzsignformfieldgroupCreateObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignformfieldgroupAPI.EzsignformfieldgroupCreateObjectV1(context.Background()).EzsignformfieldgroupCreateObjectV1Request(ezsignformfieldgroupCreateObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignformfieldgroupAPI.EzsignformfieldgroupCreateObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignformfieldgroupCreateObjectV1`: EzsignformfieldgroupCreateObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignformfieldgroupAPI.EzsignformfieldgroupCreateObjectV1`: %v\n", resp)
 }
 ```
 
@@ -91,24 +91,24 @@ Delete an existing Ezsignformfieldgroup
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignformfieldgroupID := int32(56) // int32 | 
+	pkiEzsignformfieldgroupID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignformfieldgroupAPI.EzsignformfieldgroupDeleteObjectV1(context.Background(), pkiEzsignformfieldgroupID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignformfieldgroupAPI.EzsignformfieldgroupDeleteObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignformfieldgroupDeleteObjectV1`: EzsignformfieldgroupDeleteObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignformfieldgroupAPI.EzsignformfieldgroupDeleteObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignformfieldgroupAPI.EzsignformfieldgroupDeleteObjectV1(context.Background(), pkiEzsignformfieldgroupID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignformfieldgroupAPI.EzsignformfieldgroupDeleteObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignformfieldgroupDeleteObjectV1`: EzsignformfieldgroupDeleteObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignformfieldgroupAPI.EzsignformfieldgroupDeleteObjectV1`: %v\n", resp)
 }
 ```
 
@@ -161,25 +161,25 @@ Edit an existing Ezsignformfieldgroup
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignformfieldgroupID := int32(56) // int32 | 
-    ezsignformfieldgroupEditObjectV1Request := *openapiclient.NewEzsignformfieldgroupEditObjectV1Request(*openapiclient.NewEzsignformfieldgroupRequestCompound(int32(97), openapiclient.Field-eEzsignformfieldgroupType("Text"), openapiclient.Field-eEzsignformfieldgroupSignerrequirement("All"), "Allergies", int32(1), int32(1), int32(2), false, []openapiclient.EzsignformfieldgroupsignerRequestCompound{*openapiclient.NewEzsignformfieldgroupsignerRequestCompound(int32(20))}, []openapiclient.EzsignformfieldRequestCompound{*openapiclient.NewEzsignformfieldRequestCompound(int32(1), "Peanuts", int32(200), int32(300), int32(102), int32(22))})) // EzsignformfieldgroupEditObjectV1Request | 
+	pkiEzsignformfieldgroupID := int32(56) // int32 | 
+	ezsignformfieldgroupEditObjectV1Request := *openapiclient.NewEzsignformfieldgroupEditObjectV1Request(*openapiclient.NewEzsignformfieldgroupRequestCompound(int32(97), openapiclient.Field-eEzsignformfieldgroupType("Text"), openapiclient.Field-eEzsignformfieldgroupSignerrequirement("All"), "Allergies", int32(1), int32(1), int32(2), false, []openapiclient.EzsignformfieldgroupsignerRequestCompound{*openapiclient.NewEzsignformfieldgroupsignerRequestCompound(int32(20))}, []openapiclient.EzsignformfieldRequestCompound{*openapiclient.NewEzsignformfieldRequestCompound(int32(1), "Peanuts", int32(200), int32(300), int32(102), int32(22))})) // EzsignformfieldgroupEditObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignformfieldgroupAPI.EzsignformfieldgroupEditObjectV1(context.Background(), pkiEzsignformfieldgroupID).EzsignformfieldgroupEditObjectV1Request(ezsignformfieldgroupEditObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignformfieldgroupAPI.EzsignformfieldgroupEditObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignformfieldgroupEditObjectV1`: EzsignformfieldgroupEditObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignformfieldgroupAPI.EzsignformfieldgroupEditObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignformfieldgroupAPI.EzsignformfieldgroupEditObjectV1(context.Background(), pkiEzsignformfieldgroupID).EzsignformfieldgroupEditObjectV1Request(ezsignformfieldgroupEditObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignformfieldgroupAPI.EzsignformfieldgroupEditObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignformfieldgroupEditObjectV1`: EzsignformfieldgroupEditObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignformfieldgroupAPI.EzsignformfieldgroupEditObjectV1`: %v\n", resp)
 }
 ```
 
@@ -233,24 +233,24 @@ Retrieve an existing Ezsignformfieldgroup
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignformfieldgroupID := int32(56) // int32 | 
+	pkiEzsignformfieldgroupID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignformfieldgroupAPI.EzsignformfieldgroupGetObjectV2(context.Background(), pkiEzsignformfieldgroupID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignformfieldgroupAPI.EzsignformfieldgroupGetObjectV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignformfieldgroupGetObjectV2`: EzsignformfieldgroupGetObjectV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignformfieldgroupAPI.EzsignformfieldgroupGetObjectV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignformfieldgroupAPI.EzsignformfieldgroupGetObjectV2(context.Background(), pkiEzsignformfieldgroupID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignformfieldgroupAPI.EzsignformfieldgroupGetObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignformfieldgroupGetObjectV2`: EzsignformfieldgroupGetObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignformfieldgroupAPI.EzsignformfieldgroupGetObjectV2`: %v\n", resp)
 }
 ```
 

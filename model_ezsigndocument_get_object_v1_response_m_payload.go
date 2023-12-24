@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigndocumentGetObjectV1ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -60,6 +62,8 @@ type EzsigndocumentGetObjectV1ResponseMPayload struct {
 	ObjAudit *CommonAudit `json:"objAudit,omitempty"`
 	// This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format. 
 	SEzsigndocumentExternalid *string `json:"sEzsigndocumentExternalid,omitempty"`
+	// The number of Ezsigndocumentattachment total
+	IEzsigndocumentEzsignsignatureattachmenttotal int32 `json:"iEzsigndocumentEzsignsignatureattachmenttotal"`
 	EEzsigndocumentSteptype ComputedEEzsigndocumentSteptype `json:"eEzsigndocumentSteptype"`
 	// The total number of steps in the form filling phase
 	IEzsigndocumentStepformtotal int32 `json:"iEzsigndocumentStepformtotal"`
@@ -72,11 +76,13 @@ type EzsigndocumentGetObjectV1ResponseMPayload struct {
 	AObjEzsignfoldersignerassociationstatus []CustomEzsignfoldersignerassociationstatusResponse `json:"a_objEzsignfoldersignerassociationstatus"`
 }
 
+type _EzsigndocumentGetObjectV1ResponseMPayload EzsigndocumentGetObjectV1ResponseMPayload
+
 // NewEzsigndocumentGetObjectV1ResponseMPayload instantiates a new EzsigndocumentGetObjectV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigndocumentGetObjectV1ResponseMPayload(pkiEzsigndocumentID int32, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, sEzsigndocumentName string, eEzsigndocumentStep FieldEEzsigndocumentStep, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, eEzsigndocumentSteptype ComputedEEzsigndocumentSteptype, iEzsigndocumentStepformtotal int32, iEzsigndocumentStepformcurrent int32, iEzsigndocumentStepsignaturetotal int32, iEzsigndocumentStepsignatureCurrent int32, aObjEzsignfoldersignerassociationstatus []CustomEzsignfoldersignerassociationstatusResponse) *EzsigndocumentGetObjectV1ResponseMPayload {
+func NewEzsigndocumentGetObjectV1ResponseMPayload(pkiEzsigndocumentID int32, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, sEzsigndocumentName string, eEzsigndocumentStep FieldEEzsigndocumentStep, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, iEzsigndocumentEzsignsignatureattachmenttotal int32, eEzsigndocumentSteptype ComputedEEzsigndocumentSteptype, iEzsigndocumentStepformtotal int32, iEzsigndocumentStepformcurrent int32, iEzsigndocumentStepsignaturetotal int32, iEzsigndocumentStepsignatureCurrent int32, aObjEzsignfoldersignerassociationstatus []CustomEzsignfoldersignerassociationstatusResponse) *EzsigndocumentGetObjectV1ResponseMPayload {
 	this := EzsigndocumentGetObjectV1ResponseMPayload{}
 	this.PkiEzsigndocumentID = pkiEzsigndocumentID
 	this.FkiEzsignfolderID = fkiEzsignfolderID
@@ -87,6 +93,7 @@ func NewEzsigndocumentGetObjectV1ResponseMPayload(pkiEzsigndocumentID int32, fki
 	this.IEzsigndocumentPagetotal = iEzsigndocumentPagetotal
 	this.IEzsigndocumentSignaturesigned = iEzsigndocumentSignaturesigned
 	this.IEzsigndocumentSignaturetotal = iEzsigndocumentSignaturetotal
+	this.IEzsigndocumentEzsignsignatureattachmenttotal = iEzsigndocumentEzsignsignatureattachmenttotal
 	this.EEzsigndocumentSteptype = eEzsigndocumentSteptype
 	this.IEzsigndocumentStepformtotal = iEzsigndocumentStepformtotal
 	this.IEzsigndocumentStepformcurrent = iEzsigndocumentStepformcurrent
@@ -704,6 +711,30 @@ func (o *EzsigndocumentGetObjectV1ResponseMPayload) SetSEzsigndocumentExternalid
 	o.SEzsigndocumentExternalid = &v
 }
 
+// GetIEzsigndocumentEzsignsignatureattachmenttotal returns the IEzsigndocumentEzsignsignatureattachmenttotal field value
+func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetIEzsigndocumentEzsignsignatureattachmenttotal() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IEzsigndocumentEzsignsignatureattachmenttotal
+}
+
+// GetIEzsigndocumentEzsignsignatureattachmenttotalOk returns a tuple with the IEzsigndocumentEzsignsignatureattachmenttotal field value
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetIEzsigndocumentEzsignsignatureattachmenttotalOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IEzsigndocumentEzsignsignatureattachmenttotal, true
+}
+
+// SetIEzsigndocumentEzsignsignatureattachmenttotal sets field value
+func (o *EzsigndocumentGetObjectV1ResponseMPayload) SetIEzsigndocumentEzsignsignatureattachmenttotal(v int32) {
+	o.IEzsigndocumentEzsignsignatureattachmenttotal = v
+}
+
 // GetEEzsigndocumentSteptype returns the EEzsigndocumentSteptype field value
 func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetEEzsigndocumentSteptype() ComputedEEzsigndocumentSteptype {
 	if o == nil {
@@ -903,6 +934,7 @@ func (o EzsigndocumentGetObjectV1ResponseMPayload) ToMap() (map[string]interface
 	if !IsNil(o.SEzsigndocumentExternalid) {
 		toSerialize["sEzsigndocumentExternalid"] = o.SEzsigndocumentExternalid
 	}
+	toSerialize["iEzsigndocumentEzsignsignatureattachmenttotal"] = o.IEzsigndocumentEzsignsignatureattachmenttotal
 	toSerialize["eEzsigndocumentSteptype"] = o.EEzsigndocumentSteptype
 	toSerialize["iEzsigndocumentStepformtotal"] = o.IEzsigndocumentStepformtotal
 	toSerialize["iEzsigndocumentStepformcurrent"] = o.IEzsigndocumentStepformcurrent
@@ -910,6 +942,58 @@ func (o EzsigndocumentGetObjectV1ResponseMPayload) ToMap() (map[string]interface
 	toSerialize["iEzsigndocumentStepsignatureCurrent"] = o.IEzsigndocumentStepsignatureCurrent
 	toSerialize["a_objEzsignfoldersignerassociationstatus"] = o.AObjEzsignfoldersignerassociationstatus
 	return toSerialize, nil
+}
+
+func (o *EzsigndocumentGetObjectV1ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiEzsigndocumentID",
+		"fkiEzsignfolderID",
+		"dtEzsigndocumentDuedate",
+		"sEzsigndocumentName",
+		"eEzsigndocumentStep",
+		"iEzsigndocumentOrder",
+		"iEzsigndocumentPagetotal",
+		"iEzsigndocumentSignaturesigned",
+		"iEzsigndocumentSignaturetotal",
+		"iEzsigndocumentEzsignsignatureattachmenttotal",
+		"eEzsigndocumentSteptype",
+		"iEzsigndocumentStepformtotal",
+		"iEzsigndocumentStepformcurrent",
+		"iEzsigndocumentStepsignaturetotal",
+		"iEzsigndocumentStepsignatureCurrent",
+		"a_objEzsignfoldersignerassociationstatus",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigndocumentGetObjectV1ResponseMPayload := _EzsigndocumentGetObjectV1ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigndocumentGetObjectV1ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigndocumentGetObjectV1ResponseMPayload(varEzsigndocumentGetObjectV1ResponseMPayload)
+
+	return err
 }
 
 type NullableEzsigndocumentGetObjectV1ResponseMPayload struct {

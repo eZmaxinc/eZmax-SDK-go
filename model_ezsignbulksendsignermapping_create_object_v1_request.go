@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignbulksendsignermappingCreateObjectV1Request type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &EzsignbulksendsignermappingCreateObjectV1Request{}
 type EzsignbulksendsignermappingCreateObjectV1Request struct {
 	AObjEzsignbulksendsignermapping []EzsignbulksendsignermappingRequestCompound `json:"a_objEzsignbulksendsignermapping"`
 }
+
+type _EzsignbulksendsignermappingCreateObjectV1Request EzsignbulksendsignermappingCreateObjectV1Request
 
 // NewEzsignbulksendsignermappingCreateObjectV1Request instantiates a new EzsignbulksendsignermappingCreateObjectV1Request object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o EzsignbulksendsignermappingCreateObjectV1Request) ToMap() (map[string]in
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_objEzsignbulksendsignermapping"] = o.AObjEzsignbulksendsignermapping
 	return toSerialize, nil
+}
+
+func (o *EzsignbulksendsignermappingCreateObjectV1Request) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"a_objEzsignbulksendsignermapping",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignbulksendsignermappingCreateObjectV1Request := _EzsignbulksendsignermappingCreateObjectV1Request{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignbulksendsignermappingCreateObjectV1Request)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignbulksendsignermappingCreateObjectV1Request(varEzsignbulksendsignermappingCreateObjectV1Request)
+
+	return err
 }
 
 type NullableEzsignbulksendsignermappingCreateObjectV1Request struct {

@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the VariableexpenseEditObjectV1Request type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &VariableexpenseEditObjectV1Request{}
 type VariableexpenseEditObjectV1Request struct {
 	ObjVariableexpense VariableexpenseRequestCompound `json:"objVariableexpense"`
 }
+
+type _VariableexpenseEditObjectV1Request VariableexpenseEditObjectV1Request
 
 // NewVariableexpenseEditObjectV1Request instantiates a new VariableexpenseEditObjectV1Request object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o VariableexpenseEditObjectV1Request) ToMap() (map[string]interface{}, err
 	toSerialize := map[string]interface{}{}
 	toSerialize["objVariableexpense"] = o.ObjVariableexpense
 	return toSerialize, nil
+}
+
+func (o *VariableexpenseEditObjectV1Request) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"objVariableexpense",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varVariableexpenseEditObjectV1Request := _VariableexpenseEditObjectV1Request{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varVariableexpenseEditObjectV1Request)
+
+	if err != nil {
+		return err
+	}
+
+	*o = VariableexpenseEditObjectV1Request(varVariableexpenseEditObjectV1Request)
+
+	return err
 }
 
 type NullableVariableexpenseEditObjectV1Request struct {

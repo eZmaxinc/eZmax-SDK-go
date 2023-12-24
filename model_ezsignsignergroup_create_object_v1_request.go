@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignsignergroupCreateObjectV1Request type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &EzsignsignergroupCreateObjectV1Request{}
 type EzsignsignergroupCreateObjectV1Request struct {
 	AObjEzsignsignergroup []EzsignsignergroupRequestCompound `json:"a_objEzsignsignergroup"`
 }
+
+type _EzsignsignergroupCreateObjectV1Request EzsignsignergroupCreateObjectV1Request
 
 // NewEzsignsignergroupCreateObjectV1Request instantiates a new EzsignsignergroupCreateObjectV1Request object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o EzsignsignergroupCreateObjectV1Request) ToMap() (map[string]interface{},
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_objEzsignsignergroup"] = o.AObjEzsignsignergroup
 	return toSerialize, nil
+}
+
+func (o *EzsignsignergroupCreateObjectV1Request) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"a_objEzsignsignergroup",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignsignergroupCreateObjectV1Request := _EzsignsignergroupCreateObjectV1Request{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignsignergroupCreateObjectV1Request)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignsignergroupCreateObjectV1Request(varEzsignsignergroupCreateObjectV1Request)
+
+	return err
 }
 
 type NullableEzsignsignergroupCreateObjectV1Request struct {

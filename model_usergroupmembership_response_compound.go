@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the UsergroupmembershipResponseCompound type satisfies the MappedNullable interface at compile time
@@ -37,6 +39,8 @@ type UsergroupmembershipResponseCompound struct {
 	// The Name of the Usergroup in the language of the requester
 	SUsergroupNameX string `json:"sUsergroupNameX"`
 }
+
+type _UsergroupmembershipResponseCompound UsergroupmembershipResponseCompound
 
 // NewUsergroupmembershipResponseCompound instantiates a new UsergroupmembershipResponseCompound object
 // This constructor will assign default values to properties that have it defined,
@@ -283,6 +287,49 @@ func (o UsergroupmembershipResponseCompound) ToMap() (map[string]interface{}, er
 	}
 	toSerialize["sUsergroupNameX"] = o.SUsergroupNameX
 	return toSerialize, nil
+}
+
+func (o *UsergroupmembershipResponseCompound) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiUsergroupmembershipID",
+		"fkiUsergroupID",
+		"fkiUserID",
+		"sUserFirstname",
+		"sUserLastname",
+		"sUserLoginname",
+		"sUsergroupNameX",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varUsergroupmembershipResponseCompound := _UsergroupmembershipResponseCompound{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varUsergroupmembershipResponseCompound)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UsergroupmembershipResponseCompound(varUsergroupmembershipResponseCompound)
+
+	return err
 }
 
 type NullableUsergroupmembershipResponseCompound struct {

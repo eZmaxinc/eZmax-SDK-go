@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignfolderResponse type satisfies the MappedNullable interface at compile time
@@ -61,6 +63,8 @@ type EzsignfolderResponse struct {
 	// This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format. 
 	SEzsignfolderExternalid *string `json:"sEzsignfolderExternalid,omitempty"`
 }
+
+type _EzsignfolderResponse EzsignfolderResponse
 
 // NewEzsignfolderResponse instantiates a new EzsignfolderResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -845,6 +849,44 @@ func (o EzsignfolderResponse) ToMap() (map[string]interface{}, error) {
 		toSerialize["sEzsignfolderExternalid"] = o.SEzsignfolderExternalid
 	}
 	return toSerialize, nil
+}
+
+func (o *EzsignfolderResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiEzsignfolderID",
+		"sEzsignfolderDescription",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignfolderResponse := _EzsignfolderResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignfolderResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignfolderResponse(varEzsignfolderResponse)
+
+	return err
 }
 
 type NullableEzsignfolderResponse struct {

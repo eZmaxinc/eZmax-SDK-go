@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the VariableexpenseGetListV1ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -26,6 +28,8 @@ type VariableexpenseGetListV1ResponseMPayload struct {
 	IRowFiltered int32 `json:"iRowFiltered"`
 	AObjVariableexpense []VariableexpenseListElement `json:"a_objVariableexpense"`
 }
+
+type _VariableexpenseGetListV1ResponseMPayload VariableexpenseGetListV1ResponseMPayload
 
 // NewVariableexpenseGetListV1ResponseMPayload instantiates a new VariableexpenseGetListV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -133,6 +137,45 @@ func (o VariableexpenseGetListV1ResponseMPayload) ToMap() (map[string]interface{
 	toSerialize["iRowFiltered"] = o.IRowFiltered
 	toSerialize["a_objVariableexpense"] = o.AObjVariableexpense
 	return toSerialize, nil
+}
+
+func (o *VariableexpenseGetListV1ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"iRowReturned",
+		"iRowFiltered",
+		"a_objVariableexpense",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varVariableexpenseGetListV1ResponseMPayload := _VariableexpenseGetListV1ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varVariableexpenseGetListV1ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = VariableexpenseGetListV1ResponseMPayload(varVariableexpenseGetListV1ResponseMPayload)
+
+	return err
 }
 
 type NullableVariableexpenseGetListV1ResponseMPayload struct {

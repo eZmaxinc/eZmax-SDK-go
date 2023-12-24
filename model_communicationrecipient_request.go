@@ -24,10 +24,10 @@ type CommunicationrecipientRequest struct {
 	PkiCommunicationrecipientID *int32 `json:"pkiCommunicationrecipientID,omitempty"`
 	// The unique ID of the Agent.
 	FkiAgentID *int32 `json:"fkiAgentID,omitempty"`
-	// The unique ID of the Agentincorporation.
-	FkiAgentincorporationID *int32 `json:"fkiAgentincorporationID,omitempty"`
 	// The unique ID of the Broker.
 	FkiBrokerID *int32 `json:"fkiBrokerID,omitempty"`
+	// The unique ID of the Contact
+	FkiContactID *int32 `json:"fkiContactID,omitempty"`
 	// The unique ID of the Customer.
 	FkiCustomerID *int32 `json:"fkiCustomerID,omitempty"`
 	// The unique ID of the Employee.
@@ -44,6 +44,10 @@ type CommunicationrecipientRequest struct {
 	FkiSupplierID *int32 `json:"fkiSupplierID,omitempty"`
 	// The unique ID of the User
 	FkiUserID *int32 `json:"fkiUserID,omitempty"`
+	// The unique ID of the Mailboxshared
+	FkiMailboxsharedID *int32 `json:"fkiMailboxsharedID,omitempty"`
+	// The unique ID of the Phonelineshared
+	FkiPhonelinesharedID *int32 `json:"fkiPhonelinesharedID,omitempty"`
 	ECommunicationrecipientType *FieldECommunicationrecipientType `json:"eCommunicationrecipientType,omitempty"`
 }
 
@@ -128,38 +132,6 @@ func (o *CommunicationrecipientRequest) SetFkiAgentID(v int32) {
 	o.FkiAgentID = &v
 }
 
-// GetFkiAgentincorporationID returns the FkiAgentincorporationID field value if set, zero value otherwise.
-func (o *CommunicationrecipientRequest) GetFkiAgentincorporationID() int32 {
-	if o == nil || IsNil(o.FkiAgentincorporationID) {
-		var ret int32
-		return ret
-	}
-	return *o.FkiAgentincorporationID
-}
-
-// GetFkiAgentincorporationIDOk returns a tuple with the FkiAgentincorporationID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CommunicationrecipientRequest) GetFkiAgentincorporationIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.FkiAgentincorporationID) {
-		return nil, false
-	}
-	return o.FkiAgentincorporationID, true
-}
-
-// HasFkiAgentincorporationID returns a boolean if a field has been set.
-func (o *CommunicationrecipientRequest) HasFkiAgentincorporationID() bool {
-	if o != nil && !IsNil(o.FkiAgentincorporationID) {
-		return true
-	}
-
-	return false
-}
-
-// SetFkiAgentincorporationID gets a reference to the given int32 and assigns it to the FkiAgentincorporationID field.
-func (o *CommunicationrecipientRequest) SetFkiAgentincorporationID(v int32) {
-	o.FkiAgentincorporationID = &v
-}
-
 // GetFkiBrokerID returns the FkiBrokerID field value if set, zero value otherwise.
 func (o *CommunicationrecipientRequest) GetFkiBrokerID() int32 {
 	if o == nil || IsNil(o.FkiBrokerID) {
@@ -190,6 +162,38 @@ func (o *CommunicationrecipientRequest) HasFkiBrokerID() bool {
 // SetFkiBrokerID gets a reference to the given int32 and assigns it to the FkiBrokerID field.
 func (o *CommunicationrecipientRequest) SetFkiBrokerID(v int32) {
 	o.FkiBrokerID = &v
+}
+
+// GetFkiContactID returns the FkiContactID field value if set, zero value otherwise.
+func (o *CommunicationrecipientRequest) GetFkiContactID() int32 {
+	if o == nil || IsNil(o.FkiContactID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiContactID
+}
+
+// GetFkiContactIDOk returns a tuple with the FkiContactID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CommunicationrecipientRequest) GetFkiContactIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiContactID) {
+		return nil, false
+	}
+	return o.FkiContactID, true
+}
+
+// HasFkiContactID returns a boolean if a field has been set.
+func (o *CommunicationrecipientRequest) HasFkiContactID() bool {
+	if o != nil && !IsNil(o.FkiContactID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiContactID gets a reference to the given int32 and assigns it to the FkiContactID field.
+func (o *CommunicationrecipientRequest) SetFkiContactID(v int32) {
+	o.FkiContactID = &v
 }
 
 // GetFkiCustomerID returns the FkiCustomerID field value if set, zero value otherwise.
@@ -448,6 +452,70 @@ func (o *CommunicationrecipientRequest) SetFkiUserID(v int32) {
 	o.FkiUserID = &v
 }
 
+// GetFkiMailboxsharedID returns the FkiMailboxsharedID field value if set, zero value otherwise.
+func (o *CommunicationrecipientRequest) GetFkiMailboxsharedID() int32 {
+	if o == nil || IsNil(o.FkiMailboxsharedID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiMailboxsharedID
+}
+
+// GetFkiMailboxsharedIDOk returns a tuple with the FkiMailboxsharedID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CommunicationrecipientRequest) GetFkiMailboxsharedIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiMailboxsharedID) {
+		return nil, false
+	}
+	return o.FkiMailboxsharedID, true
+}
+
+// HasFkiMailboxsharedID returns a boolean if a field has been set.
+func (o *CommunicationrecipientRequest) HasFkiMailboxsharedID() bool {
+	if o != nil && !IsNil(o.FkiMailboxsharedID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiMailboxsharedID gets a reference to the given int32 and assigns it to the FkiMailboxsharedID field.
+func (o *CommunicationrecipientRequest) SetFkiMailboxsharedID(v int32) {
+	o.FkiMailboxsharedID = &v
+}
+
+// GetFkiPhonelinesharedID returns the FkiPhonelinesharedID field value if set, zero value otherwise.
+func (o *CommunicationrecipientRequest) GetFkiPhonelinesharedID() int32 {
+	if o == nil || IsNil(o.FkiPhonelinesharedID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiPhonelinesharedID
+}
+
+// GetFkiPhonelinesharedIDOk returns a tuple with the FkiPhonelinesharedID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CommunicationrecipientRequest) GetFkiPhonelinesharedIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiPhonelinesharedID) {
+		return nil, false
+	}
+	return o.FkiPhonelinesharedID, true
+}
+
+// HasFkiPhonelinesharedID returns a boolean if a field has been set.
+func (o *CommunicationrecipientRequest) HasFkiPhonelinesharedID() bool {
+	if o != nil && !IsNil(o.FkiPhonelinesharedID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiPhonelinesharedID gets a reference to the given int32 and assigns it to the FkiPhonelinesharedID field.
+func (o *CommunicationrecipientRequest) SetFkiPhonelinesharedID(v int32) {
+	o.FkiPhonelinesharedID = &v
+}
+
 // GetECommunicationrecipientType returns the ECommunicationrecipientType field value if set, zero value otherwise.
 func (o *CommunicationrecipientRequest) GetECommunicationrecipientType() FieldECommunicationrecipientType {
 	if o == nil || IsNil(o.ECommunicationrecipientType) {
@@ -496,11 +564,11 @@ func (o CommunicationrecipientRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.FkiAgentID) {
 		toSerialize["fkiAgentID"] = o.FkiAgentID
 	}
-	if !IsNil(o.FkiAgentincorporationID) {
-		toSerialize["fkiAgentincorporationID"] = o.FkiAgentincorporationID
-	}
 	if !IsNil(o.FkiBrokerID) {
 		toSerialize["fkiBrokerID"] = o.FkiBrokerID
+	}
+	if !IsNil(o.FkiContactID) {
+		toSerialize["fkiContactID"] = o.FkiContactID
 	}
 	if !IsNil(o.FkiCustomerID) {
 		toSerialize["fkiCustomerID"] = o.FkiCustomerID
@@ -525,6 +593,12 @@ func (o CommunicationrecipientRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.FkiUserID) {
 		toSerialize["fkiUserID"] = o.FkiUserID
+	}
+	if !IsNil(o.FkiMailboxsharedID) {
+		toSerialize["fkiMailboxsharedID"] = o.FkiMailboxsharedID
+	}
+	if !IsNil(o.FkiPhonelinesharedID) {
+		toSerialize["fkiPhonelinesharedID"] = o.FkiPhonelinesharedID
 	}
 	if !IsNil(o.ECommunicationrecipientType) {
 		toSerialize["eCommunicationrecipientType"] = o.ECommunicationrecipientType

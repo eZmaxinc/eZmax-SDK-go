@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the CustomCommunicationsenderResponse type satisfies the MappedNullable interface at compile time
@@ -28,13 +30,16 @@ type CustomCommunicationsenderResponse struct {
 	FkiUserID *int32 `json:"fkiUserID,omitempty"`
 	// The unique ID of the Mailboxshared
 	FkiMailboxsharedID *int32 `json:"fkiMailboxsharedID,omitempty"`
+	// The unique ID of the Phonelineshared
+	FkiPhonelinesharedID *int32 `json:"fkiPhonelinesharedID,omitempty"`
 	ECommunicationsenderObjecttype string `json:"eCommunicationsenderObjecttype"`
 	ObjContactName CustomContactNameResponse `json:"objContactName"`
-	// The email address.
-	SEmailAddress *string `json:"sEmailAddress,omitempty"`
-	// A phone number in E.164 Format
-	SPhoneE164 *string `json:"sPhoneE164,omitempty"`
+	ObjEmail *EmailResponseCompound `json:"objEmail,omitempty"`
+	ObjPhoneFax *PhoneResponseCompound `json:"objPhoneFax,omitempty"`
+	ObjPhoneSMS *PhoneResponseCompound `json:"objPhoneSMS,omitempty"`
 }
+
+type _CustomCommunicationsenderResponse CustomCommunicationsenderResponse
 
 // NewCustomCommunicationsenderResponse instantiates a new CustomCommunicationsenderResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -183,6 +188,38 @@ func (o *CustomCommunicationsenderResponse) SetFkiMailboxsharedID(v int32) {
 	o.FkiMailboxsharedID = &v
 }
 
+// GetFkiPhonelinesharedID returns the FkiPhonelinesharedID field value if set, zero value otherwise.
+func (o *CustomCommunicationsenderResponse) GetFkiPhonelinesharedID() int32 {
+	if o == nil || IsNil(o.FkiPhonelinesharedID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiPhonelinesharedID
+}
+
+// GetFkiPhonelinesharedIDOk returns a tuple with the FkiPhonelinesharedID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomCommunicationsenderResponse) GetFkiPhonelinesharedIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiPhonelinesharedID) {
+		return nil, false
+	}
+	return o.FkiPhonelinesharedID, true
+}
+
+// HasFkiPhonelinesharedID returns a boolean if a field has been set.
+func (o *CustomCommunicationsenderResponse) HasFkiPhonelinesharedID() bool {
+	if o != nil && !IsNil(o.FkiPhonelinesharedID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiPhonelinesharedID gets a reference to the given int32 and assigns it to the FkiPhonelinesharedID field.
+func (o *CustomCommunicationsenderResponse) SetFkiPhonelinesharedID(v int32) {
+	o.FkiPhonelinesharedID = &v
+}
+
 // GetECommunicationsenderObjecttype returns the ECommunicationsenderObjecttype field value
 func (o *CustomCommunicationsenderResponse) GetECommunicationsenderObjecttype() string {
 	if o == nil {
@@ -231,68 +268,100 @@ func (o *CustomCommunicationsenderResponse) SetObjContactName(v CustomContactNam
 	o.ObjContactName = v
 }
 
-// GetSEmailAddress returns the SEmailAddress field value if set, zero value otherwise.
-func (o *CustomCommunicationsenderResponse) GetSEmailAddress() string {
-	if o == nil || IsNil(o.SEmailAddress) {
-		var ret string
+// GetObjEmail returns the ObjEmail field value if set, zero value otherwise.
+func (o *CustomCommunicationsenderResponse) GetObjEmail() EmailResponseCompound {
+	if o == nil || IsNil(o.ObjEmail) {
+		var ret EmailResponseCompound
 		return ret
 	}
-	return *o.SEmailAddress
+	return *o.ObjEmail
 }
 
-// GetSEmailAddressOk returns a tuple with the SEmailAddress field value if set, nil otherwise
+// GetObjEmailOk returns a tuple with the ObjEmail field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CustomCommunicationsenderResponse) GetSEmailAddressOk() (*string, bool) {
-	if o == nil || IsNil(o.SEmailAddress) {
+func (o *CustomCommunicationsenderResponse) GetObjEmailOk() (*EmailResponseCompound, bool) {
+	if o == nil || IsNil(o.ObjEmail) {
 		return nil, false
 	}
-	return o.SEmailAddress, true
+	return o.ObjEmail, true
 }
 
-// HasSEmailAddress returns a boolean if a field has been set.
-func (o *CustomCommunicationsenderResponse) HasSEmailAddress() bool {
-	if o != nil && !IsNil(o.SEmailAddress) {
+// HasObjEmail returns a boolean if a field has been set.
+func (o *CustomCommunicationsenderResponse) HasObjEmail() bool {
+	if o != nil && !IsNil(o.ObjEmail) {
 		return true
 	}
 
 	return false
 }
 
-// SetSEmailAddress gets a reference to the given string and assigns it to the SEmailAddress field.
-func (o *CustomCommunicationsenderResponse) SetSEmailAddress(v string) {
-	o.SEmailAddress = &v
+// SetObjEmail gets a reference to the given EmailResponseCompound and assigns it to the ObjEmail field.
+func (o *CustomCommunicationsenderResponse) SetObjEmail(v EmailResponseCompound) {
+	o.ObjEmail = &v
 }
 
-// GetSPhoneE164 returns the SPhoneE164 field value if set, zero value otherwise.
-func (o *CustomCommunicationsenderResponse) GetSPhoneE164() string {
-	if o == nil || IsNil(o.SPhoneE164) {
-		var ret string
+// GetObjPhoneFax returns the ObjPhoneFax field value if set, zero value otherwise.
+func (o *CustomCommunicationsenderResponse) GetObjPhoneFax() PhoneResponseCompound {
+	if o == nil || IsNil(o.ObjPhoneFax) {
+		var ret PhoneResponseCompound
 		return ret
 	}
-	return *o.SPhoneE164
+	return *o.ObjPhoneFax
 }
 
-// GetSPhoneE164Ok returns a tuple with the SPhoneE164 field value if set, nil otherwise
+// GetObjPhoneFaxOk returns a tuple with the ObjPhoneFax field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CustomCommunicationsenderResponse) GetSPhoneE164Ok() (*string, bool) {
-	if o == nil || IsNil(o.SPhoneE164) {
+func (o *CustomCommunicationsenderResponse) GetObjPhoneFaxOk() (*PhoneResponseCompound, bool) {
+	if o == nil || IsNil(o.ObjPhoneFax) {
 		return nil, false
 	}
-	return o.SPhoneE164, true
+	return o.ObjPhoneFax, true
 }
 
-// HasSPhoneE164 returns a boolean if a field has been set.
-func (o *CustomCommunicationsenderResponse) HasSPhoneE164() bool {
-	if o != nil && !IsNil(o.SPhoneE164) {
+// HasObjPhoneFax returns a boolean if a field has been set.
+func (o *CustomCommunicationsenderResponse) HasObjPhoneFax() bool {
+	if o != nil && !IsNil(o.ObjPhoneFax) {
 		return true
 	}
 
 	return false
 }
 
-// SetSPhoneE164 gets a reference to the given string and assigns it to the SPhoneE164 field.
-func (o *CustomCommunicationsenderResponse) SetSPhoneE164(v string) {
-	o.SPhoneE164 = &v
+// SetObjPhoneFax gets a reference to the given PhoneResponseCompound and assigns it to the ObjPhoneFax field.
+func (o *CustomCommunicationsenderResponse) SetObjPhoneFax(v PhoneResponseCompound) {
+	o.ObjPhoneFax = &v
+}
+
+// GetObjPhoneSMS returns the ObjPhoneSMS field value if set, zero value otherwise.
+func (o *CustomCommunicationsenderResponse) GetObjPhoneSMS() PhoneResponseCompound {
+	if o == nil || IsNil(o.ObjPhoneSMS) {
+		var ret PhoneResponseCompound
+		return ret
+	}
+	return *o.ObjPhoneSMS
+}
+
+// GetObjPhoneSMSOk returns a tuple with the ObjPhoneSMS field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomCommunicationsenderResponse) GetObjPhoneSMSOk() (*PhoneResponseCompound, bool) {
+	if o == nil || IsNil(o.ObjPhoneSMS) {
+		return nil, false
+	}
+	return o.ObjPhoneSMS, true
+}
+
+// HasObjPhoneSMS returns a boolean if a field has been set.
+func (o *CustomCommunicationsenderResponse) HasObjPhoneSMS() bool {
+	if o != nil && !IsNil(o.ObjPhoneSMS) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjPhoneSMS gets a reference to the given PhoneResponseCompound and assigns it to the ObjPhoneSMS field.
+func (o *CustomCommunicationsenderResponse) SetObjPhoneSMS(v PhoneResponseCompound) {
+	o.ObjPhoneSMS = &v
 }
 
 func (o CustomCommunicationsenderResponse) MarshalJSON() ([]byte, error) {
@@ -317,15 +386,59 @@ func (o CustomCommunicationsenderResponse) ToMap() (map[string]interface{}, erro
 	if !IsNil(o.FkiMailboxsharedID) {
 		toSerialize["fkiMailboxsharedID"] = o.FkiMailboxsharedID
 	}
+	if !IsNil(o.FkiPhonelinesharedID) {
+		toSerialize["fkiPhonelinesharedID"] = o.FkiPhonelinesharedID
+	}
 	toSerialize["eCommunicationsenderObjecttype"] = o.ECommunicationsenderObjecttype
 	toSerialize["objContactName"] = o.ObjContactName
-	if !IsNil(o.SEmailAddress) {
-		toSerialize["sEmailAddress"] = o.SEmailAddress
+	if !IsNil(o.ObjEmail) {
+		toSerialize["objEmail"] = o.ObjEmail
 	}
-	if !IsNil(o.SPhoneE164) {
-		toSerialize["sPhoneE164"] = o.SPhoneE164
+	if !IsNil(o.ObjPhoneFax) {
+		toSerialize["objPhoneFax"] = o.ObjPhoneFax
+	}
+	if !IsNil(o.ObjPhoneSMS) {
+		toSerialize["objPhoneSMS"] = o.ObjPhoneSMS
 	}
 	return toSerialize, nil
+}
+
+func (o *CustomCommunicationsenderResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"eCommunicationsenderObjecttype",
+		"objContactName",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varCustomCommunicationsenderResponse := _CustomCommunicationsenderResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varCustomCommunicationsenderResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = CustomCommunicationsenderResponse(varCustomCommunicationsenderResponse)
+
+	return err
 }
 
 type NullableCustomCommunicationsenderResponse struct {

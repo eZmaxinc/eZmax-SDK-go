@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the WebhookGetObjectV2ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &WebhookGetObjectV2ResponseMPayload{}
 type WebhookGetObjectV2ResponseMPayload struct {
 	ObjWebhook WebhookResponseCompound `json:"objWebhook"`
 }
+
+type _WebhookGetObjectV2ResponseMPayload WebhookGetObjectV2ResponseMPayload
 
 // NewWebhookGetObjectV2ResponseMPayload instantiates a new WebhookGetObjectV2ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o WebhookGetObjectV2ResponseMPayload) ToMap() (map[string]interface{}, err
 	toSerialize := map[string]interface{}{}
 	toSerialize["objWebhook"] = o.ObjWebhook
 	return toSerialize, nil
+}
+
+func (o *WebhookGetObjectV2ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"objWebhook",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varWebhookGetObjectV2ResponseMPayload := _WebhookGetObjectV2ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varWebhookGetObjectV2ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = WebhookGetObjectV2ResponseMPayload(varWebhookGetObjectV2ResponseMPayload)
+
+	return err
 }
 
 type NullableWebhookGetObjectV2ResponseMPayload struct {

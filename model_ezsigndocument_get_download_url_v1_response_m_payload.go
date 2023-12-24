@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigndocumentGetDownloadUrlV1ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -23,6 +25,8 @@ type EzsigndocumentGetDownloadUrlV1ResponseMPayload struct {
 	// The Url to the requested document.  Url will expire after 5 minutes.
 	SDownloadUrl string `json:"sDownloadUrl"`
 }
+
+type _EzsigndocumentGetDownloadUrlV1ResponseMPayload EzsigndocumentGetDownloadUrlV1ResponseMPayload
 
 // NewEzsigndocumentGetDownloadUrlV1ResponseMPayload instantiates a new EzsigndocumentGetDownloadUrlV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -78,6 +82,43 @@ func (o EzsigndocumentGetDownloadUrlV1ResponseMPayload) ToMap() (map[string]inte
 	toSerialize := map[string]interface{}{}
 	toSerialize["sDownloadUrl"] = o.SDownloadUrl
 	return toSerialize, nil
+}
+
+func (o *EzsigndocumentGetDownloadUrlV1ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"sDownloadUrl",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigndocumentGetDownloadUrlV1ResponseMPayload := _EzsigndocumentGetDownloadUrlV1ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigndocumentGetDownloadUrlV1ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigndocumentGetDownloadUrlV1ResponseMPayload(varEzsigndocumentGetDownloadUrlV1ResponseMPayload)
+
+	return err
 }
 
 type NullableEzsigndocumentGetDownloadUrlV1ResponseMPayload struct {

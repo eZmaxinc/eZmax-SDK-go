@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignbulksendtransmissionGetFormsDataV1ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &EzsignbulksendtransmissionGetFormsDataV1ResponseMPayload
 type EzsignbulksendtransmissionGetFormsDataV1ResponseMPayload struct {
 	AObjFormsDataFolder []CustomFormsDataFolderResponse `json:"a_objFormsDataFolder"`
 }
+
+type _EzsignbulksendtransmissionGetFormsDataV1ResponseMPayload EzsignbulksendtransmissionGetFormsDataV1ResponseMPayload
 
 // NewEzsignbulksendtransmissionGetFormsDataV1ResponseMPayload instantiates a new EzsignbulksendtransmissionGetFormsDataV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o EzsignbulksendtransmissionGetFormsDataV1ResponseMPayload) ToMap() (map[s
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_objFormsDataFolder"] = o.AObjFormsDataFolder
 	return toSerialize, nil
+}
+
+func (o *EzsignbulksendtransmissionGetFormsDataV1ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"a_objFormsDataFolder",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignbulksendtransmissionGetFormsDataV1ResponseMPayload := _EzsignbulksendtransmissionGetFormsDataV1ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignbulksendtransmissionGetFormsDataV1ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignbulksendtransmissionGetFormsDataV1ResponseMPayload(varEzsignbulksendtransmissionGetFormsDataV1ResponseMPayload)
+
+	return err
 }
 
 type NullableEzsignbulksendtransmissionGetFormsDataV1ResponseMPayload struct {

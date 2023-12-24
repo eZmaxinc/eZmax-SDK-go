@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the UserGetListV1ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -26,6 +28,8 @@ type UserGetListV1ResponseMPayload struct {
 	IRowFiltered int32 `json:"iRowFiltered"`
 	AObjUser []UserListElement `json:"a_objUser"`
 }
+
+type _UserGetListV1ResponseMPayload UserGetListV1ResponseMPayload
 
 // NewUserGetListV1ResponseMPayload instantiates a new UserGetListV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -133,6 +137,45 @@ func (o UserGetListV1ResponseMPayload) ToMap() (map[string]interface{}, error) {
 	toSerialize["iRowFiltered"] = o.IRowFiltered
 	toSerialize["a_objUser"] = o.AObjUser
 	return toSerialize, nil
+}
+
+func (o *UserGetListV1ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"iRowReturned",
+		"iRowFiltered",
+		"a_objUser",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varUserGetListV1ResponseMPayload := _UserGetListV1ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varUserGetListV1ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UserGetListV1ResponseMPayload(varUserGetListV1ResponseMPayload)
+
+	return err
 }
 
 type NullableUserGetListV1ResponseMPayload struct {

@@ -28,16 +28,15 @@ type CommunicationexternalrecipientRequest struct {
 	SPhoneE164 *string `json:"sPhoneE164,omitempty"`
 	ECommunicationexternalrecipientType *FieldECommunicationexternalrecipientType `json:"eCommunicationexternalrecipientType,omitempty"`
 	// The name of the Communicationexternalrecipient
-	SCommunicationexternalrecipientName string `json:"sCommunicationexternalrecipientName"`
+	SCommunicationexternalrecipientName *string `json:"sCommunicationexternalrecipientName,omitempty"`
 }
 
 // NewCommunicationexternalrecipientRequest instantiates a new CommunicationexternalrecipientRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommunicationexternalrecipientRequest(sCommunicationexternalrecipientName string) *CommunicationexternalrecipientRequest {
+func NewCommunicationexternalrecipientRequest() *CommunicationexternalrecipientRequest {
 	this := CommunicationexternalrecipientRequest{}
-	this.SCommunicationexternalrecipientName = sCommunicationexternalrecipientName
 	return &this
 }
 
@@ -177,28 +176,36 @@ func (o *CommunicationexternalrecipientRequest) SetECommunicationexternalrecipie
 	o.ECommunicationexternalrecipientType = &v
 }
 
-// GetSCommunicationexternalrecipientName returns the SCommunicationexternalrecipientName field value
+// GetSCommunicationexternalrecipientName returns the SCommunicationexternalrecipientName field value if set, zero value otherwise.
 func (o *CommunicationexternalrecipientRequest) GetSCommunicationexternalrecipientName() string {
-	if o == nil {
+	if o == nil || IsNil(o.SCommunicationexternalrecipientName) {
 		var ret string
 		return ret
 	}
-
-	return o.SCommunicationexternalrecipientName
+	return *o.SCommunicationexternalrecipientName
 }
 
-// GetSCommunicationexternalrecipientNameOk returns a tuple with the SCommunicationexternalrecipientName field value
+// GetSCommunicationexternalrecipientNameOk returns a tuple with the SCommunicationexternalrecipientName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CommunicationexternalrecipientRequest) GetSCommunicationexternalrecipientNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SCommunicationexternalrecipientName) {
 		return nil, false
 	}
-	return &o.SCommunicationexternalrecipientName, true
+	return o.SCommunicationexternalrecipientName, true
 }
 
-// SetSCommunicationexternalrecipientName sets field value
+// HasSCommunicationexternalrecipientName returns a boolean if a field has been set.
+func (o *CommunicationexternalrecipientRequest) HasSCommunicationexternalrecipientName() bool {
+	if o != nil && !IsNil(o.SCommunicationexternalrecipientName) {
+		return true
+	}
+
+	return false
+}
+
+// SetSCommunicationexternalrecipientName gets a reference to the given string and assigns it to the SCommunicationexternalrecipientName field.
 func (o *CommunicationexternalrecipientRequest) SetSCommunicationexternalrecipientName(v string) {
-	o.SCommunicationexternalrecipientName = v
+	o.SCommunicationexternalrecipientName = &v
 }
 
 func (o CommunicationexternalrecipientRequest) MarshalJSON() ([]byte, error) {
@@ -223,7 +230,9 @@ func (o CommunicationexternalrecipientRequest) ToMap() (map[string]interface{}, 
 	if !IsNil(o.ECommunicationexternalrecipientType) {
 		toSerialize["eCommunicationexternalrecipientType"] = o.ECommunicationexternalrecipientType
 	}
-	toSerialize["sCommunicationexternalrecipientName"] = o.SCommunicationexternalrecipientName
+	if !IsNil(o.SCommunicationexternalrecipientName) {
+		toSerialize["sCommunicationexternalrecipientName"] = o.SCommunicationexternalrecipientName
+	}
 	return toSerialize, nil
 }
 

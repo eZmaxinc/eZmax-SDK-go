@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigntemplatepackagesignerDeleteObjectV1ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -25,6 +27,8 @@ type EzsigntemplatepackagesignerDeleteObjectV1ResponseMPayload struct {
 	// Whether the Ezsigntemplatepackage was automatically modified and needs a manual validation
 	BEzsignbulksendNeedvalidation bool `json:"bEzsignbulksendNeedvalidation"`
 }
+
+type _EzsigntemplatepackagesignerDeleteObjectV1ResponseMPayload EzsigntemplatepackagesignerDeleteObjectV1ResponseMPayload
 
 // NewEzsigntemplatepackagesignerDeleteObjectV1ResponseMPayload instantiates a new EzsigntemplatepackagesignerDeleteObjectV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -106,6 +110,44 @@ func (o EzsigntemplatepackagesignerDeleteObjectV1ResponseMPayload) ToMap() (map[
 	toSerialize["bEzsigntemplatepackageNeedvalidation"] = o.BEzsigntemplatepackageNeedvalidation
 	toSerialize["bEzsignbulksendNeedvalidation"] = o.BEzsignbulksendNeedvalidation
 	return toSerialize, nil
+}
+
+func (o *EzsigntemplatepackagesignerDeleteObjectV1ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"bEzsigntemplatepackageNeedvalidation",
+		"bEzsignbulksendNeedvalidation",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigntemplatepackagesignerDeleteObjectV1ResponseMPayload := _EzsigntemplatepackagesignerDeleteObjectV1ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigntemplatepackagesignerDeleteObjectV1ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigntemplatepackagesignerDeleteObjectV1ResponseMPayload(varEzsigntemplatepackagesignerDeleteObjectV1ResponseMPayload)
+
+	return err
 }
 
 type NullableEzsigntemplatepackagesignerDeleteObjectV1ResponseMPayload struct {

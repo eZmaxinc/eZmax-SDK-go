@@ -8,13 +8,13 @@ Name | Type | Description | Notes
 **SEmailAddress** | Pointer to **string** | The email address. | [optional] 
 **SPhoneE164** | Pointer to **string** | A phone number in E.164 Format | [optional] 
 **ECommunicationexternalrecipientType** | Pointer to [**FieldECommunicationexternalrecipientType**](FieldECommunicationexternalrecipientType.md) |  | [optional] 
-**SCommunicationexternalrecipientName** | **string** | The name of the Communicationexternalrecipient | 
+**SCommunicationexternalrecipientName** | Pointer to **string** | The name of the Communicationexternalrecipient | [optional] 
 
 ## Methods
 
 ### NewCommunicationexternalrecipientRequest
 
-`func NewCommunicationexternalrecipientRequest(sCommunicationexternalrecipientName string, ) *CommunicationexternalrecipientRequest`
+`func NewCommunicationexternalrecipientRequest() *CommunicationexternalrecipientRequest`
 
 NewCommunicationexternalrecipientRequest instantiates a new CommunicationexternalrecipientRequest object
 This constructor will assign default values to properties that have it defined,
@@ -148,6 +148,11 @@ and a boolean to check if the value has been set.
 
 SetSCommunicationexternalrecipientName sets SCommunicationexternalrecipientName field to given value.
 
+### HasSCommunicationexternalrecipientName
+
+`func (o *CommunicationexternalrecipientRequest) HasSCommunicationexternalrecipientName() bool`
+
+HasSCommunicationexternalrecipientName returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

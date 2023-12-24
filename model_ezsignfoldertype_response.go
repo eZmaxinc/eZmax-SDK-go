@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignfoldertypeResponse type satisfies the MappedNullable interface at compile time
@@ -60,15 +62,35 @@ type EzsignfoldertypeResponse struct {
 	BEzsignfoldertypeDelegate *bool `json:"bEzsignfoldertypeDelegate,omitempty"`
 	// Wheter if Reassignment of signature is allowed to another signatory or not
 	BEzsignfoldertypeReassign *bool `json:"bEzsignfoldertypeReassign,omitempty"`
-	// Whether we send the Ezsigndocument and the proof as attachment in the email
-	BEzsignfoldertypeSendattatchmentsigner bool `json:"bEzsignfoldertypeSendattatchmentsigner"`
+	// THIS FIELD WILL BE DELETED. Whether we send the Ezsigndocument and the proof as attachment in the email
+	BEzsignfoldertypeSendattatchmentsigner *bool `json:"bEzsignfoldertypeSendattatchmentsigner,omitempty"`
+	// Whether we send an email to Ezsignsigner  when document is completed
+	BEzsignfoldertypeSendsignedtoezsignsigner *bool `json:"bEzsignfoldertypeSendsignedtoezsignsigner,omitempty"`
+	// Whether we send an email to User who signed when document is completed
+	BEzsignfoldertypeSendsignedtouser *bool `json:"bEzsignfoldertypeSendsignedtouser,omitempty"`
+	// Whether we send the Ezsigndocument in the email to Ezsignsigner
+	BEzsignfoldertypeSendattachmentezsignsigner *bool `json:"bEzsignfoldertypeSendattachmentezsignsigner,omitempty"`
+	// Whether we send the proof in the email to Ezsignsigner
+	BEzsignfoldertypeSendproofezsignsigner *bool `json:"bEzsignfoldertypeSendproofezsignsigner,omitempty"`
+	// Whether we send the Ezsigndocument in the email to User
+	BEzsignfoldertypeSendattachmentuser *bool `json:"bEzsignfoldertypeSendattachmentuser,omitempty"`
+	// Whether we send the proof in the email to User
+	BEzsignfoldertypeSendproofuser *bool `json:"bEzsignfoldertypeSendproofuser,omitempty"`
+	// Whether we send the proof in the email to external recipient
+	BEzsignfoldertypeSendproofemail *bool `json:"bEzsignfoldertypeSendproofemail,omitempty"`
+	// Whether we allow the Ezsigndocument to be downloaded by an Ezsignsigner
+	BEzsignfoldertypeAllowdownloadattachmentezsignsigner *bool `json:"bEzsignfoldertypeAllowdownloadattachmentezsignsigner,omitempty"`
+	// Whether we allow the proof to be downloaded by an Ezsignsigner
+	BEzsignfoldertypeAllowdownloadproofezsignsigner *bool `json:"bEzsignfoldertypeAllowdownloadproofezsignsigner,omitempty"`
+	// Whether we send the proof to user and Ezsignsigner who receive all documents.
+	BEzsignfoldertypeSendproofreceivealldocument *bool `json:"bEzsignfoldertypeSendproofreceivealldocument,omitempty"`
 	// Whether we send the signed Ezsigndocument to the Ezsigndocument's owner
 	BEzsignfoldertypeSendsignedtodocumentowner bool `json:"bEzsignfoldertypeSendsignedtodocumentowner"`
 	// Whether we send the signed Ezsigndocument to the Ezsignfolder's owner
 	BEzsignfoldertypeSendsignedtofolderowner bool `json:"bEzsignfoldertypeSendsignedtofolderowner"`
 	// Whether we send the signed Ezsigndocument to the Usergroup that has acces to all Ezsignfolders
 	BEzsignfoldertypeSendsignedtofullgroup *bool `json:"bEzsignfoldertypeSendsignedtofullgroup,omitempty"`
-	// Whether we send the signed Ezsigndocument to the Usergroup that has acces to only their own Ezsignfolders
+	// THIS FIELD WILL BE DELETED. Whether we send the signed Ezsigndocument to the Usergroup that has acces to only their own Ezsignfolders
 	BEzsignfoldertypeSendsignedtolimitedgroup *bool `json:"bEzsignfoldertypeSendsignedtolimitedgroup,omitempty"`
 	// Whether we send the signed Ezsigndocument to the colleagues
 	BEzsignfoldertypeSendsignedtocolleague bool `json:"bEzsignfoldertypeSendsignedtocolleague"`
@@ -82,19 +104,21 @@ type EzsignfoldertypeResponse struct {
 	BEzsignfoldertypeSendsummarytolimitedgroup *bool `json:"bEzsignfoldertypeSendsummarytolimitedgroup,omitempty"`
 	// Whether we send the summary to the colleagues
 	BEzsignfoldertypeSendsummarytocolleague bool `json:"bEzsignfoldertypeSendsummarytocolleague"`
-	// Whether we include the proof with the signed Ezsigndocument for Ezsignsigners
-	BEzsignfoldertypeIncludeproofsigner bool `json:"bEzsignfoldertypeIncludeproofsigner"`
+	// THIS FIELD WILL BE DELETED. Whether we include the proof with the signed Ezsigndocument for Ezsignsigners
+	BEzsignfoldertypeIncludeproofsigner *bool `json:"bEzsignfoldertypeIncludeproofsigner,omitempty"`
 	// Whether we include the proof with the signed Ezsigndocument for users
 	BEzsignfoldertypeIncludeproofuser bool `json:"bEzsignfoldertypeIncludeproofuser"`
 	// Whether the Ezsignfoldertype is active or not
 	BEzsignfoldertypeIsactive bool `json:"bEzsignfoldertypeIsactive"`
 }
 
+type _EzsignfoldertypeResponse EzsignfoldertypeResponse
+
 // NewEzsignfoldertypeResponse instantiates a new EzsignfoldertypeResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfoldertypeResponse(pkiEzsignfoldertypeID int32, objEzsignfoldertypeName MultilingualEzsignfoldertypeName, fkiBrandingID int32, sBrandingDescriptionX string, eEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel, iEzsignfoldertypeArchivaldays int32, eEzsignfoldertypeDisposal FieldEEzsignfoldertypeDisposal, iEzsignfoldertypeDeadlinedays int32, bEzsignfoldertypeSendattatchmentsigner bool, bEzsignfoldertypeSendsignedtodocumentowner bool, bEzsignfoldertypeSendsignedtofolderowner bool, bEzsignfoldertypeSendsignedtocolleague bool, bEzsignfoldertypeSendsummarytodocumentowner bool, bEzsignfoldertypeSendsummarytofolderowner bool, bEzsignfoldertypeSendsummarytocolleague bool, bEzsignfoldertypeIncludeproofsigner bool, bEzsignfoldertypeIncludeproofuser bool, bEzsignfoldertypeIsactive bool) *EzsignfoldertypeResponse {
+func NewEzsignfoldertypeResponse(pkiEzsignfoldertypeID int32, objEzsignfoldertypeName MultilingualEzsignfoldertypeName, fkiBrandingID int32, sBrandingDescriptionX string, eEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel, iEzsignfoldertypeArchivaldays int32, eEzsignfoldertypeDisposal FieldEEzsignfoldertypeDisposal, iEzsignfoldertypeDeadlinedays int32, bEzsignfoldertypeSendsignedtodocumentowner bool, bEzsignfoldertypeSendsignedtofolderowner bool, bEzsignfoldertypeSendsignedtocolleague bool, bEzsignfoldertypeSendsummarytodocumentowner bool, bEzsignfoldertypeSendsummarytofolderowner bool, bEzsignfoldertypeSendsummarytocolleague bool, bEzsignfoldertypeIncludeproofuser bool, bEzsignfoldertypeIsactive bool) *EzsignfoldertypeResponse {
 	this := EzsignfoldertypeResponse{}
 	this.PkiEzsignfoldertypeID = pkiEzsignfoldertypeID
 	this.ObjEzsignfoldertypeName = objEzsignfoldertypeName
@@ -104,14 +128,12 @@ func NewEzsignfoldertypeResponse(pkiEzsignfoldertypeID int32, objEzsignfoldertyp
 	this.IEzsignfoldertypeArchivaldays = iEzsignfoldertypeArchivaldays
 	this.EEzsignfoldertypeDisposal = eEzsignfoldertypeDisposal
 	this.IEzsignfoldertypeDeadlinedays = iEzsignfoldertypeDeadlinedays
-	this.BEzsignfoldertypeSendattatchmentsigner = bEzsignfoldertypeSendattatchmentsigner
 	this.BEzsignfoldertypeSendsignedtodocumentowner = bEzsignfoldertypeSendsignedtodocumentowner
 	this.BEzsignfoldertypeSendsignedtofolderowner = bEzsignfoldertypeSendsignedtofolderowner
 	this.BEzsignfoldertypeSendsignedtocolleague = bEzsignfoldertypeSendsignedtocolleague
 	this.BEzsignfoldertypeSendsummarytodocumentowner = bEzsignfoldertypeSendsummarytodocumentowner
 	this.BEzsignfoldertypeSendsummarytofolderowner = bEzsignfoldertypeSendsummarytofolderowner
 	this.BEzsignfoldertypeSendsummarytocolleague = bEzsignfoldertypeSendsummarytocolleague
-	this.BEzsignfoldertypeIncludeproofsigner = bEzsignfoldertypeIncludeproofsigner
 	this.BEzsignfoldertypeIncludeproofuser = bEzsignfoldertypeIncludeproofuser
 	this.BEzsignfoldertypeIsactive = bEzsignfoldertypeIsactive
 	return &this
@@ -765,28 +787,356 @@ func (o *EzsignfoldertypeResponse) SetBEzsignfoldertypeReassign(v bool) {
 	o.BEzsignfoldertypeReassign = &v
 }
 
-// GetBEzsignfoldertypeSendattatchmentsigner returns the BEzsignfoldertypeSendattatchmentsigner field value
+// GetBEzsignfoldertypeSendattatchmentsigner returns the BEzsignfoldertypeSendattatchmentsigner field value if set, zero value otherwise.
 func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeSendattatchmentsigner() bool {
-	if o == nil {
+	if o == nil || IsNil(o.BEzsignfoldertypeSendattatchmentsigner) {
 		var ret bool
 		return ret
 	}
-
-	return o.BEzsignfoldertypeSendattatchmentsigner
+	return *o.BEzsignfoldertypeSendattatchmentsigner
 }
 
-// GetBEzsignfoldertypeSendattatchmentsignerOk returns a tuple with the BEzsignfoldertypeSendattatchmentsigner field value
+// GetBEzsignfoldertypeSendattatchmentsignerOk returns a tuple with the BEzsignfoldertypeSendattatchmentsigner field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeSendattatchmentsignerOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BEzsignfoldertypeSendattatchmentsigner) {
 		return nil, false
 	}
-	return &o.BEzsignfoldertypeSendattatchmentsigner, true
+	return o.BEzsignfoldertypeSendattatchmentsigner, true
 }
 
-// SetBEzsignfoldertypeSendattatchmentsigner sets field value
+// HasBEzsignfoldertypeSendattatchmentsigner returns a boolean if a field has been set.
+func (o *EzsignfoldertypeResponse) HasBEzsignfoldertypeSendattatchmentsigner() bool {
+	if o != nil && !IsNil(o.BEzsignfoldertypeSendattatchmentsigner) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignfoldertypeSendattatchmentsigner gets a reference to the given bool and assigns it to the BEzsignfoldertypeSendattatchmentsigner field.
 func (o *EzsignfoldertypeResponse) SetBEzsignfoldertypeSendattatchmentsigner(v bool) {
-	o.BEzsignfoldertypeSendattatchmentsigner = v
+	o.BEzsignfoldertypeSendattatchmentsigner = &v
+}
+
+// GetBEzsignfoldertypeSendsignedtoezsignsigner returns the BEzsignfoldertypeSendsignedtoezsignsigner field value if set, zero value otherwise.
+func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeSendsignedtoezsignsigner() bool {
+	if o == nil || IsNil(o.BEzsignfoldertypeSendsignedtoezsignsigner) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignfoldertypeSendsignedtoezsignsigner
+}
+
+// GetBEzsignfoldertypeSendsignedtoezsignsignerOk returns a tuple with the BEzsignfoldertypeSendsignedtoezsignsigner field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeSendsignedtoezsignsignerOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignfoldertypeSendsignedtoezsignsigner) {
+		return nil, false
+	}
+	return o.BEzsignfoldertypeSendsignedtoezsignsigner, true
+}
+
+// HasBEzsignfoldertypeSendsignedtoezsignsigner returns a boolean if a field has been set.
+func (o *EzsignfoldertypeResponse) HasBEzsignfoldertypeSendsignedtoezsignsigner() bool {
+	if o != nil && !IsNil(o.BEzsignfoldertypeSendsignedtoezsignsigner) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignfoldertypeSendsignedtoezsignsigner gets a reference to the given bool and assigns it to the BEzsignfoldertypeSendsignedtoezsignsigner field.
+func (o *EzsignfoldertypeResponse) SetBEzsignfoldertypeSendsignedtoezsignsigner(v bool) {
+	o.BEzsignfoldertypeSendsignedtoezsignsigner = &v
+}
+
+// GetBEzsignfoldertypeSendsignedtouser returns the BEzsignfoldertypeSendsignedtouser field value if set, zero value otherwise.
+func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeSendsignedtouser() bool {
+	if o == nil || IsNil(o.BEzsignfoldertypeSendsignedtouser) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignfoldertypeSendsignedtouser
+}
+
+// GetBEzsignfoldertypeSendsignedtouserOk returns a tuple with the BEzsignfoldertypeSendsignedtouser field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeSendsignedtouserOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignfoldertypeSendsignedtouser) {
+		return nil, false
+	}
+	return o.BEzsignfoldertypeSendsignedtouser, true
+}
+
+// HasBEzsignfoldertypeSendsignedtouser returns a boolean if a field has been set.
+func (o *EzsignfoldertypeResponse) HasBEzsignfoldertypeSendsignedtouser() bool {
+	if o != nil && !IsNil(o.BEzsignfoldertypeSendsignedtouser) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignfoldertypeSendsignedtouser gets a reference to the given bool and assigns it to the BEzsignfoldertypeSendsignedtouser field.
+func (o *EzsignfoldertypeResponse) SetBEzsignfoldertypeSendsignedtouser(v bool) {
+	o.BEzsignfoldertypeSendsignedtouser = &v
+}
+
+// GetBEzsignfoldertypeSendattachmentezsignsigner returns the BEzsignfoldertypeSendattachmentezsignsigner field value if set, zero value otherwise.
+func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeSendattachmentezsignsigner() bool {
+	if o == nil || IsNil(o.BEzsignfoldertypeSendattachmentezsignsigner) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignfoldertypeSendattachmentezsignsigner
+}
+
+// GetBEzsignfoldertypeSendattachmentezsignsignerOk returns a tuple with the BEzsignfoldertypeSendattachmentezsignsigner field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeSendattachmentezsignsignerOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignfoldertypeSendattachmentezsignsigner) {
+		return nil, false
+	}
+	return o.BEzsignfoldertypeSendattachmentezsignsigner, true
+}
+
+// HasBEzsignfoldertypeSendattachmentezsignsigner returns a boolean if a field has been set.
+func (o *EzsignfoldertypeResponse) HasBEzsignfoldertypeSendattachmentezsignsigner() bool {
+	if o != nil && !IsNil(o.BEzsignfoldertypeSendattachmentezsignsigner) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignfoldertypeSendattachmentezsignsigner gets a reference to the given bool and assigns it to the BEzsignfoldertypeSendattachmentezsignsigner field.
+func (o *EzsignfoldertypeResponse) SetBEzsignfoldertypeSendattachmentezsignsigner(v bool) {
+	o.BEzsignfoldertypeSendattachmentezsignsigner = &v
+}
+
+// GetBEzsignfoldertypeSendproofezsignsigner returns the BEzsignfoldertypeSendproofezsignsigner field value if set, zero value otherwise.
+func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeSendproofezsignsigner() bool {
+	if o == nil || IsNil(o.BEzsignfoldertypeSendproofezsignsigner) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignfoldertypeSendproofezsignsigner
+}
+
+// GetBEzsignfoldertypeSendproofezsignsignerOk returns a tuple with the BEzsignfoldertypeSendproofezsignsigner field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeSendproofezsignsignerOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignfoldertypeSendproofezsignsigner) {
+		return nil, false
+	}
+	return o.BEzsignfoldertypeSendproofezsignsigner, true
+}
+
+// HasBEzsignfoldertypeSendproofezsignsigner returns a boolean if a field has been set.
+func (o *EzsignfoldertypeResponse) HasBEzsignfoldertypeSendproofezsignsigner() bool {
+	if o != nil && !IsNil(o.BEzsignfoldertypeSendproofezsignsigner) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignfoldertypeSendproofezsignsigner gets a reference to the given bool and assigns it to the BEzsignfoldertypeSendproofezsignsigner field.
+func (o *EzsignfoldertypeResponse) SetBEzsignfoldertypeSendproofezsignsigner(v bool) {
+	o.BEzsignfoldertypeSendproofezsignsigner = &v
+}
+
+// GetBEzsignfoldertypeSendattachmentuser returns the BEzsignfoldertypeSendattachmentuser field value if set, zero value otherwise.
+func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeSendattachmentuser() bool {
+	if o == nil || IsNil(o.BEzsignfoldertypeSendattachmentuser) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignfoldertypeSendattachmentuser
+}
+
+// GetBEzsignfoldertypeSendattachmentuserOk returns a tuple with the BEzsignfoldertypeSendattachmentuser field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeSendattachmentuserOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignfoldertypeSendattachmentuser) {
+		return nil, false
+	}
+	return o.BEzsignfoldertypeSendattachmentuser, true
+}
+
+// HasBEzsignfoldertypeSendattachmentuser returns a boolean if a field has been set.
+func (o *EzsignfoldertypeResponse) HasBEzsignfoldertypeSendattachmentuser() bool {
+	if o != nil && !IsNil(o.BEzsignfoldertypeSendattachmentuser) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignfoldertypeSendattachmentuser gets a reference to the given bool and assigns it to the BEzsignfoldertypeSendattachmentuser field.
+func (o *EzsignfoldertypeResponse) SetBEzsignfoldertypeSendattachmentuser(v bool) {
+	o.BEzsignfoldertypeSendattachmentuser = &v
+}
+
+// GetBEzsignfoldertypeSendproofuser returns the BEzsignfoldertypeSendproofuser field value if set, zero value otherwise.
+func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeSendproofuser() bool {
+	if o == nil || IsNil(o.BEzsignfoldertypeSendproofuser) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignfoldertypeSendproofuser
+}
+
+// GetBEzsignfoldertypeSendproofuserOk returns a tuple with the BEzsignfoldertypeSendproofuser field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeSendproofuserOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignfoldertypeSendproofuser) {
+		return nil, false
+	}
+	return o.BEzsignfoldertypeSendproofuser, true
+}
+
+// HasBEzsignfoldertypeSendproofuser returns a boolean if a field has been set.
+func (o *EzsignfoldertypeResponse) HasBEzsignfoldertypeSendproofuser() bool {
+	if o != nil && !IsNil(o.BEzsignfoldertypeSendproofuser) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignfoldertypeSendproofuser gets a reference to the given bool and assigns it to the BEzsignfoldertypeSendproofuser field.
+func (o *EzsignfoldertypeResponse) SetBEzsignfoldertypeSendproofuser(v bool) {
+	o.BEzsignfoldertypeSendproofuser = &v
+}
+
+// GetBEzsignfoldertypeSendproofemail returns the BEzsignfoldertypeSendproofemail field value if set, zero value otherwise.
+func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeSendproofemail() bool {
+	if o == nil || IsNil(o.BEzsignfoldertypeSendproofemail) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignfoldertypeSendproofemail
+}
+
+// GetBEzsignfoldertypeSendproofemailOk returns a tuple with the BEzsignfoldertypeSendproofemail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeSendproofemailOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignfoldertypeSendproofemail) {
+		return nil, false
+	}
+	return o.BEzsignfoldertypeSendproofemail, true
+}
+
+// HasBEzsignfoldertypeSendproofemail returns a boolean if a field has been set.
+func (o *EzsignfoldertypeResponse) HasBEzsignfoldertypeSendproofemail() bool {
+	if o != nil && !IsNil(o.BEzsignfoldertypeSendproofemail) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignfoldertypeSendproofemail gets a reference to the given bool and assigns it to the BEzsignfoldertypeSendproofemail field.
+func (o *EzsignfoldertypeResponse) SetBEzsignfoldertypeSendproofemail(v bool) {
+	o.BEzsignfoldertypeSendproofemail = &v
+}
+
+// GetBEzsignfoldertypeAllowdownloadattachmentezsignsigner returns the BEzsignfoldertypeAllowdownloadattachmentezsignsigner field value if set, zero value otherwise.
+func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeAllowdownloadattachmentezsignsigner() bool {
+	if o == nil || IsNil(o.BEzsignfoldertypeAllowdownloadattachmentezsignsigner) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignfoldertypeAllowdownloadattachmentezsignsigner
+}
+
+// GetBEzsignfoldertypeAllowdownloadattachmentezsignsignerOk returns a tuple with the BEzsignfoldertypeAllowdownloadattachmentezsignsigner field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeAllowdownloadattachmentezsignsignerOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignfoldertypeAllowdownloadattachmentezsignsigner) {
+		return nil, false
+	}
+	return o.BEzsignfoldertypeAllowdownloadattachmentezsignsigner, true
+}
+
+// HasBEzsignfoldertypeAllowdownloadattachmentezsignsigner returns a boolean if a field has been set.
+func (o *EzsignfoldertypeResponse) HasBEzsignfoldertypeAllowdownloadattachmentezsignsigner() bool {
+	if o != nil && !IsNil(o.BEzsignfoldertypeAllowdownloadattachmentezsignsigner) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignfoldertypeAllowdownloadattachmentezsignsigner gets a reference to the given bool and assigns it to the BEzsignfoldertypeAllowdownloadattachmentezsignsigner field.
+func (o *EzsignfoldertypeResponse) SetBEzsignfoldertypeAllowdownloadattachmentezsignsigner(v bool) {
+	o.BEzsignfoldertypeAllowdownloadattachmentezsignsigner = &v
+}
+
+// GetBEzsignfoldertypeAllowdownloadproofezsignsigner returns the BEzsignfoldertypeAllowdownloadproofezsignsigner field value if set, zero value otherwise.
+func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeAllowdownloadproofezsignsigner() bool {
+	if o == nil || IsNil(o.BEzsignfoldertypeAllowdownloadproofezsignsigner) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignfoldertypeAllowdownloadproofezsignsigner
+}
+
+// GetBEzsignfoldertypeAllowdownloadproofezsignsignerOk returns a tuple with the BEzsignfoldertypeAllowdownloadproofezsignsigner field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeAllowdownloadproofezsignsignerOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignfoldertypeAllowdownloadproofezsignsigner) {
+		return nil, false
+	}
+	return o.BEzsignfoldertypeAllowdownloadproofezsignsigner, true
+}
+
+// HasBEzsignfoldertypeAllowdownloadproofezsignsigner returns a boolean if a field has been set.
+func (o *EzsignfoldertypeResponse) HasBEzsignfoldertypeAllowdownloadproofezsignsigner() bool {
+	if o != nil && !IsNil(o.BEzsignfoldertypeAllowdownloadproofezsignsigner) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignfoldertypeAllowdownloadproofezsignsigner gets a reference to the given bool and assigns it to the BEzsignfoldertypeAllowdownloadproofezsignsigner field.
+func (o *EzsignfoldertypeResponse) SetBEzsignfoldertypeAllowdownloadproofezsignsigner(v bool) {
+	o.BEzsignfoldertypeAllowdownloadproofezsignsigner = &v
+}
+
+// GetBEzsignfoldertypeSendproofreceivealldocument returns the BEzsignfoldertypeSendproofreceivealldocument field value if set, zero value otherwise.
+func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeSendproofreceivealldocument() bool {
+	if o == nil || IsNil(o.BEzsignfoldertypeSendproofreceivealldocument) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignfoldertypeSendproofreceivealldocument
+}
+
+// GetBEzsignfoldertypeSendproofreceivealldocumentOk returns a tuple with the BEzsignfoldertypeSendproofreceivealldocument field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeSendproofreceivealldocumentOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignfoldertypeSendproofreceivealldocument) {
+		return nil, false
+	}
+	return o.BEzsignfoldertypeSendproofreceivealldocument, true
+}
+
+// HasBEzsignfoldertypeSendproofreceivealldocument returns a boolean if a field has been set.
+func (o *EzsignfoldertypeResponse) HasBEzsignfoldertypeSendproofreceivealldocument() bool {
+	if o != nil && !IsNil(o.BEzsignfoldertypeSendproofreceivealldocument) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignfoldertypeSendproofreceivealldocument gets a reference to the given bool and assigns it to the BEzsignfoldertypeSendproofreceivealldocument field.
+func (o *EzsignfoldertypeResponse) SetBEzsignfoldertypeSendproofreceivealldocument(v bool) {
+	o.BEzsignfoldertypeSendproofreceivealldocument = &v
 }
 
 // GetBEzsignfoldertypeSendsignedtodocumentowner returns the BEzsignfoldertypeSendsignedtodocumentowner field value
@@ -1061,28 +1411,36 @@ func (o *EzsignfoldertypeResponse) SetBEzsignfoldertypeSendsummarytocolleague(v 
 	o.BEzsignfoldertypeSendsummarytocolleague = v
 }
 
-// GetBEzsignfoldertypeIncludeproofsigner returns the BEzsignfoldertypeIncludeproofsigner field value
+// GetBEzsignfoldertypeIncludeproofsigner returns the BEzsignfoldertypeIncludeproofsigner field value if set, zero value otherwise.
 func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeIncludeproofsigner() bool {
-	if o == nil {
+	if o == nil || IsNil(o.BEzsignfoldertypeIncludeproofsigner) {
 		var ret bool
 		return ret
 	}
-
-	return o.BEzsignfoldertypeIncludeproofsigner
+	return *o.BEzsignfoldertypeIncludeproofsigner
 }
 
-// GetBEzsignfoldertypeIncludeproofsignerOk returns a tuple with the BEzsignfoldertypeIncludeproofsigner field value
+// GetBEzsignfoldertypeIncludeproofsignerOk returns a tuple with the BEzsignfoldertypeIncludeproofsigner field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeIncludeproofsignerOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BEzsignfoldertypeIncludeproofsigner) {
 		return nil, false
 	}
-	return &o.BEzsignfoldertypeIncludeproofsigner, true
+	return o.BEzsignfoldertypeIncludeproofsigner, true
 }
 
-// SetBEzsignfoldertypeIncludeproofsigner sets field value
+// HasBEzsignfoldertypeIncludeproofsigner returns a boolean if a field has been set.
+func (o *EzsignfoldertypeResponse) HasBEzsignfoldertypeIncludeproofsigner() bool {
+	if o != nil && !IsNil(o.BEzsignfoldertypeIncludeproofsigner) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignfoldertypeIncludeproofsigner gets a reference to the given bool and assigns it to the BEzsignfoldertypeIncludeproofsigner field.
 func (o *EzsignfoldertypeResponse) SetBEzsignfoldertypeIncludeproofsigner(v bool) {
-	o.BEzsignfoldertypeIncludeproofsigner = v
+	o.BEzsignfoldertypeIncludeproofsigner = &v
 }
 
 // GetBEzsignfoldertypeIncludeproofuser returns the BEzsignfoldertypeIncludeproofuser field value
@@ -1193,7 +1551,39 @@ func (o EzsignfoldertypeResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.BEzsignfoldertypeReassign) {
 		toSerialize["bEzsignfoldertypeReassign"] = o.BEzsignfoldertypeReassign
 	}
-	toSerialize["bEzsignfoldertypeSendattatchmentsigner"] = o.BEzsignfoldertypeSendattatchmentsigner
+	if !IsNil(o.BEzsignfoldertypeSendattatchmentsigner) {
+		toSerialize["bEzsignfoldertypeSendattatchmentsigner"] = o.BEzsignfoldertypeSendattatchmentsigner
+	}
+	if !IsNil(o.BEzsignfoldertypeSendsignedtoezsignsigner) {
+		toSerialize["bEzsignfoldertypeSendsignedtoezsignsigner"] = o.BEzsignfoldertypeSendsignedtoezsignsigner
+	}
+	if !IsNil(o.BEzsignfoldertypeSendsignedtouser) {
+		toSerialize["bEzsignfoldertypeSendsignedtouser"] = o.BEzsignfoldertypeSendsignedtouser
+	}
+	if !IsNil(o.BEzsignfoldertypeSendattachmentezsignsigner) {
+		toSerialize["bEzsignfoldertypeSendattachmentezsignsigner"] = o.BEzsignfoldertypeSendattachmentezsignsigner
+	}
+	if !IsNil(o.BEzsignfoldertypeSendproofezsignsigner) {
+		toSerialize["bEzsignfoldertypeSendproofezsignsigner"] = o.BEzsignfoldertypeSendproofezsignsigner
+	}
+	if !IsNil(o.BEzsignfoldertypeSendattachmentuser) {
+		toSerialize["bEzsignfoldertypeSendattachmentuser"] = o.BEzsignfoldertypeSendattachmentuser
+	}
+	if !IsNil(o.BEzsignfoldertypeSendproofuser) {
+		toSerialize["bEzsignfoldertypeSendproofuser"] = o.BEzsignfoldertypeSendproofuser
+	}
+	if !IsNil(o.BEzsignfoldertypeSendproofemail) {
+		toSerialize["bEzsignfoldertypeSendproofemail"] = o.BEzsignfoldertypeSendproofemail
+	}
+	if !IsNil(o.BEzsignfoldertypeAllowdownloadattachmentezsignsigner) {
+		toSerialize["bEzsignfoldertypeAllowdownloadattachmentezsignsigner"] = o.BEzsignfoldertypeAllowdownloadattachmentezsignsigner
+	}
+	if !IsNil(o.BEzsignfoldertypeAllowdownloadproofezsignsigner) {
+		toSerialize["bEzsignfoldertypeAllowdownloadproofezsignsigner"] = o.BEzsignfoldertypeAllowdownloadproofezsignsigner
+	}
+	if !IsNil(o.BEzsignfoldertypeSendproofreceivealldocument) {
+		toSerialize["bEzsignfoldertypeSendproofreceivealldocument"] = o.BEzsignfoldertypeSendproofreceivealldocument
+	}
 	toSerialize["bEzsignfoldertypeSendsignedtodocumentowner"] = o.BEzsignfoldertypeSendsignedtodocumentowner
 	toSerialize["bEzsignfoldertypeSendsignedtofolderowner"] = o.BEzsignfoldertypeSendsignedtofolderowner
 	if !IsNil(o.BEzsignfoldertypeSendsignedtofullgroup) {
@@ -1212,10 +1602,64 @@ func (o EzsignfoldertypeResponse) ToMap() (map[string]interface{}, error) {
 		toSerialize["bEzsignfoldertypeSendsummarytolimitedgroup"] = o.BEzsignfoldertypeSendsummarytolimitedgroup
 	}
 	toSerialize["bEzsignfoldertypeSendsummarytocolleague"] = o.BEzsignfoldertypeSendsummarytocolleague
-	toSerialize["bEzsignfoldertypeIncludeproofsigner"] = o.BEzsignfoldertypeIncludeproofsigner
+	if !IsNil(o.BEzsignfoldertypeIncludeproofsigner) {
+		toSerialize["bEzsignfoldertypeIncludeproofsigner"] = o.BEzsignfoldertypeIncludeproofsigner
+	}
 	toSerialize["bEzsignfoldertypeIncludeproofuser"] = o.BEzsignfoldertypeIncludeproofuser
 	toSerialize["bEzsignfoldertypeIsactive"] = o.BEzsignfoldertypeIsactive
 	return toSerialize, nil
+}
+
+func (o *EzsignfoldertypeResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiEzsignfoldertypeID",
+		"objEzsignfoldertypeName",
+		"fkiBrandingID",
+		"sBrandingDescriptionX",
+		"eEzsignfoldertypePrivacylevel",
+		"iEzsignfoldertypeArchivaldays",
+		"eEzsignfoldertypeDisposal",
+		"iEzsignfoldertypeDeadlinedays",
+		"bEzsignfoldertypeSendsignedtodocumentowner",
+		"bEzsignfoldertypeSendsignedtofolderowner",
+		"bEzsignfoldertypeSendsignedtocolleague",
+		"bEzsignfoldertypeSendsummarytodocumentowner",
+		"bEzsignfoldertypeSendsummarytofolderowner",
+		"bEzsignfoldertypeSendsummarytocolleague",
+		"bEzsignfoldertypeIncludeproofuser",
+		"bEzsignfoldertypeIsactive",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignfoldertypeResponse := _EzsignfoldertypeResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignfoldertypeResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignfoldertypeResponse(varEzsignfoldertypeResponse)
+
+	return err
 }
 
 type NullableEzsignfoldertypeResponse struct {

@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigntemplateelementdependencyRequestCompound type satisfies the MappedNullable interface at compile time
@@ -37,6 +39,8 @@ type EzsigntemplateelementdependencyRequestCompound struct {
 	// The value of the Ezsignelementdependency
 	SEzsigntemplateelementdependencyValue *string `json:"sEzsigntemplateelementdependencyValue,omitempty"`
 }
+
+type _EzsigntemplateelementdependencyRequestCompound EzsigntemplateelementdependencyRequestCompound
 
 // NewEzsigntemplateelementdependencyRequestCompound instantiates a new EzsigntemplateelementdependencyRequestCompound object
 // This constructor will assign default values to properties that have it defined,
@@ -372,6 +376,43 @@ func (o EzsigntemplateelementdependencyRequestCompound) ToMap() (map[string]inte
 		toSerialize["sEzsigntemplateelementdependencyValue"] = o.SEzsigntemplateelementdependencyValue
 	}
 	return toSerialize, nil
+}
+
+func (o *EzsigntemplateelementdependencyRequestCompound) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"eEzsigntemplateelementdependencyValidation",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigntemplateelementdependencyRequestCompound := _EzsigntemplateelementdependencyRequestCompound{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigntemplateelementdependencyRequestCompound)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigntemplateelementdependencyRequestCompound(varEzsigntemplateelementdependencyRequestCompound)
+
+	return err
 }
 
 type NullableEzsigntemplateelementdependencyRequestCompound struct {

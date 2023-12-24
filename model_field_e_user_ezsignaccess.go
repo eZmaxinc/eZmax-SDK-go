@@ -16,7 +16,7 @@ import (
 	"fmt"
 )
 
-// FieldEUserEzsignaccess The type or eZsign access the User has
+// FieldEUserEzsignaccess The type of eZsign access the User has
 type FieldEUserEzsignaccess string
 
 // List of Field-eUserEzsignaccess

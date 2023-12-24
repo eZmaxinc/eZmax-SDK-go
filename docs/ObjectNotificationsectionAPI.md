@@ -22,25 +22,25 @@ Retrieve an existing Notificationsection's Notificationtests
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiNotificationsectionID := int32(56) // int32 | 
-    bShowHidden := true // bool | Whether or not to return the hidden Notificationtests
+	pkiNotificationsectionID := int32(56) // int32 | 
+	bShowHidden := true // bool | Whether or not to return the hidden Notificationtests
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectNotificationsectionAPI.NotificationsectionGetNotificationtestsV1(context.Background(), pkiNotificationsectionID).BShowHidden(bShowHidden).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectNotificationsectionAPI.NotificationsectionGetNotificationtestsV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `NotificationsectionGetNotificationtestsV1`: NotificationsectionGetNotificationtestsV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectNotificationsectionAPI.NotificationsectionGetNotificationtestsV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectNotificationsectionAPI.NotificationsectionGetNotificationtestsV1(context.Background(), pkiNotificationsectionID).BShowHidden(bShowHidden).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectNotificationsectionAPI.NotificationsectionGetNotificationtestsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `NotificationsectionGetNotificationtestsV1`: NotificationsectionGetNotificationtestsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectNotificationsectionAPI.NotificationsectionGetNotificationtestsV1`: %v\n", resp)
 }
 ```
 

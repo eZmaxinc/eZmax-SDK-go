@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzmaxinvoicingsummaryinternalResponseCompound type satisfies the MappedNullable interface at compile time
@@ -34,6 +36,8 @@ type EzmaxinvoicingsummaryinternalResponseCompound struct {
 	// 
 	AObjEzmaxinvoicingsummaryinternaldetail []EzmaxinvoicingsummaryinternaldetailResponseCompound `json:"a_objEzmaxinvoicingsummaryinternaldetail"`
 }
+
+type _EzmaxinvoicingsummaryinternalResponseCompound EzmaxinvoicingsummaryinternalResponseCompound
 
 // NewEzmaxinvoicingsummaryinternalResponseCompound instantiates a new EzmaxinvoicingsummaryinternalResponseCompound object
 // This constructor will assign default values to properties that have it defined,
@@ -263,6 +267,47 @@ func (o EzmaxinvoicingsummaryinternalResponseCompound) ToMap() (map[string]inter
 	toSerialize["sBillingentityinternalDescriptionX"] = o.SBillingentityinternalDescriptionX
 	toSerialize["a_objEzmaxinvoicingsummaryinternaldetail"] = o.AObjEzmaxinvoicingsummaryinternaldetail
 	return toSerialize, nil
+}
+
+func (o *EzmaxinvoicingsummaryinternalResponseCompound) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"objEzmaxinvoicingsummaryinternalDescription",
+		"sEzmaxinvoicingsummaryinternalDescriptionX",
+		"fkiBillingentityinternalID",
+		"sBillingentityinternalDescriptionX",
+		"a_objEzmaxinvoicingsummaryinternaldetail",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzmaxinvoicingsummaryinternalResponseCompound := _EzmaxinvoicingsummaryinternalResponseCompound{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzmaxinvoicingsummaryinternalResponseCompound)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzmaxinvoicingsummaryinternalResponseCompound(varEzmaxinvoicingsummaryinternalResponseCompound)
+
+	return err
 }
 
 type NullableEzmaxinvoicingsummaryinternalResponseCompound struct {

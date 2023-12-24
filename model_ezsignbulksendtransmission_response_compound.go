@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignbulksendtransmissionResponseCompound type satisfies the MappedNullable interface at compile time
@@ -31,6 +33,8 @@ type EzsignbulksendtransmissionResponseCompound struct {
 	ObjAudit CommonAudit `json:"objAudit"`
 	AObjEzsignfoldertransmission []CustomEzsignfoldertransmissionResponse `json:"a_objEzsignfoldertransmission"`
 }
+
+type _EzsignbulksendtransmissionResponseCompound EzsignbulksendtransmissionResponseCompound
 
 // NewEzsignbulksendtransmissionResponseCompound instantiates a new EzsignbulksendtransmissionResponseCompound object
 // This constructor will assign default values to properties that have it defined,
@@ -216,6 +220,48 @@ func (o EzsignbulksendtransmissionResponseCompound) ToMap() (map[string]interfac
 	toSerialize["objAudit"] = o.ObjAudit
 	toSerialize["a_objEzsignfoldertransmission"] = o.AObjEzsignfoldertransmission
 	return toSerialize, nil
+}
+
+func (o *EzsignbulksendtransmissionResponseCompound) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiEzsignbulksendtransmissionID",
+		"fkiEzsignbulksendID",
+		"sEzsignbulksendtransmissionDescription",
+		"iEzsignbulksendtransmissionErrors",
+		"objAudit",
+		"a_objEzsignfoldertransmission",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignbulksendtransmissionResponseCompound := _EzsignbulksendtransmissionResponseCompound{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignbulksendtransmissionResponseCompound)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignbulksendtransmissionResponseCompound(varEzsignbulksendtransmissionResponseCompound)
+
+	return err
 }
 
 type NullableEzsignbulksendtransmissionResponseCompound struct {

@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignbulksendGetEzsignsignaturesAutomaticV1Response type satisfies the MappedNullable interface at compile time
@@ -24,6 +26,8 @@ type EzsignbulksendGetEzsignsignaturesAutomaticV1Response struct {
 	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
 	MPayload EzsignbulksendGetEzsignsignaturesAutomaticV1ResponseMPayload `json:"mPayload"`
 }
+
+type _EzsignbulksendGetEzsignsignaturesAutomaticV1Response EzsignbulksendGetEzsignsignaturesAutomaticV1Response
 
 // NewEzsignbulksendGetEzsignsignaturesAutomaticV1Response instantiates a new EzsignbulksendGetEzsignsignaturesAutomaticV1Response object
 // This constructor will assign default values to properties that have it defined,
@@ -140,6 +144,44 @@ func (o EzsignbulksendGetEzsignsignaturesAutomaticV1Response) ToMap() (map[strin
 	}
 	toSerialize["mPayload"] = o.MPayload
 	return toSerialize, nil
+}
+
+func (o *EzsignbulksendGetEzsignsignaturesAutomaticV1Response) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"objDebugPayload",
+		"mPayload",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignbulksendGetEzsignsignaturesAutomaticV1Response := _EzsignbulksendGetEzsignsignaturesAutomaticV1Response{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignbulksendGetEzsignsignaturesAutomaticV1Response)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignbulksendGetEzsignsignaturesAutomaticV1Response(varEzsignbulksendGetEzsignsignaturesAutomaticV1Response)
+
+	return err
 }
 
 type NullableEzsignbulksendGetEzsignsignaturesAutomaticV1Response struct {

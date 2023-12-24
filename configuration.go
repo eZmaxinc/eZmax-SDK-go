@@ -104,6 +104,7 @@ func NewConfiguration() *Configuration {
 						Description: "The environment on on which to call the API. Should always be \"prod\" unless instructed otherwise by support.",
 						DefaultValue: "prod",
 						EnumValues: []string{
+							"iso",
 							"prod",
 							"stg",
 							"qa",
@@ -128,8 +129,6 @@ func NewConfiguration() *Configuration {
 						DefaultValue: "prod",
 						EnumValues: []string{
 							"prod",
-							"stg",
-							"qa",
 							"dev",
 						},
 					},
@@ -143,6 +142,7 @@ func NewConfiguration() *Configuration {
 						Description: "The environment on on which to call the API. Should always be \"prod\" unless instructed otherwise by support.",
 						DefaultValue: "prod",
 						EnumValues: []string{
+							"iso",
 							"prod",
 							"stg",
 							"qa",

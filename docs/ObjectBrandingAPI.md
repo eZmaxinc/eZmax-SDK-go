@@ -26,24 +26,24 @@ Create a new Branding
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    brandingCreateObjectV1Request := *openapiclient.NewBrandingCreateObjectV1Request([]openapiclient.BrandingRequestCompound{*openapiclient.NewBrandingRequestCompound(*openapiclient.NewMultilingualBrandingDescription(), openapiclient.Field-eBrandingLogo("Default"), int32(3752795), int32(0), int32(16777215), int32(15658734), int32(13577007), int32(16777215), true)}) // BrandingCreateObjectV1Request | 
+	brandingCreateObjectV1Request := *openapiclient.NewBrandingCreateObjectV1Request([]openapiclient.BrandingRequestCompound{*openapiclient.NewBrandingRequestCompound(*openapiclient.NewMultilingualBrandingDescription(), openapiclient.Field-eBrandingLogo("Default"), int32(3752795), int32(0), int32(16777215), int32(15658734), int32(13577007), int32(16777215), true)}) // BrandingCreateObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectBrandingAPI.BrandingCreateObjectV1(context.Background()).BrandingCreateObjectV1Request(brandingCreateObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectBrandingAPI.BrandingCreateObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `BrandingCreateObjectV1`: BrandingCreateObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectBrandingAPI.BrandingCreateObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectBrandingAPI.BrandingCreateObjectV1(context.Background()).BrandingCreateObjectV1Request(brandingCreateObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBrandingAPI.BrandingCreateObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BrandingCreateObjectV1`: BrandingCreateObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectBrandingAPI.BrandingCreateObjectV1`: %v\n", resp)
 }
 ```
 
@@ -92,25 +92,25 @@ Edit an existing Branding
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiBrandingID := int32(56) // int32 | 
-    brandingEditObjectV1Request := *openapiclient.NewBrandingEditObjectV1Request(*openapiclient.NewBrandingRequestCompound(*openapiclient.NewMultilingualBrandingDescription(), openapiclient.Field-eBrandingLogo("Default"), int32(3752795), int32(0), int32(16777215), int32(15658734), int32(13577007), int32(16777215), true)) // BrandingEditObjectV1Request | 
+	pkiBrandingID := int32(56) // int32 | 
+	brandingEditObjectV1Request := *openapiclient.NewBrandingEditObjectV1Request(*openapiclient.NewBrandingRequestCompound(*openapiclient.NewMultilingualBrandingDescription(), openapiclient.Field-eBrandingLogo("Default"), int32(3752795), int32(0), int32(16777215), int32(15658734), int32(13577007), int32(16777215), true)) // BrandingEditObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectBrandingAPI.BrandingEditObjectV1(context.Background(), pkiBrandingID).BrandingEditObjectV1Request(brandingEditObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectBrandingAPI.BrandingEditObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `BrandingEditObjectV1`: BrandingEditObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectBrandingAPI.BrandingEditObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectBrandingAPI.BrandingEditObjectV1(context.Background(), pkiBrandingID).BrandingEditObjectV1Request(brandingEditObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBrandingAPI.BrandingEditObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BrandingEditObjectV1`: BrandingEditObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectBrandingAPI.BrandingEditObjectV1`: %v\n", resp)
 }
 ```
 
@@ -164,27 +164,27 @@ Retrieve Brandings and IDs
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    sSelector := "sSelector_example" // string | The type of Brandings to return
-    eFilterActive := "eFilterActive_example" // string | Specify which results we want to display. (optional) (default to "Active")
-    sQuery := "sQuery_example" // string | Allow to filter the returned results (optional)
-    acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
+	sSelector := "sSelector_example" // string | The type of Brandings to return
+	eFilterActive := "eFilterActive_example" // string | Specify which results we want to display. (optional) (default to "Active")
+	sQuery := "sQuery_example" // string | Allow to filter the returned results (optional)
+	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectBrandingAPI.BrandingGetAutocompleteV2(context.Background(), sSelector).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectBrandingAPI.BrandingGetAutocompleteV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `BrandingGetAutocompleteV2`: BrandingGetAutocompleteV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectBrandingAPI.BrandingGetAutocompleteV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectBrandingAPI.BrandingGetAutocompleteV2(context.Background(), sSelector).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBrandingAPI.BrandingGetAutocompleteV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BrandingGetAutocompleteV2`: BrandingGetAutocompleteV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectBrandingAPI.BrandingGetAutocompleteV2`: %v\n", resp)
 }
 ```
 
@@ -240,28 +240,28 @@ Retrieve Branding list
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
-    iRowMax := int32(56) // int32 |  (optional)
-    iRowOffset := int32(56) // int32 |  (optional) (default to 0)
-    acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
-    sFilter := "sFilter_example" // string |  (optional)
+	eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
+	iRowMax := int32(56) // int32 |  (optional)
+	iRowOffset := int32(56) // int32 |  (optional) (default to 0)
+	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
+	sFilter := "sFilter_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectBrandingAPI.BrandingGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectBrandingAPI.BrandingGetListV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `BrandingGetListV1`: BrandingGetListV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectBrandingAPI.BrandingGetListV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectBrandingAPI.BrandingGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBrandingAPI.BrandingGetListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BrandingGetListV1`: BrandingGetListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectBrandingAPI.BrandingGetListV1`: %v\n", resp)
 }
 ```
 
@@ -314,24 +314,24 @@ Retrieve an existing Branding
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiBrandingID := int32(56) // int32 | 
+	pkiBrandingID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectBrandingAPI.BrandingGetObjectV2(context.Background(), pkiBrandingID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectBrandingAPI.BrandingGetObjectV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `BrandingGetObjectV2`: BrandingGetObjectV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectBrandingAPI.BrandingGetObjectV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectBrandingAPI.BrandingGetObjectV2(context.Background(), pkiBrandingID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBrandingAPI.BrandingGetObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BrandingGetObjectV2`: BrandingGetObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectBrandingAPI.BrandingGetObjectV2`: %v\n", resp)
 }
 ```
 

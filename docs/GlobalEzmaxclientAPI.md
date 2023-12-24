@@ -22,24 +22,24 @@ Retrieve the latest version of the Ezmaxclient
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pksEzmaxclientOs := openapiclient.Field-pksEzmaxclientOs("iOS") // FieldPksEzmaxclientOs | 
+	pksEzmaxclientOs := openapiclient.Field-pksEzmaxclientOs("iOS") // FieldPksEzmaxclientOs | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GlobalEzmaxclientAPI.GlobalEzmaxclientVersionV1(context.Background(), pksEzmaxclientOs).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GlobalEzmaxclientAPI.GlobalEzmaxclientVersionV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GlobalEzmaxclientVersionV1`: GlobalEzmaxclientVersionV1Response
-    fmt.Fprintf(os.Stdout, "Response from `GlobalEzmaxclientAPI.GlobalEzmaxclientVersionV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.GlobalEzmaxclientAPI.GlobalEzmaxclientVersionV1(context.Background(), pksEzmaxclientOs).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `GlobalEzmaxclientAPI.GlobalEzmaxclientVersionV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GlobalEzmaxclientVersionV1`: GlobalEzmaxclientVersionV1Response
+	fmt.Fprintf(os.Stdout, "Response from `GlobalEzmaxclientAPI.GlobalEzmaxclientVersionV1`: %v\n", resp)
 }
 ```
 

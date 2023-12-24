@@ -25,24 +25,24 @@ Create a new Ezsigntemplatesigner
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    ezsigntemplatesignerCreateObjectV1Request := *openapiclient.NewEzsigntemplatesignerCreateObjectV1Request([]openapiclient.EzsigntemplatesignerRequestCompound{*openapiclient.NewEzsigntemplatesignerRequestCompound(int32(36), "Customer")}) // EzsigntemplatesignerCreateObjectV1Request | 
+	ezsigntemplatesignerCreateObjectV1Request := *openapiclient.NewEzsigntemplatesignerCreateObjectV1Request([]openapiclient.EzsigntemplatesignerRequestCompound{*openapiclient.NewEzsigntemplatesignerRequestCompound(int32(36), "Customer")}) // EzsigntemplatesignerCreateObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsigntemplatesignerAPI.EzsigntemplatesignerCreateObjectV1(context.Background()).EzsigntemplatesignerCreateObjectV1Request(ezsigntemplatesignerCreateObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatesignerAPI.EzsigntemplatesignerCreateObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsigntemplatesignerCreateObjectV1`: EzsigntemplatesignerCreateObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatesignerAPI.EzsigntemplatesignerCreateObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigntemplatesignerAPI.EzsigntemplatesignerCreateObjectV1(context.Background()).EzsigntemplatesignerCreateObjectV1Request(ezsigntemplatesignerCreateObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatesignerAPI.EzsigntemplatesignerCreateObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigntemplatesignerCreateObjectV1`: EzsigntemplatesignerCreateObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatesignerAPI.EzsigntemplatesignerCreateObjectV1`: %v\n", resp)
 }
 ```
 
@@ -91,24 +91,24 @@ Delete an existing Ezsigntemplatesigner
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsigntemplatesignerID := int32(56) // int32 | 
+	pkiEzsigntemplatesignerID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsigntemplatesignerAPI.EzsigntemplatesignerDeleteObjectV1(context.Background(), pkiEzsigntemplatesignerID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatesignerAPI.EzsigntemplatesignerDeleteObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsigntemplatesignerDeleteObjectV1`: EzsigntemplatesignerDeleteObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatesignerAPI.EzsigntemplatesignerDeleteObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigntemplatesignerAPI.EzsigntemplatesignerDeleteObjectV1(context.Background(), pkiEzsigntemplatesignerID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatesignerAPI.EzsigntemplatesignerDeleteObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigntemplatesignerDeleteObjectV1`: EzsigntemplatesignerDeleteObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatesignerAPI.EzsigntemplatesignerDeleteObjectV1`: %v\n", resp)
 }
 ```
 
@@ -161,25 +161,25 @@ Edit an existing Ezsigntemplatesigner
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsigntemplatesignerID := int32(56) // int32 | 
-    ezsigntemplatesignerEditObjectV1Request := *openapiclient.NewEzsigntemplatesignerEditObjectV1Request(*openapiclient.NewEzsigntemplatesignerRequestCompound(int32(36), "Customer")) // EzsigntemplatesignerEditObjectV1Request | 
+	pkiEzsigntemplatesignerID := int32(56) // int32 | 
+	ezsigntemplatesignerEditObjectV1Request := *openapiclient.NewEzsigntemplatesignerEditObjectV1Request(*openapiclient.NewEzsigntemplatesignerRequestCompound(int32(36), "Customer")) // EzsigntemplatesignerEditObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsigntemplatesignerAPI.EzsigntemplatesignerEditObjectV1(context.Background(), pkiEzsigntemplatesignerID).EzsigntemplatesignerEditObjectV1Request(ezsigntemplatesignerEditObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatesignerAPI.EzsigntemplatesignerEditObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsigntemplatesignerEditObjectV1`: EzsigntemplatesignerEditObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatesignerAPI.EzsigntemplatesignerEditObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigntemplatesignerAPI.EzsigntemplatesignerEditObjectV1(context.Background(), pkiEzsigntemplatesignerID).EzsigntemplatesignerEditObjectV1Request(ezsigntemplatesignerEditObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatesignerAPI.EzsigntemplatesignerEditObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigntemplatesignerEditObjectV1`: EzsigntemplatesignerEditObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatesignerAPI.EzsigntemplatesignerEditObjectV1`: %v\n", resp)
 }
 ```
 
@@ -233,24 +233,24 @@ Retrieve an existing Ezsigntemplatesigner
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsigntemplatesignerID := int32(56) // int32 | 
+	pkiEzsigntemplatesignerID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsigntemplatesignerAPI.EzsigntemplatesignerGetObjectV2(context.Background(), pkiEzsigntemplatesignerID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatesignerAPI.EzsigntemplatesignerGetObjectV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsigntemplatesignerGetObjectV2`: EzsigntemplatesignerGetObjectV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatesignerAPI.EzsigntemplatesignerGetObjectV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigntemplatesignerAPI.EzsigntemplatesignerGetObjectV2(context.Background(), pkiEzsigntemplatesignerID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatesignerAPI.EzsigntemplatesignerGetObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigntemplatesignerGetObjectV2`: EzsigntemplatesignerGetObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatesignerAPI.EzsigntemplatesignerGetObjectV2`: %v\n", resp)
 }
 ```
 

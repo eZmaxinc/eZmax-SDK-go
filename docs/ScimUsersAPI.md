@@ -24,24 +24,24 @@ Create a new User
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    scimUser := *openapiclient.NewScimUser("UserName_example") // ScimUser | 
+	scimUser := *openapiclient.NewScimUser("UserName_example") // ScimUser | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ScimUsersAPI.UsersCreateObjectScimV2(context.Background()).ScimUser(scimUser).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ScimUsersAPI.UsersCreateObjectScimV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UsersCreateObjectScimV2`: ScimUser
-    fmt.Fprintf(os.Stdout, "Response from `ScimUsersAPI.UsersCreateObjectScimV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ScimUsersAPI.UsersCreateObjectScimV2(context.Background()).ScimUser(scimUser).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ScimUsersAPI.UsersCreateObjectScimV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UsersCreateObjectScimV2`: ScimUser
+	fmt.Fprintf(os.Stdout, "Response from `ScimUsersAPI.UsersCreateObjectScimV2`: %v\n", resp)
 }
 ```
 
@@ -88,22 +88,22 @@ Delete an existing User
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    userId := "userId_example" // string | 
+	userId := "userId_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ScimUsersAPI.UsersDeleteObjectScimV2(context.Background(), userId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ScimUsersAPI.UsersDeleteObjectScimV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ScimUsersAPI.UsersDeleteObjectScimV2(context.Background(), userId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ScimUsersAPI.UsersDeleteObjectScimV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -154,25 +154,25 @@ Edit an existing User
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    userId := "userId_example" // string | 
-    scimUser := *openapiclient.NewScimUser("UserName_example") // ScimUser | 
+	userId := "userId_example" // string | 
+	scimUser := *openapiclient.NewScimUser("UserName_example") // ScimUser | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ScimUsersAPI.UsersEditObjectScimV2(context.Background(), userId).ScimUser(scimUser).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ScimUsersAPI.UsersEditObjectScimV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UsersEditObjectScimV2`: ScimUser
-    fmt.Fprintf(os.Stdout, "Response from `ScimUsersAPI.UsersEditObjectScimV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ScimUsersAPI.UsersEditObjectScimV2(context.Background(), userId).ScimUser(scimUser).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ScimUsersAPI.UsersEditObjectScimV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UsersEditObjectScimV2`: ScimUser
+	fmt.Fprintf(os.Stdout, "Response from `ScimUsersAPI.UsersEditObjectScimV2`: %v\n", resp)
 }
 ```
 
@@ -224,24 +224,24 @@ Retrieve User list
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    filter := "filter_example" // string | Filter expression for searching users (optional)
+	filter := "filter_example" // string | Filter expression for searching users (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ScimUsersAPI.UsersGetListScimV2(context.Background()).Filter(filter).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ScimUsersAPI.UsersGetListScimV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UsersGetListScimV2`: ScimUserList
-    fmt.Fprintf(os.Stdout, "Response from `ScimUsersAPI.UsersGetListScimV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ScimUsersAPI.UsersGetListScimV2(context.Background()).Filter(filter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ScimUsersAPI.UsersGetListScimV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UsersGetListScimV2`: ScimUserList
+	fmt.Fprintf(os.Stdout, "Response from `ScimUsersAPI.UsersGetListScimV2`: %v\n", resp)
 }
 ```
 
@@ -288,24 +288,24 @@ Retrieve an existing User
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    userId := "userId_example" // string | 
+	userId := "userId_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ScimUsersAPI.UsersGetObjectScimV2(context.Background(), userId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ScimUsersAPI.UsersGetObjectScimV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UsersGetObjectScimV2`: ScimUser
-    fmt.Fprintf(os.Stdout, "Response from `ScimUsersAPI.UsersGetObjectScimV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ScimUsersAPI.UsersGetObjectScimV2(context.Background(), userId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ScimUsersAPI.UsersGetObjectScimV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UsersGetObjectScimV2`: ScimUser
+	fmt.Fprintf(os.Stdout, "Response from `ScimUsersAPI.UsersGetObjectScimV2`: %v\n", resp)
 }
 ```
 

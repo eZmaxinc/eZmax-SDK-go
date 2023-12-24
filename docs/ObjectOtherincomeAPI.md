@@ -22,24 +22,24 @@ Retrieve Communication list
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiOtherincomeID := int32(56) // int32 | 
+	pkiOtherincomeID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectOtherincomeAPI.OtherincomeGetCommunicationListV1(context.Background(), pkiOtherincomeID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectOtherincomeAPI.OtherincomeGetCommunicationListV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `OtherincomeGetCommunicationListV1`: OtherincomeGetCommunicationListV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectOtherincomeAPI.OtherincomeGetCommunicationListV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectOtherincomeAPI.OtherincomeGetCommunicationListV1(context.Background(), pkiOtherincomeID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectOtherincomeAPI.OtherincomeGetCommunicationListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `OtherincomeGetCommunicationListV1`: OtherincomeGetCommunicationListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectOtherincomeAPI.OtherincomeGetCommunicationListV1`: %v\n", resp)
 }
 ```
 

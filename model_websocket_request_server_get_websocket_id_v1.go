@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the WebsocketRequestServerGetWebsocketIDV1 type satisfies the MappedNullable interface at compile time
@@ -23,6 +25,8 @@ type WebsocketRequestServerGetWebsocketIDV1 struct {
 	// The Type of message
 	EWebsocketMessagetype string `json:"eWebsocketMessagetype"`
 }
+
+type _WebsocketRequestServerGetWebsocketIDV1 WebsocketRequestServerGetWebsocketIDV1
 
 // NewWebsocketRequestServerGetWebsocketIDV1 instantiates a new WebsocketRequestServerGetWebsocketIDV1 object
 // This constructor will assign default values to properties that have it defined,
@@ -78,6 +82,43 @@ func (o WebsocketRequestServerGetWebsocketIDV1) ToMap() (map[string]interface{},
 	toSerialize := map[string]interface{}{}
 	toSerialize["eWebsocketMessagetype"] = o.EWebsocketMessagetype
 	return toSerialize, nil
+}
+
+func (o *WebsocketRequestServerGetWebsocketIDV1) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"eWebsocketMessagetype",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varWebsocketRequestServerGetWebsocketIDV1 := _WebsocketRequestServerGetWebsocketIDV1{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varWebsocketRequestServerGetWebsocketIDV1)
+
+	if err != nil {
+		return err
+	}
+
+	*o = WebsocketRequestServerGetWebsocketIDV1(varWebsocketRequestServerGetWebsocketIDV1)
+
+	return err
 }
 
 type NullableWebsocketRequestServerGetWebsocketIDV1 struct {

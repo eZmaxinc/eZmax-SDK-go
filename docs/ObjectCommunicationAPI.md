@@ -22,24 +22,24 @@ Send a new Communication
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    communicationSendV1Request := *openapiclient.NewCommunicationSendV1Request([]openapiclient.CommunicationRequestCompound{*openapiclient.NewCommunicationRequestCompound(openapiclient.Field-eCommunicationType("Email"), "TCommunicationBody_example", false, []openapiclient.CustomCommunicationattachmentRequest{*openapiclient.NewCustomCommunicationattachmentRequest()}, []openapiclient.CommunicationrecipientRequestCompound{*openapiclient.NewCommunicationrecipientRequestCompound()}, []openapiclient.CommunicationreferenceRequestCompound{*openapiclient.NewCommunicationreferenceRequestCompound()}, []openapiclient.CommunicationexternalrecipientRequestCompound{*openapiclient.NewCommunicationexternalrecipientRequestCompound("John Doe")})}) // CommunicationSendV1Request | 
+	communicationSendV1Request := *openapiclient.NewCommunicationSendV1Request([]openapiclient.CommunicationRequestCompound{*openapiclient.NewCommunicationRequestCompound(openapiclient.Field-eCommunicationType("Email"), "TCommunicationBody_example", false, []openapiclient.CustomCommunicationattachmentRequest{*openapiclient.NewCustomCommunicationattachmentRequest()}, []openapiclient.CommunicationrecipientRequestCompound{*openapiclient.NewCommunicationrecipientRequestCompound()}, []openapiclient.CommunicationreferenceRequestCompound{*openapiclient.NewCommunicationreferenceRequestCompound()}, []openapiclient.CommunicationexternalrecipientRequestCompound{*openapiclient.NewCommunicationexternalrecipientRequestCompound()})}) // CommunicationSendV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectCommunicationAPI.CommunicationSendV1(context.Background()).CommunicationSendV1Request(communicationSendV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectCommunicationAPI.CommunicationSendV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CommunicationSendV1`: CommunicationSendV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectCommunicationAPI.CommunicationSendV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectCommunicationAPI.CommunicationSendV1(context.Background()).CommunicationSendV1Request(communicationSendV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectCommunicationAPI.CommunicationSendV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CommunicationSendV1`: CommunicationSendV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectCommunicationAPI.CommunicationSendV1`: %v\n", resp)
 }
 ```
 

@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzmaxinvoicingsummaryexternalResponse type satisfies the MappedNullable interface at compile time
@@ -31,6 +33,8 @@ type EzmaxinvoicingsummaryexternalResponse struct {
 	// The description of the Ezmaxinvoicingsummaryexternal
 	SEzmaxinvoicingsummaryexternalDescription string `json:"sEzmaxinvoicingsummaryexternalDescription"`
 }
+
+type _EzmaxinvoicingsummaryexternalResponse EzmaxinvoicingsummaryexternalResponse
 
 // NewEzmaxinvoicingsummaryexternalResponse instantiates a new EzmaxinvoicingsummaryexternalResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -208,6 +212,45 @@ func (o EzmaxinvoicingsummaryexternalResponse) ToMap() (map[string]interface{}, 
 	toSerialize["sBillingentityexternalDescription"] = o.SBillingentityexternalDescription
 	toSerialize["sEzmaxinvoicingsummaryexternalDescription"] = o.SEzmaxinvoicingsummaryexternalDescription
 	return toSerialize, nil
+}
+
+func (o *EzmaxinvoicingsummaryexternalResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"fkiBillingentityexternalID",
+		"sBillingentityexternalDescription",
+		"sEzmaxinvoicingsummaryexternalDescription",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzmaxinvoicingsummaryexternalResponse := _EzmaxinvoicingsummaryexternalResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzmaxinvoicingsummaryexternalResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzmaxinvoicingsummaryexternalResponse(varEzmaxinvoicingsummaryexternalResponse)
+
+	return err
 }
 
 type NullableEzmaxinvoicingsummaryexternalResponse struct {

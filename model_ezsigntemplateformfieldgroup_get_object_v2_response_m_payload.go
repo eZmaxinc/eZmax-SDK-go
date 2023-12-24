@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigntemplateformfieldgroupGetObjectV2ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &EzsigntemplateformfieldgroupGetObjectV2ResponseMPayload{
 type EzsigntemplateformfieldgroupGetObjectV2ResponseMPayload struct {
 	ObjEzsigntemplateformfieldgroup EzsigntemplateformfieldgroupResponseCompound `json:"objEzsigntemplateformfieldgroup"`
 }
+
+type _EzsigntemplateformfieldgroupGetObjectV2ResponseMPayload EzsigntemplateformfieldgroupGetObjectV2ResponseMPayload
 
 // NewEzsigntemplateformfieldgroupGetObjectV2ResponseMPayload instantiates a new EzsigntemplateformfieldgroupGetObjectV2ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o EzsigntemplateformfieldgroupGetObjectV2ResponseMPayload) ToMap() (map[st
 	toSerialize := map[string]interface{}{}
 	toSerialize["objEzsigntemplateformfieldgroup"] = o.ObjEzsigntemplateformfieldgroup
 	return toSerialize, nil
+}
+
+func (o *EzsigntemplateformfieldgroupGetObjectV2ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"objEzsigntemplateformfieldgroup",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigntemplateformfieldgroupGetObjectV2ResponseMPayload := _EzsigntemplateformfieldgroupGetObjectV2ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigntemplateformfieldgroupGetObjectV2ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigntemplateformfieldgroupGetObjectV2ResponseMPayload(varEzsigntemplateformfieldgroupGetObjectV2ResponseMPayload)
+
+	return err
 }
 
 type NullableEzsigntemplateformfieldgroupGetObjectV2ResponseMPayload struct {

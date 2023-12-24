@@ -5,12 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SEzmaxclientVersion** | **string** | The version on the store | 
+**SEzmaxclientOslatestversion** | **string** | The latest OS version of the system running the application at the time of release | [default to "11"]
 
 ## Methods
 
 ### NewGlobalEzmaxclientVersionV1Response
 
-`func NewGlobalEzmaxclientVersionV1Response(sEzmaxclientVersion string, ) *GlobalEzmaxclientVersionV1Response`
+`func NewGlobalEzmaxclientVersionV1Response(sEzmaxclientVersion string, sEzmaxclientOslatestversion string, ) *GlobalEzmaxclientVersionV1Response`
 
 NewGlobalEzmaxclientVersionV1Response instantiates a new GlobalEzmaxclientVersionV1Response object
 This constructor will assign default values to properties that have it defined,
@@ -43,6 +44,26 @@ and a boolean to check if the value has been set.
 `func (o *GlobalEzmaxclientVersionV1Response) SetSEzmaxclientVersion(v string)`
 
 SetSEzmaxclientVersion sets SEzmaxclientVersion field to given value.
+
+
+### GetSEzmaxclientOslatestversion
+
+`func (o *GlobalEzmaxclientVersionV1Response) GetSEzmaxclientOslatestversion() string`
+
+GetSEzmaxclientOslatestversion returns the SEzmaxclientOslatestversion field if non-nil, zero value otherwise.
+
+### GetSEzmaxclientOslatestversionOk
+
+`func (o *GlobalEzmaxclientVersionV1Response) GetSEzmaxclientOslatestversionOk() (*string, bool)`
+
+GetSEzmaxclientOslatestversionOk returns a tuple with the SEzmaxclientOslatestversion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzmaxclientOslatestversion
+
+`func (o *GlobalEzmaxclientVersionV1Response) SetSEzmaxclientOslatestversion(v string)`
+
+SetSEzmaxclientOslatestversion sets SEzmaxclientOslatestversion field to given value.
 
 
 

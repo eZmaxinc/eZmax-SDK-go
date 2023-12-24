@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**FkiEzsignsigningreasonID** | Pointer to **int32** | The unique ID of the Ezsignsigningreason | [optional] 
 **SValue** | Pointer to **string** | The value required for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **City**, **FieldText** or **FieldTextarea** | [optional] 
 **EAttachmentsConfirmationDecision** | Pointer to **string** | Whether the attachment are accepted or refused.  This can only be set if eEzsignsignatureType is **AttachmentsConfirmation** | [optional] 
 **SAttachmentsRefusalReason** | Pointer to **string** | The reason of refused.  This can only be set if eEzsignsignatureType is **AttachmentsConfirmation** | [optional] 
@@ -29,6 +30,31 @@ will change when the set of required properties is changed
 NewEzsignsignatureSignV1RequestWithDefaults instantiates a new EzsignsignatureSignV1Request object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetFkiEzsignsigningreasonID
+
+`func (o *EzsignsignatureSignV1Request) GetFkiEzsignsigningreasonID() int32`
+
+GetFkiEzsignsigningreasonID returns the FkiEzsignsigningreasonID field if non-nil, zero value otherwise.
+
+### GetFkiEzsignsigningreasonIDOk
+
+`func (o *EzsignsignatureSignV1Request) GetFkiEzsignsigningreasonIDOk() (*int32, bool)`
+
+GetFkiEzsignsigningreasonIDOk returns a tuple with the FkiEzsignsigningreasonID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiEzsignsigningreasonID
+
+`func (o *EzsignsignatureSignV1Request) SetFkiEzsignsigningreasonID(v int32)`
+
+SetFkiEzsignsigningreasonID sets FkiEzsignsigningreasonID field to given value.
+
+### HasFkiEzsignsigningreasonID
+
+`func (o *EzsignsignatureSignV1Request) HasFkiEzsignsigningreasonID() bool`
+
+HasFkiEzsignsigningreasonID returns a boolean if a field has been set.
 
 ### GetSValue
 

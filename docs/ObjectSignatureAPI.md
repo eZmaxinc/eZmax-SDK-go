@@ -25,24 +25,24 @@ Create a new Signature
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    signatureCreateObjectV1Request := *openapiclient.NewSignatureCreateObjectV1Request([]openapiclient.SignatureRequestCompound{*openapiclient.NewSignatureRequestCompound("{"$ref":"#/components/examples/Svg/value"}")}) // SignatureCreateObjectV1Request | 
+	signatureCreateObjectV1Request := *openapiclient.NewSignatureCreateObjectV1Request([]openapiclient.SignatureRequestCompound{*openapiclient.NewSignatureRequestCompound("{"$ref":"#/components/examples/Svg/value"}")}) // SignatureCreateObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectSignatureAPI.SignatureCreateObjectV1(context.Background()).SignatureCreateObjectV1Request(signatureCreateObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectSignatureAPI.SignatureCreateObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SignatureCreateObjectV1`: SignatureCreateObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectSignatureAPI.SignatureCreateObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectSignatureAPI.SignatureCreateObjectV1(context.Background()).SignatureCreateObjectV1Request(signatureCreateObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSignatureAPI.SignatureCreateObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SignatureCreateObjectV1`: SignatureCreateObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectSignatureAPI.SignatureCreateObjectV1`: %v\n", resp)
 }
 ```
 
@@ -91,24 +91,24 @@ Delete an existing Signature
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiSignatureID := int32(56) // int32 | The unique ID of the Signature
+	pkiSignatureID := int32(56) // int32 | The unique ID of the Signature
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectSignatureAPI.SignatureDeleteObjectV1(context.Background(), pkiSignatureID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectSignatureAPI.SignatureDeleteObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SignatureDeleteObjectV1`: SignatureDeleteObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectSignatureAPI.SignatureDeleteObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectSignatureAPI.SignatureDeleteObjectV1(context.Background(), pkiSignatureID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSignatureAPI.SignatureDeleteObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SignatureDeleteObjectV1`: SignatureDeleteObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectSignatureAPI.SignatureDeleteObjectV1`: %v\n", resp)
 }
 ```
 
@@ -161,25 +161,25 @@ Edit an existing Signature
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiSignatureID := int32(56) // int32 | The unique ID of the Signature
-    signatureEditObjectV1Request := *openapiclient.NewSignatureEditObjectV1Request(*openapiclient.NewSignatureRequestCompound("{"$ref":"#/components/examples/Svg/value"}")) // SignatureEditObjectV1Request | 
+	pkiSignatureID := int32(56) // int32 | The unique ID of the Signature
+	signatureEditObjectV1Request := *openapiclient.NewSignatureEditObjectV1Request(*openapiclient.NewSignatureRequestCompound("{"$ref":"#/components/examples/Svg/value"}")) // SignatureEditObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectSignatureAPI.SignatureEditObjectV1(context.Background(), pkiSignatureID).SignatureEditObjectV1Request(signatureEditObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectSignatureAPI.SignatureEditObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SignatureEditObjectV1`: SignatureEditObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectSignatureAPI.SignatureEditObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectSignatureAPI.SignatureEditObjectV1(context.Background(), pkiSignatureID).SignatureEditObjectV1Request(signatureEditObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSignatureAPI.SignatureEditObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SignatureEditObjectV1`: SignatureEditObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectSignatureAPI.SignatureEditObjectV1`: %v\n", resp)
 }
 ```
 
@@ -233,24 +233,24 @@ Retrieve an existing Signature
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiSignatureID := int32(56) // int32 | The unique ID of the Signature
+	pkiSignatureID := int32(56) // int32 | The unique ID of the Signature
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectSignatureAPI.SignatureGetObjectV2(context.Background(), pkiSignatureID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectSignatureAPI.SignatureGetObjectV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SignatureGetObjectV2`: SignatureGetObjectV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectSignatureAPI.SignatureGetObjectV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectSignatureAPI.SignatureGetObjectV2(context.Background(), pkiSignatureID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSignatureAPI.SignatureGetObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SignatureGetObjectV2`: SignatureGetObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectSignatureAPI.SignatureGetObjectV2`: %v\n", resp)
 }
 ```
 

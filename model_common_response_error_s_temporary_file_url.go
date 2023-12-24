@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the CommonResponseErrorSTemporaryFileUrl type satisfies the MappedNullable interface at compile time
@@ -26,6 +28,8 @@ type CommonResponseErrorSTemporaryFileUrl struct {
 	// The Temporary File Url of the document that was uploaded. That url can be reused instead of uploading the file again.
 	STemporaryFileUrl *string `json:"sTemporaryFileUrl,omitempty"`
 }
+
+type _CommonResponseErrorSTemporaryFileUrl CommonResponseErrorSTemporaryFileUrl
 
 // NewCommonResponseErrorSTemporaryFileUrl instantiates a new CommonResponseErrorSTemporaryFileUrl object
 // This constructor will assign default values to properties that have it defined,
@@ -142,6 +146,44 @@ func (o CommonResponseErrorSTemporaryFileUrl) ToMap() (map[string]interface{}, e
 		toSerialize["sTemporaryFileUrl"] = o.STemporaryFileUrl
 	}
 	return toSerialize, nil
+}
+
+func (o *CommonResponseErrorSTemporaryFileUrl) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"sErrorMessage",
+		"eErrorCode",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varCommonResponseErrorSTemporaryFileUrl := _CommonResponseErrorSTemporaryFileUrl{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varCommonResponseErrorSTemporaryFileUrl)
+
+	if err != nil {
+		return err
+	}
+
+	*o = CommonResponseErrorSTemporaryFileUrl(varCommonResponseErrorSTemporaryFileUrl)
+
+	return err
 }
 
 type NullableCommonResponseErrorSTemporaryFileUrl struct {

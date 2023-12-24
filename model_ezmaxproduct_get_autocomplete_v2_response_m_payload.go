@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzmaxproductGetAutocompleteV2ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -23,6 +25,8 @@ type EzmaxproductGetAutocompleteV2ResponseMPayload struct {
 	// An array of Ezmaxproduct autocomplete element response.
 	AObjEzmaxproduct []EzmaxproductAutocompleteElementResponse `json:"a_objEzmaxproduct"`
 }
+
+type _EzmaxproductGetAutocompleteV2ResponseMPayload EzmaxproductGetAutocompleteV2ResponseMPayload
 
 // NewEzmaxproductGetAutocompleteV2ResponseMPayload instantiates a new EzmaxproductGetAutocompleteV2ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -78,6 +82,43 @@ func (o EzmaxproductGetAutocompleteV2ResponseMPayload) ToMap() (map[string]inter
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_objEzmaxproduct"] = o.AObjEzmaxproduct
 	return toSerialize, nil
+}
+
+func (o *EzmaxproductGetAutocompleteV2ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"a_objEzmaxproduct",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzmaxproductGetAutocompleteV2ResponseMPayload := _EzmaxproductGetAutocompleteV2ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzmaxproductGetAutocompleteV2ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzmaxproductGetAutocompleteV2ResponseMPayload(varEzmaxproductGetAutocompleteV2ResponseMPayload)
+
+	return err
 }
 
 type NullableEzmaxproductGetAutocompleteV2ResponseMPayload struct {

@@ -26,6 +26,8 @@ type CustomCommunicationsenderRequest struct {
 	FkiBrokerID *int32 `json:"fkiBrokerID,omitempty"`
 	// The unique ID of the Mailboxshared
 	FkiMailboxsharedID *int32 `json:"fkiMailboxsharedID,omitempty"`
+	// The unique ID of the Phonelineshared
+	FkiPhonelinesharedID *int32 `json:"fkiPhonelinesharedID,omitempty"`
 	// The unique ID of the User
 	FkiUserID *int32 `json:"fkiUserID,omitempty"`
 }
@@ -143,6 +145,38 @@ func (o *CustomCommunicationsenderRequest) SetFkiMailboxsharedID(v int32) {
 	o.FkiMailboxsharedID = &v
 }
 
+// GetFkiPhonelinesharedID returns the FkiPhonelinesharedID field value if set, zero value otherwise.
+func (o *CustomCommunicationsenderRequest) GetFkiPhonelinesharedID() int32 {
+	if o == nil || IsNil(o.FkiPhonelinesharedID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiPhonelinesharedID
+}
+
+// GetFkiPhonelinesharedIDOk returns a tuple with the FkiPhonelinesharedID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomCommunicationsenderRequest) GetFkiPhonelinesharedIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiPhonelinesharedID) {
+		return nil, false
+	}
+	return o.FkiPhonelinesharedID, true
+}
+
+// HasFkiPhonelinesharedID returns a boolean if a field has been set.
+func (o *CustomCommunicationsenderRequest) HasFkiPhonelinesharedID() bool {
+	if o != nil && !IsNil(o.FkiPhonelinesharedID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiPhonelinesharedID gets a reference to the given int32 and assigns it to the FkiPhonelinesharedID field.
+func (o *CustomCommunicationsenderRequest) SetFkiPhonelinesharedID(v int32) {
+	o.FkiPhonelinesharedID = &v
+}
+
 // GetFkiUserID returns the FkiUserID field value if set, zero value otherwise.
 func (o *CustomCommunicationsenderRequest) GetFkiUserID() int32 {
 	if o == nil || IsNil(o.FkiUserID) {
@@ -193,6 +227,9 @@ func (o CustomCommunicationsenderRequest) ToMap() (map[string]interface{}, error
 	}
 	if !IsNil(o.FkiMailboxsharedID) {
 		toSerialize["fkiMailboxsharedID"] = o.FkiMailboxsharedID
+	}
+	if !IsNil(o.FkiPhonelinesharedID) {
+		toSerialize["fkiPhonelinesharedID"] = o.FkiPhonelinesharedID
 	}
 	if !IsNil(o.FkiUserID) {
 		toSerialize["fkiUserID"] = o.FkiUserID

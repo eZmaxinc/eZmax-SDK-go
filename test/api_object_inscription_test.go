@@ -22,6 +22,20 @@ func Test_eZmaxApi_ObjectInscriptionAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test ObjectInscriptionAPIService InscriptionGetAttachmentsV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiInscriptionID int32
+
+		resp, httpRes, err := apiClient.ObjectInscriptionAPI.InscriptionGetAttachmentsV1(context.Background(), pkiInscriptionID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ObjectInscriptionAPIService InscriptionGetCommunicationListV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -29,6 +43,20 @@ func Test_eZmaxApi_ObjectInscriptionAPIService(t *testing.T) {
 		var pkiInscriptionID int32
 
 		resp, httpRes, err := apiClient.ObjectInscriptionAPI.InscriptionGetCommunicationListV1(context.Background(), pkiInscriptionID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ObjectInscriptionAPIService InscriptionGetCommunicationsendersV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiInscriptionID int32
+
+		resp, httpRes, err := apiClient.ObjectInscriptionAPI.InscriptionGetCommunicationsendersV1(context.Background(), pkiInscriptionID).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

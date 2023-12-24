@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the FranchisereferalincomeRequestCompound type satisfies the MappedNullable interface at compile time
@@ -47,6 +49,8 @@ type FranchisereferalincomeRequestCompound struct {
 	ObjAddress *AddressRequest `json:"objAddress,omitempty"`
 	AObjContact []ContactRequestCompound `json:"a_objContact"`
 }
+
+type _FranchisereferalincomeRequestCompound FranchisereferalincomeRequestCompound
 
 // NewFranchisereferalincomeRequestCompound instantiates a new FranchisereferalincomeRequestCompound object
 // This constructor will assign default values to properties that have it defined,
@@ -458,6 +462,54 @@ func (o FranchisereferalincomeRequestCompound) ToMap() (map[string]interface{}, 
 	}
 	toSerialize["a_objContact"] = o.AObjContact
 	return toSerialize, nil
+}
+
+func (o *FranchisereferalincomeRequestCompound) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"fkiFranchisebrokerID",
+		"fkiFranchisereferalincomeprogramID",
+		"fkiPeriodID",
+		"dFranchisereferalincomeLoan",
+		"dFranchisereferalincomeFranchiseamount",
+		"dFranchisereferalincomeFranchisoramount",
+		"dFranchisereferalincomeAgentamount",
+		"dtFranchisereferalincomeDisbursed",
+		"tFranchisereferalincomeComment",
+		"fkiFranchiseofficeID",
+		"sFranchisereferalincomeRemoteid",
+		"a_objContact",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varFranchisereferalincomeRequestCompound := _FranchisereferalincomeRequestCompound{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varFranchisereferalincomeRequestCompound)
+
+	if err != nil {
+		return err
+	}
+
+	*o = FranchisereferalincomeRequestCompound(varFranchisereferalincomeRequestCompound)
+
+	return err
 }
 
 type NullableFranchisereferalincomeRequestCompound struct {

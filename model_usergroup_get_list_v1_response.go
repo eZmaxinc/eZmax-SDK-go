@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the UsergroupGetListV1Response type satisfies the MappedNullable interface at compile time
@@ -24,6 +26,8 @@ type UsergroupGetListV1Response struct {
 	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
 	MPayload UsergroupGetListV1ResponseMPayload `json:"mPayload"`
 }
+
+type _UsergroupGetListV1Response UsergroupGetListV1Response
 
 // NewUsergroupGetListV1Response instantiates a new UsergroupGetListV1Response object
 // This constructor will assign default values to properties that have it defined,
@@ -140,6 +144,44 @@ func (o UsergroupGetListV1Response) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["mPayload"] = o.MPayload
 	return toSerialize, nil
+}
+
+func (o *UsergroupGetListV1Response) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"objDebugPayload",
+		"mPayload",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varUsergroupGetListV1Response := _UsergroupGetListV1Response{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varUsergroupGetListV1Response)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UsergroupGetListV1Response(varUsergroupGetListV1Response)
+
+	return err
 }
 
 type NullableUsergroupGetListV1Response struct {

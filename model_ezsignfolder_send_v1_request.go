@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignfolderSendV1Request type satisfies the MappedNullable interface at compile time
@@ -23,6 +25,8 @@ type EzsignfolderSendV1Request struct {
 	// A custom text message that will be added to the email sent.
 	TExtraMessage string `json:"tExtraMessage"`
 }
+
+type _EzsignfolderSendV1Request EzsignfolderSendV1Request
 
 // NewEzsignfolderSendV1Request instantiates a new EzsignfolderSendV1Request object
 // This constructor will assign default values to properties that have it defined,
@@ -78,6 +82,43 @@ func (o EzsignfolderSendV1Request) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["tExtraMessage"] = o.TExtraMessage
 	return toSerialize, nil
+}
+
+func (o *EzsignfolderSendV1Request) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"tExtraMessage",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignfolderSendV1Request := _EzsignfolderSendV1Request{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignfolderSendV1Request)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignfolderSendV1Request(varEzsignfolderSendV1Request)
+
+	return err
 }
 
 type NullableEzsignfolderSendV1Request struct {

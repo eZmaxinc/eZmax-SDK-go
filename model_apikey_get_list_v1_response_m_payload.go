@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ApikeyGetListV1ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -26,6 +28,8 @@ type ApikeyGetListV1ResponseMPayload struct {
 	IRowFiltered int32 `json:"iRowFiltered"`
 	AObjApikey []ApikeyListElement `json:"a_objApikey"`
 }
+
+type _ApikeyGetListV1ResponseMPayload ApikeyGetListV1ResponseMPayload
 
 // NewApikeyGetListV1ResponseMPayload instantiates a new ApikeyGetListV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -133,6 +137,45 @@ func (o ApikeyGetListV1ResponseMPayload) ToMap() (map[string]interface{}, error)
 	toSerialize["iRowFiltered"] = o.IRowFiltered
 	toSerialize["a_objApikey"] = o.AObjApikey
 	return toSerialize, nil
+}
+
+func (o *ApikeyGetListV1ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"iRowReturned",
+		"iRowFiltered",
+		"a_objApikey",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varApikeyGetListV1ResponseMPayload := _ApikeyGetListV1ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varApikeyGetListV1ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ApikeyGetListV1ResponseMPayload(varApikeyGetListV1ResponseMPayload)
+
+	return err
 }
 
 type NullableApikeyGetListV1ResponseMPayload struct {

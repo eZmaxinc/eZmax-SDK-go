@@ -13,6 +13,8 @@ Method | HTTP request | Description
 [**EzsignfolderDisposeV1**](ObjectEzsignfolderAPI.md#EzsignfolderDisposeV1) | **Post** /1/object/ezsignfolder/{pkiEzsignfolderID}/dispose | Dispose the Ezsignfolder
 [**EzsignfolderEditObjectV1**](ObjectEzsignfolderAPI.md#EzsignfolderEditObjectV1) | **Put** /1/object/ezsignfolder/{pkiEzsignfolderID} | Edit an existing Ezsignfolder
 [**EzsignfolderGetActionableElementsV1**](ObjectEzsignfolderAPI.md#EzsignfolderGetActionableElementsV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getActionableElements | Retrieve actionable elements for the Ezsignfolder
+[**EzsignfolderGetAttachmentCountV1**](ObjectEzsignfolderAPI.md#EzsignfolderGetAttachmentCountV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getAttachmentCount | Retrieve Attachment count
+[**EzsignfolderGetAttachmentsV1**](ObjectEzsignfolderAPI.md#EzsignfolderGetAttachmentsV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getAttachments | Retrieve Ezsignfolder&#39;s Attachments
 [**EzsignfolderGetCommunicationCountV1**](ObjectEzsignfolderAPI.md#EzsignfolderGetCommunicationCountV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getCommunicationCount | Retrieve Communication count
 [**EzsignfolderGetCommunicationListV1**](ObjectEzsignfolderAPI.md#EzsignfolderGetCommunicationListV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getCommunicationList | Retrieve Communication list
 [**EzsignfolderGetCommunicationrecipientsV1**](ObjectEzsignfolderAPI.md#EzsignfolderGetCommunicationrecipientsV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getCommunicationrecipients | Retrieve Ezsignfolder&#39;s Communicationrecipient
@@ -48,25 +50,25 @@ Archive the Ezsignfolder
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignfolderID := int32(56) // int32 | 
-    body := map[string]interface{}{ ... } // map[string]interface{} | 
+	pkiEzsignfolderID := int32(56) // int32 | 
+	body := map[string]interface{}{ ... } // map[string]interface{} | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderArchiveV1(context.Background(), pkiEzsignfolderID).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderArchiveV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfolderArchiveV1`: EzsignfolderArchiveV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderArchiveV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderArchiveV1(context.Background(), pkiEzsignfolderID).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderArchiveV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderArchiveV1`: EzsignfolderArchiveV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderArchiveV1`: %v\n", resp)
 }
 ```
 
@@ -118,25 +120,25 @@ Download multiples files from an Ezsignfolder
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignfolderID := int32(56) // int32 | 
-    ezsignfolderBatchDownloadV1Request := *openapiclient.NewEzsignfolderBatchDownloadV1Request([]int32{int32(97)}, []string{"AEDocumentType_example"}) // EzsignfolderBatchDownloadV1Request | 
+	pkiEzsignfolderID := int32(56) // int32 | 
+	ezsignfolderBatchDownloadV1Request := *openapiclient.NewEzsignfolderBatchDownloadV1Request([]int32{int32(97)}, []string{"AEDocumentType_example"}) // EzsignfolderBatchDownloadV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderBatchDownloadV1(context.Background(), pkiEzsignfolderID).EzsignfolderBatchDownloadV1Request(ezsignfolderBatchDownloadV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderBatchDownloadV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfolderBatchDownloadV1`: *os.File
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderBatchDownloadV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderBatchDownloadV1(context.Background(), pkiEzsignfolderID).EzsignfolderBatchDownloadV1Request(ezsignfolderBatchDownloadV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderBatchDownloadV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderBatchDownloadV1`: *os.File
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderBatchDownloadV1`: %v\n", resp)
 }
 ```
 
@@ -190,24 +192,24 @@ Create a new Ezsignfolder
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    ezsignfolderCreateObjectV1Request := []openapiclient.EzsignfolderCreateObjectV1Request{*openapiclient.NewEzsignfolderCreateObjectV1Request()} // []EzsignfolderCreateObjectV1Request | 
+	ezsignfolderCreateObjectV1Request := []openapiclient.EzsignfolderCreateObjectV1Request{*openapiclient.NewEzsignfolderCreateObjectV1Request()} // []EzsignfolderCreateObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderCreateObjectV1(context.Background()).EzsignfolderCreateObjectV1Request(ezsignfolderCreateObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderCreateObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfolderCreateObjectV1`: EzsignfolderCreateObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderCreateObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderCreateObjectV1(context.Background()).EzsignfolderCreateObjectV1Request(ezsignfolderCreateObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderCreateObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderCreateObjectV1`: EzsignfolderCreateObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderCreateObjectV1`: %v\n", resp)
 }
 ```
 
@@ -256,24 +258,24 @@ Create a new Ezsignfolder
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    ezsignfolderCreateObjectV2Request := *openapiclient.NewEzsignfolderCreateObjectV2Request([]openapiclient.EzsignfolderRequestCompound{*openapiclient.NewEzsignfolderRequestCompound(int32(5), "Test eZsign Folder", openapiclient.Field-eEzsignfolderSendreminderfrequency("None"))}) // EzsignfolderCreateObjectV2Request | 
+	ezsignfolderCreateObjectV2Request := *openapiclient.NewEzsignfolderCreateObjectV2Request([]openapiclient.EzsignfolderRequestCompound{*openapiclient.NewEzsignfolderRequestCompound(int32(5), "Test eZsign Folder", openapiclient.Field-eEzsignfolderSendreminderfrequency("None"))}) // EzsignfolderCreateObjectV2Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderCreateObjectV2(context.Background()).EzsignfolderCreateObjectV2Request(ezsignfolderCreateObjectV2Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderCreateObjectV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfolderCreateObjectV2`: EzsignfolderCreateObjectV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderCreateObjectV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderCreateObjectV2(context.Background()).EzsignfolderCreateObjectV2Request(ezsignfolderCreateObjectV2Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderCreateObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderCreateObjectV2`: EzsignfolderCreateObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderCreateObjectV2`: %v\n", resp)
 }
 ```
 
@@ -320,24 +322,24 @@ Delete an existing Ezsignfolder
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignfolderID := int32(56) // int32 | 
+	pkiEzsignfolderID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderDeleteObjectV1(context.Background(), pkiEzsignfolderID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderDeleteObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfolderDeleteObjectV1`: EzsignfolderDeleteObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderDeleteObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderDeleteObjectV1(context.Background(), pkiEzsignfolderID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderDeleteObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderDeleteObjectV1`: EzsignfolderDeleteObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderDeleteObjectV1`: %v\n", resp)
 }
 ```
 
@@ -390,24 +392,24 @@ Dispose Ezsignfolders
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    ezsignfolderDisposeEzsignfoldersV1Request := *openapiclient.NewEzsignfolderDisposeEzsignfoldersV1Request([]int32{int32(33)}) // EzsignfolderDisposeEzsignfoldersV1Request | 
+	ezsignfolderDisposeEzsignfoldersV1Request := *openapiclient.NewEzsignfolderDisposeEzsignfoldersV1Request([]int32{int32(33)}) // EzsignfolderDisposeEzsignfoldersV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderDisposeEzsignfoldersV1(context.Background()).EzsignfolderDisposeEzsignfoldersV1Request(ezsignfolderDisposeEzsignfoldersV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderDisposeEzsignfoldersV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfolderDisposeEzsignfoldersV1`: EzsignfolderDisposeEzsignfoldersV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderDisposeEzsignfoldersV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderDisposeEzsignfoldersV1(context.Background()).EzsignfolderDisposeEzsignfoldersV1Request(ezsignfolderDisposeEzsignfoldersV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderDisposeEzsignfoldersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderDisposeEzsignfoldersV1`: EzsignfolderDisposeEzsignfoldersV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderDisposeEzsignfoldersV1`: %v\n", resp)
 }
 ```
 
@@ -456,25 +458,25 @@ Dispose the Ezsignfolder
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignfolderID := int32(56) // int32 | 
-    body := map[string]interface{}{ ... } // map[string]interface{} | 
+	pkiEzsignfolderID := int32(56) // int32 | 
+	body := map[string]interface{}{ ... } // map[string]interface{} | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderDisposeV1(context.Background(), pkiEzsignfolderID).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderDisposeV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfolderDisposeV1`: EzsignfolderDisposeV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderDisposeV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderDisposeV1(context.Background(), pkiEzsignfolderID).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderDisposeV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderDisposeV1`: EzsignfolderDisposeV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderDisposeV1`: %v\n", resp)
 }
 ```
 
@@ -528,25 +530,25 @@ Edit an existing Ezsignfolder
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignfolderID := int32(56) // int32 | 
-    ezsignfolderEditObjectV1Request := *openapiclient.NewEzsignfolderEditObjectV1Request(*openapiclient.NewEzsignfolderRequestCompound(int32(5), "Test eZsign Folder", openapiclient.Field-eEzsignfolderSendreminderfrequency("None"))) // EzsignfolderEditObjectV1Request | 
+	pkiEzsignfolderID := int32(56) // int32 | 
+	ezsignfolderEditObjectV1Request := *openapiclient.NewEzsignfolderEditObjectV1Request(*openapiclient.NewEzsignfolderRequestCompound(int32(5), "Test eZsign Folder", openapiclient.Field-eEzsignfolderSendreminderfrequency("None"))) // EzsignfolderEditObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderEditObjectV1(context.Background(), pkiEzsignfolderID).EzsignfolderEditObjectV1Request(ezsignfolderEditObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderEditObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfolderEditObjectV1`: EzsignfolderEditObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderEditObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderEditObjectV1(context.Background(), pkiEzsignfolderID).EzsignfolderEditObjectV1Request(ezsignfolderEditObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderEditObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderEditObjectV1`: EzsignfolderEditObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderEditObjectV1`: %v\n", resp)
 }
 ```
 
@@ -600,24 +602,24 @@ Retrieve actionable elements for the Ezsignfolder
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignfolderID := int32(56) // int32 | 
+	pkiEzsignfolderID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetActionableElementsV1(context.Background(), pkiEzsignfolderID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderGetActionableElementsV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfolderGetActionableElementsV1`: EzsignfolderGetActionableElementsV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderGetActionableElementsV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetActionableElementsV1(context.Background(), pkiEzsignfolderID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderGetActionableElementsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderGetActionableElementsV1`: EzsignfolderGetActionableElementsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderGetActionableElementsV1`: %v\n", resp)
 }
 ```
 
@@ -656,6 +658,146 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## EzsignfolderGetAttachmentCountV1
+
+> EzsignfolderGetAttachmentCountV1Response EzsignfolderGetAttachmentCountV1(ctx, pkiEzsignfolderID).Execute()
+
+Retrieve Attachment count
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsignfolderID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetAttachmentCountV1(context.Background(), pkiEzsignfolderID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderGetAttachmentCountV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderGetAttachmentCountV1`: EzsignfolderGetAttachmentCountV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderGetAttachmentCountV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsignfolderID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsignfolderGetAttachmentCountV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**EzsignfolderGetAttachmentCountV1Response**](EzsignfolderGetAttachmentCountV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsignfolderGetAttachmentsV1
+
+> EzsignfolderGetAttachmentsV1Response EzsignfolderGetAttachmentsV1(ctx, pkiEzsignfolderID).Execute()
+
+Retrieve Ezsignfolder's Attachments
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsignfolderID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetAttachmentsV1(context.Background(), pkiEzsignfolderID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderGetAttachmentsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderGetAttachmentsV1`: EzsignfolderGetAttachmentsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderGetAttachmentsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsignfolderID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsignfolderGetAttachmentsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**EzsignfolderGetAttachmentsV1Response**](EzsignfolderGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## EzsignfolderGetCommunicationCountV1
 
 > EzsignfolderGetCommunicationCountV1Response EzsignfolderGetCommunicationCountV1(ctx, pkiEzsignfolderID).Execute()
@@ -670,24 +812,24 @@ Retrieve Communication count
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignfolderID := int32(56) // int32 | 
+	pkiEzsignfolderID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetCommunicationCountV1(context.Background(), pkiEzsignfolderID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderGetCommunicationCountV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfolderGetCommunicationCountV1`: EzsignfolderGetCommunicationCountV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderGetCommunicationCountV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetCommunicationCountV1(context.Background(), pkiEzsignfolderID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderGetCommunicationCountV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderGetCommunicationCountV1`: EzsignfolderGetCommunicationCountV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderGetCommunicationCountV1`: %v\n", resp)
 }
 ```
 
@@ -740,24 +882,24 @@ Retrieve Communication list
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignfolderID := int32(56) // int32 | 
+	pkiEzsignfolderID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetCommunicationListV1(context.Background(), pkiEzsignfolderID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderGetCommunicationListV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfolderGetCommunicationListV1`: EzsignfolderGetCommunicationListV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderGetCommunicationListV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetCommunicationListV1(context.Background(), pkiEzsignfolderID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderGetCommunicationListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderGetCommunicationListV1`: EzsignfolderGetCommunicationListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderGetCommunicationListV1`: %v\n", resp)
 }
 ```
 
@@ -810,24 +952,24 @@ Retrieve Ezsignfolder's Communicationrecipient
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignfolderID := int32(56) // int32 | 
+	pkiEzsignfolderID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetCommunicationrecipientsV1(context.Background(), pkiEzsignfolderID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderGetCommunicationrecipientsV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfolderGetCommunicationrecipientsV1`: EzsignfolderGetCommunicationrecipientsV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderGetCommunicationrecipientsV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetCommunicationrecipientsV1(context.Background(), pkiEzsignfolderID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderGetCommunicationrecipientsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderGetCommunicationrecipientsV1`: EzsignfolderGetCommunicationrecipientsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderGetCommunicationrecipientsV1`: %v\n", resp)
 }
 ```
 
@@ -880,24 +1022,24 @@ Retrieve Ezsignfolder's Communicationsender
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignfolderID := int32(56) // int32 | 
+	pkiEzsignfolderID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetCommunicationsendersV1(context.Background(), pkiEzsignfolderID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderGetCommunicationsendersV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfolderGetCommunicationsendersV1`: EzsignfolderGetCommunicationsendersV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderGetCommunicationsendersV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetCommunicationsendersV1(context.Background(), pkiEzsignfolderID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderGetCommunicationsendersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderGetCommunicationsendersV1`: EzsignfolderGetCommunicationsendersV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderGetCommunicationsendersV1`: %v\n", resp)
 }
 ```
 
@@ -950,24 +1092,24 @@ Retrieve an existing Ezsignfolder's Ezsigndocuments
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignfolderID := int32(56) // int32 | 
+	pkiEzsignfolderID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetEzsigndocumentsV1(context.Background(), pkiEzsignfolderID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderGetEzsigndocumentsV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfolderGetEzsigndocumentsV1`: EzsignfolderGetEzsigndocumentsV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderGetEzsigndocumentsV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetEzsigndocumentsV1(context.Background(), pkiEzsignfolderID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderGetEzsigndocumentsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderGetEzsigndocumentsV1`: EzsignfolderGetEzsigndocumentsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderGetEzsigndocumentsV1`: %v\n", resp)
 }
 ```
 
@@ -1020,24 +1162,24 @@ Retrieve an existing Ezsignfolder's Ezsignfoldersignerassociations
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignfolderID := int32(56) // int32 | 
+	pkiEzsignfolderID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetEzsignfoldersignerassociationsV1(context.Background(), pkiEzsignfolderID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderGetEzsignfoldersignerassociationsV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfolderGetEzsignfoldersignerassociationsV1`: EzsignfolderGetEzsignfoldersignerassociationsV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderGetEzsignfoldersignerassociationsV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetEzsignfoldersignerassociationsV1(context.Background(), pkiEzsignfolderID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderGetEzsignfoldersignerassociationsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderGetEzsignfoldersignerassociationsV1`: EzsignfolderGetEzsignfoldersignerassociationsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderGetEzsignfoldersignerassociationsV1`: %v\n", resp)
 }
 ```
 
@@ -1090,24 +1232,24 @@ Retrieve an existing Ezsignfolder's automatic Ezsignsignatures
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignfolderID := int32(56) // int32 | 
+	pkiEzsignfolderID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetEzsignsignaturesAutomaticV1(context.Background(), pkiEzsignfolderID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderGetEzsignsignaturesAutomaticV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfolderGetEzsignsignaturesAutomaticV1`: EzsignfolderGetEzsignsignaturesAutomaticV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderGetEzsignsignaturesAutomaticV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetEzsignsignaturesAutomaticV1(context.Background(), pkiEzsignfolderID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderGetEzsignsignaturesAutomaticV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderGetEzsignsignaturesAutomaticV1`: EzsignfolderGetEzsignsignaturesAutomaticV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderGetEzsignsignaturesAutomaticV1`: %v\n", resp)
 }
 ```
 
@@ -1160,24 +1302,24 @@ Retrieve an existing Ezsignfolder's forms data
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignfolderID := int32(56) // int32 | 
+	pkiEzsignfolderID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetFormsDataV1(context.Background(), pkiEzsignfolderID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderGetFormsDataV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfolderGetFormsDataV1`: EzsignfolderGetFormsDataV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderGetFormsDataV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetFormsDataV1(context.Background(), pkiEzsignfolderID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderGetFormsDataV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderGetFormsDataV1`: EzsignfolderGetFormsDataV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderGetFormsDataV1`: %v\n", resp)
 }
 ```
 
@@ -1230,28 +1372,28 @@ Retrieve Ezsignfolder list
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
-    iRowMax := int32(56) // int32 |  (optional)
-    iRowOffset := int32(56) // int32 |  (optional) (default to 0)
-    acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
-    sFilter := "sFilter_example" // string |  (optional)
+	eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
+	iRowMax := int32(56) // int32 |  (optional)
+	iRowOffset := int32(56) // int32 |  (optional) (default to 0)
+	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
+	sFilter := "sFilter_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderGetListV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfolderGetListV1`: EzsignfolderGetListV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderGetListV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderGetListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderGetListV1`: EzsignfolderGetListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderGetListV1`: %v\n", resp)
 }
 ```
 
@@ -1302,24 +1444,24 @@ Retrieve an existing Ezsignfolder
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignfolderID := int32(56) // int32 | 
+	pkiEzsignfolderID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetObjectV1(context.Background(), pkiEzsignfolderID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderGetObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfolderGetObjectV1`: EzsignfolderGetObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderGetObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetObjectV1(context.Background(), pkiEzsignfolderID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderGetObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderGetObjectV1`: EzsignfolderGetObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderGetObjectV1`: %v\n", resp)
 }
 ```
 
@@ -1372,24 +1514,24 @@ Retrieve an existing Ezsignfolder
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignfolderID := int32(56) // int32 | 
+	pkiEzsignfolderID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetObjectV2(context.Background(), pkiEzsignfolderID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderGetObjectV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfolderGetObjectV2`: EzsignfolderGetObjectV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderGetObjectV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetObjectV2(context.Background(), pkiEzsignfolderID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderGetObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderGetObjectV2`: EzsignfolderGetObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderGetObjectV2`: %v\n", resp)
 }
 ```
 
@@ -1442,25 +1584,25 @@ Import an existing Ezsignfoldersignerassociation into this Ezsignfolder
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignfolderID := int32(56) // int32 | 
-    ezsignfolderImportEzsignfoldersignerassociationsV1Request := *openapiclient.NewEzsignfolderImportEzsignfoldersignerassociationsV1Request([]int32{int32(20)}) // EzsignfolderImportEzsignfoldersignerassociationsV1Request | 
+	pkiEzsignfolderID := int32(56) // int32 | 
+	ezsignfolderImportEzsignfoldersignerassociationsV1Request := *openapiclient.NewEzsignfolderImportEzsignfoldersignerassociationsV1Request([]int32{int32(20)}) // EzsignfolderImportEzsignfoldersignerassociationsV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderImportEzsignfoldersignerassociationsV1(context.Background(), pkiEzsignfolderID).EzsignfolderImportEzsignfoldersignerassociationsV1Request(ezsignfolderImportEzsignfoldersignerassociationsV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderImportEzsignfoldersignerassociationsV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfolderImportEzsignfoldersignerassociationsV1`: EzsignfolderImportEzsignfoldersignerassociationsV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderImportEzsignfoldersignerassociationsV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderImportEzsignfoldersignerassociationsV1(context.Background(), pkiEzsignfolderID).EzsignfolderImportEzsignfoldersignerassociationsV1Request(ezsignfolderImportEzsignfoldersignerassociationsV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderImportEzsignfoldersignerassociationsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderImportEzsignfoldersignerassociationsV1`: EzsignfolderImportEzsignfoldersignerassociationsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderImportEzsignfoldersignerassociationsV1`: %v\n", resp)
 }
 ```
 
@@ -1514,25 +1656,25 @@ Import an Ezsigntemplatepackage in the Ezsignfolder.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignfolderID := int32(56) // int32 | 
-    ezsignfolderImportEzsigntemplatepackageV1Request := *openapiclient.NewEzsignfolderImportEzsigntemplatepackageV1Request(int32(99), "2020-12-31 23:59:59", []openapiclient.CustomImportEzsigntemplatepackageRelationRequest{*openapiclient.NewCustomImportEzsigntemplatepackageRelationRequest(int32(20))}) // EzsignfolderImportEzsigntemplatepackageV1Request | 
+	pkiEzsignfolderID := int32(56) // int32 | 
+	ezsignfolderImportEzsigntemplatepackageV1Request := *openapiclient.NewEzsignfolderImportEzsigntemplatepackageV1Request(int32(99), "2020-12-31 23:59:59", []openapiclient.CustomImportEzsigntemplatepackageRelationRequest{*openapiclient.NewCustomImportEzsigntemplatepackageRelationRequest(int32(20))}) // EzsignfolderImportEzsigntemplatepackageV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderImportEzsigntemplatepackageV1(context.Background(), pkiEzsignfolderID).EzsignfolderImportEzsigntemplatepackageV1Request(ezsignfolderImportEzsigntemplatepackageV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderImportEzsigntemplatepackageV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfolderImportEzsigntemplatepackageV1`: EzsignfolderImportEzsigntemplatepackageV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderImportEzsigntemplatepackageV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderImportEzsigntemplatepackageV1(context.Background(), pkiEzsignfolderID).EzsignfolderImportEzsigntemplatepackageV1Request(ezsignfolderImportEzsigntemplatepackageV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderImportEzsigntemplatepackageV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderImportEzsigntemplatepackageV1`: EzsignfolderImportEzsigntemplatepackageV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderImportEzsigntemplatepackageV1`: %v\n", resp)
 }
 ```
 
@@ -1584,25 +1726,25 @@ Reorder Ezsigndocuments in the Ezsignfolder
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignfolderID := int32(56) // int32 | 
-    ezsignfolderReorderV1Request := *openapiclient.NewEzsignfolderReorderV1Request([]int32{int32(97)}) // EzsignfolderReorderV1Request | 
+	pkiEzsignfolderID := int32(56) // int32 | 
+	ezsignfolderReorderV1Request := *openapiclient.NewEzsignfolderReorderV1Request([]int32{int32(97)}) // EzsignfolderReorderV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderReorderV1(context.Background(), pkiEzsignfolderID).EzsignfolderReorderV1Request(ezsignfolderReorderV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderReorderV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfolderReorderV1`: EzsignfolderReorderV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderReorderV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderReorderV1(context.Background(), pkiEzsignfolderID).EzsignfolderReorderV1Request(ezsignfolderReorderV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderReorderV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderReorderV1`: EzsignfolderReorderV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderReorderV1`: %v\n", resp)
 }
 ```
 
@@ -1656,15 +1798,15 @@ Send the Ezsignfolder to the signatories for signature
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignfolderID := int32(56) // int32 | 
-    ezsignfolderSendV1Request := *openapiclient.NewEzsignfolderSendV1Request("Hi John,
+	pkiEzsignfolderID := int32(56) // int32 | 
+	ezsignfolderSendV1Request := *openapiclient.NewEzsignfolderSendV1Request("Hi John,
 
 This is the document I need you to review.
 
@@ -1674,15 +1816,15 @@ Best Regards.
 
 Mary") // EzsignfolderSendV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderSendV1(context.Background(), pkiEzsignfolderID).EzsignfolderSendV1Request(ezsignfolderSendV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderSendV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfolderSendV1`: EzsignfolderSendV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderSendV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderSendV1(context.Background(), pkiEzsignfolderID).EzsignfolderSendV1Request(ezsignfolderSendV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderSendV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderSendV1`: EzsignfolderSendV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderSendV1`: %v\n", resp)
 }
 ```
 
@@ -1736,15 +1878,15 @@ Send the Ezsignfolder to the signatories for signature
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignfolderID := int32(56) // int32 | 
-    ezsignfolderSendV2Request := *openapiclient.NewEzsignfolderSendV2Request("Hi everyone,
+	pkiEzsignfolderID := int32(56) // int32 | 
+	ezsignfolderSendV2Request := *openapiclient.NewEzsignfolderSendV2Request("Hi everyone,
 
 This is the document I need you to review.
 
@@ -1754,15 +1896,15 @@ Best Regards.
 
 Mary", []int32{int32(20)}, []openapiclient.CustomEzsignfoldersignerassociationmessageRequest{*openapiclient.NewCustomEzsignfoldersignerassociationmessageRequest(int32(20))}) // EzsignfolderSendV2Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderSendV2(context.Background(), pkiEzsignfolderID).EzsignfolderSendV2Request(ezsignfolderSendV2Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderSendV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfolderSendV2`: EzsignfolderSendV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderSendV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderSendV2(context.Background(), pkiEzsignfolderID).EzsignfolderSendV2Request(ezsignfolderSendV2Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderSendV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderSendV2`: EzsignfolderSendV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderSendV2`: %v\n", resp)
 }
 ```
 
@@ -1816,25 +1958,25 @@ Send the Ezsignfolder to the signatories for signature
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignfolderID := int32(56) // int32 | 
-    ezsignfolderSendV3Request := *openapiclient.NewEzsignfolderSendV3Request([]int32{int32(20)}) // EzsignfolderSendV3Request | 
+	pkiEzsignfolderID := int32(56) // int32 | 
+	ezsignfolderSendV3Request := *openapiclient.NewEzsignfolderSendV3Request([]int32{int32(20)}) // EzsignfolderSendV3Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderSendV3(context.Background(), pkiEzsignfolderID).EzsignfolderSendV3Request(ezsignfolderSendV3Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderSendV3``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfolderSendV3`: EzsignfolderSendV3Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderSendV3`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderSendV3(context.Background(), pkiEzsignfolderID).EzsignfolderSendV3Request(ezsignfolderSendV3Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderSendV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderSendV3`: EzsignfolderSendV3Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderSendV3`: %v\n", resp)
 }
 ```
 
@@ -1888,25 +2030,25 @@ Unsend the Ezsignfolder
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignfolderID := int32(56) // int32 | 
-    body := map[string]interface{}{ ... } // map[string]interface{} | 
+	pkiEzsignfolderID := int32(56) // int32 | 
+	body := map[string]interface{}{ ... } // map[string]interface{} | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderUnsendV1(context.Background(), pkiEzsignfolderID).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderUnsendV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignfolderUnsendV1`: EzsignfolderUnsendV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderUnsendV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderUnsendV1(context.Background(), pkiEzsignfolderID).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderUnsendV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderUnsendV1`: EzsignfolderUnsendV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderUnsendV1`: %v\n", resp)
 }
 ```
 

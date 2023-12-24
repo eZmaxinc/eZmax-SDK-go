@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzmaxinvoicingGetAutocompleteV2ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -23,6 +25,8 @@ type EzmaxinvoicingGetAutocompleteV2ResponseMPayload struct {
 	// An array of Ezmaxinvoicing autocomplete element response.
 	AObjEzmaxinvoicing []EzmaxinvoicingAutocompleteElementResponse `json:"a_objEzmaxinvoicing"`
 }
+
+type _EzmaxinvoicingGetAutocompleteV2ResponseMPayload EzmaxinvoicingGetAutocompleteV2ResponseMPayload
 
 // NewEzmaxinvoicingGetAutocompleteV2ResponseMPayload instantiates a new EzmaxinvoicingGetAutocompleteV2ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -78,6 +82,43 @@ func (o EzmaxinvoicingGetAutocompleteV2ResponseMPayload) ToMap() (map[string]int
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_objEzmaxinvoicing"] = o.AObjEzmaxinvoicing
 	return toSerialize, nil
+}
+
+func (o *EzmaxinvoicingGetAutocompleteV2ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"a_objEzmaxinvoicing",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzmaxinvoicingGetAutocompleteV2ResponseMPayload := _EzmaxinvoicingGetAutocompleteV2ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzmaxinvoicingGetAutocompleteV2ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzmaxinvoicingGetAutocompleteV2ResponseMPayload(varEzmaxinvoicingGetAutocompleteV2ResponseMPayload)
+
+	return err
 }
 
 type NullableEzmaxinvoicingGetAutocompleteV2ResponseMPayload struct {

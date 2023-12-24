@@ -23,23 +23,23 @@ Suggest signers
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ModuleEzsignAPI.EzsignSuggestSignersV1(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ModuleEzsignAPI.EzsignSuggestSignersV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignSuggestSignersV1`: EzsignSuggestSignersV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ModuleEzsignAPI.EzsignSuggestSignersV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ModuleEzsignAPI.EzsignSuggestSignersV1(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ModuleEzsignAPI.EzsignSuggestSignersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignSuggestSignersV1`: EzsignSuggestSignersV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ModuleEzsignAPI.EzsignSuggestSignersV1`: %v\n", resp)
 }
 ```
 
@@ -84,24 +84,24 @@ Suggest templates
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    fkiEzsignfoldertypeID := int32(56) // int32 |  (optional)
+	fkiEzsignfoldertypeID := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ModuleEzsignAPI.EzsignSuggestTemplatesV1(context.Background()).FkiEzsignfoldertypeID(fkiEzsignfoldertypeID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ModuleEzsignAPI.EzsignSuggestTemplatesV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignSuggestTemplatesV1`: EzsignSuggestTemplatesV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ModuleEzsignAPI.EzsignSuggestTemplatesV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ModuleEzsignAPI.EzsignSuggestTemplatesV1(context.Background()).FkiEzsignfoldertypeID(fkiEzsignfoldertypeID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ModuleEzsignAPI.EzsignSuggestTemplatesV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignSuggestTemplatesV1`: EzsignSuggestTemplatesV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ModuleEzsignAPI.EzsignSuggestTemplatesV1`: %v\n", resp)
 }
 ```
 

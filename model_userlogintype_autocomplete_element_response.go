@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the UserlogintypeAutocompleteElementResponse type satisfies the MappedNullable interface at compile time
@@ -27,6 +29,8 @@ type UserlogintypeAutocompleteElementResponse struct {
 	// Whether the Userlogintype is active or not
 	BUserlogintypeIsactive bool `json:"bUserlogintypeIsactive"`
 }
+
+type _UserlogintypeAutocompleteElementResponse UserlogintypeAutocompleteElementResponse
 
 // NewUserlogintypeAutocompleteElementResponse instantiates a new UserlogintypeAutocompleteElementResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -134,6 +138,45 @@ func (o UserlogintypeAutocompleteElementResponse) ToMap() (map[string]interface{
 	toSerialize["sUserlogintypeDescriptionX"] = o.SUserlogintypeDescriptionX
 	toSerialize["bUserlogintypeIsactive"] = o.BUserlogintypeIsactive
 	return toSerialize, nil
+}
+
+func (o *UserlogintypeAutocompleteElementResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiUserlogintypeID",
+		"sUserlogintypeDescriptionX",
+		"bUserlogintypeIsactive",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varUserlogintypeAutocompleteElementResponse := _UserlogintypeAutocompleteElementResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varUserlogintypeAutocompleteElementResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UserlogintypeAutocompleteElementResponse(varUserlogintypeAutocompleteElementResponse)
+
+	return err
 }
 
 type NullableUserlogintypeAutocompleteElementResponse struct {

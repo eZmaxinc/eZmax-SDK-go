@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignfoldersignerassociationRequestCompound type satisfies the MappedNullable interface at compile time
@@ -34,6 +36,8 @@ type EzsignfoldersignerassociationRequestCompound struct {
 	TEzsignfoldersignerassociationMessage *string `json:"tEzsignfoldersignerassociationMessage,omitempty"`
 	ObjEzsignsigner *EzsignsignerRequestCompound `json:"objEzsignsigner,omitempty"`
 }
+
+type _EzsignfoldersignerassociationRequestCompound EzsignfoldersignerassociationRequestCompound
 
 // NewEzsignfoldersignerassociationRequestCompound instantiates a new EzsignfoldersignerassociationRequestCompound object
 // This constructor will assign default values to properties that have it defined,
@@ -299,6 +303,43 @@ func (o EzsignfoldersignerassociationRequestCompound) ToMap() (map[string]interf
 		toSerialize["objEzsignsigner"] = o.ObjEzsignsigner
 	}
 	return toSerialize, nil
+}
+
+func (o *EzsignfoldersignerassociationRequestCompound) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"fkiEzsignfolderID",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignfoldersignerassociationRequestCompound := _EzsignfoldersignerassociationRequestCompound{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignfoldersignerassociationRequestCompound)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignfoldersignerassociationRequestCompound(varEzsignfoldersignerassociationRequestCompound)
+
+	return err
 }
 
 type NullableEzsignfoldersignerassociationRequestCompound struct {

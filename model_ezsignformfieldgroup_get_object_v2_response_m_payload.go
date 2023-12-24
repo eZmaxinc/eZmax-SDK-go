@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignformfieldgroupGetObjectV2ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &EzsignformfieldgroupGetObjectV2ResponseMPayload{}
 type EzsignformfieldgroupGetObjectV2ResponseMPayload struct {
 	ObjEzsignformfieldgroup EzsignformfieldgroupResponseCompound `json:"objEzsignformfieldgroup"`
 }
+
+type _EzsignformfieldgroupGetObjectV2ResponseMPayload EzsignformfieldgroupGetObjectV2ResponseMPayload
 
 // NewEzsignformfieldgroupGetObjectV2ResponseMPayload instantiates a new EzsignformfieldgroupGetObjectV2ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o EzsignformfieldgroupGetObjectV2ResponseMPayload) ToMap() (map[string]int
 	toSerialize := map[string]interface{}{}
 	toSerialize["objEzsignformfieldgroup"] = o.ObjEzsignformfieldgroup
 	return toSerialize, nil
+}
+
+func (o *EzsignformfieldgroupGetObjectV2ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"objEzsignformfieldgroup",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignformfieldgroupGetObjectV2ResponseMPayload := _EzsignformfieldgroupGetObjectV2ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignformfieldgroupGetObjectV2ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignformfieldgroupGetObjectV2ResponseMPayload(varEzsignformfieldgroupGetObjectV2ResponseMPayload)
+
+	return err
 }
 
 type NullableEzsignformfieldgroupGetObjectV2ResponseMPayload struct {

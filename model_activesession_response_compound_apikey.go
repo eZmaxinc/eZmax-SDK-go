@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ActivesessionResponseCompoundApikey type satisfies the MappedNullable interface at compile time
@@ -25,6 +27,8 @@ type ActivesessionResponseCompoundApikey struct {
 	// The description of the Apikey in the language of the requester
 	SApikeyDescriptionX string `json:"sApikeyDescriptionX"`
 }
+
+type _ActivesessionResponseCompoundApikey ActivesessionResponseCompoundApikey
 
 // NewActivesessionResponseCompoundApikey instantiates a new ActivesessionResponseCompoundApikey object
 // This constructor will assign default values to properties that have it defined,
@@ -106,6 +110,44 @@ func (o ActivesessionResponseCompoundApikey) ToMap() (map[string]interface{}, er
 	toSerialize["pkiApikeyID"] = o.PkiApikeyID
 	toSerialize["sApikeyDescriptionX"] = o.SApikeyDescriptionX
 	return toSerialize, nil
+}
+
+func (o *ActivesessionResponseCompoundApikey) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiApikeyID",
+		"sApikeyDescriptionX",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varActivesessionResponseCompoundApikey := _ActivesessionResponseCompoundApikey{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varActivesessionResponseCompoundApikey)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ActivesessionResponseCompoundApikey(varActivesessionResponseCompoundApikey)
+
+	return err
 }
 
 type NullableActivesessionResponseCompoundApikey struct {

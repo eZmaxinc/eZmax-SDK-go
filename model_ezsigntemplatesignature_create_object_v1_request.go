@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigntemplatesignatureCreateObjectV1Request type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &EzsigntemplatesignatureCreateObjectV1Request{}
 type EzsigntemplatesignatureCreateObjectV1Request struct {
 	AObjEzsigntemplatesignature []EzsigntemplatesignatureRequestCompound `json:"a_objEzsigntemplatesignature"`
 }
+
+type _EzsigntemplatesignatureCreateObjectV1Request EzsigntemplatesignatureCreateObjectV1Request
 
 // NewEzsigntemplatesignatureCreateObjectV1Request instantiates a new EzsigntemplatesignatureCreateObjectV1Request object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o EzsigntemplatesignatureCreateObjectV1Request) ToMap() (map[string]interf
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_objEzsigntemplatesignature"] = o.AObjEzsigntemplatesignature
 	return toSerialize, nil
+}
+
+func (o *EzsigntemplatesignatureCreateObjectV1Request) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"a_objEzsigntemplatesignature",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigntemplatesignatureCreateObjectV1Request := _EzsigntemplatesignatureCreateObjectV1Request{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigntemplatesignatureCreateObjectV1Request)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigntemplatesignatureCreateObjectV1Request(varEzsigntemplatesignatureCreateObjectV1Request)
+
+	return err
 }
 
 type NullableEzsigntemplatesignatureCreateObjectV1Request struct {

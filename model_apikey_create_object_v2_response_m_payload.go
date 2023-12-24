@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ApikeyCreateObjectV2ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &ApikeyCreateObjectV2ResponseMPayload{}
 type ApikeyCreateObjectV2ResponseMPayload struct {
 	AObjApikey []ApikeyResponseCompound `json:"a_objApikey"`
 }
+
+type _ApikeyCreateObjectV2ResponseMPayload ApikeyCreateObjectV2ResponseMPayload
 
 // NewApikeyCreateObjectV2ResponseMPayload instantiates a new ApikeyCreateObjectV2ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o ApikeyCreateObjectV2ResponseMPayload) ToMap() (map[string]interface{}, e
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_objApikey"] = o.AObjApikey
 	return toSerialize, nil
+}
+
+func (o *ApikeyCreateObjectV2ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"a_objApikey",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varApikeyCreateObjectV2ResponseMPayload := _ApikeyCreateObjectV2ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varApikeyCreateObjectV2ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ApikeyCreateObjectV2ResponseMPayload(varApikeyCreateObjectV2ResponseMPayload)
+
+	return err
 }
 
 type NullableApikeyCreateObjectV2ResponseMPayload struct {

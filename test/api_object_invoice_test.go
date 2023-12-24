@@ -22,6 +22,20 @@ func Test_eZmaxApi_ObjectInvoiceAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test ObjectInvoiceAPIService InvoiceGetAttachmentsV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiInvoiceID int32
+
+		resp, httpRes, err := apiClient.ObjectInvoiceAPI.InvoiceGetAttachmentsV1(context.Background(), pkiInvoiceID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ObjectInvoiceAPIService InvoiceGetCommunicationListV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

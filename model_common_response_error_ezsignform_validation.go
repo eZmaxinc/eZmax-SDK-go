@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the CommonResponseErrorEzsignformValidation type satisfies the MappedNullable interface at compile time
@@ -26,6 +28,8 @@ type CommonResponseErrorEzsignformValidation struct {
 	// 
 	AObjEzsignformfielderror []CustomEzsignformfielderrorResponse `json:"a_objEzsignformfielderror"`
 }
+
+type _CommonResponseErrorEzsignformValidation CommonResponseErrorEzsignformValidation
 
 // NewCommonResponseErrorEzsignformValidation instantiates a new CommonResponseErrorEzsignformValidation object
 // This constructor will assign default values to properties that have it defined,
@@ -133,6 +137,45 @@ func (o CommonResponseErrorEzsignformValidation) ToMap() (map[string]interface{}
 	toSerialize["eErrorCode"] = o.EErrorCode
 	toSerialize["a_objEzsignformfielderror"] = o.AObjEzsignformfielderror
 	return toSerialize, nil
+}
+
+func (o *CommonResponseErrorEzsignformValidation) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"sErrorMessage",
+		"eErrorCode",
+		"a_objEzsignformfielderror",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varCommonResponseErrorEzsignformValidation := _CommonResponseErrorEzsignformValidation{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varCommonResponseErrorEzsignformValidation)
+
+	if err != nil {
+		return err
+	}
+
+	*o = CommonResponseErrorEzsignformValidation(varCommonResponseErrorEzsignformValidation)
+
+	return err
 }
 
 type NullableCommonResponseErrorEzsignformValidation struct {

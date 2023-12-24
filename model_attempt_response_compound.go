@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the AttemptResponseCompound type satisfies the MappedNullable interface at compile time
@@ -27,6 +29,8 @@ type AttemptResponseCompound struct {
 	// The number of second it took to process the webhook or get an error
 	IAttemptDuration int32 `json:"iAttemptDuration"`
 }
+
+type _AttemptResponseCompound AttemptResponseCompound
 
 // NewAttemptResponseCompound instantiates a new AttemptResponseCompound object
 // This constructor will assign default values to properties that have it defined,
@@ -134,6 +138,45 @@ func (o AttemptResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize["sAttemptResult"] = o.SAttemptResult
 	toSerialize["iAttemptDuration"] = o.IAttemptDuration
 	return toSerialize, nil
+}
+
+func (o *AttemptResponseCompound) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"dtAttemptStart",
+		"sAttemptResult",
+		"iAttemptDuration",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varAttemptResponseCompound := _AttemptResponseCompound{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varAttemptResponseCompound)
+
+	if err != nil {
+		return err
+	}
+
+	*o = AttemptResponseCompound(varAttemptResponseCompound)
+
+	return err
 }
 
 type NullableAttemptResponseCompound struct {

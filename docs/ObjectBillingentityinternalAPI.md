@@ -26,24 +26,24 @@ Create a new Billingentityinternal
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    billingentityinternalCreateObjectV1Request := *openapiclient.NewBillingentityinternalCreateObjectV1Request([]openapiclient.BillingentityinternalRequestCompound{*openapiclient.NewBillingentityinternalRequestCompound(*openapiclient.NewMultilingualBillingentityinternalDescription(), []openapiclient.BillingentityinternalproductRequestCompound{*openapiclient.NewBillingentityinternalproductRequestCompound(int32(172), int32(83))})}) // BillingentityinternalCreateObjectV1Request | 
+	billingentityinternalCreateObjectV1Request := *openapiclient.NewBillingentityinternalCreateObjectV1Request([]openapiclient.BillingentityinternalRequestCompound{*openapiclient.NewBillingentityinternalRequestCompound(*openapiclient.NewMultilingualBillingentityinternalDescription(), []openapiclient.BillingentityinternalproductRequestCompound{*openapiclient.NewBillingentityinternalproductRequestCompound(int32(172), int32(83))})}) // BillingentityinternalCreateObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectBillingentityinternalAPI.BillingentityinternalCreateObjectV1(context.Background()).BillingentityinternalCreateObjectV1Request(billingentityinternalCreateObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectBillingentityinternalAPI.BillingentityinternalCreateObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `BillingentityinternalCreateObjectV1`: BillingentityinternalCreateObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectBillingentityinternalAPI.BillingentityinternalCreateObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectBillingentityinternalAPI.BillingentityinternalCreateObjectV1(context.Background()).BillingentityinternalCreateObjectV1Request(billingentityinternalCreateObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBillingentityinternalAPI.BillingentityinternalCreateObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BillingentityinternalCreateObjectV1`: BillingentityinternalCreateObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectBillingentityinternalAPI.BillingentityinternalCreateObjectV1`: %v\n", resp)
 }
 ```
 
@@ -92,25 +92,25 @@ Edit an existing Billingentityinternal
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiBillingentityinternalID := int32(56) // int32 | 
-    billingentityinternalEditObjectV1Request := *openapiclient.NewBillingentityinternalEditObjectV1Request(*openapiclient.NewBillingentityinternalRequestCompound(*openapiclient.NewMultilingualBillingentityinternalDescription(), []openapiclient.BillingentityinternalproductRequestCompound{*openapiclient.NewBillingentityinternalproductRequestCompound(int32(172), int32(83))})) // BillingentityinternalEditObjectV1Request | 
+	pkiBillingentityinternalID := int32(56) // int32 | 
+	billingentityinternalEditObjectV1Request := *openapiclient.NewBillingentityinternalEditObjectV1Request(*openapiclient.NewBillingentityinternalRequestCompound(*openapiclient.NewMultilingualBillingentityinternalDescription(), []openapiclient.BillingentityinternalproductRequestCompound{*openapiclient.NewBillingentityinternalproductRequestCompound(int32(172), int32(83))})) // BillingentityinternalEditObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectBillingentityinternalAPI.BillingentityinternalEditObjectV1(context.Background(), pkiBillingentityinternalID).BillingentityinternalEditObjectV1Request(billingentityinternalEditObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectBillingentityinternalAPI.BillingentityinternalEditObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `BillingentityinternalEditObjectV1`: BillingentityinternalEditObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectBillingentityinternalAPI.BillingentityinternalEditObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectBillingentityinternalAPI.BillingentityinternalEditObjectV1(context.Background(), pkiBillingentityinternalID).BillingentityinternalEditObjectV1Request(billingentityinternalEditObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBillingentityinternalAPI.BillingentityinternalEditObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BillingentityinternalEditObjectV1`: BillingentityinternalEditObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectBillingentityinternalAPI.BillingentityinternalEditObjectV1`: %v\n", resp)
 }
 ```
 
@@ -164,27 +164,27 @@ Retrieve Billingentityinternals and IDs
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    sSelector := "sSelector_example" // string | The type of Billingentityinternals to return
-    eFilterActive := "eFilterActive_example" // string | Specify which results we want to display. (optional) (default to "Active")
-    sQuery := "sQuery_example" // string | Allow to filter the returned results (optional)
-    acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
+	sSelector := "sSelector_example" // string | The type of Billingentityinternals to return
+	eFilterActive := "eFilterActive_example" // string | Specify which results we want to display. (optional) (default to "Active")
+	sQuery := "sQuery_example" // string | Allow to filter the returned results (optional)
+	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectBillingentityinternalAPI.BillingentityinternalGetAutocompleteV2(context.Background(), sSelector).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectBillingentityinternalAPI.BillingentityinternalGetAutocompleteV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `BillingentityinternalGetAutocompleteV2`: BillingentityinternalGetAutocompleteV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectBillingentityinternalAPI.BillingentityinternalGetAutocompleteV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectBillingentityinternalAPI.BillingentityinternalGetAutocompleteV2(context.Background(), sSelector).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBillingentityinternalAPI.BillingentityinternalGetAutocompleteV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BillingentityinternalGetAutocompleteV2`: BillingentityinternalGetAutocompleteV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectBillingentityinternalAPI.BillingentityinternalGetAutocompleteV2`: %v\n", resp)
 }
 ```
 
@@ -240,28 +240,28 @@ Retrieve Billingentityinternal list
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
-    iRowMax := int32(56) // int32 |  (optional)
-    iRowOffset := int32(56) // int32 |  (optional) (default to 0)
-    acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
-    sFilter := "sFilter_example" // string |  (optional)
+	eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
+	iRowMax := int32(56) // int32 |  (optional)
+	iRowOffset := int32(56) // int32 |  (optional) (default to 0)
+	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
+	sFilter := "sFilter_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectBillingentityinternalAPI.BillingentityinternalGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectBillingentityinternalAPI.BillingentityinternalGetListV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `BillingentityinternalGetListV1`: BillingentityinternalGetListV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectBillingentityinternalAPI.BillingentityinternalGetListV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectBillingentityinternalAPI.BillingentityinternalGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBillingentityinternalAPI.BillingentityinternalGetListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BillingentityinternalGetListV1`: BillingentityinternalGetListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectBillingentityinternalAPI.BillingentityinternalGetListV1`: %v\n", resp)
 }
 ```
 
@@ -314,24 +314,24 @@ Retrieve an existing Billingentityinternal
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiBillingentityinternalID := int32(56) // int32 | 
+	pkiBillingentityinternalID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectBillingentityinternalAPI.BillingentityinternalGetObjectV2(context.Background(), pkiBillingentityinternalID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectBillingentityinternalAPI.BillingentityinternalGetObjectV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `BillingentityinternalGetObjectV2`: BillingentityinternalGetObjectV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectBillingentityinternalAPI.BillingentityinternalGetObjectV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectBillingentityinternalAPI.BillingentityinternalGetObjectV2(context.Background(), pkiBillingentityinternalID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBillingentityinternalAPI.BillingentityinternalGetObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BillingentityinternalGetObjectV2`: BillingentityinternalGetObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectBillingentityinternalAPI.BillingentityinternalGetObjectV2`: %v\n", resp)
 }
 ```
 

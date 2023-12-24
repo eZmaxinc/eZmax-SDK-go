@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignfoldertypeGetListV1ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -27,6 +29,8 @@ type EzsignfoldertypeGetListV1ResponseMPayload struct {
 	// 
 	AObjEzsignfoldertype []EzsignfoldertypeListElement `json:"a_objEzsignfoldertype"`
 }
+
+type _EzsignfoldertypeGetListV1ResponseMPayload EzsignfoldertypeGetListV1ResponseMPayload
 
 // NewEzsignfoldertypeGetListV1ResponseMPayload instantiates a new EzsignfoldertypeGetListV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -134,6 +138,45 @@ func (o EzsignfoldertypeGetListV1ResponseMPayload) ToMap() (map[string]interface
 	toSerialize["iRowFiltered"] = o.IRowFiltered
 	toSerialize["a_objEzsignfoldertype"] = o.AObjEzsignfoldertype
 	return toSerialize, nil
+}
+
+func (o *EzsignfoldertypeGetListV1ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"iRowReturned",
+		"iRowFiltered",
+		"a_objEzsignfoldertype",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignfoldertypeGetListV1ResponseMPayload := _EzsignfoldertypeGetListV1ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignfoldertypeGetListV1ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignfoldertypeGetListV1ResponseMPayload(varEzsignfoldertypeGetListV1ResponseMPayload)
+
+	return err
 }
 
 type NullableEzsignfoldertypeGetListV1ResponseMPayload struct {

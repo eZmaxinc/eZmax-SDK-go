@@ -30,15 +30,15 @@ Create a new Ezsignbulksendtransmission in the Ezsignbulksend
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignbulksendID := int32(56) // int32 | 
-    ezsignbulksendCreateEzsignbulksendtransmissionV1Request := *openapiclient.NewEzsignbulksendCreateEzsignbulksendtransmissionV1Request(int32(2), "Test eZsign Bulk Send Transmission #1", "2020-12-31 23:59:59", openapiclient.Field-eEzsignfolderSendreminderfrequency("None"), "Hi John,
+	pkiEzsignbulksendID := int32(56) // int32 | 
+	ezsignbulksendCreateEzsignbulksendtransmissionV1Request := *openapiclient.NewEzsignbulksendCreateEzsignbulksendtransmissionV1Request(int32(2), "Test eZsign Bulk Send Transmission #1", "2020-12-31 23:59:59", openapiclient.Field-eEzsignfolderSendreminderfrequency("None"), "Hi John,
 
 This is the document I need you to review.
 
@@ -48,15 +48,15 @@ Best Regards.
 
 Mary", string(123)) // EzsignbulksendCreateEzsignbulksendtransmissionV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignbulksendAPI.EzsignbulksendCreateEzsignbulksendtransmissionV1(context.Background(), pkiEzsignbulksendID).EzsignbulksendCreateEzsignbulksendtransmissionV1Request(ezsignbulksendCreateEzsignbulksendtransmissionV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendCreateEzsignbulksendtransmissionV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignbulksendCreateEzsignbulksendtransmissionV1`: EzsignbulksendCreateEzsignbulksendtransmissionV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendCreateEzsignbulksendtransmissionV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignbulksendAPI.EzsignbulksendCreateEzsignbulksendtransmissionV1(context.Background(), pkiEzsignbulksendID).EzsignbulksendCreateEzsignbulksendtransmissionV1Request(ezsignbulksendCreateEzsignbulksendtransmissionV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendCreateEzsignbulksendtransmissionV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignbulksendCreateEzsignbulksendtransmissionV1`: EzsignbulksendCreateEzsignbulksendtransmissionV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendCreateEzsignbulksendtransmissionV1`: %v\n", resp)
 }
 ```
 
@@ -110,24 +110,24 @@ Create a new Ezsignbulksend
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    ezsignbulksendCreateObjectV1Request := *openapiclient.NewEzsignbulksendCreateObjectV1Request([]openapiclient.EzsignbulksendRequestCompound{*openapiclient.NewEzsignbulksendRequestCompound(int32(5), int32(2), "Test eZsign Bulk Send", "This is a note", false, true)}) // EzsignbulksendCreateObjectV1Request | 
+	ezsignbulksendCreateObjectV1Request := *openapiclient.NewEzsignbulksendCreateObjectV1Request([]openapiclient.EzsignbulksendRequestCompound{*openapiclient.NewEzsignbulksendRequestCompound(int32(5), int32(2), "Test eZsign Bulk Send", "This is a note", false, true)}) // EzsignbulksendCreateObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignbulksendAPI.EzsignbulksendCreateObjectV1(context.Background()).EzsignbulksendCreateObjectV1Request(ezsignbulksendCreateObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendCreateObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignbulksendCreateObjectV1`: EzsignbulksendCreateObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendCreateObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignbulksendAPI.EzsignbulksendCreateObjectV1(context.Background()).EzsignbulksendCreateObjectV1Request(ezsignbulksendCreateObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendCreateObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignbulksendCreateObjectV1`: EzsignbulksendCreateObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendCreateObjectV1`: %v\n", resp)
 }
 ```
 
@@ -176,24 +176,24 @@ Delete an existing Ezsignbulksend
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignbulksendID := int32(56) // int32 | 
+	pkiEzsignbulksendID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignbulksendAPI.EzsignbulksendDeleteObjectV1(context.Background(), pkiEzsignbulksendID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendDeleteObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignbulksendDeleteObjectV1`: EzsignbulksendDeleteObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendDeleteObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignbulksendAPI.EzsignbulksendDeleteObjectV1(context.Background(), pkiEzsignbulksendID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendDeleteObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignbulksendDeleteObjectV1`: EzsignbulksendDeleteObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendDeleteObjectV1`: %v\n", resp)
 }
 ```
 
@@ -246,25 +246,25 @@ Edit an existing Ezsignbulksend
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignbulksendID := int32(56) // int32 | 
-    ezsignbulksendEditObjectV1Request := *openapiclient.NewEzsignbulksendEditObjectV1Request(*openapiclient.NewEzsignbulksendRequestCompound(int32(5), int32(2), "Test eZsign Bulk Send", "This is a note", false, true)) // EzsignbulksendEditObjectV1Request | 
+	pkiEzsignbulksendID := int32(56) // int32 | 
+	ezsignbulksendEditObjectV1Request := *openapiclient.NewEzsignbulksendEditObjectV1Request(*openapiclient.NewEzsignbulksendRequestCompound(int32(5), int32(2), "Test eZsign Bulk Send", "This is a note", false, true)) // EzsignbulksendEditObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignbulksendAPI.EzsignbulksendEditObjectV1(context.Background(), pkiEzsignbulksendID).EzsignbulksendEditObjectV1Request(ezsignbulksendEditObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendEditObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignbulksendEditObjectV1`: EzsignbulksendEditObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendEditObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignbulksendAPI.EzsignbulksendEditObjectV1(context.Background(), pkiEzsignbulksendID).EzsignbulksendEditObjectV1Request(ezsignbulksendEditObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendEditObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignbulksendEditObjectV1`: EzsignbulksendEditObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendEditObjectV1`: %v\n", resp)
 }
 ```
 
@@ -318,25 +318,25 @@ Retrieve an existing Ezsignbulksend's empty Csv template
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignbulksendID := int32(56) // int32 | 
-    eCsvSeparator := "eCsvSeparator_example" // string | Separator that will be used to separate fields
+	pkiEzsignbulksendID := int32(56) // int32 | 
+	eCsvSeparator := "eCsvSeparator_example" // string | Separator that will be used to separate fields
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignbulksendAPI.EzsignbulksendGetCsvTemplateV1(context.Background(), pkiEzsignbulksendID).ECsvSeparator(eCsvSeparator).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendGetCsvTemplateV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignbulksendGetCsvTemplateV1`: string
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendGetCsvTemplateV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignbulksendAPI.EzsignbulksendGetCsvTemplateV1(context.Background(), pkiEzsignbulksendID).ECsvSeparator(eCsvSeparator).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendGetCsvTemplateV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignbulksendGetCsvTemplateV1`: string
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendGetCsvTemplateV1`: %v\n", resp)
 }
 ```
 
@@ -390,24 +390,24 @@ Retrieve an existing Ezsignbulksend's Ezsignbulksendtransmissions
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignbulksendID := int32(56) // int32 | 
+	pkiEzsignbulksendID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignbulksendAPI.EzsignbulksendGetEzsignbulksendtransmissionsV1(context.Background(), pkiEzsignbulksendID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendGetEzsignbulksendtransmissionsV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignbulksendGetEzsignbulksendtransmissionsV1`: EzsignbulksendGetEzsignbulksendtransmissionsV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendGetEzsignbulksendtransmissionsV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignbulksendAPI.EzsignbulksendGetEzsignbulksendtransmissionsV1(context.Background(), pkiEzsignbulksendID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendGetEzsignbulksendtransmissionsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignbulksendGetEzsignbulksendtransmissionsV1`: EzsignbulksendGetEzsignbulksendtransmissionsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendGetEzsignbulksendtransmissionsV1`: %v\n", resp)
 }
 ```
 
@@ -460,24 +460,24 @@ Retrieve an existing Ezsignbulksend's automatic Ezsignsignatures
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignbulksendID := int32(56) // int32 | 
+	pkiEzsignbulksendID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignbulksendAPI.EzsignbulksendGetEzsignsignaturesAutomaticV1(context.Background(), pkiEzsignbulksendID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendGetEzsignsignaturesAutomaticV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignbulksendGetEzsignsignaturesAutomaticV1`: EzsignbulksendGetEzsignsignaturesAutomaticV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendGetEzsignsignaturesAutomaticV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignbulksendAPI.EzsignbulksendGetEzsignsignaturesAutomaticV1(context.Background(), pkiEzsignbulksendID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendGetEzsignsignaturesAutomaticV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignbulksendGetEzsignsignaturesAutomaticV1`: EzsignbulksendGetEzsignsignaturesAutomaticV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendGetEzsignsignaturesAutomaticV1`: %v\n", resp)
 }
 ```
 
@@ -530,24 +530,24 @@ Retrieve an existing Ezsignbulksend's forms data
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignbulksendID := int32(56) // int32 | 
+	pkiEzsignbulksendID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignbulksendAPI.EzsignbulksendGetFormsDataV1(context.Background(), pkiEzsignbulksendID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendGetFormsDataV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignbulksendGetFormsDataV1`: EzsignbulksendGetFormsDataV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendGetFormsDataV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignbulksendAPI.EzsignbulksendGetFormsDataV1(context.Background(), pkiEzsignbulksendID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendGetFormsDataV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignbulksendGetFormsDataV1`: EzsignbulksendGetFormsDataV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendGetFormsDataV1`: %v\n", resp)
 }
 ```
 
@@ -600,28 +600,28 @@ Retrieve Ezsignbulksend list
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
-    iRowMax := int32(56) // int32 |  (optional)
-    iRowOffset := int32(56) // int32 |  (optional) (default to 0)
-    acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
-    sFilter := "sFilter_example" // string |  (optional)
+	eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
+	iRowMax := int32(56) // int32 |  (optional)
+	iRowOffset := int32(56) // int32 |  (optional) (default to 0)
+	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
+	sFilter := "sFilter_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignbulksendAPI.EzsignbulksendGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendGetListV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignbulksendGetListV1`: EzsignbulksendGetListV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendGetListV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignbulksendAPI.EzsignbulksendGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendGetListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignbulksendGetListV1`: EzsignbulksendGetListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendGetListV1`: %v\n", resp)
 }
 ```
 
@@ -674,24 +674,24 @@ Retrieve an existing Ezsignbulksend
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignbulksendID := int32(56) // int32 | 
+	pkiEzsignbulksendID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignbulksendAPI.EzsignbulksendGetObjectV2(context.Background(), pkiEzsignbulksendID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendGetObjectV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignbulksendGetObjectV2`: EzsignbulksendGetObjectV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendGetObjectV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignbulksendAPI.EzsignbulksendGetObjectV2(context.Background(), pkiEzsignbulksendID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendGetObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignbulksendGetObjectV2`: EzsignbulksendGetObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendGetObjectV2`: %v\n", resp)
 }
 ```
 
@@ -742,25 +742,25 @@ Reorder Ezsignbulksenddocumentmappings in the Ezsignbulksend
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignbulksendID := int32(56) // int32 | 
-    ezsignbulksendReorderV1Request := *openapiclient.NewEzsignbulksendReorderV1Request([]int32{int32(48)}) // EzsignbulksendReorderV1Request | 
+	pkiEzsignbulksendID := int32(56) // int32 | 
+	ezsignbulksendReorderV1Request := *openapiclient.NewEzsignbulksendReorderV1Request([]int32{int32(48)}) // EzsignbulksendReorderV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignbulksendAPI.EzsignbulksendReorderV1(context.Background(), pkiEzsignbulksendID).EzsignbulksendReorderV1Request(ezsignbulksendReorderV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendReorderV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignbulksendReorderV1`: EzsignbulksendReorderV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendReorderV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignbulksendAPI.EzsignbulksendReorderV1(context.Background(), pkiEzsignbulksendID).EzsignbulksendReorderV1Request(ezsignbulksendReorderV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendReorderV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignbulksendReorderV1`: EzsignbulksendReorderV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendReorderV1`: %v\n", resp)
 }
 ```
 

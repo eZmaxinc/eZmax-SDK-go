@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the UserCreateEzsignuserV1Request type satisfies the MappedNullable interface at compile time
@@ -40,6 +42,8 @@ type UserCreateEzsignuserV1Request struct {
 	// The extension of the phone number.  The extension is the \"123\" section in this sample phone number: (514) 990-1516 x123.  It can also be used with international phone numbers
 	SPhoneExtension *string `json:"sPhoneExtension,omitempty"`
 }
+
+type _UserCreateEzsignuserV1Request UserCreateEzsignuserV1Request
 
 // NewUserCreateEzsignuserV1Request instantiates a new UserCreateEzsignuserV1Request object
 // This constructor will assign default values to properties that have it defined,
@@ -295,6 +299,49 @@ func (o UserCreateEzsignuserV1Request) ToMap() (map[string]interface{}, error) {
 		toSerialize["sPhoneExtension"] = o.SPhoneExtension
 	}
 	return toSerialize, nil
+}
+
+func (o *UserCreateEzsignuserV1Request) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"fkiLanguageID",
+		"sUserFirstname",
+		"sUserLastname",
+		"sEmailAddress",
+		"sPhoneRegion",
+		"sPhoneExchange",
+		"sPhoneNumber",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varUserCreateEzsignuserV1Request := _UserCreateEzsignuserV1Request{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varUserCreateEzsignuserV1Request)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UserCreateEzsignuserV1Request(varUserCreateEzsignuserV1Request)
+
+	return err
 }
 
 type NullableUserCreateEzsignuserV1Request struct {

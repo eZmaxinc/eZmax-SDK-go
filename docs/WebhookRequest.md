@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **SWebhookUrl** | **string** | The URL of the Webhook callback | 
 **SWebhookEmailfailed** | **string** | The email that will receive the Webhook in case all attempts fail | 
 **BWebhookIsactive** | **bool** | Whether the Webhook is active or not | 
+**BWebhookIssigned** | Pointer to **bool** | Whether the requests will be signed or not | [optional] 
 **BWebhookSkipsslvalidation** | **bool** | Wheter the server&#39;s SSL certificate should be validated or not. Not recommended to skip for production use | 
 
 ## Methods
@@ -233,6 +234,31 @@ and a boolean to check if the value has been set.
 
 SetBWebhookIsactive sets BWebhookIsactive field to given value.
 
+
+### GetBWebhookIssigned
+
+`func (o *WebhookRequest) GetBWebhookIssigned() bool`
+
+GetBWebhookIssigned returns the BWebhookIssigned field if non-nil, zero value otherwise.
+
+### GetBWebhookIssignedOk
+
+`func (o *WebhookRequest) GetBWebhookIssignedOk() (*bool, bool)`
+
+GetBWebhookIssignedOk returns a tuple with the BWebhookIssigned field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBWebhookIssigned
+
+`func (o *WebhookRequest) SetBWebhookIssigned(v bool)`
+
+SetBWebhookIssigned sets BWebhookIssigned field to given value.
+
+### HasBWebhookIssigned
+
+`func (o *WebhookRequest) HasBWebhookIssigned() bool`
+
+HasBWebhookIssigned returns a boolean if a field has been set.
 
 ### GetBWebhookSkipsslvalidation
 

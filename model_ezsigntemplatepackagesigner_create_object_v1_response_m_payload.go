@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigntemplatepackagesignerCreateObjectV1ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -23,6 +25,8 @@ type EzsigntemplatepackagesignerCreateObjectV1ResponseMPayload struct {
 	// An array of unique IDs representing the object that were requested to be created.  They are returned in the same order as the array containing the objects to be created that was sent in the request.
 	APkiEzsigntemplatepackagesignerID []int32 `json:"a_pkiEzsigntemplatepackagesignerID"`
 }
+
+type _EzsigntemplatepackagesignerCreateObjectV1ResponseMPayload EzsigntemplatepackagesignerCreateObjectV1ResponseMPayload
 
 // NewEzsigntemplatepackagesignerCreateObjectV1ResponseMPayload instantiates a new EzsigntemplatepackagesignerCreateObjectV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -78,6 +82,43 @@ func (o EzsigntemplatepackagesignerCreateObjectV1ResponseMPayload) ToMap() (map[
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_pkiEzsigntemplatepackagesignerID"] = o.APkiEzsigntemplatepackagesignerID
 	return toSerialize, nil
+}
+
+func (o *EzsigntemplatepackagesignerCreateObjectV1ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"a_pkiEzsigntemplatepackagesignerID",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigntemplatepackagesignerCreateObjectV1ResponseMPayload := _EzsigntemplatepackagesignerCreateObjectV1ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigntemplatepackagesignerCreateObjectV1ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigntemplatepackagesignerCreateObjectV1ResponseMPayload(varEzsigntemplatepackagesignerCreateObjectV1ResponseMPayload)
+
+	return err
 }
 
 type NullableEzsigntemplatepackagesignerCreateObjectV1ResponseMPayload struct {

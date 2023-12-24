@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignsignatureResponse type satisfies the MappedNullable interface at compile time
@@ -26,6 +28,10 @@ type EzsignsignatureResponse struct {
 	FkiEzsigndocumentID int32 `json:"fkiEzsigndocumentID"`
 	// The unique ID of the Ezsignfoldersignerassociation
 	FkiEzsignfoldersignerassociationID int32 `json:"fkiEzsignfoldersignerassociationID"`
+	// The unique ID of the Ezsignsigningreason
+	FkiEzsignsigningreasonID *int32 `json:"fkiEzsignsigningreasonID,omitempty"`
+	// The description of the Ezsignsigningreason in the language of the requester
+	SEzsignsigningreasonDescriptionX *string `json:"sEzsignsigningreasonDescriptionX,omitempty"`
 	// The page number in the Ezsigndocument
 	IEzsignpagePagenumber int32 `json:"iEzsignpagePagenumber"`
 	// The X coordinate (Horizontal) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 2 inches from the left border of the page, you would use \"200\" for the X coordinate.
@@ -68,6 +74,8 @@ type EzsignsignatureResponse struct {
 	ObjContactNameDelegation *CustomContactNameResponse `json:"objContactNameDelegation,omitempty"`
 	ObjSignature *SignatureResponseCompound `json:"objSignature,omitempty"`
 }
+
+type _EzsignsignatureResponse EzsignsignatureResponse
 
 // NewEzsignsignatureResponse instantiates a new EzsignsignatureResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -165,6 +173,70 @@ func (o *EzsignsignatureResponse) GetFkiEzsignfoldersignerassociationIDOk() (*in
 // SetFkiEzsignfoldersignerassociationID sets field value
 func (o *EzsignsignatureResponse) SetFkiEzsignfoldersignerassociationID(v int32) {
 	o.FkiEzsignfoldersignerassociationID = v
+}
+
+// GetFkiEzsignsigningreasonID returns the FkiEzsignsigningreasonID field value if set, zero value otherwise.
+func (o *EzsignsignatureResponse) GetFkiEzsignsigningreasonID() int32 {
+	if o == nil || IsNil(o.FkiEzsignsigningreasonID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEzsignsigningreasonID
+}
+
+// GetFkiEzsignsigningreasonIDOk returns a tuple with the FkiEzsignsigningreasonID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureResponse) GetFkiEzsignsigningreasonIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEzsignsigningreasonID) {
+		return nil, false
+	}
+	return o.FkiEzsignsigningreasonID, true
+}
+
+// HasFkiEzsignsigningreasonID returns a boolean if a field has been set.
+func (o *EzsignsignatureResponse) HasFkiEzsignsigningreasonID() bool {
+	if o != nil && !IsNil(o.FkiEzsignsigningreasonID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzsignsigningreasonID gets a reference to the given int32 and assigns it to the FkiEzsignsigningreasonID field.
+func (o *EzsignsignatureResponse) SetFkiEzsignsigningreasonID(v int32) {
+	o.FkiEzsignsigningreasonID = &v
+}
+
+// GetSEzsignsigningreasonDescriptionX returns the SEzsignsigningreasonDescriptionX field value if set, zero value otherwise.
+func (o *EzsignsignatureResponse) GetSEzsignsigningreasonDescriptionX() string {
+	if o == nil || IsNil(o.SEzsignsigningreasonDescriptionX) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsignsigningreasonDescriptionX
+}
+
+// GetSEzsignsigningreasonDescriptionXOk returns a tuple with the SEzsignsigningreasonDescriptionX field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureResponse) GetSEzsignsigningreasonDescriptionXOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsignsigningreasonDescriptionX) {
+		return nil, false
+	}
+	return o.SEzsignsigningreasonDescriptionX, true
+}
+
+// HasSEzsignsigningreasonDescriptionX returns a boolean if a field has been set.
+func (o *EzsignsignatureResponse) HasSEzsignsigningreasonDescriptionX() bool {
+	if o != nil && !IsNil(o.SEzsignsigningreasonDescriptionX) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsignsigningreasonDescriptionX gets a reference to the given string and assigns it to the SEzsignsigningreasonDescriptionX field.
+func (o *EzsignsignatureResponse) SetSEzsignsigningreasonDescriptionX(v string) {
+	o.SEzsignsigningreasonDescriptionX = &v
 }
 
 // GetIEzsignpagePagenumber returns the IEzsignpagePagenumber field value
@@ -932,6 +1004,12 @@ func (o EzsignsignatureResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["pkiEzsignsignatureID"] = o.PkiEzsignsignatureID
 	toSerialize["fkiEzsigndocumentID"] = o.FkiEzsigndocumentID
 	toSerialize["fkiEzsignfoldersignerassociationID"] = o.FkiEzsignfoldersignerassociationID
+	if !IsNil(o.FkiEzsignsigningreasonID) {
+		toSerialize["fkiEzsignsigningreasonID"] = o.FkiEzsignsigningreasonID
+	}
+	if !IsNil(o.SEzsignsigningreasonDescriptionX) {
+		toSerialize["sEzsignsigningreasonDescriptionX"] = o.SEzsignsigningreasonDescriptionX
+	}
 	toSerialize["iEzsignpagePagenumber"] = o.IEzsignpagePagenumber
 	toSerialize["iEzsignsignatureX"] = o.IEzsignsignatureX
 	toSerialize["iEzsignsignatureY"] = o.IEzsignsignatureY
@@ -996,6 +1074,51 @@ func (o EzsignsignatureResponse) ToMap() (map[string]interface{}, error) {
 		toSerialize["objSignature"] = o.ObjSignature
 	}
 	return toSerialize, nil
+}
+
+func (o *EzsignsignatureResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiEzsignsignatureID",
+		"fkiEzsigndocumentID",
+		"fkiEzsignfoldersignerassociationID",
+		"iEzsignpagePagenumber",
+		"iEzsignsignatureX",
+		"iEzsignsignatureY",
+		"iEzsignsignatureStep",
+		"eEzsignsignatureType",
+		"objContactName",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignsignatureResponse := _EzsignsignatureResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignsignatureResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignsignatureResponse(varEzsignsignatureResponse)
+
+	return err
 }
 
 type NullableEzsignsignatureResponse struct {

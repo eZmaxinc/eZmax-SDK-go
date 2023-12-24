@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigndocumentFlattenV1Response type satisfies the MappedNullable interface at compile time
@@ -23,6 +25,8 @@ type EzsigndocumentFlattenV1Response struct {
 	ObjDebugPayload CommonResponseObjDebugPayload `json:"objDebugPayload"`
 	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
 }
+
+type _EzsigndocumentFlattenV1Response EzsigndocumentFlattenV1Response
 
 // NewEzsigndocumentFlattenV1Response instantiates a new EzsigndocumentFlattenV1Response object
 // This constructor will assign default values to properties that have it defined,
@@ -113,6 +117,43 @@ func (o EzsigndocumentFlattenV1Response) ToMap() (map[string]interface{}, error)
 		toSerialize["objDebug"] = o.ObjDebug
 	}
 	return toSerialize, nil
+}
+
+func (o *EzsigndocumentFlattenV1Response) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"objDebugPayload",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigndocumentFlattenV1Response := _EzsigndocumentFlattenV1Response{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigndocumentFlattenV1Response)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigndocumentFlattenV1Response(varEzsigndocumentFlattenV1Response)
+
+	return err
 }
 
 type NullableEzsigndocumentFlattenV1Response struct {

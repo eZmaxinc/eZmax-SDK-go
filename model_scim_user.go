@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ScimUser type satisfies the MappedNullable interface at compile time
@@ -26,6 +28,8 @@ type ScimUser struct {
 	DisplayName *string `json:"displayName,omitempty"`
 	Emails []ScimEmail `json:"emails,omitempty"`
 }
+
+type _ScimUser ScimUser
 
 // NewScimUser instantiates a new ScimUser object
 // This constructor will assign default values to properties that have it defined,
@@ -186,6 +190,43 @@ func (o ScimUser) ToMap() (map[string]interface{}, error) {
 		toSerialize["emails"] = o.Emails
 	}
 	return toSerialize, nil
+}
+
+func (o *ScimUser) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"userName",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varScimUser := _ScimUser{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varScimUser)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ScimUser(varScimUser)
+
+	return err
 }
 
 type NullableScimUser struct {

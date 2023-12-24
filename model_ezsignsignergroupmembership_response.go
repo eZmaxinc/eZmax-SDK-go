@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignsignergroupmembershipResponse type satisfies the MappedNullable interface at compile time
@@ -31,6 +33,8 @@ type EzsignsignergroupmembershipResponse struct {
 	// The unique ID of the Usergroup
 	FkiUsergroupID *int32 `json:"fkiUsergroupID,omitempty"`
 }
+
+type _EzsignsignergroupmembershipResponse EzsignsignergroupmembershipResponse
 
 // NewEzsignsignergroupmembershipResponse instantiates a new EzsignsignergroupmembershipResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -217,6 +221,44 @@ func (o EzsignsignergroupmembershipResponse) ToMap() (map[string]interface{}, er
 		toSerialize["fkiUsergroupID"] = o.FkiUsergroupID
 	}
 	return toSerialize, nil
+}
+
+func (o *EzsignsignergroupmembershipResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiEzsignsignergroupmembershipID",
+		"fkiEzsignsignergroupID",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignsignergroupmembershipResponse := _EzsignsignergroupmembershipResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignsignergroupmembershipResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignsignergroupmembershipResponse(varEzsignsignergroupmembershipResponse)
+
+	return err
 }
 
 type NullableEzsignsignergroupmembershipResponse struct {

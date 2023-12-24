@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **PkiEzsignsignatureID** | **int32** | The unique ID of the Ezsignsignature | 
 **FkiEzsigndocumentID** | **int32** | The unique ID of the Ezsigndocument | 
 **FkiEzsignfoldersignerassociationID** | **int32** | The unique ID of the Ezsignfoldersignerassociation | 
+**FkiEzsignsigningreasonID** | Pointer to **int32** | The unique ID of the Ezsignsigningreason | [optional] 
+**SEzsignsigningreasonDescriptionX** | Pointer to **string** | The description of the Ezsignsigningreason in the language of the requester | [optional] 
 **IEzsignpagePagenumber** | **int32** | The page number in the Ezsigndocument | 
 **IEzsignsignatureX** | **int32** | The X coordinate (Horizontal) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 2 inches from the left border of the page, you would use \&quot;200\&quot; for the X coordinate. | 
 **IEzsignsignatureY** | **int32** | The Y coordinate (Vertical) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 3 inches from the top border of the page, you would use \&quot;300\&quot; for the Y coordinate. | 
@@ -115,6 +117,56 @@ and a boolean to check if the value has been set.
 
 SetFkiEzsignfoldersignerassociationID sets FkiEzsignfoldersignerassociationID field to given value.
 
+
+### GetFkiEzsignsigningreasonID
+
+`func (o *EzsignsignatureResponseCompound) GetFkiEzsignsigningreasonID() int32`
+
+GetFkiEzsignsigningreasonID returns the FkiEzsignsigningreasonID field if non-nil, zero value otherwise.
+
+### GetFkiEzsignsigningreasonIDOk
+
+`func (o *EzsignsignatureResponseCompound) GetFkiEzsignsigningreasonIDOk() (*int32, bool)`
+
+GetFkiEzsignsigningreasonIDOk returns a tuple with the FkiEzsignsigningreasonID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiEzsignsigningreasonID
+
+`func (o *EzsignsignatureResponseCompound) SetFkiEzsignsigningreasonID(v int32)`
+
+SetFkiEzsignsigningreasonID sets FkiEzsignsigningreasonID field to given value.
+
+### HasFkiEzsignsigningreasonID
+
+`func (o *EzsignsignatureResponseCompound) HasFkiEzsignsigningreasonID() bool`
+
+HasFkiEzsignsigningreasonID returns a boolean if a field has been set.
+
+### GetSEzsignsigningreasonDescriptionX
+
+`func (o *EzsignsignatureResponseCompound) GetSEzsignsigningreasonDescriptionX() string`
+
+GetSEzsignsigningreasonDescriptionX returns the SEzsignsigningreasonDescriptionX field if non-nil, zero value otherwise.
+
+### GetSEzsignsigningreasonDescriptionXOk
+
+`func (o *EzsignsignatureResponseCompound) GetSEzsignsigningreasonDescriptionXOk() (*string, bool)`
+
+GetSEzsignsigningreasonDescriptionXOk returns a tuple with the SEzsignsigningreasonDescriptionX field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzsignsigningreasonDescriptionX
+
+`func (o *EzsignsignatureResponseCompound) SetSEzsignsigningreasonDescriptionX(v string)`
+
+SetSEzsignsigningreasonDescriptionX sets SEzsignsigningreasonDescriptionX field to given value.
+
+### HasSEzsignsigningreasonDescriptionX
+
+`func (o *EzsignsignatureResponseCompound) HasSEzsignsigningreasonDescriptionX() bool`
+
+HasSEzsignsigningreasonDescriptionX returns a boolean if a field has been set.
 
 ### GetIEzsignpagePagenumber
 

@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzmaxinvoicingagentResponse type satisfies the MappedNullable interface at compile time
@@ -59,6 +61,8 @@ type EzmaxinvoicingagentResponse struct {
 	BEzmaxinvoicingagentBillableezsign bool `json:"bEzmaxinvoicingagentBillableezsign"`
 	EEzmaxinvoicingagentVariationezsign FieldEEzmaxinvoicingagentVariationezsign `json:"eEzmaxinvoicingagentVariationezsign"`
 }
+
+type _EzmaxinvoicingagentResponse EzmaxinvoicingagentResponse
 
 // NewEzmaxinvoicingagentResponse instantiates a new EzmaxinvoicingagentResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -644,6 +648,58 @@ func (o EzmaxinvoicingagentResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["bEzmaxinvoicingagentBillableezsign"] = o.BEzmaxinvoicingagentBillableezsign
 	toSerialize["eEzmaxinvoicingagentVariationezsign"] = o.EEzmaxinvoicingagentVariationezsign
 	return toSerialize, nil
+}
+
+func (o *EzmaxinvoicingagentResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"fkiBillingentityinternalID",
+		"sBillingentityinternalDescriptionX",
+		"iEzmaxinvoicingagentSession",
+		"iEzmaxinvoicingagentCloned",
+		"iEzmaxinvoicingagentInvoice",
+		"iEzmaxinvoicingagentInscription",
+		"iEzmaxinvoicingagentInscriptionactive",
+		"iEzmaxinvoicingagentSale",
+		"iEzmaxinvoicingagentOtherincome",
+		"iEzmaxinvoicingagentCommissioncalculation",
+		"iEzmaxinvoicingagentEzsigndocument",
+		"bEzmaxinvoicingagentEzsignaccount",
+		"bEzmaxinvoicingagentBillableezmax",
+		"eEzmaxinvoicingagentVariationezmax",
+		"bEzmaxinvoicingagentBillableezsign",
+		"eEzmaxinvoicingagentVariationezsign",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzmaxinvoicingagentResponse := _EzmaxinvoicingagentResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzmaxinvoicingagentResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzmaxinvoicingagentResponse(varEzmaxinvoicingagentResponse)
+
+	return err
 }
 
 type NullableEzmaxinvoicingagentResponse struct {

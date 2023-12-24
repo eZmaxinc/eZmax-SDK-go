@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ApikeyResponseCompound type satisfies the MappedNullable interface at compile time
@@ -36,6 +38,8 @@ type ApikeyResponseCompound struct {
 	BApikeyIssigned *bool `json:"bApikeyIssigned,omitempty"`
 	ObjAudit CommonAudit `json:"objAudit"`
 }
+
+type _ApikeyResponseCompound ApikeyResponseCompound
 
 // NewApikeyResponseCompound instantiates a new ApikeyResponseCompound object
 // This constructor will assign default values to properties that have it defined,
@@ -326,6 +330,48 @@ func (o ApikeyResponseCompound) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["objAudit"] = o.ObjAudit
 	return toSerialize, nil
+}
+
+func (o *ApikeyResponseCompound) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiApikeyID",
+		"fkiUserID",
+		"objApikeyDescription",
+		"objContactName",
+		"bApikeyIsactive",
+		"objAudit",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varApikeyResponseCompound := _ApikeyResponseCompound{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varApikeyResponseCompound)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ApikeyResponseCompound(varApikeyResponseCompound)
+
+	return err
 }
 
 type NullableApikeyResponseCompound struct {

@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ActivesessionGetCurrentV1ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -39,6 +41,10 @@ type ActivesessionGetCurrentV1ResponseMPayload struct {
 	FkiSystemconfigurationtypeID int32 `json:"fkiSystemconfigurationtypeID"`
 	// The unique ID of the Signature
 	FkiSignatureID *int32 `json:"fkiSignatureID,omitempty"`
+	EUserEzsignaccess FieldEUserEzsignaccess `json:"eUserEzsignaccess"`
+	EUserEzsignprepaid *FieldEUserEzsignprepaid `json:"eUserEzsignprepaid,omitempty"`
+	// The eZsign prepaid expiration date
+	DtUserEzsignprepaidexpiration *string `json:"dtUserEzsignprepaidexpiration,omitempty"`
 	// An array of permissions granted to the user or api key
 	APkiPermissionID []int32 `json:"a_pkiPermissionID"`
 	ObjUserReal ActivesessionResponseCompoundUser `json:"objUserReal"`
@@ -48,11 +54,13 @@ type ActivesessionGetCurrentV1ResponseMPayload struct {
 	AEModuleInternalname []string `json:"a_eModuleInternalname"`
 }
 
+type _ActivesessionGetCurrentV1ResponseMPayload ActivesessionGetCurrentV1ResponseMPayload
+
 // NewActivesessionGetCurrentV1ResponseMPayload instantiates a new ActivesessionGetCurrentV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewActivesessionGetCurrentV1ResponseMPayload(eActivesessionUsertype FieldEActivesessionUsertype, eActivesessionOrigin FieldEActivesessionOrigin, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, bActivesessionDebug bool, bActivesessionIssuperadmin bool, pksCustomerCode string, fkiSystemconfigurationtypeID int32, aPkiPermissionID []int32, objUserReal ActivesessionResponseCompoundUser, aEModuleInternalname []string) *ActivesessionGetCurrentV1ResponseMPayload {
+func NewActivesessionGetCurrentV1ResponseMPayload(eActivesessionUsertype FieldEActivesessionUsertype, eActivesessionOrigin FieldEActivesessionOrigin, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, bActivesessionDebug bool, bActivesessionIssuperadmin bool, pksCustomerCode string, fkiSystemconfigurationtypeID int32, eUserEzsignaccess FieldEUserEzsignaccess, aPkiPermissionID []int32, objUserReal ActivesessionResponseCompoundUser, aEModuleInternalname []string) *ActivesessionGetCurrentV1ResponseMPayload {
 	this := ActivesessionGetCurrentV1ResponseMPayload{}
 	this.EActivesessionUsertype = eActivesessionUsertype
 	this.EActivesessionOrigin = eActivesessionOrigin
@@ -64,6 +72,7 @@ func NewActivesessionGetCurrentV1ResponseMPayload(eActivesessionUsertype FieldEA
 	this.BActivesessionIssuperadmin = bActivesessionIssuperadmin
 	this.PksCustomerCode = pksCustomerCode
 	this.FkiSystemconfigurationtypeID = fkiSystemconfigurationtypeID
+	this.EUserEzsignaccess = eUserEzsignaccess
 	this.APkiPermissionID = aPkiPermissionID
 	this.ObjUserReal = objUserReal
 	this.AEModuleInternalname = aEModuleInternalname
@@ -350,6 +359,94 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) SetFkiSignatureID(v int32) {
 	o.FkiSignatureID = &v
 }
 
+// GetEUserEzsignaccess returns the EUserEzsignaccess field value
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEUserEzsignaccess() FieldEUserEzsignaccess {
+	if o == nil {
+		var ret FieldEUserEzsignaccess
+		return ret
+	}
+
+	return o.EUserEzsignaccess
+}
+
+// GetEUserEzsignaccessOk returns a tuple with the EUserEzsignaccess field value
+// and a boolean to check if the value has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEUserEzsignaccessOk() (*FieldEUserEzsignaccess, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EUserEzsignaccess, true
+}
+
+// SetEUserEzsignaccess sets field value
+func (o *ActivesessionGetCurrentV1ResponseMPayload) SetEUserEzsignaccess(v FieldEUserEzsignaccess) {
+	o.EUserEzsignaccess = v
+}
+
+// GetEUserEzsignprepaid returns the EUserEzsignprepaid field value if set, zero value otherwise.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEUserEzsignprepaid() FieldEUserEzsignprepaid {
+	if o == nil || IsNil(o.EUserEzsignprepaid) {
+		var ret FieldEUserEzsignprepaid
+		return ret
+	}
+	return *o.EUserEzsignprepaid
+}
+
+// GetEUserEzsignprepaidOk returns a tuple with the EUserEzsignprepaid field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEUserEzsignprepaidOk() (*FieldEUserEzsignprepaid, bool) {
+	if o == nil || IsNil(o.EUserEzsignprepaid) {
+		return nil, false
+	}
+	return o.EUserEzsignprepaid, true
+}
+
+// HasEUserEzsignprepaid returns a boolean if a field has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) HasEUserEzsignprepaid() bool {
+	if o != nil && !IsNil(o.EUserEzsignprepaid) {
+		return true
+	}
+
+	return false
+}
+
+// SetEUserEzsignprepaid gets a reference to the given FieldEUserEzsignprepaid and assigns it to the EUserEzsignprepaid field.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) SetEUserEzsignprepaid(v FieldEUserEzsignprepaid) {
+	o.EUserEzsignprepaid = &v
+}
+
+// GetDtUserEzsignprepaidexpiration returns the DtUserEzsignprepaidexpiration field value if set, zero value otherwise.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetDtUserEzsignprepaidexpiration() string {
+	if o == nil || IsNil(o.DtUserEzsignprepaidexpiration) {
+		var ret string
+		return ret
+	}
+	return *o.DtUserEzsignprepaidexpiration
+}
+
+// GetDtUserEzsignprepaidexpirationOk returns a tuple with the DtUserEzsignprepaidexpiration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetDtUserEzsignprepaidexpirationOk() (*string, bool) {
+	if o == nil || IsNil(o.DtUserEzsignprepaidexpiration) {
+		return nil, false
+	}
+	return o.DtUserEzsignprepaidexpiration, true
+}
+
+// HasDtUserEzsignprepaidexpiration returns a boolean if a field has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) HasDtUserEzsignprepaidexpiration() bool {
+	if o != nil && !IsNil(o.DtUserEzsignprepaidexpiration) {
+		return true
+	}
+
+	return false
+}
+
+// SetDtUserEzsignprepaidexpiration gets a reference to the given string and assigns it to the DtUserEzsignprepaidexpiration field.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) SetDtUserEzsignprepaidexpiration(v string) {
+	o.DtUserEzsignprepaidexpiration = &v
+}
+
 // GetAPkiPermissionID returns the APkiPermissionID field value
 func (o *ActivesessionGetCurrentV1ResponseMPayload) GetAPkiPermissionID() []int32 {
 	if o == nil {
@@ -509,6 +606,13 @@ func (o ActivesessionGetCurrentV1ResponseMPayload) ToMap() (map[string]interface
 	if !IsNil(o.FkiSignatureID) {
 		toSerialize["fkiSignatureID"] = o.FkiSignatureID
 	}
+	toSerialize["eUserEzsignaccess"] = o.EUserEzsignaccess
+	if !IsNil(o.EUserEzsignprepaid) {
+		toSerialize["eUserEzsignprepaid"] = o.EUserEzsignprepaid
+	}
+	if !IsNil(o.DtUserEzsignprepaidexpiration) {
+		toSerialize["dtUserEzsignprepaidexpiration"] = o.DtUserEzsignprepaidexpiration
+	}
 	toSerialize["a_pkiPermissionID"] = o.APkiPermissionID
 	toSerialize["objUserReal"] = o.ObjUserReal
 	if !IsNil(o.ObjUserCloned) {
@@ -519,6 +623,56 @@ func (o ActivesessionGetCurrentV1ResponseMPayload) ToMap() (map[string]interface
 	}
 	toSerialize["a_eModuleInternalname"] = o.AEModuleInternalname
 	return toSerialize, nil
+}
+
+func (o *ActivesessionGetCurrentV1ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"eActivesessionUsertype",
+		"eActivesessionOrigin",
+		"eActivesessionWeekdaystart",
+		"fkiLanguageID",
+		"sCompanyNameX",
+		"sDepartmentNameX",
+		"bActivesessionDebug",
+		"bActivesessionIssuperadmin",
+		"pksCustomerCode",
+		"fkiSystemconfigurationtypeID",
+		"eUserEzsignaccess",
+		"a_pkiPermissionID",
+		"objUserReal",
+		"a_eModuleInternalname",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varActivesessionGetCurrentV1ResponseMPayload := _ActivesessionGetCurrentV1ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varActivesessionGetCurrentV1ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ActivesessionGetCurrentV1ResponseMPayload(varActivesessionGetCurrentV1ResponseMPayload)
+
+	return err
 }
 
 type NullableActivesessionGetCurrentV1ResponseMPayload struct {

@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigndocumentGetTemporaryProofV1ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &EzsigndocumentGetTemporaryProofV1ResponseMPayload{}
 type EzsigndocumentGetTemporaryProofV1ResponseMPayload struct {
 	AObjEzsigndocumentlog []EzsigndocumentlogResponseCompound `json:"a_objEzsigndocumentlog"`
 }
+
+type _EzsigndocumentGetTemporaryProofV1ResponseMPayload EzsigndocumentGetTemporaryProofV1ResponseMPayload
 
 // NewEzsigndocumentGetTemporaryProofV1ResponseMPayload instantiates a new EzsigndocumentGetTemporaryProofV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o EzsigndocumentGetTemporaryProofV1ResponseMPayload) ToMap() (map[string]i
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_objEzsigndocumentlog"] = o.AObjEzsigndocumentlog
 	return toSerialize, nil
+}
+
+func (o *EzsigndocumentGetTemporaryProofV1ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"a_objEzsigndocumentlog",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigndocumentGetTemporaryProofV1ResponseMPayload := _EzsigndocumentGetTemporaryProofV1ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigndocumentGetTemporaryProofV1ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigndocumentGetTemporaryProofV1ResponseMPayload(varEzsigndocumentGetTemporaryProofV1ResponseMPayload)
+
+	return err
 }
 
 type NullableEzsigndocumentGetTemporaryProofV1ResponseMPayload struct {

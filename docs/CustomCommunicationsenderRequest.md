@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **FkiAgentID** | Pointer to **int32** | The unique ID of the Agent. | [optional] 
 **FkiBrokerID** | Pointer to **int32** | The unique ID of the Broker. | [optional] 
 **FkiMailboxsharedID** | Pointer to **int32** | The unique ID of the Mailboxshared | [optional] 
+**FkiPhonelinesharedID** | Pointer to **int32** | The unique ID of the Phonelineshared | [optional] 
 **FkiUserID** | Pointer to **int32** | The unique ID of the User | [optional] 
 
 ## Methods
@@ -102,6 +103,31 @@ SetFkiMailboxsharedID sets FkiMailboxsharedID field to given value.
 `func (o *CustomCommunicationsenderRequest) HasFkiMailboxsharedID() bool`
 
 HasFkiMailboxsharedID returns a boolean if a field has been set.
+
+### GetFkiPhonelinesharedID
+
+`func (o *CustomCommunicationsenderRequest) GetFkiPhonelinesharedID() int32`
+
+GetFkiPhonelinesharedID returns the FkiPhonelinesharedID field if non-nil, zero value otherwise.
+
+### GetFkiPhonelinesharedIDOk
+
+`func (o *CustomCommunicationsenderRequest) GetFkiPhonelinesharedIDOk() (*int32, bool)`
+
+GetFkiPhonelinesharedIDOk returns a tuple with the FkiPhonelinesharedID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiPhonelinesharedID
+
+`func (o *CustomCommunicationsenderRequest) SetFkiPhonelinesharedID(v int32)`
+
+SetFkiPhonelinesharedID sets FkiPhonelinesharedID field to given value.
+
+### HasFkiPhonelinesharedID
+
+`func (o *CustomCommunicationsenderRequest) HasFkiPhonelinesharedID() bool`
+
+HasFkiPhonelinesharedID returns a boolean if a field has been set.
 
 ### GetFkiUserID
 

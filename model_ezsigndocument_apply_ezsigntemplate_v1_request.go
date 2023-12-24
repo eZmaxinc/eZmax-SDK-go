@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigndocumentApplyEzsigntemplateV1Request type satisfies the MappedNullable interface at compile time
@@ -25,6 +27,8 @@ type EzsigndocumentApplyEzsigntemplateV1Request struct {
 	ASEzsigntemplatesigner []string `json:"a_sEzsigntemplatesigner"`
 	APkiEzsignfoldersignerassociationID []int32 `json:"a_pkiEzsignfoldersignerassociationID"`
 }
+
+type _EzsigndocumentApplyEzsigntemplateV1Request EzsigndocumentApplyEzsigntemplateV1Request
 
 // NewEzsigndocumentApplyEzsigntemplateV1Request instantiates a new EzsigndocumentApplyEzsigntemplateV1Request object
 // This constructor will assign default values to properties that have it defined,
@@ -132,6 +136,45 @@ func (o EzsigndocumentApplyEzsigntemplateV1Request) ToMap() (map[string]interfac
 	toSerialize["a_sEzsigntemplatesigner"] = o.ASEzsigntemplatesigner
 	toSerialize["a_pkiEzsignfoldersignerassociationID"] = o.APkiEzsignfoldersignerassociationID
 	return toSerialize, nil
+}
+
+func (o *EzsigndocumentApplyEzsigntemplateV1Request) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"fkiEzsigntemplateID",
+		"a_sEzsigntemplatesigner",
+		"a_pkiEzsignfoldersignerassociationID",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigndocumentApplyEzsigntemplateV1Request := _EzsigndocumentApplyEzsigntemplateV1Request{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigndocumentApplyEzsigntemplateV1Request)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigndocumentApplyEzsigntemplateV1Request(varEzsigndocumentApplyEzsigntemplateV1Request)
+
+	return err
 }
 
 type NullableEzsigndocumentApplyEzsigntemplateV1Request struct {

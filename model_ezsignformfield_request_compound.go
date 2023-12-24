@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignformfieldRequestCompound type satisfies the MappedNullable interface at compile time
@@ -45,6 +47,8 @@ type EzsignformfieldRequestCompound struct {
 	EEzsignformfieldDependencyrequirement *FieldEEzsignformfieldDependencyrequirement `json:"eEzsignformfieldDependencyrequirement,omitempty"`
 	AObjEzsignelementdependency []EzsignelementdependencyRequestCompound `json:"a_objEzsignelementdependency,omitempty"`
 }
+
+type _EzsignformfieldRequestCompound EzsignformfieldRequestCompound
 
 // NewEzsignformfieldRequestCompound instantiates a new EzsignformfieldRequestCompound object
 // This constructor will assign default values to properties that have it defined,
@@ -475,6 +479,48 @@ func (o EzsignformfieldRequestCompound) ToMap() (map[string]interface{}, error) 
 		toSerialize["a_objEzsignelementdependency"] = o.AObjEzsignelementdependency
 	}
 	return toSerialize, nil
+}
+
+func (o *EzsignformfieldRequestCompound) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"iEzsignpagePagenumber",
+		"sEzsignformfieldLabel",
+		"iEzsignformfieldX",
+		"iEzsignformfieldY",
+		"iEzsignformfieldWidth",
+		"iEzsignformfieldHeight",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignformfieldRequestCompound := _EzsignformfieldRequestCompound{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignformfieldRequestCompound)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignformfieldRequestCompound(varEzsignformfieldRequestCompound)
+
+	return err
 }
 
 type NullableEzsignformfieldRequestCompound struct {

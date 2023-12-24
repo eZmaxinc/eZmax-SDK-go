@@ -34,6 +34,18 @@ func Test_eZmaxApi_ObjectWebhookAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test ObjectWebhookAPIService WebhookCreateObjectV2", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.ObjectWebhookAPI.WebhookCreateObjectV2(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ObjectWebhookAPIService WebhookDeleteObjectV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -95,6 +107,20 @@ func Test_eZmaxApi_ObjectWebhookAPIService(t *testing.T) {
 		var pkiWebhookID int32
 
 		resp, httpRes, err := apiClient.ObjectWebhookAPI.WebhookGetObjectV2(context.Background(), pkiWebhookID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ObjectWebhookAPIService WebhookRegenerateApikeyV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiWebhookID int32
+
+		resp, httpRes, err := apiClient.ObjectWebhookAPI.WebhookRegenerateApikeyV1(context.Background(), pkiWebhookID).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

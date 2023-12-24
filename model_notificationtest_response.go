@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the NotificationtestResponse type satisfies the MappedNullable interface at compile time
@@ -30,6 +32,8 @@ type NotificationtestResponse struct {
 	// The name of the Notificationtest in the language of the requester
 	SNotificationtestNameX string `json:"sNotificationtestNameX"`
 }
+
+type _NotificationtestResponse NotificationtestResponse
 
 // NewNotificationtestResponse instantiates a new NotificationtestResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -189,6 +193,47 @@ func (o NotificationtestResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["sNotificationtestFunction"] = o.SNotificationtestFunction
 	toSerialize["sNotificationtestNameX"] = o.SNotificationtestNameX
 	return toSerialize, nil
+}
+
+func (o *NotificationtestResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiNotificationtestID",
+		"objNotificationtestName",
+		"fkiNotificationsubsectionID",
+		"sNotificationtestFunction",
+		"sNotificationtestNameX",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varNotificationtestResponse := _NotificationtestResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varNotificationtestResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = NotificationtestResponse(varNotificationtestResponse)
+
+	return err
 }
 
 type NullableNotificationtestResponse struct {

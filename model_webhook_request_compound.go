@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the WebhookRequestCompound type satisfies the MappedNullable interface at compile time
@@ -35,9 +37,13 @@ type WebhookRequestCompound struct {
 	SWebhookEmailfailed string `json:"sWebhookEmailfailed"`
 	// Whether the Webhook is active or not
 	BWebhookIsactive bool `json:"bWebhookIsactive"`
+	// Whether the requests will be signed or not
+	BWebhookIssigned *bool `json:"bWebhookIssigned,omitempty"`
 	// Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use
 	BWebhookSkipsslvalidation bool `json:"bWebhookSkipsslvalidation"`
 }
+
+type _WebhookRequestCompound WebhookRequestCompound
 
 // NewWebhookRequestCompound instantiates a new WebhookRequestCompound object
 // This constructor will assign default values to properties that have it defined,
@@ -310,6 +316,38 @@ func (o *WebhookRequestCompound) SetBWebhookIsactive(v bool) {
 	o.BWebhookIsactive = v
 }
 
+// GetBWebhookIssigned returns the BWebhookIssigned field value if set, zero value otherwise.
+func (o *WebhookRequestCompound) GetBWebhookIssigned() bool {
+	if o == nil || IsNil(o.BWebhookIssigned) {
+		var ret bool
+		return ret
+	}
+	return *o.BWebhookIssigned
+}
+
+// GetBWebhookIssignedOk returns a tuple with the BWebhookIssigned field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WebhookRequestCompound) GetBWebhookIssignedOk() (*bool, bool) {
+	if o == nil || IsNil(o.BWebhookIssigned) {
+		return nil, false
+	}
+	return o.BWebhookIssigned, true
+}
+
+// HasBWebhookIssigned returns a boolean if a field has been set.
+func (o *WebhookRequestCompound) HasBWebhookIssigned() bool {
+	if o != nil && !IsNil(o.BWebhookIssigned) {
+		return true
+	}
+
+	return false
+}
+
+// SetBWebhookIssigned gets a reference to the given bool and assigns it to the BWebhookIssigned field.
+func (o *WebhookRequestCompound) SetBWebhookIssigned(v bool) {
+	o.BWebhookIssigned = &v
+}
+
 // GetBWebhookSkipsslvalidation returns the BWebhookSkipsslvalidation field value
 func (o *WebhookRequestCompound) GetBWebhookSkipsslvalidation() bool {
 	if o == nil {
@@ -361,8 +399,53 @@ func (o WebhookRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize["sWebhookUrl"] = o.SWebhookUrl
 	toSerialize["sWebhookEmailfailed"] = o.SWebhookEmailfailed
 	toSerialize["bWebhookIsactive"] = o.BWebhookIsactive
+	if !IsNil(o.BWebhookIssigned) {
+		toSerialize["bWebhookIssigned"] = o.BWebhookIssigned
+	}
 	toSerialize["bWebhookSkipsslvalidation"] = o.BWebhookSkipsslvalidation
 	return toSerialize, nil
+}
+
+func (o *WebhookRequestCompound) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"sWebhookDescription",
+		"eWebhookModule",
+		"sWebhookUrl",
+		"sWebhookEmailfailed",
+		"bWebhookIsactive",
+		"bWebhookSkipsslvalidation",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varWebhookRequestCompound := _WebhookRequestCompound{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varWebhookRequestCompound)
+
+	if err != nil {
+		return err
+	}
+
+	*o = WebhookRequestCompound(varWebhookRequestCompound)
+
+	return err
 }
 
 type NullableWebhookRequestCompound struct {

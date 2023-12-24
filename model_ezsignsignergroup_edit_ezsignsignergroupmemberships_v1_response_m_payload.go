@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignsignergroupEditEzsignsignergroupmembershipsV1ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &EzsignsignergroupEditEzsignsignergroupmembershipsV1Respo
 type EzsignsignergroupEditEzsignsignergroupmembershipsV1ResponseMPayload struct {
 	APkiEzsignsignergroupmembershipID []int32 `json:"a_pkiEzsignsignergroupmembershipID"`
 }
+
+type _EzsignsignergroupEditEzsignsignergroupmembershipsV1ResponseMPayload EzsignsignergroupEditEzsignsignergroupmembershipsV1ResponseMPayload
 
 // NewEzsignsignergroupEditEzsignsignergroupmembershipsV1ResponseMPayload instantiates a new EzsignsignergroupEditEzsignsignergroupmembershipsV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o EzsignsignergroupEditEzsignsignergroupmembershipsV1ResponseMPayload) ToM
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_pkiEzsignsignergroupmembershipID"] = o.APkiEzsignsignergroupmembershipID
 	return toSerialize, nil
+}
+
+func (o *EzsignsignergroupEditEzsignsignergroupmembershipsV1ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"a_pkiEzsignsignergroupmembershipID",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignsignergroupEditEzsignsignergroupmembershipsV1ResponseMPayload := _EzsignsignergroupEditEzsignsignergroupmembershipsV1ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignsignergroupEditEzsignsignergroupmembershipsV1ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignsignergroupEditEzsignsignergroupmembershipsV1ResponseMPayload(varEzsignsignergroupEditEzsignsignergroupmembershipsV1ResponseMPayload)
+
+	return err
 }
 
 type NullableEzsignsignergroupEditEzsignsignergroupmembershipsV1ResponseMPayload struct {

@@ -26,24 +26,24 @@ Create a new Variableexpense
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    variableexpenseCreateObjectV1Request := *openapiclient.NewVariableexpenseCreateObjectV1Request([]openapiclient.VariableexpenseRequestCompound{*openapiclient.NewVariableexpenseRequestCompound("EQBUR", *openapiclient.NewMultilingualVariableexpenseDescription(), openapiclient.Field-eVariableexpenseTaxable("Yes"), true)}) // VariableexpenseCreateObjectV1Request | 
+	variableexpenseCreateObjectV1Request := *openapiclient.NewVariableexpenseCreateObjectV1Request([]openapiclient.VariableexpenseRequestCompound{*openapiclient.NewVariableexpenseRequestCompound("EQBUR", *openapiclient.NewMultilingualVariableexpenseDescription(), openapiclient.Field-eVariableexpenseTaxable("Yes"), true)}) // VariableexpenseCreateObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectVariableexpenseAPI.VariableexpenseCreateObjectV1(context.Background()).VariableexpenseCreateObjectV1Request(variableexpenseCreateObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectVariableexpenseAPI.VariableexpenseCreateObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `VariableexpenseCreateObjectV1`: VariableexpenseCreateObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectVariableexpenseAPI.VariableexpenseCreateObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectVariableexpenseAPI.VariableexpenseCreateObjectV1(context.Background()).VariableexpenseCreateObjectV1Request(variableexpenseCreateObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectVariableexpenseAPI.VariableexpenseCreateObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `VariableexpenseCreateObjectV1`: VariableexpenseCreateObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectVariableexpenseAPI.VariableexpenseCreateObjectV1`: %v\n", resp)
 }
 ```
 
@@ -92,25 +92,25 @@ Edit an existing Variableexpense
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiVariableexpenseID := int32(56) // int32 | 
-    variableexpenseEditObjectV1Request := *openapiclient.NewVariableexpenseEditObjectV1Request(*openapiclient.NewVariableexpenseRequestCompound("EQBUR", *openapiclient.NewMultilingualVariableexpenseDescription(), openapiclient.Field-eVariableexpenseTaxable("Yes"), true)) // VariableexpenseEditObjectV1Request | 
+	pkiVariableexpenseID := int32(56) // int32 | 
+	variableexpenseEditObjectV1Request := *openapiclient.NewVariableexpenseEditObjectV1Request(*openapiclient.NewVariableexpenseRequestCompound("EQBUR", *openapiclient.NewMultilingualVariableexpenseDescription(), openapiclient.Field-eVariableexpenseTaxable("Yes"), true)) // VariableexpenseEditObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectVariableexpenseAPI.VariableexpenseEditObjectV1(context.Background(), pkiVariableexpenseID).VariableexpenseEditObjectV1Request(variableexpenseEditObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectVariableexpenseAPI.VariableexpenseEditObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `VariableexpenseEditObjectV1`: VariableexpenseEditObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectVariableexpenseAPI.VariableexpenseEditObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectVariableexpenseAPI.VariableexpenseEditObjectV1(context.Background(), pkiVariableexpenseID).VariableexpenseEditObjectV1Request(variableexpenseEditObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectVariableexpenseAPI.VariableexpenseEditObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `VariableexpenseEditObjectV1`: VariableexpenseEditObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectVariableexpenseAPI.VariableexpenseEditObjectV1`: %v\n", resp)
 }
 ```
 
@@ -164,27 +164,27 @@ Retrieve Variableexpenses and IDs
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    sSelector := "sSelector_example" // string | The type of Variableexpenses to return
-    eFilterActive := "eFilterActive_example" // string | Specify which results we want to display. (optional) (default to "Active")
-    sQuery := "sQuery_example" // string | Allow to filter the returned results (optional)
-    acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
+	sSelector := "sSelector_example" // string | The type of Variableexpenses to return
+	eFilterActive := "eFilterActive_example" // string | Specify which results we want to display. (optional) (default to "Active")
+	sQuery := "sQuery_example" // string | Allow to filter the returned results (optional)
+	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectVariableexpenseAPI.VariableexpenseGetAutocompleteV2(context.Background(), sSelector).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectVariableexpenseAPI.VariableexpenseGetAutocompleteV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `VariableexpenseGetAutocompleteV2`: VariableexpenseGetAutocompleteV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectVariableexpenseAPI.VariableexpenseGetAutocompleteV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectVariableexpenseAPI.VariableexpenseGetAutocompleteV2(context.Background(), sSelector).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectVariableexpenseAPI.VariableexpenseGetAutocompleteV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `VariableexpenseGetAutocompleteV2`: VariableexpenseGetAutocompleteV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectVariableexpenseAPI.VariableexpenseGetAutocompleteV2`: %v\n", resp)
 }
 ```
 
@@ -240,28 +240,28 @@ Retrieve Variableexpense list
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
-    iRowMax := int32(56) // int32 |  (optional)
-    iRowOffset := int32(56) // int32 |  (optional) (default to 0)
-    acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
-    sFilter := "sFilter_example" // string |  (optional)
+	eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
+	iRowMax := int32(56) // int32 |  (optional)
+	iRowOffset := int32(56) // int32 |  (optional) (default to 0)
+	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
+	sFilter := "sFilter_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectVariableexpenseAPI.VariableexpenseGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectVariableexpenseAPI.VariableexpenseGetListV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `VariableexpenseGetListV1`: VariableexpenseGetListV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectVariableexpenseAPI.VariableexpenseGetListV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectVariableexpenseAPI.VariableexpenseGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectVariableexpenseAPI.VariableexpenseGetListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `VariableexpenseGetListV1`: VariableexpenseGetListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectVariableexpenseAPI.VariableexpenseGetListV1`: %v\n", resp)
 }
 ```
 
@@ -314,24 +314,24 @@ Retrieve an existing Variableexpense
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiVariableexpenseID := int32(56) // int32 | 
+	pkiVariableexpenseID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectVariableexpenseAPI.VariableexpenseGetObjectV2(context.Background(), pkiVariableexpenseID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectVariableexpenseAPI.VariableexpenseGetObjectV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `VariableexpenseGetObjectV2`: VariableexpenseGetObjectV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectVariableexpenseAPI.VariableexpenseGetObjectV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectVariableexpenseAPI.VariableexpenseGetObjectV2(context.Background(), pkiVariableexpenseID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectVariableexpenseAPI.VariableexpenseGetObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `VariableexpenseGetObjectV2`: VariableexpenseGetObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectVariableexpenseAPI.VariableexpenseGetObjectV2`: %v\n", resp)
 }
 ```
 

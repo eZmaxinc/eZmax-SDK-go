@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignelementdependencyResponse type satisfies the MappedNullable interface at compile time
@@ -37,6 +39,8 @@ type EzsignelementdependencyResponse struct {
 	// The value of the Ezsignelementdependency
 	SEzsignelementdependencyValue *string `json:"sEzsignelementdependencyValue,omitempty"`
 }
+
+type _EzsignelementdependencyResponse EzsignelementdependencyResponse
 
 // NewEzsignelementdependencyResponse instantiates a new EzsignelementdependencyResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -363,6 +367,44 @@ func (o EzsignelementdependencyResponse) ToMap() (map[string]interface{}, error)
 		toSerialize["sEzsignelementdependencyValue"] = o.SEzsignelementdependencyValue
 	}
 	return toSerialize, nil
+}
+
+func (o *EzsignelementdependencyResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiEzsignelementdependencyID",
+		"eEzsignelementdependencyValidation",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignelementdependencyResponse := _EzsignelementdependencyResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignelementdependencyResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignelementdependencyResponse(varEzsignelementdependencyResponse)
+
+	return err
 }
 
 type NullableEzsignelementdependencyResponse struct {

@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigntemplatedocumentRequestCompound type satisfies the MappedNullable interface at compile time
@@ -45,6 +47,8 @@ type EzsigntemplatedocumentRequestCompound struct {
 	// If the source template is password protected, the password to open/modify it.
 	SEzsigntemplatedocumentPassword *string `json:"sEzsigntemplatedocumentPassword,omitempty"`
 }
+
+type _EzsigntemplatedocumentRequestCompound EzsigntemplatedocumentRequestCompound
 
 // NewEzsigntemplatedocumentRequestCompound instantiates a new EzsigntemplatedocumentRequestCompound object
 // This constructor will assign default values to properties that have it defined,
@@ -471,6 +475,45 @@ func (o EzsigntemplatedocumentRequestCompound) ToMap() (map[string]interface{}, 
 		toSerialize["sEzsigntemplatedocumentPassword"] = o.SEzsigntemplatedocumentPassword
 	}
 	return toSerialize, nil
+}
+
+func (o *EzsigntemplatedocumentRequestCompound) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"fkiEzsigntemplateID",
+		"sEzsigntemplatedocumentName",
+		"eEzsigntemplatedocumentSource",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigntemplatedocumentRequestCompound := _EzsigntemplatedocumentRequestCompound{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigntemplatedocumentRequestCompound)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigntemplatedocumentRequestCompound(varEzsigntemplatedocumentRequestCompound)
+
+	return err
 }
 
 type NullableEzsigntemplatedocumentRequestCompound struct {

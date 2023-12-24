@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the UserlogintypeGetAutocompleteV2ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -23,6 +25,8 @@ type UserlogintypeGetAutocompleteV2ResponseMPayload struct {
 	// An array of Userlogintype autocomplete element response.
 	AObjUserlogintype []UserlogintypeAutocompleteElementResponse `json:"a_objUserlogintype"`
 }
+
+type _UserlogintypeGetAutocompleteV2ResponseMPayload UserlogintypeGetAutocompleteV2ResponseMPayload
 
 // NewUserlogintypeGetAutocompleteV2ResponseMPayload instantiates a new UserlogintypeGetAutocompleteV2ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -78,6 +82,43 @@ func (o UserlogintypeGetAutocompleteV2ResponseMPayload) ToMap() (map[string]inte
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_objUserlogintype"] = o.AObjUserlogintype
 	return toSerialize, nil
+}
+
+func (o *UserlogintypeGetAutocompleteV2ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"a_objUserlogintype",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varUserlogintypeGetAutocompleteV2ResponseMPayload := _UserlogintypeGetAutocompleteV2ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varUserlogintypeGetAutocompleteV2ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UserlogintypeGetAutocompleteV2ResponseMPayload(varUserlogintypeGetAutocompleteV2ResponseMPayload)
+
+	return err
 }
 
 type NullableUserlogintypeGetAutocompleteV2ResponseMPayload struct {

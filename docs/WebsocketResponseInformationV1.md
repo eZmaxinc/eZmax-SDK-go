@@ -5,13 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EWebsocketMessagetype** | **string** | The Type of message | 
+**SWebsocketChannel** | **string** | The Channel on which to route the websocket message | 
 **MPayload** | [**WebsocketResponseInformationV1MPayload**](WebsocketResponseInformationV1MPayload.md) |  | 
 
 ## Methods
 
 ### NewWebsocketResponseInformationV1
 
-`func NewWebsocketResponseInformationV1(eWebsocketMessagetype string, mPayload WebsocketResponseInformationV1MPayload, ) *WebsocketResponseInformationV1`
+`func NewWebsocketResponseInformationV1(eWebsocketMessagetype string, sWebsocketChannel string, mPayload WebsocketResponseInformationV1MPayload, ) *WebsocketResponseInformationV1`
 
 NewWebsocketResponseInformationV1 instantiates a new WebsocketResponseInformationV1 object
 This constructor will assign default values to properties that have it defined,
@@ -44,6 +45,26 @@ and a boolean to check if the value has been set.
 `func (o *WebsocketResponseInformationV1) SetEWebsocketMessagetype(v string)`
 
 SetEWebsocketMessagetype sets EWebsocketMessagetype field to given value.
+
+
+### GetSWebsocketChannel
+
+`func (o *WebsocketResponseInformationV1) GetSWebsocketChannel() string`
+
+GetSWebsocketChannel returns the SWebsocketChannel field if non-nil, zero value otherwise.
+
+### GetSWebsocketChannelOk
+
+`func (o *WebsocketResponseInformationV1) GetSWebsocketChannelOk() (*string, bool)`
+
+GetSWebsocketChannelOk returns a tuple with the SWebsocketChannel field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSWebsocketChannel
+
+`func (o *WebsocketResponseInformationV1) SetSWebsocketChannel(v string)`
+
+SetSWebsocketChannel sets SWebsocketChannel field to given value.
 
 
 ### GetMPayload

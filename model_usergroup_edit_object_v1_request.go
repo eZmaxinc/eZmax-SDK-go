@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the UsergroupEditObjectV1Request type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &UsergroupEditObjectV1Request{}
 type UsergroupEditObjectV1Request struct {
 	ObjUsergroup UsergroupRequestCompound `json:"objUsergroup"`
 }
+
+type _UsergroupEditObjectV1Request UsergroupEditObjectV1Request
 
 // NewUsergroupEditObjectV1Request instantiates a new UsergroupEditObjectV1Request object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o UsergroupEditObjectV1Request) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["objUsergroup"] = o.ObjUsergroup
 	return toSerialize, nil
+}
+
+func (o *UsergroupEditObjectV1Request) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"objUsergroup",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varUsergroupEditObjectV1Request := _UsergroupEditObjectV1Request{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varUsergroupEditObjectV1Request)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UsergroupEditObjectV1Request(varUsergroupEditObjectV1Request)
+
+	return err
 }
 
 type NullableUsergroupEditObjectV1Request struct {

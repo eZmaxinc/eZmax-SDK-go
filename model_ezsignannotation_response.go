@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignannotationResponse type satisfies the MappedNullable interface at compile time
@@ -40,6 +42,8 @@ type EzsignannotationResponse struct {
 	// The page number in the Ezsigndocument
 	IEzsignpagePagenumber int32 `json:"iEzsignpagePagenumber"`
 }
+
+type _EzsignannotationResponse EzsignannotationResponse
 
 // NewEzsignannotationResponse instantiates a new EzsignannotationResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -400,6 +404,48 @@ func (o EzsignannotationResponse) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["iEzsignpagePagenumber"] = o.IEzsignpagePagenumber
 	return toSerialize, nil
+}
+
+func (o *EzsignannotationResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pkiEzsignannotationID",
+		"fkiEzsigndocumentID",
+		"eEzsignannotationType",
+		"iEzsignannotationX",
+		"iEzsignannotationY",
+		"iEzsignpagePagenumber",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignannotationResponse := _EzsignannotationResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignannotationResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignannotationResponse(varEzsignannotationResponse)
+
+	return err
 }
 
 type NullableEzsignannotationResponse struct {

@@ -22,24 +22,24 @@ Retrieve an existing Notificationtest's Elements
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiNotificationtestID := int32(56) // int32 | 
+	pkiNotificationtestID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectNotificationtestAPI.NotificationtestGetElementsV1(context.Background(), pkiNotificationtestID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectNotificationtestAPI.NotificationtestGetElementsV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `NotificationtestGetElementsV1`: NotificationtestGetElementsV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectNotificationtestAPI.NotificationtestGetElementsV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectNotificationtestAPI.NotificationtestGetElementsV1(context.Background(), pkiNotificationtestID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectNotificationtestAPI.NotificationtestGetElementsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `NotificationtestGetElementsV1`: NotificationtestGetElementsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectNotificationtestAPI.NotificationtestGetElementsV1`: %v\n", resp)
 }
 ```
 

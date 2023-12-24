@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignfoldersignerassociationGetObjectV2ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &EzsignfoldersignerassociationGetObjectV2ResponseMPayload
 type EzsignfoldersignerassociationGetObjectV2ResponseMPayload struct {
 	ObjEzsignfoldersignerassociation EzsignfoldersignerassociationResponseCompound `json:"objEzsignfoldersignerassociation"`
 }
+
+type _EzsignfoldersignerassociationGetObjectV2ResponseMPayload EzsignfoldersignerassociationGetObjectV2ResponseMPayload
 
 // NewEzsignfoldersignerassociationGetObjectV2ResponseMPayload instantiates a new EzsignfoldersignerassociationGetObjectV2ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o EzsignfoldersignerassociationGetObjectV2ResponseMPayload) ToMap() (map[s
 	toSerialize := map[string]interface{}{}
 	toSerialize["objEzsignfoldersignerassociation"] = o.ObjEzsignfoldersignerassociation
 	return toSerialize, nil
+}
+
+func (o *EzsignfoldersignerassociationGetObjectV2ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"objEzsignfoldersignerassociation",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignfoldersignerassociationGetObjectV2ResponseMPayload := _EzsignfoldersignerassociationGetObjectV2ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignfoldersignerassociationGetObjectV2ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignfoldersignerassociationGetObjectV2ResponseMPayload(varEzsignfoldersignerassociationGetObjectV2ResponseMPayload)
+
+	return err
 }
 
 type NullableEzsignfoldersignerassociationGetObjectV2ResponseMPayload struct {

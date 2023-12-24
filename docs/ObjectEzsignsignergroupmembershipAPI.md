@@ -24,24 +24,24 @@ Create a new Ezsignsignergroupmembership
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    ezsignsignergroupmembershipCreateObjectV1Request := *openapiclient.NewEzsignsignergroupmembershipCreateObjectV1Request([]openapiclient.EzsignsignergroupmembershipRequestCompound{*openapiclient.NewEzsignsignergroupmembershipRequestCompound(int32(27))}) // EzsignsignergroupmembershipCreateObjectV1Request | 
+	ezsignsignergroupmembershipCreateObjectV1Request := *openapiclient.NewEzsignsignergroupmembershipCreateObjectV1Request([]openapiclient.EzsignsignergroupmembershipRequestCompound{*openapiclient.NewEzsignsignergroupmembershipRequestCompound(int32(27))}) // EzsignsignergroupmembershipCreateObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignsignergroupmembershipAPI.EzsignsignergroupmembershipCreateObjectV1(context.Background()).EzsignsignergroupmembershipCreateObjectV1Request(ezsignsignergroupmembershipCreateObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignergroupmembershipAPI.EzsignsignergroupmembershipCreateObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignsignergroupmembershipCreateObjectV1`: EzsignsignergroupmembershipCreateObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsignergroupmembershipAPI.EzsignsignergroupmembershipCreateObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignsignergroupmembershipAPI.EzsignsignergroupmembershipCreateObjectV1(context.Background()).EzsignsignergroupmembershipCreateObjectV1Request(ezsignsignergroupmembershipCreateObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignergroupmembershipAPI.EzsignsignergroupmembershipCreateObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignsignergroupmembershipCreateObjectV1`: EzsignsignergroupmembershipCreateObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsignergroupmembershipAPI.EzsignsignergroupmembershipCreateObjectV1`: %v\n", resp)
 }
 ```
 
@@ -90,24 +90,24 @@ Delete an existing Ezsignsignergroupmembership
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignsignergroupmembershipID := int32(56) // int32 | The unique ID of the Ezsignsignergroupmembership
+	pkiEzsignsignergroupmembershipID := int32(56) // int32 | The unique ID of the Ezsignsignergroupmembership
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignsignergroupmembershipAPI.EzsignsignergroupmembershipDeleteObjectV1(context.Background(), pkiEzsignsignergroupmembershipID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignergroupmembershipAPI.EzsignsignergroupmembershipDeleteObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignsignergroupmembershipDeleteObjectV1`: EzsignsignergroupmembershipDeleteObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsignergroupmembershipAPI.EzsignsignergroupmembershipDeleteObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignsignergroupmembershipAPI.EzsignsignergroupmembershipDeleteObjectV1(context.Background(), pkiEzsignsignergroupmembershipID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignergroupmembershipAPI.EzsignsignergroupmembershipDeleteObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignsignergroupmembershipDeleteObjectV1`: EzsignsignergroupmembershipDeleteObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsignergroupmembershipAPI.EzsignsignergroupmembershipDeleteObjectV1`: %v\n", resp)
 }
 ```
 
@@ -160,24 +160,24 @@ Retrieve an existing Ezsignsignergroupmembership
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiEzsignsignergroupmembershipID := int32(56) // int32 | The unique ID of the Ezsignsignergroupmembership
+	pkiEzsignsignergroupmembershipID := int32(56) // int32 | The unique ID of the Ezsignsignergroupmembership
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectEzsignsignergroupmembershipAPI.EzsignsignergroupmembershipGetObjectV2(context.Background(), pkiEzsignsignergroupmembershipID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignergroupmembershipAPI.EzsignsignergroupmembershipGetObjectV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EzsignsignergroupmembershipGetObjectV2`: EzsignsignergroupmembershipGetObjectV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsignergroupmembershipAPI.EzsignsignergroupmembershipGetObjectV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignsignergroupmembershipAPI.EzsignsignergroupmembershipGetObjectV2(context.Background(), pkiEzsignsignergroupmembershipID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignergroupmembershipAPI.EzsignsignergroupmembershipGetObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignsignergroupmembershipGetObjectV2`: EzsignsignergroupmembershipGetObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsignergroupmembershipAPI.EzsignsignergroupmembershipGetObjectV2`: %v\n", resp)
 }
 ```
 

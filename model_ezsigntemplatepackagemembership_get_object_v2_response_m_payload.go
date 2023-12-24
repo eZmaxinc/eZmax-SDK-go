@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsigntemplatepackagemembershipGetObjectV2ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &EzsigntemplatepackagemembershipGetObjectV2ResponseMPaylo
 type EzsigntemplatepackagemembershipGetObjectV2ResponseMPayload struct {
 	ObjEzsigntemplatepackagemembership EzsigntemplatepackagemembershipResponseCompound `json:"objEzsigntemplatepackagemembership"`
 }
+
+type _EzsigntemplatepackagemembershipGetObjectV2ResponseMPayload EzsigntemplatepackagemembershipGetObjectV2ResponseMPayload
 
 // NewEzsigntemplatepackagemembershipGetObjectV2ResponseMPayload instantiates a new EzsigntemplatepackagemembershipGetObjectV2ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o EzsigntemplatepackagemembershipGetObjectV2ResponseMPayload) ToMap() (map
 	toSerialize := map[string]interface{}{}
 	toSerialize["objEzsigntemplatepackagemembership"] = o.ObjEzsigntemplatepackagemembership
 	return toSerialize, nil
+}
+
+func (o *EzsigntemplatepackagemembershipGetObjectV2ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"objEzsigntemplatepackagemembership",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsigntemplatepackagemembershipGetObjectV2ResponseMPayload := _EzsigntemplatepackagemembershipGetObjectV2ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsigntemplatepackagemembershipGetObjectV2ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsigntemplatepackagemembershipGetObjectV2ResponseMPayload(varEzsigntemplatepackagemembershipGetObjectV2ResponseMPayload)
+
+	return err
 }
 
 type NullableEzsigntemplatepackagemembershipGetObjectV2ResponseMPayload struct {

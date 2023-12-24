@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignfolderEditObjectV1Request type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &EzsignfolderEditObjectV1Request{}
 type EzsignfolderEditObjectV1Request struct {
 	ObjEzsignfolder EzsignfolderRequestCompound `json:"objEzsignfolder"`
 }
+
+type _EzsignfolderEditObjectV1Request EzsignfolderEditObjectV1Request
 
 // NewEzsignfolderEditObjectV1Request instantiates a new EzsignfolderEditObjectV1Request object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o EzsignfolderEditObjectV1Request) ToMap() (map[string]interface{}, error)
 	toSerialize := map[string]interface{}{}
 	toSerialize["objEzsignfolder"] = o.ObjEzsignfolder
 	return toSerialize, nil
+}
+
+func (o *EzsignfolderEditObjectV1Request) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"objEzsignfolder",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignfolderEditObjectV1Request := _EzsignfolderEditObjectV1Request{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignfolderEditObjectV1Request)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignfolderEditObjectV1Request(varEzsignfolderEditObjectV1Request)
+
+	return err
 }
 
 type NullableEzsignfolderEditObjectV1Request struct {

@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the CustomCommunicationrecipientsgroupResponse type satisfies the MappedNullable interface at compile time
@@ -24,6 +26,8 @@ type CustomCommunicationrecipientsgroupResponse struct {
 	SCommunicationrecipientsgroupLabel string `json:"sCommunicationrecipientsgroupLabel"`
 	AObjCommunicationrecipientsrecipient []CustomCommunicationrecipientsrecipientResponse `json:"a_objCommunicationrecipientsrecipient"`
 }
+
+type _CustomCommunicationrecipientsgroupResponse CustomCommunicationrecipientsgroupResponse
 
 // NewCustomCommunicationrecipientsgroupResponse instantiates a new CustomCommunicationrecipientsgroupResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -105,6 +109,44 @@ func (o CustomCommunicationrecipientsgroupResponse) ToMap() (map[string]interfac
 	toSerialize["sCommunicationrecipientsgroupLabel"] = o.SCommunicationrecipientsgroupLabel
 	toSerialize["a_objCommunicationrecipientsrecipient"] = o.AObjCommunicationrecipientsrecipient
 	return toSerialize, nil
+}
+
+func (o *CustomCommunicationrecipientsgroupResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"sCommunicationrecipientsgroupLabel",
+		"a_objCommunicationrecipientsrecipient",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varCustomCommunicationrecipientsgroupResponse := _CustomCommunicationrecipientsgroupResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varCustomCommunicationrecipientsgroupResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = CustomCommunicationrecipientsgroupResponse(varCustomCommunicationrecipientsgroupResponse)
+
+	return err
 }
 
 type NullableCustomCommunicationrecipientsgroupResponse struct {

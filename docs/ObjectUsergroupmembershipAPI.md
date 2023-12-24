@@ -25,24 +25,24 @@ Create a new Usergroupmembership
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    usergroupmembershipCreateObjectV1Request := *openapiclient.NewUsergroupmembershipCreateObjectV1Request([]openapiclient.UsergroupmembershipRequestCompound{*openapiclient.NewUsergroupmembershipRequestCompound(int32(2), int32(70))}) // UsergroupmembershipCreateObjectV1Request | 
+	usergroupmembershipCreateObjectV1Request := *openapiclient.NewUsergroupmembershipCreateObjectV1Request([]openapiclient.UsergroupmembershipRequestCompound{*openapiclient.NewUsergroupmembershipRequestCompound(int32(2), int32(70))}) // UsergroupmembershipCreateObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUsergroupmembershipAPI.UsergroupmembershipCreateObjectV1(context.Background()).UsergroupmembershipCreateObjectV1Request(usergroupmembershipCreateObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupmembershipAPI.UsergroupmembershipCreateObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UsergroupmembershipCreateObjectV1`: UsergroupmembershipCreateObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupmembershipAPI.UsergroupmembershipCreateObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUsergroupmembershipAPI.UsergroupmembershipCreateObjectV1(context.Background()).UsergroupmembershipCreateObjectV1Request(usergroupmembershipCreateObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupmembershipAPI.UsergroupmembershipCreateObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UsergroupmembershipCreateObjectV1`: UsergroupmembershipCreateObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupmembershipAPI.UsergroupmembershipCreateObjectV1`: %v\n", resp)
 }
 ```
 
@@ -91,24 +91,24 @@ Delete an existing Usergroupmembership
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiUsergroupmembershipID := int32(56) // int32 | 
+	pkiUsergroupmembershipID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUsergroupmembershipAPI.UsergroupmembershipDeleteObjectV1(context.Background(), pkiUsergroupmembershipID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupmembershipAPI.UsergroupmembershipDeleteObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UsergroupmembershipDeleteObjectV1`: UsergroupmembershipDeleteObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupmembershipAPI.UsergroupmembershipDeleteObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUsergroupmembershipAPI.UsergroupmembershipDeleteObjectV1(context.Background(), pkiUsergroupmembershipID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupmembershipAPI.UsergroupmembershipDeleteObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UsergroupmembershipDeleteObjectV1`: UsergroupmembershipDeleteObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupmembershipAPI.UsergroupmembershipDeleteObjectV1`: %v\n", resp)
 }
 ```
 
@@ -161,25 +161,25 @@ Edit an existing Usergroupmembership
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiUsergroupmembershipID := int32(56) // int32 | 
-    usergroupmembershipEditObjectV1Request := *openapiclient.NewUsergroupmembershipEditObjectV1Request(*openapiclient.NewUsergroupmembershipRequestCompound(int32(2), int32(70))) // UsergroupmembershipEditObjectV1Request | 
+	pkiUsergroupmembershipID := int32(56) // int32 | 
+	usergroupmembershipEditObjectV1Request := *openapiclient.NewUsergroupmembershipEditObjectV1Request(*openapiclient.NewUsergroupmembershipRequestCompound(int32(2), int32(70))) // UsergroupmembershipEditObjectV1Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUsergroupmembershipAPI.UsergroupmembershipEditObjectV1(context.Background(), pkiUsergroupmembershipID).UsergroupmembershipEditObjectV1Request(usergroupmembershipEditObjectV1Request).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupmembershipAPI.UsergroupmembershipEditObjectV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UsergroupmembershipEditObjectV1`: UsergroupmembershipEditObjectV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupmembershipAPI.UsergroupmembershipEditObjectV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUsergroupmembershipAPI.UsergroupmembershipEditObjectV1(context.Background(), pkiUsergroupmembershipID).UsergroupmembershipEditObjectV1Request(usergroupmembershipEditObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupmembershipAPI.UsergroupmembershipEditObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UsergroupmembershipEditObjectV1`: UsergroupmembershipEditObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupmembershipAPI.UsergroupmembershipEditObjectV1`: %v\n", resp)
 }
 ```
 
@@ -233,24 +233,24 @@ Retrieve an existing Usergroupmembership
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiUsergroupmembershipID := int32(56) // int32 | 
+	pkiUsergroupmembershipID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectUsergroupmembershipAPI.UsergroupmembershipGetObjectV2(context.Background(), pkiUsergroupmembershipID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupmembershipAPI.UsergroupmembershipGetObjectV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UsergroupmembershipGetObjectV2`: UsergroupmembershipGetObjectV2Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupmembershipAPI.UsergroupmembershipGetObjectV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUsergroupmembershipAPI.UsergroupmembershipGetObjectV2(context.Background(), pkiUsergroupmembershipID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupmembershipAPI.UsergroupmembershipGetObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UsergroupmembershipGetObjectV2`: UsergroupmembershipGetObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupmembershipAPI.UsergroupmembershipGetObjectV2`: %v\n", resp)
 }
 ```
 

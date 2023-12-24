@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignsignergroupCreateObjectV1ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -23,6 +25,8 @@ type EzsignsignergroupCreateObjectV1ResponseMPayload struct {
 	// An array of unique IDs representing the object that were requested to be created.  They are returned in the same order as the array containing the objects to be created that was sent in the request.
 	APkiEzsignsignergroupID []int32 `json:"a_pkiEzsignsignergroupID"`
 }
+
+type _EzsignsignergroupCreateObjectV1ResponseMPayload EzsignsignergroupCreateObjectV1ResponseMPayload
 
 // NewEzsignsignergroupCreateObjectV1ResponseMPayload instantiates a new EzsignsignergroupCreateObjectV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -78,6 +82,43 @@ func (o EzsignsignergroupCreateObjectV1ResponseMPayload) ToMap() (map[string]int
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_pkiEzsignsignergroupID"] = o.APkiEzsignsignergroupID
 	return toSerialize, nil
+}
+
+func (o *EzsignsignergroupCreateObjectV1ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"a_pkiEzsignsignergroupID",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignsignergroupCreateObjectV1ResponseMPayload := _EzsignsignergroupCreateObjectV1ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignsignergroupCreateObjectV1ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignsignergroupCreateObjectV1ResponseMPayload(varEzsignsignergroupCreateObjectV1ResponseMPayload)
+
+	return err
 }
 
 type NullableEzsignsignergroupCreateObjectV1ResponseMPayload struct {

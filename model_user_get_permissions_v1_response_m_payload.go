@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the UserGetPermissionsV1ResponseMPayload type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ var _ MappedNullable = &UserGetPermissionsV1ResponseMPayload{}
 type UserGetPermissionsV1ResponseMPayload struct {
 	AObjModulegroup []ModulegroupResponseCompound `json:"a_objModulegroup"`
 }
+
+type _UserGetPermissionsV1ResponseMPayload UserGetPermissionsV1ResponseMPayload
 
 // NewUserGetPermissionsV1ResponseMPayload instantiates a new UserGetPermissionsV1ResponseMPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +81,43 @@ func (o UserGetPermissionsV1ResponseMPayload) ToMap() (map[string]interface{}, e
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_objModulegroup"] = o.AObjModulegroup
 	return toSerialize, nil
+}
+
+func (o *UserGetPermissionsV1ResponseMPayload) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"a_objModulegroup",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varUserGetPermissionsV1ResponseMPayload := _UserGetPermissionsV1ResponseMPayload{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varUserGetPermissionsV1ResponseMPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UserGetPermissionsV1ResponseMPayload(varUserGetPermissionsV1ResponseMPayload)
+
+	return err
 }
 
 type NullableUserGetPermissionsV1ResponseMPayload struct {

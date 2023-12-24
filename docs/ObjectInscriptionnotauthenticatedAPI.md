@@ -22,24 +22,24 @@ Retrieve Communication list
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
-    pkiInscriptionnotauthenticatedID := int32(56) // int32 | 
+	pkiInscriptionnotauthenticatedID := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ObjectInscriptionnotauthenticatedAPI.InscriptionnotauthenticatedGetCommunicationListV1(context.Background(), pkiInscriptionnotauthenticatedID).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ObjectInscriptionnotauthenticatedAPI.InscriptionnotauthenticatedGetCommunicationListV1``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `InscriptionnotauthenticatedGetCommunicationListV1`: InscriptionnotauthenticatedGetCommunicationListV1Response
-    fmt.Fprintf(os.Stdout, "Response from `ObjectInscriptionnotauthenticatedAPI.InscriptionnotauthenticatedGetCommunicationListV1`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectInscriptionnotauthenticatedAPI.InscriptionnotauthenticatedGetCommunicationListV1(context.Background(), pkiInscriptionnotauthenticatedID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectInscriptionnotauthenticatedAPI.InscriptionnotauthenticatedGetCommunicationListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InscriptionnotauthenticatedGetCommunicationListV1`: InscriptionnotauthenticatedGetCommunicationListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectInscriptionnotauthenticatedAPI.InscriptionnotauthenticatedGetCommunicationListV1`: %v\n", resp)
 }
 ```
 

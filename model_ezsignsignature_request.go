@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EzsignsignatureRequest type satisfies the MappedNullable interface at compile time
@@ -59,6 +61,8 @@ type EzsignsignatureRequest struct {
 	SEzsignsignatureRegexp *string `json:"sEzsignsignatureRegexp,omitempty"`
 	EEzsignsignatureDependencyrequirement *FieldEEzsignsignatureDependencyrequirement `json:"eEzsignsignatureDependencyrequirement,omitempty"`
 }
+
+type _EzsignsignatureRequest EzsignsignatureRequest
 
 // NewEzsignsignatureRequest instantiates a new EzsignsignatureRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -795,6 +799,49 @@ func (o EzsignsignatureRequest) ToMap() (map[string]interface{}, error) {
 		toSerialize["eEzsignsignatureDependencyrequirement"] = o.EEzsignsignatureDependencyrequirement
 	}
 	return toSerialize, nil
+}
+
+func (o *EzsignsignatureRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"fkiEzsignfoldersignerassociationID",
+		"iEzsignpagePagenumber",
+		"iEzsignsignatureX",
+		"iEzsignsignatureY",
+		"iEzsignsignatureStep",
+		"eEzsignsignatureType",
+		"fkiEzsigndocumentID",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEzsignsignatureRequest := _EzsignsignatureRequest{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEzsignsignatureRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EzsignsignatureRequest(varEzsignsignatureRequest)
+
+	return err
 }
 
 type NullableEzsignsignatureRequest struct {

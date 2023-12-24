@@ -20,23 +20,23 @@ Get Service Provider Configuration
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ScimServiceProviderConfigAPI.ServiceProviderConfigGetObjectScimV2(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ScimServiceProviderConfigAPI.ServiceProviderConfigGetObjectScimV2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ServiceProviderConfigGetObjectScimV2`: ScimServiceProviderConfig
-    fmt.Fprintf(os.Stdout, "Response from `ScimServiceProviderConfigAPI.ServiceProviderConfigGetObjectScimV2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ScimServiceProviderConfigAPI.ServiceProviderConfigGetObjectScimV2(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ScimServiceProviderConfigAPI.ServiceProviderConfigGetObjectScimV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ServiceProviderConfigGetObjectScimV2`: ScimServiceProviderConfig
+	fmt.Fprintf(os.Stdout, "Response from `ScimServiceProviderConfigAPI.ServiceProviderConfigGetObjectScimV2`: %v\n", resp)
 }
 ```
 
