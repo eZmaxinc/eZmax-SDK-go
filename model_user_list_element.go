@@ -39,6 +39,8 @@ type UserListElement struct {
 	DtUserEzsignprepaidexpiration *string `json:"dtUserEzsignprepaidexpiration,omitempty"`
 	// The email address.
 	SEmailAddress string `json:"sEmailAddress"`
+	// The job title of the user
+	SUserJobtitle *string `json:"sUserJobtitle,omitempty"`
 }
 
 type _UserListElement UserListElement
@@ -317,6 +319,38 @@ func (o *UserListElement) SetSEmailAddress(v string) {
 	o.SEmailAddress = v
 }
 
+// GetSUserJobtitle returns the SUserJobtitle field value if set, zero value otherwise.
+func (o *UserListElement) GetSUserJobtitle() string {
+	if o == nil || IsNil(o.SUserJobtitle) {
+		var ret string
+		return ret
+	}
+	return *o.SUserJobtitle
+}
+
+// GetSUserJobtitleOk returns a tuple with the SUserJobtitle field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UserListElement) GetSUserJobtitleOk() (*string, bool) {
+	if o == nil || IsNil(o.SUserJobtitle) {
+		return nil, false
+	}
+	return o.SUserJobtitle, true
+}
+
+// HasSUserJobtitle returns a boolean if a field has been set.
+func (o *UserListElement) HasSUserJobtitle() bool {
+	if o != nil && !IsNil(o.SUserJobtitle) {
+		return true
+	}
+
+	return false
+}
+
+// SetSUserJobtitle gets a reference to the given string and assigns it to the SUserJobtitle field.
+func (o *UserListElement) SetSUserJobtitle(v string) {
+	o.SUserJobtitle = &v
+}
+
 func (o UserListElement) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -339,6 +373,9 @@ func (o UserListElement) ToMap() (map[string]interface{}, error) {
 		toSerialize["dtUserEzsignprepaidexpiration"] = o.DtUserEzsignprepaidexpiration
 	}
 	toSerialize["sEmailAddress"] = o.SEmailAddress
+	if !IsNil(o.SUserJobtitle) {
+		toSerialize["sUserJobtitle"] = o.SUserJobtitle
+	}
 	return toSerialize, nil
 }
 

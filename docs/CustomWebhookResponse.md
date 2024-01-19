@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **BWebhookIsactive** | **bool** | Whether the Webhook is active or not | 
 **BWebhookIssigned** | **bool** | Whether the requests will be signed or not | 
 **BWebhookSkipsslvalidation** | **bool** | Wheter the server&#39;s SSL certificate should be validated or not. Not recommended to skip for production use | 
+**ObjAudit** | [**CommonAudit**](CommonAudit.md) |  | 
 **PksCustomerCode** | **string** | The customer code assigned to your account | 
 **BWebhookTest** | **bool** | Wheter the webhook received is a manual test or a real event | 
 
@@ -25,7 +26,7 @@ Name | Type | Description | Notes
 
 ### NewCustomWebhookResponse
 
-`func NewCustomWebhookResponse(pkiWebhookID int32, sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookIsactive bool, bWebhookIssigned bool, bWebhookSkipsslvalidation bool, pksCustomerCode string, bWebhookTest bool, ) *CustomWebhookResponse`
+`func NewCustomWebhookResponse(pkiWebhookID int32, sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookIsactive bool, bWebhookIssigned bool, bWebhookSkipsslvalidation bool, objAudit CommonAudit, pksCustomerCode string, bWebhookTest bool, ) *CustomWebhookResponse`
 
 NewCustomWebhookResponse instantiates a new CustomWebhookResponse object
 This constructor will assign default values to properties that have it defined,
@@ -348,6 +349,26 @@ and a boolean to check if the value has been set.
 `func (o *CustomWebhookResponse) SetBWebhookSkipsslvalidation(v bool)`
 
 SetBWebhookSkipsslvalidation sets BWebhookSkipsslvalidation field to given value.
+
+
+### GetObjAudit
+
+`func (o *CustomWebhookResponse) GetObjAudit() CommonAudit`
+
+GetObjAudit returns the ObjAudit field if non-nil, zero value otherwise.
+
+### GetObjAuditOk
+
+`func (o *CustomWebhookResponse) GetObjAuditOk() (*CommonAudit, bool)`
+
+GetObjAuditOk returns a tuple with the ObjAudit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjAudit
+
+`func (o *CustomWebhookResponse) SetObjAudit(v CommonAudit)`
+
+SetObjAudit sets ObjAudit field to given value.
 
 
 ### GetPksCustomerCode

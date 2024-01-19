@@ -26,6 +26,7 @@ const (
 	PARTIALLY_SIGNED FieldEEzsigndocumentStep = "PartiallySigned"
 	DECLINED_TO_SIGN FieldEEzsigndocumentStep = "DeclinedToSign"
 	PREMATURELY_ENDED FieldEEzsigndocumentStep = "PrematurelyEnded"
+	PENDING_COMPLETION FieldEEzsigndocumentStep = "PendingCompletion"
 	COMPLETED FieldEEzsigndocumentStep = "Completed"
 	DISPOSED FieldEEzsigndocumentStep = "Disposed"
 )
@@ -37,6 +38,7 @@ var AllowedFieldEEzsigndocumentStepEnumValues = []FieldEEzsigndocumentStep{
 	"PartiallySigned",
 	"DeclinedToSign",
 	"PrematurelyEnded",
+	"PendingCompletion",
 	"Completed",
 	"Disposed",
 }

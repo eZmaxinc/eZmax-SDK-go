@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FkiEzsignfolderID** | **int32** | The unique ID of the Ezsignfolder | 
+**FkiBillingentityinternalID** | Pointer to **int32** | The unique ID of the Billingentityinternal. | [optional] 
 **SName** | **string** |  | 
 **SEzsignfolderDescription** | **string** | The description of the Ezsignfolder | 
 **SEzsigndocumentName** | **string** | The name of the document that will be presented to Ezsignfoldersignerassociations | 
@@ -48,6 +49,31 @@ and a boolean to check if the value has been set.
 
 SetFkiEzsignfolderID sets FkiEzsignfolderID field to given value.
 
+
+### GetFkiBillingentityinternalID
+
+`func (o *CustomEzmaxinvoicingEzsigndocumentResponse) GetFkiBillingentityinternalID() int32`
+
+GetFkiBillingentityinternalID returns the FkiBillingentityinternalID field if non-nil, zero value otherwise.
+
+### GetFkiBillingentityinternalIDOk
+
+`func (o *CustomEzmaxinvoicingEzsigndocumentResponse) GetFkiBillingentityinternalIDOk() (*int32, bool)`
+
+GetFkiBillingentityinternalIDOk returns a tuple with the FkiBillingentityinternalID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiBillingentityinternalID
+
+`func (o *CustomEzmaxinvoicingEzsigndocumentResponse) SetFkiBillingentityinternalID(v int32)`
+
+SetFkiBillingentityinternalID sets FkiBillingentityinternalID field to given value.
+
+### HasFkiBillingentityinternalID
+
+`func (o *CustomEzmaxinvoicingEzsigndocumentResponse) HasFkiBillingentityinternalID() bool`
+
+HasFkiBillingentityinternalID returns a boolean if a field has been set.
 
 ### GetSName
 

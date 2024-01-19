@@ -27,6 +27,7 @@ type EzsignfolderResponse struct {
 	// The unique ID of the Ezsignfoldertype.
 	FkiEzsignfoldertypeID *int32 `json:"fkiEzsignfoldertypeID,omitempty"`
 	ObjEzsignfoldertype *CustomEzsignfoldertypeResponse `json:"objEzsignfoldertype,omitempty"`
+	EEzsignfolderCompletion *FieldEEzsignfolderCompletion `json:"eEzsignfolderCompletion,omitempty"`
 	// Deprecated
 	SEzsignfoldertypeNameX *string `json:"sEzsignfoldertypeNameX,omitempty"`
 	// The unique ID of the Billingentityinternal.
@@ -73,6 +74,8 @@ type _EzsignfolderResponse EzsignfolderResponse
 func NewEzsignfolderResponse(pkiEzsignfolderID int32, sEzsignfolderDescription string) *EzsignfolderResponse {
 	this := EzsignfolderResponse{}
 	this.PkiEzsignfolderID = pkiEzsignfolderID
+	var eEzsignfolderCompletion FieldEEzsignfolderCompletion = PER_EZSIGNDOCUMENT
+	this.EEzsignfolderCompletion = &eEzsignfolderCompletion
 	this.SEzsignfolderDescription = sEzsignfolderDescription
 	return &this
 }
@@ -82,6 +85,8 @@ func NewEzsignfolderResponse(pkiEzsignfolderID int32, sEzsignfolderDescription s
 // but it doesn't guarantee that properties required by API are set
 func NewEzsignfolderResponseWithDefaults() *EzsignfolderResponse {
 	this := EzsignfolderResponse{}
+	var eEzsignfolderCompletion FieldEEzsignfolderCompletion = PER_EZSIGNDOCUMENT
+	this.EEzsignfolderCompletion = &eEzsignfolderCompletion
 	return &this
 }
 
@@ -171,6 +176,38 @@ func (o *EzsignfolderResponse) HasObjEzsignfoldertype() bool {
 // SetObjEzsignfoldertype gets a reference to the given CustomEzsignfoldertypeResponse and assigns it to the ObjEzsignfoldertype field.
 func (o *EzsignfolderResponse) SetObjEzsignfoldertype(v CustomEzsignfoldertypeResponse) {
 	o.ObjEzsignfoldertype = &v
+}
+
+// GetEEzsignfolderCompletion returns the EEzsignfolderCompletion field value if set, zero value otherwise.
+func (o *EzsignfolderResponse) GetEEzsignfolderCompletion() FieldEEzsignfolderCompletion {
+	if o == nil || IsNil(o.EEzsignfolderCompletion) {
+		var ret FieldEEzsignfolderCompletion
+		return ret
+	}
+	return *o.EEzsignfolderCompletion
+}
+
+// GetEEzsignfolderCompletionOk returns a tuple with the EEzsignfolderCompletion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderResponse) GetEEzsignfolderCompletionOk() (*FieldEEzsignfolderCompletion, bool) {
+	if o == nil || IsNil(o.EEzsignfolderCompletion) {
+		return nil, false
+	}
+	return o.EEzsignfolderCompletion, true
+}
+
+// HasEEzsignfolderCompletion returns a boolean if a field has been set.
+func (o *EzsignfolderResponse) HasEEzsignfolderCompletion() bool {
+	if o != nil && !IsNil(o.EEzsignfolderCompletion) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsignfolderCompletion gets a reference to the given FieldEEzsignfolderCompletion and assigns it to the EEzsignfolderCompletion field.
+func (o *EzsignfolderResponse) SetEEzsignfolderCompletion(v FieldEEzsignfolderCompletion) {
+	o.EEzsignfolderCompletion = &v
 }
 
 // GetSEzsignfoldertypeNameX returns the SEzsignfoldertypeNameX field value if set, zero value otherwise.
@@ -792,6 +829,9 @@ func (o EzsignfolderResponse) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.ObjEzsignfoldertype) {
 		toSerialize["objEzsignfoldertype"] = o.ObjEzsignfoldertype
+	}
+	if !IsNil(o.EEzsignfolderCompletion) {
+		toSerialize["eEzsignfolderCompletion"] = o.EEzsignfolderCompletion
 	}
 	if !IsNil(o.SEzsignfoldertypeNameX) {
 		toSerialize["sEzsignfoldertypeNameX"] = o.SEzsignfoldertypeNameX

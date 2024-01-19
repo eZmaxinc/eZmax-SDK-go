@@ -24,6 +24,8 @@ var _ MappedNullable = &CustomEzmaxinvoicingEzsignfolderResponse{}
 type CustomEzmaxinvoicingEzsignfolderResponse struct {
 	// The unique ID of the Ezsignfolder
 	FkiEzsignfolderID int32 `json:"fkiEzsignfolderID"`
+	// The unique ID of the Billingentityinternal.
+	FkiBillingentityinternalID *int32 `json:"fkiBillingentityinternalID,omitempty"`
 	// The description of the Ezsignfolder
 	SEzsignfolderDescription string `json:"sEzsignfolderDescription"`
 	// Whether the TSA requirement is billable or not
@@ -83,6 +85,38 @@ func (o *CustomEzmaxinvoicingEzsignfolderResponse) GetFkiEzsignfolderIDOk() (*in
 // SetFkiEzsignfolderID sets field value
 func (o *CustomEzmaxinvoicingEzsignfolderResponse) SetFkiEzsignfolderID(v int32) {
 	o.FkiEzsignfolderID = v
+}
+
+// GetFkiBillingentityinternalID returns the FkiBillingentityinternalID field value if set, zero value otherwise.
+func (o *CustomEzmaxinvoicingEzsignfolderResponse) GetFkiBillingentityinternalID() int32 {
+	if o == nil || IsNil(o.FkiBillingentityinternalID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiBillingentityinternalID
+}
+
+// GetFkiBillingentityinternalIDOk returns a tuple with the FkiBillingentityinternalID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzmaxinvoicingEzsignfolderResponse) GetFkiBillingentityinternalIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiBillingentityinternalID) {
+		return nil, false
+	}
+	return o.FkiBillingentityinternalID, true
+}
+
+// HasFkiBillingentityinternalID returns a boolean if a field has been set.
+func (o *CustomEzmaxinvoicingEzsignfolderResponse) HasFkiBillingentityinternalID() bool {
+	if o != nil && !IsNil(o.FkiBillingentityinternalID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiBillingentityinternalID gets a reference to the given int32 and assigns it to the FkiBillingentityinternalID field.
+func (o *CustomEzmaxinvoicingEzsignfolderResponse) SetFkiBillingentityinternalID(v int32) {
+	o.FkiBillingentityinternalID = &v
 }
 
 // GetSEzsignfolderDescription returns the SEzsignfolderDescription field value
@@ -216,6 +250,9 @@ func (o CustomEzmaxinvoicingEzsignfolderResponse) MarshalJSON() ([]byte, error) 
 func (o CustomEzmaxinvoicingEzsignfolderResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["fkiEzsignfolderID"] = o.FkiEzsignfolderID
+	if !IsNil(o.FkiBillingentityinternalID) {
+		toSerialize["fkiBillingentityinternalID"] = o.FkiBillingentityinternalID
+	}
 	toSerialize["sEzsignfolderDescription"] = o.SEzsignfolderDescription
 	toSerialize["bEzsigntsarequirementBillable"] = o.BEzsigntsarequirementBillable
 	toSerialize["bEzsignfolderMfaused"] = o.BEzsignfolderMfaused

@@ -47,6 +47,7 @@ type CustomWebhookResponse struct {
 	BWebhookIssigned bool `json:"bWebhookIssigned"`
 	// Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use
 	BWebhookSkipsslvalidation bool `json:"bWebhookSkipsslvalidation"`
+	ObjAudit CommonAudit `json:"objAudit"`
 	// The customer code assigned to your account
 	PksCustomerCode string `json:"pksCustomerCode"`
 	// Wheter the webhook received is a manual test or a real event
@@ -59,7 +60,7 @@ type _CustomWebhookResponse CustomWebhookResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomWebhookResponse(pkiWebhookID int32, sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookIsactive bool, bWebhookIssigned bool, bWebhookSkipsslvalidation bool, pksCustomerCode string, bWebhookTest bool) *CustomWebhookResponse {
+func NewCustomWebhookResponse(pkiWebhookID int32, sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookIsactive bool, bWebhookIssigned bool, bWebhookSkipsslvalidation bool, objAudit CommonAudit, pksCustomerCode string, bWebhookTest bool) *CustomWebhookResponse {
 	this := CustomWebhookResponse{}
 	this.PkiWebhookID = pkiWebhookID
 	this.SWebhookDescription = sWebhookDescription
@@ -69,6 +70,7 @@ func NewCustomWebhookResponse(pkiWebhookID int32, sWebhookDescription string, eW
 	this.BWebhookIsactive = bWebhookIsactive
 	this.BWebhookIssigned = bWebhookIssigned
 	this.BWebhookSkipsslvalidation = bWebhookSkipsslvalidation
+	this.ObjAudit = objAudit
 	this.PksCustomerCode = pksCustomerCode
 	this.BWebhookTest = bWebhookTest
 	return &this
@@ -466,6 +468,30 @@ func (o *CustomWebhookResponse) SetBWebhookSkipsslvalidation(v bool) {
 	o.BWebhookSkipsslvalidation = v
 }
 
+// GetObjAudit returns the ObjAudit field value
+func (o *CustomWebhookResponse) GetObjAudit() CommonAudit {
+	if o == nil {
+		var ret CommonAudit
+		return ret
+	}
+
+	return o.ObjAudit
+}
+
+// GetObjAuditOk returns a tuple with the ObjAudit field value
+// and a boolean to check if the value has been set.
+func (o *CustomWebhookResponse) GetObjAuditOk() (*CommonAudit, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjAudit, true
+}
+
+// SetObjAudit sets field value
+func (o *CustomWebhookResponse) SetObjAudit(v CommonAudit) {
+	o.ObjAudit = v
+}
+
 // GetPksCustomerCode returns the PksCustomerCode field value
 func (o *CustomWebhookResponse) GetPksCustomerCode() string {
 	if o == nil {
@@ -550,6 +576,7 @@ func (o CustomWebhookResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["bWebhookIsactive"] = o.BWebhookIsactive
 	toSerialize["bWebhookIssigned"] = o.BWebhookIssigned
 	toSerialize["bWebhookSkipsslvalidation"] = o.BWebhookSkipsslvalidation
+	toSerialize["objAudit"] = o.ObjAudit
 	toSerialize["pksCustomerCode"] = o.PksCustomerCode
 	toSerialize["bWebhookTest"] = o.BWebhookTest
 	return toSerialize, nil
@@ -568,6 +595,7 @@ func (o *CustomWebhookResponse) UnmarshalJSON(data []byte) (err error) {
 		"bWebhookIsactive",
 		"bWebhookIssigned",
 		"bWebhookSkipsslvalidation",
+		"objAudit",
 		"pksCustomerCode",
 		"bWebhookTest",
 	}

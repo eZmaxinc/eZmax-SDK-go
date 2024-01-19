@@ -70,6 +70,8 @@ type UserResponse struct {
 	SUserLastname string `json:"sUserLastname"`
 	// The login name of the User.
 	SUserLoginname string `json:"sUserLoginname"`
+	// The job title of the user
+	SUserJobtitle *string `json:"sUserJobtitle,omitempty"`
 	EUserEzsignaccess FieldEUserEzsignaccess `json:"eUserEzsignaccess"`
 	// The last logon date of the User
 	DtUserLastlogondate *string `json:"dtUserLastlogondate,omitempty"`
@@ -851,6 +853,38 @@ func (o *UserResponse) SetSUserLoginname(v string) {
 	o.SUserLoginname = v
 }
 
+// GetSUserJobtitle returns the SUserJobtitle field value if set, zero value otherwise.
+func (o *UserResponse) GetSUserJobtitle() string {
+	if o == nil || IsNil(o.SUserJobtitle) {
+		var ret string
+		return ret
+	}
+	return *o.SUserJobtitle
+}
+
+// GetSUserJobtitleOk returns a tuple with the SUserJobtitle field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UserResponse) GetSUserJobtitleOk() (*string, bool) {
+	if o == nil || IsNil(o.SUserJobtitle) {
+		return nil, false
+	}
+	return o.SUserJobtitle, true
+}
+
+// HasSUserJobtitle returns a boolean if a field has been set.
+func (o *UserResponse) HasSUserJobtitle() bool {
+	if o != nil && !IsNil(o.SUserJobtitle) {
+		return true
+	}
+
+	return false
+}
+
+// SetSUserJobtitle gets a reference to the given string and assigns it to the SUserJobtitle field.
+func (o *UserResponse) SetSUserJobtitle(v string) {
+	o.SUserJobtitle = &v
+}
+
 // GetEUserEzsignaccess returns the EUserEzsignaccess field value
 func (o *UserResponse) GetEUserEzsignaccess() FieldEUserEzsignaccess {
 	if o == nil {
@@ -1194,6 +1228,9 @@ func (o UserResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["sUserFirstname"] = o.SUserFirstname
 	toSerialize["sUserLastname"] = o.SUserLastname
 	toSerialize["sUserLoginname"] = o.SUserLoginname
+	if !IsNil(o.SUserJobtitle) {
+		toSerialize["sUserJobtitle"] = o.SUserJobtitle
+	}
 	toSerialize["eUserEzsignaccess"] = o.EUserEzsignaccess
 	if !IsNil(o.DtUserLastlogondate) {
 		toSerialize["dtUserLastlogondate"] = o.DtUserLastlogondate

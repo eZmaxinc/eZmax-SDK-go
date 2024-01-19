@@ -5,23 +5,28 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiEzsigntemplateformfieldID** | Pointer to **int32** | The unique ID of the Ezsigntemplateformfield | [optional] 
+**EEzsigntemplateformfieldPositioning** | Pointer to [**FieldEEzsigntemplateformfieldPositioning**](FieldEEzsigntemplateformfieldPositioning.md) |  | [optional] [default to PER_COORDINATES]
 **IEzsigntemplatedocumentpagePagenumber** | **int32** | The page number in the Ezsigntemplatedocument | 
 **SEzsigntemplateformfieldLabel** | **string** | The Label for the Ezsigntemplateformfield | 
 **SEzsigntemplateformfieldValue** | Pointer to **string** | The value for the Ezsigntemplateformfield | [optional] 
-**IEzsigntemplateformfieldX** | **int32** | The X coordinate (Horizontal) where to put the Ezsigntemplateformfield on the Ezsigntemplatepage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplateformfield 2 inches from the left border of the page, you would use \&quot;200\&quot; for the X coordinate. | 
-**IEzsigntemplateformfieldY** | **int32** | The Y coordinate (Vertical) where to put the Ezsigntemplateformfield on the Ezsigntemplatepage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplateformfield 3 inches from the top border of the page, you would use \&quot;300\&quot; for the Y coordinate. | 
+**IEzsigntemplateformfieldX** | Pointer to **int32** | The X coordinate (Horizontal) where to put the Ezsigntemplateformfield on the Ezsigntemplatepage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplateformfield 2 inches from the left border of the page, you would use \&quot;200\&quot; for the X coordinate. | [optional] 
+**IEzsigntemplateformfieldY** | Pointer to **int32** | The Y coordinate (Vertical) where to put the Ezsigntemplateformfield on the Ezsigntemplatepage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplateformfield 3 inches from the top border of the page, you would use \&quot;300\&quot; for the Y coordinate. | [optional] 
 **IEzsigntemplateformfieldWidth** | **int32** | The Width of the Ezsigntemplateformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsigntemplateformfieldgroupType.  | eEzsigntemplateformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22-65535     | | Radio                     | 22           | | Text                      | 22-65535     | | Textarea                  | 22-65535     | | 
 **IEzsigntemplateformfieldHeight** | **int32** | The Height of the Ezsigntemplateformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsigntemplateformfieldgroupType.  | eEzsigntemplateformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22           | | Radio                     | 22           | | Text                      | 22           | | Textarea                  | 22-65535     |  | 
 **BEzsigntemplateformfieldAutocomplete** | Pointer to **bool** | Whether the Ezsigntemplateformfield allows the use of the autocomplete of the browser.  This can only be set if eEzsigntemplateformfieldgroupType is **Text** | [optional] 
 **BEzsigntemplateformfieldSelected** | Pointer to **bool** | Whether the Ezsigntemplateformfield is selected or not by default.  This can only be set if eEzsigntemplateformfieldgroupType is **Checkbox** or **Radio** | [optional] 
 **EEzsigntemplateformfieldDependencyrequirement** | Pointer to [**FieldEEzsigntemplateformfieldDependencyrequirement**](FieldEEzsigntemplateformfieldDependencyrequirement.md) |  | [optional] 
+**SEzsigntemplateformfieldPositioningpattern** | Pointer to **string** | The string pattern to search for the positioning. **This is not a regexp**  This will be required if **eEzsigntemplateformfieldPositioning** is set to **PerCoordinates** | [optional] 
+**IEzsigntemplateformfieldPositioningoffsetx** | Pointer to **int32** | The offset X  This will be required if **eEzsigntemplateformfieldPositioning** is set to **PerCoordinates** | [optional] 
+**IEzsigntemplateformfieldPositioningoffsety** | Pointer to **int32** | The offset Y  This will be required if **eEzsigntemplateformfieldPositioning** is set to **PerCoordinates** | [optional] 
+**EEzsigntemplateformfieldPositioningoccurence** | Pointer to [**FieldEEzsigntemplateformfieldPositioningoccurence**](FieldEEzsigntemplateformfieldPositioningoccurence.md) |  | [optional] 
 **AObjEzsigntemplateelementdependency** | Pointer to [**[]EzsigntemplateelementdependencyRequestCompound**](EzsigntemplateelementdependencyRequestCompound.md) |  | [optional] 
 
 ## Methods
 
 ### NewEzsigntemplateformfieldRequestCompound
 
-`func NewEzsigntemplateformfieldRequestCompound(iEzsigntemplatedocumentpagePagenumber int32, sEzsigntemplateformfieldLabel string, iEzsigntemplateformfieldX int32, iEzsigntemplateformfieldY int32, iEzsigntemplateformfieldWidth int32, iEzsigntemplateformfieldHeight int32, ) *EzsigntemplateformfieldRequestCompound`
+`func NewEzsigntemplateformfieldRequestCompound(iEzsigntemplatedocumentpagePagenumber int32, sEzsigntemplateformfieldLabel string, iEzsigntemplateformfieldWidth int32, iEzsigntemplateformfieldHeight int32, ) *EzsigntemplateformfieldRequestCompound`
 
 NewEzsigntemplateformfieldRequestCompound instantiates a new EzsigntemplateformfieldRequestCompound object
 This constructor will assign default values to properties that have it defined,
@@ -60,6 +65,31 @@ SetPkiEzsigntemplateformfieldID sets PkiEzsigntemplateformfieldID field to given
 `func (o *EzsigntemplateformfieldRequestCompound) HasPkiEzsigntemplateformfieldID() bool`
 
 HasPkiEzsigntemplateformfieldID returns a boolean if a field has been set.
+
+### GetEEzsigntemplateformfieldPositioning
+
+`func (o *EzsigntemplateformfieldRequestCompound) GetEEzsigntemplateformfieldPositioning() FieldEEzsigntemplateformfieldPositioning`
+
+GetEEzsigntemplateformfieldPositioning returns the EEzsigntemplateformfieldPositioning field if non-nil, zero value otherwise.
+
+### GetEEzsigntemplateformfieldPositioningOk
+
+`func (o *EzsigntemplateformfieldRequestCompound) GetEEzsigntemplateformfieldPositioningOk() (*FieldEEzsigntemplateformfieldPositioning, bool)`
+
+GetEEzsigntemplateformfieldPositioningOk returns a tuple with the EEzsigntemplateformfieldPositioning field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsigntemplateformfieldPositioning
+
+`func (o *EzsigntemplateformfieldRequestCompound) SetEEzsigntemplateformfieldPositioning(v FieldEEzsigntemplateformfieldPositioning)`
+
+SetEEzsigntemplateformfieldPositioning sets EEzsigntemplateformfieldPositioning field to given value.
+
+### HasEEzsigntemplateformfieldPositioning
+
+`func (o *EzsigntemplateformfieldRequestCompound) HasEEzsigntemplateformfieldPositioning() bool`
+
+HasEEzsigntemplateformfieldPositioning returns a boolean if a field has been set.
 
 ### GetIEzsigntemplatedocumentpagePagenumber
 
@@ -145,6 +175,11 @@ and a boolean to check if the value has been set.
 
 SetIEzsigntemplateformfieldX sets IEzsigntemplateformfieldX field to given value.
 
+### HasIEzsigntemplateformfieldX
+
+`func (o *EzsigntemplateformfieldRequestCompound) HasIEzsigntemplateformfieldX() bool`
+
+HasIEzsigntemplateformfieldX returns a boolean if a field has been set.
 
 ### GetIEzsigntemplateformfieldY
 
@@ -165,6 +200,11 @@ and a boolean to check if the value has been set.
 
 SetIEzsigntemplateformfieldY sets IEzsigntemplateformfieldY field to given value.
 
+### HasIEzsigntemplateformfieldY
+
+`func (o *EzsigntemplateformfieldRequestCompound) HasIEzsigntemplateformfieldY() bool`
+
+HasIEzsigntemplateformfieldY returns a boolean if a field has been set.
 
 ### GetIEzsigntemplateformfieldWidth
 
@@ -280,6 +320,106 @@ SetEEzsigntemplateformfieldDependencyrequirement sets EEzsigntemplateformfieldDe
 `func (o *EzsigntemplateformfieldRequestCompound) HasEEzsigntemplateformfieldDependencyrequirement() bool`
 
 HasEEzsigntemplateformfieldDependencyrequirement returns a boolean if a field has been set.
+
+### GetSEzsigntemplateformfieldPositioningpattern
+
+`func (o *EzsigntemplateformfieldRequestCompound) GetSEzsigntemplateformfieldPositioningpattern() string`
+
+GetSEzsigntemplateformfieldPositioningpattern returns the SEzsigntemplateformfieldPositioningpattern field if non-nil, zero value otherwise.
+
+### GetSEzsigntemplateformfieldPositioningpatternOk
+
+`func (o *EzsigntemplateformfieldRequestCompound) GetSEzsigntemplateformfieldPositioningpatternOk() (*string, bool)`
+
+GetSEzsigntemplateformfieldPositioningpatternOk returns a tuple with the SEzsigntemplateformfieldPositioningpattern field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzsigntemplateformfieldPositioningpattern
+
+`func (o *EzsigntemplateformfieldRequestCompound) SetSEzsigntemplateformfieldPositioningpattern(v string)`
+
+SetSEzsigntemplateformfieldPositioningpattern sets SEzsigntemplateformfieldPositioningpattern field to given value.
+
+### HasSEzsigntemplateformfieldPositioningpattern
+
+`func (o *EzsigntemplateformfieldRequestCompound) HasSEzsigntemplateformfieldPositioningpattern() bool`
+
+HasSEzsigntemplateformfieldPositioningpattern returns a boolean if a field has been set.
+
+### GetIEzsigntemplateformfieldPositioningoffsetx
+
+`func (o *EzsigntemplateformfieldRequestCompound) GetIEzsigntemplateformfieldPositioningoffsetx() int32`
+
+GetIEzsigntemplateformfieldPositioningoffsetx returns the IEzsigntemplateformfieldPositioningoffsetx field if non-nil, zero value otherwise.
+
+### GetIEzsigntemplateformfieldPositioningoffsetxOk
+
+`func (o *EzsigntemplateformfieldRequestCompound) GetIEzsigntemplateformfieldPositioningoffsetxOk() (*int32, bool)`
+
+GetIEzsigntemplateformfieldPositioningoffsetxOk returns a tuple with the IEzsigntemplateformfieldPositioningoffsetx field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIEzsigntemplateformfieldPositioningoffsetx
+
+`func (o *EzsigntemplateformfieldRequestCompound) SetIEzsigntemplateformfieldPositioningoffsetx(v int32)`
+
+SetIEzsigntemplateformfieldPositioningoffsetx sets IEzsigntemplateformfieldPositioningoffsetx field to given value.
+
+### HasIEzsigntemplateformfieldPositioningoffsetx
+
+`func (o *EzsigntemplateformfieldRequestCompound) HasIEzsigntemplateformfieldPositioningoffsetx() bool`
+
+HasIEzsigntemplateformfieldPositioningoffsetx returns a boolean if a field has been set.
+
+### GetIEzsigntemplateformfieldPositioningoffsety
+
+`func (o *EzsigntemplateformfieldRequestCompound) GetIEzsigntemplateformfieldPositioningoffsety() int32`
+
+GetIEzsigntemplateformfieldPositioningoffsety returns the IEzsigntemplateformfieldPositioningoffsety field if non-nil, zero value otherwise.
+
+### GetIEzsigntemplateformfieldPositioningoffsetyOk
+
+`func (o *EzsigntemplateformfieldRequestCompound) GetIEzsigntemplateformfieldPositioningoffsetyOk() (*int32, bool)`
+
+GetIEzsigntemplateformfieldPositioningoffsetyOk returns a tuple with the IEzsigntemplateformfieldPositioningoffsety field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIEzsigntemplateformfieldPositioningoffsety
+
+`func (o *EzsigntemplateformfieldRequestCompound) SetIEzsigntemplateformfieldPositioningoffsety(v int32)`
+
+SetIEzsigntemplateformfieldPositioningoffsety sets IEzsigntemplateformfieldPositioningoffsety field to given value.
+
+### HasIEzsigntemplateformfieldPositioningoffsety
+
+`func (o *EzsigntemplateformfieldRequestCompound) HasIEzsigntemplateformfieldPositioningoffsety() bool`
+
+HasIEzsigntemplateformfieldPositioningoffsety returns a boolean if a field has been set.
+
+### GetEEzsigntemplateformfieldPositioningoccurence
+
+`func (o *EzsigntemplateformfieldRequestCompound) GetEEzsigntemplateformfieldPositioningoccurence() FieldEEzsigntemplateformfieldPositioningoccurence`
+
+GetEEzsigntemplateformfieldPositioningoccurence returns the EEzsigntemplateformfieldPositioningoccurence field if non-nil, zero value otherwise.
+
+### GetEEzsigntemplateformfieldPositioningoccurenceOk
+
+`func (o *EzsigntemplateformfieldRequestCompound) GetEEzsigntemplateformfieldPositioningoccurenceOk() (*FieldEEzsigntemplateformfieldPositioningoccurence, bool)`
+
+GetEEzsigntemplateformfieldPositioningoccurenceOk returns a tuple with the EEzsigntemplateformfieldPositioningoccurence field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsigntemplateformfieldPositioningoccurence
+
+`func (o *EzsigntemplateformfieldRequestCompound) SetEEzsigntemplateformfieldPositioningoccurence(v FieldEEzsigntemplateformfieldPositioningoccurence)`
+
+SetEEzsigntemplateformfieldPositioningoccurence sets EEzsigntemplateformfieldPositioningoccurence field to given value.
+
+### HasEEzsigntemplateformfieldPositioningoccurence
+
+`func (o *EzsigntemplateformfieldRequestCompound) HasEEzsigntemplateformfieldPositioningoccurence() bool`
+
+HasEEzsigntemplateformfieldPositioningoccurence returns a boolean if a field has been set.
 
 ### GetAObjEzsigntemplateelementdependency
 

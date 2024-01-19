@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **PkiEzsignfolderID** | **int32** | The unique ID of the Ezsignfolder | 
 **FkiEzsignfoldertypeID** | Pointer to **int32** | The unique ID of the Ezsignfoldertype. | [optional] 
 **ObjEzsignfoldertype** | Pointer to [**CustomEzsignfoldertypeResponse**](CustomEzsignfoldertypeResponse.md) |  | [optional] 
+**EEzsignfolderCompletion** | Pointer to [**FieldEEzsignfolderCompletion**](FieldEEzsignfolderCompletion.md) |  | [optional] [default to PER_EZSIGNDOCUMENT]
 **SEzsignfoldertypeNameX** | Pointer to **string** |  | [optional] 
 **FkiBillingentityinternalID** | Pointer to **int32** | The unique ID of the Billingentityinternal. | [optional] 
 **SBillingentityinternalDescriptionX** | Pointer to **string** | The description of the Billingentityinternal in the language of the requester | [optional] 
@@ -115,6 +116,31 @@ SetObjEzsignfoldertype sets ObjEzsignfoldertype field to given value.
 `func (o *EzsignfolderGetObjectV1ResponseMPayload) HasObjEzsignfoldertype() bool`
 
 HasObjEzsignfoldertype returns a boolean if a field has been set.
+
+### GetEEzsignfolderCompletion
+
+`func (o *EzsignfolderGetObjectV1ResponseMPayload) GetEEzsignfolderCompletion() FieldEEzsignfolderCompletion`
+
+GetEEzsignfolderCompletion returns the EEzsignfolderCompletion field if non-nil, zero value otherwise.
+
+### GetEEzsignfolderCompletionOk
+
+`func (o *EzsignfolderGetObjectV1ResponseMPayload) GetEEzsignfolderCompletionOk() (*FieldEEzsignfolderCompletion, bool)`
+
+GetEEzsignfolderCompletionOk returns a tuple with the EEzsignfolderCompletion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsignfolderCompletion
+
+`func (o *EzsignfolderGetObjectV1ResponseMPayload) SetEEzsignfolderCompletion(v FieldEEzsignfolderCompletion)`
+
+SetEEzsignfolderCompletion sets EEzsignfolderCompletion field to given value.
+
+### HasEEzsignfolderCompletion
+
+`func (o *EzsignfolderGetObjectV1ResponseMPayload) HasEEzsignfolderCompletion() bool`
+
+HasEEzsignfolderCompletion returns a boolean if a field has been set.
 
 ### GetSEzsignfoldertypeNameX
 

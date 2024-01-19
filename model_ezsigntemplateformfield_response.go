@@ -24,6 +24,7 @@ var _ MappedNullable = &EzsigntemplateformfieldResponse{}
 type EzsigntemplateformfieldResponse struct {
 	// The unique ID of the Ezsigntemplateformfield
 	PkiEzsigntemplateformfieldID int32 `json:"pkiEzsigntemplateformfieldID"`
+	EEzsigntemplateformfieldPositioning *FieldEEzsigntemplateformfieldPositioning `json:"eEzsigntemplateformfieldPositioning,omitempty"`
 	// The page number in the Ezsigntemplatedocument
 	IEzsigntemplatedocumentpagePagenumber int32 `json:"iEzsigntemplatedocumentpagePagenumber"`
 	// The Label for the Ezsigntemplateformfield
@@ -31,9 +32,9 @@ type EzsigntemplateformfieldResponse struct {
 	// The value for the Ezsigntemplateformfield
 	SEzsigntemplateformfieldValue *string `json:"sEzsigntemplateformfieldValue,omitempty"`
 	// The X coordinate (Horizontal) where to put the Ezsigntemplateformfield on the Ezsigntemplatepage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplateformfield 2 inches from the left border of the page, you would use \"200\" for the X coordinate.
-	IEzsigntemplateformfieldX int32 `json:"iEzsigntemplateformfieldX"`
+	IEzsigntemplateformfieldX *int32 `json:"iEzsigntemplateformfieldX,omitempty"`
 	// The Y coordinate (Vertical) where to put the Ezsigntemplateformfield on the Ezsigntemplatepage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplateformfield 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.
-	IEzsigntemplateformfieldY int32 `json:"iEzsigntemplateformfieldY"`
+	IEzsigntemplateformfieldY *int32 `json:"iEzsigntemplateformfieldY,omitempty"`
 	// The Width of the Ezsigntemplateformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsigntemplateformfieldgroupType.  | eEzsigntemplateformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22-65535     | | Radio                     | 22           | | Text                      | 22-65535     | | Textarea                  | 22-65535     |
 	IEzsigntemplateformfieldWidth int32 `json:"iEzsigntemplateformfieldWidth"`
 	// The Height of the Ezsigntemplateformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsigntemplateformfieldgroupType.  | eEzsigntemplateformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22           | | Radio                     | 22           | | Text                      | 22           | | Textarea                  | 22-65535     | 
@@ -43,6 +44,13 @@ type EzsigntemplateformfieldResponse struct {
 	// Whether the Ezsigntemplateformfield is selected or not by default.  This can only be set if eEzsigntemplateformfieldgroupType is **Checkbox** or **Radio**
 	BEzsigntemplateformfieldSelected *bool `json:"bEzsigntemplateformfieldSelected,omitempty"`
 	EEzsigntemplateformfieldDependencyrequirement *FieldEEzsigntemplateformfieldDependencyrequirement `json:"eEzsigntemplateformfieldDependencyrequirement,omitempty"`
+	// The string pattern to search for the positioning. **This is not a regexp**  This will be required if **eEzsigntemplateformfieldPositioning** is set to **PerCoordinates**
+	SEzsigntemplateformfieldPositioningpattern *string `json:"sEzsigntemplateformfieldPositioningpattern,omitempty"`
+	// The offset X  This will be required if **eEzsigntemplateformfieldPositioning** is set to **PerCoordinates**
+	IEzsigntemplateformfieldPositioningoffsetx *int32 `json:"iEzsigntemplateformfieldPositioningoffsetx,omitempty"`
+	// The offset Y  This will be required if **eEzsigntemplateformfieldPositioning** is set to **PerCoordinates**
+	IEzsigntemplateformfieldPositioningoffsety *int32 `json:"iEzsigntemplateformfieldPositioningoffsety,omitempty"`
+	EEzsigntemplateformfieldPositioningoccurence *FieldEEzsigntemplateformfieldPositioningoccurence `json:"eEzsigntemplateformfieldPositioningoccurence,omitempty"`
 }
 
 type _EzsigntemplateformfieldResponse EzsigntemplateformfieldResponse
@@ -51,13 +59,13 @@ type _EzsigntemplateformfieldResponse EzsigntemplateformfieldResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigntemplateformfieldResponse(pkiEzsigntemplateformfieldID int32, iEzsigntemplatedocumentpagePagenumber int32, sEzsigntemplateformfieldLabel string, iEzsigntemplateformfieldX int32, iEzsigntemplateformfieldY int32, iEzsigntemplateformfieldWidth int32, iEzsigntemplateformfieldHeight int32) *EzsigntemplateformfieldResponse {
+func NewEzsigntemplateformfieldResponse(pkiEzsigntemplateformfieldID int32, iEzsigntemplatedocumentpagePagenumber int32, sEzsigntemplateformfieldLabel string, iEzsigntemplateformfieldWidth int32, iEzsigntemplateformfieldHeight int32) *EzsigntemplateformfieldResponse {
 	this := EzsigntemplateformfieldResponse{}
 	this.PkiEzsigntemplateformfieldID = pkiEzsigntemplateformfieldID
+	var eEzsigntemplateformfieldPositioning FieldEEzsigntemplateformfieldPositioning = PER_COORDINATES
+	this.EEzsigntemplateformfieldPositioning = &eEzsigntemplateformfieldPositioning
 	this.IEzsigntemplatedocumentpagePagenumber = iEzsigntemplatedocumentpagePagenumber
 	this.SEzsigntemplateformfieldLabel = sEzsigntemplateformfieldLabel
-	this.IEzsigntemplateformfieldX = iEzsigntemplateformfieldX
-	this.IEzsigntemplateformfieldY = iEzsigntemplateformfieldY
 	this.IEzsigntemplateformfieldWidth = iEzsigntemplateformfieldWidth
 	this.IEzsigntemplateformfieldHeight = iEzsigntemplateformfieldHeight
 	return &this
@@ -68,6 +76,8 @@ func NewEzsigntemplateformfieldResponse(pkiEzsigntemplateformfieldID int32, iEzs
 // but it doesn't guarantee that properties required by API are set
 func NewEzsigntemplateformfieldResponseWithDefaults() *EzsigntemplateformfieldResponse {
 	this := EzsigntemplateformfieldResponse{}
+	var eEzsigntemplateformfieldPositioning FieldEEzsigntemplateformfieldPositioning = PER_COORDINATES
+	this.EEzsigntemplateformfieldPositioning = &eEzsigntemplateformfieldPositioning
 	return &this
 }
 
@@ -93,6 +103,38 @@ func (o *EzsigntemplateformfieldResponse) GetPkiEzsigntemplateformfieldIDOk() (*
 // SetPkiEzsigntemplateformfieldID sets field value
 func (o *EzsigntemplateformfieldResponse) SetPkiEzsigntemplateformfieldID(v int32) {
 	o.PkiEzsigntemplateformfieldID = v
+}
+
+// GetEEzsigntemplateformfieldPositioning returns the EEzsigntemplateformfieldPositioning field value if set, zero value otherwise.
+func (o *EzsigntemplateformfieldResponse) GetEEzsigntemplateformfieldPositioning() FieldEEzsigntemplateformfieldPositioning {
+	if o == nil || IsNil(o.EEzsigntemplateformfieldPositioning) {
+		var ret FieldEEzsigntemplateformfieldPositioning
+		return ret
+	}
+	return *o.EEzsigntemplateformfieldPositioning
+}
+
+// GetEEzsigntemplateformfieldPositioningOk returns a tuple with the EEzsigntemplateformfieldPositioning field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateformfieldResponse) GetEEzsigntemplateformfieldPositioningOk() (*FieldEEzsigntemplateformfieldPositioning, bool) {
+	if o == nil || IsNil(o.EEzsigntemplateformfieldPositioning) {
+		return nil, false
+	}
+	return o.EEzsigntemplateformfieldPositioning, true
+}
+
+// HasEEzsigntemplateformfieldPositioning returns a boolean if a field has been set.
+func (o *EzsigntemplateformfieldResponse) HasEEzsigntemplateformfieldPositioning() bool {
+	if o != nil && !IsNil(o.EEzsigntemplateformfieldPositioning) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsigntemplateformfieldPositioning gets a reference to the given FieldEEzsigntemplateformfieldPositioning and assigns it to the EEzsigntemplateformfieldPositioning field.
+func (o *EzsigntemplateformfieldResponse) SetEEzsigntemplateformfieldPositioning(v FieldEEzsigntemplateformfieldPositioning) {
+	o.EEzsigntemplateformfieldPositioning = &v
 }
 
 // GetIEzsigntemplatedocumentpagePagenumber returns the IEzsigntemplatedocumentpagePagenumber field value
@@ -175,52 +217,68 @@ func (o *EzsigntemplateformfieldResponse) SetSEzsigntemplateformfieldValue(v str
 	o.SEzsigntemplateformfieldValue = &v
 }
 
-// GetIEzsigntemplateformfieldX returns the IEzsigntemplateformfieldX field value
+// GetIEzsigntemplateformfieldX returns the IEzsigntemplateformfieldX field value if set, zero value otherwise.
 func (o *EzsigntemplateformfieldResponse) GetIEzsigntemplateformfieldX() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.IEzsigntemplateformfieldX) {
 		var ret int32
 		return ret
 	}
-
-	return o.IEzsigntemplateformfieldX
+	return *o.IEzsigntemplateformfieldX
 }
 
-// GetIEzsigntemplateformfieldXOk returns a tuple with the IEzsigntemplateformfieldX field value
+// GetIEzsigntemplateformfieldXOk returns a tuple with the IEzsigntemplateformfieldX field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsigntemplateformfieldResponse) GetIEzsigntemplateformfieldXOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IEzsigntemplateformfieldX) {
 		return nil, false
 	}
-	return &o.IEzsigntemplateformfieldX, true
+	return o.IEzsigntemplateformfieldX, true
 }
 
-// SetIEzsigntemplateformfieldX sets field value
+// HasIEzsigntemplateformfieldX returns a boolean if a field has been set.
+func (o *EzsigntemplateformfieldResponse) HasIEzsigntemplateformfieldX() bool {
+	if o != nil && !IsNil(o.IEzsigntemplateformfieldX) {
+		return true
+	}
+
+	return false
+}
+
+// SetIEzsigntemplateformfieldX gets a reference to the given int32 and assigns it to the IEzsigntemplateformfieldX field.
 func (o *EzsigntemplateformfieldResponse) SetIEzsigntemplateformfieldX(v int32) {
-	o.IEzsigntemplateformfieldX = v
+	o.IEzsigntemplateformfieldX = &v
 }
 
-// GetIEzsigntemplateformfieldY returns the IEzsigntemplateformfieldY field value
+// GetIEzsigntemplateformfieldY returns the IEzsigntemplateformfieldY field value if set, zero value otherwise.
 func (o *EzsigntemplateformfieldResponse) GetIEzsigntemplateformfieldY() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.IEzsigntemplateformfieldY) {
 		var ret int32
 		return ret
 	}
-
-	return o.IEzsigntemplateformfieldY
+	return *o.IEzsigntemplateformfieldY
 }
 
-// GetIEzsigntemplateformfieldYOk returns a tuple with the IEzsigntemplateformfieldY field value
+// GetIEzsigntemplateformfieldYOk returns a tuple with the IEzsigntemplateformfieldY field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsigntemplateformfieldResponse) GetIEzsigntemplateformfieldYOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IEzsigntemplateformfieldY) {
 		return nil, false
 	}
-	return &o.IEzsigntemplateformfieldY, true
+	return o.IEzsigntemplateformfieldY, true
 }
 
-// SetIEzsigntemplateformfieldY sets field value
+// HasIEzsigntemplateformfieldY returns a boolean if a field has been set.
+func (o *EzsigntemplateformfieldResponse) HasIEzsigntemplateformfieldY() bool {
+	if o != nil && !IsNil(o.IEzsigntemplateformfieldY) {
+		return true
+	}
+
+	return false
+}
+
+// SetIEzsigntemplateformfieldY gets a reference to the given int32 and assigns it to the IEzsigntemplateformfieldY field.
 func (o *EzsigntemplateformfieldResponse) SetIEzsigntemplateformfieldY(v int32) {
-	o.IEzsigntemplateformfieldY = v
+	o.IEzsigntemplateformfieldY = &v
 }
 
 // GetIEzsigntemplateformfieldWidth returns the IEzsigntemplateformfieldWidth field value
@@ -367,6 +425,134 @@ func (o *EzsigntemplateformfieldResponse) SetEEzsigntemplateformfieldDependencyr
 	o.EEzsigntemplateformfieldDependencyrequirement = &v
 }
 
+// GetSEzsigntemplateformfieldPositioningpattern returns the SEzsigntemplateformfieldPositioningpattern field value if set, zero value otherwise.
+func (o *EzsigntemplateformfieldResponse) GetSEzsigntemplateformfieldPositioningpattern() string {
+	if o == nil || IsNil(o.SEzsigntemplateformfieldPositioningpattern) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsigntemplateformfieldPositioningpattern
+}
+
+// GetSEzsigntemplateformfieldPositioningpatternOk returns a tuple with the SEzsigntemplateformfieldPositioningpattern field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateformfieldResponse) GetSEzsigntemplateformfieldPositioningpatternOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsigntemplateformfieldPositioningpattern) {
+		return nil, false
+	}
+	return o.SEzsigntemplateformfieldPositioningpattern, true
+}
+
+// HasSEzsigntemplateformfieldPositioningpattern returns a boolean if a field has been set.
+func (o *EzsigntemplateformfieldResponse) HasSEzsigntemplateformfieldPositioningpattern() bool {
+	if o != nil && !IsNil(o.SEzsigntemplateformfieldPositioningpattern) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsigntemplateformfieldPositioningpattern gets a reference to the given string and assigns it to the SEzsigntemplateformfieldPositioningpattern field.
+func (o *EzsigntemplateformfieldResponse) SetSEzsigntemplateformfieldPositioningpattern(v string) {
+	o.SEzsigntemplateformfieldPositioningpattern = &v
+}
+
+// GetIEzsigntemplateformfieldPositioningoffsetx returns the IEzsigntemplateformfieldPositioningoffsetx field value if set, zero value otherwise.
+func (o *EzsigntemplateformfieldResponse) GetIEzsigntemplateformfieldPositioningoffsetx() int32 {
+	if o == nil || IsNil(o.IEzsigntemplateformfieldPositioningoffsetx) {
+		var ret int32
+		return ret
+	}
+	return *o.IEzsigntemplateformfieldPositioningoffsetx
+}
+
+// GetIEzsigntemplateformfieldPositioningoffsetxOk returns a tuple with the IEzsigntemplateformfieldPositioningoffsetx field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateformfieldResponse) GetIEzsigntemplateformfieldPositioningoffsetxOk() (*int32, bool) {
+	if o == nil || IsNil(o.IEzsigntemplateformfieldPositioningoffsetx) {
+		return nil, false
+	}
+	return o.IEzsigntemplateformfieldPositioningoffsetx, true
+}
+
+// HasIEzsigntemplateformfieldPositioningoffsetx returns a boolean if a field has been set.
+func (o *EzsigntemplateformfieldResponse) HasIEzsigntemplateformfieldPositioningoffsetx() bool {
+	if o != nil && !IsNil(o.IEzsigntemplateformfieldPositioningoffsetx) {
+		return true
+	}
+
+	return false
+}
+
+// SetIEzsigntemplateformfieldPositioningoffsetx gets a reference to the given int32 and assigns it to the IEzsigntemplateformfieldPositioningoffsetx field.
+func (o *EzsigntemplateformfieldResponse) SetIEzsigntemplateformfieldPositioningoffsetx(v int32) {
+	o.IEzsigntemplateformfieldPositioningoffsetx = &v
+}
+
+// GetIEzsigntemplateformfieldPositioningoffsety returns the IEzsigntemplateformfieldPositioningoffsety field value if set, zero value otherwise.
+func (o *EzsigntemplateformfieldResponse) GetIEzsigntemplateformfieldPositioningoffsety() int32 {
+	if o == nil || IsNil(o.IEzsigntemplateformfieldPositioningoffsety) {
+		var ret int32
+		return ret
+	}
+	return *o.IEzsigntemplateformfieldPositioningoffsety
+}
+
+// GetIEzsigntemplateformfieldPositioningoffsetyOk returns a tuple with the IEzsigntemplateformfieldPositioningoffsety field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateformfieldResponse) GetIEzsigntemplateformfieldPositioningoffsetyOk() (*int32, bool) {
+	if o == nil || IsNil(o.IEzsigntemplateformfieldPositioningoffsety) {
+		return nil, false
+	}
+	return o.IEzsigntemplateformfieldPositioningoffsety, true
+}
+
+// HasIEzsigntemplateformfieldPositioningoffsety returns a boolean if a field has been set.
+func (o *EzsigntemplateformfieldResponse) HasIEzsigntemplateformfieldPositioningoffsety() bool {
+	if o != nil && !IsNil(o.IEzsigntemplateformfieldPositioningoffsety) {
+		return true
+	}
+
+	return false
+}
+
+// SetIEzsigntemplateformfieldPositioningoffsety gets a reference to the given int32 and assigns it to the IEzsigntemplateformfieldPositioningoffsety field.
+func (o *EzsigntemplateformfieldResponse) SetIEzsigntemplateformfieldPositioningoffsety(v int32) {
+	o.IEzsigntemplateformfieldPositioningoffsety = &v
+}
+
+// GetEEzsigntemplateformfieldPositioningoccurence returns the EEzsigntemplateformfieldPositioningoccurence field value if set, zero value otherwise.
+func (o *EzsigntemplateformfieldResponse) GetEEzsigntemplateformfieldPositioningoccurence() FieldEEzsigntemplateformfieldPositioningoccurence {
+	if o == nil || IsNil(o.EEzsigntemplateformfieldPositioningoccurence) {
+		var ret FieldEEzsigntemplateformfieldPositioningoccurence
+		return ret
+	}
+	return *o.EEzsigntemplateformfieldPositioningoccurence
+}
+
+// GetEEzsigntemplateformfieldPositioningoccurenceOk returns a tuple with the EEzsigntemplateformfieldPositioningoccurence field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateformfieldResponse) GetEEzsigntemplateformfieldPositioningoccurenceOk() (*FieldEEzsigntemplateformfieldPositioningoccurence, bool) {
+	if o == nil || IsNil(o.EEzsigntemplateformfieldPositioningoccurence) {
+		return nil, false
+	}
+	return o.EEzsigntemplateformfieldPositioningoccurence, true
+}
+
+// HasEEzsigntemplateformfieldPositioningoccurence returns a boolean if a field has been set.
+func (o *EzsigntemplateformfieldResponse) HasEEzsigntemplateformfieldPositioningoccurence() bool {
+	if o != nil && !IsNil(o.EEzsigntemplateformfieldPositioningoccurence) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsigntemplateformfieldPositioningoccurence gets a reference to the given FieldEEzsigntemplateformfieldPositioningoccurence and assigns it to the EEzsigntemplateformfieldPositioningoccurence field.
+func (o *EzsigntemplateformfieldResponse) SetEEzsigntemplateformfieldPositioningoccurence(v FieldEEzsigntemplateformfieldPositioningoccurence) {
+	o.EEzsigntemplateformfieldPositioningoccurence = &v
+}
+
 func (o EzsigntemplateformfieldResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -378,13 +564,20 @@ func (o EzsigntemplateformfieldResponse) MarshalJSON() ([]byte, error) {
 func (o EzsigntemplateformfieldResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiEzsigntemplateformfieldID"] = o.PkiEzsigntemplateformfieldID
+	if !IsNil(o.EEzsigntemplateformfieldPositioning) {
+		toSerialize["eEzsigntemplateformfieldPositioning"] = o.EEzsigntemplateformfieldPositioning
+	}
 	toSerialize["iEzsigntemplatedocumentpagePagenumber"] = o.IEzsigntemplatedocumentpagePagenumber
 	toSerialize["sEzsigntemplateformfieldLabel"] = o.SEzsigntemplateformfieldLabel
 	if !IsNil(o.SEzsigntemplateformfieldValue) {
 		toSerialize["sEzsigntemplateformfieldValue"] = o.SEzsigntemplateformfieldValue
 	}
-	toSerialize["iEzsigntemplateformfieldX"] = o.IEzsigntemplateformfieldX
-	toSerialize["iEzsigntemplateformfieldY"] = o.IEzsigntemplateformfieldY
+	if !IsNil(o.IEzsigntemplateformfieldX) {
+		toSerialize["iEzsigntemplateformfieldX"] = o.IEzsigntemplateformfieldX
+	}
+	if !IsNil(o.IEzsigntemplateformfieldY) {
+		toSerialize["iEzsigntemplateformfieldY"] = o.IEzsigntemplateformfieldY
+	}
 	toSerialize["iEzsigntemplateformfieldWidth"] = o.IEzsigntemplateformfieldWidth
 	toSerialize["iEzsigntemplateformfieldHeight"] = o.IEzsigntemplateformfieldHeight
 	if !IsNil(o.BEzsigntemplateformfieldAutocomplete) {
@@ -395,6 +588,18 @@ func (o EzsigntemplateformfieldResponse) ToMap() (map[string]interface{}, error)
 	}
 	if !IsNil(o.EEzsigntemplateformfieldDependencyrequirement) {
 		toSerialize["eEzsigntemplateformfieldDependencyrequirement"] = o.EEzsigntemplateformfieldDependencyrequirement
+	}
+	if !IsNil(o.SEzsigntemplateformfieldPositioningpattern) {
+		toSerialize["sEzsigntemplateformfieldPositioningpattern"] = o.SEzsigntemplateformfieldPositioningpattern
+	}
+	if !IsNil(o.IEzsigntemplateformfieldPositioningoffsetx) {
+		toSerialize["iEzsigntemplateformfieldPositioningoffsetx"] = o.IEzsigntemplateformfieldPositioningoffsetx
+	}
+	if !IsNil(o.IEzsigntemplateformfieldPositioningoffsety) {
+		toSerialize["iEzsigntemplateformfieldPositioningoffsety"] = o.IEzsigntemplateformfieldPositioningoffsety
+	}
+	if !IsNil(o.EEzsigntemplateformfieldPositioningoccurence) {
+		toSerialize["eEzsigntemplateformfieldPositioningoccurence"] = o.EEzsigntemplateformfieldPositioningoccurence
 	}
 	return toSerialize, nil
 }
@@ -407,8 +612,6 @@ func (o *EzsigntemplateformfieldResponse) UnmarshalJSON(data []byte) (err error)
 		"pkiEzsigntemplateformfieldID",
 		"iEzsigntemplatedocumentpagePagenumber",
 		"sEzsigntemplateformfieldLabel",
-		"iEzsigntemplateformfieldX",
-		"iEzsigntemplateformfieldY",
 		"iEzsigntemplateformfieldWidth",
 		"iEzsigntemplateformfieldHeight",
 	}

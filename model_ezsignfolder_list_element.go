@@ -34,6 +34,8 @@ type EzsignfolderListElement struct {
 	EEzsignfolderStep FieldEEzsignfolderStep `json:"eEzsignfolderStep"`
 	// The date and time at which the object was created
 	DtCreatedDate string `json:"dtCreatedDate"`
+	// The date and time at which the Ezsignfolder will be sent in the future.
+	DtEzsignfolderDelayedsenddate *string `json:"dtEzsignfolderDelayedsenddate,omitempty"`
 	// The date and time at which the Ezsignfolder was sent the last time.
 	DtEzsignfolderSentdate *string `json:"dtEzsignfolderSentdate,omitempty"`
 	// The maximum date and time at which the Ezsignfolder can be signed.
@@ -246,6 +248,38 @@ func (o *EzsignfolderListElement) SetDtCreatedDate(v string) {
 	o.DtCreatedDate = v
 }
 
+// GetDtEzsignfolderDelayedsenddate returns the DtEzsignfolderDelayedsenddate field value if set, zero value otherwise.
+func (o *EzsignfolderListElement) GetDtEzsignfolderDelayedsenddate() string {
+	if o == nil || IsNil(o.DtEzsignfolderDelayedsenddate) {
+		var ret string
+		return ret
+	}
+	return *o.DtEzsignfolderDelayedsenddate
+}
+
+// GetDtEzsignfolderDelayedsenddateOk returns a tuple with the DtEzsignfolderDelayedsenddate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderListElement) GetDtEzsignfolderDelayedsenddateOk() (*string, bool) {
+	if o == nil || IsNil(o.DtEzsignfolderDelayedsenddate) {
+		return nil, false
+	}
+	return o.DtEzsignfolderDelayedsenddate, true
+}
+
+// HasDtEzsignfolderDelayedsenddate returns a boolean if a field has been set.
+func (o *EzsignfolderListElement) HasDtEzsignfolderDelayedsenddate() bool {
+	if o != nil && !IsNil(o.DtEzsignfolderDelayedsenddate) {
+		return true
+	}
+
+	return false
+}
+
+// SetDtEzsignfolderDelayedsenddate gets a reference to the given string and assigns it to the DtEzsignfolderDelayedsenddate field.
+func (o *EzsignfolderListElement) SetDtEzsignfolderDelayedsenddate(v string) {
+	o.DtEzsignfolderDelayedsenddate = &v
+}
+
 // GetDtEzsignfolderSentdate returns the DtEzsignfolderSentdate field value if set, zero value otherwise.
 func (o *EzsignfolderListElement) GetDtEzsignfolderSentdate() string {
 	if o == nil || IsNil(o.DtEzsignfolderSentdate) {
@@ -423,6 +457,9 @@ func (o EzsignfolderListElement) ToMap() (map[string]interface{}, error) {
 	toSerialize["sEzsignfolderDescription"] = o.SEzsignfolderDescription
 	toSerialize["eEzsignfolderStep"] = o.EEzsignfolderStep
 	toSerialize["dtCreatedDate"] = o.DtCreatedDate
+	if !IsNil(o.DtEzsignfolderDelayedsenddate) {
+		toSerialize["dtEzsignfolderDelayedsenddate"] = o.DtEzsignfolderDelayedsenddate
+	}
 	if !IsNil(o.DtEzsignfolderSentdate) {
 		toSerialize["dtEzsignfolderSentdate"] = o.DtEzsignfolderSentdate
 	}

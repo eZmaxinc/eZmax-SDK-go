@@ -18,13 +18,14 @@ Name | Type | Description | Notes
 **BWebhookIsactive** | **bool** | Whether the Webhook is active or not | 
 **BWebhookIssigned** | **bool** | Whether the requests will be signed or not | 
 **BWebhookSkipsslvalidation** | **bool** | Wheter the server&#39;s SSL certificate should be validated or not. Not recommended to skip for production use | 
+**ObjAudit** | [**CommonAudit**](CommonAudit.md) |  | 
 **SWebhookEvent** | Pointer to **string** | The concatenated string to describe the Webhook event | [optional] 
 
 ## Methods
 
 ### NewWebhookResponseCompound
 
-`func NewWebhookResponseCompound(pkiWebhookID int32, sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookIsactive bool, bWebhookIssigned bool, bWebhookSkipsslvalidation bool, ) *WebhookResponseCompound`
+`func NewWebhookResponseCompound(pkiWebhookID int32, sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookIsactive bool, bWebhookIssigned bool, bWebhookSkipsslvalidation bool, objAudit CommonAudit, ) *WebhookResponseCompound`
 
 NewWebhookResponseCompound instantiates a new WebhookResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -347,6 +348,26 @@ and a boolean to check if the value has been set.
 `func (o *WebhookResponseCompound) SetBWebhookSkipsslvalidation(v bool)`
 
 SetBWebhookSkipsslvalidation sets BWebhookSkipsslvalidation field to given value.
+
+
+### GetObjAudit
+
+`func (o *WebhookResponseCompound) GetObjAudit() CommonAudit`
+
+GetObjAudit returns the ObjAudit field if non-nil, zero value otherwise.
+
+### GetObjAuditOk
+
+`func (o *WebhookResponseCompound) GetObjAuditOk() (*CommonAudit, bool)`
+
+GetObjAuditOk returns a tuple with the ObjAudit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjAudit
+
+`func (o *WebhookResponseCompound) SetObjAudit(v CommonAudit)`
+
+SetObjAudit sets ObjAudit field to given value.
 
 
 ### GetSWebhookEvent

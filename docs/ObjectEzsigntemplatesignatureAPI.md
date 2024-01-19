@@ -32,7 +32,7 @@ import (
 )
 
 func main() {
-	ezsigntemplatesignatureCreateObjectV1Request := *openapiclient.NewEzsigntemplatesignatureCreateObjectV1Request([]openapiclient.EzsigntemplatesignatureRequestCompound{*openapiclient.NewEzsigntemplatesignatureRequestCompound(int32(133), int32(9), int32(1), int32(200), int32(300), int32(1), openapiclient.Field-eEzsigntemplatesignatureType("Acknowledgement"))}) // EzsigntemplatesignatureCreateObjectV1Request | 
+	ezsigntemplatesignatureCreateObjectV1Request := *openapiclient.NewEzsigntemplatesignatureCreateObjectV1Request([]openapiclient.EzsigntemplatesignatureRequestCompound{*openapiclient.NewEzsigntemplatesignatureRequestCompound(int32(133), int32(9), int32(1), int32(1), openapiclient.Field-eEzsigntemplatesignatureType("Acknowledgement"))}) // EzsigntemplatesignatureCreateObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -169,7 +169,7 @@ import (
 
 func main() {
 	pkiEzsigntemplatesignatureID := int32(56) // int32 | 
-	ezsigntemplatesignatureEditObjectV1Request := *openapiclient.NewEzsigntemplatesignatureEditObjectV1Request(*openapiclient.NewEzsigntemplatesignatureRequestCompound(int32(133), int32(9), int32(1), int32(200), int32(300), int32(1), openapiclient.Field-eEzsigntemplatesignatureType("Acknowledgement"))) // EzsigntemplatesignatureEditObjectV1Request | 
+	ezsigntemplatesignatureEditObjectV1Request := *openapiclient.NewEzsigntemplatesignatureEditObjectV1Request(*openapiclient.NewEzsigntemplatesignatureRequestCompound(int32(133), int32(9), int32(1), int32(1), openapiclient.Field-eEzsigntemplatesignatureType("Acknowledgement"))) // EzsigntemplatesignatureEditObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

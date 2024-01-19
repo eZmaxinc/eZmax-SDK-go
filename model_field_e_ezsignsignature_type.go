@@ -31,6 +31,7 @@ const (
 	ATTACHMENTS_CONFIRMATION FieldEEzsignsignatureType = "AttachmentsConfirmation"
 	FIELD_TEXT FieldEEzsignsignatureType = "FieldText"
 	FIELD_TEXTAREA FieldEEzsignsignatureType = "FieldTextarea"
+	CONSULTATION FieldEEzsignsignatureType = "Consultation"
 )
 
 // All allowed values of FieldEEzsignsignatureType enum
@@ -45,6 +46,7 @@ var AllowedFieldEEzsignsignatureTypeEnumValues = []FieldEEzsignsignatureType{
 	"AttachmentsConfirmation",
 	"FieldText",
 	"FieldTextarea",
+	"Consultation",
 }
 
 func (v *FieldEEzsignsignatureType) UnmarshalJSON(src []byte) error {

@@ -59,6 +59,8 @@ type UserRequestCompound struct {
 	SUserLastname string `json:"sUserLastname"`
 	// The login name of the User.
 	SUserLoginname string `json:"sUserLoginname"`
+	// The job title of the user
+	SUserJobtitle *string `json:"sUserJobtitle,omitempty"`
 	EUserEzsignaccess FieldEUserEzsignaccess `json:"eUserEzsignaccess"`
 	// Whether the User is active or not
 	BUserIsactive bool `json:"bUserIsactive"`
@@ -688,6 +690,38 @@ func (o *UserRequestCompound) SetSUserLoginname(v string) {
 	o.SUserLoginname = v
 }
 
+// GetSUserJobtitle returns the SUserJobtitle field value if set, zero value otherwise.
+func (o *UserRequestCompound) GetSUserJobtitle() string {
+	if o == nil || IsNil(o.SUserJobtitle) {
+		var ret string
+		return ret
+	}
+	return *o.SUserJobtitle
+}
+
+// GetSUserJobtitleOk returns a tuple with the SUserJobtitle field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UserRequestCompound) GetSUserJobtitleOk() (*string, bool) {
+	if o == nil || IsNil(o.SUserJobtitle) {
+		return nil, false
+	}
+	return o.SUserJobtitle, true
+}
+
+// HasSUserJobtitle returns a boolean if a field has been set.
+func (o *UserRequestCompound) HasSUserJobtitle() bool {
+	if o != nil && !IsNil(o.SUserJobtitle) {
+		return true
+	}
+
+	return false
+}
+
+// SetSUserJobtitle gets a reference to the given string and assigns it to the SUserJobtitle field.
+func (o *UserRequestCompound) SetSUserJobtitle(v string) {
+	o.SUserJobtitle = &v
+}
+
 // GetEUserEzsignaccess returns the EUserEzsignaccess field value
 func (o *UserRequestCompound) GetEUserEzsignaccess() FieldEUserEzsignaccess {
 	if o == nil {
@@ -915,6 +949,9 @@ func (o UserRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize["sUserFirstname"] = o.SUserFirstname
 	toSerialize["sUserLastname"] = o.SUserLastname
 	toSerialize["sUserLoginname"] = o.SUserLoginname
+	if !IsNil(o.SUserJobtitle) {
+		toSerialize["sUserJobtitle"] = o.SUserJobtitle
+	}
 	toSerialize["eUserEzsignaccess"] = o.EUserEzsignaccess
 	toSerialize["bUserIsactive"] = o.BUserIsactive
 	if !IsNil(o.BUserValidatebyadministration) {

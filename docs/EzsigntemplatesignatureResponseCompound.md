@@ -8,9 +8,10 @@ Name | Type | Description | Notes
 **FkiEzsigntemplatedocumentID** | **int32** | The unique ID of the Ezsigntemplatedocument | 
 **FkiEzsigntemplatesignerID** | **int32** | The unique ID of the Ezsigntemplatesigner | 
 **FkiEzsigntemplatesignerIDValidation** | Pointer to **int32** | The unique ID of the Ezsigntemplatesigner | [optional] 
+**EEzsigntemplatesignaturePositioning** | Pointer to [**FieldEEzsigntemplatesignaturePositioning**](FieldEEzsigntemplatesignaturePositioning.md) |  | [optional] 
 **IEzsigntemplatedocumentpagePagenumber** | **int32** | The page number in the Ezsigntemplatedocument | 
-**IEzsigntemplatesignatureX** | **int32** | The X coordinate (Horizontal) where to put the Ezsigntemplatesignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplatesignature 2 inches from the left border of the page, you would use \&quot;200\&quot; for the X coordinate. | 
-**IEzsigntemplatesignatureY** | **int32** | The Y coordinate (Vertical) where to put the Ezsigntemplatesignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplatesignature 3 inches from the top border of the page, you would use \&quot;300\&quot; for the Y coordinate. | 
+**IEzsigntemplatesignatureX** | Pointer to **int32** | The X coordinate (Horizontal) where to put the Ezsigntemplatesignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplatesignature 2 inches from the left border of the page, you would use \&quot;200\&quot; for the X coordinate. | [optional] 
+**IEzsigntemplatesignatureY** | Pointer to **int32** | The Y coordinate (Vertical) where to put the Ezsigntemplatesignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplatesignature 3 inches from the top border of the page, you would use \&quot;300\&quot; for the Y coordinate. | [optional] 
 **IEzsigntemplatesignatureWidth** | Pointer to **int32** | The width of the Ezsigntemplatesignature.  Size is calculated at 100dpi (dot per inch). So for example, if you want the Ezsigntemplatesignature to have a width of 2 inches, you would use \&quot;200\&quot; for the iEzsigntemplatesignatureWidth. | [optional] 
 **IEzsigntemplatesignatureHeight** | Pointer to **int32** | The height of the Ezsigntemplatesignature.  Size is calculated at 100dpi (dot per inch). So for example, if you want the Ezsigntemplatesignature to have an height of 2 inches, you would use \&quot;200\&quot; for the iEzsigntemplatesignatureHeight. | [optional] 
 **IEzsigntemplatesignatureStep** | **int32** | The step when the Ezsigntemplatesigner will be invited to sign | 
@@ -26,6 +27,10 @@ Name | Type | Description | Notes
 **SEzsigntemplatesignatureRegexp** | Pointer to **string** | A regular expression to indicate what values are acceptable for the Ezsigntemplatesignature.  This can only be set if eEzsigntemplatesignatureType is **Text** or **Textarea** | [optional] 
 **EEzsigntemplatesignatureTextvalidation** | Pointer to [**EnumTextvalidation**](EnumTextvalidation.md) |  | [optional] 
 **EEzsigntemplatesignatureDependencyrequirement** | Pointer to [**FieldEEzsigntemplatesignatureDependencyrequirement**](FieldEEzsigntemplatesignatureDependencyrequirement.md) |  | [optional] 
+**SEzsigntemplatesignaturePositioningpattern** | Pointer to **string** | The string pattern to search for the positioning. **This is not a regexp**  This will be required if **eEzsigntemplatesignaturePositioning** is set to **PerCoordinates** | [optional] 
+**IEzsigntemplatesignaturePositioningoffsetx** | Pointer to **int32** | The offset X  This will be required if **eEzsigntemplatesignaturePositioning** is set to **PerCoordinates** | [optional] 
+**IEzsigntemplatesignaturePositioningoffsety** | Pointer to **int32** | The offset Y  This will be required if **eEzsigntemplatesignaturePositioning** is set to **PerCoordinates** | [optional] 
+**EEzsigntemplatesignaturePositioningoccurence** | Pointer to [**FieldEEzsigntemplatesignaturePositioningoccurence**](FieldEEzsigntemplatesignaturePositioningoccurence.md) |  | [optional] 
 **BEzsigntemplatesignatureCustomdate** | Pointer to **bool** | Whether the Ezsigntemplatesignature has a custom date format or not. (Only possible when eEzsigntemplatesignatureType is **Name** or **Handwritten**) | [optional] 
 **AObjEzsigntemplatesignaturecustomdate** | Pointer to [**[]EzsigntemplatesignaturecustomdateResponseCompound**](EzsigntemplatesignaturecustomdateResponseCompound.md) | An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsigntemplatesignatureCustomdate is true.  Use an empty array if you don&#39;t want to have a date at all. | [optional] 
 **AObjEzsigntemplateelementdependency** | Pointer to [**[]EzsigntemplateelementdependencyResponseCompound**](EzsigntemplateelementdependencyResponseCompound.md) |  | [optional] 
@@ -34,7 +39,7 @@ Name | Type | Description | Notes
 
 ### NewEzsigntemplatesignatureResponseCompound
 
-`func NewEzsigntemplatesignatureResponseCompound(pkiEzsigntemplatesignatureID int32, fkiEzsigntemplatedocumentID int32, fkiEzsigntemplatesignerID int32, iEzsigntemplatedocumentpagePagenumber int32, iEzsigntemplatesignatureX int32, iEzsigntemplatesignatureY int32, iEzsigntemplatesignatureStep int32, eEzsigntemplatesignatureType FieldEEzsigntemplatesignatureType, ) *EzsigntemplatesignatureResponseCompound`
+`func NewEzsigntemplatesignatureResponseCompound(pkiEzsigntemplatesignatureID int32, fkiEzsigntemplatedocumentID int32, fkiEzsigntemplatesignerID int32, iEzsigntemplatedocumentpagePagenumber int32, iEzsigntemplatesignatureStep int32, eEzsigntemplatesignatureType FieldEEzsigntemplatesignatureType, ) *EzsigntemplatesignatureResponseCompound`
 
 NewEzsigntemplatesignatureResponseCompound instantiates a new EzsigntemplatesignatureResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -134,6 +139,31 @@ SetFkiEzsigntemplatesignerIDValidation sets FkiEzsigntemplatesignerIDValidation 
 
 HasFkiEzsigntemplatesignerIDValidation returns a boolean if a field has been set.
 
+### GetEEzsigntemplatesignaturePositioning
+
+`func (o *EzsigntemplatesignatureResponseCompound) GetEEzsigntemplatesignaturePositioning() FieldEEzsigntemplatesignaturePositioning`
+
+GetEEzsigntemplatesignaturePositioning returns the EEzsigntemplatesignaturePositioning field if non-nil, zero value otherwise.
+
+### GetEEzsigntemplatesignaturePositioningOk
+
+`func (o *EzsigntemplatesignatureResponseCompound) GetEEzsigntemplatesignaturePositioningOk() (*FieldEEzsigntemplatesignaturePositioning, bool)`
+
+GetEEzsigntemplatesignaturePositioningOk returns a tuple with the EEzsigntemplatesignaturePositioning field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsigntemplatesignaturePositioning
+
+`func (o *EzsigntemplatesignatureResponseCompound) SetEEzsigntemplatesignaturePositioning(v FieldEEzsigntemplatesignaturePositioning)`
+
+SetEEzsigntemplatesignaturePositioning sets EEzsigntemplatesignaturePositioning field to given value.
+
+### HasEEzsigntemplatesignaturePositioning
+
+`func (o *EzsigntemplatesignatureResponseCompound) HasEEzsigntemplatesignaturePositioning() bool`
+
+HasEEzsigntemplatesignaturePositioning returns a boolean if a field has been set.
+
 ### GetIEzsigntemplatedocumentpagePagenumber
 
 `func (o *EzsigntemplatesignatureResponseCompound) GetIEzsigntemplatedocumentpagePagenumber() int32`
@@ -173,6 +203,11 @@ and a boolean to check if the value has been set.
 
 SetIEzsigntemplatesignatureX sets IEzsigntemplatesignatureX field to given value.
 
+### HasIEzsigntemplatesignatureX
+
+`func (o *EzsigntemplatesignatureResponseCompound) HasIEzsigntemplatesignatureX() bool`
+
+HasIEzsigntemplatesignatureX returns a boolean if a field has been set.
 
 ### GetIEzsigntemplatesignatureY
 
@@ -193,6 +228,11 @@ and a boolean to check if the value has been set.
 
 SetIEzsigntemplatesignatureY sets IEzsigntemplatesignatureY field to given value.
 
+### HasIEzsigntemplatesignatureY
+
+`func (o *EzsigntemplatesignatureResponseCompound) HasIEzsigntemplatesignatureY() bool`
+
+HasIEzsigntemplatesignatureY returns a boolean if a field has been set.
 
 ### GetIEzsigntemplatesignatureWidth
 
@@ -558,6 +598,106 @@ SetEEzsigntemplatesignatureDependencyrequirement sets EEzsigntemplatesignatureDe
 `func (o *EzsigntemplatesignatureResponseCompound) HasEEzsigntemplatesignatureDependencyrequirement() bool`
 
 HasEEzsigntemplatesignatureDependencyrequirement returns a boolean if a field has been set.
+
+### GetSEzsigntemplatesignaturePositioningpattern
+
+`func (o *EzsigntemplatesignatureResponseCompound) GetSEzsigntemplatesignaturePositioningpattern() string`
+
+GetSEzsigntemplatesignaturePositioningpattern returns the SEzsigntemplatesignaturePositioningpattern field if non-nil, zero value otherwise.
+
+### GetSEzsigntemplatesignaturePositioningpatternOk
+
+`func (o *EzsigntemplatesignatureResponseCompound) GetSEzsigntemplatesignaturePositioningpatternOk() (*string, bool)`
+
+GetSEzsigntemplatesignaturePositioningpatternOk returns a tuple with the SEzsigntemplatesignaturePositioningpattern field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzsigntemplatesignaturePositioningpattern
+
+`func (o *EzsigntemplatesignatureResponseCompound) SetSEzsigntemplatesignaturePositioningpattern(v string)`
+
+SetSEzsigntemplatesignaturePositioningpattern sets SEzsigntemplatesignaturePositioningpattern field to given value.
+
+### HasSEzsigntemplatesignaturePositioningpattern
+
+`func (o *EzsigntemplatesignatureResponseCompound) HasSEzsigntemplatesignaturePositioningpattern() bool`
+
+HasSEzsigntemplatesignaturePositioningpattern returns a boolean if a field has been set.
+
+### GetIEzsigntemplatesignaturePositioningoffsetx
+
+`func (o *EzsigntemplatesignatureResponseCompound) GetIEzsigntemplatesignaturePositioningoffsetx() int32`
+
+GetIEzsigntemplatesignaturePositioningoffsetx returns the IEzsigntemplatesignaturePositioningoffsetx field if non-nil, zero value otherwise.
+
+### GetIEzsigntemplatesignaturePositioningoffsetxOk
+
+`func (o *EzsigntemplatesignatureResponseCompound) GetIEzsigntemplatesignaturePositioningoffsetxOk() (*int32, bool)`
+
+GetIEzsigntemplatesignaturePositioningoffsetxOk returns a tuple with the IEzsigntemplatesignaturePositioningoffsetx field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIEzsigntemplatesignaturePositioningoffsetx
+
+`func (o *EzsigntemplatesignatureResponseCompound) SetIEzsigntemplatesignaturePositioningoffsetx(v int32)`
+
+SetIEzsigntemplatesignaturePositioningoffsetx sets IEzsigntemplatesignaturePositioningoffsetx field to given value.
+
+### HasIEzsigntemplatesignaturePositioningoffsetx
+
+`func (o *EzsigntemplatesignatureResponseCompound) HasIEzsigntemplatesignaturePositioningoffsetx() bool`
+
+HasIEzsigntemplatesignaturePositioningoffsetx returns a boolean if a field has been set.
+
+### GetIEzsigntemplatesignaturePositioningoffsety
+
+`func (o *EzsigntemplatesignatureResponseCompound) GetIEzsigntemplatesignaturePositioningoffsety() int32`
+
+GetIEzsigntemplatesignaturePositioningoffsety returns the IEzsigntemplatesignaturePositioningoffsety field if non-nil, zero value otherwise.
+
+### GetIEzsigntemplatesignaturePositioningoffsetyOk
+
+`func (o *EzsigntemplatesignatureResponseCompound) GetIEzsigntemplatesignaturePositioningoffsetyOk() (*int32, bool)`
+
+GetIEzsigntemplatesignaturePositioningoffsetyOk returns a tuple with the IEzsigntemplatesignaturePositioningoffsety field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIEzsigntemplatesignaturePositioningoffsety
+
+`func (o *EzsigntemplatesignatureResponseCompound) SetIEzsigntemplatesignaturePositioningoffsety(v int32)`
+
+SetIEzsigntemplatesignaturePositioningoffsety sets IEzsigntemplatesignaturePositioningoffsety field to given value.
+
+### HasIEzsigntemplatesignaturePositioningoffsety
+
+`func (o *EzsigntemplatesignatureResponseCompound) HasIEzsigntemplatesignaturePositioningoffsety() bool`
+
+HasIEzsigntemplatesignaturePositioningoffsety returns a boolean if a field has been set.
+
+### GetEEzsigntemplatesignaturePositioningoccurence
+
+`func (o *EzsigntemplatesignatureResponseCompound) GetEEzsigntemplatesignaturePositioningoccurence() FieldEEzsigntemplatesignaturePositioningoccurence`
+
+GetEEzsigntemplatesignaturePositioningoccurence returns the EEzsigntemplatesignaturePositioningoccurence field if non-nil, zero value otherwise.
+
+### GetEEzsigntemplatesignaturePositioningoccurenceOk
+
+`func (o *EzsigntemplatesignatureResponseCompound) GetEEzsigntemplatesignaturePositioningoccurenceOk() (*FieldEEzsigntemplatesignaturePositioningoccurence, bool)`
+
+GetEEzsigntemplatesignaturePositioningoccurenceOk returns a tuple with the EEzsigntemplatesignaturePositioningoccurence field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsigntemplatesignaturePositioningoccurence
+
+`func (o *EzsigntemplatesignatureResponseCompound) SetEEzsigntemplatesignaturePositioningoccurence(v FieldEEzsigntemplatesignaturePositioningoccurence)`
+
+SetEEzsigntemplatesignaturePositioningoccurence sets EEzsigntemplatesignaturePositioningoccurence field to given value.
+
+### HasEEzsigntemplatesignaturePositioningoccurence
+
+`func (o *EzsigntemplatesignatureResponseCompound) HasEEzsigntemplatesignaturePositioningoccurence() bool`
+
+HasEEzsigntemplatesignaturePositioningoccurence returns a boolean if a field has been set.
 
 ### GetBEzsigntemplatesignatureCustomdate
 

@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ObjDebugPayload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
 **ObjDebug** | Pointer to [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
+**AObjWarning** | Pointer to [**[]CommonResponseWarning**](CommonResponseWarning.md) |  | [optional] 
 
 ## Methods
 
@@ -70,6 +71,31 @@ SetObjDebug sets ObjDebug field to given value.
 `func (o *EzsigndocumentApplyEzsigntemplateV2Response) HasObjDebug() bool`
 
 HasObjDebug returns a boolean if a field has been set.
+
+### GetAObjWarning
+
+`func (o *EzsigndocumentApplyEzsigntemplateV2Response) GetAObjWarning() []CommonResponseWarning`
+
+GetAObjWarning returns the AObjWarning field if non-nil, zero value otherwise.
+
+### GetAObjWarningOk
+
+`func (o *EzsigndocumentApplyEzsigntemplateV2Response) GetAObjWarningOk() (*[]CommonResponseWarning, bool)`
+
+GetAObjWarningOk returns a tuple with the AObjWarning field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAObjWarning
+
+`func (o *EzsigndocumentApplyEzsigntemplateV2Response) SetAObjWarning(v []CommonResponseWarning)`
+
+SetAObjWarning sets AObjWarning field to given value.
+
+### HasAObjWarning
+
+`func (o *EzsigndocumentApplyEzsigntemplateV2Response) HasAObjWarning() bool`
+
+HasAObjWarning returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

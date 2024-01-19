@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **BEzsignfoldertypeAllowdownloadproofezsignsigner** | Pointer to **bool** | Whether we allow the proof to be downloaded by an Ezsignsigner | [optional] 
 **BEzsignfoldertypeDelegate** | Pointer to **bool** | Wheter if delegation of signature is allowed to another user or not | [optional] 
 **BEzsignfoldertypeReassign** | Pointer to **bool** | Wheter if Reassignment of signature is allowed to another signatory or not | [optional] 
+**BEzsignfoldertypeReassignezsignsigner** | Pointer to **bool** | Wheter if Reassignment of signature is allowed by a signatory to another signatory or not | [optional] 
+**BEzsignfoldertypeReassignuser** | Pointer to **bool** | Wheter if Reassignment of signature is allowed by a user to a signatory or another user or not | [optional] 
 
 ## Methods
 
@@ -252,6 +254,56 @@ SetBEzsignfoldertypeReassign sets BEzsignfoldertypeReassign field to given value
 `func (o *CustomEzsignfoldertypeResponse) HasBEzsignfoldertypeReassign() bool`
 
 HasBEzsignfoldertypeReassign returns a boolean if a field has been set.
+
+### GetBEzsignfoldertypeReassignezsignsigner
+
+`func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeReassignezsignsigner() bool`
+
+GetBEzsignfoldertypeReassignezsignsigner returns the BEzsignfoldertypeReassignezsignsigner field if non-nil, zero value otherwise.
+
+### GetBEzsignfoldertypeReassignezsignsignerOk
+
+`func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeReassignezsignsignerOk() (*bool, bool)`
+
+GetBEzsignfoldertypeReassignezsignsignerOk returns a tuple with the BEzsignfoldertypeReassignezsignsigner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsignfoldertypeReassignezsignsigner
+
+`func (o *CustomEzsignfoldertypeResponse) SetBEzsignfoldertypeReassignezsignsigner(v bool)`
+
+SetBEzsignfoldertypeReassignezsignsigner sets BEzsignfoldertypeReassignezsignsigner field to given value.
+
+### HasBEzsignfoldertypeReassignezsignsigner
+
+`func (o *CustomEzsignfoldertypeResponse) HasBEzsignfoldertypeReassignezsignsigner() bool`
+
+HasBEzsignfoldertypeReassignezsignsigner returns a boolean if a field has been set.
+
+### GetBEzsignfoldertypeReassignuser
+
+`func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeReassignuser() bool`
+
+GetBEzsignfoldertypeReassignuser returns the BEzsignfoldertypeReassignuser field if non-nil, zero value otherwise.
+
+### GetBEzsignfoldertypeReassignuserOk
+
+`func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeReassignuserOk() (*bool, bool)`
+
+GetBEzsignfoldertypeReassignuserOk returns a tuple with the BEzsignfoldertypeReassignuser field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsignfoldertypeReassignuser
+
+`func (o *CustomEzsignfoldertypeResponse) SetBEzsignfoldertypeReassignuser(v bool)`
+
+SetBEzsignfoldertypeReassignuser sets BEzsignfoldertypeReassignuser field to given value.
+
+### HasBEzsignfoldertypeReassignuser
+
+`func (o *CustomEzsignfoldertypeResponse) HasBEzsignfoldertypeReassignuser() bool`
+
+HasBEzsignfoldertypeReassignuser returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

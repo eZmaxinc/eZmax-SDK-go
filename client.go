@@ -86,6 +86,12 @@ type APIClient struct {
 
 	ObjectDepartmentAPI *ObjectDepartmentAPIService
 
+	ObjectDiscussionAPI *ObjectDiscussionAPIService
+
+	ObjectDiscussionmembershipAPI *ObjectDiscussionmembershipAPIService
+
+	ObjectDiscussionmessageAPI *ObjectDiscussionmessageAPIService
+
 	ObjectElectronicfundstransferAPI *ObjectElectronicfundstransferAPIService
 
 	ObjectEmailtypeAPI *ObjectEmailtypeAPIService
@@ -101,6 +107,8 @@ type APIClient struct {
 	ObjectEzsignbulksendsignermappingAPI *ObjectEzsignbulksendsignermappingAPIService
 
 	ObjectEzsignbulksendtransmissionAPI *ObjectEzsignbulksendtransmissionAPIService
+
+	ObjectEzsigndiscussionAPI *ObjectEzsigndiscussionAPIService
 
 	ObjectEzsigndocumentAPI *ObjectEzsigndocumentAPIService
 
@@ -251,6 +259,9 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectCompanyAPI = (*ObjectCompanyAPIService)(&c.common)
 	c.ObjectCorsAPI = (*ObjectCorsAPIService)(&c.common)
 	c.ObjectDepartmentAPI = (*ObjectDepartmentAPIService)(&c.common)
+	c.ObjectDiscussionAPI = (*ObjectDiscussionAPIService)(&c.common)
+	c.ObjectDiscussionmembershipAPI = (*ObjectDiscussionmembershipAPIService)(&c.common)
+	c.ObjectDiscussionmessageAPI = (*ObjectDiscussionmessageAPIService)(&c.common)
 	c.ObjectElectronicfundstransferAPI = (*ObjectElectronicfundstransferAPIService)(&c.common)
 	c.ObjectEmailtypeAPI = (*ObjectEmailtypeAPIService)(&c.common)
 	c.ObjectEzmaxinvoicingAPI = (*ObjectEzmaxinvoicingAPIService)(&c.common)
@@ -259,6 +270,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectEzsignbulksenddocumentmappingAPI = (*ObjectEzsignbulksenddocumentmappingAPIService)(&c.common)
 	c.ObjectEzsignbulksendsignermappingAPI = (*ObjectEzsignbulksendsignermappingAPIService)(&c.common)
 	c.ObjectEzsignbulksendtransmissionAPI = (*ObjectEzsignbulksendtransmissionAPIService)(&c.common)
+	c.ObjectEzsigndiscussionAPI = (*ObjectEzsigndiscussionAPIService)(&c.common)
 	c.ObjectEzsigndocumentAPI = (*ObjectEzsigndocumentAPIService)(&c.common)
 	c.ObjectEzsignfolderAPI = (*ObjectEzsignfolderAPIService)(&c.common)
 	c.ObjectEzsignfoldersignerassociationAPI = (*ObjectEzsignfoldersignerassociationAPIService)(&c.common)

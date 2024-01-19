@@ -25,9 +25,15 @@ type EzsigntemplatesignaturecustomdateResponseCompound struct {
 	// The unique ID of the Ezsigntemplatesignaturecustomdate
 	PkiEzsigntemplatesignaturecustomdateID int32 `json:"pkiEzsigntemplatesignaturecustomdateID"`
 	// The X coordinate (Horizontal) where to put the Ezsigntemplatesignaturecustomdate on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplatesignaturecustomdate 2 inches from the left border of the page, you would use \"200\" for the X coordinate.
-	IEzsigntemplatesignaturecustomdateX int32 `json:"iEzsigntemplatesignaturecustomdateX"`
+	// Deprecated
+	IEzsigntemplatesignaturecustomdateX *int32 `json:"iEzsigntemplatesignaturecustomdateX,omitempty"`
 	// The Y coordinate (Vertical) where to put the Ezsigntemplatesignaturecustomdate on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplatesignaturecustomdate 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.
-	IEzsigntemplatesignaturecustomdateY int32 `json:"iEzsigntemplatesignaturecustomdateY"`
+	// Deprecated
+	IEzsigntemplatesignaturecustomdateY *int32 `json:"iEzsigntemplatesignaturecustomdateY,omitempty"`
+	// The X coordinate (Horizontal) where to put the Ezsigntemplatesignaturecustomdate on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplatesignaturecustomdate 2 inches from the left of the signature, you would use \"200\" for the X coordinate.
+	IEzsigntemplatesignaturecustomdateOffsetx *int32 `json:"iEzsigntemplatesignaturecustomdateOffsetx,omitempty"`
+	// The X coordinate (Horizontal) where to put the Ezsigntemplatesignaturecustomdate on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplatesignaturecustomdate 2 inches from the top of the signature, you would use \"200\" for the Y coordinate.
+	IEzsigntemplatesignaturecustomdateOffsety *int32 `json:"iEzsigntemplatesignaturecustomdateOffsety,omitempty"`
 	// The custom date format to use  You can use the codes below and they will be replaced at signature time. Text values like month and day names will be rendered in the proper language. Other text will be left as-is.  The codes examples below are based on the following datetime: Thursday, January 6, 2022 at 08:07:09 EST  For example, the format \"Signature date: {MM}/{DD}/{YYYY} {hh}:{mm}\" would become \"Signature date: 01/06/2022 08:07\"  **Year**  | Code | Example | | - | - | | {YYYY} | 2022 | | {YY} | 22 |  **Month**  | Code | Example | | - | - | | {MonthCapitalize} | Janvier | | {Month} | janvier | | {MM} | 01 | | {M} | 1 |  **Day**  | Code | Example | | - | - | | {DayCapitalize} | Jeudi | | {Day} | jeudi | | {DD} | 06 | | {D} | 6 |  **Hour**  | Code | Example | | - | - | | {hh} | 08 |  **Minute**  | Code | Example | | - | - | | {mm} | 07 |  **Second**  | Code | Example | | - | - | | {ss} | 09 |        **Timezone**  | Code | Example | | - | - | | {Z} | EST |       **Time**  | Code | Example | | - | - | | {Time} | 08:07:09 |   | {TimeZ} | 08:07:09 EST |     **Date**  | Code | Example | | - | - | | {Date} | 2022-01-06 |   | {DateText} | 1er Janvier 2022 |  **Full**  | Code | Example | | - | - | | {DateTime} | 2022-01-06 08:07:09 |   | {DateTimeZ} | 2022-01-06 08:07:09 EST | 
 	SEzsigntemplatesignaturecustomdateFormat string `json:"sEzsigntemplatesignaturecustomdateFormat"`
 }
@@ -38,11 +44,9 @@ type _EzsigntemplatesignaturecustomdateResponseCompound Ezsigntemplatesignaturec
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigntemplatesignaturecustomdateResponseCompound(pkiEzsigntemplatesignaturecustomdateID int32, iEzsigntemplatesignaturecustomdateX int32, iEzsigntemplatesignaturecustomdateY int32, sEzsigntemplatesignaturecustomdateFormat string) *EzsigntemplatesignaturecustomdateResponseCompound {
+func NewEzsigntemplatesignaturecustomdateResponseCompound(pkiEzsigntemplatesignaturecustomdateID int32, sEzsigntemplatesignaturecustomdateFormat string) *EzsigntemplatesignaturecustomdateResponseCompound {
 	this := EzsigntemplatesignaturecustomdateResponseCompound{}
 	this.PkiEzsigntemplatesignaturecustomdateID = pkiEzsigntemplatesignaturecustomdateID
-	this.IEzsigntemplatesignaturecustomdateX = iEzsigntemplatesignaturecustomdateX
-	this.IEzsigntemplatesignaturecustomdateY = iEzsigntemplatesignaturecustomdateY
 	this.SEzsigntemplatesignaturecustomdateFormat = sEzsigntemplatesignaturecustomdateFormat
 	return &this
 }
@@ -79,52 +83,138 @@ func (o *EzsigntemplatesignaturecustomdateResponseCompound) SetPkiEzsigntemplate
 	o.PkiEzsigntemplatesignaturecustomdateID = v
 }
 
-// GetIEzsigntemplatesignaturecustomdateX returns the IEzsigntemplatesignaturecustomdateX field value
+// GetIEzsigntemplatesignaturecustomdateX returns the IEzsigntemplatesignaturecustomdateX field value if set, zero value otherwise.
+// Deprecated
 func (o *EzsigntemplatesignaturecustomdateResponseCompound) GetIEzsigntemplatesignaturecustomdateX() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.IEzsigntemplatesignaturecustomdateX) {
 		var ret int32
 		return ret
 	}
-
-	return o.IEzsigntemplatesignaturecustomdateX
+	return *o.IEzsigntemplatesignaturecustomdateX
 }
 
-// GetIEzsigntemplatesignaturecustomdateXOk returns a tuple with the IEzsigntemplatesignaturecustomdateX field value
+// GetIEzsigntemplatesignaturecustomdateXOk returns a tuple with the IEzsigntemplatesignaturecustomdateX field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// Deprecated
 func (o *EzsigntemplatesignaturecustomdateResponseCompound) GetIEzsigntemplatesignaturecustomdateXOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IEzsigntemplatesignaturecustomdateX) {
 		return nil, false
 	}
-	return &o.IEzsigntemplatesignaturecustomdateX, true
+	return o.IEzsigntemplatesignaturecustomdateX, true
 }
 
-// SetIEzsigntemplatesignaturecustomdateX sets field value
+// HasIEzsigntemplatesignaturecustomdateX returns a boolean if a field has been set.
+func (o *EzsigntemplatesignaturecustomdateResponseCompound) HasIEzsigntemplatesignaturecustomdateX() bool {
+	if o != nil && !IsNil(o.IEzsigntemplatesignaturecustomdateX) {
+		return true
+	}
+
+	return false
+}
+
+// SetIEzsigntemplatesignaturecustomdateX gets a reference to the given int32 and assigns it to the IEzsigntemplatesignaturecustomdateX field.
+// Deprecated
 func (o *EzsigntemplatesignaturecustomdateResponseCompound) SetIEzsigntemplatesignaturecustomdateX(v int32) {
-	o.IEzsigntemplatesignaturecustomdateX = v
+	o.IEzsigntemplatesignaturecustomdateX = &v
 }
 
-// GetIEzsigntemplatesignaturecustomdateY returns the IEzsigntemplatesignaturecustomdateY field value
+// GetIEzsigntemplatesignaturecustomdateY returns the IEzsigntemplatesignaturecustomdateY field value if set, zero value otherwise.
+// Deprecated
 func (o *EzsigntemplatesignaturecustomdateResponseCompound) GetIEzsigntemplatesignaturecustomdateY() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.IEzsigntemplatesignaturecustomdateY) {
 		var ret int32
 		return ret
 	}
-
-	return o.IEzsigntemplatesignaturecustomdateY
+	return *o.IEzsigntemplatesignaturecustomdateY
 }
 
-// GetIEzsigntemplatesignaturecustomdateYOk returns a tuple with the IEzsigntemplatesignaturecustomdateY field value
+// GetIEzsigntemplatesignaturecustomdateYOk returns a tuple with the IEzsigntemplatesignaturecustomdateY field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// Deprecated
 func (o *EzsigntemplatesignaturecustomdateResponseCompound) GetIEzsigntemplatesignaturecustomdateYOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IEzsigntemplatesignaturecustomdateY) {
 		return nil, false
 	}
-	return &o.IEzsigntemplatesignaturecustomdateY, true
+	return o.IEzsigntemplatesignaturecustomdateY, true
 }
 
-// SetIEzsigntemplatesignaturecustomdateY sets field value
+// HasIEzsigntemplatesignaturecustomdateY returns a boolean if a field has been set.
+func (o *EzsigntemplatesignaturecustomdateResponseCompound) HasIEzsigntemplatesignaturecustomdateY() bool {
+	if o != nil && !IsNil(o.IEzsigntemplatesignaturecustomdateY) {
+		return true
+	}
+
+	return false
+}
+
+// SetIEzsigntemplatesignaturecustomdateY gets a reference to the given int32 and assigns it to the IEzsigntemplatesignaturecustomdateY field.
+// Deprecated
 func (o *EzsigntemplatesignaturecustomdateResponseCompound) SetIEzsigntemplatesignaturecustomdateY(v int32) {
-	o.IEzsigntemplatesignaturecustomdateY = v
+	o.IEzsigntemplatesignaturecustomdateY = &v
+}
+
+// GetIEzsigntemplatesignaturecustomdateOffsetx returns the IEzsigntemplatesignaturecustomdateOffsetx field value if set, zero value otherwise.
+func (o *EzsigntemplatesignaturecustomdateResponseCompound) GetIEzsigntemplatesignaturecustomdateOffsetx() int32 {
+	if o == nil || IsNil(o.IEzsigntemplatesignaturecustomdateOffsetx) {
+		var ret int32
+		return ret
+	}
+	return *o.IEzsigntemplatesignaturecustomdateOffsetx
+}
+
+// GetIEzsigntemplatesignaturecustomdateOffsetxOk returns a tuple with the IEzsigntemplatesignaturecustomdateOffsetx field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignaturecustomdateResponseCompound) GetIEzsigntemplatesignaturecustomdateOffsetxOk() (*int32, bool) {
+	if o == nil || IsNil(o.IEzsigntemplatesignaturecustomdateOffsetx) {
+		return nil, false
+	}
+	return o.IEzsigntemplatesignaturecustomdateOffsetx, true
+}
+
+// HasIEzsigntemplatesignaturecustomdateOffsetx returns a boolean if a field has been set.
+func (o *EzsigntemplatesignaturecustomdateResponseCompound) HasIEzsigntemplatesignaturecustomdateOffsetx() bool {
+	if o != nil && !IsNil(o.IEzsigntemplatesignaturecustomdateOffsetx) {
+		return true
+	}
+
+	return false
+}
+
+// SetIEzsigntemplatesignaturecustomdateOffsetx gets a reference to the given int32 and assigns it to the IEzsigntemplatesignaturecustomdateOffsetx field.
+func (o *EzsigntemplatesignaturecustomdateResponseCompound) SetIEzsigntemplatesignaturecustomdateOffsetx(v int32) {
+	o.IEzsigntemplatesignaturecustomdateOffsetx = &v
+}
+
+// GetIEzsigntemplatesignaturecustomdateOffsety returns the IEzsigntemplatesignaturecustomdateOffsety field value if set, zero value otherwise.
+func (o *EzsigntemplatesignaturecustomdateResponseCompound) GetIEzsigntemplatesignaturecustomdateOffsety() int32 {
+	if o == nil || IsNil(o.IEzsigntemplatesignaturecustomdateOffsety) {
+		var ret int32
+		return ret
+	}
+	return *o.IEzsigntemplatesignaturecustomdateOffsety
+}
+
+// GetIEzsigntemplatesignaturecustomdateOffsetyOk returns a tuple with the IEzsigntemplatesignaturecustomdateOffsety field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignaturecustomdateResponseCompound) GetIEzsigntemplatesignaturecustomdateOffsetyOk() (*int32, bool) {
+	if o == nil || IsNil(o.IEzsigntemplatesignaturecustomdateOffsety) {
+		return nil, false
+	}
+	return o.IEzsigntemplatesignaturecustomdateOffsety, true
+}
+
+// HasIEzsigntemplatesignaturecustomdateOffsety returns a boolean if a field has been set.
+func (o *EzsigntemplatesignaturecustomdateResponseCompound) HasIEzsigntemplatesignaturecustomdateOffsety() bool {
+	if o != nil && !IsNil(o.IEzsigntemplatesignaturecustomdateOffsety) {
+		return true
+	}
+
+	return false
+}
+
+// SetIEzsigntemplatesignaturecustomdateOffsety gets a reference to the given int32 and assigns it to the IEzsigntemplatesignaturecustomdateOffsety field.
+func (o *EzsigntemplatesignaturecustomdateResponseCompound) SetIEzsigntemplatesignaturecustomdateOffsety(v int32) {
+	o.IEzsigntemplatesignaturecustomdateOffsety = &v
 }
 
 // GetSEzsigntemplatesignaturecustomdateFormat returns the SEzsigntemplatesignaturecustomdateFormat field value
@@ -162,8 +252,18 @@ func (o EzsigntemplatesignaturecustomdateResponseCompound) MarshalJSON() ([]byte
 func (o EzsigntemplatesignaturecustomdateResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiEzsigntemplatesignaturecustomdateID"] = o.PkiEzsigntemplatesignaturecustomdateID
-	toSerialize["iEzsigntemplatesignaturecustomdateX"] = o.IEzsigntemplatesignaturecustomdateX
-	toSerialize["iEzsigntemplatesignaturecustomdateY"] = o.IEzsigntemplatesignaturecustomdateY
+	if !IsNil(o.IEzsigntemplatesignaturecustomdateX) {
+		toSerialize["iEzsigntemplatesignaturecustomdateX"] = o.IEzsigntemplatesignaturecustomdateX
+	}
+	if !IsNil(o.IEzsigntemplatesignaturecustomdateY) {
+		toSerialize["iEzsigntemplatesignaturecustomdateY"] = o.IEzsigntemplatesignaturecustomdateY
+	}
+	if !IsNil(o.IEzsigntemplatesignaturecustomdateOffsetx) {
+		toSerialize["iEzsigntemplatesignaturecustomdateOffsetx"] = o.IEzsigntemplatesignaturecustomdateOffsetx
+	}
+	if !IsNil(o.IEzsigntemplatesignaturecustomdateOffsety) {
+		toSerialize["iEzsigntemplatesignaturecustomdateOffsety"] = o.IEzsigntemplatesignaturecustomdateOffsety
+	}
 	toSerialize["sEzsigntemplatesignaturecustomdateFormat"] = o.SEzsigntemplatesignaturecustomdateFormat
 	return toSerialize, nil
 }
@@ -174,8 +274,6 @@ func (o *EzsigntemplatesignaturecustomdateResponseCompound) UnmarshalJSON(data [
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"pkiEzsigntemplatesignaturecustomdateID",
-		"iEzsigntemplatesignaturecustomdateX",
-		"iEzsigntemplatesignaturecustomdateY",
 		"sEzsigntemplatesignaturecustomdateFormat",
 	}
 

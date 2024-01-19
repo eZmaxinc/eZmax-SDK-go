@@ -44,6 +44,8 @@ type EzsignsignatureResponse struct {
 	IEzsignsignatureWidth *int32 `json:"iEzsignsignatureWidth,omitempty"`
 	// The step when the Ezsignsigner will be invited to sign
 	IEzsignsignatureStep int32 `json:"iEzsignsignatureStep"`
+	// The step when the Ezsignsigner will be invited to sign
+	IEzsignsignatureStepadjusted *int32 `json:"iEzsignsignatureStepadjusted,omitempty"`
 	EEzsignsignatureType FieldEEzsignsignatureType `json:"eEzsignsignatureType"`
 	// A tooltip that will be presented to Ezsignsigner about the Ezsignsignature
 	TEzsignsignatureTooltip *string `json:"tEzsignsignatureTooltip,omitempty"`
@@ -397,6 +399,38 @@ func (o *EzsignsignatureResponse) GetIEzsignsignatureStepOk() (*int32, bool) {
 // SetIEzsignsignatureStep sets field value
 func (o *EzsignsignatureResponse) SetIEzsignsignatureStep(v int32) {
 	o.IEzsignsignatureStep = v
+}
+
+// GetIEzsignsignatureStepadjusted returns the IEzsignsignatureStepadjusted field value if set, zero value otherwise.
+func (o *EzsignsignatureResponse) GetIEzsignsignatureStepadjusted() int32 {
+	if o == nil || IsNil(o.IEzsignsignatureStepadjusted) {
+		var ret int32
+		return ret
+	}
+	return *o.IEzsignsignatureStepadjusted
+}
+
+// GetIEzsignsignatureStepadjustedOk returns a tuple with the IEzsignsignatureStepadjusted field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureResponse) GetIEzsignsignatureStepadjustedOk() (*int32, bool) {
+	if o == nil || IsNil(o.IEzsignsignatureStepadjusted) {
+		return nil, false
+	}
+	return o.IEzsignsignatureStepadjusted, true
+}
+
+// HasIEzsignsignatureStepadjusted returns a boolean if a field has been set.
+func (o *EzsignsignatureResponse) HasIEzsignsignatureStepadjusted() bool {
+	if o != nil && !IsNil(o.IEzsignsignatureStepadjusted) {
+		return true
+	}
+
+	return false
+}
+
+// SetIEzsignsignatureStepadjusted gets a reference to the given int32 and assigns it to the IEzsignsignatureStepadjusted field.
+func (o *EzsignsignatureResponse) SetIEzsignsignatureStepadjusted(v int32) {
+	o.IEzsignsignatureStepadjusted = &v
 }
 
 // GetEEzsignsignatureType returns the EEzsignsignatureType field value
@@ -1020,6 +1054,9 @@ func (o EzsignsignatureResponse) ToMap() (map[string]interface{}, error) {
 		toSerialize["iEzsignsignatureWidth"] = o.IEzsignsignatureWidth
 	}
 	toSerialize["iEzsignsignatureStep"] = o.IEzsignsignatureStep
+	if !IsNil(o.IEzsignsignatureStepadjusted) {
+		toSerialize["iEzsignsignatureStepadjusted"] = o.IEzsignsignatureStepadjusted
+	}
 	toSerialize["eEzsignsignatureType"] = o.EEzsignsignatureType
 	if !IsNil(o.TEzsignsignatureTooltip) {
 		toSerialize["tEzsignsignatureTooltip"] = o.TEzsignsignatureTooltip

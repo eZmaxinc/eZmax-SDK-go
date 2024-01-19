@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **SEzsignfolderDescription** | **string** | The description of the Ezsignfolder | 
 **EEzsignfolderStep** | [**FieldEEzsignfolderStep**](FieldEEzsignfolderStep.md) |  | 
 **DtCreatedDate** | **string** | The date and time at which the object was created | 
+**DtEzsignfolderDelayedsenddate** | Pointer to **string** | The date and time at which the Ezsignfolder will be sent in the future. | [optional] 
 **DtEzsignfolderSentdate** | Pointer to **string** | The date and time at which the Ezsignfolder was sent the last time. | [optional] 
 **DtEzsignfolderDuedate** | Pointer to **string** | The maximum date and time at which the Ezsignfolder can be signed. | [optional] 
 **IEzsigndocument** | **int32** | The total number of Ezsigndocument in the folder | 
@@ -176,6 +177,31 @@ and a boolean to check if the value has been set.
 
 SetDtCreatedDate sets DtCreatedDate field to given value.
 
+
+### GetDtEzsignfolderDelayedsenddate
+
+`func (o *EzsignfolderListElement) GetDtEzsignfolderDelayedsenddate() string`
+
+GetDtEzsignfolderDelayedsenddate returns the DtEzsignfolderDelayedsenddate field if non-nil, zero value otherwise.
+
+### GetDtEzsignfolderDelayedsenddateOk
+
+`func (o *EzsignfolderListElement) GetDtEzsignfolderDelayedsenddateOk() (*string, bool)`
+
+GetDtEzsignfolderDelayedsenddateOk returns a tuple with the DtEzsignfolderDelayedsenddate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDtEzsignfolderDelayedsenddate
+
+`func (o *EzsignfolderListElement) SetDtEzsignfolderDelayedsenddate(v string)`
+
+SetDtEzsignfolderDelayedsenddate sets DtEzsignfolderDelayedsenddate field to given value.
+
+### HasDtEzsignfolderDelayedsenddate
+
+`func (o *EzsignfolderListElement) HasDtEzsignfolderDelayedsenddate() bool`
+
+HasDtEzsignfolderDelayedsenddate returns a boolean if a field has been set.
 
 ### GetDtEzsignfolderSentdate
 

@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **IEzsignsignatureHeight** | Pointer to **int32** | The height of the Ezsignsignature.  Size is calculated at 100dpi (dot per inch). So for example, if you want the Ezsignsignature to have an height of 2 inches, you would use \&quot;200\&quot; for the iEzsignsignatureHeight. | [optional] 
 **IEzsignsignatureWidth** | Pointer to **int32** | The width of the Ezsignsignature.  Size is calculated at 100dpi (dot per inch). So for example, if you want the Ezsignsignature to have a width of 2 inches, you would use \&quot;200\&quot; for the iEzsignsignatureWidth. | [optional] 
 **IEzsignsignatureStep** | **int32** | The step when the Ezsignsigner will be invited to sign | 
+**IEzsignsignatureStepadjusted** | Pointer to **int32** | The step when the Ezsignsigner will be invited to sign | [optional] 
 **EEzsignsignatureType** | [**FieldEEzsignsignatureType**](FieldEEzsignsignatureType.md) |  | 
 **TEzsignsignatureTooltip** | Pointer to **string** | A tooltip that will be presented to Ezsignsigner about the Ezsignsignature | [optional] 
 **EEzsignsignatureTooltipposition** | Pointer to [**FieldEEzsignsignatureTooltipposition**](FieldEEzsignsignatureTooltipposition.md) |  | [optional] 
@@ -293,6 +294,31 @@ and a boolean to check if the value has been set.
 
 SetIEzsignsignatureStep sets IEzsignsignatureStep field to given value.
 
+
+### GetIEzsignsignatureStepadjusted
+
+`func (o *EzsignsignatureResponse) GetIEzsignsignatureStepadjusted() int32`
+
+GetIEzsignsignatureStepadjusted returns the IEzsignsignatureStepadjusted field if non-nil, zero value otherwise.
+
+### GetIEzsignsignatureStepadjustedOk
+
+`func (o *EzsignsignatureResponse) GetIEzsignsignatureStepadjustedOk() (*int32, bool)`
+
+GetIEzsignsignatureStepadjustedOk returns a tuple with the IEzsignsignatureStepadjusted field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIEzsignsignatureStepadjusted
+
+`func (o *EzsignsignatureResponse) SetIEzsignsignatureStepadjusted(v int32)`
+
+SetIEzsignsignatureStepadjusted sets IEzsignsignatureStepadjusted field to given value.
+
+### HasIEzsignsignatureStepadjusted
+
+`func (o *EzsignsignatureResponse) HasIEzsignsignatureStepadjusted() bool`
+
+HasIEzsignsignatureStepadjusted returns a boolean if a field has been set.
 
 ### GetEEzsignsignatureType
 

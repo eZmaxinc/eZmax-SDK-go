@@ -24,6 +24,7 @@ var _ MappedNullable = &EzsigndocumentApplyEzsigntemplateV2Response{}
 type EzsigndocumentApplyEzsigntemplateV2Response struct {
 	ObjDebugPayload CommonResponseObjDebugPayload `json:"objDebugPayload"`
 	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
+	AObjWarning []CommonResponseWarning `json:"a_objWarning,omitempty"`
 }
 
 type _EzsigndocumentApplyEzsigntemplateV2Response EzsigndocumentApplyEzsigntemplateV2Response
@@ -102,6 +103,38 @@ func (o *EzsigndocumentApplyEzsigntemplateV2Response) SetObjDebug(v CommonRespon
 	o.ObjDebug = &v
 }
 
+// GetAObjWarning returns the AObjWarning field value if set, zero value otherwise.
+func (o *EzsigndocumentApplyEzsigntemplateV2Response) GetAObjWarning() []CommonResponseWarning {
+	if o == nil || IsNil(o.AObjWarning) {
+		var ret []CommonResponseWarning
+		return ret
+	}
+	return o.AObjWarning
+}
+
+// GetAObjWarningOk returns a tuple with the AObjWarning field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentApplyEzsigntemplateV2Response) GetAObjWarningOk() ([]CommonResponseWarning, bool) {
+	if o == nil || IsNil(o.AObjWarning) {
+		return nil, false
+	}
+	return o.AObjWarning, true
+}
+
+// HasAObjWarning returns a boolean if a field has been set.
+func (o *EzsigndocumentApplyEzsigntemplateV2Response) HasAObjWarning() bool {
+	if o != nil && !IsNil(o.AObjWarning) {
+		return true
+	}
+
+	return false
+}
+
+// SetAObjWarning gets a reference to the given []CommonResponseWarning and assigns it to the AObjWarning field.
+func (o *EzsigndocumentApplyEzsigntemplateV2Response) SetAObjWarning(v []CommonResponseWarning) {
+	o.AObjWarning = v
+}
+
 func (o EzsigndocumentApplyEzsigntemplateV2Response) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -115,6 +148,9 @@ func (o EzsigndocumentApplyEzsigntemplateV2Response) ToMap() (map[string]interfa
 	toSerialize["objDebugPayload"] = o.ObjDebugPayload
 	if !IsNil(o.ObjDebug) {
 		toSerialize["objDebug"] = o.ObjDebug
+	}
+	if !IsNil(o.AObjWarning) {
+		toSerialize["a_objWarning"] = o.AObjWarning
 	}
 	return toSerialize, nil
 }

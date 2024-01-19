@@ -106,7 +106,7 @@ import (
 
 func main() {
 	pkiEzsigntemplatedocumentID := int32(56) // int32 | 
-	ezsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Request := *openapiclient.NewEzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Request([]openapiclient.EzsigntemplateformfieldgroupRequestCompound{*openapiclient.NewEzsigntemplateformfieldgroupRequestCompound(int32(133), openapiclient.Field-eEzsigntemplateformfieldgroupType("Text"), openapiclient.Field-eEzsigntemplateformfieldgroupSignerrequirement("All"), "Allergies", int32(1), "Foo", int32(1), int32(2), false, []openapiclient.EzsigntemplateformfieldgroupsignerRequestCompound{*openapiclient.NewEzsigntemplateformfieldgroupsignerRequestCompound(int32(9))}, []openapiclient.EzsigntemplateformfieldRequestCompound{*openapiclient.NewEzsigntemplateformfieldRequestCompound(int32(1), "Peanuts", int32(200), int32(300), int32(102), int32(22))})}) // EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Request | 
+	ezsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Request := *openapiclient.NewEzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Request([]openapiclient.EzsigntemplateformfieldgroupRequestCompound{*openapiclient.NewEzsigntemplateformfieldgroupRequestCompound(int32(133), openapiclient.Field-eEzsigntemplateformfieldgroupType("Text"), openapiclient.Field-eEzsigntemplateformfieldgroupSignerrequirement("All"), "Allergies", int32(1), "Foo", int32(1), int32(2), false, []openapiclient.EzsigntemplateformfieldgroupsignerRequestCompound{*openapiclient.NewEzsigntemplateformfieldgroupsignerRequestCompound(int32(9))}, []openapiclient.EzsigntemplateformfieldRequestCompound{*openapiclient.NewEzsigntemplateformfieldRequestCompound(int32(1), "Peanuts", int32(102), int32(22))})}) // EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -178,7 +178,7 @@ import (
 
 func main() {
 	pkiEzsigntemplatedocumentID := int32(56) // int32 | 
-	ezsigntemplatedocumentEditEzsigntemplatesignaturesV1Request := *openapiclient.NewEzsigntemplatedocumentEditEzsigntemplatesignaturesV1Request([]openapiclient.EzsigntemplatesignatureRequestCompound{*openapiclient.NewEzsigntemplatesignatureRequestCompound(int32(133), int32(9), int32(1), int32(200), int32(300), int32(1), openapiclient.Field-eEzsigntemplatesignatureType("Acknowledgement"))}) // EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Request | 
+	ezsigntemplatedocumentEditEzsigntemplatesignaturesV1Request := *openapiclient.NewEzsigntemplatedocumentEditEzsigntemplatesignaturesV1Request([]openapiclient.EzsigntemplatesignatureRequestCompound{*openapiclient.NewEzsigntemplatesignatureRequestCompound(int32(133), int32(9), int32(1), int32(1), openapiclient.Field-eEzsigntemplatesignatureType("Acknowledgement"))}) // EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

@@ -339,6 +339,158 @@ func (a *ObjectEzsigndocumentAPIService) EzsigndocumentApplyEzsigntemplateV2Exec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiEzsigndocumentCreateEzsignelementsPositionedByWordV1Request struct {
+	ctx context.Context
+	ApiService *ObjectEzsigndocumentAPIService
+	pkiEzsigndocumentID int32
+	ezsigndocumentCreateEzsignelementsPositionedByWordV1Request *EzsigndocumentCreateEzsignelementsPositionedByWordV1Request
+}
+
+func (r ApiEzsigndocumentCreateEzsignelementsPositionedByWordV1Request) EzsigndocumentCreateEzsignelementsPositionedByWordV1Request(ezsigndocumentCreateEzsignelementsPositionedByWordV1Request EzsigndocumentCreateEzsignelementsPositionedByWordV1Request) ApiEzsigndocumentCreateEzsignelementsPositionedByWordV1Request {
+	r.ezsigndocumentCreateEzsignelementsPositionedByWordV1Request = &ezsigndocumentCreateEzsignelementsPositionedByWordV1Request
+	return r
+}
+
+func (r ApiEzsigndocumentCreateEzsignelementsPositionedByWordV1Request) Execute() (*EzsigndocumentCreateEzsignelementsPositionedByWordV1Response, *http.Response, error) {
+	return r.ApiService.EzsigndocumentCreateEzsignelementsPositionedByWordV1Execute(r)
+}
+
+/*
+EzsigndocumentCreateEzsignelementsPositionedByWordV1 Create multiple Ezsignsignatures/Ezsignformfieldgroups
+
+Using this endpoint, you can create multiple Ezsignsignatures/Ezsignformfieldgroups positioned by word at the same time.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiEzsigndocumentID
+ @return ApiEzsigndocumentCreateEzsignelementsPositionedByWordV1Request
+*/
+func (a *ObjectEzsigndocumentAPIService) EzsigndocumentCreateEzsignelementsPositionedByWordV1(ctx context.Context, pkiEzsigndocumentID int32) ApiEzsigndocumentCreateEzsignelementsPositionedByWordV1Request {
+	return ApiEzsigndocumentCreateEzsignelementsPositionedByWordV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiEzsigndocumentID: pkiEzsigndocumentID,
+	}
+}
+
+// Execute executes the request
+//  @return EzsigndocumentCreateEzsignelementsPositionedByWordV1Response
+func (a *ObjectEzsigndocumentAPIService) EzsigndocumentCreateEzsignelementsPositionedByWordV1Execute(r ApiEzsigndocumentCreateEzsignelementsPositionedByWordV1Request) (*EzsigndocumentCreateEzsignelementsPositionedByWordV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EzsigndocumentCreateEzsignelementsPositionedByWordV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigndocumentAPIService.EzsigndocumentCreateEzsignelementsPositionedByWordV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/ezsigndocument/{pkiEzsigndocumentID}/createEzsignelementsPositionedByWord"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsigndocumentID"+"}", url.PathEscape(parameterValueToString(r.pkiEzsigndocumentID, "pkiEzsigndocumentID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiEzsigndocumentID < 0 {
+		return localVarReturnValue, nil, reportError("pkiEzsigndocumentID must be greater than 0")
+	}
+	if r.ezsigndocumentCreateEzsignelementsPositionedByWordV1Request == nil {
+		return localVarReturnValue, nil, reportError("ezsigndocumentCreateEzsignelementsPositionedByWordV1Request is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.ezsigndocumentCreateEzsignelementsPositionedByWordV1Request
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiEzsigndocumentCreateObjectV1Request struct {
 	ctx context.Context
 	ApiService *ObjectEzsigndocumentAPIService
@@ -1947,7 +2099,7 @@ These links will expire after 5 minutes so the download of the file should be ma
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiEzsigndocumentID
- @param eDocumentType The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **SignatureReady** Is the version containing the annotations/form to show the signer. 3. **Signed** Is the final document once all signatures were applied. 4. **Proofdocument** Is the evidence report. 5. **Proof** Is the complete evidence archive including all of the above and more. 
+ @param eDocumentType The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **SignatureReady** Is the version containing the annotations/form to show the signer. 3. **Signed** Is the final document once all signatures were applied in current document if eEzsignfolderCompletion is PerEzsigndocument.<br>     Is the final document once all signatures were applied in all documents if eEzsignfolderCompletion is PerEzsignfolder. 4. **Proofdocument** Is the evidence report. 5. **Proof** Is the complete evidence archive including all of the above and more. 
  @return ApiEzsigndocumentGetDownloadUrlV1Request
 */
 func (a *ObjectEzsigndocumentAPIService) EzsigndocumentGetDownloadUrlV1(ctx context.Context, pkiEzsigndocumentID int32, eDocumentType string) ApiEzsigndocumentGetDownloadUrlV1Request {
@@ -2117,6 +2269,147 @@ func (a *ObjectEzsigndocumentAPIService) EzsigndocumentGetEzsignannotationsV1Exe
 	}
 
 	localVarPath := localBasePath + "/1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignannotations"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsigndocumentID"+"}", url.PathEscape(parameterValueToString(r.pkiEzsigndocumentID, "pkiEzsigndocumentID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiEzsigndocumentID < 0 {
+		return localVarReturnValue, nil, reportError("pkiEzsigndocumentID must be greater than 0")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiEzsigndocumentGetEzsigndiscussionsV1Request struct {
+	ctx context.Context
+	ApiService *ObjectEzsigndocumentAPIService
+	pkiEzsigndocumentID int32
+}
+
+func (r ApiEzsigndocumentGetEzsigndiscussionsV1Request) Execute() (*EzsigndocumentGetEzsigndiscussionsV1Response, *http.Response, error) {
+	return r.ApiService.EzsigndocumentGetEzsigndiscussionsV1Execute(r)
+}
+
+/*
+EzsigndocumentGetEzsigndiscussionsV1 Retrieve an existing Ezsigndocument's Ezsigndiscussions
+
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiEzsigndocumentID
+ @return ApiEzsigndocumentGetEzsigndiscussionsV1Request
+*/
+func (a *ObjectEzsigndocumentAPIService) EzsigndocumentGetEzsigndiscussionsV1(ctx context.Context, pkiEzsigndocumentID int32) ApiEzsigndocumentGetEzsigndiscussionsV1Request {
+	return ApiEzsigndocumentGetEzsigndiscussionsV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiEzsigndocumentID: pkiEzsigndocumentID,
+	}
+}
+
+// Execute executes the request
+//  @return EzsigndocumentGetEzsigndiscussionsV1Response
+func (a *ObjectEzsigndocumentAPIService) EzsigndocumentGetEzsigndiscussionsV1Execute(r ApiEzsigndocumentGetEzsigndiscussionsV1Request) (*EzsigndocumentGetEzsigndiscussionsV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EzsigndocumentGetEzsigndiscussionsV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigndocumentAPIService.EzsigndocumentGetEzsigndiscussionsV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsigndiscussions"
 	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsigndocumentID"+"}", url.PathEscape(parameterValueToString(r.pkiEzsigndocumentID, "pkiEzsigndocumentID")), -1)
 
 	localVarHeaderParams := make(map[string]string)

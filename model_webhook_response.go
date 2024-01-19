@@ -47,6 +47,7 @@ type WebhookResponse struct {
 	BWebhookIssigned bool `json:"bWebhookIssigned"`
 	// Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use
 	BWebhookSkipsslvalidation bool `json:"bWebhookSkipsslvalidation"`
+	ObjAudit CommonAudit `json:"objAudit"`
 }
 
 type _WebhookResponse WebhookResponse
@@ -55,7 +56,7 @@ type _WebhookResponse WebhookResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWebhookResponse(pkiWebhookID int32, sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookIsactive bool, bWebhookIssigned bool, bWebhookSkipsslvalidation bool) *WebhookResponse {
+func NewWebhookResponse(pkiWebhookID int32, sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookIsactive bool, bWebhookIssigned bool, bWebhookSkipsslvalidation bool, objAudit CommonAudit) *WebhookResponse {
 	this := WebhookResponse{}
 	this.PkiWebhookID = pkiWebhookID
 	this.SWebhookDescription = sWebhookDescription
@@ -65,6 +66,7 @@ func NewWebhookResponse(pkiWebhookID int32, sWebhookDescription string, eWebhook
 	this.BWebhookIsactive = bWebhookIsactive
 	this.BWebhookIssigned = bWebhookIssigned
 	this.BWebhookSkipsslvalidation = bWebhookSkipsslvalidation
+	this.ObjAudit = objAudit
 	return &this
 }
 
@@ -460,6 +462,30 @@ func (o *WebhookResponse) SetBWebhookSkipsslvalidation(v bool) {
 	o.BWebhookSkipsslvalidation = v
 }
 
+// GetObjAudit returns the ObjAudit field value
+func (o *WebhookResponse) GetObjAudit() CommonAudit {
+	if o == nil {
+		var ret CommonAudit
+		return ret
+	}
+
+	return o.ObjAudit
+}
+
+// GetObjAuditOk returns a tuple with the ObjAudit field value
+// and a boolean to check if the value has been set.
+func (o *WebhookResponse) GetObjAuditOk() (*CommonAudit, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjAudit, true
+}
+
+// SetObjAudit sets field value
+func (o *WebhookResponse) SetObjAudit(v CommonAudit) {
+	o.ObjAudit = v
+}
+
 func (o WebhookResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -496,6 +522,7 @@ func (o WebhookResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["bWebhookIsactive"] = o.BWebhookIsactive
 	toSerialize["bWebhookIssigned"] = o.BWebhookIssigned
 	toSerialize["bWebhookSkipsslvalidation"] = o.BWebhookSkipsslvalidation
+	toSerialize["objAudit"] = o.ObjAudit
 	return toSerialize, nil
 }
 
@@ -512,6 +539,7 @@ func (o *WebhookResponse) UnmarshalJSON(data []byte) (err error) {
 		"bWebhookIsactive",
 		"bWebhookIssigned",
 		"bWebhookSkipsslvalidation",
+		"objAudit",
 	}
 
 	allProperties := make(map[string]interface{})

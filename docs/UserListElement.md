@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **EUserEzsignaccess** | [**FieldEUserEzsignaccess**](FieldEUserEzsignaccess.md) |  | 
 **DtUserEzsignprepaidexpiration** | Pointer to **string** | The eZsign prepaid expiration date | [optional] 
 **SEmailAddress** | **string** | The email address. | 
+**SUserJobtitle** | Pointer to **string** | The job title of the user | [optional] 
 
 ## Methods
 
@@ -238,6 +239,31 @@ and a boolean to check if the value has been set.
 
 SetSEmailAddress sets SEmailAddress field to given value.
 
+
+### GetSUserJobtitle
+
+`func (o *UserListElement) GetSUserJobtitle() string`
+
+GetSUserJobtitle returns the SUserJobtitle field if non-nil, zero value otherwise.
+
+### GetSUserJobtitleOk
+
+`func (o *UserListElement) GetSUserJobtitleOk() (*string, bool)`
+
+GetSUserJobtitleOk returns a tuple with the SUserJobtitle field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSUserJobtitle
+
+`func (o *UserListElement) SetSUserJobtitle(v string)`
+
+SetSUserJobtitle sets SUserJobtitle field to given value.
+
+### HasSUserJobtitle
+
+`func (o *UserListElement) HasSUserJobtitle() bool`
+
+HasSUserJobtitle returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -18,12 +18,13 @@ Name | Type | Description | Notes
 **BWebhookIsactive** | **bool** | Whether the Webhook is active or not | 
 **BWebhookIssigned** | **bool** | Whether the requests will be signed or not | 
 **BWebhookSkipsslvalidation** | **bool** | Wheter the server&#39;s SSL certificate should be validated or not. Not recommended to skip for production use | 
+**ObjAudit** | [**CommonAudit**](CommonAudit.md) |  | 
 
 ## Methods
 
 ### NewWebhookResponse
 
-`func NewWebhookResponse(pkiWebhookID int32, sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookIsactive bool, bWebhookIssigned bool, bWebhookSkipsslvalidation bool, ) *WebhookResponse`
+`func NewWebhookResponse(pkiWebhookID int32, sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookIsactive bool, bWebhookIssigned bool, bWebhookSkipsslvalidation bool, objAudit CommonAudit, ) *WebhookResponse`
 
 NewWebhookResponse instantiates a new WebhookResponse object
 This constructor will assign default values to properties that have it defined,
@@ -346,6 +347,26 @@ and a boolean to check if the value has been set.
 `func (o *WebhookResponse) SetBWebhookSkipsslvalidation(v bool)`
 
 SetBWebhookSkipsslvalidation sets BWebhookSkipsslvalidation field to given value.
+
+
+### GetObjAudit
+
+`func (o *WebhookResponse) GetObjAudit() CommonAudit`
+
+GetObjAudit returns the ObjAudit field if non-nil, zero value otherwise.
+
+### GetObjAuditOk
+
+`func (o *WebhookResponse) GetObjAuditOk() (*CommonAudit, bool)`
+
+GetObjAuditOk returns a tuple with the ObjAudit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjAudit
+
+`func (o *WebhookResponse) SetObjAudit(v CommonAudit)`
+
+SetObjAudit sets ObjAudit field to given value.
 
 
 

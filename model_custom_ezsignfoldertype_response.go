@@ -40,6 +40,10 @@ type CustomEzsignfoldertypeResponse struct {
 	BEzsignfoldertypeDelegate *bool `json:"bEzsignfoldertypeDelegate,omitempty"`
 	// Wheter if Reassignment of signature is allowed to another signatory or not
 	BEzsignfoldertypeReassign *bool `json:"bEzsignfoldertypeReassign,omitempty"`
+	// Wheter if Reassignment of signature is allowed by a signatory to another signatory or not
+	BEzsignfoldertypeReassignezsignsigner *bool `json:"bEzsignfoldertypeReassignezsignsigner,omitempty"`
+	// Wheter if Reassignment of signature is allowed by a user to a signatory or another user or not
+	BEzsignfoldertypeReassignuser *bool `json:"bEzsignfoldertypeReassignuser,omitempty"`
 }
 
 type _CustomEzsignfoldertypeResponse CustomEzsignfoldertypeResponse
@@ -342,6 +346,70 @@ func (o *CustomEzsignfoldertypeResponse) SetBEzsignfoldertypeReassign(v bool) {
 	o.BEzsignfoldertypeReassign = &v
 }
 
+// GetBEzsignfoldertypeReassignezsignsigner returns the BEzsignfoldertypeReassignezsignsigner field value if set, zero value otherwise.
+func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeReassignezsignsigner() bool {
+	if o == nil || IsNil(o.BEzsignfoldertypeReassignezsignsigner) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignfoldertypeReassignezsignsigner
+}
+
+// GetBEzsignfoldertypeReassignezsignsignerOk returns a tuple with the BEzsignfoldertypeReassignezsignsigner field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeReassignezsignsignerOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignfoldertypeReassignezsignsigner) {
+		return nil, false
+	}
+	return o.BEzsignfoldertypeReassignezsignsigner, true
+}
+
+// HasBEzsignfoldertypeReassignezsignsigner returns a boolean if a field has been set.
+func (o *CustomEzsignfoldertypeResponse) HasBEzsignfoldertypeReassignezsignsigner() bool {
+	if o != nil && !IsNil(o.BEzsignfoldertypeReassignezsignsigner) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignfoldertypeReassignezsignsigner gets a reference to the given bool and assigns it to the BEzsignfoldertypeReassignezsignsigner field.
+func (o *CustomEzsignfoldertypeResponse) SetBEzsignfoldertypeReassignezsignsigner(v bool) {
+	o.BEzsignfoldertypeReassignezsignsigner = &v
+}
+
+// GetBEzsignfoldertypeReassignuser returns the BEzsignfoldertypeReassignuser field value if set, zero value otherwise.
+func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeReassignuser() bool {
+	if o == nil || IsNil(o.BEzsignfoldertypeReassignuser) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignfoldertypeReassignuser
+}
+
+// GetBEzsignfoldertypeReassignuserOk returns a tuple with the BEzsignfoldertypeReassignuser field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeReassignuserOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignfoldertypeReassignuser) {
+		return nil, false
+	}
+	return o.BEzsignfoldertypeReassignuser, true
+}
+
+// HasBEzsignfoldertypeReassignuser returns a boolean if a field has been set.
+func (o *CustomEzsignfoldertypeResponse) HasBEzsignfoldertypeReassignuser() bool {
+	if o != nil && !IsNil(o.BEzsignfoldertypeReassignuser) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignfoldertypeReassignuser gets a reference to the given bool and assigns it to the BEzsignfoldertypeReassignuser field.
+func (o *CustomEzsignfoldertypeResponse) SetBEzsignfoldertypeReassignuser(v bool) {
+	o.BEzsignfoldertypeReassignuser = &v
+}
+
 func (o CustomEzsignfoldertypeResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -376,6 +444,12 @@ func (o CustomEzsignfoldertypeResponse) ToMap() (map[string]interface{}, error) 
 	}
 	if !IsNil(o.BEzsignfoldertypeReassign) {
 		toSerialize["bEzsignfoldertypeReassign"] = o.BEzsignfoldertypeReassign
+	}
+	if !IsNil(o.BEzsignfoldertypeReassignezsignsigner) {
+		toSerialize["bEzsignfoldertypeReassignezsignsigner"] = o.BEzsignfoldertypeReassignezsignsigner
+	}
+	if !IsNil(o.BEzsignfoldertypeReassignuser) {
+		toSerialize["bEzsignfoldertypeReassignuser"] = o.BEzsignfoldertypeReassignuser
 	}
 	return toSerialize, nil
 }

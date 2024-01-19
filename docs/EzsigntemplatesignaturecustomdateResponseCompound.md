@@ -5,15 +5,17 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiEzsigntemplatesignaturecustomdateID** | **int32** | The unique ID of the Ezsigntemplatesignaturecustomdate | 
-**IEzsigntemplatesignaturecustomdateX** | **int32** | The X coordinate (Horizontal) where to put the Ezsigntemplatesignaturecustomdate on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplatesignaturecustomdate 2 inches from the left border of the page, you would use \&quot;200\&quot; for the X coordinate. | 
-**IEzsigntemplatesignaturecustomdateY** | **int32** | The Y coordinate (Vertical) where to put the Ezsigntemplatesignaturecustomdate on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplatesignaturecustomdate 3 inches from the top border of the page, you would use \&quot;300\&quot; for the Y coordinate. | 
+**IEzsigntemplatesignaturecustomdateX** | Pointer to **int32** | The X coordinate (Horizontal) where to put the Ezsigntemplatesignaturecustomdate on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplatesignaturecustomdate 2 inches from the left border of the page, you would use \&quot;200\&quot; for the X coordinate. | [optional] 
+**IEzsigntemplatesignaturecustomdateY** | Pointer to **int32** | The Y coordinate (Vertical) where to put the Ezsigntemplatesignaturecustomdate on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplatesignaturecustomdate 3 inches from the top border of the page, you would use \&quot;300\&quot; for the Y coordinate. | [optional] 
+**IEzsigntemplatesignaturecustomdateOffsetx** | Pointer to **int32** | The X coordinate (Horizontal) where to put the Ezsigntemplatesignaturecustomdate on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplatesignaturecustomdate 2 inches from the left of the signature, you would use \&quot;200\&quot; for the X coordinate. | [optional] 
+**IEzsigntemplatesignaturecustomdateOffsety** | Pointer to **int32** | The X coordinate (Horizontal) where to put the Ezsigntemplatesignaturecustomdate on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplatesignaturecustomdate 2 inches from the top of the signature, you would use \&quot;200\&quot; for the Y coordinate. | [optional] 
 **SEzsigntemplatesignaturecustomdateFormat** | **string** | The custom date format to use  You can use the codes below and they will be replaced at signature time. Text values like month and day names will be rendered in the proper language. Other text will be left as-is.  The codes examples below are based on the following datetime: Thursday, January 6, 2022 at 08:07:09 EST  For example, the format \&quot;Signature date: {MM}/{DD}/{YYYY} {hh}:{mm}\&quot; would become \&quot;Signature date: 01/06/2022 08:07\&quot;  **Year**  | Code | Example | | - | - | | {YYYY} | 2022 | | {YY} | 22 |  **Month**  | Code | Example | | - | - | | {MonthCapitalize} | Janvier | | {Month} | janvier | | {MM} | 01 | | {M} | 1 |  **Day**  | Code | Example | | - | - | | {DayCapitalize} | Jeudi | | {Day} | jeudi | | {DD} | 06 | | {D} | 6 |  **Hour**  | Code | Example | | - | - | | {hh} | 08 |  **Minute**  | Code | Example | | - | - | | {mm} | 07 |  **Second**  | Code | Example | | - | - | | {ss} | 09 |        **Timezone**  | Code | Example | | - | - | | {Z} | EST |       **Time**  | Code | Example | | - | - | | {Time} | 08:07:09 |   | {TimeZ} | 08:07:09 EST |     **Date**  | Code | Example | | - | - | | {Date} | 2022-01-06 |   | {DateText} | 1er Janvier 2022 |  **Full**  | Code | Example | | - | - | | {DateTime} | 2022-01-06 08:07:09 |   | {DateTimeZ} | 2022-01-06 08:07:09 EST |  | 
 
 ## Methods
 
 ### NewEzsigntemplatesignaturecustomdateResponseCompound
 
-`func NewEzsigntemplatesignaturecustomdateResponseCompound(pkiEzsigntemplatesignaturecustomdateID int32, iEzsigntemplatesignaturecustomdateX int32, iEzsigntemplatesignaturecustomdateY int32, sEzsigntemplatesignaturecustomdateFormat string, ) *EzsigntemplatesignaturecustomdateResponseCompound`
+`func NewEzsigntemplatesignaturecustomdateResponseCompound(pkiEzsigntemplatesignaturecustomdateID int32, sEzsigntemplatesignaturecustomdateFormat string, ) *EzsigntemplatesignaturecustomdateResponseCompound`
 
 NewEzsigntemplatesignaturecustomdateResponseCompound instantiates a new EzsigntemplatesignaturecustomdateResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -67,6 +69,11 @@ and a boolean to check if the value has been set.
 
 SetIEzsigntemplatesignaturecustomdateX sets IEzsigntemplatesignaturecustomdateX field to given value.
 
+### HasIEzsigntemplatesignaturecustomdateX
+
+`func (o *EzsigntemplatesignaturecustomdateResponseCompound) HasIEzsigntemplatesignaturecustomdateX() bool`
+
+HasIEzsigntemplatesignaturecustomdateX returns a boolean if a field has been set.
 
 ### GetIEzsigntemplatesignaturecustomdateY
 
@@ -87,6 +94,61 @@ and a boolean to check if the value has been set.
 
 SetIEzsigntemplatesignaturecustomdateY sets IEzsigntemplatesignaturecustomdateY field to given value.
 
+### HasIEzsigntemplatesignaturecustomdateY
+
+`func (o *EzsigntemplatesignaturecustomdateResponseCompound) HasIEzsigntemplatesignaturecustomdateY() bool`
+
+HasIEzsigntemplatesignaturecustomdateY returns a boolean if a field has been set.
+
+### GetIEzsigntemplatesignaturecustomdateOffsetx
+
+`func (o *EzsigntemplatesignaturecustomdateResponseCompound) GetIEzsigntemplatesignaturecustomdateOffsetx() int32`
+
+GetIEzsigntemplatesignaturecustomdateOffsetx returns the IEzsigntemplatesignaturecustomdateOffsetx field if non-nil, zero value otherwise.
+
+### GetIEzsigntemplatesignaturecustomdateOffsetxOk
+
+`func (o *EzsigntemplatesignaturecustomdateResponseCompound) GetIEzsigntemplatesignaturecustomdateOffsetxOk() (*int32, bool)`
+
+GetIEzsigntemplatesignaturecustomdateOffsetxOk returns a tuple with the IEzsigntemplatesignaturecustomdateOffsetx field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIEzsigntemplatesignaturecustomdateOffsetx
+
+`func (o *EzsigntemplatesignaturecustomdateResponseCompound) SetIEzsigntemplatesignaturecustomdateOffsetx(v int32)`
+
+SetIEzsigntemplatesignaturecustomdateOffsetx sets IEzsigntemplatesignaturecustomdateOffsetx field to given value.
+
+### HasIEzsigntemplatesignaturecustomdateOffsetx
+
+`func (o *EzsigntemplatesignaturecustomdateResponseCompound) HasIEzsigntemplatesignaturecustomdateOffsetx() bool`
+
+HasIEzsigntemplatesignaturecustomdateOffsetx returns a boolean if a field has been set.
+
+### GetIEzsigntemplatesignaturecustomdateOffsety
+
+`func (o *EzsigntemplatesignaturecustomdateResponseCompound) GetIEzsigntemplatesignaturecustomdateOffsety() int32`
+
+GetIEzsigntemplatesignaturecustomdateOffsety returns the IEzsigntemplatesignaturecustomdateOffsety field if non-nil, zero value otherwise.
+
+### GetIEzsigntemplatesignaturecustomdateOffsetyOk
+
+`func (o *EzsigntemplatesignaturecustomdateResponseCompound) GetIEzsigntemplatesignaturecustomdateOffsetyOk() (*int32, bool)`
+
+GetIEzsigntemplatesignaturecustomdateOffsetyOk returns a tuple with the IEzsigntemplatesignaturecustomdateOffsety field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIEzsigntemplatesignaturecustomdateOffsety
+
+`func (o *EzsigntemplatesignaturecustomdateResponseCompound) SetIEzsigntemplatesignaturecustomdateOffsety(v int32)`
+
+SetIEzsigntemplatesignaturecustomdateOffsety sets IEzsigntemplatesignaturecustomdateOffsety field to given value.
+
+### HasIEzsigntemplatesignaturecustomdateOffsety
+
+`func (o *EzsigntemplatesignaturecustomdateResponseCompound) HasIEzsigntemplatesignaturecustomdateOffsety() bool`
+
+HasIEzsigntemplatesignaturecustomdateOffsety returns a boolean if a field has been set.
 
 ### GetSEzsigntemplatesignaturecustomdateFormat
 

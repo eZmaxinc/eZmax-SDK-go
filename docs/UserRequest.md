@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **SUserFirstname** | **string** | The first name of the user | 
 **SUserLastname** | **string** | The last name of the user | 
 **SUserLoginname** | **string** | The login name of the User. | 
+**SUserJobtitle** | Pointer to **string** | The job title of the user | [optional] 
 **EUserEzsignaccess** | [**FieldEUserEzsignaccess**](FieldEUserEzsignaccess.md) |  | 
 **BUserIsactive** | **bool** | Whether the User is active or not | 
 **BUserValidatebyadministration** | Pointer to **bool** | Whether if the transactions in which the User is implicated must be validated by administrative personnel or not | [optional] 
@@ -520,6 +521,31 @@ and a boolean to check if the value has been set.
 
 SetSUserLoginname sets SUserLoginname field to given value.
 
+
+### GetSUserJobtitle
+
+`func (o *UserRequest) GetSUserJobtitle() string`
+
+GetSUserJobtitle returns the SUserJobtitle field if non-nil, zero value otherwise.
+
+### GetSUserJobtitleOk
+
+`func (o *UserRequest) GetSUserJobtitleOk() (*string, bool)`
+
+GetSUserJobtitleOk returns a tuple with the SUserJobtitle field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSUserJobtitle
+
+`func (o *UserRequest) SetSUserJobtitle(v string)`
+
+SetSUserJobtitle sets SUserJobtitle field to given value.
+
+### HasSUserJobtitle
+
+`func (o *UserRequest) HasSUserJobtitle() bool`
+
+HasSUserJobtitle returns a boolean if a field has been set.
 
 ### GetEUserEzsignaccess
 
