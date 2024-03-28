@@ -22,11 +22,11 @@ func Test_eZmaxApi_ObjectEzsignfoldertypeAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ObjectEzsignfoldertypeAPIService EzsignfoldertypeCreateObjectV1", func(t *testing.T) {
+	t.Run("Test ObjectEzsignfoldertypeAPIService EzsignfoldertypeCreateObjectV2", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ObjectEzsignfoldertypeAPI.EzsignfoldertypeCreateObjectV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ObjectEzsignfoldertypeAPI.EzsignfoldertypeCreateObjectV2(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,13 +48,13 @@ func Test_eZmaxApi_ObjectEzsignfoldertypeAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ObjectEzsignfoldertypeAPIService EzsignfoldertypeGetAutocompleteV1", func(t *testing.T) {
+	t.Run("Test ObjectEzsignfoldertypeAPIService EzsignfoldertypeEditObjectV2", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var sSelector string
+		var pkiEzsignfoldertypeID int32
 
-		resp, httpRes, err := apiClient.ObjectEzsignfoldertypeAPI.EzsignfoldertypeGetAutocompleteV1(context.Background(), sSelector).Execute()
+		resp, httpRes, err := apiClient.ObjectEzsignfoldertypeAPI.EzsignfoldertypeEditObjectV2(context.Background(), pkiEzsignfoldertypeID).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -95,6 +95,20 @@ func Test_eZmaxApi_ObjectEzsignfoldertypeAPIService(t *testing.T) {
 		var pkiEzsignfoldertypeID int32
 
 		resp, httpRes, err := apiClient.ObjectEzsignfoldertypeAPI.EzsignfoldertypeGetObjectV2(context.Background(), pkiEzsignfoldertypeID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ObjectEzsignfoldertypeAPIService EzsignfoldertypeGetObjectV3", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiEzsignfoldertypeID int32
+
+		resp, httpRes, err := apiClient.ObjectEzsignfoldertypeAPI.EzsignfoldertypeGetObjectV3(context.Background(), pkiEzsignfoldertypeID).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -27,12 +27,13 @@ type EzsignformfieldgroupResponse struct {
 	// The unique ID of the Ezsigndocument
 	FkiEzsigndocumentID int32 `json:"fkiEzsigndocumentID"`
 	EEzsignformfieldgroupType FieldEEzsignformfieldgroupType `json:"eEzsignformfieldgroupType"`
-	EEzsignformfieldgroupSignerrequirement FieldEEzsignformfieldgroupSignerrequirement `json:"eEzsignformfieldgroupSignerrequirement"`
+	// Deprecated
+	EEzsignformfieldgroupSignerrequirement *FieldEEzsignformfieldgroupSignerrequirement `json:"eEzsignformfieldgroupSignerrequirement,omitempty"`
 	// The Label for the Ezsignformfieldgroup
 	SEzsignformfieldgroupLabel string `json:"sEzsignformfieldgroupLabel"`
 	// The step when the Ezsignsigner will be invited to fill the form fields
 	IEzsignformfieldgroupStep int32 `json:"iEzsignformfieldgroupStep"`
-	// The default value for the Ezsignformfieldgroup
+	// The default value for the Ezsignformfieldgroup  You can use the codes below and they will be replaced at signature time.    | Code | Description | Example | | ------------------------- | ------------ | ------------ | | {sUserFirstname} | The first name of the contact | John | | {sUserLastname} | The last name of the contact | Doe | | {sUserJobtitle} | The job title | Sales Representative | | {sEmailAddress} | The email address | email@example.com | | {sPhoneE164} | A phone number in E.164 Format | +15149901516 | | {sPhoneE164Cell} | A phone number in E.164 Format | +15149901516 |
 	SEzsignformfieldgroupDefaultvalue *string `json:"sEzsignformfieldgroupDefaultvalue,omitempty"`
 	// The minimum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup
 	IEzsignformfieldgroupFilledmin int32 `json:"iEzsignformfieldgroupFilledmin"`
@@ -58,12 +59,11 @@ type _EzsignformfieldgroupResponse EzsignformfieldgroupResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignformfieldgroupResponse(pkiEzsignformfieldgroupID int32, fkiEzsigndocumentID int32, eEzsignformfieldgroupType FieldEEzsignformfieldgroupType, eEzsignformfieldgroupSignerrequirement FieldEEzsignformfieldgroupSignerrequirement, sEzsignformfieldgroupLabel string, iEzsignformfieldgroupStep int32, iEzsignformfieldgroupFilledmin int32, iEzsignformfieldgroupFilledmax int32, bEzsignformfieldgroupReadonly bool) *EzsignformfieldgroupResponse {
+func NewEzsignformfieldgroupResponse(pkiEzsignformfieldgroupID int32, fkiEzsigndocumentID int32, eEzsignformfieldgroupType FieldEEzsignformfieldgroupType, sEzsignformfieldgroupLabel string, iEzsignformfieldgroupStep int32, iEzsignformfieldgroupFilledmin int32, iEzsignformfieldgroupFilledmax int32, bEzsignformfieldgroupReadonly bool) *EzsignformfieldgroupResponse {
 	this := EzsignformfieldgroupResponse{}
 	this.PkiEzsignformfieldgroupID = pkiEzsignformfieldgroupID
 	this.FkiEzsigndocumentID = fkiEzsigndocumentID
 	this.EEzsignformfieldgroupType = eEzsignformfieldgroupType
-	this.EEzsignformfieldgroupSignerrequirement = eEzsignformfieldgroupSignerrequirement
 	this.SEzsignformfieldgroupLabel = sEzsignformfieldgroupLabel
 	this.IEzsignformfieldgroupStep = iEzsignformfieldgroupStep
 	this.IEzsignformfieldgroupFilledmin = iEzsignformfieldgroupFilledmin
@@ -152,28 +152,39 @@ func (o *EzsignformfieldgroupResponse) SetEEzsignformfieldgroupType(v FieldEEzsi
 	o.EEzsignformfieldgroupType = v
 }
 
-// GetEEzsignformfieldgroupSignerrequirement returns the EEzsignformfieldgroupSignerrequirement field value
+// GetEEzsignformfieldgroupSignerrequirement returns the EEzsignformfieldgroupSignerrequirement field value if set, zero value otherwise.
+// Deprecated
 func (o *EzsignformfieldgroupResponse) GetEEzsignformfieldgroupSignerrequirement() FieldEEzsignformfieldgroupSignerrequirement {
-	if o == nil {
+	if o == nil || IsNil(o.EEzsignformfieldgroupSignerrequirement) {
 		var ret FieldEEzsignformfieldgroupSignerrequirement
 		return ret
 	}
-
-	return o.EEzsignformfieldgroupSignerrequirement
+	return *o.EEzsignformfieldgroupSignerrequirement
 }
 
-// GetEEzsignformfieldgroupSignerrequirementOk returns a tuple with the EEzsignformfieldgroupSignerrequirement field value
+// GetEEzsignformfieldgroupSignerrequirementOk returns a tuple with the EEzsignformfieldgroupSignerrequirement field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// Deprecated
 func (o *EzsignformfieldgroupResponse) GetEEzsignformfieldgroupSignerrequirementOk() (*FieldEEzsignformfieldgroupSignerrequirement, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.EEzsignformfieldgroupSignerrequirement) {
 		return nil, false
 	}
-	return &o.EEzsignformfieldgroupSignerrequirement, true
+	return o.EEzsignformfieldgroupSignerrequirement, true
 }
 
-// SetEEzsignformfieldgroupSignerrequirement sets field value
+// HasEEzsignformfieldgroupSignerrequirement returns a boolean if a field has been set.
+func (o *EzsignformfieldgroupResponse) HasEEzsignformfieldgroupSignerrequirement() bool {
+	if o != nil && !IsNil(o.EEzsignformfieldgroupSignerrequirement) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsignformfieldgroupSignerrequirement gets a reference to the given FieldEEzsignformfieldgroupSignerrequirement and assigns it to the EEzsignformfieldgroupSignerrequirement field.
+// Deprecated
 func (o *EzsignformfieldgroupResponse) SetEEzsignformfieldgroupSignerrequirement(v FieldEEzsignformfieldgroupSignerrequirement) {
-	o.EEzsignformfieldgroupSignerrequirement = v
+	o.EEzsignformfieldgroupSignerrequirement = &v
 }
 
 // GetSEzsignformfieldgroupLabel returns the SEzsignformfieldgroupLabel field value
@@ -533,7 +544,9 @@ func (o EzsignformfieldgroupResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["pkiEzsignformfieldgroupID"] = o.PkiEzsignformfieldgroupID
 	toSerialize["fkiEzsigndocumentID"] = o.FkiEzsigndocumentID
 	toSerialize["eEzsignformfieldgroupType"] = o.EEzsignformfieldgroupType
-	toSerialize["eEzsignformfieldgroupSignerrequirement"] = o.EEzsignformfieldgroupSignerrequirement
+	if !IsNil(o.EEzsignformfieldgroupSignerrequirement) {
+		toSerialize["eEzsignformfieldgroupSignerrequirement"] = o.EEzsignformfieldgroupSignerrequirement
+	}
 	toSerialize["sEzsignformfieldgroupLabel"] = o.SEzsignformfieldgroupLabel
 	toSerialize["iEzsignformfieldgroupStep"] = o.IEzsignformfieldgroupStep
 	if !IsNil(o.SEzsignformfieldgroupDefaultvalue) {
@@ -571,7 +584,6 @@ func (o *EzsignformfieldgroupResponse) UnmarshalJSON(data []byte) (err error) {
 		"pkiEzsignformfieldgroupID",
 		"fkiEzsigndocumentID",
 		"eEzsignformfieldgroupType",
-		"eEzsignformfieldgroupSignerrequirement",
 		"sEzsignformfieldgroupLabel",
 		"iEzsignformfieldgroupStep",
 		"iEzsignformfieldgroupFilledmin",

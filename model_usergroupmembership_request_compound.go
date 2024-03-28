@@ -27,7 +27,9 @@ type UsergroupmembershipRequestCompound struct {
 	// The unique ID of the Usergroup
 	FkiUsergroupID int32 `json:"fkiUsergroupID"`
 	// The unique ID of the User
-	FkiUserID int32 `json:"fkiUserID"`
+	FkiUserID *int32 `json:"fkiUserID,omitempty"`
+	// The unique ID of the Usergroupexternal
+	FkiUsergroupexternalID *int32 `json:"fkiUsergroupexternalID,omitempty"`
 }
 
 type _UsergroupmembershipRequestCompound UsergroupmembershipRequestCompound
@@ -36,10 +38,9 @@ type _UsergroupmembershipRequestCompound UsergroupmembershipRequestCompound
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUsergroupmembershipRequestCompound(fkiUsergroupID int32, fkiUserID int32) *UsergroupmembershipRequestCompound {
+func NewUsergroupmembershipRequestCompound(fkiUsergroupID int32) *UsergroupmembershipRequestCompound {
 	this := UsergroupmembershipRequestCompound{}
 	this.FkiUsergroupID = fkiUsergroupID
-	this.FkiUserID = fkiUserID
 	return &this
 }
 
@@ -107,28 +108,68 @@ func (o *UsergroupmembershipRequestCompound) SetFkiUsergroupID(v int32) {
 	o.FkiUsergroupID = v
 }
 
-// GetFkiUserID returns the FkiUserID field value
+// GetFkiUserID returns the FkiUserID field value if set, zero value otherwise.
 func (o *UsergroupmembershipRequestCompound) GetFkiUserID() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.FkiUserID) {
 		var ret int32
 		return ret
 	}
-
-	return o.FkiUserID
+	return *o.FkiUserID
 }
 
-// GetFkiUserIDOk returns a tuple with the FkiUserID field value
+// GetFkiUserIDOk returns a tuple with the FkiUserID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UsergroupmembershipRequestCompound) GetFkiUserIDOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FkiUserID) {
 		return nil, false
 	}
-	return &o.FkiUserID, true
+	return o.FkiUserID, true
 }
 
-// SetFkiUserID sets field value
+// HasFkiUserID returns a boolean if a field has been set.
+func (o *UsergroupmembershipRequestCompound) HasFkiUserID() bool {
+	if o != nil && !IsNil(o.FkiUserID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiUserID gets a reference to the given int32 and assigns it to the FkiUserID field.
 func (o *UsergroupmembershipRequestCompound) SetFkiUserID(v int32) {
-	o.FkiUserID = v
+	o.FkiUserID = &v
+}
+
+// GetFkiUsergroupexternalID returns the FkiUsergroupexternalID field value if set, zero value otherwise.
+func (o *UsergroupmembershipRequestCompound) GetFkiUsergroupexternalID() int32 {
+	if o == nil || IsNil(o.FkiUsergroupexternalID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiUsergroupexternalID
+}
+
+// GetFkiUsergroupexternalIDOk returns a tuple with the FkiUsergroupexternalID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsergroupmembershipRequestCompound) GetFkiUsergroupexternalIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiUsergroupexternalID) {
+		return nil, false
+	}
+	return o.FkiUsergroupexternalID, true
+}
+
+// HasFkiUsergroupexternalID returns a boolean if a field has been set.
+func (o *UsergroupmembershipRequestCompound) HasFkiUsergroupexternalID() bool {
+	if o != nil && !IsNil(o.FkiUsergroupexternalID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiUsergroupexternalID gets a reference to the given int32 and assigns it to the FkiUsergroupexternalID field.
+func (o *UsergroupmembershipRequestCompound) SetFkiUsergroupexternalID(v int32) {
+	o.FkiUsergroupexternalID = &v
 }
 
 func (o UsergroupmembershipRequestCompound) MarshalJSON() ([]byte, error) {
@@ -145,7 +186,12 @@ func (o UsergroupmembershipRequestCompound) ToMap() (map[string]interface{}, err
 		toSerialize["pkiUsergroupmembershipID"] = o.PkiUsergroupmembershipID
 	}
 	toSerialize["fkiUsergroupID"] = o.FkiUsergroupID
-	toSerialize["fkiUserID"] = o.FkiUserID
+	if !IsNil(o.FkiUserID) {
+		toSerialize["fkiUserID"] = o.FkiUserID
+	}
+	if !IsNil(o.FkiUsergroupexternalID) {
+		toSerialize["fkiUsergroupexternalID"] = o.FkiUsergroupexternalID
+	}
 	return toSerialize, nil
 }
 
@@ -155,7 +201,6 @@ func (o *UsergroupmembershipRequestCompound) UnmarshalJSON(data []byte) (err err
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"fkiUsergroupID",
-		"fkiUserID",
 	}
 
 	allProperties := make(map[string]interface{})

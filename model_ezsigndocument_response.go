@@ -64,6 +64,8 @@ type EzsigndocumentResponse struct {
 	SEzsigndocumentExternalid *string `json:"sEzsigndocumentExternalid,omitempty"`
 	// The number of Ezsigndocumentattachment total
 	IEzsigndocumentEzsignsignatureattachmenttotal int32 `json:"iEzsigndocumentEzsignsignatureattachmenttotal"`
+	// The total number of Ezsigndiscussions
+	IEzsigndocumentEzsigndiscussiontotal int32 `json:"iEzsigndocumentEzsigndiscussiontotal"`
 }
 
 type _EzsigndocumentResponse EzsigndocumentResponse
@@ -72,7 +74,7 @@ type _EzsigndocumentResponse EzsigndocumentResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigndocumentResponse(pkiEzsigndocumentID int32, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, sEzsigndocumentName string, eEzsigndocumentStep FieldEEzsigndocumentStep, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, iEzsigndocumentEzsignsignatureattachmenttotal int32) *EzsigndocumentResponse {
+func NewEzsigndocumentResponse(pkiEzsigndocumentID int32, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, sEzsigndocumentName string, eEzsigndocumentStep FieldEEzsigndocumentStep, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, iEzsigndocumentEzsignsignatureattachmenttotal int32, iEzsigndocumentEzsigndiscussiontotal int32) *EzsigndocumentResponse {
 	this := EzsigndocumentResponse{}
 	this.PkiEzsigndocumentID = pkiEzsigndocumentID
 	this.FkiEzsignfolderID = fkiEzsignfolderID
@@ -84,6 +86,7 @@ func NewEzsigndocumentResponse(pkiEzsigndocumentID int32, fkiEzsignfolderID int3
 	this.IEzsigndocumentSignaturesigned = iEzsigndocumentSignaturesigned
 	this.IEzsigndocumentSignaturetotal = iEzsigndocumentSignaturetotal
 	this.IEzsigndocumentEzsignsignatureattachmenttotal = iEzsigndocumentEzsignsignatureattachmenttotal
+	this.IEzsigndocumentEzsigndiscussiontotal = iEzsigndocumentEzsigndiscussiontotal
 	return &this
 }
 
@@ -719,6 +722,30 @@ func (o *EzsigndocumentResponse) SetIEzsigndocumentEzsignsignatureattachmenttota
 	o.IEzsigndocumentEzsignsignatureattachmenttotal = v
 }
 
+// GetIEzsigndocumentEzsigndiscussiontotal returns the IEzsigndocumentEzsigndiscussiontotal field value
+func (o *EzsigndocumentResponse) GetIEzsigndocumentEzsigndiscussiontotal() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IEzsigndocumentEzsigndiscussiontotal
+}
+
+// GetIEzsigndocumentEzsigndiscussiontotalOk returns a tuple with the IEzsigndocumentEzsigndiscussiontotal field value
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentResponse) GetIEzsigndocumentEzsigndiscussiontotalOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IEzsigndocumentEzsigndiscussiontotal, true
+}
+
+// SetIEzsigndocumentEzsigndiscussiontotal sets field value
+func (o *EzsigndocumentResponse) SetIEzsigndocumentEzsigndiscussiontotal(v int32) {
+	o.IEzsigndocumentEzsigndiscussiontotal = v
+}
+
 func (o EzsigndocumentResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -775,6 +802,7 @@ func (o EzsigndocumentResponse) ToMap() (map[string]interface{}, error) {
 		toSerialize["sEzsigndocumentExternalid"] = o.SEzsigndocumentExternalid
 	}
 	toSerialize["iEzsigndocumentEzsignsignatureattachmenttotal"] = o.IEzsigndocumentEzsignsignatureattachmenttotal
+	toSerialize["iEzsigndocumentEzsigndiscussiontotal"] = o.IEzsigndocumentEzsigndiscussiontotal
 	return toSerialize, nil
 }
 
@@ -793,6 +821,7 @@ func (o *EzsigndocumentResponse) UnmarshalJSON(data []byte) (err error) {
 		"iEzsigndocumentSignaturesigned",
 		"iEzsigndocumentSignaturetotal",
 		"iEzsigndocumentEzsignsignatureattachmenttotal",
+		"iEzsigndocumentEzsigndiscussiontotal",
 	}
 
 	allProperties := make(map[string]interface{})

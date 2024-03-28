@@ -24,6 +24,160 @@ import (
 // ObjectEzsignfoldersignerassociationAPIService ObjectEzsignfoldersignerassociationAPI service
 type ObjectEzsignfoldersignerassociationAPIService service
 
+type ApiEzsignfoldersignerassociationCreateEmbeddedUrlV1Request struct {
+	ctx context.Context
+	ApiService *ObjectEzsignfoldersignerassociationAPIService
+	pkiEzsignfoldersignerassociationID int32
+	ezsignfoldersignerassociationCreateEmbeddedUrlV1Request *EzsignfoldersignerassociationCreateEmbeddedUrlV1Request
+}
+
+func (r ApiEzsignfoldersignerassociationCreateEmbeddedUrlV1Request) EzsignfoldersignerassociationCreateEmbeddedUrlV1Request(ezsignfoldersignerassociationCreateEmbeddedUrlV1Request EzsignfoldersignerassociationCreateEmbeddedUrlV1Request) ApiEzsignfoldersignerassociationCreateEmbeddedUrlV1Request {
+	r.ezsignfoldersignerassociationCreateEmbeddedUrlV1Request = &ezsignfoldersignerassociationCreateEmbeddedUrlV1Request
+	return r
+}
+
+func (r ApiEzsignfoldersignerassociationCreateEmbeddedUrlV1Request) Execute() (*EzsignfoldersignerassociationCreateEmbeddedUrlV1Response, *http.Response, error) {
+	return r.ApiService.EzsignfoldersignerassociationCreateEmbeddedUrlV1Execute(r)
+}
+
+/*
+EzsignfoldersignerassociationCreateEmbeddedUrlV1 Creates an Url to allow embedded signing
+
+This endpoint creates an Url that can be used in a browser or embedded in an I-Frame to allow signing.
+
+The signer Login type must be configured as Embedded.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiEzsignfoldersignerassociationID
+ @return ApiEzsignfoldersignerassociationCreateEmbeddedUrlV1Request
+*/
+func (a *ObjectEzsignfoldersignerassociationAPIService) EzsignfoldersignerassociationCreateEmbeddedUrlV1(ctx context.Context, pkiEzsignfoldersignerassociationID int32) ApiEzsignfoldersignerassociationCreateEmbeddedUrlV1Request {
+	return ApiEzsignfoldersignerassociationCreateEmbeddedUrlV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID,
+	}
+}
+
+// Execute executes the request
+//  @return EzsignfoldersignerassociationCreateEmbeddedUrlV1Response
+func (a *ObjectEzsignfoldersignerassociationAPIService) EzsignfoldersignerassociationCreateEmbeddedUrlV1Execute(r ApiEzsignfoldersignerassociationCreateEmbeddedUrlV1Request) (*EzsignfoldersignerassociationCreateEmbeddedUrlV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EzsignfoldersignerassociationCreateEmbeddedUrlV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfoldersignerassociationAPIService.EzsignfoldersignerassociationCreateEmbeddedUrlV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/createEmbeddedUrl"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsignfoldersignerassociationID"+"}", url.PathEscape(parameterValueToString(r.pkiEzsignfoldersignerassociationID, "pkiEzsignfoldersignerassociationID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiEzsignfoldersignerassociationID < 0 {
+		return localVarReturnValue, nil, reportError("pkiEzsignfoldersignerassociationID must be greater than 0")
+	}
+	if r.ezsignfoldersignerassociationCreateEmbeddedUrlV1Request == nil {
+		return localVarReturnValue, nil, reportError("ezsignfoldersignerassociationCreateEmbeddedUrlV1Request is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.ezsignfoldersignerassociationCreateEmbeddedUrlV1Request
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiEzsignfoldersignerassociationCreateObjectV1Request struct {
 	ctx context.Context
 	ApiService *ObjectEzsignfoldersignerassociationAPIService

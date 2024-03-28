@@ -6,12 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AObjEzsigntemplate** | [**[]EzsigntemplateResponseCompound**](EzsigntemplateResponseCompound.md) |  | 
 **AObjEzsigntemplatepackage** | [**[]EzsigntemplatepackageResponseCompound**](EzsigntemplatepackageResponseCompound.md) |  | 
+**AObjEzsigntemplateglobal** | [**[]EzsigntemplateglobalResponseCompound**](EzsigntemplateglobalResponseCompound.md) |  | 
 
 ## Methods
 
 ### NewEzsignSuggestTemplatesV1ResponseMPayload
 
-`func NewEzsignSuggestTemplatesV1ResponseMPayload(aObjEzsigntemplate []EzsigntemplateResponseCompound, aObjEzsigntemplatepackage []EzsigntemplatepackageResponseCompound, ) *EzsignSuggestTemplatesV1ResponseMPayload`
+`func NewEzsignSuggestTemplatesV1ResponseMPayload(aObjEzsigntemplate []EzsigntemplateResponseCompound, aObjEzsigntemplatepackage []EzsigntemplatepackageResponseCompound, aObjEzsigntemplateglobal []EzsigntemplateglobalResponseCompound, ) *EzsignSuggestTemplatesV1ResponseMPayload`
 
 NewEzsignSuggestTemplatesV1ResponseMPayload instantiates a new EzsignSuggestTemplatesV1ResponseMPayload object
 This constructor will assign default values to properties that have it defined,
@@ -64,6 +65,26 @@ and a boolean to check if the value has been set.
 `func (o *EzsignSuggestTemplatesV1ResponseMPayload) SetAObjEzsigntemplatepackage(v []EzsigntemplatepackageResponseCompound)`
 
 SetAObjEzsigntemplatepackage sets AObjEzsigntemplatepackage field to given value.
+
+
+### GetAObjEzsigntemplateglobal
+
+`func (o *EzsignSuggestTemplatesV1ResponseMPayload) GetAObjEzsigntemplateglobal() []EzsigntemplateglobalResponseCompound`
+
+GetAObjEzsigntemplateglobal returns the AObjEzsigntemplateglobal field if non-nil, zero value otherwise.
+
+### GetAObjEzsigntemplateglobalOk
+
+`func (o *EzsignSuggestTemplatesV1ResponseMPayload) GetAObjEzsigntemplateglobalOk() (*[]EzsigntemplateglobalResponseCompound, bool)`
+
+GetAObjEzsigntemplateglobalOk returns a tuple with the AObjEzsigntemplateglobal field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAObjEzsigntemplateglobal
+
+`func (o *EzsignSuggestTemplatesV1ResponseMPayload) SetAObjEzsigntemplateglobal(v []EzsigntemplateglobalResponseCompound)`
+
+SetAObjEzsigntemplateglobal sets AObjEzsigntemplateglobal field to given value.
 
 
 

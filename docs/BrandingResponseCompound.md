@@ -11,14 +11,17 @@ Name | Type | Description | Notes
 **SBrandingName** | Pointer to **string** | The name of the Branding  This value will only be set if you wish to overwrite the default name. If you want to keep the default name, leave this property empty | [optional] 
 **SEmailAddress** | Pointer to **string** | The email address. | [optional] 
 **EBrandingLogo** | [**FieldEBrandingLogo**](FieldEBrandingLogo.md) |  | 
+**EBrandingLogointerface** | Pointer to [**FieldEBrandingLogointerface**](FieldEBrandingLogointerface.md) |  | [optional] [default to DEFAULT]
 **IBrandingColortext** | **int32** | The color of the text. This is a RGB color converted into integer | 
 **IBrandingColortextlinkbox** | **int32** | The color of the text in the link box. This is a RGB color converted into integer | 
 **IBrandingColortextbutton** | **int32** | The color of the text in the button. This is a RGB color converted into integer | 
 **IBrandingColorbackground** | **int32** | The color of the background. This is a RGB color converted into integer | 
 **IBrandingColorbackgroundbutton** | **int32** | The color of the background of the button. This is a RGB color converted into integer | 
 **IBrandingColorbackgroundsmallbox** | **int32** | The color of the background of the small box. This is a RGB color converted into integer | 
+**IBrandingInterfacecolor** | Pointer to **int32** | The color of the interface. This is a RGB color converted into integer | [optional] 
 **BBrandingIsactive** | **bool** | Whether the Branding is active or not | 
 **SBrandingLogourl** | Pointer to **string** | The url of the picture used as logo in the Branding | [optional] 
+**SBrandingLogointerfaceurl** | Pointer to **string** | The url of the picture used as logo in the Branding | [optional] 
 
 ## Methods
 
@@ -194,6 +197,31 @@ and a boolean to check if the value has been set.
 SetEBrandingLogo sets EBrandingLogo field to given value.
 
 
+### GetEBrandingLogointerface
+
+`func (o *BrandingResponseCompound) GetEBrandingLogointerface() FieldEBrandingLogointerface`
+
+GetEBrandingLogointerface returns the EBrandingLogointerface field if non-nil, zero value otherwise.
+
+### GetEBrandingLogointerfaceOk
+
+`func (o *BrandingResponseCompound) GetEBrandingLogointerfaceOk() (*FieldEBrandingLogointerface, bool)`
+
+GetEBrandingLogointerfaceOk returns a tuple with the EBrandingLogointerface field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEBrandingLogointerface
+
+`func (o *BrandingResponseCompound) SetEBrandingLogointerface(v FieldEBrandingLogointerface)`
+
+SetEBrandingLogointerface sets EBrandingLogointerface field to given value.
+
+### HasEBrandingLogointerface
+
+`func (o *BrandingResponseCompound) HasEBrandingLogointerface() bool`
+
+HasEBrandingLogointerface returns a boolean if a field has been set.
+
 ### GetIBrandingColortext
 
 `func (o *BrandingResponseCompound) GetIBrandingColortext() int32`
@@ -314,6 +342,31 @@ and a boolean to check if the value has been set.
 SetIBrandingColorbackgroundsmallbox sets IBrandingColorbackgroundsmallbox field to given value.
 
 
+### GetIBrandingInterfacecolor
+
+`func (o *BrandingResponseCompound) GetIBrandingInterfacecolor() int32`
+
+GetIBrandingInterfacecolor returns the IBrandingInterfacecolor field if non-nil, zero value otherwise.
+
+### GetIBrandingInterfacecolorOk
+
+`func (o *BrandingResponseCompound) GetIBrandingInterfacecolorOk() (*int32, bool)`
+
+GetIBrandingInterfacecolorOk returns a tuple with the IBrandingInterfacecolor field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIBrandingInterfacecolor
+
+`func (o *BrandingResponseCompound) SetIBrandingInterfacecolor(v int32)`
+
+SetIBrandingInterfacecolor sets IBrandingInterfacecolor field to given value.
+
+### HasIBrandingInterfacecolor
+
+`func (o *BrandingResponseCompound) HasIBrandingInterfacecolor() bool`
+
+HasIBrandingInterfacecolor returns a boolean if a field has been set.
+
 ### GetBBrandingIsactive
 
 `func (o *BrandingResponseCompound) GetBBrandingIsactive() bool`
@@ -358,6 +411,31 @@ SetSBrandingLogourl sets SBrandingLogourl field to given value.
 `func (o *BrandingResponseCompound) HasSBrandingLogourl() bool`
 
 HasSBrandingLogourl returns a boolean if a field has been set.
+
+### GetSBrandingLogointerfaceurl
+
+`func (o *BrandingResponseCompound) GetSBrandingLogointerfaceurl() string`
+
+GetSBrandingLogointerfaceurl returns the SBrandingLogointerfaceurl field if non-nil, zero value otherwise.
+
+### GetSBrandingLogointerfaceurlOk
+
+`func (o *BrandingResponseCompound) GetSBrandingLogointerfaceurlOk() (*string, bool)`
+
+GetSBrandingLogointerfaceurlOk returns a tuple with the SBrandingLogointerfaceurl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSBrandingLogointerfaceurl
+
+`func (o *BrandingResponseCompound) SetSBrandingLogointerfaceurl(v string)`
+
+SetSBrandingLogointerfaceurl sets SBrandingLogointerfaceurl field to given value.
+
+### HasSBrandingLogointerfaceurl
+
+`func (o *BrandingResponseCompound) HasSBrandingLogointerfaceurl() bool`
+
+HasSBrandingLogointerfaceurl returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

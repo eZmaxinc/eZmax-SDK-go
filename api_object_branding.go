@@ -486,6 +486,7 @@ Enum values that can be filtered in query parameter *sFilter*:
 | Variable | Valid values |
 |---|---|
 | eBrandingLogo | Default<br>JPEG<br>PNG |
+| eBrandingLogointerface | Default<br>JPEG<br>PNG |
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiBrandingGetListV1Request

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## UserlogintypeGetAutocompleteV2
 
-> UserlogintypeGetAutocompleteV2Response UserlogintypeGetAutocompleteV2(ctx, sSelector).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
+> UserlogintypeGetAutocompleteV2Response UserlogintypeGetAutocompleteV2(ctx, sSelector).FkiEzsignfoldertypeID(fkiEzsignfoldertypeID).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
 
 Retrieve Userlogintypes and IDs
 
@@ -30,13 +30,14 @@ import (
 
 func main() {
 	sSelector := "sSelector_example" // string | The type of Userlogintypes to return
+	fkiEzsignfoldertypeID := int32(56) // int32 |  (optional)
 	eFilterActive := "eFilterActive_example" // string | Specify which results we want to display. (optional) (default to "Active")
 	sQuery := "sQuery_example" // string | Allow to filter the returned results (optional)
 	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectUserlogintypeAPI.UserlogintypeGetAutocompleteV2(context.Background(), sSelector).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
+	resp, r, err := apiClient.ObjectUserlogintypeAPI.UserlogintypeGetAutocompleteV2(context.Background(), sSelector).FkiEzsignfoldertypeID(fkiEzsignfoldertypeID).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserlogintypeAPI.UserlogintypeGetAutocompleteV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -62,6 +63,7 @@ Other parameters are passed through a pointer to a apiUserlogintypeGetAutocomple
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **fkiEzsignfoldertypeID** | **int32** |  | 
  **eFilterActive** | **string** | Specify which results we want to display. | [default to &quot;Active&quot;]
  **sQuery** | **string** | Allow to filter the returned results | 
  **acceptLanguage** | [**HeaderAcceptLanguage**](HeaderAcceptLanguage.md) |  | 

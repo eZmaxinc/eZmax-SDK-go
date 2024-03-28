@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 **PkiEzsignformfieldgroupID** | **int32** | The unique ID of the Ezsignformfieldgroup | 
 **FkiEzsigndocumentID** | **int32** | The unique ID of the Ezsigndocument | 
 **EEzsignformfieldgroupType** | [**FieldEEzsignformfieldgroupType**](FieldEEzsignformfieldgroupType.md) |  | 
-**EEzsignformfieldgroupSignerrequirement** | [**FieldEEzsignformfieldgroupSignerrequirement**](FieldEEzsignformfieldgroupSignerrequirement.md) |  | 
+**EEzsignformfieldgroupSignerrequirement** | Pointer to [**FieldEEzsignformfieldgroupSignerrequirement**](FieldEEzsignformfieldgroupSignerrequirement.md) |  | [optional] 
 **SEzsignformfieldgroupLabel** | **string** | The Label for the Ezsignformfieldgroup | 
 **IEzsignformfieldgroupStep** | **int32** | The step when the Ezsignsigner will be invited to fill the form fields | 
-**SEzsignformfieldgroupDefaultvalue** | Pointer to **string** | The default value for the Ezsignformfieldgroup | [optional] 
+**SEzsignformfieldgroupDefaultvalue** | Pointer to **string** | The default value for the Ezsignformfieldgroup  You can use the codes below and they will be replaced at signature time.    | Code | Description | Example | | ------------------------- | ------------ | ------------ | | {sUserFirstname} | The first name of the contact | John | | {sUserLastname} | The last name of the contact | Doe | | {sUserJobtitle} | The job title | Sales Representative | | {sEmailAddress} | The email address | email@example.com | | {sPhoneE164} | A phone number in E.164 Format | +15149901516 | | {sPhoneE164Cell} | A phone number in E.164 Format | +15149901516 | | [optional] 
 **IEzsignformfieldgroupFilledmin** | **int32** | The minimum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup | 
 **IEzsignformfieldgroupFilledmax** | **int32** | The maximum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup | 
 **BEzsignformfieldgroupReadonly** | **bool** | Whether the Ezsignformfieldgroup is read only or not. | 
@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 ### NewEzsignformfieldgroupResponseCompound
 
-`func NewEzsignformfieldgroupResponseCompound(pkiEzsignformfieldgroupID int32, fkiEzsigndocumentID int32, eEzsignformfieldgroupType FieldEEzsignformfieldgroupType, eEzsignformfieldgroupSignerrequirement FieldEEzsignformfieldgroupSignerrequirement, sEzsignformfieldgroupLabel string, iEzsignformfieldgroupStep int32, iEzsignformfieldgroupFilledmin int32, iEzsignformfieldgroupFilledmax int32, bEzsignformfieldgroupReadonly bool, aObjEzsignformfield []EzsignformfieldResponseCompound, aObjEzsignformfieldgroupsigner []EzsignformfieldgroupsignerResponseCompound, ) *EzsignformfieldgroupResponseCompound`
+`func NewEzsignformfieldgroupResponseCompound(pkiEzsignformfieldgroupID int32, fkiEzsigndocumentID int32, eEzsignformfieldgroupType FieldEEzsignformfieldgroupType, sEzsignformfieldgroupLabel string, iEzsignformfieldgroupStep int32, iEzsignformfieldgroupFilledmin int32, iEzsignformfieldgroupFilledmax int32, bEzsignformfieldgroupReadonly bool, aObjEzsignformfield []EzsignformfieldResponseCompound, aObjEzsignformfieldgroupsigner []EzsignformfieldgroupsignerResponseCompound, ) *EzsignformfieldgroupResponseCompound`
 
 NewEzsignformfieldgroupResponseCompound instantiates a new EzsignformfieldgroupResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -122,6 +122,11 @@ and a boolean to check if the value has been set.
 
 SetEEzsignformfieldgroupSignerrequirement sets EEzsignformfieldgroupSignerrequirement field to given value.
 
+### HasEEzsignformfieldgroupSignerrequirement
+
+`func (o *EzsignformfieldgroupResponseCompound) HasEEzsignformfieldgroupSignerrequirement() bool`
+
+HasEEzsignformfieldgroupSignerrequirement returns a boolean if a field has been set.
 
 ### GetSEzsignformfieldgroupLabel
 

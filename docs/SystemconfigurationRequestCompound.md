@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **ESystemconfigurationLanguage1** | [**FieldESystemconfigurationLanguage1**](FieldESystemconfigurationLanguage1.md) |  | 
 **ESystemconfigurationLanguage2** | [**FieldESystemconfigurationLanguage2**](FieldESystemconfigurationLanguage2.md) |  | 
 **ESystemconfigurationEzsign** | Pointer to [**FieldESystemconfigurationEzsign**](FieldESystemconfigurationEzsign.md) |  | [optional] 
+**ESystemconfigurationEzsignofficeplan** | Pointer to [**FieldESystemconfigurationEzsignofficeplan**](FieldESystemconfigurationEzsignofficeplan.md) |  | [optional] 
+**BSystemconfigurationEzsignpaidbyoffice** | Pointer to **bool** | Whether if Ezsign is paid by the company or not | [optional] 
 **BSystemconfigurationEzsignpersonnal** | **bool** | Whether if we allow the creation of personal files in eZsign | 
 **BSystemconfigurationSspr** | **bool** | Whether if we allow SSPR | 
 **DtSystemconfigurationReadonlyexpirationstart** | Pointer to **string** | The start date where the system will be in read only | [optional] 
@@ -142,6 +144,56 @@ SetESystemconfigurationEzsign sets ESystemconfigurationEzsign field to given val
 `func (o *SystemconfigurationRequestCompound) HasESystemconfigurationEzsign() bool`
 
 HasESystemconfigurationEzsign returns a boolean if a field has been set.
+
+### GetESystemconfigurationEzsignofficeplan
+
+`func (o *SystemconfigurationRequestCompound) GetESystemconfigurationEzsignofficeplan() FieldESystemconfigurationEzsignofficeplan`
+
+GetESystemconfigurationEzsignofficeplan returns the ESystemconfigurationEzsignofficeplan field if non-nil, zero value otherwise.
+
+### GetESystemconfigurationEzsignofficeplanOk
+
+`func (o *SystemconfigurationRequestCompound) GetESystemconfigurationEzsignofficeplanOk() (*FieldESystemconfigurationEzsignofficeplan, bool)`
+
+GetESystemconfigurationEzsignofficeplanOk returns a tuple with the ESystemconfigurationEzsignofficeplan field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetESystemconfigurationEzsignofficeplan
+
+`func (o *SystemconfigurationRequestCompound) SetESystemconfigurationEzsignofficeplan(v FieldESystemconfigurationEzsignofficeplan)`
+
+SetESystemconfigurationEzsignofficeplan sets ESystemconfigurationEzsignofficeplan field to given value.
+
+### HasESystemconfigurationEzsignofficeplan
+
+`func (o *SystemconfigurationRequestCompound) HasESystemconfigurationEzsignofficeplan() bool`
+
+HasESystemconfigurationEzsignofficeplan returns a boolean if a field has been set.
+
+### GetBSystemconfigurationEzsignpaidbyoffice
+
+`func (o *SystemconfigurationRequestCompound) GetBSystemconfigurationEzsignpaidbyoffice() bool`
+
+GetBSystemconfigurationEzsignpaidbyoffice returns the BSystemconfigurationEzsignpaidbyoffice field if non-nil, zero value otherwise.
+
+### GetBSystemconfigurationEzsignpaidbyofficeOk
+
+`func (o *SystemconfigurationRequestCompound) GetBSystemconfigurationEzsignpaidbyofficeOk() (*bool, bool)`
+
+GetBSystemconfigurationEzsignpaidbyofficeOk returns a tuple with the BSystemconfigurationEzsignpaidbyoffice field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBSystemconfigurationEzsignpaidbyoffice
+
+`func (o *SystemconfigurationRequestCompound) SetBSystemconfigurationEzsignpaidbyoffice(v bool)`
+
+SetBSystemconfigurationEzsignpaidbyoffice sets BSystemconfigurationEzsignpaidbyoffice field to given value.
+
+### HasBSystemconfigurationEzsignpaidbyoffice
+
+`func (o *SystemconfigurationRequestCompound) HasBSystemconfigurationEzsignpaidbyoffice() bool`
+
+HasBSystemconfigurationEzsignpaidbyoffice returns a boolean if a field has been set.
 
 ### GetBSystemconfigurationEzsignpersonnal
 

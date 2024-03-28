@@ -38,6 +38,10 @@ type AddressRequest struct {
 	FkiCountryID int32 `json:"fkiCountryID"`
 	// The Postal/Zip Code  The value must be entered without spaces
 	SAddressZip string `json:"sAddressZip"`
+	// The Longitude of the Address
+	FAddressLongitude *string `json:"fAddressLongitude,omitempty"`
+	// The Latitude of the Address
+	FAddressLatitude *string `json:"fAddressLatitude,omitempty"`
 }
 
 type _AddressRequest AddressRequest
@@ -259,6 +263,70 @@ func (o *AddressRequest) SetSAddressZip(v string) {
 	o.SAddressZip = v
 }
 
+// GetFAddressLongitude returns the FAddressLongitude field value if set, zero value otherwise.
+func (o *AddressRequest) GetFAddressLongitude() string {
+	if o == nil || IsNil(o.FAddressLongitude) {
+		var ret string
+		return ret
+	}
+	return *o.FAddressLongitude
+}
+
+// GetFAddressLongitudeOk returns a tuple with the FAddressLongitude field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AddressRequest) GetFAddressLongitudeOk() (*string, bool) {
+	if o == nil || IsNil(o.FAddressLongitude) {
+		return nil, false
+	}
+	return o.FAddressLongitude, true
+}
+
+// HasFAddressLongitude returns a boolean if a field has been set.
+func (o *AddressRequest) HasFAddressLongitude() bool {
+	if o != nil && !IsNil(o.FAddressLongitude) {
+		return true
+	}
+
+	return false
+}
+
+// SetFAddressLongitude gets a reference to the given string and assigns it to the FAddressLongitude field.
+func (o *AddressRequest) SetFAddressLongitude(v string) {
+	o.FAddressLongitude = &v
+}
+
+// GetFAddressLatitude returns the FAddressLatitude field value if set, zero value otherwise.
+func (o *AddressRequest) GetFAddressLatitude() string {
+	if o == nil || IsNil(o.FAddressLatitude) {
+		var ret string
+		return ret
+	}
+	return *o.FAddressLatitude
+}
+
+// GetFAddressLatitudeOk returns a tuple with the FAddressLatitude field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AddressRequest) GetFAddressLatitudeOk() (*string, bool) {
+	if o == nil || IsNil(o.FAddressLatitude) {
+		return nil, false
+	}
+	return o.FAddressLatitude, true
+}
+
+// HasFAddressLatitude returns a boolean if a field has been set.
+func (o *AddressRequest) HasFAddressLatitude() bool {
+	if o != nil && !IsNil(o.FAddressLatitude) {
+		return true
+	}
+
+	return false
+}
+
+// SetFAddressLatitude gets a reference to the given string and assigns it to the FAddressLatitude field.
+func (o *AddressRequest) SetFAddressLatitude(v string) {
+	o.FAddressLatitude = &v
+}
+
 func (o AddressRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -277,6 +345,12 @@ func (o AddressRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize["fkiProvinceID"] = o.FkiProvinceID
 	toSerialize["fkiCountryID"] = o.FkiCountryID
 	toSerialize["sAddressZip"] = o.SAddressZip
+	if !IsNil(o.FAddressLongitude) {
+		toSerialize["fAddressLongitude"] = o.FAddressLongitude
+	}
+	if !IsNil(o.FAddressLatitude) {
+		toSerialize["fAddressLatitude"] = o.FAddressLatitude
+	}
 	return toSerialize, nil
 }
 

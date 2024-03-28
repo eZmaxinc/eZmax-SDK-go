@@ -128,6 +128,20 @@ func Test_eZmaxApi_ObjectEzsignfolderAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test ObjectEzsignfolderAPIService EzsignfolderEndPrematurelyV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiEzsignfolderID int32
+
+		resp, httpRes, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderEndPrematurelyV1(context.Background(), pkiEzsignfolderID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ObjectEzsignfolderAPIService EzsignfolderGetActionableElementsV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -371,20 +385,6 @@ func Test_eZmaxApi_ObjectEzsignfolderAPIService(t *testing.T) {
 		var pkiEzsignfolderID int32
 
 		resp, httpRes, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderSendV1(context.Background(), pkiEzsignfolderID).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ObjectEzsignfolderAPIService EzsignfolderSendV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var pkiEzsignfolderID int32
-
-		resp, httpRes, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderSendV2(context.Background(), pkiEzsignfolderID).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

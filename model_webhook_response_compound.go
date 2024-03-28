@@ -50,6 +50,7 @@ type WebhookResponseCompound struct {
 	ObjAudit CommonAudit `json:"objAudit"`
 	// The concatenated string to describe the Webhook event
 	SWebhookEvent *string `json:"sWebhookEvent,omitempty"`
+	AObjWebhookheader []WebhookheaderResponseCompound `json:"a_objWebhookheader,omitempty"`
 }
 
 type _WebhookResponseCompound WebhookResponseCompound
@@ -520,6 +521,38 @@ func (o *WebhookResponseCompound) SetSWebhookEvent(v string) {
 	o.SWebhookEvent = &v
 }
 
+// GetAObjWebhookheader returns the AObjWebhookheader field value if set, zero value otherwise.
+func (o *WebhookResponseCompound) GetAObjWebhookheader() []WebhookheaderResponseCompound {
+	if o == nil || IsNil(o.AObjWebhookheader) {
+		var ret []WebhookheaderResponseCompound
+		return ret
+	}
+	return o.AObjWebhookheader
+}
+
+// GetAObjWebhookheaderOk returns a tuple with the AObjWebhookheader field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WebhookResponseCompound) GetAObjWebhookheaderOk() ([]WebhookheaderResponseCompound, bool) {
+	if o == nil || IsNil(o.AObjWebhookheader) {
+		return nil, false
+	}
+	return o.AObjWebhookheader, true
+}
+
+// HasAObjWebhookheader returns a boolean if a field has been set.
+func (o *WebhookResponseCompound) HasAObjWebhookheader() bool {
+	if o != nil && !IsNil(o.AObjWebhookheader) {
+		return true
+	}
+
+	return false
+}
+
+// SetAObjWebhookheader gets a reference to the given []WebhookheaderResponseCompound and assigns it to the AObjWebhookheader field.
+func (o *WebhookResponseCompound) SetAObjWebhookheader(v []WebhookheaderResponseCompound) {
+	o.AObjWebhookheader = v
+}
+
 func (o WebhookResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -559,6 +592,9 @@ func (o WebhookResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize["objAudit"] = o.ObjAudit
 	if !IsNil(o.SWebhookEvent) {
 		toSerialize["sWebhookEvent"] = o.SWebhookEvent
+	}
+	if !IsNil(o.AObjWebhookheader) {
+		toSerialize["a_objWebhookheader"] = o.AObjWebhookheader
 	}
 	return toSerialize, nil
 }

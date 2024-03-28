@@ -15,6 +15,8 @@ Name | Type | Description | Notes
 **PksCustomerCode** | **string** | The customer code assigned to your account | 
 **FkiSystemconfigurationtypeID** | **int32** | The unique ID of the Systemconfigurationtype | 
 **FkiSignatureID** | Pointer to **int32** | The unique ID of the Signature | [optional] 
+**BSystemconfigurationEzsignpaidbyoffice** | Pointer to **bool** | Whether if Ezsign is paid by the company or not | [optional] 
+**ESystemconfigurationEzsignofficeplan** | Pointer to [**FieldESystemconfigurationEzsignofficeplan**](FieldESystemconfigurationEzsignofficeplan.md) |  | [optional] 
 **EUserEzsignaccess** | [**FieldEUserEzsignaccess**](FieldEUserEzsignaccess.md) |  | 
 **EUserEzsignprepaid** | Pointer to [**FieldEUserEzsignprepaid**](FieldEUserEzsignprepaid.md) |  | [optional] 
 **DtUserEzsignprepaidexpiration** | Pointer to **string** | The eZsign prepaid expiration date | [optional] 
@@ -267,6 +269,56 @@ SetFkiSignatureID sets FkiSignatureID field to given value.
 `func (o *ActivesessionResponseCompound) HasFkiSignatureID() bool`
 
 HasFkiSignatureID returns a boolean if a field has been set.
+
+### GetBSystemconfigurationEzsignpaidbyoffice
+
+`func (o *ActivesessionResponseCompound) GetBSystemconfigurationEzsignpaidbyoffice() bool`
+
+GetBSystemconfigurationEzsignpaidbyoffice returns the BSystemconfigurationEzsignpaidbyoffice field if non-nil, zero value otherwise.
+
+### GetBSystemconfigurationEzsignpaidbyofficeOk
+
+`func (o *ActivesessionResponseCompound) GetBSystemconfigurationEzsignpaidbyofficeOk() (*bool, bool)`
+
+GetBSystemconfigurationEzsignpaidbyofficeOk returns a tuple with the BSystemconfigurationEzsignpaidbyoffice field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBSystemconfigurationEzsignpaidbyoffice
+
+`func (o *ActivesessionResponseCompound) SetBSystemconfigurationEzsignpaidbyoffice(v bool)`
+
+SetBSystemconfigurationEzsignpaidbyoffice sets BSystemconfigurationEzsignpaidbyoffice field to given value.
+
+### HasBSystemconfigurationEzsignpaidbyoffice
+
+`func (o *ActivesessionResponseCompound) HasBSystemconfigurationEzsignpaidbyoffice() bool`
+
+HasBSystemconfigurationEzsignpaidbyoffice returns a boolean if a field has been set.
+
+### GetESystemconfigurationEzsignofficeplan
+
+`func (o *ActivesessionResponseCompound) GetESystemconfigurationEzsignofficeplan() FieldESystemconfigurationEzsignofficeplan`
+
+GetESystemconfigurationEzsignofficeplan returns the ESystemconfigurationEzsignofficeplan field if non-nil, zero value otherwise.
+
+### GetESystemconfigurationEzsignofficeplanOk
+
+`func (o *ActivesessionResponseCompound) GetESystemconfigurationEzsignofficeplanOk() (*FieldESystemconfigurationEzsignofficeplan, bool)`
+
+GetESystemconfigurationEzsignofficeplanOk returns a tuple with the ESystemconfigurationEzsignofficeplan field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetESystemconfigurationEzsignofficeplan
+
+`func (o *ActivesessionResponseCompound) SetESystemconfigurationEzsignofficeplan(v FieldESystemconfigurationEzsignofficeplan)`
+
+SetESystemconfigurationEzsignofficeplan sets ESystemconfigurationEzsignofficeplan field to given value.
+
+### HasESystemconfigurationEzsignofficeplan
+
+`func (o *ActivesessionResponseCompound) HasESystemconfigurationEzsignofficeplan() bool`
+
+HasESystemconfigurationEzsignofficeplan returns a boolean if a field has been set.
 
 ### GetEUserEzsignaccess
 

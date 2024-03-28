@@ -84,6 +84,8 @@ type APIClient struct {
 
 	ObjectCorsAPI *ObjectCorsAPIService
 
+	ObjectCountryAPI *ObjectCountryAPIService
+
 	ObjectDepartmentAPI *ObjectDepartmentAPIService
 
 	ObjectDiscussionAPI *ObjectDiscussionAPIService
@@ -136,6 +138,8 @@ type APIClient struct {
 
 	ObjectEzsigntemplateformfieldgroupAPI *ObjectEzsigntemplateformfieldgroupAPIService
 
+	ObjectEzsigntemplateglobalAPI *ObjectEzsigntemplateglobalAPIService
+
 	ObjectEzsigntemplatepackageAPI *ObjectEzsigntemplatepackageAPIService
 
 	ObjectEzsigntemplatepackagemembershipAPI *ObjectEzsigntemplatepackagemembershipAPIService
@@ -168,6 +172,8 @@ type APIClient struct {
 
 	ObjectLanguageAPI *ObjectLanguageAPIService
 
+	ObjectModuleAPI *ObjectModuleAPIService
+
 	ObjectModulegroupAPI *ObjectModulegroupAPIService
 
 	ObjectNotificationsectionAPI *ObjectNotificationsectionAPIService
@@ -183,6 +189,8 @@ type APIClient struct {
 	ObjectPermissionAPI *ObjectPermissionAPIService
 
 	ObjectPhonetypeAPI *ObjectPhonetypeAPIService
+
+	ObjectProvinceAPI *ObjectProvinceAPIService
 
 	ObjectRejectedoffertopurchaseAPI *ObjectRejectedoffertopurchaseAPIService
 
@@ -205,6 +213,8 @@ type APIClient struct {
 	ObjectUsergroupAPI *ObjectUsergroupAPIService
 
 	ObjectUsergroupdelegationAPI *ObjectUsergroupdelegationAPIService
+
+	ObjectUsergroupexternalAPI *ObjectUsergroupexternalAPIService
 
 	ObjectUsergroupmembershipAPI *ObjectUsergroupmembershipAPIService
 
@@ -258,6 +268,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectCommunicationAPI = (*ObjectCommunicationAPIService)(&c.common)
 	c.ObjectCompanyAPI = (*ObjectCompanyAPIService)(&c.common)
 	c.ObjectCorsAPI = (*ObjectCorsAPIService)(&c.common)
+	c.ObjectCountryAPI = (*ObjectCountryAPIService)(&c.common)
 	c.ObjectDepartmentAPI = (*ObjectDepartmentAPIService)(&c.common)
 	c.ObjectDiscussionAPI = (*ObjectDiscussionAPIService)(&c.common)
 	c.ObjectDiscussionmembershipAPI = (*ObjectDiscussionmembershipAPIService)(&c.common)
@@ -284,6 +295,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectEzsigntemplateAPI = (*ObjectEzsigntemplateAPIService)(&c.common)
 	c.ObjectEzsigntemplatedocumentAPI = (*ObjectEzsigntemplatedocumentAPIService)(&c.common)
 	c.ObjectEzsigntemplateformfieldgroupAPI = (*ObjectEzsigntemplateformfieldgroupAPIService)(&c.common)
+	c.ObjectEzsigntemplateglobalAPI = (*ObjectEzsigntemplateglobalAPIService)(&c.common)
 	c.ObjectEzsigntemplatepackageAPI = (*ObjectEzsigntemplatepackageAPIService)(&c.common)
 	c.ObjectEzsigntemplatepackagemembershipAPI = (*ObjectEzsigntemplatepackagemembershipAPIService)(&c.common)
 	c.ObjectEzsigntemplatepackagesignerAPI = (*ObjectEzsigntemplatepackagesignerAPIService)(&c.common)
@@ -300,6 +312,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectInscriptiontempAPI = (*ObjectInscriptiontempAPIService)(&c.common)
 	c.ObjectInvoiceAPI = (*ObjectInvoiceAPIService)(&c.common)
 	c.ObjectLanguageAPI = (*ObjectLanguageAPIService)(&c.common)
+	c.ObjectModuleAPI = (*ObjectModuleAPIService)(&c.common)
 	c.ObjectModulegroupAPI = (*ObjectModulegroupAPIService)(&c.common)
 	c.ObjectNotificationsectionAPI = (*ObjectNotificationsectionAPIService)(&c.common)
 	c.ObjectNotificationtestAPI = (*ObjectNotificationtestAPIService)(&c.common)
@@ -308,6 +321,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectPeriodAPI = (*ObjectPeriodAPIService)(&c.common)
 	c.ObjectPermissionAPI = (*ObjectPermissionAPIService)(&c.common)
 	c.ObjectPhonetypeAPI = (*ObjectPhonetypeAPIService)(&c.common)
+	c.ObjectProvinceAPI = (*ObjectProvinceAPIService)(&c.common)
 	c.ObjectRejectedoffertopurchaseAPI = (*ObjectRejectedoffertopurchaseAPIService)(&c.common)
 	c.ObjectSecretquestionAPI = (*ObjectSecretquestionAPIService)(&c.common)
 	c.ObjectSessionhistoryAPI = (*ObjectSessionhistoryAPIService)(&c.common)
@@ -319,6 +333,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectUserAPI = (*ObjectUserAPIService)(&c.common)
 	c.ObjectUsergroupAPI = (*ObjectUsergroupAPIService)(&c.common)
 	c.ObjectUsergroupdelegationAPI = (*ObjectUsergroupdelegationAPIService)(&c.common)
+	c.ObjectUsergroupexternalAPI = (*ObjectUsergroupexternalAPIService)(&c.common)
 	c.ObjectUsergroupmembershipAPI = (*ObjectUsergroupmembershipAPIService)(&c.common)
 	c.ObjectUserlogintypeAPI = (*ObjectUserlogintypeAPIService)(&c.common)
 	c.ObjectUserstagedAPI = (*ObjectUserstagedAPIService)(&c.common)

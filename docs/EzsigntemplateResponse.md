@@ -6,19 +6,22 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiEzsigntemplateID** | **int32** | The unique ID of the Ezsigntemplate | 
 **FkiEzsigntemplatedocumentID** | Pointer to **int32** | The unique ID of the Ezsigntemplatedocument | [optional] 
-**FkiEzsignfoldertypeID** | **int32** | The unique ID of the Ezsignfoldertype. | 
+**FkiEzsignfoldertypeID** | Pointer to **int32** | The unique ID of the Ezsignfoldertype. | [optional] 
 **FkiLanguageID** | **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
 **SLanguageNameX** | **string** | The Name of the Language in the language of the requester | 
 **SEzsigntemplateDescription** | **string** | The description of the Ezsigntemplate | 
+**SEzsigntemplateFilenamepattern** | Pointer to **string** | The filename pattern of the Ezsigntemplate | [optional] 
 **BEzsigntemplateAdminonly** | **bool** | Whether the Ezsigntemplate can be accessed by admin users only (eUserType&#x3D;Normal) | 
-**SEzsignfoldertypeNameX** | **string** | The name of the Ezsignfoldertype in the language of the requester | 
+**SEzsignfoldertypeNameX** | Pointer to **string** | The name of the Ezsignfoldertype in the language of the requester | [optional] 
 **ObjAudit** | [**CommonAudit**](CommonAudit.md) |  | 
+**BEzsigntemplateEditallowed** | **bool** | Whether the Ezsigntemplate if allowed to edit or not | 
+**EEzsigntemplateType** | Pointer to [**FieldEEzsigntemplateType**](FieldEEzsigntemplateType.md) |  | [optional] 
 
 ## Methods
 
 ### NewEzsigntemplateResponse
 
-`func NewEzsigntemplateResponse(pkiEzsigntemplateID int32, fkiEzsignfoldertypeID int32, fkiLanguageID int32, sLanguageNameX string, sEzsigntemplateDescription string, bEzsigntemplateAdminonly bool, sEzsignfoldertypeNameX string, objAudit CommonAudit, ) *EzsigntemplateResponse`
+`func NewEzsigntemplateResponse(pkiEzsigntemplateID int32, fkiLanguageID int32, sLanguageNameX string, sEzsigntemplateDescription string, bEzsigntemplateAdminonly bool, objAudit CommonAudit, bEzsigntemplateEditallowed bool, ) *EzsigntemplateResponse`
 
 NewEzsigntemplateResponse instantiates a new EzsigntemplateResponse object
 This constructor will assign default values to properties that have it defined,
@@ -97,6 +100,11 @@ and a boolean to check if the value has been set.
 
 SetFkiEzsignfoldertypeID sets FkiEzsignfoldertypeID field to given value.
 
+### HasFkiEzsignfoldertypeID
+
+`func (o *EzsigntemplateResponse) HasFkiEzsignfoldertypeID() bool`
+
+HasFkiEzsignfoldertypeID returns a boolean if a field has been set.
 
 ### GetFkiLanguageID
 
@@ -158,6 +166,31 @@ and a boolean to check if the value has been set.
 SetSEzsigntemplateDescription sets SEzsigntemplateDescription field to given value.
 
 
+### GetSEzsigntemplateFilenamepattern
+
+`func (o *EzsigntemplateResponse) GetSEzsigntemplateFilenamepattern() string`
+
+GetSEzsigntemplateFilenamepattern returns the SEzsigntemplateFilenamepattern field if non-nil, zero value otherwise.
+
+### GetSEzsigntemplateFilenamepatternOk
+
+`func (o *EzsigntemplateResponse) GetSEzsigntemplateFilenamepatternOk() (*string, bool)`
+
+GetSEzsigntemplateFilenamepatternOk returns a tuple with the SEzsigntemplateFilenamepattern field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzsigntemplateFilenamepattern
+
+`func (o *EzsigntemplateResponse) SetSEzsigntemplateFilenamepattern(v string)`
+
+SetSEzsigntemplateFilenamepattern sets SEzsigntemplateFilenamepattern field to given value.
+
+### HasSEzsigntemplateFilenamepattern
+
+`func (o *EzsigntemplateResponse) HasSEzsigntemplateFilenamepattern() bool`
+
+HasSEzsigntemplateFilenamepattern returns a boolean if a field has been set.
+
 ### GetBEzsigntemplateAdminonly
 
 `func (o *EzsigntemplateResponse) GetBEzsigntemplateAdminonly() bool`
@@ -197,6 +230,11 @@ and a boolean to check if the value has been set.
 
 SetSEzsignfoldertypeNameX sets SEzsignfoldertypeNameX field to given value.
 
+### HasSEzsignfoldertypeNameX
+
+`func (o *EzsigntemplateResponse) HasSEzsignfoldertypeNameX() bool`
+
+HasSEzsignfoldertypeNameX returns a boolean if a field has been set.
 
 ### GetObjAudit
 
@@ -217,6 +255,51 @@ and a boolean to check if the value has been set.
 
 SetObjAudit sets ObjAudit field to given value.
 
+
+### GetBEzsigntemplateEditallowed
+
+`func (o *EzsigntemplateResponse) GetBEzsigntemplateEditallowed() bool`
+
+GetBEzsigntemplateEditallowed returns the BEzsigntemplateEditallowed field if non-nil, zero value otherwise.
+
+### GetBEzsigntemplateEditallowedOk
+
+`func (o *EzsigntemplateResponse) GetBEzsigntemplateEditallowedOk() (*bool, bool)`
+
+GetBEzsigntemplateEditallowedOk returns a tuple with the BEzsigntemplateEditallowed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsigntemplateEditallowed
+
+`func (o *EzsigntemplateResponse) SetBEzsigntemplateEditallowed(v bool)`
+
+SetBEzsigntemplateEditallowed sets BEzsigntemplateEditallowed field to given value.
+
+
+### GetEEzsigntemplateType
+
+`func (o *EzsigntemplateResponse) GetEEzsigntemplateType() FieldEEzsigntemplateType`
+
+GetEEzsigntemplateType returns the EEzsigntemplateType field if non-nil, zero value otherwise.
+
+### GetEEzsigntemplateTypeOk
+
+`func (o *EzsigntemplateResponse) GetEEzsigntemplateTypeOk() (*FieldEEzsigntemplateType, bool)`
+
+GetEEzsigntemplateTypeOk returns a tuple with the EEzsigntemplateType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsigntemplateType
+
+`func (o *EzsigntemplateResponse) SetEEzsigntemplateType(v FieldEEzsigntemplateType)`
+
+SetEEzsigntemplateType sets EEzsigntemplateType field to given value.
+
+### HasEEzsigntemplateType
+
+`func (o *EzsigntemplateResponse) HasEEzsigntemplateType() bool`
+
+HasEEzsigntemplateType returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -22,17 +22,29 @@ type FieldEWebhookEzsignevent string
 // List of Field-eWebhookEzsignevent
 const (
 	DOCUMENT_COMPLETED FieldEWebhookEzsignevent = "DocumentCompleted"
+	DOCUMENT_FORM_COMPLETED FieldEWebhookEzsignevent = "DocumentFormCompleted"
+	DOCUMENT_UNSENT FieldEWebhookEzsignevent = "DocumentUnsent"
 	EZSIGNSIGNER_ACCEPTCLAUSE FieldEWebhookEzsignevent = "EzsignsignerAcceptclause"
 	EZSIGNSIGNER_CONNECT FieldEWebhookEzsignevent = "EzsignsignerConnect"
 	FOLDER_COMPLETED FieldEWebhookEzsignevent = "FolderCompleted"
+	FOLDER_DISPOSED FieldEWebhookEzsignevent = "FolderDisposed"
+	FOLDER_SENT FieldEWebhookEzsignevent = "FolderSent"
+	FOLDER_UNSENT FieldEWebhookEzsignevent = "FolderUnsent"
+	SIGNATURE_SIGNED FieldEWebhookEzsignevent = "SignatureSigned"
 )
 
 // All allowed values of FieldEWebhookEzsignevent enum
 var AllowedFieldEWebhookEzsigneventEnumValues = []FieldEWebhookEzsignevent{
 	"DocumentCompleted",
+	"DocumentFormCompleted",
+	"DocumentUnsent",
 	"EzsignsignerAcceptclause",
 	"EzsignsignerConnect",
 	"FolderCompleted",
+	"FolderDisposed",
+	"FolderSent",
+	"FolderUnsent",
+	"SignatureSigned",
 }
 
 func (v *FieldEWebhookEzsignevent) UnmarshalJSON(src []byte) error {

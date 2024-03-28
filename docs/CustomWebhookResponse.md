@@ -19,6 +19,8 @@ Name | Type | Description | Notes
 **BWebhookIssigned** | **bool** | Whether the requests will be signed or not | 
 **BWebhookSkipsslvalidation** | **bool** | Wheter the server&#39;s SSL certificate should be validated or not. Not recommended to skip for production use | 
 **ObjAudit** | [**CommonAudit**](CommonAudit.md) |  | 
+**SWebhookEvent** | Pointer to **string** | The concatenated string to describe the Webhook event | [optional] 
+**AObjWebhookheader** | Pointer to [**[]WebhookheaderResponseCompound**](WebhookheaderResponseCompound.md) |  | [optional] 
 **PksCustomerCode** | **string** | The customer code assigned to your account | 
 **BWebhookTest** | **bool** | Wheter the webhook received is a manual test or a real event | 
 
@@ -370,6 +372,56 @@ and a boolean to check if the value has been set.
 
 SetObjAudit sets ObjAudit field to given value.
 
+
+### GetSWebhookEvent
+
+`func (o *CustomWebhookResponse) GetSWebhookEvent() string`
+
+GetSWebhookEvent returns the SWebhookEvent field if non-nil, zero value otherwise.
+
+### GetSWebhookEventOk
+
+`func (o *CustomWebhookResponse) GetSWebhookEventOk() (*string, bool)`
+
+GetSWebhookEventOk returns a tuple with the SWebhookEvent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSWebhookEvent
+
+`func (o *CustomWebhookResponse) SetSWebhookEvent(v string)`
+
+SetSWebhookEvent sets SWebhookEvent field to given value.
+
+### HasSWebhookEvent
+
+`func (o *CustomWebhookResponse) HasSWebhookEvent() bool`
+
+HasSWebhookEvent returns a boolean if a field has been set.
+
+### GetAObjWebhookheader
+
+`func (o *CustomWebhookResponse) GetAObjWebhookheader() []WebhookheaderResponseCompound`
+
+GetAObjWebhookheader returns the AObjWebhookheader field if non-nil, zero value otherwise.
+
+### GetAObjWebhookheaderOk
+
+`func (o *CustomWebhookResponse) GetAObjWebhookheaderOk() (*[]WebhookheaderResponseCompound, bool)`
+
+GetAObjWebhookheaderOk returns a tuple with the AObjWebhookheader field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAObjWebhookheader
+
+`func (o *CustomWebhookResponse) SetAObjWebhookheader(v []WebhookheaderResponseCompound)`
+
+SetAObjWebhookheader sets AObjWebhookheader field to given value.
+
+### HasAObjWebhookheader
+
+`func (o *CustomWebhookResponse) HasAObjWebhookheader() bool`
+
+HasAObjWebhookheader returns a boolean if a field has been set.
 
 ### GetPksCustomerCode
 

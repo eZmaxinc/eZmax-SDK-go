@@ -27,7 +27,11 @@ type SystemconfigurationRequest struct {
 	ESystemconfigurationNewexternaluseraction FieldESystemconfigurationNewexternaluseraction `json:"eSystemconfigurationNewexternaluseraction"`
 	ESystemconfigurationLanguage1 FieldESystemconfigurationLanguage1 `json:"eSystemconfigurationLanguage1"`
 	ESystemconfigurationLanguage2 FieldESystemconfigurationLanguage2 `json:"eSystemconfigurationLanguage2"`
+	// Deprecated
 	ESystemconfigurationEzsign *FieldESystemconfigurationEzsign `json:"eSystemconfigurationEzsign,omitempty"`
+	ESystemconfigurationEzsignofficeplan *FieldESystemconfigurationEzsignofficeplan `json:"eSystemconfigurationEzsignofficeplan,omitempty"`
+	// Whether if Ezsign is paid by the company or not
+	BSystemconfigurationEzsignpaidbyoffice *bool `json:"bSystemconfigurationEzsignpaidbyoffice,omitempty"`
 	// Whether if we allow the creation of personal files in eZsign
 	BSystemconfigurationEzsignpersonnal bool `json:"bSystemconfigurationEzsignpersonnal"`
 	// Whether if we allow SSPR
@@ -167,6 +171,7 @@ func (o *SystemconfigurationRequest) SetESystemconfigurationLanguage2(v FieldESy
 }
 
 // GetESystemconfigurationEzsign returns the ESystemconfigurationEzsign field value if set, zero value otherwise.
+// Deprecated
 func (o *SystemconfigurationRequest) GetESystemconfigurationEzsign() FieldESystemconfigurationEzsign {
 	if o == nil || IsNil(o.ESystemconfigurationEzsign) {
 		var ret FieldESystemconfigurationEzsign
@@ -177,6 +182,7 @@ func (o *SystemconfigurationRequest) GetESystemconfigurationEzsign() FieldESyste
 
 // GetESystemconfigurationEzsignOk returns a tuple with the ESystemconfigurationEzsign field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// Deprecated
 func (o *SystemconfigurationRequest) GetESystemconfigurationEzsignOk() (*FieldESystemconfigurationEzsign, bool) {
 	if o == nil || IsNil(o.ESystemconfigurationEzsign) {
 		return nil, false
@@ -194,8 +200,73 @@ func (o *SystemconfigurationRequest) HasESystemconfigurationEzsign() bool {
 }
 
 // SetESystemconfigurationEzsign gets a reference to the given FieldESystemconfigurationEzsign and assigns it to the ESystemconfigurationEzsign field.
+// Deprecated
 func (o *SystemconfigurationRequest) SetESystemconfigurationEzsign(v FieldESystemconfigurationEzsign) {
 	o.ESystemconfigurationEzsign = &v
+}
+
+// GetESystemconfigurationEzsignofficeplan returns the ESystemconfigurationEzsignofficeplan field value if set, zero value otherwise.
+func (o *SystemconfigurationRequest) GetESystemconfigurationEzsignofficeplan() FieldESystemconfigurationEzsignofficeplan {
+	if o == nil || IsNil(o.ESystemconfigurationEzsignofficeplan) {
+		var ret FieldESystemconfigurationEzsignofficeplan
+		return ret
+	}
+	return *o.ESystemconfigurationEzsignofficeplan
+}
+
+// GetESystemconfigurationEzsignofficeplanOk returns a tuple with the ESystemconfigurationEzsignofficeplan field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SystemconfigurationRequest) GetESystemconfigurationEzsignofficeplanOk() (*FieldESystemconfigurationEzsignofficeplan, bool) {
+	if o == nil || IsNil(o.ESystemconfigurationEzsignofficeplan) {
+		return nil, false
+	}
+	return o.ESystemconfigurationEzsignofficeplan, true
+}
+
+// HasESystemconfigurationEzsignofficeplan returns a boolean if a field has been set.
+func (o *SystemconfigurationRequest) HasESystemconfigurationEzsignofficeplan() bool {
+	if o != nil && !IsNil(o.ESystemconfigurationEzsignofficeplan) {
+		return true
+	}
+
+	return false
+}
+
+// SetESystemconfigurationEzsignofficeplan gets a reference to the given FieldESystemconfigurationEzsignofficeplan and assigns it to the ESystemconfigurationEzsignofficeplan field.
+func (o *SystemconfigurationRequest) SetESystemconfigurationEzsignofficeplan(v FieldESystemconfigurationEzsignofficeplan) {
+	o.ESystemconfigurationEzsignofficeplan = &v
+}
+
+// GetBSystemconfigurationEzsignpaidbyoffice returns the BSystemconfigurationEzsignpaidbyoffice field value if set, zero value otherwise.
+func (o *SystemconfigurationRequest) GetBSystemconfigurationEzsignpaidbyoffice() bool {
+	if o == nil || IsNil(o.BSystemconfigurationEzsignpaidbyoffice) {
+		var ret bool
+		return ret
+	}
+	return *o.BSystemconfigurationEzsignpaidbyoffice
+}
+
+// GetBSystemconfigurationEzsignpaidbyofficeOk returns a tuple with the BSystemconfigurationEzsignpaidbyoffice field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SystemconfigurationRequest) GetBSystemconfigurationEzsignpaidbyofficeOk() (*bool, bool) {
+	if o == nil || IsNil(o.BSystemconfigurationEzsignpaidbyoffice) {
+		return nil, false
+	}
+	return o.BSystemconfigurationEzsignpaidbyoffice, true
+}
+
+// HasBSystemconfigurationEzsignpaidbyoffice returns a boolean if a field has been set.
+func (o *SystemconfigurationRequest) HasBSystemconfigurationEzsignpaidbyoffice() bool {
+	if o != nil && !IsNil(o.BSystemconfigurationEzsignpaidbyoffice) {
+		return true
+	}
+
+	return false
+}
+
+// SetBSystemconfigurationEzsignpaidbyoffice gets a reference to the given bool and assigns it to the BSystemconfigurationEzsignpaidbyoffice field.
+func (o *SystemconfigurationRequest) SetBSystemconfigurationEzsignpaidbyoffice(v bool) {
+	o.BSystemconfigurationEzsignpaidbyoffice = &v
 }
 
 // GetBSystemconfigurationEzsignpersonnal returns the BSystemconfigurationEzsignpersonnal field value
@@ -328,6 +399,12 @@ func (o SystemconfigurationRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize["eSystemconfigurationLanguage2"] = o.ESystemconfigurationLanguage2
 	if !IsNil(o.ESystemconfigurationEzsign) {
 		toSerialize["eSystemconfigurationEzsign"] = o.ESystemconfigurationEzsign
+	}
+	if !IsNil(o.ESystemconfigurationEzsignofficeplan) {
+		toSerialize["eSystemconfigurationEzsignofficeplan"] = o.ESystemconfigurationEzsignofficeplan
+	}
+	if !IsNil(o.BSystemconfigurationEzsignpaidbyoffice) {
+		toSerialize["bSystemconfigurationEzsignpaidbyoffice"] = o.BSystemconfigurationEzsignpaidbyoffice
 	}
 	toSerialize["bSystemconfigurationEzsignpersonnal"] = o.BSystemconfigurationEzsignpersonnal
 	toSerialize["bSystemconfigurationSspr"] = o.BSystemconfigurationSspr

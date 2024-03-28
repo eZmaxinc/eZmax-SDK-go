@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiUserID** | **int32** | The unique ID of the User | 
 **FkiTimezoneID** | **int32** | The unique ID of the Timezone | 
-**SAvatarUrl** | **string** | The url of the picture used as avatar | 
+**SAvatarUrl** | Pointer to **string** | The url of the picture used as avatar | [optional] 
 **SUserFirstname** | **string** | The first name of the user | 
 **SUserLastname** | **string** | The last name of the user | 
-**SEmailAddress** | **string** | The email address. | 
+**SEmailAddress** | Pointer to **string** | The email address. | [optional] 
 **EUserEzsignsendreminderfrequency** | [**FieldEUserEzsignsendreminderfrequency**](FieldEUserEzsignsendreminderfrequency.md) |  | 
 **IUserInterfacecolor** | **int32** | The int32 representation of the interface color. For example, RGB color #39435B would be 3752795 | 
 **BUserInterfacedark** | **bool** | Whether to use a dark mode interface | 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewActivesessionResponseCompoundUser
 
-`func NewActivesessionResponseCompoundUser(pkiUserID int32, fkiTimezoneID int32, sAvatarUrl string, sUserFirstname string, sUserLastname string, sEmailAddress string, eUserEzsignsendreminderfrequency FieldEUserEzsignsendreminderfrequency, iUserInterfacecolor int32, bUserInterfacedark bool, iUserListresult int32, ) *ActivesessionResponseCompoundUser`
+`func NewActivesessionResponseCompoundUser(pkiUserID int32, fkiTimezoneID int32, sUserFirstname string, sUserLastname string, eUserEzsignsendreminderfrequency FieldEUserEzsignsendreminderfrequency, iUserInterfacecolor int32, bUserInterfacedark bool, iUserListresult int32, ) *ActivesessionResponseCompoundUser`
 
 NewActivesessionResponseCompoundUser instantiates a new ActivesessionResponseCompoundUser object
 This constructor will assign default values to properties that have it defined,
@@ -93,6 +93,11 @@ and a boolean to check if the value has been set.
 
 SetSAvatarUrl sets SAvatarUrl field to given value.
 
+### HasSAvatarUrl
+
+`func (o *ActivesessionResponseCompoundUser) HasSAvatarUrl() bool`
+
+HasSAvatarUrl returns a boolean if a field has been set.
 
 ### GetSUserFirstname
 
@@ -153,6 +158,11 @@ and a boolean to check if the value has been set.
 
 SetSEmailAddress sets SEmailAddress field to given value.
 
+### HasSEmailAddress
+
+`func (o *ActivesessionResponseCompoundUser) HasSEmailAddress() bool`
+
+HasSEmailAddress returns a boolean if a field has been set.
 
 ### GetEUserEzsignsendreminderfrequency
 

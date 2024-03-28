@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **BEzsigntemplatepackageNeedvalidation** | **bool** | Whether the Ezsignbulksend was automatically modified and needs a manual validation | 
 **BEzsigntemplatepackageIsactive** | **bool** | Whether the Ezsigntemplatepackage is active or not | 
 **SEzsignfoldertypeNameX** | **string** | The name of the Ezsignfoldertype in the language of the requester | 
+**BEzsigntemplatepackageEditallowed** | **bool** | Whether the Ezsigntemplatepackage if allowed to edit or not | 
 **AObjEzsigntemplatepackagesigner** | [**[]EzsigntemplatepackagesignerResponseCompound**](EzsigntemplatepackagesignerResponseCompound.md) |  | 
 **AObjEzsigntemplatepackagemembership** | [**[]EzsigntemplatepackagemembershipResponseCompound**](EzsigntemplatepackagemembershipResponseCompound.md) |  | 
 
@@ -20,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewEzsigntemplatepackageResponseCompound
 
-`func NewEzsigntemplatepackageResponseCompound(pkiEzsigntemplatepackageID int32, fkiEzsignfoldertypeID int32, fkiLanguageID int32, sLanguageNameX string, sEzsigntemplatepackageDescription string, bEzsigntemplatepackageAdminonly bool, bEzsigntemplatepackageNeedvalidation bool, bEzsigntemplatepackageIsactive bool, sEzsignfoldertypeNameX string, aObjEzsigntemplatepackagesigner []EzsigntemplatepackagesignerResponseCompound, aObjEzsigntemplatepackagemembership []EzsigntemplatepackagemembershipResponseCompound, ) *EzsigntemplatepackageResponseCompound`
+`func NewEzsigntemplatepackageResponseCompound(pkiEzsigntemplatepackageID int32, fkiEzsignfoldertypeID int32, fkiLanguageID int32, sLanguageNameX string, sEzsigntemplatepackageDescription string, bEzsigntemplatepackageAdminonly bool, bEzsigntemplatepackageNeedvalidation bool, bEzsigntemplatepackageIsactive bool, sEzsignfoldertypeNameX string, bEzsigntemplatepackageEditallowed bool, aObjEzsigntemplatepackagesigner []EzsigntemplatepackagesignerResponseCompound, aObjEzsigntemplatepackagemembership []EzsigntemplatepackagemembershipResponseCompound, ) *EzsigntemplatepackageResponseCompound`
 
 NewEzsigntemplatepackageResponseCompound instantiates a new EzsigntemplatepackageResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -213,6 +214,26 @@ and a boolean to check if the value has been set.
 `func (o *EzsigntemplatepackageResponseCompound) SetSEzsignfoldertypeNameX(v string)`
 
 SetSEzsignfoldertypeNameX sets SEzsignfoldertypeNameX field to given value.
+
+
+### GetBEzsigntemplatepackageEditallowed
+
+`func (o *EzsigntemplatepackageResponseCompound) GetBEzsigntemplatepackageEditallowed() bool`
+
+GetBEzsigntemplatepackageEditallowed returns the BEzsigntemplatepackageEditallowed field if non-nil, zero value otherwise.
+
+### GetBEzsigntemplatepackageEditallowedOk
+
+`func (o *EzsigntemplatepackageResponseCompound) GetBEzsigntemplatepackageEditallowedOk() (*bool, bool)`
+
+GetBEzsigntemplatepackageEditallowedOk returns a tuple with the BEzsigntemplatepackageEditallowed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsigntemplatepackageEditallowed
+
+`func (o *EzsigntemplatepackageResponseCompound) SetBEzsigntemplatepackageEditallowed(v bool)`
+
+SetBEzsigntemplatepackageEditallowed sets BEzsigntemplatepackageEditallowed field to given value.
 
 
 ### GetAObjEzsigntemplatepackagesigner

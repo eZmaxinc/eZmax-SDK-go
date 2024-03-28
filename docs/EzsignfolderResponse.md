@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **PkiEzsignfolderID** | **int32** | The unique ID of the Ezsignfolder | 
 **FkiEzsignfoldertypeID** | Pointer to **int32** | The unique ID of the Ezsignfoldertype. | [optional] 
 **ObjEzsignfoldertype** | Pointer to [**CustomEzsignfoldertypeResponse**](CustomEzsignfoldertypeResponse.md) |  | [optional] 
-**EEzsignfolderCompletion** | Pointer to [**FieldEEzsignfolderCompletion**](FieldEEzsignfolderCompletion.md) |  | [optional] [default to PER_EZSIGNDOCUMENT]
+**EEzsignfolderCompletion** | [**FieldEEzsignfolderCompletion**](FieldEEzsignfolderCompletion.md) |  | 
 **SEzsignfoldertypeNameX** | Pointer to **string** |  | [optional] 
 **FkiBillingentityinternalID** | Pointer to **int32** | The unique ID of the Billingentityinternal. | [optional] 
 **SBillingentityinternalDescriptionX** | Pointer to **string** | The description of the Billingentityinternal in the language of the requester | [optional] 
@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 
 ### NewEzsignfolderResponse
 
-`func NewEzsignfolderResponse(pkiEzsignfolderID int32, sEzsignfolderDescription string, ) *EzsignfolderResponse`
+`func NewEzsignfolderResponse(pkiEzsignfolderID int32, eEzsignfolderCompletion FieldEEzsignfolderCompletion, sEzsignfolderDescription string, ) *EzsignfolderResponse`
 
 NewEzsignfolderResponse instantiates a new EzsignfolderResponse object
 This constructor will assign default values to properties that have it defined,
@@ -136,11 +136,6 @@ and a boolean to check if the value has been set.
 
 SetEEzsignfolderCompletion sets EEzsignfolderCompletion field to given value.
 
-### HasEEzsignfolderCompletion
-
-`func (o *EzsignfolderResponse) HasEEzsignfolderCompletion() bool`
-
-HasEEzsignfolderCompletion returns a boolean if a field has been set.
 
 ### GetSEzsignfoldertypeNameX
 

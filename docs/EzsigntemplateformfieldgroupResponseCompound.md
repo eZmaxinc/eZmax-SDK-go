@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 **PkiEzsigntemplateformfieldgroupID** | **int32** | The unique ID of the Ezsigntemplateformfieldgroup | 
 **FkiEzsigntemplatedocumentID** | **int32** | The unique ID of the Ezsigntemplatedocument | 
 **EEzsigntemplateformfieldgroupType** | [**FieldEEzsigntemplateformfieldgroupType**](FieldEEzsigntemplateformfieldgroupType.md) |  | 
-**EEzsigntemplateformfieldgroupSignerrequirement** | [**FieldEEzsigntemplateformfieldgroupSignerrequirement**](FieldEEzsigntemplateformfieldgroupSignerrequirement.md) |  | 
+**EEzsigntemplateformfieldgroupSignerrequirement** | Pointer to [**FieldEEzsigntemplateformfieldgroupSignerrequirement**](FieldEEzsigntemplateformfieldgroupSignerrequirement.md) |  | [optional] 
 **SEzsigntemplateformfieldgroupLabel** | **string** | The Label for the Ezsigntemplateformfieldgroup | 
 **IEzsigntemplateformfieldgroupStep** | **int32** | The step when the Ezsigntemplatesigner will be invited to fill the form fields | 
-**SEzsigntemplateformfieldgroupDefaultvalue** | Pointer to **string** | The default value for the Ezsigntemplateformfieldgroup | [optional] 
+**SEzsigntemplateformfieldgroupDefaultvalue** | Pointer to **string** | The default value for the Ezsigntemplateformfieldgroup  You can use the codes below and they will be replaced at signature time.    | Code | Description | Example | | ------------------------- | ------------ | ------------ | | {sUserFirstname} | The first name of the contact | John | | {sUserLastname} | The last name of the contact | Doe | | {sUserJobtitle} | The job title | Sales Representative | | {sEmailAddress} | The email address | email@example.com | | {sPhoneE164} | A phone number in E.164 Format | +15149901516 | | {sPhoneE164Cell} | A phone number in E.164 Format | +15149901516 | | [optional] 
 **IEzsigntemplateformfieldgroupFilledmin** | **int32** | The minimum number of Ezsigntemplateformfield that must be filled in the Ezsigntemplateformfieldgroup | 
 **IEzsigntemplateformfieldgroupFilledmax** | **int32** | The maximum number of Ezsigntemplateformfield that must be filled in the Ezsigntemplateformfieldgroup | 
 **BEzsigntemplateformfieldgroupReadonly** | **bool** | Whether the Ezsigntemplateformfieldgroup is read only or not. | 
@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 ### NewEzsigntemplateformfieldgroupResponseCompound
 
-`func NewEzsigntemplateformfieldgroupResponseCompound(pkiEzsigntemplateformfieldgroupID int32, fkiEzsigntemplatedocumentID int32, eEzsigntemplateformfieldgroupType FieldEEzsigntemplateformfieldgroupType, eEzsigntemplateformfieldgroupSignerrequirement FieldEEzsigntemplateformfieldgroupSignerrequirement, sEzsigntemplateformfieldgroupLabel string, iEzsigntemplateformfieldgroupStep int32, iEzsigntemplateformfieldgroupFilledmin int32, iEzsigntemplateformfieldgroupFilledmax int32, bEzsigntemplateformfieldgroupReadonly bool, aObjEzsigntemplateformfieldgroupsigner []EzsigntemplateformfieldgroupsignerResponseCompound, aObjEzsigntemplateformfield []EzsigntemplateformfieldResponseCompound, ) *EzsigntemplateformfieldgroupResponseCompound`
+`func NewEzsigntemplateformfieldgroupResponseCompound(pkiEzsigntemplateformfieldgroupID int32, fkiEzsigntemplatedocumentID int32, eEzsigntemplateformfieldgroupType FieldEEzsigntemplateformfieldgroupType, sEzsigntemplateformfieldgroupLabel string, iEzsigntemplateformfieldgroupStep int32, iEzsigntemplateformfieldgroupFilledmin int32, iEzsigntemplateformfieldgroupFilledmax int32, bEzsigntemplateformfieldgroupReadonly bool, aObjEzsigntemplateformfieldgroupsigner []EzsigntemplateformfieldgroupsignerResponseCompound, aObjEzsigntemplateformfield []EzsigntemplateformfieldResponseCompound, ) *EzsigntemplateformfieldgroupResponseCompound`
 
 NewEzsigntemplateformfieldgroupResponseCompound instantiates a new EzsigntemplateformfieldgroupResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -122,6 +122,11 @@ and a boolean to check if the value has been set.
 
 SetEEzsigntemplateformfieldgroupSignerrequirement sets EEzsigntemplateformfieldgroupSignerrequirement field to given value.
 
+### HasEEzsigntemplateformfieldgroupSignerrequirement
+
+`func (o *EzsigntemplateformfieldgroupResponseCompound) HasEEzsigntemplateformfieldgroupSignerrequirement() bool`
+
+HasEEzsigntemplateformfieldgroupSignerrequirement returns a boolean if a field has been set.
 
 ### GetSEzsigntemplateformfieldgroupLabel
 

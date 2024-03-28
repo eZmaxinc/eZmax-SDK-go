@@ -26,12 +26,13 @@ Name | Type | Description | Notes
 **ObjAudit** | Pointer to [**CommonAudit**](CommonAudit.md) |  | [optional] 
 **SEzsigndocumentExternalid** | Pointer to **string** | This field can be used to store an External ID from the client&#39;s system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format.  | [optional] 
 **IEzsigndocumentEzsignsignatureattachmenttotal** | **int32** | The number of Ezsigndocumentattachment total | 
+**IEzsigndocumentEzsigndiscussiontotal** | **int32** | The total number of Ezsigndiscussions | 
 
 ## Methods
 
 ### NewEzsigndocumentResponse
 
-`func NewEzsigndocumentResponse(pkiEzsigndocumentID int32, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, sEzsigndocumentName string, eEzsigndocumentStep FieldEEzsigndocumentStep, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, iEzsigndocumentEzsignsignatureattachmenttotal int32, ) *EzsigndocumentResponse`
+`func NewEzsigndocumentResponse(pkiEzsigndocumentID int32, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, sEzsigndocumentName string, eEzsigndocumentStep FieldEEzsigndocumentStep, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, iEzsigndocumentEzsignsignatureattachmenttotal int32, iEzsigndocumentEzsigndiscussiontotal int32, ) *EzsigndocumentResponse`
 
 NewEzsigndocumentResponse instantiates a new EzsigndocumentResponse object
 This constructor will assign default values to properties that have it defined,
@@ -544,6 +545,26 @@ and a boolean to check if the value has been set.
 `func (o *EzsigndocumentResponse) SetIEzsigndocumentEzsignsignatureattachmenttotal(v int32)`
 
 SetIEzsigndocumentEzsignsignatureattachmenttotal sets IEzsigndocumentEzsignsignatureattachmenttotal field to given value.
+
+
+### GetIEzsigndocumentEzsigndiscussiontotal
+
+`func (o *EzsigndocumentResponse) GetIEzsigndocumentEzsigndiscussiontotal() int32`
+
+GetIEzsigndocumentEzsigndiscussiontotal returns the IEzsigndocumentEzsigndiscussiontotal field if non-nil, zero value otherwise.
+
+### GetIEzsigndocumentEzsigndiscussiontotalOk
+
+`func (o *EzsigndocumentResponse) GetIEzsigndocumentEzsigndiscussiontotalOk() (*int32, bool)`
+
+GetIEzsigndocumentEzsigndiscussiontotalOk returns a tuple with the IEzsigndocumentEzsigndiscussiontotal field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIEzsigndocumentEzsigndiscussiontotal
+
+`func (o *EzsigndocumentResponse) SetIEzsigndocumentEzsigndiscussiontotal(v int32)`
+
+SetIEzsigndocumentEzsigndiscussiontotal sets IEzsigndocumentEzsigndiscussiontotal field to given value.
 
 
 

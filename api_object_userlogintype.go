@@ -28,9 +28,15 @@ type ApiUserlogintypeGetAutocompleteV2Request struct {
 	ctx context.Context
 	ApiService *ObjectUserlogintypeAPIService
 	sSelector string
+	fkiEzsignfoldertypeID *int32
 	eFilterActive *string
 	sQuery *string
 	acceptLanguage *HeaderAcceptLanguage
+}
+
+func (r ApiUserlogintypeGetAutocompleteV2Request) FkiEzsignfoldertypeID(fkiEzsignfoldertypeID int32) ApiUserlogintypeGetAutocompleteV2Request {
+	r.fkiEzsignfoldertypeID = &fkiEzsignfoldertypeID
+	return r
 }
 
 // Specify which results we want to display.
@@ -93,6 +99,9 @@ func (a *ObjectUserlogintypeAPIService) UserlogintypeGetAutocompleteV2Execute(r 
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.fkiEzsignfoldertypeID != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "fkiEzsignfoldertypeID", r.fkiEzsignfoldertypeID, "")
+	}
 	if r.eFilterActive != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "eFilterActive", r.eFilterActive, "")
 	} else {

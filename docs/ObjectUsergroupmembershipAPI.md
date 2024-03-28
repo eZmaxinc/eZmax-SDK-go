@@ -32,7 +32,7 @@ import (
 )
 
 func main() {
-	usergroupmembershipCreateObjectV1Request := *openapiclient.NewUsergroupmembershipCreateObjectV1Request([]openapiclient.UsergroupmembershipRequestCompound{*openapiclient.NewUsergroupmembershipRequestCompound(int32(2), int32(70))}) // UsergroupmembershipCreateObjectV1Request | 
+	usergroupmembershipCreateObjectV1Request := *openapiclient.NewUsergroupmembershipCreateObjectV1Request([]openapiclient.UsergroupmembershipRequestCompound{*openapiclient.NewUsergroupmembershipRequestCompound(int32(2))}) // UsergroupmembershipCreateObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -169,7 +169,7 @@ import (
 
 func main() {
 	pkiUsergroupmembershipID := int32(56) // int32 | 
-	usergroupmembershipEditObjectV1Request := *openapiclient.NewUsergroupmembershipEditObjectV1Request(*openapiclient.NewUsergroupmembershipRequestCompound(int32(2), int32(70))) // UsergroupmembershipEditObjectV1Request | 
+	usergroupmembershipEditObjectV1Request := *openapiclient.NewUsergroupmembershipEditObjectV1Request(*openapiclient.NewUsergroupmembershipRequestCompound(int32(2))) // UsergroupmembershipEditObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

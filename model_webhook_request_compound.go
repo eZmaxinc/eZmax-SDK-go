@@ -41,6 +41,7 @@ type WebhookRequestCompound struct {
 	BWebhookIssigned *bool `json:"bWebhookIssigned,omitempty"`
 	// Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use
 	BWebhookSkipsslvalidation bool `json:"bWebhookSkipsslvalidation"`
+	AObjWebhookheader []WebhookheaderRequestCompound `json:"a_objWebhookheader,omitempty"`
 }
 
 type _WebhookRequestCompound WebhookRequestCompound
@@ -372,6 +373,38 @@ func (o *WebhookRequestCompound) SetBWebhookSkipsslvalidation(v bool) {
 	o.BWebhookSkipsslvalidation = v
 }
 
+// GetAObjWebhookheader returns the AObjWebhookheader field value if set, zero value otherwise.
+func (o *WebhookRequestCompound) GetAObjWebhookheader() []WebhookheaderRequestCompound {
+	if o == nil || IsNil(o.AObjWebhookheader) {
+		var ret []WebhookheaderRequestCompound
+		return ret
+	}
+	return o.AObjWebhookheader
+}
+
+// GetAObjWebhookheaderOk returns a tuple with the AObjWebhookheader field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WebhookRequestCompound) GetAObjWebhookheaderOk() ([]WebhookheaderRequestCompound, bool) {
+	if o == nil || IsNil(o.AObjWebhookheader) {
+		return nil, false
+	}
+	return o.AObjWebhookheader, true
+}
+
+// HasAObjWebhookheader returns a boolean if a field has been set.
+func (o *WebhookRequestCompound) HasAObjWebhookheader() bool {
+	if o != nil && !IsNil(o.AObjWebhookheader) {
+		return true
+	}
+
+	return false
+}
+
+// SetAObjWebhookheader gets a reference to the given []WebhookheaderRequestCompound and assigns it to the AObjWebhookheader field.
+func (o *WebhookRequestCompound) SetAObjWebhookheader(v []WebhookheaderRequestCompound) {
+	o.AObjWebhookheader = v
+}
+
 func (o WebhookRequestCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -403,6 +436,9 @@ func (o WebhookRequestCompound) ToMap() (map[string]interface{}, error) {
 		toSerialize["bWebhookIssigned"] = o.BWebhookIssigned
 	}
 	toSerialize["bWebhookSkipsslvalidation"] = o.BWebhookSkipsslvalidation
+	if !IsNil(o.AObjWebhookheader) {
+		toSerialize["a_objWebhookheader"] = o.AObjWebhookheader
+	}
 	return toSerialize, nil
 }
 

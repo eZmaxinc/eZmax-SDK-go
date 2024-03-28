@@ -40,6 +40,8 @@ type EzsigntemplatepackageResponseCompound struct {
 	BEzsigntemplatepackageIsactive bool `json:"bEzsigntemplatepackageIsactive"`
 	// The name of the Ezsignfoldertype in the language of the requester
 	SEzsignfoldertypeNameX string `json:"sEzsignfoldertypeNameX"`
+	// Whether the Ezsigntemplatepackage if allowed to edit or not
+	BEzsigntemplatepackageEditallowed bool `json:"bEzsigntemplatepackageEditallowed"`
 	AObjEzsigntemplatepackagesigner []EzsigntemplatepackagesignerResponseCompound `json:"a_objEzsigntemplatepackagesigner"`
 	AObjEzsigntemplatepackagemembership []EzsigntemplatepackagemembershipResponseCompound `json:"a_objEzsigntemplatepackagemembership"`
 }
@@ -50,7 +52,7 @@ type _EzsigntemplatepackageResponseCompound EzsigntemplatepackageResponseCompoun
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigntemplatepackageResponseCompound(pkiEzsigntemplatepackageID int32, fkiEzsignfoldertypeID int32, fkiLanguageID int32, sLanguageNameX string, sEzsigntemplatepackageDescription string, bEzsigntemplatepackageAdminonly bool, bEzsigntemplatepackageNeedvalidation bool, bEzsigntemplatepackageIsactive bool, sEzsignfoldertypeNameX string, aObjEzsigntemplatepackagesigner []EzsigntemplatepackagesignerResponseCompound, aObjEzsigntemplatepackagemembership []EzsigntemplatepackagemembershipResponseCompound) *EzsigntemplatepackageResponseCompound {
+func NewEzsigntemplatepackageResponseCompound(pkiEzsigntemplatepackageID int32, fkiEzsignfoldertypeID int32, fkiLanguageID int32, sLanguageNameX string, sEzsigntemplatepackageDescription string, bEzsigntemplatepackageAdminonly bool, bEzsigntemplatepackageNeedvalidation bool, bEzsigntemplatepackageIsactive bool, sEzsignfoldertypeNameX string, bEzsigntemplatepackageEditallowed bool, aObjEzsigntemplatepackagesigner []EzsigntemplatepackagesignerResponseCompound, aObjEzsigntemplatepackagemembership []EzsigntemplatepackagemembershipResponseCompound) *EzsigntemplatepackageResponseCompound {
 	this := EzsigntemplatepackageResponseCompound{}
 	this.PkiEzsigntemplatepackageID = pkiEzsigntemplatepackageID
 	this.FkiEzsignfoldertypeID = fkiEzsignfoldertypeID
@@ -61,6 +63,7 @@ func NewEzsigntemplatepackageResponseCompound(pkiEzsigntemplatepackageID int32, 
 	this.BEzsigntemplatepackageNeedvalidation = bEzsigntemplatepackageNeedvalidation
 	this.BEzsigntemplatepackageIsactive = bEzsigntemplatepackageIsactive
 	this.SEzsignfoldertypeNameX = sEzsignfoldertypeNameX
+	this.BEzsigntemplatepackageEditallowed = bEzsigntemplatepackageEditallowed
 	this.AObjEzsigntemplatepackagesigner = aObjEzsigntemplatepackagesigner
 	this.AObjEzsigntemplatepackagemembership = aObjEzsigntemplatepackagemembership
 	return &this
@@ -290,6 +293,30 @@ func (o *EzsigntemplatepackageResponseCompound) SetSEzsignfoldertypeNameX(v stri
 	o.SEzsignfoldertypeNameX = v
 }
 
+// GetBEzsigntemplatepackageEditallowed returns the BEzsigntemplatepackageEditallowed field value
+func (o *EzsigntemplatepackageResponseCompound) GetBEzsigntemplatepackageEditallowed() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BEzsigntemplatepackageEditallowed
+}
+
+// GetBEzsigntemplatepackageEditallowedOk returns a tuple with the BEzsigntemplatepackageEditallowed field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatepackageResponseCompound) GetBEzsigntemplatepackageEditallowedOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BEzsigntemplatepackageEditallowed, true
+}
+
+// SetBEzsigntemplatepackageEditallowed sets field value
+func (o *EzsigntemplatepackageResponseCompound) SetBEzsigntemplatepackageEditallowed(v bool) {
+	o.BEzsigntemplatepackageEditallowed = v
+}
+
 // GetAObjEzsigntemplatepackagesigner returns the AObjEzsigntemplatepackagesigner field value
 func (o *EzsigntemplatepackageResponseCompound) GetAObjEzsigntemplatepackagesigner() []EzsigntemplatepackagesignerResponseCompound {
 	if o == nil {
@@ -357,6 +384,7 @@ func (o EzsigntemplatepackageResponseCompound) ToMap() (map[string]interface{}, 
 	toSerialize["bEzsigntemplatepackageNeedvalidation"] = o.BEzsigntemplatepackageNeedvalidation
 	toSerialize["bEzsigntemplatepackageIsactive"] = o.BEzsigntemplatepackageIsactive
 	toSerialize["sEzsignfoldertypeNameX"] = o.SEzsignfoldertypeNameX
+	toSerialize["bEzsigntemplatepackageEditallowed"] = o.BEzsigntemplatepackageEditallowed
 	toSerialize["a_objEzsigntemplatepackagesigner"] = o.AObjEzsigntemplatepackagesigner
 	toSerialize["a_objEzsigntemplatepackagemembership"] = o.AObjEzsigntemplatepackagemembership
 	return toSerialize, nil
@@ -376,6 +404,7 @@ func (o *EzsigntemplatepackageResponseCompound) UnmarshalJSON(data []byte) (err 
 		"bEzsigntemplatepackageNeedvalidation",
 		"bEzsigntemplatepackageIsactive",
 		"sEzsignfoldertypeNameX",
+		"bEzsigntemplatepackageEditallowed",
 		"a_objEzsigntemplatepackagesigner",
 		"a_objEzsigntemplatepackagemembership",
 	}

@@ -6,18 +6,20 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiUsergroupmembershipID** | **int32** | The unique ID of the Usergroupmembership | 
 **FkiUsergroupID** | **int32** | The unique ID of the Usergroup | 
-**FkiUserID** | **int32** | The unique ID of the User | 
-**SUserFirstname** | **string** | The first name of the user | 
-**SUserLastname** | **string** | The last name of the user | 
-**SUserLoginname** | **string** | The login name of the User. | 
+**FkiUserID** | Pointer to **int32** | The unique ID of the User | [optional] 
+**FkiUsergroupexternalID** | Pointer to **int32** | The unique ID of the Usergroupexternal | [optional] 
+**SUserFirstname** | Pointer to **string** | The first name of the user | [optional] 
+**SUserLastname** | Pointer to **string** | The last name of the user | [optional] 
+**SUserLoginname** | Pointer to **string** | The login name of the User. | [optional] 
 **SEmailAddress** | Pointer to **string** | The email address. | [optional] 
 **SUsergroupNameX** | **string** | The Name of the Usergroup in the language of the requester | 
+**SUsergroupexternalName** | Pointer to **string** | The name of the Usergroupexternal | [optional] 
 
 ## Methods
 
 ### NewUsergroupmembershipResponseCompound
 
-`func NewUsergroupmembershipResponseCompound(pkiUsergroupmembershipID int32, fkiUsergroupID int32, fkiUserID int32, sUserFirstname string, sUserLastname string, sUserLoginname string, sUsergroupNameX string, ) *UsergroupmembershipResponseCompound`
+`func NewUsergroupmembershipResponseCompound(pkiUsergroupmembershipID int32, fkiUsergroupID int32, sUsergroupNameX string, ) *UsergroupmembershipResponseCompound`
 
 NewUsergroupmembershipResponseCompound instantiates a new UsergroupmembershipResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -91,6 +93,36 @@ and a boolean to check if the value has been set.
 
 SetFkiUserID sets FkiUserID field to given value.
 
+### HasFkiUserID
+
+`func (o *UsergroupmembershipResponseCompound) HasFkiUserID() bool`
+
+HasFkiUserID returns a boolean if a field has been set.
+
+### GetFkiUsergroupexternalID
+
+`func (o *UsergroupmembershipResponseCompound) GetFkiUsergroupexternalID() int32`
+
+GetFkiUsergroupexternalID returns the FkiUsergroupexternalID field if non-nil, zero value otherwise.
+
+### GetFkiUsergroupexternalIDOk
+
+`func (o *UsergroupmembershipResponseCompound) GetFkiUsergroupexternalIDOk() (*int32, bool)`
+
+GetFkiUsergroupexternalIDOk returns a tuple with the FkiUsergroupexternalID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiUsergroupexternalID
+
+`func (o *UsergroupmembershipResponseCompound) SetFkiUsergroupexternalID(v int32)`
+
+SetFkiUsergroupexternalID sets FkiUsergroupexternalID field to given value.
+
+### HasFkiUsergroupexternalID
+
+`func (o *UsergroupmembershipResponseCompound) HasFkiUsergroupexternalID() bool`
+
+HasFkiUsergroupexternalID returns a boolean if a field has been set.
 
 ### GetSUserFirstname
 
@@ -111,6 +143,11 @@ and a boolean to check if the value has been set.
 
 SetSUserFirstname sets SUserFirstname field to given value.
 
+### HasSUserFirstname
+
+`func (o *UsergroupmembershipResponseCompound) HasSUserFirstname() bool`
+
+HasSUserFirstname returns a boolean if a field has been set.
 
 ### GetSUserLastname
 
@@ -131,6 +168,11 @@ and a boolean to check if the value has been set.
 
 SetSUserLastname sets SUserLastname field to given value.
 
+### HasSUserLastname
+
+`func (o *UsergroupmembershipResponseCompound) HasSUserLastname() bool`
+
+HasSUserLastname returns a boolean if a field has been set.
 
 ### GetSUserLoginname
 
@@ -151,6 +193,11 @@ and a boolean to check if the value has been set.
 
 SetSUserLoginname sets SUserLoginname field to given value.
 
+### HasSUserLoginname
+
+`func (o *UsergroupmembershipResponseCompound) HasSUserLoginname() bool`
+
+HasSUserLoginname returns a boolean if a field has been set.
 
 ### GetSEmailAddress
 
@@ -196,6 +243,31 @@ and a boolean to check if the value has been set.
 
 SetSUsergroupNameX sets SUsergroupNameX field to given value.
 
+
+### GetSUsergroupexternalName
+
+`func (o *UsergroupmembershipResponseCompound) GetSUsergroupexternalName() string`
+
+GetSUsergroupexternalName returns the SUsergroupexternalName field if non-nil, zero value otherwise.
+
+### GetSUsergroupexternalNameOk
+
+`func (o *UsergroupmembershipResponseCompound) GetSUsergroupexternalNameOk() (*string, bool)`
+
+GetSUsergroupexternalNameOk returns a tuple with the SUsergroupexternalName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSUsergroupexternalName
+
+`func (o *UsergroupmembershipResponseCompound) SetSUsergroupexternalName(v string)`
+
+SetSUsergroupexternalName sets SUsergroupexternalName field to given value.
+
+### HasSUsergroupexternalName
+
+`func (o *UsergroupmembershipResponseCompound) HasSUsergroupexternalName() bool`
+
+HasSUsergroupexternalName returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

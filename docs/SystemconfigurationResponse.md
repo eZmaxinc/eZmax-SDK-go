@@ -10,8 +10,11 @@ Name | Type | Description | Notes
 **ESystemconfigurationNewexternaluseraction** | [**FieldESystemconfigurationNewexternaluseraction**](FieldESystemconfigurationNewexternaluseraction.md) |  | 
 **ESystemconfigurationLanguage1** | [**FieldESystemconfigurationLanguage1**](FieldESystemconfigurationLanguage1.md) |  | 
 **ESystemconfigurationLanguage2** | [**FieldESystemconfigurationLanguage2**](FieldESystemconfigurationLanguage2.md) |  | 
-**ESystemconfigurationEzsign** | [**FieldESystemconfigurationEzsign**](FieldESystemconfigurationEzsign.md) |  | 
+**ESystemconfigurationEzsign** | Pointer to [**FieldESystemconfigurationEzsign**](FieldESystemconfigurationEzsign.md) |  | [optional] 
+**ESystemconfigurationEzsignofficeplan** | Pointer to [**FieldESystemconfigurationEzsignofficeplan**](FieldESystemconfigurationEzsignofficeplan.md) |  | [optional] 
+**BSystemconfigurationEzsignpaidbyoffice** | Pointer to **bool** | Whether if Ezsign is paid by the company or not | [optional] 
 **BSystemconfigurationEzsignpersonnal** | **bool** | Whether if we allow the creation of personal files in eZsign | 
+**BSystemconfigurationIsdisposalactive** | Pointer to **bool** | Whether is Disposal processus is active or not | [optional] 
 **BSystemconfigurationSspr** | **bool** | Whether if we allow SSPR | 
 **DtSystemconfigurationReadonlyexpirationstart** | Pointer to **string** | The start date where the system will be in read only | [optional] 
 **DtSystemconfigurationReadonlyexpirationend** | Pointer to **string** | The end date where the system will be in read only | [optional] 
@@ -20,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewSystemconfigurationResponse
 
-`func NewSystemconfigurationResponse(pkiSystemconfigurationID int32, fkiSystemconfigurationtypeID int32, sSystemconfigurationtypeDescriptionX string, eSystemconfigurationNewexternaluseraction FieldESystemconfigurationNewexternaluseraction, eSystemconfigurationLanguage1 FieldESystemconfigurationLanguage1, eSystemconfigurationLanguage2 FieldESystemconfigurationLanguage2, eSystemconfigurationEzsign FieldESystemconfigurationEzsign, bSystemconfigurationEzsignpersonnal bool, bSystemconfigurationSspr bool, ) *SystemconfigurationResponse`
+`func NewSystemconfigurationResponse(pkiSystemconfigurationID int32, fkiSystemconfigurationtypeID int32, sSystemconfigurationtypeDescriptionX string, eSystemconfigurationNewexternaluseraction FieldESystemconfigurationNewexternaluseraction, eSystemconfigurationLanguage1 FieldESystemconfigurationLanguage1, eSystemconfigurationLanguage2 FieldESystemconfigurationLanguage2, bSystemconfigurationEzsignpersonnal bool, bSystemconfigurationSspr bool, ) *SystemconfigurationResponse`
 
 NewSystemconfigurationResponse instantiates a new SystemconfigurationResponse object
 This constructor will assign default values to properties that have it defined,
@@ -174,6 +177,61 @@ and a boolean to check if the value has been set.
 
 SetESystemconfigurationEzsign sets ESystemconfigurationEzsign field to given value.
 
+### HasESystemconfigurationEzsign
+
+`func (o *SystemconfigurationResponse) HasESystemconfigurationEzsign() bool`
+
+HasESystemconfigurationEzsign returns a boolean if a field has been set.
+
+### GetESystemconfigurationEzsignofficeplan
+
+`func (o *SystemconfigurationResponse) GetESystemconfigurationEzsignofficeplan() FieldESystemconfigurationEzsignofficeplan`
+
+GetESystemconfigurationEzsignofficeplan returns the ESystemconfigurationEzsignofficeplan field if non-nil, zero value otherwise.
+
+### GetESystemconfigurationEzsignofficeplanOk
+
+`func (o *SystemconfigurationResponse) GetESystemconfigurationEzsignofficeplanOk() (*FieldESystemconfigurationEzsignofficeplan, bool)`
+
+GetESystemconfigurationEzsignofficeplanOk returns a tuple with the ESystemconfigurationEzsignofficeplan field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetESystemconfigurationEzsignofficeplan
+
+`func (o *SystemconfigurationResponse) SetESystemconfigurationEzsignofficeplan(v FieldESystemconfigurationEzsignofficeplan)`
+
+SetESystemconfigurationEzsignofficeplan sets ESystemconfigurationEzsignofficeplan field to given value.
+
+### HasESystemconfigurationEzsignofficeplan
+
+`func (o *SystemconfigurationResponse) HasESystemconfigurationEzsignofficeplan() bool`
+
+HasESystemconfigurationEzsignofficeplan returns a boolean if a field has been set.
+
+### GetBSystemconfigurationEzsignpaidbyoffice
+
+`func (o *SystemconfigurationResponse) GetBSystemconfigurationEzsignpaidbyoffice() bool`
+
+GetBSystemconfigurationEzsignpaidbyoffice returns the BSystemconfigurationEzsignpaidbyoffice field if non-nil, zero value otherwise.
+
+### GetBSystemconfigurationEzsignpaidbyofficeOk
+
+`func (o *SystemconfigurationResponse) GetBSystemconfigurationEzsignpaidbyofficeOk() (*bool, bool)`
+
+GetBSystemconfigurationEzsignpaidbyofficeOk returns a tuple with the BSystemconfigurationEzsignpaidbyoffice field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBSystemconfigurationEzsignpaidbyoffice
+
+`func (o *SystemconfigurationResponse) SetBSystemconfigurationEzsignpaidbyoffice(v bool)`
+
+SetBSystemconfigurationEzsignpaidbyoffice sets BSystemconfigurationEzsignpaidbyoffice field to given value.
+
+### HasBSystemconfigurationEzsignpaidbyoffice
+
+`func (o *SystemconfigurationResponse) HasBSystemconfigurationEzsignpaidbyoffice() bool`
+
+HasBSystemconfigurationEzsignpaidbyoffice returns a boolean if a field has been set.
 
 ### GetBSystemconfigurationEzsignpersonnal
 
@@ -194,6 +252,31 @@ and a boolean to check if the value has been set.
 
 SetBSystemconfigurationEzsignpersonnal sets BSystemconfigurationEzsignpersonnal field to given value.
 
+
+### GetBSystemconfigurationIsdisposalactive
+
+`func (o *SystemconfigurationResponse) GetBSystemconfigurationIsdisposalactive() bool`
+
+GetBSystemconfigurationIsdisposalactive returns the BSystemconfigurationIsdisposalactive field if non-nil, zero value otherwise.
+
+### GetBSystemconfigurationIsdisposalactiveOk
+
+`func (o *SystemconfigurationResponse) GetBSystemconfigurationIsdisposalactiveOk() (*bool, bool)`
+
+GetBSystemconfigurationIsdisposalactiveOk returns a tuple with the BSystemconfigurationIsdisposalactive field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBSystemconfigurationIsdisposalactive
+
+`func (o *SystemconfigurationResponse) SetBSystemconfigurationIsdisposalactive(v bool)`
+
+SetBSystemconfigurationIsdisposalactive sets BSystemconfigurationIsdisposalactive field to given value.
+
+### HasBSystemconfigurationIsdisposalactive
+
+`func (o *SystemconfigurationResponse) HasBSystemconfigurationIsdisposalactive() bool`
+
+HasBSystemconfigurationIsdisposalactive returns a boolean if a field has been set.
 
 ### GetBSystemconfigurationSspr
 

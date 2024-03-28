@@ -22,6 +22,20 @@ func Test_eZmaxApi_ObjectEzsignfoldersignerassociationAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test ObjectEzsignfoldersignerassociationAPIService EzsignfoldersignerassociationCreateEmbeddedUrlV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiEzsignfoldersignerassociationID int32
+
+		resp, httpRes, err := apiClient.ObjectEzsignfoldersignerassociationAPI.EzsignfoldersignerassociationCreateEmbeddedUrlV1(context.Background(), pkiEzsignfoldersignerassociationID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ObjectEzsignfoldersignerassociationAPIService EzsignfoldersignerassociationCreateObjectV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

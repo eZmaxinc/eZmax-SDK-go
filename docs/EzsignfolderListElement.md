@@ -18,12 +18,16 @@ Name | Type | Description | Notes
 **IEzsigndocumentEdm** | **int32** | The total number of Ezsigndocument in the folder that were saved in the edm system | 
 **IEzsignsignature** | **int32** | The total number of signature blocks in all Ezsigndocuments in the folder | 
 **IEzsignsignatureSigned** | **int32** | The total number of already signed signature blocks in all Ezsigndocuments in the folder | 
+**IEzsignformfieldgroup** | **int32** | The total number of Ezsignformfieldgroup in all Ezsigndocuments in the folder | 
+**IEzsignformfieldgroupCompleted** | **int32** | The total number of completed Ezsignformfieldgroup in all Ezsigndocuments in the folder | 
+**BEzsignformHasdependencies** | Pointer to **bool** | Whether the Ezsignform/Ezsignsignatures has dependencies or not | [optional] 
+**DEzsignfolderCompletedpercentage** | **string** | Whether the Ezsignform/Ezsignsignatures has dependencies or not | 
 
 ## Methods
 
 ### NewEzsignfolderListElement
 
-`func NewEzsignfolderListElement(pkiEzsignfolderID int32, fkiEzsignfoldertypeID int32, eEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX string, sEzsignfolderDescription string, eEzsignfolderStep FieldEEzsignfolderStep, dtCreatedDate string, iEzsigndocument int32, iEzsigndocumentEdm int32, iEzsignsignature int32, iEzsignsignatureSigned int32, ) *EzsignfolderListElement`
+`func NewEzsignfolderListElement(pkiEzsignfolderID int32, fkiEzsignfoldertypeID int32, eEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX string, sEzsignfolderDescription string, eEzsignfolderStep FieldEEzsignfolderStep, dtCreatedDate string, iEzsigndocument int32, iEzsigndocumentEdm int32, iEzsignsignature int32, iEzsignsignatureSigned int32, iEzsignformfieldgroup int32, iEzsignformfieldgroupCompleted int32, dEzsignfolderCompletedpercentage string, ) *EzsignfolderListElement`
 
 NewEzsignfolderListElement instantiates a new EzsignfolderListElement object
 This constructor will assign default values to properties that have it defined,
@@ -331,6 +335,91 @@ and a boolean to check if the value has been set.
 `func (o *EzsignfolderListElement) SetIEzsignsignatureSigned(v int32)`
 
 SetIEzsignsignatureSigned sets IEzsignsignatureSigned field to given value.
+
+
+### GetIEzsignformfieldgroup
+
+`func (o *EzsignfolderListElement) GetIEzsignformfieldgroup() int32`
+
+GetIEzsignformfieldgroup returns the IEzsignformfieldgroup field if non-nil, zero value otherwise.
+
+### GetIEzsignformfieldgroupOk
+
+`func (o *EzsignfolderListElement) GetIEzsignformfieldgroupOk() (*int32, bool)`
+
+GetIEzsignformfieldgroupOk returns a tuple with the IEzsignformfieldgroup field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIEzsignformfieldgroup
+
+`func (o *EzsignfolderListElement) SetIEzsignformfieldgroup(v int32)`
+
+SetIEzsignformfieldgroup sets IEzsignformfieldgroup field to given value.
+
+
+### GetIEzsignformfieldgroupCompleted
+
+`func (o *EzsignfolderListElement) GetIEzsignformfieldgroupCompleted() int32`
+
+GetIEzsignformfieldgroupCompleted returns the IEzsignformfieldgroupCompleted field if non-nil, zero value otherwise.
+
+### GetIEzsignformfieldgroupCompletedOk
+
+`func (o *EzsignfolderListElement) GetIEzsignformfieldgroupCompletedOk() (*int32, bool)`
+
+GetIEzsignformfieldgroupCompletedOk returns a tuple with the IEzsignformfieldgroupCompleted field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIEzsignformfieldgroupCompleted
+
+`func (o *EzsignfolderListElement) SetIEzsignformfieldgroupCompleted(v int32)`
+
+SetIEzsignformfieldgroupCompleted sets IEzsignformfieldgroupCompleted field to given value.
+
+
+### GetBEzsignformHasdependencies
+
+`func (o *EzsignfolderListElement) GetBEzsignformHasdependencies() bool`
+
+GetBEzsignformHasdependencies returns the BEzsignformHasdependencies field if non-nil, zero value otherwise.
+
+### GetBEzsignformHasdependenciesOk
+
+`func (o *EzsignfolderListElement) GetBEzsignformHasdependenciesOk() (*bool, bool)`
+
+GetBEzsignformHasdependenciesOk returns a tuple with the BEzsignformHasdependencies field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsignformHasdependencies
+
+`func (o *EzsignfolderListElement) SetBEzsignformHasdependencies(v bool)`
+
+SetBEzsignformHasdependencies sets BEzsignformHasdependencies field to given value.
+
+### HasBEzsignformHasdependencies
+
+`func (o *EzsignfolderListElement) HasBEzsignformHasdependencies() bool`
+
+HasBEzsignformHasdependencies returns a boolean if a field has been set.
+
+### GetDEzsignfolderCompletedpercentage
+
+`func (o *EzsignfolderListElement) GetDEzsignfolderCompletedpercentage() string`
+
+GetDEzsignfolderCompletedpercentage returns the DEzsignfolderCompletedpercentage field if non-nil, zero value otherwise.
+
+### GetDEzsignfolderCompletedpercentageOk
+
+`func (o *EzsignfolderListElement) GetDEzsignfolderCompletedpercentageOk() (*string, bool)`
+
+GetDEzsignfolderCompletedpercentageOk returns a tuple with the DEzsignfolderCompletedpercentage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDEzsignfolderCompletedpercentage
+
+`func (o *EzsignfolderListElement) SetDEzsignfolderCompletedpercentage(v string)`
+
+SetDEzsignfolderCompletedpercentage sets DEzsignfolderCompletedpercentage field to given value.
 
 
 

@@ -22,20 +22,6 @@ func Test_eZmaxApi_ObjectPeriodAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ObjectPeriodAPIService PeriodGetAutocompleteV1", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var sSelector string
-
-		resp, httpRes, err := apiClient.ObjectPeriodAPI.PeriodGetAutocompleteV1(context.Background(), sSelector).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test ObjectPeriodAPIService PeriodGetAutocompleteV2", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

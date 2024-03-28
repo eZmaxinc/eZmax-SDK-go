@@ -6,13 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiUsergroupmembershipID** | Pointer to **int32** | The unique ID of the Usergroupmembership | [optional] 
 **FkiUsergroupID** | **int32** | The unique ID of the Usergroup | 
-**FkiUserID** | **int32** | The unique ID of the User | 
+**FkiUserID** | Pointer to **int32** | The unique ID of the User | [optional] 
+**FkiUsergroupexternalID** | Pointer to **int32** | The unique ID of the Usergroupexternal | [optional] 
 
 ## Methods
 
 ### NewUsergroupmembershipRequest
 
-`func NewUsergroupmembershipRequest(fkiUsergroupID int32, fkiUserID int32, ) *UsergroupmembershipRequest`
+`func NewUsergroupmembershipRequest(fkiUsergroupID int32, ) *UsergroupmembershipRequest`
 
 NewUsergroupmembershipRequest instantiates a new UsergroupmembershipRequest object
 This constructor will assign default values to properties that have it defined,
@@ -91,6 +92,36 @@ and a boolean to check if the value has been set.
 
 SetFkiUserID sets FkiUserID field to given value.
 
+### HasFkiUserID
+
+`func (o *UsergroupmembershipRequest) HasFkiUserID() bool`
+
+HasFkiUserID returns a boolean if a field has been set.
+
+### GetFkiUsergroupexternalID
+
+`func (o *UsergroupmembershipRequest) GetFkiUsergroupexternalID() int32`
+
+GetFkiUsergroupexternalID returns the FkiUsergroupexternalID field if non-nil, zero value otherwise.
+
+### GetFkiUsergroupexternalIDOk
+
+`func (o *UsergroupmembershipRequest) GetFkiUsergroupexternalIDOk() (*int32, bool)`
+
+GetFkiUsergroupexternalIDOk returns a tuple with the FkiUsergroupexternalID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiUsergroupexternalID
+
+`func (o *UsergroupmembershipRequest) SetFkiUsergroupexternalID(v int32)`
+
+SetFkiUsergroupexternalID sets FkiUsergroupexternalID field to given value.
+
+### HasFkiUsergroupexternalID
+
+`func (o *UsergroupmembershipRequest) HasFkiUsergroupexternalID() bool`
+
+HasFkiUsergroupexternalID returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

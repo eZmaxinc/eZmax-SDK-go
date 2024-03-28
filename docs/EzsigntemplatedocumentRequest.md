@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **SEzsigntemplatedocumentBase64** | Pointer to **string** | The Base64 encoded binary content of the document.  This field is Required when eEzsigntemplatedocumentSource &#x3D; Base64. | [optional] 
 **SEzsigntemplatedocumentUrl** | Pointer to **string** | The url where the document content resides.  This field is Required when eEzsigntemplatedocumentSource &#x3D; Url. | [optional] 
 **BEzsigntemplatedocumentForcerepair** | Pointer to **bool** | Try to repair the document or flatten it if it cannot be used for electronic signature. | [optional] 
-**EEzsigntemplatedocumentForm** | Pointer to **string** | If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsigntemplateformfieldgroups and assign them to the specified **fkiEzsigntemplatesignerID** | [optional] 
+**EEzsigntemplatedocumentForm** | Pointer to **string** | If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsigntemplateformfieldgroups and assign them to the specified **fkiEzsigntemplatesignerID**  **Discard** removes the form from the document | [optional] 
 **SEzsigntemplatedocumentPassword** | Pointer to **string** | If the source template is password protected, the password to open/modify it. | [optional] [default to ""]
 
 ## Methods

@@ -42,7 +42,7 @@ type EzsigntemplatedocumentRequestCompound struct {
 	SEzsigntemplatedocumentUrl *string `json:"sEzsigntemplatedocumentUrl,omitempty"`
 	// Try to repair the document or flatten it if it cannot be used for electronic signature.
 	BEzsigntemplatedocumentForcerepair *bool `json:"bEzsigntemplatedocumentForcerepair,omitempty"`
-	// If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsigntemplateformfieldgroups and assign them to the specified **fkiEzsigntemplatesignerID**
+	// If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsigntemplateformfieldgroups and assign them to the specified **fkiEzsigntemplatesignerID**  **Discard** removes the form from the document
 	EEzsigntemplatedocumentForm *string `json:"eEzsigntemplatedocumentForm,omitempty"`
 	// If the source template is password protected, the password to open/modify it.
 	SEzsigntemplatedocumentPassword *string `json:"sEzsigntemplatedocumentPassword,omitempty"`

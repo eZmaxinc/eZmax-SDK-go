@@ -34,6 +34,7 @@ type BrandingResponseCompound struct {
 	// The email address.
 	SEmailAddress *string `json:"sEmailAddress,omitempty"`
 	EBrandingLogo FieldEBrandingLogo `json:"eBrandingLogo"`
+	EBrandingLogointerface *FieldEBrandingLogointerface `json:"eBrandingLogointerface,omitempty"`
 	// The color of the text. This is a RGB color converted into integer
 	IBrandingColortext int32 `json:"iBrandingColortext"`
 	// The color of the text in the link box. This is a RGB color converted into integer
@@ -46,10 +47,14 @@ type BrandingResponseCompound struct {
 	IBrandingColorbackgroundbutton int32 `json:"iBrandingColorbackgroundbutton"`
 	// The color of the background of the small box. This is a RGB color converted into integer
 	IBrandingColorbackgroundsmallbox int32 `json:"iBrandingColorbackgroundsmallbox"`
+	// The color of the interface. This is a RGB color converted into integer
+	IBrandingInterfacecolor *int32 `json:"iBrandingInterfacecolor,omitempty"`
 	// Whether the Branding is active or not
 	BBrandingIsactive bool `json:"bBrandingIsactive"`
 	// The url of the picture used as logo in the Branding
 	SBrandingLogourl *string `json:"sBrandingLogourl,omitempty"`
+	// The url of the picture used as logo in the Branding
+	SBrandingLogointerfaceurl *string `json:"sBrandingLogointerfaceurl,omitempty"`
 }
 
 type _BrandingResponseCompound BrandingResponseCompound
@@ -64,6 +69,8 @@ func NewBrandingResponseCompound(pkiBrandingID int32, objBrandingDescription Mul
 	this.ObjBrandingDescription = objBrandingDescription
 	this.SBrandingDescriptionX = sBrandingDescriptionX
 	this.EBrandingLogo = eBrandingLogo
+	var eBrandingLogointerface FieldEBrandingLogointerface = DEFAULT
+	this.EBrandingLogointerface = &eBrandingLogointerface
 	this.IBrandingColortext = iBrandingColortext
 	this.IBrandingColortextlinkbox = iBrandingColortextlinkbox
 	this.IBrandingColortextbutton = iBrandingColortextbutton
@@ -79,6 +86,8 @@ func NewBrandingResponseCompound(pkiBrandingID int32, objBrandingDescription Mul
 // but it doesn't guarantee that properties required by API are set
 func NewBrandingResponseCompoundWithDefaults() *BrandingResponseCompound {
 	this := BrandingResponseCompound{}
+	var eBrandingLogointerface FieldEBrandingLogointerface = DEFAULT
+	this.EBrandingLogointerface = &eBrandingLogointerface
 	return &this
 }
 
@@ -274,6 +283,38 @@ func (o *BrandingResponseCompound) SetEBrandingLogo(v FieldEBrandingLogo) {
 	o.EBrandingLogo = v
 }
 
+// GetEBrandingLogointerface returns the EBrandingLogointerface field value if set, zero value otherwise.
+func (o *BrandingResponseCompound) GetEBrandingLogointerface() FieldEBrandingLogointerface {
+	if o == nil || IsNil(o.EBrandingLogointerface) {
+		var ret FieldEBrandingLogointerface
+		return ret
+	}
+	return *o.EBrandingLogointerface
+}
+
+// GetEBrandingLogointerfaceOk returns a tuple with the EBrandingLogointerface field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BrandingResponseCompound) GetEBrandingLogointerfaceOk() (*FieldEBrandingLogointerface, bool) {
+	if o == nil || IsNil(o.EBrandingLogointerface) {
+		return nil, false
+	}
+	return o.EBrandingLogointerface, true
+}
+
+// HasEBrandingLogointerface returns a boolean if a field has been set.
+func (o *BrandingResponseCompound) HasEBrandingLogointerface() bool {
+	if o != nil && !IsNil(o.EBrandingLogointerface) {
+		return true
+	}
+
+	return false
+}
+
+// SetEBrandingLogointerface gets a reference to the given FieldEBrandingLogointerface and assigns it to the EBrandingLogointerface field.
+func (o *BrandingResponseCompound) SetEBrandingLogointerface(v FieldEBrandingLogointerface) {
+	o.EBrandingLogointerface = &v
+}
+
 // GetIBrandingColortext returns the IBrandingColortext field value
 func (o *BrandingResponseCompound) GetIBrandingColortext() int32 {
 	if o == nil {
@@ -418,6 +459,38 @@ func (o *BrandingResponseCompound) SetIBrandingColorbackgroundsmallbox(v int32) 
 	o.IBrandingColorbackgroundsmallbox = v
 }
 
+// GetIBrandingInterfacecolor returns the IBrandingInterfacecolor field value if set, zero value otherwise.
+func (o *BrandingResponseCompound) GetIBrandingInterfacecolor() int32 {
+	if o == nil || IsNil(o.IBrandingInterfacecolor) {
+		var ret int32
+		return ret
+	}
+	return *o.IBrandingInterfacecolor
+}
+
+// GetIBrandingInterfacecolorOk returns a tuple with the IBrandingInterfacecolor field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BrandingResponseCompound) GetIBrandingInterfacecolorOk() (*int32, bool) {
+	if o == nil || IsNil(o.IBrandingInterfacecolor) {
+		return nil, false
+	}
+	return o.IBrandingInterfacecolor, true
+}
+
+// HasIBrandingInterfacecolor returns a boolean if a field has been set.
+func (o *BrandingResponseCompound) HasIBrandingInterfacecolor() bool {
+	if o != nil && !IsNil(o.IBrandingInterfacecolor) {
+		return true
+	}
+
+	return false
+}
+
+// SetIBrandingInterfacecolor gets a reference to the given int32 and assigns it to the IBrandingInterfacecolor field.
+func (o *BrandingResponseCompound) SetIBrandingInterfacecolor(v int32) {
+	o.IBrandingInterfacecolor = &v
+}
+
 // GetBBrandingIsactive returns the BBrandingIsactive field value
 func (o *BrandingResponseCompound) GetBBrandingIsactive() bool {
 	if o == nil {
@@ -474,6 +547,38 @@ func (o *BrandingResponseCompound) SetSBrandingLogourl(v string) {
 	o.SBrandingLogourl = &v
 }
 
+// GetSBrandingLogointerfaceurl returns the SBrandingLogointerfaceurl field value if set, zero value otherwise.
+func (o *BrandingResponseCompound) GetSBrandingLogointerfaceurl() string {
+	if o == nil || IsNil(o.SBrandingLogointerfaceurl) {
+		var ret string
+		return ret
+	}
+	return *o.SBrandingLogointerfaceurl
+}
+
+// GetSBrandingLogointerfaceurlOk returns a tuple with the SBrandingLogointerfaceurl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BrandingResponseCompound) GetSBrandingLogointerfaceurlOk() (*string, bool) {
+	if o == nil || IsNil(o.SBrandingLogointerfaceurl) {
+		return nil, false
+	}
+	return o.SBrandingLogointerfaceurl, true
+}
+
+// HasSBrandingLogointerfaceurl returns a boolean if a field has been set.
+func (o *BrandingResponseCompound) HasSBrandingLogointerfaceurl() bool {
+	if o != nil && !IsNil(o.SBrandingLogointerfaceurl) {
+		return true
+	}
+
+	return false
+}
+
+// SetSBrandingLogointerfaceurl gets a reference to the given string and assigns it to the SBrandingLogointerfaceurl field.
+func (o *BrandingResponseCompound) SetSBrandingLogointerfaceurl(v string) {
+	o.SBrandingLogointerfaceurl = &v
+}
+
 func (o BrandingResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -497,15 +602,24 @@ func (o BrandingResponseCompound) ToMap() (map[string]interface{}, error) {
 		toSerialize["sEmailAddress"] = o.SEmailAddress
 	}
 	toSerialize["eBrandingLogo"] = o.EBrandingLogo
+	if !IsNil(o.EBrandingLogointerface) {
+		toSerialize["eBrandingLogointerface"] = o.EBrandingLogointerface
+	}
 	toSerialize["iBrandingColortext"] = o.IBrandingColortext
 	toSerialize["iBrandingColortextlinkbox"] = o.IBrandingColortextlinkbox
 	toSerialize["iBrandingColortextbutton"] = o.IBrandingColortextbutton
 	toSerialize["iBrandingColorbackground"] = o.IBrandingColorbackground
 	toSerialize["iBrandingColorbackgroundbutton"] = o.IBrandingColorbackgroundbutton
 	toSerialize["iBrandingColorbackgroundsmallbox"] = o.IBrandingColorbackgroundsmallbox
+	if !IsNil(o.IBrandingInterfacecolor) {
+		toSerialize["iBrandingInterfacecolor"] = o.IBrandingInterfacecolor
+	}
 	toSerialize["bBrandingIsactive"] = o.BBrandingIsactive
 	if !IsNil(o.SBrandingLogourl) {
 		toSerialize["sBrandingLogourl"] = o.SBrandingLogourl
+	}
+	if !IsNil(o.SBrandingLogointerfaceurl) {
+		toSerialize["sBrandingLogointerfaceurl"] = o.SBrandingLogointerfaceurl
 	}
 	return toSerialize, nil
 }

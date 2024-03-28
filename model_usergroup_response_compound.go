@@ -25,6 +25,8 @@ type UsergroupResponseCompound struct {
 	// The unique ID of the Usergroup
 	PkiUsergroupID int32 `json:"pkiUsergroupID"`
 	ObjUsergroupName MultilingualUsergroupName `json:"objUsergroupName"`
+	// The Name of the Usergroup in the language of the requester
+	SUsergroupNameX *string `json:"sUsergroupNameX,omitempty"`
 }
 
 type _UsergroupResponseCompound UsergroupResponseCompound
@@ -96,6 +98,38 @@ func (o *UsergroupResponseCompound) SetObjUsergroupName(v MultilingualUsergroupN
 	o.ObjUsergroupName = v
 }
 
+// GetSUsergroupNameX returns the SUsergroupNameX field value if set, zero value otherwise.
+func (o *UsergroupResponseCompound) GetSUsergroupNameX() string {
+	if o == nil || IsNil(o.SUsergroupNameX) {
+		var ret string
+		return ret
+	}
+	return *o.SUsergroupNameX
+}
+
+// GetSUsergroupNameXOk returns a tuple with the SUsergroupNameX field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsergroupResponseCompound) GetSUsergroupNameXOk() (*string, bool) {
+	if o == nil || IsNil(o.SUsergroupNameX) {
+		return nil, false
+	}
+	return o.SUsergroupNameX, true
+}
+
+// HasSUsergroupNameX returns a boolean if a field has been set.
+func (o *UsergroupResponseCompound) HasSUsergroupNameX() bool {
+	if o != nil && !IsNil(o.SUsergroupNameX) {
+		return true
+	}
+
+	return false
+}
+
+// SetSUsergroupNameX gets a reference to the given string and assigns it to the SUsergroupNameX field.
+func (o *UsergroupResponseCompound) SetSUsergroupNameX(v string) {
+	o.SUsergroupNameX = &v
+}
+
 func (o UsergroupResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -108,6 +142,9 @@ func (o UsergroupResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiUsergroupID"] = o.PkiUsergroupID
 	toSerialize["objUsergroupName"] = o.ObjUsergroupName
+	if !IsNil(o.SUsergroupNameX) {
+		toSerialize["sUsergroupNameX"] = o.SUsergroupNameX
+	}
 	return toSerialize, nil
 }
 

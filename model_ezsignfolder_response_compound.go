@@ -27,7 +27,7 @@ type EzsignfolderResponseCompound struct {
 	// The unique ID of the Ezsignfoldertype.
 	FkiEzsignfoldertypeID *int32 `json:"fkiEzsignfoldertypeID,omitempty"`
 	ObjEzsignfoldertype *CustomEzsignfoldertypeResponse `json:"objEzsignfoldertype,omitempty"`
-	EEzsignfolderCompletion *FieldEEzsignfolderCompletion `json:"eEzsignfolderCompletion,omitempty"`
+	EEzsignfolderCompletion FieldEEzsignfolderCompletion `json:"eEzsignfolderCompletion"`
 	// Deprecated
 	SEzsignfoldertypeNameX *string `json:"sEzsignfoldertypeNameX,omitempty"`
 	// The unique ID of the Billingentityinternal.
@@ -71,11 +71,10 @@ type _EzsignfolderResponseCompound EzsignfolderResponseCompound
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfolderResponseCompound(pkiEzsignfolderID int32, sEzsignfolderDescription string) *EzsignfolderResponseCompound {
+func NewEzsignfolderResponseCompound(pkiEzsignfolderID int32, eEzsignfolderCompletion FieldEEzsignfolderCompletion, sEzsignfolderDescription string) *EzsignfolderResponseCompound {
 	this := EzsignfolderResponseCompound{}
 	this.PkiEzsignfolderID = pkiEzsignfolderID
-	var eEzsignfolderCompletion FieldEEzsignfolderCompletion = PER_EZSIGNDOCUMENT
-	this.EEzsignfolderCompletion = &eEzsignfolderCompletion
+	this.EEzsignfolderCompletion = eEzsignfolderCompletion
 	this.SEzsignfolderDescription = sEzsignfolderDescription
 	return &this
 }
@@ -85,8 +84,6 @@ func NewEzsignfolderResponseCompound(pkiEzsignfolderID int32, sEzsignfolderDescr
 // but it doesn't guarantee that properties required by API are set
 func NewEzsignfolderResponseCompoundWithDefaults() *EzsignfolderResponseCompound {
 	this := EzsignfolderResponseCompound{}
-	var eEzsignfolderCompletion FieldEEzsignfolderCompletion = PER_EZSIGNDOCUMENT
-	this.EEzsignfolderCompletion = &eEzsignfolderCompletion
 	return &this
 }
 
@@ -178,36 +175,28 @@ func (o *EzsignfolderResponseCompound) SetObjEzsignfoldertype(v CustomEzsignfold
 	o.ObjEzsignfoldertype = &v
 }
 
-// GetEEzsignfolderCompletion returns the EEzsignfolderCompletion field value if set, zero value otherwise.
+// GetEEzsignfolderCompletion returns the EEzsignfolderCompletion field value
 func (o *EzsignfolderResponseCompound) GetEEzsignfolderCompletion() FieldEEzsignfolderCompletion {
-	if o == nil || IsNil(o.EEzsignfolderCompletion) {
+	if o == nil {
 		var ret FieldEEzsignfolderCompletion
 		return ret
 	}
-	return *o.EEzsignfolderCompletion
+
+	return o.EEzsignfolderCompletion
 }
 
-// GetEEzsignfolderCompletionOk returns a tuple with the EEzsignfolderCompletion field value if set, nil otherwise
+// GetEEzsignfolderCompletionOk returns a tuple with the EEzsignfolderCompletion field value
 // and a boolean to check if the value has been set.
 func (o *EzsignfolderResponseCompound) GetEEzsignfolderCompletionOk() (*FieldEEzsignfolderCompletion, bool) {
-	if o == nil || IsNil(o.EEzsignfolderCompletion) {
+	if o == nil {
 		return nil, false
 	}
-	return o.EEzsignfolderCompletion, true
+	return &o.EEzsignfolderCompletion, true
 }
 
-// HasEEzsignfolderCompletion returns a boolean if a field has been set.
-func (o *EzsignfolderResponseCompound) HasEEzsignfolderCompletion() bool {
-	if o != nil && !IsNil(o.EEzsignfolderCompletion) {
-		return true
-	}
-
-	return false
-}
-
-// SetEEzsignfolderCompletion gets a reference to the given FieldEEzsignfolderCompletion and assigns it to the EEzsignfolderCompletion field.
+// SetEEzsignfolderCompletion sets field value
 func (o *EzsignfolderResponseCompound) SetEEzsignfolderCompletion(v FieldEEzsignfolderCompletion) {
-	o.EEzsignfolderCompletion = &v
+	o.EEzsignfolderCompletion = v
 }
 
 // GetSEzsignfoldertypeNameX returns the SEzsignfoldertypeNameX field value if set, zero value otherwise.
@@ -830,9 +819,7 @@ func (o EzsignfolderResponseCompound) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ObjEzsignfoldertype) {
 		toSerialize["objEzsignfoldertype"] = o.ObjEzsignfoldertype
 	}
-	if !IsNil(o.EEzsignfolderCompletion) {
-		toSerialize["eEzsignfolderCompletion"] = o.EEzsignfolderCompletion
-	}
+	toSerialize["eEzsignfolderCompletion"] = o.EEzsignfolderCompletion
 	if !IsNil(o.SEzsignfoldertypeNameX) {
 		toSerialize["sEzsignfoldertypeNameX"] = o.SEzsignfoldertypeNameX
 	}
@@ -897,6 +884,7 @@ func (o *EzsignfolderResponseCompound) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"pkiEzsignfolderID",
+		"eEzsignfolderCompletion",
 		"sEzsignfolderDescription",
 	}
 

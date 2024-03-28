@@ -4,87 +4,10 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**EzmaxinvoicingGetAutocompleteV1**](ObjectEzmaxinvoicingAPI.md#EzmaxinvoicingGetAutocompleteV1) | **Get** /1/object/ezmaxinvoicing/getAutocomplete/{sSelector} | Retrieve Ezmaxinvoicings and IDs
 [**EzmaxinvoicingGetAutocompleteV2**](ObjectEzmaxinvoicingAPI.md#EzmaxinvoicingGetAutocompleteV2) | **Get** /2/object/ezmaxinvoicing/getAutocomplete/{sSelector} | Retrieve Ezmaxinvoicings and IDs
 [**EzmaxinvoicingGetObjectV2**](ObjectEzmaxinvoicingAPI.md#EzmaxinvoicingGetObjectV2) | **Get** /2/object/ezmaxinvoicing/{pkiEzmaxinvoicingID} | Retrieve an existing Ezmaxinvoicing
 [**EzmaxinvoicingGetProvisionalV1**](ObjectEzmaxinvoicingAPI.md#EzmaxinvoicingGetProvisionalV1) | **Get** /1/object/ezmaxinvoicing/getProvisional | Retrieve provisional Ezmaxinvoicing
 
-
-
-## EzmaxinvoicingGetAutocompleteV1
-
-> CommonGetAutocompleteV1Response EzmaxinvoicingGetAutocompleteV1(ctx, sSelector).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
-
-Retrieve Ezmaxinvoicings and IDs
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	sSelector := "sSelector_example" // string | The type of Ezmaxinvoicings to return
-	eFilterActive := "eFilterActive_example" // string | Specify which results we want to display. Active is the default value. (optional)
-	sQuery := "sQuery_example" // string | Allow to filter the returned results (optional)
-	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectEzmaxinvoicingAPI.EzmaxinvoicingGetAutocompleteV1(context.Background(), sSelector).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzmaxinvoicingAPI.EzmaxinvoicingGetAutocompleteV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `EzmaxinvoicingGetAutocompleteV1`: CommonGetAutocompleteV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectEzmaxinvoicingAPI.EzmaxinvoicingGetAutocompleteV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**sSelector** | **string** | The type of Ezmaxinvoicings to return | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiEzmaxinvoicingGetAutocompleteV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **eFilterActive** | **string** | Specify which results we want to display. Active is the default value. | 
- **sQuery** | **string** | Allow to filter the returned results | 
- **acceptLanguage** | [**HeaderAcceptLanguage**](HeaderAcceptLanguage.md) |  | 
-
-### Return type
-
-[**CommonGetAutocompleteV1Response**](CommonGetAutocompleteV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
 
 
 ## EzmaxinvoicingGetAutocompleteV2

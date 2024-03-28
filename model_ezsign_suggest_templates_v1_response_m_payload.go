@@ -24,6 +24,7 @@ var _ MappedNullable = &EzsignSuggestTemplatesV1ResponseMPayload{}
 type EzsignSuggestTemplatesV1ResponseMPayload struct {
 	AObjEzsigntemplate []EzsigntemplateResponseCompound `json:"a_objEzsigntemplate"`
 	AObjEzsigntemplatepackage []EzsigntemplatepackageResponseCompound `json:"a_objEzsigntemplatepackage"`
+	AObjEzsigntemplateglobal []EzsigntemplateglobalResponseCompound `json:"a_objEzsigntemplateglobal"`
 }
 
 type _EzsignSuggestTemplatesV1ResponseMPayload EzsignSuggestTemplatesV1ResponseMPayload
@@ -32,10 +33,11 @@ type _EzsignSuggestTemplatesV1ResponseMPayload EzsignSuggestTemplatesV1ResponseM
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignSuggestTemplatesV1ResponseMPayload(aObjEzsigntemplate []EzsigntemplateResponseCompound, aObjEzsigntemplatepackage []EzsigntemplatepackageResponseCompound) *EzsignSuggestTemplatesV1ResponseMPayload {
+func NewEzsignSuggestTemplatesV1ResponseMPayload(aObjEzsigntemplate []EzsigntemplateResponseCompound, aObjEzsigntemplatepackage []EzsigntemplatepackageResponseCompound, aObjEzsigntemplateglobal []EzsigntemplateglobalResponseCompound) *EzsignSuggestTemplatesV1ResponseMPayload {
 	this := EzsignSuggestTemplatesV1ResponseMPayload{}
 	this.AObjEzsigntemplate = aObjEzsigntemplate
 	this.AObjEzsigntemplatepackage = aObjEzsigntemplatepackage
+	this.AObjEzsigntemplateglobal = aObjEzsigntemplateglobal
 	return &this
 }
 
@@ -95,6 +97,30 @@ func (o *EzsignSuggestTemplatesV1ResponseMPayload) SetAObjEzsigntemplatepackage(
 	o.AObjEzsigntemplatepackage = v
 }
 
+// GetAObjEzsigntemplateglobal returns the AObjEzsigntemplateglobal field value
+func (o *EzsignSuggestTemplatesV1ResponseMPayload) GetAObjEzsigntemplateglobal() []EzsigntemplateglobalResponseCompound {
+	if o == nil {
+		var ret []EzsigntemplateglobalResponseCompound
+		return ret
+	}
+
+	return o.AObjEzsigntemplateglobal
+}
+
+// GetAObjEzsigntemplateglobalOk returns a tuple with the AObjEzsigntemplateglobal field value
+// and a boolean to check if the value has been set.
+func (o *EzsignSuggestTemplatesV1ResponseMPayload) GetAObjEzsigntemplateglobalOk() ([]EzsigntemplateglobalResponseCompound, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AObjEzsigntemplateglobal, true
+}
+
+// SetAObjEzsigntemplateglobal sets field value
+func (o *EzsignSuggestTemplatesV1ResponseMPayload) SetAObjEzsigntemplateglobal(v []EzsigntemplateglobalResponseCompound) {
+	o.AObjEzsigntemplateglobal = v
+}
+
 func (o EzsignSuggestTemplatesV1ResponseMPayload) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -107,6 +133,7 @@ func (o EzsignSuggestTemplatesV1ResponseMPayload) ToMap() (map[string]interface{
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_objEzsigntemplate"] = o.AObjEzsigntemplate
 	toSerialize["a_objEzsigntemplatepackage"] = o.AObjEzsigntemplatepackage
+	toSerialize["a_objEzsigntemplateglobal"] = o.AObjEzsigntemplateglobal
 	return toSerialize, nil
 }
 
@@ -117,6 +144,7 @@ func (o *EzsignSuggestTemplatesV1ResponseMPayload) UnmarshalJSON(data []byte) (e
 	requiredProperties := []string{
 		"a_objEzsigntemplate",
 		"a_objEzsigntemplatepackage",
+		"a_objEzsigntemplateglobal",
 	}
 
 	allProperties := make(map[string]interface{})

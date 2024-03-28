@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **BWebhookIsactive** | **bool** | Whether the Webhook is active or not | 
 **BWebhookIssigned** | Pointer to **bool** | Whether the requests will be signed or not | [optional] 
 **BWebhookSkipsslvalidation** | **bool** | Wheter the server&#39;s SSL certificate should be validated or not. Not recommended to skip for production use | 
+**AObjWebhookheader** | Pointer to [**[]WebhookheaderRequestCompound**](WebhookheaderRequestCompound.md) |  | [optional] 
 
 ## Methods
 
@@ -279,6 +280,31 @@ and a boolean to check if the value has been set.
 
 SetBWebhookSkipsslvalidation sets BWebhookSkipsslvalidation field to given value.
 
+
+### GetAObjWebhookheader
+
+`func (o *WebhookRequestCompound) GetAObjWebhookheader() []WebhookheaderRequestCompound`
+
+GetAObjWebhookheader returns the AObjWebhookheader field if non-nil, zero value otherwise.
+
+### GetAObjWebhookheaderOk
+
+`func (o *WebhookRequestCompound) GetAObjWebhookheaderOk() (*[]WebhookheaderRequestCompound, bool)`
+
+GetAObjWebhookheaderOk returns a tuple with the AObjWebhookheader field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAObjWebhookheader
+
+`func (o *WebhookRequestCompound) SetAObjWebhookheader(v []WebhookheaderRequestCompound)`
+
+SetAObjWebhookheader sets AObjWebhookheader field to given value.
+
+### HasAObjWebhookheader
+
+`func (o *WebhookRequestCompound) HasAObjWebhookheader() bool`
+
+HasAObjWebhookheader returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

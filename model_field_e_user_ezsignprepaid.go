@@ -21,15 +21,17 @@ type FieldEUserEzsignprepaid string
 
 // List of Field-eUserEzsignprepaid
 const (
+	NO FieldEUserEzsignprepaid = "No"
 	BASIC FieldEUserEzsignprepaid = "Basic"
-	UNLIMITED FieldEUserEzsignprepaid = "Unlimited"
+	STANDARD FieldEUserEzsignprepaid = "Standard"
 	PRO FieldEUserEzsignprepaid = "Pro"
 )
 
 // All allowed values of FieldEUserEzsignprepaid enum
 var AllowedFieldEUserEzsignprepaidEnumValues = []FieldEUserEzsignprepaid{
+	"No",
 	"Basic",
-	"Unlimited",
+	"Standard",
 	"Pro",
 }
 

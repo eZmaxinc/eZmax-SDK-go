@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**EzsigndocumentApplyEzsigntemplateV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentApplyEzsigntemplateV1) | **Post** /1/object/ezsigndocument/{pkiEzsigndocumentID}/applyezsigntemplate | Apply an Ezsigntemplate to the Ezsigndocument.
 [**EzsigndocumentApplyEzsigntemplateV2**](ObjectEzsigndocumentAPI.md#EzsigndocumentApplyEzsigntemplateV2) | **Post** /2/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplate | Apply an Ezsigntemplate to the Ezsigndocument.
+[**EzsigndocumentApplyEzsigntemplateglobalV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentApplyEzsigntemplateglobalV1) | **Post** /1/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplateglobal | Apply an Ezsigntemplateglobal to the Ezsigndocument.
 [**EzsigndocumentCreateEzsignelementsPositionedByWordV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentCreateEzsignelementsPositionedByWordV1) | **Post** /1/object/ezsigndocument/{pkiEzsigndocumentID}/createEzsignelementsPositionedByWord | Create multiple Ezsignsignatures/Ezsignformfieldgroups
 [**EzsigndocumentCreateObjectV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentCreateObjectV1) | **Post** /1/object/ezsigndocument | Create a new Ezsigndocument
 [**EzsigndocumentCreateObjectV2**](ObjectEzsigndocumentAPI.md#EzsigndocumentCreateObjectV2) | **Post** /2/object/ezsigndocument | Create a new Ezsigndocument
@@ -180,6 +181,78 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## EzsigndocumentApplyEzsigntemplateglobalV1
+
+> EzsigndocumentApplyEzsigntemplateglobalV1Response EzsigndocumentApplyEzsigntemplateglobalV1(ctx, pkiEzsigndocumentID).EzsigndocumentApplyEzsigntemplateglobalV1Request(ezsigndocumentApplyEzsigntemplateglobalV1Request).Execute()
+
+Apply an Ezsigntemplateglobal to the Ezsigndocument.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsigndocumentID := int32(56) // int32 | 
+	ezsigndocumentApplyEzsigntemplateglobalV1Request := *openapiclient.NewEzsigndocumentApplyEzsigntemplateglobalV1Request(int32(36), []string{"John"}, []int32{int32(20)}) // EzsigndocumentApplyEzsigntemplateglobalV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigndocumentAPI.EzsigndocumentApplyEzsigntemplateglobalV1(context.Background(), pkiEzsigndocumentID).EzsigndocumentApplyEzsigntemplateglobalV1Request(ezsigndocumentApplyEzsigntemplateglobalV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentAPI.EzsigndocumentApplyEzsigntemplateglobalV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigndocumentApplyEzsigntemplateglobalV1`: EzsigndocumentApplyEzsigntemplateglobalV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigndocumentAPI.EzsigndocumentApplyEzsigntemplateglobalV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsigndocumentID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsigndocumentApplyEzsigntemplateglobalV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **ezsigndocumentApplyEzsigntemplateglobalV1Request** | [**EzsigndocumentApplyEzsigntemplateglobalV1Request**](EzsigndocumentApplyEzsigntemplateglobalV1Request.md) |  | 
+
+### Return type
+
+[**EzsigndocumentApplyEzsigntemplateglobalV1Response**](EzsigndocumentApplyEzsigntemplateglobalV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## EzsigndocumentCreateEzsignelementsPositionedByWordV1
 
 > EzsigndocumentCreateEzsignelementsPositionedByWordV1Response EzsigndocumentCreateEzsignelementsPositionedByWordV1(ctx, pkiEzsigndocumentID).EzsigndocumentCreateEzsignelementsPositionedByWordV1Request(ezsigndocumentCreateEzsignelementsPositionedByWordV1Request).Execute()
@@ -202,7 +275,7 @@ import (
 
 func main() {
 	pkiEzsigndocumentID := int32(56) // int32 | 
-	ezsigndocumentCreateEzsignelementsPositionedByWordV1Request := *openapiclient.NewEzsigndocumentCreateEzsignelementsPositionedByWordV1Request([]openapiclient.CustomEzsignformfieldgroupCreateEzsignelementsPositionedByWordRequest{*openapiclient.NewCustomEzsignformfieldgroupCreateEzsignelementsPositionedByWordRequest(int32(97), openapiclient.Field-eEzsignformfieldgroupType("Text"), openapiclient.Field-eEzsignformfieldgroupSignerrequirement("All"), "Allergies", int32(1), int32(1), int32(2), false, []openapiclient.EzsignformfieldgroupsignerRequestCompound{*openapiclient.NewEzsignformfieldgroupsignerRequestCompound(int32(20))}, []openapiclient.EzsignformfieldRequestCompound{*openapiclient.NewEzsignformfieldRequestCompound(int32(1), "Peanuts", int32(200), int32(300), int32(102), int32(22))}, *openapiclient.NewCustomCreateEzsignelementsPositionedByWordRequest("SCreateezsignelementspositionedbywordPattern_example", int32(123), int32(123), "ECreateezsignelementspositionedbywordOccurance_example"))}, []openapiclient.CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest{*openapiclient.NewCustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest(int32(20), int32(1), int32(200), int32(300), int32(1), openapiclient.Field-eEzsignsignatureType("Acknowledgement"), int32(97), *openapiclient.NewCustomCreateEzsignelementsPositionedByWordRequest("SCreateezsignelementspositionedbywordPattern_example", int32(123), int32(123), "ECreateezsignelementspositionedbywordOccurance_example"))}) // EzsigndocumentCreateEzsignelementsPositionedByWordV1Request | 
+	ezsigndocumentCreateEzsignelementsPositionedByWordV1Request := *openapiclient.NewEzsigndocumentCreateEzsignelementsPositionedByWordV1Request([]openapiclient.CustomEzsignformfieldgroupCreateEzsignelementsPositionedByWordRequest{*openapiclient.NewCustomEzsignformfieldgroupCreateEzsignelementsPositionedByWordRequest(int32(97), openapiclient.Field-eEzsignformfieldgroupType("Text"), "Allergies", int32(1), int32(1), int32(2), false, []openapiclient.EzsignformfieldgroupsignerRequestCompound{*openapiclient.NewEzsignformfieldgroupsignerRequestCompound(int32(20))}, []openapiclient.EzsignformfieldRequestCompound{*openapiclient.NewEzsignformfieldRequestCompound(int32(1), "Peanuts", int32(200), int32(300), int32(102), int32(22))}, *openapiclient.NewCustomCreateEzsignelementsPositionedByWordRequest("SCreateezsignelementspositionedbywordPattern_example", int32(123), int32(123), "ECreateezsignelementspositionedbywordOccurance_example"))}, []openapiclient.CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest{*openapiclient.NewCustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest(int32(20), int32(1), int32(200), int32(300), int32(1), openapiclient.Field-eEzsignsignatureType("Acknowledgement"), int32(97), *openapiclient.NewCustomCreateEzsignelementsPositionedByWordRequest("SCreateezsignelementspositionedbywordPattern_example", int32(123), int32(123), "ECreateezsignelementspositionedbywordOccurance_example"))}) // EzsigndocumentCreateEzsignelementsPositionedByWordV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -548,7 +621,7 @@ import (
 
 func main() {
 	pkiEzsigndocumentID := int32(56) // int32 | 
-	ezsigndocumentEditEzsignformfieldgroupsV1Request := *openapiclient.NewEzsigndocumentEditEzsignformfieldgroupsV1Request([]openapiclient.EzsignformfieldgroupRequestCompound{*openapiclient.NewEzsignformfieldgroupRequestCompound(int32(97), openapiclient.Field-eEzsignformfieldgroupType("Text"), openapiclient.Field-eEzsignformfieldgroupSignerrequirement("All"), "Allergies", int32(1), int32(1), int32(2), false, []openapiclient.EzsignformfieldgroupsignerRequestCompound{*openapiclient.NewEzsignformfieldgroupsignerRequestCompound(int32(20))}, []openapiclient.EzsignformfieldRequestCompound{*openapiclient.NewEzsignformfieldRequestCompound(int32(1), "Peanuts", int32(200), int32(300), int32(102), int32(22))})}) // EzsigndocumentEditEzsignformfieldgroupsV1Request | 
+	ezsigndocumentEditEzsignformfieldgroupsV1Request := *openapiclient.NewEzsigndocumentEditEzsignformfieldgroupsV1Request([]openapiclient.EzsignformfieldgroupRequestCompound{*openapiclient.NewEzsignformfieldgroupRequestCompound(int32(97), openapiclient.Field-eEzsignformfieldgroupType("Text"), "Allergies", int32(1), int32(1), int32(2), false, []openapiclient.EzsignformfieldgroupsignerRequestCompound{*openapiclient.NewEzsignformfieldgroupsignerRequestCompound(int32(20))}, []openapiclient.EzsignformfieldRequestCompound{*openapiclient.NewEzsignformfieldRequestCompound(int32(1), "Peanuts", int32(200), int32(300), int32(102), int32(22))})}) // EzsigndocumentEditEzsignformfieldgroupsV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

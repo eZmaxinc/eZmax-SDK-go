@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **ObjAudit** | Pointer to [**CommonAudit**](CommonAudit.md) |  | [optional] 
 **SEzsigndocumentExternalid** | Pointer to **string** | This field can be used to store an External ID from the client&#39;s system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format.  | [optional] 
 **IEzsigndocumentEzsignsignatureattachmenttotal** | **int32** | The number of Ezsigndocumentattachment total | 
+**IEzsigndocumentEzsigndiscussiontotal** | **int32** | The total number of Ezsigndiscussions | 
 **EEzsigndocumentSteptype** | [**ComputedEEzsigndocumentSteptype**](ComputedEEzsigndocumentSteptype.md) |  | 
 **IEzsigndocumentStepformtotal** | **int32** | The total number of steps in the form filling phase | 
 **IEzsigndocumentStepformcurrent** | **int32** | The current step in the form filling phase | 
@@ -37,7 +38,7 @@ Name | Type | Description | Notes
 
 ### NewEzsigndocumentGetObjectV1ResponseMPayload
 
-`func NewEzsigndocumentGetObjectV1ResponseMPayload(pkiEzsigndocumentID int32, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, sEzsigndocumentName string, eEzsigndocumentStep FieldEEzsigndocumentStep, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, iEzsigndocumentEzsignsignatureattachmenttotal int32, eEzsigndocumentSteptype ComputedEEzsigndocumentSteptype, iEzsigndocumentStepformtotal int32, iEzsigndocumentStepformcurrent int32, iEzsigndocumentStepsignaturetotal int32, iEzsigndocumentStepsignatureCurrent int32, aObjEzsignfoldersignerassociationstatus []CustomEzsignfoldersignerassociationstatusResponse, ) *EzsigndocumentGetObjectV1ResponseMPayload`
+`func NewEzsigndocumentGetObjectV1ResponseMPayload(pkiEzsigndocumentID int32, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, sEzsigndocumentName string, eEzsigndocumentStep FieldEEzsigndocumentStep, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, iEzsigndocumentEzsignsignatureattachmenttotal int32, iEzsigndocumentEzsigndiscussiontotal int32, eEzsigndocumentSteptype ComputedEEzsigndocumentSteptype, iEzsigndocumentStepformtotal int32, iEzsigndocumentStepformcurrent int32, iEzsigndocumentStepsignaturetotal int32, iEzsigndocumentStepsignatureCurrent int32, aObjEzsignfoldersignerassociationstatus []CustomEzsignfoldersignerassociationstatusResponse, ) *EzsigndocumentGetObjectV1ResponseMPayload`
 
 NewEzsigndocumentGetObjectV1ResponseMPayload instantiates a new EzsigndocumentGetObjectV1ResponseMPayload object
 This constructor will assign default values to properties that have it defined,
@@ -550,6 +551,26 @@ and a boolean to check if the value has been set.
 `func (o *EzsigndocumentGetObjectV1ResponseMPayload) SetIEzsigndocumentEzsignsignatureattachmenttotal(v int32)`
 
 SetIEzsigndocumentEzsignsignatureattachmenttotal sets IEzsigndocumentEzsignsignatureattachmenttotal field to given value.
+
+
+### GetIEzsigndocumentEzsigndiscussiontotal
+
+`func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetIEzsigndocumentEzsigndiscussiontotal() int32`
+
+GetIEzsigndocumentEzsigndiscussiontotal returns the IEzsigndocumentEzsigndiscussiontotal field if non-nil, zero value otherwise.
+
+### GetIEzsigndocumentEzsigndiscussiontotalOk
+
+`func (o *EzsigndocumentGetObjectV1ResponseMPayload) GetIEzsigndocumentEzsigndiscussiontotalOk() (*int32, bool)`
+
+GetIEzsigndocumentEzsigndiscussiontotalOk returns a tuple with the IEzsigndocumentEzsigndiscussiontotal field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIEzsigndocumentEzsigndiscussiontotal
+
+`func (o *EzsigndocumentGetObjectV1ResponseMPayload) SetIEzsigndocumentEzsigndiscussiontotal(v int32)`
+
+SetIEzsigndocumentEzsigndiscussiontotal sets IEzsigndocumentEzsigndiscussiontotal field to given value.
 
 
 ### GetEEzsigndocumentSteptype

@@ -40,6 +40,8 @@ type EzsigntemplatepackageResponse struct {
 	BEzsigntemplatepackageIsactive bool `json:"bEzsigntemplatepackageIsactive"`
 	// The name of the Ezsignfoldertype in the language of the requester
 	SEzsignfoldertypeNameX string `json:"sEzsignfoldertypeNameX"`
+	// Whether the Ezsigntemplatepackage if allowed to edit or not
+	BEzsigntemplatepackageEditallowed bool `json:"bEzsigntemplatepackageEditallowed"`
 }
 
 type _EzsigntemplatepackageResponse EzsigntemplatepackageResponse
@@ -48,7 +50,7 @@ type _EzsigntemplatepackageResponse EzsigntemplatepackageResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigntemplatepackageResponse(pkiEzsigntemplatepackageID int32, fkiEzsignfoldertypeID int32, fkiLanguageID int32, sLanguageNameX string, sEzsigntemplatepackageDescription string, bEzsigntemplatepackageAdminonly bool, bEzsigntemplatepackageNeedvalidation bool, bEzsigntemplatepackageIsactive bool, sEzsignfoldertypeNameX string) *EzsigntemplatepackageResponse {
+func NewEzsigntemplatepackageResponse(pkiEzsigntemplatepackageID int32, fkiEzsignfoldertypeID int32, fkiLanguageID int32, sLanguageNameX string, sEzsigntemplatepackageDescription string, bEzsigntemplatepackageAdminonly bool, bEzsigntemplatepackageNeedvalidation bool, bEzsigntemplatepackageIsactive bool, sEzsignfoldertypeNameX string, bEzsigntemplatepackageEditallowed bool) *EzsigntemplatepackageResponse {
 	this := EzsigntemplatepackageResponse{}
 	this.PkiEzsigntemplatepackageID = pkiEzsigntemplatepackageID
 	this.FkiEzsignfoldertypeID = fkiEzsignfoldertypeID
@@ -59,6 +61,7 @@ func NewEzsigntemplatepackageResponse(pkiEzsigntemplatepackageID int32, fkiEzsig
 	this.BEzsigntemplatepackageNeedvalidation = bEzsigntemplatepackageNeedvalidation
 	this.BEzsigntemplatepackageIsactive = bEzsigntemplatepackageIsactive
 	this.SEzsignfoldertypeNameX = sEzsignfoldertypeNameX
+	this.BEzsigntemplatepackageEditallowed = bEzsigntemplatepackageEditallowed
 	return &this
 }
 
@@ -286,6 +289,30 @@ func (o *EzsigntemplatepackageResponse) SetSEzsignfoldertypeNameX(v string) {
 	o.SEzsignfoldertypeNameX = v
 }
 
+// GetBEzsigntemplatepackageEditallowed returns the BEzsigntemplatepackageEditallowed field value
+func (o *EzsigntemplatepackageResponse) GetBEzsigntemplatepackageEditallowed() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BEzsigntemplatepackageEditallowed
+}
+
+// GetBEzsigntemplatepackageEditallowedOk returns a tuple with the BEzsigntemplatepackageEditallowed field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatepackageResponse) GetBEzsigntemplatepackageEditallowedOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BEzsigntemplatepackageEditallowed, true
+}
+
+// SetBEzsigntemplatepackageEditallowed sets field value
+func (o *EzsigntemplatepackageResponse) SetBEzsigntemplatepackageEditallowed(v bool) {
+	o.BEzsigntemplatepackageEditallowed = v
+}
+
 func (o EzsigntemplatepackageResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -305,6 +332,7 @@ func (o EzsigntemplatepackageResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["bEzsigntemplatepackageNeedvalidation"] = o.BEzsigntemplatepackageNeedvalidation
 	toSerialize["bEzsigntemplatepackageIsactive"] = o.BEzsigntemplatepackageIsactive
 	toSerialize["sEzsignfoldertypeNameX"] = o.SEzsignfoldertypeNameX
+	toSerialize["bEzsigntemplatepackageEditallowed"] = o.BEzsigntemplatepackageEditallowed
 	return toSerialize, nil
 }
 
@@ -322,6 +350,7 @@ func (o *EzsigntemplatepackageResponse) UnmarshalJSON(data []byte) (err error) {
 		"bEzsigntemplatepackageNeedvalidation",
 		"bEzsigntemplatepackageIsactive",
 		"sEzsignfoldertypeNameX",
+		"bEzsigntemplatepackageEditallowed",
 	}
 
 	allProperties := make(map[string]interface{})

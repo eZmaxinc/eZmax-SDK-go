@@ -4,7 +4,6 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**WebhookCreateObjectV1**](ObjectWebhookAPI.md#WebhookCreateObjectV1) | **Post** /1/object/webhook | Create a new Webhook
 [**WebhookCreateObjectV2**](ObjectWebhookAPI.md#WebhookCreateObjectV2) | **Post** /2/object/webhook | Create a new Webhook
 [**WebhookDeleteObjectV1**](ObjectWebhookAPI.md#WebhookDeleteObjectV1) | **Delete** /1/object/webhook/{pkiWebhookID} | Delete an existing Webhook
 [**WebhookEditObjectV1**](ObjectWebhookAPI.md#WebhookEditObjectV1) | **Put** /1/object/webhook/{pkiWebhookID} | Edit an existing Webhook
@@ -14,72 +13,6 @@ Method | HTTP request | Description
 [**WebhookRegenerateApikeyV1**](ObjectWebhookAPI.md#WebhookRegenerateApikeyV1) | **Post** /1/object/webhook/{pkiWebhookID}/regenerateApikey | Regenerate the Apikey
 [**WebhookTestV1**](ObjectWebhookAPI.md#WebhookTestV1) | **Post** /1/object/webhook/{pkiWebhookID}/test | Test the Webhook by calling the Url
 
-
-
-## WebhookCreateObjectV1
-
-> WebhookCreateObjectV1Response WebhookCreateObjectV1(ctx).WebhookCreateObjectV1Request(webhookCreateObjectV1Request).Execute()
-
-Create a new Webhook
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	webhookCreateObjectV1Request := *openapiclient.NewWebhookCreateObjectV1Request([]openapiclient.WebhookRequestCompound{*openapiclient.NewWebhookRequestCompound("Import into our system", openapiclient.Field-eWebhookModule("Ezsign"), "https://www.example.com", "email@example.com", true, false)}) // WebhookCreateObjectV1Request | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectWebhookAPI.WebhookCreateObjectV1(context.Background()).WebhookCreateObjectV1Request(webhookCreateObjectV1Request).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectWebhookAPI.WebhookCreateObjectV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `WebhookCreateObjectV1`: WebhookCreateObjectV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectWebhookAPI.WebhookCreateObjectV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiWebhookCreateObjectV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **webhookCreateObjectV1Request** | [**WebhookCreateObjectV1Request**](WebhookCreateObjectV1Request.md) |  | 
-
-### Return type
-
-[**WebhookCreateObjectV1Response**](WebhookCreateObjectV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
 
 
 ## WebhookCreateObjectV2

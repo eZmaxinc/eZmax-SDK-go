@@ -22,18 +22,6 @@ func Test_eZmaxApi_ObjectFranchisereferalincomeAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ObjectFranchisereferalincomeAPIService FranchisereferalincomeCreateObjectV1", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.ObjectFranchisereferalincomeAPI.FranchisereferalincomeCreateObjectV1(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test ObjectFranchisereferalincomeAPIService FranchisereferalincomeCreateObjectV2", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

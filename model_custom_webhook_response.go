@@ -48,6 +48,9 @@ type CustomWebhookResponse struct {
 	// Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use
 	BWebhookSkipsslvalidation bool `json:"bWebhookSkipsslvalidation"`
 	ObjAudit CommonAudit `json:"objAudit"`
+	// The concatenated string to describe the Webhook event
+	SWebhookEvent *string `json:"sWebhookEvent,omitempty"`
+	AObjWebhookheader []WebhookheaderResponseCompound `json:"a_objWebhookheader,omitempty"`
 	// The customer code assigned to your account
 	PksCustomerCode string `json:"pksCustomerCode"`
 	// Wheter the webhook received is a manual test or a real event
@@ -492,6 +495,70 @@ func (o *CustomWebhookResponse) SetObjAudit(v CommonAudit) {
 	o.ObjAudit = v
 }
 
+// GetSWebhookEvent returns the SWebhookEvent field value if set, zero value otherwise.
+func (o *CustomWebhookResponse) GetSWebhookEvent() string {
+	if o == nil || IsNil(o.SWebhookEvent) {
+		var ret string
+		return ret
+	}
+	return *o.SWebhookEvent
+}
+
+// GetSWebhookEventOk returns a tuple with the SWebhookEvent field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomWebhookResponse) GetSWebhookEventOk() (*string, bool) {
+	if o == nil || IsNil(o.SWebhookEvent) {
+		return nil, false
+	}
+	return o.SWebhookEvent, true
+}
+
+// HasSWebhookEvent returns a boolean if a field has been set.
+func (o *CustomWebhookResponse) HasSWebhookEvent() bool {
+	if o != nil && !IsNil(o.SWebhookEvent) {
+		return true
+	}
+
+	return false
+}
+
+// SetSWebhookEvent gets a reference to the given string and assigns it to the SWebhookEvent field.
+func (o *CustomWebhookResponse) SetSWebhookEvent(v string) {
+	o.SWebhookEvent = &v
+}
+
+// GetAObjWebhookheader returns the AObjWebhookheader field value if set, zero value otherwise.
+func (o *CustomWebhookResponse) GetAObjWebhookheader() []WebhookheaderResponseCompound {
+	if o == nil || IsNil(o.AObjWebhookheader) {
+		var ret []WebhookheaderResponseCompound
+		return ret
+	}
+	return o.AObjWebhookheader
+}
+
+// GetAObjWebhookheaderOk returns a tuple with the AObjWebhookheader field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomWebhookResponse) GetAObjWebhookheaderOk() ([]WebhookheaderResponseCompound, bool) {
+	if o == nil || IsNil(o.AObjWebhookheader) {
+		return nil, false
+	}
+	return o.AObjWebhookheader, true
+}
+
+// HasAObjWebhookheader returns a boolean if a field has been set.
+func (o *CustomWebhookResponse) HasAObjWebhookheader() bool {
+	if o != nil && !IsNil(o.AObjWebhookheader) {
+		return true
+	}
+
+	return false
+}
+
+// SetAObjWebhookheader gets a reference to the given []WebhookheaderResponseCompound and assigns it to the AObjWebhookheader field.
+func (o *CustomWebhookResponse) SetAObjWebhookheader(v []WebhookheaderResponseCompound) {
+	o.AObjWebhookheader = v
+}
+
 // GetPksCustomerCode returns the PksCustomerCode field value
 func (o *CustomWebhookResponse) GetPksCustomerCode() string {
 	if o == nil {
@@ -577,6 +644,12 @@ func (o CustomWebhookResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["bWebhookIssigned"] = o.BWebhookIssigned
 	toSerialize["bWebhookSkipsslvalidation"] = o.BWebhookSkipsslvalidation
 	toSerialize["objAudit"] = o.ObjAudit
+	if !IsNil(o.SWebhookEvent) {
+		toSerialize["sWebhookEvent"] = o.SWebhookEvent
+	}
+	if !IsNil(o.AObjWebhookheader) {
+		toSerialize["a_objWebhookheader"] = o.AObjWebhookheader
+	}
 	toSerialize["pksCustomerCode"] = o.PksCustomerCode
 	toSerialize["bWebhookTest"] = o.BWebhookTest
 	return toSerialize, nil

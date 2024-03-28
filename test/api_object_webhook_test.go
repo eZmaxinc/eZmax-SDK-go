@@ -22,18 +22,6 @@ func Test_eZmaxApi_ObjectWebhookAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ObjectWebhookAPIService WebhookCreateObjectV1", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.ObjectWebhookAPI.WebhookCreateObjectV1(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test ObjectWebhookAPIService WebhookCreateObjectV2", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

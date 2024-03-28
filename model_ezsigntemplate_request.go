@@ -30,6 +30,8 @@ type EzsigntemplateRequest struct {
 	FkiLanguageID int32 `json:"fkiLanguageID"`
 	// The description of the Ezsigntemplate
 	SEzsigntemplateDescription string `json:"sEzsigntemplateDescription"`
+	// The filename pattern of the Ezsigntemplate
+	SEzsigntemplateFilenamepattern *string `json:"sEzsigntemplateFilenamepattern,omitempty"`
 	// Whether the Ezsigntemplate can be accessed by admin users only (eUserType=Normal)
 	BEzsigntemplateAdminonly bool `json:"bEzsigntemplateAdminonly"`
 }
@@ -161,6 +163,38 @@ func (o *EzsigntemplateRequest) SetSEzsigntemplateDescription(v string) {
 	o.SEzsigntemplateDescription = v
 }
 
+// GetSEzsigntemplateFilenamepattern returns the SEzsigntemplateFilenamepattern field value if set, zero value otherwise.
+func (o *EzsigntemplateRequest) GetSEzsigntemplateFilenamepattern() string {
+	if o == nil || IsNil(o.SEzsigntemplateFilenamepattern) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsigntemplateFilenamepattern
+}
+
+// GetSEzsigntemplateFilenamepatternOk returns a tuple with the SEzsigntemplateFilenamepattern field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateRequest) GetSEzsigntemplateFilenamepatternOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsigntemplateFilenamepattern) {
+		return nil, false
+	}
+	return o.SEzsigntemplateFilenamepattern, true
+}
+
+// HasSEzsigntemplateFilenamepattern returns a boolean if a field has been set.
+func (o *EzsigntemplateRequest) HasSEzsigntemplateFilenamepattern() bool {
+	if o != nil && !IsNil(o.SEzsigntemplateFilenamepattern) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsigntemplateFilenamepattern gets a reference to the given string and assigns it to the SEzsigntemplateFilenamepattern field.
+func (o *EzsigntemplateRequest) SetSEzsigntemplateFilenamepattern(v string) {
+	o.SEzsigntemplateFilenamepattern = &v
+}
+
 // GetBEzsigntemplateAdminonly returns the BEzsigntemplateAdminonly field value
 func (o *EzsigntemplateRequest) GetBEzsigntemplateAdminonly() bool {
 	if o == nil {
@@ -201,6 +235,9 @@ func (o EzsigntemplateRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize["fkiEzsignfoldertypeID"] = o.FkiEzsignfoldertypeID
 	toSerialize["fkiLanguageID"] = o.FkiLanguageID
 	toSerialize["sEzsigntemplateDescription"] = o.SEzsigntemplateDescription
+	if !IsNil(o.SEzsigntemplateFilenamepattern) {
+		toSerialize["sEzsigntemplateFilenamepattern"] = o.SEzsigntemplateFilenamepattern
+	}
 	toSerialize["bEzsigntemplateAdminonly"] = o.BEzsigntemplateAdminonly
 	return toSerialize, nil
 }

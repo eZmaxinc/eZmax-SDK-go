@@ -41,6 +41,9 @@ type ActivesessionGetCurrentV1ResponseMPayload struct {
 	FkiSystemconfigurationtypeID int32 `json:"fkiSystemconfigurationtypeID"`
 	// The unique ID of the Signature
 	FkiSignatureID *int32 `json:"fkiSignatureID,omitempty"`
+	// Whether if Ezsign is paid by the company or not
+	BSystemconfigurationEzsignpaidbyoffice *bool `json:"bSystemconfigurationEzsignpaidbyoffice,omitempty"`
+	ESystemconfigurationEzsignofficeplan *FieldESystemconfigurationEzsignofficeplan `json:"eSystemconfigurationEzsignofficeplan,omitempty"`
 	EUserEzsignaccess FieldEUserEzsignaccess `json:"eUserEzsignaccess"`
 	EUserEzsignprepaid *FieldEUserEzsignprepaid `json:"eUserEzsignprepaid,omitempty"`
 	// The eZsign prepaid expiration date
@@ -359,6 +362,70 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) SetFkiSignatureID(v int32) {
 	o.FkiSignatureID = &v
 }
 
+// GetBSystemconfigurationEzsignpaidbyoffice returns the BSystemconfigurationEzsignpaidbyoffice field value if set, zero value otherwise.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetBSystemconfigurationEzsignpaidbyoffice() bool {
+	if o == nil || IsNil(o.BSystemconfigurationEzsignpaidbyoffice) {
+		var ret bool
+		return ret
+	}
+	return *o.BSystemconfigurationEzsignpaidbyoffice
+}
+
+// GetBSystemconfigurationEzsignpaidbyofficeOk returns a tuple with the BSystemconfigurationEzsignpaidbyoffice field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetBSystemconfigurationEzsignpaidbyofficeOk() (*bool, bool) {
+	if o == nil || IsNil(o.BSystemconfigurationEzsignpaidbyoffice) {
+		return nil, false
+	}
+	return o.BSystemconfigurationEzsignpaidbyoffice, true
+}
+
+// HasBSystemconfigurationEzsignpaidbyoffice returns a boolean if a field has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) HasBSystemconfigurationEzsignpaidbyoffice() bool {
+	if o != nil && !IsNil(o.BSystemconfigurationEzsignpaidbyoffice) {
+		return true
+	}
+
+	return false
+}
+
+// SetBSystemconfigurationEzsignpaidbyoffice gets a reference to the given bool and assigns it to the BSystemconfigurationEzsignpaidbyoffice field.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) SetBSystemconfigurationEzsignpaidbyoffice(v bool) {
+	o.BSystemconfigurationEzsignpaidbyoffice = &v
+}
+
+// GetESystemconfigurationEzsignofficeplan returns the ESystemconfigurationEzsignofficeplan field value if set, zero value otherwise.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetESystemconfigurationEzsignofficeplan() FieldESystemconfigurationEzsignofficeplan {
+	if o == nil || IsNil(o.ESystemconfigurationEzsignofficeplan) {
+		var ret FieldESystemconfigurationEzsignofficeplan
+		return ret
+	}
+	return *o.ESystemconfigurationEzsignofficeplan
+}
+
+// GetESystemconfigurationEzsignofficeplanOk returns a tuple with the ESystemconfigurationEzsignofficeplan field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetESystemconfigurationEzsignofficeplanOk() (*FieldESystemconfigurationEzsignofficeplan, bool) {
+	if o == nil || IsNil(o.ESystemconfigurationEzsignofficeplan) {
+		return nil, false
+	}
+	return o.ESystemconfigurationEzsignofficeplan, true
+}
+
+// HasESystemconfigurationEzsignofficeplan returns a boolean if a field has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) HasESystemconfigurationEzsignofficeplan() bool {
+	if o != nil && !IsNil(o.ESystemconfigurationEzsignofficeplan) {
+		return true
+	}
+
+	return false
+}
+
+// SetESystemconfigurationEzsignofficeplan gets a reference to the given FieldESystemconfigurationEzsignofficeplan and assigns it to the ESystemconfigurationEzsignofficeplan field.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) SetESystemconfigurationEzsignofficeplan(v FieldESystemconfigurationEzsignofficeplan) {
+	o.ESystemconfigurationEzsignofficeplan = &v
+}
+
 // GetEUserEzsignaccess returns the EUserEzsignaccess field value
 func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEUserEzsignaccess() FieldEUserEzsignaccess {
 	if o == nil {
@@ -605,6 +672,12 @@ func (o ActivesessionGetCurrentV1ResponseMPayload) ToMap() (map[string]interface
 	toSerialize["fkiSystemconfigurationtypeID"] = o.FkiSystemconfigurationtypeID
 	if !IsNil(o.FkiSignatureID) {
 		toSerialize["fkiSignatureID"] = o.FkiSignatureID
+	}
+	if !IsNil(o.BSystemconfigurationEzsignpaidbyoffice) {
+		toSerialize["bSystemconfigurationEzsignpaidbyoffice"] = o.BSystemconfigurationEzsignpaidbyoffice
+	}
+	if !IsNil(o.ESystemconfigurationEzsignofficeplan) {
+		toSerialize["eSystemconfigurationEzsignofficeplan"] = o.ESystemconfigurationEzsignofficeplan
 	}
 	toSerialize["eUserEzsignaccess"] = o.EUserEzsignaccess
 	if !IsNil(o.EUserEzsignprepaid) {

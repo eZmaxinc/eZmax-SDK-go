@@ -64,6 +64,8 @@ type EzsigndocumentResponseCompound struct {
 	SEzsigndocumentExternalid *string `json:"sEzsigndocumentExternalid,omitempty"`
 	// The number of Ezsigndocumentattachment total
 	IEzsigndocumentEzsignsignatureattachmenttotal int32 `json:"iEzsigndocumentEzsignsignatureattachmenttotal"`
+	// The total number of Ezsigndiscussions
+	IEzsigndocumentEzsigndiscussiontotal int32 `json:"iEzsigndocumentEzsigndiscussiontotal"`
 	EEzsigndocumentSteptype ComputedEEzsigndocumentSteptype `json:"eEzsigndocumentSteptype"`
 	// The total number of steps in the form filling phase
 	IEzsigndocumentStepformtotal int32 `json:"iEzsigndocumentStepformtotal"`
@@ -82,7 +84,7 @@ type _EzsigndocumentResponseCompound EzsigndocumentResponseCompound
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigndocumentResponseCompound(pkiEzsigndocumentID int32, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, sEzsigndocumentName string, eEzsigndocumentStep FieldEEzsigndocumentStep, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, iEzsigndocumentEzsignsignatureattachmenttotal int32, eEzsigndocumentSteptype ComputedEEzsigndocumentSteptype, iEzsigndocumentStepformtotal int32, iEzsigndocumentStepformcurrent int32, iEzsigndocumentStepsignaturetotal int32, iEzsigndocumentStepsignatureCurrent int32, aObjEzsignfoldersignerassociationstatus []CustomEzsignfoldersignerassociationstatusResponse) *EzsigndocumentResponseCompound {
+func NewEzsigndocumentResponseCompound(pkiEzsigndocumentID int32, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, sEzsigndocumentName string, eEzsigndocumentStep FieldEEzsigndocumentStep, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, iEzsigndocumentEzsignsignatureattachmenttotal int32, iEzsigndocumentEzsigndiscussiontotal int32, eEzsigndocumentSteptype ComputedEEzsigndocumentSteptype, iEzsigndocumentStepformtotal int32, iEzsigndocumentStepformcurrent int32, iEzsigndocumentStepsignaturetotal int32, iEzsigndocumentStepsignatureCurrent int32, aObjEzsignfoldersignerassociationstatus []CustomEzsignfoldersignerassociationstatusResponse) *EzsigndocumentResponseCompound {
 	this := EzsigndocumentResponseCompound{}
 	this.PkiEzsigndocumentID = pkiEzsigndocumentID
 	this.FkiEzsignfolderID = fkiEzsignfolderID
@@ -94,6 +96,7 @@ func NewEzsigndocumentResponseCompound(pkiEzsigndocumentID int32, fkiEzsignfolde
 	this.IEzsigndocumentSignaturesigned = iEzsigndocumentSignaturesigned
 	this.IEzsigndocumentSignaturetotal = iEzsigndocumentSignaturetotal
 	this.IEzsigndocumentEzsignsignatureattachmenttotal = iEzsigndocumentEzsignsignatureattachmenttotal
+	this.IEzsigndocumentEzsigndiscussiontotal = iEzsigndocumentEzsigndiscussiontotal
 	this.EEzsigndocumentSteptype = eEzsigndocumentSteptype
 	this.IEzsigndocumentStepformtotal = iEzsigndocumentStepformtotal
 	this.IEzsigndocumentStepformcurrent = iEzsigndocumentStepformcurrent
@@ -735,6 +738,30 @@ func (o *EzsigndocumentResponseCompound) SetIEzsigndocumentEzsignsignatureattach
 	o.IEzsigndocumentEzsignsignatureattachmenttotal = v
 }
 
+// GetIEzsigndocumentEzsigndiscussiontotal returns the IEzsigndocumentEzsigndiscussiontotal field value
+func (o *EzsigndocumentResponseCompound) GetIEzsigndocumentEzsigndiscussiontotal() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IEzsigndocumentEzsigndiscussiontotal
+}
+
+// GetIEzsigndocumentEzsigndiscussiontotalOk returns a tuple with the IEzsigndocumentEzsigndiscussiontotal field value
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentResponseCompound) GetIEzsigndocumentEzsigndiscussiontotalOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IEzsigndocumentEzsigndiscussiontotal, true
+}
+
+// SetIEzsigndocumentEzsigndiscussiontotal sets field value
+func (o *EzsigndocumentResponseCompound) SetIEzsigndocumentEzsigndiscussiontotal(v int32) {
+	o.IEzsigndocumentEzsigndiscussiontotal = v
+}
+
 // GetEEzsigndocumentSteptype returns the EEzsigndocumentSteptype field value
 func (o *EzsigndocumentResponseCompound) GetEEzsigndocumentSteptype() ComputedEEzsigndocumentSteptype {
 	if o == nil {
@@ -935,6 +962,7 @@ func (o EzsigndocumentResponseCompound) ToMap() (map[string]interface{}, error) 
 		toSerialize["sEzsigndocumentExternalid"] = o.SEzsigndocumentExternalid
 	}
 	toSerialize["iEzsigndocumentEzsignsignatureattachmenttotal"] = o.IEzsigndocumentEzsignsignatureattachmenttotal
+	toSerialize["iEzsigndocumentEzsigndiscussiontotal"] = o.IEzsigndocumentEzsigndiscussiontotal
 	toSerialize["eEzsigndocumentSteptype"] = o.EEzsigndocumentSteptype
 	toSerialize["iEzsigndocumentStepformtotal"] = o.IEzsigndocumentStepformtotal
 	toSerialize["iEzsigndocumentStepformcurrent"] = o.IEzsigndocumentStepformcurrent
@@ -959,6 +987,7 @@ func (o *EzsigndocumentResponseCompound) UnmarshalJSON(data []byte) (err error) 
 		"iEzsigndocumentSignaturesigned",
 		"iEzsigndocumentSignaturetotal",
 		"iEzsigndocumentEzsignsignatureattachmenttotal",
+		"iEzsigndocumentEzsigndiscussiontotal",
 		"eEzsigndocumentSteptype",
 		"iEzsigndocumentStepformtotal",
 		"iEzsigndocumentStepformcurrent",

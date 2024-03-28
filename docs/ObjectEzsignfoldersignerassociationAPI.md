@@ -4,6 +4,7 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**EzsignfoldersignerassociationCreateEmbeddedUrlV1**](ObjectEzsignfoldersignerassociationAPI.md#EzsignfoldersignerassociationCreateEmbeddedUrlV1) | **Post** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/createEmbeddedUrl | Creates an Url to allow embedded signing
 [**EzsignfoldersignerassociationCreateObjectV1**](ObjectEzsignfoldersignerassociationAPI.md#EzsignfoldersignerassociationCreateObjectV1) | **Post** /1/object/ezsignfoldersignerassociation | Create a new Ezsignfoldersignerassociation
 [**EzsignfoldersignerassociationCreateObjectV2**](ObjectEzsignfoldersignerassociationAPI.md#EzsignfoldersignerassociationCreateObjectV2) | **Post** /2/object/ezsignfoldersignerassociation | Create a new Ezsignfoldersignerassociation
 [**EzsignfoldersignerassociationDeleteObjectV1**](ObjectEzsignfoldersignerassociationAPI.md#EzsignfoldersignerassociationDeleteObjectV1) | **Delete** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Delete an existing Ezsignfoldersignerassociation
@@ -14,6 +15,78 @@ Method | HTTP request | Description
 [**EzsignfoldersignerassociationGetObjectV2**](ObjectEzsignfoldersignerassociationAPI.md#EzsignfoldersignerassociationGetObjectV2) | **Get** /2/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Retrieve an existing Ezsignfoldersignerassociation
 [**EzsignfoldersignerassociationPatchObjectV1**](ObjectEzsignfoldersignerassociationAPI.md#EzsignfoldersignerassociationPatchObjectV1) | **Patch** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Patch an existing Ezsignfoldersignerassociation
 
+
+
+## EzsignfoldersignerassociationCreateEmbeddedUrlV1
+
+> EzsignfoldersignerassociationCreateEmbeddedUrlV1Response EzsignfoldersignerassociationCreateEmbeddedUrlV1(ctx, pkiEzsignfoldersignerassociationID).EzsignfoldersignerassociationCreateEmbeddedUrlV1Request(ezsignfoldersignerassociationCreateEmbeddedUrlV1Request).Execute()
+
+Creates an Url to allow embedded signing
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsignfoldersignerassociationID := int32(56) // int32 | 
+	ezsignfoldersignerassociationCreateEmbeddedUrlV1Request := *openapiclient.NewEzsignfoldersignerassociationCreateEmbeddedUrlV1Request() // EzsignfoldersignerassociationCreateEmbeddedUrlV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfoldersignerassociationAPI.EzsignfoldersignerassociationCreateEmbeddedUrlV1(context.Background(), pkiEzsignfoldersignerassociationID).EzsignfoldersignerassociationCreateEmbeddedUrlV1Request(ezsignfoldersignerassociationCreateEmbeddedUrlV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldersignerassociationAPI.EzsignfoldersignerassociationCreateEmbeddedUrlV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfoldersignerassociationCreateEmbeddedUrlV1`: EzsignfoldersignerassociationCreateEmbeddedUrlV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfoldersignerassociationAPI.EzsignfoldersignerassociationCreateEmbeddedUrlV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsignfoldersignerassociationID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsignfoldersignerassociationCreateEmbeddedUrlV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **ezsignfoldersignerassociationCreateEmbeddedUrlV1Request** | [**EzsignfoldersignerassociationCreateEmbeddedUrlV1Request**](EzsignfoldersignerassociationCreateEmbeddedUrlV1Request.md) |  | 
+
+### Return type
+
+[**EzsignfoldersignerassociationCreateEmbeddedUrlV1Response**](EzsignfoldersignerassociationCreateEmbeddedUrlV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## EzsignfoldersignerassociationCreateObjectV1

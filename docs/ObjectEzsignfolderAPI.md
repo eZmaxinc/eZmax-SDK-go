@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**EzsignfolderDisposeEzsignfoldersV1**](ObjectEzsignfolderAPI.md#EzsignfolderDisposeEzsignfoldersV1) | **Post** /1/object/ezsignfolder/disposeEzsignfolders | Dispose Ezsignfolders
 [**EzsignfolderDisposeV1**](ObjectEzsignfolderAPI.md#EzsignfolderDisposeV1) | **Post** /1/object/ezsignfolder/{pkiEzsignfolderID}/dispose | Dispose the Ezsignfolder
 [**EzsignfolderEditObjectV1**](ObjectEzsignfolderAPI.md#EzsignfolderEditObjectV1) | **Put** /1/object/ezsignfolder/{pkiEzsignfolderID} | Edit an existing Ezsignfolder
+[**EzsignfolderEndPrematurelyV1**](ObjectEzsignfolderAPI.md#EzsignfolderEndPrematurelyV1) | **Post** /1/object/ezsignfolder/{pkiEzsignfolderID}/endPrematurely | End prematurely
 [**EzsignfolderGetActionableElementsV1**](ObjectEzsignfolderAPI.md#EzsignfolderGetActionableElementsV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getActionableElements | Retrieve actionable elements for the Ezsignfolder
 [**EzsignfolderGetAttachmentCountV1**](ObjectEzsignfolderAPI.md#EzsignfolderGetAttachmentCountV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getAttachmentCount | Retrieve Attachment count
 [**EzsignfolderGetAttachmentsV1**](ObjectEzsignfolderAPI.md#EzsignfolderGetAttachmentsV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getAttachments | Retrieve Ezsignfolder&#39;s Attachments
@@ -30,7 +31,6 @@ Method | HTTP request | Description
 [**EzsignfolderImportEzsigntemplatepackageV1**](ObjectEzsignfolderAPI.md#EzsignfolderImportEzsigntemplatepackageV1) | **Post** /1/object/ezsignfolder/{pkiEzsignfolderID}/importEzsigntemplatepackage | Import an Ezsigntemplatepackage in the Ezsignfolder.
 [**EzsignfolderReorderV1**](ObjectEzsignfolderAPI.md#EzsignfolderReorderV1) | **Post** /1/object/ezsignfolder/{pkiEzsignfolderID}/reorder | Reorder Ezsigndocuments in the Ezsignfolder
 [**EzsignfolderSendV1**](ObjectEzsignfolderAPI.md#EzsignfolderSendV1) | **Post** /1/object/ezsignfolder/{pkiEzsignfolderID}/send | Send the Ezsignfolder to the signatories for signature
-[**EzsignfolderSendV2**](ObjectEzsignfolderAPI.md#EzsignfolderSendV2) | **Post** /2/object/ezsignfolder/{pkiEzsignfolderID}/send | Send the Ezsignfolder to the signatories for signature
 [**EzsignfolderSendV3**](ObjectEzsignfolderAPI.md#EzsignfolderSendV3) | **Post** /3/object/ezsignfolder/{pkiEzsignfolderID}/send | Send the Ezsignfolder to the signatories for signature
 [**EzsignfolderUnsendV1**](ObjectEzsignfolderAPI.md#EzsignfolderUnsendV1) | **Post** /1/object/ezsignfolder/{pkiEzsignfolderID}/unsend | Unsend the Ezsignfolder
 
@@ -573,6 +573,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignfolderEditObjectV1Response**](EzsignfolderEditObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsignfolderEndPrematurelyV1
+
+> EzsignfolderEndPrematurelyV1Response EzsignfolderEndPrematurelyV1(ctx, pkiEzsignfolderID).Body(body).Execute()
+
+End prematurely
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsignfolderID := int32(56) // int32 | 
+	body := map[string]interface{}{ ... } // map[string]interface{} | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderEndPrematurelyV1(context.Background(), pkiEzsignfolderID).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderEndPrematurelyV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderEndPrematurelyV1`: EzsignfolderEndPrematurelyV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderEndPrematurelyV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsignfolderID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsignfolderEndPrematurelyV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **body** | **map[string]interface{}** |  | 
+
+### Return type
+
+[**EzsignfolderEndPrematurelyV1Response**](EzsignfolderEndPrematurelyV1Response.md)
 
 ### Authorization
 
@@ -1849,86 +1921,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignfolderSendV1Response**](EzsignfolderSendV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## EzsignfolderSendV2
-
-> EzsignfolderSendV2Response EzsignfolderSendV2(ctx, pkiEzsignfolderID).EzsignfolderSendV2Request(ezsignfolderSendV2Request).Execute()
-
-Send the Ezsignfolder to the signatories for signature
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiEzsignfolderID := int32(56) // int32 | 
-	ezsignfolderSendV2Request := *openapiclient.NewEzsignfolderSendV2Request("Hi everyone,
-
-This is the document I need you to review.
-
-Could you sign it before Monday please.
-
-Best Regards.
-
-Mary", []int32{int32(20)}, []openapiclient.CustomEzsignfoldersignerassociationmessageRequest{*openapiclient.NewCustomEzsignfoldersignerassociationmessageRequest(int32(20))}) // EzsignfolderSendV2Request | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderSendV2(context.Background(), pkiEzsignfolderID).EzsignfolderSendV2Request(ezsignfolderSendV2Request).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderSendV2``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `EzsignfolderSendV2`: EzsignfolderSendV2Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderSendV2`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiEzsignfolderID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiEzsignfolderSendV2Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **ezsignfolderSendV2Request** | [**EzsignfolderSendV2Request**](EzsignfolderSendV2Request.md) |  | 
-
-### Return type
-
-[**EzsignfolderSendV2Response**](EzsignfolderSendV2Response.md)
 
 ### Authorization
 

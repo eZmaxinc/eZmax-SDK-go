@@ -48,6 +48,14 @@ type EzsignfolderListElement struct {
 	IEzsignsignature int32 `json:"iEzsignsignature"`
 	// The total number of already signed signature blocks in all Ezsigndocuments in the folder
 	IEzsignsignatureSigned int32 `json:"iEzsignsignatureSigned"`
+	// The total number of Ezsignformfieldgroup in all Ezsigndocuments in the folder
+	IEzsignformfieldgroup int32 `json:"iEzsignformfieldgroup"`
+	// The total number of completed Ezsignformfieldgroup in all Ezsigndocuments in the folder
+	IEzsignformfieldgroupCompleted int32 `json:"iEzsignformfieldgroupCompleted"`
+	// Whether the Ezsignform/Ezsignsignatures has dependencies or not
+	BEzsignformHasdependencies *bool `json:"bEzsignformHasdependencies,omitempty"`
+	// Whether the Ezsignform/Ezsignsignatures has dependencies or not
+	DEzsignfolderCompletedpercentage string `json:"dEzsignfolderCompletedpercentage"`
 }
 
 type _EzsignfolderListElement EzsignfolderListElement
@@ -56,7 +64,7 @@ type _EzsignfolderListElement EzsignfolderListElement
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfolderListElement(pkiEzsignfolderID int32, fkiEzsignfoldertypeID int32, eEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX string, sEzsignfolderDescription string, eEzsignfolderStep FieldEEzsignfolderStep, dtCreatedDate string, iEzsigndocument int32, iEzsigndocumentEdm int32, iEzsignsignature int32, iEzsignsignatureSigned int32) *EzsignfolderListElement {
+func NewEzsignfolderListElement(pkiEzsignfolderID int32, fkiEzsignfoldertypeID int32, eEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX string, sEzsignfolderDescription string, eEzsignfolderStep FieldEEzsignfolderStep, dtCreatedDate string, iEzsigndocument int32, iEzsigndocumentEdm int32, iEzsignsignature int32, iEzsignsignatureSigned int32, iEzsignformfieldgroup int32, iEzsignformfieldgroupCompleted int32, dEzsignfolderCompletedpercentage string) *EzsignfolderListElement {
 	this := EzsignfolderListElement{}
 	this.PkiEzsignfolderID = pkiEzsignfolderID
 	this.FkiEzsignfoldertypeID = fkiEzsignfoldertypeID
@@ -69,6 +77,9 @@ func NewEzsignfolderListElement(pkiEzsignfolderID int32, fkiEzsignfoldertypeID i
 	this.IEzsigndocumentEdm = iEzsigndocumentEdm
 	this.IEzsignsignature = iEzsignsignature
 	this.IEzsignsignatureSigned = iEzsignsignatureSigned
+	this.IEzsignformfieldgroup = iEzsignformfieldgroup
+	this.IEzsignformfieldgroupCompleted = iEzsignformfieldgroupCompleted
+	this.DEzsignfolderCompletedpercentage = dEzsignfolderCompletedpercentage
 	return &this
 }
 
@@ -440,6 +451,110 @@ func (o *EzsignfolderListElement) SetIEzsignsignatureSigned(v int32) {
 	o.IEzsignsignatureSigned = v
 }
 
+// GetIEzsignformfieldgroup returns the IEzsignformfieldgroup field value
+func (o *EzsignfolderListElement) GetIEzsignformfieldgroup() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IEzsignformfieldgroup
+}
+
+// GetIEzsignformfieldgroupOk returns a tuple with the IEzsignformfieldgroup field value
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderListElement) GetIEzsignformfieldgroupOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IEzsignformfieldgroup, true
+}
+
+// SetIEzsignformfieldgroup sets field value
+func (o *EzsignfolderListElement) SetIEzsignformfieldgroup(v int32) {
+	o.IEzsignformfieldgroup = v
+}
+
+// GetIEzsignformfieldgroupCompleted returns the IEzsignformfieldgroupCompleted field value
+func (o *EzsignfolderListElement) GetIEzsignformfieldgroupCompleted() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IEzsignformfieldgroupCompleted
+}
+
+// GetIEzsignformfieldgroupCompletedOk returns a tuple with the IEzsignformfieldgroupCompleted field value
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderListElement) GetIEzsignformfieldgroupCompletedOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IEzsignformfieldgroupCompleted, true
+}
+
+// SetIEzsignformfieldgroupCompleted sets field value
+func (o *EzsignfolderListElement) SetIEzsignformfieldgroupCompleted(v int32) {
+	o.IEzsignformfieldgroupCompleted = v
+}
+
+// GetBEzsignformHasdependencies returns the BEzsignformHasdependencies field value if set, zero value otherwise.
+func (o *EzsignfolderListElement) GetBEzsignformHasdependencies() bool {
+	if o == nil || IsNil(o.BEzsignformHasdependencies) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignformHasdependencies
+}
+
+// GetBEzsignformHasdependenciesOk returns a tuple with the BEzsignformHasdependencies field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderListElement) GetBEzsignformHasdependenciesOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignformHasdependencies) {
+		return nil, false
+	}
+	return o.BEzsignformHasdependencies, true
+}
+
+// HasBEzsignformHasdependencies returns a boolean if a field has been set.
+func (o *EzsignfolderListElement) HasBEzsignformHasdependencies() bool {
+	if o != nil && !IsNil(o.BEzsignformHasdependencies) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignformHasdependencies gets a reference to the given bool and assigns it to the BEzsignformHasdependencies field.
+func (o *EzsignfolderListElement) SetBEzsignformHasdependencies(v bool) {
+	o.BEzsignformHasdependencies = &v
+}
+
+// GetDEzsignfolderCompletedpercentage returns the DEzsignfolderCompletedpercentage field value
+func (o *EzsignfolderListElement) GetDEzsignfolderCompletedpercentage() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.DEzsignfolderCompletedpercentage
+}
+
+// GetDEzsignfolderCompletedpercentageOk returns a tuple with the DEzsignfolderCompletedpercentage field value
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderListElement) GetDEzsignfolderCompletedpercentageOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.DEzsignfolderCompletedpercentage, true
+}
+
+// SetDEzsignfolderCompletedpercentage sets field value
+func (o *EzsignfolderListElement) SetDEzsignfolderCompletedpercentage(v string) {
+	o.DEzsignfolderCompletedpercentage = v
+}
+
 func (o EzsignfolderListElement) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -470,6 +585,12 @@ func (o EzsignfolderListElement) ToMap() (map[string]interface{}, error) {
 	toSerialize["iEzsigndocumentEdm"] = o.IEzsigndocumentEdm
 	toSerialize["iEzsignsignature"] = o.IEzsignsignature
 	toSerialize["iEzsignsignatureSigned"] = o.IEzsignsignatureSigned
+	toSerialize["iEzsignformfieldgroup"] = o.IEzsignformfieldgroup
+	toSerialize["iEzsignformfieldgroupCompleted"] = o.IEzsignformfieldgroupCompleted
+	if !IsNil(o.BEzsignformHasdependencies) {
+		toSerialize["bEzsignformHasdependencies"] = o.BEzsignformHasdependencies
+	}
+	toSerialize["dEzsignfolderCompletedpercentage"] = o.DEzsignfolderCompletedpercentage
 	return toSerialize, nil
 }
 
@@ -489,6 +610,9 @@ func (o *EzsignfolderListElement) UnmarshalJSON(data []byte) (err error) {
 		"iEzsigndocumentEdm",
 		"iEzsignsignature",
 		"iEzsignsignatureSigned",
+		"iEzsignformfieldgroup",
+		"iEzsignformfieldgroupCompleted",
+		"dEzsignfolderCompletedpercentage",
 	}
 
 	allProperties := make(map[string]interface{})

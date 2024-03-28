@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **FkiEzsignfoldertypeID** | **int32** | The unique ID of the Ezsignfoldertype. | 
 **FkiLanguageID** | **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
 **SEzsigntemplateDescription** | **string** | The description of the Ezsigntemplate | 
+**SEzsigntemplateFilenamepattern** | Pointer to **string** | The filename pattern of the Ezsigntemplate | [optional] 
 **BEzsigntemplateAdminonly** | **bool** | Whether the Ezsigntemplate can be accessed by admin users only (eUserType&#x3D;Normal) | 
 
 ## Methods
@@ -113,6 +114,31 @@ and a boolean to check if the value has been set.
 
 SetSEzsigntemplateDescription sets SEzsigntemplateDescription field to given value.
 
+
+### GetSEzsigntemplateFilenamepattern
+
+`func (o *EzsigntemplateRequestCompound) GetSEzsigntemplateFilenamepattern() string`
+
+GetSEzsigntemplateFilenamepattern returns the SEzsigntemplateFilenamepattern field if non-nil, zero value otherwise.
+
+### GetSEzsigntemplateFilenamepatternOk
+
+`func (o *EzsigntemplateRequestCompound) GetSEzsigntemplateFilenamepatternOk() (*string, bool)`
+
+GetSEzsigntemplateFilenamepatternOk returns a tuple with the SEzsigntemplateFilenamepattern field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzsigntemplateFilenamepattern
+
+`func (o *EzsigntemplateRequestCompound) SetSEzsigntemplateFilenamepattern(v string)`
+
+SetSEzsigntemplateFilenamepattern sets SEzsigntemplateFilenamepattern field to given value.
+
+### HasSEzsigntemplateFilenamepattern
+
+`func (o *EzsigntemplateRequestCompound) HasSEzsigntemplateFilenamepattern() bool`
+
+HasSEzsigntemplateFilenamepattern returns a boolean if a field has been set.
 
 ### GetBEzsigntemplateAdminonly
 

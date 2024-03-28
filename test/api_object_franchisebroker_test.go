@@ -22,20 +22,6 @@ func Test_eZmaxApi_ObjectFranchisebrokerAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ObjectFranchisebrokerAPIService FranchisebrokerGetAutocompleteV1", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var sSelector string
-
-		resp, httpRes, err := apiClient.ObjectFranchisebrokerAPI.FranchisebrokerGetAutocompleteV1(context.Background(), sSelector).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test ObjectFranchisebrokerAPIService FranchisebrokerGetAutocompleteV2", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

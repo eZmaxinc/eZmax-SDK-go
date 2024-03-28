@@ -1181,6 +1181,158 @@ func (a *ObjectEzsignfolderAPIService) EzsignfolderEditObjectV1Execute(r ApiEzsi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiEzsignfolderEndPrematurelyV1Request struct {
+	ctx context.Context
+	ApiService *ObjectEzsignfolderAPIService
+	pkiEzsignfolderID int32
+	body *map[string]interface{}
+}
+
+func (r ApiEzsignfolderEndPrematurelyV1Request) Body(body map[string]interface{}) ApiEzsignfolderEndPrematurelyV1Request {
+	r.body = &body
+	return r
+}
+
+func (r ApiEzsignfolderEndPrematurelyV1Request) Execute() (*EzsignfolderEndPrematurelyV1Response, *http.Response, error) {
+	return r.ApiService.EzsignfolderEndPrematurelyV1Execute(r)
+}
+
+/*
+EzsignfolderEndPrematurelyV1 End prematurely
+
+End prematurely all Ezsigndocument of Ezsignfolder when some signatures are still required
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiEzsignfolderID
+ @return ApiEzsignfolderEndPrematurelyV1Request
+*/
+func (a *ObjectEzsignfolderAPIService) EzsignfolderEndPrematurelyV1(ctx context.Context, pkiEzsignfolderID int32) ApiEzsignfolderEndPrematurelyV1Request {
+	return ApiEzsignfolderEndPrematurelyV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiEzsignfolderID: pkiEzsignfolderID,
+	}
+}
+
+// Execute executes the request
+//  @return EzsignfolderEndPrematurelyV1Response
+func (a *ObjectEzsignfolderAPIService) EzsignfolderEndPrematurelyV1Execute(r ApiEzsignfolderEndPrematurelyV1Request) (*EzsignfolderEndPrematurelyV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EzsignfolderEndPrematurelyV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfolderAPIService.EzsignfolderEndPrematurelyV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/ezsignfolder/{pkiEzsignfolderID}/endPrematurely"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsignfolderID"+"}", url.PathEscape(parameterValueToString(r.pkiEzsignfolderID, "pkiEzsignfolderID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiEzsignfolderID < 0 {
+		return localVarReturnValue, nil, reportError("pkiEzsignfolderID must be greater than 0")
+	}
+	if r.body == nil {
+		return localVarReturnValue, nil, reportError("body is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiEzsignfolderGetActionableElementsV1Request struct {
 	ctx context.Context
 	ApiService *ObjectEzsignfolderAPIService
@@ -3641,161 +3793,6 @@ func (a *ObjectEzsignfolderAPIService) EzsignfolderSendV1Execute(r ApiEzsignfold
 	}
 	// body params
 	localVarPostBody = r.ezsignfolderSendV1Request
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Authorization"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v CommonResponseError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 422 {
-			var v CommonResponseError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiEzsignfolderSendV2Request struct {
-	ctx context.Context
-	ApiService *ObjectEzsignfolderAPIService
-	pkiEzsignfolderID int32
-	ezsignfolderSendV2Request *EzsignfolderSendV2Request
-}
-
-func (r ApiEzsignfolderSendV2Request) EzsignfolderSendV2Request(ezsignfolderSendV2Request EzsignfolderSendV2Request) ApiEzsignfolderSendV2Request {
-	r.ezsignfolderSendV2Request = &ezsignfolderSendV2Request
-	return r
-}
-
-func (r ApiEzsignfolderSendV2Request) Execute() (*EzsignfolderSendV2Response, *http.Response, error) {
-	return r.ApiService.EzsignfolderSendV2Execute(r)
-}
-
-/*
-EzsignfolderSendV2 Send the Ezsignfolder to the signatories for signature
-
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pkiEzsignfolderID
- @return ApiEzsignfolderSendV2Request
-
-Deprecated
-*/
-func (a *ObjectEzsignfolderAPIService) EzsignfolderSendV2(ctx context.Context, pkiEzsignfolderID int32) ApiEzsignfolderSendV2Request {
-	return ApiEzsignfolderSendV2Request{
-		ApiService: a,
-		ctx: ctx,
-		pkiEzsignfolderID: pkiEzsignfolderID,
-	}
-}
-
-// Execute executes the request
-//  @return EzsignfolderSendV2Response
-// Deprecated
-func (a *ObjectEzsignfolderAPIService) EzsignfolderSendV2Execute(r ApiEzsignfolderSendV2Request) (*EzsignfolderSendV2Response, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *EzsignfolderSendV2Response
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfolderAPIService.EzsignfolderSendV2")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/2/object/ezsignfolder/{pkiEzsignfolderID}/send"
-	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsignfolderID"+"}", url.PathEscape(parameterValueToString(r.pkiEzsignfolderID, "pkiEzsignfolderID")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.pkiEzsignfolderID < 0 {
-		return localVarReturnValue, nil, reportError("pkiEzsignfolderID must be greater than 0")
-	}
-	if r.ezsignfolderSendV2Request == nil {
-		return localVarReturnValue, nil, reportError("ezsignfolderSendV2Request is required and must be specified")
-	}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.ezsignfolderSendV2Request
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

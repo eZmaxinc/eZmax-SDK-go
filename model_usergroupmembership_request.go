@@ -27,7 +27,9 @@ type UsergroupmembershipRequest struct {
 	// The unique ID of the Usergroup
 	FkiUsergroupID int32 `json:"fkiUsergroupID"`
 	// The unique ID of the User
-	FkiUserID int32 `json:"fkiUserID"`
+	FkiUserID *int32 `json:"fkiUserID,omitempty"`
+	// The unique ID of the Usergroupexternal
+	FkiUsergroupexternalID *int32 `json:"fkiUsergroupexternalID,omitempty"`
 }
 
 type _UsergroupmembershipRequest UsergroupmembershipRequest
@@ -36,10 +38,9 @@ type _UsergroupmembershipRequest UsergroupmembershipRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUsergroupmembershipRequest(fkiUsergroupID int32, fkiUserID int32) *UsergroupmembershipRequest {
+func NewUsergroupmembershipRequest(fkiUsergroupID int32) *UsergroupmembershipRequest {
 	this := UsergroupmembershipRequest{}
 	this.FkiUsergroupID = fkiUsergroupID
-	this.FkiUserID = fkiUserID
 	return &this
 }
 
@@ -107,28 +108,68 @@ func (o *UsergroupmembershipRequest) SetFkiUsergroupID(v int32) {
 	o.FkiUsergroupID = v
 }
 
-// GetFkiUserID returns the FkiUserID field value
+// GetFkiUserID returns the FkiUserID field value if set, zero value otherwise.
 func (o *UsergroupmembershipRequest) GetFkiUserID() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.FkiUserID) {
 		var ret int32
 		return ret
 	}
-
-	return o.FkiUserID
+	return *o.FkiUserID
 }
 
-// GetFkiUserIDOk returns a tuple with the FkiUserID field value
+// GetFkiUserIDOk returns a tuple with the FkiUserID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UsergroupmembershipRequest) GetFkiUserIDOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FkiUserID) {
 		return nil, false
 	}
-	return &o.FkiUserID, true
+	return o.FkiUserID, true
 }
 
-// SetFkiUserID sets field value
+// HasFkiUserID returns a boolean if a field has been set.
+func (o *UsergroupmembershipRequest) HasFkiUserID() bool {
+	if o != nil && !IsNil(o.FkiUserID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiUserID gets a reference to the given int32 and assigns it to the FkiUserID field.
 func (o *UsergroupmembershipRequest) SetFkiUserID(v int32) {
-	o.FkiUserID = v
+	o.FkiUserID = &v
+}
+
+// GetFkiUsergroupexternalID returns the FkiUsergroupexternalID field value if set, zero value otherwise.
+func (o *UsergroupmembershipRequest) GetFkiUsergroupexternalID() int32 {
+	if o == nil || IsNil(o.FkiUsergroupexternalID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiUsergroupexternalID
+}
+
+// GetFkiUsergroupexternalIDOk returns a tuple with the FkiUsergroupexternalID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsergroupmembershipRequest) GetFkiUsergroupexternalIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiUsergroupexternalID) {
+		return nil, false
+	}
+	return o.FkiUsergroupexternalID, true
+}
+
+// HasFkiUsergroupexternalID returns a boolean if a field has been set.
+func (o *UsergroupmembershipRequest) HasFkiUsergroupexternalID() bool {
+	if o != nil && !IsNil(o.FkiUsergroupexternalID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiUsergroupexternalID gets a reference to the given int32 and assigns it to the FkiUsergroupexternalID field.
+func (o *UsergroupmembershipRequest) SetFkiUsergroupexternalID(v int32) {
+	o.FkiUsergroupexternalID = &v
 }
 
 func (o UsergroupmembershipRequest) MarshalJSON() ([]byte, error) {
@@ -145,7 +186,12 @@ func (o UsergroupmembershipRequest) ToMap() (map[string]interface{}, error) {
 		toSerialize["pkiUsergroupmembershipID"] = o.PkiUsergroupmembershipID
 	}
 	toSerialize["fkiUsergroupID"] = o.FkiUsergroupID
-	toSerialize["fkiUserID"] = o.FkiUserID
+	if !IsNil(o.FkiUserID) {
+		toSerialize["fkiUserID"] = o.FkiUserID
+	}
+	if !IsNil(o.FkiUsergroupexternalID) {
+		toSerialize["fkiUsergroupexternalID"] = o.FkiUsergroupexternalID
+	}
 	return toSerialize, nil
 }
 
@@ -155,7 +201,6 @@ func (o *UsergroupmembershipRequest) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"fkiUsergroupID",
-		"fkiUserID",
 	}
 
 	allProperties := make(map[string]interface{})

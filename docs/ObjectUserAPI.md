@@ -5,6 +5,7 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**UserCreateObjectV1**](ObjectUserAPI.md#UserCreateObjectV1) | **Post** /1/object/user | Create a new User
+[**UserCreateObjectV2**](ObjectUserAPI.md#UserCreateObjectV2) | **Post** /2/object/user | Create a new User
 [**UserEditObjectV1**](ObjectUserAPI.md#UserEditObjectV1) | **Put** /1/object/user/{pkiUserID} | Edit an existing User
 [**UserEditPermissionsV1**](ObjectUserAPI.md#UserEditPermissionsV1) | **Put** /1/object/user/{pkiUserID}/editPermissions | Edit multiple Permissions
 [**UserGetApikeysV1**](ObjectUserAPI.md#UserGetApikeysV1) | **Get** /1/object/user/{pkiUserID}/getApikeys | Retrieve an existing User&#39;s Apikeys
@@ -14,6 +15,8 @@ Method | HTTP request | Description
 [**UserGetObjectV2**](ObjectUserAPI.md#UserGetObjectV2) | **Get** /2/object/user/{pkiUserID} | Retrieve an existing User
 [**UserGetPermissionsV1**](ObjectUserAPI.md#UserGetPermissionsV1) | **Get** /1/object/user/{pkiUserID}/getPermissions | Retrieve an existing User&#39;s Permissions
 [**UserGetSubnetsV1**](ObjectUserAPI.md#UserGetSubnetsV1) | **Get** /1/object/user/{pkiUserID}/getSubnets | Retrieve an existing User&#39;s Subnets
+[**UserGetUsergroupexternalsV1**](ObjectUserAPI.md#UserGetUsergroupexternalsV1) | **Get** /1/object/user/{pkiUserID}/getUsergroupexternals | Get User&#39;s Usergroupexternals
+[**UserGetUsergroupsV1**](ObjectUserAPI.md#UserGetUsergroupsV1) | **Get** /1/object/user/{pkiUserID}/getUsergroups | Get User&#39;s Usergroups
 [**UserSendPasswordResetV1**](ObjectUserAPI.md#UserSendPasswordResetV1) | **Post** /1/object/user/{pkiUserID}/sendPasswordReset | Send password reset
 
 
@@ -69,6 +72,72 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**UserCreateObjectV1Response**](UserCreateObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UserCreateObjectV2
+
+> UserCreateObjectV2Response UserCreateObjectV2(ctx).UserCreateObjectV2Request(userCreateObjectV2Request).Execute()
+
+Create a new User
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	userCreateObjectV2Request := *openapiclient.NewUserCreateObjectV2Request([]openapiclient.UserRequestCompoundV2{*openapiclient.NewUserRequestCompoundV2(int32(1), int32(21), int32(247), int32(2), *openapiclient.NewEmailRequestCompound(int32(1), "email@example.com"), int32(1), openapiclient.Field-eUserType("AgentBroker"), openapiclient.Field-eUserLogintype("Password"), "John", "Doe", "JohnDoe", openapiclient.Field-eUserEzsignaccess("No"), true)}) // UserCreateObjectV2Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUserAPI.UserCreateObjectV2(context.Background()).UserCreateObjectV2Request(userCreateObjectV2Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserCreateObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UserCreateObjectV2`: UserCreateObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserCreateObjectV2`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUserCreateObjectV2Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userCreateObjectV2Request** | [**UserCreateObjectV2Request**](UserCreateObjectV2Request.md) |  | 
+
+### Return type
+
+[**UserCreateObjectV2Response**](UserCreateObjectV2Response.md)
 
 ### Authorization
 
@@ -707,6 +776,142 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**UserGetSubnetsV1Response**](UserGetSubnetsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UserGetUsergroupexternalsV1
+
+> UserGetUsergroupexternalsV1Response UserGetUsergroupexternalsV1(ctx, pkiUserID).Execute()
+
+Get User's Usergroupexternals
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiUserID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUserAPI.UserGetUsergroupexternalsV1(context.Background(), pkiUserID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserGetUsergroupexternalsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UserGetUsergroupexternalsV1`: UserGetUsergroupexternalsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserGetUsergroupexternalsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiUserID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUserGetUsergroupexternalsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**UserGetUsergroupexternalsV1Response**](UserGetUsergroupexternalsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UserGetUsergroupsV1
+
+> UserGetUsergroupsV1Response UserGetUsergroupsV1(ctx, pkiUserID).Execute()
+
+Get User's Usergroups
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiUserID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUserAPI.UserGetUsergroupsV1(context.Background(), pkiUserID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserGetUsergroupsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UserGetUsergroupsV1`: UserGetUsergroupsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserGetUsergroupsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiUserID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUserGetUsergroupsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**UserGetUsergroupsV1Response**](UserGetUsergroupsV1Response.md)
 
 ### Authorization
 

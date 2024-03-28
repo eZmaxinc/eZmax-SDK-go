@@ -322,7 +322,7 @@ import (
 
 func main() {
 	pkiUsergroupID := int32(56) // int32 | 
-	usergroupEditUsergroupmembershipsV1Request := *openapiclient.NewUsergroupEditUsergroupmembershipsV1Request([]openapiclient.UsergroupmembershipRequestCompound{*openapiclient.NewUsergroupmembershipRequestCompound(int32(2), int32(70))}) // UsergroupEditUsergroupmembershipsV1Request | 
+	usergroupEditUsergroupmembershipsV1Request := *openapiclient.NewUsergroupEditUsergroupmembershipsV1Request([]openapiclient.UsergroupmembershipRequestCompound{*openapiclient.NewUsergroupmembershipRequestCompound(int32(2))}) // UsergroupEditUsergroupmembershipsV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

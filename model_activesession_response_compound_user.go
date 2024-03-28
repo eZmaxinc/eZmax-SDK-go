@@ -27,13 +27,13 @@ type ActivesessionResponseCompoundUser struct {
 	// The unique ID of the Timezone
 	FkiTimezoneID int32 `json:"fkiTimezoneID"`
 	// The url of the picture used as avatar
-	SAvatarUrl string `json:"sAvatarUrl"`
+	SAvatarUrl *string `json:"sAvatarUrl,omitempty"`
 	// The first name of the user
 	SUserFirstname string `json:"sUserFirstname"`
 	// The last name of the user
 	SUserLastname string `json:"sUserLastname"`
 	// The email address.
-	SEmailAddress string `json:"sEmailAddress"`
+	SEmailAddress *string `json:"sEmailAddress,omitempty"`
 	EUserEzsignsendreminderfrequency FieldEUserEzsignsendreminderfrequency `json:"eUserEzsignsendreminderfrequency"`
 	// The int32 representation of the interface color. For example, RGB color #39435B would be 3752795
 	IUserInterfacecolor int32 `json:"iUserInterfacecolor"`
@@ -49,14 +49,12 @@ type _ActivesessionResponseCompoundUser ActivesessionResponseCompoundUser
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewActivesessionResponseCompoundUser(pkiUserID int32, fkiTimezoneID int32, sAvatarUrl string, sUserFirstname string, sUserLastname string, sEmailAddress string, eUserEzsignsendreminderfrequency FieldEUserEzsignsendreminderfrequency, iUserInterfacecolor int32, bUserInterfacedark bool, iUserListresult int32) *ActivesessionResponseCompoundUser {
+func NewActivesessionResponseCompoundUser(pkiUserID int32, fkiTimezoneID int32, sUserFirstname string, sUserLastname string, eUserEzsignsendreminderfrequency FieldEUserEzsignsendreminderfrequency, iUserInterfacecolor int32, bUserInterfacedark bool, iUserListresult int32) *ActivesessionResponseCompoundUser {
 	this := ActivesessionResponseCompoundUser{}
 	this.PkiUserID = pkiUserID
 	this.FkiTimezoneID = fkiTimezoneID
-	this.SAvatarUrl = sAvatarUrl
 	this.SUserFirstname = sUserFirstname
 	this.SUserLastname = sUserLastname
-	this.SEmailAddress = sEmailAddress
 	this.EUserEzsignsendreminderfrequency = eUserEzsignsendreminderfrequency
 	this.IUserInterfacecolor = iUserInterfacecolor
 	this.BUserInterfacedark = bUserInterfacedark
@@ -120,28 +118,36 @@ func (o *ActivesessionResponseCompoundUser) SetFkiTimezoneID(v int32) {
 	o.FkiTimezoneID = v
 }
 
-// GetSAvatarUrl returns the SAvatarUrl field value
+// GetSAvatarUrl returns the SAvatarUrl field value if set, zero value otherwise.
 func (o *ActivesessionResponseCompoundUser) GetSAvatarUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.SAvatarUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.SAvatarUrl
+	return *o.SAvatarUrl
 }
 
-// GetSAvatarUrlOk returns a tuple with the SAvatarUrl field value
+// GetSAvatarUrlOk returns a tuple with the SAvatarUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ActivesessionResponseCompoundUser) GetSAvatarUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SAvatarUrl) {
 		return nil, false
 	}
-	return &o.SAvatarUrl, true
+	return o.SAvatarUrl, true
 }
 
-// SetSAvatarUrl sets field value
+// HasSAvatarUrl returns a boolean if a field has been set.
+func (o *ActivesessionResponseCompoundUser) HasSAvatarUrl() bool {
+	if o != nil && !IsNil(o.SAvatarUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetSAvatarUrl gets a reference to the given string and assigns it to the SAvatarUrl field.
 func (o *ActivesessionResponseCompoundUser) SetSAvatarUrl(v string) {
-	o.SAvatarUrl = v
+	o.SAvatarUrl = &v
 }
 
 // GetSUserFirstname returns the SUserFirstname field value
@@ -192,28 +198,36 @@ func (o *ActivesessionResponseCompoundUser) SetSUserLastname(v string) {
 	o.SUserLastname = v
 }
 
-// GetSEmailAddress returns the SEmailAddress field value
+// GetSEmailAddress returns the SEmailAddress field value if set, zero value otherwise.
 func (o *ActivesessionResponseCompoundUser) GetSEmailAddress() string {
-	if o == nil {
+	if o == nil || IsNil(o.SEmailAddress) {
 		var ret string
 		return ret
 	}
-
-	return o.SEmailAddress
+	return *o.SEmailAddress
 }
 
-// GetSEmailAddressOk returns a tuple with the SEmailAddress field value
+// GetSEmailAddressOk returns a tuple with the SEmailAddress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ActivesessionResponseCompoundUser) GetSEmailAddressOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SEmailAddress) {
 		return nil, false
 	}
-	return &o.SEmailAddress, true
+	return o.SEmailAddress, true
 }
 
-// SetSEmailAddress sets field value
+// HasSEmailAddress returns a boolean if a field has been set.
+func (o *ActivesessionResponseCompoundUser) HasSEmailAddress() bool {
+	if o != nil && !IsNil(o.SEmailAddress) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEmailAddress gets a reference to the given string and assigns it to the SEmailAddress field.
 func (o *ActivesessionResponseCompoundUser) SetSEmailAddress(v string) {
-	o.SEmailAddress = v
+	o.SEmailAddress = &v
 }
 
 // GetEUserEzsignsendreminderfrequency returns the EUserEzsignsendreminderfrequency field value
@@ -324,10 +338,14 @@ func (o ActivesessionResponseCompoundUser) ToMap() (map[string]interface{}, erro
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiUserID"] = o.PkiUserID
 	toSerialize["fkiTimezoneID"] = o.FkiTimezoneID
-	toSerialize["sAvatarUrl"] = o.SAvatarUrl
+	if !IsNil(o.SAvatarUrl) {
+		toSerialize["sAvatarUrl"] = o.SAvatarUrl
+	}
 	toSerialize["sUserFirstname"] = o.SUserFirstname
 	toSerialize["sUserLastname"] = o.SUserLastname
-	toSerialize["sEmailAddress"] = o.SEmailAddress
+	if !IsNil(o.SEmailAddress) {
+		toSerialize["sEmailAddress"] = o.SEmailAddress
+	}
 	toSerialize["eUserEzsignsendreminderfrequency"] = o.EUserEzsignsendreminderfrequency
 	toSerialize["iUserInterfacecolor"] = o.IUserInterfacecolor
 	toSerialize["bUserInterfacedark"] = o.BUserInterfacedark
@@ -342,10 +360,8 @@ func (o *ActivesessionResponseCompoundUser) UnmarshalJSON(data []byte) (err erro
 	requiredProperties := []string{
 		"pkiUserID",
 		"fkiTimezoneID",
-		"sAvatarUrl",
 		"sUserFirstname",
 		"sUserLastname",
-		"sEmailAddress",
 		"eUserEzsignsendreminderfrequency",
 		"iUserInterfacecolor",
 		"bUserInterfacedark",

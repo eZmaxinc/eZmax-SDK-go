@@ -7,12 +7,10 @@ Name | Type | Description | Notes
 **PkiEzsignfoldertypeID** | **int32** | The unique ID of the Ezsignfoldertype. | 
 **SEzsignfoldertypeNameX** | Pointer to **string** | The name of the Ezsignfoldertype in the language of the requester | [optional] 
 **BEzsignfoldertypeSendproofezsignsigner** | Pointer to **bool** | Whether we send the proof in the email to Ezsignsigner | [optional] 
-**BEzsignfoldertypeIncludeproofsigner** | Pointer to **bool** | THIS FIELD WILL BE DELETED. Whether we include the proof with the signed Ezsigndocument for Ezsignsigners | [optional] 
-**BEzsignfoldertypeIncludeproofuser** | Pointer to **bool** | Whether we include the proof with the signed Ezsigndocument for users | [optional] 
 **BEzsignfoldertypeAllowdownloadattachmentezsignsigner** | Pointer to **bool** | Whether we allow the Ezsigndocument to be downloaded by an Ezsignsigner | [optional] 
 **BEzsignfoldertypeAllowdownloadproofezsignsigner** | Pointer to **bool** | Whether we allow the proof to be downloaded by an Ezsignsigner | [optional] 
 **BEzsignfoldertypeDelegate** | Pointer to **bool** | Wheter if delegation of signature is allowed to another user or not | [optional] 
-**BEzsignfoldertypeReassign** | Pointer to **bool** | Wheter if Reassignment of signature is allowed to another signatory or not | [optional] 
+**BEzsignfoldertypeDiscussion** | Pointer to **bool** | Wheter if creating a new Discussion is allowed or not | [optional] 
 **BEzsignfoldertypeReassignezsignsigner** | Pointer to **bool** | Wheter if Reassignment of signature is allowed by a signatory to another signatory or not | [optional] 
 **BEzsignfoldertypeReassignuser** | Pointer to **bool** | Wheter if Reassignment of signature is allowed by a user to a signatory or another user or not | [optional] 
 
@@ -105,56 +103,6 @@ SetBEzsignfoldertypeSendproofezsignsigner sets BEzsignfoldertypeSendproofezsigns
 
 HasBEzsignfoldertypeSendproofezsignsigner returns a boolean if a field has been set.
 
-### GetBEzsignfoldertypeIncludeproofsigner
-
-`func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeIncludeproofsigner() bool`
-
-GetBEzsignfoldertypeIncludeproofsigner returns the BEzsignfoldertypeIncludeproofsigner field if non-nil, zero value otherwise.
-
-### GetBEzsignfoldertypeIncludeproofsignerOk
-
-`func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeIncludeproofsignerOk() (*bool, bool)`
-
-GetBEzsignfoldertypeIncludeproofsignerOk returns a tuple with the BEzsignfoldertypeIncludeproofsigner field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBEzsignfoldertypeIncludeproofsigner
-
-`func (o *CustomEzsignfoldertypeResponse) SetBEzsignfoldertypeIncludeproofsigner(v bool)`
-
-SetBEzsignfoldertypeIncludeproofsigner sets BEzsignfoldertypeIncludeproofsigner field to given value.
-
-### HasBEzsignfoldertypeIncludeproofsigner
-
-`func (o *CustomEzsignfoldertypeResponse) HasBEzsignfoldertypeIncludeproofsigner() bool`
-
-HasBEzsignfoldertypeIncludeproofsigner returns a boolean if a field has been set.
-
-### GetBEzsignfoldertypeIncludeproofuser
-
-`func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeIncludeproofuser() bool`
-
-GetBEzsignfoldertypeIncludeproofuser returns the BEzsignfoldertypeIncludeproofuser field if non-nil, zero value otherwise.
-
-### GetBEzsignfoldertypeIncludeproofuserOk
-
-`func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeIncludeproofuserOk() (*bool, bool)`
-
-GetBEzsignfoldertypeIncludeproofuserOk returns a tuple with the BEzsignfoldertypeIncludeproofuser field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBEzsignfoldertypeIncludeproofuser
-
-`func (o *CustomEzsignfoldertypeResponse) SetBEzsignfoldertypeIncludeproofuser(v bool)`
-
-SetBEzsignfoldertypeIncludeproofuser sets BEzsignfoldertypeIncludeproofuser field to given value.
-
-### HasBEzsignfoldertypeIncludeproofuser
-
-`func (o *CustomEzsignfoldertypeResponse) HasBEzsignfoldertypeIncludeproofuser() bool`
-
-HasBEzsignfoldertypeIncludeproofuser returns a boolean if a field has been set.
-
 ### GetBEzsignfoldertypeAllowdownloadattachmentezsignsigner
 
 `func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeAllowdownloadattachmentezsignsigner() bool`
@@ -230,30 +178,30 @@ SetBEzsignfoldertypeDelegate sets BEzsignfoldertypeDelegate field to given value
 
 HasBEzsignfoldertypeDelegate returns a boolean if a field has been set.
 
-### GetBEzsignfoldertypeReassign
+### GetBEzsignfoldertypeDiscussion
 
-`func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeReassign() bool`
+`func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeDiscussion() bool`
 
-GetBEzsignfoldertypeReassign returns the BEzsignfoldertypeReassign field if non-nil, zero value otherwise.
+GetBEzsignfoldertypeDiscussion returns the BEzsignfoldertypeDiscussion field if non-nil, zero value otherwise.
 
-### GetBEzsignfoldertypeReassignOk
+### GetBEzsignfoldertypeDiscussionOk
 
-`func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeReassignOk() (*bool, bool)`
+`func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeDiscussionOk() (*bool, bool)`
 
-GetBEzsignfoldertypeReassignOk returns a tuple with the BEzsignfoldertypeReassign field if it's non-nil, zero value otherwise
+GetBEzsignfoldertypeDiscussionOk returns a tuple with the BEzsignfoldertypeDiscussion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBEzsignfoldertypeReassign
+### SetBEzsignfoldertypeDiscussion
 
-`func (o *CustomEzsignfoldertypeResponse) SetBEzsignfoldertypeReassign(v bool)`
+`func (o *CustomEzsignfoldertypeResponse) SetBEzsignfoldertypeDiscussion(v bool)`
 
-SetBEzsignfoldertypeReassign sets BEzsignfoldertypeReassign field to given value.
+SetBEzsignfoldertypeDiscussion sets BEzsignfoldertypeDiscussion field to given value.
 
-### HasBEzsignfoldertypeReassign
+### HasBEzsignfoldertypeDiscussion
 
-`func (o *CustomEzsignfoldertypeResponse) HasBEzsignfoldertypeReassign() bool`
+`func (o *CustomEzsignfoldertypeResponse) HasBEzsignfoldertypeDiscussion() bool`
 
-HasBEzsignfoldertypeReassign returns a boolean if a field has been set.
+HasBEzsignfoldertypeDiscussion returns a boolean if a field has been set.
 
 ### GetBEzsignfoldertypeReassignezsignsigner
 

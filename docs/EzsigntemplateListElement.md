@@ -5,20 +5,21 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiEzsigntemplateID** | **int32** | The unique ID of the Ezsigntemplate | 
-**FkiEzsignfoldertypeID** | **int32** | The unique ID of the Ezsignfoldertype. | 
+**FkiEzsignfoldertypeID** | Pointer to **int32** | The unique ID of the Ezsignfoldertype. | [optional] 
 **FkiLanguageID** | **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
 **SEzsigntemplateDescription** | **string** | The description of the Ezsigntemplate | 
 **IEzsigntemplatedocumentPagetotal** | Pointer to **int32** | The number of pages in the Ezsigntemplatedocument. | [optional] 
 **IEzsigntemplateSignaturetotal** | Pointer to **int32** | The number of total signatures in the Ezsigntemplate. | [optional] 
 **IEzsigntemplateFormfieldtotal** | Pointer to **int32** | The number of total form fields in the Ezsigntemplate. | [optional] 
 **BEzsigntemplateIncomplete** | **bool** | Indicate the Ezsigntemplate is incomplete and cannot be used | 
-**SEzsignfoldertypeNameX** | **string** | The name of the Ezsignfoldertype in the language of the requester | 
+**SEzsignfoldertypeNameX** | Pointer to **string** | The name of the Ezsignfoldertype in the language of the requester | [optional] 
+**EEzsigntemplateType** | [**FieldEEzsigntemplateType**](FieldEEzsigntemplateType.md) |  | 
 
 ## Methods
 
 ### NewEzsigntemplateListElement
 
-`func NewEzsigntemplateListElement(pkiEzsigntemplateID int32, fkiEzsignfoldertypeID int32, fkiLanguageID int32, sEzsigntemplateDescription string, bEzsigntemplateIncomplete bool, sEzsignfoldertypeNameX string, ) *EzsigntemplateListElement`
+`func NewEzsigntemplateListElement(pkiEzsigntemplateID int32, fkiLanguageID int32, sEzsigntemplateDescription string, bEzsigntemplateIncomplete bool, eEzsigntemplateType FieldEEzsigntemplateType, ) *EzsigntemplateListElement`
 
 NewEzsigntemplateListElement instantiates a new EzsigntemplateListElement object
 This constructor will assign default values to properties that have it defined,
@@ -72,6 +73,11 @@ and a boolean to check if the value has been set.
 
 SetFkiEzsignfoldertypeID sets FkiEzsignfoldertypeID field to given value.
 
+### HasFkiEzsignfoldertypeID
+
+`func (o *EzsigntemplateListElement) HasFkiEzsignfoldertypeID() bool`
+
+HasFkiEzsignfoldertypeID returns a boolean if a field has been set.
 
 ### GetFkiLanguageID
 
@@ -226,6 +232,31 @@ and a boolean to check if the value has been set.
 `func (o *EzsigntemplateListElement) SetSEzsignfoldertypeNameX(v string)`
 
 SetSEzsignfoldertypeNameX sets SEzsignfoldertypeNameX field to given value.
+
+### HasSEzsignfoldertypeNameX
+
+`func (o *EzsigntemplateListElement) HasSEzsignfoldertypeNameX() bool`
+
+HasSEzsignfoldertypeNameX returns a boolean if a field has been set.
+
+### GetEEzsigntemplateType
+
+`func (o *EzsigntemplateListElement) GetEEzsigntemplateType() FieldEEzsigntemplateType`
+
+GetEEzsigntemplateType returns the EEzsigntemplateType field if non-nil, zero value otherwise.
+
+### GetEEzsigntemplateTypeOk
+
+`func (o *EzsigntemplateListElement) GetEEzsigntemplateTypeOk() (*FieldEEzsigntemplateType, bool)`
+
+GetEEzsigntemplateTypeOk returns a tuple with the EEzsigntemplateType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsigntemplateType
+
+`func (o *EzsigntemplateListElement) SetEEzsigntemplateType(v FieldEEzsigntemplateType)`
+
+SetEEzsigntemplateType sets EEzsigntemplateType field to given value.
 
 
 
