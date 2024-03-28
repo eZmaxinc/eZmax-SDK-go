@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SReturnUrl** | Pointer to **string** | The return Url to redirect after the signing is completed | [optional] 
 **SIframedomain** | Pointer to **string** | Domain protection for the iFrame | [optional] 
-**BIsiframe** | Pointer to **bool** | Whether the url would be in an iFrame or not | [optional] 
+**BIsIframe** | Pointer to **bool** | Whether the url would be in an iFrame or not | [optional] 
 
 ## Methods
 
@@ -77,30 +77,30 @@ SetSIframedomain sets SIframedomain field to given value.
 
 HasSIframedomain returns a boolean if a field has been set.
 
-### GetBIsiframe
+### GetBIsIframe
 
-`func (o *EzsignfoldersignerassociationCreateEmbeddedUrlV1Request) GetBIsiframe() bool`
+`func (o *EzsignfoldersignerassociationCreateEmbeddedUrlV1Request) GetBIsIframe() bool`
 
-GetBIsiframe returns the BIsiframe field if non-nil, zero value otherwise.
+GetBIsIframe returns the BIsIframe field if non-nil, zero value otherwise.
 
-### GetBIsiframeOk
+### GetBIsIframeOk
 
-`func (o *EzsignfoldersignerassociationCreateEmbeddedUrlV1Request) GetBIsiframeOk() (*bool, bool)`
+`func (o *EzsignfoldersignerassociationCreateEmbeddedUrlV1Request) GetBIsIframeOk() (*bool, bool)`
 
-GetBIsiframeOk returns a tuple with the BIsiframe field if it's non-nil, zero value otherwise
+GetBIsIframeOk returns a tuple with the BIsIframe field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBIsiframe
+### SetBIsIframe
 
-`func (o *EzsignfoldersignerassociationCreateEmbeddedUrlV1Request) SetBIsiframe(v bool)`
+`func (o *EzsignfoldersignerassociationCreateEmbeddedUrlV1Request) SetBIsIframe(v bool)`
 
-SetBIsiframe sets BIsiframe field to given value.
+SetBIsIframe sets BIsIframe field to given value.
 
-### HasBIsiframe
+### HasBIsIframe
 
-`func (o *EzsignfoldersignerassociationCreateEmbeddedUrlV1Request) HasBIsiframe() bool`
+`func (o *EzsignfoldersignerassociationCreateEmbeddedUrlV1Request) HasBIsIframe() bool`
 
-HasBIsiframe returns a boolean if a field has been set.
+HasBIsIframe returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

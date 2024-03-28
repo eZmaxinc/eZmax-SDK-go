@@ -25,7 +25,7 @@ type EzsignfoldersignerassociationCreateEmbeddedUrlV1Request struct {
 	// Domain protection for the iFrame
 	SIframedomain *string `json:"sIframedomain,omitempty"`
 	// Whether the url would be in an iFrame or not
-	BIsiframe *bool `json:"bIsiframe,omitempty"`
+	BIsIframe *bool `json:"bIsIframe,omitempty"`
 }
 
 // NewEzsignfoldersignerassociationCreateEmbeddedUrlV1Request instantiates a new EzsignfoldersignerassociationCreateEmbeddedUrlV1Request object
@@ -109,36 +109,36 @@ func (o *EzsignfoldersignerassociationCreateEmbeddedUrlV1Request) SetSIframedoma
 	o.SIframedomain = &v
 }
 
-// GetBIsiframe returns the BIsiframe field value if set, zero value otherwise.
-func (o *EzsignfoldersignerassociationCreateEmbeddedUrlV1Request) GetBIsiframe() bool {
-	if o == nil || IsNil(o.BIsiframe) {
+// GetBIsIframe returns the BIsIframe field value if set, zero value otherwise.
+func (o *EzsignfoldersignerassociationCreateEmbeddedUrlV1Request) GetBIsIframe() bool {
+	if o == nil || IsNil(o.BIsIframe) {
 		var ret bool
 		return ret
 	}
-	return *o.BIsiframe
+	return *o.BIsIframe
 }
 
-// GetBIsiframeOk returns a tuple with the BIsiframe field value if set, nil otherwise
+// GetBIsIframeOk returns a tuple with the BIsIframe field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EzsignfoldersignerassociationCreateEmbeddedUrlV1Request) GetBIsiframeOk() (*bool, bool) {
-	if o == nil || IsNil(o.BIsiframe) {
+func (o *EzsignfoldersignerassociationCreateEmbeddedUrlV1Request) GetBIsIframeOk() (*bool, bool) {
+	if o == nil || IsNil(o.BIsIframe) {
 		return nil, false
 	}
-	return o.BIsiframe, true
+	return o.BIsIframe, true
 }
 
-// HasBIsiframe returns a boolean if a field has been set.
-func (o *EzsignfoldersignerassociationCreateEmbeddedUrlV1Request) HasBIsiframe() bool {
-	if o != nil && !IsNil(o.BIsiframe) {
+// HasBIsIframe returns a boolean if a field has been set.
+func (o *EzsignfoldersignerassociationCreateEmbeddedUrlV1Request) HasBIsIframe() bool {
+	if o != nil && !IsNil(o.BIsIframe) {
 		return true
 	}
 
 	return false
 }
 
-// SetBIsiframe gets a reference to the given bool and assigns it to the BIsiframe field.
-func (o *EzsignfoldersignerassociationCreateEmbeddedUrlV1Request) SetBIsiframe(v bool) {
-	o.BIsiframe = &v
+// SetBIsIframe gets a reference to the given bool and assigns it to the BIsIframe field.
+func (o *EzsignfoldersignerassociationCreateEmbeddedUrlV1Request) SetBIsIframe(v bool) {
+	o.BIsIframe = &v
 }
 
 func (o EzsignfoldersignerassociationCreateEmbeddedUrlV1Request) MarshalJSON() ([]byte, error) {
@@ -157,8 +157,8 @@ func (o EzsignfoldersignerassociationCreateEmbeddedUrlV1Request) ToMap() (map[st
 	if !IsNil(o.SIframedomain) {
 		toSerialize["sIframedomain"] = o.SIframedomain
 	}
-	if !IsNil(o.BIsiframe) {
-		toSerialize["bIsiframe"] = o.BIsiframe
+	if !IsNil(o.BIsIframe) {
+		toSerialize["bIsIframe"] = o.BIsIframe
 	}
 	return toSerialize, nil
 }
