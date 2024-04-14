@@ -86,6 +86,10 @@ type APIClient struct {
 
 	ObjectCountryAPI *ObjectCountryAPIService
 
+	ObjectCreditcardclientAPI *ObjectCreditcardclientAPIService
+
+	ObjectCreditcardtypeAPI *ObjectCreditcardtypeAPIService
+
 	ObjectDepartmentAPI *ObjectDepartmentAPIService
 
 	ObjectDiscussionAPI *ObjectDiscussionAPIService
@@ -269,6 +273,8 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectCompanyAPI = (*ObjectCompanyAPIService)(&c.common)
 	c.ObjectCorsAPI = (*ObjectCorsAPIService)(&c.common)
 	c.ObjectCountryAPI = (*ObjectCountryAPIService)(&c.common)
+	c.ObjectCreditcardclientAPI = (*ObjectCreditcardclientAPIService)(&c.common)
+	c.ObjectCreditcardtypeAPI = (*ObjectCreditcardtypeAPIService)(&c.common)
 	c.ObjectDepartmentAPI = (*ObjectDepartmentAPIService)(&c.common)
 	c.ObjectDiscussionAPI = (*ObjectDiscussionAPIService)(&c.common)
 	c.ObjectDiscussionmembershipAPI = (*ObjectDiscussionmembershipAPIService)(&c.common)

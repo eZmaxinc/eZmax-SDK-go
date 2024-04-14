@@ -30,6 +30,8 @@ type CommonResponseObjDebugPayload struct {
 	ARequiredPermission []int32 `json:"a_RequiredPermission"`
 	// Wheter the current route is deprecated or not
 	BVersionDeprecated bool `json:"bVersionDeprecated"`
+	// Represent a Date Time. The timezone is the one configured in the User's profile.
+	DtResponseDate string `json:"dtResponseDate"`
 }
 
 type _CommonResponseObjDebugPayload CommonResponseObjDebugPayload
@@ -38,12 +40,13 @@ type _CommonResponseObjDebugPayload CommonResponseObjDebugPayload
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommonResponseObjDebugPayload(iVersionMin int32, iVersionMax int32, aRequiredPermission []int32, bVersionDeprecated bool) *CommonResponseObjDebugPayload {
+func NewCommonResponseObjDebugPayload(iVersionMin int32, iVersionMax int32, aRequiredPermission []int32, bVersionDeprecated bool, dtResponseDate string) *CommonResponseObjDebugPayload {
 	this := CommonResponseObjDebugPayload{}
 	this.IVersionMin = iVersionMin
 	this.IVersionMax = iVersionMax
 	this.ARequiredPermission = aRequiredPermission
 	this.BVersionDeprecated = bVersionDeprecated
+	this.DtResponseDate = dtResponseDate
 	return &this
 }
 
@@ -151,6 +154,30 @@ func (o *CommonResponseObjDebugPayload) SetBVersionDeprecated(v bool) {
 	o.BVersionDeprecated = v
 }
 
+// GetDtResponseDate returns the DtResponseDate field value
+func (o *CommonResponseObjDebugPayload) GetDtResponseDate() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.DtResponseDate
+}
+
+// GetDtResponseDateOk returns a tuple with the DtResponseDate field value
+// and a boolean to check if the value has been set.
+func (o *CommonResponseObjDebugPayload) GetDtResponseDateOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.DtResponseDate, true
+}
+
+// SetDtResponseDate sets field value
+func (o *CommonResponseObjDebugPayload) SetDtResponseDate(v string) {
+	o.DtResponseDate = v
+}
+
 func (o CommonResponseObjDebugPayload) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -165,6 +192,7 @@ func (o CommonResponseObjDebugPayload) ToMap() (map[string]interface{}, error) {
 	toSerialize["iVersionMax"] = o.IVersionMax
 	toSerialize["a_RequiredPermission"] = o.ARequiredPermission
 	toSerialize["bVersionDeprecated"] = o.BVersionDeprecated
+	toSerialize["dtResponseDate"] = o.DtResponseDate
 	return toSerialize, nil
 }
 
@@ -177,6 +205,7 @@ func (o *CommonResponseObjDebugPayload) UnmarshalJSON(data []byte) (err error) {
 		"iVersionMax",
 		"a_RequiredPermission",
 		"bVersionDeprecated",
+		"dtResponseDate",
 	}
 
 	allProperties := make(map[string]interface{})

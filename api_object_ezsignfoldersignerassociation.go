@@ -47,6 +47,10 @@ This endpoint creates an Url that can be used in a browser or embedded in an I-F
 
 The signer Login type must be configured as Embedded.
 
+There will be a list to retrieve informations after the signing happens in the embedded version. To do so, there is a list of parameter to add to your sReturnUrl.
+
+In example: https://www.example.com/sReturl?sParameter1&sParameter2. The sParameter1 et sParameter2 will be replace when we will redirect on the url.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiEzsignfoldersignerassociationID
  @return ApiEzsignfoldersignerassociationCreateEmbeddedUrlV1Request

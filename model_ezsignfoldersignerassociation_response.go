@@ -32,6 +32,8 @@ type EzsignfoldersignerassociationResponse struct {
 	BEzsignfoldersignerassociationReceivecopy bool `json:"bEzsignfoldersignerassociationReceivecopy"`
 	// A custom text message that will be added to the email sent.
 	TEzsignfoldersignerassociationMessage string `json:"tEzsignfoldersignerassociationMessage"`
+	// If the Ezsignfoldersignerassociation is allowed to sign in person or not
+	BEzsignfoldersignerassociationAllowsigninginperson bool `json:"bEzsignfoldersignerassociationAllowsigninginperson"`
 }
 
 type _EzsignfoldersignerassociationResponse EzsignfoldersignerassociationResponse
@@ -40,13 +42,14 @@ type _EzsignfoldersignerassociationResponse EzsignfoldersignerassociationRespons
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfoldersignerassociationResponse(pkiEzsignfoldersignerassociationID int32, fkiEzsignfolderID int32, bEzsignfoldersignerassociationDelayedsend bool, bEzsignfoldersignerassociationReceivecopy bool, tEzsignfoldersignerassociationMessage string) *EzsignfoldersignerassociationResponse {
+func NewEzsignfoldersignerassociationResponse(pkiEzsignfoldersignerassociationID int32, fkiEzsignfolderID int32, bEzsignfoldersignerassociationDelayedsend bool, bEzsignfoldersignerassociationReceivecopy bool, tEzsignfoldersignerassociationMessage string, bEzsignfoldersignerassociationAllowsigninginperson bool) *EzsignfoldersignerassociationResponse {
 	this := EzsignfoldersignerassociationResponse{}
 	this.PkiEzsignfoldersignerassociationID = pkiEzsignfoldersignerassociationID
 	this.FkiEzsignfolderID = fkiEzsignfolderID
 	this.BEzsignfoldersignerassociationDelayedsend = bEzsignfoldersignerassociationDelayedsend
 	this.BEzsignfoldersignerassociationReceivecopy = bEzsignfoldersignerassociationReceivecopy
 	this.TEzsignfoldersignerassociationMessage = tEzsignfoldersignerassociationMessage
+	this.BEzsignfoldersignerassociationAllowsigninginperson = bEzsignfoldersignerassociationAllowsigninginperson
 	return &this
 }
 
@@ -178,6 +181,30 @@ func (o *EzsignfoldersignerassociationResponse) SetTEzsignfoldersignerassociatio
 	o.TEzsignfoldersignerassociationMessage = v
 }
 
+// GetBEzsignfoldersignerassociationAllowsigninginperson returns the BEzsignfoldersignerassociationAllowsigninginperson field value
+func (o *EzsignfoldersignerassociationResponse) GetBEzsignfoldersignerassociationAllowsigninginperson() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BEzsignfoldersignerassociationAllowsigninginperson
+}
+
+// GetBEzsignfoldersignerassociationAllowsigninginpersonOk returns a tuple with the BEzsignfoldersignerassociationAllowsigninginperson field value
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldersignerassociationResponse) GetBEzsignfoldersignerassociationAllowsigninginpersonOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BEzsignfoldersignerassociationAllowsigninginperson, true
+}
+
+// SetBEzsignfoldersignerassociationAllowsigninginperson sets field value
+func (o *EzsignfoldersignerassociationResponse) SetBEzsignfoldersignerassociationAllowsigninginperson(v bool) {
+	o.BEzsignfoldersignerassociationAllowsigninginperson = v
+}
+
 func (o EzsignfoldersignerassociationResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -193,6 +220,7 @@ func (o EzsignfoldersignerassociationResponse) ToMap() (map[string]interface{}, 
 	toSerialize["bEzsignfoldersignerassociationDelayedsend"] = o.BEzsignfoldersignerassociationDelayedsend
 	toSerialize["bEzsignfoldersignerassociationReceivecopy"] = o.BEzsignfoldersignerassociationReceivecopy
 	toSerialize["tEzsignfoldersignerassociationMessage"] = o.TEzsignfoldersignerassociationMessage
+	toSerialize["bEzsignfoldersignerassociationAllowsigninginperson"] = o.BEzsignfoldersignerassociationAllowsigninginperson
 	return toSerialize, nil
 }
 
@@ -206,6 +234,7 @@ func (o *EzsignfoldersignerassociationResponse) UnmarshalJSON(data []byte) (err 
 		"bEzsignfoldersignerassociationDelayedsend",
 		"bEzsignfoldersignerassociationReceivecopy",
 		"tEzsignfoldersignerassociationMessage",
+		"bEzsignfoldersignerassociationAllowsigninginperson",
 	}
 
 	allProperties := make(map[string]interface{})

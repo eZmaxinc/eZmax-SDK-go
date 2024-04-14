@@ -8,12 +8,13 @@ Name | Type | Description | Notes
 **IVersionMax** | **int32** | The maximum version of the function that can be called | 
 **ARequiredPermission** | **[]int32** | An array of permissions required to access this function.  If the value \&quot;0\&quot; is present in the array, anyone can call this function.  You must have one of the permission to access the function. You don&#39;t need to have all of them. | 
 **BVersionDeprecated** | **bool** | Wheter the current route is deprecated or not | 
+**DtResponseDate** | **string** | Represent a Date Time. The timezone is the one configured in the User&#39;s profile. | 
 
 ## Methods
 
 ### NewCommonResponseObjDebugPayload
 
-`func NewCommonResponseObjDebugPayload(iVersionMin int32, iVersionMax int32, aRequiredPermission []int32, bVersionDeprecated bool, ) *CommonResponseObjDebugPayload`
+`func NewCommonResponseObjDebugPayload(iVersionMin int32, iVersionMax int32, aRequiredPermission []int32, bVersionDeprecated bool, dtResponseDate string, ) *CommonResponseObjDebugPayload`
 
 NewCommonResponseObjDebugPayload instantiates a new CommonResponseObjDebugPayload object
 This constructor will assign default values to properties that have it defined,
@@ -106,6 +107,26 @@ and a boolean to check if the value has been set.
 `func (o *CommonResponseObjDebugPayload) SetBVersionDeprecated(v bool)`
 
 SetBVersionDeprecated sets BVersionDeprecated field to given value.
+
+
+### GetDtResponseDate
+
+`func (o *CommonResponseObjDebugPayload) GetDtResponseDate() string`
+
+GetDtResponseDate returns the DtResponseDate field if non-nil, zero value otherwise.
+
+### GetDtResponseDateOk
+
+`func (o *CommonResponseObjDebugPayload) GetDtResponseDateOk() (*string, bool)`
+
+GetDtResponseDateOk returns a tuple with the DtResponseDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDtResponseDate
+
+`func (o *CommonResponseObjDebugPayload) SetDtResponseDate(v string)`
+
+SetDtResponseDate sets DtResponseDate field to given value.
 
 
 

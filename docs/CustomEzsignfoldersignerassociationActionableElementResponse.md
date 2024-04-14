@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **BEzsignfoldersignerassociationDelayedsend** | **bool** | If this flag is true the signatory is part of a delayed send. | 
 **BEzsignfoldersignerassociationReceivecopy** | **bool** | If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain&#39;t required to sign the document. | 
 **TEzsignfoldersignerassociationMessage** | **string** | A custom text message that will be added to the email sent. | 
+**BEzsignfoldersignerassociationAllowsigninginperson** | **bool** | If the Ezsignfoldersignerassociation is allowed to sign in person or not | 
 **ObjEzsignsignergroup** | Pointer to [**EzsignsignergroupResponseCompound**](EzsignsignergroupResponseCompound.md) |  | [optional] 
 **ObjUser** | Pointer to [**EzsignfoldersignerassociationResponseCompoundUser**](EzsignfoldersignerassociationResponseCompoundUser.md) |  | [optional] 
 **ObjEzsignsigner** | Pointer to [**EzsignsignerResponseCompound**](EzsignsignerResponseCompound.md) |  | [optional] 
@@ -19,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewCustomEzsignfoldersignerassociationActionableElementResponse
 
-`func NewCustomEzsignfoldersignerassociationActionableElementResponse(pkiEzsignfoldersignerassociationID int32, fkiEzsignfolderID int32, bEzsignfoldersignerassociationDelayedsend bool, bEzsignfoldersignerassociationReceivecopy bool, tEzsignfoldersignerassociationMessage string, bEzsignfoldersignerassociationHasactionableelementsCurrent bool, bEzsignfoldersignerassociationHasactionableelementsFuture bool, ) *CustomEzsignfoldersignerassociationActionableElementResponse`
+`func NewCustomEzsignfoldersignerassociationActionableElementResponse(pkiEzsignfoldersignerassociationID int32, fkiEzsignfolderID int32, bEzsignfoldersignerassociationDelayedsend bool, bEzsignfoldersignerassociationReceivecopy bool, tEzsignfoldersignerassociationMessage string, bEzsignfoldersignerassociationAllowsigninginperson bool, bEzsignfoldersignerassociationHasactionableelementsCurrent bool, bEzsignfoldersignerassociationHasactionableelementsFuture bool, ) *CustomEzsignfoldersignerassociationActionableElementResponse`
 
 NewCustomEzsignfoldersignerassociationActionableElementResponse instantiates a new CustomEzsignfoldersignerassociationActionableElementResponse object
 This constructor will assign default values to properties that have it defined,
@@ -132,6 +133,26 @@ and a boolean to check if the value has been set.
 `func (o *CustomEzsignfoldersignerassociationActionableElementResponse) SetTEzsignfoldersignerassociationMessage(v string)`
 
 SetTEzsignfoldersignerassociationMessage sets TEzsignfoldersignerassociationMessage field to given value.
+
+
+### GetBEzsignfoldersignerassociationAllowsigninginperson
+
+`func (o *CustomEzsignfoldersignerassociationActionableElementResponse) GetBEzsignfoldersignerassociationAllowsigninginperson() bool`
+
+GetBEzsignfoldersignerassociationAllowsigninginperson returns the BEzsignfoldersignerassociationAllowsigninginperson field if non-nil, zero value otherwise.
+
+### GetBEzsignfoldersignerassociationAllowsigninginpersonOk
+
+`func (o *CustomEzsignfoldersignerassociationActionableElementResponse) GetBEzsignfoldersignerassociationAllowsigninginpersonOk() (*bool, bool)`
+
+GetBEzsignfoldersignerassociationAllowsigninginpersonOk returns a tuple with the BEzsignfoldersignerassociationAllowsigninginperson field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsignfoldersignerassociationAllowsigninginperson
+
+`func (o *CustomEzsignfoldersignerassociationActionableElementResponse) SetBEzsignfoldersignerassociationAllowsigninginperson(v bool)`
+
+SetBEzsignfoldersignerassociationAllowsigninginperson sets BEzsignfoldersignerassociationAllowsigninginperson field to given value.
 
 
 ### GetObjEzsignsignergroup
