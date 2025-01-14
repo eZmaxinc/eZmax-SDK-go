@@ -25,10 +25,12 @@ type CustomEzsignfoldertransmissionResponse struct {
 	// The unique ID of the Ezsignfolder
 	PkiEzsignfolderID int32 `json:"pkiEzsignfolderID"`
 	// The description of the Ezsignfolder
-	SEzsignfolderDescription string `json:"sEzsignfolderDescription"`
+	SEzsignfolderDescription string `json:"sEzsignfolderDescription" validate:"regexp=^.{0,75}$"`
 	EEzsignfolderStep FieldEEzsignfolderStep `json:"eEzsignfolderStep"`
 	// The number of total signatures that were requested in the Ezsignfolder
 	IEzsignfolderSignaturetotal int32 `json:"iEzsignfolderSignaturetotal"`
+	// The number of total form fields that were requested in the Ezsignfolder
+	IEzsignfolderFormfieldtotal int32 `json:"iEzsignfolderFormfieldtotal"`
 	// The number of signatures that were signed in the Ezsignfolder.
 	IEzsignfolderSignaturesigned int32 `json:"iEzsignfolderSignaturesigned"`
 	AObjEzsignfoldertransmissionSigner []CustomEzsignfoldertransmissionSignerResponse `json:"a_objEzsignfoldertransmissionSigner"`
@@ -40,12 +42,13 @@ type _CustomEzsignfoldertransmissionResponse CustomEzsignfoldertransmissionRespo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomEzsignfoldertransmissionResponse(pkiEzsignfolderID int32, sEzsignfolderDescription string, eEzsignfolderStep FieldEEzsignfolderStep, iEzsignfolderSignaturetotal int32, iEzsignfolderSignaturesigned int32, aObjEzsignfoldertransmissionSigner []CustomEzsignfoldertransmissionSignerResponse) *CustomEzsignfoldertransmissionResponse {
+func NewCustomEzsignfoldertransmissionResponse(pkiEzsignfolderID int32, sEzsignfolderDescription string, eEzsignfolderStep FieldEEzsignfolderStep, iEzsignfolderSignaturetotal int32, iEzsignfolderFormfieldtotal int32, iEzsignfolderSignaturesigned int32, aObjEzsignfoldertransmissionSigner []CustomEzsignfoldertransmissionSignerResponse) *CustomEzsignfoldertransmissionResponse {
 	this := CustomEzsignfoldertransmissionResponse{}
 	this.PkiEzsignfolderID = pkiEzsignfolderID
 	this.SEzsignfolderDescription = sEzsignfolderDescription
 	this.EEzsignfolderStep = eEzsignfolderStep
 	this.IEzsignfolderSignaturetotal = iEzsignfolderSignaturetotal
+	this.IEzsignfolderFormfieldtotal = iEzsignfolderFormfieldtotal
 	this.IEzsignfolderSignaturesigned = iEzsignfolderSignaturesigned
 	this.AObjEzsignfoldertransmissionSigner = aObjEzsignfoldertransmissionSigner
 	return &this
@@ -155,6 +158,30 @@ func (o *CustomEzsignfoldertransmissionResponse) SetIEzsignfolderSignaturetotal(
 	o.IEzsignfolderSignaturetotal = v
 }
 
+// GetIEzsignfolderFormfieldtotal returns the IEzsignfolderFormfieldtotal field value
+func (o *CustomEzsignfoldertransmissionResponse) GetIEzsignfolderFormfieldtotal() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IEzsignfolderFormfieldtotal
+}
+
+// GetIEzsignfolderFormfieldtotalOk returns a tuple with the IEzsignfolderFormfieldtotal field value
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignfoldertransmissionResponse) GetIEzsignfolderFormfieldtotalOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IEzsignfolderFormfieldtotal, true
+}
+
+// SetIEzsignfolderFormfieldtotal sets field value
+func (o *CustomEzsignfoldertransmissionResponse) SetIEzsignfolderFormfieldtotal(v int32) {
+	o.IEzsignfolderFormfieldtotal = v
+}
+
 // GetIEzsignfolderSignaturesigned returns the IEzsignfolderSignaturesigned field value
 func (o *CustomEzsignfoldertransmissionResponse) GetIEzsignfolderSignaturesigned() int32 {
 	if o == nil {
@@ -217,6 +244,7 @@ func (o CustomEzsignfoldertransmissionResponse) ToMap() (map[string]interface{},
 	toSerialize["sEzsignfolderDescription"] = o.SEzsignfolderDescription
 	toSerialize["eEzsignfolderStep"] = o.EEzsignfolderStep
 	toSerialize["iEzsignfolderSignaturetotal"] = o.IEzsignfolderSignaturetotal
+	toSerialize["iEzsignfolderFormfieldtotal"] = o.IEzsignfolderFormfieldtotal
 	toSerialize["iEzsignfolderSignaturesigned"] = o.IEzsignfolderSignaturesigned
 	toSerialize["a_objEzsignfoldertransmissionSigner"] = o.AObjEzsignfoldertransmissionSigner
 	return toSerialize, nil
@@ -231,6 +259,7 @@ func (o *CustomEzsignfoldertransmissionResponse) UnmarshalJSON(data []byte) (err
 		"sEzsignfolderDescription",
 		"eEzsignfolderStep",
 		"iEzsignfolderSignaturetotal",
+		"iEzsignfolderFormfieldtotal",
 		"iEzsignfolderSignaturesigned",
 		"a_objEzsignfoldertransmissionSigner",
 	}

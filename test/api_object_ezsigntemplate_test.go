@@ -36,23 +36,11 @@ func Test_eZmaxApi_ObjectEzsigntemplateAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ObjectEzsigntemplateAPIService EzsigntemplateCreateObjectV1", func(t *testing.T) {
+	t.Run("Test ObjectEzsigntemplateAPIService EzsigntemplateCreateObjectV3", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ObjectEzsigntemplateAPI.EzsigntemplateCreateObjectV1(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ObjectEzsigntemplateAPIService EzsigntemplateCreateObjectV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.ObjectEzsigntemplateAPI.EzsigntemplateCreateObjectV2(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ObjectEzsigntemplateAPI.EzsigntemplateCreateObjectV3(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -74,27 +62,13 @@ func Test_eZmaxApi_ObjectEzsigntemplateAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ObjectEzsigntemplateAPIService EzsigntemplateEditObjectV1", func(t *testing.T) {
+	t.Run("Test ObjectEzsigntemplateAPIService EzsigntemplateEditObjectV3", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pkiEzsigntemplateID int32
 
-		resp, httpRes, err := apiClient.ObjectEzsigntemplateAPI.EzsigntemplateEditObjectV1(context.Background(), pkiEzsigntemplateID).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ObjectEzsigntemplateAPIService EzsigntemplateEditObjectV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var pkiEzsigntemplateID int32
-
-		resp, httpRes, err := apiClient.ObjectEzsigntemplateAPI.EzsigntemplateEditObjectV2(context.Background(), pkiEzsigntemplateID).Execute()
+		resp, httpRes, err := apiClient.ObjectEzsigntemplateAPI.EzsigntemplateEditObjectV3(context.Background(), pkiEzsigntemplateID).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -128,27 +102,13 @@ func Test_eZmaxApi_ObjectEzsigntemplateAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ObjectEzsigntemplateAPIService EzsigntemplateGetObjectV1", func(t *testing.T) {
+	t.Run("Test ObjectEzsigntemplateAPIService EzsigntemplateGetObjectV3", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pkiEzsigntemplateID int32
 
-		resp, httpRes, err := apiClient.ObjectEzsigntemplateAPI.EzsigntemplateGetObjectV1(context.Background(), pkiEzsigntemplateID).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ObjectEzsigntemplateAPIService EzsigntemplateGetObjectV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var pkiEzsigntemplateID int32
-
-		resp, httpRes, err := apiClient.ObjectEzsigntemplateAPI.EzsigntemplateGetObjectV2(context.Background(), pkiEzsigntemplateID).Execute()
+		resp, httpRes, err := apiClient.ObjectEzsigntemplateAPI.EzsigntemplateGetObjectV3(context.Background(), pkiEzsigntemplateID).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

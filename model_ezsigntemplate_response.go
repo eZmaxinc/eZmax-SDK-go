@@ -30,12 +30,18 @@ type EzsigntemplateResponse struct {
 	FkiEzsignfoldertypeID *int32 `json:"fkiEzsignfoldertypeID,omitempty"`
 	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
 	FkiLanguageID int32 `json:"fkiLanguageID"`
+	// The unique ID of the Ezdoctemplatedocument
+	FkiEzdoctemplatedocumentID *int32 `json:"fkiEzdoctemplatedocumentID,omitempty"`
 	// The Name of the Language in the language of the requester
 	SLanguageNameX string `json:"sLanguageNameX"`
 	// The description of the Ezsigntemplate
-	SEzsigntemplateDescription string `json:"sEzsigntemplateDescription"`
+	SEzsigntemplateDescription string `json:"sEzsigntemplateDescription" validate:"regexp=^.{0,80}$"`
+	// The external description of the Ezsigntemplate
+	SEzsigntemplateExternaldescription *string `json:"sEzsigntemplateExternaldescription,omitempty" validate:"regexp=^.{0,75}$"`
+	// The comment of the Ezsigntemplate
+	TEzsigntemplateComment *string `json:"tEzsigntemplateComment,omitempty"`
 	// The filename pattern of the Ezsigntemplate
-	SEzsigntemplateFilenamepattern *string `json:"sEzsigntemplateFilenamepattern,omitempty"`
+	SEzsigntemplateFilenamepattern *string `json:"sEzsigntemplateFilenamepattern,omitempty" validate:"regexp=^.{1,50}$"`
 	// Whether the Ezsigntemplate can be accessed by admin users only (eUserType=Normal)
 	BEzsigntemplateAdminonly bool `json:"bEzsigntemplateAdminonly"`
 	// The name of the Ezsignfoldertype in the language of the requester
@@ -184,6 +190,38 @@ func (o *EzsigntemplateResponse) SetFkiLanguageID(v int32) {
 	o.FkiLanguageID = v
 }
 
+// GetFkiEzdoctemplatedocumentID returns the FkiEzdoctemplatedocumentID field value if set, zero value otherwise.
+func (o *EzsigntemplateResponse) GetFkiEzdoctemplatedocumentID() int32 {
+	if o == nil || IsNil(o.FkiEzdoctemplatedocumentID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEzdoctemplatedocumentID
+}
+
+// GetFkiEzdoctemplatedocumentIDOk returns a tuple with the FkiEzdoctemplatedocumentID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateResponse) GetFkiEzdoctemplatedocumentIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEzdoctemplatedocumentID) {
+		return nil, false
+	}
+	return o.FkiEzdoctemplatedocumentID, true
+}
+
+// HasFkiEzdoctemplatedocumentID returns a boolean if a field has been set.
+func (o *EzsigntemplateResponse) HasFkiEzdoctemplatedocumentID() bool {
+	if o != nil && !IsNil(o.FkiEzdoctemplatedocumentID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzdoctemplatedocumentID gets a reference to the given int32 and assigns it to the FkiEzdoctemplatedocumentID field.
+func (o *EzsigntemplateResponse) SetFkiEzdoctemplatedocumentID(v int32) {
+	o.FkiEzdoctemplatedocumentID = &v
+}
+
 // GetSLanguageNameX returns the SLanguageNameX field value
 func (o *EzsigntemplateResponse) GetSLanguageNameX() string {
 	if o == nil {
@@ -230,6 +268,70 @@ func (o *EzsigntemplateResponse) GetSEzsigntemplateDescriptionOk() (*string, boo
 // SetSEzsigntemplateDescription sets field value
 func (o *EzsigntemplateResponse) SetSEzsigntemplateDescription(v string) {
 	o.SEzsigntemplateDescription = v
+}
+
+// GetSEzsigntemplateExternaldescription returns the SEzsigntemplateExternaldescription field value if set, zero value otherwise.
+func (o *EzsigntemplateResponse) GetSEzsigntemplateExternaldescription() string {
+	if o == nil || IsNil(o.SEzsigntemplateExternaldescription) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsigntemplateExternaldescription
+}
+
+// GetSEzsigntemplateExternaldescriptionOk returns a tuple with the SEzsigntemplateExternaldescription field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateResponse) GetSEzsigntemplateExternaldescriptionOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsigntemplateExternaldescription) {
+		return nil, false
+	}
+	return o.SEzsigntemplateExternaldescription, true
+}
+
+// HasSEzsigntemplateExternaldescription returns a boolean if a field has been set.
+func (o *EzsigntemplateResponse) HasSEzsigntemplateExternaldescription() bool {
+	if o != nil && !IsNil(o.SEzsigntemplateExternaldescription) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsigntemplateExternaldescription gets a reference to the given string and assigns it to the SEzsigntemplateExternaldescription field.
+func (o *EzsigntemplateResponse) SetSEzsigntemplateExternaldescription(v string) {
+	o.SEzsigntemplateExternaldescription = &v
+}
+
+// GetTEzsigntemplateComment returns the TEzsigntemplateComment field value if set, zero value otherwise.
+func (o *EzsigntemplateResponse) GetTEzsigntemplateComment() string {
+	if o == nil || IsNil(o.TEzsigntemplateComment) {
+		var ret string
+		return ret
+	}
+	return *o.TEzsigntemplateComment
+}
+
+// GetTEzsigntemplateCommentOk returns a tuple with the TEzsigntemplateComment field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateResponse) GetTEzsigntemplateCommentOk() (*string, bool) {
+	if o == nil || IsNil(o.TEzsigntemplateComment) {
+		return nil, false
+	}
+	return o.TEzsigntemplateComment, true
+}
+
+// HasTEzsigntemplateComment returns a boolean if a field has been set.
+func (o *EzsigntemplateResponse) HasTEzsigntemplateComment() bool {
+	if o != nil && !IsNil(o.TEzsigntemplateComment) {
+		return true
+	}
+
+	return false
+}
+
+// SetTEzsigntemplateComment gets a reference to the given string and assigns it to the TEzsigntemplateComment field.
+func (o *EzsigntemplateResponse) SetTEzsigntemplateComment(v string) {
+	o.TEzsigntemplateComment = &v
 }
 
 // GetSEzsigntemplateFilenamepattern returns the SEzsigntemplateFilenamepattern field value if set, zero value otherwise.
@@ -418,8 +520,17 @@ func (o EzsigntemplateResponse) ToMap() (map[string]interface{}, error) {
 		toSerialize["fkiEzsignfoldertypeID"] = o.FkiEzsignfoldertypeID
 	}
 	toSerialize["fkiLanguageID"] = o.FkiLanguageID
+	if !IsNil(o.FkiEzdoctemplatedocumentID) {
+		toSerialize["fkiEzdoctemplatedocumentID"] = o.FkiEzdoctemplatedocumentID
+	}
 	toSerialize["sLanguageNameX"] = o.SLanguageNameX
 	toSerialize["sEzsigntemplateDescription"] = o.SEzsigntemplateDescription
+	if !IsNil(o.SEzsigntemplateExternaldescription) {
+		toSerialize["sEzsigntemplateExternaldescription"] = o.SEzsigntemplateExternaldescription
+	}
+	if !IsNil(o.TEzsigntemplateComment) {
+		toSerialize["tEzsigntemplateComment"] = o.TEzsigntemplateComment
+	}
 	if !IsNil(o.SEzsigntemplateFilenamepattern) {
 		toSerialize["sEzsigntemplateFilenamepattern"] = o.SEzsigntemplateFilenamepattern
 	}

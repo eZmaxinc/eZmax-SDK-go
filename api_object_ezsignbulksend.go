@@ -24,31 +24,31 @@ import (
 // ObjectEzsignbulksendAPIService ObjectEzsignbulksendAPI service
 type ObjectEzsignbulksendAPIService service
 
-type ApiEzsignbulksendCreateEzsignbulksendtransmissionV1Request struct {
+type ApiEzsignbulksendCreateEzsignbulksendtransmissionV2Request struct {
 	ctx context.Context
 	ApiService *ObjectEzsignbulksendAPIService
 	pkiEzsignbulksendID int32
-	ezsignbulksendCreateEzsignbulksendtransmissionV1Request *EzsignbulksendCreateEzsignbulksendtransmissionV1Request
+	ezsignbulksendCreateEzsignbulksendtransmissionV2Request *EzsignbulksendCreateEzsignbulksendtransmissionV2Request
 }
 
-func (r ApiEzsignbulksendCreateEzsignbulksendtransmissionV1Request) EzsignbulksendCreateEzsignbulksendtransmissionV1Request(ezsignbulksendCreateEzsignbulksendtransmissionV1Request EzsignbulksendCreateEzsignbulksendtransmissionV1Request) ApiEzsignbulksendCreateEzsignbulksendtransmissionV1Request {
-	r.ezsignbulksendCreateEzsignbulksendtransmissionV1Request = &ezsignbulksendCreateEzsignbulksendtransmissionV1Request
+func (r ApiEzsignbulksendCreateEzsignbulksendtransmissionV2Request) EzsignbulksendCreateEzsignbulksendtransmissionV2Request(ezsignbulksendCreateEzsignbulksendtransmissionV2Request EzsignbulksendCreateEzsignbulksendtransmissionV2Request) ApiEzsignbulksendCreateEzsignbulksendtransmissionV2Request {
+	r.ezsignbulksendCreateEzsignbulksendtransmissionV2Request = &ezsignbulksendCreateEzsignbulksendtransmissionV2Request
 	return r
 }
 
-func (r ApiEzsignbulksendCreateEzsignbulksendtransmissionV1Request) Execute() (*EzsignbulksendCreateEzsignbulksendtransmissionV1Response, *http.Response, error) {
-	return r.ApiService.EzsignbulksendCreateEzsignbulksendtransmissionV1Execute(r)
+func (r ApiEzsignbulksendCreateEzsignbulksendtransmissionV2Request) Execute() (*EzsignbulksendCreateEzsignbulksendtransmissionV2Response, *http.Response, error) {
+	return r.ApiService.EzsignbulksendCreateEzsignbulksendtransmissionV2Execute(r)
 }
 
 /*
-EzsignbulksendCreateEzsignbulksendtransmissionV1 Create a new Ezsignbulksendtransmission in the Ezsignbulksend
+EzsignbulksendCreateEzsignbulksendtransmissionV2 Create a new Ezsignbulksendtransmission in the Ezsignbulksend
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiEzsignbulksendID
- @return ApiEzsignbulksendCreateEzsignbulksendtransmissionV1Request
+ @return ApiEzsignbulksendCreateEzsignbulksendtransmissionV2Request
 */
-func (a *ObjectEzsignbulksendAPIService) EzsignbulksendCreateEzsignbulksendtransmissionV1(ctx context.Context, pkiEzsignbulksendID int32) ApiEzsignbulksendCreateEzsignbulksendtransmissionV1Request {
-	return ApiEzsignbulksendCreateEzsignbulksendtransmissionV1Request{
+func (a *ObjectEzsignbulksendAPIService) EzsignbulksendCreateEzsignbulksendtransmissionV2(ctx context.Context, pkiEzsignbulksendID int32) ApiEzsignbulksendCreateEzsignbulksendtransmissionV2Request {
+	return ApiEzsignbulksendCreateEzsignbulksendtransmissionV2Request{
 		ApiService: a,
 		ctx: ctx,
 		pkiEzsignbulksendID: pkiEzsignbulksendID,
@@ -56,21 +56,21 @@ func (a *ObjectEzsignbulksendAPIService) EzsignbulksendCreateEzsignbulksendtrans
 }
 
 // Execute executes the request
-//  @return EzsignbulksendCreateEzsignbulksendtransmissionV1Response
-func (a *ObjectEzsignbulksendAPIService) EzsignbulksendCreateEzsignbulksendtransmissionV1Execute(r ApiEzsignbulksendCreateEzsignbulksendtransmissionV1Request) (*EzsignbulksendCreateEzsignbulksendtransmissionV1Response, *http.Response, error) {
+//  @return EzsignbulksendCreateEzsignbulksendtransmissionV2Response
+func (a *ObjectEzsignbulksendAPIService) EzsignbulksendCreateEzsignbulksendtransmissionV2Execute(r ApiEzsignbulksendCreateEzsignbulksendtransmissionV2Request) (*EzsignbulksendCreateEzsignbulksendtransmissionV2Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *EzsignbulksendCreateEzsignbulksendtransmissionV1Response
+		localVarReturnValue  *EzsignbulksendCreateEzsignbulksendtransmissionV2Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignbulksendAPIService.EzsignbulksendCreateEzsignbulksendtransmissionV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignbulksendAPIService.EzsignbulksendCreateEzsignbulksendtransmissionV2")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/1/object/ezsignbulksend/{pkiEzsignbulksendID}/createEzsignbulksendtransmission"
+	localVarPath := localBasePath + "/2/object/ezsignbulksend/{pkiEzsignbulksendID}/createEzsignbulksendtransmission"
 	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsignbulksendID"+"}", url.PathEscape(parameterValueToString(r.pkiEzsignbulksendID, "pkiEzsignbulksendID")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -79,8 +79,8 @@ func (a *ObjectEzsignbulksendAPIService) EzsignbulksendCreateEzsignbulksendtrans
 	if r.pkiEzsignbulksendID < 0 {
 		return localVarReturnValue, nil, reportError("pkiEzsignbulksendID must be greater than 0")
 	}
-	if r.ezsignbulksendCreateEzsignbulksendtransmissionV1Request == nil {
-		return localVarReturnValue, nil, reportError("ezsignbulksendCreateEzsignbulksendtransmissionV1Request is required and must be specified")
+	if r.ezsignbulksendCreateEzsignbulksendtransmissionV2Request == nil {
+		return localVarReturnValue, nil, reportError("ezsignbulksendCreateEzsignbulksendtransmissionV2Request is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -101,7 +101,7 @@ func (a *ObjectEzsignbulksendAPIService) EzsignbulksendCreateEzsignbulksendtrans
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.ezsignbulksendCreateEzsignbulksendtransmissionV1Request
+	localVarPostBody = r.ezsignbulksendCreateEzsignbulksendtransmissionV2Request
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -653,7 +653,7 @@ func (a *ObjectEzsignbulksendAPIService) EzsignbulksendGetCsvTemplateV1Execute(r
 		return localVarReturnValue, nil, reportError("eCsvSeparator is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "eCsvSeparator", r.eCsvSeparator, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "eCsvSeparator", r.eCsvSeparator, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -1247,19 +1247,19 @@ func (a *ObjectEzsignbulksendAPIService) EzsignbulksendGetListV1Execute(r ApiEzs
 	localVarFormParams := url.Values{}
 
 	if r.eOrderBy != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "eOrderBy", r.eOrderBy, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "eOrderBy", r.eOrderBy, "form", "")
 	}
 	if r.iRowMax != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowMax", r.iRowMax, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowMax", r.iRowMax, "form", "")
 	}
 	if r.iRowOffset != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowOffset", r.iRowOffset, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowOffset", r.iRowOffset, "form", "")
 	} else {
 		var defaultValue int32 = 0
 		r.iRowOffset = &defaultValue
 	}
 	if r.sFilter != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "sFilter", r.sFilter, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sFilter", r.sFilter, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1279,7 +1279,7 @@ func (a *ObjectEzsignbulksendAPIService) EzsignbulksendGetListV1Execute(r ApiEzs
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.acceptLanguage != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept-Language", r.acceptLanguage, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept-Language", r.acceptLanguage, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication

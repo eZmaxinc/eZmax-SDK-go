@@ -8,6 +8,9 @@ Method | HTTP request | Description
 [**SignatureDeleteObjectV1**](ObjectSignatureAPI.md#SignatureDeleteObjectV1) | **Delete** /1/object/signature/{pkiSignatureID} | Delete an existing Signature
 [**SignatureEditObjectV1**](ObjectSignatureAPI.md#SignatureEditObjectV1) | **Put** /1/object/signature/{pkiSignatureID} | Edit an existing Signature
 [**SignatureGetObjectV2**](ObjectSignatureAPI.md#SignatureGetObjectV2) | **Get** /2/object/signature/{pkiSignatureID} | Retrieve an existing Signature
+[**SignatureGetObjectV3**](ObjectSignatureAPI.md#SignatureGetObjectV3) | **Get** /3/object/signature/{pkiSignatureID} | Retrieve an existing Signature
+[**SignatureGetSVGInitialsV1**](ObjectSignatureAPI.md#SignatureGetSVGInitialsV1) | **Get** /1/object/signature/{pkiSignatureID}/getSVGInitials | Retrieve an existing Signature initial SVG
+[**SignatureGetSVGSignatureV1**](ObjectSignatureAPI.md#SignatureGetSVGSignatureV1) | **Get** /1/object/signature/{pkiSignatureID}/getSVGSignature | Retrieve an existing Signature SVG
 
 
 
@@ -32,7 +35,7 @@ import (
 )
 
 func main() {
-	signatureCreateObjectV1Request := *openapiclient.NewSignatureCreateObjectV1Request([]openapiclient.SignatureRequestCompound{*openapiclient.NewSignatureRequestCompound("{"$ref":"#/components/examples/Svg/value"}")}) // SignatureCreateObjectV1Request | 
+	signatureCreateObjectV1Request := *openapiclient.NewSignatureCreateObjectV1Request([]openapiclient.SignatureRequestCompound{*openapiclient.NewSignatureRequestCompound(int32(1), openapiclient.Field-eSignaturePreference("Text"))}) // SignatureCreateObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -169,7 +172,7 @@ import (
 
 func main() {
 	pkiSignatureID := int32(56) // int32 | The unique ID of the Signature
-	signatureEditObjectV1Request := *openapiclient.NewSignatureEditObjectV1Request(*openapiclient.NewSignatureRequestCompound("{"$ref":"#/components/examples/Svg/value"}")) // SignatureEditObjectV1Request | 
+	signatureEditObjectV1Request := *openapiclient.NewSignatureEditObjectV1Request(*openapiclient.NewSignatureRequestCompound(int32(1), openapiclient.Field-eSignaturePreference("Text"))) // SignatureEditObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -274,6 +277,212 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SignatureGetObjectV2Response**](SignatureGetObjectV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SignatureGetObjectV3
+
+> SignatureGetObjectV3Response SignatureGetObjectV3(ctx, pkiSignatureID).Execute()
+
+Retrieve an existing Signature
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiSignatureID := int32(56) // int32 | The unique ID of the Signature
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectSignatureAPI.SignatureGetObjectV3(context.Background(), pkiSignatureID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSignatureAPI.SignatureGetObjectV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SignatureGetObjectV3`: SignatureGetObjectV3Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectSignatureAPI.SignatureGetObjectV3`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiSignatureID** | **int32** | The unique ID of the Signature | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSignatureGetObjectV3Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**SignatureGetObjectV3Response**](SignatureGetObjectV3Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SignatureGetSVGInitialsV1
+
+> SignatureGetSVGInitialsV1(ctx, pkiSignatureID).Execute()
+
+Retrieve an existing Signature initial SVG
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiSignatureID := int32(56) // int32 | The unique ID of the Signature
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ObjectSignatureAPI.SignatureGetSVGInitialsV1(context.Background(), pkiSignatureID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSignatureAPI.SignatureGetSVGInitialsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiSignatureID** | **int32** | The unique ID of the Signature | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSignatureGetSVGInitialsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SignatureGetSVGSignatureV1
+
+> SignatureGetSVGSignatureV1(ctx, pkiSignatureID).Execute()
+
+Retrieve an existing Signature SVG
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiSignatureID := int32(56) // int32 | The unique ID of the Signature
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ObjectSignatureAPI.SignatureGetSVGSignatureV1(context.Background(), pkiSignatureID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSignatureAPI.SignatureGetSVGSignatureV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiSignatureID** | **int32** | The unique ID of the Signature | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSignatureGetSVGSignatureV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
 
 ### Authorization
 

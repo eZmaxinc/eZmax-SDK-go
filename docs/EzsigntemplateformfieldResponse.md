@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **SEzsigntemplateformfieldValue** | Pointer to **string** | The value for the Ezsigntemplateformfield | [optional] 
 **IEzsigntemplateformfieldX** | Pointer to **int32** | The X coordinate (Horizontal) where to put the Ezsigntemplateformfield on the Ezsigntemplatepage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplateformfield 2 inches from the left border of the page, you would use \&quot;200\&quot; for the X coordinate. | [optional] 
 **IEzsigntemplateformfieldY** | Pointer to **int32** | The Y coordinate (Vertical) where to put the Ezsigntemplateformfield on the Ezsigntemplatepage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplateformfield 3 inches from the top border of the page, you would use \&quot;300\&quot; for the Y coordinate. | [optional] 
-**IEzsigntemplateformfieldWidth** | **int32** | The Width of the Ezsigntemplateformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsigntemplateformfieldgroupType.  | eEzsigntemplateformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22-65535     | | Radio                     | 22           | | Text                      | 22-65535     | | Textarea                  | 22-65535     | | 
-**IEzsigntemplateformfieldHeight** | **int32** | The Height of the Ezsigntemplateformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsigntemplateformfieldgroupType.  | eEzsigntemplateformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22           | | Radio                     | 22           | | Text                      | 22           | | Textarea                  | 22-65535     |  | 
+**IEzsigntemplateformfieldWidth** | **int32** | The Width of the Ezsigntemplateformfield in pixels calculated at 100 DPI | 
+**IEzsigntemplateformfieldHeight** | **int32** | The Height of the Ezsigntemplateformfield in pixels calculated at 100 DPI  | 
 **BEzsigntemplateformfieldAutocomplete** | Pointer to **bool** | Whether the Ezsigntemplateformfield allows the use of the autocomplete of the browser.  This can only be set if eEzsigntemplateformfieldgroupType is **Text** | [optional] 
 **BEzsigntemplateformfieldSelected** | Pointer to **bool** | Whether the Ezsigntemplateformfield is selected or not by default.  This can only be set if eEzsigntemplateformfieldgroupType is **Checkbox** or **Radio** | [optional] 
 **EEzsigntemplateformfieldDependencyrequirement** | Pointer to [**FieldEEzsigntemplateformfieldDependencyrequirement**](FieldEEzsigntemplateformfieldDependencyrequirement.md) |  | [optional] 
@@ -20,6 +20,8 @@ Name | Type | Description | Notes
 **IEzsigntemplateformfieldPositioningoffsetx** | Pointer to **int32** | The offset X  This will be required if **eEzsigntemplateformfieldPositioning** is set to **PerCoordinates** | [optional] 
 **IEzsigntemplateformfieldPositioningoffsety** | Pointer to **int32** | The offset Y  This will be required if **eEzsigntemplateformfieldPositioning** is set to **PerCoordinates** | [optional] 
 **EEzsigntemplateformfieldPositioningoccurence** | Pointer to [**FieldEEzsigntemplateformfieldPositioningoccurence**](FieldEEzsigntemplateformfieldPositioningoccurence.md) |  | [optional] 
+**EEzsigntemplateformfieldHorizontalalignment** | Pointer to [**EnumHorizontalalignment**](EnumHorizontalalignment.md) |  | [optional] 
+**ObjTextstylestatic** | Pointer to [**TextstylestaticResponseCompound**](TextstylestaticResponseCompound.md) |  | [optional] 
 
 ## Methods
 
@@ -414,6 +416,56 @@ SetEEzsigntemplateformfieldPositioningoccurence sets EEzsigntemplateformfieldPos
 `func (o *EzsigntemplateformfieldResponse) HasEEzsigntemplateformfieldPositioningoccurence() bool`
 
 HasEEzsigntemplateformfieldPositioningoccurence returns a boolean if a field has been set.
+
+### GetEEzsigntemplateformfieldHorizontalalignment
+
+`func (o *EzsigntemplateformfieldResponse) GetEEzsigntemplateformfieldHorizontalalignment() EnumHorizontalalignment`
+
+GetEEzsigntemplateformfieldHorizontalalignment returns the EEzsigntemplateformfieldHorizontalalignment field if non-nil, zero value otherwise.
+
+### GetEEzsigntemplateformfieldHorizontalalignmentOk
+
+`func (o *EzsigntemplateformfieldResponse) GetEEzsigntemplateformfieldHorizontalalignmentOk() (*EnumHorizontalalignment, bool)`
+
+GetEEzsigntemplateformfieldHorizontalalignmentOk returns a tuple with the EEzsigntemplateformfieldHorizontalalignment field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsigntemplateformfieldHorizontalalignment
+
+`func (o *EzsigntemplateformfieldResponse) SetEEzsigntemplateformfieldHorizontalalignment(v EnumHorizontalalignment)`
+
+SetEEzsigntemplateformfieldHorizontalalignment sets EEzsigntemplateformfieldHorizontalalignment field to given value.
+
+### HasEEzsigntemplateformfieldHorizontalalignment
+
+`func (o *EzsigntemplateformfieldResponse) HasEEzsigntemplateformfieldHorizontalalignment() bool`
+
+HasEEzsigntemplateformfieldHorizontalalignment returns a boolean if a field has been set.
+
+### GetObjTextstylestatic
+
+`func (o *EzsigntemplateformfieldResponse) GetObjTextstylestatic() TextstylestaticResponseCompound`
+
+GetObjTextstylestatic returns the ObjTextstylestatic field if non-nil, zero value otherwise.
+
+### GetObjTextstylestaticOk
+
+`func (o *EzsigntemplateformfieldResponse) GetObjTextstylestaticOk() (*TextstylestaticResponseCompound, bool)`
+
+GetObjTextstylestaticOk returns a tuple with the ObjTextstylestatic field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjTextstylestatic
+
+`func (o *EzsigntemplateformfieldResponse) SetObjTextstylestatic(v TextstylestaticResponseCompound)`
+
+SetObjTextstylestatic sets ObjTextstylestatic field to given value.
+
+### HasObjTextstylestatic
+
+`func (o *EzsigntemplateformfieldResponse) HasObjTextstylestatic() bool`
+
+HasObjTextstylestatic returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

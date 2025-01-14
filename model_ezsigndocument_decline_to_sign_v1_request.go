@@ -23,7 +23,7 @@ var _ MappedNullable = &EzsigndocumentDeclineToSignV1Request{}
 // EzsigndocumentDeclineToSignV1Request Request for POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/declineToSign
 type EzsigndocumentDeclineToSignV1Request struct {
 	// Reason for refusal
-	SReason string `json:"sReason"`
+	SReason string `json:"sReason" validate:"regexp=^.{0,65535}$"`
 }
 
 type _EzsigndocumentDeclineToSignV1Request EzsigndocumentDeclineToSignV1Request

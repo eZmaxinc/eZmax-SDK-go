@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **PkiEzsignfolderID** | **int32** | The unique ID of the Ezsignfolder | 
 **FkiEzsignfoldertypeID** | Pointer to **int32** | The unique ID of the Ezsignfoldertype. | [optional] 
 **ObjEzsignfoldertype** | Pointer to [**CustomEzsignfoldertypeResponse**](CustomEzsignfoldertypeResponse.md) |  | [optional] 
+**FkiTimezoneID** | Pointer to **int32** | The unique ID of the Timezone | [optional] 
 **EEzsignfolderCompletion** | [**FieldEEzsignfolderCompletion**](FieldEEzsignfolderCompletion.md) |  | 
 **SEzsignfoldertypeNameX** | Pointer to **string** |  | [optional] 
 **FkiBillingentityinternalID** | Pointer to **int32** | The unique ID of the Billingentityinternal. | [optional] 
@@ -17,6 +18,8 @@ Name | Type | Description | Notes
 **TEzsignfolderNote** | Pointer to **string** | Note about the Ezsignfolder | [optional] 
 **BEzsignfolderIsdisposable** | Pointer to **bool** | If the Ezsigndocument can be disposed | [optional] 
 **EEzsignfolderSendreminderfrequency** | Pointer to [**FieldEEzsignfolderSendreminderfrequency**](FieldEEzsignfolderSendreminderfrequency.md) |  | [optional] 
+**IEzsignfolderSendreminderfirstdays** | Pointer to **int32** | The number of days before the the first reminder sending | [optional] 
+**IEzsignfolderSendreminderotherdays** | Pointer to **int32** | The number of days after the first reminder sending | [optional] 
 **DtEzsignfolderDelayedsenddate** | Pointer to **string** | The date and time at which the Ezsignfolder will be sent in the future. | [optional] 
 **DtEzsignfolderDuedate** | Pointer to **string** | The maximum date and time at which the Ezsignfolder can be signed. | [optional] 
 **DtEzsignfolderSentdate** | Pointer to **string** | The date and time at which the Ezsignfolder was sent the last time. | [optional] 
@@ -27,6 +30,7 @@ Name | Type | Description | Notes
 **TEzsignfolderMessage** | Pointer to **string** | A custom text message that will be added to the email sent. | [optional] 
 **ObjAudit** | Pointer to [**CommonAudit**](CommonAudit.md) |  | [optional] 
 **SEzsignfolderExternalid** | Pointer to **string** | This field can be used to store an External ID from the client&#39;s system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format.  | [optional] 
+**ObjTimezone** | Pointer to [**CustomTimezoneWithCodeResponse**](CustomTimezoneWithCodeResponse.md) |  | [optional] 
 
 ## Methods
 
@@ -116,6 +120,31 @@ SetObjEzsignfoldertype sets ObjEzsignfoldertype field to given value.
 `func (o *EzsignfolderResponseCompound) HasObjEzsignfoldertype() bool`
 
 HasObjEzsignfoldertype returns a boolean if a field has been set.
+
+### GetFkiTimezoneID
+
+`func (o *EzsignfolderResponseCompound) GetFkiTimezoneID() int32`
+
+GetFkiTimezoneID returns the FkiTimezoneID field if non-nil, zero value otherwise.
+
+### GetFkiTimezoneIDOk
+
+`func (o *EzsignfolderResponseCompound) GetFkiTimezoneIDOk() (*int32, bool)`
+
+GetFkiTimezoneIDOk returns a tuple with the FkiTimezoneID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiTimezoneID
+
+`func (o *EzsignfolderResponseCompound) SetFkiTimezoneID(v int32)`
+
+SetFkiTimezoneID sets FkiTimezoneID field to given value.
+
+### HasFkiTimezoneID
+
+`func (o *EzsignfolderResponseCompound) HasFkiTimezoneID() bool`
+
+HasFkiTimezoneID returns a boolean if a field has been set.
 
 ### GetEEzsignfolderCompletion
 
@@ -356,6 +385,56 @@ SetEEzsignfolderSendreminderfrequency sets EEzsignfolderSendreminderfrequency fi
 `func (o *EzsignfolderResponseCompound) HasEEzsignfolderSendreminderfrequency() bool`
 
 HasEEzsignfolderSendreminderfrequency returns a boolean if a field has been set.
+
+### GetIEzsignfolderSendreminderfirstdays
+
+`func (o *EzsignfolderResponseCompound) GetIEzsignfolderSendreminderfirstdays() int32`
+
+GetIEzsignfolderSendreminderfirstdays returns the IEzsignfolderSendreminderfirstdays field if non-nil, zero value otherwise.
+
+### GetIEzsignfolderSendreminderfirstdaysOk
+
+`func (o *EzsignfolderResponseCompound) GetIEzsignfolderSendreminderfirstdaysOk() (*int32, bool)`
+
+GetIEzsignfolderSendreminderfirstdaysOk returns a tuple with the IEzsignfolderSendreminderfirstdays field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIEzsignfolderSendreminderfirstdays
+
+`func (o *EzsignfolderResponseCompound) SetIEzsignfolderSendreminderfirstdays(v int32)`
+
+SetIEzsignfolderSendreminderfirstdays sets IEzsignfolderSendreminderfirstdays field to given value.
+
+### HasIEzsignfolderSendreminderfirstdays
+
+`func (o *EzsignfolderResponseCompound) HasIEzsignfolderSendreminderfirstdays() bool`
+
+HasIEzsignfolderSendreminderfirstdays returns a boolean if a field has been set.
+
+### GetIEzsignfolderSendreminderotherdays
+
+`func (o *EzsignfolderResponseCompound) GetIEzsignfolderSendreminderotherdays() int32`
+
+GetIEzsignfolderSendreminderotherdays returns the IEzsignfolderSendreminderotherdays field if non-nil, zero value otherwise.
+
+### GetIEzsignfolderSendreminderotherdaysOk
+
+`func (o *EzsignfolderResponseCompound) GetIEzsignfolderSendreminderotherdaysOk() (*int32, bool)`
+
+GetIEzsignfolderSendreminderotherdaysOk returns a tuple with the IEzsignfolderSendreminderotherdays field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIEzsignfolderSendreminderotherdays
+
+`func (o *EzsignfolderResponseCompound) SetIEzsignfolderSendreminderotherdays(v int32)`
+
+SetIEzsignfolderSendreminderotherdays sets IEzsignfolderSendreminderotherdays field to given value.
+
+### HasIEzsignfolderSendreminderotherdays
+
+`func (o *EzsignfolderResponseCompound) HasIEzsignfolderSendreminderotherdays() bool`
+
+HasIEzsignfolderSendreminderotherdays returns a boolean if a field has been set.
 
 ### GetDtEzsignfolderDelayedsenddate
 
@@ -606,6 +685,31 @@ SetSEzsignfolderExternalid sets SEzsignfolderExternalid field to given value.
 `func (o *EzsignfolderResponseCompound) HasSEzsignfolderExternalid() bool`
 
 HasSEzsignfolderExternalid returns a boolean if a field has been set.
+
+### GetObjTimezone
+
+`func (o *EzsignfolderResponseCompound) GetObjTimezone() CustomTimezoneWithCodeResponse`
+
+GetObjTimezone returns the ObjTimezone field if non-nil, zero value otherwise.
+
+### GetObjTimezoneOk
+
+`func (o *EzsignfolderResponseCompound) GetObjTimezoneOk() (*CustomTimezoneWithCodeResponse, bool)`
+
+GetObjTimezoneOk returns a tuple with the ObjTimezone field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjTimezone
+
+`func (o *EzsignfolderResponseCompound) SetObjTimezone(v CustomTimezoneWithCodeResponse)`
+
+SetObjTimezone sets ObjTimezone field to given value.
+
+### HasObjTimezone
+
+`func (o *EzsignfolderResponseCompound) HasObjTimezone() bool`
+
+HasObjTimezone returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

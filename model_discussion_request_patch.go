@@ -21,7 +21,7 @@ var _ MappedNullable = &DiscussionRequestPatch{}
 // DiscussionRequestPatch A Discussion Object
 type DiscussionRequestPatch struct {
 	// The description of the Discussion
-	SDiscussionDescription *string `json:"sDiscussionDescription,omitempty"`
+	SDiscussionDescription *string `json:"sDiscussionDescription,omitempty" validate:"regexp=^.{0,75}$"`
 	// Whether if it's an closed
 	BDiscussionClosed *bool `json:"bDiscussionClosed,omitempty"`
 }

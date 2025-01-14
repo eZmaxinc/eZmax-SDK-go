@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiSystemconfigurationID** | Pointer to **int32** | The unique ID of the Systemconfiguration | [optional] 
+**FkiBrandingID** | Pointer to **int32** | The unique ID of the Branding | [optional] 
 **ESystemconfigurationNewexternaluseraction** | [**FieldESystemconfigurationNewexternaluseraction**](FieldESystemconfigurationNewexternaluseraction.md) |  | 
 **ESystemconfigurationLanguage1** | [**FieldESystemconfigurationLanguage1**](FieldESystemconfigurationLanguage1.md) |  | 
 **ESystemconfigurationLanguage2** | [**FieldESystemconfigurationLanguage2**](FieldESystemconfigurationLanguage2.md) |  | 
@@ -59,6 +60,31 @@ SetPkiSystemconfigurationID sets PkiSystemconfigurationID field to given value.
 `func (o *SystemconfigurationRequestCompound) HasPkiSystemconfigurationID() bool`
 
 HasPkiSystemconfigurationID returns a boolean if a field has been set.
+
+### GetFkiBrandingID
+
+`func (o *SystemconfigurationRequestCompound) GetFkiBrandingID() int32`
+
+GetFkiBrandingID returns the FkiBrandingID field if non-nil, zero value otherwise.
+
+### GetFkiBrandingIDOk
+
+`func (o *SystemconfigurationRequestCompound) GetFkiBrandingIDOk() (*int32, bool)`
+
+GetFkiBrandingIDOk returns a tuple with the FkiBrandingID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiBrandingID
+
+`func (o *SystemconfigurationRequestCompound) SetFkiBrandingID(v int32)`
+
+SetFkiBrandingID sets FkiBrandingID field to given value.
+
+### HasFkiBrandingID
+
+`func (o *SystemconfigurationRequestCompound) HasFkiBrandingID() bool`
+
+HasFkiBrandingID returns a boolean if a field has been set.
 
 ### GetESystemconfigurationNewexternaluseraction
 

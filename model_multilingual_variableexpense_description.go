@@ -21,9 +21,9 @@ var _ MappedNullable = &MultilingualVariableexpenseDescription{}
 // MultilingualVariableexpenseDescription The description of the Variableexpense
 type MultilingualVariableexpenseDescription struct {
 	// The description of the Variableexpense in French
-	SVariableexpenseDescription1 *string `json:"sVariableexpenseDescription1,omitempty"`
+	SVariableexpenseDescription1 *string `json:"sVariableexpenseDescription1,omitempty" validate:"regexp=^.{0,40}$"`
 	// The description of the Variableexpense in English
-	SVariableexpenseDescription2 *string `json:"sVariableexpenseDescription2,omitempty"`
+	SVariableexpenseDescription2 *string `json:"sVariableexpenseDescription2,omitempty" validate:"regexp=^.{0,40}$"`
 }
 
 // NewMultilingualVariableexpenseDescription instantiates a new MultilingualVariableexpenseDescription object

@@ -296,7 +296,7 @@ Name | Type | Description  | Notes
 
 ## EzsigntemplatepackageGetAutocompleteV2
 
-> EzsigntemplatepackageGetAutocompleteV2Response EzsigntemplatepackageGetAutocompleteV2(ctx, sSelector).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
+> EzsigntemplatepackageGetAutocompleteV2Response EzsigntemplatepackageGetAutocompleteV2(ctx, sSelector).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).FkiEzsignfoldertypeID(fkiEzsignfoldertypeID).Execute()
 
 Retrieve Ezsigntemplatepackages and IDs
 
@@ -319,10 +319,11 @@ func main() {
 	eFilterActive := "eFilterActive_example" // string | Specify which results we want to display. (optional) (default to "Active")
 	sQuery := "sQuery_example" // string | Allow to filter the returned results (optional)
 	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
+	fkiEzsignfoldertypeID := int32(56) // int32 | The fkiEzsignfoldertypeID to use with the selector Ezsigntemplatepublic (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectEzsigntemplatepackageAPI.EzsigntemplatepackageGetAutocompleteV2(context.Background(), sSelector).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
+	resp, r, err := apiClient.ObjectEzsigntemplatepackageAPI.EzsigntemplatepackageGetAutocompleteV2(context.Background(), sSelector).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).FkiEzsignfoldertypeID(fkiEzsignfoldertypeID).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatepackageAPI.EzsigntemplatepackageGetAutocompleteV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -351,6 +352,7 @@ Name | Type | Description  | Notes
  **eFilterActive** | **string** | Specify which results we want to display. | [default to &quot;Active&quot;]
  **sQuery** | **string** | Allow to filter the returned results | 
  **acceptLanguage** | [**HeaderAcceptLanguage**](HeaderAcceptLanguage.md) |  | 
+ **fkiEzsignfoldertypeID** | **int32** | The fkiEzsignfoldertypeID to use with the selector Ezsigntemplatepublic | 
 
 ### Return type
 

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiCreditcarddetailID** | **int32** | The unique ID of the Creditcarddetail | 
 **FkiCreditcardtypeID** | **int32** | The unique ID of the Creditcardtype | 
-**SCreditcarddetailNumbermasked** | **string** | The numbermasked of the Creditcarddetail | 
+**ICreditcarddetailLastdigits** | **int32** | The last digits of the Creditcarddetail | 
 **ICreditcarddetailExpirationmonth** | **int32** | The expirationmonth of the Creditcarddetail | 
 **ICreditcarddetailExpirationyear** | **int32** | The expirationyear of the Creditcarddetail | 
 **SCreditcarddetailCivic** | **string** | The civic of the Creditcarddetail | 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewCreditcarddetailResponse
 
-`func NewCreditcarddetailResponse(pkiCreditcarddetailID int32, fkiCreditcardtypeID int32, sCreditcarddetailNumbermasked string, iCreditcarddetailExpirationmonth int32, iCreditcarddetailExpirationyear int32, sCreditcarddetailCivic string, sCreditcarddetailStreet string, sCreditcarddetailZip string, ) *CreditcarddetailResponse`
+`func NewCreditcarddetailResponse(pkiCreditcarddetailID int32, fkiCreditcardtypeID int32, iCreditcarddetailLastdigits int32, iCreditcarddetailExpirationmonth int32, iCreditcarddetailExpirationyear int32, sCreditcarddetailCivic string, sCreditcarddetailStreet string, sCreditcarddetailZip string, ) *CreditcarddetailResponse`
 
 NewCreditcarddetailResponse instantiates a new CreditcarddetailResponse object
 This constructor will assign default values to properties that have it defined,
@@ -72,24 +72,24 @@ and a boolean to check if the value has been set.
 SetFkiCreditcardtypeID sets FkiCreditcardtypeID field to given value.
 
 
-### GetSCreditcarddetailNumbermasked
+### GetICreditcarddetailLastdigits
 
-`func (o *CreditcarddetailResponse) GetSCreditcarddetailNumbermasked() string`
+`func (o *CreditcarddetailResponse) GetICreditcarddetailLastdigits() int32`
 
-GetSCreditcarddetailNumbermasked returns the SCreditcarddetailNumbermasked field if non-nil, zero value otherwise.
+GetICreditcarddetailLastdigits returns the ICreditcarddetailLastdigits field if non-nil, zero value otherwise.
 
-### GetSCreditcarddetailNumbermaskedOk
+### GetICreditcarddetailLastdigitsOk
 
-`func (o *CreditcarddetailResponse) GetSCreditcarddetailNumbermaskedOk() (*string, bool)`
+`func (o *CreditcarddetailResponse) GetICreditcarddetailLastdigitsOk() (*int32, bool)`
 
-GetSCreditcarddetailNumbermaskedOk returns a tuple with the SCreditcarddetailNumbermasked field if it's non-nil, zero value otherwise
+GetICreditcarddetailLastdigitsOk returns a tuple with the ICreditcarddetailLastdigits field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSCreditcarddetailNumbermasked
+### SetICreditcarddetailLastdigits
 
-`func (o *CreditcarddetailResponse) SetSCreditcarddetailNumbermasked(v string)`
+`func (o *CreditcarddetailResponse) SetICreditcarddetailLastdigits(v int32)`
 
-SetSCreditcarddetailNumbermasked sets SCreditcarddetailNumbermasked field to given value.
+SetICreditcarddetailLastdigits sets ICreditcarddetailLastdigits field to given value.
 
 
 ### GetICreditcarddetailExpirationmonth

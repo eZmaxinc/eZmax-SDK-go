@@ -23,7 +23,7 @@ var _ MappedNullable = &WebsocketResponseGetWebsocketIDV1MPayload{}
 // WebsocketResponseGetWebsocketIDV1MPayload Payload for Websocket GetWebsocketID V1
 type WebsocketResponseGetWebsocketIDV1MPayload struct {
 	// The Unique ID of the Websocket Connection
-	SWebsocketID string `json:"sWebsocketID"`
+	SWebsocketID string `json:"sWebsocketID" validate:"regexp=^[a-zA-Z0-9_-]{15}=$"`
 }
 
 type _WebsocketResponseGetWebsocketIDV1MPayload WebsocketResponseGetWebsocketIDV1MPayload

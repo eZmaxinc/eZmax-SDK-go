@@ -23,7 +23,7 @@ var _ MappedNullable = &VariableexpenseAutocompleteElementResponse{}
 // VariableexpenseAutocompleteElementResponse A Variableexpense AutocompleteElement Response
 type VariableexpenseAutocompleteElementResponse struct {
 	// The description of the Variableexpense in the language of the requester
-	SVariableexpenseDescriptionX string `json:"sVariableexpenseDescriptionX"`
+	SVariableexpenseDescriptionX string `json:"sVariableexpenseDescriptionX" validate:"regexp=^.{0,40}$"`
 	// The unique ID of the Variableexpense
 	PkiVariableexpenseID int32 `json:"pkiVariableexpenseID"`
 	// Whether the variableexpense is active or not

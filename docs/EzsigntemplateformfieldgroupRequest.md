@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **IEzsigntemplateformfieldgroupMaxlength** | Pointer to **int32** | The maximum length for the value in the Ezsigntemplateformfieldgroup  This can only be set if eEzsigntemplateformfieldgroupType is **Text** or **Textarea** | [optional] 
 **BEzsigntemplateformfieldgroupEncrypted** | Pointer to **bool** | Whether the Ezsigntemplateformfieldgroup is encrypted in the database or not. Encrypted values are not displayed on the Ezsigndocument. This can only be set if eEzsigntemplateformfieldgroupType is **Text** or **Textarea** | [optional] 
 **SEzsigntemplateformfieldgroupRegexp** | Pointer to **string** | A regular expression to indicate what values are acceptable for the Ezsigntemplateformfieldgroup.  This can only be set if eEzsigntemplateformfieldgroupType is **Text** or **Textarea** | [optional] 
+**SEzsigntemplateformfieldgroupTextvalidationcustommessage** | Pointer to **string** | Description of validation rule. Show by signatory. | [optional] 
 **EEzsigntemplateformfieldgroupTextvalidation** | Pointer to [**EnumTextvalidation**](EnumTextvalidation.md) |  | [optional] 
 **TEzsigntemplateformfieldgroupTooltip** | Pointer to **string** | A tooltip that will be presented to Ezsigntemplatesigner about the Ezsigntemplateformfieldgroup | [optional] 
 **EEzsigntemplateformfieldgroupTooltipposition** | Pointer to [**FieldEEzsigntemplateformfieldgroupTooltipposition**](FieldEEzsigntemplateformfieldgroupTooltipposition.md) |  | [optional] 
@@ -324,6 +325,31 @@ SetSEzsigntemplateformfieldgroupRegexp sets SEzsigntemplateformfieldgroupRegexp 
 `func (o *EzsigntemplateformfieldgroupRequest) HasSEzsigntemplateformfieldgroupRegexp() bool`
 
 HasSEzsigntemplateformfieldgroupRegexp returns a boolean if a field has been set.
+
+### GetSEzsigntemplateformfieldgroupTextvalidationcustommessage
+
+`func (o *EzsigntemplateformfieldgroupRequest) GetSEzsigntemplateformfieldgroupTextvalidationcustommessage() string`
+
+GetSEzsigntemplateformfieldgroupTextvalidationcustommessage returns the SEzsigntemplateformfieldgroupTextvalidationcustommessage field if non-nil, zero value otherwise.
+
+### GetSEzsigntemplateformfieldgroupTextvalidationcustommessageOk
+
+`func (o *EzsigntemplateformfieldgroupRequest) GetSEzsigntemplateformfieldgroupTextvalidationcustommessageOk() (*string, bool)`
+
+GetSEzsigntemplateformfieldgroupTextvalidationcustommessageOk returns a tuple with the SEzsigntemplateformfieldgroupTextvalidationcustommessage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzsigntemplateformfieldgroupTextvalidationcustommessage
+
+`func (o *EzsigntemplateformfieldgroupRequest) SetSEzsigntemplateformfieldgroupTextvalidationcustommessage(v string)`
+
+SetSEzsigntemplateformfieldgroupTextvalidationcustommessage sets SEzsigntemplateformfieldgroupTextvalidationcustommessage field to given value.
+
+### HasSEzsigntemplateformfieldgroupTextvalidationcustommessage
+
+`func (o *EzsigntemplateformfieldgroupRequest) HasSEzsigntemplateformfieldgroupTextvalidationcustommessage() bool`
+
+HasSEzsigntemplateformfieldgroupTextvalidationcustommessage returns a boolean if a field has been set.
 
 ### GetEEzsigntemplateformfieldgroupTextvalidation
 

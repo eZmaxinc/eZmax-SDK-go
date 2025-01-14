@@ -13,8 +13,6 @@ package eZmaxApi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the EzsigntemplateCopyV1Request type satisfies the MappedNullable interface at compile time
@@ -22,18 +20,19 @@ var _ MappedNullable = &EzsigntemplateCopyV1Request{}
 
 // EzsigntemplateCopyV1Request Request for POST /1/object/ezsigntemplate/{pkiEzsigntemplateID}/copy
 type EzsigntemplateCopyV1Request struct {
-	AFkiEzsignfoldertypeID []int32 `json:"a_fkiEzsignfoldertypeID"`
+	AFkiEzsignfoldertypeID []int32 `json:"a_fkiEzsignfoldertypeID,omitempty"`
+	// Whether we shall copy the Ezsigntemplate as a company Ezsigntemplate
+	BCopyCompany *bool `json:"bCopyCompany,omitempty"`
+	// Whether we shall copy the Ezsigntemplate as a user Ezsigntemplate
+	BCopyUser *bool `json:"bCopyUser,omitempty"`
 }
-
-type _EzsigntemplateCopyV1Request EzsigntemplateCopyV1Request
 
 // NewEzsigntemplateCopyV1Request instantiates a new EzsigntemplateCopyV1Request object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigntemplateCopyV1Request(aFkiEzsignfoldertypeID []int32) *EzsigntemplateCopyV1Request {
+func NewEzsigntemplateCopyV1Request() *EzsigntemplateCopyV1Request {
 	this := EzsigntemplateCopyV1Request{}
-	this.AFkiEzsignfoldertypeID = aFkiEzsignfoldertypeID
 	return &this
 }
 
@@ -45,28 +44,100 @@ func NewEzsigntemplateCopyV1RequestWithDefaults() *EzsigntemplateCopyV1Request {
 	return &this
 }
 
-// GetAFkiEzsignfoldertypeID returns the AFkiEzsignfoldertypeID field value
+// GetAFkiEzsignfoldertypeID returns the AFkiEzsignfoldertypeID field value if set, zero value otherwise.
 func (o *EzsigntemplateCopyV1Request) GetAFkiEzsignfoldertypeID() []int32 {
-	if o == nil {
+	if o == nil || IsNil(o.AFkiEzsignfoldertypeID) {
 		var ret []int32
 		return ret
 	}
-
 	return o.AFkiEzsignfoldertypeID
 }
 
-// GetAFkiEzsignfoldertypeIDOk returns a tuple with the AFkiEzsignfoldertypeID field value
+// GetAFkiEzsignfoldertypeIDOk returns a tuple with the AFkiEzsignfoldertypeID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsigntemplateCopyV1Request) GetAFkiEzsignfoldertypeIDOk() ([]int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AFkiEzsignfoldertypeID) {
 		return nil, false
 	}
 	return o.AFkiEzsignfoldertypeID, true
 }
 
-// SetAFkiEzsignfoldertypeID sets field value
+// HasAFkiEzsignfoldertypeID returns a boolean if a field has been set.
+func (o *EzsigntemplateCopyV1Request) HasAFkiEzsignfoldertypeID() bool {
+	if o != nil && !IsNil(o.AFkiEzsignfoldertypeID) {
+		return true
+	}
+
+	return false
+}
+
+// SetAFkiEzsignfoldertypeID gets a reference to the given []int32 and assigns it to the AFkiEzsignfoldertypeID field.
 func (o *EzsigntemplateCopyV1Request) SetAFkiEzsignfoldertypeID(v []int32) {
 	o.AFkiEzsignfoldertypeID = v
+}
+
+// GetBCopyCompany returns the BCopyCompany field value if set, zero value otherwise.
+func (o *EzsigntemplateCopyV1Request) GetBCopyCompany() bool {
+	if o == nil || IsNil(o.BCopyCompany) {
+		var ret bool
+		return ret
+	}
+	return *o.BCopyCompany
+}
+
+// GetBCopyCompanyOk returns a tuple with the BCopyCompany field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateCopyV1Request) GetBCopyCompanyOk() (*bool, bool) {
+	if o == nil || IsNil(o.BCopyCompany) {
+		return nil, false
+	}
+	return o.BCopyCompany, true
+}
+
+// HasBCopyCompany returns a boolean if a field has been set.
+func (o *EzsigntemplateCopyV1Request) HasBCopyCompany() bool {
+	if o != nil && !IsNil(o.BCopyCompany) {
+		return true
+	}
+
+	return false
+}
+
+// SetBCopyCompany gets a reference to the given bool and assigns it to the BCopyCompany field.
+func (o *EzsigntemplateCopyV1Request) SetBCopyCompany(v bool) {
+	o.BCopyCompany = &v
+}
+
+// GetBCopyUser returns the BCopyUser field value if set, zero value otherwise.
+func (o *EzsigntemplateCopyV1Request) GetBCopyUser() bool {
+	if o == nil || IsNil(o.BCopyUser) {
+		var ret bool
+		return ret
+	}
+	return *o.BCopyUser
+}
+
+// GetBCopyUserOk returns a tuple with the BCopyUser field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateCopyV1Request) GetBCopyUserOk() (*bool, bool) {
+	if o == nil || IsNil(o.BCopyUser) {
+		return nil, false
+	}
+	return o.BCopyUser, true
+}
+
+// HasBCopyUser returns a boolean if a field has been set.
+func (o *EzsigntemplateCopyV1Request) HasBCopyUser() bool {
+	if o != nil && !IsNil(o.BCopyUser) {
+		return true
+	}
+
+	return false
+}
+
+// SetBCopyUser gets a reference to the given bool and assigns it to the BCopyUser field.
+func (o *EzsigntemplateCopyV1Request) SetBCopyUser(v bool) {
+	o.BCopyUser = &v
 }
 
 func (o EzsigntemplateCopyV1Request) MarshalJSON() ([]byte, error) {
@@ -79,45 +150,16 @@ func (o EzsigntemplateCopyV1Request) MarshalJSON() ([]byte, error) {
 
 func (o EzsigntemplateCopyV1Request) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["a_fkiEzsignfoldertypeID"] = o.AFkiEzsignfoldertypeID
+	if !IsNil(o.AFkiEzsignfoldertypeID) {
+		toSerialize["a_fkiEzsignfoldertypeID"] = o.AFkiEzsignfoldertypeID
+	}
+	if !IsNil(o.BCopyCompany) {
+		toSerialize["bCopyCompany"] = o.BCopyCompany
+	}
+	if !IsNil(o.BCopyUser) {
+		toSerialize["bCopyUser"] = o.BCopyUser
+	}
 	return toSerialize, nil
-}
-
-func (o *EzsigntemplateCopyV1Request) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"a_fkiEzsignfoldertypeID",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varEzsigntemplateCopyV1Request := _EzsigntemplateCopyV1Request{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varEzsigntemplateCopyV1Request)
-
-	if err != nil {
-		return err
-	}
-
-	*o = EzsigntemplateCopyV1Request(varEzsigntemplateCopyV1Request)
-
-	return err
 }
 
 type NullableEzsigntemplateCopyV1Request struct {

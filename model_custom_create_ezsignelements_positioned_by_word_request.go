@@ -23,7 +23,7 @@ var _ MappedNullable = &CustomCreateEzsignelementsPositionedByWordRequest{}
 // CustomCreateEzsignelementsPositionedByWordRequest A CreateEzsignelementsPositionedByWord object
 type CustomCreateEzsignelementsPositionedByWordRequest struct {
 	// The word to search
-	SCreateezsignelementspositionedbywordPattern string `json:"sCreateezsignelementspositionedbywordPattern"`
+	SCreateezsignelementspositionedbywordPattern string `json:"sCreateezsignelementspositionedbywordPattern" validate:"regexp=^.{1,35}$"`
 	// The X offset
 	ICreateezsignelementspositionedbywordOffsetx int32 `json:"iCreateezsignelementspositionedbywordOffsetx"`
 	// The Y offset

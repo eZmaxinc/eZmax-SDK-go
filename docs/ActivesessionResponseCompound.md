@@ -12,13 +12,23 @@ Name | Type | Description | Notes
 **SDepartmentNameX** | **string** | The Name of the Department in the language of the requester | 
 **BActivesessionDebug** | **bool** | Whether the active session is in debug or not | 
 **BActivesessionIssuperadmin** | **bool** | Whether the active session is superadmin or not | 
+**BActivesessionAttachment** | Pointer to **bool** | Can access attachment when we clone a user | [optional] 
+**BActivesessionCanafe** | Pointer to **bool** | Can access canafe when we clone a user | [optional] 
+**BActivesessionFinancial** | Pointer to **bool** | Can access financial element when we clone a user | [optional] 
+**BActivesessionRealestatecompleted** | Pointer to **bool** | Can access closed realestate folders when we clone a user | [optional] 
+**EActivesessionEzsign** | Pointer to [**FieldEActivesessionEzsign**](FieldEActivesessionEzsign.md) |  | [optional] 
+**EActivesessionEzsignaccess** | [**FieldEActivesessionEzsignaccess**](FieldEActivesessionEzsignaccess.md) |  | 
+**EActivesessionEzsignprepaid** | Pointer to [**FieldEActivesessionEzsignprepaid**](FieldEActivesessionEzsignprepaid.md) |  | [optional] 
+**EActivesessionRealestateinprogress** | Pointer to [**FieldEActivesessionRealestateinprogress**](FieldEActivesessionRealestateinprogress.md) |  | [optional] 
 **PksCustomerCode** | **string** | The customer code assigned to your account | 
 **FkiSystemconfigurationtypeID** | **int32** | The unique ID of the Systemconfigurationtype | 
 **FkiSignatureID** | Pointer to **int32** | The unique ID of the Signature | [optional] 
+**FkiEzsignuserID** | Pointer to **int32** | The unique ID of the Ezsignuser | [optional] 
 **BSystemconfigurationEzsignpaidbyoffice** | Pointer to **bool** | Whether if Ezsign is paid by the company or not | [optional] 
 **ESystemconfigurationEzsignofficeplan** | Pointer to [**FieldESystemconfigurationEzsignofficeplan**](FieldESystemconfigurationEzsignofficeplan.md) |  | [optional] 
 **EUserEzsignaccess** | [**FieldEUserEzsignaccess**](FieldEUserEzsignaccess.md) |  | 
 **EUserEzsignprepaid** | Pointer to [**FieldEUserEzsignprepaid**](FieldEUserEzsignprepaid.md) |  | [optional] 
+**BUserEzsigntrial** | Pointer to **bool** | Whether the User&#39;s eZsign subscription is a trial | [optional] 
 **DtUserEzsignprepaidexpiration** | Pointer to **string** | The eZsign prepaid expiration date | [optional] 
 **APkiPermissionID** | **[]int32** | An array of permissions granted to the user or api key | 
 **ObjUserReal** | [**ActivesessionResponseCompoundUser**](ActivesessionResponseCompoundUser.md) |  | 
@@ -30,7 +40,7 @@ Name | Type | Description | Notes
 
 ### NewActivesessionResponseCompound
 
-`func NewActivesessionResponseCompound(eActivesessionUsertype FieldEActivesessionUsertype, eActivesessionOrigin FieldEActivesessionOrigin, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, bActivesessionDebug bool, bActivesessionIssuperadmin bool, pksCustomerCode string, fkiSystemconfigurationtypeID int32, eUserEzsignaccess FieldEUserEzsignaccess, aPkiPermissionID []int32, objUserReal ActivesessionResponseCompoundUser, aEModuleInternalname []string, ) *ActivesessionResponseCompound`
+`func NewActivesessionResponseCompound(eActivesessionUsertype FieldEActivesessionUsertype, eActivesessionOrigin FieldEActivesessionOrigin, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, bActivesessionDebug bool, bActivesessionIssuperadmin bool, eActivesessionEzsignaccess FieldEActivesessionEzsignaccess, pksCustomerCode string, fkiSystemconfigurationtypeID int32, eUserEzsignaccess FieldEUserEzsignaccess, aPkiPermissionID []int32, objUserReal ActivesessionResponseCompoundUser, aEModuleInternalname []string, ) *ActivesessionResponseCompound`
 
 NewActivesessionResponseCompound instantiates a new ActivesessionResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -205,6 +215,201 @@ and a boolean to check if the value has been set.
 SetBActivesessionIssuperadmin sets BActivesessionIssuperadmin field to given value.
 
 
+### GetBActivesessionAttachment
+
+`func (o *ActivesessionResponseCompound) GetBActivesessionAttachment() bool`
+
+GetBActivesessionAttachment returns the BActivesessionAttachment field if non-nil, zero value otherwise.
+
+### GetBActivesessionAttachmentOk
+
+`func (o *ActivesessionResponseCompound) GetBActivesessionAttachmentOk() (*bool, bool)`
+
+GetBActivesessionAttachmentOk returns a tuple with the BActivesessionAttachment field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBActivesessionAttachment
+
+`func (o *ActivesessionResponseCompound) SetBActivesessionAttachment(v bool)`
+
+SetBActivesessionAttachment sets BActivesessionAttachment field to given value.
+
+### HasBActivesessionAttachment
+
+`func (o *ActivesessionResponseCompound) HasBActivesessionAttachment() bool`
+
+HasBActivesessionAttachment returns a boolean if a field has been set.
+
+### GetBActivesessionCanafe
+
+`func (o *ActivesessionResponseCompound) GetBActivesessionCanafe() bool`
+
+GetBActivesessionCanafe returns the BActivesessionCanafe field if non-nil, zero value otherwise.
+
+### GetBActivesessionCanafeOk
+
+`func (o *ActivesessionResponseCompound) GetBActivesessionCanafeOk() (*bool, bool)`
+
+GetBActivesessionCanafeOk returns a tuple with the BActivesessionCanafe field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBActivesessionCanafe
+
+`func (o *ActivesessionResponseCompound) SetBActivesessionCanafe(v bool)`
+
+SetBActivesessionCanafe sets BActivesessionCanafe field to given value.
+
+### HasBActivesessionCanafe
+
+`func (o *ActivesessionResponseCompound) HasBActivesessionCanafe() bool`
+
+HasBActivesessionCanafe returns a boolean if a field has been set.
+
+### GetBActivesessionFinancial
+
+`func (o *ActivesessionResponseCompound) GetBActivesessionFinancial() bool`
+
+GetBActivesessionFinancial returns the BActivesessionFinancial field if non-nil, zero value otherwise.
+
+### GetBActivesessionFinancialOk
+
+`func (o *ActivesessionResponseCompound) GetBActivesessionFinancialOk() (*bool, bool)`
+
+GetBActivesessionFinancialOk returns a tuple with the BActivesessionFinancial field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBActivesessionFinancial
+
+`func (o *ActivesessionResponseCompound) SetBActivesessionFinancial(v bool)`
+
+SetBActivesessionFinancial sets BActivesessionFinancial field to given value.
+
+### HasBActivesessionFinancial
+
+`func (o *ActivesessionResponseCompound) HasBActivesessionFinancial() bool`
+
+HasBActivesessionFinancial returns a boolean if a field has been set.
+
+### GetBActivesessionRealestatecompleted
+
+`func (o *ActivesessionResponseCompound) GetBActivesessionRealestatecompleted() bool`
+
+GetBActivesessionRealestatecompleted returns the BActivesessionRealestatecompleted field if non-nil, zero value otherwise.
+
+### GetBActivesessionRealestatecompletedOk
+
+`func (o *ActivesessionResponseCompound) GetBActivesessionRealestatecompletedOk() (*bool, bool)`
+
+GetBActivesessionRealestatecompletedOk returns a tuple with the BActivesessionRealestatecompleted field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBActivesessionRealestatecompleted
+
+`func (o *ActivesessionResponseCompound) SetBActivesessionRealestatecompleted(v bool)`
+
+SetBActivesessionRealestatecompleted sets BActivesessionRealestatecompleted field to given value.
+
+### HasBActivesessionRealestatecompleted
+
+`func (o *ActivesessionResponseCompound) HasBActivesessionRealestatecompleted() bool`
+
+HasBActivesessionRealestatecompleted returns a boolean if a field has been set.
+
+### GetEActivesessionEzsign
+
+`func (o *ActivesessionResponseCompound) GetEActivesessionEzsign() FieldEActivesessionEzsign`
+
+GetEActivesessionEzsign returns the EActivesessionEzsign field if non-nil, zero value otherwise.
+
+### GetEActivesessionEzsignOk
+
+`func (o *ActivesessionResponseCompound) GetEActivesessionEzsignOk() (*FieldEActivesessionEzsign, bool)`
+
+GetEActivesessionEzsignOk returns a tuple with the EActivesessionEzsign field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEActivesessionEzsign
+
+`func (o *ActivesessionResponseCompound) SetEActivesessionEzsign(v FieldEActivesessionEzsign)`
+
+SetEActivesessionEzsign sets EActivesessionEzsign field to given value.
+
+### HasEActivesessionEzsign
+
+`func (o *ActivesessionResponseCompound) HasEActivesessionEzsign() bool`
+
+HasEActivesessionEzsign returns a boolean if a field has been set.
+
+### GetEActivesessionEzsignaccess
+
+`func (o *ActivesessionResponseCompound) GetEActivesessionEzsignaccess() FieldEActivesessionEzsignaccess`
+
+GetEActivesessionEzsignaccess returns the EActivesessionEzsignaccess field if non-nil, zero value otherwise.
+
+### GetEActivesessionEzsignaccessOk
+
+`func (o *ActivesessionResponseCompound) GetEActivesessionEzsignaccessOk() (*FieldEActivesessionEzsignaccess, bool)`
+
+GetEActivesessionEzsignaccessOk returns a tuple with the EActivesessionEzsignaccess field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEActivesessionEzsignaccess
+
+`func (o *ActivesessionResponseCompound) SetEActivesessionEzsignaccess(v FieldEActivesessionEzsignaccess)`
+
+SetEActivesessionEzsignaccess sets EActivesessionEzsignaccess field to given value.
+
+
+### GetEActivesessionEzsignprepaid
+
+`func (o *ActivesessionResponseCompound) GetEActivesessionEzsignprepaid() FieldEActivesessionEzsignprepaid`
+
+GetEActivesessionEzsignprepaid returns the EActivesessionEzsignprepaid field if non-nil, zero value otherwise.
+
+### GetEActivesessionEzsignprepaidOk
+
+`func (o *ActivesessionResponseCompound) GetEActivesessionEzsignprepaidOk() (*FieldEActivesessionEzsignprepaid, bool)`
+
+GetEActivesessionEzsignprepaidOk returns a tuple with the EActivesessionEzsignprepaid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEActivesessionEzsignprepaid
+
+`func (o *ActivesessionResponseCompound) SetEActivesessionEzsignprepaid(v FieldEActivesessionEzsignprepaid)`
+
+SetEActivesessionEzsignprepaid sets EActivesessionEzsignprepaid field to given value.
+
+### HasEActivesessionEzsignprepaid
+
+`func (o *ActivesessionResponseCompound) HasEActivesessionEzsignprepaid() bool`
+
+HasEActivesessionEzsignprepaid returns a boolean if a field has been set.
+
+### GetEActivesessionRealestateinprogress
+
+`func (o *ActivesessionResponseCompound) GetEActivesessionRealestateinprogress() FieldEActivesessionRealestateinprogress`
+
+GetEActivesessionRealestateinprogress returns the EActivesessionRealestateinprogress field if non-nil, zero value otherwise.
+
+### GetEActivesessionRealestateinprogressOk
+
+`func (o *ActivesessionResponseCompound) GetEActivesessionRealestateinprogressOk() (*FieldEActivesessionRealestateinprogress, bool)`
+
+GetEActivesessionRealestateinprogressOk returns a tuple with the EActivesessionRealestateinprogress field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEActivesessionRealestateinprogress
+
+`func (o *ActivesessionResponseCompound) SetEActivesessionRealestateinprogress(v FieldEActivesessionRealestateinprogress)`
+
+SetEActivesessionRealestateinprogress sets EActivesessionRealestateinprogress field to given value.
+
+### HasEActivesessionRealestateinprogress
+
+`func (o *ActivesessionResponseCompound) HasEActivesessionRealestateinprogress() bool`
+
+HasEActivesessionRealestateinprogress returns a boolean if a field has been set.
+
 ### GetPksCustomerCode
 
 `func (o *ActivesessionResponseCompound) GetPksCustomerCode() string`
@@ -269,6 +474,31 @@ SetFkiSignatureID sets FkiSignatureID field to given value.
 `func (o *ActivesessionResponseCompound) HasFkiSignatureID() bool`
 
 HasFkiSignatureID returns a boolean if a field has been set.
+
+### GetFkiEzsignuserID
+
+`func (o *ActivesessionResponseCompound) GetFkiEzsignuserID() int32`
+
+GetFkiEzsignuserID returns the FkiEzsignuserID field if non-nil, zero value otherwise.
+
+### GetFkiEzsignuserIDOk
+
+`func (o *ActivesessionResponseCompound) GetFkiEzsignuserIDOk() (*int32, bool)`
+
+GetFkiEzsignuserIDOk returns a tuple with the FkiEzsignuserID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiEzsignuserID
+
+`func (o *ActivesessionResponseCompound) SetFkiEzsignuserID(v int32)`
+
+SetFkiEzsignuserID sets FkiEzsignuserID field to given value.
+
+### HasFkiEzsignuserID
+
+`func (o *ActivesessionResponseCompound) HasFkiEzsignuserID() bool`
+
+HasFkiEzsignuserID returns a boolean if a field has been set.
 
 ### GetBSystemconfigurationEzsignpaidbyoffice
 
@@ -364,6 +594,31 @@ SetEUserEzsignprepaid sets EUserEzsignprepaid field to given value.
 `func (o *ActivesessionResponseCompound) HasEUserEzsignprepaid() bool`
 
 HasEUserEzsignprepaid returns a boolean if a field has been set.
+
+### GetBUserEzsigntrial
+
+`func (o *ActivesessionResponseCompound) GetBUserEzsigntrial() bool`
+
+GetBUserEzsigntrial returns the BUserEzsigntrial field if non-nil, zero value otherwise.
+
+### GetBUserEzsigntrialOk
+
+`func (o *ActivesessionResponseCompound) GetBUserEzsigntrialOk() (*bool, bool)`
+
+GetBUserEzsigntrialOk returns a tuple with the BUserEzsigntrial field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBUserEzsigntrial
+
+`func (o *ActivesessionResponseCompound) SetBUserEzsigntrial(v bool)`
+
+SetBUserEzsigntrial sets BUserEzsigntrial field to given value.
+
+### HasBUserEzsigntrial
+
+`func (o *ActivesessionResponseCompound) HasBUserEzsigntrial() bool`
+
+HasBUserEzsigntrial returns a boolean if a field has been set.
 
 ### GetDtUserEzsignprepaidexpiration
 

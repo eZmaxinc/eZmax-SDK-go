@@ -472,7 +472,7 @@ func (a *ObjectWebhookAPIService) WebhookGetHistoryV1Execute(r ApiWebhookGetHist
 		return localVarReturnValue, nil, reportError("eWebhookHistoryinterval is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "eWebhookHistoryinterval", r.eWebhookHistoryinterval, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "eWebhookHistoryinterval", r.eWebhookHistoryinterval, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -645,19 +645,19 @@ func (a *ObjectWebhookAPIService) WebhookGetListV1Execute(r ApiWebhookGetListV1R
 	localVarFormParams := url.Values{}
 
 	if r.eOrderBy != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "eOrderBy", r.eOrderBy, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "eOrderBy", r.eOrderBy, "form", "")
 	}
 	if r.iRowMax != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowMax", r.iRowMax, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowMax", r.iRowMax, "form", "")
 	}
 	if r.iRowOffset != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowOffset", r.iRowOffset, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowOffset", r.iRowOffset, "form", "")
 	} else {
 		var defaultValue int32 = 0
 		r.iRowOffset = &defaultValue
 	}
 	if r.sFilter != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "sFilter", r.sFilter, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sFilter", r.sFilter, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -677,7 +677,7 @@ func (a *ObjectWebhookAPIService) WebhookGetListV1Execute(r ApiWebhookGetListV1R
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.acceptLanguage != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept-Language", r.acceptLanguage, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept-Language", r.acceptLanguage, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -981,6 +981,138 @@ func (a *ObjectWebhookAPIService) WebhookRegenerateApikeyV1Execute(r ApiWebhookR
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiWebhookSendWebhookV1Request struct {
+	ctx context.Context
+	ApiService *ObjectWebhookAPIService
+	webhookSendWebhookV1Request *WebhookSendWebhookV1Request
+}
+
+func (r ApiWebhookSendWebhookV1Request) WebhookSendWebhookV1Request(webhookSendWebhookV1Request WebhookSendWebhookV1Request) ApiWebhookSendWebhookV1Request {
+	r.webhookSendWebhookV1Request = &webhookSendWebhookV1Request
+	return r
+}
+
+func (r ApiWebhookSendWebhookV1Request) Execute() (*WebhookSendWebhookV1Response, *http.Response, error) {
+	return r.ApiService.WebhookSendWebhookV1Execute(r)
+}
+
+/*
+WebhookSendWebhookV1 Emit a Webhook event
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiWebhookSendWebhookV1Request
+*/
+func (a *ObjectWebhookAPIService) WebhookSendWebhookV1(ctx context.Context) ApiWebhookSendWebhookV1Request {
+	return ApiWebhookSendWebhookV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return WebhookSendWebhookV1Response
+func (a *ObjectWebhookAPIService) WebhookSendWebhookV1Execute(r ApiWebhookSendWebhookV1Request) (*WebhookSendWebhookV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WebhookSendWebhookV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectWebhookAPIService.WebhookSendWebhookV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/webhook/sendWebhook"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.webhookSendWebhookV1Request == nil {
+		return localVarReturnValue, nil, reportError("webhookSendWebhookV1Request is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.webhookSendWebhookV1Request
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v CommonResponseError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

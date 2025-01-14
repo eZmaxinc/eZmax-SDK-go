@@ -22,11 +22,11 @@ func Test_eZmaxApi_ObjectEzsignfoldertypeAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ObjectEzsignfoldertypeAPIService EzsignfoldertypeCreateObjectV2", func(t *testing.T) {
+	t.Run("Test ObjectEzsignfoldertypeAPIService EzsignfoldertypeCreateObjectV3", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ObjectEzsignfoldertypeAPI.EzsignfoldertypeCreateObjectV2(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ObjectEzsignfoldertypeAPI.EzsignfoldertypeCreateObjectV3(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,27 +34,13 @@ func Test_eZmaxApi_ObjectEzsignfoldertypeAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ObjectEzsignfoldertypeAPIService EzsignfoldertypeEditObjectV1", func(t *testing.T) {
+	t.Run("Test ObjectEzsignfoldertypeAPIService EzsignfoldertypeEditObjectV3", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pkiEzsignfoldertypeID int32
 
-		resp, httpRes, err := apiClient.ObjectEzsignfoldertypeAPI.EzsignfoldertypeEditObjectV1(context.Background(), pkiEzsignfoldertypeID).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ObjectEzsignfoldertypeAPIService EzsignfoldertypeEditObjectV2", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var pkiEzsignfoldertypeID int32
-
-		resp, httpRes, err := apiClient.ObjectEzsignfoldertypeAPI.EzsignfoldertypeEditObjectV2(context.Background(), pkiEzsignfoldertypeID).Execute()
+		resp, httpRes, err := apiClient.ObjectEzsignfoldertypeAPI.EzsignfoldertypeEditObjectV3(context.Background(), pkiEzsignfoldertypeID).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -102,13 +88,13 @@ func Test_eZmaxApi_ObjectEzsignfoldertypeAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ObjectEzsignfoldertypeAPIService EzsignfoldertypeGetObjectV3", func(t *testing.T) {
+	t.Run("Test ObjectEzsignfoldertypeAPIService EzsignfoldertypeGetObjectV4", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pkiEzsignfoldertypeID int32
 
-		resp, httpRes, err := apiClient.ObjectEzsignfoldertypeAPI.EzsignfoldertypeGetObjectV3(context.Background(), pkiEzsignfoldertypeID).Execute()
+		resp, httpRes, err := apiClient.ObjectEzsignfoldertypeAPI.EzsignfoldertypeGetObjectV4(context.Background(), pkiEzsignfoldertypeID).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

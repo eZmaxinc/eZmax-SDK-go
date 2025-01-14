@@ -32,9 +32,9 @@ type EzmaxinvoicingcontractResponseCompound struct {
 	// The end date of the Ezmaxinvoicingcontract
 	DtEzmaxinvoicingcontractEnd string `json:"dtEzmaxinvoicingcontractEnd"`
 	// The price of the license
-	DEzmaxinvoicingcontractLicense string `json:"dEzmaxinvoicingcontractLicense"`
+	DEzmaxinvoicingcontractLicense string `json:"dEzmaxinvoicingcontractLicense" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
 	// The price for 121QA
-	DEzmaxinvoicingcontract121qa string `json:"dEzmaxinvoicingcontract121qa"`
+	DEzmaxinvoicingcontract121qa string `json:"dEzmaxinvoicingcontract121qa" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
 	// Whether eZsign is for all agents
 	BEzmaxinvoicingcontractEzsignallagents bool `json:"bEzmaxinvoicingcontractEzsignallagents"`
 	ObjAudit CommonAudit `json:"objAudit"`

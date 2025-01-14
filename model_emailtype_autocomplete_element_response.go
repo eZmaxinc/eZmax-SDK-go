@@ -25,7 +25,7 @@ type EmailtypeAutocompleteElementResponse struct {
 	// The unique ID of the Emailtype.  Valid values:  |Value|Description| |-|-| |1|Office| |2|Home|
 	PkiEmailtypeID int32 `json:"pkiEmailtypeID"`
 	// The name of the Emailtype in the language of the requester
-	SEmailtypeNameX string `json:"sEmailtypeNameX"`
+	SEmailtypeNameX string `json:"sEmailtypeNameX" validate:"regexp=^.{0,15}$"`
 	// Whether the Emailtype is active or not
 	BEmailtypeIsactive bool `json:"bEmailtypeIsactive"`
 }

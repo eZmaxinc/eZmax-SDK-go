@@ -22,6 +22,8 @@ var _ MappedNullable = &AddressRequestCompound{}
 
 // AddressRequestCompound An Address Object and children to create a complete structure
 type AddressRequestCompound struct {
+	// The unique ID of the Address
+	PkiAddressID *int32 `json:"pkiAddressID,omitempty"`
 	// The unique ID of the Addresstype.  Valid values:  |Value|Description| |-|-| |1|Office| |2|Home| |3|Real Estate Invoice| |4|Invoicing| |5|Shipping|
 	FkiAddresstypeID int32 `json:"fkiAddresstypeID"`
 	// The Civic number.
@@ -29,7 +31,7 @@ type AddressRequestCompound struct {
 	// The Street Name
 	SAddressStreet string `json:"sAddressStreet"`
 	// The Suite or appartment number
-	SAddressSuite string `json:"sAddressSuite"`
+	SAddressSuite *string `json:"sAddressSuite,omitempty"`
 	// The City name
 	SAddressCity string `json:"sAddressCity"`
 	// The unique ID of the Province.  Here are some common values (Complete list must be retrieved from API):  |Value|Description| |-|-| |1|(Canada) Alberta |2|(Canada) British Columbia| |3|(Canada) Manitoba| |3|(Canada) Manitoba| |4|(Canada) New Brunswick| |5|(Canada) Newfoundland| |6|(Canada) Northwest Territories| |7|(Canada) Nova Scotia| |8|(Canada) Nunavut| |9|(Canada) Ontario| |10|(Canada) Prince Edward Island| |11|(Canada) Quebec| |12|(Canada) Saskatchewan| |13|(Canada) Yukon| |14|(United-States) Alabama| |15|(United-States) Alaska| |16|(United-States) Arizona| |17|(United-States) Arkansas| |18|(United-States) California| |19|(United-States) Colorado| |20|(United-States) Connecticut| |21|(United-States) Delaware| |22|(United-States) District of Columbia| |23|(United-States) Florida| |24|(United-States) Georgia| |25|(United-States) Hawaii| |26|(United-States) Idaho| |27|(United-States) Illinois| |28|(United-States) Indiana| |29|(United-States) Iowa| |30|(United-States) Kansas| |31|(United-States) Kentucky| |32|(United-States) Louisiane| |33|(United-States) Maine| |34|(United-States) Maryland| |35|(United-States) Massachusetts| |36|(United-States) Michigan| |37|(United-States) Minnesota| |38|(United-States) Mississippi| |39|(United-States) Missouri| |40|(United-States) Montana| |41|(United-States) Nebraska| |42|(United-States) Nevada| |43|(United-States) New Hampshire| |44|(United-States) New Jersey| |45|(United-States) New Mexico| |46|(United-States) New York| |47|(United-States) North Carolina| |48|(United-States) North Dakota| |49|(United-States) Ohio| |50|(United-States) Oklahoma| |51|(United-States) Oregon| |52|(United-States) Pennsylvania| |53|(United-States) Rhode Island| |54|(United-States) South Carolina| |55|(United-States) South Dakota| |56|(United-States) Tennessee| |57|(United-States) Texas| |58|(United-States) Utah| |60|(United-States) Vermont| |59|(United-States) Virginia| |61|(United-States) Washington| |62|(United-States) West Virginia| |63|(United-States) Wisconsin| |64|(United-States) Wyoming|
@@ -39,9 +41,9 @@ type AddressRequestCompound struct {
 	// The Postal/Zip Code  The value must be entered without spaces
 	SAddressZip string `json:"sAddressZip"`
 	// The Longitude of the Address
-	FAddressLongitude *string `json:"fAddressLongitude,omitempty"`
+	FAddressLongitude *string `json:"fAddressLongitude,omitempty" validate:"regexp=^(-?)(180(\\\\.0{1,15})?|((1[0-7]\\\\d)|(\\\\d{1,2}))(\\\\.\\\\d{1,15})?)$"`
 	// The Latitude of the Address
-	FAddressLatitude *string `json:"fAddressLatitude,omitempty"`
+	FAddressLatitude *string `json:"fAddressLatitude,omitempty" validate:"regexp=^(-?)(90(\\\\.0{1,15})?|([1-8]?\\\\d(\\\\.\\\\d{1,15})?))$"`
 }
 
 type _AddressRequestCompound AddressRequestCompound
@@ -50,12 +52,11 @@ type _AddressRequestCompound AddressRequestCompound
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAddressRequestCompound(fkiAddresstypeID int32, sAddressCivic string, sAddressStreet string, sAddressSuite string, sAddressCity string, fkiProvinceID int32, fkiCountryID int32, sAddressZip string) *AddressRequestCompound {
+func NewAddressRequestCompound(fkiAddresstypeID int32, sAddressCivic string, sAddressStreet string, sAddressCity string, fkiProvinceID int32, fkiCountryID int32, sAddressZip string) *AddressRequestCompound {
 	this := AddressRequestCompound{}
 	this.FkiAddresstypeID = fkiAddresstypeID
 	this.SAddressCivic = sAddressCivic
 	this.SAddressStreet = sAddressStreet
-	this.SAddressSuite = sAddressSuite
 	this.SAddressCity = sAddressCity
 	this.FkiProvinceID = fkiProvinceID
 	this.FkiCountryID = fkiCountryID
@@ -69,6 +70,38 @@ func NewAddressRequestCompound(fkiAddresstypeID int32, sAddressCivic string, sAd
 func NewAddressRequestCompoundWithDefaults() *AddressRequestCompound {
 	this := AddressRequestCompound{}
 	return &this
+}
+
+// GetPkiAddressID returns the PkiAddressID field value if set, zero value otherwise.
+func (o *AddressRequestCompound) GetPkiAddressID() int32 {
+	if o == nil || IsNil(o.PkiAddressID) {
+		var ret int32
+		return ret
+	}
+	return *o.PkiAddressID
+}
+
+// GetPkiAddressIDOk returns a tuple with the PkiAddressID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AddressRequestCompound) GetPkiAddressIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.PkiAddressID) {
+		return nil, false
+	}
+	return o.PkiAddressID, true
+}
+
+// HasPkiAddressID returns a boolean if a field has been set.
+func (o *AddressRequestCompound) HasPkiAddressID() bool {
+	if o != nil && !IsNil(o.PkiAddressID) {
+		return true
+	}
+
+	return false
+}
+
+// SetPkiAddressID gets a reference to the given int32 and assigns it to the PkiAddressID field.
+func (o *AddressRequestCompound) SetPkiAddressID(v int32) {
+	o.PkiAddressID = &v
 }
 
 // GetFkiAddresstypeID returns the FkiAddresstypeID field value
@@ -143,28 +176,36 @@ func (o *AddressRequestCompound) SetSAddressStreet(v string) {
 	o.SAddressStreet = v
 }
 
-// GetSAddressSuite returns the SAddressSuite field value
+// GetSAddressSuite returns the SAddressSuite field value if set, zero value otherwise.
 func (o *AddressRequestCompound) GetSAddressSuite() string {
-	if o == nil {
+	if o == nil || IsNil(o.SAddressSuite) {
 		var ret string
 		return ret
 	}
-
-	return o.SAddressSuite
+	return *o.SAddressSuite
 }
 
-// GetSAddressSuiteOk returns a tuple with the SAddressSuite field value
+// GetSAddressSuiteOk returns a tuple with the SAddressSuite field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AddressRequestCompound) GetSAddressSuiteOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SAddressSuite) {
 		return nil, false
 	}
-	return &o.SAddressSuite, true
+	return o.SAddressSuite, true
 }
 
-// SetSAddressSuite sets field value
+// HasSAddressSuite returns a boolean if a field has been set.
+func (o *AddressRequestCompound) HasSAddressSuite() bool {
+	if o != nil && !IsNil(o.SAddressSuite) {
+		return true
+	}
+
+	return false
+}
+
+// SetSAddressSuite gets a reference to the given string and assigns it to the SAddressSuite field.
 func (o *AddressRequestCompound) SetSAddressSuite(v string) {
-	o.SAddressSuite = v
+	o.SAddressSuite = &v
 }
 
 // GetSAddressCity returns the SAddressCity field value
@@ -337,10 +378,15 @@ func (o AddressRequestCompound) MarshalJSON() ([]byte, error) {
 
 func (o AddressRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.PkiAddressID) {
+		toSerialize["pkiAddressID"] = o.PkiAddressID
+	}
 	toSerialize["fkiAddresstypeID"] = o.FkiAddresstypeID
 	toSerialize["sAddressCivic"] = o.SAddressCivic
 	toSerialize["sAddressStreet"] = o.SAddressStreet
-	toSerialize["sAddressSuite"] = o.SAddressSuite
+	if !IsNil(o.SAddressSuite) {
+		toSerialize["sAddressSuite"] = o.SAddressSuite
+	}
 	toSerialize["sAddressCity"] = o.SAddressCity
 	toSerialize["fkiProvinceID"] = o.FkiProvinceID
 	toSerialize["fkiCountryID"] = o.FkiCountryID
@@ -362,7 +408,6 @@ func (o *AddressRequestCompound) UnmarshalJSON(data []byte) (err error) {
 		"fkiAddresstypeID",
 		"sAddressCivic",
 		"sAddressStreet",
-		"sAddressSuite",
 		"sAddressCity",
 		"fkiProvinceID",
 		"fkiCountryID",

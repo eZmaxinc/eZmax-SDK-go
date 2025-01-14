@@ -6,11 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiCreditcardclientID** | **int32** | The unique ID of the Creditcardclient | 
 **FkiCreditcarddetailID** | **int32** | The unique ID of the Creditcarddetail | 
-**BCreditcardclientrelationIsdefault** | **bool** | Whether if it&#39;s an relationisdefault | 
+**BCreditcardclientrelationIsdefault** | **bool** | Whether if it&#39;s the creditcardclient is the default one | 
 **SCreditcardclientDescription** | **string** | The description of the Creditcardclient | 
-**BCreditcardclientIsactive** | **bool** | Whether the creditcardclient is active or not | 
-**BCreditcardclientAllowedagencypayment** | **bool** | Whether if it&#39;s an allowedagencypayment | 
-**BCreditcardclientAllowedroyallepageprotection** | **bool** | Whether if it&#39;s an allowedroyallepageprotection | 
+**BCreditcardclientAllowedcompanypayment** | **bool** | Whether if it&#39;s an allowedagencypayment | 
 **BCreditcardclientAllowedtranquillit** | **bool** | Whether if it&#39;s an allowedtranquillit | 
 **ObjCreditcarddetail** | [**CreditcarddetailResponseCompound**](CreditcarddetailResponseCompound.md) |  | 
 
@@ -18,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewCreditcardclientResponse
 
-`func NewCreditcardclientResponse(pkiCreditcardclientID int32, fkiCreditcarddetailID int32, bCreditcardclientrelationIsdefault bool, sCreditcardclientDescription string, bCreditcardclientIsactive bool, bCreditcardclientAllowedagencypayment bool, bCreditcardclientAllowedroyallepageprotection bool, bCreditcardclientAllowedtranquillit bool, objCreditcarddetail CreditcarddetailResponseCompound, ) *CreditcardclientResponse`
+`func NewCreditcardclientResponse(pkiCreditcardclientID int32, fkiCreditcarddetailID int32, bCreditcardclientrelationIsdefault bool, sCreditcardclientDescription string, bCreditcardclientAllowedcompanypayment bool, bCreditcardclientAllowedtranquillit bool, objCreditcarddetail CreditcarddetailResponseCompound, ) *CreditcardclientResponse`
 
 NewCreditcardclientResponse instantiates a new CreditcardclientResponse object
 This constructor will assign default values to properties that have it defined,
@@ -113,64 +111,24 @@ and a boolean to check if the value has been set.
 SetSCreditcardclientDescription sets SCreditcardclientDescription field to given value.
 
 
-### GetBCreditcardclientIsactive
+### GetBCreditcardclientAllowedcompanypayment
 
-`func (o *CreditcardclientResponse) GetBCreditcardclientIsactive() bool`
+`func (o *CreditcardclientResponse) GetBCreditcardclientAllowedcompanypayment() bool`
 
-GetBCreditcardclientIsactive returns the BCreditcardclientIsactive field if non-nil, zero value otherwise.
+GetBCreditcardclientAllowedcompanypayment returns the BCreditcardclientAllowedcompanypayment field if non-nil, zero value otherwise.
 
-### GetBCreditcardclientIsactiveOk
+### GetBCreditcardclientAllowedcompanypaymentOk
 
-`func (o *CreditcardclientResponse) GetBCreditcardclientIsactiveOk() (*bool, bool)`
+`func (o *CreditcardclientResponse) GetBCreditcardclientAllowedcompanypaymentOk() (*bool, bool)`
 
-GetBCreditcardclientIsactiveOk returns a tuple with the BCreditcardclientIsactive field if it's non-nil, zero value otherwise
+GetBCreditcardclientAllowedcompanypaymentOk returns a tuple with the BCreditcardclientAllowedcompanypayment field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBCreditcardclientIsactive
+### SetBCreditcardclientAllowedcompanypayment
 
-`func (o *CreditcardclientResponse) SetBCreditcardclientIsactive(v bool)`
+`func (o *CreditcardclientResponse) SetBCreditcardclientAllowedcompanypayment(v bool)`
 
-SetBCreditcardclientIsactive sets BCreditcardclientIsactive field to given value.
-
-
-### GetBCreditcardclientAllowedagencypayment
-
-`func (o *CreditcardclientResponse) GetBCreditcardclientAllowedagencypayment() bool`
-
-GetBCreditcardclientAllowedagencypayment returns the BCreditcardclientAllowedagencypayment field if non-nil, zero value otherwise.
-
-### GetBCreditcardclientAllowedagencypaymentOk
-
-`func (o *CreditcardclientResponse) GetBCreditcardclientAllowedagencypaymentOk() (*bool, bool)`
-
-GetBCreditcardclientAllowedagencypaymentOk returns a tuple with the BCreditcardclientAllowedagencypayment field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBCreditcardclientAllowedagencypayment
-
-`func (o *CreditcardclientResponse) SetBCreditcardclientAllowedagencypayment(v bool)`
-
-SetBCreditcardclientAllowedagencypayment sets BCreditcardclientAllowedagencypayment field to given value.
-
-
-### GetBCreditcardclientAllowedroyallepageprotection
-
-`func (o *CreditcardclientResponse) GetBCreditcardclientAllowedroyallepageprotection() bool`
-
-GetBCreditcardclientAllowedroyallepageprotection returns the BCreditcardclientAllowedroyallepageprotection field if non-nil, zero value otherwise.
-
-### GetBCreditcardclientAllowedroyallepageprotectionOk
-
-`func (o *CreditcardclientResponse) GetBCreditcardclientAllowedroyallepageprotectionOk() (*bool, bool)`
-
-GetBCreditcardclientAllowedroyallepageprotectionOk returns a tuple with the BCreditcardclientAllowedroyallepageprotection field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBCreditcardclientAllowedroyallepageprotection
-
-`func (o *CreditcardclientResponse) SetBCreditcardclientAllowedroyallepageprotection(v bool)`
-
-SetBCreditcardclientAllowedroyallepageprotection sets BCreditcardclientAllowedroyallepageprotection field to given value.
+SetBCreditcardclientAllowedcompanypayment sets BCreditcardclientAllowedcompanypayment field to given value.
 
 
 ### GetBCreditcardclientAllowedtranquillit

@@ -25,7 +25,7 @@ type VariableexpenseRequestCompound struct {
 	// The unique ID of the Variableexpense
 	PkiVariableexpenseID *int32 `json:"pkiVariableexpenseID,omitempty"`
 	// The code of the Variableexpense
-	SVariableexpenseCode string `json:"sVariableexpenseCode"`
+	SVariableexpenseCode string `json:"sVariableexpenseCode" validate:"regexp=^.{0,5}$"`
 	ObjVariableexpenseDescription MultilingualVariableexpenseDescription `json:"objVariableexpenseDescription"`
 	EVariableexpenseTaxable FieldEVariableexpenseTaxable `json:"eVariableexpenseTaxable"`
 	// Whether the variableexpense is active or not

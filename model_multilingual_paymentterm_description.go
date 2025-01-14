@@ -21,9 +21,9 @@ var _ MappedNullable = &MultilingualPaymenttermDescription{}
 // MultilingualPaymenttermDescription Description of the Paymentterm
 type MultilingualPaymenttermDescription struct {
 	// The description of the Paymentterm in French
-	SPaymenttermDescription1 *string `json:"sPaymenttermDescription1,omitempty"`
+	SPaymenttermDescription1 *string `json:"sPaymenttermDescription1,omitempty" validate:"regexp=^.{1,40}$"`
 	// The description of the Paymentterm in English
-	SPaymenttermDescription2 *string `json:"sPaymenttermDescription2,omitempty"`
+	SPaymenttermDescription2 *string `json:"sPaymenttermDescription2,omitempty" validate:"regexp=^.{1,40}$"`
 }
 
 // NewMultilingualPaymenttermDescription instantiates a new MultilingualPaymenttermDescription object

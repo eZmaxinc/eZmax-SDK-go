@@ -29,7 +29,7 @@ type EzsignsignatureattachmentResponse struct {
 	// The md5 of the Ezsignsignatureattachment
 	BinEzsignsignatureattachmentMD5 string `json:"binEzsignsignatureattachmentMD5"`
 	// The name of the Ezsignsignatureattachment
-	SEzsignsignatureattachmentName string `json:"sEzsignsignatureattachmentName"`
+	SEzsignsignatureattachmentName string `json:"sEzsignsignatureattachmentName" validate:"regexp=^.{0,75}$"`
 	// The Url to the requested document.  Url will expire after 3 hours.
 	SDownloadUrl string `json:"sDownloadUrl"`
 }

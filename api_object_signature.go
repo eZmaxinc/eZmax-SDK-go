@@ -454,6 +454,8 @@ SignatureGetObjectV2 Retrieve an existing Signature
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiSignatureID The unique ID of the Signature
  @return ApiSignatureGetObjectV2Request
+
+Deprecated
 */
 func (a *ObjectSignatureAPIService) SignatureGetObjectV2(ctx context.Context, pkiSignatureID int32) ApiSignatureGetObjectV2Request {
 	return ApiSignatureGetObjectV2Request{
@@ -465,6 +467,7 @@ func (a *ObjectSignatureAPIService) SignatureGetObjectV2(ctx context.Context, pk
 
 // Execute executes the request
 //  @return SignatureGetObjectV2Response
+// Deprecated
 func (a *ObjectSignatureAPIService) SignatureGetObjectV2Execute(r ApiSignatureGetObjectV2Request) (*SignatureGetObjectV2Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -567,4 +570,381 @@ func (a *ObjectSignatureAPIService) SignatureGetObjectV2Execute(r ApiSignatureGe
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiSignatureGetObjectV3Request struct {
+	ctx context.Context
+	ApiService *ObjectSignatureAPIService
+	pkiSignatureID int32
+}
+
+func (r ApiSignatureGetObjectV3Request) Execute() (*SignatureGetObjectV3Response, *http.Response, error) {
+	return r.ApiService.SignatureGetObjectV3Execute(r)
+}
+
+/*
+SignatureGetObjectV3 Retrieve an existing Signature
+
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiSignatureID The unique ID of the Signature
+ @return ApiSignatureGetObjectV3Request
+*/
+func (a *ObjectSignatureAPIService) SignatureGetObjectV3(ctx context.Context, pkiSignatureID int32) ApiSignatureGetObjectV3Request {
+	return ApiSignatureGetObjectV3Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiSignatureID: pkiSignatureID,
+	}
+}
+
+// Execute executes the request
+//  @return SignatureGetObjectV3Response
+func (a *ObjectSignatureAPIService) SignatureGetObjectV3Execute(r ApiSignatureGetObjectV3Request) (*SignatureGetObjectV3Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *SignatureGetObjectV3Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectSignatureAPIService.SignatureGetObjectV3")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/3/object/signature/{pkiSignatureID}"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiSignatureID"+"}", url.PathEscape(parameterValueToString(r.pkiSignatureID, "pkiSignatureID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiSignatureID < 0 {
+		return localVarReturnValue, nil, reportError("pkiSignatureID must be greater than 0")
+	}
+	if r.pkiSignatureID > 16777215 {
+		return localVarReturnValue, nil, reportError("pkiSignatureID must be less than 16777215")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiSignatureGetSVGInitialsV1Request struct {
+	ctx context.Context
+	ApiService *ObjectSignatureAPIService
+	pkiSignatureID int32
+}
+
+func (r ApiSignatureGetSVGInitialsV1Request) Execute() (*http.Response, error) {
+	return r.ApiService.SignatureGetSVGInitialsV1Execute(r)
+}
+
+/*
+SignatureGetSVGInitialsV1 Retrieve an existing Signature initial SVG
+
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiSignatureID The unique ID of the Signature
+ @return ApiSignatureGetSVGInitialsV1Request
+*/
+func (a *ObjectSignatureAPIService) SignatureGetSVGInitialsV1(ctx context.Context, pkiSignatureID int32) ApiSignatureGetSVGInitialsV1Request {
+	return ApiSignatureGetSVGInitialsV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiSignatureID: pkiSignatureID,
+	}
+}
+
+// Execute executes the request
+func (a *ObjectSignatureAPIService) SignatureGetSVGInitialsV1Execute(r ApiSignatureGetSVGInitialsV1Request) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectSignatureAPIService.SignatureGetSVGInitialsV1")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/signature/{pkiSignatureID}/getSVGInitials"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiSignatureID"+"}", url.PathEscape(parameterValueToString(r.pkiSignatureID, "pkiSignatureID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiSignatureID < 0 {
+		return nil, reportError("pkiSignatureID must be greater than 0")
+	}
+	if r.pkiSignatureID > 16777215 {
+		return nil, reportError("pkiSignatureID must be less than 16777215")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiSignatureGetSVGSignatureV1Request struct {
+	ctx context.Context
+	ApiService *ObjectSignatureAPIService
+	pkiSignatureID int32
+}
+
+func (r ApiSignatureGetSVGSignatureV1Request) Execute() (*http.Response, error) {
+	return r.ApiService.SignatureGetSVGSignatureV1Execute(r)
+}
+
+/*
+SignatureGetSVGSignatureV1 Retrieve an existing Signature SVG
+
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiSignatureID The unique ID of the Signature
+ @return ApiSignatureGetSVGSignatureV1Request
+*/
+func (a *ObjectSignatureAPIService) SignatureGetSVGSignatureV1(ctx context.Context, pkiSignatureID int32) ApiSignatureGetSVGSignatureV1Request {
+	return ApiSignatureGetSVGSignatureV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiSignatureID: pkiSignatureID,
+	}
+}
+
+// Execute executes the request
+func (a *ObjectSignatureAPIService) SignatureGetSVGSignatureV1Execute(r ApiSignatureGetSVGSignatureV1Request) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectSignatureAPIService.SignatureGetSVGSignatureV1")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/signature/{pkiSignatureID}/getSVGSignature"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiSignatureID"+"}", url.PathEscape(parameterValueToString(r.pkiSignatureID, "pkiSignatureID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiSignatureID < 0 {
+		return nil, reportError("pkiSignatureID must be greater than 0")
+	}
+	if r.pkiSignatureID > 16777215 {
+		return nil, reportError("pkiSignatureID must be less than 16777215")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
 }

@@ -5,10 +5,13 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**EzsigntemplatedocumentCreateObjectV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentCreateObjectV1) | **Post** /1/object/ezsigntemplatedocument | Create a new Ezsigntemplatedocument
+[**EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1) | **Put** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/editEzsigntemplatedocumentpagerecognitions | Edit multiple Ezsigntemplatedocumentpagerecognitions
 [**EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1) | **Put** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/editEzsigntemplateformfieldgroups | Edit multiple Ezsigntemplateformfieldgroups
 [**EzsigntemplatedocumentEditEzsigntemplatesignaturesV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentEditEzsigntemplatesignaturesV1) | **Put** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/editEzsigntemplatesignatures | Edit multiple Ezsigntemplatesignatures
 [**EzsigntemplatedocumentEditObjectV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentEditObjectV1) | **Put** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID} | Edit an existing Ezsigntemplatedocument
+[**EzsigntemplatedocumentExtractTextV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentExtractTextV1) | **Post** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/extractText | Extract text from Ezsigntemplatedocument area
 [**EzsigntemplatedocumentFlattenV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentFlattenV1) | **Post** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/flatten | Flatten
+[**EzsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1) | **Get** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplatedocumentpagerecognitions | Retrieve an existing Ezsigntemplatedocument&#39;s Ezsigntemplatedocumentpagerecognitions
 [**EzsigntemplatedocumentGetEzsigntemplatedocumentpagesV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentGetEzsigntemplatedocumentpagesV1) | **Get** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplatedocumentpages | Retrieve an existing Ezsigntemplatedocument&#39;s Ezsigntemplatedocumentpages
 [**EzsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1) | **Get** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplateformfieldgroups | Retrieve an existing Ezsigntemplatedocument&#39;s Ezsigntemplateformfieldgroups
 [**EzsigntemplatedocumentGetEzsigntemplatesignaturesV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentGetEzsigntemplatesignaturesV1) | **Get** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplatesignatures | Retrieve an existing Ezsigntemplatedocument&#39;s Ezsigntemplatesignatures
@@ -69,6 +72,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsigntemplatedocumentCreateObjectV1Response**](EzsigntemplatedocumentCreateObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1
+
+> EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Response EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1(ctx, pkiEzsigntemplatedocumentID).EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Request(ezsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Request).Execute()
+
+Edit multiple Ezsigntemplatedocumentpagerecognitions
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsigntemplatedocumentID := int32(56) // int32 | 
+	ezsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Request := *openapiclient.NewEzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Request([]openapiclient.EzsigntemplatedocumentpagerecognitionRequestCompound{*openapiclient.NewEzsigntemplatedocumentpagerecognitionRequestCompound(int32(85), openapiclient.Field-eEzsigntemplatedocumentpagerecognitionOperator("eq"), openapiclient.Field-eEzsigntemplatedocumentpagerecognitionSection("FirstLine"), "Contract")}) // EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigntemplatedocumentAPI.EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1(context.Background(), pkiEzsigntemplatedocumentID).EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Request(ezsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatedocumentAPI.EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1`: EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatedocumentAPI.EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsigntemplatedocumentID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **ezsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Request** | [**EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Request**](EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Request.md) |  | 
+
+### Return type
+
+[**EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Response**](EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Response.md)
 
 ### Authorization
 
@@ -300,6 +375,78 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## EzsigntemplatedocumentExtractTextV1
+
+> EzsigntemplatedocumentExtractTextV1Response EzsigntemplatedocumentExtractTextV1(ctx, pkiEzsigntemplatedocumentID).EzsigntemplatedocumentExtractTextV1Request(ezsigntemplatedocumentExtractTextV1Request).Execute()
+
+Extract text from Ezsigntemplatedocument area
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsigntemplatedocumentID := int32(56) // int32 | 
+	ezsigntemplatedocumentExtractTextV1Request := *openapiclient.NewEzsigntemplatedocumentExtractTextV1Request(int32(1)) // EzsigntemplatedocumentExtractTextV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigntemplatedocumentAPI.EzsigntemplatedocumentExtractTextV1(context.Background(), pkiEzsigntemplatedocumentID).EzsigntemplatedocumentExtractTextV1Request(ezsigntemplatedocumentExtractTextV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatedocumentAPI.EzsigntemplatedocumentExtractTextV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigntemplatedocumentExtractTextV1`: EzsigntemplatedocumentExtractTextV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatedocumentAPI.EzsigntemplatedocumentExtractTextV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsigntemplatedocumentID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsigntemplatedocumentExtractTextV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **ezsigntemplatedocumentExtractTextV1Request** | [**EzsigntemplatedocumentExtractTextV1Request**](EzsigntemplatedocumentExtractTextV1Request.md) |  | 
+
+### Return type
+
+[**EzsigntemplatedocumentExtractTextV1Response**](EzsigntemplatedocumentExtractTextV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## EzsigntemplatedocumentFlattenV1
 
 > EzsigntemplatedocumentFlattenV1Response EzsigntemplatedocumentFlattenV1(ctx, pkiEzsigntemplatedocumentID).Body(body).Execute()
@@ -365,6 +512,76 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1
+
+> EzsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1Response EzsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1(ctx, pkiEzsigntemplatedocumentID).Execute()
+
+Retrieve an existing Ezsigntemplatedocument's Ezsigntemplatedocumentpagerecognitions
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsigntemplatedocumentID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigntemplatedocumentAPI.EzsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1(context.Background(), pkiEzsigntemplatedocumentID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatedocumentAPI.EzsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1`: EzsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatedocumentAPI.EzsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsigntemplatedocumentID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**EzsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1Response**](EzsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

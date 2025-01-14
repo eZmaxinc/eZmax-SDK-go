@@ -22,11 +22,11 @@ func Test_eZmaxApi_ObjectEzsigntemplatesignatureAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ObjectEzsigntemplatesignatureAPIService EzsigntemplatesignatureCreateObjectV1", func(t *testing.T) {
+	t.Run("Test ObjectEzsigntemplatesignatureAPIService EzsigntemplatesignatureCreateObjectV2", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ObjectEzsigntemplatesignatureAPI.EzsigntemplatesignatureCreateObjectV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ObjectEzsigntemplatesignatureAPI.EzsigntemplatesignatureCreateObjectV2(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,13 +48,13 @@ func Test_eZmaxApi_ObjectEzsigntemplatesignatureAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ObjectEzsigntemplatesignatureAPIService EzsigntemplatesignatureEditObjectV1", func(t *testing.T) {
+	t.Run("Test ObjectEzsigntemplatesignatureAPIService EzsigntemplatesignatureEditObjectV2", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pkiEzsigntemplatesignatureID int32
 
-		resp, httpRes, err := apiClient.ObjectEzsigntemplatesignatureAPI.EzsigntemplatesignatureEditObjectV1(context.Background(), pkiEzsigntemplatesignatureID).Execute()
+		resp, httpRes, err := apiClient.ObjectEzsigntemplatesignatureAPI.EzsigntemplatesignatureEditObjectV2(context.Background(), pkiEzsigntemplatesignatureID).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -62,13 +62,13 @@ func Test_eZmaxApi_ObjectEzsigntemplatesignatureAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ObjectEzsigntemplatesignatureAPIService EzsigntemplatesignatureGetObjectV2", func(t *testing.T) {
+	t.Run("Test ObjectEzsigntemplatesignatureAPIService EzsigntemplatesignatureGetObjectV3", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pkiEzsigntemplatesignatureID int32
 
-		resp, httpRes, err := apiClient.ObjectEzsigntemplatesignatureAPI.EzsigntemplatesignatureGetObjectV2(context.Background(), pkiEzsigntemplatesignatureID).Execute()
+		resp, httpRes, err := apiClient.ObjectEzsigntemplatesignatureAPI.EzsigntemplatesignatureGetObjectV3(context.Background(), pkiEzsigntemplatesignatureID).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

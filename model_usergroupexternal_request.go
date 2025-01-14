@@ -25,9 +25,9 @@ type UsergroupexternalRequest struct {
 	// The unique ID of the Usergroupexternal
 	PkiUsergroupexternalID *int32 `json:"pkiUsergroupexternalID,omitempty"`
 	// The name of the Usergroupexternal
-	SUsergroupexternalName string `json:"sUsergroupexternalName"`
+	SUsergroupexternalName string `json:"sUsergroupexternalName" validate:"regexp=^.{0,64}$"`
 	// The id of the Usergroupexternal
-	SUsergroupexternalID string `json:"sUsergroupexternalID"`
+	SUsergroupexternalID string `json:"sUsergroupexternalID" validate:"regexp=^.{0,64}$"`
 }
 
 type _UsergroupexternalRequest UsergroupexternalRequest

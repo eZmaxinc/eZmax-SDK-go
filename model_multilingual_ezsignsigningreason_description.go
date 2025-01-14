@@ -21,9 +21,9 @@ var _ MappedNullable = &MultilingualEzsignsigningreasonDescription{}
 // MultilingualEzsignsigningreasonDescription The description of the Ezsignsigningreason
 type MultilingualEzsignsigningreasonDescription struct {
 	// The description of the Ezsignsigningreason in French
-	SEzsignsigningreasonDescription1 *string `json:"sEzsignsigningreasonDescription1,omitempty"`
+	SEzsignsigningreasonDescription1 *string `json:"sEzsignsigningreasonDescription1,omitempty" validate:"regexp=^.{0,50}$"`
 	// The description of the Ezsignsigningreason in English
-	SEzsignsigningreasonDescription2 *string `json:"sEzsignsigningreasonDescription2,omitempty"`
+	SEzsignsigningreasonDescription2 *string `json:"sEzsignsigningreasonDescription2,omitempty" validate:"regexp=^.{0,50}$"`
 }
 
 // NewMultilingualEzsignsigningreasonDescription instantiates a new MultilingualEzsignsigningreasonDescription object

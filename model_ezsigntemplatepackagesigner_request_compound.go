@@ -26,6 +26,15 @@ type EzsigntemplatepackagesignerRequestCompound struct {
 	PkiEzsigntemplatepackagesignerID *int32 `json:"pkiEzsigntemplatepackagesignerID,omitempty"`
 	// The unique ID of the Ezsigntemplatepackage
 	FkiEzsigntemplatepackageID int32 `json:"fkiEzsigntemplatepackageID"`
+	// The unique ID of the Ezdoctemplatedocument
+	FkiEzdoctemplatedocumentID *int32 `json:"fkiEzdoctemplatedocumentID,omitempty"`
+	// The unique ID of the User
+	FkiUserID *int32 `json:"fkiUserID,omitempty"`
+	// The unique ID of the Usergroup
+	FkiUsergroupID *int32 `json:"fkiUsergroupID,omitempty"`
+	// If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document.
+	BEzsigntemplatepackagesignerReceivecopy *bool `json:"bEzsigntemplatepackagesignerReceivecopy,omitempty"`
+	EEzsigntemplatepackagesignerMapping *FieldEEzsigntemplatepackagesignerMapping `json:"eEzsigntemplatepackagesignerMapping,omitempty"`
 	// The description of the Ezsigntemplatepackagesigner
 	SEzsigntemplatepackagesignerDescription string `json:"sEzsigntemplatepackagesignerDescription"`
 }
@@ -39,6 +48,8 @@ type _EzsigntemplatepackagesignerRequestCompound EzsigntemplatepackagesignerRequ
 func NewEzsigntemplatepackagesignerRequestCompound(fkiEzsigntemplatepackageID int32, sEzsigntemplatepackagesignerDescription string) *EzsigntemplatepackagesignerRequestCompound {
 	this := EzsigntemplatepackagesignerRequestCompound{}
 	this.FkiEzsigntemplatepackageID = fkiEzsigntemplatepackageID
+	var eEzsigntemplatepackagesignerMapping FieldEEzsigntemplatepackagesignerMapping = MANUAL
+	this.EEzsigntemplatepackagesignerMapping = &eEzsigntemplatepackagesignerMapping
 	this.SEzsigntemplatepackagesignerDescription = sEzsigntemplatepackagesignerDescription
 	return &this
 }
@@ -48,6 +59,8 @@ func NewEzsigntemplatepackagesignerRequestCompound(fkiEzsigntemplatepackageID in
 // but it doesn't guarantee that properties required by API are set
 func NewEzsigntemplatepackagesignerRequestCompoundWithDefaults() *EzsigntemplatepackagesignerRequestCompound {
 	this := EzsigntemplatepackagesignerRequestCompound{}
+	var eEzsigntemplatepackagesignerMapping FieldEEzsigntemplatepackagesignerMapping = MANUAL
+	this.EEzsigntemplatepackagesignerMapping = &eEzsigntemplatepackagesignerMapping
 	return &this
 }
 
@@ -107,6 +120,166 @@ func (o *EzsigntemplatepackagesignerRequestCompound) SetFkiEzsigntemplatepackage
 	o.FkiEzsigntemplatepackageID = v
 }
 
+// GetFkiEzdoctemplatedocumentID returns the FkiEzdoctemplatedocumentID field value if set, zero value otherwise.
+func (o *EzsigntemplatepackagesignerRequestCompound) GetFkiEzdoctemplatedocumentID() int32 {
+	if o == nil || IsNil(o.FkiEzdoctemplatedocumentID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEzdoctemplatedocumentID
+}
+
+// GetFkiEzdoctemplatedocumentIDOk returns a tuple with the FkiEzdoctemplatedocumentID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatepackagesignerRequestCompound) GetFkiEzdoctemplatedocumentIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEzdoctemplatedocumentID) {
+		return nil, false
+	}
+	return o.FkiEzdoctemplatedocumentID, true
+}
+
+// HasFkiEzdoctemplatedocumentID returns a boolean if a field has been set.
+func (o *EzsigntemplatepackagesignerRequestCompound) HasFkiEzdoctemplatedocumentID() bool {
+	if o != nil && !IsNil(o.FkiEzdoctemplatedocumentID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzdoctemplatedocumentID gets a reference to the given int32 and assigns it to the FkiEzdoctemplatedocumentID field.
+func (o *EzsigntemplatepackagesignerRequestCompound) SetFkiEzdoctemplatedocumentID(v int32) {
+	o.FkiEzdoctemplatedocumentID = &v
+}
+
+// GetFkiUserID returns the FkiUserID field value if set, zero value otherwise.
+func (o *EzsigntemplatepackagesignerRequestCompound) GetFkiUserID() int32 {
+	if o == nil || IsNil(o.FkiUserID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiUserID
+}
+
+// GetFkiUserIDOk returns a tuple with the FkiUserID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatepackagesignerRequestCompound) GetFkiUserIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiUserID) {
+		return nil, false
+	}
+	return o.FkiUserID, true
+}
+
+// HasFkiUserID returns a boolean if a field has been set.
+func (o *EzsigntemplatepackagesignerRequestCompound) HasFkiUserID() bool {
+	if o != nil && !IsNil(o.FkiUserID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiUserID gets a reference to the given int32 and assigns it to the FkiUserID field.
+func (o *EzsigntemplatepackagesignerRequestCompound) SetFkiUserID(v int32) {
+	o.FkiUserID = &v
+}
+
+// GetFkiUsergroupID returns the FkiUsergroupID field value if set, zero value otherwise.
+func (o *EzsigntemplatepackagesignerRequestCompound) GetFkiUsergroupID() int32 {
+	if o == nil || IsNil(o.FkiUsergroupID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiUsergroupID
+}
+
+// GetFkiUsergroupIDOk returns a tuple with the FkiUsergroupID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatepackagesignerRequestCompound) GetFkiUsergroupIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiUsergroupID) {
+		return nil, false
+	}
+	return o.FkiUsergroupID, true
+}
+
+// HasFkiUsergroupID returns a boolean if a field has been set.
+func (o *EzsigntemplatepackagesignerRequestCompound) HasFkiUsergroupID() bool {
+	if o != nil && !IsNil(o.FkiUsergroupID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiUsergroupID gets a reference to the given int32 and assigns it to the FkiUsergroupID field.
+func (o *EzsigntemplatepackagesignerRequestCompound) SetFkiUsergroupID(v int32) {
+	o.FkiUsergroupID = &v
+}
+
+// GetBEzsigntemplatepackagesignerReceivecopy returns the BEzsigntemplatepackagesignerReceivecopy field value if set, zero value otherwise.
+func (o *EzsigntemplatepackagesignerRequestCompound) GetBEzsigntemplatepackagesignerReceivecopy() bool {
+	if o == nil || IsNil(o.BEzsigntemplatepackagesignerReceivecopy) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsigntemplatepackagesignerReceivecopy
+}
+
+// GetBEzsigntemplatepackagesignerReceivecopyOk returns a tuple with the BEzsigntemplatepackagesignerReceivecopy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatepackagesignerRequestCompound) GetBEzsigntemplatepackagesignerReceivecopyOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsigntemplatepackagesignerReceivecopy) {
+		return nil, false
+	}
+	return o.BEzsigntemplatepackagesignerReceivecopy, true
+}
+
+// HasBEzsigntemplatepackagesignerReceivecopy returns a boolean if a field has been set.
+func (o *EzsigntemplatepackagesignerRequestCompound) HasBEzsigntemplatepackagesignerReceivecopy() bool {
+	if o != nil && !IsNil(o.BEzsigntemplatepackagesignerReceivecopy) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsigntemplatepackagesignerReceivecopy gets a reference to the given bool and assigns it to the BEzsigntemplatepackagesignerReceivecopy field.
+func (o *EzsigntemplatepackagesignerRequestCompound) SetBEzsigntemplatepackagesignerReceivecopy(v bool) {
+	o.BEzsigntemplatepackagesignerReceivecopy = &v
+}
+
+// GetEEzsigntemplatepackagesignerMapping returns the EEzsigntemplatepackagesignerMapping field value if set, zero value otherwise.
+func (o *EzsigntemplatepackagesignerRequestCompound) GetEEzsigntemplatepackagesignerMapping() FieldEEzsigntemplatepackagesignerMapping {
+	if o == nil || IsNil(o.EEzsigntemplatepackagesignerMapping) {
+		var ret FieldEEzsigntemplatepackagesignerMapping
+		return ret
+	}
+	return *o.EEzsigntemplatepackagesignerMapping
+}
+
+// GetEEzsigntemplatepackagesignerMappingOk returns a tuple with the EEzsigntemplatepackagesignerMapping field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatepackagesignerRequestCompound) GetEEzsigntemplatepackagesignerMappingOk() (*FieldEEzsigntemplatepackagesignerMapping, bool) {
+	if o == nil || IsNil(o.EEzsigntemplatepackagesignerMapping) {
+		return nil, false
+	}
+	return o.EEzsigntemplatepackagesignerMapping, true
+}
+
+// HasEEzsigntemplatepackagesignerMapping returns a boolean if a field has been set.
+func (o *EzsigntemplatepackagesignerRequestCompound) HasEEzsigntemplatepackagesignerMapping() bool {
+	if o != nil && !IsNil(o.EEzsigntemplatepackagesignerMapping) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsigntemplatepackagesignerMapping gets a reference to the given FieldEEzsigntemplatepackagesignerMapping and assigns it to the EEzsigntemplatepackagesignerMapping field.
+func (o *EzsigntemplatepackagesignerRequestCompound) SetEEzsigntemplatepackagesignerMapping(v FieldEEzsigntemplatepackagesignerMapping) {
+	o.EEzsigntemplatepackagesignerMapping = &v
+}
+
 // GetSEzsigntemplatepackagesignerDescription returns the SEzsigntemplatepackagesignerDescription field value
 func (o *EzsigntemplatepackagesignerRequestCompound) GetSEzsigntemplatepackagesignerDescription() string {
 	if o == nil {
@@ -145,6 +318,21 @@ func (o EzsigntemplatepackagesignerRequestCompound) ToMap() (map[string]interfac
 		toSerialize["pkiEzsigntemplatepackagesignerID"] = o.PkiEzsigntemplatepackagesignerID
 	}
 	toSerialize["fkiEzsigntemplatepackageID"] = o.FkiEzsigntemplatepackageID
+	if !IsNil(o.FkiEzdoctemplatedocumentID) {
+		toSerialize["fkiEzdoctemplatedocumentID"] = o.FkiEzdoctemplatedocumentID
+	}
+	if !IsNil(o.FkiUserID) {
+		toSerialize["fkiUserID"] = o.FkiUserID
+	}
+	if !IsNil(o.FkiUsergroupID) {
+		toSerialize["fkiUsergroupID"] = o.FkiUsergroupID
+	}
+	if !IsNil(o.BEzsigntemplatepackagesignerReceivecopy) {
+		toSerialize["bEzsigntemplatepackagesignerReceivecopy"] = o.BEzsigntemplatepackagesignerReceivecopy
+	}
+	if !IsNil(o.EEzsigntemplatepackagesignerMapping) {
+		toSerialize["eEzsigntemplatepackagesignerMapping"] = o.EEzsigntemplatepackagesignerMapping
+	}
 	toSerialize["sEzsigntemplatepackagesignerDescription"] = o.SEzsigntemplatepackagesignerDescription
 	return toSerialize, nil
 }

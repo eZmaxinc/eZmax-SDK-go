@@ -26,24 +26,22 @@ type CreditcardclientListElement struct {
 	PkiCreditcardclientID int32 `json:"pkiCreditcardclientID"`
 	// The unique ID of the Creditcarddetail
 	FkiCreditcarddetailID int32 `json:"fkiCreditcarddetailID"`
-	// Whether if it's an relationisdefault
+	// The unique ID of the Creditcardtype
+	FkiCreditcardtypeID int32 `json:"fkiCreditcardtypeID"`
+	// Whether if it's the creditcardclient is the default one
 	BCreditcardclientrelationIsdefault bool `json:"bCreditcardclientrelationIsdefault"`
 	// The description of the Creditcardclient
-	SCreditcardclientDescription string `json:"sCreditcardclientDescription"`
-	// Whether the creditcardclient is active or not
-	BCreditcardclientIsactive bool `json:"bCreditcardclientIsactive"`
+	SCreditcardclientDescription string `json:"sCreditcardclientDescription" validate:"regexp=^.{0,50}$"`
 	// Whether if it's an allowedagencypayment
-	BCreditcardclientAllowedagencypayment bool `json:"bCreditcardclientAllowedagencypayment"`
-	// Whether if it's an allowedroyallepageprotection
-	BCreditcardclientAllowedroyallepageprotection bool `json:"bCreditcardclientAllowedroyallepageprotection"`
+	BCreditcardclientAllowedcompanypayment bool `json:"bCreditcardclientAllowedcompanypayment"`
 	// Whether if it's an allowedtranquillit
 	BCreditcardclientAllowedtranquillit bool `json:"bCreditcardclientAllowedtranquillit"`
 	// The expirationmonth of the Creditcarddetail
 	ICreditcarddetailExpirationmonth int32 `json:"iCreditcarddetailExpirationmonth"`
 	// The expirationyear of the Creditcarddetail
 	ICreditcarddetailExpirationyear int32 `json:"iCreditcarddetailExpirationyear"`
-	// The numbermasked of the Creditcarddetail
-	SCreditcarddetailNumbermasked string `json:"sCreditcarddetailNumbermasked"`
+	// The last digits of the Creditcarddetail
+	ICreditcarddetailLastdigits int32 `json:"iCreditcarddetailLastdigits"`
 }
 
 type _CreditcardclientListElement CreditcardclientListElement
@@ -52,19 +50,18 @@ type _CreditcardclientListElement CreditcardclientListElement
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreditcardclientListElement(pkiCreditcardclientID int32, fkiCreditcarddetailID int32, bCreditcardclientrelationIsdefault bool, sCreditcardclientDescription string, bCreditcardclientIsactive bool, bCreditcardclientAllowedagencypayment bool, bCreditcardclientAllowedroyallepageprotection bool, bCreditcardclientAllowedtranquillit bool, iCreditcarddetailExpirationmonth int32, iCreditcarddetailExpirationyear int32, sCreditcarddetailNumbermasked string) *CreditcardclientListElement {
+func NewCreditcardclientListElement(pkiCreditcardclientID int32, fkiCreditcarddetailID int32, fkiCreditcardtypeID int32, bCreditcardclientrelationIsdefault bool, sCreditcardclientDescription string, bCreditcardclientAllowedcompanypayment bool, bCreditcardclientAllowedtranquillit bool, iCreditcarddetailExpirationmonth int32, iCreditcarddetailExpirationyear int32, iCreditcarddetailLastdigits int32) *CreditcardclientListElement {
 	this := CreditcardclientListElement{}
 	this.PkiCreditcardclientID = pkiCreditcardclientID
 	this.FkiCreditcarddetailID = fkiCreditcarddetailID
+	this.FkiCreditcardtypeID = fkiCreditcardtypeID
 	this.BCreditcardclientrelationIsdefault = bCreditcardclientrelationIsdefault
 	this.SCreditcardclientDescription = sCreditcardclientDescription
-	this.BCreditcardclientIsactive = bCreditcardclientIsactive
-	this.BCreditcardclientAllowedagencypayment = bCreditcardclientAllowedagencypayment
-	this.BCreditcardclientAllowedroyallepageprotection = bCreditcardclientAllowedroyallepageprotection
+	this.BCreditcardclientAllowedcompanypayment = bCreditcardclientAllowedcompanypayment
 	this.BCreditcardclientAllowedtranquillit = bCreditcardclientAllowedtranquillit
 	this.ICreditcarddetailExpirationmonth = iCreditcarddetailExpirationmonth
 	this.ICreditcarddetailExpirationyear = iCreditcarddetailExpirationyear
-	this.SCreditcarddetailNumbermasked = sCreditcarddetailNumbermasked
+	this.ICreditcarddetailLastdigits = iCreditcarddetailLastdigits
 	return &this
 }
 
@@ -124,6 +121,30 @@ func (o *CreditcardclientListElement) SetFkiCreditcarddetailID(v int32) {
 	o.FkiCreditcarddetailID = v
 }
 
+// GetFkiCreditcardtypeID returns the FkiCreditcardtypeID field value
+func (o *CreditcardclientListElement) GetFkiCreditcardtypeID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiCreditcardtypeID
+}
+
+// GetFkiCreditcardtypeIDOk returns a tuple with the FkiCreditcardtypeID field value
+// and a boolean to check if the value has been set.
+func (o *CreditcardclientListElement) GetFkiCreditcardtypeIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiCreditcardtypeID, true
+}
+
+// SetFkiCreditcardtypeID sets field value
+func (o *CreditcardclientListElement) SetFkiCreditcardtypeID(v int32) {
+	o.FkiCreditcardtypeID = v
+}
+
 // GetBCreditcardclientrelationIsdefault returns the BCreditcardclientrelationIsdefault field value
 func (o *CreditcardclientListElement) GetBCreditcardclientrelationIsdefault() bool {
 	if o == nil {
@@ -172,76 +193,28 @@ func (o *CreditcardclientListElement) SetSCreditcardclientDescription(v string) 
 	o.SCreditcardclientDescription = v
 }
 
-// GetBCreditcardclientIsactive returns the BCreditcardclientIsactive field value
-func (o *CreditcardclientListElement) GetBCreditcardclientIsactive() bool {
+// GetBCreditcardclientAllowedcompanypayment returns the BCreditcardclientAllowedcompanypayment field value
+func (o *CreditcardclientListElement) GetBCreditcardclientAllowedcompanypayment() bool {
 	if o == nil {
 		var ret bool
 		return ret
 	}
 
-	return o.BCreditcardclientIsactive
+	return o.BCreditcardclientAllowedcompanypayment
 }
 
-// GetBCreditcardclientIsactiveOk returns a tuple with the BCreditcardclientIsactive field value
+// GetBCreditcardclientAllowedcompanypaymentOk returns a tuple with the BCreditcardclientAllowedcompanypayment field value
 // and a boolean to check if the value has been set.
-func (o *CreditcardclientListElement) GetBCreditcardclientIsactiveOk() (*bool, bool) {
+func (o *CreditcardclientListElement) GetBCreditcardclientAllowedcompanypaymentOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.BCreditcardclientIsactive, true
+	return &o.BCreditcardclientAllowedcompanypayment, true
 }
 
-// SetBCreditcardclientIsactive sets field value
-func (o *CreditcardclientListElement) SetBCreditcardclientIsactive(v bool) {
-	o.BCreditcardclientIsactive = v
-}
-
-// GetBCreditcardclientAllowedagencypayment returns the BCreditcardclientAllowedagencypayment field value
-func (o *CreditcardclientListElement) GetBCreditcardclientAllowedagencypayment() bool {
-	if o == nil {
-		var ret bool
-		return ret
-	}
-
-	return o.BCreditcardclientAllowedagencypayment
-}
-
-// GetBCreditcardclientAllowedagencypaymentOk returns a tuple with the BCreditcardclientAllowedagencypayment field value
-// and a boolean to check if the value has been set.
-func (o *CreditcardclientListElement) GetBCreditcardclientAllowedagencypaymentOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BCreditcardclientAllowedagencypayment, true
-}
-
-// SetBCreditcardclientAllowedagencypayment sets field value
-func (o *CreditcardclientListElement) SetBCreditcardclientAllowedagencypayment(v bool) {
-	o.BCreditcardclientAllowedagencypayment = v
-}
-
-// GetBCreditcardclientAllowedroyallepageprotection returns the BCreditcardclientAllowedroyallepageprotection field value
-func (o *CreditcardclientListElement) GetBCreditcardclientAllowedroyallepageprotection() bool {
-	if o == nil {
-		var ret bool
-		return ret
-	}
-
-	return o.BCreditcardclientAllowedroyallepageprotection
-}
-
-// GetBCreditcardclientAllowedroyallepageprotectionOk returns a tuple with the BCreditcardclientAllowedroyallepageprotection field value
-// and a boolean to check if the value has been set.
-func (o *CreditcardclientListElement) GetBCreditcardclientAllowedroyallepageprotectionOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BCreditcardclientAllowedroyallepageprotection, true
-}
-
-// SetBCreditcardclientAllowedroyallepageprotection sets field value
-func (o *CreditcardclientListElement) SetBCreditcardclientAllowedroyallepageprotection(v bool) {
-	o.BCreditcardclientAllowedroyallepageprotection = v
+// SetBCreditcardclientAllowedcompanypayment sets field value
+func (o *CreditcardclientListElement) SetBCreditcardclientAllowedcompanypayment(v bool) {
+	o.BCreditcardclientAllowedcompanypayment = v
 }
 
 // GetBCreditcardclientAllowedtranquillit returns the BCreditcardclientAllowedtranquillit field value
@@ -316,28 +289,28 @@ func (o *CreditcardclientListElement) SetICreditcarddetailExpirationyear(v int32
 	o.ICreditcarddetailExpirationyear = v
 }
 
-// GetSCreditcarddetailNumbermasked returns the SCreditcarddetailNumbermasked field value
-func (o *CreditcardclientListElement) GetSCreditcarddetailNumbermasked() string {
+// GetICreditcarddetailLastdigits returns the ICreditcarddetailLastdigits field value
+func (o *CreditcardclientListElement) GetICreditcarddetailLastdigits() int32 {
 	if o == nil {
-		var ret string
+		var ret int32
 		return ret
 	}
 
-	return o.SCreditcarddetailNumbermasked
+	return o.ICreditcarddetailLastdigits
 }
 
-// GetSCreditcarddetailNumbermaskedOk returns a tuple with the SCreditcarddetailNumbermasked field value
+// GetICreditcarddetailLastdigitsOk returns a tuple with the ICreditcarddetailLastdigits field value
 // and a boolean to check if the value has been set.
-func (o *CreditcardclientListElement) GetSCreditcarddetailNumbermaskedOk() (*string, bool) {
+func (o *CreditcardclientListElement) GetICreditcarddetailLastdigitsOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.SCreditcarddetailNumbermasked, true
+	return &o.ICreditcarddetailLastdigits, true
 }
 
-// SetSCreditcarddetailNumbermasked sets field value
-func (o *CreditcardclientListElement) SetSCreditcarddetailNumbermasked(v string) {
-	o.SCreditcarddetailNumbermasked = v
+// SetICreditcarddetailLastdigits sets field value
+func (o *CreditcardclientListElement) SetICreditcarddetailLastdigits(v int32) {
+	o.ICreditcarddetailLastdigits = v
 }
 
 func (o CreditcardclientListElement) MarshalJSON() ([]byte, error) {
@@ -352,15 +325,14 @@ func (o CreditcardclientListElement) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiCreditcardclientID"] = o.PkiCreditcardclientID
 	toSerialize["fkiCreditcarddetailID"] = o.FkiCreditcarddetailID
+	toSerialize["fkiCreditcardtypeID"] = o.FkiCreditcardtypeID
 	toSerialize["bCreditcardclientrelationIsdefault"] = o.BCreditcardclientrelationIsdefault
 	toSerialize["sCreditcardclientDescription"] = o.SCreditcardclientDescription
-	toSerialize["bCreditcardclientIsactive"] = o.BCreditcardclientIsactive
-	toSerialize["bCreditcardclientAllowedagencypayment"] = o.BCreditcardclientAllowedagencypayment
-	toSerialize["bCreditcardclientAllowedroyallepageprotection"] = o.BCreditcardclientAllowedroyallepageprotection
+	toSerialize["bCreditcardclientAllowedcompanypayment"] = o.BCreditcardclientAllowedcompanypayment
 	toSerialize["bCreditcardclientAllowedtranquillit"] = o.BCreditcardclientAllowedtranquillit
 	toSerialize["iCreditcarddetailExpirationmonth"] = o.ICreditcarddetailExpirationmonth
 	toSerialize["iCreditcarddetailExpirationyear"] = o.ICreditcarddetailExpirationyear
-	toSerialize["sCreditcarddetailNumbermasked"] = o.SCreditcarddetailNumbermasked
+	toSerialize["iCreditcarddetailLastdigits"] = o.ICreditcarddetailLastdigits
 	return toSerialize, nil
 }
 
@@ -371,15 +343,14 @@ func (o *CreditcardclientListElement) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"pkiCreditcardclientID",
 		"fkiCreditcarddetailID",
+		"fkiCreditcardtypeID",
 		"bCreditcardclientrelationIsdefault",
 		"sCreditcardclientDescription",
-		"bCreditcardclientIsactive",
-		"bCreditcardclientAllowedagencypayment",
-		"bCreditcardclientAllowedroyallepageprotection",
+		"bCreditcardclientAllowedcompanypayment",
 		"bCreditcardclientAllowedtranquillit",
 		"iCreditcarddetailExpirationmonth",
 		"iCreditcarddetailExpirationyear",
-		"sCreditcarddetailNumbermasked",
+		"iCreditcarddetailLastdigits",
 	}
 
 	allProperties := make(map[string]interface{})

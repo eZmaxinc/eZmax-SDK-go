@@ -24,6 +24,136 @@ import (
 // ObjectInscriptionnotauthenticatedAPIService ObjectInscriptionnotauthenticatedAPI service
 type ObjectInscriptionnotauthenticatedAPIService service
 
+type ApiInscriptionnotauthenticatedGetCommunicationCountV1Request struct {
+	ctx context.Context
+	ApiService *ObjectInscriptionnotauthenticatedAPIService
+	pkiInscriptionnotauthenticatedID int32
+}
+
+func (r ApiInscriptionnotauthenticatedGetCommunicationCountV1Request) Execute() (*InscriptionnotauthenticatedGetCommunicationCountV1Response, *http.Response, error) {
+	return r.ApiService.InscriptionnotauthenticatedGetCommunicationCountV1Execute(r)
+}
+
+/*
+InscriptionnotauthenticatedGetCommunicationCountV1 Retrieve Communication count
+
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiInscriptionnotauthenticatedID
+ @return ApiInscriptionnotauthenticatedGetCommunicationCountV1Request
+*/
+func (a *ObjectInscriptionnotauthenticatedAPIService) InscriptionnotauthenticatedGetCommunicationCountV1(ctx context.Context, pkiInscriptionnotauthenticatedID int32) ApiInscriptionnotauthenticatedGetCommunicationCountV1Request {
+	return ApiInscriptionnotauthenticatedGetCommunicationCountV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID,
+	}
+}
+
+// Execute executes the request
+//  @return InscriptionnotauthenticatedGetCommunicationCountV1Response
+func (a *ObjectInscriptionnotauthenticatedAPIService) InscriptionnotauthenticatedGetCommunicationCountV1Execute(r ApiInscriptionnotauthenticatedGetCommunicationCountV1Request) (*InscriptionnotauthenticatedGetCommunicationCountV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *InscriptionnotauthenticatedGetCommunicationCountV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectInscriptionnotauthenticatedAPIService.InscriptionnotauthenticatedGetCommunicationCountV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getCommunicationCount"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiInscriptionnotauthenticatedID"+"}", url.PathEscape(parameterValueToString(r.pkiInscriptionnotauthenticatedID, "pkiInscriptionnotauthenticatedID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiInscriptionnotauthenticatedID < 0 {
+		return localVarReturnValue, nil, reportError("pkiInscriptionnotauthenticatedID must be greater than 0")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiInscriptionnotauthenticatedGetCommunicationListV1Request struct {
 	ctx context.Context
 	ApiService *ObjectInscriptionnotauthenticatedAPIService
@@ -67,6 +197,266 @@ func (a *ObjectInscriptionnotauthenticatedAPIService) Inscriptionnotauthenticate
 	}
 
 	localVarPath := localBasePath + "/1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getCommunicationList"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiInscriptionnotauthenticatedID"+"}", url.PathEscape(parameterValueToString(r.pkiInscriptionnotauthenticatedID, "pkiInscriptionnotauthenticatedID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiInscriptionnotauthenticatedID < 0 {
+		return localVarReturnValue, nil, reportError("pkiInscriptionnotauthenticatedID must be greater than 0")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiInscriptionnotauthenticatedGetCommunicationrecipientsV1Request struct {
+	ctx context.Context
+	ApiService *ObjectInscriptionnotauthenticatedAPIService
+	pkiInscriptionnotauthenticatedID int32
+}
+
+func (r ApiInscriptionnotauthenticatedGetCommunicationrecipientsV1Request) Execute() (*InscriptionnotauthenticatedGetCommunicationrecipientsV1Response, *http.Response, error) {
+	return r.ApiService.InscriptionnotauthenticatedGetCommunicationrecipientsV1Execute(r)
+}
+
+/*
+InscriptionnotauthenticatedGetCommunicationrecipientsV1 Retrieve Inscriptionnotauthenticated's Communicationrecipient
+
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiInscriptionnotauthenticatedID
+ @return ApiInscriptionnotauthenticatedGetCommunicationrecipientsV1Request
+*/
+func (a *ObjectInscriptionnotauthenticatedAPIService) InscriptionnotauthenticatedGetCommunicationrecipientsV1(ctx context.Context, pkiInscriptionnotauthenticatedID int32) ApiInscriptionnotauthenticatedGetCommunicationrecipientsV1Request {
+	return ApiInscriptionnotauthenticatedGetCommunicationrecipientsV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID,
+	}
+}
+
+// Execute executes the request
+//  @return InscriptionnotauthenticatedGetCommunicationrecipientsV1Response
+func (a *ObjectInscriptionnotauthenticatedAPIService) InscriptionnotauthenticatedGetCommunicationrecipientsV1Execute(r ApiInscriptionnotauthenticatedGetCommunicationrecipientsV1Request) (*InscriptionnotauthenticatedGetCommunicationrecipientsV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *InscriptionnotauthenticatedGetCommunicationrecipientsV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectInscriptionnotauthenticatedAPIService.InscriptionnotauthenticatedGetCommunicationrecipientsV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getCommunicationrecipients"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiInscriptionnotauthenticatedID"+"}", url.PathEscape(parameterValueToString(r.pkiInscriptionnotauthenticatedID, "pkiInscriptionnotauthenticatedID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiInscriptionnotauthenticatedID < 0 {
+		return localVarReturnValue, nil, reportError("pkiInscriptionnotauthenticatedID must be greater than 0")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiInscriptionnotauthenticatedGetCommunicationsendersV1Request struct {
+	ctx context.Context
+	ApiService *ObjectInscriptionnotauthenticatedAPIService
+	pkiInscriptionnotauthenticatedID int32
+}
+
+func (r ApiInscriptionnotauthenticatedGetCommunicationsendersV1Request) Execute() (*InscriptionnotauthenticatedGetCommunicationsendersV1Response, *http.Response, error) {
+	return r.ApiService.InscriptionnotauthenticatedGetCommunicationsendersV1Execute(r)
+}
+
+/*
+InscriptionnotauthenticatedGetCommunicationsendersV1 Retrieve Inscriptionnotauthenticated's Communicationsender
+
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiInscriptionnotauthenticatedID
+ @return ApiInscriptionnotauthenticatedGetCommunicationsendersV1Request
+*/
+func (a *ObjectInscriptionnotauthenticatedAPIService) InscriptionnotauthenticatedGetCommunicationsendersV1(ctx context.Context, pkiInscriptionnotauthenticatedID int32) ApiInscriptionnotauthenticatedGetCommunicationsendersV1Request {
+	return ApiInscriptionnotauthenticatedGetCommunicationsendersV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID,
+	}
+}
+
+// Execute executes the request
+//  @return InscriptionnotauthenticatedGetCommunicationsendersV1Response
+func (a *ObjectInscriptionnotauthenticatedAPIService) InscriptionnotauthenticatedGetCommunicationsendersV1Execute(r ApiInscriptionnotauthenticatedGetCommunicationsendersV1Request) (*InscriptionnotauthenticatedGetCommunicationsendersV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *InscriptionnotauthenticatedGetCommunicationsendersV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectInscriptionnotauthenticatedAPIService.InscriptionnotauthenticatedGetCommunicationsendersV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getCommunicationsenders"
 	localVarPath = strings.Replace(localVarPath, "{"+"pkiInscriptionnotauthenticatedID"+"}", url.PathEscape(parameterValueToString(r.pkiInscriptionnotauthenticatedID, "pkiInscriptionnotauthenticatedID")), -1)
 
 	localVarHeaderParams := make(map[string]string)

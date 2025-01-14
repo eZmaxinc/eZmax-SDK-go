@@ -35,19 +35,35 @@ type ActivesessionGetCurrentV1ResponseMPayload struct {
 	BActivesessionDebug bool `json:"bActivesessionDebug"`
 	// Whether the active session is superadmin or not
 	BActivesessionIssuperadmin bool `json:"bActivesessionIssuperadmin"`
+	// Can access attachment when we clone a user
+	BActivesessionAttachment *bool `json:"bActivesessionAttachment,omitempty"`
+	// Can access canafe when we clone a user
+	BActivesessionCanafe *bool `json:"bActivesessionCanafe,omitempty"`
+	// Can access financial element when we clone a user
+	BActivesessionFinancial *bool `json:"bActivesessionFinancial,omitempty"`
+	// Can access closed realestate folders when we clone a user
+	BActivesessionRealestatecompleted *bool `json:"bActivesessionRealestatecompleted,omitempty"`
+	EActivesessionEzsign *FieldEActivesessionEzsign `json:"eActivesessionEzsign,omitempty"`
+	EActivesessionEzsignaccess FieldEActivesessionEzsignaccess `json:"eActivesessionEzsignaccess"`
+	EActivesessionEzsignprepaid *FieldEActivesessionEzsignprepaid `json:"eActivesessionEzsignprepaid,omitempty"`
+	EActivesessionRealestateinprogress *FieldEActivesessionRealestateinprogress `json:"eActivesessionRealestateinprogress,omitempty"`
 	// The customer code assigned to your account
 	PksCustomerCode string `json:"pksCustomerCode"`
 	// The unique ID of the Systemconfigurationtype
 	FkiSystemconfigurationtypeID int32 `json:"fkiSystemconfigurationtypeID"`
 	// The unique ID of the Signature
 	FkiSignatureID *int32 `json:"fkiSignatureID,omitempty"`
+	// The unique ID of the Ezsignuser
+	FkiEzsignuserID *int32 `json:"fkiEzsignuserID,omitempty"`
 	// Whether if Ezsign is paid by the company or not
 	BSystemconfigurationEzsignpaidbyoffice *bool `json:"bSystemconfigurationEzsignpaidbyoffice,omitempty"`
 	ESystemconfigurationEzsignofficeplan *FieldESystemconfigurationEzsignofficeplan `json:"eSystemconfigurationEzsignofficeplan,omitempty"`
 	EUserEzsignaccess FieldEUserEzsignaccess `json:"eUserEzsignaccess"`
 	EUserEzsignprepaid *FieldEUserEzsignprepaid `json:"eUserEzsignprepaid,omitempty"`
+	// Whether the User's eZsign subscription is a trial
+	BUserEzsigntrial *bool `json:"bUserEzsigntrial,omitempty"`
 	// The eZsign prepaid expiration date
-	DtUserEzsignprepaidexpiration *string `json:"dtUserEzsignprepaidexpiration,omitempty"`
+	DtUserEzsignprepaidexpiration *string `json:"dtUserEzsignprepaidexpiration,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// An array of permissions granted to the user or api key
 	APkiPermissionID []int32 `json:"a_pkiPermissionID"`
 	ObjUserReal ActivesessionResponseCompoundUser `json:"objUserReal"`
@@ -63,7 +79,7 @@ type _ActivesessionGetCurrentV1ResponseMPayload ActivesessionGetCurrentV1Respons
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewActivesessionGetCurrentV1ResponseMPayload(eActivesessionUsertype FieldEActivesessionUsertype, eActivesessionOrigin FieldEActivesessionOrigin, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, bActivesessionDebug bool, bActivesessionIssuperadmin bool, pksCustomerCode string, fkiSystemconfigurationtypeID int32, eUserEzsignaccess FieldEUserEzsignaccess, aPkiPermissionID []int32, objUserReal ActivesessionResponseCompoundUser, aEModuleInternalname []string) *ActivesessionGetCurrentV1ResponseMPayload {
+func NewActivesessionGetCurrentV1ResponseMPayload(eActivesessionUsertype FieldEActivesessionUsertype, eActivesessionOrigin FieldEActivesessionOrigin, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, bActivesessionDebug bool, bActivesessionIssuperadmin bool, eActivesessionEzsignaccess FieldEActivesessionEzsignaccess, pksCustomerCode string, fkiSystemconfigurationtypeID int32, eUserEzsignaccess FieldEUserEzsignaccess, aPkiPermissionID []int32, objUserReal ActivesessionResponseCompoundUser, aEModuleInternalname []string) *ActivesessionGetCurrentV1ResponseMPayload {
 	this := ActivesessionGetCurrentV1ResponseMPayload{}
 	this.EActivesessionUsertype = eActivesessionUsertype
 	this.EActivesessionOrigin = eActivesessionOrigin
@@ -73,6 +89,7 @@ func NewActivesessionGetCurrentV1ResponseMPayload(eActivesessionUsertype FieldEA
 	this.SDepartmentNameX = sDepartmentNameX
 	this.BActivesessionDebug = bActivesessionDebug
 	this.BActivesessionIssuperadmin = bActivesessionIssuperadmin
+	this.EActivesessionEzsignaccess = eActivesessionEzsignaccess
 	this.PksCustomerCode = pksCustomerCode
 	this.FkiSystemconfigurationtypeID = fkiSystemconfigurationtypeID
 	this.EUserEzsignaccess = eUserEzsignaccess
@@ -282,6 +299,254 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) SetBActivesessionIssuperadmi
 	o.BActivesessionIssuperadmin = v
 }
 
+// GetBActivesessionAttachment returns the BActivesessionAttachment field value if set, zero value otherwise.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetBActivesessionAttachment() bool {
+	if o == nil || IsNil(o.BActivesessionAttachment) {
+		var ret bool
+		return ret
+	}
+	return *o.BActivesessionAttachment
+}
+
+// GetBActivesessionAttachmentOk returns a tuple with the BActivesessionAttachment field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetBActivesessionAttachmentOk() (*bool, bool) {
+	if o == nil || IsNil(o.BActivesessionAttachment) {
+		return nil, false
+	}
+	return o.BActivesessionAttachment, true
+}
+
+// HasBActivesessionAttachment returns a boolean if a field has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) HasBActivesessionAttachment() bool {
+	if o != nil && !IsNil(o.BActivesessionAttachment) {
+		return true
+	}
+
+	return false
+}
+
+// SetBActivesessionAttachment gets a reference to the given bool and assigns it to the BActivesessionAttachment field.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) SetBActivesessionAttachment(v bool) {
+	o.BActivesessionAttachment = &v
+}
+
+// GetBActivesessionCanafe returns the BActivesessionCanafe field value if set, zero value otherwise.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetBActivesessionCanafe() bool {
+	if o == nil || IsNil(o.BActivesessionCanafe) {
+		var ret bool
+		return ret
+	}
+	return *o.BActivesessionCanafe
+}
+
+// GetBActivesessionCanafeOk returns a tuple with the BActivesessionCanafe field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetBActivesessionCanafeOk() (*bool, bool) {
+	if o == nil || IsNil(o.BActivesessionCanafe) {
+		return nil, false
+	}
+	return o.BActivesessionCanafe, true
+}
+
+// HasBActivesessionCanafe returns a boolean if a field has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) HasBActivesessionCanafe() bool {
+	if o != nil && !IsNil(o.BActivesessionCanafe) {
+		return true
+	}
+
+	return false
+}
+
+// SetBActivesessionCanafe gets a reference to the given bool and assigns it to the BActivesessionCanafe field.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) SetBActivesessionCanafe(v bool) {
+	o.BActivesessionCanafe = &v
+}
+
+// GetBActivesessionFinancial returns the BActivesessionFinancial field value if set, zero value otherwise.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetBActivesessionFinancial() bool {
+	if o == nil || IsNil(o.BActivesessionFinancial) {
+		var ret bool
+		return ret
+	}
+	return *o.BActivesessionFinancial
+}
+
+// GetBActivesessionFinancialOk returns a tuple with the BActivesessionFinancial field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetBActivesessionFinancialOk() (*bool, bool) {
+	if o == nil || IsNil(o.BActivesessionFinancial) {
+		return nil, false
+	}
+	return o.BActivesessionFinancial, true
+}
+
+// HasBActivesessionFinancial returns a boolean if a field has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) HasBActivesessionFinancial() bool {
+	if o != nil && !IsNil(o.BActivesessionFinancial) {
+		return true
+	}
+
+	return false
+}
+
+// SetBActivesessionFinancial gets a reference to the given bool and assigns it to the BActivesessionFinancial field.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) SetBActivesessionFinancial(v bool) {
+	o.BActivesessionFinancial = &v
+}
+
+// GetBActivesessionRealestatecompleted returns the BActivesessionRealestatecompleted field value if set, zero value otherwise.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetBActivesessionRealestatecompleted() bool {
+	if o == nil || IsNil(o.BActivesessionRealestatecompleted) {
+		var ret bool
+		return ret
+	}
+	return *o.BActivesessionRealestatecompleted
+}
+
+// GetBActivesessionRealestatecompletedOk returns a tuple with the BActivesessionRealestatecompleted field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetBActivesessionRealestatecompletedOk() (*bool, bool) {
+	if o == nil || IsNil(o.BActivesessionRealestatecompleted) {
+		return nil, false
+	}
+	return o.BActivesessionRealestatecompleted, true
+}
+
+// HasBActivesessionRealestatecompleted returns a boolean if a field has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) HasBActivesessionRealestatecompleted() bool {
+	if o != nil && !IsNil(o.BActivesessionRealestatecompleted) {
+		return true
+	}
+
+	return false
+}
+
+// SetBActivesessionRealestatecompleted gets a reference to the given bool and assigns it to the BActivesessionRealestatecompleted field.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) SetBActivesessionRealestatecompleted(v bool) {
+	o.BActivesessionRealestatecompleted = &v
+}
+
+// GetEActivesessionEzsign returns the EActivesessionEzsign field value if set, zero value otherwise.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionEzsign() FieldEActivesessionEzsign {
+	if o == nil || IsNil(o.EActivesessionEzsign) {
+		var ret FieldEActivesessionEzsign
+		return ret
+	}
+	return *o.EActivesessionEzsign
+}
+
+// GetEActivesessionEzsignOk returns a tuple with the EActivesessionEzsign field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionEzsignOk() (*FieldEActivesessionEzsign, bool) {
+	if o == nil || IsNil(o.EActivesessionEzsign) {
+		return nil, false
+	}
+	return o.EActivesessionEzsign, true
+}
+
+// HasEActivesessionEzsign returns a boolean if a field has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) HasEActivesessionEzsign() bool {
+	if o != nil && !IsNil(o.EActivesessionEzsign) {
+		return true
+	}
+
+	return false
+}
+
+// SetEActivesessionEzsign gets a reference to the given FieldEActivesessionEzsign and assigns it to the EActivesessionEzsign field.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) SetEActivesessionEzsign(v FieldEActivesessionEzsign) {
+	o.EActivesessionEzsign = &v
+}
+
+// GetEActivesessionEzsignaccess returns the EActivesessionEzsignaccess field value
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionEzsignaccess() FieldEActivesessionEzsignaccess {
+	if o == nil {
+		var ret FieldEActivesessionEzsignaccess
+		return ret
+	}
+
+	return o.EActivesessionEzsignaccess
+}
+
+// GetEActivesessionEzsignaccessOk returns a tuple with the EActivesessionEzsignaccess field value
+// and a boolean to check if the value has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionEzsignaccessOk() (*FieldEActivesessionEzsignaccess, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EActivesessionEzsignaccess, true
+}
+
+// SetEActivesessionEzsignaccess sets field value
+func (o *ActivesessionGetCurrentV1ResponseMPayload) SetEActivesessionEzsignaccess(v FieldEActivesessionEzsignaccess) {
+	o.EActivesessionEzsignaccess = v
+}
+
+// GetEActivesessionEzsignprepaid returns the EActivesessionEzsignprepaid field value if set, zero value otherwise.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionEzsignprepaid() FieldEActivesessionEzsignprepaid {
+	if o == nil || IsNil(o.EActivesessionEzsignprepaid) {
+		var ret FieldEActivesessionEzsignprepaid
+		return ret
+	}
+	return *o.EActivesessionEzsignprepaid
+}
+
+// GetEActivesessionEzsignprepaidOk returns a tuple with the EActivesessionEzsignprepaid field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionEzsignprepaidOk() (*FieldEActivesessionEzsignprepaid, bool) {
+	if o == nil || IsNil(o.EActivesessionEzsignprepaid) {
+		return nil, false
+	}
+	return o.EActivesessionEzsignprepaid, true
+}
+
+// HasEActivesessionEzsignprepaid returns a boolean if a field has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) HasEActivesessionEzsignprepaid() bool {
+	if o != nil && !IsNil(o.EActivesessionEzsignprepaid) {
+		return true
+	}
+
+	return false
+}
+
+// SetEActivesessionEzsignprepaid gets a reference to the given FieldEActivesessionEzsignprepaid and assigns it to the EActivesessionEzsignprepaid field.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) SetEActivesessionEzsignprepaid(v FieldEActivesessionEzsignprepaid) {
+	o.EActivesessionEzsignprepaid = &v
+}
+
+// GetEActivesessionRealestateinprogress returns the EActivesessionRealestateinprogress field value if set, zero value otherwise.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionRealestateinprogress() FieldEActivesessionRealestateinprogress {
+	if o == nil || IsNil(o.EActivesessionRealestateinprogress) {
+		var ret FieldEActivesessionRealestateinprogress
+		return ret
+	}
+	return *o.EActivesessionRealestateinprogress
+}
+
+// GetEActivesessionRealestateinprogressOk returns a tuple with the EActivesessionRealestateinprogress field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetEActivesessionRealestateinprogressOk() (*FieldEActivesessionRealestateinprogress, bool) {
+	if o == nil || IsNil(o.EActivesessionRealestateinprogress) {
+		return nil, false
+	}
+	return o.EActivesessionRealestateinprogress, true
+}
+
+// HasEActivesessionRealestateinprogress returns a boolean if a field has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) HasEActivesessionRealestateinprogress() bool {
+	if o != nil && !IsNil(o.EActivesessionRealestateinprogress) {
+		return true
+	}
+
+	return false
+}
+
+// SetEActivesessionRealestateinprogress gets a reference to the given FieldEActivesessionRealestateinprogress and assigns it to the EActivesessionRealestateinprogress field.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) SetEActivesessionRealestateinprogress(v FieldEActivesessionRealestateinprogress) {
+	o.EActivesessionRealestateinprogress = &v
+}
+
 // GetPksCustomerCode returns the PksCustomerCode field value
 func (o *ActivesessionGetCurrentV1ResponseMPayload) GetPksCustomerCode() string {
 	if o == nil {
@@ -360,6 +625,38 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) HasFkiSignatureID() bool {
 // SetFkiSignatureID gets a reference to the given int32 and assigns it to the FkiSignatureID field.
 func (o *ActivesessionGetCurrentV1ResponseMPayload) SetFkiSignatureID(v int32) {
 	o.FkiSignatureID = &v
+}
+
+// GetFkiEzsignuserID returns the FkiEzsignuserID field value if set, zero value otherwise.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetFkiEzsignuserID() int32 {
+	if o == nil || IsNil(o.FkiEzsignuserID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEzsignuserID
+}
+
+// GetFkiEzsignuserIDOk returns a tuple with the FkiEzsignuserID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetFkiEzsignuserIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEzsignuserID) {
+		return nil, false
+	}
+	return o.FkiEzsignuserID, true
+}
+
+// HasFkiEzsignuserID returns a boolean if a field has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) HasFkiEzsignuserID() bool {
+	if o != nil && !IsNil(o.FkiEzsignuserID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzsignuserID gets a reference to the given int32 and assigns it to the FkiEzsignuserID field.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) SetFkiEzsignuserID(v int32) {
+	o.FkiEzsignuserID = &v
 }
 
 // GetBSystemconfigurationEzsignpaidbyoffice returns the BSystemconfigurationEzsignpaidbyoffice field value if set, zero value otherwise.
@@ -480,6 +777,38 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) HasEUserEzsignprepaid() bool
 // SetEUserEzsignprepaid gets a reference to the given FieldEUserEzsignprepaid and assigns it to the EUserEzsignprepaid field.
 func (o *ActivesessionGetCurrentV1ResponseMPayload) SetEUserEzsignprepaid(v FieldEUserEzsignprepaid) {
 	o.EUserEzsignprepaid = &v
+}
+
+// GetBUserEzsigntrial returns the BUserEzsigntrial field value if set, zero value otherwise.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetBUserEzsigntrial() bool {
+	if o == nil || IsNil(o.BUserEzsigntrial) {
+		var ret bool
+		return ret
+	}
+	return *o.BUserEzsigntrial
+}
+
+// GetBUserEzsigntrialOk returns a tuple with the BUserEzsigntrial field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetBUserEzsigntrialOk() (*bool, bool) {
+	if o == nil || IsNil(o.BUserEzsigntrial) {
+		return nil, false
+	}
+	return o.BUserEzsigntrial, true
+}
+
+// HasBUserEzsigntrial returns a boolean if a field has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) HasBUserEzsigntrial() bool {
+	if o != nil && !IsNil(o.BUserEzsigntrial) {
+		return true
+	}
+
+	return false
+}
+
+// SetBUserEzsigntrial gets a reference to the given bool and assigns it to the BUserEzsigntrial field.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) SetBUserEzsigntrial(v bool) {
+	o.BUserEzsigntrial = &v
 }
 
 // GetDtUserEzsignprepaidexpiration returns the DtUserEzsignprepaidexpiration field value if set, zero value otherwise.
@@ -668,10 +997,35 @@ func (o ActivesessionGetCurrentV1ResponseMPayload) ToMap() (map[string]interface
 	toSerialize["sDepartmentNameX"] = o.SDepartmentNameX
 	toSerialize["bActivesessionDebug"] = o.BActivesessionDebug
 	toSerialize["bActivesessionIssuperadmin"] = o.BActivesessionIssuperadmin
+	if !IsNil(o.BActivesessionAttachment) {
+		toSerialize["bActivesessionAttachment"] = o.BActivesessionAttachment
+	}
+	if !IsNil(o.BActivesessionCanafe) {
+		toSerialize["bActivesessionCanafe"] = o.BActivesessionCanafe
+	}
+	if !IsNil(o.BActivesessionFinancial) {
+		toSerialize["bActivesessionFinancial"] = o.BActivesessionFinancial
+	}
+	if !IsNil(o.BActivesessionRealestatecompleted) {
+		toSerialize["bActivesessionRealestatecompleted"] = o.BActivesessionRealestatecompleted
+	}
+	if !IsNil(o.EActivesessionEzsign) {
+		toSerialize["eActivesessionEzsign"] = o.EActivesessionEzsign
+	}
+	toSerialize["eActivesessionEzsignaccess"] = o.EActivesessionEzsignaccess
+	if !IsNil(o.EActivesessionEzsignprepaid) {
+		toSerialize["eActivesessionEzsignprepaid"] = o.EActivesessionEzsignprepaid
+	}
+	if !IsNil(o.EActivesessionRealestateinprogress) {
+		toSerialize["eActivesessionRealestateinprogress"] = o.EActivesessionRealestateinprogress
+	}
 	toSerialize["pksCustomerCode"] = o.PksCustomerCode
 	toSerialize["fkiSystemconfigurationtypeID"] = o.FkiSystemconfigurationtypeID
 	if !IsNil(o.FkiSignatureID) {
 		toSerialize["fkiSignatureID"] = o.FkiSignatureID
+	}
+	if !IsNil(o.FkiEzsignuserID) {
+		toSerialize["fkiEzsignuserID"] = o.FkiEzsignuserID
 	}
 	if !IsNil(o.BSystemconfigurationEzsignpaidbyoffice) {
 		toSerialize["bSystemconfigurationEzsignpaidbyoffice"] = o.BSystemconfigurationEzsignpaidbyoffice
@@ -682,6 +1036,9 @@ func (o ActivesessionGetCurrentV1ResponseMPayload) ToMap() (map[string]interface
 	toSerialize["eUserEzsignaccess"] = o.EUserEzsignaccess
 	if !IsNil(o.EUserEzsignprepaid) {
 		toSerialize["eUserEzsignprepaid"] = o.EUserEzsignprepaid
+	}
+	if !IsNil(o.BUserEzsigntrial) {
+		toSerialize["bUserEzsigntrial"] = o.BUserEzsigntrial
 	}
 	if !IsNil(o.DtUserEzsignprepaidexpiration) {
 		toSerialize["dtUserEzsignprepaidexpiration"] = o.DtUserEzsignprepaidexpiration
@@ -711,6 +1068,7 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) UnmarshalJSON(data []byte) (
 		"sDepartmentNameX",
 		"bActivesessionDebug",
 		"bActivesessionIssuperadmin",
+		"eActivesessionEzsignaccess",
 		"pksCustomerCode",
 		"fkiSystemconfigurationtypeID",
 		"eUserEzsignaccess",

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **PkiEzsignfolderID** | **int32** | The unique ID of the Ezsignfolder | 
 **FkiEzsignfoldertypeID** | Pointer to **int32** | The unique ID of the Ezsignfoldertype. | [optional] 
 **ObjEzsignfoldertype** | Pointer to [**CustomEzsignfoldertypeResponse**](CustomEzsignfoldertypeResponse.md) |  | [optional] 
+**FkiTimezoneID** | Pointer to **int32** | The unique ID of the Timezone | [optional] 
 **EEzsignfolderCompletion** | [**FieldEEzsignfolderCompletion**](FieldEEzsignfolderCompletion.md) |  | 
 **SEzsignfoldertypeNameX** | Pointer to **string** |  | [optional] 
 **FkiBillingentityinternalID** | Pointer to **int32** | The unique ID of the Billingentityinternal. | [optional] 
@@ -17,6 +18,8 @@ Name | Type | Description | Notes
 **TEzsignfolderNote** | Pointer to **string** | Note about the Ezsignfolder | [optional] 
 **BEzsignfolderIsdisposable** | Pointer to **bool** | If the Ezsigndocument can be disposed | [optional] 
 **EEzsignfolderSendreminderfrequency** | Pointer to [**FieldEEzsignfolderSendreminderfrequency**](FieldEEzsignfolderSendreminderfrequency.md) |  | [optional] 
+**IEzsignfolderSendreminderfirstdays** | Pointer to **int32** | The number of days before the the first reminder sending | [optional] 
+**IEzsignfolderSendreminderotherdays** | Pointer to **int32** | The number of days after the first reminder sending | [optional] 
 **DtEzsignfolderDelayedsenddate** | Pointer to **string** | The date and time at which the Ezsignfolder will be sent in the future. | [optional] 
 **DtEzsignfolderDuedate** | Pointer to **string** | The maximum date and time at which the Ezsignfolder can be signed. | [optional] 
 **DtEzsignfolderSentdate** | Pointer to **string** | The date and time at which the Ezsignfolder was sent the last time. | [optional] 
@@ -116,6 +119,31 @@ SetObjEzsignfoldertype sets ObjEzsignfoldertype field to given value.
 `func (o *EzsignfolderResponse) HasObjEzsignfoldertype() bool`
 
 HasObjEzsignfoldertype returns a boolean if a field has been set.
+
+### GetFkiTimezoneID
+
+`func (o *EzsignfolderResponse) GetFkiTimezoneID() int32`
+
+GetFkiTimezoneID returns the FkiTimezoneID field if non-nil, zero value otherwise.
+
+### GetFkiTimezoneIDOk
+
+`func (o *EzsignfolderResponse) GetFkiTimezoneIDOk() (*int32, bool)`
+
+GetFkiTimezoneIDOk returns a tuple with the FkiTimezoneID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiTimezoneID
+
+`func (o *EzsignfolderResponse) SetFkiTimezoneID(v int32)`
+
+SetFkiTimezoneID sets FkiTimezoneID field to given value.
+
+### HasFkiTimezoneID
+
+`func (o *EzsignfolderResponse) HasFkiTimezoneID() bool`
+
+HasFkiTimezoneID returns a boolean if a field has been set.
 
 ### GetEEzsignfolderCompletion
 
@@ -356,6 +384,56 @@ SetEEzsignfolderSendreminderfrequency sets EEzsignfolderSendreminderfrequency fi
 `func (o *EzsignfolderResponse) HasEEzsignfolderSendreminderfrequency() bool`
 
 HasEEzsignfolderSendreminderfrequency returns a boolean if a field has been set.
+
+### GetIEzsignfolderSendreminderfirstdays
+
+`func (o *EzsignfolderResponse) GetIEzsignfolderSendreminderfirstdays() int32`
+
+GetIEzsignfolderSendreminderfirstdays returns the IEzsignfolderSendreminderfirstdays field if non-nil, zero value otherwise.
+
+### GetIEzsignfolderSendreminderfirstdaysOk
+
+`func (o *EzsignfolderResponse) GetIEzsignfolderSendreminderfirstdaysOk() (*int32, bool)`
+
+GetIEzsignfolderSendreminderfirstdaysOk returns a tuple with the IEzsignfolderSendreminderfirstdays field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIEzsignfolderSendreminderfirstdays
+
+`func (o *EzsignfolderResponse) SetIEzsignfolderSendreminderfirstdays(v int32)`
+
+SetIEzsignfolderSendreminderfirstdays sets IEzsignfolderSendreminderfirstdays field to given value.
+
+### HasIEzsignfolderSendreminderfirstdays
+
+`func (o *EzsignfolderResponse) HasIEzsignfolderSendreminderfirstdays() bool`
+
+HasIEzsignfolderSendreminderfirstdays returns a boolean if a field has been set.
+
+### GetIEzsignfolderSendreminderotherdays
+
+`func (o *EzsignfolderResponse) GetIEzsignfolderSendreminderotherdays() int32`
+
+GetIEzsignfolderSendreminderotherdays returns the IEzsignfolderSendreminderotherdays field if non-nil, zero value otherwise.
+
+### GetIEzsignfolderSendreminderotherdaysOk
+
+`func (o *EzsignfolderResponse) GetIEzsignfolderSendreminderotherdaysOk() (*int32, bool)`
+
+GetIEzsignfolderSendreminderotherdaysOk returns a tuple with the IEzsignfolderSendreminderotherdays field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIEzsignfolderSendreminderotherdays
+
+`func (o *EzsignfolderResponse) SetIEzsignfolderSendreminderotherdays(v int32)`
+
+SetIEzsignfolderSendreminderotherdays sets IEzsignfolderSendreminderotherdays field to given value.
+
+### HasIEzsignfolderSendreminderotherdays
+
+`func (o *EzsignfolderResponse) HasIEzsignfolderSendreminderotherdays() bool`
+
+HasIEzsignfolderSendreminderotherdays returns a boolean if a field has been set.
 
 ### GetDtEzsignfolderDelayedsenddate
 

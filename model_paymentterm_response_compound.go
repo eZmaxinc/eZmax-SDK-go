@@ -25,7 +25,7 @@ type PaymenttermResponseCompound struct {
 	// The unique ID of the Paymentterm
 	PkiPaymenttermID int32 `json:"pkiPaymenttermID"`
 	// The code of the Paymentterm
-	SPaymenttermCode string `json:"sPaymenttermCode"`
+	SPaymenttermCode string `json:"sPaymenttermCode" validate:"regexp=^[A-Z0-9]{1,4}$"`
 	EPaymenttermType FieldEPaymenttermType `json:"ePaymenttermType"`
 	// The day of the Paymentterm
 	IPaymenttermDay int32 `json:"iPaymenttermDay"`

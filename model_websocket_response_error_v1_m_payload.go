@@ -23,7 +23,7 @@ var _ MappedNullable = &WebsocketResponseErrorV1MPayload{}
 // WebsocketResponseErrorV1MPayload Payload for Websocket Error V1
 type WebsocketResponseErrorV1MPayload struct {
 	// The message giving details about the error
-	SErrorMessage string `json:"sErrorMessage"`
+	SErrorMessage string `json:"sErrorMessage" validate:"regexp=^.{0,500}$"`
 	EErrorCode FieldEErrorCode `json:"eErrorCode"`
 }
 

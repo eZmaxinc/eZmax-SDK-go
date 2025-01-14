@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **FkiEzsigntemplatedocumentID** | **int32** | The unique ID of the Ezsigntemplatedocument | 
 **FkiEzsigntemplatesignerID** | **int32** | The unique ID of the Ezsigntemplatesigner | 
 **FkiEzsigntemplatesignerIDValidation** | Pointer to **int32** | The unique ID of the Ezsigntemplatesigner | [optional] 
+**BEzsigntemplatesignatureHandwritten** | Pointer to **bool** | Whether the Ezsigntemplatesignature must be handwritten or not when eEzsigntemplatesignatureType &#x3D; Signature. | [optional] 
+**BEzsigntemplatesignatureReason** | Pointer to **bool** | Whether the Ezsigntemplatesignature must include a reason or not when eEzsigntemplatesignatureType &#x3D; Signature. | [optional] 
 **EEzsigntemplatesignaturePositioning** | Pointer to [**FieldEEzsigntemplatesignaturePositioning**](FieldEEzsigntemplatesignaturePositioning.md) |  | [optional] 
 **IEzsigntemplatedocumentpagePagenumber** | **int32** | The page number in the Ezsigntemplatedocument | 
 **IEzsigntemplatesignatureX** | Pointer to **int32** | The X coordinate (Horizontal) where to put the Ezsigntemplatesignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplatesignature 2 inches from the left border of the page, you would use \&quot;200\&quot; for the X coordinate. | [optional] 
@@ -16,6 +18,7 @@ Name | Type | Description | Notes
 **IEzsigntemplatesignatureHeight** | Pointer to **int32** | The height of the Ezsigntemplatesignature.  Size is calculated at 100dpi (dot per inch). So for example, if you want the Ezsigntemplatesignature to have an height of 2 inches, you would use \&quot;200\&quot; for the iEzsigntemplatesignatureHeight. | [optional] 
 **IEzsigntemplatesignatureStep** | **int32** | The step when the Ezsigntemplatesigner will be invited to sign | 
 **EEzsigntemplatesignatureType** | [**FieldEEzsigntemplatesignatureType**](FieldEEzsigntemplatesignatureType.md) |  | 
+**EEzsigntemplatesignatureConsultationtrigger** | Pointer to [**FieldEEzsigntemplatesignatureConsultationtrigger**](FieldEEzsigntemplatesignatureConsultationtrigger.md) |  | [optional] 
 **TEzsigntemplatesignatureTooltip** | Pointer to **string** | A tooltip that will be presented to Ezsigntemplatesigner about the Ezsigntemplatesignature | [optional] 
 **EEzsigntemplatesignatureTooltipposition** | Pointer to [**FieldEEzsigntemplatesignatureTooltipposition**](FieldEEzsigntemplatesignatureTooltipposition.md) |  | [optional] 
 **EEzsigntemplatesignatureFont** | Pointer to [**FieldEEzsigntemplatesignatureFont**](FieldEEzsigntemplatesignatureFont.md) |  | [optional] 
@@ -24,8 +27,10 @@ Name | Type | Description | Notes
 **SEzsigntemplatesignatureAttachmentdescription** | Pointer to **string** | The description attached to the attachment name added in Ezsigntemplatesignature of eEzsigntemplatesignatureType Attachments | [optional] 
 **IEzsigntemplatesignatureValidationstep** | Pointer to **int32** | The step when the Ezsigntemplatesigner will be invited to validate the Ezsigntemplatesignature of eEzsigntemplatesignatureType Attachments | [optional] 
 **IEzsigntemplatesignatureMaxlength** | Pointer to **int32** | The maximum length for the value in the Ezsigntemplatesignature  This can only be set if eEzsigntemplatesignatureType is **FieldText** or **FieldTextarea** | [optional] 
+**SEzsigntemplatesignatureDefaultvalue** | Pointer to **string** | The default value for the Ezsigntemplatesignature  You can use the codes below and they will be replaced at signature time.    | Code | Description | Example | | ------------------------- | ------------ | ------------ | | {sUserFirstname} | The first name of the contact | John | | {sUserLastname} | The last name of the contact | Doe | | {sUserJobtitle} | The job title | Sales Representative | | {sCompany} | Company name | eZmax Solutions Inc. | | {sEmailAddress} | The email address | email@example.com | | {sPhoneE164} | A phone number in E.164 Format | +15149901516 | | {sPhoneE164Cell} | A phone number in E.164 Format | +15149901516 | | [optional] 
 **SEzsigntemplatesignatureRegexp** | Pointer to **string** | A regular expression to indicate what values are acceptable for the Ezsigntemplatesignature.  This can only be set if eEzsigntemplatesignatureType is **Text** or **Textarea** | [optional] 
 **EEzsigntemplatesignatureTextvalidation** | Pointer to [**EnumTextvalidation**](EnumTextvalidation.md) |  | [optional] 
+**SEzsigntemplatesignatureTextvalidationcustommessage** | Pointer to **string** | Description of validation rule. Show by signatory. | [optional] 
 **EEzsigntemplatesignatureDependencyrequirement** | Pointer to [**FieldEEzsigntemplatesignatureDependencyrequirement**](FieldEEzsigntemplatesignatureDependencyrequirement.md) |  | [optional] 
 **SEzsigntemplatesignaturePositioningpattern** | Pointer to **string** | The string pattern to search for the positioning. **This is not a regexp**  This will be required if **eEzsigntemplatesignaturePositioning** is set to **PerCoordinates** | [optional] 
 **IEzsigntemplatesignaturePositioningoffsetx** | Pointer to **int32** | The offset X  This will be required if **eEzsigntemplatesignaturePositioning** is set to **PerCoordinates** | [optional] 
@@ -143,6 +148,56 @@ SetFkiEzsigntemplatesignerIDValidation sets FkiEzsigntemplatesignerIDValidation 
 `func (o *EzsigntemplatesignatureRequestCompound) HasFkiEzsigntemplatesignerIDValidation() bool`
 
 HasFkiEzsigntemplatesignerIDValidation returns a boolean if a field has been set.
+
+### GetBEzsigntemplatesignatureHandwritten
+
+`func (o *EzsigntemplatesignatureRequestCompound) GetBEzsigntemplatesignatureHandwritten() bool`
+
+GetBEzsigntemplatesignatureHandwritten returns the BEzsigntemplatesignatureHandwritten field if non-nil, zero value otherwise.
+
+### GetBEzsigntemplatesignatureHandwrittenOk
+
+`func (o *EzsigntemplatesignatureRequestCompound) GetBEzsigntemplatesignatureHandwrittenOk() (*bool, bool)`
+
+GetBEzsigntemplatesignatureHandwrittenOk returns a tuple with the BEzsigntemplatesignatureHandwritten field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsigntemplatesignatureHandwritten
+
+`func (o *EzsigntemplatesignatureRequestCompound) SetBEzsigntemplatesignatureHandwritten(v bool)`
+
+SetBEzsigntemplatesignatureHandwritten sets BEzsigntemplatesignatureHandwritten field to given value.
+
+### HasBEzsigntemplatesignatureHandwritten
+
+`func (o *EzsigntemplatesignatureRequestCompound) HasBEzsigntemplatesignatureHandwritten() bool`
+
+HasBEzsigntemplatesignatureHandwritten returns a boolean if a field has been set.
+
+### GetBEzsigntemplatesignatureReason
+
+`func (o *EzsigntemplatesignatureRequestCompound) GetBEzsigntemplatesignatureReason() bool`
+
+GetBEzsigntemplatesignatureReason returns the BEzsigntemplatesignatureReason field if non-nil, zero value otherwise.
+
+### GetBEzsigntemplatesignatureReasonOk
+
+`func (o *EzsigntemplatesignatureRequestCompound) GetBEzsigntemplatesignatureReasonOk() (*bool, bool)`
+
+GetBEzsigntemplatesignatureReasonOk returns a tuple with the BEzsigntemplatesignatureReason field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsigntemplatesignatureReason
+
+`func (o *EzsigntemplatesignatureRequestCompound) SetBEzsigntemplatesignatureReason(v bool)`
+
+SetBEzsigntemplatesignatureReason sets BEzsigntemplatesignatureReason field to given value.
+
+### HasBEzsigntemplatesignatureReason
+
+`func (o *EzsigntemplatesignatureRequestCompound) HasBEzsigntemplatesignatureReason() bool`
+
+HasBEzsigntemplatesignatureReason returns a boolean if a field has been set.
 
 ### GetEEzsigntemplatesignaturePositioning
 
@@ -328,6 +383,31 @@ and a boolean to check if the value has been set.
 
 SetEEzsigntemplatesignatureType sets EEzsigntemplatesignatureType field to given value.
 
+
+### GetEEzsigntemplatesignatureConsultationtrigger
+
+`func (o *EzsigntemplatesignatureRequestCompound) GetEEzsigntemplatesignatureConsultationtrigger() FieldEEzsigntemplatesignatureConsultationtrigger`
+
+GetEEzsigntemplatesignatureConsultationtrigger returns the EEzsigntemplatesignatureConsultationtrigger field if non-nil, zero value otherwise.
+
+### GetEEzsigntemplatesignatureConsultationtriggerOk
+
+`func (o *EzsigntemplatesignatureRequestCompound) GetEEzsigntemplatesignatureConsultationtriggerOk() (*FieldEEzsigntemplatesignatureConsultationtrigger, bool)`
+
+GetEEzsigntemplatesignatureConsultationtriggerOk returns a tuple with the EEzsigntemplatesignatureConsultationtrigger field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsigntemplatesignatureConsultationtrigger
+
+`func (o *EzsigntemplatesignatureRequestCompound) SetEEzsigntemplatesignatureConsultationtrigger(v FieldEEzsigntemplatesignatureConsultationtrigger)`
+
+SetEEzsigntemplatesignatureConsultationtrigger sets EEzsigntemplatesignatureConsultationtrigger field to given value.
+
+### HasEEzsigntemplatesignatureConsultationtrigger
+
+`func (o *EzsigntemplatesignatureRequestCompound) HasEEzsigntemplatesignatureConsultationtrigger() bool`
+
+HasEEzsigntemplatesignatureConsultationtrigger returns a boolean if a field has been set.
 
 ### GetTEzsigntemplatesignatureTooltip
 
@@ -529,6 +609,31 @@ SetIEzsigntemplatesignatureMaxlength sets IEzsigntemplatesignatureMaxlength fiel
 
 HasIEzsigntemplatesignatureMaxlength returns a boolean if a field has been set.
 
+### GetSEzsigntemplatesignatureDefaultvalue
+
+`func (o *EzsigntemplatesignatureRequestCompound) GetSEzsigntemplatesignatureDefaultvalue() string`
+
+GetSEzsigntemplatesignatureDefaultvalue returns the SEzsigntemplatesignatureDefaultvalue field if non-nil, zero value otherwise.
+
+### GetSEzsigntemplatesignatureDefaultvalueOk
+
+`func (o *EzsigntemplatesignatureRequestCompound) GetSEzsigntemplatesignatureDefaultvalueOk() (*string, bool)`
+
+GetSEzsigntemplatesignatureDefaultvalueOk returns a tuple with the SEzsigntemplatesignatureDefaultvalue field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzsigntemplatesignatureDefaultvalue
+
+`func (o *EzsigntemplatesignatureRequestCompound) SetSEzsigntemplatesignatureDefaultvalue(v string)`
+
+SetSEzsigntemplatesignatureDefaultvalue sets SEzsigntemplatesignatureDefaultvalue field to given value.
+
+### HasSEzsigntemplatesignatureDefaultvalue
+
+`func (o *EzsigntemplatesignatureRequestCompound) HasSEzsigntemplatesignatureDefaultvalue() bool`
+
+HasSEzsigntemplatesignatureDefaultvalue returns a boolean if a field has been set.
+
 ### GetSEzsigntemplatesignatureRegexp
 
 `func (o *EzsigntemplatesignatureRequestCompound) GetSEzsigntemplatesignatureRegexp() string`
@@ -578,6 +683,31 @@ SetEEzsigntemplatesignatureTextvalidation sets EEzsigntemplatesignatureTextvalid
 `func (o *EzsigntemplatesignatureRequestCompound) HasEEzsigntemplatesignatureTextvalidation() bool`
 
 HasEEzsigntemplatesignatureTextvalidation returns a boolean if a field has been set.
+
+### GetSEzsigntemplatesignatureTextvalidationcustommessage
+
+`func (o *EzsigntemplatesignatureRequestCompound) GetSEzsigntemplatesignatureTextvalidationcustommessage() string`
+
+GetSEzsigntemplatesignatureTextvalidationcustommessage returns the SEzsigntemplatesignatureTextvalidationcustommessage field if non-nil, zero value otherwise.
+
+### GetSEzsigntemplatesignatureTextvalidationcustommessageOk
+
+`func (o *EzsigntemplatesignatureRequestCompound) GetSEzsigntemplatesignatureTextvalidationcustommessageOk() (*string, bool)`
+
+GetSEzsigntemplatesignatureTextvalidationcustommessageOk returns a tuple with the SEzsigntemplatesignatureTextvalidationcustommessage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzsigntemplatesignatureTextvalidationcustommessage
+
+`func (o *EzsigntemplatesignatureRequestCompound) SetSEzsigntemplatesignatureTextvalidationcustommessage(v string)`
+
+SetSEzsigntemplatesignatureTextvalidationcustommessage sets SEzsigntemplatesignatureTextvalidationcustommessage field to given value.
+
+### HasSEzsigntemplatesignatureTextvalidationcustommessage
+
+`func (o *EzsigntemplatesignatureRequestCompound) HasSEzsigntemplatesignatureTextvalidationcustommessage() bool`
+
+HasSEzsigntemplatesignatureTextvalidationcustommessage returns a boolean if a field has been set.
 
 ### GetEEzsigntemplatesignatureDependencyrequirement
 

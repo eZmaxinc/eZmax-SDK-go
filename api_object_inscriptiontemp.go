@@ -24,6 +24,139 @@ import (
 // ObjectInscriptiontempAPIService ObjectInscriptiontempAPI service
 type ObjectInscriptiontempAPIService service
 
+type ApiInscriptiontempGetCommunicationCountV1Request struct {
+	ctx context.Context
+	ApiService *ObjectInscriptiontempAPIService
+	pkiInscriptiontempID int32
+}
+
+func (r ApiInscriptiontempGetCommunicationCountV1Request) Execute() (*InscriptiontempGetCommunicationCountV1Response, *http.Response, error) {
+	return r.ApiService.InscriptiontempGetCommunicationCountV1Execute(r)
+}
+
+/*
+InscriptiontempGetCommunicationCountV1 Retrieve Communication count
+
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiInscriptiontempID
+ @return ApiInscriptiontempGetCommunicationCountV1Request
+*/
+func (a *ObjectInscriptiontempAPIService) InscriptiontempGetCommunicationCountV1(ctx context.Context, pkiInscriptiontempID int32) ApiInscriptiontempGetCommunicationCountV1Request {
+	return ApiInscriptiontempGetCommunicationCountV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiInscriptiontempID: pkiInscriptiontempID,
+	}
+}
+
+// Execute executes the request
+//  @return InscriptiontempGetCommunicationCountV1Response
+func (a *ObjectInscriptiontempAPIService) InscriptiontempGetCommunicationCountV1Execute(r ApiInscriptiontempGetCommunicationCountV1Request) (*InscriptiontempGetCommunicationCountV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *InscriptiontempGetCommunicationCountV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectInscriptiontempAPIService.InscriptiontempGetCommunicationCountV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/inscriptiontemp/{pkiInscriptiontempID}/getCommunicationCount"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiInscriptiontempID"+"}", url.PathEscape(parameterValueToString(r.pkiInscriptiontempID, "pkiInscriptiontempID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiInscriptiontempID < 1 {
+		return localVarReturnValue, nil, reportError("pkiInscriptiontempID must be greater than 1")
+	}
+	if r.pkiInscriptiontempID > 16777215 {
+		return localVarReturnValue, nil, reportError("pkiInscriptiontempID must be less than 16777215")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiInscriptiontempGetCommunicationListV1Request struct {
 	ctx context.Context
 	ApiService *ObjectInscriptiontempAPIService
@@ -67,6 +200,272 @@ func (a *ObjectInscriptiontempAPIService) InscriptiontempGetCommunicationListV1E
 	}
 
 	localVarPath := localBasePath + "/1/object/inscriptiontemp/{pkiInscriptiontempID}/getCommunicationList"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiInscriptiontempID"+"}", url.PathEscape(parameterValueToString(r.pkiInscriptiontempID, "pkiInscriptiontempID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiInscriptiontempID < 1 {
+		return localVarReturnValue, nil, reportError("pkiInscriptiontempID must be greater than 1")
+	}
+	if r.pkiInscriptiontempID > 16777215 {
+		return localVarReturnValue, nil, reportError("pkiInscriptiontempID must be less than 16777215")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiInscriptiontempGetCommunicationrecipientsV1Request struct {
+	ctx context.Context
+	ApiService *ObjectInscriptiontempAPIService
+	pkiInscriptiontempID int32
+}
+
+func (r ApiInscriptiontempGetCommunicationrecipientsV1Request) Execute() (*InscriptiontempGetCommunicationrecipientsV1Response, *http.Response, error) {
+	return r.ApiService.InscriptiontempGetCommunicationrecipientsV1Execute(r)
+}
+
+/*
+InscriptiontempGetCommunicationrecipientsV1 Retrieve Inscriptiontemp's Communicationrecipient
+
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiInscriptiontempID
+ @return ApiInscriptiontempGetCommunicationrecipientsV1Request
+*/
+func (a *ObjectInscriptiontempAPIService) InscriptiontempGetCommunicationrecipientsV1(ctx context.Context, pkiInscriptiontempID int32) ApiInscriptiontempGetCommunicationrecipientsV1Request {
+	return ApiInscriptiontempGetCommunicationrecipientsV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiInscriptiontempID: pkiInscriptiontempID,
+	}
+}
+
+// Execute executes the request
+//  @return InscriptiontempGetCommunicationrecipientsV1Response
+func (a *ObjectInscriptiontempAPIService) InscriptiontempGetCommunicationrecipientsV1Execute(r ApiInscriptiontempGetCommunicationrecipientsV1Request) (*InscriptiontempGetCommunicationrecipientsV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *InscriptiontempGetCommunicationrecipientsV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectInscriptiontempAPIService.InscriptiontempGetCommunicationrecipientsV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/inscriptiontemp/{pkiInscriptiontempID}/getCommunicationrecipients"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiInscriptiontempID"+"}", url.PathEscape(parameterValueToString(r.pkiInscriptiontempID, "pkiInscriptiontempID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiInscriptiontempID < 1 {
+		return localVarReturnValue, nil, reportError("pkiInscriptiontempID must be greater than 1")
+	}
+	if r.pkiInscriptiontempID > 16777215 {
+		return localVarReturnValue, nil, reportError("pkiInscriptiontempID must be less than 16777215")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiInscriptiontempGetCommunicationsendersV1Request struct {
+	ctx context.Context
+	ApiService *ObjectInscriptiontempAPIService
+	pkiInscriptiontempID int32
+}
+
+func (r ApiInscriptiontempGetCommunicationsendersV1Request) Execute() (*InscriptiontempGetCommunicationsendersV1Response, *http.Response, error) {
+	return r.ApiService.InscriptiontempGetCommunicationsendersV1Execute(r)
+}
+
+/*
+InscriptiontempGetCommunicationsendersV1 Retrieve Inscriptiontemp's Communicationsender
+
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiInscriptiontempID
+ @return ApiInscriptiontempGetCommunicationsendersV1Request
+*/
+func (a *ObjectInscriptiontempAPIService) InscriptiontempGetCommunicationsendersV1(ctx context.Context, pkiInscriptiontempID int32) ApiInscriptiontempGetCommunicationsendersV1Request {
+	return ApiInscriptiontempGetCommunicationsendersV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiInscriptiontempID: pkiInscriptiontempID,
+	}
+}
+
+// Execute executes the request
+//  @return InscriptiontempGetCommunicationsendersV1Response
+func (a *ObjectInscriptiontempAPIService) InscriptiontempGetCommunicationsendersV1Execute(r ApiInscriptiontempGetCommunicationsendersV1Request) (*InscriptiontempGetCommunicationsendersV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *InscriptiontempGetCommunicationsendersV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectInscriptiontempAPIService.InscriptiontempGetCommunicationsendersV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/inscriptiontemp/{pkiInscriptiontempID}/getCommunicationsenders"
 	localVarPath = strings.Replace(localVarPath, "{"+"pkiInscriptiontempID"+"}", url.PathEscape(parameterValueToString(r.pkiInscriptiontempID, "pkiInscriptiontempID")), -1)
 
 	localVarHeaderParams := make(map[string]string)

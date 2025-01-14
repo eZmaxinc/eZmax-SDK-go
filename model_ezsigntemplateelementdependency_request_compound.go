@@ -37,7 +37,7 @@ type EzsigntemplateelementdependencyRequestCompound struct {
 	BEzsigntemplateelementdependencySelected *bool `json:"bEzsigntemplateelementdependencySelected,omitempty"`
 	EEzsigntemplateelementdependencyOperator *FieldEEzsigntemplateelementdependencyOperator `json:"eEzsigntemplateelementdependencyOperator,omitempty"`
 	// The value of the Ezsignelementdependency
-	SEzsigntemplateelementdependencyValue *string `json:"sEzsigntemplateelementdependencyValue,omitempty"`
+	SEzsigntemplateelementdependencyValue *string `json:"sEzsigntemplateelementdependencyValue,omitempty" validate:"regexp=^.{0,50}$"`
 }
 
 type _EzsigntemplateelementdependencyRequestCompound EzsigntemplateelementdependencyRequestCompound

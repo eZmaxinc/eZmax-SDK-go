@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiWebhookID** | **int32** | The unique ID of the Webhook | 
+**FkiAuthenticationexternalID** | Pointer to **int32** | The unique ID of the Authenticationexternal | [optional] 
 **SWebhookDescription** | **string** | The description of the Webhook | 
 **FkiEzsignfoldertypeID** | Pointer to **int32** | The unique ID of the Ezsignfoldertype. | [optional] 
 **SEzsignfoldertypeNameX** | Pointer to **string** | The name of the Ezsignfoldertype in the language of the requester | [optional] 
@@ -18,11 +19,13 @@ Name | Type | Description | Notes
 **BWebhookIsactive** | **bool** | Whether the Webhook is active or not | 
 **BWebhookIssigned** | **bool** | Whether the requests will be signed or not | 
 **BWebhookSkipsslvalidation** | **bool** | Wheter the server&#39;s SSL certificate should be validated or not. Not recommended to skip for production use | 
+**SAuthenticationexternalDescription** | Pointer to **string** | The description of the Authenticationexternal | [optional] 
 **ObjAudit** | [**CommonAudit**](CommonAudit.md) |  | 
 **SWebhookEvent** | Pointer to **string** | The concatenated string to describe the Webhook event | [optional] 
 **AObjWebhookheader** | Pointer to [**[]WebhookheaderResponseCompound**](WebhookheaderResponseCompound.md) |  | [optional] 
 **PksCustomerCode** | **string** | The customer code assigned to your account | 
 **BWebhookTest** | **bool** | Wheter the webhook received is a manual test or a real event | 
+**EWebhookEmittype** | Pointer to **string** | Wheter the webhook received is a manual test or a real event | [optional] 
 
 ## Methods
 
@@ -62,6 +65,31 @@ and a boolean to check if the value has been set.
 
 SetPkiWebhookID sets PkiWebhookID field to given value.
 
+
+### GetFkiAuthenticationexternalID
+
+`func (o *CustomWebhookResponse) GetFkiAuthenticationexternalID() int32`
+
+GetFkiAuthenticationexternalID returns the FkiAuthenticationexternalID field if non-nil, zero value otherwise.
+
+### GetFkiAuthenticationexternalIDOk
+
+`func (o *CustomWebhookResponse) GetFkiAuthenticationexternalIDOk() (*int32, bool)`
+
+GetFkiAuthenticationexternalIDOk returns a tuple with the FkiAuthenticationexternalID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiAuthenticationexternalID
+
+`func (o *CustomWebhookResponse) SetFkiAuthenticationexternalID(v int32)`
+
+SetFkiAuthenticationexternalID sets FkiAuthenticationexternalID field to given value.
+
+### HasFkiAuthenticationexternalID
+
+`func (o *CustomWebhookResponse) HasFkiAuthenticationexternalID() bool`
+
+HasFkiAuthenticationexternalID returns a boolean if a field has been set.
 
 ### GetSWebhookDescription
 
@@ -353,6 +381,31 @@ and a boolean to check if the value has been set.
 SetBWebhookSkipsslvalidation sets BWebhookSkipsslvalidation field to given value.
 
 
+### GetSAuthenticationexternalDescription
+
+`func (o *CustomWebhookResponse) GetSAuthenticationexternalDescription() string`
+
+GetSAuthenticationexternalDescription returns the SAuthenticationexternalDescription field if non-nil, zero value otherwise.
+
+### GetSAuthenticationexternalDescriptionOk
+
+`func (o *CustomWebhookResponse) GetSAuthenticationexternalDescriptionOk() (*string, bool)`
+
+GetSAuthenticationexternalDescriptionOk returns a tuple with the SAuthenticationexternalDescription field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSAuthenticationexternalDescription
+
+`func (o *CustomWebhookResponse) SetSAuthenticationexternalDescription(v string)`
+
+SetSAuthenticationexternalDescription sets SAuthenticationexternalDescription field to given value.
+
+### HasSAuthenticationexternalDescription
+
+`func (o *CustomWebhookResponse) HasSAuthenticationexternalDescription() bool`
+
+HasSAuthenticationexternalDescription returns a boolean if a field has been set.
+
 ### GetObjAudit
 
 `func (o *CustomWebhookResponse) GetObjAudit() CommonAudit`
@@ -462,6 +515,31 @@ and a boolean to check if the value has been set.
 
 SetBWebhookTest sets BWebhookTest field to given value.
 
+
+### GetEWebhookEmittype
+
+`func (o *CustomWebhookResponse) GetEWebhookEmittype() string`
+
+GetEWebhookEmittype returns the EWebhookEmittype field if non-nil, zero value otherwise.
+
+### GetEWebhookEmittypeOk
+
+`func (o *CustomWebhookResponse) GetEWebhookEmittypeOk() (*string, bool)`
+
+GetEWebhookEmittypeOk returns a tuple with the EWebhookEmittype field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEWebhookEmittype
+
+`func (o *CustomWebhookResponse) SetEWebhookEmittype(v string)`
+
+SetEWebhookEmittype sets EWebhookEmittype field to given value.
+
+### HasEWebhookEmittype
+
+`func (o *CustomWebhookResponse) HasEWebhookEmittype() bool`
+
+HasEWebhookEmittype returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -24,7 +24,7 @@ var _ MappedNullable = &CommunicationSendV1Response{}
 type CommunicationSendV1Response struct {
 	ObjDebugPayload CommonResponseObjDebugPayload `json:"objDebugPayload"`
 	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
-	MPayload CommunicationCreateObjectV1ResponseMPayload `json:"mPayload"`
+	MPayload CommunicationSendV1ResponseMPayload `json:"mPayload"`
 }
 
 type _CommunicationSendV1Response CommunicationSendV1Response
@@ -33,7 +33,7 @@ type _CommunicationSendV1Response CommunicationSendV1Response
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommunicationSendV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload CommunicationCreateObjectV1ResponseMPayload) *CommunicationSendV1Response {
+func NewCommunicationSendV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload CommunicationSendV1ResponseMPayload) *CommunicationSendV1Response {
 	this := CommunicationSendV1Response{}
 	this.ObjDebugPayload = objDebugPayload
 	this.MPayload = mPayload
@@ -105,9 +105,9 @@ func (o *CommunicationSendV1Response) SetObjDebug(v CommonResponseObjDebug) {
 }
 
 // GetMPayload returns the MPayload field value
-func (o *CommunicationSendV1Response) GetMPayload() CommunicationCreateObjectV1ResponseMPayload {
+func (o *CommunicationSendV1Response) GetMPayload() CommunicationSendV1ResponseMPayload {
 	if o == nil {
-		var ret CommunicationCreateObjectV1ResponseMPayload
+		var ret CommunicationSendV1ResponseMPayload
 		return ret
 	}
 
@@ -116,7 +116,7 @@ func (o *CommunicationSendV1Response) GetMPayload() CommunicationCreateObjectV1R
 
 // GetMPayloadOk returns a tuple with the MPayload field value
 // and a boolean to check if the value has been set.
-func (o *CommunicationSendV1Response) GetMPayloadOk() (*CommunicationCreateObjectV1ResponseMPayload, bool) {
+func (o *CommunicationSendV1Response) GetMPayloadOk() (*CommunicationSendV1ResponseMPayload, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -124,7 +124,7 @@ func (o *CommunicationSendV1Response) GetMPayloadOk() (*CommunicationCreateObjec
 }
 
 // SetMPayload sets field value
-func (o *CommunicationSendV1Response) SetMPayload(v CommunicationCreateObjectV1ResponseMPayload) {
+func (o *CommunicationSendV1Response) SetMPayload(v CommunicationSendV1ResponseMPayload) {
 	o.MPayload = v
 }
 

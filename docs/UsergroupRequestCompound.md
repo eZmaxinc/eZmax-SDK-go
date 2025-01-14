@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiUsergroupID** | Pointer to **int32** | The unique ID of the Usergroup | [optional] 
+**ObjEmail** | Pointer to [**EmailRequest**](EmailRequest.md) |  | [optional] 
 **ObjUsergroupName** | [**MultilingualUsergroupName**](MultilingualUsergroupName.md) |  | 
 
 ## Methods
@@ -50,6 +51,31 @@ SetPkiUsergroupID sets PkiUsergroupID field to given value.
 `func (o *UsergroupRequestCompound) HasPkiUsergroupID() bool`
 
 HasPkiUsergroupID returns a boolean if a field has been set.
+
+### GetObjEmail
+
+`func (o *UsergroupRequestCompound) GetObjEmail() EmailRequest`
+
+GetObjEmail returns the ObjEmail field if non-nil, zero value otherwise.
+
+### GetObjEmailOk
+
+`func (o *UsergroupRequestCompound) GetObjEmailOk() (*EmailRequest, bool)`
+
+GetObjEmailOk returns a tuple with the ObjEmail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjEmail
+
+`func (o *UsergroupRequestCompound) SetObjEmail(v EmailRequest)`
+
+SetObjEmail sets ObjEmail field to given value.
+
+### HasObjEmail
+
+`func (o *UsergroupRequestCompound) HasObjEmail() bool`
+
+HasObjEmail returns a boolean if a field has been set.
 
 ### GetObjUsergroupName
 

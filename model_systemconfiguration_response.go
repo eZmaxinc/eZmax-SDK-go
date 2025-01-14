@@ -26,6 +26,8 @@ type SystemconfigurationResponse struct {
 	PkiSystemconfigurationID int32 `json:"pkiSystemconfigurationID"`
 	// The unique ID of the Systemconfigurationtype
 	FkiSystemconfigurationtypeID int32 `json:"fkiSystemconfigurationtypeID"`
+	// The unique ID of the Branding
+	FkiBrandingID *int32 `json:"fkiBrandingID,omitempty"`
 	// The description of the Systemconfigurationtype in the language of the requester
 	SSystemconfigurationtypeDescriptionX string `json:"sSystemconfigurationtypeDescriptionX"`
 	ESystemconfigurationNewexternaluseraction FieldESystemconfigurationNewexternaluseraction `json:"eSystemconfigurationNewexternaluseraction"`
@@ -38,14 +40,17 @@ type SystemconfigurationResponse struct {
 	BSystemconfigurationEzsignpaidbyoffice *bool `json:"bSystemconfigurationEzsignpaidbyoffice,omitempty"`
 	// Whether if we allow the creation of personal files in eZsign
 	BSystemconfigurationEzsignpersonnal bool `json:"bSystemconfigurationEzsignpersonnal"`
+	// Whether there is a creditcard merchant configured or not
+	BSystemconfigurationHascreditcardmerchant *bool `json:"bSystemconfigurationHascreditcardmerchant,omitempty"`
 	// Whether is Disposal processus is active or not
 	BSystemconfigurationIsdisposalactive *bool `json:"bSystemconfigurationIsdisposalactive,omitempty"`
 	// Whether if we allow SSPR
 	BSystemconfigurationSspr bool `json:"bSystemconfigurationSspr"`
 	// The start date where the system will be in read only
-	DtSystemconfigurationReadonlyexpirationstart *string `json:"dtSystemconfigurationReadonlyexpirationstart,omitempty"`
+	DtSystemconfigurationReadonlyexpirationstart *string `json:"dtSystemconfigurationReadonlyexpirationstart,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// The end date where the system will be in read only
-	DtSystemconfigurationReadonlyexpirationend *string `json:"dtSystemconfigurationReadonlyexpirationend,omitempty"`
+	DtSystemconfigurationReadonlyexpirationend *string `json:"dtSystemconfigurationReadonlyexpirationend,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
+	ObjBranding *CustomBrandingResponse `json:"objBranding,omitempty"`
 }
 
 type _SystemconfigurationResponse SystemconfigurationResponse
@@ -121,6 +126,38 @@ func (o *SystemconfigurationResponse) GetFkiSystemconfigurationtypeIDOk() (*int3
 // SetFkiSystemconfigurationtypeID sets field value
 func (o *SystemconfigurationResponse) SetFkiSystemconfigurationtypeID(v int32) {
 	o.FkiSystemconfigurationtypeID = v
+}
+
+// GetFkiBrandingID returns the FkiBrandingID field value if set, zero value otherwise.
+func (o *SystemconfigurationResponse) GetFkiBrandingID() int32 {
+	if o == nil || IsNil(o.FkiBrandingID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiBrandingID
+}
+
+// GetFkiBrandingIDOk returns a tuple with the FkiBrandingID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SystemconfigurationResponse) GetFkiBrandingIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiBrandingID) {
+		return nil, false
+	}
+	return o.FkiBrandingID, true
+}
+
+// HasFkiBrandingID returns a boolean if a field has been set.
+func (o *SystemconfigurationResponse) HasFkiBrandingID() bool {
+	if o != nil && !IsNil(o.FkiBrandingID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiBrandingID gets a reference to the given int32 and assigns it to the FkiBrandingID field.
+func (o *SystemconfigurationResponse) SetFkiBrandingID(v int32) {
+	o.FkiBrandingID = &v
 }
 
 // GetSSystemconfigurationtypeDescriptionX returns the SSystemconfigurationtypeDescriptionX field value
@@ -342,6 +379,38 @@ func (o *SystemconfigurationResponse) SetBSystemconfigurationEzsignpersonnal(v b
 	o.BSystemconfigurationEzsignpersonnal = v
 }
 
+// GetBSystemconfigurationHascreditcardmerchant returns the BSystemconfigurationHascreditcardmerchant field value if set, zero value otherwise.
+func (o *SystemconfigurationResponse) GetBSystemconfigurationHascreditcardmerchant() bool {
+	if o == nil || IsNil(o.BSystemconfigurationHascreditcardmerchant) {
+		var ret bool
+		return ret
+	}
+	return *o.BSystemconfigurationHascreditcardmerchant
+}
+
+// GetBSystemconfigurationHascreditcardmerchantOk returns a tuple with the BSystemconfigurationHascreditcardmerchant field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SystemconfigurationResponse) GetBSystemconfigurationHascreditcardmerchantOk() (*bool, bool) {
+	if o == nil || IsNil(o.BSystemconfigurationHascreditcardmerchant) {
+		return nil, false
+	}
+	return o.BSystemconfigurationHascreditcardmerchant, true
+}
+
+// HasBSystemconfigurationHascreditcardmerchant returns a boolean if a field has been set.
+func (o *SystemconfigurationResponse) HasBSystemconfigurationHascreditcardmerchant() bool {
+	if o != nil && !IsNil(o.BSystemconfigurationHascreditcardmerchant) {
+		return true
+	}
+
+	return false
+}
+
+// SetBSystemconfigurationHascreditcardmerchant gets a reference to the given bool and assigns it to the BSystemconfigurationHascreditcardmerchant field.
+func (o *SystemconfigurationResponse) SetBSystemconfigurationHascreditcardmerchant(v bool) {
+	o.BSystemconfigurationHascreditcardmerchant = &v
+}
+
 // GetBSystemconfigurationIsdisposalactive returns the BSystemconfigurationIsdisposalactive field value if set, zero value otherwise.
 func (o *SystemconfigurationResponse) GetBSystemconfigurationIsdisposalactive() bool {
 	if o == nil || IsNil(o.BSystemconfigurationIsdisposalactive) {
@@ -462,6 +531,38 @@ func (o *SystemconfigurationResponse) SetDtSystemconfigurationReadonlyexpiration
 	o.DtSystemconfigurationReadonlyexpirationend = &v
 }
 
+// GetObjBranding returns the ObjBranding field value if set, zero value otherwise.
+func (o *SystemconfigurationResponse) GetObjBranding() CustomBrandingResponse {
+	if o == nil || IsNil(o.ObjBranding) {
+		var ret CustomBrandingResponse
+		return ret
+	}
+	return *o.ObjBranding
+}
+
+// GetObjBrandingOk returns a tuple with the ObjBranding field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SystemconfigurationResponse) GetObjBrandingOk() (*CustomBrandingResponse, bool) {
+	if o == nil || IsNil(o.ObjBranding) {
+		return nil, false
+	}
+	return o.ObjBranding, true
+}
+
+// HasObjBranding returns a boolean if a field has been set.
+func (o *SystemconfigurationResponse) HasObjBranding() bool {
+	if o != nil && !IsNil(o.ObjBranding) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjBranding gets a reference to the given CustomBrandingResponse and assigns it to the ObjBranding field.
+func (o *SystemconfigurationResponse) SetObjBranding(v CustomBrandingResponse) {
+	o.ObjBranding = &v
+}
+
 func (o SystemconfigurationResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -474,6 +575,9 @@ func (o SystemconfigurationResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiSystemconfigurationID"] = o.PkiSystemconfigurationID
 	toSerialize["fkiSystemconfigurationtypeID"] = o.FkiSystemconfigurationtypeID
+	if !IsNil(o.FkiBrandingID) {
+		toSerialize["fkiBrandingID"] = o.FkiBrandingID
+	}
 	toSerialize["sSystemconfigurationtypeDescriptionX"] = o.SSystemconfigurationtypeDescriptionX
 	toSerialize["eSystemconfigurationNewexternaluseraction"] = o.ESystemconfigurationNewexternaluseraction
 	toSerialize["eSystemconfigurationLanguage1"] = o.ESystemconfigurationLanguage1
@@ -488,6 +592,9 @@ func (o SystemconfigurationResponse) ToMap() (map[string]interface{}, error) {
 		toSerialize["bSystemconfigurationEzsignpaidbyoffice"] = o.BSystemconfigurationEzsignpaidbyoffice
 	}
 	toSerialize["bSystemconfigurationEzsignpersonnal"] = o.BSystemconfigurationEzsignpersonnal
+	if !IsNil(o.BSystemconfigurationHascreditcardmerchant) {
+		toSerialize["bSystemconfigurationHascreditcardmerchant"] = o.BSystemconfigurationHascreditcardmerchant
+	}
 	if !IsNil(o.BSystemconfigurationIsdisposalactive) {
 		toSerialize["bSystemconfigurationIsdisposalactive"] = o.BSystemconfigurationIsdisposalactive
 	}
@@ -497,6 +604,9 @@ func (o SystemconfigurationResponse) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.DtSystemconfigurationReadonlyexpirationend) {
 		toSerialize["dtSystemconfigurationReadonlyexpirationend"] = o.DtSystemconfigurationReadonlyexpirationend
+	}
+	if !IsNil(o.ObjBranding) {
+		toSerialize["objBranding"] = o.ObjBranding
 	}
 	return toSerialize, nil
 }

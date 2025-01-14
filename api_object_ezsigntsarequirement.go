@@ -100,16 +100,16 @@ func (a *ObjectEzsigntsarequirementAPIService) EzsigntsarequirementGetAutocomple
 	localVarFormParams := url.Values{}
 
 	if r.fkiEzsignfoldertypeID != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "fkiEzsignfoldertypeID", r.fkiEzsignfoldertypeID, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "fkiEzsignfoldertypeID", r.fkiEzsignfoldertypeID, "form", "")
 	}
 	if r.eFilterActive != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "eFilterActive", r.eFilterActive, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "eFilterActive", r.eFilterActive, "form", "")
 	} else {
 		var defaultValue string = "Active"
 		r.eFilterActive = &defaultValue
 	}
 	if r.sQuery != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "sQuery", r.sQuery, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sQuery", r.sQuery, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -129,7 +129,7 @@ func (a *ObjectEzsigntsarequirementAPIService) EzsigntsarequirementGetAutocomple
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.acceptLanguage != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept-Language", r.acceptLanguage, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept-Language", r.acceptLanguage, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication

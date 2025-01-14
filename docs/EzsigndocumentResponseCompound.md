@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **IEzsigndocumentPagetotal** | **int32** | The number of pages in the Ezsigndocument. | 
 **IEzsigndocumentSignaturesigned** | **int32** | The number of signatures that were signed in the document. | 
 **IEzsigndocumentSignaturetotal** | **int32** | The number of total signatures that were requested in the Ezsigndocument. | 
+**IEzsigndocumentFormfieldtotal** | **int32** | The number of total Ezsignformfield that were requested in the Ezsigndocument. | 
 **SEzsigndocumentMD5initial** | Pointer to **string** | MD5 Hash of the initial PDF Document before signatures were applied to it. | [optional] 
 **TEzsigndocumentDeclinedtosignreason** | Pointer to **string** | A custom text message that will contain the refusal message if the Ezsigndocument is declined to sign | [optional] 
 **SEzsigndocumentMD5signed** | Pointer to **string** | MD5 Hash of the final PDF Document after all signatures were applied to it. | [optional] 
@@ -33,12 +34,13 @@ Name | Type | Description | Notes
 **IEzsigndocumentStepsignaturetotal** | **int32** | The total number of steps in the signature filling phase | 
 **IEzsigndocumentStepsignatureCurrent** | **int32** | The current step in the signature phase | 
 **AObjEzsignfoldersignerassociationstatus** | [**[]CustomEzsignfoldersignerassociationstatusResponse**](CustomEzsignfoldersignerassociationstatusResponse.md) |  | 
+**AObjEzsigndocumentdependency** | Pointer to [**[]EzsigndocumentdependencyResponse**](EzsigndocumentdependencyResponse.md) |  | [optional] 
 
 ## Methods
 
 ### NewEzsigndocumentResponseCompound
 
-`func NewEzsigndocumentResponseCompound(pkiEzsigndocumentID int32, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, sEzsigndocumentName string, eEzsigndocumentStep FieldEEzsigndocumentStep, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, iEzsigndocumentEzsignsignatureattachmenttotal int32, iEzsigndocumentEzsigndiscussiontotal int32, eEzsigndocumentSteptype ComputedEEzsigndocumentSteptype, iEzsigndocumentStepformtotal int32, iEzsigndocumentStepformcurrent int32, iEzsigndocumentStepsignaturetotal int32, iEzsigndocumentStepsignatureCurrent int32, aObjEzsignfoldersignerassociationstatus []CustomEzsignfoldersignerassociationstatusResponse, ) *EzsigndocumentResponseCompound`
+`func NewEzsigndocumentResponseCompound(pkiEzsigndocumentID int32, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, sEzsigndocumentName string, eEzsigndocumentStep FieldEEzsigndocumentStep, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, iEzsigndocumentFormfieldtotal int32, iEzsigndocumentEzsignsignatureattachmenttotal int32, iEzsigndocumentEzsigndiscussiontotal int32, eEzsigndocumentSteptype ComputedEEzsigndocumentSteptype, iEzsigndocumentStepformtotal int32, iEzsigndocumentStepformcurrent int32, iEzsigndocumentStepsignaturetotal int32, iEzsigndocumentStepsignatureCurrent int32, aObjEzsignfoldersignerassociationstatus []CustomEzsignfoldersignerassociationstatusResponse, ) *EzsigndocumentResponseCompound`
 
 NewEzsigndocumentResponseCompound instantiates a new EzsigndocumentResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -356,6 +358,26 @@ and a boolean to check if the value has been set.
 `func (o *EzsigndocumentResponseCompound) SetIEzsigndocumentSignaturetotal(v int32)`
 
 SetIEzsigndocumentSignaturetotal sets IEzsigndocumentSignaturetotal field to given value.
+
+
+### GetIEzsigndocumentFormfieldtotal
+
+`func (o *EzsigndocumentResponseCompound) GetIEzsigndocumentFormfieldtotal() int32`
+
+GetIEzsigndocumentFormfieldtotal returns the IEzsigndocumentFormfieldtotal field if non-nil, zero value otherwise.
+
+### GetIEzsigndocumentFormfieldtotalOk
+
+`func (o *EzsigndocumentResponseCompound) GetIEzsigndocumentFormfieldtotalOk() (*int32, bool)`
+
+GetIEzsigndocumentFormfieldtotalOk returns a tuple with the IEzsigndocumentFormfieldtotal field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIEzsigndocumentFormfieldtotal
+
+`func (o *EzsigndocumentResponseCompound) SetIEzsigndocumentFormfieldtotal(v int32)`
+
+SetIEzsigndocumentFormfieldtotal sets IEzsigndocumentFormfieldtotal field to given value.
 
 
 ### GetSEzsigndocumentMD5initial
@@ -692,6 +714,31 @@ and a boolean to check if the value has been set.
 
 SetAObjEzsignfoldersignerassociationstatus sets AObjEzsignfoldersignerassociationstatus field to given value.
 
+
+### GetAObjEzsigndocumentdependency
+
+`func (o *EzsigndocumentResponseCompound) GetAObjEzsigndocumentdependency() []EzsigndocumentdependencyResponse`
+
+GetAObjEzsigndocumentdependency returns the AObjEzsigndocumentdependency field if non-nil, zero value otherwise.
+
+### GetAObjEzsigndocumentdependencyOk
+
+`func (o *EzsigndocumentResponseCompound) GetAObjEzsigndocumentdependencyOk() (*[]EzsigndocumentdependencyResponse, bool)`
+
+GetAObjEzsigndocumentdependencyOk returns a tuple with the AObjEzsigndocumentdependency field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAObjEzsigndocumentdependency
+
+`func (o *EzsigndocumentResponseCompound) SetAObjEzsigndocumentdependency(v []EzsigndocumentdependencyResponse)`
+
+SetAObjEzsigndocumentdependency sets AObjEzsigndocumentdependency field to given value.
+
+### HasAObjEzsigndocumentdependency
+
+`func (o *EzsigndocumentResponseCompound) HasAObjEzsigndocumentdependency() bool`
+
+HasAObjEzsigndocumentdependency returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

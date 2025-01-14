@@ -30,6 +30,8 @@ type CustomEzsignsignaturestatusResponse struct {
 	IEzsignsignaturestatusTotal int32 `json:"iEzsignsignaturestatusTotal"`
 	// The number of signature or form fields the Ezsignsigner has already processed at the current step
 	IEzsignsignaturestatusSigned int32 `json:"iEzsignsignaturestatusSigned"`
+	// The number of signature or form fields the Ezsignsigner need to sign or fill under current conditions.
+	IEzsignsignaturestatusConditional int32 `json:"iEzsignsignaturestatusConditional"`
 }
 
 type _CustomEzsignsignaturestatusResponse CustomEzsignsignaturestatusResponse
@@ -38,12 +40,13 @@ type _CustomEzsignsignaturestatusResponse CustomEzsignsignaturestatusResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomEzsignsignaturestatusResponse(eEzsignsignaturestatusSteptype string, iEzsignsignaturestatusStep int32, iEzsignsignaturestatusTotal int32, iEzsignsignaturestatusSigned int32) *CustomEzsignsignaturestatusResponse {
+func NewCustomEzsignsignaturestatusResponse(eEzsignsignaturestatusSteptype string, iEzsignsignaturestatusStep int32, iEzsignsignaturestatusTotal int32, iEzsignsignaturestatusSigned int32, iEzsignsignaturestatusConditional int32) *CustomEzsignsignaturestatusResponse {
 	this := CustomEzsignsignaturestatusResponse{}
 	this.EEzsignsignaturestatusSteptype = eEzsignsignaturestatusSteptype
 	this.IEzsignsignaturestatusStep = iEzsignsignaturestatusStep
 	this.IEzsignsignaturestatusTotal = iEzsignsignaturestatusTotal
 	this.IEzsignsignaturestatusSigned = iEzsignsignaturestatusSigned
+	this.IEzsignsignaturestatusConditional = iEzsignsignaturestatusConditional
 	return &this
 }
 
@@ -151,6 +154,30 @@ func (o *CustomEzsignsignaturestatusResponse) SetIEzsignsignaturestatusSigned(v 
 	o.IEzsignsignaturestatusSigned = v
 }
 
+// GetIEzsignsignaturestatusConditional returns the IEzsignsignaturestatusConditional field value
+func (o *CustomEzsignsignaturestatusResponse) GetIEzsignsignaturestatusConditional() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IEzsignsignaturestatusConditional
+}
+
+// GetIEzsignsignaturestatusConditionalOk returns a tuple with the IEzsignsignaturestatusConditional field value
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignaturestatusResponse) GetIEzsignsignaturestatusConditionalOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IEzsignsignaturestatusConditional, true
+}
+
+// SetIEzsignsignaturestatusConditional sets field value
+func (o *CustomEzsignsignaturestatusResponse) SetIEzsignsignaturestatusConditional(v int32) {
+	o.IEzsignsignaturestatusConditional = v
+}
+
 func (o CustomEzsignsignaturestatusResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -165,6 +192,7 @@ func (o CustomEzsignsignaturestatusResponse) ToMap() (map[string]interface{}, er
 	toSerialize["iEzsignsignaturestatusStep"] = o.IEzsignsignaturestatusStep
 	toSerialize["iEzsignsignaturestatusTotal"] = o.IEzsignsignaturestatusTotal
 	toSerialize["iEzsignsignaturestatusSigned"] = o.IEzsignsignaturestatusSigned
+	toSerialize["iEzsignsignaturestatusConditional"] = o.IEzsignsignaturestatusConditional
 	return toSerialize, nil
 }
 
@@ -177,6 +205,7 @@ func (o *CustomEzsignsignaturestatusResponse) UnmarshalJSON(data []byte) (err er
 		"iEzsignsignaturestatusStep",
 		"iEzsignsignaturestatusTotal",
 		"iEzsignsignaturestatusSigned",
+		"iEzsignsignaturestatusConditional",
 	}
 
 	allProperties := make(map[string]interface{})

@@ -26,15 +26,18 @@ type EzsignfolderRequestCompound struct {
 	PkiEzsignfolderID *int32 `json:"pkiEzsignfolderID,omitempty"`
 	// The unique ID of the Ezsignfoldertype.
 	FkiEzsignfoldertypeID int32 `json:"fkiEzsignfoldertypeID"`
+	// The unique ID of the Timezone
+	FkiTimezoneID *int32 `json:"fkiTimezoneID,omitempty"`
 	// The unique ID of the Ezsigntsarequirement.  Determine if a Time Stamping Authority should add a timestamp on each of the signature. Valid values:  |Value|Description| |-|-| |1|No. TSA Timestamping will requested. This will make all signatures a lot faster since no round-trip to the TSA server will be required. Timestamping will be made using eZsign server's time.| |2|Best effort. Timestamping from a Time Stamping Authority will be requested but is not mandatory. In the very improbable case it cannot be completed, the timestamping will be made using eZsign server's time. **Additional fee applies**| |3|Mandatory. Timestamping from a Time Stamping Authority will be requested and is mandatory. In the very improbable case it cannot be completed, the signature will fail and the user will be asked to retry. **Additional fee applies**|
 	FkiEzsigntsarequirementID *int32 `json:"fkiEzsigntsarequirementID,omitempty"`
 	// The description of the Ezsignfolder
-	SEzsignfolderDescription string `json:"sEzsignfolderDescription"`
+	SEzsignfolderDescription string `json:"sEzsignfolderDescription" validate:"regexp=^.{0,75}$"`
 	// Note about the Ezsignfolder
 	TEzsignfolderNote *string `json:"tEzsignfolderNote,omitempty"`
+	// Deprecated
 	EEzsignfolderSendreminderfrequency FieldEEzsignfolderSendreminderfrequency `json:"eEzsignfolderSendreminderfrequency"`
 	// This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format. 
-	SEzsignfolderExternalid *string `json:"sEzsignfolderExternalid,omitempty"`
+	SEzsignfolderExternalid *string `json:"sEzsignfolderExternalid,omitempty" validate:"regexp=^.{0,128}$"`
 }
 
 type _EzsignfolderRequestCompound EzsignfolderRequestCompound
@@ -113,6 +116,38 @@ func (o *EzsignfolderRequestCompound) GetFkiEzsignfoldertypeIDOk() (*int32, bool
 // SetFkiEzsignfoldertypeID sets field value
 func (o *EzsignfolderRequestCompound) SetFkiEzsignfoldertypeID(v int32) {
 	o.FkiEzsignfoldertypeID = v
+}
+
+// GetFkiTimezoneID returns the FkiTimezoneID field value if set, zero value otherwise.
+func (o *EzsignfolderRequestCompound) GetFkiTimezoneID() int32 {
+	if o == nil || IsNil(o.FkiTimezoneID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiTimezoneID
+}
+
+// GetFkiTimezoneIDOk returns a tuple with the FkiTimezoneID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderRequestCompound) GetFkiTimezoneIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiTimezoneID) {
+		return nil, false
+	}
+	return o.FkiTimezoneID, true
+}
+
+// HasFkiTimezoneID returns a boolean if a field has been set.
+func (o *EzsignfolderRequestCompound) HasFkiTimezoneID() bool {
+	if o != nil && !IsNil(o.FkiTimezoneID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiTimezoneID gets a reference to the given int32 and assigns it to the FkiTimezoneID field.
+func (o *EzsignfolderRequestCompound) SetFkiTimezoneID(v int32) {
+	o.FkiTimezoneID = &v
 }
 
 // GetFkiEzsigntsarequirementID returns the FkiEzsigntsarequirementID field value if set, zero value otherwise.
@@ -204,6 +239,7 @@ func (o *EzsignfolderRequestCompound) SetTEzsignfolderNote(v string) {
 }
 
 // GetEEzsignfolderSendreminderfrequency returns the EEzsignfolderSendreminderfrequency field value
+// Deprecated
 func (o *EzsignfolderRequestCompound) GetEEzsignfolderSendreminderfrequency() FieldEEzsignfolderSendreminderfrequency {
 	if o == nil {
 		var ret FieldEEzsignfolderSendreminderfrequency
@@ -215,6 +251,7 @@ func (o *EzsignfolderRequestCompound) GetEEzsignfolderSendreminderfrequency() Fi
 
 // GetEEzsignfolderSendreminderfrequencyOk returns a tuple with the EEzsignfolderSendreminderfrequency field value
 // and a boolean to check if the value has been set.
+// Deprecated
 func (o *EzsignfolderRequestCompound) GetEEzsignfolderSendreminderfrequencyOk() (*FieldEEzsignfolderSendreminderfrequency, bool) {
 	if o == nil {
 		return nil, false
@@ -223,6 +260,7 @@ func (o *EzsignfolderRequestCompound) GetEEzsignfolderSendreminderfrequencyOk() 
 }
 
 // SetEEzsignfolderSendreminderfrequency sets field value
+// Deprecated
 func (o *EzsignfolderRequestCompound) SetEEzsignfolderSendreminderfrequency(v FieldEEzsignfolderSendreminderfrequency) {
 	o.EEzsignfolderSendreminderfrequency = v
 }
@@ -273,6 +311,9 @@ func (o EzsignfolderRequestCompound) ToMap() (map[string]interface{}, error) {
 		toSerialize["pkiEzsignfolderID"] = o.PkiEzsignfolderID
 	}
 	toSerialize["fkiEzsignfoldertypeID"] = o.FkiEzsignfoldertypeID
+	if !IsNil(o.FkiTimezoneID) {
+		toSerialize["fkiTimezoneID"] = o.FkiTimezoneID
+	}
 	if !IsNil(o.FkiEzsigntsarequirementID) {
 		toSerialize["fkiEzsigntsarequirementID"] = o.FkiEzsigntsarequirementID
 	}

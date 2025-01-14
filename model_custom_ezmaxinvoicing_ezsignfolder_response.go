@@ -27,7 +27,7 @@ type CustomEzmaxinvoicingEzsignfolderResponse struct {
 	// The unique ID of the Billingentityinternal.
 	FkiBillingentityinternalID *int32 `json:"fkiBillingentityinternalID,omitempty"`
 	// The description of the Ezsignfolder
-	SEzsignfolderDescription string `json:"sEzsignfolderDescription"`
+	SEzsignfolderDescription string `json:"sEzsignfolderDescription" validate:"regexp=^.{0,75}$"`
 	// Whether the TSA requirement is billable or not
 	BEzsigntsarequirementBillable bool `json:"bEzsigntsarequirementBillable"`
 	// Whether the MFA was used or not for the Ezsignfolder

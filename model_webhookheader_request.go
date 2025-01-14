@@ -25,9 +25,9 @@ type WebhookheaderRequest struct {
 	// The unique ID of the Webhookheader
 	PkiWebhookheaderID *int32 `json:"pkiWebhookheaderID,omitempty"`
 	// The Name of the Webhookheader
-	SWebhookheaderName string `json:"sWebhookheaderName"`
+	SWebhookheaderName string `json:"sWebhookheaderName" validate:"regexp=^(?!(?:e|E)(?:z|Z)(?:m|M)(?:a|A)(?:x|X))(?!(?:h|H)(?:o|O)(?:s|S)(?:t|T)$|(?:u|U)(?:s|S)(?:e|E)(?:r|R)-(?:a|A)(?:g|G)(?:e|E)(?:n|N)(?:t|T)$)(?!\\\\s)[^\\\\s].*$"`
 	// The Value of the Webhookheader
-	SWebhookheaderValue string `json:"sWebhookheaderValue"`
+	SWebhookheaderValue string `json:"sWebhookheaderValue" validate:"regexp=^.{1,255}$"`
 }
 
 type _WebhookheaderRequest WebhookheaderRequest

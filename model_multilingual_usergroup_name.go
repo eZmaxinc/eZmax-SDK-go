@@ -21,9 +21,9 @@ var _ MappedNullable = &MultilingualUsergroupName{}
 // MultilingualUsergroupName The name of the Usergroup
 type MultilingualUsergroupName struct {
 	// The name of the Usergroup in French
-	SUsergroupName1 *string `json:"sUsergroupName1,omitempty"`
+	SUsergroupName1 *string `json:"sUsergroupName1,omitempty" validate:"regexp=^.{0,50}$"`
 	// The name of the Usergroup in English
-	SUsergroupName2 *string `json:"sUsergroupName2,omitempty"`
+	SUsergroupName2 *string `json:"sUsergroupName2,omitempty" validate:"regexp=^.{0,50}$"`
 }
 
 // NewMultilingualUsergroupName instantiates a new MultilingualUsergroupName object

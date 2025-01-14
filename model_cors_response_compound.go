@@ -27,7 +27,7 @@ type CorsResponseCompound struct {
 	// The unique ID of the Apikey
 	FkiApikeyID int32 `json:"fkiApikeyID"`
 	// The entryurl of the Cors
-	SCorsEntryurl string `json:"sCorsEntryurl"`
+	SCorsEntryurl string `json:"sCorsEntryurl" validate:"regexp=^(https|http):\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
 }
 
 type _CorsResponseCompound CorsResponseCompound

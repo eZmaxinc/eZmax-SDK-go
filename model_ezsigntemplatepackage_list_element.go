@@ -29,7 +29,7 @@ type EzsigntemplatepackageListElement struct {
 	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
 	FkiLanguageID int32 `json:"fkiLanguageID"`
 	// The description of the Ezsigntemplatepackage
-	SEzsigntemplatepackageDescription string `json:"sEzsigntemplatepackageDescription"`
+	SEzsigntemplatepackageDescription string `json:"sEzsigntemplatepackageDescription" validate:"regexp=^.{0,80}$"`
 	// Whether the Ezsignbulksend was automatically modified and needs a manual validation
 	BEzsigntemplatepackageNeedvalidation bool `json:"bEzsigntemplatepackageNeedvalidation"`
 	// The total number of Ezsigntemplatepackagemembership in the Ezsigntemplatepackage

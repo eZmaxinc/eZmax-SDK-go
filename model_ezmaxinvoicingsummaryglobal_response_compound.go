@@ -37,25 +37,25 @@ type EzmaxinvoicingsummaryglobalResponseCompound struct {
 	// The number of days for the Ezmaxinvoicingsummaryglobal
 	IEzmaxinvoicingsummaryglobalDays int32 `json:"iEzmaxinvoicingsummaryglobalDays"`
 	// The count item calculated
-	DEzmaxinvoicingsummaryglobalCountreal string `json:"dEzmaxinvoicingsummaryglobalCountreal"`
+	DEzmaxinvoicingsummaryglobalCountreal string `json:"dEzmaxinvoicingsummaryglobalCountreal" validate:"regexp=^-{0,1}[\\\\d]{1,6}?\\\\.[\\\\d]{2}$"`
 	// The count item billed
-	DEzmaxinvoicingsummaryglobalCountbilled string `json:"dEzmaxinvoicingsummaryglobalCountbilled"`
+	DEzmaxinvoicingsummaryglobalCountbilled string `json:"dEzmaxinvoicingsummaryglobalCountbilled" validate:"regexp=^-{0,1}[\\\\d]{1,6}?\\\\.[\\\\d]{2}$"`
 	// The Ezmaxinvoicingsummaryglobal subtotal
-	DEzmaxinvoicingsummaryglobalSubtotal string `json:"dEzmaxinvoicingsummaryglobalSubtotal"`
+	DEzmaxinvoicingsummaryglobalSubtotal string `json:"dEzmaxinvoicingsummaryglobalSubtotal" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
 	// The rebate amount for the Ezmaxinvoicingsummaryglobal
-	DEzmaxinvoicingsummaryglobalRebateamount string `json:"dEzmaxinvoicingsummaryglobalRebateamount"`
+	DEzmaxinvoicingsummaryglobalRebateamount string `json:"dEzmaxinvoicingsummaryglobalRebateamount" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
 	// The rebate percentage of the Ezmaxinvoicingsummaryglobal
-	DEzmaxinvoicingsummaryglobalRebatepercent string `json:"dEzmaxinvoicingsummaryglobalRebatepercent"`
+	DEzmaxinvoicingsummaryglobalRebatepercent string `json:"dEzmaxinvoicingsummaryglobalRebatepercent" validate:"regexp=^-{0,1}[\\\\d]{1,3}?\\\\.[\\\\d]{2}$"`
 	// The rebate amount total for the Ezmaxinvoicingsummaryglobal
-	DEzmaxinvoicingsummaryglobalRebatetotal string `json:"dEzmaxinvoicingsummaryglobalRebatetotal"`
+	DEzmaxinvoicingsummaryglobalRebatetotal string `json:"dEzmaxinvoicingsummaryglobalRebatetotal" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
 	// The Ezmaxinvoicingsummaryglobal total
-	DEzmaxinvoicingsummaryglobalTotal string `json:"dEzmaxinvoicingsummaryglobalTotal"`
+	DEzmaxinvoicingsummaryglobalTotal string `json:"dEzmaxinvoicingsummaryglobalTotal" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
 	// The amount of commission for the representative
-	DEzmaxinvoicingsummaryglobalRepresentative *string `json:"dEzmaxinvoicingsummaryglobalRepresentative,omitempty"`
+	DEzmaxinvoicingsummaryglobalRepresentative *string `json:"dEzmaxinvoicingsummaryglobalRepresentative,omitempty" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
 	// The amount of commission for the partner
-	DEzmaxinvoicingsummaryglobalPartner *string `json:"dEzmaxinvoicingsummaryglobalPartner,omitempty"`
+	DEzmaxinvoicingsummaryglobalPartner *string `json:"dEzmaxinvoicingsummaryglobalPartner,omitempty" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
 	// The net amount of the Ezmaxinvoicingsummaryglobal
-	DEzmaxinvoicingsummaryglobalNet *string `json:"dEzmaxinvoicingsummaryglobalNet,omitempty"`
+	DEzmaxinvoicingsummaryglobalNet *string `json:"dEzmaxinvoicingsummaryglobalNet,omitempty" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
 	// Whether it is adjustment for the Ezmaxinvoicingsummaryglobal
 	BEzmaxinvoicingsummaryglobalAdjustment bool `json:"bEzmaxinvoicingsummaryglobalAdjustment"`
 	// The help message of the Ezmaxproduct in the language of the requester

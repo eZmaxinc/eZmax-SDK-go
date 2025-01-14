@@ -4,9 +4,76 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ActivesessionGenerateFederationTokenV1**](ObjectActivesessionAPI.md#ActivesessionGenerateFederationTokenV1) | **Post** /1/object/activesession/generateFederationToken | Generate a federation token
 [**ActivesessionGetCurrentV1**](ObjectActivesessionAPI.md#ActivesessionGetCurrentV1) | **Get** /1/object/activesession/getCurrent | Get Current Activesession
 [**ActivesessionGetListV1**](ObjectActivesessionAPI.md#ActivesessionGetListV1) | **Get** /1/object/activesession/getList | Retrieve Activesession list
 
+
+
+## ActivesessionGenerateFederationTokenV1
+
+> ActivesessionGenerateFederationTokenV1Response ActivesessionGenerateFederationTokenV1(ctx).ActivesessionGenerateFederationTokenV1Request(activesessionGenerateFederationTokenV1Request).Execute()
+
+Generate a federation token
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	activesessionGenerateFederationTokenV1Request := *openapiclient.NewActivesessionGenerateFederationTokenV1Request("demo") // ActivesessionGenerateFederationTokenV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectActivesessionAPI.ActivesessionGenerateFederationTokenV1(context.Background()).ActivesessionGenerateFederationTokenV1Request(activesessionGenerateFederationTokenV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectActivesessionAPI.ActivesessionGenerateFederationTokenV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ActivesessionGenerateFederationTokenV1`: ActivesessionGenerateFederationTokenV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectActivesessionAPI.ActivesessionGenerateFederationTokenV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiActivesessionGenerateFederationTokenV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **activesessionGenerateFederationTokenV1Request** | [**ActivesessionGenerateFederationTokenV1Request**](ActivesessionGenerateFederationTokenV1Request.md) |  | 
+
+### Return type
+
+[**ActivesessionGenerateFederationTokenV1Response**](ActivesessionGenerateFederationTokenV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## ActivesessionGetCurrentV1

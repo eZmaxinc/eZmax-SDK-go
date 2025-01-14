@@ -34,6 +34,20 @@ func Test_eZmaxApi_ObjectEzsigntemplatedocumentAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test ObjectEzsigntemplatedocumentAPIService EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiEzsigntemplatedocumentID int32
+
+		resp, httpRes, err := apiClient.ObjectEzsigntemplatedocumentAPI.EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1(context.Background(), pkiEzsigntemplatedocumentID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ObjectEzsigntemplatedocumentAPIService EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -76,6 +90,20 @@ func Test_eZmaxApi_ObjectEzsigntemplatedocumentAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test ObjectEzsigntemplatedocumentAPIService EzsigntemplatedocumentExtractTextV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiEzsigntemplatedocumentID int32
+
+		resp, httpRes, err := apiClient.ObjectEzsigntemplatedocumentAPI.EzsigntemplatedocumentExtractTextV1(context.Background(), pkiEzsigntemplatedocumentID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ObjectEzsigntemplatedocumentAPIService EzsigntemplatedocumentFlattenV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -83,6 +111,20 @@ func Test_eZmaxApi_ObjectEzsigntemplatedocumentAPIService(t *testing.T) {
 		var pkiEzsigntemplatedocumentID int32
 
 		resp, httpRes, err := apiClient.ObjectEzsigntemplatedocumentAPI.EzsigntemplatedocumentFlattenV1(context.Background(), pkiEzsigntemplatedocumentID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ObjectEzsigntemplatedocumentAPIService EzsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiEzsigntemplatedocumentID int32
+
+		resp, httpRes, err := apiClient.ObjectEzsigntemplatedocumentAPI.EzsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1(context.Background(), pkiEzsigntemplatedocumentID).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

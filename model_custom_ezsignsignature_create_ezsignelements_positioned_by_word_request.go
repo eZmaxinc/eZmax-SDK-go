@@ -47,18 +47,27 @@ type CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest struct {
 	EEzsignsignatureFont *FieldEEzsignsignatureFont `json:"eEzsignsignatureFont,omitempty"`
 	// The unique ID of the Ezsignfoldersignerassociation
 	FkiEzsignfoldersignerassociationIDValidation *int32 `json:"fkiEzsignfoldersignerassociationIDValidation,omitempty"`
-	// Whether the Ezsignsignature is required or not. This field is relevant only with Ezsignsignature with eEzsignsignatureType = Attachments.
+	// Whether the Ezsignsignature must be handwritten or not when eEzsignsignatureType = Signature.
+	BEzsignsignatureHandwritten *bool `json:"bEzsignsignatureHandwritten,omitempty"`
+	// Whether the Ezsignsignature must include a reason or not when eEzsignsignatureType = Signature.
+	BEzsignsignatureReason *bool `json:"bEzsignsignatureReason,omitempty"`
+	// Whether the Ezsignsignature is required or not. This field is relevant only with Ezsignsignature with eEzsignsignatureType = Attachments, Text or Textarea.
 	BEzsignsignatureRequired *bool `json:"bEzsignsignatureRequired,omitempty"`
 	EEzsignsignatureAttachmentnamesource *FieldEEzsignsignatureAttachmentnamesource `json:"eEzsignsignatureAttachmentnamesource,omitempty"`
 	// The description attached to the attachment name added in Ezsignsignature of eEzsignsignatureType Attachments
 	SEzsignsignatureAttachmentdescription *string `json:"sEzsignsignatureAttachmentdescription,omitempty"`
+	EEzsignsignatureConsultationtrigger *FieldEEzsignsignatureConsultationtrigger `json:"eEzsignsignatureConsultationtrigger,omitempty"`
 	// The step when the Ezsignsigner will be invited to validate the Ezsignsignature of eEzsignsignatureType Attachments
 	IEzsignsignatureValidationstep *int32 `json:"iEzsignsignatureValidationstep,omitempty"`
 	// The maximum length for the value in the Ezsignsignature  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea**
 	IEzsignsignatureMaxlength *int32 `json:"iEzsignsignatureMaxlength,omitempty"`
+	// The default value for the Ezsignsignature  You can use the codes below and they will be replaced at signature time.    | Code | Description | Example | | ------------------------- | ------------ | ------------ | | {sUserFirstname} | The first name of the contact | John | | {sUserLastname} | The last name of the contact | Doe | | {sUserJobtitle} | The job title | Sales Representative | | {sCompany} | Company name | eZmax Solutions Inc. | | {sEmailAddress} | The email address | email@example.com | | {sPhoneE164} | A phone number in E.164 Format | +15149901516 | | {sPhoneE164Cell} | A phone number in E.164 Format | +15149901516 |
+	SEzsignsignatureDefaultvalue *string `json:"sEzsignsignatureDefaultvalue,omitempty"`
 	EEzsignsignatureTextvalidation *EnumTextvalidation `json:"eEzsignsignatureTextvalidation,omitempty"`
+	// Description of validation rule. Show by signatory.
+	SEzsignsignatureTextvalidationcustommessage *string `json:"sEzsignsignatureTextvalidationcustommessage,omitempty"`
 	// A regular expression to indicate what values are acceptable for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** and eEzsignsignatureTextvalidation is **Custom**
-	SEzsignsignatureRegexp *string `json:"sEzsignsignatureRegexp,omitempty"`
+	SEzsignsignatureRegexp *string `json:"sEzsignsignatureRegexp,omitempty" validate:"regexp=^\\\\^.*\\\\$$|^$"`
 	EEzsignsignatureDependencyrequirement *FieldEEzsignsignatureDependencyrequirement `json:"eEzsignsignatureDependencyrequirement,omitempty"`
 	// Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is **Name** or **Handwritten**)
 	BEzsignsignatureCustomdate *bool `json:"bEzsignsignatureCustomdate,omitempty"`
@@ -487,6 +496,70 @@ func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetFk
 	o.FkiEzsignfoldersignerassociationIDValidation = &v
 }
 
+// GetBEzsignsignatureHandwritten returns the BEzsignsignatureHandwritten field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetBEzsignsignatureHandwritten() bool {
+	if o == nil || IsNil(o.BEzsignsignatureHandwritten) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignsignatureHandwritten
+}
+
+// GetBEzsignsignatureHandwrittenOk returns a tuple with the BEzsignsignatureHandwritten field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetBEzsignsignatureHandwrittenOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignsignatureHandwritten) {
+		return nil, false
+	}
+	return o.BEzsignsignatureHandwritten, true
+}
+
+// HasBEzsignsignatureHandwritten returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasBEzsignsignatureHandwritten() bool {
+	if o != nil && !IsNil(o.BEzsignsignatureHandwritten) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignsignatureHandwritten gets a reference to the given bool and assigns it to the BEzsignsignatureHandwritten field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetBEzsignsignatureHandwritten(v bool) {
+	o.BEzsignsignatureHandwritten = &v
+}
+
+// GetBEzsignsignatureReason returns the BEzsignsignatureReason field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetBEzsignsignatureReason() bool {
+	if o == nil || IsNil(o.BEzsignsignatureReason) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignsignatureReason
+}
+
+// GetBEzsignsignatureReasonOk returns a tuple with the BEzsignsignatureReason field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetBEzsignsignatureReasonOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignsignatureReason) {
+		return nil, false
+	}
+	return o.BEzsignsignatureReason, true
+}
+
+// HasBEzsignsignatureReason returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasBEzsignsignatureReason() bool {
+	if o != nil && !IsNil(o.BEzsignsignatureReason) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignsignatureReason gets a reference to the given bool and assigns it to the BEzsignsignatureReason field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetBEzsignsignatureReason(v bool) {
+	o.BEzsignsignatureReason = &v
+}
+
 // GetBEzsignsignatureRequired returns the BEzsignsignatureRequired field value if set, zero value otherwise.
 func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetBEzsignsignatureRequired() bool {
 	if o == nil || IsNil(o.BEzsignsignatureRequired) {
@@ -583,6 +656,38 @@ func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetSE
 	o.SEzsignsignatureAttachmentdescription = &v
 }
 
+// GetEEzsignsignatureConsultationtrigger returns the EEzsignsignatureConsultationtrigger field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetEEzsignsignatureConsultationtrigger() FieldEEzsignsignatureConsultationtrigger {
+	if o == nil || IsNil(o.EEzsignsignatureConsultationtrigger) {
+		var ret FieldEEzsignsignatureConsultationtrigger
+		return ret
+	}
+	return *o.EEzsignsignatureConsultationtrigger
+}
+
+// GetEEzsignsignatureConsultationtriggerOk returns a tuple with the EEzsignsignatureConsultationtrigger field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetEEzsignsignatureConsultationtriggerOk() (*FieldEEzsignsignatureConsultationtrigger, bool) {
+	if o == nil || IsNil(o.EEzsignsignatureConsultationtrigger) {
+		return nil, false
+	}
+	return o.EEzsignsignatureConsultationtrigger, true
+}
+
+// HasEEzsignsignatureConsultationtrigger returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasEEzsignsignatureConsultationtrigger() bool {
+	if o != nil && !IsNil(o.EEzsignsignatureConsultationtrigger) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsignsignatureConsultationtrigger gets a reference to the given FieldEEzsignsignatureConsultationtrigger and assigns it to the EEzsignsignatureConsultationtrigger field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetEEzsignsignatureConsultationtrigger(v FieldEEzsignsignatureConsultationtrigger) {
+	o.EEzsignsignatureConsultationtrigger = &v
+}
+
 // GetIEzsignsignatureValidationstep returns the IEzsignsignatureValidationstep field value if set, zero value otherwise.
 func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetIEzsignsignatureValidationstep() int32 {
 	if o == nil || IsNil(o.IEzsignsignatureValidationstep) {
@@ -647,6 +752,38 @@ func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetIE
 	o.IEzsignsignatureMaxlength = &v
 }
 
+// GetSEzsignsignatureDefaultvalue returns the SEzsignsignatureDefaultvalue field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetSEzsignsignatureDefaultvalue() string {
+	if o == nil || IsNil(o.SEzsignsignatureDefaultvalue) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsignsignatureDefaultvalue
+}
+
+// GetSEzsignsignatureDefaultvalueOk returns a tuple with the SEzsignsignatureDefaultvalue field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetSEzsignsignatureDefaultvalueOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsignsignatureDefaultvalue) {
+		return nil, false
+	}
+	return o.SEzsignsignatureDefaultvalue, true
+}
+
+// HasSEzsignsignatureDefaultvalue returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasSEzsignsignatureDefaultvalue() bool {
+	if o != nil && !IsNil(o.SEzsignsignatureDefaultvalue) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsignsignatureDefaultvalue gets a reference to the given string and assigns it to the SEzsignsignatureDefaultvalue field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetSEzsignsignatureDefaultvalue(v string) {
+	o.SEzsignsignatureDefaultvalue = &v
+}
+
 // GetEEzsignsignatureTextvalidation returns the EEzsignsignatureTextvalidation field value if set, zero value otherwise.
 func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetEEzsignsignatureTextvalidation() EnumTextvalidation {
 	if o == nil || IsNil(o.EEzsignsignatureTextvalidation) {
@@ -677,6 +814,38 @@ func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasEE
 // SetEEzsignsignatureTextvalidation gets a reference to the given EnumTextvalidation and assigns it to the EEzsignsignatureTextvalidation field.
 func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetEEzsignsignatureTextvalidation(v EnumTextvalidation) {
 	o.EEzsignsignatureTextvalidation = &v
+}
+
+// GetSEzsignsignatureTextvalidationcustommessage returns the SEzsignsignatureTextvalidationcustommessage field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetSEzsignsignatureTextvalidationcustommessage() string {
+	if o == nil || IsNil(o.SEzsignsignatureTextvalidationcustommessage) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsignsignatureTextvalidationcustommessage
+}
+
+// GetSEzsignsignatureTextvalidationcustommessageOk returns a tuple with the SEzsignsignatureTextvalidationcustommessage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetSEzsignsignatureTextvalidationcustommessageOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsignsignatureTextvalidationcustommessage) {
+		return nil, false
+	}
+	return o.SEzsignsignatureTextvalidationcustommessage, true
+}
+
+// HasSEzsignsignatureTextvalidationcustommessage returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasSEzsignsignatureTextvalidationcustommessage() bool {
+	if o != nil && !IsNil(o.SEzsignsignatureTextvalidationcustommessage) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsignsignatureTextvalidationcustommessage gets a reference to the given string and assigns it to the SEzsignsignatureTextvalidationcustommessage field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetSEzsignsignatureTextvalidationcustommessage(v string) {
+	o.SEzsignsignatureTextvalidationcustommessage = &v
 }
 
 // GetSEzsignsignatureRegexp returns the SEzsignsignatureRegexp field value if set, zero value otherwise.
@@ -901,6 +1070,12 @@ func (o CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) ToMap(
 	if !IsNil(o.FkiEzsignfoldersignerassociationIDValidation) {
 		toSerialize["fkiEzsignfoldersignerassociationIDValidation"] = o.FkiEzsignfoldersignerassociationIDValidation
 	}
+	if !IsNil(o.BEzsignsignatureHandwritten) {
+		toSerialize["bEzsignsignatureHandwritten"] = o.BEzsignsignatureHandwritten
+	}
+	if !IsNil(o.BEzsignsignatureReason) {
+		toSerialize["bEzsignsignatureReason"] = o.BEzsignsignatureReason
+	}
 	if !IsNil(o.BEzsignsignatureRequired) {
 		toSerialize["bEzsignsignatureRequired"] = o.BEzsignsignatureRequired
 	}
@@ -910,14 +1085,23 @@ func (o CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) ToMap(
 	if !IsNil(o.SEzsignsignatureAttachmentdescription) {
 		toSerialize["sEzsignsignatureAttachmentdescription"] = o.SEzsignsignatureAttachmentdescription
 	}
+	if !IsNil(o.EEzsignsignatureConsultationtrigger) {
+		toSerialize["eEzsignsignatureConsultationtrigger"] = o.EEzsignsignatureConsultationtrigger
+	}
 	if !IsNil(o.IEzsignsignatureValidationstep) {
 		toSerialize["iEzsignsignatureValidationstep"] = o.IEzsignsignatureValidationstep
 	}
 	if !IsNil(o.IEzsignsignatureMaxlength) {
 		toSerialize["iEzsignsignatureMaxlength"] = o.IEzsignsignatureMaxlength
 	}
+	if !IsNil(o.SEzsignsignatureDefaultvalue) {
+		toSerialize["sEzsignsignatureDefaultvalue"] = o.SEzsignsignatureDefaultvalue
+	}
 	if !IsNil(o.EEzsignsignatureTextvalidation) {
 		toSerialize["eEzsignsignatureTextvalidation"] = o.EEzsignsignatureTextvalidation
+	}
+	if !IsNil(o.SEzsignsignatureTextvalidationcustommessage) {
+		toSerialize["sEzsignsignatureTextvalidationcustommessage"] = o.SEzsignsignatureTextvalidationcustommessage
 	}
 	if !IsNil(o.SEzsignsignatureRegexp) {
 		toSerialize["sEzsignsignatureRegexp"] = o.SEzsignsignatureRegexp

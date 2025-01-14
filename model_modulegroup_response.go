@@ -25,7 +25,7 @@ type ModulegroupResponse struct {
 	// The unique ID of the Modulegroup
 	PkiModulegroupID int32 `json:"pkiModulegroupID"`
 	// The name of the Modulegroup in the language of the requester
-	SModulegroupNameX string `json:"sModulegroupNameX"`
+	SModulegroupNameX string `json:"sModulegroupNameX" validate:"regexp=^.{0,25}$"`
 }
 
 type _ModulegroupResponse ModulegroupResponse

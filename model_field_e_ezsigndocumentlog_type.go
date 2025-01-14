@@ -39,8 +39,10 @@ const (
 	CHANGELIMITDATE FieldEEzsigndocumentlogType = "Changelimitdate"
 	UNSIGN FieldEEzsigndocumentlogType = "Unsign"
 	IMPORT_FROM_INSTANET FieldEEzsigndocumentlogType = "ImportFromInstanet"
+	CREATED_FROM_EZSIGNTEMPLATEPUBLIC FieldEEzsigndocumentlogType = "CreatedFromEzsigntemplatepublic"
 	SEND_EMAIL FieldEEzsigndocumentlogType = "SendEmail"
 	FORM_COMPLETION FieldEEzsigndocumentlogType = "FormCompletion"
+	FORM_SAVE_AS_DRAFT FieldEEzsigndocumentlogType = "FormSaveAsDraft"
 	SIGNATURE_ATTACHMENT_ADD FieldEEzsigndocumentlogType = "SignatureAttachmentAdd"
 	SIGNATURE_ATTACHMENT_VALIDATION FieldEEzsigndocumentlogType = "SignatureAttachmentValidation"
 	SIGNATURE_ATTACHMENT_REFUSED FieldEEzsigndocumentlogType = "SignatureAttachmentRefused"
@@ -52,6 +54,7 @@ const (
 	REGENERATE_PAGE FieldEEzsigndocumentlogType = "RegeneratePage"
 	REGENERATE_PAGE_FORM FieldEEzsigndocumentlogType = "RegeneratePageForm"
 	REASSIGN FieldEEzsigndocumentlogType = "Reassign"
+	DOCUMENT_COMPLETION FieldEEzsigndocumentlogType = "DocumentCompletion"
 )
 
 // All allowed values of FieldEEzsigndocumentlogType enum
@@ -74,8 +77,10 @@ var AllowedFieldEEzsigndocumentlogTypeEnumValues = []FieldEEzsigndocumentlogType
 	"Changelimitdate",
 	"Unsign",
 	"ImportFromInstanet",
+	"CreatedFromEzsigntemplatepublic",
 	"SendEmail",
 	"FormCompletion",
+	"FormSaveAsDraft",
 	"SignatureAttachmentAdd",
 	"SignatureAttachmentValidation",
 	"SignatureAttachmentRefused",
@@ -87,6 +92,7 @@ var AllowedFieldEEzsigndocumentlogTypeEnumValues = []FieldEEzsigndocumentlogType
 	"RegeneratePage",
 	"RegeneratePageForm",
 	"Reassign",
+	"DocumentCompletion",
 }
 
 func (v *FieldEEzsigndocumentlogType) UnmarshalJSON(src []byte) error {

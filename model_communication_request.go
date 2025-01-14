@@ -28,7 +28,7 @@ type CommunicationRequest struct {
 	ECommunicationType FieldECommunicationType `json:"eCommunicationType"`
 	ObjCommunicationsender *CustomCommunicationsenderRequest `json:"objCommunicationsender,omitempty"`
 	// The subject of the Communication
-	SCommunicationSubject *string `json:"sCommunicationSubject,omitempty"`
+	SCommunicationSubject *string `json:"sCommunicationSubject,omitempty" validate:"regexp=^.{0,200}$"`
 	// The Body of the Communication
 	TCommunicationBody string `json:"tCommunicationBody"`
 	// Whether the Communication is private or not

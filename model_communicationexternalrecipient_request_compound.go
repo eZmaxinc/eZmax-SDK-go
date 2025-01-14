@@ -23,12 +23,12 @@ type CommunicationexternalrecipientRequestCompound struct {
 	// The unique ID of the Communicationexternalrecipient
 	PkiCommunicationexternalrecipientID *int32 `json:"pkiCommunicationexternalrecipientID,omitempty"`
 	// The email address.
-	SEmailAddress *string `json:"sEmailAddress,omitempty"`
+	SEmailAddress *string "json:\"sEmailAddress,omitempty\" validate:\"regexp=^[\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20}$\""
 	// A phone number in E.164 Format
-	SPhoneE164 *string `json:"sPhoneE164,omitempty"`
+	SPhoneE164 *string `json:"sPhoneE164,omitempty" validate:"regexp=^\\\\+[1-9]\\\\d{1,14}$"`
 	ECommunicationexternalrecipientType *FieldECommunicationexternalrecipientType `json:"eCommunicationexternalrecipientType,omitempty"`
 	// The name of the Communicationexternalrecipient
-	SCommunicationexternalrecipientName *string `json:"sCommunicationexternalrecipientName,omitempty"`
+	SCommunicationexternalrecipientName *string `json:"sCommunicationexternalrecipientName,omitempty" validate:"regexp=^.{0,50}$"`
 }
 
 // NewCommunicationexternalrecipientRequestCompound instantiates a new CommunicationexternalrecipientRequestCompound object

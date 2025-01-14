@@ -24,8 +24,12 @@ var _ MappedNullable = &SignatureResponseCompound{}
 type SignatureResponseCompound struct {
 	// The unique ID of the Signature
 	PkiSignatureID int32 `json:"pkiSignatureID"`
+	// The unique ID of the Font
+	FkiFontID *int32 `json:"fkiFontID,omitempty"`
 	// The URL of the SVG file for the Signature
-	SSignatureUrl string `json:"sSignatureUrl"`
+	SSignatureUrl *string `json:"sSignatureUrl,omitempty" validate:"regexp=^(https|http):\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
+	// The URL of the SVG file for the Initials
+	SSignatureUrlinitials *string `json:"sSignatureUrlinitials,omitempty" validate:"regexp=^(https|http):\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
 }
 
 type _SignatureResponseCompound SignatureResponseCompound
@@ -34,10 +38,9 @@ type _SignatureResponseCompound SignatureResponseCompound
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSignatureResponseCompound(pkiSignatureID int32, sSignatureUrl string) *SignatureResponseCompound {
+func NewSignatureResponseCompound(pkiSignatureID int32) *SignatureResponseCompound {
 	this := SignatureResponseCompound{}
 	this.PkiSignatureID = pkiSignatureID
-	this.SSignatureUrl = sSignatureUrl
 	return &this
 }
 
@@ -73,28 +76,100 @@ func (o *SignatureResponseCompound) SetPkiSignatureID(v int32) {
 	o.PkiSignatureID = v
 }
 
-// GetSSignatureUrl returns the SSignatureUrl field value
+// GetFkiFontID returns the FkiFontID field value if set, zero value otherwise.
+func (o *SignatureResponseCompound) GetFkiFontID() int32 {
+	if o == nil || IsNil(o.FkiFontID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiFontID
+}
+
+// GetFkiFontIDOk returns a tuple with the FkiFontID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SignatureResponseCompound) GetFkiFontIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiFontID) {
+		return nil, false
+	}
+	return o.FkiFontID, true
+}
+
+// HasFkiFontID returns a boolean if a field has been set.
+func (o *SignatureResponseCompound) HasFkiFontID() bool {
+	if o != nil && !IsNil(o.FkiFontID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiFontID gets a reference to the given int32 and assigns it to the FkiFontID field.
+func (o *SignatureResponseCompound) SetFkiFontID(v int32) {
+	o.FkiFontID = &v
+}
+
+// GetSSignatureUrl returns the SSignatureUrl field value if set, zero value otherwise.
 func (o *SignatureResponseCompound) GetSSignatureUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.SSignatureUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.SSignatureUrl
+	return *o.SSignatureUrl
 }
 
-// GetSSignatureUrlOk returns a tuple with the SSignatureUrl field value
+// GetSSignatureUrlOk returns a tuple with the SSignatureUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SignatureResponseCompound) GetSSignatureUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SSignatureUrl) {
 		return nil, false
 	}
-	return &o.SSignatureUrl, true
+	return o.SSignatureUrl, true
 }
 
-// SetSSignatureUrl sets field value
+// HasSSignatureUrl returns a boolean if a field has been set.
+func (o *SignatureResponseCompound) HasSSignatureUrl() bool {
+	if o != nil && !IsNil(o.SSignatureUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetSSignatureUrl gets a reference to the given string and assigns it to the SSignatureUrl field.
 func (o *SignatureResponseCompound) SetSSignatureUrl(v string) {
-	o.SSignatureUrl = v
+	o.SSignatureUrl = &v
+}
+
+// GetSSignatureUrlinitials returns the SSignatureUrlinitials field value if set, zero value otherwise.
+func (o *SignatureResponseCompound) GetSSignatureUrlinitials() string {
+	if o == nil || IsNil(o.SSignatureUrlinitials) {
+		var ret string
+		return ret
+	}
+	return *o.SSignatureUrlinitials
+}
+
+// GetSSignatureUrlinitialsOk returns a tuple with the SSignatureUrlinitials field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SignatureResponseCompound) GetSSignatureUrlinitialsOk() (*string, bool) {
+	if o == nil || IsNil(o.SSignatureUrlinitials) {
+		return nil, false
+	}
+	return o.SSignatureUrlinitials, true
+}
+
+// HasSSignatureUrlinitials returns a boolean if a field has been set.
+func (o *SignatureResponseCompound) HasSSignatureUrlinitials() bool {
+	if o != nil && !IsNil(o.SSignatureUrlinitials) {
+		return true
+	}
+
+	return false
+}
+
+// SetSSignatureUrlinitials gets a reference to the given string and assigns it to the SSignatureUrlinitials field.
+func (o *SignatureResponseCompound) SetSSignatureUrlinitials(v string) {
+	o.SSignatureUrlinitials = &v
 }
 
 func (o SignatureResponseCompound) MarshalJSON() ([]byte, error) {
@@ -108,7 +183,15 @@ func (o SignatureResponseCompound) MarshalJSON() ([]byte, error) {
 func (o SignatureResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiSignatureID"] = o.PkiSignatureID
-	toSerialize["sSignatureUrl"] = o.SSignatureUrl
+	if !IsNil(o.FkiFontID) {
+		toSerialize["fkiFontID"] = o.FkiFontID
+	}
+	if !IsNil(o.SSignatureUrl) {
+		toSerialize["sSignatureUrl"] = o.SSignatureUrl
+	}
+	if !IsNil(o.SSignatureUrlinitials) {
+		toSerialize["sSignatureUrlinitials"] = o.SSignatureUrlinitials
+	}
 	return toSerialize, nil
 }
 
@@ -118,7 +201,6 @@ func (o *SignatureResponseCompound) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"pkiSignatureID",
-		"sSignatureUrl",
 	}
 
 	allProperties := make(map[string]interface{})

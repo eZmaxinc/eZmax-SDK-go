@@ -24,6 +24,8 @@ var _ MappedNullable = &WebhookRequestCompound{}
 type WebhookRequestCompound struct {
 	// The unique ID of the Webhook
 	PkiWebhookID *int32 `json:"pkiWebhookID,omitempty"`
+	// The unique ID of the Authenticationexternal
+	FkiAuthenticationexternalID *int32 `json:"fkiAuthenticationexternalID,omitempty"`
 	// The unique ID of the Ezsignfoldertype.
 	FkiEzsignfoldertypeID *int32 `json:"fkiEzsignfoldertypeID,omitempty"`
 	// The description of the Webhook
@@ -32,7 +34,7 @@ type WebhookRequestCompound struct {
 	EWebhookEzsignevent *FieldEWebhookEzsignevent `json:"eWebhookEzsignevent,omitempty"`
 	EWebhookManagementevent *FieldEWebhookManagementevent `json:"eWebhookManagementevent,omitempty"`
 	// The URL of the Webhook callback
-	SWebhookUrl string `json:"sWebhookUrl"`
+	SWebhookUrl string `json:"sWebhookUrl" validate:"regexp=^(https|http):\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
 	// The email that will receive the Webhook in case all attempts fail
 	SWebhookEmailfailed string `json:"sWebhookEmailfailed"`
 	// Whether the Webhook is active or not
@@ -99,6 +101,38 @@ func (o *WebhookRequestCompound) HasPkiWebhookID() bool {
 // SetPkiWebhookID gets a reference to the given int32 and assigns it to the PkiWebhookID field.
 func (o *WebhookRequestCompound) SetPkiWebhookID(v int32) {
 	o.PkiWebhookID = &v
+}
+
+// GetFkiAuthenticationexternalID returns the FkiAuthenticationexternalID field value if set, zero value otherwise.
+func (o *WebhookRequestCompound) GetFkiAuthenticationexternalID() int32 {
+	if o == nil || IsNil(o.FkiAuthenticationexternalID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiAuthenticationexternalID
+}
+
+// GetFkiAuthenticationexternalIDOk returns a tuple with the FkiAuthenticationexternalID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WebhookRequestCompound) GetFkiAuthenticationexternalIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiAuthenticationexternalID) {
+		return nil, false
+	}
+	return o.FkiAuthenticationexternalID, true
+}
+
+// HasFkiAuthenticationexternalID returns a boolean if a field has been set.
+func (o *WebhookRequestCompound) HasFkiAuthenticationexternalID() bool {
+	if o != nil && !IsNil(o.FkiAuthenticationexternalID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiAuthenticationexternalID gets a reference to the given int32 and assigns it to the FkiAuthenticationexternalID field.
+func (o *WebhookRequestCompound) SetFkiAuthenticationexternalID(v int32) {
+	o.FkiAuthenticationexternalID = &v
 }
 
 // GetFkiEzsignfoldertypeID returns the FkiEzsignfoldertypeID field value if set, zero value otherwise.
@@ -417,6 +451,9 @@ func (o WebhookRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.PkiWebhookID) {
 		toSerialize["pkiWebhookID"] = o.PkiWebhookID
+	}
+	if !IsNil(o.FkiAuthenticationexternalID) {
+		toSerialize["fkiAuthenticationexternalID"] = o.FkiAuthenticationexternalID
 	}
 	if !IsNil(o.FkiEzsignfoldertypeID) {
 		toSerialize["fkiEzsignfoldertypeID"] = o.FkiEzsignfoldertypeID

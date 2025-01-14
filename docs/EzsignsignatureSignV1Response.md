@@ -6,12 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ObjDebugPayload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
 **ObjDebug** | Pointer to [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
+**MPayload** | [**EzsignsignatureSignV1ResponseMPayload**](EzsignsignatureSignV1ResponseMPayload.md) |  | 
 
 ## Methods
 
 ### NewEzsignsignatureSignV1Response
 
-`func NewEzsignsignatureSignV1Response(objDebugPayload CommonResponseObjDebugPayload, ) *EzsignsignatureSignV1Response`
+`func NewEzsignsignatureSignV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload EzsignsignatureSignV1ResponseMPayload, ) *EzsignsignatureSignV1Response`
 
 NewEzsignsignatureSignV1Response instantiates a new EzsignsignatureSignV1Response object
 This constructor will assign default values to properties that have it defined,
@@ -70,6 +71,26 @@ SetObjDebug sets ObjDebug field to given value.
 `func (o *EzsignsignatureSignV1Response) HasObjDebug() bool`
 
 HasObjDebug returns a boolean if a field has been set.
+
+### GetMPayload
+
+`func (o *EzsignsignatureSignV1Response) GetMPayload() EzsignsignatureSignV1ResponseMPayload`
+
+GetMPayload returns the MPayload field if non-nil, zero value otherwise.
+
+### GetMPayloadOk
+
+`func (o *EzsignsignatureSignV1Response) GetMPayloadOk() (*EzsignsignatureSignV1ResponseMPayload, bool)`
+
+GetMPayloadOk returns a tuple with the MPayload field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMPayload
+
+`func (o *EzsignsignatureSignV1Response) SetMPayload(v EzsignsignatureSignV1ResponseMPayload)`
+
+SetMPayload sets MPayload field to given value.
+
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

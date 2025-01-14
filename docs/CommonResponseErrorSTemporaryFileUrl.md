@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SErrorMessage** | **string** | The message giving details about the error | 
 **EErrorCode** | [**FieldEErrorCode**](FieldEErrorCode.md) |  | 
+**ASErrorMessagedetail** | Pointer to **[]string** | More error message detail | [optional] 
 **STemporaryFileUrl** | Pointer to **string** | The Temporary File Url of the document that was uploaded. That url can be reused instead of uploading the file again. | [optional] 
 
 ## Methods
@@ -66,6 +67,31 @@ and a boolean to check if the value has been set.
 
 SetEErrorCode sets EErrorCode field to given value.
 
+
+### GetASErrorMessagedetail
+
+`func (o *CommonResponseErrorSTemporaryFileUrl) GetASErrorMessagedetail() []string`
+
+GetASErrorMessagedetail returns the ASErrorMessagedetail field if non-nil, zero value otherwise.
+
+### GetASErrorMessagedetailOk
+
+`func (o *CommonResponseErrorSTemporaryFileUrl) GetASErrorMessagedetailOk() (*[]string, bool)`
+
+GetASErrorMessagedetailOk returns a tuple with the ASErrorMessagedetail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetASErrorMessagedetail
+
+`func (o *CommonResponseErrorSTemporaryFileUrl) SetASErrorMessagedetail(v []string)`
+
+SetASErrorMessagedetail sets ASErrorMessagedetail field to given value.
+
+### HasASErrorMessagedetail
+
+`func (o *CommonResponseErrorSTemporaryFileUrl) HasASErrorMessagedetail() bool`
+
+HasASErrorMessagedetail returns a boolean if a field has been set.
 
 ### GetSTemporaryFileUrl
 

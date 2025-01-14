@@ -32,6 +32,8 @@ type EzsigntemplatedocumentResponseCompound struct {
 	IEzsigntemplatedocumentPagetotal int32 `json:"iEzsigntemplatedocumentPagetotal"`
 	// The number of total signatures in the Ezsigntemplate.
 	IEzsigntemplatedocumentSignaturetotal int32 `json:"iEzsigntemplatedocumentSignaturetotal"`
+	// The number of total form fields in the Ezsigntemplate.
+	IEzsigntemplatedocumentFormfieldtotal int32 `json:"iEzsigntemplatedocumentFormfieldtotal"`
 	// If the Ezsigntemplatedocument contains signed signatures (From internal or external sources)
 	BEzsigntemplatedocumentHassignedsignatures bool `json:"bEzsigntemplatedocumentHassignedsignatures"`
 }
@@ -42,13 +44,14 @@ type _EzsigntemplatedocumentResponseCompound EzsigntemplatedocumentResponseCompo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigntemplatedocumentResponseCompound(pkiEzsigntemplatedocumentID int32, fkiEzsigntemplateID int32, sEzsigntemplatedocumentName string, iEzsigntemplatedocumentPagetotal int32, iEzsigntemplatedocumentSignaturetotal int32, bEzsigntemplatedocumentHassignedsignatures bool) *EzsigntemplatedocumentResponseCompound {
+func NewEzsigntemplatedocumentResponseCompound(pkiEzsigntemplatedocumentID int32, fkiEzsigntemplateID int32, sEzsigntemplatedocumentName string, iEzsigntemplatedocumentPagetotal int32, iEzsigntemplatedocumentSignaturetotal int32, iEzsigntemplatedocumentFormfieldtotal int32, bEzsigntemplatedocumentHassignedsignatures bool) *EzsigntemplatedocumentResponseCompound {
 	this := EzsigntemplatedocumentResponseCompound{}
 	this.PkiEzsigntemplatedocumentID = pkiEzsigntemplatedocumentID
 	this.FkiEzsigntemplateID = fkiEzsigntemplateID
 	this.SEzsigntemplatedocumentName = sEzsigntemplatedocumentName
 	this.IEzsigntemplatedocumentPagetotal = iEzsigntemplatedocumentPagetotal
 	this.IEzsigntemplatedocumentSignaturetotal = iEzsigntemplatedocumentSignaturetotal
+	this.IEzsigntemplatedocumentFormfieldtotal = iEzsigntemplatedocumentFormfieldtotal
 	this.BEzsigntemplatedocumentHassignedsignatures = bEzsigntemplatedocumentHassignedsignatures
 	return &this
 }
@@ -181,6 +184,30 @@ func (o *EzsigntemplatedocumentResponseCompound) SetIEzsigntemplatedocumentSigna
 	o.IEzsigntemplatedocumentSignaturetotal = v
 }
 
+// GetIEzsigntemplatedocumentFormfieldtotal returns the IEzsigntemplatedocumentFormfieldtotal field value
+func (o *EzsigntemplatedocumentResponseCompound) GetIEzsigntemplatedocumentFormfieldtotal() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IEzsigntemplatedocumentFormfieldtotal
+}
+
+// GetIEzsigntemplatedocumentFormfieldtotalOk returns a tuple with the IEzsigntemplatedocumentFormfieldtotal field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatedocumentResponseCompound) GetIEzsigntemplatedocumentFormfieldtotalOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IEzsigntemplatedocumentFormfieldtotal, true
+}
+
+// SetIEzsigntemplatedocumentFormfieldtotal sets field value
+func (o *EzsigntemplatedocumentResponseCompound) SetIEzsigntemplatedocumentFormfieldtotal(v int32) {
+	o.IEzsigntemplatedocumentFormfieldtotal = v
+}
+
 // GetBEzsigntemplatedocumentHassignedsignatures returns the BEzsigntemplatedocumentHassignedsignatures field value
 func (o *EzsigntemplatedocumentResponseCompound) GetBEzsigntemplatedocumentHassignedsignatures() bool {
 	if o == nil {
@@ -220,6 +247,7 @@ func (o EzsigntemplatedocumentResponseCompound) ToMap() (map[string]interface{},
 	toSerialize["sEzsigntemplatedocumentName"] = o.SEzsigntemplatedocumentName
 	toSerialize["iEzsigntemplatedocumentPagetotal"] = o.IEzsigntemplatedocumentPagetotal
 	toSerialize["iEzsigntemplatedocumentSignaturetotal"] = o.IEzsigntemplatedocumentSignaturetotal
+	toSerialize["iEzsigntemplatedocumentFormfieldtotal"] = o.IEzsigntemplatedocumentFormfieldtotal
 	toSerialize["bEzsigntemplatedocumentHassignedsignatures"] = o.BEzsigntemplatedocumentHassignedsignatures
 	return toSerialize, nil
 }
@@ -234,6 +262,7 @@ func (o *EzsigntemplatedocumentResponseCompound) UnmarshalJSON(data []byte) (err
 		"sEzsigntemplatedocumentName",
 		"iEzsigntemplatedocumentPagetotal",
 		"iEzsigntemplatedocumentSignaturetotal",
+		"iEzsigntemplatedocumentFormfieldtotal",
 		"bEzsigntemplatedocumentHassignedsignatures",
 	}
 

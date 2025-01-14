@@ -22,6 +22,20 @@ func Test_eZmaxApi_ObjectElectronicfundstransferAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test ObjectElectronicfundstransferAPIService ElectronicfundstransferGetCommunicationCountV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiElectronicfundstransferID int32
+
+		resp, httpRes, err := apiClient.ObjectElectronicfundstransferAPI.ElectronicfundstransferGetCommunicationCountV1(context.Background(), pkiElectronicfundstransferID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ObjectElectronicfundstransferAPIService ElectronicfundstransferGetCommunicationListV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -29,6 +43,34 @@ func Test_eZmaxApi_ObjectElectronicfundstransferAPIService(t *testing.T) {
 		var pkiElectronicfundstransferID int32
 
 		resp, httpRes, err := apiClient.ObjectElectronicfundstransferAPI.ElectronicfundstransferGetCommunicationListV1(context.Background(), pkiElectronicfundstransferID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ObjectElectronicfundstransferAPIService ElectronicfundstransferGetCommunicationrecipientsV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiElectronicfundstransferID int32
+
+		resp, httpRes, err := apiClient.ObjectElectronicfundstransferAPI.ElectronicfundstransferGetCommunicationrecipientsV1(context.Background(), pkiElectronicfundstransferID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ObjectElectronicfundstransferAPIService ElectronicfundstransferGetCommunicationsendersV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiElectronicfundstransferID int32
+
+		resp, httpRes, err := apiClient.ObjectElectronicfundstransferAPI.ElectronicfundstransferGetCommunicationsendersV1(context.Background(), pkiElectronicfundstransferID).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

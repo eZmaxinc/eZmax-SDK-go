@@ -28,7 +28,7 @@ type CustomEzmaxinvoicingEzsigndocumentResponse struct {
 	FkiBillingentityinternalID *int32 `json:"fkiBillingentityinternalID,omitempty"`
 	SName string `json:"sName"`
 	// The description of the Ezsignfolder
-	SEzsignfolderDescription string `json:"sEzsignfolderDescription"`
+	SEzsignfolderDescription string `json:"sEzsignfolderDescription" validate:"regexp=^.{0,75}$"`
 	// The name of the document that will be presented to Ezsignfoldersignerassociations
 	SEzsigndocumentName string `json:"sEzsigndocumentName"`
 	// Whether you have access to the Ezsignfolder or not

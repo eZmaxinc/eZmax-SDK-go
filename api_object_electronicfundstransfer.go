@@ -24,6 +24,139 @@ import (
 // ObjectElectronicfundstransferAPIService ObjectElectronicfundstransferAPI service
 type ObjectElectronicfundstransferAPIService service
 
+type ApiElectronicfundstransferGetCommunicationCountV1Request struct {
+	ctx context.Context
+	ApiService *ObjectElectronicfundstransferAPIService
+	pkiElectronicfundstransferID int32
+}
+
+func (r ApiElectronicfundstransferGetCommunicationCountV1Request) Execute() (*ElectronicfundstransferGetCommunicationCountV1Response, *http.Response, error) {
+	return r.ApiService.ElectronicfundstransferGetCommunicationCountV1Execute(r)
+}
+
+/*
+ElectronicfundstransferGetCommunicationCountV1 Retrieve Communication count
+
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiElectronicfundstransferID
+ @return ApiElectronicfundstransferGetCommunicationCountV1Request
+*/
+func (a *ObjectElectronicfundstransferAPIService) ElectronicfundstransferGetCommunicationCountV1(ctx context.Context, pkiElectronicfundstransferID int32) ApiElectronicfundstransferGetCommunicationCountV1Request {
+	return ApiElectronicfundstransferGetCommunicationCountV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiElectronicfundstransferID: pkiElectronicfundstransferID,
+	}
+}
+
+// Execute executes the request
+//  @return ElectronicfundstransferGetCommunicationCountV1Response
+func (a *ObjectElectronicfundstransferAPIService) ElectronicfundstransferGetCommunicationCountV1Execute(r ApiElectronicfundstransferGetCommunicationCountV1Request) (*ElectronicfundstransferGetCommunicationCountV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ElectronicfundstransferGetCommunicationCountV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectElectronicfundstransferAPIService.ElectronicfundstransferGetCommunicationCountV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationCount"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiElectronicfundstransferID"+"}", url.PathEscape(parameterValueToString(r.pkiElectronicfundstransferID, "pkiElectronicfundstransferID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiElectronicfundstransferID < 1 {
+		return localVarReturnValue, nil, reportError("pkiElectronicfundstransferID must be greater than 1")
+	}
+	if r.pkiElectronicfundstransferID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiElectronicfundstransferID must be less than 65535")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiElectronicfundstransferGetCommunicationListV1Request struct {
 	ctx context.Context
 	ApiService *ObjectElectronicfundstransferAPIService
@@ -67,6 +200,272 @@ func (a *ObjectElectronicfundstransferAPIService) ElectronicfundstransferGetComm
 	}
 
 	localVarPath := localBasePath + "/1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationList"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiElectronicfundstransferID"+"}", url.PathEscape(parameterValueToString(r.pkiElectronicfundstransferID, "pkiElectronicfundstransferID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiElectronicfundstransferID < 1 {
+		return localVarReturnValue, nil, reportError("pkiElectronicfundstransferID must be greater than 1")
+	}
+	if r.pkiElectronicfundstransferID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiElectronicfundstransferID must be less than 65535")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiElectronicfundstransferGetCommunicationrecipientsV1Request struct {
+	ctx context.Context
+	ApiService *ObjectElectronicfundstransferAPIService
+	pkiElectronicfundstransferID int32
+}
+
+func (r ApiElectronicfundstransferGetCommunicationrecipientsV1Request) Execute() (*ElectronicfundstransferGetCommunicationrecipientsV1Response, *http.Response, error) {
+	return r.ApiService.ElectronicfundstransferGetCommunicationrecipientsV1Execute(r)
+}
+
+/*
+ElectronicfundstransferGetCommunicationrecipientsV1 Retrieve Electronicfundstransfer's Communicationrecipient
+
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiElectronicfundstransferID
+ @return ApiElectronicfundstransferGetCommunicationrecipientsV1Request
+*/
+func (a *ObjectElectronicfundstransferAPIService) ElectronicfundstransferGetCommunicationrecipientsV1(ctx context.Context, pkiElectronicfundstransferID int32) ApiElectronicfundstransferGetCommunicationrecipientsV1Request {
+	return ApiElectronicfundstransferGetCommunicationrecipientsV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiElectronicfundstransferID: pkiElectronicfundstransferID,
+	}
+}
+
+// Execute executes the request
+//  @return ElectronicfundstransferGetCommunicationrecipientsV1Response
+func (a *ObjectElectronicfundstransferAPIService) ElectronicfundstransferGetCommunicationrecipientsV1Execute(r ApiElectronicfundstransferGetCommunicationrecipientsV1Request) (*ElectronicfundstransferGetCommunicationrecipientsV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ElectronicfundstransferGetCommunicationrecipientsV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectElectronicfundstransferAPIService.ElectronicfundstransferGetCommunicationrecipientsV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationrecipients"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiElectronicfundstransferID"+"}", url.PathEscape(parameterValueToString(r.pkiElectronicfundstransferID, "pkiElectronicfundstransferID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiElectronicfundstransferID < 1 {
+		return localVarReturnValue, nil, reportError("pkiElectronicfundstransferID must be greater than 1")
+	}
+	if r.pkiElectronicfundstransferID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiElectronicfundstransferID must be less than 65535")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiElectronicfundstransferGetCommunicationsendersV1Request struct {
+	ctx context.Context
+	ApiService *ObjectElectronicfundstransferAPIService
+	pkiElectronicfundstransferID int32
+}
+
+func (r ApiElectronicfundstransferGetCommunicationsendersV1Request) Execute() (*ElectronicfundstransferGetCommunicationsendersV1Response, *http.Response, error) {
+	return r.ApiService.ElectronicfundstransferGetCommunicationsendersV1Execute(r)
+}
+
+/*
+ElectronicfundstransferGetCommunicationsendersV1 Retrieve Electronicfundstransfer's Communicationsender
+
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiElectronicfundstransferID
+ @return ApiElectronicfundstransferGetCommunicationsendersV1Request
+*/
+func (a *ObjectElectronicfundstransferAPIService) ElectronicfundstransferGetCommunicationsendersV1(ctx context.Context, pkiElectronicfundstransferID int32) ApiElectronicfundstransferGetCommunicationsendersV1Request {
+	return ApiElectronicfundstransferGetCommunicationsendersV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiElectronicfundstransferID: pkiElectronicfundstransferID,
+	}
+}
+
+// Execute executes the request
+//  @return ElectronicfundstransferGetCommunicationsendersV1Response
+func (a *ObjectElectronicfundstransferAPIService) ElectronicfundstransferGetCommunicationsendersV1Execute(r ApiElectronicfundstransferGetCommunicationsendersV1Request) (*ElectronicfundstransferGetCommunicationsendersV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ElectronicfundstransferGetCommunicationsendersV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectElectronicfundstransferAPIService.ElectronicfundstransferGetCommunicationsendersV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationsenders"
 	localVarPath = strings.Replace(localVarPath, "{"+"pkiElectronicfundstransferID"+"}", url.PathEscape(parameterValueToString(r.pkiElectronicfundstransferID, "pkiElectronicfundstransferID")), -1)
 
 	localVarHeaderParams := make(map[string]string)

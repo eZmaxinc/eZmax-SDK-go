@@ -46,6 +46,20 @@ func Test_eZmaxApi_ObjectUserAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test ObjectUserAPIService UserEditColleaguesV2", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiUserID int32
+
+		resp, httpRes, err := apiClient.ObjectUserAPI.UserEditColleaguesV2(context.Background(), pkiUserID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ObjectUserAPIService UserEditObjectV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -95,6 +109,20 @@ func Test_eZmaxApi_ObjectUserAPIService(t *testing.T) {
 		var sSelector string
 
 		resp, httpRes, err := apiClient.ObjectUserAPI.UserGetAutocompleteV2(context.Background(), sSelector).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ObjectUserAPIService UserGetColleaguesV2", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiUserID int32
+
+		resp, httpRes, err := apiClient.ObjectUserAPI.UserGetColleaguesV2(context.Background(), pkiUserID).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -9,13 +9,14 @@ Name | Type | Description | Notes
 **SEzsigntemplatedocumentName** | **string** | The name of the Ezsigntemplatedocument. | 
 **IEzsigntemplatedocumentPagetotal** | **int32** | The number of pages in the Ezsigntemplatedocument. | 
 **IEzsigntemplatedocumentSignaturetotal** | **int32** | The number of total signatures in the Ezsigntemplate. | 
+**IEzsigntemplatedocumentFormfieldtotal** | **int32** | The number of total form fields in the Ezsigntemplate. | 
 **BEzsigntemplatedocumentHassignedsignatures** | **bool** | If the Ezsigntemplatedocument contains signed signatures (From internal or external sources) | 
 
 ## Methods
 
 ### NewEzsigntemplatedocumentResponse
 
-`func NewEzsigntemplatedocumentResponse(pkiEzsigntemplatedocumentID int32, fkiEzsigntemplateID int32, sEzsigntemplatedocumentName string, iEzsigntemplatedocumentPagetotal int32, iEzsigntemplatedocumentSignaturetotal int32, bEzsigntemplatedocumentHassignedsignatures bool, ) *EzsigntemplatedocumentResponse`
+`func NewEzsigntemplatedocumentResponse(pkiEzsigntemplatedocumentID int32, fkiEzsigntemplateID int32, sEzsigntemplatedocumentName string, iEzsigntemplatedocumentPagetotal int32, iEzsigntemplatedocumentSignaturetotal int32, iEzsigntemplatedocumentFormfieldtotal int32, bEzsigntemplatedocumentHassignedsignatures bool, ) *EzsigntemplatedocumentResponse`
 
 NewEzsigntemplatedocumentResponse instantiates a new EzsigntemplatedocumentResponse object
 This constructor will assign default values to properties that have it defined,
@@ -128,6 +129,26 @@ and a boolean to check if the value has been set.
 `func (o *EzsigntemplatedocumentResponse) SetIEzsigntemplatedocumentSignaturetotal(v int32)`
 
 SetIEzsigntemplatedocumentSignaturetotal sets IEzsigntemplatedocumentSignaturetotal field to given value.
+
+
+### GetIEzsigntemplatedocumentFormfieldtotal
+
+`func (o *EzsigntemplatedocumentResponse) GetIEzsigntemplatedocumentFormfieldtotal() int32`
+
+GetIEzsigntemplatedocumentFormfieldtotal returns the IEzsigntemplatedocumentFormfieldtotal field if non-nil, zero value otherwise.
+
+### GetIEzsigntemplatedocumentFormfieldtotalOk
+
+`func (o *EzsigntemplatedocumentResponse) GetIEzsigntemplatedocumentFormfieldtotalOk() (*int32, bool)`
+
+GetIEzsigntemplatedocumentFormfieldtotalOk returns a tuple with the IEzsigntemplatedocumentFormfieldtotal field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIEzsigntemplatedocumentFormfieldtotal
+
+`func (o *EzsigntemplatedocumentResponse) SetIEzsigntemplatedocumentFormfieldtotal(v int32)`
+
+SetIEzsigntemplatedocumentFormfieldtotal sets IEzsigntemplatedocumentFormfieldtotal field to given value.
 
 
 ### GetBEzsigntemplatedocumentHassignedsignatures

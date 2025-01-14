@@ -838,13 +838,13 @@ func (a *ObjectUsergroupAPIService) UsergroupGetAutocompleteV2Execute(r ApiUserg
 	localVarFormParams := url.Values{}
 
 	if r.eFilterActive != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "eFilterActive", r.eFilterActive, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "eFilterActive", r.eFilterActive, "form", "")
 	} else {
 		var defaultValue string = "Active"
 		r.eFilterActive = &defaultValue
 	}
 	if r.sQuery != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "sQuery", r.sQuery, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sQuery", r.sQuery, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -864,7 +864,7 @@ func (a *ObjectUsergroupAPIService) UsergroupGetAutocompleteV2Execute(r ApiUserg
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.acceptLanguage != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept-Language", r.acceptLanguage, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept-Language", r.acceptLanguage, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -994,19 +994,19 @@ func (a *ObjectUsergroupAPIService) UsergroupGetListV1Execute(r ApiUsergroupGetL
 	localVarFormParams := url.Values{}
 
 	if r.eOrderBy != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "eOrderBy", r.eOrderBy, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "eOrderBy", r.eOrderBy, "form", "")
 	}
 	if r.iRowMax != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowMax", r.iRowMax, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowMax", r.iRowMax, "form", "")
 	}
 	if r.iRowOffset != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowOffset", r.iRowOffset, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowOffset", r.iRowOffset, "form", "")
 	} else {
 		var defaultValue int32 = 0
 		r.iRowOffset = &defaultValue
 	}
 	if r.sFilter != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "sFilter", r.sFilter, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sFilter", r.sFilter, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1026,7 +1026,7 @@ func (a *ObjectUsergroupAPIService) UsergroupGetListV1Execute(r ApiUsergroupGetL
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.acceptLanguage != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept-Language", r.acceptLanguage, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept-Language", r.acceptLanguage, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication

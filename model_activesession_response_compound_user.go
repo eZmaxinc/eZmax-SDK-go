@@ -27,13 +27,13 @@ type ActivesessionResponseCompoundUser struct {
 	// The unique ID of the Timezone
 	FkiTimezoneID int32 `json:"fkiTimezoneID"`
 	// The url of the picture used as avatar
-	SAvatarUrl *string `json:"sAvatarUrl,omitempty"`
+	SAvatarUrl *string `json:"sAvatarUrl,omitempty" validate:"regexp=^(https|http):\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
 	// The first name of the user
 	SUserFirstname string `json:"sUserFirstname"`
 	// The last name of the user
 	SUserLastname string `json:"sUserLastname"`
 	// The email address.
-	SEmailAddress *string `json:"sEmailAddress,omitempty"`
+	SEmailAddress *string "json:\"sEmailAddress,omitempty\" validate:\"regexp=^[\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20}$\""
 	EUserEzsignsendreminderfrequency FieldEUserEzsignsendreminderfrequency `json:"eUserEzsignsendreminderfrequency"`
 	// The int32 representation of the interface color. For example, RGB color #39435B would be 3752795
 	IUserInterfacecolor int32 `json:"iUserInterfacecolor"`

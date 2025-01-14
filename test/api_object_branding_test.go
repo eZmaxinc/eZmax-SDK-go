@@ -22,11 +22,11 @@ func Test_eZmaxApi_ObjectBrandingAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ObjectBrandingAPIService BrandingCreateObjectV1", func(t *testing.T) {
+	t.Run("Test ObjectBrandingAPIService BrandingCreateObjectV2", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ObjectBrandingAPI.BrandingCreateObjectV1(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ObjectBrandingAPI.BrandingCreateObjectV2(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_eZmaxApi_ObjectBrandingAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ObjectBrandingAPIService BrandingEditObjectV1", func(t *testing.T) {
+	t.Run("Test ObjectBrandingAPIService BrandingEditObjectV2", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pkiBrandingID int32
 
-		resp, httpRes, err := apiClient.ObjectBrandingAPI.BrandingEditObjectV1(context.Background(), pkiBrandingID).Execute()
+		resp, httpRes, err := apiClient.ObjectBrandingAPI.BrandingEditObjectV2(context.Background(), pkiBrandingID).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -74,13 +74,13 @@ func Test_eZmaxApi_ObjectBrandingAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ObjectBrandingAPIService BrandingGetObjectV2", func(t *testing.T) {
+	t.Run("Test ObjectBrandingAPIService BrandingGetObjectV3", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pkiBrandingID int32
 
-		resp, httpRes, err := apiClient.ObjectBrandingAPI.BrandingGetObjectV2(context.Background(), pkiBrandingID).Execute()
+		resp, httpRes, err := apiClient.ObjectBrandingAPI.BrandingGetObjectV3(context.Background(), pkiBrandingID).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

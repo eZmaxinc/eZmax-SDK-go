@@ -10,12 +10,14 @@ Name | Type | Description | Notes
 **SEzsignformfieldValue** | Pointer to **string** | The value for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is Checkbox or Radio | [optional] 
 **IEzsignformfieldX** | **int32** | The X coordinate (Horizontal) where to put the Ezsignformfield on the Ezsignpage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignformfield 2 inches from the left border of the page, you would use \&quot;200\&quot; for the X coordinate. | 
 **IEzsignformfieldY** | **int32** | The Y coordinate (Vertical) where to put the Ezsignformfield on the Ezsignpage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignformfield 3 inches from the top border of the page, you would use \&quot;300\&quot; for the Y coordinate. | 
-**IEzsignformfieldWidth** | **int32** | The Width of the Ezsignformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsignformfieldgroupType.  | eEzsignformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22-65535     | | Radio                     | 22           | | Text                      | 22-65535     | | Textarea                  | 22-65535     | | 
-**IEzsignformfieldHeight** | **int32** | The Height of the Ezsignformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsignformfieldgroupType.  | eEzsignformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22           | | Radio                     | 22           | | Text                      | 22           | | Textarea                  | 22-65535     |  | 
+**IEzsignformfieldWidth** | **int32** | The Width of the Ezsignformfield in pixels calculated at 100 DPI | 
+**IEzsignformfieldHeight** | **int32** | The Height of the Ezsignformfield in pixels calculated at 100 DPI  | 
 **BEzsignformfieldAutocomplete** | Pointer to **bool** | Whether the Ezsignformfield allows the use of the autocomplete of the browser.  This can only be set if eEzsignformfieldgroupType is **Text** | [optional] 
 **BEzsignformfieldSelected** | Pointer to **bool** | Whether the Ezsignformfield is selected or not by default.  This can only be set if eEzsignformfieldgroupType is **Checkbox** or **Radio** | [optional] 
 **SEzsignformfieldEnteredvalue** | Pointer to **string** | This is the value enterred for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is **Dropdown**, **Text** or **Textarea** | [optional] 
 **EEzsignformfieldDependencyrequirement** | Pointer to [**FieldEEzsignformfieldDependencyrequirement**](FieldEEzsignformfieldDependencyrequirement.md) |  | [optional] 
+**EEzsignformfieldHorizontalalignment** | Pointer to [**EnumHorizontalalignment**](EnumHorizontalalignment.md) |  | [optional] 
+**ObjTextstylestatic** | Pointer to [**TextstylestaticRequestCompound**](TextstylestaticRequestCompound.md) |  | [optional] 
 
 ## Methods
 
@@ -305,6 +307,56 @@ SetEEzsignformfieldDependencyrequirement sets EEzsignformfieldDependencyrequirem
 `func (o *EzsignformfieldRequest) HasEEzsignformfieldDependencyrequirement() bool`
 
 HasEEzsignformfieldDependencyrequirement returns a boolean if a field has been set.
+
+### GetEEzsignformfieldHorizontalalignment
+
+`func (o *EzsignformfieldRequest) GetEEzsignformfieldHorizontalalignment() EnumHorizontalalignment`
+
+GetEEzsignformfieldHorizontalalignment returns the EEzsignformfieldHorizontalalignment field if non-nil, zero value otherwise.
+
+### GetEEzsignformfieldHorizontalalignmentOk
+
+`func (o *EzsignformfieldRequest) GetEEzsignformfieldHorizontalalignmentOk() (*EnumHorizontalalignment, bool)`
+
+GetEEzsignformfieldHorizontalalignmentOk returns a tuple with the EEzsignformfieldHorizontalalignment field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsignformfieldHorizontalalignment
+
+`func (o *EzsignformfieldRequest) SetEEzsignformfieldHorizontalalignment(v EnumHorizontalalignment)`
+
+SetEEzsignformfieldHorizontalalignment sets EEzsignformfieldHorizontalalignment field to given value.
+
+### HasEEzsignformfieldHorizontalalignment
+
+`func (o *EzsignformfieldRequest) HasEEzsignformfieldHorizontalalignment() bool`
+
+HasEEzsignformfieldHorizontalalignment returns a boolean if a field has been set.
+
+### GetObjTextstylestatic
+
+`func (o *EzsignformfieldRequest) GetObjTextstylestatic() TextstylestaticRequestCompound`
+
+GetObjTextstylestatic returns the ObjTextstylestatic field if non-nil, zero value otherwise.
+
+### GetObjTextstylestaticOk
+
+`func (o *EzsignformfieldRequest) GetObjTextstylestaticOk() (*TextstylestaticRequestCompound, bool)`
+
+GetObjTextstylestaticOk returns a tuple with the ObjTextstylestatic field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjTextstylestatic
+
+`func (o *EzsignformfieldRequest) SetObjTextstylestatic(v TextstylestaticRequestCompound)`
+
+SetObjTextstylestatic sets ObjTextstylestatic field to given value.
+
+### HasObjTextstylestatic
+
+`func (o *EzsignformfieldRequest) HasObjTextstylestatic() bool`
+
+HasObjTextstylestatic returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

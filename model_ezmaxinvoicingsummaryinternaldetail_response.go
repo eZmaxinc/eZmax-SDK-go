@@ -35,13 +35,13 @@ type EzmaxinvoicingsummaryinternaldetailResponse struct {
 	// The description of the Billingentityexternal
 	SBillingentityexternalDescription string `json:"sBillingentityexternalDescription"`
 	// The count item invoiced for the product
-	DEzmaxinvoicingsummaryinternaldetailCountreal string `json:"dEzmaxinvoicingsummaryinternaldetailCountreal"`
+	DEzmaxinvoicingsummaryinternaldetailCountreal string `json:"dEzmaxinvoicingsummaryinternaldetailCountreal" validate:"regexp=^-{0,1}[\\\\d]{1,6}?\\\\.[\\\\d]{2}$"`
 	// The subtotal invoiced for the product
-	DEzmaxinvoicingsummaryinternaldetailSubtotal string `json:"dEzmaxinvoicingsummaryinternaldetailSubtotal"`
+	DEzmaxinvoicingsummaryinternaldetailSubtotal string `json:"dEzmaxinvoicingsummaryinternaldetailSubtotal" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
 	// The rebate for the product
-	DEzmaxinvoicingsummaryinternaldetailRebate string `json:"dEzmaxinvoicingsummaryinternaldetailRebate"`
+	DEzmaxinvoicingsummaryinternaldetailRebate string `json:"dEzmaxinvoicingsummaryinternaldetailRebate" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
 	// The total invoiced for the product
-	DEzmaxinvoicingsummaryinternaldetailTotal string `json:"dEzmaxinvoicingsummaryinternaldetailTotal"`
+	DEzmaxinvoicingsummaryinternaldetailTotal string `json:"dEzmaxinvoicingsummaryinternaldetailTotal" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
 	// Whether if it's an adjustment
 	BEzmaxinvoicingsummaryinternaldetailAdjustment bool `json:"bEzmaxinvoicingsummaryinternaldetailAdjustment"`
 	// The help message of the Ezmaxproduct in the language of the requester

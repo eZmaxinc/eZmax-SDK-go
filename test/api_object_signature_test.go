@@ -76,4 +76,44 @@ func Test_eZmaxApi_ObjectSignatureAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test ObjectSignatureAPIService SignatureGetObjectV3", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiSignatureID int32
+
+		resp, httpRes, err := apiClient.ObjectSignatureAPI.SignatureGetObjectV3(context.Background(), pkiSignatureID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ObjectSignatureAPIService SignatureGetSVGInitialsV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiSignatureID int32
+
+		httpRes, err := apiClient.ObjectSignatureAPI.SignatureGetSVGInitialsV1(context.Background(), pkiSignatureID).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ObjectSignatureAPIService SignatureGetSVGSignatureV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiSignatureID int32
+
+		httpRes, err := apiClient.ObjectSignatureAPI.SignatureGetSVGSignatureV1(context.Background(), pkiSignatureID).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 }

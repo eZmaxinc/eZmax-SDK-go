@@ -25,7 +25,7 @@ type UsergroupexternalAutocompleteElementResponse struct {
 	// The unique ID of the Usergroupexternal
 	PkiUsergroupexternalID int32 `json:"pkiUsergroupexternalID"`
 	// The name of the Usergroupexternal
-	SUsergroupexternalName string `json:"sUsergroupexternalName"`
+	SUsergroupexternalName string `json:"sUsergroupexternalName" validate:"regexp=^.{0,64}$"`
 	// Whether the Usergroupexternal is active or not
 	BUsergroupexternalIsactive bool `json:"bUsergroupexternalIsactive"`
 }

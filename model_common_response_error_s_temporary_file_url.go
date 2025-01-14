@@ -23,10 +23,12 @@ var _ MappedNullable = &CommonResponseErrorSTemporaryFileUrl{}
 // CommonResponseErrorSTemporaryFileUrl Generic Error Message
 type CommonResponseErrorSTemporaryFileUrl struct {
 	// The message giving details about the error
-	SErrorMessage string `json:"sErrorMessage"`
+	SErrorMessage string `json:"sErrorMessage" validate:"regexp=^.{0,500}$"`
 	EErrorCode FieldEErrorCode `json:"eErrorCode"`
+	// More error message detail
+	ASErrorMessagedetail []string `json:"a_sErrorMessagedetail,omitempty"`
 	// The Temporary File Url of the document that was uploaded. That url can be reused instead of uploading the file again.
-	STemporaryFileUrl *string `json:"sTemporaryFileUrl,omitempty"`
+	STemporaryFileUrl *string `json:"sTemporaryFileUrl,omitempty" validate:"regexp=^(https|http):\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
 }
 
 type _CommonResponseErrorSTemporaryFileUrl CommonResponseErrorSTemporaryFileUrl
@@ -98,6 +100,38 @@ func (o *CommonResponseErrorSTemporaryFileUrl) SetEErrorCode(v FieldEErrorCode) 
 	o.EErrorCode = v
 }
 
+// GetASErrorMessagedetail returns the ASErrorMessagedetail field value if set, zero value otherwise.
+func (o *CommonResponseErrorSTemporaryFileUrl) GetASErrorMessagedetail() []string {
+	if o == nil || IsNil(o.ASErrorMessagedetail) {
+		var ret []string
+		return ret
+	}
+	return o.ASErrorMessagedetail
+}
+
+// GetASErrorMessagedetailOk returns a tuple with the ASErrorMessagedetail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CommonResponseErrorSTemporaryFileUrl) GetASErrorMessagedetailOk() ([]string, bool) {
+	if o == nil || IsNil(o.ASErrorMessagedetail) {
+		return nil, false
+	}
+	return o.ASErrorMessagedetail, true
+}
+
+// HasASErrorMessagedetail returns a boolean if a field has been set.
+func (o *CommonResponseErrorSTemporaryFileUrl) HasASErrorMessagedetail() bool {
+	if o != nil && !IsNil(o.ASErrorMessagedetail) {
+		return true
+	}
+
+	return false
+}
+
+// SetASErrorMessagedetail gets a reference to the given []string and assigns it to the ASErrorMessagedetail field.
+func (o *CommonResponseErrorSTemporaryFileUrl) SetASErrorMessagedetail(v []string) {
+	o.ASErrorMessagedetail = v
+}
+
 // GetSTemporaryFileUrl returns the STemporaryFileUrl field value if set, zero value otherwise.
 func (o *CommonResponseErrorSTemporaryFileUrl) GetSTemporaryFileUrl() string {
 	if o == nil || IsNil(o.STemporaryFileUrl) {
@@ -142,6 +176,9 @@ func (o CommonResponseErrorSTemporaryFileUrl) ToMap() (map[string]interface{}, e
 	toSerialize := map[string]interface{}{}
 	toSerialize["sErrorMessage"] = o.SErrorMessage
 	toSerialize["eErrorCode"] = o.EErrorCode
+	if !IsNil(o.ASErrorMessagedetail) {
+		toSerialize["a_sErrorMessagedetail"] = o.ASErrorMessagedetail
+	}
 	if !IsNil(o.STemporaryFileUrl) {
 		toSerialize["sTemporaryFileUrl"] = o.STemporaryFileUrl
 	}

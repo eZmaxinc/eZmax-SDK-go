@@ -27,11 +27,11 @@ type CreditcarddetailRequest struct {
 	// The expirationyear of the Creditcarddetail
 	ICreditcarddetailExpirationyear int32 `json:"iCreditcarddetailExpirationyear"`
 	// The civic of the Creditcarddetail
-	SCreditcarddetailCivic *string `json:"sCreditcarddetailCivic,omitempty"`
+	SCreditcarddetailCivic string `json:"sCreditcarddetailCivic" validate:"regexp=^[\\\\d]{1,8}$"`
 	// The street of the Creditcarddetail
-	SCreditcarddetailStreet *string `json:"sCreditcarddetailStreet,omitempty"`
+	SCreditcarddetailStreet string `json:"sCreditcarddetailStreet" validate:"regexp=^.{1,19}$"`
 	// The zip of the Creditcarddetail
-	SCreditcarddetailZip *string `json:"sCreditcarddetailZip,omitempty"`
+	SCreditcarddetailZip string `json:"sCreditcarddetailZip" validate:"regexp=^.{0,9}$"`
 }
 
 type _CreditcarddetailRequest CreditcarddetailRequest
@@ -40,10 +40,13 @@ type _CreditcarddetailRequest CreditcarddetailRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreditcarddetailRequest(iCreditcarddetailExpirationmonth int32, iCreditcarddetailExpirationyear int32) *CreditcarddetailRequest {
+func NewCreditcarddetailRequest(iCreditcarddetailExpirationmonth int32, iCreditcarddetailExpirationyear int32, sCreditcarddetailCivic string, sCreditcarddetailStreet string, sCreditcarddetailZip string) *CreditcarddetailRequest {
 	this := CreditcarddetailRequest{}
 	this.ICreditcarddetailExpirationmonth = iCreditcarddetailExpirationmonth
 	this.ICreditcarddetailExpirationyear = iCreditcarddetailExpirationyear
+	this.SCreditcarddetailCivic = sCreditcarddetailCivic
+	this.SCreditcarddetailStreet = sCreditcarddetailStreet
+	this.SCreditcarddetailZip = sCreditcarddetailZip
 	return &this
 }
 
@@ -103,100 +106,76 @@ func (o *CreditcarddetailRequest) SetICreditcarddetailExpirationyear(v int32) {
 	o.ICreditcarddetailExpirationyear = v
 }
 
-// GetSCreditcarddetailCivic returns the SCreditcarddetailCivic field value if set, zero value otherwise.
+// GetSCreditcarddetailCivic returns the SCreditcarddetailCivic field value
 func (o *CreditcarddetailRequest) GetSCreditcarddetailCivic() string {
-	if o == nil || IsNil(o.SCreditcarddetailCivic) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SCreditcarddetailCivic
+
+	return o.SCreditcarddetailCivic
 }
 
-// GetSCreditcarddetailCivicOk returns a tuple with the SCreditcarddetailCivic field value if set, nil otherwise
+// GetSCreditcarddetailCivicOk returns a tuple with the SCreditcarddetailCivic field value
 // and a boolean to check if the value has been set.
 func (o *CreditcarddetailRequest) GetSCreditcarddetailCivicOk() (*string, bool) {
-	if o == nil || IsNil(o.SCreditcarddetailCivic) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SCreditcarddetailCivic, true
+	return &o.SCreditcarddetailCivic, true
 }
 
-// HasSCreditcarddetailCivic returns a boolean if a field has been set.
-func (o *CreditcarddetailRequest) HasSCreditcarddetailCivic() bool {
-	if o != nil && !IsNil(o.SCreditcarddetailCivic) {
-		return true
-	}
-
-	return false
-}
-
-// SetSCreditcarddetailCivic gets a reference to the given string and assigns it to the SCreditcarddetailCivic field.
+// SetSCreditcarddetailCivic sets field value
 func (o *CreditcarddetailRequest) SetSCreditcarddetailCivic(v string) {
-	o.SCreditcarddetailCivic = &v
+	o.SCreditcarddetailCivic = v
 }
 
-// GetSCreditcarddetailStreet returns the SCreditcarddetailStreet field value if set, zero value otherwise.
+// GetSCreditcarddetailStreet returns the SCreditcarddetailStreet field value
 func (o *CreditcarddetailRequest) GetSCreditcarddetailStreet() string {
-	if o == nil || IsNil(o.SCreditcarddetailStreet) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SCreditcarddetailStreet
+
+	return o.SCreditcarddetailStreet
 }
 
-// GetSCreditcarddetailStreetOk returns a tuple with the SCreditcarddetailStreet field value if set, nil otherwise
+// GetSCreditcarddetailStreetOk returns a tuple with the SCreditcarddetailStreet field value
 // and a boolean to check if the value has been set.
 func (o *CreditcarddetailRequest) GetSCreditcarddetailStreetOk() (*string, bool) {
-	if o == nil || IsNil(o.SCreditcarddetailStreet) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SCreditcarddetailStreet, true
+	return &o.SCreditcarddetailStreet, true
 }
 
-// HasSCreditcarddetailStreet returns a boolean if a field has been set.
-func (o *CreditcarddetailRequest) HasSCreditcarddetailStreet() bool {
-	if o != nil && !IsNil(o.SCreditcarddetailStreet) {
-		return true
-	}
-
-	return false
-}
-
-// SetSCreditcarddetailStreet gets a reference to the given string and assigns it to the SCreditcarddetailStreet field.
+// SetSCreditcarddetailStreet sets field value
 func (o *CreditcarddetailRequest) SetSCreditcarddetailStreet(v string) {
-	o.SCreditcarddetailStreet = &v
+	o.SCreditcarddetailStreet = v
 }
 
-// GetSCreditcarddetailZip returns the SCreditcarddetailZip field value if set, zero value otherwise.
+// GetSCreditcarddetailZip returns the SCreditcarddetailZip field value
 func (o *CreditcarddetailRequest) GetSCreditcarddetailZip() string {
-	if o == nil || IsNil(o.SCreditcarddetailZip) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SCreditcarddetailZip
+
+	return o.SCreditcarddetailZip
 }
 
-// GetSCreditcarddetailZipOk returns a tuple with the SCreditcarddetailZip field value if set, nil otherwise
+// GetSCreditcarddetailZipOk returns a tuple with the SCreditcarddetailZip field value
 // and a boolean to check if the value has been set.
 func (o *CreditcarddetailRequest) GetSCreditcarddetailZipOk() (*string, bool) {
-	if o == nil || IsNil(o.SCreditcarddetailZip) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SCreditcarddetailZip, true
+	return &o.SCreditcarddetailZip, true
 }
 
-// HasSCreditcarddetailZip returns a boolean if a field has been set.
-func (o *CreditcarddetailRequest) HasSCreditcarddetailZip() bool {
-	if o != nil && !IsNil(o.SCreditcarddetailZip) {
-		return true
-	}
-
-	return false
-}
-
-// SetSCreditcarddetailZip gets a reference to the given string and assigns it to the SCreditcarddetailZip field.
+// SetSCreditcarddetailZip sets field value
 func (o *CreditcarddetailRequest) SetSCreditcarddetailZip(v string) {
-	o.SCreditcarddetailZip = &v
+	o.SCreditcarddetailZip = v
 }
 
 func (o CreditcarddetailRequest) MarshalJSON() ([]byte, error) {
@@ -211,15 +190,9 @@ func (o CreditcarddetailRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["iCreditcarddetailExpirationmonth"] = o.ICreditcarddetailExpirationmonth
 	toSerialize["iCreditcarddetailExpirationyear"] = o.ICreditcarddetailExpirationyear
-	if !IsNil(o.SCreditcarddetailCivic) {
-		toSerialize["sCreditcarddetailCivic"] = o.SCreditcarddetailCivic
-	}
-	if !IsNil(o.SCreditcarddetailStreet) {
-		toSerialize["sCreditcarddetailStreet"] = o.SCreditcarddetailStreet
-	}
-	if !IsNil(o.SCreditcarddetailZip) {
-		toSerialize["sCreditcarddetailZip"] = o.SCreditcarddetailZip
-	}
+	toSerialize["sCreditcarddetailCivic"] = o.SCreditcarddetailCivic
+	toSerialize["sCreditcarddetailStreet"] = o.SCreditcarddetailStreet
+	toSerialize["sCreditcarddetailZip"] = o.SCreditcarddetailZip
 	return toSerialize, nil
 }
 
@@ -230,6 +203,9 @@ func (o *CreditcarddetailRequest) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"iCreditcarddetailExpirationmonth",
 		"iCreditcarddetailExpirationyear",
+		"sCreditcarddetailCivic",
+		"sCreditcarddetailStreet",
+		"sCreditcarddetailZip",
 	}
 
 	allProperties := make(map[string]interface{})

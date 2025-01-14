@@ -133,6 +133,16 @@ func (a *ObjectCreditcardclientAPIService) CreditcardclientCreateObjectV1Execute
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v CommonResponseErrorCreditcardValidation
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -412,7 +422,7 @@ func (a *ObjectCreditcardclientAPIService) CreditcardclientEditObjectV1Execute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v CommonResponseError
+			var v CommonResponseErrorCreditcardValidation
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -506,13 +516,13 @@ func (a *ObjectCreditcardclientAPIService) CreditcardclientGetAutocompleteV2Exec
 	localVarFormParams := url.Values{}
 
 	if r.eFilterActive != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "eFilterActive", r.eFilterActive, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "eFilterActive", r.eFilterActive, "form", "")
 	} else {
 		var defaultValue string = "Active"
 		r.eFilterActive = &defaultValue
 	}
 	if r.sQuery != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "sQuery", r.sQuery, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sQuery", r.sQuery, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -532,7 +542,7 @@ func (a *ObjectCreditcardclientAPIService) CreditcardclientGetAutocompleteV2Exec
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.acceptLanguage != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept-Language", r.acceptLanguage, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept-Language", r.acceptLanguage, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -662,19 +672,19 @@ func (a *ObjectCreditcardclientAPIService) CreditcardclientGetListV1Execute(r Ap
 	localVarFormParams := url.Values{}
 
 	if r.eOrderBy != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "eOrderBy", r.eOrderBy, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "eOrderBy", r.eOrderBy, "form", "")
 	}
 	if r.iRowMax != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowMax", r.iRowMax, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowMax", r.iRowMax, "form", "")
 	}
 	if r.iRowOffset != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowOffset", r.iRowOffset, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowOffset", r.iRowOffset, "form", "")
 	} else {
 		var defaultValue int32 = 0
 		r.iRowOffset = &defaultValue
 	}
 	if r.sFilter != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "sFilter", r.sFilter, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sFilter", r.sFilter, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -694,7 +704,7 @@ func (a *ObjectCreditcardclientAPIService) CreditcardclientGetListV1Execute(r Ap
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.acceptLanguage != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept-Language", r.acceptLanguage, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept-Language", r.acceptLanguage, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -866,6 +876,161 @@ func (a *ObjectCreditcardclientAPIService) CreditcardclientGetObjectV2Execute(r 
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiCreditcardclientPatchObjectV1Request struct {
+	ctx context.Context
+	ApiService *ObjectCreditcardclientAPIService
+	pkiCreditcardclientID int32
+	creditcardclientPatchObjectV1Request *CreditcardclientPatchObjectV1Request
+}
+
+func (r ApiCreditcardclientPatchObjectV1Request) CreditcardclientPatchObjectV1Request(creditcardclientPatchObjectV1Request CreditcardclientPatchObjectV1Request) ApiCreditcardclientPatchObjectV1Request {
+	r.creditcardclientPatchObjectV1Request = &creditcardclientPatchObjectV1Request
+	return r
+}
+
+func (r ApiCreditcardclientPatchObjectV1Request) Execute() (*CreditcardclientPatchObjectV1Response, *http.Response, error) {
+	return r.ApiService.CreditcardclientPatchObjectV1Execute(r)
+}
+
+/*
+CreditcardclientPatchObjectV1 Patch an existing Creditcardclient
+
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiCreditcardclientID The unique ID of the Creditcardclient
+ @return ApiCreditcardclientPatchObjectV1Request
+*/
+func (a *ObjectCreditcardclientAPIService) CreditcardclientPatchObjectV1(ctx context.Context, pkiCreditcardclientID int32) ApiCreditcardclientPatchObjectV1Request {
+	return ApiCreditcardclientPatchObjectV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiCreditcardclientID: pkiCreditcardclientID,
+	}
+}
+
+// Execute executes the request
+//  @return CreditcardclientPatchObjectV1Response
+func (a *ObjectCreditcardclientAPIService) CreditcardclientPatchObjectV1Execute(r ApiCreditcardclientPatchObjectV1Request) (*CreditcardclientPatchObjectV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CreditcardclientPatchObjectV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectCreditcardclientAPIService.CreditcardclientPatchObjectV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/creditcardclient/{pkiCreditcardclientID}"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiCreditcardclientID"+"}", url.PathEscape(parameterValueToString(r.pkiCreditcardclientID, "pkiCreditcardclientID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiCreditcardclientID < 0 {
+		return localVarReturnValue, nil, reportError("pkiCreditcardclientID must be greater than 0")
+	}
+	if r.pkiCreditcardclientID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiCreditcardclientID must be less than 65535")
+	}
+	if r.creditcardclientPatchObjectV1Request == nil {
+		return localVarReturnValue, nil, reportError("creditcardclientPatchObjectV1Request is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.creditcardclientPatchObjectV1Request
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v CommonResponseError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

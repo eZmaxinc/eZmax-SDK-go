@@ -25,7 +25,7 @@ type UsergroupListElement struct {
 	// The unique ID of the Usergroup
 	PkiUsergroupID int32 `json:"pkiUsergroupID"`
 	// The Name of the Usergroup in the language of the requester
-	SUsergroupNameX string `json:"sUsergroupNameX"`
+	SUsergroupNameX string `json:"sUsergroupNameX" validate:"regexp=^.{0,50}$"`
 	// Number of users in group
 	ICountUser int32 `json:"iCountUser"`
 }

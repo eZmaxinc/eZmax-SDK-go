@@ -49,6 +49,8 @@ type EzsigndocumentResponseCompound struct {
 	IEzsigndocumentSignaturesigned int32 `json:"iEzsigndocumentSignaturesigned"`
 	// The number of total signatures that were requested in the Ezsigndocument.
 	IEzsigndocumentSignaturetotal int32 `json:"iEzsigndocumentSignaturetotal"`
+	// The number of total Ezsignformfield that were requested in the Ezsigndocument.
+	IEzsigndocumentFormfieldtotal int32 `json:"iEzsigndocumentFormfieldtotal"`
 	// MD5 Hash of the initial PDF Document before signatures were applied to it.
 	SEzsigndocumentMD5initial *string `json:"sEzsigndocumentMD5initial,omitempty"`
 	// A custom text message that will contain the refusal message if the Ezsigndocument is declined to sign
@@ -61,7 +63,7 @@ type EzsigndocumentResponseCompound struct {
 	BEzsigndocumentHassignedsignatures *bool `json:"bEzsigndocumentHassignedsignatures,omitempty"`
 	ObjAudit *CommonAudit `json:"objAudit,omitempty"`
 	// This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format. 
-	SEzsigndocumentExternalid *string `json:"sEzsigndocumentExternalid,omitempty"`
+	SEzsigndocumentExternalid *string `json:"sEzsigndocumentExternalid,omitempty" validate:"regexp=^.{0,128}$"`
 	// The number of Ezsigndocumentattachment total
 	IEzsigndocumentEzsignsignatureattachmenttotal int32 `json:"iEzsigndocumentEzsignsignatureattachmenttotal"`
 	// The total number of Ezsigndiscussions
@@ -76,6 +78,7 @@ type EzsigndocumentResponseCompound struct {
 	// The current step in the signature phase
 	IEzsigndocumentStepsignatureCurrent int32 `json:"iEzsigndocumentStepsignatureCurrent"`
 	AObjEzsignfoldersignerassociationstatus []CustomEzsignfoldersignerassociationstatusResponse `json:"a_objEzsignfoldersignerassociationstatus"`
+	AObjEzsigndocumentdependency []EzsigndocumentdependencyResponse `json:"a_objEzsigndocumentdependency,omitempty"`
 }
 
 type _EzsigndocumentResponseCompound EzsigndocumentResponseCompound
@@ -84,7 +87,7 @@ type _EzsigndocumentResponseCompound EzsigndocumentResponseCompound
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigndocumentResponseCompound(pkiEzsigndocumentID int32, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, sEzsigndocumentName string, eEzsigndocumentStep FieldEEzsigndocumentStep, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, iEzsigndocumentEzsignsignatureattachmenttotal int32, iEzsigndocumentEzsigndiscussiontotal int32, eEzsigndocumentSteptype ComputedEEzsigndocumentSteptype, iEzsigndocumentStepformtotal int32, iEzsigndocumentStepformcurrent int32, iEzsigndocumentStepsignaturetotal int32, iEzsigndocumentStepsignatureCurrent int32, aObjEzsignfoldersignerassociationstatus []CustomEzsignfoldersignerassociationstatusResponse) *EzsigndocumentResponseCompound {
+func NewEzsigndocumentResponseCompound(pkiEzsigndocumentID int32, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, sEzsigndocumentName string, eEzsigndocumentStep FieldEEzsigndocumentStep, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, iEzsigndocumentFormfieldtotal int32, iEzsigndocumentEzsignsignatureattachmenttotal int32, iEzsigndocumentEzsigndiscussiontotal int32, eEzsigndocumentSteptype ComputedEEzsigndocumentSteptype, iEzsigndocumentStepformtotal int32, iEzsigndocumentStepformcurrent int32, iEzsigndocumentStepsignaturetotal int32, iEzsigndocumentStepsignatureCurrent int32, aObjEzsignfoldersignerassociationstatus []CustomEzsignfoldersignerassociationstatusResponse) *EzsigndocumentResponseCompound {
 	this := EzsigndocumentResponseCompound{}
 	this.PkiEzsigndocumentID = pkiEzsigndocumentID
 	this.FkiEzsignfolderID = fkiEzsignfolderID
@@ -95,6 +98,7 @@ func NewEzsigndocumentResponseCompound(pkiEzsigndocumentID int32, fkiEzsignfolde
 	this.IEzsigndocumentPagetotal = iEzsigndocumentPagetotal
 	this.IEzsigndocumentSignaturesigned = iEzsigndocumentSignaturesigned
 	this.IEzsigndocumentSignaturetotal = iEzsigndocumentSignaturetotal
+	this.IEzsigndocumentFormfieldtotal = iEzsigndocumentFormfieldtotal
 	this.IEzsigndocumentEzsignsignatureattachmenttotal = iEzsigndocumentEzsignsignatureattachmenttotal
 	this.IEzsigndocumentEzsigndiscussiontotal = iEzsigndocumentEzsigndiscussiontotal
 	this.EEzsigndocumentSteptype = eEzsigndocumentSteptype
@@ -488,6 +492,30 @@ func (o *EzsigndocumentResponseCompound) GetIEzsigndocumentSignaturetotalOk() (*
 // SetIEzsigndocumentSignaturetotal sets field value
 func (o *EzsigndocumentResponseCompound) SetIEzsigndocumentSignaturetotal(v int32) {
 	o.IEzsigndocumentSignaturetotal = v
+}
+
+// GetIEzsigndocumentFormfieldtotal returns the IEzsigndocumentFormfieldtotal field value
+func (o *EzsigndocumentResponseCompound) GetIEzsigndocumentFormfieldtotal() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IEzsigndocumentFormfieldtotal
+}
+
+// GetIEzsigndocumentFormfieldtotalOk returns a tuple with the IEzsigndocumentFormfieldtotal field value
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentResponseCompound) GetIEzsigndocumentFormfieldtotalOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IEzsigndocumentFormfieldtotal, true
+}
+
+// SetIEzsigndocumentFormfieldtotal sets field value
+func (o *EzsigndocumentResponseCompound) SetIEzsigndocumentFormfieldtotal(v int32) {
+	o.IEzsigndocumentFormfieldtotal = v
 }
 
 // GetSEzsigndocumentMD5initial returns the SEzsigndocumentMD5initial field value if set, zero value otherwise.
@@ -906,6 +934,38 @@ func (o *EzsigndocumentResponseCompound) SetAObjEzsignfoldersignerassociationsta
 	o.AObjEzsignfoldersignerassociationstatus = v
 }
 
+// GetAObjEzsigndocumentdependency returns the AObjEzsigndocumentdependency field value if set, zero value otherwise.
+func (o *EzsigndocumentResponseCompound) GetAObjEzsigndocumentdependency() []EzsigndocumentdependencyResponse {
+	if o == nil || IsNil(o.AObjEzsigndocumentdependency) {
+		var ret []EzsigndocumentdependencyResponse
+		return ret
+	}
+	return o.AObjEzsigndocumentdependency
+}
+
+// GetAObjEzsigndocumentdependencyOk returns a tuple with the AObjEzsigndocumentdependency field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentResponseCompound) GetAObjEzsigndocumentdependencyOk() ([]EzsigndocumentdependencyResponse, bool) {
+	if o == nil || IsNil(o.AObjEzsigndocumentdependency) {
+		return nil, false
+	}
+	return o.AObjEzsigndocumentdependency, true
+}
+
+// HasAObjEzsigndocumentdependency returns a boolean if a field has been set.
+func (o *EzsigndocumentResponseCompound) HasAObjEzsigndocumentdependency() bool {
+	if o != nil && !IsNil(o.AObjEzsigndocumentdependency) {
+		return true
+	}
+
+	return false
+}
+
+// SetAObjEzsigndocumentdependency gets a reference to the given []EzsigndocumentdependencyResponse and assigns it to the AObjEzsigndocumentdependency field.
+func (o *EzsigndocumentResponseCompound) SetAObjEzsigndocumentdependency(v []EzsigndocumentdependencyResponse) {
+	o.AObjEzsigndocumentdependency = v
+}
+
 func (o EzsigndocumentResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -940,6 +1000,7 @@ func (o EzsigndocumentResponseCompound) ToMap() (map[string]interface{}, error) 
 	toSerialize["iEzsigndocumentPagetotal"] = o.IEzsigndocumentPagetotal
 	toSerialize["iEzsigndocumentSignaturesigned"] = o.IEzsigndocumentSignaturesigned
 	toSerialize["iEzsigndocumentSignaturetotal"] = o.IEzsigndocumentSignaturetotal
+	toSerialize["iEzsigndocumentFormfieldtotal"] = o.IEzsigndocumentFormfieldtotal
 	if !IsNil(o.SEzsigndocumentMD5initial) {
 		toSerialize["sEzsigndocumentMD5initial"] = o.SEzsigndocumentMD5initial
 	}
@@ -969,6 +1030,9 @@ func (o EzsigndocumentResponseCompound) ToMap() (map[string]interface{}, error) 
 	toSerialize["iEzsigndocumentStepsignaturetotal"] = o.IEzsigndocumentStepsignaturetotal
 	toSerialize["iEzsigndocumentStepsignatureCurrent"] = o.IEzsigndocumentStepsignatureCurrent
 	toSerialize["a_objEzsignfoldersignerassociationstatus"] = o.AObjEzsignfoldersignerassociationstatus
+	if !IsNil(o.AObjEzsigndocumentdependency) {
+		toSerialize["a_objEzsigndocumentdependency"] = o.AObjEzsigndocumentdependency
+	}
 	return toSerialize, nil
 }
 
@@ -986,6 +1050,7 @@ func (o *EzsigndocumentResponseCompound) UnmarshalJSON(data []byte) (err error) 
 		"iEzsigndocumentPagetotal",
 		"iEzsigndocumentSignaturesigned",
 		"iEzsigndocumentSignaturetotal",
+		"iEzsigndocumentFormfieldtotal",
 		"iEzsigndocumentEzsignsignatureattachmenttotal",
 		"iEzsigndocumentEzsigndiscussiontotal",
 		"eEzsigndocumentSteptype",

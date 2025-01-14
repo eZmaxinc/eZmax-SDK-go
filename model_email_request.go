@@ -27,7 +27,7 @@ type EmailRequest struct {
 	// The unique ID of the Emailtype.  Valid values:  |Value|Description| |-|-| |1|Office| |2|Home|
 	FkiEmailtypeID int32 `json:"fkiEmailtypeID"`
 	// The email address.
-	SEmailAddress string `json:"sEmailAddress"`
+	SEmailAddress string "json:\"sEmailAddress\" validate:\"regexp=^[\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20}$\""
 }
 
 type _EmailRequest EmailRequest

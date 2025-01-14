@@ -26,16 +26,12 @@ type CreditcardclientResponse struct {
 	PkiCreditcardclientID int32 `json:"pkiCreditcardclientID"`
 	// The unique ID of the Creditcarddetail
 	FkiCreditcarddetailID int32 `json:"fkiCreditcarddetailID"`
-	// Whether if it's an relationisdefault
+	// Whether if it's the creditcardclient is the default one
 	BCreditcardclientrelationIsdefault bool `json:"bCreditcardclientrelationIsdefault"`
 	// The description of the Creditcardclient
-	SCreditcardclientDescription string `json:"sCreditcardclientDescription"`
-	// Whether the creditcardclient is active or not
-	BCreditcardclientIsactive bool `json:"bCreditcardclientIsactive"`
+	SCreditcardclientDescription string `json:"sCreditcardclientDescription" validate:"regexp=^.{0,50}$"`
 	// Whether if it's an allowedagencypayment
-	BCreditcardclientAllowedagencypayment bool `json:"bCreditcardclientAllowedagencypayment"`
-	// Whether if it's an allowedroyallepageprotection
-	BCreditcardclientAllowedroyallepageprotection bool `json:"bCreditcardclientAllowedroyallepageprotection"`
+	BCreditcardclientAllowedcompanypayment bool `json:"bCreditcardclientAllowedcompanypayment"`
 	// Whether if it's an allowedtranquillit
 	BCreditcardclientAllowedtranquillit bool `json:"bCreditcardclientAllowedtranquillit"`
 	ObjCreditcarddetail CreditcarddetailResponseCompound `json:"objCreditcarddetail"`
@@ -47,15 +43,13 @@ type _CreditcardclientResponse CreditcardclientResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreditcardclientResponse(pkiCreditcardclientID int32, fkiCreditcarddetailID int32, bCreditcardclientrelationIsdefault bool, sCreditcardclientDescription string, bCreditcardclientIsactive bool, bCreditcardclientAllowedagencypayment bool, bCreditcardclientAllowedroyallepageprotection bool, bCreditcardclientAllowedtranquillit bool, objCreditcarddetail CreditcarddetailResponseCompound) *CreditcardclientResponse {
+func NewCreditcardclientResponse(pkiCreditcardclientID int32, fkiCreditcarddetailID int32, bCreditcardclientrelationIsdefault bool, sCreditcardclientDescription string, bCreditcardclientAllowedcompanypayment bool, bCreditcardclientAllowedtranquillit bool, objCreditcarddetail CreditcarddetailResponseCompound) *CreditcardclientResponse {
 	this := CreditcardclientResponse{}
 	this.PkiCreditcardclientID = pkiCreditcardclientID
 	this.FkiCreditcarddetailID = fkiCreditcarddetailID
 	this.BCreditcardclientrelationIsdefault = bCreditcardclientrelationIsdefault
 	this.SCreditcardclientDescription = sCreditcardclientDescription
-	this.BCreditcardclientIsactive = bCreditcardclientIsactive
-	this.BCreditcardclientAllowedagencypayment = bCreditcardclientAllowedagencypayment
-	this.BCreditcardclientAllowedroyallepageprotection = bCreditcardclientAllowedroyallepageprotection
+	this.BCreditcardclientAllowedcompanypayment = bCreditcardclientAllowedcompanypayment
 	this.BCreditcardclientAllowedtranquillit = bCreditcardclientAllowedtranquillit
 	this.ObjCreditcarddetail = objCreditcarddetail
 	return &this
@@ -165,76 +159,28 @@ func (o *CreditcardclientResponse) SetSCreditcardclientDescription(v string) {
 	o.SCreditcardclientDescription = v
 }
 
-// GetBCreditcardclientIsactive returns the BCreditcardclientIsactive field value
-func (o *CreditcardclientResponse) GetBCreditcardclientIsactive() bool {
+// GetBCreditcardclientAllowedcompanypayment returns the BCreditcardclientAllowedcompanypayment field value
+func (o *CreditcardclientResponse) GetBCreditcardclientAllowedcompanypayment() bool {
 	if o == nil {
 		var ret bool
 		return ret
 	}
 
-	return o.BCreditcardclientIsactive
+	return o.BCreditcardclientAllowedcompanypayment
 }
 
-// GetBCreditcardclientIsactiveOk returns a tuple with the BCreditcardclientIsactive field value
+// GetBCreditcardclientAllowedcompanypaymentOk returns a tuple with the BCreditcardclientAllowedcompanypayment field value
 // and a boolean to check if the value has been set.
-func (o *CreditcardclientResponse) GetBCreditcardclientIsactiveOk() (*bool, bool) {
+func (o *CreditcardclientResponse) GetBCreditcardclientAllowedcompanypaymentOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.BCreditcardclientIsactive, true
+	return &o.BCreditcardclientAllowedcompanypayment, true
 }
 
-// SetBCreditcardclientIsactive sets field value
-func (o *CreditcardclientResponse) SetBCreditcardclientIsactive(v bool) {
-	o.BCreditcardclientIsactive = v
-}
-
-// GetBCreditcardclientAllowedagencypayment returns the BCreditcardclientAllowedagencypayment field value
-func (o *CreditcardclientResponse) GetBCreditcardclientAllowedagencypayment() bool {
-	if o == nil {
-		var ret bool
-		return ret
-	}
-
-	return o.BCreditcardclientAllowedagencypayment
-}
-
-// GetBCreditcardclientAllowedagencypaymentOk returns a tuple with the BCreditcardclientAllowedagencypayment field value
-// and a boolean to check if the value has been set.
-func (o *CreditcardclientResponse) GetBCreditcardclientAllowedagencypaymentOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BCreditcardclientAllowedagencypayment, true
-}
-
-// SetBCreditcardclientAllowedagencypayment sets field value
-func (o *CreditcardclientResponse) SetBCreditcardclientAllowedagencypayment(v bool) {
-	o.BCreditcardclientAllowedagencypayment = v
-}
-
-// GetBCreditcardclientAllowedroyallepageprotection returns the BCreditcardclientAllowedroyallepageprotection field value
-func (o *CreditcardclientResponse) GetBCreditcardclientAllowedroyallepageprotection() bool {
-	if o == nil {
-		var ret bool
-		return ret
-	}
-
-	return o.BCreditcardclientAllowedroyallepageprotection
-}
-
-// GetBCreditcardclientAllowedroyallepageprotectionOk returns a tuple with the BCreditcardclientAllowedroyallepageprotection field value
-// and a boolean to check if the value has been set.
-func (o *CreditcardclientResponse) GetBCreditcardclientAllowedroyallepageprotectionOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BCreditcardclientAllowedroyallepageprotection, true
-}
-
-// SetBCreditcardclientAllowedroyallepageprotection sets field value
-func (o *CreditcardclientResponse) SetBCreditcardclientAllowedroyallepageprotection(v bool) {
-	o.BCreditcardclientAllowedroyallepageprotection = v
+// SetBCreditcardclientAllowedcompanypayment sets field value
+func (o *CreditcardclientResponse) SetBCreditcardclientAllowedcompanypayment(v bool) {
+	o.BCreditcardclientAllowedcompanypayment = v
 }
 
 // GetBCreditcardclientAllowedtranquillit returns the BCreditcardclientAllowedtranquillit field value
@@ -299,9 +245,7 @@ func (o CreditcardclientResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["fkiCreditcarddetailID"] = o.FkiCreditcarddetailID
 	toSerialize["bCreditcardclientrelationIsdefault"] = o.BCreditcardclientrelationIsdefault
 	toSerialize["sCreditcardclientDescription"] = o.SCreditcardclientDescription
-	toSerialize["bCreditcardclientIsactive"] = o.BCreditcardclientIsactive
-	toSerialize["bCreditcardclientAllowedagencypayment"] = o.BCreditcardclientAllowedagencypayment
-	toSerialize["bCreditcardclientAllowedroyallepageprotection"] = o.BCreditcardclientAllowedroyallepageprotection
+	toSerialize["bCreditcardclientAllowedcompanypayment"] = o.BCreditcardclientAllowedcompanypayment
 	toSerialize["bCreditcardclientAllowedtranquillit"] = o.BCreditcardclientAllowedtranquillit
 	toSerialize["objCreditcarddetail"] = o.ObjCreditcarddetail
 	return toSerialize, nil
@@ -316,9 +260,7 @@ func (o *CreditcardclientResponse) UnmarshalJSON(data []byte) (err error) {
 		"fkiCreditcarddetailID",
 		"bCreditcardclientrelationIsdefault",
 		"sCreditcardclientDescription",
-		"bCreditcardclientIsactive",
-		"bCreditcardclientAllowedagencypayment",
-		"bCreditcardclientAllowedroyallepageprotection",
+		"bCreditcardclientAllowedcompanypayment",
 		"bCreditcardclientAllowedtranquillit",
 		"objCreditcarddetail",
 	}

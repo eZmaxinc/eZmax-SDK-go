@@ -27,7 +27,7 @@ type CommonAuditdetail struct {
 	// The unique ID of the Apikey
 	FkiApikeyID *int32 `json:"fkiApikeyID,omitempty"`
 	// The login name of the User.
-	SUserLoginname string `json:"sUserLoginname"`
+	SUserLoginname string "json:\"sUserLoginname\" validate:\"regexp=^(?:([\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$\""
 	// The last name of the user
 	SUserLastname string `json:"sUserLastname"`
 	// The first name of the user

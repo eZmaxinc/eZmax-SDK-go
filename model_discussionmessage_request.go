@@ -29,7 +29,7 @@ type DiscussionmessageRequest struct {
 	// The unique ID of the Discussionmembership
 	FkiDiscussionmembershipIDActionrequired *int32 `json:"fkiDiscussionmembershipIDActionrequired,omitempty"`
 	// The content of the Discussionmessage
-	TDiscussionmessageContent string `json:"tDiscussionmessageContent"`
+	TDiscussionmessageContent string `json:"tDiscussionmessageContent" validate:"regexp=^.{0,65535}$"`
 }
 
 type _DiscussionmessageRequest DiscussionmessageRequest

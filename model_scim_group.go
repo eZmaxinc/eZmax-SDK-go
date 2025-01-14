@@ -24,7 +24,7 @@ var _ MappedNullable = &ScimGroup{}
 type ScimGroup struct {
 	Id *string `json:"id,omitempty"`
 	// The Name of the Usergroup in the language of the requester
-	DisplayName string `json:"displayName"`
+	DisplayName string `json:"displayName" validate:"regexp=^.{0,50}$"`
 	Members []ScimGroupMember `json:"members,omitempty"`
 }
 

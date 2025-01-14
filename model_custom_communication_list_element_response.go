@@ -32,7 +32,7 @@ type CustomCommunicationListElementResponse struct {
 	// The count of Communicationrecipient
 	ICommunicationrecipientCount int32 `json:"iCommunicationrecipientCount"`
 	// The subject of the Communication
-	SCommunicationSubject string `json:"sCommunicationSubject"`
+	SCommunicationSubject string `json:"sCommunicationSubject" validate:"regexp=^.{0,200}$"`
 	// The sender name of the Communication
 	SCommunicationSender string `json:"sCommunicationSender"`
 	// The recipients' name of the Communication

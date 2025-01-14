@@ -24,6 +24,139 @@ import (
 // ObjectBuyercontractAPIService ObjectBuyercontractAPI service
 type ObjectBuyercontractAPIService service
 
+type ApiBuyercontractGetCommunicationCountV1Request struct {
+	ctx context.Context
+	ApiService *ObjectBuyercontractAPIService
+	pkiBuyercontractID int32
+}
+
+func (r ApiBuyercontractGetCommunicationCountV1Request) Execute() (*BuyercontractGetCommunicationCountV1Response, *http.Response, error) {
+	return r.ApiService.BuyercontractGetCommunicationCountV1Execute(r)
+}
+
+/*
+BuyercontractGetCommunicationCountV1 Retrieve Communication count
+
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiBuyercontractID
+ @return ApiBuyercontractGetCommunicationCountV1Request
+*/
+func (a *ObjectBuyercontractAPIService) BuyercontractGetCommunicationCountV1(ctx context.Context, pkiBuyercontractID int32) ApiBuyercontractGetCommunicationCountV1Request {
+	return ApiBuyercontractGetCommunicationCountV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiBuyercontractID: pkiBuyercontractID,
+	}
+}
+
+// Execute executes the request
+//  @return BuyercontractGetCommunicationCountV1Response
+func (a *ObjectBuyercontractAPIService) BuyercontractGetCommunicationCountV1Execute(r ApiBuyercontractGetCommunicationCountV1Request) (*BuyercontractGetCommunicationCountV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BuyercontractGetCommunicationCountV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectBuyercontractAPIService.BuyercontractGetCommunicationCountV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/buyercontract/{pkiBuyercontractID}/getCommunicationCount"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiBuyercontractID"+"}", url.PathEscape(parameterValueToString(r.pkiBuyercontractID, "pkiBuyercontractID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiBuyercontractID < 1 {
+		return localVarReturnValue, nil, reportError("pkiBuyercontractID must be greater than 1")
+	}
+	if r.pkiBuyercontractID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiBuyercontractID must be less than 65535")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiBuyercontractGetCommunicationListV1Request struct {
 	ctx context.Context
 	ApiService *ObjectBuyercontractAPIService
@@ -67,6 +200,272 @@ func (a *ObjectBuyercontractAPIService) BuyercontractGetCommunicationListV1Execu
 	}
 
 	localVarPath := localBasePath + "/1/object/buyercontract/{pkiBuyercontractID}/getCommunicationList"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiBuyercontractID"+"}", url.PathEscape(parameterValueToString(r.pkiBuyercontractID, "pkiBuyercontractID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiBuyercontractID < 1 {
+		return localVarReturnValue, nil, reportError("pkiBuyercontractID must be greater than 1")
+	}
+	if r.pkiBuyercontractID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiBuyercontractID must be less than 65535")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiBuyercontractGetCommunicationrecipientsV1Request struct {
+	ctx context.Context
+	ApiService *ObjectBuyercontractAPIService
+	pkiBuyercontractID int32
+}
+
+func (r ApiBuyercontractGetCommunicationrecipientsV1Request) Execute() (*BuyercontractGetCommunicationrecipientsV1Response, *http.Response, error) {
+	return r.ApiService.BuyercontractGetCommunicationrecipientsV1Execute(r)
+}
+
+/*
+BuyercontractGetCommunicationrecipientsV1 Retrieve Buyercontract's Communicationrecipient
+
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiBuyercontractID
+ @return ApiBuyercontractGetCommunicationrecipientsV1Request
+*/
+func (a *ObjectBuyercontractAPIService) BuyercontractGetCommunicationrecipientsV1(ctx context.Context, pkiBuyercontractID int32) ApiBuyercontractGetCommunicationrecipientsV1Request {
+	return ApiBuyercontractGetCommunicationrecipientsV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiBuyercontractID: pkiBuyercontractID,
+	}
+}
+
+// Execute executes the request
+//  @return BuyercontractGetCommunicationrecipientsV1Response
+func (a *ObjectBuyercontractAPIService) BuyercontractGetCommunicationrecipientsV1Execute(r ApiBuyercontractGetCommunicationrecipientsV1Request) (*BuyercontractGetCommunicationrecipientsV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BuyercontractGetCommunicationrecipientsV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectBuyercontractAPIService.BuyercontractGetCommunicationrecipientsV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/buyercontract/{pkiBuyercontractID}/getCommunicationrecipients"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiBuyercontractID"+"}", url.PathEscape(parameterValueToString(r.pkiBuyercontractID, "pkiBuyercontractID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiBuyercontractID < 1 {
+		return localVarReturnValue, nil, reportError("pkiBuyercontractID must be greater than 1")
+	}
+	if r.pkiBuyercontractID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiBuyercontractID must be less than 65535")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiBuyercontractGetCommunicationsendersV1Request struct {
+	ctx context.Context
+	ApiService *ObjectBuyercontractAPIService
+	pkiBuyercontractID int32
+}
+
+func (r ApiBuyercontractGetCommunicationsendersV1Request) Execute() (*BuyercontractGetCommunicationsendersV1Response, *http.Response, error) {
+	return r.ApiService.BuyercontractGetCommunicationsendersV1Execute(r)
+}
+
+/*
+BuyercontractGetCommunicationsendersV1 Retrieve Buyercontract's Communicationsender
+
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiBuyercontractID
+ @return ApiBuyercontractGetCommunicationsendersV1Request
+*/
+func (a *ObjectBuyercontractAPIService) BuyercontractGetCommunicationsendersV1(ctx context.Context, pkiBuyercontractID int32) ApiBuyercontractGetCommunicationsendersV1Request {
+	return ApiBuyercontractGetCommunicationsendersV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiBuyercontractID: pkiBuyercontractID,
+	}
+}
+
+// Execute executes the request
+//  @return BuyercontractGetCommunicationsendersV1Response
+func (a *ObjectBuyercontractAPIService) BuyercontractGetCommunicationsendersV1Execute(r ApiBuyercontractGetCommunicationsendersV1Request) (*BuyercontractGetCommunicationsendersV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BuyercontractGetCommunicationsendersV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectBuyercontractAPIService.BuyercontractGetCommunicationsendersV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/buyercontract/{pkiBuyercontractID}/getCommunicationsenders"
 	localVarPath = strings.Replace(localVarPath, "{"+"pkiBuyercontractID"+"}", url.PathEscape(parameterValueToString(r.pkiBuyercontractID, "pkiBuyercontractID")), -1)
 
 	localVarHeaderParams := make(map[string]string)

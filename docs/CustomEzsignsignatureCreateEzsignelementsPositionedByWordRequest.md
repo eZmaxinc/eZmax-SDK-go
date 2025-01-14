@@ -18,12 +18,17 @@ Name | Type | Description | Notes
 **EEzsignsignatureTooltipposition** | Pointer to [**FieldEEzsignsignatureTooltipposition**](FieldEEzsignsignatureTooltipposition.md) |  | [optional] 
 **EEzsignsignatureFont** | Pointer to [**FieldEEzsignsignatureFont**](FieldEEzsignsignatureFont.md) |  | [optional] 
 **FkiEzsignfoldersignerassociationIDValidation** | Pointer to **int32** | The unique ID of the Ezsignfoldersignerassociation | [optional] 
-**BEzsignsignatureRequired** | Pointer to **bool** | Whether the Ezsignsignature is required or not. This field is relevant only with Ezsignsignature with eEzsignsignatureType &#x3D; Attachments. | [optional] 
+**BEzsignsignatureHandwritten** | Pointer to **bool** | Whether the Ezsignsignature must be handwritten or not when eEzsignsignatureType &#x3D; Signature. | [optional] 
+**BEzsignsignatureReason** | Pointer to **bool** | Whether the Ezsignsignature must include a reason or not when eEzsignsignatureType &#x3D; Signature. | [optional] 
+**BEzsignsignatureRequired** | Pointer to **bool** | Whether the Ezsignsignature is required or not. This field is relevant only with Ezsignsignature with eEzsignsignatureType &#x3D; Attachments, Text or Textarea. | [optional] 
 **EEzsignsignatureAttachmentnamesource** | Pointer to [**FieldEEzsignsignatureAttachmentnamesource**](FieldEEzsignsignatureAttachmentnamesource.md) |  | [optional] 
 **SEzsignsignatureAttachmentdescription** | Pointer to **string** | The description attached to the attachment name added in Ezsignsignature of eEzsignsignatureType Attachments | [optional] 
+**EEzsignsignatureConsultationtrigger** | Pointer to [**FieldEEzsignsignatureConsultationtrigger**](FieldEEzsignsignatureConsultationtrigger.md) |  | [optional] 
 **IEzsignsignatureValidationstep** | Pointer to **int32** | The step when the Ezsignsigner will be invited to validate the Ezsignsignature of eEzsignsignatureType Attachments | [optional] 
 **IEzsignsignatureMaxlength** | Pointer to **int32** | The maximum length for the value in the Ezsignsignature  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** | [optional] 
+**SEzsignsignatureDefaultvalue** | Pointer to **string** | The default value for the Ezsignsignature  You can use the codes below and they will be replaced at signature time.    | Code | Description | Example | | ------------------------- | ------------ | ------------ | | {sUserFirstname} | The first name of the contact | John | | {sUserLastname} | The last name of the contact | Doe | | {sUserJobtitle} | The job title | Sales Representative | | {sCompany} | Company name | eZmax Solutions Inc. | | {sEmailAddress} | The email address | email@example.com | | {sPhoneE164} | A phone number in E.164 Format | +15149901516 | | {sPhoneE164Cell} | A phone number in E.164 Format | +15149901516 | | [optional] 
 **EEzsignsignatureTextvalidation** | Pointer to [**EnumTextvalidation**](EnumTextvalidation.md) |  | [optional] 
+**SEzsignsignatureTextvalidationcustommessage** | Pointer to **string** | Description of validation rule. Show by signatory. | [optional] 
 **SEzsignsignatureRegexp** | Pointer to **string** | A regular expression to indicate what values are acceptable for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** and eEzsignsignatureTextvalidation is **Custom** | [optional] 
 **EEzsignsignatureDependencyrequirement** | Pointer to [**FieldEEzsignsignatureDependencyrequirement**](FieldEEzsignsignatureDependencyrequirement.md) |  | [optional] 
 **BEzsignsignatureCustomdate** | Pointer to **bool** | Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is **Name** or **Handwritten**) | [optional] 
@@ -365,6 +370,56 @@ SetFkiEzsignfoldersignerassociationIDValidation sets FkiEzsignfoldersignerassoci
 
 HasFkiEzsignfoldersignerassociationIDValidation returns a boolean if a field has been set.
 
+### GetBEzsignsignatureHandwritten
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetBEzsignsignatureHandwritten() bool`
+
+GetBEzsignsignatureHandwritten returns the BEzsignsignatureHandwritten field if non-nil, zero value otherwise.
+
+### GetBEzsignsignatureHandwrittenOk
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetBEzsignsignatureHandwrittenOk() (*bool, bool)`
+
+GetBEzsignsignatureHandwrittenOk returns a tuple with the BEzsignsignatureHandwritten field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsignsignatureHandwritten
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetBEzsignsignatureHandwritten(v bool)`
+
+SetBEzsignsignatureHandwritten sets BEzsignsignatureHandwritten field to given value.
+
+### HasBEzsignsignatureHandwritten
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasBEzsignsignatureHandwritten() bool`
+
+HasBEzsignsignatureHandwritten returns a boolean if a field has been set.
+
+### GetBEzsignsignatureReason
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetBEzsignsignatureReason() bool`
+
+GetBEzsignsignatureReason returns the BEzsignsignatureReason field if non-nil, zero value otherwise.
+
+### GetBEzsignsignatureReasonOk
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetBEzsignsignatureReasonOk() (*bool, bool)`
+
+GetBEzsignsignatureReasonOk returns a tuple with the BEzsignsignatureReason field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsignsignatureReason
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetBEzsignsignatureReason(v bool)`
+
+SetBEzsignsignatureReason sets BEzsignsignatureReason field to given value.
+
+### HasBEzsignsignatureReason
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasBEzsignsignatureReason() bool`
+
+HasBEzsignsignatureReason returns a boolean if a field has been set.
+
 ### GetBEzsignsignatureRequired
 
 `func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetBEzsignsignatureRequired() bool`
@@ -440,6 +495,31 @@ SetSEzsignsignatureAttachmentdescription sets SEzsignsignatureAttachmentdescript
 
 HasSEzsignsignatureAttachmentdescription returns a boolean if a field has been set.
 
+### GetEEzsignsignatureConsultationtrigger
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetEEzsignsignatureConsultationtrigger() FieldEEzsignsignatureConsultationtrigger`
+
+GetEEzsignsignatureConsultationtrigger returns the EEzsignsignatureConsultationtrigger field if non-nil, zero value otherwise.
+
+### GetEEzsignsignatureConsultationtriggerOk
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetEEzsignsignatureConsultationtriggerOk() (*FieldEEzsignsignatureConsultationtrigger, bool)`
+
+GetEEzsignsignatureConsultationtriggerOk returns a tuple with the EEzsignsignatureConsultationtrigger field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsignsignatureConsultationtrigger
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetEEzsignsignatureConsultationtrigger(v FieldEEzsignsignatureConsultationtrigger)`
+
+SetEEzsignsignatureConsultationtrigger sets EEzsignsignatureConsultationtrigger field to given value.
+
+### HasEEzsignsignatureConsultationtrigger
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasEEzsignsignatureConsultationtrigger() bool`
+
+HasEEzsignsignatureConsultationtrigger returns a boolean if a field has been set.
+
 ### GetIEzsignsignatureValidationstep
 
 `func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetIEzsignsignatureValidationstep() int32`
@@ -490,6 +570,31 @@ SetIEzsignsignatureMaxlength sets IEzsignsignatureMaxlength field to given value
 
 HasIEzsignsignatureMaxlength returns a boolean if a field has been set.
 
+### GetSEzsignsignatureDefaultvalue
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetSEzsignsignatureDefaultvalue() string`
+
+GetSEzsignsignatureDefaultvalue returns the SEzsignsignatureDefaultvalue field if non-nil, zero value otherwise.
+
+### GetSEzsignsignatureDefaultvalueOk
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetSEzsignsignatureDefaultvalueOk() (*string, bool)`
+
+GetSEzsignsignatureDefaultvalueOk returns a tuple with the SEzsignsignatureDefaultvalue field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzsignsignatureDefaultvalue
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetSEzsignsignatureDefaultvalue(v string)`
+
+SetSEzsignsignatureDefaultvalue sets SEzsignsignatureDefaultvalue field to given value.
+
+### HasSEzsignsignatureDefaultvalue
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasSEzsignsignatureDefaultvalue() bool`
+
+HasSEzsignsignatureDefaultvalue returns a boolean if a field has been set.
+
 ### GetEEzsignsignatureTextvalidation
 
 `func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetEEzsignsignatureTextvalidation() EnumTextvalidation`
@@ -514,6 +619,31 @@ SetEEzsignsignatureTextvalidation sets EEzsignsignatureTextvalidation field to g
 `func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasEEzsignsignatureTextvalidation() bool`
 
 HasEEzsignsignatureTextvalidation returns a boolean if a field has been set.
+
+### GetSEzsignsignatureTextvalidationcustommessage
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetSEzsignsignatureTextvalidationcustommessage() string`
+
+GetSEzsignsignatureTextvalidationcustommessage returns the SEzsignsignatureTextvalidationcustommessage field if non-nil, zero value otherwise.
+
+### GetSEzsignsignatureTextvalidationcustommessageOk
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetSEzsignsignatureTextvalidationcustommessageOk() (*string, bool)`
+
+GetSEzsignsignatureTextvalidationcustommessageOk returns a tuple with the SEzsignsignatureTextvalidationcustommessage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzsignsignatureTextvalidationcustommessage
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetSEzsignsignatureTextvalidationcustommessage(v string)`
+
+SetSEzsignsignatureTextvalidationcustommessage sets SEzsignsignatureTextvalidationcustommessage field to given value.
+
+### HasSEzsignsignatureTextvalidationcustommessage
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasSEzsignsignatureTextvalidationcustommessage() bool`
+
+HasSEzsignsignatureTextvalidationcustommessage returns a boolean if a field has been set.
 
 ### GetSEzsignsignatureRegexp
 

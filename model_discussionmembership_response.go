@@ -33,9 +33,9 @@ type DiscussionmembershipResponse struct {
 	// The unique ID of the Modulesection
 	FkiModulesectionID *int32 `json:"fkiModulesectionID,omitempty"`
 	// The Description containing the detail of who the Discussionmembership refers to
-	SDiscussionmembershipDescription string `json:"sDiscussionmembershipDescription"`
+	SDiscussionmembershipDescription string `json:"sDiscussionmembershipDescription" validate:"regexp=^.{0,100}$"`
 	// The joined date of the Discussionmembership
-	DtDiscussionmembershipJoined string `json:"dtDiscussionmembershipJoined"`
+	DtDiscussionmembershipJoined string `json:"dtDiscussionmembershipJoined" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$"`
 }
 
 type _DiscussionmembershipResponse DiscussionmembershipResponse

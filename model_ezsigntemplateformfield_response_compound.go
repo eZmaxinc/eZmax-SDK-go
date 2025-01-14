@@ -35,9 +35,9 @@ type EzsigntemplateformfieldResponseCompound struct {
 	IEzsigntemplateformfieldX *int32 `json:"iEzsigntemplateformfieldX,omitempty"`
 	// The Y coordinate (Vertical) where to put the Ezsigntemplateformfield on the Ezsigntemplatepage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplateformfield 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.
 	IEzsigntemplateformfieldY *int32 `json:"iEzsigntemplateformfieldY,omitempty"`
-	// The Width of the Ezsigntemplateformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsigntemplateformfieldgroupType.  | eEzsigntemplateformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22-65535     | | Radio                     | 22           | | Text                      | 22-65535     | | Textarea                  | 22-65535     |
+	// The Width of the Ezsigntemplateformfield in pixels calculated at 100 DPI
 	IEzsigntemplateformfieldWidth int32 `json:"iEzsigntemplateformfieldWidth"`
-	// The Height of the Ezsigntemplateformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsigntemplateformfieldgroupType.  | eEzsigntemplateformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22           | | Radio                     | 22           | | Text                      | 22           | | Textarea                  | 22-65535     | 
+	// The Height of the Ezsigntemplateformfield in pixels calculated at 100 DPI 
 	IEzsigntemplateformfieldHeight int32 `json:"iEzsigntemplateformfieldHeight"`
 	// Whether the Ezsigntemplateformfield allows the use of the autocomplete of the browser.  This can only be set if eEzsigntemplateformfieldgroupType is **Text**
 	BEzsigntemplateformfieldAutocomplete *bool `json:"bEzsigntemplateformfieldAutocomplete,omitempty"`
@@ -45,12 +45,14 @@ type EzsigntemplateformfieldResponseCompound struct {
 	BEzsigntemplateformfieldSelected *bool `json:"bEzsigntemplateformfieldSelected,omitempty"`
 	EEzsigntemplateformfieldDependencyrequirement *FieldEEzsigntemplateformfieldDependencyrequirement `json:"eEzsigntemplateformfieldDependencyrequirement,omitempty"`
 	// The string pattern to search for the positioning. **This is not a regexp**  This will be required if **eEzsigntemplateformfieldPositioning** is set to **PerCoordinates**
-	SEzsigntemplateformfieldPositioningpattern *string `json:"sEzsigntemplateformfieldPositioningpattern,omitempty"`
+	SEzsigntemplateformfieldPositioningpattern *string `json:"sEzsigntemplateformfieldPositioningpattern,omitempty" validate:"regexp=^.{0,30}$"`
 	// The offset X  This will be required if **eEzsigntemplateformfieldPositioning** is set to **PerCoordinates**
 	IEzsigntemplateformfieldPositioningoffsetx *int32 `json:"iEzsigntemplateformfieldPositioningoffsetx,omitempty"`
 	// The offset Y  This will be required if **eEzsigntemplateformfieldPositioning** is set to **PerCoordinates**
 	IEzsigntemplateformfieldPositioningoffsety *int32 `json:"iEzsigntemplateformfieldPositioningoffsety,omitempty"`
 	EEzsigntemplateformfieldPositioningoccurence *FieldEEzsigntemplateformfieldPositioningoccurence `json:"eEzsigntemplateformfieldPositioningoccurence,omitempty"`
+	EEzsigntemplateformfieldHorizontalalignment *EnumHorizontalalignment `json:"eEzsigntemplateformfieldHorizontalalignment,omitempty"`
+	ObjTextstylestatic *TextstylestaticResponseCompound `json:"objTextstylestatic,omitempty"`
 	AObjEzsigntemplateelementdependency []EzsigntemplateelementdependencyResponseCompound `json:"a_objEzsigntemplateelementdependency,omitempty"`
 }
 
@@ -554,6 +556,70 @@ func (o *EzsigntemplateformfieldResponseCompound) SetEEzsigntemplateformfieldPos
 	o.EEzsigntemplateformfieldPositioningoccurence = &v
 }
 
+// GetEEzsigntemplateformfieldHorizontalalignment returns the EEzsigntemplateformfieldHorizontalalignment field value if set, zero value otherwise.
+func (o *EzsigntemplateformfieldResponseCompound) GetEEzsigntemplateformfieldHorizontalalignment() EnumHorizontalalignment {
+	if o == nil || IsNil(o.EEzsigntemplateformfieldHorizontalalignment) {
+		var ret EnumHorizontalalignment
+		return ret
+	}
+	return *o.EEzsigntemplateformfieldHorizontalalignment
+}
+
+// GetEEzsigntemplateformfieldHorizontalalignmentOk returns a tuple with the EEzsigntemplateformfieldHorizontalalignment field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateformfieldResponseCompound) GetEEzsigntemplateformfieldHorizontalalignmentOk() (*EnumHorizontalalignment, bool) {
+	if o == nil || IsNil(o.EEzsigntemplateformfieldHorizontalalignment) {
+		return nil, false
+	}
+	return o.EEzsigntemplateformfieldHorizontalalignment, true
+}
+
+// HasEEzsigntemplateformfieldHorizontalalignment returns a boolean if a field has been set.
+func (o *EzsigntemplateformfieldResponseCompound) HasEEzsigntemplateformfieldHorizontalalignment() bool {
+	if o != nil && !IsNil(o.EEzsigntemplateformfieldHorizontalalignment) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsigntemplateformfieldHorizontalalignment gets a reference to the given EnumHorizontalalignment and assigns it to the EEzsigntemplateformfieldHorizontalalignment field.
+func (o *EzsigntemplateformfieldResponseCompound) SetEEzsigntemplateformfieldHorizontalalignment(v EnumHorizontalalignment) {
+	o.EEzsigntemplateformfieldHorizontalalignment = &v
+}
+
+// GetObjTextstylestatic returns the ObjTextstylestatic field value if set, zero value otherwise.
+func (o *EzsigntemplateformfieldResponseCompound) GetObjTextstylestatic() TextstylestaticResponseCompound {
+	if o == nil || IsNil(o.ObjTextstylestatic) {
+		var ret TextstylestaticResponseCompound
+		return ret
+	}
+	return *o.ObjTextstylestatic
+}
+
+// GetObjTextstylestaticOk returns a tuple with the ObjTextstylestatic field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateformfieldResponseCompound) GetObjTextstylestaticOk() (*TextstylestaticResponseCompound, bool) {
+	if o == nil || IsNil(o.ObjTextstylestatic) {
+		return nil, false
+	}
+	return o.ObjTextstylestatic, true
+}
+
+// HasObjTextstylestatic returns a boolean if a field has been set.
+func (o *EzsigntemplateformfieldResponseCompound) HasObjTextstylestatic() bool {
+	if o != nil && !IsNil(o.ObjTextstylestatic) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjTextstylestatic gets a reference to the given TextstylestaticResponseCompound and assigns it to the ObjTextstylestatic field.
+func (o *EzsigntemplateformfieldResponseCompound) SetObjTextstylestatic(v TextstylestaticResponseCompound) {
+	o.ObjTextstylestatic = &v
+}
+
 // GetAObjEzsigntemplateelementdependency returns the AObjEzsigntemplateelementdependency field value if set, zero value otherwise.
 func (o *EzsigntemplateformfieldResponseCompound) GetAObjEzsigntemplateelementdependency() []EzsigntemplateelementdependencyResponseCompound {
 	if o == nil || IsNil(o.AObjEzsigntemplateelementdependency) {
@@ -633,6 +699,12 @@ func (o EzsigntemplateformfieldResponseCompound) ToMap() (map[string]interface{}
 	}
 	if !IsNil(o.EEzsigntemplateformfieldPositioningoccurence) {
 		toSerialize["eEzsigntemplateformfieldPositioningoccurence"] = o.EEzsigntemplateformfieldPositioningoccurence
+	}
+	if !IsNil(o.EEzsigntemplateformfieldHorizontalalignment) {
+		toSerialize["eEzsigntemplateformfieldHorizontalalignment"] = o.EEzsigntemplateformfieldHorizontalalignment
+	}
+	if !IsNil(o.ObjTextstylestatic) {
+		toSerialize["objTextstylestatic"] = o.ObjTextstylestatic
 	}
 	if !IsNil(o.AObjEzsigntemplateelementdependency) {
 		toSerialize["a_objEzsigntemplateelementdependency"] = o.AObjEzsigntemplateelementdependency

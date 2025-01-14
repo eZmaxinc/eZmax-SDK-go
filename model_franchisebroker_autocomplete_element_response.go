@@ -22,7 +22,7 @@ var _ MappedNullable = &FranchisebrokerAutocompleteElementResponse{}
 
 // FranchisebrokerAutocompleteElementResponse A Franchisebroker AutocompleteElement Response
 type FranchisebrokerAutocompleteElementResponse struct {
-	// The name of the Franchisebroker in the language of the requester
+	// The name of the Franchisebroker
 	SFranchisebrokerName string `json:"sFranchisebrokerName"`
 	// The unique ID of the Franchisebroker
 	PkiFranchisebrokerID int32 `json:"pkiFranchisebrokerID"`

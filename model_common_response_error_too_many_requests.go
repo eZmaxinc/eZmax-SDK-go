@@ -23,8 +23,10 @@ var _ MappedNullable = &CommonResponseErrorTooManyRequests{}
 // CommonResponseErrorTooManyRequests Generic Error Message
 type CommonResponseErrorTooManyRequests struct {
 	// The message giving details about the error
-	SErrorMessage string `json:"sErrorMessage"`
+	SErrorMessage string `json:"sErrorMessage" validate:"regexp=^.{0,500}$"`
 	EErrorCode FieldEErrorCode `json:"eErrorCode"`
+	// More error message detail
+	ASErrorMessagedetail []string `json:"a_sErrorMessagedetail,omitempty"`
 }
 
 type _CommonResponseErrorTooManyRequests CommonResponseErrorTooManyRequests
@@ -96,6 +98,38 @@ func (o *CommonResponseErrorTooManyRequests) SetEErrorCode(v FieldEErrorCode) {
 	o.EErrorCode = v
 }
 
+// GetASErrorMessagedetail returns the ASErrorMessagedetail field value if set, zero value otherwise.
+func (o *CommonResponseErrorTooManyRequests) GetASErrorMessagedetail() []string {
+	if o == nil || IsNil(o.ASErrorMessagedetail) {
+		var ret []string
+		return ret
+	}
+	return o.ASErrorMessagedetail
+}
+
+// GetASErrorMessagedetailOk returns a tuple with the ASErrorMessagedetail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CommonResponseErrorTooManyRequests) GetASErrorMessagedetailOk() ([]string, bool) {
+	if o == nil || IsNil(o.ASErrorMessagedetail) {
+		return nil, false
+	}
+	return o.ASErrorMessagedetail, true
+}
+
+// HasASErrorMessagedetail returns a boolean if a field has been set.
+func (o *CommonResponseErrorTooManyRequests) HasASErrorMessagedetail() bool {
+	if o != nil && !IsNil(o.ASErrorMessagedetail) {
+		return true
+	}
+
+	return false
+}
+
+// SetASErrorMessagedetail gets a reference to the given []string and assigns it to the ASErrorMessagedetail field.
+func (o *CommonResponseErrorTooManyRequests) SetASErrorMessagedetail(v []string) {
+	o.ASErrorMessagedetail = v
+}
+
 func (o CommonResponseErrorTooManyRequests) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -108,6 +142,9 @@ func (o CommonResponseErrorTooManyRequests) ToMap() (map[string]interface{}, err
 	toSerialize := map[string]interface{}{}
 	toSerialize["sErrorMessage"] = o.SErrorMessage
 	toSerialize["eErrorCode"] = o.EErrorCode
+	if !IsNil(o.ASErrorMessagedetail) {
+		toSerialize["a_sErrorMessagedetail"] = o.ASErrorMessagedetail
+	}
 	return toSerialize, nil
 }
 

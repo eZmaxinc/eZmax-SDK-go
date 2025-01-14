@@ -27,7 +27,7 @@ type EzsigntemplateglobalsignerResponse struct {
 	// The unique ID of the Ezsigntemplateglobal
 	FkiEzsigntemplateglobalID int32 `json:"fkiEzsigntemplateglobalID"`
 	// The description of the Ezsigntemplateglobalsigner
-	SEzsigntemplateglobalsignerDescription string `json:"sEzsigntemplateglobalsignerDescription"`
+	SEzsigntemplateglobalsignerDescription string `json:"sEzsigntemplateglobalsignerDescription" validate:"regexp=^.{1,50}$"`
 }
 
 type _EzsigntemplateglobalsignerResponse EzsigntemplateglobalsignerResponse

@@ -26,7 +26,8 @@ type UsergroupResponse struct {
 	PkiUsergroupID int32 `json:"pkiUsergroupID"`
 	ObjUsergroupName MultilingualUsergroupName `json:"objUsergroupName"`
 	// The Name of the Usergroup in the language of the requester
-	SUsergroupNameX *string `json:"sUsergroupNameX,omitempty"`
+	SUsergroupNameX *string `json:"sUsergroupNameX,omitempty" validate:"regexp=^.{0,50}$"`
+	ObjEmail *EmailRequest `json:"objEmail,omitempty"`
 }
 
 type _UsergroupResponse UsergroupResponse
@@ -130,6 +131,38 @@ func (o *UsergroupResponse) SetSUsergroupNameX(v string) {
 	o.SUsergroupNameX = &v
 }
 
+// GetObjEmail returns the ObjEmail field value if set, zero value otherwise.
+func (o *UsergroupResponse) GetObjEmail() EmailRequest {
+	if o == nil || IsNil(o.ObjEmail) {
+		var ret EmailRequest
+		return ret
+	}
+	return *o.ObjEmail
+}
+
+// GetObjEmailOk returns a tuple with the ObjEmail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsergroupResponse) GetObjEmailOk() (*EmailRequest, bool) {
+	if o == nil || IsNil(o.ObjEmail) {
+		return nil, false
+	}
+	return o.ObjEmail, true
+}
+
+// HasObjEmail returns a boolean if a field has been set.
+func (o *UsergroupResponse) HasObjEmail() bool {
+	if o != nil && !IsNil(o.ObjEmail) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjEmail gets a reference to the given EmailRequest and assigns it to the ObjEmail field.
+func (o *UsergroupResponse) SetObjEmail(v EmailRequest) {
+	o.ObjEmail = &v
+}
+
 func (o UsergroupResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -144,6 +177,9 @@ func (o UsergroupResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["objUsergroupName"] = o.ObjUsergroupName
 	if !IsNil(o.SUsergroupNameX) {
 		toSerialize["sUsergroupNameX"] = o.SUsergroupNameX
+	}
+	if !IsNil(o.ObjEmail) {
+		toSerialize["objEmail"] = o.ObjEmail
 	}
 	return toSerialize, nil
 }

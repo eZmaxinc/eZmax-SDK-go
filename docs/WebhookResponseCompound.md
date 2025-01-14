@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiWebhookID** | **int32** | The unique ID of the Webhook | 
+**FkiAuthenticationexternalID** | Pointer to **int32** | The unique ID of the Authenticationexternal | [optional] 
 **SWebhookDescription** | **string** | The description of the Webhook | 
 **FkiEzsignfoldertypeID** | Pointer to **int32** | The unique ID of the Ezsignfoldertype. | [optional] 
 **SEzsignfoldertypeNameX** | Pointer to **string** | The name of the Ezsignfoldertype in the language of the requester | [optional] 
@@ -18,6 +19,7 @@ Name | Type | Description | Notes
 **BWebhookIsactive** | **bool** | Whether the Webhook is active or not | 
 **BWebhookIssigned** | **bool** | Whether the requests will be signed or not | 
 **BWebhookSkipsslvalidation** | **bool** | Wheter the server&#39;s SSL certificate should be validated or not. Not recommended to skip for production use | 
+**SAuthenticationexternalDescription** | Pointer to **string** | The description of the Authenticationexternal | [optional] 
 **ObjAudit** | [**CommonAudit**](CommonAudit.md) |  | 
 **SWebhookEvent** | Pointer to **string** | The concatenated string to describe the Webhook event | [optional] 
 **AObjWebhookheader** | Pointer to [**[]WebhookheaderResponseCompound**](WebhookheaderResponseCompound.md) |  | [optional] 
@@ -60,6 +62,31 @@ and a boolean to check if the value has been set.
 
 SetPkiWebhookID sets PkiWebhookID field to given value.
 
+
+### GetFkiAuthenticationexternalID
+
+`func (o *WebhookResponseCompound) GetFkiAuthenticationexternalID() int32`
+
+GetFkiAuthenticationexternalID returns the FkiAuthenticationexternalID field if non-nil, zero value otherwise.
+
+### GetFkiAuthenticationexternalIDOk
+
+`func (o *WebhookResponseCompound) GetFkiAuthenticationexternalIDOk() (*int32, bool)`
+
+GetFkiAuthenticationexternalIDOk returns a tuple with the FkiAuthenticationexternalID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiAuthenticationexternalID
+
+`func (o *WebhookResponseCompound) SetFkiAuthenticationexternalID(v int32)`
+
+SetFkiAuthenticationexternalID sets FkiAuthenticationexternalID field to given value.
+
+### HasFkiAuthenticationexternalID
+
+`func (o *WebhookResponseCompound) HasFkiAuthenticationexternalID() bool`
+
+HasFkiAuthenticationexternalID returns a boolean if a field has been set.
 
 ### GetSWebhookDescription
 
@@ -350,6 +377,31 @@ and a boolean to check if the value has been set.
 
 SetBWebhookSkipsslvalidation sets BWebhookSkipsslvalidation field to given value.
 
+
+### GetSAuthenticationexternalDescription
+
+`func (o *WebhookResponseCompound) GetSAuthenticationexternalDescription() string`
+
+GetSAuthenticationexternalDescription returns the SAuthenticationexternalDescription field if non-nil, zero value otherwise.
+
+### GetSAuthenticationexternalDescriptionOk
+
+`func (o *WebhookResponseCompound) GetSAuthenticationexternalDescriptionOk() (*string, bool)`
+
+GetSAuthenticationexternalDescriptionOk returns a tuple with the SAuthenticationexternalDescription field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSAuthenticationexternalDescription
+
+`func (o *WebhookResponseCompound) SetSAuthenticationexternalDescription(v string)`
+
+SetSAuthenticationexternalDescription sets SAuthenticationexternalDescription field to given value.
+
+### HasSAuthenticationexternalDescription
+
+`func (o *WebhookResponseCompound) HasSAuthenticationexternalDescription() bool`
+
+HasSAuthenticationexternalDescription returns a boolean if a field has been set.
 
 ### GetObjAudit
 

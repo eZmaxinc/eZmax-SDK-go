@@ -24,6 +24,12 @@ var _ MappedNullable = &CustomEzsignfoldertypeResponse{}
 type CustomEzsignfoldertypeResponse struct {
 	// The unique ID of the Ezsignfoldertype.
 	PkiEzsignfoldertypeID int32 `json:"pkiEzsignfoldertypeID"`
+	// The unique ID of the Font
+	FkiFontIDAnnotation *int32 `json:"fkiFontIDAnnotation,omitempty"`
+	// The unique ID of the Font
+	FkiFontIDFormfield *int32 `json:"fkiFontIDFormfield,omitempty"`
+	// The unique ID of the Font
+	FkiFontIDSignature *int32 `json:"fkiFontIDSignature,omitempty"`
 	// The name of the Ezsignfoldertype in the language of the requester
 	SEzsignfoldertypeNameX *string `json:"sEzsignfoldertypeNameX,omitempty"`
 	// Whether we send the proof in the email to Ezsignsigner
@@ -32,6 +38,8 @@ type CustomEzsignfoldertypeResponse struct {
 	BEzsignfoldertypeAllowdownloadattachmentezsignsigner *bool `json:"bEzsignfoldertypeAllowdownloadattachmentezsignsigner,omitempty"`
 	// Whether we allow the proof to be downloaded by an Ezsignsigner
 	BEzsignfoldertypeAllowdownloadproofezsignsigner *bool `json:"bEzsignfoldertypeAllowdownloadproofezsignsigner,omitempty"`
+	// Whether we allow the automatic signature by an User
+	BEzsignfoldertypeAutomaticsignature *bool `json:"bEzsignfoldertypeAutomaticsignature,omitempty"`
 	// Wheter if delegation of signature is allowed to another user or not
 	BEzsignfoldertypeDelegate *bool `json:"bEzsignfoldertypeDelegate,omitempty"`
 	// Wheter if creating a new Discussion is allowed or not
@@ -40,6 +48,14 @@ type CustomEzsignfoldertypeResponse struct {
 	BEzsignfoldertypeReassignezsignsigner *bool `json:"bEzsignfoldertypeReassignezsignsigner,omitempty"`
 	// Wheter if Reassignment of signature is allowed by a user to a signatory or another user or not
 	BEzsignfoldertypeReassignuser *bool `json:"bEzsignfoldertypeReassignuser,omitempty"`
+	// Wheter if Reassignment of signatures of the groups to which the user belongs is authorized by a user to himself
+	BEzsignfoldertypeReassigngroup *bool `json:"bEzsignfoldertypeReassigngroup,omitempty"`
+	// The number of days to get all Ezsignsignatures
+	IEzsignfoldertypeDeadlinedays *int32 `json:"iEzsignfoldertypeDeadlinedays,omitempty"`
+	// Font size for annotations
+	IEzsignfoldertypeFontsizeannotation *int32 `json:"iEzsignfoldertypeFontsizeannotation,omitempty"`
+	// Font size for form fields
+	IEzsignfoldertypeFontsizeformfield *int32 `json:"iEzsignfoldertypeFontsizeformfield,omitempty"`
 }
 
 type _CustomEzsignfoldertypeResponse CustomEzsignfoldertypeResponse
@@ -84,6 +100,102 @@ func (o *CustomEzsignfoldertypeResponse) GetPkiEzsignfoldertypeIDOk() (*int32, b
 // SetPkiEzsignfoldertypeID sets field value
 func (o *CustomEzsignfoldertypeResponse) SetPkiEzsignfoldertypeID(v int32) {
 	o.PkiEzsignfoldertypeID = v
+}
+
+// GetFkiFontIDAnnotation returns the FkiFontIDAnnotation field value if set, zero value otherwise.
+func (o *CustomEzsignfoldertypeResponse) GetFkiFontIDAnnotation() int32 {
+	if o == nil || IsNil(o.FkiFontIDAnnotation) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiFontIDAnnotation
+}
+
+// GetFkiFontIDAnnotationOk returns a tuple with the FkiFontIDAnnotation field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignfoldertypeResponse) GetFkiFontIDAnnotationOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiFontIDAnnotation) {
+		return nil, false
+	}
+	return o.FkiFontIDAnnotation, true
+}
+
+// HasFkiFontIDAnnotation returns a boolean if a field has been set.
+func (o *CustomEzsignfoldertypeResponse) HasFkiFontIDAnnotation() bool {
+	if o != nil && !IsNil(o.FkiFontIDAnnotation) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiFontIDAnnotation gets a reference to the given int32 and assigns it to the FkiFontIDAnnotation field.
+func (o *CustomEzsignfoldertypeResponse) SetFkiFontIDAnnotation(v int32) {
+	o.FkiFontIDAnnotation = &v
+}
+
+// GetFkiFontIDFormfield returns the FkiFontIDFormfield field value if set, zero value otherwise.
+func (o *CustomEzsignfoldertypeResponse) GetFkiFontIDFormfield() int32 {
+	if o == nil || IsNil(o.FkiFontIDFormfield) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiFontIDFormfield
+}
+
+// GetFkiFontIDFormfieldOk returns a tuple with the FkiFontIDFormfield field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignfoldertypeResponse) GetFkiFontIDFormfieldOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiFontIDFormfield) {
+		return nil, false
+	}
+	return o.FkiFontIDFormfield, true
+}
+
+// HasFkiFontIDFormfield returns a boolean if a field has been set.
+func (o *CustomEzsignfoldertypeResponse) HasFkiFontIDFormfield() bool {
+	if o != nil && !IsNil(o.FkiFontIDFormfield) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiFontIDFormfield gets a reference to the given int32 and assigns it to the FkiFontIDFormfield field.
+func (o *CustomEzsignfoldertypeResponse) SetFkiFontIDFormfield(v int32) {
+	o.FkiFontIDFormfield = &v
+}
+
+// GetFkiFontIDSignature returns the FkiFontIDSignature field value if set, zero value otherwise.
+func (o *CustomEzsignfoldertypeResponse) GetFkiFontIDSignature() int32 {
+	if o == nil || IsNil(o.FkiFontIDSignature) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiFontIDSignature
+}
+
+// GetFkiFontIDSignatureOk returns a tuple with the FkiFontIDSignature field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignfoldertypeResponse) GetFkiFontIDSignatureOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiFontIDSignature) {
+		return nil, false
+	}
+	return o.FkiFontIDSignature, true
+}
+
+// HasFkiFontIDSignature returns a boolean if a field has been set.
+func (o *CustomEzsignfoldertypeResponse) HasFkiFontIDSignature() bool {
+	if o != nil && !IsNil(o.FkiFontIDSignature) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiFontIDSignature gets a reference to the given int32 and assigns it to the FkiFontIDSignature field.
+func (o *CustomEzsignfoldertypeResponse) SetFkiFontIDSignature(v int32) {
+	o.FkiFontIDSignature = &v
 }
 
 // GetSEzsignfoldertypeNameX returns the SEzsignfoldertypeNameX field value if set, zero value otherwise.
@@ -214,6 +326,38 @@ func (o *CustomEzsignfoldertypeResponse) SetBEzsignfoldertypeAllowdownloadproofe
 	o.BEzsignfoldertypeAllowdownloadproofezsignsigner = &v
 }
 
+// GetBEzsignfoldertypeAutomaticsignature returns the BEzsignfoldertypeAutomaticsignature field value if set, zero value otherwise.
+func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeAutomaticsignature() bool {
+	if o == nil || IsNil(o.BEzsignfoldertypeAutomaticsignature) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignfoldertypeAutomaticsignature
+}
+
+// GetBEzsignfoldertypeAutomaticsignatureOk returns a tuple with the BEzsignfoldertypeAutomaticsignature field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeAutomaticsignatureOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignfoldertypeAutomaticsignature) {
+		return nil, false
+	}
+	return o.BEzsignfoldertypeAutomaticsignature, true
+}
+
+// HasBEzsignfoldertypeAutomaticsignature returns a boolean if a field has been set.
+func (o *CustomEzsignfoldertypeResponse) HasBEzsignfoldertypeAutomaticsignature() bool {
+	if o != nil && !IsNil(o.BEzsignfoldertypeAutomaticsignature) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignfoldertypeAutomaticsignature gets a reference to the given bool and assigns it to the BEzsignfoldertypeAutomaticsignature field.
+func (o *CustomEzsignfoldertypeResponse) SetBEzsignfoldertypeAutomaticsignature(v bool) {
+	o.BEzsignfoldertypeAutomaticsignature = &v
+}
+
 // GetBEzsignfoldertypeDelegate returns the BEzsignfoldertypeDelegate field value if set, zero value otherwise.
 func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeDelegate() bool {
 	if o == nil || IsNil(o.BEzsignfoldertypeDelegate) {
@@ -342,6 +486,134 @@ func (o *CustomEzsignfoldertypeResponse) SetBEzsignfoldertypeReassignuser(v bool
 	o.BEzsignfoldertypeReassignuser = &v
 }
 
+// GetBEzsignfoldertypeReassigngroup returns the BEzsignfoldertypeReassigngroup field value if set, zero value otherwise.
+func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeReassigngroup() bool {
+	if o == nil || IsNil(o.BEzsignfoldertypeReassigngroup) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignfoldertypeReassigngroup
+}
+
+// GetBEzsignfoldertypeReassigngroupOk returns a tuple with the BEzsignfoldertypeReassigngroup field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeReassigngroupOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignfoldertypeReassigngroup) {
+		return nil, false
+	}
+	return o.BEzsignfoldertypeReassigngroup, true
+}
+
+// HasBEzsignfoldertypeReassigngroup returns a boolean if a field has been set.
+func (o *CustomEzsignfoldertypeResponse) HasBEzsignfoldertypeReassigngroup() bool {
+	if o != nil && !IsNil(o.BEzsignfoldertypeReassigngroup) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignfoldertypeReassigngroup gets a reference to the given bool and assigns it to the BEzsignfoldertypeReassigngroup field.
+func (o *CustomEzsignfoldertypeResponse) SetBEzsignfoldertypeReassigngroup(v bool) {
+	o.BEzsignfoldertypeReassigngroup = &v
+}
+
+// GetIEzsignfoldertypeDeadlinedays returns the IEzsignfoldertypeDeadlinedays field value if set, zero value otherwise.
+func (o *CustomEzsignfoldertypeResponse) GetIEzsignfoldertypeDeadlinedays() int32 {
+	if o == nil || IsNil(o.IEzsignfoldertypeDeadlinedays) {
+		var ret int32
+		return ret
+	}
+	return *o.IEzsignfoldertypeDeadlinedays
+}
+
+// GetIEzsignfoldertypeDeadlinedaysOk returns a tuple with the IEzsignfoldertypeDeadlinedays field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignfoldertypeResponse) GetIEzsignfoldertypeDeadlinedaysOk() (*int32, bool) {
+	if o == nil || IsNil(o.IEzsignfoldertypeDeadlinedays) {
+		return nil, false
+	}
+	return o.IEzsignfoldertypeDeadlinedays, true
+}
+
+// HasIEzsignfoldertypeDeadlinedays returns a boolean if a field has been set.
+func (o *CustomEzsignfoldertypeResponse) HasIEzsignfoldertypeDeadlinedays() bool {
+	if o != nil && !IsNil(o.IEzsignfoldertypeDeadlinedays) {
+		return true
+	}
+
+	return false
+}
+
+// SetIEzsignfoldertypeDeadlinedays gets a reference to the given int32 and assigns it to the IEzsignfoldertypeDeadlinedays field.
+func (o *CustomEzsignfoldertypeResponse) SetIEzsignfoldertypeDeadlinedays(v int32) {
+	o.IEzsignfoldertypeDeadlinedays = &v
+}
+
+// GetIEzsignfoldertypeFontsizeannotation returns the IEzsignfoldertypeFontsizeannotation field value if set, zero value otherwise.
+func (o *CustomEzsignfoldertypeResponse) GetIEzsignfoldertypeFontsizeannotation() int32 {
+	if o == nil || IsNil(o.IEzsignfoldertypeFontsizeannotation) {
+		var ret int32
+		return ret
+	}
+	return *o.IEzsignfoldertypeFontsizeannotation
+}
+
+// GetIEzsignfoldertypeFontsizeannotationOk returns a tuple with the IEzsignfoldertypeFontsizeannotation field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignfoldertypeResponse) GetIEzsignfoldertypeFontsizeannotationOk() (*int32, bool) {
+	if o == nil || IsNil(o.IEzsignfoldertypeFontsizeannotation) {
+		return nil, false
+	}
+	return o.IEzsignfoldertypeFontsizeannotation, true
+}
+
+// HasIEzsignfoldertypeFontsizeannotation returns a boolean if a field has been set.
+func (o *CustomEzsignfoldertypeResponse) HasIEzsignfoldertypeFontsizeannotation() bool {
+	if o != nil && !IsNil(o.IEzsignfoldertypeFontsizeannotation) {
+		return true
+	}
+
+	return false
+}
+
+// SetIEzsignfoldertypeFontsizeannotation gets a reference to the given int32 and assigns it to the IEzsignfoldertypeFontsizeannotation field.
+func (o *CustomEzsignfoldertypeResponse) SetIEzsignfoldertypeFontsizeannotation(v int32) {
+	o.IEzsignfoldertypeFontsizeannotation = &v
+}
+
+// GetIEzsignfoldertypeFontsizeformfield returns the IEzsignfoldertypeFontsizeformfield field value if set, zero value otherwise.
+func (o *CustomEzsignfoldertypeResponse) GetIEzsignfoldertypeFontsizeformfield() int32 {
+	if o == nil || IsNil(o.IEzsignfoldertypeFontsizeformfield) {
+		var ret int32
+		return ret
+	}
+	return *o.IEzsignfoldertypeFontsizeformfield
+}
+
+// GetIEzsignfoldertypeFontsizeformfieldOk returns a tuple with the IEzsignfoldertypeFontsizeformfield field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignfoldertypeResponse) GetIEzsignfoldertypeFontsizeformfieldOk() (*int32, bool) {
+	if o == nil || IsNil(o.IEzsignfoldertypeFontsizeformfield) {
+		return nil, false
+	}
+	return o.IEzsignfoldertypeFontsizeformfield, true
+}
+
+// HasIEzsignfoldertypeFontsizeformfield returns a boolean if a field has been set.
+func (o *CustomEzsignfoldertypeResponse) HasIEzsignfoldertypeFontsizeformfield() bool {
+	if o != nil && !IsNil(o.IEzsignfoldertypeFontsizeformfield) {
+		return true
+	}
+
+	return false
+}
+
+// SetIEzsignfoldertypeFontsizeformfield gets a reference to the given int32 and assigns it to the IEzsignfoldertypeFontsizeformfield field.
+func (o *CustomEzsignfoldertypeResponse) SetIEzsignfoldertypeFontsizeformfield(v int32) {
+	o.IEzsignfoldertypeFontsizeformfield = &v
+}
+
 func (o CustomEzsignfoldertypeResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -353,6 +625,15 @@ func (o CustomEzsignfoldertypeResponse) MarshalJSON() ([]byte, error) {
 func (o CustomEzsignfoldertypeResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiEzsignfoldertypeID"] = o.PkiEzsignfoldertypeID
+	if !IsNil(o.FkiFontIDAnnotation) {
+		toSerialize["fkiFontIDAnnotation"] = o.FkiFontIDAnnotation
+	}
+	if !IsNil(o.FkiFontIDFormfield) {
+		toSerialize["fkiFontIDFormfield"] = o.FkiFontIDFormfield
+	}
+	if !IsNil(o.FkiFontIDSignature) {
+		toSerialize["fkiFontIDSignature"] = o.FkiFontIDSignature
+	}
 	if !IsNil(o.SEzsignfoldertypeNameX) {
 		toSerialize["sEzsignfoldertypeNameX"] = o.SEzsignfoldertypeNameX
 	}
@@ -365,6 +646,9 @@ func (o CustomEzsignfoldertypeResponse) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.BEzsignfoldertypeAllowdownloadproofezsignsigner) {
 		toSerialize["bEzsignfoldertypeAllowdownloadproofezsignsigner"] = o.BEzsignfoldertypeAllowdownloadproofezsignsigner
 	}
+	if !IsNil(o.BEzsignfoldertypeAutomaticsignature) {
+		toSerialize["bEzsignfoldertypeAutomaticsignature"] = o.BEzsignfoldertypeAutomaticsignature
+	}
 	if !IsNil(o.BEzsignfoldertypeDelegate) {
 		toSerialize["bEzsignfoldertypeDelegate"] = o.BEzsignfoldertypeDelegate
 	}
@@ -376,6 +660,18 @@ func (o CustomEzsignfoldertypeResponse) ToMap() (map[string]interface{}, error) 
 	}
 	if !IsNil(o.BEzsignfoldertypeReassignuser) {
 		toSerialize["bEzsignfoldertypeReassignuser"] = o.BEzsignfoldertypeReassignuser
+	}
+	if !IsNil(o.BEzsignfoldertypeReassigngroup) {
+		toSerialize["bEzsignfoldertypeReassigngroup"] = o.BEzsignfoldertypeReassigngroup
+	}
+	if !IsNil(o.IEzsignfoldertypeDeadlinedays) {
+		toSerialize["iEzsignfoldertypeDeadlinedays"] = o.IEzsignfoldertypeDeadlinedays
+	}
+	if !IsNil(o.IEzsignfoldertypeFontsizeannotation) {
+		toSerialize["iEzsignfoldertypeFontsizeannotation"] = o.IEzsignfoldertypeFontsizeannotation
+	}
+	if !IsNil(o.IEzsignfoldertypeFontsizeformfield) {
+		toSerialize["iEzsignfoldertypeFontsizeformfield"] = o.IEzsignfoldertypeFontsizeformfield
 	}
 	return toSerialize, nil
 }

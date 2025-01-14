@@ -37,13 +37,13 @@ type ActivesessionListElement struct {
 	// The Name of the Department in the language of the requester
 	SDepartmentNameX string `json:"sDepartmentNameX"`
 	// The loginname of the Activesession
-	SActivesessionLoginname string `json:"sActivesessionLoginname"`
+	SActivesessionLoginname string `json:"sActivesessionLoginname" validate:"regexp=^.{0,32}$"`
 	// The description of the Computer
-	SComputerDescription string `json:"sComputerDescription"`
+	SComputerDescription string `json:"sComputerDescription" validate:"regexp=^.{0,50}$"`
 	// The first hit of the Activesession
-	DtActivesessionFirsthit string `json:"dtActivesessionFirsthit"`
+	DtActivesessionFirsthit string `json:"dtActivesessionFirsthit" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$"`
 	// The last hit of the Activesession
-	DtActivesessionLasthit string `json:"dtActivesessionLasthit"`
+	DtActivesessionLasthit string `json:"dtActivesessionLasthit" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$"`
 	// Represent an IP address.
 	SActivesessionIP string `json:"sActivesessionIP"`
 }

@@ -36,6 +36,20 @@ func Test_eZmaxApi_ObjectInvoiceAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test ObjectInvoiceAPIService InvoiceGetCommunicationCountV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiInvoiceID int32
+
+		resp, httpRes, err := apiClient.ObjectInvoiceAPI.InvoiceGetCommunicationCountV1(context.Background(), pkiInvoiceID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ObjectInvoiceAPIService InvoiceGetCommunicationListV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -43,6 +57,34 @@ func Test_eZmaxApi_ObjectInvoiceAPIService(t *testing.T) {
 		var pkiInvoiceID int32
 
 		resp, httpRes, err := apiClient.ObjectInvoiceAPI.InvoiceGetCommunicationListV1(context.Background(), pkiInvoiceID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ObjectInvoiceAPIService InvoiceGetCommunicationrecipientsV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiInvoiceID int32
+
+		resp, httpRes, err := apiClient.ObjectInvoiceAPI.InvoiceGetCommunicationrecipientsV1(context.Background(), pkiInvoiceID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ObjectInvoiceAPIService InvoiceGetCommunicationsendersV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiInvoiceID int32
+
+		resp, httpRes, err := apiClient.ObjectInvoiceAPI.InvoiceGetCommunicationsendersV1(context.Background(), pkiInvoiceID).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**PkiWebsiteID** | Pointer to **int32** | The unique ID of the Website Default | [optional] 
 **FkiWebsitetypeID** | **int32** | The unique ID of the Websitetype.  Valid values:  |Value|Description| |-|-| |1|Website| |2|Twitter| |3|Facebook| |4|Survey| | 
 **SWebsiteAddress** | **string** | The URL of the website. | 
 
@@ -25,6 +26,31 @@ will change when the set of required properties is changed
 NewWebsiteRequestWithDefaults instantiates a new WebsiteRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetPkiWebsiteID
+
+`func (o *WebsiteRequest) GetPkiWebsiteID() int32`
+
+GetPkiWebsiteID returns the PkiWebsiteID field if non-nil, zero value otherwise.
+
+### GetPkiWebsiteIDOk
+
+`func (o *WebsiteRequest) GetPkiWebsiteIDOk() (*int32, bool)`
+
+GetPkiWebsiteIDOk returns a tuple with the PkiWebsiteID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPkiWebsiteID
+
+`func (o *WebsiteRequest) SetPkiWebsiteID(v int32)`
+
+SetPkiWebsiteID sets PkiWebsiteID field to given value.
+
+### HasPkiWebsiteID
+
+`func (o *WebsiteRequest) HasPkiWebsiteID() bool`
+
+HasPkiWebsiteID returns a boolean if a field has been set.
 
 ### GetFkiWebsitetypeID
 

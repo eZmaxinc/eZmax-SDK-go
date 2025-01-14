@@ -29,7 +29,7 @@ import (
 )
 
 func main() {
-	pksEzmaxclientOs := openapiclient.Field-pksEzmaxclientOs("iOS") // FieldPksEzmaxclientOs | 
+	pksEzmaxclientOs := openapiclient.Field-pksEzmaxclientOs("Android") // FieldPksEzmaxclientOs | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

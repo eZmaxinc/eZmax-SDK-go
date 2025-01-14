@@ -22,6 +22,20 @@ func Test_eZmaxApi_ObjectInscriptionnotauthenticatedAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test ObjectInscriptionnotauthenticatedAPIService InscriptionnotauthenticatedGetCommunicationCountV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiInscriptionnotauthenticatedID int32
+
+		resp, httpRes, err := apiClient.ObjectInscriptionnotauthenticatedAPI.InscriptionnotauthenticatedGetCommunicationCountV1(context.Background(), pkiInscriptionnotauthenticatedID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ObjectInscriptionnotauthenticatedAPIService InscriptionnotauthenticatedGetCommunicationListV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -29,6 +43,34 @@ func Test_eZmaxApi_ObjectInscriptionnotauthenticatedAPIService(t *testing.T) {
 		var pkiInscriptionnotauthenticatedID int32
 
 		resp, httpRes, err := apiClient.ObjectInscriptionnotauthenticatedAPI.InscriptionnotauthenticatedGetCommunicationListV1(context.Background(), pkiInscriptionnotauthenticatedID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ObjectInscriptionnotauthenticatedAPIService InscriptionnotauthenticatedGetCommunicationrecipientsV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiInscriptionnotauthenticatedID int32
+
+		resp, httpRes, err := apiClient.ObjectInscriptionnotauthenticatedAPI.InscriptionnotauthenticatedGetCommunicationrecipientsV1(context.Background(), pkiInscriptionnotauthenticatedID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ObjectInscriptionnotauthenticatedAPIService InscriptionnotauthenticatedGetCommunicationsendersV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiInscriptionnotauthenticatedID int32
+
+		resp, httpRes, err := apiClient.ObjectInscriptionnotauthenticatedAPI.InscriptionnotauthenticatedGetCommunicationsendersV1(context.Background(), pkiInscriptionnotauthenticatedID).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

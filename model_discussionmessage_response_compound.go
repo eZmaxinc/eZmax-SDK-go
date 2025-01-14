@@ -32,11 +32,11 @@ type DiscussionmessageResponseCompound struct {
 	FkiDiscussionmembershipIDActionrequired *int32 `json:"fkiDiscussionmembershipIDActionrequired,omitempty"`
 	EDiscussionmessageStatus FieldEDiscussionmessageStatus `json:"eDiscussionmessageStatus"`
 	// The content of the Discussionmessage
-	TDiscussionmessageContent string `json:"tDiscussionmessageContent"`
+	TDiscussionmessageContent string `json:"tDiscussionmessageContent" validate:"regexp=^.{0,65535}$"`
 	// The name the creator of the Discussionmessage.
-	SDiscussionmessageCreatorname string `json:"sDiscussionmessageCreatorname"`
+	SDiscussionmessageCreatorname string `json:"sDiscussionmessageCreatorname" validate:"regexp=^.{0,75}$"`
 	// The name the Actionrequired of the Discussionmessage.
-	SDiscussionmessageActionrequiredname *string `json:"sDiscussionmessageActionrequiredname,omitempty"`
+	SDiscussionmessageActionrequiredname *string `json:"sDiscussionmessageActionrequiredname,omitempty" validate:"regexp=^.{0,75}$"`
 	ObjAudit CommonAudit `json:"objAudit"`
 }
 

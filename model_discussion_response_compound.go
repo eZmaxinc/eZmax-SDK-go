@@ -25,7 +25,7 @@ type DiscussionResponseCompound struct {
 	// The unique ID of the Discussion
 	PkiDiscussionID int32 `json:"pkiDiscussionID"`
 	// The description of the Discussion
-	SDiscussionDescription string `json:"sDiscussionDescription"`
+	SDiscussionDescription string `json:"sDiscussionDescription" validate:"regexp=^.{0,75}$"`
 	// Whether if it's an closed
 	BDiscussionClosed bool `json:"bDiscussionClosed"`
 	// The date the Discussion was last read

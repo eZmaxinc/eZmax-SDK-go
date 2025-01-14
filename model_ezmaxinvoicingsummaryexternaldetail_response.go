@@ -31,13 +31,13 @@ type EzmaxinvoicingsummaryexternaldetailResponse struct {
 	// The description of the Ezmaxproduct in the language of the requester
 	SEzmaxproductDescriptionX string `json:"sEzmaxproductDescriptionX"`
 	// The count item invoiced for the product
-	DEzmaxinvoicingsummaryexternaldetailCountreal string `json:"dEzmaxinvoicingsummaryexternaldetailCountreal"`
+	DEzmaxinvoicingsummaryexternaldetailCountreal string `json:"dEzmaxinvoicingsummaryexternaldetailCountreal" validate:"regexp=^-{0,1}[\\\\d]{1,6}?\\\\.[\\\\d]{2}$"`
 	// The subtotal invoiced for the product
-	DEzmaxinvoicingsummaryexternaldetailSubtotal string `json:"dEzmaxinvoicingsummaryexternaldetailSubtotal"`
+	DEzmaxinvoicingsummaryexternaldetailSubtotal string `json:"dEzmaxinvoicingsummaryexternaldetailSubtotal" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
 	// The rebate for the product
-	DEzmaxinvoicingsummaryexternaldetailRebate string `json:"dEzmaxinvoicingsummaryexternaldetailRebate"`
+	DEzmaxinvoicingsummaryexternaldetailRebate string `json:"dEzmaxinvoicingsummaryexternaldetailRebate" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
 	// The total invoiced for the product
-	DEzmaxinvoicingsummaryexternaldetailTotal string `json:"dEzmaxinvoicingsummaryexternaldetailTotal"`
+	DEzmaxinvoicingsummaryexternaldetailTotal string `json:"dEzmaxinvoicingsummaryexternaldetailTotal" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
 	// Whether it's an adjustment
 	BEzmaxinvoicingsummaryexternaldetailAdjustment bool `json:"bEzmaxinvoicingsummaryexternaldetailAdjustment"`
 	// The help message of the Ezmaxproduct in the language of the requester

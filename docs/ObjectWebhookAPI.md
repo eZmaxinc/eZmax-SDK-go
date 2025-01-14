@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**WebhookGetListV1**](ObjectWebhookAPI.md#WebhookGetListV1) | **Get** /1/object/webhook/getList | Retrieve Webhook list
 [**WebhookGetObjectV2**](ObjectWebhookAPI.md#WebhookGetObjectV2) | **Get** /2/object/webhook/{pkiWebhookID} | Retrieve an existing Webhook
 [**WebhookRegenerateApikeyV1**](ObjectWebhookAPI.md#WebhookRegenerateApikeyV1) | **Post** /1/object/webhook/{pkiWebhookID}/regenerateApikey | Regenerate the Apikey
+[**WebhookSendWebhookV1**](ObjectWebhookAPI.md#WebhookSendWebhookV1) | **Post** /1/object/webhook/sendWebhook | Emit a Webhook event
 [**WebhookTestV1**](ObjectWebhookAPI.md#WebhookTestV1) | **Post** /1/object/webhook/{pkiWebhookID}/test | Test the Webhook by calling the Url
 
 
@@ -496,6 +497,70 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**WebhookRegenerateApikeyV1Response**](WebhookRegenerateApikeyV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## WebhookSendWebhookV1
+
+> WebhookSendWebhookV1Response WebhookSendWebhookV1(ctx).WebhookSendWebhookV1Request(webhookSendWebhookV1Request).Execute()
+
+Emit a Webhook event
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	webhookSendWebhookV1Request := *openapiclient.NewWebhookSendWebhookV1Request(openapiclient.Field-eWebhookModule("Ezsign")) // WebhookSendWebhookV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectWebhookAPI.WebhookSendWebhookV1(context.Background()).WebhookSendWebhookV1Request(webhookSendWebhookV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectWebhookAPI.WebhookSendWebhookV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `WebhookSendWebhookV1`: WebhookSendWebhookV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectWebhookAPI.WebhookSendWebhookV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiWebhookSendWebhookV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **webhookSendWebhookV1Request** | [**WebhookSendWebhookV1Request**](WebhookSendWebhookV1Request.md) |  | 
+
+### Return type
+
+[**WebhookSendWebhookV1Response**](WebhookSendWebhookV1Response.md)
 
 ### Authorization
 

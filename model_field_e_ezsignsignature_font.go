@@ -16,7 +16,7 @@ import (
 	"fmt"
 )
 
-// FieldEEzsignsignatureFont The font of the signature. This can only be set if eEzsignsignatureType is **Name** or **Initials**
+// FieldEEzsignsignatureFont The font of the signature. This can only be set if eEzsignsignatureType is **Name** or **Initials** **Deprecated**
 type FieldEEzsignsignatureFont string
 
 // List of Field-eEzsignsignatureFont

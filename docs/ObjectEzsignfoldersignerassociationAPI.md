@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**EzsignfoldersignerassociationGetObjectV1**](ObjectEzsignfoldersignerassociationAPI.md#EzsignfoldersignerassociationGetObjectV1) | **Get** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Retrieve an existing Ezsignfoldersignerassociation
 [**EzsignfoldersignerassociationGetObjectV2**](ObjectEzsignfoldersignerassociationAPI.md#EzsignfoldersignerassociationGetObjectV2) | **Get** /2/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Retrieve an existing Ezsignfoldersignerassociation
 [**EzsignfoldersignerassociationPatchObjectV1**](ObjectEzsignfoldersignerassociationAPI.md#EzsignfoldersignerassociationPatchObjectV1) | **Patch** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Patch an existing Ezsignfoldersignerassociation
+[**EzsignfoldersignerassociationReassignV1**](ObjectEzsignfoldersignerassociationAPI.md#EzsignfoldersignerassociationReassignV1) | **Post** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/reassign | Reassign remaining unsigned signatures and forms
 
 
 
@@ -700,6 +701,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignfoldersignerassociationPatchObjectV1Response**](EzsignfoldersignerassociationPatchObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsignfoldersignerassociationReassignV1
+
+> EzsignfoldersignerassociationReassignV1Response EzsignfoldersignerassociationReassignV1(ctx, pkiEzsignfoldersignerassociationID).EzsignfoldersignerassociationReassignV1Request(ezsignfoldersignerassociationReassignV1Request).Execute()
+
+Reassign remaining unsigned signatures and forms
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsignfoldersignerassociationID := int32(56) // int32 | 
+	ezsignfoldersignerassociationReassignV1Request := *openapiclient.NewEzsignfoldersignerassociationReassignV1Request() // EzsignfoldersignerassociationReassignV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfoldersignerassociationAPI.EzsignfoldersignerassociationReassignV1(context.Background(), pkiEzsignfoldersignerassociationID).EzsignfoldersignerassociationReassignV1Request(ezsignfoldersignerassociationReassignV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldersignerassociationAPI.EzsignfoldersignerassociationReassignV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfoldersignerassociationReassignV1`: EzsignfoldersignerassociationReassignV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfoldersignerassociationAPI.EzsignfoldersignerassociationReassignV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsignfoldersignerassociationID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsignfoldersignerassociationReassignV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **ezsignfoldersignerassociationReassignV1Request** | [**EzsignfoldersignerassociationReassignV1Request**](EzsignfoldersignerassociationReassignV1Request.md) |  | 
+
+### Return type
+
+[**EzsignfoldersignerassociationReassignV1Response**](EzsignfoldersignerassociationReassignV1Response.md)
 
 ### Authorization
 

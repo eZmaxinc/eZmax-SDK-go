@@ -6,10 +6,12 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**UserCreateObjectV1**](ObjectUserAPI.md#UserCreateObjectV1) | **Post** /1/object/user | Create a new User
 [**UserCreateObjectV2**](ObjectUserAPI.md#UserCreateObjectV2) | **Post** /2/object/user | Create a new User
+[**UserEditColleaguesV2**](ObjectUserAPI.md#UserEditColleaguesV2) | **Put** /2/object/user/{pkiUserID}/editColleagues | Edit multiple Colleagues
 [**UserEditObjectV1**](ObjectUserAPI.md#UserEditObjectV1) | **Put** /1/object/user/{pkiUserID} | Edit an existing User
 [**UserEditPermissionsV1**](ObjectUserAPI.md#UserEditPermissionsV1) | **Put** /1/object/user/{pkiUserID}/editPermissions | Edit multiple Permissions
 [**UserGetApikeysV1**](ObjectUserAPI.md#UserGetApikeysV1) | **Get** /1/object/user/{pkiUserID}/getApikeys | Retrieve an existing User&#39;s Apikeys
 [**UserGetAutocompleteV2**](ObjectUserAPI.md#UserGetAutocompleteV2) | **Get** /2/object/user/getAutocomplete/{sSelector} | Retrieve Users and IDs
+[**UserGetColleaguesV2**](ObjectUserAPI.md#UserGetColleaguesV2) | **Get** /2/object/user/{pkiUserID}/getColleagues | Retrieve an existing User&#39;s Colleagues
 [**UserGetEffectivePermissionsV1**](ObjectUserAPI.md#UserGetEffectivePermissionsV1) | **Get** /1/object/user/{pkiUserID}/getEffectivePermissions | Retrieve an existing User&#39;s Effective Permissions
 [**UserGetListV1**](ObjectUserAPI.md#UserGetListV1) | **Get** /1/object/user/getList | Retrieve User list
 [**UserGetObjectV2**](ObjectUserAPI.md#UserGetObjectV2) | **Get** /2/object/user/{pkiUserID} | Retrieve an existing User
@@ -138,6 +140,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**UserCreateObjectV2Response**](UserCreateObjectV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UserEditColleaguesV2
+
+> UserEditColleaguesV2Response UserEditColleaguesV2(ctx, pkiUserID).UserEditColleaguesV2Request(userEditColleaguesV2Request).Execute()
+
+Edit multiple Colleagues
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiUserID := int32(56) // int32 | 
+	userEditColleaguesV2Request := *openapiclient.NewUserEditColleaguesV2Request([]openapiclient.ColleagueRequestCompoundV2{*openapiclient.NewColleagueRequestCompoundV2(int32(70), int32(70), false, true, true, true, true, true, true, openapiclient.Field-eColleagueEzsign("No"), openapiclient.Field-eColleagueRealestateinprogess("No"))}) // UserEditColleaguesV2Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUserAPI.UserEditColleaguesV2(context.Background(), pkiUserID).UserEditColleaguesV2Request(userEditColleaguesV2Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserEditColleaguesV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UserEditColleaguesV2`: UserEditColleaguesV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserEditColleaguesV2`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiUserID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUserEditColleaguesV2Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **userEditColleaguesV2Request** | [**UserEditColleaguesV2Request**](UserEditColleaguesV2Request.md) |  | 
+
+### Return type
+
+[**UserEditColleaguesV2Response**](UserEditColleaguesV2Response.md)
 
 ### Authorization
 
@@ -426,6 +500,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**UserGetAutocompleteV2Response**](UserGetAutocompleteV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UserGetColleaguesV2
+
+> UserGetColleaguesV2Response UserGetColleaguesV2(ctx, pkiUserID).Execute()
+
+Retrieve an existing User's Colleagues
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiUserID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUserAPI.UserGetColleaguesV2(context.Background(), pkiUserID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserGetColleaguesV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UserGetColleaguesV2`: UserGetColleaguesV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserGetColleaguesV2`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiUserID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUserGetColleaguesV2Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**UserGetColleaguesV2Response**](UserGetColleaguesV2Response.md)
 
 ### Authorization
 

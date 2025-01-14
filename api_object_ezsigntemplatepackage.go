@@ -589,6 +589,7 @@ type ApiEzsigntemplatepackageGetAutocompleteV2Request struct {
 	eFilterActive *string
 	sQuery *string
 	acceptLanguage *HeaderAcceptLanguage
+	fkiEzsignfoldertypeID *int32
 }
 
 // Specify which results we want to display.
@@ -605,6 +606,12 @@ func (r ApiEzsigntemplatepackageGetAutocompleteV2Request) SQuery(sQuery string) 
 
 func (r ApiEzsigntemplatepackageGetAutocompleteV2Request) AcceptLanguage(acceptLanguage HeaderAcceptLanguage) ApiEzsigntemplatepackageGetAutocompleteV2Request {
 	r.acceptLanguage = &acceptLanguage
+	return r
+}
+
+// The fkiEzsignfoldertypeID to use with the selector Ezsigntemplatepublic
+func (r ApiEzsigntemplatepackageGetAutocompleteV2Request) FkiEzsignfoldertypeID(fkiEzsignfoldertypeID int32) ApiEzsigntemplatepackageGetAutocompleteV2Request {
+	r.fkiEzsignfoldertypeID = &fkiEzsignfoldertypeID
 	return r
 }
 
@@ -652,13 +659,16 @@ func (a *ObjectEzsigntemplatepackageAPIService) EzsigntemplatepackageGetAutocomp
 	localVarFormParams := url.Values{}
 
 	if r.eFilterActive != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "eFilterActive", r.eFilterActive, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "eFilterActive", r.eFilterActive, "form", "")
 	} else {
 		var defaultValue string = "Active"
 		r.eFilterActive = &defaultValue
 	}
 	if r.sQuery != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "sQuery", r.sQuery, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sQuery", r.sQuery, "form", "")
+	}
+	if r.fkiEzsignfoldertypeID != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "fkiEzsignfoldertypeID", r.fkiEzsignfoldertypeID, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -678,7 +688,7 @@ func (a *ObjectEzsigntemplatepackageAPIService) EzsigntemplatepackageGetAutocomp
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.acceptLanguage != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept-Language", r.acceptLanguage, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept-Language", r.acceptLanguage, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -812,19 +822,19 @@ func (a *ObjectEzsigntemplatepackageAPIService) EzsigntemplatepackageGetListV1Ex
 	localVarFormParams := url.Values{}
 
 	if r.eOrderBy != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "eOrderBy", r.eOrderBy, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "eOrderBy", r.eOrderBy, "form", "")
 	}
 	if r.iRowMax != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowMax", r.iRowMax, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowMax", r.iRowMax, "form", "")
 	}
 	if r.iRowOffset != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowOffset", r.iRowOffset, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowOffset", r.iRowOffset, "form", "")
 	} else {
 		var defaultValue int32 = 0
 		r.iRowOffset = &defaultValue
 	}
 	if r.sFilter != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "sFilter", r.sFilter, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sFilter", r.sFilter, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -844,7 +854,7 @@ func (a *ObjectEzsigntemplatepackageAPIService) EzsigntemplatepackageGetListV1Ex
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.acceptLanguage != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept-Language", r.acceptLanguage, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept-Language", r.acceptLanguage, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication

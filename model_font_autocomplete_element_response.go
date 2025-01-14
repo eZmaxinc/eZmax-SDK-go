@@ -23,7 +23,7 @@ var _ MappedNullable = &FontAutocompleteElementResponse{}
 // FontAutocompleteElementResponse A Font AutocompleteElement Response
 type FontAutocompleteElementResponse struct {
 	// The name of the Font
-	SFontName string `json:"sFontName"`
+	SFontName string `json:"sFontName" validate:"regexp=^.{0,50}$"`
 	// The unique ID of the Font
 	PkiFontID int32 `json:"pkiFontID"`
 	// Whether the Font is active or not

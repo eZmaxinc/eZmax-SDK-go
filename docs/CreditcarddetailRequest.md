@@ -6,15 +6,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ICreditcarddetailExpirationmonth** | **int32** | The expirationmonth of the Creditcarddetail | 
 **ICreditcarddetailExpirationyear** | **int32** | The expirationyear of the Creditcarddetail | 
-**SCreditcarddetailCivic** | Pointer to **string** | The civic of the Creditcarddetail | [optional] 
-**SCreditcarddetailStreet** | Pointer to **string** | The street of the Creditcarddetail | [optional] 
-**SCreditcarddetailZip** | Pointer to **string** | The zip of the Creditcarddetail | [optional] 
+**SCreditcarddetailCivic** | **string** | The civic of the Creditcarddetail | 
+**SCreditcarddetailStreet** | **string** | The street of the Creditcarddetail | 
+**SCreditcarddetailZip** | **string** | The zip of the Creditcarddetail | 
 
 ## Methods
 
 ### NewCreditcarddetailRequest
 
-`func NewCreditcarddetailRequest(iCreditcarddetailExpirationmonth int32, iCreditcarddetailExpirationyear int32, ) *CreditcarddetailRequest`
+`func NewCreditcarddetailRequest(iCreditcarddetailExpirationmonth int32, iCreditcarddetailExpirationyear int32, sCreditcarddetailCivic string, sCreditcarddetailStreet string, sCreditcarddetailZip string, ) *CreditcarddetailRequest`
 
 NewCreditcarddetailRequest instantiates a new CreditcarddetailRequest object
 This constructor will assign default values to properties that have it defined,
@@ -88,11 +88,6 @@ and a boolean to check if the value has been set.
 
 SetSCreditcarddetailCivic sets SCreditcarddetailCivic field to given value.
 
-### HasSCreditcarddetailCivic
-
-`func (o *CreditcarddetailRequest) HasSCreditcarddetailCivic() bool`
-
-HasSCreditcarddetailCivic returns a boolean if a field has been set.
 
 ### GetSCreditcarddetailStreet
 
@@ -113,11 +108,6 @@ and a boolean to check if the value has been set.
 
 SetSCreditcarddetailStreet sets SCreditcarddetailStreet field to given value.
 
-### HasSCreditcarddetailStreet
-
-`func (o *CreditcarddetailRequest) HasSCreditcarddetailStreet() bool`
-
-HasSCreditcarddetailStreet returns a boolean if a field has been set.
 
 ### GetSCreditcarddetailZip
 
@@ -138,11 +128,6 @@ and a boolean to check if the value has been set.
 
 SetSCreditcarddetailZip sets SCreditcarddetailZip field to given value.
 
-### HasSCreditcarddetailZip
-
-`func (o *CreditcarddetailRequest) HasSCreditcarddetailZip() bool`
-
-HasSCreditcarddetailZip returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

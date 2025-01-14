@@ -29,7 +29,7 @@ type EzsigntemplateListElement struct {
 	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
 	FkiLanguageID int32 `json:"fkiLanguageID"`
 	// The description of the Ezsigntemplate
-	SEzsigntemplateDescription string `json:"sEzsigntemplateDescription"`
+	SEzsigntemplateDescription string `json:"sEzsigntemplateDescription" validate:"regexp=^.{0,80}$"`
 	// The number of pages in the Ezsigntemplatedocument.
 	IEzsigntemplatedocumentPagetotal *int32 `json:"iEzsigntemplatedocumentPagetotal,omitempty"`
 	// The number of total signatures in the Ezsigntemplate.

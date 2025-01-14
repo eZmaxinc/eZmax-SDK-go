@@ -22,6 +22,8 @@ var _ MappedNullable = &WebsiteRequestCompound{}
 
 // WebsiteRequestCompound A Website Object and children to create a complete structure
 type WebsiteRequestCompound struct {
+	// The unique ID of the Website Default
+	PkiWebsiteID *int32 `json:"pkiWebsiteID,omitempty"`
 	// The unique ID of the Websitetype.  Valid values:  |Value|Description| |-|-| |1|Website| |2|Twitter| |3|Facebook| |4|Survey|
 	FkiWebsitetypeID int32 `json:"fkiWebsitetypeID"`
 	// The URL of the website.
@@ -47,6 +49,38 @@ func NewWebsiteRequestCompound(fkiWebsitetypeID int32, sWebsiteAddress string) *
 func NewWebsiteRequestCompoundWithDefaults() *WebsiteRequestCompound {
 	this := WebsiteRequestCompound{}
 	return &this
+}
+
+// GetPkiWebsiteID returns the PkiWebsiteID field value if set, zero value otherwise.
+func (o *WebsiteRequestCompound) GetPkiWebsiteID() int32 {
+	if o == nil || IsNil(o.PkiWebsiteID) {
+		var ret int32
+		return ret
+	}
+	return *o.PkiWebsiteID
+}
+
+// GetPkiWebsiteIDOk returns a tuple with the PkiWebsiteID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WebsiteRequestCompound) GetPkiWebsiteIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.PkiWebsiteID) {
+		return nil, false
+	}
+	return o.PkiWebsiteID, true
+}
+
+// HasPkiWebsiteID returns a boolean if a field has been set.
+func (o *WebsiteRequestCompound) HasPkiWebsiteID() bool {
+	if o != nil && !IsNil(o.PkiWebsiteID) {
+		return true
+	}
+
+	return false
+}
+
+// SetPkiWebsiteID gets a reference to the given int32 and assigns it to the PkiWebsiteID field.
+func (o *WebsiteRequestCompound) SetPkiWebsiteID(v int32) {
+	o.PkiWebsiteID = &v
 }
 
 // GetFkiWebsitetypeID returns the FkiWebsitetypeID field value
@@ -107,6 +141,9 @@ func (o WebsiteRequestCompound) MarshalJSON() ([]byte, error) {
 
 func (o WebsiteRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.PkiWebsiteID) {
+		toSerialize["pkiWebsiteID"] = o.PkiWebsiteID
+	}
 	toSerialize["fkiWebsitetypeID"] = o.FkiWebsitetypeID
 	toSerialize["sWebsiteAddress"] = o.SWebsiteAddress
 	return toSerialize, nil

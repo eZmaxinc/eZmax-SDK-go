@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SErrorMessage** | **string** | The message giving details about the error | 
 **EErrorCode** | [**FieldEErrorCode**](FieldEErrorCode.md) |  | 
+**ASErrorMessagedetail** | Pointer to **[]string** | More error message detail | [optional] 
 
 ## Methods
 
@@ -65,6 +66,31 @@ and a boolean to check if the value has been set.
 
 SetEErrorCode sets EErrorCode field to given value.
 
+
+### GetASErrorMessagedetail
+
+`func (o *CommonResponseError) GetASErrorMessagedetail() []string`
+
+GetASErrorMessagedetail returns the ASErrorMessagedetail field if non-nil, zero value otherwise.
+
+### GetASErrorMessagedetailOk
+
+`func (o *CommonResponseError) GetASErrorMessagedetailOk() (*[]string, bool)`
+
+GetASErrorMessagedetailOk returns a tuple with the ASErrorMessagedetail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetASErrorMessagedetail
+
+`func (o *CommonResponseError) SetASErrorMessagedetail(v []string)`
+
+SetASErrorMessagedetail sets ASErrorMessagedetail field to given value.
+
+### HasASErrorMessagedetail
+
+`func (o *CommonResponseError) HasASErrorMessagedetail() bool`
+
+HasASErrorMessagedetail returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

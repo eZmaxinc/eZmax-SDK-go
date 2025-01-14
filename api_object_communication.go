@@ -17,11 +17,131 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"strings"
 )
 
 
 // ObjectCommunicationAPIService ObjectCommunicationAPI service
 type ObjectCommunicationAPIService service
+
+type ApiCommunicationGetCommunicationBodyV1Request struct {
+	ctx context.Context
+	ApiService *ObjectCommunicationAPIService
+	pkiCommunicationID int32
+}
+
+func (r ApiCommunicationGetCommunicationBodyV1Request) Execute() (*http.Response, error) {
+	return r.ApiService.CommunicationGetCommunicationBodyV1Execute(r)
+}
+
+/*
+CommunicationGetCommunicationBodyV1 Retrieve the communication body.
+
+This endpoint returns the communication body.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiCommunicationID
+ @return ApiCommunicationGetCommunicationBodyV1Request
+*/
+func (a *ObjectCommunicationAPIService) CommunicationGetCommunicationBodyV1(ctx context.Context, pkiCommunicationID int32) ApiCommunicationGetCommunicationBodyV1Request {
+	return ApiCommunicationGetCommunicationBodyV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiCommunicationID: pkiCommunicationID,
+	}
+}
+
+// Execute executes the request
+func (a *ObjectCommunicationAPIService) CommunicationGetCommunicationBodyV1Execute(r ApiCommunicationGetCommunicationBodyV1Request) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectCommunicationAPIService.CommunicationGetCommunicationBodyV1")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/communication/{pkiCommunicationID}/getCommunicationBody"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiCommunicationID"+"}", url.PathEscape(parameterValueToString(r.pkiCommunicationID, "pkiCommunicationID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiCommunicationID < 0 {
+		return nil, reportError("pkiCommunicationID must be greater than 0")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
 
 type ApiCommunicationSendV1Request struct {
 	ctx context.Context

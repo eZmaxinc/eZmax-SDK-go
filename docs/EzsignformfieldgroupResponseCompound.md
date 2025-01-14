@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **EEzsignformfieldgroupSignerrequirement** | Pointer to [**FieldEEzsignformfieldgroupSignerrequirement**](FieldEEzsignformfieldgroupSignerrequirement.md) |  | [optional] 
 **SEzsignformfieldgroupLabel** | **string** | The Label for the Ezsignformfieldgroup | 
 **IEzsignformfieldgroupStep** | **int32** | The step when the Ezsignsigner will be invited to fill the form fields | 
-**SEzsignformfieldgroupDefaultvalue** | Pointer to **string** | The default value for the Ezsignformfieldgroup  You can use the codes below and they will be replaced at signature time.    | Code | Description | Example | | ------------------------- | ------------ | ------------ | | {sUserFirstname} | The first name of the contact | John | | {sUserLastname} | The last name of the contact | Doe | | {sUserJobtitle} | The job title | Sales Representative | | {sEmailAddress} | The email address | email@example.com | | {sPhoneE164} | A phone number in E.164 Format | +15149901516 | | {sPhoneE164Cell} | A phone number in E.164 Format | +15149901516 | | [optional] 
+**SEzsignformfieldgroupDefaultvalue** | Pointer to **string** | The default value for the Ezsignformfieldgroup  You can use the codes below and they will be replaced at signature time.    | Code | Description | Example | | ------------------------- | ------------ | ------------ | | {sUserFirstname} | The first name of the contact | John | | {sUserLastname} | The last name of the contact | Doe | | {sUserJobtitle} | The job title | Sales Representative | | {sCompany} | Company name | eZmax Solutions Inc. | | {sEmailAddress} | The email address | email@example.com | | {sPhoneE164} | A phone number in E.164 Format | +15149901516 | | {sPhoneE164Cell} | A phone number in E.164 Format | +15149901516 | | [optional] 
 **IEzsignformfieldgroupFilledmin** | **int32** | The minimum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup | 
 **IEzsignformfieldgroupFilledmax** | **int32** | The maximum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup | 
 **BEzsignformfieldgroupReadonly** | **bool** | Whether the Ezsignformfieldgroup is read only or not. | 
@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **BEzsignformfieldgroupEncrypted** | Pointer to **bool** | Whether the Ezsignformfieldgroup is encrypted in the database or not. Encrypted values are not displayed on the Ezsigndocument. This can only be set if eEzsignformfieldgroupType is **Text** or **Textarea** | [optional] 
 **EEzsignformfieldgroupTextvalidation** | Pointer to [**EnumTextvalidation**](EnumTextvalidation.md) |  | [optional] 
 **SEzsignformfieldgroupRegexp** | Pointer to **string** | A regular expression to indicate what values are acceptable for the Ezsignformfieldgroup.  This can only be set if eEzsignformfieldgroupType is **Text** or **Textarea** | [optional] 
+**SEzsignformfieldgroupTextvalidationcustommessage** | Pointer to **string** | Description of validation rule. Show by signatory. | [optional] 
 **TEzsignformfieldgroupTooltip** | Pointer to **string** | A tooltip that will be presented to Ezsignsigner about the Ezsignformfieldgroup | [optional] 
 **EEzsignformfieldgroupTooltipposition** | Pointer to [**FieldEEzsignformfieldgroupTooltipposition**](FieldEEzsignformfieldgroupTooltipposition.md) |  | [optional] 
 **AObjEzsignformfield** | [**[]EzsignformfieldResponseCompound**](EzsignformfieldResponseCompound.md) |  | 
@@ -352,6 +353,31 @@ SetSEzsignformfieldgroupRegexp sets SEzsignformfieldgroupRegexp field to given v
 `func (o *EzsignformfieldgroupResponseCompound) HasSEzsignformfieldgroupRegexp() bool`
 
 HasSEzsignformfieldgroupRegexp returns a boolean if a field has been set.
+
+### GetSEzsignformfieldgroupTextvalidationcustommessage
+
+`func (o *EzsignformfieldgroupResponseCompound) GetSEzsignformfieldgroupTextvalidationcustommessage() string`
+
+GetSEzsignformfieldgroupTextvalidationcustommessage returns the SEzsignformfieldgroupTextvalidationcustommessage field if non-nil, zero value otherwise.
+
+### GetSEzsignformfieldgroupTextvalidationcustommessageOk
+
+`func (o *EzsignformfieldgroupResponseCompound) GetSEzsignformfieldgroupTextvalidationcustommessageOk() (*string, bool)`
+
+GetSEzsignformfieldgroupTextvalidationcustommessageOk returns a tuple with the SEzsignformfieldgroupTextvalidationcustommessage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzsignformfieldgroupTextvalidationcustommessage
+
+`func (o *EzsignformfieldgroupResponseCompound) SetSEzsignformfieldgroupTextvalidationcustommessage(v string)`
+
+SetSEzsignformfieldgroupTextvalidationcustommessage sets SEzsignformfieldgroupTextvalidationcustommessage field to given value.
+
+### HasSEzsignformfieldgroupTextvalidationcustommessage
+
+`func (o *EzsignformfieldgroupResponseCompound) HasSEzsignformfieldgroupTextvalidationcustommessage() bool`
+
+HasSEzsignformfieldgroupTextvalidationcustommessage returns a boolean if a field has been set.
 
 ### GetTEzsignformfieldgroupTooltip
 

@@ -21,9 +21,9 @@ var _ MappedNullable = &MultilingualUserlogintypeDescription{}
 // MultilingualUserlogintypeDescription The description of the Userlogintype
 type MultilingualUserlogintypeDescription struct {
 	// The description of the Userlogintype in French
-	SUserlogintypeDescription1 *string `json:"sUserlogintypeDescription1,omitempty"`
+	SUserlogintypeDescription1 *string `json:"sUserlogintypeDescription1,omitempty" validate:"regexp=^.{0,50}$"`
 	// The description of the Userlogintype in English
-	SUserlogintypeDescription2 *string `json:"sUserlogintypeDescription2,omitempty"`
+	SUserlogintypeDescription2 *string `json:"sUserlogintypeDescription2,omitempty" validate:"regexp=^.{0,50}$"`
 }
 
 // NewMultilingualUserlogintypeDescription instantiates a new MultilingualUserlogintypeDescription object

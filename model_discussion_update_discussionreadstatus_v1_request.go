@@ -21,7 +21,7 @@ var _ MappedNullable = &DiscussionUpdateDiscussionreadstatusV1Request{}
 // DiscussionUpdateDiscussionreadstatusV1Request Request for POST /1/object/discussion/{pkiDiscussionID}/updateDiscussionreadstatus
 type DiscussionUpdateDiscussionreadstatusV1Request struct {
 	// The date of the last discussion message read
-	DtDiscussionreadstatusDate *string `json:"dtDiscussionreadstatusDate,omitempty"`
+	DtDiscussionreadstatusDate *string `json:"dtDiscussionreadstatusDate,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$"`
 }
 
 // NewDiscussionUpdateDiscussionreadstatusV1Request instantiates a new DiscussionUpdateDiscussionreadstatusV1Request object

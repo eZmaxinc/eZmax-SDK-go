@@ -25,9 +25,9 @@ type VariableexpenseListElement struct {
 	// The unique ID of the Variableexpense
 	PkiVariableexpenseID int32 `json:"pkiVariableexpenseID"`
 	// The code of the Variableexpense
-	SVariableexpenseCode *string `json:"sVariableexpenseCode,omitempty"`
+	SVariableexpenseCode *string `json:"sVariableexpenseCode,omitempty" validate:"regexp=^.{0,5}$"`
 	// The description of the Variableexpense in the language of the requester
-	SVariableexpenseDescriptionX *string `json:"sVariableexpenseDescriptionX,omitempty"`
+	SVariableexpenseDescriptionX *string `json:"sVariableexpenseDescriptionX,omitempty" validate:"regexp=^.{0,40}$"`
 	EVariableexpenseTaxable *FieldEVariableexpenseTaxable `json:"eVariableexpenseTaxable,omitempty"`
 	// Whether the variableexpense is active or not
 	BVariableexpenseIsactive *bool `json:"bVariableexpenseIsactive,omitempty"`

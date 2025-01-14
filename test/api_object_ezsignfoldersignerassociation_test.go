@@ -158,4 +158,18 @@ func Test_eZmaxApi_ObjectEzsignfoldersignerassociationAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test ObjectEzsignfoldersignerassociationAPIService EzsignfoldersignerassociationReassignV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiEzsignfoldersignerassociationID int32
+
+		resp, httpRes, err := apiClient.ObjectEzsignfoldersignerassociationAPI.EzsignfoldersignerassociationReassignV1(context.Background(), pkiEzsignfoldersignerassociationID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 }

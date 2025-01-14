@@ -22,6 +22,20 @@ func Test_eZmaxApi_ObjectOtherincomeAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test ObjectOtherincomeAPIService OtherincomeGetCommunicationCountV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiOtherincomeID int32
+
+		resp, httpRes, err := apiClient.ObjectOtherincomeAPI.OtherincomeGetCommunicationCountV1(context.Background(), pkiOtherincomeID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ObjectOtherincomeAPIService OtherincomeGetCommunicationListV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -29,6 +43,34 @@ func Test_eZmaxApi_ObjectOtherincomeAPIService(t *testing.T) {
 		var pkiOtherincomeID int32
 
 		resp, httpRes, err := apiClient.ObjectOtherincomeAPI.OtherincomeGetCommunicationListV1(context.Background(), pkiOtherincomeID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ObjectOtherincomeAPIService OtherincomeGetCommunicationrecipientsV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiOtherincomeID int32
+
+		resp, httpRes, err := apiClient.ObjectOtherincomeAPI.OtherincomeGetCommunicationrecipientsV1(context.Background(), pkiOtherincomeID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ObjectOtherincomeAPIService OtherincomeGetCommunicationsendersV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiOtherincomeID int32
+
+		resp, httpRes, err := apiClient.ObjectOtherincomeAPI.OtherincomeGetCommunicationsendersV1(context.Background(), pkiOtherincomeID).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

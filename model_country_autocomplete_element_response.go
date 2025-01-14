@@ -25,9 +25,9 @@ type CountryAutocompleteElementResponse struct {
 	// The unique ID of the Country.  Here are some common values (Complete list must be retrieved from API):  |Value|Description| |-|-| |1|Canada| |2|United-States|
 	PkiCountryID int32 `json:"pkiCountryID"`
 	// The name of the Country in the language of the requester
-	SCountryNameX string `json:"sCountryNameX"`
+	SCountryNameX string `json:"sCountryNameX" validate:"regexp=^.{0,40}$"`
 	// The shortname of the Country
-	SCountryShortname string `json:"sCountryShortname"`
+	SCountryShortname string `json:"sCountryShortname" validate:"regexp=^.{1,3}$"`
 	// Whether the Country is active or not
 	BCountryIsactive bool `json:"bCountryIsactive"`
 }

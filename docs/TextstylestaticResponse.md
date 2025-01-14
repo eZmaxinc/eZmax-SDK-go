@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiTextstylestaticID** | Pointer to **int32** | The unique ID of the Textstylestatic | [optional] 
 **FkiFontID** | **int32** | The unique ID of the Font | 
+**SFontName** | **string** | The name of the Font | 
 **BTextstylestaticBold** | **bool** | Whether the Textstylestatic is Bold or not | 
 **BTextstylestaticUnderline** | **bool** | Whether the Textstylestatic is Underline or not | 
 **BTextstylestaticItalic** | **bool** | Whether the Textstylestatic is Italic or not | 
@@ -17,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewTextstylestaticResponse
 
-`func NewTextstylestaticResponse(fkiFontID int32, bTextstylestaticBold bool, bTextstylestaticUnderline bool, bTextstylestaticItalic bool, bTextstylestaticStrikethrough bool, iTextstylestaticFontcolor int32, iTextstylestaticSize int32, ) *TextstylestaticResponse`
+`func NewTextstylestaticResponse(fkiFontID int32, sFontName string, bTextstylestaticBold bool, bTextstylestaticUnderline bool, bTextstylestaticItalic bool, bTextstylestaticStrikethrough bool, iTextstylestaticFontcolor int32, iTextstylestaticSize int32, ) *TextstylestaticResponse`
 
 NewTextstylestaticResponse instantiates a new TextstylestaticResponse object
 This constructor will assign default values to properties that have it defined,
@@ -75,6 +76,26 @@ and a boolean to check if the value has been set.
 `func (o *TextstylestaticResponse) SetFkiFontID(v int32)`
 
 SetFkiFontID sets FkiFontID field to given value.
+
+
+### GetSFontName
+
+`func (o *TextstylestaticResponse) GetSFontName() string`
+
+GetSFontName returns the SFontName field if non-nil, zero value otherwise.
+
+### GetSFontNameOk
+
+`func (o *TextstylestaticResponse) GetSFontNameOk() (*string, bool)`
+
+GetSFontNameOk returns a tuple with the SFontName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSFontName
+
+`func (o *TextstylestaticResponse) SetSFontName(v string)`
+
+SetSFontName sets SFontName field to given value.
 
 
 ### GetBTextstylestaticBold

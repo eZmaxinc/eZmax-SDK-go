@@ -26,18 +26,18 @@ type CreditcarddetailResponse struct {
 	PkiCreditcarddetailID int32 `json:"pkiCreditcarddetailID"`
 	// The unique ID of the Creditcardtype
 	FkiCreditcardtypeID int32 `json:"fkiCreditcardtypeID"`
-	// The numbermasked of the Creditcarddetail
-	SCreditcarddetailNumbermasked string `json:"sCreditcarddetailNumbermasked"`
+	// The last digits of the Creditcarddetail
+	ICreditcarddetailLastdigits int32 `json:"iCreditcarddetailLastdigits"`
 	// The expirationmonth of the Creditcarddetail
 	ICreditcarddetailExpirationmonth int32 `json:"iCreditcarddetailExpirationmonth"`
 	// The expirationyear of the Creditcarddetail
 	ICreditcarddetailExpirationyear int32 `json:"iCreditcarddetailExpirationyear"`
 	// The civic of the Creditcarddetail
-	SCreditcarddetailCivic string `json:"sCreditcarddetailCivic"`
+	SCreditcarddetailCivic string `json:"sCreditcarddetailCivic" validate:"regexp=^[\\\\d]{1,8}$"`
 	// The street of the Creditcarddetail
-	SCreditcarddetailStreet string `json:"sCreditcarddetailStreet"`
+	SCreditcarddetailStreet string `json:"sCreditcarddetailStreet" validate:"regexp=^.{1,19}$"`
 	// The zip of the Creditcarddetail
-	SCreditcarddetailZip string `json:"sCreditcarddetailZip"`
+	SCreditcarddetailZip string `json:"sCreditcarddetailZip" validate:"regexp=^.{0,9}$"`
 }
 
 type _CreditcarddetailResponse CreditcarddetailResponse
@@ -46,11 +46,11 @@ type _CreditcarddetailResponse CreditcarddetailResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreditcarddetailResponse(pkiCreditcarddetailID int32, fkiCreditcardtypeID int32, sCreditcarddetailNumbermasked string, iCreditcarddetailExpirationmonth int32, iCreditcarddetailExpirationyear int32, sCreditcarddetailCivic string, sCreditcarddetailStreet string, sCreditcarddetailZip string) *CreditcarddetailResponse {
+func NewCreditcarddetailResponse(pkiCreditcarddetailID int32, fkiCreditcardtypeID int32, iCreditcarddetailLastdigits int32, iCreditcarddetailExpirationmonth int32, iCreditcarddetailExpirationyear int32, sCreditcarddetailCivic string, sCreditcarddetailStreet string, sCreditcarddetailZip string) *CreditcarddetailResponse {
 	this := CreditcarddetailResponse{}
 	this.PkiCreditcarddetailID = pkiCreditcarddetailID
 	this.FkiCreditcardtypeID = fkiCreditcardtypeID
-	this.SCreditcarddetailNumbermasked = sCreditcarddetailNumbermasked
+	this.ICreditcarddetailLastdigits = iCreditcarddetailLastdigits
 	this.ICreditcarddetailExpirationmonth = iCreditcarddetailExpirationmonth
 	this.ICreditcarddetailExpirationyear = iCreditcarddetailExpirationyear
 	this.SCreditcarddetailCivic = sCreditcarddetailCivic
@@ -115,28 +115,28 @@ func (o *CreditcarddetailResponse) SetFkiCreditcardtypeID(v int32) {
 	o.FkiCreditcardtypeID = v
 }
 
-// GetSCreditcarddetailNumbermasked returns the SCreditcarddetailNumbermasked field value
-func (o *CreditcarddetailResponse) GetSCreditcarddetailNumbermasked() string {
+// GetICreditcarddetailLastdigits returns the ICreditcarddetailLastdigits field value
+func (o *CreditcarddetailResponse) GetICreditcarddetailLastdigits() int32 {
 	if o == nil {
-		var ret string
+		var ret int32
 		return ret
 	}
 
-	return o.SCreditcarddetailNumbermasked
+	return o.ICreditcarddetailLastdigits
 }
 
-// GetSCreditcarddetailNumbermaskedOk returns a tuple with the SCreditcarddetailNumbermasked field value
+// GetICreditcarddetailLastdigitsOk returns a tuple with the ICreditcarddetailLastdigits field value
 // and a boolean to check if the value has been set.
-func (o *CreditcarddetailResponse) GetSCreditcarddetailNumbermaskedOk() (*string, bool) {
+func (o *CreditcarddetailResponse) GetICreditcarddetailLastdigitsOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.SCreditcarddetailNumbermasked, true
+	return &o.ICreditcarddetailLastdigits, true
 }
 
-// SetSCreditcarddetailNumbermasked sets field value
-func (o *CreditcarddetailResponse) SetSCreditcarddetailNumbermasked(v string) {
-	o.SCreditcarddetailNumbermasked = v
+// SetICreditcarddetailLastdigits sets field value
+func (o *CreditcarddetailResponse) SetICreditcarddetailLastdigits(v int32) {
+	o.ICreditcarddetailLastdigits = v
 }
 
 // GetICreditcarddetailExpirationmonth returns the ICreditcarddetailExpirationmonth field value
@@ -271,7 +271,7 @@ func (o CreditcarddetailResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiCreditcarddetailID"] = o.PkiCreditcarddetailID
 	toSerialize["fkiCreditcardtypeID"] = o.FkiCreditcardtypeID
-	toSerialize["sCreditcarddetailNumbermasked"] = o.SCreditcarddetailNumbermasked
+	toSerialize["iCreditcarddetailLastdigits"] = o.ICreditcarddetailLastdigits
 	toSerialize["iCreditcarddetailExpirationmonth"] = o.ICreditcarddetailExpirationmonth
 	toSerialize["iCreditcarddetailExpirationyear"] = o.ICreditcarddetailExpirationyear
 	toSerialize["sCreditcarddetailCivic"] = o.SCreditcarddetailCivic
@@ -287,7 +287,7 @@ func (o *CreditcarddetailResponse) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"pkiCreditcarddetailID",
 		"fkiCreditcardtypeID",
-		"sCreditcarddetailNumbermasked",
+		"iCreditcarddetailLastdigits",
 		"iCreditcarddetailExpirationmonth",
 		"iCreditcarddetailExpirationyear",
 		"sCreditcarddetailCivic",

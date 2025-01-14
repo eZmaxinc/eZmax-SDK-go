@@ -24,6 +24,7 @@ var _ MappedNullable = &EzsignfolderSendV3Request{}
 type EzsignfolderSendV3Request struct {
 	// A custom text message that will be added to the email sent.
 	TEzsignfolderMessage *string `json:"tEzsignfolderMessage,omitempty"`
+	EEzsignfolderMessageorder *FieldEEzsignfolderMessageorder `json:"eEzsignfolderMessageorder,omitempty"`
 	// The date and time at which the Ezsignfolder will be sent in the future.
 	DtEzsignfolderDelayedsenddate *string `json:"dtEzsignfolderDelayedsenddate,omitempty"`
 	AFkiEzsignfoldersignerassociationID []int32 `json:"a_fkiEzsignfoldersignerassociationID"`
@@ -37,6 +38,8 @@ type _EzsignfolderSendV3Request EzsignfolderSendV3Request
 // will change when the set of required properties is changed
 func NewEzsignfolderSendV3Request(aFkiEzsignfoldersignerassociationID []int32) *EzsignfolderSendV3Request {
 	this := EzsignfolderSendV3Request{}
+	var eEzsignfolderMessageorder FieldEEzsignfolderMessageorder = GLOBAL_FIRST
+	this.EEzsignfolderMessageorder = &eEzsignfolderMessageorder
 	this.AFkiEzsignfoldersignerassociationID = aFkiEzsignfoldersignerassociationID
 	return &this
 }
@@ -46,6 +49,8 @@ func NewEzsignfolderSendV3Request(aFkiEzsignfoldersignerassociationID []int32) *
 // but it doesn't guarantee that properties required by API are set
 func NewEzsignfolderSendV3RequestWithDefaults() *EzsignfolderSendV3Request {
 	this := EzsignfolderSendV3Request{}
+	var eEzsignfolderMessageorder FieldEEzsignfolderMessageorder = GLOBAL_FIRST
+	this.EEzsignfolderMessageorder = &eEzsignfolderMessageorder
 	return &this
 }
 
@@ -79,6 +84,38 @@ func (o *EzsignfolderSendV3Request) HasTEzsignfolderMessage() bool {
 // SetTEzsignfolderMessage gets a reference to the given string and assigns it to the TEzsignfolderMessage field.
 func (o *EzsignfolderSendV3Request) SetTEzsignfolderMessage(v string) {
 	o.TEzsignfolderMessage = &v
+}
+
+// GetEEzsignfolderMessageorder returns the EEzsignfolderMessageorder field value if set, zero value otherwise.
+func (o *EzsignfolderSendV3Request) GetEEzsignfolderMessageorder() FieldEEzsignfolderMessageorder {
+	if o == nil || IsNil(o.EEzsignfolderMessageorder) {
+		var ret FieldEEzsignfolderMessageorder
+		return ret
+	}
+	return *o.EEzsignfolderMessageorder
+}
+
+// GetEEzsignfolderMessageorderOk returns a tuple with the EEzsignfolderMessageorder field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderSendV3Request) GetEEzsignfolderMessageorderOk() (*FieldEEzsignfolderMessageorder, bool) {
+	if o == nil || IsNil(o.EEzsignfolderMessageorder) {
+		return nil, false
+	}
+	return o.EEzsignfolderMessageorder, true
+}
+
+// HasEEzsignfolderMessageorder returns a boolean if a field has been set.
+func (o *EzsignfolderSendV3Request) HasEEzsignfolderMessageorder() bool {
+	if o != nil && !IsNil(o.EEzsignfolderMessageorder) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsignfolderMessageorder gets a reference to the given FieldEEzsignfolderMessageorder and assigns it to the EEzsignfolderMessageorder field.
+func (o *EzsignfolderSendV3Request) SetEEzsignfolderMessageorder(v FieldEEzsignfolderMessageorder) {
+	o.EEzsignfolderMessageorder = &v
 }
 
 // GetDtEzsignfolderDelayedsenddate returns the DtEzsignfolderDelayedsenddate field value if set, zero value otherwise.
@@ -149,6 +186,9 @@ func (o EzsignfolderSendV3Request) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.TEzsignfolderMessage) {
 		toSerialize["tEzsignfolderMessage"] = o.TEzsignfolderMessage
+	}
+	if !IsNil(o.EEzsignfolderMessageorder) {
+		toSerialize["eEzsignfolderMessageorder"] = o.EEzsignfolderMessageorder
 	}
 	if !IsNil(o.DtEzsignfolderDelayedsenddate) {
 		toSerialize["dtEzsignfolderDelayedsenddate"] = o.DtEzsignfolderDelayedsenddate

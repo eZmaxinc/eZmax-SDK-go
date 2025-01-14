@@ -5,12 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FkiEzsignsigningreasonID** | Pointer to **int32** | The unique ID of the Ezsignsigningreason | [optional] 
+**FkiFontID** | Pointer to **int32** | The unique ID of the Font | [optional] 
 **SValue** | Pointer to **string** | The value required for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **City**, **FieldText** or **FieldTextarea** | [optional] 
 **EAttachmentsConfirmationDecision** | Pointer to **string** | Whether the attachment are accepted or refused.  This can only be set if eEzsignsignatureType is **AttachmentsConfirmation** | [optional] 
 **SAttachmentsRefusalReason** | Pointer to **string** | The reason of refused.  This can only be set if eEzsignsignatureType is **AttachmentsConfirmation** | [optional] 
-**SSvg** | Pointer to **string** | The SVG of the handwritten signature.  This can only be set if eEzsignsignatureType is **Handwritten** and **bIsAutomatic** is false | [optional] 
+**SSvg** | Pointer to **string** | The SVG of the signature.  This can only be set if eEzsignsignatureType is **Signature**_/_**Initials** and **bIsAutomatic** is false | [optional] 
 **AObjFile** | Pointer to [**[]CommonFile**](CommonFile.md) |  | [optional] 
-**BIsAutomatic** | **bool** | Indicates if the Ezsignsignature was part of an automatic process or not.  This can only be true if eEzsignsignatureType is **Acknowledgement**, **City**, **Handwritten**, **Initials**, **Name** or **Stamp**.  | 
+**BIsAutomatic** | **bool** | Indicates if the Ezsignsignature was part of an automatic process or not.  This can only be true if eEzsignsignatureType is **Acknowledgement**, **City**, **Signature**, **Initials** or **Stamp**.  | 
 
 ## Methods
 
@@ -55,6 +56,31 @@ SetFkiEzsignsigningreasonID sets FkiEzsignsigningreasonID field to given value.
 `func (o *EzsignsignatureSignV1Request) HasFkiEzsignsigningreasonID() bool`
 
 HasFkiEzsignsigningreasonID returns a boolean if a field has been set.
+
+### GetFkiFontID
+
+`func (o *EzsignsignatureSignV1Request) GetFkiFontID() int32`
+
+GetFkiFontID returns the FkiFontID field if non-nil, zero value otherwise.
+
+### GetFkiFontIDOk
+
+`func (o *EzsignsignatureSignV1Request) GetFkiFontIDOk() (*int32, bool)`
+
+GetFkiFontIDOk returns a tuple with the FkiFontID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiFontID
+
+`func (o *EzsignsignatureSignV1Request) SetFkiFontID(v int32)`
+
+SetFkiFontID sets FkiFontID field to given value.
+
+### HasFkiFontID
+
+`func (o *EzsignsignatureSignV1Request) HasFkiFontID() bool`
+
+HasFkiFontID returns a boolean if a field has been set.
 
 ### GetSValue
 

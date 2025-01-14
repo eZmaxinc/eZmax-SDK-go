@@ -25,12 +25,12 @@ type PaymenttermListElement struct {
 	// The unique ID of the Paymentterm
 	PkiPaymenttermID int32 `json:"pkiPaymenttermID"`
 	// The code of the Paymentterm
-	SPaymenttermCode string `json:"sPaymenttermCode"`
+	SPaymenttermCode string `json:"sPaymenttermCode" validate:"regexp=^[A-Z0-9]{1,4}$"`
 	EPaymenttermType FieldEPaymenttermType `json:"ePaymenttermType"`
 	// The day of the Paymentterm
 	IPaymenttermDay int32 `json:"iPaymenttermDay"`
 	// The description of the Paymentterm in the language of the requester
-	SPaymenttermDescriptionX string `json:"sPaymenttermDescriptionX"`
+	SPaymenttermDescriptionX string `json:"sPaymenttermDescriptionX" validate:"regexp=^.{1,40}$"`
 	// Whether the Paymentterm is active or not
 	BPaymenttermIsactive bool `json:"bPaymenttermIsactive"`
 }

@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiSystemconfigurationID** | **int32** | The unique ID of the Systemconfiguration | 
 **FkiSystemconfigurationtypeID** | **int32** | The unique ID of the Systemconfigurationtype | 
+**FkiBrandingID** | Pointer to **int32** | The unique ID of the Branding | [optional] 
 **SSystemconfigurationtypeDescriptionX** | **string** | The description of the Systemconfigurationtype in the language of the requester | 
 **ESystemconfigurationNewexternaluseraction** | [**FieldESystemconfigurationNewexternaluseraction**](FieldESystemconfigurationNewexternaluseraction.md) |  | 
 **ESystemconfigurationLanguage1** | [**FieldESystemconfigurationLanguage1**](FieldESystemconfigurationLanguage1.md) |  | 
@@ -14,10 +15,12 @@ Name | Type | Description | Notes
 **ESystemconfigurationEzsignofficeplan** | Pointer to [**FieldESystemconfigurationEzsignofficeplan**](FieldESystemconfigurationEzsignofficeplan.md) |  | [optional] 
 **BSystemconfigurationEzsignpaidbyoffice** | Pointer to **bool** | Whether if Ezsign is paid by the company or not | [optional] 
 **BSystemconfigurationEzsignpersonnal** | **bool** | Whether if we allow the creation of personal files in eZsign | 
+**BSystemconfigurationHascreditcardmerchant** | Pointer to **bool** | Whether there is a creditcard merchant configured or not | [optional] 
 **BSystemconfigurationIsdisposalactive** | Pointer to **bool** | Whether is Disposal processus is active or not | [optional] 
 **BSystemconfigurationSspr** | **bool** | Whether if we allow SSPR | 
 **DtSystemconfigurationReadonlyexpirationstart** | Pointer to **string** | The start date where the system will be in read only | [optional] 
 **DtSystemconfigurationReadonlyexpirationend** | Pointer to **string** | The end date where the system will be in read only | [optional] 
+**ObjBranding** | Pointer to [**CustomBrandingResponse**](CustomBrandingResponse.md) |  | [optional] 
 
 ## Methods
 
@@ -77,6 +80,31 @@ and a boolean to check if the value has been set.
 
 SetFkiSystemconfigurationtypeID sets FkiSystemconfigurationtypeID field to given value.
 
+
+### GetFkiBrandingID
+
+`func (o *SystemconfigurationResponse) GetFkiBrandingID() int32`
+
+GetFkiBrandingID returns the FkiBrandingID field if non-nil, zero value otherwise.
+
+### GetFkiBrandingIDOk
+
+`func (o *SystemconfigurationResponse) GetFkiBrandingIDOk() (*int32, bool)`
+
+GetFkiBrandingIDOk returns a tuple with the FkiBrandingID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiBrandingID
+
+`func (o *SystemconfigurationResponse) SetFkiBrandingID(v int32)`
+
+SetFkiBrandingID sets FkiBrandingID field to given value.
+
+### HasFkiBrandingID
+
+`func (o *SystemconfigurationResponse) HasFkiBrandingID() bool`
+
+HasFkiBrandingID returns a boolean if a field has been set.
 
 ### GetSSystemconfigurationtypeDescriptionX
 
@@ -253,6 +281,31 @@ and a boolean to check if the value has been set.
 SetBSystemconfigurationEzsignpersonnal sets BSystemconfigurationEzsignpersonnal field to given value.
 
 
+### GetBSystemconfigurationHascreditcardmerchant
+
+`func (o *SystemconfigurationResponse) GetBSystemconfigurationHascreditcardmerchant() bool`
+
+GetBSystemconfigurationHascreditcardmerchant returns the BSystemconfigurationHascreditcardmerchant field if non-nil, zero value otherwise.
+
+### GetBSystemconfigurationHascreditcardmerchantOk
+
+`func (o *SystemconfigurationResponse) GetBSystemconfigurationHascreditcardmerchantOk() (*bool, bool)`
+
+GetBSystemconfigurationHascreditcardmerchantOk returns a tuple with the BSystemconfigurationHascreditcardmerchant field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBSystemconfigurationHascreditcardmerchant
+
+`func (o *SystemconfigurationResponse) SetBSystemconfigurationHascreditcardmerchant(v bool)`
+
+SetBSystemconfigurationHascreditcardmerchant sets BSystemconfigurationHascreditcardmerchant field to given value.
+
+### HasBSystemconfigurationHascreditcardmerchant
+
+`func (o *SystemconfigurationResponse) HasBSystemconfigurationHascreditcardmerchant() bool`
+
+HasBSystemconfigurationHascreditcardmerchant returns a boolean if a field has been set.
+
 ### GetBSystemconfigurationIsdisposalactive
 
 `func (o *SystemconfigurationResponse) GetBSystemconfigurationIsdisposalactive() bool`
@@ -347,6 +400,31 @@ SetDtSystemconfigurationReadonlyexpirationend sets DtSystemconfigurationReadonly
 `func (o *SystemconfigurationResponse) HasDtSystemconfigurationReadonlyexpirationend() bool`
 
 HasDtSystemconfigurationReadonlyexpirationend returns a boolean if a field has been set.
+
+### GetObjBranding
+
+`func (o *SystemconfigurationResponse) GetObjBranding() CustomBrandingResponse`
+
+GetObjBranding returns the ObjBranding field if non-nil, zero value otherwise.
+
+### GetObjBrandingOk
+
+`func (o *SystemconfigurationResponse) GetObjBrandingOk() (*CustomBrandingResponse, bool)`
+
+GetObjBrandingOk returns a tuple with the ObjBranding field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjBranding
+
+`func (o *SystemconfigurationResponse) SetObjBranding(v CustomBrandingResponse)`
+
+SetObjBranding sets ObjBranding field to given value.
+
+### HasObjBranding
+
+`func (o *SystemconfigurationResponse) HasObjBranding() bool`
+
+HasObjBranding returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

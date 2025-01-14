@@ -74,6 +74,18 @@ func Test_eZmaxApi_ObjectEzsignfolderAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test ObjectEzsignfolderAPIService EzsignfolderCreateObjectV3", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderCreateObjectV3(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ObjectEzsignfolderAPIService EzsignfolderDeleteObjectV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -114,13 +126,13 @@ func Test_eZmaxApi_ObjectEzsignfolderAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ObjectEzsignfolderAPIService EzsignfolderEditObjectV1", func(t *testing.T) {
+	t.Run("Test ObjectEzsignfolderAPIService EzsignfolderEditObjectV3", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pkiEzsignfolderID int32
 
-		resp, httpRes, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderEditObjectV1(context.Background(), pkiEzsignfolderID).Execute()
+		resp, httpRes, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderEditObjectV3(context.Background(), pkiEzsignfolderID).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -336,6 +348,20 @@ func Test_eZmaxApi_ObjectEzsignfolderAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test ObjectEzsignfolderAPIService EzsignfolderGetObjectV3", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiEzsignfolderID int32
+
+		resp, httpRes, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetObjectV3(context.Background(), pkiEzsignfolderID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ObjectEzsignfolderAPIService EzsignfolderImportEzsignfoldersignerassociationsV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -371,6 +397,20 @@ func Test_eZmaxApi_ObjectEzsignfolderAPIService(t *testing.T) {
 		var pkiEzsignfolderID int32
 
 		resp, httpRes, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderReorderV1(context.Background(), pkiEzsignfolderID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ObjectEzsignfolderAPIService EzsignfolderReorderV2", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiEzsignfolderID int32
+
+		resp, httpRes, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderReorderV2(context.Background(), pkiEzsignfolderID).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

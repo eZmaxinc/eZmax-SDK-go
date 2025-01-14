@@ -49,18 +49,4 @@ func Test_eZmaxApi_ObjectAttachmentAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ObjectAttachmentAPIService AttachmentGetDownloadUrlV1", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var pkiAttachmentID int32
-
-		resp, httpRes, err := apiClient.ObjectAttachmentAPI.AttachmentGetDownloadUrlV1(context.Background(), pkiAttachmentID).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 }

@@ -5,14 +5,22 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiEzsignfoldertypeID** | **int32** | The unique ID of the Ezsignfoldertype. | 
+**FkiFontIDAnnotation** | Pointer to **int32** | The unique ID of the Font | [optional] 
+**FkiFontIDFormfield** | Pointer to **int32** | The unique ID of the Font | [optional] 
+**FkiFontIDSignature** | Pointer to **int32** | The unique ID of the Font | [optional] 
 **SEzsignfoldertypeNameX** | Pointer to **string** | The name of the Ezsignfoldertype in the language of the requester | [optional] 
 **BEzsignfoldertypeSendproofezsignsigner** | Pointer to **bool** | Whether we send the proof in the email to Ezsignsigner | [optional] 
 **BEzsignfoldertypeAllowdownloadattachmentezsignsigner** | Pointer to **bool** | Whether we allow the Ezsigndocument to be downloaded by an Ezsignsigner | [optional] 
 **BEzsignfoldertypeAllowdownloadproofezsignsigner** | Pointer to **bool** | Whether we allow the proof to be downloaded by an Ezsignsigner | [optional] 
+**BEzsignfoldertypeAutomaticsignature** | Pointer to **bool** | Whether we allow the automatic signature by an User | [optional] 
 **BEzsignfoldertypeDelegate** | Pointer to **bool** | Wheter if delegation of signature is allowed to another user or not | [optional] 
 **BEzsignfoldertypeDiscussion** | Pointer to **bool** | Wheter if creating a new Discussion is allowed or not | [optional] 
 **BEzsignfoldertypeReassignezsignsigner** | Pointer to **bool** | Wheter if Reassignment of signature is allowed by a signatory to another signatory or not | [optional] 
 **BEzsignfoldertypeReassignuser** | Pointer to **bool** | Wheter if Reassignment of signature is allowed by a user to a signatory or another user or not | [optional] 
+**BEzsignfoldertypeReassigngroup** | Pointer to **bool** | Wheter if Reassignment of signatures of the groups to which the user belongs is authorized by a user to himself | [optional] 
+**IEzsignfoldertypeDeadlinedays** | Pointer to **int32** | The number of days to get all Ezsignsignatures | [optional] 
+**IEzsignfoldertypeFontsizeannotation** | Pointer to **int32** | Font size for annotations | [optional] 
+**IEzsignfoldertypeFontsizeformfield** | Pointer to **int32** | Font size for form fields | [optional] 
 
 ## Methods
 
@@ -52,6 +60,81 @@ and a boolean to check if the value has been set.
 
 SetPkiEzsignfoldertypeID sets PkiEzsignfoldertypeID field to given value.
 
+
+### GetFkiFontIDAnnotation
+
+`func (o *CustomEzsignfoldertypeResponse) GetFkiFontIDAnnotation() int32`
+
+GetFkiFontIDAnnotation returns the FkiFontIDAnnotation field if non-nil, zero value otherwise.
+
+### GetFkiFontIDAnnotationOk
+
+`func (o *CustomEzsignfoldertypeResponse) GetFkiFontIDAnnotationOk() (*int32, bool)`
+
+GetFkiFontIDAnnotationOk returns a tuple with the FkiFontIDAnnotation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiFontIDAnnotation
+
+`func (o *CustomEzsignfoldertypeResponse) SetFkiFontIDAnnotation(v int32)`
+
+SetFkiFontIDAnnotation sets FkiFontIDAnnotation field to given value.
+
+### HasFkiFontIDAnnotation
+
+`func (o *CustomEzsignfoldertypeResponse) HasFkiFontIDAnnotation() bool`
+
+HasFkiFontIDAnnotation returns a boolean if a field has been set.
+
+### GetFkiFontIDFormfield
+
+`func (o *CustomEzsignfoldertypeResponse) GetFkiFontIDFormfield() int32`
+
+GetFkiFontIDFormfield returns the FkiFontIDFormfield field if non-nil, zero value otherwise.
+
+### GetFkiFontIDFormfieldOk
+
+`func (o *CustomEzsignfoldertypeResponse) GetFkiFontIDFormfieldOk() (*int32, bool)`
+
+GetFkiFontIDFormfieldOk returns a tuple with the FkiFontIDFormfield field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiFontIDFormfield
+
+`func (o *CustomEzsignfoldertypeResponse) SetFkiFontIDFormfield(v int32)`
+
+SetFkiFontIDFormfield sets FkiFontIDFormfield field to given value.
+
+### HasFkiFontIDFormfield
+
+`func (o *CustomEzsignfoldertypeResponse) HasFkiFontIDFormfield() bool`
+
+HasFkiFontIDFormfield returns a boolean if a field has been set.
+
+### GetFkiFontIDSignature
+
+`func (o *CustomEzsignfoldertypeResponse) GetFkiFontIDSignature() int32`
+
+GetFkiFontIDSignature returns the FkiFontIDSignature field if non-nil, zero value otherwise.
+
+### GetFkiFontIDSignatureOk
+
+`func (o *CustomEzsignfoldertypeResponse) GetFkiFontIDSignatureOk() (*int32, bool)`
+
+GetFkiFontIDSignatureOk returns a tuple with the FkiFontIDSignature field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiFontIDSignature
+
+`func (o *CustomEzsignfoldertypeResponse) SetFkiFontIDSignature(v int32)`
+
+SetFkiFontIDSignature sets FkiFontIDSignature field to given value.
+
+### HasFkiFontIDSignature
+
+`func (o *CustomEzsignfoldertypeResponse) HasFkiFontIDSignature() bool`
+
+HasFkiFontIDSignature returns a boolean if a field has been set.
 
 ### GetSEzsignfoldertypeNameX
 
@@ -153,6 +236,31 @@ SetBEzsignfoldertypeAllowdownloadproofezsignsigner sets BEzsignfoldertypeAllowdo
 
 HasBEzsignfoldertypeAllowdownloadproofezsignsigner returns a boolean if a field has been set.
 
+### GetBEzsignfoldertypeAutomaticsignature
+
+`func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeAutomaticsignature() bool`
+
+GetBEzsignfoldertypeAutomaticsignature returns the BEzsignfoldertypeAutomaticsignature field if non-nil, zero value otherwise.
+
+### GetBEzsignfoldertypeAutomaticsignatureOk
+
+`func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeAutomaticsignatureOk() (*bool, bool)`
+
+GetBEzsignfoldertypeAutomaticsignatureOk returns a tuple with the BEzsignfoldertypeAutomaticsignature field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsignfoldertypeAutomaticsignature
+
+`func (o *CustomEzsignfoldertypeResponse) SetBEzsignfoldertypeAutomaticsignature(v bool)`
+
+SetBEzsignfoldertypeAutomaticsignature sets BEzsignfoldertypeAutomaticsignature field to given value.
+
+### HasBEzsignfoldertypeAutomaticsignature
+
+`func (o *CustomEzsignfoldertypeResponse) HasBEzsignfoldertypeAutomaticsignature() bool`
+
+HasBEzsignfoldertypeAutomaticsignature returns a boolean if a field has been set.
+
 ### GetBEzsignfoldertypeDelegate
 
 `func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeDelegate() bool`
@@ -252,6 +360,106 @@ SetBEzsignfoldertypeReassignuser sets BEzsignfoldertypeReassignuser field to giv
 `func (o *CustomEzsignfoldertypeResponse) HasBEzsignfoldertypeReassignuser() bool`
 
 HasBEzsignfoldertypeReassignuser returns a boolean if a field has been set.
+
+### GetBEzsignfoldertypeReassigngroup
+
+`func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeReassigngroup() bool`
+
+GetBEzsignfoldertypeReassigngroup returns the BEzsignfoldertypeReassigngroup field if non-nil, zero value otherwise.
+
+### GetBEzsignfoldertypeReassigngroupOk
+
+`func (o *CustomEzsignfoldertypeResponse) GetBEzsignfoldertypeReassigngroupOk() (*bool, bool)`
+
+GetBEzsignfoldertypeReassigngroupOk returns a tuple with the BEzsignfoldertypeReassigngroup field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsignfoldertypeReassigngroup
+
+`func (o *CustomEzsignfoldertypeResponse) SetBEzsignfoldertypeReassigngroup(v bool)`
+
+SetBEzsignfoldertypeReassigngroup sets BEzsignfoldertypeReassigngroup field to given value.
+
+### HasBEzsignfoldertypeReassigngroup
+
+`func (o *CustomEzsignfoldertypeResponse) HasBEzsignfoldertypeReassigngroup() bool`
+
+HasBEzsignfoldertypeReassigngroup returns a boolean if a field has been set.
+
+### GetIEzsignfoldertypeDeadlinedays
+
+`func (o *CustomEzsignfoldertypeResponse) GetIEzsignfoldertypeDeadlinedays() int32`
+
+GetIEzsignfoldertypeDeadlinedays returns the IEzsignfoldertypeDeadlinedays field if non-nil, zero value otherwise.
+
+### GetIEzsignfoldertypeDeadlinedaysOk
+
+`func (o *CustomEzsignfoldertypeResponse) GetIEzsignfoldertypeDeadlinedaysOk() (*int32, bool)`
+
+GetIEzsignfoldertypeDeadlinedaysOk returns a tuple with the IEzsignfoldertypeDeadlinedays field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIEzsignfoldertypeDeadlinedays
+
+`func (o *CustomEzsignfoldertypeResponse) SetIEzsignfoldertypeDeadlinedays(v int32)`
+
+SetIEzsignfoldertypeDeadlinedays sets IEzsignfoldertypeDeadlinedays field to given value.
+
+### HasIEzsignfoldertypeDeadlinedays
+
+`func (o *CustomEzsignfoldertypeResponse) HasIEzsignfoldertypeDeadlinedays() bool`
+
+HasIEzsignfoldertypeDeadlinedays returns a boolean if a field has been set.
+
+### GetIEzsignfoldertypeFontsizeannotation
+
+`func (o *CustomEzsignfoldertypeResponse) GetIEzsignfoldertypeFontsizeannotation() int32`
+
+GetIEzsignfoldertypeFontsizeannotation returns the IEzsignfoldertypeFontsizeannotation field if non-nil, zero value otherwise.
+
+### GetIEzsignfoldertypeFontsizeannotationOk
+
+`func (o *CustomEzsignfoldertypeResponse) GetIEzsignfoldertypeFontsizeannotationOk() (*int32, bool)`
+
+GetIEzsignfoldertypeFontsizeannotationOk returns a tuple with the IEzsignfoldertypeFontsizeannotation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIEzsignfoldertypeFontsizeannotation
+
+`func (o *CustomEzsignfoldertypeResponse) SetIEzsignfoldertypeFontsizeannotation(v int32)`
+
+SetIEzsignfoldertypeFontsizeannotation sets IEzsignfoldertypeFontsizeannotation field to given value.
+
+### HasIEzsignfoldertypeFontsizeannotation
+
+`func (o *CustomEzsignfoldertypeResponse) HasIEzsignfoldertypeFontsizeannotation() bool`
+
+HasIEzsignfoldertypeFontsizeannotation returns a boolean if a field has been set.
+
+### GetIEzsignfoldertypeFontsizeformfield
+
+`func (o *CustomEzsignfoldertypeResponse) GetIEzsignfoldertypeFontsizeformfield() int32`
+
+GetIEzsignfoldertypeFontsizeformfield returns the IEzsignfoldertypeFontsizeformfield field if non-nil, zero value otherwise.
+
+### GetIEzsignfoldertypeFontsizeformfieldOk
+
+`func (o *CustomEzsignfoldertypeResponse) GetIEzsignfoldertypeFontsizeformfieldOk() (*int32, bool)`
+
+GetIEzsignfoldertypeFontsizeformfieldOk returns a tuple with the IEzsignfoldertypeFontsizeformfield field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIEzsignfoldertypeFontsizeformfield
+
+`func (o *CustomEzsignfoldertypeResponse) SetIEzsignfoldertypeFontsizeformfield(v int32)`
+
+SetIEzsignfoldertypeFontsizeformfield sets IEzsignfoldertypeFontsizeformfield field to given value.
+
+### HasIEzsignfoldertypeFontsizeformfield
+
+`func (o *CustomEzsignfoldertypeResponse) HasIEzsignfoldertypeFontsizeformfield() bool`
+
+HasIEzsignfoldertypeFontsizeformfield returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

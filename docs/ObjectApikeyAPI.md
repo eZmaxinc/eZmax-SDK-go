@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**ApikeyCreateObjectV2**](ObjectApikeyAPI.md#ApikeyCreateObjectV2) | **Post** /2/object/apikey | Create a new Apikey
 [**ApikeyEditObjectV1**](ObjectApikeyAPI.md#ApikeyEditObjectV1) | **Put** /1/object/apikey/{pkiApikeyID} | Edit an existing Apikey
 [**ApikeyEditPermissionsV1**](ObjectApikeyAPI.md#ApikeyEditPermissionsV1) | **Put** /1/object/apikey/{pkiApikeyID}/editPermissions | Edit multiple Permissions
+[**ApikeyGenerateDelegatedCredentialsV1**](ObjectApikeyAPI.md#ApikeyGenerateDelegatedCredentialsV1) | **Post** /1/object/apikey/generateDelegatedCredentials | Generate a delegated credentials
 [**ApikeyGetCorsV1**](ObjectApikeyAPI.md#ApikeyGetCorsV1) | **Get** /1/object/apikey/{pkiApikeyID}/getCors | Retrieve an existing Apikey&#39;s cors
 [**ApikeyGetListV1**](ObjectApikeyAPI.md#ApikeyGetListV1) | **Get** /1/object/apikey/getList | Retrieve Apikey list
 [**ApikeyGetObjectV2**](ObjectApikeyAPI.md#ApikeyGetObjectV2) | **Get** /2/object/apikey/{pkiApikeyID} | Retrieve an existing Apikey
@@ -211,6 +212,72 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ApikeyEditPermissionsV1Response**](ApikeyEditPermissionsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApikeyGenerateDelegatedCredentialsV1
+
+> ApikeyGenerateDelegatedCredentialsV1Response ApikeyGenerateDelegatedCredentialsV1(ctx).ApikeyGenerateDelegatedCredentialsV1Request(apikeyGenerateDelegatedCredentialsV1Request).Execute()
+
+Generate a delegated credentials
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	apikeyGenerateDelegatedCredentialsV1Request := *openapiclient.NewApikeyGenerateDelegatedCredentialsV1Request(int32(123)) // ApikeyGenerateDelegatedCredentialsV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectApikeyAPI.ApikeyGenerateDelegatedCredentialsV1(context.Background()).ApikeyGenerateDelegatedCredentialsV1Request(apikeyGenerateDelegatedCredentialsV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectApikeyAPI.ApikeyGenerateDelegatedCredentialsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApikeyGenerateDelegatedCredentialsV1`: ApikeyGenerateDelegatedCredentialsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectApikeyAPI.ApikeyGenerateDelegatedCredentialsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApikeyGenerateDelegatedCredentialsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apikeyGenerateDelegatedCredentialsV1Request** | [**ApikeyGenerateDelegatedCredentialsV1Request**](ApikeyGenerateDelegatedCredentialsV1Request.md) |  | 
+
+### Return type
+
+[**ApikeyGenerateDelegatedCredentialsV1Response**](ApikeyGenerateDelegatedCredentialsV1Response.md)
 
 ### Authorization
 

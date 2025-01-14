@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ObjDebugPayload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
 **ObjDebug** | Pointer to [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
-**MPayload** | [**CommunicationCreateObjectV1ResponseMPayload**](CommunicationCreateObjectV1ResponseMPayload.md) |  | 
+**MPayload** | [**CommunicationSendV1ResponseMPayload**](CommunicationSendV1ResponseMPayload.md) |  | 
 
 ## Methods
 
 ### NewCommunicationSendV1Response
 
-`func NewCommunicationSendV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload CommunicationCreateObjectV1ResponseMPayload, ) *CommunicationSendV1Response`
+`func NewCommunicationSendV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload CommunicationSendV1ResponseMPayload, ) *CommunicationSendV1Response`
 
 NewCommunicationSendV1Response instantiates a new CommunicationSendV1Response object
 This constructor will assign default values to properties that have it defined,
@@ -74,20 +74,20 @@ HasObjDebug returns a boolean if a field has been set.
 
 ### GetMPayload
 
-`func (o *CommunicationSendV1Response) GetMPayload() CommunicationCreateObjectV1ResponseMPayload`
+`func (o *CommunicationSendV1Response) GetMPayload() CommunicationSendV1ResponseMPayload`
 
 GetMPayload returns the MPayload field if non-nil, zero value otherwise.
 
 ### GetMPayloadOk
 
-`func (o *CommunicationSendV1Response) GetMPayloadOk() (*CommunicationCreateObjectV1ResponseMPayload, bool)`
+`func (o *CommunicationSendV1Response) GetMPayloadOk() (*CommunicationSendV1ResponseMPayload, bool)`
 
 GetMPayloadOk returns a tuple with the MPayload field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMPayload
 
-`func (o *CommunicationSendV1Response) SetMPayload(v CommunicationCreateObjectV1ResponseMPayload)`
+`func (o *CommunicationSendV1Response) SetMPayload(v CommunicationSendV1ResponseMPayload)`
 
 SetMPayload sets MPayload field to given value.
 

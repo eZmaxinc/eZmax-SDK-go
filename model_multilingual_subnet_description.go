@@ -21,9 +21,9 @@ var _ MappedNullable = &MultilingualSubnetDescription{}
 // MultilingualSubnetDescription The description of the Subnet
 type MultilingualSubnetDescription struct {
 	// The description of the Subnet in French
-	SSubnetDescription1 *string `json:"sSubnetDescription1,omitempty"`
+	SSubnetDescription1 *string `json:"sSubnetDescription1,omitempty" validate:"regexp=^.{0,50}$"`
 	// The description of the Subnet in English
-	SSubnetDescription2 *string `json:"sSubnetDescription2,omitempty"`
+	SSubnetDescription2 *string `json:"sSubnetDescription2,omitempty" validate:"regexp=^.{0,50}$"`
 }
 
 // NewMultilingualSubnetDescription instantiates a new MultilingualSubnetDescription object

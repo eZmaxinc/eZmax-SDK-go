@@ -69,16 +69,16 @@ type UserResponse struct {
 	// The last name of the user
 	SUserLastname string `json:"sUserLastname"`
 	// The login name of the User.
-	SUserLoginname string `json:"sUserLoginname"`
+	SUserLoginname string "json:\"sUserLoginname\" validate:\"regexp=^(?:([\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$\""
 	// The job title of the user
-	SUserJobtitle *string `json:"sUserJobtitle,omitempty"`
+	SUserJobtitle *string `json:"sUserJobtitle,omitempty" validate:"regexp=^.{0,50}$"`
 	EUserEzsignaccess FieldEUserEzsignaccess `json:"eUserEzsignaccess"`
 	// The last logon date of the User
-	DtUserLastlogondate *string `json:"dtUserLastlogondate,omitempty"`
+	DtUserLastlogondate *string `json:"dtUserLastlogondate,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$"`
 	// The date at which the User's password was last changed
-	DtUserPasswordchanged *string `json:"dtUserPasswordchanged,omitempty"`
+	DtUserPasswordchanged *string `json:"dtUserPasswordchanged,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$"`
 	// The eZsign prepaid expiration date
-	DtUserEzsignprepaidexpiration *string `json:"dtUserEzsignprepaidexpiration,omitempty"`
+	DtUserEzsignprepaidexpiration *string `json:"dtUserEzsignprepaidexpiration,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// Whether the User is active or not
 	BUserIsactive bool `json:"bUserIsactive"`
 	// Whether if the transactions in which the User is implicated must be validated by administrative personnel or not

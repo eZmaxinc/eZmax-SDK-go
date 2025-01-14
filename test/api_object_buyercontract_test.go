@@ -22,6 +22,20 @@ func Test_eZmaxApi_ObjectBuyercontractAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test ObjectBuyercontractAPIService BuyercontractGetCommunicationCountV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiBuyercontractID int32
+
+		resp, httpRes, err := apiClient.ObjectBuyercontractAPI.BuyercontractGetCommunicationCountV1(context.Background(), pkiBuyercontractID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ObjectBuyercontractAPIService BuyercontractGetCommunicationListV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -29,6 +43,34 @@ func Test_eZmaxApi_ObjectBuyercontractAPIService(t *testing.T) {
 		var pkiBuyercontractID int32
 
 		resp, httpRes, err := apiClient.ObjectBuyercontractAPI.BuyercontractGetCommunicationListV1(context.Background(), pkiBuyercontractID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ObjectBuyercontractAPIService BuyercontractGetCommunicationrecipientsV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiBuyercontractID int32
+
+		resp, httpRes, err := apiClient.ObjectBuyercontractAPI.BuyercontractGetCommunicationrecipientsV1(context.Background(), pkiBuyercontractID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ObjectBuyercontractAPIService BuyercontractGetCommunicationsendersV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiBuyercontractID int32
+
+		resp, httpRes, err := apiClient.ObjectBuyercontractAPI.BuyercontractGetCommunicationsendersV1(context.Background(), pkiBuyercontractID).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

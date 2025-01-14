@@ -33,7 +33,7 @@ type EzsignformfieldgroupResponseCompound struct {
 	SEzsignformfieldgroupLabel string `json:"sEzsignformfieldgroupLabel"`
 	// The step when the Ezsignsigner will be invited to fill the form fields
 	IEzsignformfieldgroupStep int32 `json:"iEzsignformfieldgroupStep"`
-	// The default value for the Ezsignformfieldgroup  You can use the codes below and they will be replaced at signature time.    | Code | Description | Example | | ------------------------- | ------------ | ------------ | | {sUserFirstname} | The first name of the contact | John | | {sUserLastname} | The last name of the contact | Doe | | {sUserJobtitle} | The job title | Sales Representative | | {sEmailAddress} | The email address | email@example.com | | {sPhoneE164} | A phone number in E.164 Format | +15149901516 | | {sPhoneE164Cell} | A phone number in E.164 Format | +15149901516 |
+	// The default value for the Ezsignformfieldgroup  You can use the codes below and they will be replaced at signature time.    | Code | Description | Example | | ------------------------- | ------------ | ------------ | | {sUserFirstname} | The first name of the contact | John | | {sUserLastname} | The last name of the contact | Doe | | {sUserJobtitle} | The job title | Sales Representative | | {sCompany} | Company name | eZmax Solutions Inc. | | {sEmailAddress} | The email address | email@example.com | | {sPhoneE164} | A phone number in E.164 Format | +15149901516 | | {sPhoneE164Cell} | A phone number in E.164 Format | +15149901516 |
 	SEzsignformfieldgroupDefaultvalue *string `json:"sEzsignformfieldgroupDefaultvalue,omitempty"`
 	// The minimum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup
 	IEzsignformfieldgroupFilledmin int32 `json:"iEzsignformfieldgroupFilledmin"`
@@ -47,7 +47,9 @@ type EzsignformfieldgroupResponseCompound struct {
 	BEzsignformfieldgroupEncrypted *bool `json:"bEzsignformfieldgroupEncrypted,omitempty"`
 	EEzsignformfieldgroupTextvalidation *EnumTextvalidation `json:"eEzsignformfieldgroupTextvalidation,omitempty"`
 	// A regular expression to indicate what values are acceptable for the Ezsignformfieldgroup.  This can only be set if eEzsignformfieldgroupType is **Text** or **Textarea**
-	SEzsignformfieldgroupRegexp *string `json:"sEzsignformfieldgroupRegexp,omitempty"`
+	SEzsignformfieldgroupRegexp *string `json:"sEzsignformfieldgroupRegexp,omitempty" validate:"regexp=^\\\\^.*\\\\$$|^$"`
+	// Description of validation rule. Show by signatory.
+	SEzsignformfieldgroupTextvalidationcustommessage *string `json:"sEzsignformfieldgroupTextvalidationcustommessage,omitempty"`
 	// A tooltip that will be presented to Ezsignsigner about the Ezsignformfieldgroup
 	TEzsignformfieldgroupTooltip *string `json:"tEzsignformfieldgroupTooltip,omitempty"`
 	EEzsignformfieldgroupTooltipposition *FieldEEzsignformfieldgroupTooltipposition `json:"eEzsignformfieldgroupTooltipposition,omitempty"`
@@ -472,6 +474,38 @@ func (o *EzsignformfieldgroupResponseCompound) SetSEzsignformfieldgroupRegexp(v 
 	o.SEzsignformfieldgroupRegexp = &v
 }
 
+// GetSEzsignformfieldgroupTextvalidationcustommessage returns the SEzsignformfieldgroupTextvalidationcustommessage field value if set, zero value otherwise.
+func (o *EzsignformfieldgroupResponseCompound) GetSEzsignformfieldgroupTextvalidationcustommessage() string {
+	if o == nil || IsNil(o.SEzsignformfieldgroupTextvalidationcustommessage) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsignformfieldgroupTextvalidationcustommessage
+}
+
+// GetSEzsignformfieldgroupTextvalidationcustommessageOk returns a tuple with the SEzsignformfieldgroupTextvalidationcustommessage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignformfieldgroupResponseCompound) GetSEzsignformfieldgroupTextvalidationcustommessageOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsignformfieldgroupTextvalidationcustommessage) {
+		return nil, false
+	}
+	return o.SEzsignformfieldgroupTextvalidationcustommessage, true
+}
+
+// HasSEzsignformfieldgroupTextvalidationcustommessage returns a boolean if a field has been set.
+func (o *EzsignformfieldgroupResponseCompound) HasSEzsignformfieldgroupTextvalidationcustommessage() bool {
+	if o != nil && !IsNil(o.SEzsignformfieldgroupTextvalidationcustommessage) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsignformfieldgroupTextvalidationcustommessage gets a reference to the given string and assigns it to the SEzsignformfieldgroupTextvalidationcustommessage field.
+func (o *EzsignformfieldgroupResponseCompound) SetSEzsignformfieldgroupTextvalidationcustommessage(v string) {
+	o.SEzsignformfieldgroupTextvalidationcustommessage = &v
+}
+
 // GetTEzsignformfieldgroupTooltip returns the TEzsignformfieldgroupTooltip field value if set, zero value otherwise.
 func (o *EzsignformfieldgroupResponseCompound) GetTEzsignformfieldgroupTooltip() string {
 	if o == nil || IsNil(o.TEzsignformfieldgroupTooltip) {
@@ -651,6 +685,9 @@ func (o EzsignformfieldgroupResponseCompound) ToMap() (map[string]interface{}, e
 	}
 	if !IsNil(o.SEzsignformfieldgroupRegexp) {
 		toSerialize["sEzsignformfieldgroupRegexp"] = o.SEzsignformfieldgroupRegexp
+	}
+	if !IsNil(o.SEzsignformfieldgroupTextvalidationcustommessage) {
+		toSerialize["sEzsignformfieldgroupTextvalidationcustommessage"] = o.SEzsignformfieldgroupTextvalidationcustommessage
 	}
 	if !IsNil(o.TEzsignformfieldgroupTooltip) {
 		toSerialize["tEzsignformfieldgroupTooltip"] = o.TEzsignformfieldgroupTooltip

@@ -29,7 +29,7 @@ type UserCreateEzsignuserV1Request struct {
 	// The last name of the user
 	SUserLastname string `json:"sUserLastname"`
 	// The email address.
-	SEmailAddress string `json:"sEmailAddress"`
+	SEmailAddress string "json:\"sEmailAddress\" validate:\"regexp=^[\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20}$\""
 	// The region of the phone number. (For a North America Number only)  The region is the \"514\" section in this sample phone number: (514) 990-1516 x123
 	// Deprecated
 	SPhoneRegion string `json:"sPhoneRegion"`

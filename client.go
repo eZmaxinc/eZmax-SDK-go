@@ -56,8 +56,6 @@ type APIClient struct {
 
 	GlobalEzmaxcustomerAPI *GlobalEzmaxcustomerAPIService
 
-	ModuleEzsignAPI *ModuleEzsignAPIService
-
 	ModuleReportAPI *ModuleReportAPIService
 
 	ModuleUserAPI *ModuleUserAPIService
@@ -67,6 +65,8 @@ type APIClient struct {
 	ObjectApikeyAPI *ObjectApikeyAPIService
 
 	ObjectAttachmentAPI *ObjectAttachmentAPIService
+
+	ObjectAuthenticationexternalAPI *ObjectAuthenticationexternalAPIService
 
 	ObjectBillingentityexternalAPI *ObjectBillingentityexternalAPIService
 
@@ -82,6 +82,8 @@ type APIClient struct {
 
 	ObjectCompanyAPI *ObjectCompanyAPIService
 
+	ObjectContacttitleAPI *ObjectContacttitleAPIService
+
 	ObjectCorsAPI *ObjectCorsAPIService
 
 	ObjectCountryAPI *ObjectCountryAPIService
@@ -89,6 +91,8 @@ type APIClient struct {
 	ObjectCreditcardclientAPI *ObjectCreditcardclientAPIService
 
 	ObjectCreditcardtypeAPI *ObjectCreditcardtypeAPIService
+
+	ObjectCustomerAPI *ObjectCustomerAPIService
 
 	ObjectDepartmentAPI *ObjectDepartmentAPIService
 
@@ -98,13 +102,23 @@ type APIClient struct {
 
 	ObjectDiscussionmessageAPI *ObjectDiscussionmessageAPIService
 
+	ObjectDomainAPI *ObjectDomainAPIService
+
 	ObjectElectronicfundstransferAPI *ObjectElectronicfundstransferAPIService
 
 	ObjectEmailtypeAPI *ObjectEmailtypeAPIService
 
+	ObjectEzdoctemplatedocumentAPI *ObjectEzdoctemplatedocumentAPIService
+
+	ObjectEzdoctemplatefieldtypecategoryAPI *ObjectEzdoctemplatefieldtypecategoryAPIService
+
+	ObjectEzdoctemplatetypeAPI *ObjectEzdoctemplatetypeAPIService
+
 	ObjectEzmaxinvoicingAPI *ObjectEzmaxinvoicingAPIService
 
 	ObjectEzmaxproductAPI *ObjectEzmaxproductAPIService
+
+	ObjectEzsignannotationAPI *ObjectEzsignannotationAPIService
 
 	ObjectEzsignbulksendAPI *ObjectEzsignbulksendAPIService
 
@@ -140,6 +154,8 @@ type APIClient struct {
 
 	ObjectEzsigntemplatedocumentAPI *ObjectEzsigntemplatedocumentAPIService
 
+	ObjectEzsigntemplatedocumentpagerecognitionAPI *ObjectEzsigntemplatedocumentpagerecognitionAPIService
+
 	ObjectEzsigntemplateformfieldgroupAPI *ObjectEzsigntemplateformfieldgroupAPIService
 
 	ObjectEzsigntemplateglobalAPI *ObjectEzsigntemplateglobalAPIService
@@ -152,11 +168,15 @@ type APIClient struct {
 
 	ObjectEzsigntemplatepackagesignermembershipAPI *ObjectEzsigntemplatepackagesignermembershipAPIService
 
+	ObjectEzsigntemplatepublicAPI *ObjectEzsigntemplatepublicAPIService
+
 	ObjectEzsigntemplatesignatureAPI *ObjectEzsigntemplatesignatureAPIService
 
 	ObjectEzsigntemplatesignerAPI *ObjectEzsigntemplatesignerAPIService
 
 	ObjectEzsigntsarequirementAPI *ObjectEzsigntsarequirementAPIService
+
+	ObjectEzsignuserAPI *ObjectEzsignuserAPIService
 
 	ObjectFontAPI *ObjectFontAPIService
 
@@ -165,6 +185,10 @@ type APIClient struct {
 	ObjectFranchiseofficeAPI *ObjectFranchiseofficeAPIService
 
 	ObjectFranchisereferalincomeAPI *ObjectFranchisereferalincomeAPIService
+
+	ObjectGlaccountAPI *ObjectGlaccountAPIService
+
+	ObjectGlaccountcontainerAPI *ObjectGlaccountcontainerAPIService
 
 	ObjectInscriptionAPI *ObjectInscriptionAPIService
 
@@ -188,6 +212,8 @@ type APIClient struct {
 
 	ObjectPaymenttermAPI *ObjectPaymenttermAPIService
 
+	ObjectPdfalevelAPI *ObjectPdfalevelAPIService
+
 	ObjectPeriodAPI *ObjectPeriodAPIService
 
 	ObjectPermissionAPI *ObjectPermissionAPIService
@@ -206,11 +232,15 @@ type APIClient struct {
 
 	ObjectSubnetAPI *ObjectSubnetAPIService
 
+	ObjectSupplyAPI *ObjectSupplyAPIService
+
 	ObjectSystemconfigurationAPI *ObjectSystemconfigurationAPIService
 
 	ObjectTaxassignmentAPI *ObjectTaxassignmentAPIService
 
 	ObjectTimezoneAPI *ObjectTimezoneAPIService
+
+	ObjectTranqcontractAPI *ObjectTranqcontractAPIService
 
 	ObjectUserAPI *ObjectUserAPIService
 
@@ -258,12 +288,12 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.GlobalCustomerAPI = (*GlobalCustomerAPIService)(&c.common)
 	c.GlobalEzmaxclientAPI = (*GlobalEzmaxclientAPIService)(&c.common)
 	c.GlobalEzmaxcustomerAPI = (*GlobalEzmaxcustomerAPIService)(&c.common)
-	c.ModuleEzsignAPI = (*ModuleEzsignAPIService)(&c.common)
 	c.ModuleReportAPI = (*ModuleReportAPIService)(&c.common)
 	c.ModuleUserAPI = (*ModuleUserAPIService)(&c.common)
 	c.ObjectActivesessionAPI = (*ObjectActivesessionAPIService)(&c.common)
 	c.ObjectApikeyAPI = (*ObjectApikeyAPIService)(&c.common)
 	c.ObjectAttachmentAPI = (*ObjectAttachmentAPIService)(&c.common)
+	c.ObjectAuthenticationexternalAPI = (*ObjectAuthenticationexternalAPIService)(&c.common)
 	c.ObjectBillingentityexternalAPI = (*ObjectBillingentityexternalAPIService)(&c.common)
 	c.ObjectBillingentityinternalAPI = (*ObjectBillingentityinternalAPIService)(&c.common)
 	c.ObjectBrandingAPI = (*ObjectBrandingAPIService)(&c.common)
@@ -271,18 +301,25 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectClonehistoryAPI = (*ObjectClonehistoryAPIService)(&c.common)
 	c.ObjectCommunicationAPI = (*ObjectCommunicationAPIService)(&c.common)
 	c.ObjectCompanyAPI = (*ObjectCompanyAPIService)(&c.common)
+	c.ObjectContacttitleAPI = (*ObjectContacttitleAPIService)(&c.common)
 	c.ObjectCorsAPI = (*ObjectCorsAPIService)(&c.common)
 	c.ObjectCountryAPI = (*ObjectCountryAPIService)(&c.common)
 	c.ObjectCreditcardclientAPI = (*ObjectCreditcardclientAPIService)(&c.common)
 	c.ObjectCreditcardtypeAPI = (*ObjectCreditcardtypeAPIService)(&c.common)
+	c.ObjectCustomerAPI = (*ObjectCustomerAPIService)(&c.common)
 	c.ObjectDepartmentAPI = (*ObjectDepartmentAPIService)(&c.common)
 	c.ObjectDiscussionAPI = (*ObjectDiscussionAPIService)(&c.common)
 	c.ObjectDiscussionmembershipAPI = (*ObjectDiscussionmembershipAPIService)(&c.common)
 	c.ObjectDiscussionmessageAPI = (*ObjectDiscussionmessageAPIService)(&c.common)
+	c.ObjectDomainAPI = (*ObjectDomainAPIService)(&c.common)
 	c.ObjectElectronicfundstransferAPI = (*ObjectElectronicfundstransferAPIService)(&c.common)
 	c.ObjectEmailtypeAPI = (*ObjectEmailtypeAPIService)(&c.common)
+	c.ObjectEzdoctemplatedocumentAPI = (*ObjectEzdoctemplatedocumentAPIService)(&c.common)
+	c.ObjectEzdoctemplatefieldtypecategoryAPI = (*ObjectEzdoctemplatefieldtypecategoryAPIService)(&c.common)
+	c.ObjectEzdoctemplatetypeAPI = (*ObjectEzdoctemplatetypeAPIService)(&c.common)
 	c.ObjectEzmaxinvoicingAPI = (*ObjectEzmaxinvoicingAPIService)(&c.common)
 	c.ObjectEzmaxproductAPI = (*ObjectEzmaxproductAPIService)(&c.common)
+	c.ObjectEzsignannotationAPI = (*ObjectEzsignannotationAPIService)(&c.common)
 	c.ObjectEzsignbulksendAPI = (*ObjectEzsignbulksendAPIService)(&c.common)
 	c.ObjectEzsignbulksenddocumentmappingAPI = (*ObjectEzsignbulksenddocumentmappingAPIService)(&c.common)
 	c.ObjectEzsignbulksendsignermappingAPI = (*ObjectEzsignbulksendsignermappingAPIService)(&c.common)
@@ -300,19 +337,24 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectEzsignsigningreasonAPI = (*ObjectEzsignsigningreasonAPIService)(&c.common)
 	c.ObjectEzsigntemplateAPI = (*ObjectEzsigntemplateAPIService)(&c.common)
 	c.ObjectEzsigntemplatedocumentAPI = (*ObjectEzsigntemplatedocumentAPIService)(&c.common)
+	c.ObjectEzsigntemplatedocumentpagerecognitionAPI = (*ObjectEzsigntemplatedocumentpagerecognitionAPIService)(&c.common)
 	c.ObjectEzsigntemplateformfieldgroupAPI = (*ObjectEzsigntemplateformfieldgroupAPIService)(&c.common)
 	c.ObjectEzsigntemplateglobalAPI = (*ObjectEzsigntemplateglobalAPIService)(&c.common)
 	c.ObjectEzsigntemplatepackageAPI = (*ObjectEzsigntemplatepackageAPIService)(&c.common)
 	c.ObjectEzsigntemplatepackagemembershipAPI = (*ObjectEzsigntemplatepackagemembershipAPIService)(&c.common)
 	c.ObjectEzsigntemplatepackagesignerAPI = (*ObjectEzsigntemplatepackagesignerAPIService)(&c.common)
 	c.ObjectEzsigntemplatepackagesignermembershipAPI = (*ObjectEzsigntemplatepackagesignermembershipAPIService)(&c.common)
+	c.ObjectEzsigntemplatepublicAPI = (*ObjectEzsigntemplatepublicAPIService)(&c.common)
 	c.ObjectEzsigntemplatesignatureAPI = (*ObjectEzsigntemplatesignatureAPIService)(&c.common)
 	c.ObjectEzsigntemplatesignerAPI = (*ObjectEzsigntemplatesignerAPIService)(&c.common)
 	c.ObjectEzsigntsarequirementAPI = (*ObjectEzsigntsarequirementAPIService)(&c.common)
+	c.ObjectEzsignuserAPI = (*ObjectEzsignuserAPIService)(&c.common)
 	c.ObjectFontAPI = (*ObjectFontAPIService)(&c.common)
 	c.ObjectFranchisebrokerAPI = (*ObjectFranchisebrokerAPIService)(&c.common)
 	c.ObjectFranchiseofficeAPI = (*ObjectFranchiseofficeAPIService)(&c.common)
 	c.ObjectFranchisereferalincomeAPI = (*ObjectFranchisereferalincomeAPIService)(&c.common)
+	c.ObjectGlaccountAPI = (*ObjectGlaccountAPIService)(&c.common)
+	c.ObjectGlaccountcontainerAPI = (*ObjectGlaccountcontainerAPIService)(&c.common)
 	c.ObjectInscriptionAPI = (*ObjectInscriptionAPIService)(&c.common)
 	c.ObjectInscriptionnotauthenticatedAPI = (*ObjectInscriptionnotauthenticatedAPIService)(&c.common)
 	c.ObjectInscriptiontempAPI = (*ObjectInscriptiontempAPIService)(&c.common)
@@ -324,6 +366,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectNotificationtestAPI = (*ObjectNotificationtestAPIService)(&c.common)
 	c.ObjectOtherincomeAPI = (*ObjectOtherincomeAPIService)(&c.common)
 	c.ObjectPaymenttermAPI = (*ObjectPaymenttermAPIService)(&c.common)
+	c.ObjectPdfalevelAPI = (*ObjectPdfalevelAPIService)(&c.common)
 	c.ObjectPeriodAPI = (*ObjectPeriodAPIService)(&c.common)
 	c.ObjectPermissionAPI = (*ObjectPermissionAPIService)(&c.common)
 	c.ObjectPhonetypeAPI = (*ObjectPhonetypeAPIService)(&c.common)
@@ -333,9 +376,11 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectSessionhistoryAPI = (*ObjectSessionhistoryAPIService)(&c.common)
 	c.ObjectSignatureAPI = (*ObjectSignatureAPIService)(&c.common)
 	c.ObjectSubnetAPI = (*ObjectSubnetAPIService)(&c.common)
+	c.ObjectSupplyAPI = (*ObjectSupplyAPIService)(&c.common)
 	c.ObjectSystemconfigurationAPI = (*ObjectSystemconfigurationAPIService)(&c.common)
 	c.ObjectTaxassignmentAPI = (*ObjectTaxassignmentAPIService)(&c.common)
 	c.ObjectTimezoneAPI = (*ObjectTimezoneAPIService)(&c.common)
+	c.ObjectTranqcontractAPI = (*ObjectTranqcontractAPIService)(&c.common)
 	c.ObjectUserAPI = (*ObjectUserAPIService)(&c.common)
 	c.ObjectUsergroupAPI = (*ObjectUsergroupAPIService)(&c.common)
 	c.ObjectUsergroupdelegationAPI = (*ObjectUsergroupdelegationAPIService)(&c.common)
@@ -422,7 +467,7 @@ func parameterValueToString( obj interface{}, key string ) string {
 
 // parameterAddToHeaderOrQuery adds the provided object to the request header or url query
 // supporting deep object syntax
-func parameterAddToHeaderOrQuery(headerOrQueryParams interface{}, keyPrefix string, obj interface{}, collectionType string) {
+func parameterAddToHeaderOrQuery(headerOrQueryParams interface{}, keyPrefix string, obj interface{}, style string, collectionType string) {
 	var v = reflect.ValueOf(obj)
 	var value = ""
 	if v == reflect.ValueOf(nil) {
@@ -438,11 +483,11 @@ func parameterAddToHeaderOrQuery(headerOrQueryParams interface{}, keyPrefix stri
 					if err != nil {
 						return
 					}
-					parameterAddToHeaderOrQuery(headerOrQueryParams, keyPrefix, dataMap, collectionType)
+					parameterAddToHeaderOrQuery(headerOrQueryParams, keyPrefix, dataMap, style, collectionType)
 					return
 				}
 				if t, ok := obj.(time.Time); ok {
-					parameterAddToHeaderOrQuery(headerOrQueryParams, keyPrefix, t.Format(time.RFC3339), collectionType)
+					parameterAddToHeaderOrQuery(headerOrQueryParams, keyPrefix, t.Format(time.RFC3339Nano), style, collectionType)
 					return
 				}
 				value = v.Type().String() + " value"
@@ -454,7 +499,11 @@ func parameterAddToHeaderOrQuery(headerOrQueryParams interface{}, keyPrefix stri
 				var lenIndValue = indValue.Len()
 				for i:=0;i<lenIndValue;i++ {
 					var arrayValue = indValue.Index(i)
-					parameterAddToHeaderOrQuery(headerOrQueryParams, keyPrefix, arrayValue.Interface(), collectionType)
+					var keyPrefixForCollectionType = keyPrefix
+					if style == "deepObject" {
+						keyPrefixForCollectionType = keyPrefix + "[" + strconv.Itoa(i) + "]"
+					}
+					parameterAddToHeaderOrQuery(headerOrQueryParams, keyPrefixForCollectionType, arrayValue.Interface(), style, collectionType)
 				}
 				return
 
@@ -466,14 +515,14 @@ func parameterAddToHeaderOrQuery(headerOrQueryParams interface{}, keyPrefix stri
 				iter := indValue.MapRange()
 				for iter.Next() {
 					k,v := iter.Key(), iter.Value()
-					parameterAddToHeaderOrQuery(headerOrQueryParams, fmt.Sprintf("%s[%s]", keyPrefix, k.String()), v.Interface(), collectionType)
+					parameterAddToHeaderOrQuery(headerOrQueryParams, fmt.Sprintf("%s[%s]", keyPrefix, k.String()), v.Interface(), style, collectionType)
 				}
 				return
 
 			case reflect.Interface:
 				fallthrough
 			case reflect.Ptr:
-				parameterAddToHeaderOrQuery(headerOrQueryParams, keyPrefix, v.Elem().Interface(), collectionType)
+				parameterAddToHeaderOrQuery(headerOrQueryParams, keyPrefix, v.Elem().Interface(), style, collectionType)
 				return
 
 			case reflect.Int, reflect.Int8, reflect.Int16,
@@ -776,18 +825,6 @@ func addFile(w *multipart.Writer, fieldName, path string) error {
 	_, err = io.Copy(part, file)
 
 	return err
-}
-
-// Prevent trying to import "fmt"
-func reportError(format string, a ...interface{}) error {
-	return fmt.Errorf(format, a...)
-}
-
-// A wrapper for strict JSON decoding
-func newStrictDecoder(data []byte) *json.Decoder {
-	dec := json.NewDecoder(bytes.NewBuffer(data))
-	dec.DisallowUnknownFields()
-	return dec
 }
 
 // Set request body from an interface{}

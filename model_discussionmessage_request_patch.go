@@ -23,7 +23,7 @@ type DiscussionmessageRequestPatch struct {
 	// The unique ID of the Discussionmembership
 	FkiDiscussionmembershipIDActionrequired *int32 `json:"fkiDiscussionmembershipIDActionrequired,omitempty"`
 	// The content of the Discussionmessage
-	TDiscussionmessageContent *string `json:"tDiscussionmessageContent,omitempty"`
+	TDiscussionmessageContent *string `json:"tDiscussionmessageContent,omitempty" validate:"regexp=^.{0,65535}$"`
 }
 
 // NewDiscussionmessageRequestPatch instantiates a new DiscussionmessageRequestPatch object

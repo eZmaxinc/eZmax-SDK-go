@@ -43,7 +43,7 @@ type PhoneRequest struct {
 	// The extension of the phone number.  The extension is the \"123\" section in this sample phone number: (514) 990-1516 x123.  It can also be used with international phone numbers
 	SPhoneExtension *string `json:"sPhoneExtension,omitempty"`
 	// A phone number in E.164 Format
-	SPhoneE164 *string `json:"sPhoneE164,omitempty"`
+	SPhoneE164 *string `json:"sPhoneE164,omitempty" validate:"regexp=^\\\\+[1-9]\\\\d{1,14}$"`
 }
 
 type _PhoneRequest PhoneRequest

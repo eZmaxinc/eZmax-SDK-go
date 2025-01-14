@@ -24,16 +24,18 @@ var _ MappedNullable = &EzsignsignatureSignV1Request{}
 type EzsignsignatureSignV1Request struct {
 	// The unique ID of the Ezsignsigningreason
 	FkiEzsignsigningreasonID *int32 `json:"fkiEzsignsigningreasonID,omitempty"`
+	// The unique ID of the Font
+	FkiFontID *int32 `json:"fkiFontID,omitempty"`
 	// The value required for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **City**, **FieldText** or **FieldTextarea**
 	SValue *string `json:"sValue,omitempty"`
 	// Whether the attachment are accepted or refused.  This can only be set if eEzsignsignatureType is **AttachmentsConfirmation**
 	EAttachmentsConfirmationDecision *string `json:"eAttachmentsConfirmationDecision,omitempty"`
 	// The reason of refused.  This can only be set if eEzsignsignatureType is **AttachmentsConfirmation**
 	SAttachmentsRefusalReason *string `json:"sAttachmentsRefusalReason,omitempty"`
-	// The SVG of the handwritten signature.  This can only be set if eEzsignsignatureType is **Handwritten** and **bIsAutomatic** is false
-	SSvg *string `json:"sSvg,omitempty"`
+	// The SVG of the signature.  This can only be set if eEzsignsignatureType is **Signature**_/_**Initials** and **bIsAutomatic** is false
+	SSvg *string `json:"sSvg,omitempty" validate:"regexp=^.{0,65535}$"`
 	AObjFile []CommonFile `json:"a_objFile,omitempty"`
-	// Indicates if the Ezsignsignature was part of an automatic process or not.  This can only be true if eEzsignsignatureType is **Acknowledgement**, **City**, **Handwritten**, **Initials**, **Name** or **Stamp**. 
+	// Indicates if the Ezsignsignature was part of an automatic process or not.  This can only be true if eEzsignsignatureType is **Acknowledgement**, **City**, **Signature**, **Initials** or **Stamp**. 
 	BIsAutomatic bool `json:"bIsAutomatic"`
 }
 
@@ -87,6 +89,38 @@ func (o *EzsignsignatureSignV1Request) HasFkiEzsignsigningreasonID() bool {
 // SetFkiEzsignsigningreasonID gets a reference to the given int32 and assigns it to the FkiEzsignsigningreasonID field.
 func (o *EzsignsignatureSignV1Request) SetFkiEzsignsigningreasonID(v int32) {
 	o.FkiEzsignsigningreasonID = &v
+}
+
+// GetFkiFontID returns the FkiFontID field value if set, zero value otherwise.
+func (o *EzsignsignatureSignV1Request) GetFkiFontID() int32 {
+	if o == nil || IsNil(o.FkiFontID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiFontID
+}
+
+// GetFkiFontIDOk returns a tuple with the FkiFontID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureSignV1Request) GetFkiFontIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiFontID) {
+		return nil, false
+	}
+	return o.FkiFontID, true
+}
+
+// HasFkiFontID returns a boolean if a field has been set.
+func (o *EzsignsignatureSignV1Request) HasFkiFontID() bool {
+	if o != nil && !IsNil(o.FkiFontID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiFontID gets a reference to the given int32 and assigns it to the FkiFontID field.
+func (o *EzsignsignatureSignV1Request) SetFkiFontID(v int32) {
+	o.FkiFontID = &v
 }
 
 // GetSValue returns the SValue field value if set, zero value otherwise.
@@ -285,6 +319,9 @@ func (o EzsignsignatureSignV1Request) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.FkiEzsignsigningreasonID) {
 		toSerialize["fkiEzsignsigningreasonID"] = o.FkiEzsignsigningreasonID
+	}
+	if !IsNil(o.FkiFontID) {
+		toSerialize["fkiFontID"] = o.FkiFontID
 	}
 	if !IsNil(o.SValue) {
 		toSerialize["sValue"] = o.SValue

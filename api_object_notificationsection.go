@@ -86,7 +86,7 @@ func (a *ObjectNotificationsectionAPIService) NotificationsectionGetNotification
 		return localVarReturnValue, nil, reportError("bShowHidden is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "bShowHidden", r.bShowHidden, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "bShowHidden", r.bShowHidden, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

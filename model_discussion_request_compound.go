@@ -25,7 +25,7 @@ type DiscussionRequestCompound struct {
 	// The unique ID of the Discussion
 	PkiDiscussionID *int32 `json:"pkiDiscussionID,omitempty"`
 	// The description of the Discussion
-	SDiscussionDescription string `json:"sDiscussionDescription"`
+	SDiscussionDescription string `json:"sDiscussionDescription" validate:"regexp=^.{0,75}$"`
 	// Whether if it's an closed
 	BDiscussionClosed *bool `json:"bDiscussionClosed,omitempty"`
 }

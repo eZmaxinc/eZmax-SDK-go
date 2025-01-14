@@ -4,17 +4,17 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**BrandingCreateObjectV1**](ObjectBrandingAPI.md#BrandingCreateObjectV1) | **Post** /1/object/branding | Create a new Branding
-[**BrandingEditObjectV1**](ObjectBrandingAPI.md#BrandingEditObjectV1) | **Put** /1/object/branding/{pkiBrandingID} | Edit an existing Branding
+[**BrandingCreateObjectV2**](ObjectBrandingAPI.md#BrandingCreateObjectV2) | **Post** /2/object/branding | Create a new Branding
+[**BrandingEditObjectV2**](ObjectBrandingAPI.md#BrandingEditObjectV2) | **Put** /2/object/branding/{pkiBrandingID} | Edit an existing Branding
 [**BrandingGetAutocompleteV2**](ObjectBrandingAPI.md#BrandingGetAutocompleteV2) | **Get** /2/object/branding/getAutocomplete/{sSelector} | Retrieve Brandings and IDs
 [**BrandingGetListV1**](ObjectBrandingAPI.md#BrandingGetListV1) | **Get** /1/object/branding/getList | Retrieve Branding list
-[**BrandingGetObjectV2**](ObjectBrandingAPI.md#BrandingGetObjectV2) | **Get** /2/object/branding/{pkiBrandingID} | Retrieve an existing Branding
+[**BrandingGetObjectV3**](ObjectBrandingAPI.md#BrandingGetObjectV3) | **Get** /3/object/branding/{pkiBrandingID} | Retrieve an existing Branding
 
 
 
-## BrandingCreateObjectV1
+## BrandingCreateObjectV2
 
-> BrandingCreateObjectV1Response BrandingCreateObjectV1(ctx).BrandingCreateObjectV1Request(brandingCreateObjectV1Request).Execute()
+> BrandingCreateObjectV2Response BrandingCreateObjectV2(ctx).BrandingCreateObjectV2Request(brandingCreateObjectV2Request).Execute()
 
 Create a new Branding
 
@@ -33,17 +33,17 @@ import (
 )
 
 func main() {
-	brandingCreateObjectV1Request := *openapiclient.NewBrandingCreateObjectV1Request([]openapiclient.BrandingRequestCompound{*openapiclient.NewBrandingRequestCompound(*openapiclient.NewMultilingualBrandingDescription(), openapiclient.Field-eBrandingLogo("Default"), int32(3752795), int32(0), int32(16777215), int32(15658734), int32(13577007), int32(16777215), true)}) // BrandingCreateObjectV1Request | 
+	brandingCreateObjectV2Request := *openapiclient.NewBrandingCreateObjectV2Request([]openapiclient.BrandingRequestCompoundV2{*openapiclient.NewBrandingRequestCompoundV2(*openapiclient.NewMultilingualBrandingDescription(), openapiclient.Field-eBrandingLogo("Default"), int32(15658734), true)}) // BrandingCreateObjectV2Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectBrandingAPI.BrandingCreateObjectV1(context.Background()).BrandingCreateObjectV1Request(brandingCreateObjectV1Request).Execute()
+	resp, r, err := apiClient.ObjectBrandingAPI.BrandingCreateObjectV2(context.Background()).BrandingCreateObjectV2Request(brandingCreateObjectV2Request).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBrandingAPI.BrandingCreateObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBrandingAPI.BrandingCreateObjectV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `BrandingCreateObjectV1`: BrandingCreateObjectV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectBrandingAPI.BrandingCreateObjectV1`: %v\n", resp)
+	// response from `BrandingCreateObjectV2`: BrandingCreateObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectBrandingAPI.BrandingCreateObjectV2`: %v\n", resp)
 }
 ```
 
@@ -53,16 +53,16 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiBrandingCreateObjectV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiBrandingCreateObjectV2Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **brandingCreateObjectV1Request** | [**BrandingCreateObjectV1Request**](BrandingCreateObjectV1Request.md) |  | 
+ **brandingCreateObjectV2Request** | [**BrandingCreateObjectV2Request**](BrandingCreateObjectV2Request.md) |  | 
 
 ### Return type
 
-[**BrandingCreateObjectV1Response**](BrandingCreateObjectV1Response.md)
+[**BrandingCreateObjectV2Response**](BrandingCreateObjectV2Response.md)
 
 ### Authorization
 
@@ -78,9 +78,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## BrandingEditObjectV1
+## BrandingEditObjectV2
 
-> BrandingEditObjectV1Response BrandingEditObjectV1(ctx, pkiBrandingID).BrandingEditObjectV1Request(brandingEditObjectV1Request).Execute()
+> BrandingEditObjectV2Response BrandingEditObjectV2(ctx, pkiBrandingID).BrandingEditObjectV2Request(brandingEditObjectV2Request).Execute()
 
 Edit an existing Branding
 
@@ -100,17 +100,17 @@ import (
 
 func main() {
 	pkiBrandingID := int32(56) // int32 | 
-	brandingEditObjectV1Request := *openapiclient.NewBrandingEditObjectV1Request(*openapiclient.NewBrandingRequestCompound(*openapiclient.NewMultilingualBrandingDescription(), openapiclient.Field-eBrandingLogo("Default"), int32(3752795), int32(0), int32(16777215), int32(15658734), int32(13577007), int32(16777215), true)) // BrandingEditObjectV1Request | 
+	brandingEditObjectV2Request := *openapiclient.NewBrandingEditObjectV2Request(*openapiclient.NewBrandingRequestCompoundV2(*openapiclient.NewMultilingualBrandingDescription(), openapiclient.Field-eBrandingLogo("Default"), int32(15658734), true)) // BrandingEditObjectV2Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectBrandingAPI.BrandingEditObjectV1(context.Background(), pkiBrandingID).BrandingEditObjectV1Request(brandingEditObjectV1Request).Execute()
+	resp, r, err := apiClient.ObjectBrandingAPI.BrandingEditObjectV2(context.Background(), pkiBrandingID).BrandingEditObjectV2Request(brandingEditObjectV2Request).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBrandingAPI.BrandingEditObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBrandingAPI.BrandingEditObjectV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `BrandingEditObjectV1`: BrandingEditObjectV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectBrandingAPI.BrandingEditObjectV1`: %v\n", resp)
+	// response from `BrandingEditObjectV2`: BrandingEditObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectBrandingAPI.BrandingEditObjectV2`: %v\n", resp)
 }
 ```
 
@@ -124,17 +124,17 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiBrandingEditObjectV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiBrandingEditObjectV2Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **brandingEditObjectV1Request** | [**BrandingEditObjectV1Request**](BrandingEditObjectV1Request.md) |  | 
+ **brandingEditObjectV2Request** | [**BrandingEditObjectV2Request**](BrandingEditObjectV2Request.md) |  | 
 
 ### Return type
 
-[**BrandingEditObjectV1Response**](BrandingEditObjectV1Response.md)
+[**BrandingEditObjectV2Response**](BrandingEditObjectV2Response.md)
 
 ### Authorization
 
@@ -300,9 +300,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## BrandingGetObjectV2
+## BrandingGetObjectV3
 
-> BrandingGetObjectV2Response BrandingGetObjectV2(ctx, pkiBrandingID).Execute()
+> BrandingGetObjectV3Response BrandingGetObjectV3(ctx, pkiBrandingID).Execute()
 
 Retrieve an existing Branding
 
@@ -325,13 +325,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectBrandingAPI.BrandingGetObjectV2(context.Background(), pkiBrandingID).Execute()
+	resp, r, err := apiClient.ObjectBrandingAPI.BrandingGetObjectV3(context.Background(), pkiBrandingID).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBrandingAPI.BrandingGetObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBrandingAPI.BrandingGetObjectV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `BrandingGetObjectV2`: BrandingGetObjectV2Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectBrandingAPI.BrandingGetObjectV2`: %v\n", resp)
+	// response from `BrandingGetObjectV3`: BrandingGetObjectV3Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectBrandingAPI.BrandingGetObjectV3`: %v\n", resp)
 }
 ```
 
@@ -345,7 +345,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiBrandingGetObjectV2Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiBrandingGetObjectV3Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -354,7 +354,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BrandingGetObjectV2Response**](BrandingGetObjectV2Response.md)
+[**BrandingGetObjectV3Response**](BrandingGetObjectV3Response.md)
 
 ### Authorization
 

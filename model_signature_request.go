@@ -24,8 +24,13 @@ var _ MappedNullable = &SignatureRequest{}
 type SignatureRequest struct {
 	// The unique ID of the Signature
 	PkiSignatureID *int32 `json:"pkiSignatureID,omitempty"`
+	// The unique ID of the Font
+	FkiFontID int32 `json:"fkiFontID"`
+	ESignaturePreference FieldESignaturePreference `json:"eSignaturePreference"`
 	// The svg of the Signature
-	TSignatureSvg string `json:"tSignatureSvg"`
+	TSignatureSvg *string `json:"tSignatureSvg,omitempty" validate:"regexp=^.{60,65535}$"`
+	// The svg of the Initials
+	TSignatureSvginitials *string `json:"tSignatureSvginitials,omitempty" validate:"regexp=^.{60,65535}$"`
 }
 
 type _SignatureRequest SignatureRequest
@@ -34,9 +39,10 @@ type _SignatureRequest SignatureRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSignatureRequest(tSignatureSvg string) *SignatureRequest {
+func NewSignatureRequest(fkiFontID int32, eSignaturePreference FieldESignaturePreference) *SignatureRequest {
 	this := SignatureRequest{}
-	this.TSignatureSvg = tSignatureSvg
+	this.FkiFontID = fkiFontID
+	this.ESignaturePreference = eSignaturePreference
 	return &this
 }
 
@@ -80,28 +86,116 @@ func (o *SignatureRequest) SetPkiSignatureID(v int32) {
 	o.PkiSignatureID = &v
 }
 
-// GetTSignatureSvg returns the TSignatureSvg field value
-func (o *SignatureRequest) GetTSignatureSvg() string {
+// GetFkiFontID returns the FkiFontID field value
+func (o *SignatureRequest) GetFkiFontID() int32 {
 	if o == nil {
-		var ret string
+		var ret int32
 		return ret
 	}
 
-	return o.TSignatureSvg
+	return o.FkiFontID
 }
 
-// GetTSignatureSvgOk returns a tuple with the TSignatureSvg field value
+// GetFkiFontIDOk returns a tuple with the FkiFontID field value
 // and a boolean to check if the value has been set.
-func (o *SignatureRequest) GetTSignatureSvgOk() (*string, bool) {
+func (o *SignatureRequest) GetFkiFontIDOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.TSignatureSvg, true
+	return &o.FkiFontID, true
 }
 
-// SetTSignatureSvg sets field value
+// SetFkiFontID sets field value
+func (o *SignatureRequest) SetFkiFontID(v int32) {
+	o.FkiFontID = v
+}
+
+// GetESignaturePreference returns the ESignaturePreference field value
+func (o *SignatureRequest) GetESignaturePreference() FieldESignaturePreference {
+	if o == nil {
+		var ret FieldESignaturePreference
+		return ret
+	}
+
+	return o.ESignaturePreference
+}
+
+// GetESignaturePreferenceOk returns a tuple with the ESignaturePreference field value
+// and a boolean to check if the value has been set.
+func (o *SignatureRequest) GetESignaturePreferenceOk() (*FieldESignaturePreference, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ESignaturePreference, true
+}
+
+// SetESignaturePreference sets field value
+func (o *SignatureRequest) SetESignaturePreference(v FieldESignaturePreference) {
+	o.ESignaturePreference = v
+}
+
+// GetTSignatureSvg returns the TSignatureSvg field value if set, zero value otherwise.
+func (o *SignatureRequest) GetTSignatureSvg() string {
+	if o == nil || IsNil(o.TSignatureSvg) {
+		var ret string
+		return ret
+	}
+	return *o.TSignatureSvg
+}
+
+// GetTSignatureSvgOk returns a tuple with the TSignatureSvg field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SignatureRequest) GetTSignatureSvgOk() (*string, bool) {
+	if o == nil || IsNil(o.TSignatureSvg) {
+		return nil, false
+	}
+	return o.TSignatureSvg, true
+}
+
+// HasTSignatureSvg returns a boolean if a field has been set.
+func (o *SignatureRequest) HasTSignatureSvg() bool {
+	if o != nil && !IsNil(o.TSignatureSvg) {
+		return true
+	}
+
+	return false
+}
+
+// SetTSignatureSvg gets a reference to the given string and assigns it to the TSignatureSvg field.
 func (o *SignatureRequest) SetTSignatureSvg(v string) {
-	o.TSignatureSvg = v
+	o.TSignatureSvg = &v
+}
+
+// GetTSignatureSvginitials returns the TSignatureSvginitials field value if set, zero value otherwise.
+func (o *SignatureRequest) GetTSignatureSvginitials() string {
+	if o == nil || IsNil(o.TSignatureSvginitials) {
+		var ret string
+		return ret
+	}
+	return *o.TSignatureSvginitials
+}
+
+// GetTSignatureSvginitialsOk returns a tuple with the TSignatureSvginitials field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SignatureRequest) GetTSignatureSvginitialsOk() (*string, bool) {
+	if o == nil || IsNil(o.TSignatureSvginitials) {
+		return nil, false
+	}
+	return o.TSignatureSvginitials, true
+}
+
+// HasTSignatureSvginitials returns a boolean if a field has been set.
+func (o *SignatureRequest) HasTSignatureSvginitials() bool {
+	if o != nil && !IsNil(o.TSignatureSvginitials) {
+		return true
+	}
+
+	return false
+}
+
+// SetTSignatureSvginitials gets a reference to the given string and assigns it to the TSignatureSvginitials field.
+func (o *SignatureRequest) SetTSignatureSvginitials(v string) {
+	o.TSignatureSvginitials = &v
 }
 
 func (o SignatureRequest) MarshalJSON() ([]byte, error) {
@@ -117,7 +211,14 @@ func (o SignatureRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.PkiSignatureID) {
 		toSerialize["pkiSignatureID"] = o.PkiSignatureID
 	}
-	toSerialize["tSignatureSvg"] = o.TSignatureSvg
+	toSerialize["fkiFontID"] = o.FkiFontID
+	toSerialize["eSignaturePreference"] = o.ESignaturePreference
+	if !IsNil(o.TSignatureSvg) {
+		toSerialize["tSignatureSvg"] = o.TSignatureSvg
+	}
+	if !IsNil(o.TSignatureSvginitials) {
+		toSerialize["tSignatureSvginitials"] = o.TSignatureSvginitials
+	}
 	return toSerialize, nil
 }
 
@@ -126,7 +227,8 @@ func (o *SignatureRequest) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"tSignatureSvg",
+		"fkiFontID",
+		"eSignaturePreference",
 	}
 
 	allProperties := make(map[string]interface{})

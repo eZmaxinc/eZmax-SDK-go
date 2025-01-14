@@ -25,7 +25,7 @@ type EzsignsigningreasonAutocompleteElementResponse struct {
 	// The unique ID of the Ezsignsigningreason
 	PkiEzsignsigningreasonID int32 `json:"pkiEzsignsigningreasonID"`
 	// The description of the Ezsignsigningreason in the language of the requester
-	SEzsignsigningreasonDescriptionX string `json:"sEzsignsigningreasonDescriptionX"`
+	SEzsignsigningreasonDescriptionX string `json:"sEzsignsigningreasonDescriptionX" validate:"regexp=^.{0,50}$"`
 	// Whether the ezsignsigningreason is active or not
 	BEzsignsigningreasonIsactive bool `json:"bEzsignsigningreasonIsactive"`
 }

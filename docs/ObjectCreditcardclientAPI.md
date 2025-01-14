@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**CreditcardclientGetAutocompleteV2**](ObjectCreditcardclientAPI.md#CreditcardclientGetAutocompleteV2) | **Get** /2/object/creditcardclient/getAutocomplete/{sSelector} | Retrieve Creditcardclients and IDs
 [**CreditcardclientGetListV1**](ObjectCreditcardclientAPI.md#CreditcardclientGetListV1) | **Get** /1/object/creditcardclient/getList | Retrieve Creditcardclient list
 [**CreditcardclientGetObjectV2**](ObjectCreditcardclientAPI.md#CreditcardclientGetObjectV2) | **Get** /2/object/creditcardclient/{pkiCreditcardclientID} | Retrieve an existing Creditcardclient
+[**CreditcardclientPatchObjectV1**](ObjectCreditcardclientAPI.md#CreditcardclientPatchObjectV1) | **Patch** /1/object/creditcardclient/{pkiCreditcardclientID} | Patch an existing Creditcardclient
 
 
 
@@ -34,7 +35,7 @@ import (
 )
 
 func main() {
-	creditcardclientCreateObjectV1Request := *openapiclient.NewCreditcardclientCreateObjectV1Request([]openapiclient.CreditcardclientRequestCompound{*openapiclient.NewCreditcardclientRequestCompound(true, "Visa", true, true, true, true, *openapiclient.NewCreditcarddetailRequest(int32(10), int32(2024)), "SCreditcardclientCVV_example")}) // CreditcardclientCreateObjectV1Request | 
+	creditcardclientCreateObjectV1Request := *openapiclient.NewCreditcardclientCreateObjectV1Request([]openapiclient.CreditcardclientRequestCompound{*openapiclient.NewCreditcardclientRequestCompound(true, "Visa", true, true, true, *openapiclient.NewCreditcarddetailRequest(int32(10), int32(2024), "2500", "Daniel-Johnson Blvd.", "H7T 2P6"), "SCreditcardclientCVV_example")}) // CreditcardclientCreateObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -171,7 +172,7 @@ import (
 
 func main() {
 	pkiCreditcardclientID := int32(56) // int32 | The unique ID of the Creditcardclient
-	creditcardclientEditObjectV1Request := *openapiclient.NewCreditcardclientEditObjectV1Request(*openapiclient.NewCreditcardclientRequestCompound(true, "Visa", true, true, true, true, *openapiclient.NewCreditcarddetailRequest(int32(10), int32(2024)), "SCreditcardclientCVV_example")) // CreditcardclientEditObjectV1Request | 
+	creditcardclientEditObjectV1Request := *openapiclient.NewCreditcardclientEditObjectV1Request(*openapiclient.NewCreditcardclientRequestCompound(true, "Visa", true, true, true, *openapiclient.NewCreditcarddetailRequest(int32(10), int32(2024), "2500", "Daniel-Johnson Blvd.", "H7T 2P6"), "SCreditcardclientCVV_example")) // CreditcardclientEditObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -434,6 +435,78 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreditcardclientPatchObjectV1
+
+> CreditcardclientPatchObjectV1Response CreditcardclientPatchObjectV1(ctx, pkiCreditcardclientID).CreditcardclientPatchObjectV1Request(creditcardclientPatchObjectV1Request).Execute()
+
+Patch an existing Creditcardclient
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiCreditcardclientID := int32(56) // int32 | The unique ID of the Creditcardclient
+	creditcardclientPatchObjectV1Request := *openapiclient.NewCreditcardclientPatchObjectV1Request(*openapiclient.NewCreditcardclientRequestPatch()) // CreditcardclientPatchObjectV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectCreditcardclientAPI.CreditcardclientPatchObjectV1(context.Background(), pkiCreditcardclientID).CreditcardclientPatchObjectV1Request(creditcardclientPatchObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectCreditcardclientAPI.CreditcardclientPatchObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreditcardclientPatchObjectV1`: CreditcardclientPatchObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectCreditcardclientAPI.CreditcardclientPatchObjectV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiCreditcardclientID** | **int32** | The unique ID of the Creditcardclient | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreditcardclientPatchObjectV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **creditcardclientPatchObjectV1Request** | [**CreditcardclientPatchObjectV1Request**](CreditcardclientPatchObjectV1Request.md) |  | 
+
+### Return type
+
+[**CreditcardclientPatchObjectV1Response**](CreditcardclientPatchObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

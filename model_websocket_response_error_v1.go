@@ -25,7 +25,7 @@ type WebsocketResponseErrorV1 struct {
 	// The Type of message
 	EWebsocketMessagetype string `json:"eWebsocketMessagetype"`
 	// The Channel on which to route the websocket message
-	SWebsocketChannel string `json:"sWebsocketChannel"`
+	SWebsocketChannel string `json:"sWebsocketChannel" validate:"regexp=^[a-zA-Z0-9_@.]{32}$"`
 	MPayload WebsocketResponseErrorV1MPayload `json:"mPayload"`
 }
 

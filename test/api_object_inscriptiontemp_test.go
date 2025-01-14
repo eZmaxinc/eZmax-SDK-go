@@ -22,6 +22,20 @@ func Test_eZmaxApi_ObjectInscriptiontempAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test ObjectInscriptiontempAPIService InscriptiontempGetCommunicationCountV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiInscriptiontempID int32
+
+		resp, httpRes, err := apiClient.ObjectInscriptiontempAPI.InscriptiontempGetCommunicationCountV1(context.Background(), pkiInscriptiontempID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ObjectInscriptiontempAPIService InscriptiontempGetCommunicationListV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -29,6 +43,34 @@ func Test_eZmaxApi_ObjectInscriptiontempAPIService(t *testing.T) {
 		var pkiInscriptiontempID int32
 
 		resp, httpRes, err := apiClient.ObjectInscriptiontempAPI.InscriptiontempGetCommunicationListV1(context.Background(), pkiInscriptiontempID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ObjectInscriptiontempAPIService InscriptiontempGetCommunicationrecipientsV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiInscriptiontempID int32
+
+		resp, httpRes, err := apiClient.ObjectInscriptiontempAPI.InscriptiontempGetCommunicationrecipientsV1(context.Background(), pkiInscriptiontempID).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ObjectInscriptiontempAPIService InscriptiontempGetCommunicationsendersV1", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pkiInscriptiontempID int32
+
+		resp, httpRes, err := apiClient.ObjectInscriptiontempAPI.InscriptiontempGetCommunicationsendersV1(context.Background(), pkiInscriptiontempID).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

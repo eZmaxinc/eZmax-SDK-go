@@ -37,7 +37,7 @@ type EzmaxinvoicingcommissionResponse struct {
 	// This is the number of days during the month on which the Ezmaxinvoigcommission applies
 	IEzmaxinvoicingcommissionDays int32 `json:"iEzmaxinvoicingcommissionDays"`
 	// The amount of Ezmaxinvoicingcommission
-	DEzmaxinvoicingcommissionAmount string `json:"dEzmaxinvoicingcommissionAmount"`
+	DEzmaxinvoicingcommissionAmount string `json:"dEzmaxinvoicingcommissionAmount" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
 }
 
 type _EzmaxinvoicingcommissionResponse EzmaxinvoicingcommissionResponse

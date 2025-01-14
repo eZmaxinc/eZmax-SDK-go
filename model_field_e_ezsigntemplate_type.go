@@ -16,7 +16,7 @@ import (
 	"fmt"
 )
 
-// FieldEEzsigntemplateType The Type of Ezsigntemplate
+// FieldEEzsigntemplateType The Type of Ezsigntemplate  **Usergroup** is now deprecated and replace with **Ezsignfoldertype**
 type FieldEEzsigntemplateType string
 
 // List of Field-eEzsigntemplateType
@@ -24,6 +24,7 @@ const (
 	USER FieldEEzsigntemplateType = "User"
 	USERGROUP FieldEEzsigntemplateType = "Usergroup"
 	COMPANY FieldEEzsigntemplateType = "Company"
+	EZSIGNFOLDERTYPE FieldEEzsigntemplateType = "Ezsignfoldertype"
 )
 
 // All allowed values of FieldEEzsigntemplateType enum
@@ -31,6 +32,7 @@ var AllowedFieldEEzsigntemplateTypeEnumValues = []FieldEEzsigntemplateType{
 	"User",
 	"Usergroup",
 	"Company",
+	"Ezsignfoldertype",
 }
 
 func (v *FieldEEzsigntemplateType) UnmarshalJSON(src []byte) error {

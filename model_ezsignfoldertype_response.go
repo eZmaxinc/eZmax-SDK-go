@@ -42,13 +42,13 @@ type EzsignfoldertypeResponse struct {
 	// The description of the Ezsigntsarequirement in the language of the requester
 	SEzsigntsarequirementDescriptionX *string `json:"sEzsigntsarequirementDescriptionX,omitempty"`
 	// The email address.
-	SEmailAddressSigned *string `json:"sEmailAddressSigned,omitempty"`
+	SEmailAddressSigned *string "json:\"sEmailAddressSigned,omitempty\" validate:\"regexp=^[\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20}$\""
 	// The email address.
-	SEmailAddressSummary *string `json:"sEmailAddressSummary,omitempty"`
+	SEmailAddressSummary *string "json:\"sEmailAddressSummary,omitempty\" validate:\"regexp=^[\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20}$\""
 	// The Name of the Usergroup in the language of the requester
-	SUsergroupNameX *string `json:"sUsergroupNameX,omitempty"`
+	SUsergroupNameX *string `json:"sUsergroupNameX,omitempty" validate:"regexp=^.{0,50}$"`
 	// The Name of the Usergroup in the language of the requester
-	SUsergroupNameXRestricted *string `json:"sUsergroupNameXRestricted,omitempty"`
+	SUsergroupNameXRestricted *string `json:"sUsergroupNameXRestricted,omitempty" validate:"regexp=^.{0,50}$"`
 	EEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel `json:"eEzsignfoldertypePrivacylevel"`
 	EEzsignfoldertypeSendreminderfrequency *FieldEEzsignfoldertypeSendreminderfrequency `json:"eEzsignfoldertypeSendreminderfrequency,omitempty"`
 	// The number of days before the archival of Ezsignfolders created using this Ezsignfoldertype
@@ -59,6 +59,8 @@ type EzsignfoldertypeResponse struct {
 	IEzsignfoldertypeDisposaldays *int32 `json:"iEzsignfoldertypeDisposaldays,omitempty"`
 	// The number of days to get all Ezsignsignatures
 	IEzsignfoldertypeDeadlinedays int32 `json:"iEzsignfoldertypeDeadlinedays"`
+	// Whether we allow the automatic signature by an User
+	BEzsignfoldertypeAutomaticsignature *bool `json:"bEzsignfoldertypeAutomaticsignature,omitempty"`
 	// Wheter if delegation of signature is allowed to another user or not
 	BEzsignfoldertypeDelegate *bool `json:"bEzsignfoldertypeDelegate,omitempty"`
 	// Wheter if creating a new Discussion is allowed or not
@@ -67,6 +69,8 @@ type EzsignfoldertypeResponse struct {
 	BEzsignfoldertypeReassignezsignsigner *bool `json:"bEzsignfoldertypeReassignezsignsigner,omitempty"`
 	// Wheter if Reassignment of signature is allowed by a user to a signatory or another user or not
 	BEzsignfoldertypeReassignuser *bool `json:"bEzsignfoldertypeReassignuser,omitempty"`
+	// Wheter if Reassignment of signatures of the groups to which the user belongs is authorized by a user to himself
+	BEzsignfoldertypeReassigngroup *bool `json:"bEzsignfoldertypeReassigngroup,omitempty"`
 	// Whether we send an email to Ezsignsigner  when document is completed
 	BEzsignfoldertypeSendsignedtoezsignsigner *bool `json:"bEzsignfoldertypeSendsignedtoezsignsigner,omitempty"`
 	// Whether we send an email to User who signed when document is completed
@@ -749,6 +753,38 @@ func (o *EzsignfoldertypeResponse) SetIEzsignfoldertypeDeadlinedays(v int32) {
 	o.IEzsignfoldertypeDeadlinedays = v
 }
 
+// GetBEzsignfoldertypeAutomaticsignature returns the BEzsignfoldertypeAutomaticsignature field value if set, zero value otherwise.
+func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeAutomaticsignature() bool {
+	if o == nil || IsNil(o.BEzsignfoldertypeAutomaticsignature) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignfoldertypeAutomaticsignature
+}
+
+// GetBEzsignfoldertypeAutomaticsignatureOk returns a tuple with the BEzsignfoldertypeAutomaticsignature field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeAutomaticsignatureOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignfoldertypeAutomaticsignature) {
+		return nil, false
+	}
+	return o.BEzsignfoldertypeAutomaticsignature, true
+}
+
+// HasBEzsignfoldertypeAutomaticsignature returns a boolean if a field has been set.
+func (o *EzsignfoldertypeResponse) HasBEzsignfoldertypeAutomaticsignature() bool {
+	if o != nil && !IsNil(o.BEzsignfoldertypeAutomaticsignature) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignfoldertypeAutomaticsignature gets a reference to the given bool and assigns it to the BEzsignfoldertypeAutomaticsignature field.
+func (o *EzsignfoldertypeResponse) SetBEzsignfoldertypeAutomaticsignature(v bool) {
+	o.BEzsignfoldertypeAutomaticsignature = &v
+}
+
 // GetBEzsignfoldertypeDelegate returns the BEzsignfoldertypeDelegate field value if set, zero value otherwise.
 func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeDelegate() bool {
 	if o == nil || IsNil(o.BEzsignfoldertypeDelegate) {
@@ -875,6 +911,38 @@ func (o *EzsignfoldertypeResponse) HasBEzsignfoldertypeReassignuser() bool {
 // SetBEzsignfoldertypeReassignuser gets a reference to the given bool and assigns it to the BEzsignfoldertypeReassignuser field.
 func (o *EzsignfoldertypeResponse) SetBEzsignfoldertypeReassignuser(v bool) {
 	o.BEzsignfoldertypeReassignuser = &v
+}
+
+// GetBEzsignfoldertypeReassigngroup returns the BEzsignfoldertypeReassigngroup field value if set, zero value otherwise.
+func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeReassigngroup() bool {
+	if o == nil || IsNil(o.BEzsignfoldertypeReassigngroup) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignfoldertypeReassigngroup
+}
+
+// GetBEzsignfoldertypeReassigngroupOk returns a tuple with the BEzsignfoldertypeReassigngroup field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeReassigngroupOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignfoldertypeReassigngroup) {
+		return nil, false
+	}
+	return o.BEzsignfoldertypeReassigngroup, true
+}
+
+// HasBEzsignfoldertypeReassigngroup returns a boolean if a field has been set.
+func (o *EzsignfoldertypeResponse) HasBEzsignfoldertypeReassigngroup() bool {
+	if o != nil && !IsNil(o.BEzsignfoldertypeReassigngroup) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignfoldertypeReassigngroup gets a reference to the given bool and assigns it to the BEzsignfoldertypeReassigngroup field.
+func (o *EzsignfoldertypeResponse) SetBEzsignfoldertypeReassigngroup(v bool) {
+	o.BEzsignfoldertypeReassigngroup = &v
 }
 
 // GetBEzsignfoldertypeSendsignedtoezsignsigner returns the BEzsignfoldertypeSendsignedtoezsignsigner field value if set, zero value otherwise.
@@ -1572,6 +1640,9 @@ func (o EzsignfoldertypeResponse) ToMap() (map[string]interface{}, error) {
 		toSerialize["iEzsignfoldertypeDisposaldays"] = o.IEzsignfoldertypeDisposaldays
 	}
 	toSerialize["iEzsignfoldertypeDeadlinedays"] = o.IEzsignfoldertypeDeadlinedays
+	if !IsNil(o.BEzsignfoldertypeAutomaticsignature) {
+		toSerialize["bEzsignfoldertypeAutomaticsignature"] = o.BEzsignfoldertypeAutomaticsignature
+	}
 	if !IsNil(o.BEzsignfoldertypeDelegate) {
 		toSerialize["bEzsignfoldertypeDelegate"] = o.BEzsignfoldertypeDelegate
 	}
@@ -1583,6 +1654,9 @@ func (o EzsignfoldertypeResponse) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.BEzsignfoldertypeReassignuser) {
 		toSerialize["bEzsignfoldertypeReassignuser"] = o.BEzsignfoldertypeReassignuser
+	}
+	if !IsNil(o.BEzsignfoldertypeReassigngroup) {
+		toSerialize["bEzsignfoldertypeReassigngroup"] = o.BEzsignfoldertypeReassigngroup
 	}
 	if !IsNil(o.BEzsignfoldertypeSendsignedtoezsignsigner) {
 		toSerialize["bEzsignfoldertypeSendsignedtoezsignsigner"] = o.BEzsignfoldertypeSendsignedtoezsignsigner

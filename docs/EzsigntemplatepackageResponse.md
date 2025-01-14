@@ -6,7 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiEzsigntemplatepackageID** | **int32** | The unique ID of the Ezsigntemplatepackage | 
 **FkiEzsignfoldertypeID** | **int32** | The unique ID of the Ezsignfoldertype. | 
+**FkiEzdoctemplatedocumentID** | Pointer to **int32** | The unique ID of the Ezdoctemplatedocument | [optional] 
 **FkiLanguageID** | **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
+**SEzdoctemplatedocumentNameX** | Pointer to **string** | The name of the Ezdoctemplatedocument in the language of the requester | [optional] 
 **SLanguageNameX** | **string** | The Name of the Language in the language of the requester | 
 **SEzsigntemplatepackageDescription** | **string** | The description of the Ezsigntemplatepackage | 
 **BEzsigntemplatepackageAdminonly** | **bool** | Whether the Ezsigntemplatepackage can be accessed by admin users only (eUserType&#x3D;Normal) | 
@@ -74,6 +76,31 @@ and a boolean to check if the value has been set.
 SetFkiEzsignfoldertypeID sets FkiEzsignfoldertypeID field to given value.
 
 
+### GetFkiEzdoctemplatedocumentID
+
+`func (o *EzsigntemplatepackageResponse) GetFkiEzdoctemplatedocumentID() int32`
+
+GetFkiEzdoctemplatedocumentID returns the FkiEzdoctemplatedocumentID field if non-nil, zero value otherwise.
+
+### GetFkiEzdoctemplatedocumentIDOk
+
+`func (o *EzsigntemplatepackageResponse) GetFkiEzdoctemplatedocumentIDOk() (*int32, bool)`
+
+GetFkiEzdoctemplatedocumentIDOk returns a tuple with the FkiEzdoctemplatedocumentID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiEzdoctemplatedocumentID
+
+`func (o *EzsigntemplatepackageResponse) SetFkiEzdoctemplatedocumentID(v int32)`
+
+SetFkiEzdoctemplatedocumentID sets FkiEzdoctemplatedocumentID field to given value.
+
+### HasFkiEzdoctemplatedocumentID
+
+`func (o *EzsigntemplatepackageResponse) HasFkiEzdoctemplatedocumentID() bool`
+
+HasFkiEzdoctemplatedocumentID returns a boolean if a field has been set.
+
 ### GetFkiLanguageID
 
 `func (o *EzsigntemplatepackageResponse) GetFkiLanguageID() int32`
@@ -93,6 +120,31 @@ and a boolean to check if the value has been set.
 
 SetFkiLanguageID sets FkiLanguageID field to given value.
 
+
+### GetSEzdoctemplatedocumentNameX
+
+`func (o *EzsigntemplatepackageResponse) GetSEzdoctemplatedocumentNameX() string`
+
+GetSEzdoctemplatedocumentNameX returns the SEzdoctemplatedocumentNameX field if non-nil, zero value otherwise.
+
+### GetSEzdoctemplatedocumentNameXOk
+
+`func (o *EzsigntemplatepackageResponse) GetSEzdoctemplatedocumentNameXOk() (*string, bool)`
+
+GetSEzdoctemplatedocumentNameXOk returns a tuple with the SEzdoctemplatedocumentNameX field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzdoctemplatedocumentNameX
+
+`func (o *EzsigntemplatepackageResponse) SetSEzdoctemplatedocumentNameX(v string)`
+
+SetSEzdoctemplatedocumentNameX sets SEzdoctemplatedocumentNameX field to given value.
+
+### HasSEzdoctemplatedocumentNameX
+
+`func (o *EzsigntemplatepackageResponse) HasSEzdoctemplatedocumentNameX() bool`
+
+HasSEzdoctemplatedocumentNameX returns a boolean if a field has been set.
 
 ### GetSLanguageNameX
 

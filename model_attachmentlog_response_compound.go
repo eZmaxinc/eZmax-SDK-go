@@ -27,10 +27,10 @@ type AttachmentlogResponseCompound struct {
 	// The unique ID of the User
 	FkiUserID int32 `json:"fkiUserID"`
 	// The created date
-	DtAttachmentlogDatetime string `json:"dtAttachmentlogDatetime"`
+	DtAttachmentlogDatetime string `json:"dtAttachmentlogDatetime" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$"`
 	EAttachmentlogType FieldEAttachmentlogType `json:"eAttachmentlogType"`
 	// The additionnal detail
-	SAttachmentlogDetail *string `json:"sAttachmentlogDetail,omitempty"`
+	SAttachmentlogDetail *string `json:"sAttachmentlogDetail,omitempty" validate:"regexp=^.{0,75}$"`
 }
 
 type _AttachmentlogResponseCompound AttachmentlogResponseCompound

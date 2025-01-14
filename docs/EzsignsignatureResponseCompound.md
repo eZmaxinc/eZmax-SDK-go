@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **FkiEzsigndocumentID** | **int32** | The unique ID of the Ezsigndocument | 
 **FkiEzsignfoldersignerassociationID** | **int32** | The unique ID of the Ezsignfoldersignerassociation | 
 **FkiEzsignsigningreasonID** | Pointer to **int32** | The unique ID of the Ezsignsigningreason | [optional] 
+**FkiFontID** | Pointer to **int32** | The unique ID of the Font | [optional] 
 **SEzsignsigningreasonDescriptionX** | Pointer to **string** | The description of the Ezsignsigningreason in the language of the requester | [optional] 
 **IEzsignpagePagenumber** | **int32** | The page number in the Ezsigndocument | 
 **IEzsignsignatureX** | **int32** | The X coordinate (Horizontal) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 2 inches from the left border of the page, you would use \&quot;200\&quot; for the X coordinate. | 
@@ -23,22 +24,29 @@ Name | Type | Description | Notes
 **IEzsignsignatureValidationstep** | Pointer to **int32** | The step when the Ezsignsigner will be invited to validate the Ezsignsignature of eEzsignsignatureType Attachments | [optional] 
 **SEzsignsignatureAttachmentdescription** | Pointer to **string** | The description attached to the attachment name added in Ezsignsignature of eEzsignsignatureType Attachments | [optional] 
 **EEzsignsignatureAttachmentnamesource** | Pointer to [**FieldEEzsignsignatureAttachmentnamesource**](FieldEEzsignsignatureAttachmentnamesource.md) |  | [optional] 
-**BEzsignsignatureRequired** | Pointer to **bool** | Whether the Ezsignsignature is required or not. This field is relevant only with Ezsignsignature with eEzsignsignatureType &#x3D; Attachments. | [optional] 
+**EEzsignsignatureConsultationtrigger** | Pointer to [**FieldEEzsignsignatureConsultationtrigger**](FieldEEzsignsignatureConsultationtrigger.md) |  | [optional] 
+**BEzsignsignatureHandwritten** | Pointer to **bool** | Whether the Ezsignsignature must be handwritten or not when eEzsignsignatureType &#x3D; Signature. | [optional] 
+**BEzsignsignatureReason** | Pointer to **bool** | Whether the Ezsignsignature must include a reason or not when eEzsignsignatureType &#x3D; Signature. | [optional] 
+**BEzsignsignatureRequired** | Pointer to **bool** | Whether the Ezsignsignature is required or not. This field is relevant only with Ezsignsignature with eEzsignsignatureType &#x3D; Attachments, Text or Textarea. | [optional] 
 **FkiEzsignfoldersignerassociationIDValidation** | Pointer to **int32** | The unique ID of the Ezsignfoldersignerassociation | [optional] 
 **DtEzsignsignatureDate** | Pointer to **string** | The date the Ezsignsignature was signed | [optional] 
 **IEzsignsignatureattachmentCount** | Pointer to **int32** | The count of Ezsignsignatureattachment | [optional] 
 **SEzsignsignatureDescription** | Pointer to **string** | The value entered while signing Ezsignsignature of eEzsignsignatureType **City**, **FieldText** and **FieldTextarea** | [optional] 
 **IEzsignsignatureMaxlength** | Pointer to **int32** | The maximum length for the value in the Ezsignsignature  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** | [optional] 
 **EEzsignsignatureTextvalidation** | Pointer to [**EnumTextvalidation**](EnumTextvalidation.md) |  | [optional] 
+**SEzsignsignatureTextvalidationcustommessage** | Pointer to **string** | Description of validation rule. Show by signatory. | [optional] 
 **EEzsignsignatureDependencyrequirement** | Pointer to [**FieldEEzsignsignatureDependencyrequirement**](FieldEEzsignsignatureDependencyrequirement.md) |  | [optional] 
+**SEzsignsignatureDefaultvalue** | Pointer to **string** | The default value for the Ezsignsignature  You can use the codes below and they will be replaced at signature time.    | Code | Description | Example | | ------------------------- | ------------ | ------------ | | {sUserFirstname} | The first name of the contact | John | | {sUserLastname} | The last name of the contact | Doe | | {sUserJobtitle} | The job title | Sales Representative | | {sCompany} | Company name | eZmax Solutions Inc. | | {sEmailAddress} | The email address | email@example.com | | {sPhoneE164} | A phone number in E.164 Format | +15149901516 | | {sPhoneE164Cell} | A phone number in E.164 Format | +15149901516 | | [optional] 
 **SEzsignsignatureRegexp** | Pointer to **string** | A regular expression to indicate what values are acceptable for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** and eEzsignsignatureTextvalidation is **Custom** | [optional] 
 **ObjContactName** | [**CustomContactNameResponse**](CustomContactNameResponse.md) |  | 
 **ObjContactNameDelegation** | Pointer to [**CustomContactNameResponse**](CustomContactNameResponse.md) |  | [optional] 
 **ObjSignature** | Pointer to [**SignatureResponseCompound**](SignatureResponseCompound.md) |  | [optional] 
+**DtEzsignsignatureDateInFolderTimezone** | Pointer to **string** | The date the Ezsignsignature was signed in folder&#39;s timezone | [optional] 
 **BEzsignsignatureCustomdate** | Pointer to **bool** | Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is **Name** or **Handwritten**) | [optional] 
 **AObjEzsignsignaturecustomdate** | Pointer to [**[]EzsignsignaturecustomdateResponseCompound**](EzsignsignaturecustomdateResponseCompound.md) | An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don&#39;t want to have a date at all. | [optional] 
 **ObjCreditcardtransaction** | Pointer to [**CustomCreditcardtransactionResponse**](CustomCreditcardtransactionResponse.md) |  | [optional] 
 **AObjEzsignelementdependency** | Pointer to [**[]EzsignelementdependencyResponseCompound**](EzsignelementdependencyResponseCompound.md) |  | [optional] 
+**ObjTimezone** | Pointer to [**CustomTimezoneWithCodeResponse**](CustomTimezoneWithCodeResponse.md) |  | [optional] 
 
 ## Methods
 
@@ -143,6 +151,31 @@ SetFkiEzsignsigningreasonID sets FkiEzsignsigningreasonID field to given value.
 `func (o *EzsignsignatureResponseCompound) HasFkiEzsignsigningreasonID() bool`
 
 HasFkiEzsignsigningreasonID returns a boolean if a field has been set.
+
+### GetFkiFontID
+
+`func (o *EzsignsignatureResponseCompound) GetFkiFontID() int32`
+
+GetFkiFontID returns the FkiFontID field if non-nil, zero value otherwise.
+
+### GetFkiFontIDOk
+
+`func (o *EzsignsignatureResponseCompound) GetFkiFontIDOk() (*int32, bool)`
+
+GetFkiFontIDOk returns a tuple with the FkiFontID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiFontID
+
+`func (o *EzsignsignatureResponseCompound) SetFkiFontID(v int32)`
+
+SetFkiFontID sets FkiFontID field to given value.
+
+### HasFkiFontID
+
+`func (o *EzsignsignatureResponseCompound) HasFkiFontID() bool`
+
+HasFkiFontID returns a boolean if a field has been set.
 
 ### GetSEzsignsigningreasonDescriptionX
 
@@ -494,6 +527,81 @@ SetEEzsignsignatureAttachmentnamesource sets EEzsignsignatureAttachmentnamesourc
 
 HasEEzsignsignatureAttachmentnamesource returns a boolean if a field has been set.
 
+### GetEEzsignsignatureConsultationtrigger
+
+`func (o *EzsignsignatureResponseCompound) GetEEzsignsignatureConsultationtrigger() FieldEEzsignsignatureConsultationtrigger`
+
+GetEEzsignsignatureConsultationtrigger returns the EEzsignsignatureConsultationtrigger field if non-nil, zero value otherwise.
+
+### GetEEzsignsignatureConsultationtriggerOk
+
+`func (o *EzsignsignatureResponseCompound) GetEEzsignsignatureConsultationtriggerOk() (*FieldEEzsignsignatureConsultationtrigger, bool)`
+
+GetEEzsignsignatureConsultationtriggerOk returns a tuple with the EEzsignsignatureConsultationtrigger field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsignsignatureConsultationtrigger
+
+`func (o *EzsignsignatureResponseCompound) SetEEzsignsignatureConsultationtrigger(v FieldEEzsignsignatureConsultationtrigger)`
+
+SetEEzsignsignatureConsultationtrigger sets EEzsignsignatureConsultationtrigger field to given value.
+
+### HasEEzsignsignatureConsultationtrigger
+
+`func (o *EzsignsignatureResponseCompound) HasEEzsignsignatureConsultationtrigger() bool`
+
+HasEEzsignsignatureConsultationtrigger returns a boolean if a field has been set.
+
+### GetBEzsignsignatureHandwritten
+
+`func (o *EzsignsignatureResponseCompound) GetBEzsignsignatureHandwritten() bool`
+
+GetBEzsignsignatureHandwritten returns the BEzsignsignatureHandwritten field if non-nil, zero value otherwise.
+
+### GetBEzsignsignatureHandwrittenOk
+
+`func (o *EzsignsignatureResponseCompound) GetBEzsignsignatureHandwrittenOk() (*bool, bool)`
+
+GetBEzsignsignatureHandwrittenOk returns a tuple with the BEzsignsignatureHandwritten field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsignsignatureHandwritten
+
+`func (o *EzsignsignatureResponseCompound) SetBEzsignsignatureHandwritten(v bool)`
+
+SetBEzsignsignatureHandwritten sets BEzsignsignatureHandwritten field to given value.
+
+### HasBEzsignsignatureHandwritten
+
+`func (o *EzsignsignatureResponseCompound) HasBEzsignsignatureHandwritten() bool`
+
+HasBEzsignsignatureHandwritten returns a boolean if a field has been set.
+
+### GetBEzsignsignatureReason
+
+`func (o *EzsignsignatureResponseCompound) GetBEzsignsignatureReason() bool`
+
+GetBEzsignsignatureReason returns the BEzsignsignatureReason field if non-nil, zero value otherwise.
+
+### GetBEzsignsignatureReasonOk
+
+`func (o *EzsignsignatureResponseCompound) GetBEzsignsignatureReasonOk() (*bool, bool)`
+
+GetBEzsignsignatureReasonOk returns a tuple with the BEzsignsignatureReason field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsignsignatureReason
+
+`func (o *EzsignsignatureResponseCompound) SetBEzsignsignatureReason(v bool)`
+
+SetBEzsignsignatureReason sets BEzsignsignatureReason field to given value.
+
+### HasBEzsignsignatureReason
+
+`func (o *EzsignsignatureResponseCompound) HasBEzsignsignatureReason() bool`
+
+HasBEzsignsignatureReason returns a boolean if a field has been set.
+
 ### GetBEzsignsignatureRequired
 
 `func (o *EzsignsignatureResponseCompound) GetBEzsignsignatureRequired() bool`
@@ -669,6 +777,31 @@ SetEEzsignsignatureTextvalidation sets EEzsignsignatureTextvalidation field to g
 
 HasEEzsignsignatureTextvalidation returns a boolean if a field has been set.
 
+### GetSEzsignsignatureTextvalidationcustommessage
+
+`func (o *EzsignsignatureResponseCompound) GetSEzsignsignatureTextvalidationcustommessage() string`
+
+GetSEzsignsignatureTextvalidationcustommessage returns the SEzsignsignatureTextvalidationcustommessage field if non-nil, zero value otherwise.
+
+### GetSEzsignsignatureTextvalidationcustommessageOk
+
+`func (o *EzsignsignatureResponseCompound) GetSEzsignsignatureTextvalidationcustommessageOk() (*string, bool)`
+
+GetSEzsignsignatureTextvalidationcustommessageOk returns a tuple with the SEzsignsignatureTextvalidationcustommessage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzsignsignatureTextvalidationcustommessage
+
+`func (o *EzsignsignatureResponseCompound) SetSEzsignsignatureTextvalidationcustommessage(v string)`
+
+SetSEzsignsignatureTextvalidationcustommessage sets SEzsignsignatureTextvalidationcustommessage field to given value.
+
+### HasSEzsignsignatureTextvalidationcustommessage
+
+`func (o *EzsignsignatureResponseCompound) HasSEzsignsignatureTextvalidationcustommessage() bool`
+
+HasSEzsignsignatureTextvalidationcustommessage returns a boolean if a field has been set.
+
 ### GetEEzsignsignatureDependencyrequirement
 
 `func (o *EzsignsignatureResponseCompound) GetEEzsignsignatureDependencyrequirement() FieldEEzsignsignatureDependencyrequirement`
@@ -693,6 +826,31 @@ SetEEzsignsignatureDependencyrequirement sets EEzsignsignatureDependencyrequirem
 `func (o *EzsignsignatureResponseCompound) HasEEzsignsignatureDependencyrequirement() bool`
 
 HasEEzsignsignatureDependencyrequirement returns a boolean if a field has been set.
+
+### GetSEzsignsignatureDefaultvalue
+
+`func (o *EzsignsignatureResponseCompound) GetSEzsignsignatureDefaultvalue() string`
+
+GetSEzsignsignatureDefaultvalue returns the SEzsignsignatureDefaultvalue field if non-nil, zero value otherwise.
+
+### GetSEzsignsignatureDefaultvalueOk
+
+`func (o *EzsignsignatureResponseCompound) GetSEzsignsignatureDefaultvalueOk() (*string, bool)`
+
+GetSEzsignsignatureDefaultvalueOk returns a tuple with the SEzsignsignatureDefaultvalue field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzsignsignatureDefaultvalue
+
+`func (o *EzsignsignatureResponseCompound) SetSEzsignsignatureDefaultvalue(v string)`
+
+SetSEzsignsignatureDefaultvalue sets SEzsignsignatureDefaultvalue field to given value.
+
+### HasSEzsignsignatureDefaultvalue
+
+`func (o *EzsignsignatureResponseCompound) HasSEzsignsignatureDefaultvalue() bool`
+
+HasSEzsignsignatureDefaultvalue returns a boolean if a field has been set.
 
 ### GetSEzsignsignatureRegexp
 
@@ -788,6 +946,31 @@ SetObjSignature sets ObjSignature field to given value.
 `func (o *EzsignsignatureResponseCompound) HasObjSignature() bool`
 
 HasObjSignature returns a boolean if a field has been set.
+
+### GetDtEzsignsignatureDateInFolderTimezone
+
+`func (o *EzsignsignatureResponseCompound) GetDtEzsignsignatureDateInFolderTimezone() string`
+
+GetDtEzsignsignatureDateInFolderTimezone returns the DtEzsignsignatureDateInFolderTimezone field if non-nil, zero value otherwise.
+
+### GetDtEzsignsignatureDateInFolderTimezoneOk
+
+`func (o *EzsignsignatureResponseCompound) GetDtEzsignsignatureDateInFolderTimezoneOk() (*string, bool)`
+
+GetDtEzsignsignatureDateInFolderTimezoneOk returns a tuple with the DtEzsignsignatureDateInFolderTimezone field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDtEzsignsignatureDateInFolderTimezone
+
+`func (o *EzsignsignatureResponseCompound) SetDtEzsignsignatureDateInFolderTimezone(v string)`
+
+SetDtEzsignsignatureDateInFolderTimezone sets DtEzsignsignatureDateInFolderTimezone field to given value.
+
+### HasDtEzsignsignatureDateInFolderTimezone
+
+`func (o *EzsignsignatureResponseCompound) HasDtEzsignsignatureDateInFolderTimezone() bool`
+
+HasDtEzsignsignatureDateInFolderTimezone returns a boolean if a field has been set.
 
 ### GetBEzsignsignatureCustomdate
 
@@ -888,6 +1071,31 @@ SetAObjEzsignelementdependency sets AObjEzsignelementdependency field to given v
 `func (o *EzsignsignatureResponseCompound) HasAObjEzsignelementdependency() bool`
 
 HasAObjEzsignelementdependency returns a boolean if a field has been set.
+
+### GetObjTimezone
+
+`func (o *EzsignsignatureResponseCompound) GetObjTimezone() CustomTimezoneWithCodeResponse`
+
+GetObjTimezone returns the ObjTimezone field if non-nil, zero value otherwise.
+
+### GetObjTimezoneOk
+
+`func (o *EzsignsignatureResponseCompound) GetObjTimezoneOk() (*CustomTimezoneWithCodeResponse, bool)`
+
+GetObjTimezoneOk returns a tuple with the ObjTimezone field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjTimezone
+
+`func (o *EzsignsignatureResponseCompound) SetObjTimezone(v CustomTimezoneWithCodeResponse)`
+
+SetObjTimezone sets ObjTimezone field to given value.
+
+### HasObjTimezone
+
+`func (o *EzsignsignatureResponseCompound) HasObjTimezone() bool`
+
+HasObjTimezone returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

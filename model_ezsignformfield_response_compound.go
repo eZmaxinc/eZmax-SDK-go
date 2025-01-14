@@ -34,9 +34,9 @@ type EzsignformfieldResponseCompound struct {
 	IEzsignformfieldX int32 `json:"iEzsignformfieldX"`
 	// The Y coordinate (Vertical) where to put the Ezsignformfield on the Ezsignpage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignformfield 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.
 	IEzsignformfieldY int32 `json:"iEzsignformfieldY"`
-	// The Width of the Ezsignformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsignformfieldgroupType.  | eEzsignformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22-65535     | | Radio                     | 22           | | Text                      | 22-65535     | | Textarea                  | 22-65535     |
+	// The Width of the Ezsignformfield in pixels calculated at 100 DPI
 	IEzsignformfieldWidth int32 `json:"iEzsignformfieldWidth"`
-	// The Height of the Ezsignformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsignformfieldgroupType.  | eEzsignformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22           | | Radio                     | 22           | | Text                      | 22           | | Textarea                  | 22-65535     | 
+	// The Height of the Ezsignformfield in pixels calculated at 100 DPI 
 	IEzsignformfieldHeight int32 `json:"iEzsignformfieldHeight"`
 	// Whether the Ezsignformfield allows the use of the autocomplete of the browser.  This can only be set if eEzsignformfieldgroupType is **Text**
 	BEzsignformfieldAutocomplete *bool `json:"bEzsignformfieldAutocomplete,omitempty"`
@@ -45,6 +45,8 @@ type EzsignformfieldResponseCompound struct {
 	// This is the value enterred for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is **Dropdown**, **Text** or **Textarea**
 	SEzsignformfieldEnteredvalue *string `json:"sEzsignformfieldEnteredvalue,omitempty"`
 	EEzsignformfieldDependencyrequirement *FieldEEzsignformfieldDependencyrequirement `json:"eEzsignformfieldDependencyrequirement,omitempty"`
+	EEzsignformfieldHorizontalalignment *EnumHorizontalalignment `json:"eEzsignformfieldHorizontalalignment,omitempty"`
+	ObjTextstylestatic *TextstylestaticResponseCompound `json:"objTextstylestatic,omitempty"`
 	AObjEzsignelementdependency []EzsignelementdependencyResponseCompound `json:"a_objEzsignelementdependency,omitempty"`
 }
 
@@ -402,6 +404,70 @@ func (o *EzsignformfieldResponseCompound) SetEEzsignformfieldDependencyrequireme
 	o.EEzsignformfieldDependencyrequirement = &v
 }
 
+// GetEEzsignformfieldHorizontalalignment returns the EEzsignformfieldHorizontalalignment field value if set, zero value otherwise.
+func (o *EzsignformfieldResponseCompound) GetEEzsignformfieldHorizontalalignment() EnumHorizontalalignment {
+	if o == nil || IsNil(o.EEzsignformfieldHorizontalalignment) {
+		var ret EnumHorizontalalignment
+		return ret
+	}
+	return *o.EEzsignformfieldHorizontalalignment
+}
+
+// GetEEzsignformfieldHorizontalalignmentOk returns a tuple with the EEzsignformfieldHorizontalalignment field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignformfieldResponseCompound) GetEEzsignformfieldHorizontalalignmentOk() (*EnumHorizontalalignment, bool) {
+	if o == nil || IsNil(o.EEzsignformfieldHorizontalalignment) {
+		return nil, false
+	}
+	return o.EEzsignformfieldHorizontalalignment, true
+}
+
+// HasEEzsignformfieldHorizontalalignment returns a boolean if a field has been set.
+func (o *EzsignformfieldResponseCompound) HasEEzsignformfieldHorizontalalignment() bool {
+	if o != nil && !IsNil(o.EEzsignformfieldHorizontalalignment) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsignformfieldHorizontalalignment gets a reference to the given EnumHorizontalalignment and assigns it to the EEzsignformfieldHorizontalalignment field.
+func (o *EzsignformfieldResponseCompound) SetEEzsignformfieldHorizontalalignment(v EnumHorizontalalignment) {
+	o.EEzsignformfieldHorizontalalignment = &v
+}
+
+// GetObjTextstylestatic returns the ObjTextstylestatic field value if set, zero value otherwise.
+func (o *EzsignformfieldResponseCompound) GetObjTextstylestatic() TextstylestaticResponseCompound {
+	if o == nil || IsNil(o.ObjTextstylestatic) {
+		var ret TextstylestaticResponseCompound
+		return ret
+	}
+	return *o.ObjTextstylestatic
+}
+
+// GetObjTextstylestaticOk returns a tuple with the ObjTextstylestatic field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignformfieldResponseCompound) GetObjTextstylestaticOk() (*TextstylestaticResponseCompound, bool) {
+	if o == nil || IsNil(o.ObjTextstylestatic) {
+		return nil, false
+	}
+	return o.ObjTextstylestatic, true
+}
+
+// HasObjTextstylestatic returns a boolean if a field has been set.
+func (o *EzsignformfieldResponseCompound) HasObjTextstylestatic() bool {
+	if o != nil && !IsNil(o.ObjTextstylestatic) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjTextstylestatic gets a reference to the given TextstylestaticResponseCompound and assigns it to the ObjTextstylestatic field.
+func (o *EzsignformfieldResponseCompound) SetObjTextstylestatic(v TextstylestaticResponseCompound) {
+	o.ObjTextstylestatic = &v
+}
+
 // GetAObjEzsignelementdependency returns the AObjEzsignelementdependency field value if set, zero value otherwise.
 func (o *EzsignformfieldResponseCompound) GetAObjEzsignelementdependency() []EzsignelementdependencyResponseCompound {
 	if o == nil || IsNil(o.AObjEzsignelementdependency) {
@@ -465,6 +531,12 @@ func (o EzsignformfieldResponseCompound) ToMap() (map[string]interface{}, error)
 	}
 	if !IsNil(o.EEzsignformfieldDependencyrequirement) {
 		toSerialize["eEzsignformfieldDependencyrequirement"] = o.EEzsignformfieldDependencyrequirement
+	}
+	if !IsNil(o.EEzsignformfieldHorizontalalignment) {
+		toSerialize["eEzsignformfieldHorizontalalignment"] = o.EEzsignformfieldHorizontalalignment
+	}
+	if !IsNil(o.ObjTextstylestatic) {
+		toSerialize["objTextstylestatic"] = o.ObjTextstylestatic
 	}
 	if !IsNil(o.AObjEzsignelementdependency) {
 		toSerialize["a_objEzsignelementdependency"] = o.AObjEzsignelementdependency

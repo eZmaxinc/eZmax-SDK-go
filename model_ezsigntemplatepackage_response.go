@@ -26,12 +26,16 @@ type EzsigntemplatepackageResponse struct {
 	PkiEzsigntemplatepackageID int32 `json:"pkiEzsigntemplatepackageID"`
 	// The unique ID of the Ezsignfoldertype.
 	FkiEzsignfoldertypeID int32 `json:"fkiEzsignfoldertypeID"`
+	// The unique ID of the Ezdoctemplatedocument
+	FkiEzdoctemplatedocumentID *int32 `json:"fkiEzdoctemplatedocumentID,omitempty"`
 	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
 	FkiLanguageID int32 `json:"fkiLanguageID"`
+	// The name of the Ezdoctemplatedocument in the language of the requester
+	SEzdoctemplatedocumentNameX *string `json:"sEzdoctemplatedocumentNameX,omitempty" validate:"regexp=^.{0,50}$"`
 	// The Name of the Language in the language of the requester
 	SLanguageNameX string `json:"sLanguageNameX"`
 	// The description of the Ezsigntemplatepackage
-	SEzsigntemplatepackageDescription string `json:"sEzsigntemplatepackageDescription"`
+	SEzsigntemplatepackageDescription string `json:"sEzsigntemplatepackageDescription" validate:"regexp=^.{0,80}$"`
 	// Whether the Ezsigntemplatepackage can be accessed by admin users only (eUserType=Normal)
 	BEzsigntemplatepackageAdminonly bool `json:"bEzsigntemplatepackageAdminonly"`
 	// Whether the Ezsignbulksend was automatically modified and needs a manual validation
@@ -121,6 +125,38 @@ func (o *EzsigntemplatepackageResponse) SetFkiEzsignfoldertypeID(v int32) {
 	o.FkiEzsignfoldertypeID = v
 }
 
+// GetFkiEzdoctemplatedocumentID returns the FkiEzdoctemplatedocumentID field value if set, zero value otherwise.
+func (o *EzsigntemplatepackageResponse) GetFkiEzdoctemplatedocumentID() int32 {
+	if o == nil || IsNil(o.FkiEzdoctemplatedocumentID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEzdoctemplatedocumentID
+}
+
+// GetFkiEzdoctemplatedocumentIDOk returns a tuple with the FkiEzdoctemplatedocumentID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatepackageResponse) GetFkiEzdoctemplatedocumentIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEzdoctemplatedocumentID) {
+		return nil, false
+	}
+	return o.FkiEzdoctemplatedocumentID, true
+}
+
+// HasFkiEzdoctemplatedocumentID returns a boolean if a field has been set.
+func (o *EzsigntemplatepackageResponse) HasFkiEzdoctemplatedocumentID() bool {
+	if o != nil && !IsNil(o.FkiEzdoctemplatedocumentID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzdoctemplatedocumentID gets a reference to the given int32 and assigns it to the FkiEzdoctemplatedocumentID field.
+func (o *EzsigntemplatepackageResponse) SetFkiEzdoctemplatedocumentID(v int32) {
+	o.FkiEzdoctemplatedocumentID = &v
+}
+
 // GetFkiLanguageID returns the FkiLanguageID field value
 func (o *EzsigntemplatepackageResponse) GetFkiLanguageID() int32 {
 	if o == nil {
@@ -143,6 +179,38 @@ func (o *EzsigntemplatepackageResponse) GetFkiLanguageIDOk() (*int32, bool) {
 // SetFkiLanguageID sets field value
 func (o *EzsigntemplatepackageResponse) SetFkiLanguageID(v int32) {
 	o.FkiLanguageID = v
+}
+
+// GetSEzdoctemplatedocumentNameX returns the SEzdoctemplatedocumentNameX field value if set, zero value otherwise.
+func (o *EzsigntemplatepackageResponse) GetSEzdoctemplatedocumentNameX() string {
+	if o == nil || IsNil(o.SEzdoctemplatedocumentNameX) {
+		var ret string
+		return ret
+	}
+	return *o.SEzdoctemplatedocumentNameX
+}
+
+// GetSEzdoctemplatedocumentNameXOk returns a tuple with the SEzdoctemplatedocumentNameX field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatepackageResponse) GetSEzdoctemplatedocumentNameXOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzdoctemplatedocumentNameX) {
+		return nil, false
+	}
+	return o.SEzdoctemplatedocumentNameX, true
+}
+
+// HasSEzdoctemplatedocumentNameX returns a boolean if a field has been set.
+func (o *EzsigntemplatepackageResponse) HasSEzdoctemplatedocumentNameX() bool {
+	if o != nil && !IsNil(o.SEzdoctemplatedocumentNameX) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzdoctemplatedocumentNameX gets a reference to the given string and assigns it to the SEzdoctemplatedocumentNameX field.
+func (o *EzsigntemplatepackageResponse) SetSEzdoctemplatedocumentNameX(v string) {
+	o.SEzdoctemplatedocumentNameX = &v
 }
 
 // GetSLanguageNameX returns the SLanguageNameX field value
@@ -325,7 +393,13 @@ func (o EzsigntemplatepackageResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiEzsigntemplatepackageID"] = o.PkiEzsigntemplatepackageID
 	toSerialize["fkiEzsignfoldertypeID"] = o.FkiEzsignfoldertypeID
+	if !IsNil(o.FkiEzdoctemplatedocumentID) {
+		toSerialize["fkiEzdoctemplatedocumentID"] = o.FkiEzdoctemplatedocumentID
+	}
 	toSerialize["fkiLanguageID"] = o.FkiLanguageID
+	if !IsNil(o.SEzdoctemplatedocumentNameX) {
+		toSerialize["sEzdoctemplatedocumentNameX"] = o.SEzdoctemplatedocumentNameX
+	}
 	toSerialize["sLanguageNameX"] = o.SLanguageNameX
 	toSerialize["sEzsigntemplatepackageDescription"] = o.SEzsigntemplatepackageDescription
 	toSerialize["bEzsigntemplatepackageAdminonly"] = o.BEzsigntemplatepackageAdminonly

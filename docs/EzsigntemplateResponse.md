@@ -8,8 +8,11 @@ Name | Type | Description | Notes
 **FkiEzsigntemplatedocumentID** | Pointer to **int32** | The unique ID of the Ezsigntemplatedocument | [optional] 
 **FkiEzsignfoldertypeID** | Pointer to **int32** | The unique ID of the Ezsignfoldertype. | [optional] 
 **FkiLanguageID** | **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
+**FkiEzdoctemplatedocumentID** | Pointer to **int32** | The unique ID of the Ezdoctemplatedocument | [optional] 
 **SLanguageNameX** | **string** | The Name of the Language in the language of the requester | 
 **SEzsigntemplateDescription** | **string** | The description of the Ezsigntemplate | 
+**SEzsigntemplateExternaldescription** | Pointer to **string** | The external description of the Ezsigntemplate | [optional] 
+**TEzsigntemplateComment** | Pointer to **string** | The comment of the Ezsigntemplate | [optional] 
 **SEzsigntemplateFilenamepattern** | Pointer to **string** | The filename pattern of the Ezsigntemplate | [optional] 
 **BEzsigntemplateAdminonly** | **bool** | Whether the Ezsigntemplate can be accessed by admin users only (eUserType&#x3D;Normal) | 
 **SEzsignfoldertypeNameX** | Pointer to **string** | The name of the Ezsignfoldertype in the language of the requester | [optional] 
@@ -126,6 +129,31 @@ and a boolean to check if the value has been set.
 SetFkiLanguageID sets FkiLanguageID field to given value.
 
 
+### GetFkiEzdoctemplatedocumentID
+
+`func (o *EzsigntemplateResponse) GetFkiEzdoctemplatedocumentID() int32`
+
+GetFkiEzdoctemplatedocumentID returns the FkiEzdoctemplatedocumentID field if non-nil, zero value otherwise.
+
+### GetFkiEzdoctemplatedocumentIDOk
+
+`func (o *EzsigntemplateResponse) GetFkiEzdoctemplatedocumentIDOk() (*int32, bool)`
+
+GetFkiEzdoctemplatedocumentIDOk returns a tuple with the FkiEzdoctemplatedocumentID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiEzdoctemplatedocumentID
+
+`func (o *EzsigntemplateResponse) SetFkiEzdoctemplatedocumentID(v int32)`
+
+SetFkiEzdoctemplatedocumentID sets FkiEzdoctemplatedocumentID field to given value.
+
+### HasFkiEzdoctemplatedocumentID
+
+`func (o *EzsigntemplateResponse) HasFkiEzdoctemplatedocumentID() bool`
+
+HasFkiEzdoctemplatedocumentID returns a boolean if a field has been set.
+
 ### GetSLanguageNameX
 
 `func (o *EzsigntemplateResponse) GetSLanguageNameX() string`
@@ -165,6 +193,56 @@ and a boolean to check if the value has been set.
 
 SetSEzsigntemplateDescription sets SEzsigntemplateDescription field to given value.
 
+
+### GetSEzsigntemplateExternaldescription
+
+`func (o *EzsigntemplateResponse) GetSEzsigntemplateExternaldescription() string`
+
+GetSEzsigntemplateExternaldescription returns the SEzsigntemplateExternaldescription field if non-nil, zero value otherwise.
+
+### GetSEzsigntemplateExternaldescriptionOk
+
+`func (o *EzsigntemplateResponse) GetSEzsigntemplateExternaldescriptionOk() (*string, bool)`
+
+GetSEzsigntemplateExternaldescriptionOk returns a tuple with the SEzsigntemplateExternaldescription field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzsigntemplateExternaldescription
+
+`func (o *EzsigntemplateResponse) SetSEzsigntemplateExternaldescription(v string)`
+
+SetSEzsigntemplateExternaldescription sets SEzsigntemplateExternaldescription field to given value.
+
+### HasSEzsigntemplateExternaldescription
+
+`func (o *EzsigntemplateResponse) HasSEzsigntemplateExternaldescription() bool`
+
+HasSEzsigntemplateExternaldescription returns a boolean if a field has been set.
+
+### GetTEzsigntemplateComment
+
+`func (o *EzsigntemplateResponse) GetTEzsigntemplateComment() string`
+
+GetTEzsigntemplateComment returns the TEzsigntemplateComment field if non-nil, zero value otherwise.
+
+### GetTEzsigntemplateCommentOk
+
+`func (o *EzsigntemplateResponse) GetTEzsigntemplateCommentOk() (*string, bool)`
+
+GetTEzsigntemplateCommentOk returns a tuple with the TEzsigntemplateComment field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTEzsigntemplateComment
+
+`func (o *EzsigntemplateResponse) SetTEzsigntemplateComment(v string)`
+
+SetTEzsigntemplateComment sets TEzsigntemplateComment field to given value.
+
+### HasTEzsigntemplateComment
+
+`func (o *EzsigntemplateResponse) HasTEzsigntemplateComment() bool`
+
+HasTEzsigntemplateComment returns a boolean if a field has been set.
 
 ### GetSEzsigntemplateFilenamepattern
 

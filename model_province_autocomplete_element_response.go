@@ -27,9 +27,9 @@ type ProvinceAutocompleteElementResponse struct {
 	// The unique ID of the Country.  Here are some common values (Complete list must be retrieved from API):  |Value|Description| |-|-| |1|Canada| |2|United-States|
 	FkiCountryID int32 `json:"fkiCountryID"`
 	// The name of the Province in the language of the requester
-	SProvinceNameX string `json:"sProvinceNameX"`
+	SProvinceNameX string `json:"sProvinceNameX" validate:"regexp=^.{0,50}$"`
 	// The shortname of the Province
-	SProvinceShortname string `json:"sProvinceShortname"`
+	SProvinceShortname string `json:"sProvinceShortname" validate:"regexp=^.{1,3}$"`
 	// Whether the Province is active or not
 	BProvinceIsactive bool `json:"bProvinceIsactive"`
 }

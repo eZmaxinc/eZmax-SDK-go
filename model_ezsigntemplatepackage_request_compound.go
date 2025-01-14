@@ -26,10 +26,12 @@ type EzsigntemplatepackageRequestCompound struct {
 	PkiEzsigntemplatepackageID *int32 `json:"pkiEzsigntemplatepackageID,omitempty"`
 	// The unique ID of the Ezsignfoldertype.
 	FkiEzsignfoldertypeID int32 `json:"fkiEzsignfoldertypeID"`
+	// The unique ID of the Ezdoctemplatedocument
+	FkiEzdoctemplatedocumentID *int32 `json:"fkiEzdoctemplatedocumentID,omitempty"`
 	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
 	FkiLanguageID int32 `json:"fkiLanguageID"`
 	// The description of the Ezsigntemplatepackage
-	SEzsigntemplatepackageDescription string `json:"sEzsigntemplatepackageDescription"`
+	SEzsigntemplatepackageDescription string `json:"sEzsigntemplatepackageDescription" validate:"regexp=^.{0,80}$"`
 	// Whether the Ezsigntemplatepackage can be accessed by admin users only (eUserType=Normal)
 	BEzsigntemplatepackageAdminonly bool `json:"bEzsigntemplatepackageAdminonly"`
 	// Whether the Ezsigntemplatepackage is active or not
@@ -114,6 +116,38 @@ func (o *EzsigntemplatepackageRequestCompound) GetFkiEzsignfoldertypeIDOk() (*in
 // SetFkiEzsignfoldertypeID sets field value
 func (o *EzsigntemplatepackageRequestCompound) SetFkiEzsignfoldertypeID(v int32) {
 	o.FkiEzsignfoldertypeID = v
+}
+
+// GetFkiEzdoctemplatedocumentID returns the FkiEzdoctemplatedocumentID field value if set, zero value otherwise.
+func (o *EzsigntemplatepackageRequestCompound) GetFkiEzdoctemplatedocumentID() int32 {
+	if o == nil || IsNil(o.FkiEzdoctemplatedocumentID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEzdoctemplatedocumentID
+}
+
+// GetFkiEzdoctemplatedocumentIDOk returns a tuple with the FkiEzdoctemplatedocumentID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatepackageRequestCompound) GetFkiEzdoctemplatedocumentIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEzdoctemplatedocumentID) {
+		return nil, false
+	}
+	return o.FkiEzdoctemplatedocumentID, true
+}
+
+// HasFkiEzdoctemplatedocumentID returns a boolean if a field has been set.
+func (o *EzsigntemplatepackageRequestCompound) HasFkiEzdoctemplatedocumentID() bool {
+	if o != nil && !IsNil(o.FkiEzdoctemplatedocumentID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzdoctemplatedocumentID gets a reference to the given int32 and assigns it to the FkiEzdoctemplatedocumentID field.
+func (o *EzsigntemplatepackageRequestCompound) SetFkiEzdoctemplatedocumentID(v int32) {
+	o.FkiEzdoctemplatedocumentID = &v
 }
 
 // GetFkiLanguageID returns the FkiLanguageID field value
@@ -226,6 +260,9 @@ func (o EzsigntemplatepackageRequestCompound) ToMap() (map[string]interface{}, e
 		toSerialize["pkiEzsigntemplatepackageID"] = o.PkiEzsigntemplatepackageID
 	}
 	toSerialize["fkiEzsignfoldertypeID"] = o.FkiEzsignfoldertypeID
+	if !IsNil(o.FkiEzdoctemplatedocumentID) {
+		toSerialize["fkiEzdoctemplatedocumentID"] = o.FkiEzdoctemplatedocumentID
+	}
 	toSerialize["fkiLanguageID"] = o.FkiLanguageID
 	toSerialize["sEzsigntemplatepackageDescription"] = o.SEzsigntemplatepackageDescription
 	toSerialize["bEzsigntemplatepackageAdminonly"] = o.BEzsigntemplatepackageAdminonly

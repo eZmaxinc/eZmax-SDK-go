@@ -25,7 +25,7 @@ type CustomEzmaxpricingResponse struct {
 	// The unique ID of the Ezmaxpricing
 	PkiEzmaxpricingID int32 `json:"pkiEzmaxpricingID"`
 	// The rebate offered when eZsign is taken for all agents
-	DEzmaxpricingRebateezsignallagents string `json:"dEzmaxpricingRebateezsignallagents"`
+	DEzmaxpricingRebateezsignallagents string `json:"dEzmaxpricingRebateezsignallagents" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
 	// The start date of the Ezmaxpricing
 	DtEzmaxpricingStart string `json:"dtEzmaxpricingStart"`
 	// The end date of the Ezmaxpricing

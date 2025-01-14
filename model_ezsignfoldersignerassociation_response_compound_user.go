@@ -31,7 +31,7 @@ type EzsignfoldersignerassociationResponseCompoundUser struct {
 	// The last name of the user
 	SUserLastname string `json:"sUserLastname"`
 	// The email address.
-	SEmailAddress string `json:"sEmailAddress"`
+	SEmailAddress string "json:\"sEmailAddress\" validate:\"regexp=^[\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20}$\""
 }
 
 type _EzsignfoldersignerassociationResponseCompoundUser EzsignfoldersignerassociationResponseCompoundUser

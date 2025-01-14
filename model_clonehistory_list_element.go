@@ -29,17 +29,17 @@ type ClonehistoryListElement struct {
 	// The unique ID of the User
 	FkiUserIDCloned int32 `json:"fkiUserIDCloned"`
 	// The firsthit of the Clonehistory
-	DtClonehistoryFirsthit string `json:"dtClonehistoryFirsthit"`
+	DtClonehistoryFirsthit string `json:"dtClonehistoryFirsthit" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$"`
 	// The lasthit of the Clonehistory
-	DtClonehistoryLasthit *string `json:"dtClonehistoryLasthit,omitempty"`
+	DtClonehistoryLasthit *string `json:"dtClonehistoryLasthit,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$"`
 	// The login name of the User.
-	SUserLoginnameCloning string `json:"sUserLoginnameCloning"`
+	SUserLoginnameCloning string "json:\"sUserLoginnameCloning\" validate:\"regexp=^(?:([\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$\""
 	// The first name of the user
 	SUserFirstnameCloning string `json:"sUserFirstnameCloning"`
 	// The last name of the user
 	SUserLastnameCloning string `json:"sUserLastnameCloning"`
 	// The login name of the User.
-	SUserLoginnameCloned string `json:"sUserLoginnameCloned"`
+	SUserLoginnameCloned string "json:\"sUserLoginnameCloned\" validate:\"regexp=^(?:([\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$\""
 	// The first name of the user
 	SUserFirstnameCloned string `json:"sUserFirstnameCloned"`
 	// The last name of the user

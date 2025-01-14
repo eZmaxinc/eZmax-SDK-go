@@ -8,12 +8,13 @@ Name | Type | Description | Notes
 **IEzsignsignaturestatusStep** | **int32** | The step at which the Ezsignsigner will be invited to sign or fill the form fields | 
 **IEzsignsignaturestatusTotal** | **int32** | The total number of signature or form fields the Ezsignsigner must process at the current step | 
 **IEzsignsignaturestatusSigned** | **int32** | The number of signature or form fields the Ezsignsigner has already processed at the current step | 
+**IEzsignsignaturestatusConditional** | **int32** | The number of signature or form fields the Ezsignsigner need to sign or fill under current conditions. | 
 
 ## Methods
 
 ### NewCustomEzsignsignaturestatusResponse
 
-`func NewCustomEzsignsignaturestatusResponse(eEzsignsignaturestatusSteptype string, iEzsignsignaturestatusStep int32, iEzsignsignaturestatusTotal int32, iEzsignsignaturestatusSigned int32, ) *CustomEzsignsignaturestatusResponse`
+`func NewCustomEzsignsignaturestatusResponse(eEzsignsignaturestatusSteptype string, iEzsignsignaturestatusStep int32, iEzsignsignaturestatusTotal int32, iEzsignsignaturestatusSigned int32, iEzsignsignaturestatusConditional int32, ) *CustomEzsignsignaturestatusResponse`
 
 NewCustomEzsignsignaturestatusResponse instantiates a new CustomEzsignsignaturestatusResponse object
 This constructor will assign default values to properties that have it defined,
@@ -106,6 +107,26 @@ and a boolean to check if the value has been set.
 `func (o *CustomEzsignsignaturestatusResponse) SetIEzsignsignaturestatusSigned(v int32)`
 
 SetIEzsignsignaturestatusSigned sets IEzsignsignaturestatusSigned field to given value.
+
+
+### GetIEzsignsignaturestatusConditional
+
+`func (o *CustomEzsignsignaturestatusResponse) GetIEzsignsignaturestatusConditional() int32`
+
+GetIEzsignsignaturestatusConditional returns the IEzsignsignaturestatusConditional field if non-nil, zero value otherwise.
+
+### GetIEzsignsignaturestatusConditionalOk
+
+`func (o *CustomEzsignsignaturestatusResponse) GetIEzsignsignaturestatusConditionalOk() (*int32, bool)`
+
+GetIEzsignsignaturestatusConditionalOk returns a tuple with the IEzsignsignaturestatusConditional field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIEzsignsignaturestatusConditional
+
+`func (o *CustomEzsignsignaturestatusResponse) SetIEzsignsignaturestatusConditional(v int32)`
+
+SetIEzsignsignaturestatusConditional sets IEzsignsignaturestatusConditional field to given value.
 
 
 

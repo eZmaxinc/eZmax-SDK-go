@@ -23,7 +23,7 @@ var _ MappedNullable = &CreditcardtypeAutocompleteElementResponse{}
 // CreditcardtypeAutocompleteElementResponse Creditcardtype AutocompleteElement Response
 type CreditcardtypeAutocompleteElementResponse struct {
 	// The name of the Creditcardtype
-	SCreditcardtypeName string `json:"sCreditcardtypeName"`
+	SCreditcardtypeName string `json:"sCreditcardtypeName" validate:"regexp=^.{1,30}$"`
 	// The unique ID of the Creditcardtype
 	PkiCreditcardtypeID int32 `json:"pkiCreditcardtypeID"`
 	ECreditcardtypeCodename FieldECreditcardtypeCodename `json:"eCreditcardtypeCodename"`

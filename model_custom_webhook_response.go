@@ -24,6 +24,8 @@ var _ MappedNullable = &CustomWebhookResponse{}
 type CustomWebhookResponse struct {
 	// The unique ID of the Webhook
 	PkiWebhookID int32 `json:"pkiWebhookID"`
+	// The unique ID of the Authenticationexternal
+	FkiAuthenticationexternalID *int32 `json:"fkiAuthenticationexternalID,omitempty"`
 	// The description of the Webhook
 	SWebhookDescription string `json:"sWebhookDescription"`
 	// The unique ID of the Ezsignfoldertype.
@@ -34,7 +36,7 @@ type CustomWebhookResponse struct {
 	EWebhookEzsignevent *FieldEWebhookEzsignevent `json:"eWebhookEzsignevent,omitempty"`
 	EWebhookManagementevent *FieldEWebhookManagementevent `json:"eWebhookManagementevent,omitempty"`
 	// The URL of the Webhook callback
-	SWebhookUrl string `json:"sWebhookUrl"`
+	SWebhookUrl string `json:"sWebhookUrl" validate:"regexp=^(https|http):\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
 	// The email that will receive the Webhook in case all attempts fail
 	SWebhookEmailfailed string `json:"sWebhookEmailfailed"`
 	// The Apikey for the Webhook.  This will be hidden if we are not creating or regenerating the Apikey.
@@ -47,6 +49,8 @@ type CustomWebhookResponse struct {
 	BWebhookIssigned bool `json:"bWebhookIssigned"`
 	// Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use
 	BWebhookSkipsslvalidation bool `json:"bWebhookSkipsslvalidation"`
+	// The description of the Authenticationexternal
+	SAuthenticationexternalDescription *string `json:"sAuthenticationexternalDescription,omitempty" validate:"regexp=^.{0,50}$"`
 	ObjAudit CommonAudit `json:"objAudit"`
 	// The concatenated string to describe the Webhook event
 	SWebhookEvent *string `json:"sWebhookEvent,omitempty"`
@@ -54,7 +58,10 @@ type CustomWebhookResponse struct {
 	// The customer code assigned to your account
 	PksCustomerCode string `json:"pksCustomerCode"`
 	// Wheter the webhook received is a manual test or a real event
+	// Deprecated
 	BWebhookTest bool `json:"bWebhookTest"`
+	// Wheter the webhook received is a manual test or a real event
+	EWebhookEmittype *string `json:"eWebhookEmittype,omitempty"`
 }
 
 type _CustomWebhookResponse CustomWebhookResponse
@@ -109,6 +116,38 @@ func (o *CustomWebhookResponse) GetPkiWebhookIDOk() (*int32, bool) {
 // SetPkiWebhookID sets field value
 func (o *CustomWebhookResponse) SetPkiWebhookID(v int32) {
 	o.PkiWebhookID = v
+}
+
+// GetFkiAuthenticationexternalID returns the FkiAuthenticationexternalID field value if set, zero value otherwise.
+func (o *CustomWebhookResponse) GetFkiAuthenticationexternalID() int32 {
+	if o == nil || IsNil(o.FkiAuthenticationexternalID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiAuthenticationexternalID
+}
+
+// GetFkiAuthenticationexternalIDOk returns a tuple with the FkiAuthenticationexternalID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomWebhookResponse) GetFkiAuthenticationexternalIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiAuthenticationexternalID) {
+		return nil, false
+	}
+	return o.FkiAuthenticationexternalID, true
+}
+
+// HasFkiAuthenticationexternalID returns a boolean if a field has been set.
+func (o *CustomWebhookResponse) HasFkiAuthenticationexternalID() bool {
+	if o != nil && !IsNil(o.FkiAuthenticationexternalID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiAuthenticationexternalID gets a reference to the given int32 and assigns it to the FkiAuthenticationexternalID field.
+func (o *CustomWebhookResponse) SetFkiAuthenticationexternalID(v int32) {
+	o.FkiAuthenticationexternalID = &v
 }
 
 // GetSWebhookDescription returns the SWebhookDescription field value
@@ -471,6 +510,38 @@ func (o *CustomWebhookResponse) SetBWebhookSkipsslvalidation(v bool) {
 	o.BWebhookSkipsslvalidation = v
 }
 
+// GetSAuthenticationexternalDescription returns the SAuthenticationexternalDescription field value if set, zero value otherwise.
+func (o *CustomWebhookResponse) GetSAuthenticationexternalDescription() string {
+	if o == nil || IsNil(o.SAuthenticationexternalDescription) {
+		var ret string
+		return ret
+	}
+	return *o.SAuthenticationexternalDescription
+}
+
+// GetSAuthenticationexternalDescriptionOk returns a tuple with the SAuthenticationexternalDescription field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomWebhookResponse) GetSAuthenticationexternalDescriptionOk() (*string, bool) {
+	if o == nil || IsNil(o.SAuthenticationexternalDescription) {
+		return nil, false
+	}
+	return o.SAuthenticationexternalDescription, true
+}
+
+// HasSAuthenticationexternalDescription returns a boolean if a field has been set.
+func (o *CustomWebhookResponse) HasSAuthenticationexternalDescription() bool {
+	if o != nil && !IsNil(o.SAuthenticationexternalDescription) {
+		return true
+	}
+
+	return false
+}
+
+// SetSAuthenticationexternalDescription gets a reference to the given string and assigns it to the SAuthenticationexternalDescription field.
+func (o *CustomWebhookResponse) SetSAuthenticationexternalDescription(v string) {
+	o.SAuthenticationexternalDescription = &v
+}
+
 // GetObjAudit returns the ObjAudit field value
 func (o *CustomWebhookResponse) GetObjAudit() CommonAudit {
 	if o == nil {
@@ -584,6 +655,7 @@ func (o *CustomWebhookResponse) SetPksCustomerCode(v string) {
 }
 
 // GetBWebhookTest returns the BWebhookTest field value
+// Deprecated
 func (o *CustomWebhookResponse) GetBWebhookTest() bool {
 	if o == nil {
 		var ret bool
@@ -595,6 +667,7 @@ func (o *CustomWebhookResponse) GetBWebhookTest() bool {
 
 // GetBWebhookTestOk returns a tuple with the BWebhookTest field value
 // and a boolean to check if the value has been set.
+// Deprecated
 func (o *CustomWebhookResponse) GetBWebhookTestOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
@@ -603,8 +676,41 @@ func (o *CustomWebhookResponse) GetBWebhookTestOk() (*bool, bool) {
 }
 
 // SetBWebhookTest sets field value
+// Deprecated
 func (o *CustomWebhookResponse) SetBWebhookTest(v bool) {
 	o.BWebhookTest = v
+}
+
+// GetEWebhookEmittype returns the EWebhookEmittype field value if set, zero value otherwise.
+func (o *CustomWebhookResponse) GetEWebhookEmittype() string {
+	if o == nil || IsNil(o.EWebhookEmittype) {
+		var ret string
+		return ret
+	}
+	return *o.EWebhookEmittype
+}
+
+// GetEWebhookEmittypeOk returns a tuple with the EWebhookEmittype field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomWebhookResponse) GetEWebhookEmittypeOk() (*string, bool) {
+	if o == nil || IsNil(o.EWebhookEmittype) {
+		return nil, false
+	}
+	return o.EWebhookEmittype, true
+}
+
+// HasEWebhookEmittype returns a boolean if a field has been set.
+func (o *CustomWebhookResponse) HasEWebhookEmittype() bool {
+	if o != nil && !IsNil(o.EWebhookEmittype) {
+		return true
+	}
+
+	return false
+}
+
+// SetEWebhookEmittype gets a reference to the given string and assigns it to the EWebhookEmittype field.
+func (o *CustomWebhookResponse) SetEWebhookEmittype(v string) {
+	o.EWebhookEmittype = &v
 }
 
 func (o CustomWebhookResponse) MarshalJSON() ([]byte, error) {
@@ -618,6 +724,9 @@ func (o CustomWebhookResponse) MarshalJSON() ([]byte, error) {
 func (o CustomWebhookResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiWebhookID"] = o.PkiWebhookID
+	if !IsNil(o.FkiAuthenticationexternalID) {
+		toSerialize["fkiAuthenticationexternalID"] = o.FkiAuthenticationexternalID
+	}
 	toSerialize["sWebhookDescription"] = o.SWebhookDescription
 	if !IsNil(o.FkiEzsignfoldertypeID) {
 		toSerialize["fkiEzsignfoldertypeID"] = o.FkiEzsignfoldertypeID
@@ -643,6 +752,9 @@ func (o CustomWebhookResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["bWebhookIsactive"] = o.BWebhookIsactive
 	toSerialize["bWebhookIssigned"] = o.BWebhookIssigned
 	toSerialize["bWebhookSkipsslvalidation"] = o.BWebhookSkipsslvalidation
+	if !IsNil(o.SAuthenticationexternalDescription) {
+		toSerialize["sAuthenticationexternalDescription"] = o.SAuthenticationexternalDescription
+	}
 	toSerialize["objAudit"] = o.ObjAudit
 	if !IsNil(o.SWebhookEvent) {
 		toSerialize["sWebhookEvent"] = o.SWebhookEvent
@@ -652,6 +764,9 @@ func (o CustomWebhookResponse) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["pksCustomerCode"] = o.PksCustomerCode
 	toSerialize["bWebhookTest"] = o.BWebhookTest
+	if !IsNil(o.EWebhookEmittype) {
+		toSerialize["eWebhookEmittype"] = o.EWebhookEmittype
+	}
 	return toSerialize, nil
 }
 

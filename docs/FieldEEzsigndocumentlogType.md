@@ -39,9 +39,13 @@
 
 * `IMPORT_FROM_INSTANET` (value: `"ImportFromInstanet"`)
 
+* `CREATED_FROM_EZSIGNTEMPLATEPUBLIC` (value: `"CreatedFromEzsigntemplatepublic"`)
+
 * `SEND_EMAIL` (value: `"SendEmail"`)
 
 * `FORM_COMPLETION` (value: `"FormCompletion"`)
+
+* `FORM_SAVE_AS_DRAFT` (value: `"FormSaveAsDraft"`)
 
 * `SIGNATURE_ATTACHMENT_ADD` (value: `"SignatureAttachmentAdd"`)
 
@@ -64,6 +68,8 @@
 * `REGENERATE_PAGE_FORM` (value: `"RegeneratePageForm"`)
 
 * `REASSIGN` (value: `"Reassign"`)
+
+* `DOCUMENT_COMPLETION` (value: `"DocumentCompletion"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

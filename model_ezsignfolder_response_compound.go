@@ -27,6 +27,8 @@ type EzsignfolderResponseCompound struct {
 	// The unique ID of the Ezsignfoldertype.
 	FkiEzsignfoldertypeID *int32 `json:"fkiEzsignfoldertypeID,omitempty"`
 	ObjEzsignfoldertype *CustomEzsignfoldertypeResponse `json:"objEzsignfoldertype,omitempty"`
+	// The unique ID of the Timezone
+	FkiTimezoneID *int32 `json:"fkiTimezoneID,omitempty"`
 	EEzsignfolderCompletion FieldEEzsignfolderCompletion `json:"eEzsignfolderCompletion"`
 	// Deprecated
 	SEzsignfoldertypeNameX *string `json:"sEzsignfoldertypeNameX,omitempty"`
@@ -39,12 +41,17 @@ type EzsignfolderResponseCompound struct {
 	// The description of the Ezsigntsarequirement in the language of the requester
 	SEzsigntsarequirementDescriptionX *string `json:"sEzsigntsarequirementDescriptionX,omitempty"`
 	// The description of the Ezsignfolder
-	SEzsignfolderDescription string `json:"sEzsignfolderDescription"`
+	SEzsignfolderDescription string `json:"sEzsignfolderDescription" validate:"regexp=^.{0,75}$"`
 	// Note about the Ezsignfolder
 	TEzsignfolderNote *string `json:"tEzsignfolderNote,omitempty"`
 	// If the Ezsigndocument can be disposed
 	BEzsignfolderIsdisposable *bool `json:"bEzsignfolderIsdisposable,omitempty"`
+	// Deprecated
 	EEzsignfolderSendreminderfrequency *FieldEEzsignfolderSendreminderfrequency `json:"eEzsignfolderSendreminderfrequency,omitempty"`
+	// The number of days before the the first reminder sending
+	IEzsignfolderSendreminderfirstdays *int32 `json:"iEzsignfolderSendreminderfirstdays,omitempty"`
+	// The number of days after the first reminder sending
+	IEzsignfolderSendreminderotherdays *int32 `json:"iEzsignfolderSendreminderotherdays,omitempty"`
 	// The date and time at which the Ezsignfolder will be sent in the future.
 	DtEzsignfolderDelayedsenddate *string `json:"dtEzsignfolderDelayedsenddate,omitempty"`
 	// The maximum date and time at which the Ezsignfolder can be signed.
@@ -62,7 +69,8 @@ type EzsignfolderResponseCompound struct {
 	TEzsignfolderMessage *string `json:"tEzsignfolderMessage,omitempty"`
 	ObjAudit *CommonAudit `json:"objAudit,omitempty"`
 	// This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format. 
-	SEzsignfolderExternalid *string `json:"sEzsignfolderExternalid,omitempty"`
+	SEzsignfolderExternalid *string `json:"sEzsignfolderExternalid,omitempty" validate:"regexp=^.{0,128}$"`
+	ObjTimezone *CustomTimezoneWithCodeResponse `json:"objTimezone,omitempty"`
 }
 
 type _EzsignfolderResponseCompound EzsignfolderResponseCompound
@@ -173,6 +181,38 @@ func (o *EzsignfolderResponseCompound) HasObjEzsignfoldertype() bool {
 // SetObjEzsignfoldertype gets a reference to the given CustomEzsignfoldertypeResponse and assigns it to the ObjEzsignfoldertype field.
 func (o *EzsignfolderResponseCompound) SetObjEzsignfoldertype(v CustomEzsignfoldertypeResponse) {
 	o.ObjEzsignfoldertype = &v
+}
+
+// GetFkiTimezoneID returns the FkiTimezoneID field value if set, zero value otherwise.
+func (o *EzsignfolderResponseCompound) GetFkiTimezoneID() int32 {
+	if o == nil || IsNil(o.FkiTimezoneID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiTimezoneID
+}
+
+// GetFkiTimezoneIDOk returns a tuple with the FkiTimezoneID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderResponseCompound) GetFkiTimezoneIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiTimezoneID) {
+		return nil, false
+	}
+	return o.FkiTimezoneID, true
+}
+
+// HasFkiTimezoneID returns a boolean if a field has been set.
+func (o *EzsignfolderResponseCompound) HasFkiTimezoneID() bool {
+	if o != nil && !IsNil(o.FkiTimezoneID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiTimezoneID gets a reference to the given int32 and assigns it to the FkiTimezoneID field.
+func (o *EzsignfolderResponseCompound) SetFkiTimezoneID(v int32) {
+	o.FkiTimezoneID = &v
 }
 
 // GetEEzsignfolderCompletion returns the EEzsignfolderCompletion field value
@@ -451,6 +491,7 @@ func (o *EzsignfolderResponseCompound) SetBEzsignfolderIsdisposable(v bool) {
 }
 
 // GetEEzsignfolderSendreminderfrequency returns the EEzsignfolderSendreminderfrequency field value if set, zero value otherwise.
+// Deprecated
 func (o *EzsignfolderResponseCompound) GetEEzsignfolderSendreminderfrequency() FieldEEzsignfolderSendreminderfrequency {
 	if o == nil || IsNil(o.EEzsignfolderSendreminderfrequency) {
 		var ret FieldEEzsignfolderSendreminderfrequency
@@ -461,6 +502,7 @@ func (o *EzsignfolderResponseCompound) GetEEzsignfolderSendreminderfrequency() F
 
 // GetEEzsignfolderSendreminderfrequencyOk returns a tuple with the EEzsignfolderSendreminderfrequency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// Deprecated
 func (o *EzsignfolderResponseCompound) GetEEzsignfolderSendreminderfrequencyOk() (*FieldEEzsignfolderSendreminderfrequency, bool) {
 	if o == nil || IsNil(o.EEzsignfolderSendreminderfrequency) {
 		return nil, false
@@ -478,8 +520,73 @@ func (o *EzsignfolderResponseCompound) HasEEzsignfolderSendreminderfrequency() b
 }
 
 // SetEEzsignfolderSendreminderfrequency gets a reference to the given FieldEEzsignfolderSendreminderfrequency and assigns it to the EEzsignfolderSendreminderfrequency field.
+// Deprecated
 func (o *EzsignfolderResponseCompound) SetEEzsignfolderSendreminderfrequency(v FieldEEzsignfolderSendreminderfrequency) {
 	o.EEzsignfolderSendreminderfrequency = &v
+}
+
+// GetIEzsignfolderSendreminderfirstdays returns the IEzsignfolderSendreminderfirstdays field value if set, zero value otherwise.
+func (o *EzsignfolderResponseCompound) GetIEzsignfolderSendreminderfirstdays() int32 {
+	if o == nil || IsNil(o.IEzsignfolderSendreminderfirstdays) {
+		var ret int32
+		return ret
+	}
+	return *o.IEzsignfolderSendreminderfirstdays
+}
+
+// GetIEzsignfolderSendreminderfirstdaysOk returns a tuple with the IEzsignfolderSendreminderfirstdays field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderResponseCompound) GetIEzsignfolderSendreminderfirstdaysOk() (*int32, bool) {
+	if o == nil || IsNil(o.IEzsignfolderSendreminderfirstdays) {
+		return nil, false
+	}
+	return o.IEzsignfolderSendreminderfirstdays, true
+}
+
+// HasIEzsignfolderSendreminderfirstdays returns a boolean if a field has been set.
+func (o *EzsignfolderResponseCompound) HasIEzsignfolderSendreminderfirstdays() bool {
+	if o != nil && !IsNil(o.IEzsignfolderSendreminderfirstdays) {
+		return true
+	}
+
+	return false
+}
+
+// SetIEzsignfolderSendreminderfirstdays gets a reference to the given int32 and assigns it to the IEzsignfolderSendreminderfirstdays field.
+func (o *EzsignfolderResponseCompound) SetIEzsignfolderSendreminderfirstdays(v int32) {
+	o.IEzsignfolderSendreminderfirstdays = &v
+}
+
+// GetIEzsignfolderSendreminderotherdays returns the IEzsignfolderSendreminderotherdays field value if set, zero value otherwise.
+func (o *EzsignfolderResponseCompound) GetIEzsignfolderSendreminderotherdays() int32 {
+	if o == nil || IsNil(o.IEzsignfolderSendreminderotherdays) {
+		var ret int32
+		return ret
+	}
+	return *o.IEzsignfolderSendreminderotherdays
+}
+
+// GetIEzsignfolderSendreminderotherdaysOk returns a tuple with the IEzsignfolderSendreminderotherdays field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderResponseCompound) GetIEzsignfolderSendreminderotherdaysOk() (*int32, bool) {
+	if o == nil || IsNil(o.IEzsignfolderSendreminderotherdays) {
+		return nil, false
+	}
+	return o.IEzsignfolderSendreminderotherdays, true
+}
+
+// HasIEzsignfolderSendreminderotherdays returns a boolean if a field has been set.
+func (o *EzsignfolderResponseCompound) HasIEzsignfolderSendreminderotherdays() bool {
+	if o != nil && !IsNil(o.IEzsignfolderSendreminderotherdays) {
+		return true
+	}
+
+	return false
+}
+
+// SetIEzsignfolderSendreminderotherdays gets a reference to the given int32 and assigns it to the IEzsignfolderSendreminderotherdays field.
+func (o *EzsignfolderResponseCompound) SetIEzsignfolderSendreminderotherdays(v int32) {
+	o.IEzsignfolderSendreminderotherdays = &v
 }
 
 // GetDtEzsignfolderDelayedsenddate returns the DtEzsignfolderDelayedsenddate field value if set, zero value otherwise.
@@ -802,6 +909,38 @@ func (o *EzsignfolderResponseCompound) SetSEzsignfolderExternalid(v string) {
 	o.SEzsignfolderExternalid = &v
 }
 
+// GetObjTimezone returns the ObjTimezone field value if set, zero value otherwise.
+func (o *EzsignfolderResponseCompound) GetObjTimezone() CustomTimezoneWithCodeResponse {
+	if o == nil || IsNil(o.ObjTimezone) {
+		var ret CustomTimezoneWithCodeResponse
+		return ret
+	}
+	return *o.ObjTimezone
+}
+
+// GetObjTimezoneOk returns a tuple with the ObjTimezone field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderResponseCompound) GetObjTimezoneOk() (*CustomTimezoneWithCodeResponse, bool) {
+	if o == nil || IsNil(o.ObjTimezone) {
+		return nil, false
+	}
+	return o.ObjTimezone, true
+}
+
+// HasObjTimezone returns a boolean if a field has been set.
+func (o *EzsignfolderResponseCompound) HasObjTimezone() bool {
+	if o != nil && !IsNil(o.ObjTimezone) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjTimezone gets a reference to the given CustomTimezoneWithCodeResponse and assigns it to the ObjTimezone field.
+func (o *EzsignfolderResponseCompound) SetObjTimezone(v CustomTimezoneWithCodeResponse) {
+	o.ObjTimezone = &v
+}
+
 func (o EzsignfolderResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -818,6 +957,9 @@ func (o EzsignfolderResponseCompound) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.ObjEzsignfoldertype) {
 		toSerialize["objEzsignfoldertype"] = o.ObjEzsignfoldertype
+	}
+	if !IsNil(o.FkiTimezoneID) {
+		toSerialize["fkiTimezoneID"] = o.FkiTimezoneID
 	}
 	toSerialize["eEzsignfolderCompletion"] = o.EEzsignfolderCompletion
 	if !IsNil(o.SEzsignfoldertypeNameX) {
@@ -844,6 +986,12 @@ func (o EzsignfolderResponseCompound) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.EEzsignfolderSendreminderfrequency) {
 		toSerialize["eEzsignfolderSendreminderfrequency"] = o.EEzsignfolderSendreminderfrequency
+	}
+	if !IsNil(o.IEzsignfolderSendreminderfirstdays) {
+		toSerialize["iEzsignfolderSendreminderfirstdays"] = o.IEzsignfolderSendreminderfirstdays
+	}
+	if !IsNil(o.IEzsignfolderSendreminderotherdays) {
+		toSerialize["iEzsignfolderSendreminderotherdays"] = o.IEzsignfolderSendreminderotherdays
 	}
 	if !IsNil(o.DtEzsignfolderDelayedsenddate) {
 		toSerialize["dtEzsignfolderDelayedsenddate"] = o.DtEzsignfolderDelayedsenddate
@@ -874,6 +1022,9 @@ func (o EzsignfolderResponseCompound) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.SEzsignfolderExternalid) {
 		toSerialize["sEzsignfolderExternalid"] = o.SEzsignfolderExternalid
+	}
+	if !IsNil(o.ObjTimezone) {
+		toSerialize["objTimezone"] = o.ObjTimezone
 	}
 	return toSerialize, nil
 }

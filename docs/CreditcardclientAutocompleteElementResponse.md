@@ -6,13 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiCreditcardclientID** | **int32** | The unique ID of the Creditcardclient | 
 **SCreditcardclientDescription** | **string** | The description of the Creditcardclient | 
-**BCreditcardclientIsactive** | **bool** | Whether the creditcardclient is active or not | 
 
 ## Methods
 
 ### NewCreditcardclientAutocompleteElementResponse
 
-`func NewCreditcardclientAutocompleteElementResponse(pkiCreditcardclientID int32, sCreditcardclientDescription string, bCreditcardclientIsactive bool, ) *CreditcardclientAutocompleteElementResponse`
+`func NewCreditcardclientAutocompleteElementResponse(pkiCreditcardclientID int32, sCreditcardclientDescription string, ) *CreditcardclientAutocompleteElementResponse`
 
 NewCreditcardclientAutocompleteElementResponse instantiates a new CreditcardclientAutocompleteElementResponse object
 This constructor will assign default values to properties that have it defined,
@@ -65,26 +64,6 @@ and a boolean to check if the value has been set.
 `func (o *CreditcardclientAutocompleteElementResponse) SetSCreditcardclientDescription(v string)`
 
 SetSCreditcardclientDescription sets SCreditcardclientDescription field to given value.
-
-
-### GetBCreditcardclientIsactive
-
-`func (o *CreditcardclientAutocompleteElementResponse) GetBCreditcardclientIsactive() bool`
-
-GetBCreditcardclientIsactive returns the BCreditcardclientIsactive field if non-nil, zero value otherwise.
-
-### GetBCreditcardclientIsactiveOk
-
-`func (o *CreditcardclientAutocompleteElementResponse) GetBCreditcardclientIsactiveOk() (*bool, bool)`
-
-GetBCreditcardclientIsactiveOk returns a tuple with the BCreditcardclientIsactive field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBCreditcardclientIsactive
-
-`func (o *CreditcardclientAutocompleteElementResponse) SetBCreditcardclientIsactive(v bool)`
-
-SetBCreditcardclientIsactive sets BCreditcardclientIsactive field to given value.
 
 
 

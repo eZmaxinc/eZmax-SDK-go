@@ -46,7 +46,9 @@ type EzsigntemplateformfieldgroupResponse struct {
 	// Whether the Ezsigntemplateformfieldgroup is encrypted in the database or not. Encrypted values are not displayed on the Ezsigndocument. This can only be set if eEzsigntemplateformfieldgroupType is **Text** or **Textarea**
 	BEzsigntemplateformfieldgroupEncrypted *bool `json:"bEzsigntemplateformfieldgroupEncrypted,omitempty"`
 	// A regular expression to indicate what values are acceptable for the Ezsigntemplateformfieldgroup.  This can only be set if eEzsigntemplateformfieldgroupType is **Text** or **Textarea**
-	SEzsigntemplateformfieldgroupRegexp *string `json:"sEzsigntemplateformfieldgroupRegexp,omitempty"`
+	SEzsigntemplateformfieldgroupRegexp *string `json:"sEzsigntemplateformfieldgroupRegexp,omitempty" validate:"regexp=^\\\\^.*\\\\$$|^$"`
+	// Description of validation rule. Show by signatory.
+	SEzsigntemplateformfieldgroupTextvalidationcustommessage *string `json:"sEzsigntemplateformfieldgroupTextvalidationcustommessage,omitempty"`
 	EEzsigntemplateformfieldgroupTextvalidation *EnumTextvalidation `json:"eEzsigntemplateformfieldgroupTextvalidation,omitempty"`
 	// A tooltip that will be presented to Ezsigntemplatesigner about the Ezsigntemplateformfieldgroup
 	TEzsigntemplateformfieldgroupTooltip *string `json:"tEzsigntemplateformfieldgroupTooltip,omitempty"`
@@ -435,6 +437,38 @@ func (o *EzsigntemplateformfieldgroupResponse) SetSEzsigntemplateformfieldgroupR
 	o.SEzsigntemplateformfieldgroupRegexp = &v
 }
 
+// GetSEzsigntemplateformfieldgroupTextvalidationcustommessage returns the SEzsigntemplateformfieldgroupTextvalidationcustommessage field value if set, zero value otherwise.
+func (o *EzsigntemplateformfieldgroupResponse) GetSEzsigntemplateformfieldgroupTextvalidationcustommessage() string {
+	if o == nil || IsNil(o.SEzsigntemplateformfieldgroupTextvalidationcustommessage) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsigntemplateformfieldgroupTextvalidationcustommessage
+}
+
+// GetSEzsigntemplateformfieldgroupTextvalidationcustommessageOk returns a tuple with the SEzsigntemplateformfieldgroupTextvalidationcustommessage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateformfieldgroupResponse) GetSEzsigntemplateformfieldgroupTextvalidationcustommessageOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsigntemplateformfieldgroupTextvalidationcustommessage) {
+		return nil, false
+	}
+	return o.SEzsigntemplateformfieldgroupTextvalidationcustommessage, true
+}
+
+// HasSEzsigntemplateformfieldgroupTextvalidationcustommessage returns a boolean if a field has been set.
+func (o *EzsigntemplateformfieldgroupResponse) HasSEzsigntemplateformfieldgroupTextvalidationcustommessage() bool {
+	if o != nil && !IsNil(o.SEzsigntemplateformfieldgroupTextvalidationcustommessage) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsigntemplateformfieldgroupTextvalidationcustommessage gets a reference to the given string and assigns it to the SEzsigntemplateformfieldgroupTextvalidationcustommessage field.
+func (o *EzsigntemplateformfieldgroupResponse) SetSEzsigntemplateformfieldgroupTextvalidationcustommessage(v string) {
+	o.SEzsigntemplateformfieldgroupTextvalidationcustommessage = &v
+}
+
 // GetEEzsigntemplateformfieldgroupTextvalidation returns the EEzsigntemplateformfieldgroupTextvalidation field value if set, zero value otherwise.
 func (o *EzsigntemplateformfieldgroupResponse) GetEEzsigntemplateformfieldgroupTextvalidation() EnumTextvalidation {
 	if o == nil || IsNil(o.EEzsigntemplateformfieldgroupTextvalidation) {
@@ -563,6 +597,9 @@ func (o EzsigntemplateformfieldgroupResponse) ToMap() (map[string]interface{}, e
 	}
 	if !IsNil(o.SEzsigntemplateformfieldgroupRegexp) {
 		toSerialize["sEzsigntemplateformfieldgroupRegexp"] = o.SEzsigntemplateformfieldgroupRegexp
+	}
+	if !IsNil(o.SEzsigntemplateformfieldgroupTextvalidationcustommessage) {
+		toSerialize["sEzsigntemplateformfieldgroupTextvalidationcustommessage"] = o.SEzsigntemplateformfieldgroupTextvalidationcustommessage
 	}
 	if !IsNil(o.EEzsigntemplateformfieldgroupTextvalidation) {
 		toSerialize["eEzsigntemplateformfieldgroupTextvalidation"] = o.EEzsigntemplateformfieldgroupTextvalidation

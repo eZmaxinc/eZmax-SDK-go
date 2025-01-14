@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **SEzsignfolderDescription** | **string** | The description of the Ezsignfolder | 
 **EEzsignfolderStep** | [**FieldEEzsignfolderStep**](FieldEEzsignfolderStep.md) |  | 
 **IEzsignfolderSignaturetotal** | **int32** | The number of total signatures that were requested in the Ezsignfolder | 
+**IEzsignfolderFormfieldtotal** | **int32** | The number of total form fields that were requested in the Ezsignfolder | 
 **IEzsignfolderSignaturesigned** | **int32** | The number of signatures that were signed in the Ezsignfolder. | 
 **AObjEzsignfoldertransmissionSigner** | [**[]CustomEzsignfoldertransmissionSignerResponse**](CustomEzsignfoldertransmissionSignerResponse.md) |  | 
 
@@ -15,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewCustomEzsignfoldertransmissionResponse
 
-`func NewCustomEzsignfoldertransmissionResponse(pkiEzsignfolderID int32, sEzsignfolderDescription string, eEzsignfolderStep FieldEEzsignfolderStep, iEzsignfolderSignaturetotal int32, iEzsignfolderSignaturesigned int32, aObjEzsignfoldertransmissionSigner []CustomEzsignfoldertransmissionSignerResponse, ) *CustomEzsignfoldertransmissionResponse`
+`func NewCustomEzsignfoldertransmissionResponse(pkiEzsignfolderID int32, sEzsignfolderDescription string, eEzsignfolderStep FieldEEzsignfolderStep, iEzsignfolderSignaturetotal int32, iEzsignfolderFormfieldtotal int32, iEzsignfolderSignaturesigned int32, aObjEzsignfoldertransmissionSigner []CustomEzsignfoldertransmissionSignerResponse, ) *CustomEzsignfoldertransmissionResponse`
 
 NewCustomEzsignfoldertransmissionResponse instantiates a new CustomEzsignfoldertransmissionResponse object
 This constructor will assign default values to properties that have it defined,
@@ -108,6 +109,26 @@ and a boolean to check if the value has been set.
 `func (o *CustomEzsignfoldertransmissionResponse) SetIEzsignfolderSignaturetotal(v int32)`
 
 SetIEzsignfolderSignaturetotal sets IEzsignfolderSignaturetotal field to given value.
+
+
+### GetIEzsignfolderFormfieldtotal
+
+`func (o *CustomEzsignfoldertransmissionResponse) GetIEzsignfolderFormfieldtotal() int32`
+
+GetIEzsignfolderFormfieldtotal returns the IEzsignfolderFormfieldtotal field if non-nil, zero value otherwise.
+
+### GetIEzsignfolderFormfieldtotalOk
+
+`func (o *CustomEzsignfoldertransmissionResponse) GetIEzsignfolderFormfieldtotalOk() (*int32, bool)`
+
+GetIEzsignfolderFormfieldtotalOk returns a tuple with the IEzsignfolderFormfieldtotal field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIEzsignfolderFormfieldtotal
+
+`func (o *CustomEzsignfoldertransmissionResponse) SetIEzsignfolderFormfieldtotal(v int32)`
+
+SetIEzsignfolderFormfieldtotal sets IEzsignfolderFormfieldtotal field to given value.
 
 
 ### GetIEzsignfolderSignaturesigned

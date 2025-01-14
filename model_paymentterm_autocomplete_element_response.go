@@ -25,7 +25,7 @@ type PaymenttermAutocompleteElementResponse struct {
 	// The unique ID of the Paymentterm
 	PkiPaymenttermID int32 `json:"pkiPaymenttermID"`
 	// The description of the Paymentterm in the language of the requester
-	SPaymenttermDescriptionX string `json:"sPaymenttermDescriptionX"`
+	SPaymenttermDescriptionX string `json:"sPaymenttermDescriptionX" validate:"regexp=^.{1,40}$"`
 	// Whether the Paymentterm is active or not
 	BPaymenttermIsactive bool `json:"bPaymenttermIsactive"`
 }

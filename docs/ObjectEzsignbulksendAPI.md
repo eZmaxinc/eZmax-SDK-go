@@ -4,7 +4,7 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**EzsignbulksendCreateEzsignbulksendtransmissionV1**](ObjectEzsignbulksendAPI.md#EzsignbulksendCreateEzsignbulksendtransmissionV1) | **Post** /1/object/ezsignbulksend/{pkiEzsignbulksendID}/createEzsignbulksendtransmission | Create a new Ezsignbulksendtransmission in the Ezsignbulksend
+[**EzsignbulksendCreateEzsignbulksendtransmissionV2**](ObjectEzsignbulksendAPI.md#EzsignbulksendCreateEzsignbulksendtransmissionV2) | **Post** /2/object/ezsignbulksend/{pkiEzsignbulksendID}/createEzsignbulksendtransmission | Create a new Ezsignbulksendtransmission in the Ezsignbulksend
 [**EzsignbulksendCreateObjectV1**](ObjectEzsignbulksendAPI.md#EzsignbulksendCreateObjectV1) | **Post** /1/object/ezsignbulksend | Create a new Ezsignbulksend
 [**EzsignbulksendDeleteObjectV1**](ObjectEzsignbulksendAPI.md#EzsignbulksendDeleteObjectV1) | **Delete** /1/object/ezsignbulksend/{pkiEzsignbulksendID} | Delete an existing Ezsignbulksend
 [**EzsignbulksendEditObjectV1**](ObjectEzsignbulksendAPI.md#EzsignbulksendEditObjectV1) | **Put** /1/object/ezsignbulksend/{pkiEzsignbulksendID} | Edit an existing Ezsignbulksend
@@ -18,9 +18,9 @@ Method | HTTP request | Description
 
 
 
-## EzsignbulksendCreateEzsignbulksendtransmissionV1
+## EzsignbulksendCreateEzsignbulksendtransmissionV2
 
-> EzsignbulksendCreateEzsignbulksendtransmissionV1Response EzsignbulksendCreateEzsignbulksendtransmissionV1(ctx, pkiEzsignbulksendID).EzsignbulksendCreateEzsignbulksendtransmissionV1Request(ezsignbulksendCreateEzsignbulksendtransmissionV1Request).Execute()
+> EzsignbulksendCreateEzsignbulksendtransmissionV2Response EzsignbulksendCreateEzsignbulksendtransmissionV2(ctx, pkiEzsignbulksendID).EzsignbulksendCreateEzsignbulksendtransmissionV2Request(ezsignbulksendCreateEzsignbulksendtransmissionV2Request).Execute()
 
 Create a new Ezsignbulksendtransmission in the Ezsignbulksend
 
@@ -38,7 +38,7 @@ import (
 
 func main() {
 	pkiEzsignbulksendID := int32(56) // int32 | 
-	ezsignbulksendCreateEzsignbulksendtransmissionV1Request := *openapiclient.NewEzsignbulksendCreateEzsignbulksendtransmissionV1Request(int32(2), "Test eZsign Bulk Send Transmission #1", "2020-12-31 23:59:59", openapiclient.Field-eEzsignfolderSendreminderfrequency("None"), "Hi John,
+	ezsignbulksendCreateEzsignbulksendtransmissionV2Request := *openapiclient.NewEzsignbulksendCreateEzsignbulksendtransmissionV2Request(int32(2), "Test eZsign Bulk Send Transmission #1", "2020-12-31 23:59:59", int32(30), int32(30), "Hi John,
 
 This is the document I need you to review.
 
@@ -46,17 +46,17 @@ Could you sign it before Monday please.
 
 Best Regards.
 
-Mary", string(123)) // EzsignbulksendCreateEzsignbulksendtransmissionV1Request | 
+Mary", string(123)) // EzsignbulksendCreateEzsignbulksendtransmissionV2Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectEzsignbulksendAPI.EzsignbulksendCreateEzsignbulksendtransmissionV1(context.Background(), pkiEzsignbulksendID).EzsignbulksendCreateEzsignbulksendtransmissionV1Request(ezsignbulksendCreateEzsignbulksendtransmissionV1Request).Execute()
+	resp, r, err := apiClient.ObjectEzsignbulksendAPI.EzsignbulksendCreateEzsignbulksendtransmissionV2(context.Background(), pkiEzsignbulksendID).EzsignbulksendCreateEzsignbulksendtransmissionV2Request(ezsignbulksendCreateEzsignbulksendtransmissionV2Request).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendCreateEzsignbulksendtransmissionV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendCreateEzsignbulksendtransmissionV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignbulksendCreateEzsignbulksendtransmissionV1`: EzsignbulksendCreateEzsignbulksendtransmissionV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendCreateEzsignbulksendtransmissionV1`: %v\n", resp)
+	// response from `EzsignbulksendCreateEzsignbulksendtransmissionV2`: EzsignbulksendCreateEzsignbulksendtransmissionV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendCreateEzsignbulksendtransmissionV2`: %v\n", resp)
 }
 ```
 
@@ -70,17 +70,17 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiEzsignbulksendCreateEzsignbulksendtransmissionV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiEzsignbulksendCreateEzsignbulksendtransmissionV2Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **ezsignbulksendCreateEzsignbulksendtransmissionV1Request** | [**EzsignbulksendCreateEzsignbulksendtransmissionV1Request**](EzsignbulksendCreateEzsignbulksendtransmissionV1Request.md) |  | 
+ **ezsignbulksendCreateEzsignbulksendtransmissionV2Request** | [**EzsignbulksendCreateEzsignbulksendtransmissionV2Request**](EzsignbulksendCreateEzsignbulksendtransmissionV2Request.md) |  | 
 
 ### Return type
 
-[**EzsignbulksendCreateEzsignbulksendtransmissionV1Response**](EzsignbulksendCreateEzsignbulksendtransmissionV1Response.md)
+[**EzsignbulksendCreateEzsignbulksendtransmissionV2Response**](EzsignbulksendCreateEzsignbulksendtransmissionV2Response.md)
 
 ### Authorization
 

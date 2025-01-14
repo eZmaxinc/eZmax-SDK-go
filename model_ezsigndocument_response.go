@@ -49,6 +49,8 @@ type EzsigndocumentResponse struct {
 	IEzsigndocumentSignaturesigned int32 `json:"iEzsigndocumentSignaturesigned"`
 	// The number of total signatures that were requested in the Ezsigndocument.
 	IEzsigndocumentSignaturetotal int32 `json:"iEzsigndocumentSignaturetotal"`
+	// The number of total Ezsignformfield that were requested in the Ezsigndocument.
+	IEzsigndocumentFormfieldtotal int32 `json:"iEzsigndocumentFormfieldtotal"`
 	// MD5 Hash of the initial PDF Document before signatures were applied to it.
 	SEzsigndocumentMD5initial *string `json:"sEzsigndocumentMD5initial,omitempty"`
 	// A custom text message that will contain the refusal message if the Ezsigndocument is declined to sign
@@ -61,7 +63,7 @@ type EzsigndocumentResponse struct {
 	BEzsigndocumentHassignedsignatures *bool `json:"bEzsigndocumentHassignedsignatures,omitempty"`
 	ObjAudit *CommonAudit `json:"objAudit,omitempty"`
 	// This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format. 
-	SEzsigndocumentExternalid *string `json:"sEzsigndocumentExternalid,omitempty"`
+	SEzsigndocumentExternalid *string `json:"sEzsigndocumentExternalid,omitempty" validate:"regexp=^.{0,128}$"`
 	// The number of Ezsigndocumentattachment total
 	IEzsigndocumentEzsignsignatureattachmenttotal int32 `json:"iEzsigndocumentEzsignsignatureattachmenttotal"`
 	// The total number of Ezsigndiscussions
@@ -74,7 +76,7 @@ type _EzsigndocumentResponse EzsigndocumentResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigndocumentResponse(pkiEzsigndocumentID int32, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, sEzsigndocumentName string, eEzsigndocumentStep FieldEEzsigndocumentStep, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, iEzsigndocumentEzsignsignatureattachmenttotal int32, iEzsigndocumentEzsigndiscussiontotal int32) *EzsigndocumentResponse {
+func NewEzsigndocumentResponse(pkiEzsigndocumentID int32, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, sEzsigndocumentName string, eEzsigndocumentStep FieldEEzsigndocumentStep, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, iEzsigndocumentFormfieldtotal int32, iEzsigndocumentEzsignsignatureattachmenttotal int32, iEzsigndocumentEzsigndiscussiontotal int32) *EzsigndocumentResponse {
 	this := EzsigndocumentResponse{}
 	this.PkiEzsigndocumentID = pkiEzsigndocumentID
 	this.FkiEzsignfolderID = fkiEzsignfolderID
@@ -85,6 +87,7 @@ func NewEzsigndocumentResponse(pkiEzsigndocumentID int32, fkiEzsignfolderID int3
 	this.IEzsigndocumentPagetotal = iEzsigndocumentPagetotal
 	this.IEzsigndocumentSignaturesigned = iEzsigndocumentSignaturesigned
 	this.IEzsigndocumentSignaturetotal = iEzsigndocumentSignaturetotal
+	this.IEzsigndocumentFormfieldtotal = iEzsigndocumentFormfieldtotal
 	this.IEzsigndocumentEzsignsignatureattachmenttotal = iEzsigndocumentEzsignsignatureattachmenttotal
 	this.IEzsigndocumentEzsigndiscussiontotal = iEzsigndocumentEzsigndiscussiontotal
 	return &this
@@ -474,6 +477,30 @@ func (o *EzsigndocumentResponse) SetIEzsigndocumentSignaturetotal(v int32) {
 	o.IEzsigndocumentSignaturetotal = v
 }
 
+// GetIEzsigndocumentFormfieldtotal returns the IEzsigndocumentFormfieldtotal field value
+func (o *EzsigndocumentResponse) GetIEzsigndocumentFormfieldtotal() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IEzsigndocumentFormfieldtotal
+}
+
+// GetIEzsigndocumentFormfieldtotalOk returns a tuple with the IEzsigndocumentFormfieldtotal field value
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentResponse) GetIEzsigndocumentFormfieldtotalOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IEzsigndocumentFormfieldtotal, true
+}
+
+// SetIEzsigndocumentFormfieldtotal sets field value
+func (o *EzsigndocumentResponse) SetIEzsigndocumentFormfieldtotal(v int32) {
+	o.IEzsigndocumentFormfieldtotal = v
+}
+
 // GetSEzsigndocumentMD5initial returns the SEzsigndocumentMD5initial field value if set, zero value otherwise.
 func (o *EzsigndocumentResponse) GetSEzsigndocumentMD5initial() string {
 	if o == nil || IsNil(o.SEzsigndocumentMD5initial) {
@@ -780,6 +807,7 @@ func (o EzsigndocumentResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["iEzsigndocumentPagetotal"] = o.IEzsigndocumentPagetotal
 	toSerialize["iEzsigndocumentSignaturesigned"] = o.IEzsigndocumentSignaturesigned
 	toSerialize["iEzsigndocumentSignaturetotal"] = o.IEzsigndocumentSignaturetotal
+	toSerialize["iEzsigndocumentFormfieldtotal"] = o.IEzsigndocumentFormfieldtotal
 	if !IsNil(o.SEzsigndocumentMD5initial) {
 		toSerialize["sEzsigndocumentMD5initial"] = o.SEzsigndocumentMD5initial
 	}
@@ -820,6 +848,7 @@ func (o *EzsigndocumentResponse) UnmarshalJSON(data []byte) (err error) {
 		"iEzsigndocumentPagetotal",
 		"iEzsigndocumentSignaturesigned",
 		"iEzsigndocumentSignaturetotal",
+		"iEzsigndocumentFormfieldtotal",
 		"iEzsigndocumentEzsignsignatureattachmenttotal",
 		"iEzsigndocumentEzsigndiscussiontotal",
 	}

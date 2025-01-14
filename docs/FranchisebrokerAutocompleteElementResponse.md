@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SFranchisebrokerName** | **string** | The name of the Franchisebroker in the language of the requester | 
+**SFranchisebrokerName** | **string** | The name of the Franchisebroker | 
 **PkiFranchisebrokerID** | **int32** | The unique ID of the Franchisebroker | 
 **BFranchisebrokerIsactive** | **bool** | Whether the Franchisebroker is active or not | 
 

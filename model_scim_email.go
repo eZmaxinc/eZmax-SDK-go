@@ -21,7 +21,7 @@ var _ MappedNullable = &ScimEmail{}
 // ScimEmail struct for ScimEmail
 type ScimEmail struct {
 	// The email address.
-	Value *string `json:"value,omitempty"`
+	Value *string "json:\"value,omitempty\" validate:\"regexp=^[\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20}$\""
 	Primary *bool `json:"primary,omitempty"`
 }
 

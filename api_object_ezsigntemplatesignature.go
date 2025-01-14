@@ -24,58 +24,58 @@ import (
 // ObjectEzsigntemplatesignatureAPIService ObjectEzsigntemplatesignatureAPI service
 type ObjectEzsigntemplatesignatureAPIService service
 
-type ApiEzsigntemplatesignatureCreateObjectV1Request struct {
+type ApiEzsigntemplatesignatureCreateObjectV2Request struct {
 	ctx context.Context
 	ApiService *ObjectEzsigntemplatesignatureAPIService
-	ezsigntemplatesignatureCreateObjectV1Request *EzsigntemplatesignatureCreateObjectV1Request
+	ezsigntemplatesignatureCreateObjectV2Request *EzsigntemplatesignatureCreateObjectV2Request
 }
 
-func (r ApiEzsigntemplatesignatureCreateObjectV1Request) EzsigntemplatesignatureCreateObjectV1Request(ezsigntemplatesignatureCreateObjectV1Request EzsigntemplatesignatureCreateObjectV1Request) ApiEzsigntemplatesignatureCreateObjectV1Request {
-	r.ezsigntemplatesignatureCreateObjectV1Request = &ezsigntemplatesignatureCreateObjectV1Request
+func (r ApiEzsigntemplatesignatureCreateObjectV2Request) EzsigntemplatesignatureCreateObjectV2Request(ezsigntemplatesignatureCreateObjectV2Request EzsigntemplatesignatureCreateObjectV2Request) ApiEzsigntemplatesignatureCreateObjectV2Request {
+	r.ezsigntemplatesignatureCreateObjectV2Request = &ezsigntemplatesignatureCreateObjectV2Request
 	return r
 }
 
-func (r ApiEzsigntemplatesignatureCreateObjectV1Request) Execute() (*EzsigntemplatesignatureCreateObjectV1Response, *http.Response, error) {
-	return r.ApiService.EzsigntemplatesignatureCreateObjectV1Execute(r)
+func (r ApiEzsigntemplatesignatureCreateObjectV2Request) Execute() (*EzsigntemplatesignatureCreateObjectV2Response, *http.Response, error) {
+	return r.ApiService.EzsigntemplatesignatureCreateObjectV2Execute(r)
 }
 
 /*
-EzsigntemplatesignatureCreateObjectV1 Create a new Ezsigntemplatesignature
+EzsigntemplatesignatureCreateObjectV2 Create a new Ezsigntemplatesignature
 
 The endpoint allows to create one or many elements at once.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiEzsigntemplatesignatureCreateObjectV1Request
+ @return ApiEzsigntemplatesignatureCreateObjectV2Request
 */
-func (a *ObjectEzsigntemplatesignatureAPIService) EzsigntemplatesignatureCreateObjectV1(ctx context.Context) ApiEzsigntemplatesignatureCreateObjectV1Request {
-	return ApiEzsigntemplatesignatureCreateObjectV1Request{
+func (a *ObjectEzsigntemplatesignatureAPIService) EzsigntemplatesignatureCreateObjectV2(ctx context.Context) ApiEzsigntemplatesignatureCreateObjectV2Request {
+	return ApiEzsigntemplatesignatureCreateObjectV2Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return EzsigntemplatesignatureCreateObjectV1Response
-func (a *ObjectEzsigntemplatesignatureAPIService) EzsigntemplatesignatureCreateObjectV1Execute(r ApiEzsigntemplatesignatureCreateObjectV1Request) (*EzsigntemplatesignatureCreateObjectV1Response, *http.Response, error) {
+//  @return EzsigntemplatesignatureCreateObjectV2Response
+func (a *ObjectEzsigntemplatesignatureAPIService) EzsigntemplatesignatureCreateObjectV2Execute(r ApiEzsigntemplatesignatureCreateObjectV2Request) (*EzsigntemplatesignatureCreateObjectV2Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *EzsigntemplatesignatureCreateObjectV1Response
+		localVarReturnValue  *EzsigntemplatesignatureCreateObjectV2Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigntemplatesignatureAPIService.EzsigntemplatesignatureCreateObjectV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigntemplatesignatureAPIService.EzsigntemplatesignatureCreateObjectV2")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/1/object/ezsigntemplatesignature"
+	localVarPath := localBasePath + "/2/object/ezsigntemplatesignature"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.ezsigntemplatesignatureCreateObjectV1Request == nil {
-		return localVarReturnValue, nil, reportError("ezsigntemplatesignatureCreateObjectV1Request is required and must be specified")
+	if r.ezsigntemplatesignatureCreateObjectV2Request == nil {
+		return localVarReturnValue, nil, reportError("ezsigntemplatesignatureCreateObjectV2Request is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -96,7 +96,7 @@ func (a *ObjectEzsigntemplatesignatureAPIService) EzsigntemplatesignatureCreateO
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.ezsigntemplatesignatureCreateObjectV1Request
+	localVarPostBody = r.ezsigntemplatesignatureCreateObjectV2Request
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -278,33 +278,33 @@ func (a *ObjectEzsigntemplatesignatureAPIService) EzsigntemplatesignatureDeleteO
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiEzsigntemplatesignatureEditObjectV1Request struct {
+type ApiEzsigntemplatesignatureEditObjectV2Request struct {
 	ctx context.Context
 	ApiService *ObjectEzsigntemplatesignatureAPIService
 	pkiEzsigntemplatesignatureID int32
-	ezsigntemplatesignatureEditObjectV1Request *EzsigntemplatesignatureEditObjectV1Request
+	ezsigntemplatesignatureEditObjectV2Request *EzsigntemplatesignatureEditObjectV2Request
 }
 
-func (r ApiEzsigntemplatesignatureEditObjectV1Request) EzsigntemplatesignatureEditObjectV1Request(ezsigntemplatesignatureEditObjectV1Request EzsigntemplatesignatureEditObjectV1Request) ApiEzsigntemplatesignatureEditObjectV1Request {
-	r.ezsigntemplatesignatureEditObjectV1Request = &ezsigntemplatesignatureEditObjectV1Request
+func (r ApiEzsigntemplatesignatureEditObjectV2Request) EzsigntemplatesignatureEditObjectV2Request(ezsigntemplatesignatureEditObjectV2Request EzsigntemplatesignatureEditObjectV2Request) ApiEzsigntemplatesignatureEditObjectV2Request {
+	r.ezsigntemplatesignatureEditObjectV2Request = &ezsigntemplatesignatureEditObjectV2Request
 	return r
 }
 
-func (r ApiEzsigntemplatesignatureEditObjectV1Request) Execute() (*EzsigntemplatesignatureEditObjectV1Response, *http.Response, error) {
-	return r.ApiService.EzsigntemplatesignatureEditObjectV1Execute(r)
+func (r ApiEzsigntemplatesignatureEditObjectV2Request) Execute() (*EzsigntemplatesignatureEditObjectV2Response, *http.Response, error) {
+	return r.ApiService.EzsigntemplatesignatureEditObjectV2Execute(r)
 }
 
 /*
-EzsigntemplatesignatureEditObjectV1 Edit an existing Ezsigntemplatesignature
+EzsigntemplatesignatureEditObjectV2 Edit an existing Ezsigntemplatesignature
 
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiEzsigntemplatesignatureID
- @return ApiEzsigntemplatesignatureEditObjectV1Request
+ @return ApiEzsigntemplatesignatureEditObjectV2Request
 */
-func (a *ObjectEzsigntemplatesignatureAPIService) EzsigntemplatesignatureEditObjectV1(ctx context.Context, pkiEzsigntemplatesignatureID int32) ApiEzsigntemplatesignatureEditObjectV1Request {
-	return ApiEzsigntemplatesignatureEditObjectV1Request{
+func (a *ObjectEzsigntemplatesignatureAPIService) EzsigntemplatesignatureEditObjectV2(ctx context.Context, pkiEzsigntemplatesignatureID int32) ApiEzsigntemplatesignatureEditObjectV2Request {
+	return ApiEzsigntemplatesignatureEditObjectV2Request{
 		ApiService: a,
 		ctx: ctx,
 		pkiEzsigntemplatesignatureID: pkiEzsigntemplatesignatureID,
@@ -312,21 +312,21 @@ func (a *ObjectEzsigntemplatesignatureAPIService) EzsigntemplatesignatureEditObj
 }
 
 // Execute executes the request
-//  @return EzsigntemplatesignatureEditObjectV1Response
-func (a *ObjectEzsigntemplatesignatureAPIService) EzsigntemplatesignatureEditObjectV1Execute(r ApiEzsigntemplatesignatureEditObjectV1Request) (*EzsigntemplatesignatureEditObjectV1Response, *http.Response, error) {
+//  @return EzsigntemplatesignatureEditObjectV2Response
+func (a *ObjectEzsigntemplatesignatureAPIService) EzsigntemplatesignatureEditObjectV2Execute(r ApiEzsigntemplatesignatureEditObjectV2Request) (*EzsigntemplatesignatureEditObjectV2Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *EzsigntemplatesignatureEditObjectV1Response
+		localVarReturnValue  *EzsigntemplatesignatureEditObjectV2Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigntemplatesignatureAPIService.EzsigntemplatesignatureEditObjectV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigntemplatesignatureAPIService.EzsigntemplatesignatureEditObjectV2")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/1/object/ezsigntemplatesignature/{pkiEzsigntemplatesignatureID}"
+	localVarPath := localBasePath + "/2/object/ezsigntemplatesignature/{pkiEzsigntemplatesignatureID}"
 	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsigntemplatesignatureID"+"}", url.PathEscape(parameterValueToString(r.pkiEzsigntemplatesignatureID, "pkiEzsigntemplatesignatureID")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -335,8 +335,8 @@ func (a *ObjectEzsigntemplatesignatureAPIService) EzsigntemplatesignatureEditObj
 	if r.pkiEzsigntemplatesignatureID < 0 {
 		return localVarReturnValue, nil, reportError("pkiEzsigntemplatesignatureID must be greater than 0")
 	}
-	if r.ezsigntemplatesignatureEditObjectV1Request == nil {
-		return localVarReturnValue, nil, reportError("ezsigntemplatesignatureEditObjectV1Request is required and must be specified")
+	if r.ezsigntemplatesignatureEditObjectV2Request == nil {
+		return localVarReturnValue, nil, reportError("ezsigntemplatesignatureEditObjectV2Request is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -357,7 +357,7 @@ func (a *ObjectEzsigntemplatesignatureAPIService) EzsigntemplatesignatureEditObj
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.ezsigntemplatesignatureEditObjectV1Request
+	localVarPostBody = r.ezsigntemplatesignatureEditObjectV2Request
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -430,27 +430,27 @@ func (a *ObjectEzsigntemplatesignatureAPIService) EzsigntemplatesignatureEditObj
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiEzsigntemplatesignatureGetObjectV2Request struct {
+type ApiEzsigntemplatesignatureGetObjectV3Request struct {
 	ctx context.Context
 	ApiService *ObjectEzsigntemplatesignatureAPIService
 	pkiEzsigntemplatesignatureID int32
 }
 
-func (r ApiEzsigntemplatesignatureGetObjectV2Request) Execute() (*EzsigntemplatesignatureGetObjectV2Response, *http.Response, error) {
-	return r.ApiService.EzsigntemplatesignatureGetObjectV2Execute(r)
+func (r ApiEzsigntemplatesignatureGetObjectV3Request) Execute() (*EzsigntemplatesignatureGetObjectV3Response, *http.Response, error) {
+	return r.ApiService.EzsigntemplatesignatureGetObjectV3Execute(r)
 }
 
 /*
-EzsigntemplatesignatureGetObjectV2 Retrieve an existing Ezsigntemplatesignature
+EzsigntemplatesignatureGetObjectV3 Retrieve an existing Ezsigntemplatesignature
 
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiEzsigntemplatesignatureID
- @return ApiEzsigntemplatesignatureGetObjectV2Request
+ @return ApiEzsigntemplatesignatureGetObjectV3Request
 */
-func (a *ObjectEzsigntemplatesignatureAPIService) EzsigntemplatesignatureGetObjectV2(ctx context.Context, pkiEzsigntemplatesignatureID int32) ApiEzsigntemplatesignatureGetObjectV2Request {
-	return ApiEzsigntemplatesignatureGetObjectV2Request{
+func (a *ObjectEzsigntemplatesignatureAPIService) EzsigntemplatesignatureGetObjectV3(ctx context.Context, pkiEzsigntemplatesignatureID int32) ApiEzsigntemplatesignatureGetObjectV3Request {
+	return ApiEzsigntemplatesignatureGetObjectV3Request{
 		ApiService: a,
 		ctx: ctx,
 		pkiEzsigntemplatesignatureID: pkiEzsigntemplatesignatureID,
@@ -458,21 +458,21 @@ func (a *ObjectEzsigntemplatesignatureAPIService) EzsigntemplatesignatureGetObje
 }
 
 // Execute executes the request
-//  @return EzsigntemplatesignatureGetObjectV2Response
-func (a *ObjectEzsigntemplatesignatureAPIService) EzsigntemplatesignatureGetObjectV2Execute(r ApiEzsigntemplatesignatureGetObjectV2Request) (*EzsigntemplatesignatureGetObjectV2Response, *http.Response, error) {
+//  @return EzsigntemplatesignatureGetObjectV3Response
+func (a *ObjectEzsigntemplatesignatureAPIService) EzsigntemplatesignatureGetObjectV3Execute(r ApiEzsigntemplatesignatureGetObjectV3Request) (*EzsigntemplatesignatureGetObjectV3Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *EzsigntemplatesignatureGetObjectV2Response
+		localVarReturnValue  *EzsigntemplatesignatureGetObjectV3Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigntemplatesignatureAPIService.EzsigntemplatesignatureGetObjectV2")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigntemplatesignatureAPIService.EzsigntemplatesignatureGetObjectV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/2/object/ezsigntemplatesignature/{pkiEzsigntemplatesignatureID}"
+	localVarPath := localBasePath + "/3/object/ezsigntemplatesignature/{pkiEzsigntemplatesignatureID}"
 	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsigntemplatesignatureID"+"}", url.PathEscape(parameterValueToString(r.pkiEzsigntemplatesignatureID, "pkiEzsigntemplatesignatureID")), -1)
 
 	localVarHeaderParams := make(map[string]string)

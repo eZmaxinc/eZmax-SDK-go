@@ -37,7 +37,7 @@ type EzsigntemplateglobalResponseCompound struct {
 	EEzsigntemplateglobalModule FieldEEzsigntemplateglobalModule `json:"eEzsigntemplateglobalModule"`
 	EEzsigntemplateglobalSupplier FieldEEzsigntemplateglobalSupplier `json:"eEzsigntemplateglobalSupplier"`
 	// The Code of the Ezsigntemplateglobal
-	SEzsigntemplateglobalCode string `json:"sEzsigntemplateglobalCode"`
+	SEzsigntemplateglobalCode string `json:"sEzsigntemplateglobalCode" validate:"regexp=^.{0,10}$"`
 	// The description of the Ezsigntemplate
 	SEzsigntemplateglobalDescription string `json:"sEzsigntemplateglobalDescription"`
 	ObjEzsigntemplateglobaldocument *EzsigntemplateglobaldocumentResponse `json:"objEzsigntemplateglobaldocument,omitempty"`

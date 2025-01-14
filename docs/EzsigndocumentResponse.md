@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **IEzsigndocumentPagetotal** | **int32** | The number of pages in the Ezsigndocument. | 
 **IEzsigndocumentSignaturesigned** | **int32** | The number of signatures that were signed in the document. | 
 **IEzsigndocumentSignaturetotal** | **int32** | The number of total signatures that were requested in the Ezsigndocument. | 
+**IEzsigndocumentFormfieldtotal** | **int32** | The number of total Ezsignformfield that were requested in the Ezsigndocument. | 
 **SEzsigndocumentMD5initial** | Pointer to **string** | MD5 Hash of the initial PDF Document before signatures were applied to it. | [optional] 
 **TEzsigndocumentDeclinedtosignreason** | Pointer to **string** | A custom text message that will contain the refusal message if the Ezsigndocument is declined to sign | [optional] 
 **SEzsigndocumentMD5signed** | Pointer to **string** | MD5 Hash of the final PDF Document after all signatures were applied to it. | [optional] 
@@ -32,7 +33,7 @@ Name | Type | Description | Notes
 
 ### NewEzsigndocumentResponse
 
-`func NewEzsigndocumentResponse(pkiEzsigndocumentID int32, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, sEzsigndocumentName string, eEzsigndocumentStep FieldEEzsigndocumentStep, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, iEzsigndocumentEzsignsignatureattachmenttotal int32, iEzsigndocumentEzsigndiscussiontotal int32, ) *EzsigndocumentResponse`
+`func NewEzsigndocumentResponse(pkiEzsigndocumentID int32, fkiEzsignfolderID int32, dtEzsigndocumentDuedate string, sEzsigndocumentName string, eEzsigndocumentStep FieldEEzsigndocumentStep, iEzsigndocumentOrder int32, iEzsigndocumentPagetotal int32, iEzsigndocumentSignaturesigned int32, iEzsigndocumentSignaturetotal int32, iEzsigndocumentFormfieldtotal int32, iEzsigndocumentEzsignsignatureattachmenttotal int32, iEzsigndocumentEzsigndiscussiontotal int32, ) *EzsigndocumentResponse`
 
 NewEzsigndocumentResponse instantiates a new EzsigndocumentResponse object
 This constructor will assign default values to properties that have it defined,
@@ -350,6 +351,26 @@ and a boolean to check if the value has been set.
 `func (o *EzsigndocumentResponse) SetIEzsigndocumentSignaturetotal(v int32)`
 
 SetIEzsigndocumentSignaturetotal sets IEzsigndocumentSignaturetotal field to given value.
+
+
+### GetIEzsigndocumentFormfieldtotal
+
+`func (o *EzsigndocumentResponse) GetIEzsigndocumentFormfieldtotal() int32`
+
+GetIEzsigndocumentFormfieldtotal returns the IEzsigndocumentFormfieldtotal field if non-nil, zero value otherwise.
+
+### GetIEzsigndocumentFormfieldtotalOk
+
+`func (o *EzsigndocumentResponse) GetIEzsigndocumentFormfieldtotalOk() (*int32, bool)`
+
+GetIEzsigndocumentFormfieldtotalOk returns a tuple with the IEzsigndocumentFormfieldtotal field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIEzsigndocumentFormfieldtotal
+
+`func (o *EzsigndocumentResponse) SetIEzsigndocumentFormfieldtotal(v int32)`
+
+SetIEzsigndocumentFormfieldtotal sets IEzsigndocumentFormfieldtotal field to given value.
 
 
 ### GetSEzsigndocumentMD5initial

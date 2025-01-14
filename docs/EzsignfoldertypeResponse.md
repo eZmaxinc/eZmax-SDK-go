@@ -25,10 +25,12 @@ Name | Type | Description | Notes
 **EEzsignfoldertypeCompletion** | [**FieldEEzsignfoldertypeCompletion**](FieldEEzsignfoldertypeCompletion.md) |  | 
 **IEzsignfoldertypeDisposaldays** | Pointer to **int32** | The number of days after the archival before the disposal of the Ezsignfolder | [optional] 
 **IEzsignfoldertypeDeadlinedays** | **int32** | The number of days to get all Ezsignsignatures | 
+**BEzsignfoldertypeAutomaticsignature** | Pointer to **bool** | Whether we allow the automatic signature by an User | [optional] 
 **BEzsignfoldertypeDelegate** | Pointer to **bool** | Wheter if delegation of signature is allowed to another user or not | [optional] 
 **BEzsignfoldertypeDiscussion** | Pointer to **bool** | Wheter if creating a new Discussion is allowed or not | [optional] 
 **BEzsignfoldertypeReassignezsignsigner** | Pointer to **bool** | Wheter if Reassignment of signature is allowed by a signatory to another signatory or not | [optional] 
 **BEzsignfoldertypeReassignuser** | Pointer to **bool** | Wheter if Reassignment of signature is allowed by a user to a signatory or another user or not | [optional] 
+**BEzsignfoldertypeReassigngroup** | Pointer to **bool** | Wheter if Reassignment of signatures of the groups to which the user belongs is authorized by a user to himself | [optional] 
 **BEzsignfoldertypeSendsignedtoezsignsigner** | Pointer to **bool** | Whether we send an email to Ezsignsigner  when document is completed | [optional] 
 **BEzsignfoldertypeSendsignedtouser** | Pointer to **bool** | Whether we send an email to User who signed when document is completed | [optional] 
 **BEzsignfoldertypeSendattachmentezsignsigner** | Pointer to **bool** | Whether we send the Ezsigndocument in the email to Ezsignsigner | [optional] 
@@ -551,6 +553,31 @@ and a boolean to check if the value has been set.
 SetIEzsignfoldertypeDeadlinedays sets IEzsignfoldertypeDeadlinedays field to given value.
 
 
+### GetBEzsignfoldertypeAutomaticsignature
+
+`func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeAutomaticsignature() bool`
+
+GetBEzsignfoldertypeAutomaticsignature returns the BEzsignfoldertypeAutomaticsignature field if non-nil, zero value otherwise.
+
+### GetBEzsignfoldertypeAutomaticsignatureOk
+
+`func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeAutomaticsignatureOk() (*bool, bool)`
+
+GetBEzsignfoldertypeAutomaticsignatureOk returns a tuple with the BEzsignfoldertypeAutomaticsignature field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsignfoldertypeAutomaticsignature
+
+`func (o *EzsignfoldertypeResponse) SetBEzsignfoldertypeAutomaticsignature(v bool)`
+
+SetBEzsignfoldertypeAutomaticsignature sets BEzsignfoldertypeAutomaticsignature field to given value.
+
+### HasBEzsignfoldertypeAutomaticsignature
+
+`func (o *EzsignfoldertypeResponse) HasBEzsignfoldertypeAutomaticsignature() bool`
+
+HasBEzsignfoldertypeAutomaticsignature returns a boolean if a field has been set.
+
 ### GetBEzsignfoldertypeDelegate
 
 `func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeDelegate() bool`
@@ -650,6 +677,31 @@ SetBEzsignfoldertypeReassignuser sets BEzsignfoldertypeReassignuser field to giv
 `func (o *EzsignfoldertypeResponse) HasBEzsignfoldertypeReassignuser() bool`
 
 HasBEzsignfoldertypeReassignuser returns a boolean if a field has been set.
+
+### GetBEzsignfoldertypeReassigngroup
+
+`func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeReassigngroup() bool`
+
+GetBEzsignfoldertypeReassigngroup returns the BEzsignfoldertypeReassigngroup field if non-nil, zero value otherwise.
+
+### GetBEzsignfoldertypeReassigngroupOk
+
+`func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeReassigngroupOk() (*bool, bool)`
+
+GetBEzsignfoldertypeReassigngroupOk returns a tuple with the BEzsignfoldertypeReassigngroup field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsignfoldertypeReassigngroup
+
+`func (o *EzsignfoldertypeResponse) SetBEzsignfoldertypeReassigngroup(v bool)`
+
+SetBEzsignfoldertypeReassigngroup sets BEzsignfoldertypeReassigngroup field to given value.
+
+### HasBEzsignfoldertypeReassigngroup
+
+`func (o *EzsignfoldertypeResponse) HasBEzsignfoldertypeReassigngroup() bool`
+
+HasBEzsignfoldertypeReassigngroup returns a boolean if a field has been set.
 
 ### GetBEzsignfoldertypeSendsignedtoezsignsigner
 

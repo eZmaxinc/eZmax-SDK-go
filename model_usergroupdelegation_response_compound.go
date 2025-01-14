@@ -33,11 +33,11 @@ type UsergroupdelegationResponseCompound struct {
 	// The last name of the user
 	SUserLastname string `json:"sUserLastname"`
 	// The login name of the User.
-	SUserLoginname string `json:"sUserLoginname"`
+	SUserLoginname string "json:\"sUserLoginname\" validate:\"regexp=^(?:([\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$\""
 	// The email address.
-	SEmailAddress *string `json:"sEmailAddress,omitempty"`
+	SEmailAddress *string "json:\"sEmailAddress,omitempty\" validate:\"regexp=^[\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20}$\""
 	// The Name of the Usergroup in the language of the requester
-	SUsergroupNameX string `json:"sUsergroupNameX"`
+	SUsergroupNameX string `json:"sUsergroupNameX" validate:"regexp=^.{0,50}$"`
 }
 
 type _UsergroupdelegationResponseCompound UsergroupdelegationResponseCompound

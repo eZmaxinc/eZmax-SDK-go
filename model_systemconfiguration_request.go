@@ -24,6 +24,8 @@ var _ MappedNullable = &SystemconfigurationRequest{}
 type SystemconfigurationRequest struct {
 	// The unique ID of the Systemconfiguration
 	PkiSystemconfigurationID *int32 `json:"pkiSystemconfigurationID,omitempty"`
+	// The unique ID of the Branding
+	FkiBrandingID *int32 `json:"fkiBrandingID,omitempty"`
 	ESystemconfigurationNewexternaluseraction FieldESystemconfigurationNewexternaluseraction `json:"eSystemconfigurationNewexternaluseraction"`
 	ESystemconfigurationLanguage1 FieldESystemconfigurationLanguage1 `json:"eSystemconfigurationLanguage1"`
 	ESystemconfigurationLanguage2 FieldESystemconfigurationLanguage2 `json:"eSystemconfigurationLanguage2"`
@@ -37,9 +39,9 @@ type SystemconfigurationRequest struct {
 	// Whether if we allow SSPR
 	BSystemconfigurationSspr bool `json:"bSystemconfigurationSspr"`
 	// The start date where the system will be in read only
-	DtSystemconfigurationReadonlyexpirationstart *string `json:"dtSystemconfigurationReadonlyexpirationstart,omitempty"`
+	DtSystemconfigurationReadonlyexpirationstart *string `json:"dtSystemconfigurationReadonlyexpirationstart,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// The end date where the system will be in read only
-	DtSystemconfigurationReadonlyexpirationend *string `json:"dtSystemconfigurationReadonlyexpirationend,omitempty"`
+	DtSystemconfigurationReadonlyexpirationend *string `json:"dtSystemconfigurationReadonlyexpirationend,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 }
 
 type _SystemconfigurationRequest SystemconfigurationRequest
@@ -96,6 +98,38 @@ func (o *SystemconfigurationRequest) HasPkiSystemconfigurationID() bool {
 // SetPkiSystemconfigurationID gets a reference to the given int32 and assigns it to the PkiSystemconfigurationID field.
 func (o *SystemconfigurationRequest) SetPkiSystemconfigurationID(v int32) {
 	o.PkiSystemconfigurationID = &v
+}
+
+// GetFkiBrandingID returns the FkiBrandingID field value if set, zero value otherwise.
+func (o *SystemconfigurationRequest) GetFkiBrandingID() int32 {
+	if o == nil || IsNil(o.FkiBrandingID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiBrandingID
+}
+
+// GetFkiBrandingIDOk returns a tuple with the FkiBrandingID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SystemconfigurationRequest) GetFkiBrandingIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiBrandingID) {
+		return nil, false
+	}
+	return o.FkiBrandingID, true
+}
+
+// HasFkiBrandingID returns a boolean if a field has been set.
+func (o *SystemconfigurationRequest) HasFkiBrandingID() bool {
+	if o != nil && !IsNil(o.FkiBrandingID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiBrandingID gets a reference to the given int32 and assigns it to the FkiBrandingID field.
+func (o *SystemconfigurationRequest) SetFkiBrandingID(v int32) {
+	o.FkiBrandingID = &v
 }
 
 // GetESystemconfigurationNewexternaluseraction returns the ESystemconfigurationNewexternaluseraction field value
@@ -393,6 +427,9 @@ func (o SystemconfigurationRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.PkiSystemconfigurationID) {
 		toSerialize["pkiSystemconfigurationID"] = o.PkiSystemconfigurationID
+	}
+	if !IsNil(o.FkiBrandingID) {
+		toSerialize["fkiBrandingID"] = o.FkiBrandingID
 	}
 	toSerialize["eSystemconfigurationNewexternaluseraction"] = o.ESystemconfigurationNewexternaluseraction
 	toSerialize["eSystemconfigurationLanguage1"] = o.ESystemconfigurationLanguage1

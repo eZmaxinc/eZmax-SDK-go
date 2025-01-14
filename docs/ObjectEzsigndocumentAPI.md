@@ -10,11 +10,15 @@ Method | HTTP request | Description
 [**EzsigndocumentCreateEzsignelementsPositionedByWordV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentCreateEzsignelementsPositionedByWordV1) | **Post** /1/object/ezsigndocument/{pkiEzsigndocumentID}/createEzsignelementsPositionedByWord | Create multiple Ezsignsignatures/Ezsignformfieldgroups
 [**EzsigndocumentCreateObjectV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentCreateObjectV1) | **Post** /1/object/ezsigndocument | Create a new Ezsigndocument
 [**EzsigndocumentCreateObjectV2**](ObjectEzsigndocumentAPI.md#EzsigndocumentCreateObjectV2) | **Post** /2/object/ezsigndocument | Create a new Ezsigndocument
+[**EzsigndocumentCreateObjectV3**](ObjectEzsigndocumentAPI.md#EzsigndocumentCreateObjectV3) | **Post** /3/object/ezsigndocument | Create a new Ezsigndocument
 [**EzsigndocumentDeclineToSignV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentDeclineToSignV1) | **Post** /1/object/ezsigndocument/{pkiEzsigndocumentID}/declineToSign | Decline to sign
 [**EzsigndocumentDeleteObjectV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentDeleteObjectV1) | **Delete** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Delete an existing Ezsigndocument
+[**EzsigndocumentEditEzsignannotationsV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentEditEzsignannotationsV1) | **Put** /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignannotations | Edit multiple Ezsignannotations
 [**EzsigndocumentEditEzsignformfieldgroupsV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentEditEzsignformfieldgroupsV1) | **Put** /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignformfieldgroups | Edit multiple Ezsignformfieldgroups
 [**EzsigndocumentEditEzsignsignaturesV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentEditEzsignsignaturesV1) | **Put** /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignsignatures | Edit multiple Ezsignsignatures
+[**EzsigndocumentEditObjectV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentEditObjectV1) | **Put** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Edit an existing Ezsigndocument
 [**EzsigndocumentEndPrematurelyV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentEndPrematurelyV1) | **Post** /1/object/ezsigndocument/{pkiEzsigndocumentID}/endPrematurely | End prematurely
+[**EzsigndocumentExtractTextV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentExtractTextV1) | **Post** /1/object/ezsigndocument/{pkiEzsigndocumentID}/extractText | Extract text from Ezsigndocument area
 [**EzsigndocumentFlattenV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentFlattenV1) | **Post** /1/object/ezsigndocument/{pkiEzsigndocumentID}/flatten | Flatten
 [**EzsigndocumentGetActionableElementsV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentGetActionableElementsV1) | **Get** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getActionableElements | Retrieve actionable elements for the Ezsigndocument
 [**EzsigndocumentGetAttachmentsV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentGetAttachmentsV1) | **Get** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getAttachments | Retrieve Ezsigndocument&#39;s Attachments
@@ -457,6 +461,72 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## EzsigndocumentCreateObjectV3
+
+> EzsigndocumentCreateObjectV3Response EzsigndocumentCreateObjectV3(ctx).EzsigndocumentCreateObjectV3Request(ezsigndocumentCreateObjectV3Request).Execute()
+
+Create a new Ezsigndocument
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	ezsigndocumentCreateObjectV3Request := *openapiclient.NewEzsigndocumentCreateObjectV3Request([]openapiclient.EzsigndocumentRequestCompound{*openapiclient.NewEzsigndocumentRequestCompound(int32(33), int32(2), "EEzsigndocumentSource_example", "2020-12-31 23:59:59", "Contract #123")}) // EzsigndocumentCreateObjectV3Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigndocumentAPI.EzsigndocumentCreateObjectV3(context.Background()).EzsigndocumentCreateObjectV3Request(ezsigndocumentCreateObjectV3Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentAPI.EzsigndocumentCreateObjectV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigndocumentCreateObjectV3`: EzsigndocumentCreateObjectV3Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigndocumentAPI.EzsigndocumentCreateObjectV3`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsigndocumentCreateObjectV3Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ezsigndocumentCreateObjectV3Request** | [**EzsigndocumentCreateObjectV3Request**](EzsigndocumentCreateObjectV3Request.md) |  | 
+
+### Return type
+
+[**EzsigndocumentCreateObjectV3Response**](EzsigndocumentCreateObjectV3Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## EzsigndocumentDeclineToSignV1
 
 > EzsigndocumentDeclineToSignV1Response EzsigndocumentDeclineToSignV1(ctx, pkiEzsigndocumentID).EzsigndocumentDeclineToSignV1Request(ezsigndocumentDeclineToSignV1Request).Execute()
@@ -592,6 +662,78 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsigndocumentEditEzsignannotationsV1
+
+> EzsigndocumentEditEzsignannotationsV1Response EzsigndocumentEditEzsignannotationsV1(ctx, pkiEzsigndocumentID).EzsigndocumentEditEzsignannotationsV1Request(ezsigndocumentEditEzsignannotationsV1Request).Execute()
+
+Edit multiple Ezsignannotations
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsigndocumentID := int32(56) // int32 | 
+	ezsigndocumentEditEzsignannotationsV1Request := *openapiclient.NewEzsigndocumentEditEzsignannotationsV1Request([]openapiclient.EzsignannotationRequestCompound{*openapiclient.NewEzsignannotationRequestCompound(int32(97), openapiclient.Field-eEzsignannotationType("StrikethroughBlock"), int32(50), int32(50), int32(1))}) // EzsigndocumentEditEzsignannotationsV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigndocumentAPI.EzsigndocumentEditEzsignannotationsV1(context.Background(), pkiEzsigndocumentID).EzsigndocumentEditEzsignannotationsV1Request(ezsigndocumentEditEzsignannotationsV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentAPI.EzsigndocumentEditEzsignannotationsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigndocumentEditEzsignannotationsV1`: EzsigndocumentEditEzsignannotationsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigndocumentAPI.EzsigndocumentEditEzsignannotationsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsigndocumentID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsigndocumentEditEzsignannotationsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **ezsigndocumentEditEzsignannotationsV1Request** | [**EzsigndocumentEditEzsignannotationsV1Request**](EzsigndocumentEditEzsignannotationsV1Request.md) |  | 
+
+### Return type
+
+[**EzsigndocumentEditEzsignannotationsV1Response**](EzsigndocumentEditEzsignannotationsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -743,6 +885,78 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## EzsigndocumentEditObjectV1
+
+> EzsigndocumentEditObjectV1Response EzsigndocumentEditObjectV1(ctx, pkiEzsigndocumentID).EzsigndocumentEditObjectV1Request(ezsigndocumentEditObjectV1Request).Execute()
+
+Edit an existing Ezsigndocument
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsigndocumentID := int32(56) // int32 | 
+	ezsigndocumentEditObjectV1Request := *openapiclient.NewEzsigndocumentEditObjectV1Request(*openapiclient.NewEzsigndocumentRequestCompound(int32(33), int32(2), "EEzsigndocumentSource_example", "2020-12-31 23:59:59", "Contract #123")) // EzsigndocumentEditObjectV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigndocumentAPI.EzsigndocumentEditObjectV1(context.Background(), pkiEzsigndocumentID).EzsigndocumentEditObjectV1Request(ezsigndocumentEditObjectV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentAPI.EzsigndocumentEditObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigndocumentEditObjectV1`: EzsigndocumentEditObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigndocumentAPI.EzsigndocumentEditObjectV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsigndocumentID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsigndocumentEditObjectV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **ezsigndocumentEditObjectV1Request** | [**EzsigndocumentEditObjectV1Request**](EzsigndocumentEditObjectV1Request.md) |  | 
+
+### Return type
+
+[**EzsigndocumentEditObjectV1Response**](EzsigndocumentEditObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## EzsigndocumentEndPrematurelyV1
 
 > EzsigndocumentEndPrematurelyV1Response EzsigndocumentEndPrematurelyV1(ctx, pkiEzsigndocumentID).Body(body).Execute()
@@ -800,6 +1014,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsigndocumentEndPrematurelyV1Response**](EzsigndocumentEndPrematurelyV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsigndocumentExtractTextV1
+
+> EzsigndocumentExtractTextV1Response EzsigndocumentExtractTextV1(ctx, pkiEzsigndocumentID).EzsigndocumentExtractTextV1Request(ezsigndocumentExtractTextV1Request).Execute()
+
+Extract text from Ezsigndocument area
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsigndocumentID := int32(56) // int32 | 
+	ezsigndocumentExtractTextV1Request := *openapiclient.NewEzsigndocumentExtractTextV1Request(int32(1)) // EzsigndocumentExtractTextV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigndocumentAPI.EzsigndocumentExtractTextV1(context.Background(), pkiEzsigndocumentID).EzsigndocumentExtractTextV1Request(ezsigndocumentExtractTextV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentAPI.EzsigndocumentExtractTextV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigndocumentExtractTextV1`: EzsigndocumentExtractTextV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigndocumentAPI.EzsigndocumentExtractTextV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsigndocumentID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsigndocumentExtractTextV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **ezsigndocumentExtractTextV1Request** | [**EzsigndocumentExtractTextV1Request**](EzsigndocumentExtractTextV1Request.md) |  | 
+
+### Return type
+
+[**EzsigndocumentExtractTextV1Response**](EzsigndocumentExtractTextV1Response.md)
 
 ### Authorization
 

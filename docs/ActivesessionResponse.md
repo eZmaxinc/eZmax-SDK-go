@@ -12,6 +12,14 @@ Name | Type | Description | Notes
 **SDepartmentNameX** | **string** | The Name of the Department in the language of the requester | 
 **BActivesessionDebug** | **bool** | Whether the active session is in debug or not | 
 **BActivesessionIssuperadmin** | **bool** | Whether the active session is superadmin or not | 
+**BActivesessionAttachment** | Pointer to **bool** | Can access attachment when we clone a user | [optional] 
+**BActivesessionCanafe** | Pointer to **bool** | Can access canafe when we clone a user | [optional] 
+**BActivesessionFinancial** | Pointer to **bool** | Can access financial element when we clone a user | [optional] 
+**BActivesessionRealestatecompleted** | Pointer to **bool** | Can access closed realestate folders when we clone a user | [optional] 
+**EActivesessionEzsign** | Pointer to [**FieldEActivesessionEzsign**](FieldEActivesessionEzsign.md) |  | [optional] 
+**EActivesessionEzsignaccess** | [**FieldEActivesessionEzsignaccess**](FieldEActivesessionEzsignaccess.md) |  | 
+**EActivesessionEzsignprepaid** | Pointer to [**FieldEActivesessionEzsignprepaid**](FieldEActivesessionEzsignprepaid.md) |  | [optional] 
+**EActivesessionRealestateinprogress** | Pointer to [**FieldEActivesessionRealestateinprogress**](FieldEActivesessionRealestateinprogress.md) |  | [optional] 
 **PksCustomerCode** | **string** | The customer code assigned to your account | 
 **FkiSystemconfigurationtypeID** | **int32** | The unique ID of the Systemconfigurationtype | 
 **FkiSignatureID** | Pointer to **int32** | The unique ID of the Signature | [optional] 
@@ -20,7 +28,7 @@ Name | Type | Description | Notes
 
 ### NewActivesessionResponse
 
-`func NewActivesessionResponse(eActivesessionUsertype FieldEActivesessionUsertype, eActivesessionOrigin FieldEActivesessionOrigin, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, bActivesessionDebug bool, bActivesessionIssuperadmin bool, pksCustomerCode string, fkiSystemconfigurationtypeID int32, ) *ActivesessionResponse`
+`func NewActivesessionResponse(eActivesessionUsertype FieldEActivesessionUsertype, eActivesessionOrigin FieldEActivesessionOrigin, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, bActivesessionDebug bool, bActivesessionIssuperadmin bool, eActivesessionEzsignaccess FieldEActivesessionEzsignaccess, pksCustomerCode string, fkiSystemconfigurationtypeID int32, ) *ActivesessionResponse`
 
 NewActivesessionResponse instantiates a new ActivesessionResponse object
 This constructor will assign default values to properties that have it defined,
@@ -194,6 +202,201 @@ and a boolean to check if the value has been set.
 
 SetBActivesessionIssuperadmin sets BActivesessionIssuperadmin field to given value.
 
+
+### GetBActivesessionAttachment
+
+`func (o *ActivesessionResponse) GetBActivesessionAttachment() bool`
+
+GetBActivesessionAttachment returns the BActivesessionAttachment field if non-nil, zero value otherwise.
+
+### GetBActivesessionAttachmentOk
+
+`func (o *ActivesessionResponse) GetBActivesessionAttachmentOk() (*bool, bool)`
+
+GetBActivesessionAttachmentOk returns a tuple with the BActivesessionAttachment field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBActivesessionAttachment
+
+`func (o *ActivesessionResponse) SetBActivesessionAttachment(v bool)`
+
+SetBActivesessionAttachment sets BActivesessionAttachment field to given value.
+
+### HasBActivesessionAttachment
+
+`func (o *ActivesessionResponse) HasBActivesessionAttachment() bool`
+
+HasBActivesessionAttachment returns a boolean if a field has been set.
+
+### GetBActivesessionCanafe
+
+`func (o *ActivesessionResponse) GetBActivesessionCanafe() bool`
+
+GetBActivesessionCanafe returns the BActivesessionCanafe field if non-nil, zero value otherwise.
+
+### GetBActivesessionCanafeOk
+
+`func (o *ActivesessionResponse) GetBActivesessionCanafeOk() (*bool, bool)`
+
+GetBActivesessionCanafeOk returns a tuple with the BActivesessionCanafe field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBActivesessionCanafe
+
+`func (o *ActivesessionResponse) SetBActivesessionCanafe(v bool)`
+
+SetBActivesessionCanafe sets BActivesessionCanafe field to given value.
+
+### HasBActivesessionCanafe
+
+`func (o *ActivesessionResponse) HasBActivesessionCanafe() bool`
+
+HasBActivesessionCanafe returns a boolean if a field has been set.
+
+### GetBActivesessionFinancial
+
+`func (o *ActivesessionResponse) GetBActivesessionFinancial() bool`
+
+GetBActivesessionFinancial returns the BActivesessionFinancial field if non-nil, zero value otherwise.
+
+### GetBActivesessionFinancialOk
+
+`func (o *ActivesessionResponse) GetBActivesessionFinancialOk() (*bool, bool)`
+
+GetBActivesessionFinancialOk returns a tuple with the BActivesessionFinancial field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBActivesessionFinancial
+
+`func (o *ActivesessionResponse) SetBActivesessionFinancial(v bool)`
+
+SetBActivesessionFinancial sets BActivesessionFinancial field to given value.
+
+### HasBActivesessionFinancial
+
+`func (o *ActivesessionResponse) HasBActivesessionFinancial() bool`
+
+HasBActivesessionFinancial returns a boolean if a field has been set.
+
+### GetBActivesessionRealestatecompleted
+
+`func (o *ActivesessionResponse) GetBActivesessionRealestatecompleted() bool`
+
+GetBActivesessionRealestatecompleted returns the BActivesessionRealestatecompleted field if non-nil, zero value otherwise.
+
+### GetBActivesessionRealestatecompletedOk
+
+`func (o *ActivesessionResponse) GetBActivesessionRealestatecompletedOk() (*bool, bool)`
+
+GetBActivesessionRealestatecompletedOk returns a tuple with the BActivesessionRealestatecompleted field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBActivesessionRealestatecompleted
+
+`func (o *ActivesessionResponse) SetBActivesessionRealestatecompleted(v bool)`
+
+SetBActivesessionRealestatecompleted sets BActivesessionRealestatecompleted field to given value.
+
+### HasBActivesessionRealestatecompleted
+
+`func (o *ActivesessionResponse) HasBActivesessionRealestatecompleted() bool`
+
+HasBActivesessionRealestatecompleted returns a boolean if a field has been set.
+
+### GetEActivesessionEzsign
+
+`func (o *ActivesessionResponse) GetEActivesessionEzsign() FieldEActivesessionEzsign`
+
+GetEActivesessionEzsign returns the EActivesessionEzsign field if non-nil, zero value otherwise.
+
+### GetEActivesessionEzsignOk
+
+`func (o *ActivesessionResponse) GetEActivesessionEzsignOk() (*FieldEActivesessionEzsign, bool)`
+
+GetEActivesessionEzsignOk returns a tuple with the EActivesessionEzsign field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEActivesessionEzsign
+
+`func (o *ActivesessionResponse) SetEActivesessionEzsign(v FieldEActivesessionEzsign)`
+
+SetEActivesessionEzsign sets EActivesessionEzsign field to given value.
+
+### HasEActivesessionEzsign
+
+`func (o *ActivesessionResponse) HasEActivesessionEzsign() bool`
+
+HasEActivesessionEzsign returns a boolean if a field has been set.
+
+### GetEActivesessionEzsignaccess
+
+`func (o *ActivesessionResponse) GetEActivesessionEzsignaccess() FieldEActivesessionEzsignaccess`
+
+GetEActivesessionEzsignaccess returns the EActivesessionEzsignaccess field if non-nil, zero value otherwise.
+
+### GetEActivesessionEzsignaccessOk
+
+`func (o *ActivesessionResponse) GetEActivesessionEzsignaccessOk() (*FieldEActivesessionEzsignaccess, bool)`
+
+GetEActivesessionEzsignaccessOk returns a tuple with the EActivesessionEzsignaccess field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEActivesessionEzsignaccess
+
+`func (o *ActivesessionResponse) SetEActivesessionEzsignaccess(v FieldEActivesessionEzsignaccess)`
+
+SetEActivesessionEzsignaccess sets EActivesessionEzsignaccess field to given value.
+
+
+### GetEActivesessionEzsignprepaid
+
+`func (o *ActivesessionResponse) GetEActivesessionEzsignprepaid() FieldEActivesessionEzsignprepaid`
+
+GetEActivesessionEzsignprepaid returns the EActivesessionEzsignprepaid field if non-nil, zero value otherwise.
+
+### GetEActivesessionEzsignprepaidOk
+
+`func (o *ActivesessionResponse) GetEActivesessionEzsignprepaidOk() (*FieldEActivesessionEzsignprepaid, bool)`
+
+GetEActivesessionEzsignprepaidOk returns a tuple with the EActivesessionEzsignprepaid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEActivesessionEzsignprepaid
+
+`func (o *ActivesessionResponse) SetEActivesessionEzsignprepaid(v FieldEActivesessionEzsignprepaid)`
+
+SetEActivesessionEzsignprepaid sets EActivesessionEzsignprepaid field to given value.
+
+### HasEActivesessionEzsignprepaid
+
+`func (o *ActivesessionResponse) HasEActivesessionEzsignprepaid() bool`
+
+HasEActivesessionEzsignprepaid returns a boolean if a field has been set.
+
+### GetEActivesessionRealestateinprogress
+
+`func (o *ActivesessionResponse) GetEActivesessionRealestateinprogress() FieldEActivesessionRealestateinprogress`
+
+GetEActivesessionRealestateinprogress returns the EActivesessionRealestateinprogress field if non-nil, zero value otherwise.
+
+### GetEActivesessionRealestateinprogressOk
+
+`func (o *ActivesessionResponse) GetEActivesessionRealestateinprogressOk() (*FieldEActivesessionRealestateinprogress, bool)`
+
+GetEActivesessionRealestateinprogressOk returns a tuple with the EActivesessionRealestateinprogress field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEActivesessionRealestateinprogress
+
+`func (o *ActivesessionResponse) SetEActivesessionRealestateinprogress(v FieldEActivesessionRealestateinprogress)`
+
+SetEActivesessionRealestateinprogress sets EActivesessionRealestateinprogress field to given value.
+
+### HasEActivesessionRealestateinprogress
+
+`func (o *ActivesessionResponse) HasEActivesessionRealestateinprogress() bool`
+
+HasEActivesessionRealestateinprogress returns a boolean if a field has been set.
 
 ### GetPksCustomerCode
 

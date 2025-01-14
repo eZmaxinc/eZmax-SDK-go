@@ -118,7 +118,7 @@ type AttachmentResponseCompound struct {
 	FkiEzsigndocumentIDReference *int32 `json:"fkiEzsigndocumentIDReference,omitempty"`
 	EAttachmentDocumenttype FieldEAttachmentDocumenttype `json:"eAttachmentDocumenttype"`
 	// The name of the Attachment
-	SAttachmentName string `json:"sAttachmentName"`
+	SAttachmentName string `json:"sAttachmentName" validate:"regexp=^.{0,75}$"`
 	EAttachmentPrivacy FieldEAttachmentPrivacy `json:"eAttachmentPrivacy"`
 	// The unique ID of the User
 	FkiUserIDSpecific *int32 `json:"fkiUserIDSpecific,omitempty"`
@@ -128,14 +128,14 @@ type AttachmentResponseCompound struct {
 	// The edmmoduleflag of the Attachment
 	IAttachmentEDMmoduleflag *int32 `json:"iAttachmentEDMmoduleflag,omitempty"`
 	// The md5 of the Attachment
-	SAttachmentMD5 string `json:"sAttachmentMD5"`
+	SAttachmentMD5 string `json:"sAttachmentMD5" validate:"regexp=^.{0,32}$"`
 	// Whether if it's deleted
 	BAttachmentDeleted bool `json:"bAttachmentDeleted"`
 	// Whether if it's valid
 	BAttachmentValid bool `json:"bAttachmentValid"`
 	EAttachmentVerified FieldEAttachmentVerified `json:"eAttachmentVerified"`
 	// The rejectioncomment of the Attachment
-	TAttachmentRejectioncomment *string `json:"tAttachmentRejectioncomment,omitempty"`
+	TAttachmentRejectioncomment *string `json:"tAttachmentRejectioncomment,omitempty" validate:"regexp=^.{0,65535}$"`
 	// The unique ID of the User
 	FkiUserIDOwner *int32 `json:"fkiUserIDOwner,omitempty"`
 	ObjAudit *CommonAudit `json:"objAudit,omitempty"`

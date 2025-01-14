@@ -44,14 +44,14 @@ type EzsigndocumentRequestCompound struct {
 	BEzsigndocumentForcerepair *bool `json:"bEzsigndocumentForcerepair,omitempty"`
 	// If the source document is password protected, the password to open/modify it.
 	SEzsigndocumentPassword *string `json:"sEzsigndocumentPassword,omitempty"`
-	// If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsignformfieldgroups and assign them to the specified **fkiEzsignfoldersignerassociationID**  **Discard** removes the form from the document.
+	// If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsignformfieldgroups and assign them to the specified **fkiEzsignfoldersignerassociationID**  **Discard** removes the form from the document.  **Flatten** prints the form values in the document.
 	EEzsigndocumentForm *string `json:"eEzsigndocumentForm,omitempty"`
 	// The maximum date and time at which the Ezsigndocument can be signed.
 	DtEzsigndocumentDuedate string `json:"dtEzsigndocumentDuedate"`
 	// The name of the document that will be presented to Ezsignfoldersignerassociations
 	SEzsigndocumentName string `json:"sEzsigndocumentName"`
 	// This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format. 
-	SEzsigndocumentExternalid *string `json:"sEzsigndocumentExternalid,omitempty"`
+	SEzsigndocumentExternalid *string `json:"sEzsigndocumentExternalid,omitempty" validate:"regexp=^.{0,128}$"`
 }
 
 type _EzsigndocumentRequestCompound EzsigndocumentRequestCompound

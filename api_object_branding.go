@@ -24,58 +24,58 @@ import (
 // ObjectBrandingAPIService ObjectBrandingAPI service
 type ObjectBrandingAPIService service
 
-type ApiBrandingCreateObjectV1Request struct {
+type ApiBrandingCreateObjectV2Request struct {
 	ctx context.Context
 	ApiService *ObjectBrandingAPIService
-	brandingCreateObjectV1Request *BrandingCreateObjectV1Request
+	brandingCreateObjectV2Request *BrandingCreateObjectV2Request
 }
 
-func (r ApiBrandingCreateObjectV1Request) BrandingCreateObjectV1Request(brandingCreateObjectV1Request BrandingCreateObjectV1Request) ApiBrandingCreateObjectV1Request {
-	r.brandingCreateObjectV1Request = &brandingCreateObjectV1Request
+func (r ApiBrandingCreateObjectV2Request) BrandingCreateObjectV2Request(brandingCreateObjectV2Request BrandingCreateObjectV2Request) ApiBrandingCreateObjectV2Request {
+	r.brandingCreateObjectV2Request = &brandingCreateObjectV2Request
 	return r
 }
 
-func (r ApiBrandingCreateObjectV1Request) Execute() (*BrandingCreateObjectV1Response, *http.Response, error) {
-	return r.ApiService.BrandingCreateObjectV1Execute(r)
+func (r ApiBrandingCreateObjectV2Request) Execute() (*BrandingCreateObjectV2Response, *http.Response, error) {
+	return r.ApiService.BrandingCreateObjectV2Execute(r)
 }
 
 /*
-BrandingCreateObjectV1 Create a new Branding
+BrandingCreateObjectV2 Create a new Branding
 
 The endpoint allows to create one or many elements at once.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiBrandingCreateObjectV1Request
+ @return ApiBrandingCreateObjectV2Request
 */
-func (a *ObjectBrandingAPIService) BrandingCreateObjectV1(ctx context.Context) ApiBrandingCreateObjectV1Request {
-	return ApiBrandingCreateObjectV1Request{
+func (a *ObjectBrandingAPIService) BrandingCreateObjectV2(ctx context.Context) ApiBrandingCreateObjectV2Request {
+	return ApiBrandingCreateObjectV2Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return BrandingCreateObjectV1Response
-func (a *ObjectBrandingAPIService) BrandingCreateObjectV1Execute(r ApiBrandingCreateObjectV1Request) (*BrandingCreateObjectV1Response, *http.Response, error) {
+//  @return BrandingCreateObjectV2Response
+func (a *ObjectBrandingAPIService) BrandingCreateObjectV2Execute(r ApiBrandingCreateObjectV2Request) (*BrandingCreateObjectV2Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *BrandingCreateObjectV1Response
+		localVarReturnValue  *BrandingCreateObjectV2Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectBrandingAPIService.BrandingCreateObjectV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectBrandingAPIService.BrandingCreateObjectV2")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/1/object/branding"
+	localVarPath := localBasePath + "/2/object/branding"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.brandingCreateObjectV1Request == nil {
-		return localVarReturnValue, nil, reportError("brandingCreateObjectV1Request is required and must be specified")
+	if r.brandingCreateObjectV2Request == nil {
+		return localVarReturnValue, nil, reportError("brandingCreateObjectV2Request is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -96,7 +96,7 @@ func (a *ObjectBrandingAPIService) BrandingCreateObjectV1Execute(r ApiBrandingCr
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.brandingCreateObjectV1Request
+	localVarPostBody = r.brandingCreateObjectV2Request
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -148,33 +148,33 @@ func (a *ObjectBrandingAPIService) BrandingCreateObjectV1Execute(r ApiBrandingCr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiBrandingEditObjectV1Request struct {
+type ApiBrandingEditObjectV2Request struct {
 	ctx context.Context
 	ApiService *ObjectBrandingAPIService
 	pkiBrandingID int32
-	brandingEditObjectV1Request *BrandingEditObjectV1Request
+	brandingEditObjectV2Request *BrandingEditObjectV2Request
 }
 
-func (r ApiBrandingEditObjectV1Request) BrandingEditObjectV1Request(brandingEditObjectV1Request BrandingEditObjectV1Request) ApiBrandingEditObjectV1Request {
-	r.brandingEditObjectV1Request = &brandingEditObjectV1Request
+func (r ApiBrandingEditObjectV2Request) BrandingEditObjectV2Request(brandingEditObjectV2Request BrandingEditObjectV2Request) ApiBrandingEditObjectV2Request {
+	r.brandingEditObjectV2Request = &brandingEditObjectV2Request
 	return r
 }
 
-func (r ApiBrandingEditObjectV1Request) Execute() (*BrandingEditObjectV1Response, *http.Response, error) {
-	return r.ApiService.BrandingEditObjectV1Execute(r)
+func (r ApiBrandingEditObjectV2Request) Execute() (*BrandingEditObjectV2Response, *http.Response, error) {
+	return r.ApiService.BrandingEditObjectV2Execute(r)
 }
 
 /*
-BrandingEditObjectV1 Edit an existing Branding
+BrandingEditObjectV2 Edit an existing Branding
 
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiBrandingID
- @return ApiBrandingEditObjectV1Request
+ @return ApiBrandingEditObjectV2Request
 */
-func (a *ObjectBrandingAPIService) BrandingEditObjectV1(ctx context.Context, pkiBrandingID int32) ApiBrandingEditObjectV1Request {
-	return ApiBrandingEditObjectV1Request{
+func (a *ObjectBrandingAPIService) BrandingEditObjectV2(ctx context.Context, pkiBrandingID int32) ApiBrandingEditObjectV2Request {
+	return ApiBrandingEditObjectV2Request{
 		ApiService: a,
 		ctx: ctx,
 		pkiBrandingID: pkiBrandingID,
@@ -182,21 +182,21 @@ func (a *ObjectBrandingAPIService) BrandingEditObjectV1(ctx context.Context, pki
 }
 
 // Execute executes the request
-//  @return BrandingEditObjectV1Response
-func (a *ObjectBrandingAPIService) BrandingEditObjectV1Execute(r ApiBrandingEditObjectV1Request) (*BrandingEditObjectV1Response, *http.Response, error) {
+//  @return BrandingEditObjectV2Response
+func (a *ObjectBrandingAPIService) BrandingEditObjectV2Execute(r ApiBrandingEditObjectV2Request) (*BrandingEditObjectV2Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *BrandingEditObjectV1Response
+		localVarReturnValue  *BrandingEditObjectV2Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectBrandingAPIService.BrandingEditObjectV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectBrandingAPIService.BrandingEditObjectV2")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/1/object/branding/{pkiBrandingID}"
+	localVarPath := localBasePath + "/2/object/branding/{pkiBrandingID}"
 	localVarPath = strings.Replace(localVarPath, "{"+"pkiBrandingID"+"}", url.PathEscape(parameterValueToString(r.pkiBrandingID, "pkiBrandingID")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -205,8 +205,8 @@ func (a *ObjectBrandingAPIService) BrandingEditObjectV1Execute(r ApiBrandingEdit
 	if r.pkiBrandingID < 0 {
 		return localVarReturnValue, nil, reportError("pkiBrandingID must be greater than 0")
 	}
-	if r.brandingEditObjectV1Request == nil {
-		return localVarReturnValue, nil, reportError("brandingEditObjectV1Request is required and must be specified")
+	if r.brandingEditObjectV2Request == nil {
+		return localVarReturnValue, nil, reportError("brandingEditObjectV2Request is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -227,7 +227,7 @@ func (a *ObjectBrandingAPIService) BrandingEditObjectV1Execute(r ApiBrandingEdit
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.brandingEditObjectV1Request
+	localVarPostBody = r.brandingEditObjectV2Request
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -359,13 +359,13 @@ func (a *ObjectBrandingAPIService) BrandingGetAutocompleteV2Execute(r ApiBrandin
 	localVarFormParams := url.Values{}
 
 	if r.eFilterActive != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "eFilterActive", r.eFilterActive, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "eFilterActive", r.eFilterActive, "form", "")
 	} else {
 		var defaultValue string = "Active"
 		r.eFilterActive = &defaultValue
 	}
 	if r.sQuery != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "sQuery", r.sQuery, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sQuery", r.sQuery, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -385,7 +385,7 @@ func (a *ObjectBrandingAPIService) BrandingGetAutocompleteV2Execute(r ApiBrandin
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.acceptLanguage != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept-Language", r.acceptLanguage, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept-Language", r.acceptLanguage, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -520,19 +520,19 @@ func (a *ObjectBrandingAPIService) BrandingGetListV1Execute(r ApiBrandingGetList
 	localVarFormParams := url.Values{}
 
 	if r.eOrderBy != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "eOrderBy", r.eOrderBy, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "eOrderBy", r.eOrderBy, "form", "")
 	}
 	if r.iRowMax != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowMax", r.iRowMax, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowMax", r.iRowMax, "form", "")
 	}
 	if r.iRowOffset != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowOffset", r.iRowOffset, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowOffset", r.iRowOffset, "form", "")
 	} else {
 		var defaultValue int32 = 0
 		r.iRowOffset = &defaultValue
 	}
 	if r.sFilter != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "sFilter", r.sFilter, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sFilter", r.sFilter, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -552,7 +552,7 @@ func (a *ObjectBrandingAPIService) BrandingGetListV1Execute(r ApiBrandingGetList
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.acceptLanguage != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept-Language", r.acceptLanguage, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept-Language", r.acceptLanguage, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -615,27 +615,27 @@ func (a *ObjectBrandingAPIService) BrandingGetListV1Execute(r ApiBrandingGetList
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiBrandingGetObjectV2Request struct {
+type ApiBrandingGetObjectV3Request struct {
 	ctx context.Context
 	ApiService *ObjectBrandingAPIService
 	pkiBrandingID int32
 }
 
-func (r ApiBrandingGetObjectV2Request) Execute() (*BrandingGetObjectV2Response, *http.Response, error) {
-	return r.ApiService.BrandingGetObjectV2Execute(r)
+func (r ApiBrandingGetObjectV3Request) Execute() (*BrandingGetObjectV3Response, *http.Response, error) {
+	return r.ApiService.BrandingGetObjectV3Execute(r)
 }
 
 /*
-BrandingGetObjectV2 Retrieve an existing Branding
+BrandingGetObjectV3 Retrieve an existing Branding
 
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiBrandingID
- @return ApiBrandingGetObjectV2Request
+ @return ApiBrandingGetObjectV3Request
 */
-func (a *ObjectBrandingAPIService) BrandingGetObjectV2(ctx context.Context, pkiBrandingID int32) ApiBrandingGetObjectV2Request {
-	return ApiBrandingGetObjectV2Request{
+func (a *ObjectBrandingAPIService) BrandingGetObjectV3(ctx context.Context, pkiBrandingID int32) ApiBrandingGetObjectV3Request {
+	return ApiBrandingGetObjectV3Request{
 		ApiService: a,
 		ctx: ctx,
 		pkiBrandingID: pkiBrandingID,
@@ -643,21 +643,21 @@ func (a *ObjectBrandingAPIService) BrandingGetObjectV2(ctx context.Context, pkiB
 }
 
 // Execute executes the request
-//  @return BrandingGetObjectV2Response
-func (a *ObjectBrandingAPIService) BrandingGetObjectV2Execute(r ApiBrandingGetObjectV2Request) (*BrandingGetObjectV2Response, *http.Response, error) {
+//  @return BrandingGetObjectV3Response
+func (a *ObjectBrandingAPIService) BrandingGetObjectV3Execute(r ApiBrandingGetObjectV3Request) (*BrandingGetObjectV3Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *BrandingGetObjectV2Response
+		localVarReturnValue  *BrandingGetObjectV3Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectBrandingAPIService.BrandingGetObjectV2")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectBrandingAPIService.BrandingGetObjectV3")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/2/object/branding/{pkiBrandingID}"
+	localVarPath := localBasePath + "/3/object/branding/{pkiBrandingID}"
 	localVarPath = strings.Replace(localVarPath, "{"+"pkiBrandingID"+"}", url.PathEscape(parameterValueToString(r.pkiBrandingID, "pkiBrandingID")), -1)
 
 	localVarHeaderParams := make(map[string]string)

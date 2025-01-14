@@ -25,7 +25,7 @@ type PhonetypeAutocompleteElementResponse struct {
 	// The unique ID of the Phonetype.  Valid values:  |Value|Description| |-|-| |1|Office| |2|Home| |3|Mobile| |4|Fax| |5|Pager| |6|Toll Free|
 	PkiPhonetypeID int32 `json:"pkiPhonetypeID"`
 	// The name of the Phonetype in the language of the requester
-	SPhonetypeNameX string `json:"sPhonetypeNameX"`
+	SPhonetypeNameX string `json:"sPhonetypeNameX" validate:"regexp=^.{0,20}$"`
 	// Whether the Phonetype is active or not
 	BPhonetypeIsactive bool `json:"bPhonetypeIsactive"`
 }

@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiEzsignfolderID** | Pointer to **int32** | The unique ID of the Ezsignfolder | [optional] 
 **FkiEzsignfoldertypeID** | **int32** | The unique ID of the Ezsignfoldertype. | 
+**FkiTimezoneID** | Pointer to **int32** | The unique ID of the Timezone | [optional] 
 **FkiEzsigntsarequirementID** | Pointer to **int32** | The unique ID of the Ezsigntsarequirement.  Determine if a Time Stamping Authority should add a timestamp on each of the signature. Valid values:  |Value|Description| |-|-| |1|No. TSA Timestamping will requested. This will make all signatures a lot faster since no round-trip to the TSA server will be required. Timestamping will be made using eZsign server&#39;s time.| |2|Best effort. Timestamping from a Time Stamping Authority will be requested but is not mandatory. In the very improbable case it cannot be completed, the timestamping will be made using eZsign server&#39;s time. **Additional fee applies**| |3|Mandatory. Timestamping from a Time Stamping Authority will be requested and is mandatory. In the very improbable case it cannot be completed, the signature will fail and the user will be asked to retry. **Additional fee applies**| | [optional] 
 **SEzsignfolderDescription** | **string** | The description of the Ezsignfolder | 
 **TEzsignfolderNote** | Pointer to **string** | Note about the Ezsignfolder | [optional] 
@@ -75,6 +76,31 @@ and a boolean to check if the value has been set.
 
 SetFkiEzsignfoldertypeID sets FkiEzsignfoldertypeID field to given value.
 
+
+### GetFkiTimezoneID
+
+`func (o *EzsignfolderRequestCompound) GetFkiTimezoneID() int32`
+
+GetFkiTimezoneID returns the FkiTimezoneID field if non-nil, zero value otherwise.
+
+### GetFkiTimezoneIDOk
+
+`func (o *EzsignfolderRequestCompound) GetFkiTimezoneIDOk() (*int32, bool)`
+
+GetFkiTimezoneIDOk returns a tuple with the FkiTimezoneID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiTimezoneID
+
+`func (o *EzsignfolderRequestCompound) SetFkiTimezoneID(v int32)`
+
+SetFkiTimezoneID sets FkiTimezoneID field to given value.
+
+### HasFkiTimezoneID
+
+`func (o *EzsignfolderRequestCompound) HasFkiTimezoneID() bool`
+
+HasFkiTimezoneID returns a boolean if a field has been set.
 
 ### GetFkiEzsigntsarequirementID
 

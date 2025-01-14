@@ -33,11 +33,11 @@ type UsergroupexternalmembershipResponseCompound struct {
 	// The last name of the user
 	SUserLastname string `json:"sUserLastname"`
 	// The login name of the User.
-	SUserLoginname string `json:"sUserLoginname"`
+	SUserLoginname string "json:\"sUserLoginname\" validate:\"regexp=^(?:([\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$\""
 	// The email address.
-	SEmailAddress string `json:"sEmailAddress"`
+	SEmailAddress string "json:\"sEmailAddress\" validate:\"regexp=^[\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20}$\""
 	// The name of the Usergroupexternal
-	SUsergroupexternalName string `json:"sUsergroupexternalName"`
+	SUsergroupexternalName string `json:"sUsergroupexternalName" validate:"regexp=^.{0,64}$"`
 }
 
 type _UsergroupexternalmembershipResponseCompound UsergroupexternalmembershipResponseCompound

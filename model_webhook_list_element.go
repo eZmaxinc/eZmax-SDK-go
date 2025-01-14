@@ -27,7 +27,7 @@ type WebhookListElement struct {
 	// The description of the Webhook
 	SWebhookDescription string `json:"sWebhookDescription"`
 	// The URL of the Webhook callback
-	SWebhookUrl string `json:"sWebhookUrl"`
+	SWebhookUrl string `json:"sWebhookUrl" validate:"regexp=^(https|http):\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
 	// The concatenated string to describe the Webhook event
 	SWebhookEvent string `json:"sWebhookEvent"`
 	// The email that will receive the Webhook in case all attempts fail

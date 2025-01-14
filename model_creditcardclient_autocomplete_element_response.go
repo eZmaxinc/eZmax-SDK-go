@@ -25,9 +25,7 @@ type CreditcardclientAutocompleteElementResponse struct {
 	// The unique ID of the Creditcardclient
 	PkiCreditcardclientID int32 `json:"pkiCreditcardclientID"`
 	// The description of the Creditcardclient
-	SCreditcardclientDescription string `json:"sCreditcardclientDescription"`
-	// Whether the creditcardclient is active or not
-	BCreditcardclientIsactive bool `json:"bCreditcardclientIsactive"`
+	SCreditcardclientDescription string `json:"sCreditcardclientDescription" validate:"regexp=^.{0,50}$"`
 }
 
 type _CreditcardclientAutocompleteElementResponse CreditcardclientAutocompleteElementResponse
@@ -36,11 +34,10 @@ type _CreditcardclientAutocompleteElementResponse CreditcardclientAutocompleteEl
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreditcardclientAutocompleteElementResponse(pkiCreditcardclientID int32, sCreditcardclientDescription string, bCreditcardclientIsactive bool) *CreditcardclientAutocompleteElementResponse {
+func NewCreditcardclientAutocompleteElementResponse(pkiCreditcardclientID int32, sCreditcardclientDescription string) *CreditcardclientAutocompleteElementResponse {
 	this := CreditcardclientAutocompleteElementResponse{}
 	this.PkiCreditcardclientID = pkiCreditcardclientID
 	this.SCreditcardclientDescription = sCreditcardclientDescription
-	this.BCreditcardclientIsactive = bCreditcardclientIsactive
 	return &this
 }
 
@@ -100,30 +97,6 @@ func (o *CreditcardclientAutocompleteElementResponse) SetSCreditcardclientDescri
 	o.SCreditcardclientDescription = v
 }
 
-// GetBCreditcardclientIsactive returns the BCreditcardclientIsactive field value
-func (o *CreditcardclientAutocompleteElementResponse) GetBCreditcardclientIsactive() bool {
-	if o == nil {
-		var ret bool
-		return ret
-	}
-
-	return o.BCreditcardclientIsactive
-}
-
-// GetBCreditcardclientIsactiveOk returns a tuple with the BCreditcardclientIsactive field value
-// and a boolean to check if the value has been set.
-func (o *CreditcardclientAutocompleteElementResponse) GetBCreditcardclientIsactiveOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BCreditcardclientIsactive, true
-}
-
-// SetBCreditcardclientIsactive sets field value
-func (o *CreditcardclientAutocompleteElementResponse) SetBCreditcardclientIsactive(v bool) {
-	o.BCreditcardclientIsactive = v
-}
-
 func (o CreditcardclientAutocompleteElementResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -136,7 +109,6 @@ func (o CreditcardclientAutocompleteElementResponse) ToMap() (map[string]interfa
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiCreditcardclientID"] = o.PkiCreditcardclientID
 	toSerialize["sCreditcardclientDescription"] = o.SCreditcardclientDescription
-	toSerialize["bCreditcardclientIsactive"] = o.BCreditcardclientIsactive
 	return toSerialize, nil
 }
 
@@ -147,7 +119,6 @@ func (o *CreditcardclientAutocompleteElementResponse) UnmarshalJSON(data []byte)
 	requiredProperties := []string{
 		"pkiCreditcardclientID",
 		"sCreditcardclientDescription",
-		"bCreditcardclientIsactive",
 	}
 
 	allProperties := make(map[string]interface{})

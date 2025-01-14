@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiWebhookID** | Pointer to **int32** | The unique ID of the Webhook | [optional] 
+**FkiAuthenticationexternalID** | Pointer to **int32** | The unique ID of the Authenticationexternal | [optional] 
 **FkiEzsignfoldertypeID** | Pointer to **int32** | The unique ID of the Ezsignfoldertype. | [optional] 
 **SWebhookDescription** | **string** | The description of the Webhook | 
 **EWebhookModule** | [**FieldEWebhookModule**](FieldEWebhookModule.md) |  | 
@@ -59,6 +60,31 @@ SetPkiWebhookID sets PkiWebhookID field to given value.
 `func (o *WebhookRequest) HasPkiWebhookID() bool`
 
 HasPkiWebhookID returns a boolean if a field has been set.
+
+### GetFkiAuthenticationexternalID
+
+`func (o *WebhookRequest) GetFkiAuthenticationexternalID() int32`
+
+GetFkiAuthenticationexternalID returns the FkiAuthenticationexternalID field if non-nil, zero value otherwise.
+
+### GetFkiAuthenticationexternalIDOk
+
+`func (o *WebhookRequest) GetFkiAuthenticationexternalIDOk() (*int32, bool)`
+
+GetFkiAuthenticationexternalIDOk returns a tuple with the FkiAuthenticationexternalID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiAuthenticationexternalID
+
+`func (o *WebhookRequest) SetFkiAuthenticationexternalID(v int32)`
+
+SetFkiAuthenticationexternalID sets FkiAuthenticationexternalID field to given value.
+
+### HasFkiAuthenticationexternalID
+
+`func (o *WebhookRequest) HasFkiAuthenticationexternalID() bool`
+
+HasFkiAuthenticationexternalID returns a boolean if a field has been set.
 
 ### GetFkiEzsignfoldertypeID
 

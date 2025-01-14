@@ -46,6 +46,18 @@ func Test_eZmaxApi_ObjectEzsignsignatureAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test ObjectEzsignsignatureAPIService EzsignsignatureCreateObjectV3", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.ObjectEzsignsignatureAPI.EzsignsignatureCreateObjectV3(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ObjectEzsignsignatureAPIService EzsignsignatureDeleteObjectV1", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -60,13 +72,13 @@ func Test_eZmaxApi_ObjectEzsignsignatureAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ObjectEzsignsignatureAPIService EzsignsignatureEditObjectV1", func(t *testing.T) {
+	t.Run("Test ObjectEzsignsignatureAPIService EzsignsignatureEditObjectV2", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pkiEzsignsignatureID int32
 
-		resp, httpRes, err := apiClient.ObjectEzsignsignatureAPI.EzsignsignatureEditObjectV1(context.Background(), pkiEzsignsignatureID).Execute()
+		resp, httpRes, err := apiClient.ObjectEzsignsignatureAPI.EzsignsignatureEditObjectV2(context.Background(), pkiEzsignsignatureID).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -100,13 +112,13 @@ func Test_eZmaxApi_ObjectEzsignsignatureAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ObjectEzsignsignatureAPIService EzsignsignatureGetObjectV2", func(t *testing.T) {
+	t.Run("Test ObjectEzsignsignatureAPIService EzsignsignatureGetObjectV3", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pkiEzsignsignatureID int32
 
-		resp, httpRes, err := apiClient.ObjectEzsignsignatureAPI.EzsignsignatureGetObjectV2(context.Background(), pkiEzsignsignatureID).Execute()
+		resp, httpRes, err := apiClient.ObjectEzsignsignatureAPI.EzsignsignatureGetObjectV3(context.Background(), pkiEzsignsignatureID).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

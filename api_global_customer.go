@@ -90,7 +90,7 @@ func (a *GlobalCustomerAPIService) GlobalCustomerGetEndpointV1Execute(r ApiGloba
 	}
 
 	if r.sInfrastructureproductCode != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "sInfrastructureproductCode", r.sInfrastructureproductCode, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sInfrastructureproductCode", r.sInfrastructureproductCode, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

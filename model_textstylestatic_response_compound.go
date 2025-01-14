@@ -26,6 +26,8 @@ type TextstylestaticResponseCompound struct {
 	PkiTextstylestaticID *int32 `json:"pkiTextstylestaticID,omitempty"`
 	// The unique ID of the Font
 	FkiFontID int32 `json:"fkiFontID"`
+	// The name of the Font
+	SFontName string `json:"sFontName" validate:"regexp=^.{0,50}$"`
 	// Whether the Textstylestatic is Bold or not
 	BTextstylestaticBold bool `json:"bTextstylestaticBold"`
 	// Whether the Textstylestatic is Underline or not
@@ -46,9 +48,10 @@ type _TextstylestaticResponseCompound TextstylestaticResponseCompound
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTextstylestaticResponseCompound(fkiFontID int32, bTextstylestaticBold bool, bTextstylestaticUnderline bool, bTextstylestaticItalic bool, bTextstylestaticStrikethrough bool, iTextstylestaticFontcolor int32, iTextstylestaticSize int32) *TextstylestaticResponseCompound {
+func NewTextstylestaticResponseCompound(fkiFontID int32, sFontName string, bTextstylestaticBold bool, bTextstylestaticUnderline bool, bTextstylestaticItalic bool, bTextstylestaticStrikethrough bool, iTextstylestaticFontcolor int32, iTextstylestaticSize int32) *TextstylestaticResponseCompound {
 	this := TextstylestaticResponseCompound{}
 	this.FkiFontID = fkiFontID
+	this.SFontName = sFontName
 	this.BTextstylestaticBold = bTextstylestaticBold
 	this.BTextstylestaticUnderline = bTextstylestaticUnderline
 	this.BTextstylestaticItalic = bTextstylestaticItalic
@@ -120,6 +123,30 @@ func (o *TextstylestaticResponseCompound) GetFkiFontIDOk() (*int32, bool) {
 // SetFkiFontID sets field value
 func (o *TextstylestaticResponseCompound) SetFkiFontID(v int32) {
 	o.FkiFontID = v
+}
+
+// GetSFontName returns the SFontName field value
+func (o *TextstylestaticResponseCompound) GetSFontName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SFontName
+}
+
+// GetSFontNameOk returns a tuple with the SFontName field value
+// and a boolean to check if the value has been set.
+func (o *TextstylestaticResponseCompound) GetSFontNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SFontName, true
+}
+
+// SetSFontName sets field value
+func (o *TextstylestaticResponseCompound) SetSFontName(v string) {
+	o.SFontName = v
 }
 
 // GetBTextstylestaticBold returns the BTextstylestaticBold field value
@@ -280,6 +307,7 @@ func (o TextstylestaticResponseCompound) ToMap() (map[string]interface{}, error)
 		toSerialize["pkiTextstylestaticID"] = o.PkiTextstylestaticID
 	}
 	toSerialize["fkiFontID"] = o.FkiFontID
+	toSerialize["sFontName"] = o.SFontName
 	toSerialize["bTextstylestaticBold"] = o.BTextstylestaticBold
 	toSerialize["bTextstylestaticUnderline"] = o.BTextstylestaticUnderline
 	toSerialize["bTextstylestaticItalic"] = o.BTextstylestaticItalic
@@ -295,6 +323,7 @@ func (o *TextstylestaticResponseCompound) UnmarshalJSON(data []byte) (err error)
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"fkiFontID",
+		"sFontName",
 		"bTextstylestaticBold",
 		"bTextstylestaticUnderline",
 		"bTextstylestaticItalic",

@@ -23,7 +23,7 @@ var _ MappedNullable = &UsergroupAutocompleteElementResponse{}
 // UsergroupAutocompleteElementResponse A Usergroup AutocompleteElement Response
 type UsergroupAutocompleteElementResponse struct {
 	// The Name of the Usergroup in the language of the requester
-	SUsergroupNameX string `json:"sUsergroupNameX"`
+	SUsergroupNameX string `json:"sUsergroupNameX" validate:"regexp=^.{0,50}$"`
 	// The unique ID of the Usergroup
 	PkiUsergroupID int32 `json:"pkiUsergroupID"`
 	// Whether the Usergroup is active or not

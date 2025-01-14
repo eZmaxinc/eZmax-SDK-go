@@ -24,11 +24,11 @@ var _ MappedNullable = &CustomCreditcardtransactionResponse{}
 type CustomCreditcardtransactionResponse struct {
 	ECreditcardtypeCodename FieldECreditcardtypeCodename `json:"eCreditcardtypeCodename"`
 	// The amount of the Creditcardtransaction
-	DCreditcardtransactionAmount string `json:"dCreditcardtransactionAmount"`
+	DCreditcardtransactionAmount string `json:"dCreditcardtransactionAmount" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
 	// The partially decrypted credit card number used in the Creditcardtransaction
-	SCreditcardtransactionPartiallydecryptednumber string `json:"sCreditcardtransactionPartiallydecryptednumber"`
+	SCreditcardtransactionPartiallydecryptednumber string `json:"sCreditcardtransactionPartiallydecryptednumber" validate:"regexp=^([X]{4}[ ]){3}(\\\\d){4}$"`
 	// The reference number on the creditcard service for the Creditcardtransaction
-	SCreditcardtransactionReferencenumber string `json:"sCreditcardtransactionReferencenumber"`
+	SCreditcardtransactionReferencenumber string `json:"sCreditcardtransactionReferencenumber" validate:"regexp=^[\\\\d]{18}$"`
 }
 
 type _CustomCreditcardtransactionResponse CustomCreditcardtransactionResponse

@@ -38,11 +38,11 @@ type EzmaxinvoicingGetProvisionalV1ResponseMPayload struct {
 	IEzmaxinvoicingDays int32 `json:"iEzmaxinvoicingDays"`
 	EEzmaxinvoicingPaymenttype FieldEEzmaxinvoicingPaymenttype `json:"eEzmaxinvoicingPaymenttype"`
 	// The percentage of rebate depending of the payment type
-	DEzmaxinvoicingRebatepaymenttype string `json:"dEzmaxinvoicingRebatepaymenttype"`
+	DEzmaxinvoicingRebatepaymenttype string `json:"dEzmaxinvoicingRebatepaymenttype" validate:"regexp=^-{0,1}[\\\\d]{1,3}?\\\\.[\\\\d]{2}$"`
 	// The length of the contract in years
 	IEzmaxinvoicingContractlength int32 `json:"iEzmaxinvoicingContractlength"`
 	// The percentage of rebate depending of the contract length
-	DEzmaxinvoicingRebatecontractlength string `json:"dEzmaxinvoicingRebatecontractlength"`
+	DEzmaxinvoicingRebatecontractlength string `json:"dEzmaxinvoicingRebatecontractlength" validate:"regexp=^-{0,1}[\\\\d]{1,3}?\\\\.[\\\\d]{2}$"`
 	// Whether the rebate for eZsign is for all agents
 	BEzmaxinvoicingRebateEzsignallagents bool `json:"bEzmaxinvoicingRebateEzsignallagents"`
 	ObjAudit *CommonAudit `json:"objAudit,omitempty"`

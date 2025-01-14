@@ -24,7 +24,7 @@ var _ MappedNullable = &EzsigntemplateAutocompleteElementResponse{}
 type EzsigntemplateAutocompleteElementResponse struct {
 	EEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel `json:"eEzsignfoldertypePrivacylevel"`
 	// The description of the Ezsigntemplate
-	SEzsigntemplateDescription string `json:"sEzsigntemplateDescription"`
+	SEzsigntemplateDescription string `json:"sEzsigntemplateDescription" validate:"regexp=^.{0,80}$"`
 	// The unique ID of the Ezsigntemplate
 	PkiEzsigntemplateID int32 `json:"pkiEzsigntemplateID"`
 	// Whether the Ezsigntemplate is active or not
