@@ -43,9 +43,9 @@ Name | Type | Description | Notes
 **ObjSignature** | Pointer to [**SignatureResponseCompound**](SignatureResponseCompound.md) |  | [optional] 
 **DtEzsignsignatureDateInFolderTimezone** | Pointer to **string** | The date the Ezsignsignature was signed in folder&#39;s timezone | [optional] 
 **BEzsignsignatureCustomdate** | Pointer to **bool** | Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is **Name** or **Handwritten**) | [optional] 
-**AObjEzsignsignaturecustomdate** | Pointer to [**[]EzsignsignaturecustomdateResponseCompound**](EzsignsignaturecustomdateResponseCompound.md) | An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don&#39;t want to have a date at all. | [optional] 
+**AObjEzsignsignaturecustomdate** | Pointer to [**[]EzsignsignaturecustomdateResponse**](EzsignsignaturecustomdateResponse.md) | An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don&#39;t want to have a date at all. | [optional] 
 **ObjCreditcardtransaction** | Pointer to [**CustomCreditcardtransactionResponse**](CustomCreditcardtransactionResponse.md) |  | [optional] 
-**AObjEzsignelementdependency** | Pointer to [**[]EzsignelementdependencyResponseCompound**](EzsignelementdependencyResponseCompound.md) |  | [optional] 
+**AObjEzsignelementdependency** | Pointer to [**[]EzsignelementdependencyResponse**](EzsignelementdependencyResponse.md) |  | [optional] 
 **ObjTimezone** | Pointer to [**CustomTimezoneWithCodeResponse**](CustomTimezoneWithCodeResponse.md) |  | [optional] 
 
 ## Methods

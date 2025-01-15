@@ -181,7 +181,7 @@ import (
 
 func main() {
 	pkiEzsigntemplatedocumentID := int32(56) // int32 | 
-	ezsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Request := *openapiclient.NewEzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Request([]openapiclient.EzsigntemplateformfieldgroupRequestCompound{*openapiclient.NewEzsigntemplateformfieldgroupRequestCompound(int32(133), openapiclient.Field-eEzsigntemplateformfieldgroupType("Text"), "Allergies", int32(1), "Foo", int32(1), int32(2), false, []openapiclient.EzsigntemplateformfieldgroupsignerRequestCompound{*openapiclient.NewEzsigntemplateformfieldgroupsignerRequestCompound(int32(9))}, []openapiclient.EzsigntemplateformfieldRequestCompound{*openapiclient.NewEzsigntemplateformfieldRequestCompound(int32(1), "Peanuts", int32(102), int32(22))})}) // EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Request | 
+	ezsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Request := *openapiclient.NewEzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Request([]openapiclient.EzsigntemplateformfieldgroupRequestCompound{*openapiclient.NewEzsigntemplateformfieldgroupRequestCompound(int32(133), openapiclient.Field-eEzsigntemplateformfieldgroupType("Text"), "Allergies", int32(1), "Foo", int32(1), int32(2), false, []openapiclient.EzsigntemplateformfieldgroupsignerRequestCompound{*openapiclient.NewEzsigntemplateformfieldgroupsignerRequest(int32(9))}, []openapiclient.EzsigntemplateformfieldRequestCompound{*openapiclient.NewEzsigntemplateformfieldRequestCompound(int32(1), "Peanuts", int32(102), int32(22))})}) // EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -449,7 +449,7 @@ Name | Type | Description  | Notes
 
 ## EzsigntemplatedocumentFlattenV1
 
-> EzsigntemplatedocumentFlattenV1Response EzsigntemplatedocumentFlattenV1(ctx, pkiEzsigntemplatedocumentID).Body(body).Execute()
+> CommonResponse EzsigntemplatedocumentFlattenV1(ctx, pkiEzsigntemplatedocumentID).Body(body).Execute()
 
 Flatten
 
@@ -478,7 +478,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatedocumentAPI.EzsigntemplatedocumentFlattenV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsigntemplatedocumentFlattenV1`: EzsigntemplatedocumentFlattenV1Response
+	// response from `EzsigntemplatedocumentFlattenV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatedocumentAPI.EzsigntemplatedocumentFlattenV1`: %v\n", resp)
 }
 ```
@@ -503,7 +503,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigntemplatedocumentFlattenV1Response**](EzsigntemplatedocumentFlattenV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -943,7 +943,7 @@ Name | Type | Description  | Notes
 
 ## EzsigntemplatedocumentPatchObjectV1
 
-> EzsigntemplatedocumentPatchObjectV1Response EzsigntemplatedocumentPatchObjectV1(ctx, pkiEzsigntemplatedocumentID).EzsigntemplatedocumentPatchObjectV1Request(ezsigntemplatedocumentPatchObjectV1Request).Execute()
+> CommonResponse EzsigntemplatedocumentPatchObjectV1(ctx, pkiEzsigntemplatedocumentID).EzsigntemplatedocumentPatchObjectV1Request(ezsigntemplatedocumentPatchObjectV1Request).Execute()
 
 Patch an existing Ezsigntemplatedocument
 
@@ -972,7 +972,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatedocumentAPI.EzsigntemplatedocumentPatchObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsigntemplatedocumentPatchObjectV1`: EzsigntemplatedocumentPatchObjectV1Response
+	// response from `EzsigntemplatedocumentPatchObjectV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatedocumentAPI.EzsigntemplatedocumentPatchObjectV1`: %v\n", resp)
 }
 ```
@@ -997,7 +997,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigntemplatedocumentPatchObjectV1Response**](EzsigntemplatedocumentPatchObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

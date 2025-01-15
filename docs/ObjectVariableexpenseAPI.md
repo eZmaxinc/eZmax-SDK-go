@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 ## VariableexpenseEditObjectV1
 
-> VariableexpenseEditObjectV1Response VariableexpenseEditObjectV1(ctx, pkiVariableexpenseID).VariableexpenseEditObjectV1Request(variableexpenseEditObjectV1Request).Execute()
+> CommonResponse VariableexpenseEditObjectV1(ctx, pkiVariableexpenseID).VariableexpenseEditObjectV1Request(variableexpenseEditObjectV1Request).Execute()
 
 Edit an existing Variableexpense
 
@@ -109,7 +109,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectVariableexpenseAPI.VariableexpenseEditObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `VariableexpenseEditObjectV1`: VariableexpenseEditObjectV1Response
+	// response from `VariableexpenseEditObjectV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectVariableexpenseAPI.VariableexpenseEditObjectV1`: %v\n", resp)
 }
 ```
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**VariableexpenseEditObjectV1Response**](VariableexpenseEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

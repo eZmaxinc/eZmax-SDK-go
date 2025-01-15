@@ -22,7 +22,8 @@ var _ MappedNullable = &ApikeyEditObjectV1Request{}
 
 // ApikeyEditObjectV1Request Request for PUT /1/object/apikey/{pkiApikeyID}
 type ApikeyEditObjectV1Request struct {
-	ObjApikey ApikeyRequestCompound `json:"objApikey"`
+	// An Apikey Object and children to create a complete structure
+	ObjApikey ApikeyRequest `json:"objApikey"`
 }
 
 type _ApikeyEditObjectV1Request ApikeyEditObjectV1Request
@@ -31,7 +32,7 @@ type _ApikeyEditObjectV1Request ApikeyEditObjectV1Request
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApikeyEditObjectV1Request(objApikey ApikeyRequestCompound) *ApikeyEditObjectV1Request {
+func NewApikeyEditObjectV1Request(objApikey ApikeyRequest) *ApikeyEditObjectV1Request {
 	this := ApikeyEditObjectV1Request{}
 	this.ObjApikey = objApikey
 	return &this
@@ -46,9 +47,9 @@ func NewApikeyEditObjectV1RequestWithDefaults() *ApikeyEditObjectV1Request {
 }
 
 // GetObjApikey returns the ObjApikey field value
-func (o *ApikeyEditObjectV1Request) GetObjApikey() ApikeyRequestCompound {
+func (o *ApikeyEditObjectV1Request) GetObjApikey() ApikeyRequest {
 	if o == nil {
-		var ret ApikeyRequestCompound
+		var ret ApikeyRequest
 		return ret
 	}
 
@@ -57,7 +58,7 @@ func (o *ApikeyEditObjectV1Request) GetObjApikey() ApikeyRequestCompound {
 
 // GetObjApikeyOk returns a tuple with the ObjApikey field value
 // and a boolean to check if the value has been set.
-func (o *ApikeyEditObjectV1Request) GetObjApikeyOk() (*ApikeyRequestCompound, bool) {
+func (o *ApikeyEditObjectV1Request) GetObjApikeyOk() (*ApikeyRequest, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,7 +66,7 @@ func (o *ApikeyEditObjectV1Request) GetObjApikeyOk() (*ApikeyRequestCompound, bo
 }
 
 // SetObjApikey sets field value
-func (o *ApikeyEditObjectV1Request) SetObjApikey(v ApikeyRequestCompound) {
+func (o *ApikeyEditObjectV1Request) SetObjApikey(v ApikeyRequest) {
 	o.ObjApikey = v
 }
 

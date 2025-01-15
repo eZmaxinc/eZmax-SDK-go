@@ -24,7 +24,8 @@ var _ MappedNullable = &EzsignfolderGetObjectV1Response{}
 type EzsignfolderGetObjectV1Response struct {
 	ObjDebugPayload CommonResponseObjDebugPayload `json:"objDebugPayload"`
 	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
-	MPayload EzsignfolderGetObjectV1ResponseMPayload `json:"mPayload"`
+	// Payload for GET /1/object/ezsignfolder/{pkiEzsignfolderID}
+	MPayload EzsignfolderResponseCompound `json:"mPayload"`
 }
 
 type _EzsignfolderGetObjectV1Response EzsignfolderGetObjectV1Response
@@ -33,7 +34,7 @@ type _EzsignfolderGetObjectV1Response EzsignfolderGetObjectV1Response
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfolderGetObjectV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload EzsignfolderGetObjectV1ResponseMPayload) *EzsignfolderGetObjectV1Response {
+func NewEzsignfolderGetObjectV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload EzsignfolderResponseCompound) *EzsignfolderGetObjectV1Response {
 	this := EzsignfolderGetObjectV1Response{}
 	this.ObjDebugPayload = objDebugPayload
 	this.MPayload = mPayload
@@ -105,9 +106,9 @@ func (o *EzsignfolderGetObjectV1Response) SetObjDebug(v CommonResponseObjDebug) 
 }
 
 // GetMPayload returns the MPayload field value
-func (o *EzsignfolderGetObjectV1Response) GetMPayload() EzsignfolderGetObjectV1ResponseMPayload {
+func (o *EzsignfolderGetObjectV1Response) GetMPayload() EzsignfolderResponseCompound {
 	if o == nil {
-		var ret EzsignfolderGetObjectV1ResponseMPayload
+		var ret EzsignfolderResponseCompound
 		return ret
 	}
 
@@ -116,7 +117,7 @@ func (o *EzsignfolderGetObjectV1Response) GetMPayload() EzsignfolderGetObjectV1R
 
 // GetMPayloadOk returns a tuple with the MPayload field value
 // and a boolean to check if the value has been set.
-func (o *EzsignfolderGetObjectV1Response) GetMPayloadOk() (*EzsignfolderGetObjectV1ResponseMPayload, bool) {
+func (o *EzsignfolderGetObjectV1Response) GetMPayloadOk() (*EzsignfolderResponseCompound, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -124,7 +125,7 @@ func (o *EzsignfolderGetObjectV1Response) GetMPayloadOk() (*EzsignfolderGetObjec
 }
 
 // SetMPayload sets field value
-func (o *EzsignfolderGetObjectV1Response) SetMPayload(v EzsignfolderGetObjectV1ResponseMPayload) {
+func (o *EzsignfolderGetObjectV1Response) SetMPayload(v EzsignfolderResponseCompound) {
 	o.MPayload = v
 }
 

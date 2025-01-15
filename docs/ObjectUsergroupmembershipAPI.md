@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ## UsergroupmembershipDeleteObjectV1
 
-> UsergroupmembershipDeleteObjectV1Response UsergroupmembershipDeleteObjectV1(ctx, pkiUsergroupmembershipID).Execute()
+> CommonResponse UsergroupmembershipDeleteObjectV1(ctx, pkiUsergroupmembershipID).Execute()
 
 Delete an existing Usergroupmembership
 
@@ -107,7 +107,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupmembershipAPI.UsergroupmembershipDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UsergroupmembershipDeleteObjectV1`: UsergroupmembershipDeleteObjectV1Response
+	// response from `UsergroupmembershipDeleteObjectV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupmembershipAPI.UsergroupmembershipDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UsergroupmembershipDeleteObjectV1Response**](UsergroupmembershipDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ## UsergroupmembershipEditObjectV1
 
-> UsergroupmembershipEditObjectV1Response UsergroupmembershipEditObjectV1(ctx, pkiUsergroupmembershipID).UsergroupmembershipEditObjectV1Request(usergroupmembershipEditObjectV1Request).Execute()
+> CommonResponse UsergroupmembershipEditObjectV1(ctx, pkiUsergroupmembershipID).UsergroupmembershipEditObjectV1Request(usergroupmembershipEditObjectV1Request).Execute()
 
 Edit an existing Usergroupmembership
 
@@ -178,7 +178,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupmembershipAPI.UsergroupmembershipEditObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UsergroupmembershipEditObjectV1`: UsergroupmembershipEditObjectV1Response
+	// response from `UsergroupmembershipEditObjectV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupmembershipAPI.UsergroupmembershipEditObjectV1`: %v\n", resp)
 }
 ```
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UsergroupmembershipEditObjectV1Response**](UsergroupmembershipEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjApikey** | [**ApikeyRequestCompound**](ApikeyRequestCompound.md) |  | 
+**ObjApikey** | [**ApikeyRequest**](ApikeyRequest.md) | An Apikey Object and children to create a complete structure | 
 
 ## Methods
 
 ### NewApikeyEditObjectV1Request
 
-`func NewApikeyEditObjectV1Request(objApikey ApikeyRequestCompound, ) *ApikeyEditObjectV1Request`
+`func NewApikeyEditObjectV1Request(objApikey ApikeyRequest, ) *ApikeyEditObjectV1Request`
 
 NewApikeyEditObjectV1Request instantiates a new ApikeyEditObjectV1Request object
 This constructor will assign default values to properties that have it defined,
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetObjApikey
 
-`func (o *ApikeyEditObjectV1Request) GetObjApikey() ApikeyRequestCompound`
+`func (o *ApikeyEditObjectV1Request) GetObjApikey() ApikeyRequest`
 
 GetObjApikey returns the ObjApikey field if non-nil, zero value otherwise.
 
 ### GetObjApikeyOk
 
-`func (o *ApikeyEditObjectV1Request) GetObjApikeyOk() (*ApikeyRequestCompound, bool)`
+`func (o *ApikeyEditObjectV1Request) GetObjApikeyOk() (*ApikeyRequest, bool)`
 
 GetObjApikeyOk returns a tuple with the ObjApikey field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObjApikey
 
-`func (o *ApikeyEditObjectV1Request) SetObjApikey(v ApikeyRequestCompound)`
+`func (o *ApikeyEditObjectV1Request) SetObjApikey(v ApikeyRequest)`
 
 SetObjApikey sets ObjApikey field to given value.
 

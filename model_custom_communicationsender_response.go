@@ -34,7 +34,8 @@ type CustomCommunicationsenderResponse struct {
 	FkiPhonelinesharedID *int32 `json:"fkiPhonelinesharedID,omitempty"`
 	ECommunicationsenderObjecttype string `json:"eCommunicationsenderObjecttype"`
 	ObjContactName CustomContactNameResponse `json:"objContactName"`
-	ObjEmail *EmailResponseCompound `json:"objEmail,omitempty"`
+	// An Email Object and children to create a complete structure
+	ObjEmail *EmailResponse `json:"objEmail,omitempty"`
 	ObjPhoneFax *PhoneResponseCompound `json:"objPhoneFax,omitempty"`
 	ObjPhoneSMS *PhoneResponseCompound `json:"objPhoneSMS,omitempty"`
 }
@@ -269,9 +270,9 @@ func (o *CustomCommunicationsenderResponse) SetObjContactName(v CustomContactNam
 }
 
 // GetObjEmail returns the ObjEmail field value if set, zero value otherwise.
-func (o *CustomCommunicationsenderResponse) GetObjEmail() EmailResponseCompound {
+func (o *CustomCommunicationsenderResponse) GetObjEmail() EmailResponse {
 	if o == nil || IsNil(o.ObjEmail) {
-		var ret EmailResponseCompound
+		var ret EmailResponse
 		return ret
 	}
 	return *o.ObjEmail
@@ -279,7 +280,7 @@ func (o *CustomCommunicationsenderResponse) GetObjEmail() EmailResponseCompound 
 
 // GetObjEmailOk returns a tuple with the ObjEmail field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CustomCommunicationsenderResponse) GetObjEmailOk() (*EmailResponseCompound, bool) {
+func (o *CustomCommunicationsenderResponse) GetObjEmailOk() (*EmailResponse, bool) {
 	if o == nil || IsNil(o.ObjEmail) {
 		return nil, false
 	}
@@ -295,8 +296,8 @@ func (o *CustomCommunicationsenderResponse) HasObjEmail() bool {
 	return false
 }
 
-// SetObjEmail gets a reference to the given EmailResponseCompound and assigns it to the ObjEmail field.
-func (o *CustomCommunicationsenderResponse) SetObjEmail(v EmailResponseCompound) {
+// SetObjEmail gets a reference to the given EmailResponse and assigns it to the ObjEmail field.
+func (o *CustomCommunicationsenderResponse) SetObjEmail(v EmailResponse) {
 	o.ObjEmail = &v
 }
 

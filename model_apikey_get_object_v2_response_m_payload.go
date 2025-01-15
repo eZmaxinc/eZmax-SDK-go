@@ -22,7 +22,8 @@ var _ MappedNullable = &ApikeyGetObjectV2ResponseMPayload{}
 
 // ApikeyGetObjectV2ResponseMPayload Payload for GET /2/object/apikey/{pkiApikeyID}
 type ApikeyGetObjectV2ResponseMPayload struct {
-	ObjApikey ApikeyResponseCompound `json:"objApikey"`
+	// An Apikey Object and children to create a complete structure
+	ObjApikey ApikeyResponse `json:"objApikey"`
 }
 
 type _ApikeyGetObjectV2ResponseMPayload ApikeyGetObjectV2ResponseMPayload
@@ -31,7 +32,7 @@ type _ApikeyGetObjectV2ResponseMPayload ApikeyGetObjectV2ResponseMPayload
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApikeyGetObjectV2ResponseMPayload(objApikey ApikeyResponseCompound) *ApikeyGetObjectV2ResponseMPayload {
+func NewApikeyGetObjectV2ResponseMPayload(objApikey ApikeyResponse) *ApikeyGetObjectV2ResponseMPayload {
 	this := ApikeyGetObjectV2ResponseMPayload{}
 	this.ObjApikey = objApikey
 	return &this
@@ -46,9 +47,9 @@ func NewApikeyGetObjectV2ResponseMPayloadWithDefaults() *ApikeyGetObjectV2Respon
 }
 
 // GetObjApikey returns the ObjApikey field value
-func (o *ApikeyGetObjectV2ResponseMPayload) GetObjApikey() ApikeyResponseCompound {
+func (o *ApikeyGetObjectV2ResponseMPayload) GetObjApikey() ApikeyResponse {
 	if o == nil {
-		var ret ApikeyResponseCompound
+		var ret ApikeyResponse
 		return ret
 	}
 
@@ -57,7 +58,7 @@ func (o *ApikeyGetObjectV2ResponseMPayload) GetObjApikey() ApikeyResponseCompoun
 
 // GetObjApikeyOk returns a tuple with the ObjApikey field value
 // and a boolean to check if the value has been set.
-func (o *ApikeyGetObjectV2ResponseMPayload) GetObjApikeyOk() (*ApikeyResponseCompound, bool) {
+func (o *ApikeyGetObjectV2ResponseMPayload) GetObjApikeyOk() (*ApikeyResponse, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,7 +66,7 @@ func (o *ApikeyGetObjectV2ResponseMPayload) GetObjApikeyOk() (*ApikeyResponseCom
 }
 
 // SetObjApikey sets field value
-func (o *ApikeyGetObjectV2ResponseMPayload) SetObjApikey(v ApikeyResponseCompound) {
+func (o *ApikeyGetObjectV2ResponseMPayload) SetObjApikey(v ApikeyResponse) {
 	o.ObjApikey = v
 }
 

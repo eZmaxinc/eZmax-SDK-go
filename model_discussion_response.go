@@ -34,7 +34,8 @@ type DiscussionResponse struct {
 	IDiscussionmessageCount int32 `json:"iDiscussionmessageCount"`
 	// The count of Attachment.
 	IDiscussionmessageCountunread int32 `json:"iDiscussionmessageCountunread"`
-	ObjDiscussionconfiguration *CustomDiscussionconfigurationResponse `json:"objDiscussionconfiguration,omitempty"`
+	// A Custom Discussionconfiguration Object
+	ObjDiscussionconfiguration *map[string]interface{} `json:"objDiscussionconfiguration,omitempty"`
 }
 
 type _DiscussionResponse DiscussionResponse
@@ -214,9 +215,9 @@ func (o *DiscussionResponse) SetIDiscussionmessageCountunread(v int32) {
 }
 
 // GetObjDiscussionconfiguration returns the ObjDiscussionconfiguration field value if set, zero value otherwise.
-func (o *DiscussionResponse) GetObjDiscussionconfiguration() CustomDiscussionconfigurationResponse {
+func (o *DiscussionResponse) GetObjDiscussionconfiguration() map[string]interface{} {
 	if o == nil || IsNil(o.ObjDiscussionconfiguration) {
-		var ret CustomDiscussionconfigurationResponse
+		var ret map[string]interface{}
 		return ret
 	}
 	return *o.ObjDiscussionconfiguration
@@ -224,7 +225,7 @@ func (o *DiscussionResponse) GetObjDiscussionconfiguration() CustomDiscussioncon
 
 // GetObjDiscussionconfigurationOk returns a tuple with the ObjDiscussionconfiguration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DiscussionResponse) GetObjDiscussionconfigurationOk() (*CustomDiscussionconfigurationResponse, bool) {
+func (o *DiscussionResponse) GetObjDiscussionconfigurationOk() (*map[string]interface{}, bool) {
 	if o == nil || IsNil(o.ObjDiscussionconfiguration) {
 		return nil, false
 	}
@@ -240,8 +241,8 @@ func (o *DiscussionResponse) HasObjDiscussionconfiguration() bool {
 	return false
 }
 
-// SetObjDiscussionconfiguration gets a reference to the given CustomDiscussionconfigurationResponse and assigns it to the ObjDiscussionconfiguration field.
-func (o *DiscussionResponse) SetObjDiscussionconfiguration(v CustomDiscussionconfigurationResponse) {
+// SetObjDiscussionconfiguration gets a reference to the given map[string]interface{} and assigns it to the ObjDiscussionconfiguration field.
+func (o *DiscussionResponse) SetObjDiscussionconfiguration(v map[string]interface{}) {
 	o.ObjDiscussionconfiguration = &v
 }
 

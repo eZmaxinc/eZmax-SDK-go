@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **FkiPhonelinesharedID** | Pointer to **int32** | The unique ID of the Phonelineshared | [optional] 
 **ECommunicationsenderObjecttype** | **string** |  | 
 **ObjContactName** | [**CustomContactNameResponse**](CustomContactNameResponse.md) |  | 
-**ObjEmail** | Pointer to [**EmailResponseCompound**](EmailResponseCompound.md) |  | [optional] 
+**ObjEmail** | Pointer to [**EmailResponse**](EmailResponse.md) | An Email Object and children to create a complete structure | [optional] 
 **ObjPhoneFax** | Pointer to [**PhoneResponseCompound**](PhoneResponseCompound.md) |  | [optional] 
 **ObjPhoneSMS** | Pointer to [**PhoneResponseCompound**](PhoneResponseCompound.md) |  | [optional] 
 
@@ -201,20 +201,20 @@ SetObjContactName sets ObjContactName field to given value.
 
 ### GetObjEmail
 
-`func (o *CustomCommunicationsenderResponse) GetObjEmail() EmailResponseCompound`
+`func (o *CustomCommunicationsenderResponse) GetObjEmail() EmailResponse`
 
 GetObjEmail returns the ObjEmail field if non-nil, zero value otherwise.
 
 ### GetObjEmailOk
 
-`func (o *CustomCommunicationsenderResponse) GetObjEmailOk() (*EmailResponseCompound, bool)`
+`func (o *CustomCommunicationsenderResponse) GetObjEmailOk() (*EmailResponse, bool)`
 
 GetObjEmailOk returns a tuple with the ObjEmail field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObjEmail
 
-`func (o *CustomCommunicationsenderResponse) SetObjEmail(v EmailResponseCompound)`
+`func (o *CustomCommunicationsenderResponse) SetObjEmail(v EmailResponse)`
 
 SetObjEmail sets ObjEmail field to given value.
 

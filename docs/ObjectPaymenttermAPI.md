@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 ## PaymenttermEditObjectV1
 
-> PaymenttermEditObjectV1Response PaymenttermEditObjectV1(ctx, pkiPaymenttermID).PaymenttermEditObjectV1Request(paymenttermEditObjectV1Request).Execute()
+> CommonResponse PaymenttermEditObjectV1(ctx, pkiPaymenttermID).PaymenttermEditObjectV1Request(paymenttermEditObjectV1Request).Execute()
 
 Edit an existing Paymentterm
 
@@ -109,7 +109,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectPaymenttermAPI.PaymenttermEditObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PaymenttermEditObjectV1`: PaymenttermEditObjectV1Response
+	// response from `PaymenttermEditObjectV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectPaymenttermAPI.PaymenttermEditObjectV1`: %v\n", resp)
 }
 ```
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PaymenttermEditObjectV1Response**](PaymenttermEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

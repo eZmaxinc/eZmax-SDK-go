@@ -174,7 +174,7 @@ type ApiUserstagedDeleteObjectV1Request struct {
 	pkiUserstagedID int32
 }
 
-func (r ApiUserstagedDeleteObjectV1Request) Execute() (*UserstagedDeleteObjectV1Response, *http.Response, error) {
+func (r ApiUserstagedDeleteObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.UserstagedDeleteObjectV1Execute(r)
 }
 
@@ -196,13 +196,13 @@ func (a *ObjectUserstagedAPIService) UserstagedDeleteObjectV1(ctx context.Contex
 }
 
 // Execute executes the request
-//  @return UserstagedDeleteObjectV1Response
-func (a *ObjectUserstagedAPIService) UserstagedDeleteObjectV1Execute(r ApiUserstagedDeleteObjectV1Request) (*UserstagedDeleteObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectUserstagedAPIService) UserstagedDeleteObjectV1Execute(r ApiUserstagedDeleteObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UserstagedDeleteObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectUserstagedAPIService.UserstagedDeleteObjectV1")
@@ -618,7 +618,7 @@ func (r ApiUserstagedMapV1Request) UserstagedMapV1Request(userstagedMapV1Request
 	return r
 }
 
-func (r ApiUserstagedMapV1Request) Execute() (*UserstagedMapV1Response, *http.Response, error) {
+func (r ApiUserstagedMapV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.UserstagedMapV1Execute(r)
 }
 
@@ -640,13 +640,13 @@ func (a *ObjectUserstagedAPIService) UserstagedMapV1(ctx context.Context, pkiUse
 }
 
 // Execute executes the request
-//  @return UserstagedMapV1Response
-func (a *ObjectUserstagedAPIService) UserstagedMapV1Execute(r ApiUserstagedMapV1Request) (*UserstagedMapV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectUserstagedAPIService) UserstagedMapV1Execute(r ApiUserstagedMapV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UserstagedMapV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectUserstagedAPIService.UserstagedMapV1")

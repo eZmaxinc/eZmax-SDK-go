@@ -43,7 +43,7 @@ Method | HTTP request | Description
 
 ## EzsigndocumentApplyEzsigntemplateV1
 
-> EzsigndocumentApplyEzsigntemplateV1Response EzsigndocumentApplyEzsigntemplateV1(ctx, pkiEzsigndocumentID).EzsigndocumentApplyEzsigntemplateV1Request(ezsigndocumentApplyEzsigntemplateV1Request).Execute()
+> CommonResponse EzsigndocumentApplyEzsigntemplateV1(ctx, pkiEzsigndocumentID).EzsigndocumentApplyEzsigntemplateV1Request(ezsigndocumentApplyEzsigntemplateV1Request).Execute()
 
 Apply an Ezsigntemplate to the Ezsigndocument.
 
@@ -72,7 +72,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentAPI.EzsigndocumentApplyEzsigntemplateV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsigndocumentApplyEzsigntemplateV1`: EzsigndocumentApplyEzsigntemplateV1Response
+	// response from `EzsigndocumentApplyEzsigntemplateV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigndocumentAPI.EzsigndocumentApplyEzsigntemplateV1`: %v\n", resp)
 }
 ```
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigndocumentApplyEzsigntemplateV1Response**](EzsigndocumentApplyEzsigntemplateV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -279,7 +279,7 @@ import (
 
 func main() {
 	pkiEzsigndocumentID := int32(56) // int32 | 
-	ezsigndocumentCreateEzsignelementsPositionedByWordV1Request := *openapiclient.NewEzsigndocumentCreateEzsignelementsPositionedByWordV1Request([]openapiclient.CustomEzsignformfieldgroupCreateEzsignelementsPositionedByWordRequest{*openapiclient.NewCustomEzsignformfieldgroupCreateEzsignelementsPositionedByWordRequest(int32(97), openapiclient.Field-eEzsignformfieldgroupType("Text"), "Allergies", int32(1), int32(1), int32(2), false, []openapiclient.EzsignformfieldgroupsignerRequestCompound{*openapiclient.NewEzsignformfieldgroupsignerRequestCompound(int32(20))}, []openapiclient.EzsignformfieldRequestCompound{*openapiclient.NewEzsignformfieldRequestCompound(int32(1), "Peanuts", int32(200), int32(300), int32(102), int32(22))}, *openapiclient.NewCustomCreateEzsignelementsPositionedByWordRequest("SCreateezsignelementspositionedbywordPattern_example", int32(123), int32(123), "ECreateezsignelementspositionedbywordOccurance_example"))}, []openapiclient.CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest{*openapiclient.NewCustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest(int32(20), int32(1), int32(200), int32(300), int32(1), openapiclient.Field-eEzsignsignatureType("Acknowledgement"), int32(97), *openapiclient.NewCustomCreateEzsignelementsPositionedByWordRequest("SCreateezsignelementspositionedbywordPattern_example", int32(123), int32(123), "ECreateezsignelementspositionedbywordOccurance_example"))}) // EzsigndocumentCreateEzsignelementsPositionedByWordV1Request | 
+	ezsigndocumentCreateEzsignelementsPositionedByWordV1Request := *openapiclient.NewEzsigndocumentCreateEzsignelementsPositionedByWordV1Request([]openapiclient.CustomEzsignformfieldgroupCreateEzsignelementsPositionedByWordRequest{*openapiclient.NewCustomEzsignformfieldgroupCreateEzsignelementsPositionedByWordRequest(int32(97), openapiclient.Field-eEzsignformfieldgroupType("Text"), "Allergies", int32(1), int32(1), int32(2), false, []openapiclient.EzsignformfieldgroupsignerRequestCompound{*openapiclient.NewEzsignformfieldgroupsignerRequest(int32(20))}, []openapiclient.EzsignformfieldRequestCompound{*openapiclient.NewEzsignformfieldRequestCompound(int32(1), "Peanuts", int32(200), int32(300), int32(102), int32(22))}, *openapiclient.NewCustomCreateEzsignelementsPositionedByWordRequest("SCreateezsignelementspositionedbywordPattern_example", int32(123), int32(123), "ECreateezsignelementspositionedbywordOccurance_example"))}, []openapiclient.CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest{*openapiclient.NewCustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest(int32(20), int32(1), int32(200), int32(300), int32(1), openapiclient.Field-eEzsignsignatureType("Acknowledgement"), int32(97), *openapiclient.NewCustomCreateEzsignelementsPositionedByWordRequest("SCreateezsignelementspositionedbywordPattern_example", int32(123), int32(123), "ECreateezsignelementspositionedbywordOccurance_example"))}) // EzsigndocumentCreateEzsignelementsPositionedByWordV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -416,7 +416,7 @@ import (
 )
 
 func main() {
-	ezsigndocumentCreateObjectV2Request := *openapiclient.NewEzsigndocumentCreateObjectV2Request([]openapiclient.EzsigndocumentRequestCompound{*openapiclient.NewEzsigndocumentRequestCompound(int32(33), int32(2), "EEzsigndocumentSource_example", "2020-12-31 23:59:59", "Contract #123")}) // EzsigndocumentCreateObjectV2Request | 
+	ezsigndocumentCreateObjectV2Request := *openapiclient.NewEzsigndocumentCreateObjectV2Request([]openapiclient.EzsigndocumentRequestCompound{*openapiclient.NewEzsigndocumentRequest(int32(33), int32(2), "EEzsigndocumentSource_example", "2020-12-31 23:59:59", "Contract #123")}) // EzsigndocumentCreateObjectV2Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -482,7 +482,7 @@ import (
 )
 
 func main() {
-	ezsigndocumentCreateObjectV3Request := *openapiclient.NewEzsigndocumentCreateObjectV3Request([]openapiclient.EzsigndocumentRequestCompound{*openapiclient.NewEzsigndocumentRequestCompound(int32(33), int32(2), "EEzsigndocumentSource_example", "2020-12-31 23:59:59", "Contract #123")}) // EzsigndocumentCreateObjectV3Request | 
+	ezsigndocumentCreateObjectV3Request := *openapiclient.NewEzsigndocumentCreateObjectV3Request([]openapiclient.EzsigndocumentRequestCompound{*openapiclient.NewEzsigndocumentRequest(int32(33), int32(2), "EEzsigndocumentSource_example", "2020-12-31 23:59:59", "Contract #123")}) // EzsigndocumentCreateObjectV3Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -529,7 +529,7 @@ Name | Type | Description  | Notes
 
 ## EzsigndocumentDeclineToSignV1
 
-> EzsigndocumentDeclineToSignV1Response EzsigndocumentDeclineToSignV1(ctx, pkiEzsigndocumentID).EzsigndocumentDeclineToSignV1Request(ezsigndocumentDeclineToSignV1Request).Execute()
+> CommonResponse EzsigndocumentDeclineToSignV1(ctx, pkiEzsigndocumentID).EzsigndocumentDeclineToSignV1Request(ezsigndocumentDeclineToSignV1Request).Execute()
 
 Decline to sign
 
@@ -558,7 +558,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentAPI.EzsigndocumentDeclineToSignV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsigndocumentDeclineToSignV1`: EzsigndocumentDeclineToSignV1Response
+	// response from `EzsigndocumentDeclineToSignV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigndocumentAPI.EzsigndocumentDeclineToSignV1`: %v\n", resp)
 }
 ```
@@ -583,7 +583,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigndocumentDeclineToSignV1Response**](EzsigndocumentDeclineToSignV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -601,7 +601,7 @@ Name | Type | Description  | Notes
 
 ## EzsigndocumentDeleteObjectV1
 
-> EzsigndocumentDeleteObjectV1Response EzsigndocumentDeleteObjectV1(ctx, pkiEzsigndocumentID).Execute()
+> CommonResponse EzsigndocumentDeleteObjectV1(ctx, pkiEzsigndocumentID).Execute()
 
 Delete an existing Ezsigndocument
 
@@ -629,7 +629,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentAPI.EzsigndocumentDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsigndocumentDeleteObjectV1`: EzsigndocumentDeleteObjectV1Response
+	// response from `EzsigndocumentDeleteObjectV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigndocumentAPI.EzsigndocumentDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -653,7 +653,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigndocumentDeleteObjectV1Response**](EzsigndocumentDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -763,7 +763,7 @@ import (
 
 func main() {
 	pkiEzsigndocumentID := int32(56) // int32 | 
-	ezsigndocumentEditEzsignformfieldgroupsV1Request := *openapiclient.NewEzsigndocumentEditEzsignformfieldgroupsV1Request([]openapiclient.EzsignformfieldgroupRequestCompound{*openapiclient.NewEzsignformfieldgroupRequestCompound(int32(97), openapiclient.Field-eEzsignformfieldgroupType("Text"), "Allergies", int32(1), int32(1), int32(2), false, []openapiclient.EzsignformfieldgroupsignerRequestCompound{*openapiclient.NewEzsignformfieldgroupsignerRequestCompound(int32(20))}, []openapiclient.EzsignformfieldRequestCompound{*openapiclient.NewEzsignformfieldRequestCompound(int32(1), "Peanuts", int32(200), int32(300), int32(102), int32(22))})}) // EzsigndocumentEditEzsignformfieldgroupsV1Request | 
+	ezsigndocumentEditEzsignformfieldgroupsV1Request := *openapiclient.NewEzsigndocumentEditEzsignformfieldgroupsV1Request([]openapiclient.EzsignformfieldgroupRequestCompound{*openapiclient.NewEzsignformfieldgroupRequestCompound(int32(97), openapiclient.Field-eEzsignformfieldgroupType("Text"), "Allergies", int32(1), int32(1), int32(2), false, []openapiclient.EzsignformfieldgroupsignerRequestCompound{*openapiclient.NewEzsignformfieldgroupsignerRequest(int32(20))}, []openapiclient.EzsignformfieldRequestCompound{*openapiclient.NewEzsignformfieldRequestCompound(int32(1), "Peanuts", int32(200), int32(300), int32(102), int32(22))})}) // EzsigndocumentEditEzsignformfieldgroupsV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -907,7 +907,7 @@ import (
 
 func main() {
 	pkiEzsigndocumentID := int32(56) // int32 | 
-	ezsigndocumentEditObjectV1Request := *openapiclient.NewEzsigndocumentEditObjectV1Request(*openapiclient.NewEzsigndocumentRequestCompound(int32(33), int32(2), "EEzsigndocumentSource_example", "2020-12-31 23:59:59", "Contract #123")) // EzsigndocumentEditObjectV1Request | 
+	ezsigndocumentEditObjectV1Request := *openapiclient.NewEzsigndocumentEditObjectV1Request(*openapiclient.NewEzsigndocumentRequest(int32(33), int32(2), "EEzsigndocumentSource_example", "2020-12-31 23:59:59", "Contract #123")) // EzsigndocumentEditObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -959,7 +959,7 @@ Name | Type | Description  | Notes
 
 ## EzsigndocumentEndPrematurelyV1
 
-> EzsigndocumentEndPrematurelyV1Response EzsigndocumentEndPrematurelyV1(ctx, pkiEzsigndocumentID).Body(body).Execute()
+> CommonResponse EzsigndocumentEndPrematurelyV1(ctx, pkiEzsigndocumentID).Body(body).Execute()
 
 End prematurely
 
@@ -988,7 +988,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentAPI.EzsigndocumentEndPrematurelyV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsigndocumentEndPrematurelyV1`: EzsigndocumentEndPrematurelyV1Response
+	// response from `EzsigndocumentEndPrematurelyV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigndocumentAPI.EzsigndocumentEndPrematurelyV1`: %v\n", resp)
 }
 ```
@@ -1013,7 +1013,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigndocumentEndPrematurelyV1Response**](EzsigndocumentEndPrematurelyV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -1103,7 +1103,7 @@ Name | Type | Description  | Notes
 
 ## EzsigndocumentFlattenV1
 
-> EzsigndocumentFlattenV1Response EzsigndocumentFlattenV1(ctx, pkiEzsigndocumentID).Body(body).Execute()
+> CommonResponse EzsigndocumentFlattenV1(ctx, pkiEzsigndocumentID).Body(body).Execute()
 
 Flatten
 
@@ -1132,7 +1132,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentAPI.EzsigndocumentFlattenV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsigndocumentFlattenV1`: EzsigndocumentFlattenV1Response
+	// response from `EzsigndocumentFlattenV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigndocumentAPI.EzsigndocumentFlattenV1`: %v\n", resp)
 }
 ```
@@ -1157,7 +1157,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigndocumentFlattenV1Response**](EzsigndocumentFlattenV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -2228,7 +2228,7 @@ Name | Type | Description  | Notes
 
 ## EzsigndocumentPatchObjectV1
 
-> EzsigndocumentPatchObjectV1Response EzsigndocumentPatchObjectV1(ctx, pkiEzsigndocumentID).EzsigndocumentPatchObjectV1Request(ezsigndocumentPatchObjectV1Request).Execute()
+> CommonResponse EzsigndocumentPatchObjectV1(ctx, pkiEzsigndocumentID).EzsigndocumentPatchObjectV1Request(ezsigndocumentPatchObjectV1Request).Execute()
 
 Patch an existing Ezsigndocument
 
@@ -2257,7 +2257,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentAPI.EzsigndocumentPatchObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsigndocumentPatchObjectV1`: EzsigndocumentPatchObjectV1Response
+	// response from `EzsigndocumentPatchObjectV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigndocumentAPI.EzsigndocumentPatchObjectV1`: %v\n", resp)
 }
 ```
@@ -2282,7 +2282,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigndocumentPatchObjectV1Response**](EzsigndocumentPatchObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -2300,7 +2300,7 @@ Name | Type | Description  | Notes
 
 ## EzsigndocumentSubmitEzsignformV1
 
-> EzsigndocumentSubmitEzsignformV1Response EzsigndocumentSubmitEzsignformV1(ctx, pkiEzsigndocumentID).EzsigndocumentSubmitEzsignformV1Request(ezsigndocumentSubmitEzsignformV1Request).Execute()
+> CommonResponse EzsigndocumentSubmitEzsignformV1(ctx, pkiEzsigndocumentID).EzsigndocumentSubmitEzsignformV1Request(ezsigndocumentSubmitEzsignformV1Request).Execute()
 
 Submit the Ezsignform
 
@@ -2320,7 +2320,7 @@ import (
 
 func main() {
 	pkiEzsigndocumentID := int32(56) // int32 | 
-	ezsigndocumentSubmitEzsignformV1Request := *openapiclient.NewEzsigndocumentSubmitEzsignformV1Request(false, []openapiclient.CustomEzsignformfieldgroupRequest{*openapiclient.NewCustomEzsignformfieldgroupRequest([]openapiclient.CustomEzsignformfieldRequest{*openapiclient.NewCustomEzsignformfieldRequest()})}) // EzsigndocumentSubmitEzsignformV1Request | 
+	ezsigndocumentSubmitEzsignformV1Request := *openapiclient.NewEzsigndocumentSubmitEzsignformV1Request(false, []openapiclient.CustomEzsignformfieldgroupRequest{map[string]interface{}(123)}) // EzsigndocumentSubmitEzsignformV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2329,7 +2329,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentAPI.EzsigndocumentSubmitEzsignformV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsigndocumentSubmitEzsignformV1`: EzsigndocumentSubmitEzsignformV1Response
+	// response from `EzsigndocumentSubmitEzsignformV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigndocumentAPI.EzsigndocumentSubmitEzsignformV1`: %v\n", resp)
 }
 ```
@@ -2354,7 +2354,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigndocumentSubmitEzsignformV1Response**](EzsigndocumentSubmitEzsignformV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -2372,7 +2372,7 @@ Name | Type | Description  | Notes
 
 ## EzsigndocumentUnsendV1
 
-> EzsigndocumentUnsendV1Response EzsigndocumentUnsendV1(ctx, pkiEzsigndocumentID).Body(body).Execute()
+> CommonResponse EzsigndocumentUnsendV1(ctx, pkiEzsigndocumentID).Body(body).Execute()
 
 Unsend the Ezsigndocument
 
@@ -2401,7 +2401,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentAPI.EzsigndocumentUnsendV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsigndocumentUnsendV1`: EzsigndocumentUnsendV1Response
+	// response from `EzsigndocumentUnsendV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigndocumentAPI.EzsigndocumentUnsendV1`: %v\n", resp)
 }
 ```
@@ -2426,7 +2426,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigndocumentUnsendV1Response**](EzsigndocumentUnsendV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

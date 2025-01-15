@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **BDomainValidmailfrom** | **bool** | Whether the mail from is valid or not | 
 **BDomainValidcustomer** | **bool** | Whether the customer has access to it or not | 
 **ObjAudit** | [**CommonAudit**](CommonAudit.md) |  | 
-**AObjDnsrecord** | [**[]CustomDnsrecordResponse**](CustomDnsrecordResponse.md) |  | 
+**AObjDnsrecord** | **[]map[string]interface{}** |  | 
 
 ## Methods
 

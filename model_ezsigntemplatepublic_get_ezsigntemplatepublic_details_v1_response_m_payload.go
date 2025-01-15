@@ -22,7 +22,8 @@ var _ MappedNullable = &EzsigntemplatepublicGetEzsigntemplatepublicDetailsV1Resp
 
 // EzsigntemplatepublicGetEzsigntemplatepublicDetailsV1ResponseMPayload Payload for POST /1/object/ezsigntemplatepublic/getEzsigntemplatepublicDetails
 type EzsigntemplatepublicGetEzsigntemplatepublicDetailsV1ResponseMPayload struct {
-	ObjBranding *CustomBrandingResponse `json:"objBranding,omitempty"`
+	// A Custom Branding Object
+	ObjBranding *map[string]interface{} `json:"objBranding,omitempty"`
 	// The unique ID of the Userlogintype  Valid values:  |Value|Description|Detail| |-|-|-| |1|**Email Only**|The Ezsignsigner will receive a secure link by email| |2|**Email and phone or SMS**|The Ezsignsigner will receive a secure link by email and will need to authenticate using SMS or Phone call. **Additional fee applies**| |3|**Email and secret question**|The Ezsignsigner will receive a secure link by email and will need to authenticate using a predefined question and answer| |4|**In person only**|The Ezsignsigner will only be able to sign \"In-Person\" and there won't be any authentication. No email will be sent for invitation to sign. Make sure you evaluate the risk of signature denial and at minimum, we recommend you use a handwritten signature type| |5|**In person with phone or SMS**|The Ezsignsigner will only be able to sign \"In-Person\" and will need to authenticate using SMS or Phone call. No email will be sent for invitation to sign. **Additional fee applies**| |6|**Embedded**|The Ezsignsigner will only be able to sign in the embedded solution. No email will be sent for invitation to sign. **Additional fee applies**|   |7|**Embedded with phone or SMS**|The Ezsignsigner will only be able to sign in the embedded solution and will need to authenticate using SMS or Phone call. No email will be sent for invitation to sign. **Additional fee applies**|   |8|**No validation**|The Ezsignsigner will not receive an email and won't have to validate his connection using 2 factor. **Additional fee applies**|      |9|**Sms only**|The Ezsignsigner will not receive an email but will will need to authenticate using SMS. **Additional fee applies**|     
 	FkiUserlogintypeID int32 `json:"fkiUserlogintypeID"`
 	ASEzsigntemplatesignerDescription []string `json:"a_sEzsigntemplatesignerDescription"`
@@ -50,9 +51,9 @@ func NewEzsigntemplatepublicGetEzsigntemplatepublicDetailsV1ResponseMPayloadWith
 }
 
 // GetObjBranding returns the ObjBranding field value if set, zero value otherwise.
-func (o *EzsigntemplatepublicGetEzsigntemplatepublicDetailsV1ResponseMPayload) GetObjBranding() CustomBrandingResponse {
+func (o *EzsigntemplatepublicGetEzsigntemplatepublicDetailsV1ResponseMPayload) GetObjBranding() map[string]interface{} {
 	if o == nil || IsNil(o.ObjBranding) {
-		var ret CustomBrandingResponse
+		var ret map[string]interface{}
 		return ret
 	}
 	return *o.ObjBranding
@@ -60,7 +61,7 @@ func (o *EzsigntemplatepublicGetEzsigntemplatepublicDetailsV1ResponseMPayload) G
 
 // GetObjBrandingOk returns a tuple with the ObjBranding field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EzsigntemplatepublicGetEzsigntemplatepublicDetailsV1ResponseMPayload) GetObjBrandingOk() (*CustomBrandingResponse, bool) {
+func (o *EzsigntemplatepublicGetEzsigntemplatepublicDetailsV1ResponseMPayload) GetObjBrandingOk() (*map[string]interface{}, bool) {
 	if o == nil || IsNil(o.ObjBranding) {
 		return nil, false
 	}
@@ -76,8 +77,8 @@ func (o *EzsigntemplatepublicGetEzsigntemplatepublicDetailsV1ResponseMPayload) H
 	return false
 }
 
-// SetObjBranding gets a reference to the given CustomBrandingResponse and assigns it to the ObjBranding field.
-func (o *EzsigntemplatepublicGetEzsigntemplatepublicDetailsV1ResponseMPayload) SetObjBranding(v CustomBrandingResponse) {
+// SetObjBranding gets a reference to the given map[string]interface{} and assigns it to the ObjBranding field.
+func (o *EzsigntemplatepublicGetEzsigntemplatepublicDetailsV1ResponseMPayload) SetObjBranding(v map[string]interface{}) {
 	o.ObjBranding = &v
 }
 

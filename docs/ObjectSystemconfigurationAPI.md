@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## SystemconfigurationEditObjectV1
 
-> SystemconfigurationEditObjectV1Response SystemconfigurationEditObjectV1(ctx, pkiSystemconfigurationID).SystemconfigurationEditObjectV1Request(systemconfigurationEditObjectV1Request).Execute()
+> CommonResponse SystemconfigurationEditObjectV1(ctx, pkiSystemconfigurationID).SystemconfigurationEditObjectV1Request(systemconfigurationEditObjectV1Request).Execute()
 
 Edit an existing Systemconfiguration
 
@@ -40,7 +40,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSystemconfigurationAPI.SystemconfigurationEditObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `SystemconfigurationEditObjectV1`: SystemconfigurationEditObjectV1Response
+	// response from `SystemconfigurationEditObjectV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectSystemconfigurationAPI.SystemconfigurationEditObjectV1`: %v\n", resp)
 }
 ```
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SystemconfigurationEditObjectV1Response**](SystemconfigurationEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

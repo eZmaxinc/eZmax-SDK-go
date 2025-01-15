@@ -154,7 +154,7 @@ type ApiUsergroupexternalDeleteObjectV1Request struct {
 	pkiUsergroupexternalID int32
 }
 
-func (r ApiUsergroupexternalDeleteObjectV1Request) Execute() (*UsergroupexternalDeleteObjectV1Response, *http.Response, error) {
+func (r ApiUsergroupexternalDeleteObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.UsergroupexternalDeleteObjectV1Execute(r)
 }
 
@@ -176,13 +176,13 @@ func (a *ObjectUsergroupexternalAPIService) UsergroupexternalDeleteObjectV1(ctx 
 }
 
 // Execute executes the request
-//  @return UsergroupexternalDeleteObjectV1Response
-func (a *ObjectUsergroupexternalAPIService) UsergroupexternalDeleteObjectV1Execute(r ApiUsergroupexternalDeleteObjectV1Request) (*UsergroupexternalDeleteObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectUsergroupexternalAPIService) UsergroupexternalDeleteObjectV1Execute(r ApiUsergroupexternalDeleteObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UsergroupexternalDeleteObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectUsergroupexternalAPIService.UsergroupexternalDeleteObjectV1")
@@ -304,7 +304,7 @@ func (r ApiUsergroupexternalEditObjectV1Request) UsergroupexternalEditObjectV1Re
 	return r
 }
 
-func (r ApiUsergroupexternalEditObjectV1Request) Execute() (*UsergroupexternalEditObjectV1Response, *http.Response, error) {
+func (r ApiUsergroupexternalEditObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.UsergroupexternalEditObjectV1Execute(r)
 }
 
@@ -326,13 +326,13 @@ func (a *ObjectUsergroupexternalAPIService) UsergroupexternalEditObjectV1(ctx co
 }
 
 // Execute executes the request
-//  @return UsergroupexternalEditObjectV1Response
-func (a *ObjectUsergroupexternalAPIService) UsergroupexternalEditObjectV1Execute(r ApiUsergroupexternalEditObjectV1Request) (*UsergroupexternalEditObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectUsergroupexternalAPIService) UsergroupexternalEditObjectV1Execute(r ApiUsergroupexternalEditObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UsergroupexternalEditObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectUsergroupexternalAPIService.UsergroupexternalEditObjectV1")

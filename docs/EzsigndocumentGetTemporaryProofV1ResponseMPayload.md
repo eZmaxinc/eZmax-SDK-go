@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AObjEzsigndocumentlog** | [**[]EzsigndocumentlogResponseCompound**](EzsigndocumentlogResponseCompound.md) |  | 
+**AObjEzsigndocumentlog** | [**[]EzsigndocumentlogResponse**](EzsigndocumentlogResponse.md) |  | 
 
 ## Methods
 

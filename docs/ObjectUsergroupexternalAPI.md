@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 ## UsergroupexternalDeleteObjectV1
 
-> UsergroupexternalDeleteObjectV1Response UsergroupexternalDeleteObjectV1(ctx, pkiUsergroupexternalID).Execute()
+> CommonResponse UsergroupexternalDeleteObjectV1(ctx, pkiUsergroupexternalID).Execute()
 
 Delete an existing Usergroupexternal
 
@@ -111,7 +111,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupexternalAPI.UsergroupexternalDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UsergroupexternalDeleteObjectV1`: UsergroupexternalDeleteObjectV1Response
+	// response from `UsergroupexternalDeleteObjectV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupexternalAPI.UsergroupexternalDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UsergroupexternalDeleteObjectV1Response**](UsergroupexternalDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ## UsergroupexternalEditObjectV1
 
-> UsergroupexternalEditObjectV1Response UsergroupexternalEditObjectV1(ctx, pkiUsergroupexternalID).UsergroupexternalEditObjectV1Request(usergroupexternalEditObjectV1Request).Execute()
+> CommonResponse UsergroupexternalEditObjectV1(ctx, pkiUsergroupexternalID).UsergroupexternalEditObjectV1Request(usergroupexternalEditObjectV1Request).Execute()
 
 Edit an existing Usergroupexternal
 
@@ -182,7 +182,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupexternalAPI.UsergroupexternalEditObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UsergroupexternalEditObjectV1`: UsergroupexternalEditObjectV1Response
+	// response from `UsergroupexternalEditObjectV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupexternalAPI.UsergroupexternalEditObjectV1`: %v\n", resp)
 }
 ```
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UsergroupexternalEditObjectV1Response**](UsergroupexternalEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **FkiModuleID** | **int32** | The unique ID of the Module | 
 **SModulesectionInternalname** | **string** | The Internal name of the Module section. | 
 **SModulesectionNameX** | **string** | The Name of the Modulesection in the language of the requester | 
-**AObjPermission** | Pointer to [**[]PermissionResponseCompound**](PermissionResponseCompound.md) |  | [optional] 
+**AObjPermission** | Pointer to [**[]PermissionResponse**](PermissionResponse.md) |  | [optional] 
 
 ## Methods
 

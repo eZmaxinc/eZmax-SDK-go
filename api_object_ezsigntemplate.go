@@ -295,7 +295,7 @@ type ApiEzsigntemplateDeleteObjectV1Request struct {
 	pkiEzsigntemplateID int32
 }
 
-func (r ApiEzsigntemplateDeleteObjectV1Request) Execute() (*EzsigntemplateDeleteObjectV1Response, *http.Response, error) {
+func (r ApiEzsigntemplateDeleteObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.EzsigntemplateDeleteObjectV1Execute(r)
 }
 
@@ -317,13 +317,13 @@ func (a *ObjectEzsigntemplateAPIService) EzsigntemplateDeleteObjectV1(ctx contex
 }
 
 // Execute executes the request
-//  @return EzsigntemplateDeleteObjectV1Response
-func (a *ObjectEzsigntemplateAPIService) EzsigntemplateDeleteObjectV1Execute(r ApiEzsigntemplateDeleteObjectV1Request) (*EzsigntemplateDeleteObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectEzsigntemplateAPIService) EzsigntemplateDeleteObjectV1Execute(r ApiEzsigntemplateDeleteObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *EzsigntemplateDeleteObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigntemplateAPIService.EzsigntemplateDeleteObjectV1")
@@ -431,7 +431,7 @@ func (r ApiEzsigntemplateEditObjectV3Request) EzsigntemplateEditObjectV3Request(
 	return r
 }
 
-func (r ApiEzsigntemplateEditObjectV3Request) Execute() (*EzsigntemplateEditObjectV3Response, *http.Response, error) {
+func (r ApiEzsigntemplateEditObjectV3Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.EzsigntemplateEditObjectV3Execute(r)
 }
 
@@ -453,13 +453,13 @@ func (a *ObjectEzsigntemplateAPIService) EzsigntemplateEditObjectV3(ctx context.
 }
 
 // Execute executes the request
-//  @return EzsigntemplateEditObjectV3Response
-func (a *ObjectEzsigntemplateAPIService) EzsigntemplateEditObjectV3Execute(r ApiEzsigntemplateEditObjectV3Request) (*EzsigntemplateEditObjectV3Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectEzsigntemplateAPIService) EzsigntemplateEditObjectV3Execute(r ApiEzsigntemplateEditObjectV3Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *EzsigntemplateEditObjectV3Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigntemplateAPIService.EzsigntemplateEditObjectV3")

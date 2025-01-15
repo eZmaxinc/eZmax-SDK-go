@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjUser** | [**UserResponseCompound**](UserResponseCompound.md) |  | 
+**ObjUser** | [**UserResponse**](UserResponse.md) | A User Object and children to create a complete structure | 
 
 ## Methods
 
 ### NewUserGetObjectV2ResponseMPayload
 
-`func NewUserGetObjectV2ResponseMPayload(objUser UserResponseCompound, ) *UserGetObjectV2ResponseMPayload`
+`func NewUserGetObjectV2ResponseMPayload(objUser UserResponse, ) *UserGetObjectV2ResponseMPayload`
 
 NewUserGetObjectV2ResponseMPayload instantiates a new UserGetObjectV2ResponseMPayload object
 This constructor will assign default values to properties that have it defined,
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetObjUser
 
-`func (o *UserGetObjectV2ResponseMPayload) GetObjUser() UserResponseCompound`
+`func (o *UserGetObjectV2ResponseMPayload) GetObjUser() UserResponse`
 
 GetObjUser returns the ObjUser field if non-nil, zero value otherwise.
 
 ### GetObjUserOk
 
-`func (o *UserGetObjectV2ResponseMPayload) GetObjUserOk() (*UserResponseCompound, bool)`
+`func (o *UserGetObjectV2ResponseMPayload) GetObjUserOk() (*UserResponse, bool)`
 
 GetObjUserOk returns a tuple with the ObjUser field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObjUser
 
-`func (o *UserGetObjectV2ResponseMPayload) SetObjUser(v UserResponseCompound)`
+`func (o *UserGetObjectV2ResponseMPayload) SetObjUser(v UserResponse)`
 
 SetObjUser sets ObjUser field to given value.
 

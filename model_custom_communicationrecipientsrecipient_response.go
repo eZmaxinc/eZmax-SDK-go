@@ -54,7 +54,8 @@ type CustomCommunicationrecipientsrecipientResponse struct {
 	FkiSupplierID *int32 `json:"fkiSupplierID,omitempty"`
 	ECommunicationrecipientsrecipientObjecttype string `json:"eCommunicationrecipientsrecipientObjecttype"`
 	ObjContactName CustomContactNameResponse `json:"objContactName"`
-	ObjEmail *EmailResponseCompound `json:"objEmail,omitempty"`
+	// An Email Object and children to create a complete structure
+	ObjEmail *EmailResponse `json:"objEmail,omitempty"`
 	ObjPhoneFax *PhoneResponseCompound `json:"objPhoneFax,omitempty"`
 	ObjPhoneSMS *PhoneResponseCompound `json:"objPhoneSMS,omitempty"`
 }
@@ -609,9 +610,9 @@ func (o *CustomCommunicationrecipientsrecipientResponse) SetObjContactName(v Cus
 }
 
 // GetObjEmail returns the ObjEmail field value if set, zero value otherwise.
-func (o *CustomCommunicationrecipientsrecipientResponse) GetObjEmail() EmailResponseCompound {
+func (o *CustomCommunicationrecipientsrecipientResponse) GetObjEmail() EmailResponse {
 	if o == nil || IsNil(o.ObjEmail) {
-		var ret EmailResponseCompound
+		var ret EmailResponse
 		return ret
 	}
 	return *o.ObjEmail
@@ -619,7 +620,7 @@ func (o *CustomCommunicationrecipientsrecipientResponse) GetObjEmail() EmailResp
 
 // GetObjEmailOk returns a tuple with the ObjEmail field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CustomCommunicationrecipientsrecipientResponse) GetObjEmailOk() (*EmailResponseCompound, bool) {
+func (o *CustomCommunicationrecipientsrecipientResponse) GetObjEmailOk() (*EmailResponse, bool) {
 	if o == nil || IsNil(o.ObjEmail) {
 		return nil, false
 	}
@@ -635,8 +636,8 @@ func (o *CustomCommunicationrecipientsrecipientResponse) HasObjEmail() bool {
 	return false
 }
 
-// SetObjEmail gets a reference to the given EmailResponseCompound and assigns it to the ObjEmail field.
-func (o *CustomCommunicationrecipientsrecipientResponse) SetObjEmail(v EmailResponseCompound) {
+// SetObjEmail gets a reference to the given EmailResponse and assigns it to the ObjEmail field.
+func (o *CustomCommunicationrecipientsrecipientResponse) SetObjEmail(v EmailResponse) {
 	o.ObjEmail = &v
 }
 

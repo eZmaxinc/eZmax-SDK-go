@@ -154,7 +154,7 @@ type ApiUsergroupdelegationDeleteObjectV1Request struct {
 	pkiUsergroupdelegationID int32
 }
 
-func (r ApiUsergroupdelegationDeleteObjectV1Request) Execute() (*UsergroupdelegationDeleteObjectV1Response, *http.Response, error) {
+func (r ApiUsergroupdelegationDeleteObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.UsergroupdelegationDeleteObjectV1Execute(r)
 }
 
@@ -176,13 +176,13 @@ func (a *ObjectUsergroupdelegationAPIService) UsergroupdelegationDeleteObjectV1(
 }
 
 // Execute executes the request
-//  @return UsergroupdelegationDeleteObjectV1Response
-func (a *ObjectUsergroupdelegationAPIService) UsergroupdelegationDeleteObjectV1Execute(r ApiUsergroupdelegationDeleteObjectV1Request) (*UsergroupdelegationDeleteObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectUsergroupdelegationAPIService) UsergroupdelegationDeleteObjectV1Execute(r ApiUsergroupdelegationDeleteObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UsergroupdelegationDeleteObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectUsergroupdelegationAPIService.UsergroupdelegationDeleteObjectV1")
@@ -293,7 +293,7 @@ func (r ApiUsergroupdelegationEditObjectV1Request) UsergroupdelegationEditObject
 	return r
 }
 
-func (r ApiUsergroupdelegationEditObjectV1Request) Execute() (*UsergroupdelegationEditObjectV1Response, *http.Response, error) {
+func (r ApiUsergroupdelegationEditObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.UsergroupdelegationEditObjectV1Execute(r)
 }
 
@@ -315,13 +315,13 @@ func (a *ObjectUsergroupdelegationAPIService) UsergroupdelegationEditObjectV1(ct
 }
 
 // Execute executes the request
-//  @return UsergroupdelegationEditObjectV1Response
-func (a *ObjectUsergroupdelegationAPIService) UsergroupdelegationEditObjectV1Execute(r ApiUsergroupdelegationEditObjectV1Request) (*UsergroupdelegationEditObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectUsergroupdelegationAPIService) UsergroupdelegationEditObjectV1Execute(r ApiUsergroupdelegationEditObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UsergroupdelegationEditObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectUsergroupdelegationAPIService.UsergroupdelegationEditObjectV1")

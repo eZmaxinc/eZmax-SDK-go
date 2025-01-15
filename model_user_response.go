@@ -48,7 +48,8 @@ type UserResponse struct {
 	FkiLanguageID int32 `json:"fkiLanguageID"`
 	// The Name of the Language in the language of the requester
 	SLanguageNameX string `json:"sLanguageNameX"`
-	ObjEmail EmailResponseCompound `json:"objEmail"`
+	// An Email Object and children to create a complete structure
+	ObjEmail EmailResponse `json:"objEmail"`
 	// The unique ID of the Billingentityinternal.
 	FkiBillingentityinternalID int32 `json:"fkiBillingentityinternalID"`
 	// The description of the Billingentityinternal in the language of the requester
@@ -98,7 +99,7 @@ type _UserResponse UserResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUserResponse(pkiUserID int32, fkiCompanyIDDefault int32, sCompanyNameX string, fkiDepartmentIDDefault int32, sDepartmentNameX string, fkiTimezoneID int32, sTimezoneName string, fkiLanguageID int32, sLanguageNameX string, objEmail EmailResponseCompound, fkiBillingentityinternalID int32, sBillingentityinternalDescriptionX string, eUserOrigin FieldEUserOrigin, eUserType FieldEUserType, eUserLogintype FieldEUserLogintype, sUserFirstname string, sUserLastname string, sUserLoginname string, eUserEzsignaccess FieldEUserEzsignaccess, bUserIsactive bool, bUserChangepassword bool, objAudit CommonAudit) *UserResponse {
+func NewUserResponse(pkiUserID int32, fkiCompanyIDDefault int32, sCompanyNameX string, fkiDepartmentIDDefault int32, sDepartmentNameX string, fkiTimezoneID int32, sTimezoneName string, fkiLanguageID int32, sLanguageNameX string, objEmail EmailResponse, fkiBillingentityinternalID int32, sBillingentityinternalDescriptionX string, eUserOrigin FieldEUserOrigin, eUserType FieldEUserType, eUserLogintype FieldEUserLogintype, sUserFirstname string, sUserLastname string, sUserLoginname string, eUserEzsignaccess FieldEUserEzsignaccess, bUserIsactive bool, bUserChangepassword bool, objAudit CommonAudit) *UserResponse {
 	this := UserResponse{}
 	this.PkiUserID = pkiUserID
 	this.FkiCompanyIDDefault = fkiCompanyIDDefault
@@ -478,9 +479,9 @@ func (o *UserResponse) SetSLanguageNameX(v string) {
 }
 
 // GetObjEmail returns the ObjEmail field value
-func (o *UserResponse) GetObjEmail() EmailResponseCompound {
+func (o *UserResponse) GetObjEmail() EmailResponse {
 	if o == nil {
-		var ret EmailResponseCompound
+		var ret EmailResponse
 		return ret
 	}
 
@@ -489,7 +490,7 @@ func (o *UserResponse) GetObjEmail() EmailResponseCompound {
 
 // GetObjEmailOk returns a tuple with the ObjEmail field value
 // and a boolean to check if the value has been set.
-func (o *UserResponse) GetObjEmailOk() (*EmailResponseCompound, bool) {
+func (o *UserResponse) GetObjEmailOk() (*EmailResponse, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -497,7 +498,7 @@ func (o *UserResponse) GetObjEmailOk() (*EmailResponseCompound, bool) {
 }
 
 // SetObjEmail sets field value
-func (o *UserResponse) SetObjEmail(v EmailResponseCompound) {
+func (o *UserResponse) SetObjEmail(v EmailResponse) {
 	o.ObjEmail = v
 }
 

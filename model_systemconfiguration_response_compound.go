@@ -50,7 +50,8 @@ type SystemconfigurationResponseCompound struct {
 	DtSystemconfigurationReadonlyexpirationstart *string `json:"dtSystemconfigurationReadonlyexpirationstart,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// The end date where the system will be in read only
 	DtSystemconfigurationReadonlyexpirationend *string `json:"dtSystemconfigurationReadonlyexpirationend,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
-	ObjBranding *CustomBrandingResponse `json:"objBranding,omitempty"`
+	// A Custom Branding Object
+	ObjBranding *map[string]interface{} `json:"objBranding,omitempty"`
 }
 
 type _SystemconfigurationResponseCompound SystemconfigurationResponseCompound
@@ -532,9 +533,9 @@ func (o *SystemconfigurationResponseCompound) SetDtSystemconfigurationReadonlyex
 }
 
 // GetObjBranding returns the ObjBranding field value if set, zero value otherwise.
-func (o *SystemconfigurationResponseCompound) GetObjBranding() CustomBrandingResponse {
+func (o *SystemconfigurationResponseCompound) GetObjBranding() map[string]interface{} {
 	if o == nil || IsNil(o.ObjBranding) {
-		var ret CustomBrandingResponse
+		var ret map[string]interface{}
 		return ret
 	}
 	return *o.ObjBranding
@@ -542,7 +543,7 @@ func (o *SystemconfigurationResponseCompound) GetObjBranding() CustomBrandingRes
 
 // GetObjBrandingOk returns a tuple with the ObjBranding field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SystemconfigurationResponseCompound) GetObjBrandingOk() (*CustomBrandingResponse, bool) {
+func (o *SystemconfigurationResponseCompound) GetObjBrandingOk() (*map[string]interface{}, bool) {
 	if o == nil || IsNil(o.ObjBranding) {
 		return nil, false
 	}
@@ -558,8 +559,8 @@ func (o *SystemconfigurationResponseCompound) HasObjBranding() bool {
 	return false
 }
 
-// SetObjBranding gets a reference to the given CustomBrandingResponse and assigns it to the ObjBranding field.
-func (o *SystemconfigurationResponseCompound) SetObjBranding(v CustomBrandingResponse) {
+// SetObjBranding gets a reference to the given map[string]interface{} and assigns it to the ObjBranding field.
+func (o *SystemconfigurationResponseCompound) SetObjBranding(v map[string]interface{}) {
 	o.ObjBranding = &v
 }
 

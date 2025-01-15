@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **DtDiscussionLastread** | Pointer to **string** | The date the Discussion was last read | [optional] 
 **IDiscussionmessageCount** | **int32** | The count of Attachment. | 
 **IDiscussionmessageCountunread** | **int32** | The count of Attachment. | 
-**ObjDiscussionconfiguration** | Pointer to [**CustomDiscussionconfigurationResponse**](CustomDiscussionconfigurationResponse.md) |  | [optional] 
+**ObjDiscussionconfiguration** | Pointer to **map[string]interface{}** | A Custom Discussionconfiguration Object | [optional] 
 **AObjDiscussionmembership** | [**[]DiscussionmembershipResponseCompound**](DiscussionmembershipResponseCompound.md) |  | 
 **AObjDiscussionmessage** | [**[]DiscussionmessageResponseCompound**](DiscussionmessageResponseCompound.md) |  | 
 
@@ -160,20 +160,20 @@ SetIDiscussionmessageCountunread sets IDiscussionmessageCountunread field to giv
 
 ### GetObjDiscussionconfiguration
 
-`func (o *DiscussionResponseCompound) GetObjDiscussionconfiguration() CustomDiscussionconfigurationResponse`
+`func (o *DiscussionResponseCompound) GetObjDiscussionconfiguration() map[string]interface{}`
 
 GetObjDiscussionconfiguration returns the ObjDiscussionconfiguration field if non-nil, zero value otherwise.
 
 ### GetObjDiscussionconfigurationOk
 
-`func (o *DiscussionResponseCompound) GetObjDiscussionconfigurationOk() (*CustomDiscussionconfigurationResponse, bool)`
+`func (o *DiscussionResponseCompound) GetObjDiscussionconfigurationOk() (*map[string]interface{}, bool)`
 
 GetObjDiscussionconfigurationOk returns a tuple with the ObjDiscussionconfiguration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObjDiscussionconfiguration
 
-`func (o *DiscussionResponseCompound) SetObjDiscussionconfiguration(v CustomDiscussionconfigurationResponse)`
+`func (o *DiscussionResponseCompound) SetObjDiscussionconfiguration(v map[string]interface{})`
 
 SetObjDiscussionconfiguration sets ObjDiscussionconfiguration field to given value.
 

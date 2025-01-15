@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 
 ## EzsignbulksendDeleteObjectV1
 
-> EzsignbulksendDeleteObjectV1Response EzsignbulksendDeleteObjectV1(ctx, pkiEzsignbulksendID).Execute()
+> CommonResponse EzsignbulksendDeleteObjectV1(ctx, pkiEzsignbulksendID).Execute()
 
 Delete an existing Ezsignbulksend
 
@@ -192,7 +192,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignbulksendDeleteObjectV1`: EzsignbulksendDeleteObjectV1Response
+	// response from `EzsignbulksendDeleteObjectV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -216,7 +216,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignbulksendDeleteObjectV1Response**](EzsignbulksendDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 
 ## EzsignbulksendEditObjectV1
 
-> EzsignbulksendEditObjectV1Response EzsignbulksendEditObjectV1(ctx, pkiEzsignbulksendID).EzsignbulksendEditObjectV1Request(ezsignbulksendEditObjectV1Request).Execute()
+> CommonResponse EzsignbulksendEditObjectV1(ctx, pkiEzsignbulksendID).EzsignbulksendEditObjectV1Request(ezsignbulksendEditObjectV1Request).Execute()
 
 Edit an existing Ezsignbulksend
 
@@ -263,7 +263,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendEditObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignbulksendEditObjectV1`: EzsignbulksendEditObjectV1Response
+	// response from `EzsignbulksendEditObjectV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendEditObjectV1`: %v\n", resp)
 }
 ```
@@ -288,7 +288,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignbulksendEditObjectV1Response**](EzsignbulksendEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -732,7 +732,7 @@ Name | Type | Description  | Notes
 
 ## EzsignbulksendReorderV1
 
-> EzsignbulksendReorderV1Response EzsignbulksendReorderV1(ctx, pkiEzsignbulksendID).EzsignbulksendReorderV1Request(ezsignbulksendReorderV1Request).Execute()
+> CommonResponse EzsignbulksendReorderV1(ctx, pkiEzsignbulksendID).EzsignbulksendReorderV1Request(ezsignbulksendReorderV1Request).Execute()
 
 Reorder Ezsignbulksenddocumentmappings in the Ezsignbulksend
 
@@ -759,7 +759,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendReorderV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignbulksendReorderV1`: EzsignbulksendReorderV1Response
+	// response from `EzsignbulksendReorderV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendReorderV1`: %v\n", resp)
 }
 ```
@@ -784,7 +784,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignbulksendReorderV1Response**](EzsignbulksendReorderV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

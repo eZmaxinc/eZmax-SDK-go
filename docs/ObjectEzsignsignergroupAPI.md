@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 ## EzsignsignergroupDeleteObjectV1
 
-> EzsignsignergroupDeleteObjectV1Response EzsignsignergroupDeleteObjectV1(ctx, pkiEzsignsignergroupID).Execute()
+> CommonResponse EzsignsignergroupDeleteObjectV1(ctx, pkiEzsignsignergroupID).Execute()
 
 Delete an existing Ezsignsignergroup
 
@@ -109,7 +109,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignergroupAPI.EzsignsignergroupDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignsignergroupDeleteObjectV1`: EzsignsignergroupDeleteObjectV1Response
+	// response from `EzsignsignergroupDeleteObjectV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsignergroupAPI.EzsignsignergroupDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignsignergroupDeleteObjectV1Response**](EzsignsignergroupDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 ## EzsignsignergroupEditObjectV1
 
-> EzsignsignergroupEditObjectV1Response EzsignsignergroupEditObjectV1(ctx, pkiEzsignsignergroupID).EzsignsignergroupEditObjectV1Request(ezsignsignergroupEditObjectV1Request).Execute()
+> CommonResponse EzsignsignergroupEditObjectV1(ctx, pkiEzsignsignergroupID).EzsignsignergroupEditObjectV1Request(ezsignsignergroupEditObjectV1Request).Execute()
 
 Edit an existing Ezsignsignergroup
 
@@ -252,7 +252,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignergroupAPI.EzsignsignergroupEditObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignsignergroupEditObjectV1`: EzsignsignergroupEditObjectV1Response
+	// response from `EzsignsignergroupEditObjectV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsignergroupAPI.EzsignsignergroupEditObjectV1`: %v\n", resp)
 }
 ```
@@ -277,7 +277,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignsignergroupEditObjectV1Response**](EzsignsignergroupEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

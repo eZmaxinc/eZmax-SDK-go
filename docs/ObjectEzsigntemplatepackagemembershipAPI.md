@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 ## EzsigntemplatepackagemembershipDeleteObjectV1
 
-> EzsigntemplatepackagemembershipDeleteObjectV1Response EzsigntemplatepackagemembershipDeleteObjectV1(ctx, pkiEzsigntemplatepackagemembershipID).Execute()
+> CommonResponse EzsigntemplatepackagemembershipDeleteObjectV1(ctx, pkiEzsigntemplatepackagemembershipID).Execute()
 
 Delete an existing Ezsigntemplatepackagemembership
 
@@ -106,7 +106,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatepackagemembershipAPI.EzsigntemplatepackagemembershipDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsigntemplatepackagemembershipDeleteObjectV1`: EzsigntemplatepackagemembershipDeleteObjectV1Response
+	// response from `EzsigntemplatepackagemembershipDeleteObjectV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatepackagemembershipAPI.EzsigntemplatepackagemembershipDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigntemplatepackagemembershipDeleteObjectV1Response**](EzsigntemplatepackagemembershipDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

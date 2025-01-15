@@ -164,7 +164,7 @@ type ApiEzsignbulksenddocumentmappingDeleteObjectV1Request struct {
 	pkiEzsignbulksenddocumentmappingID int32
 }
 
-func (r ApiEzsignbulksenddocumentmappingDeleteObjectV1Request) Execute() (*EzsignbulksenddocumentmappingDeleteObjectV1Response, *http.Response, error) {
+func (r ApiEzsignbulksenddocumentmappingDeleteObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.EzsignbulksenddocumentmappingDeleteObjectV1Execute(r)
 }
 
@@ -186,13 +186,13 @@ func (a *ObjectEzsignbulksenddocumentmappingAPIService) Ezsignbulksenddocumentma
 }
 
 // Execute executes the request
-//  @return EzsignbulksenddocumentmappingDeleteObjectV1Response
-func (a *ObjectEzsignbulksenddocumentmappingAPIService) EzsignbulksenddocumentmappingDeleteObjectV1Execute(r ApiEzsignbulksenddocumentmappingDeleteObjectV1Request) (*EzsignbulksenddocumentmappingDeleteObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectEzsignbulksenddocumentmappingAPIService) EzsignbulksenddocumentmappingDeleteObjectV1Execute(r ApiEzsignbulksenddocumentmappingDeleteObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *EzsignbulksenddocumentmappingDeleteObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignbulksenddocumentmappingAPIService.EzsignbulksenddocumentmappingDeleteObjectV1")
