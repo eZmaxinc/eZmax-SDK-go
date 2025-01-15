@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ActivesessionGenerateFederationTokenV1**](ObjectActivesessionAPI.md#ActivesessionGenerateFederationTokenV1) | **Post** /1/object/activesession/generateFederationToken | Generate a federation token
 [**ActivesessionGetCurrentV1**](ObjectActivesessionAPI.md#ActivesessionGetCurrentV1) | **Get** /1/object/activesession/getCurrent | Get Current Activesession
+[**ActivesessionGetCurrentV2**](ObjectActivesessionAPI.md#ActivesessionGetCurrentV2) | **Get** /2/object/activesession/getCurrent | Get Current Activesession
 [**ActivesessionGetListV1**](ObjectActivesessionAPI.md#ActivesessionGetListV1) | **Get** /1/object/activesession/getList | Retrieve Activesession list
 
 
@@ -122,6 +123,67 @@ Other parameters are passed through a pointer to a apiActivesessionGetCurrentV1R
 ### Return type
 
 [**ActivesessionGetCurrentV1Response**](ActivesessionGetCurrentV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ActivesessionGetCurrentV2
+
+> ActivesessionGetCurrentV2Response ActivesessionGetCurrentV2(ctx).Execute()
+
+Get Current Activesession
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectActivesessionAPI.ActivesessionGetCurrentV2(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectActivesessionAPI.ActivesessionGetCurrentV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ActivesessionGetCurrentV2`: ActivesessionGetCurrentV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectActivesessionAPI.ActivesessionGetCurrentV2`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiActivesessionGetCurrentV2Request struct via the builder pattern
+
+
+### Return type
+
+[**ActivesessionGetCurrentV2Response**](ActivesessionGetCurrentV2Response.md)
 
 ### Authorization
 

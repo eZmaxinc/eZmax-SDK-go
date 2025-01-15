@@ -24,8 +24,7 @@ var _ MappedNullable = &WebhookGetHistoryV1Response{}
 type WebhookGetHistoryV1Response struct {
 	ObjDebugPayload CommonResponseObjDebugPayload `json:"objDebugPayload"`
 	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
-	// Payload for GET /1/object/webhook/{pkiWebhookID}/getHistory
-	MPayload map[string]interface{} `json:"mPayload"`
+	MPayload WebhookGetHistoryV1ResponseMPayload `json:"mPayload"`
 }
 
 type _WebhookGetHistoryV1Response WebhookGetHistoryV1Response
@@ -34,7 +33,7 @@ type _WebhookGetHistoryV1Response WebhookGetHistoryV1Response
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWebhookGetHistoryV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload map[string]interface{}) *WebhookGetHistoryV1Response {
+func NewWebhookGetHistoryV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload WebhookGetHistoryV1ResponseMPayload) *WebhookGetHistoryV1Response {
 	this := WebhookGetHistoryV1Response{}
 	this.ObjDebugPayload = objDebugPayload
 	this.MPayload = mPayload
@@ -106,9 +105,9 @@ func (o *WebhookGetHistoryV1Response) SetObjDebug(v CommonResponseObjDebug) {
 }
 
 // GetMPayload returns the MPayload field value
-func (o *WebhookGetHistoryV1Response) GetMPayload() map[string]interface{} {
+func (o *WebhookGetHistoryV1Response) GetMPayload() WebhookGetHistoryV1ResponseMPayload {
 	if o == nil {
-		var ret map[string]interface{}
+		var ret WebhookGetHistoryV1ResponseMPayload
 		return ret
 	}
 
@@ -117,7 +116,7 @@ func (o *WebhookGetHistoryV1Response) GetMPayload() map[string]interface{} {
 
 // GetMPayloadOk returns a tuple with the MPayload field value
 // and a boolean to check if the value has been set.
-func (o *WebhookGetHistoryV1Response) GetMPayloadOk() (*map[string]interface{}, bool) {
+func (o *WebhookGetHistoryV1Response) GetMPayloadOk() (*WebhookGetHistoryV1ResponseMPayload, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -125,7 +124,7 @@ func (o *WebhookGetHistoryV1Response) GetMPayloadOk() (*map[string]interface{}, 
 }
 
 // SetMPayload sets field value
-func (o *WebhookGetHistoryV1Response) SetMPayload(v map[string]interface{}) {
+func (o *WebhookGetHistoryV1Response) SetMPayload(v WebhookGetHistoryV1ResponseMPayload) {
 	o.MPayload = v
 }
 

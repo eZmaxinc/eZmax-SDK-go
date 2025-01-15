@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ObjDebugPayload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
 **ObjDebug** | Pointer to [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
-**MPayload** | **map[string]interface{}** | Payload for GET /1/object/webhook/{pkiWebhookID}/getHistory | 
+**MPayload** | [**WebhookGetHistoryV1ResponseMPayload**](WebhookGetHistoryV1ResponseMPayload.md) |  | 
 
 ## Methods
 
 ### NewWebhookGetHistoryV1Response
 
-`func NewWebhookGetHistoryV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload map[string]interface{}, ) *WebhookGetHistoryV1Response`
+`func NewWebhookGetHistoryV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload WebhookGetHistoryV1ResponseMPayload, ) *WebhookGetHistoryV1Response`
 
 NewWebhookGetHistoryV1Response instantiates a new WebhookGetHistoryV1Response object
 This constructor will assign default values to properties that have it defined,
@@ -74,20 +74,20 @@ HasObjDebug returns a boolean if a field has been set.
 
 ### GetMPayload
 
-`func (o *WebhookGetHistoryV1Response) GetMPayload() map[string]interface{}`
+`func (o *WebhookGetHistoryV1Response) GetMPayload() WebhookGetHistoryV1ResponseMPayload`
 
 GetMPayload returns the MPayload field if non-nil, zero value otherwise.
 
 ### GetMPayloadOk
 
-`func (o *WebhookGetHistoryV1Response) GetMPayloadOk() (*map[string]interface{}, bool)`
+`func (o *WebhookGetHistoryV1Response) GetMPayloadOk() (*WebhookGetHistoryV1ResponseMPayload, bool)`
 
 GetMPayloadOk returns a tuple with the MPayload field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMPayload
 
-`func (o *WebhookGetHistoryV1Response) SetMPayload(v map[string]interface{})`
+`func (o *WebhookGetHistoryV1Response) SetMPayload(v WebhookGetHistoryV1ResponseMPayload)`
 
 SetMPayload sets MPayload field to given value.
 
