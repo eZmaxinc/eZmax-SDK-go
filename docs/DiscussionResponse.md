@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **DtDiscussionLastread** | Pointer to **string** | The date the Discussion was last read | [optional] 
 **IDiscussionmessageCount** | **int32** | The count of Attachment. | 
 **IDiscussionmessageCountunread** | **int32** | The count of Attachment. | 
-**ObjDiscussionconfiguration** | Pointer to **map[string]interface{}** | A Custom Discussionconfiguration Object | [optional] 
+**ObjDiscussionconfiguration** | Pointer to [**CustomDiscussionconfigurationResponse**](CustomDiscussionconfigurationResponse.md) |  | [optional] 
 
 ## Methods
 
@@ -158,20 +158,20 @@ SetIDiscussionmessageCountunread sets IDiscussionmessageCountunread field to giv
 
 ### GetObjDiscussionconfiguration
 
-`func (o *DiscussionResponse) GetObjDiscussionconfiguration() map[string]interface{}`
+`func (o *DiscussionResponse) GetObjDiscussionconfiguration() CustomDiscussionconfigurationResponse`
 
 GetObjDiscussionconfiguration returns the ObjDiscussionconfiguration field if non-nil, zero value otherwise.
 
 ### GetObjDiscussionconfigurationOk
 
-`func (o *DiscussionResponse) GetObjDiscussionconfigurationOk() (*map[string]interface{}, bool)`
+`func (o *DiscussionResponse) GetObjDiscussionconfigurationOk() (*CustomDiscussionconfigurationResponse, bool)`
 
 GetObjDiscussionconfigurationOk returns a tuple with the ObjDiscussionconfiguration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObjDiscussionconfiguration
 
-`func (o *DiscussionResponse) SetObjDiscussionconfiguration(v map[string]interface{})`
+`func (o *DiscussionResponse) SetObjDiscussionconfiguration(v CustomDiscussionconfigurationResponse)`
 
 SetObjDiscussionconfiguration sets ObjDiscussionconfiguration field to given value.
 

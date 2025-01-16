@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **BSystemconfigurationSspr** | **bool** | Whether if we allow SSPR | 
 **DtSystemconfigurationReadonlyexpirationstart** | Pointer to **string** | The start date where the system will be in read only | [optional] 
 **DtSystemconfigurationReadonlyexpirationend** | Pointer to **string** | The end date where the system will be in read only | [optional] 
-**ObjBranding** | Pointer to **map[string]interface{}** | A Custom Branding Object | [optional] 
+**ObjBranding** | Pointer to [**CustomBrandingResponse**](CustomBrandingResponse.md) |  | [optional] 
 
 ## Methods
 
@@ -403,20 +403,20 @@ HasDtSystemconfigurationReadonlyexpirationend returns a boolean if a field has b
 
 ### GetObjBranding
 
-`func (o *SystemconfigurationResponse) GetObjBranding() map[string]interface{}`
+`func (o *SystemconfigurationResponse) GetObjBranding() CustomBrandingResponse`
 
 GetObjBranding returns the ObjBranding field if non-nil, zero value otherwise.
 
 ### GetObjBrandingOk
 
-`func (o *SystemconfigurationResponse) GetObjBrandingOk() (*map[string]interface{}, bool)`
+`func (o *SystemconfigurationResponse) GetObjBrandingOk() (*CustomBrandingResponse, bool)`
 
 GetObjBrandingOk returns a tuple with the ObjBranding field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObjBranding
 
-`func (o *SystemconfigurationResponse) SetObjBranding(v map[string]interface{})`
+`func (o *SystemconfigurationResponse) SetObjBranding(v CustomBrandingResponse)`
 
 SetObjBranding sets ObjBranding field to given value.
 

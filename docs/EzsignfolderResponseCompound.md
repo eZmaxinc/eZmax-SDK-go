@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiEzsignfolderID** | **int32** | The unique ID of the Ezsignfolder | 
 **FkiEzsignfoldertypeID** | Pointer to **int32** | The unique ID of the Ezsignfoldertype. | [optional] 
-**ObjEzsignfoldertype** | Pointer to **map[string]interface{}** | A Custom Ezsignfoldertype Object | [optional] 
+**ObjEzsignfoldertype** | Pointer to [**CustomEzsignfoldertypeResponse**](CustomEzsignfoldertypeResponse.md) |  | [optional] 
 **FkiTimezoneID** | Pointer to **int32** | The unique ID of the Timezone | [optional] 
 **EEzsignfolderCompletion** | [**FieldEEzsignfolderCompletion**](FieldEEzsignfolderCompletion.md) |  | 
 **SEzsignfoldertypeNameX** | Pointer to **string** |  | [optional] 
@@ -98,20 +98,20 @@ HasFkiEzsignfoldertypeID returns a boolean if a field has been set.
 
 ### GetObjEzsignfoldertype
 
-`func (o *EzsignfolderResponseCompound) GetObjEzsignfoldertype() map[string]interface{}`
+`func (o *EzsignfolderResponseCompound) GetObjEzsignfoldertype() CustomEzsignfoldertypeResponse`
 
 GetObjEzsignfoldertype returns the ObjEzsignfoldertype field if non-nil, zero value otherwise.
 
 ### GetObjEzsignfoldertypeOk
 
-`func (o *EzsignfolderResponseCompound) GetObjEzsignfoldertypeOk() (*map[string]interface{}, bool)`
+`func (o *EzsignfolderResponseCompound) GetObjEzsignfoldertypeOk() (*CustomEzsignfoldertypeResponse, bool)`
 
 GetObjEzsignfoldertypeOk returns a tuple with the ObjEzsignfoldertype field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObjEzsignfoldertype
 
-`func (o *EzsignfolderResponseCompound) SetObjEzsignfoldertype(v map[string]interface{})`
+`func (o *EzsignfolderResponseCompound) SetObjEzsignfoldertype(v CustomEzsignfoldertypeResponse)`
 
 SetObjEzsignfoldertype sets ObjEzsignfoldertype field to given value.
 

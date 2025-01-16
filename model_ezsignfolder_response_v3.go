@@ -26,8 +26,7 @@ type EzsignfolderResponseV3 struct {
 	PkiEzsignfolderID int32 `json:"pkiEzsignfolderID"`
 	// The unique ID of the Ezsignfoldertype.
 	FkiEzsignfoldertypeID *int32 `json:"fkiEzsignfoldertypeID,omitempty"`
-	// A Custom Ezsignfoldertype Object
-	ObjEzsignfoldertype *map[string]interface{} `json:"objEzsignfoldertype,omitempty"`
+	ObjEzsignfoldertype *CustomEzsignfoldertypeResponse `json:"objEzsignfoldertype,omitempty"`
 	// The unique ID of the Timezone
 	FkiTimezoneID *int32 `json:"fkiTimezoneID,omitempty"`
 	EEzsignfolderCompletion FieldEEzsignfolderCompletion `json:"eEzsignfolderCompletion"`
@@ -152,9 +151,9 @@ func (o *EzsignfolderResponseV3) SetFkiEzsignfoldertypeID(v int32) {
 }
 
 // GetObjEzsignfoldertype returns the ObjEzsignfoldertype field value if set, zero value otherwise.
-func (o *EzsignfolderResponseV3) GetObjEzsignfoldertype() map[string]interface{} {
+func (o *EzsignfolderResponseV3) GetObjEzsignfoldertype() CustomEzsignfoldertypeResponse {
 	if o == nil || IsNil(o.ObjEzsignfoldertype) {
-		var ret map[string]interface{}
+		var ret CustomEzsignfoldertypeResponse
 		return ret
 	}
 	return *o.ObjEzsignfoldertype
@@ -162,7 +161,7 @@ func (o *EzsignfolderResponseV3) GetObjEzsignfoldertype() map[string]interface{}
 
 // GetObjEzsignfoldertypeOk returns a tuple with the ObjEzsignfoldertype field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EzsignfolderResponseV3) GetObjEzsignfoldertypeOk() (*map[string]interface{}, bool) {
+func (o *EzsignfolderResponseV3) GetObjEzsignfoldertypeOk() (*CustomEzsignfoldertypeResponse, bool) {
 	if o == nil || IsNil(o.ObjEzsignfoldertype) {
 		return nil, false
 	}
@@ -178,8 +177,8 @@ func (o *EzsignfolderResponseV3) HasObjEzsignfoldertype() bool {
 	return false
 }
 
-// SetObjEzsignfoldertype gets a reference to the given map[string]interface{} and assigns it to the ObjEzsignfoldertype field.
-func (o *EzsignfolderResponseV3) SetObjEzsignfoldertype(v map[string]interface{}) {
+// SetObjEzsignfoldertype gets a reference to the given CustomEzsignfoldertypeResponse and assigns it to the ObjEzsignfoldertype field.
+func (o *EzsignfolderResponseV3) SetObjEzsignfoldertype(v CustomEzsignfoldertypeResponse) {
 	o.ObjEzsignfoldertype = &v
 }
 
