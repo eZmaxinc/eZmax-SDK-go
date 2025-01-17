@@ -22,8 +22,7 @@ var _ MappedNullable = &InscriptionnotauthenticatedGetCommunicationListV1Respons
 
 // InscriptionnotauthenticatedGetCommunicationListV1Response Response for GET /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getCommunicationList
 type InscriptionnotauthenticatedGetCommunicationListV1Response struct {
-	ObjDebugPayload CommonResponseObjDebugPayloadGetList `json:"objDebugPayload"`
-	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
+	CommonResponseGetList
 	MPayload InscriptionnotauthenticatedGetCommunicationListV1ResponseMPayload `json:"mPayload"`
 }
 
@@ -33,7 +32,7 @@ type _InscriptionnotauthenticatedGetCommunicationListV1Response Inscriptionnotau
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInscriptionnotauthenticatedGetCommunicationListV1Response(objDebugPayload CommonResponseObjDebugPayloadGetList, mPayload InscriptionnotauthenticatedGetCommunicationListV1ResponseMPayload) *InscriptionnotauthenticatedGetCommunicationListV1Response {
+func NewInscriptionnotauthenticatedGetCommunicationListV1Response(mPayload InscriptionnotauthenticatedGetCommunicationListV1ResponseMPayload, objDebugPayload CommonResponseObjDebugPayloadGetList) *InscriptionnotauthenticatedGetCommunicationListV1Response {
 	this := InscriptionnotauthenticatedGetCommunicationListV1Response{}
 	this.ObjDebugPayload = objDebugPayload
 	this.MPayload = mPayload
@@ -46,62 +45,6 @@ func NewInscriptionnotauthenticatedGetCommunicationListV1Response(objDebugPayloa
 func NewInscriptionnotauthenticatedGetCommunicationListV1ResponseWithDefaults() *InscriptionnotauthenticatedGetCommunicationListV1Response {
 	this := InscriptionnotauthenticatedGetCommunicationListV1Response{}
 	return &this
-}
-
-// GetObjDebugPayload returns the ObjDebugPayload field value
-func (o *InscriptionnotauthenticatedGetCommunicationListV1Response) GetObjDebugPayload() CommonResponseObjDebugPayloadGetList {
-	if o == nil {
-		var ret CommonResponseObjDebugPayloadGetList
-		return ret
-	}
-
-	return o.ObjDebugPayload
-}
-
-// GetObjDebugPayloadOk returns a tuple with the ObjDebugPayload field value
-// and a boolean to check if the value has been set.
-func (o *InscriptionnotauthenticatedGetCommunicationListV1Response) GetObjDebugPayloadOk() (*CommonResponseObjDebugPayloadGetList, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ObjDebugPayload, true
-}
-
-// SetObjDebugPayload sets field value
-func (o *InscriptionnotauthenticatedGetCommunicationListV1Response) SetObjDebugPayload(v CommonResponseObjDebugPayloadGetList) {
-	o.ObjDebugPayload = v
-}
-
-// GetObjDebug returns the ObjDebug field value if set, zero value otherwise.
-func (o *InscriptionnotauthenticatedGetCommunicationListV1Response) GetObjDebug() CommonResponseObjDebug {
-	if o == nil || IsNil(o.ObjDebug) {
-		var ret CommonResponseObjDebug
-		return ret
-	}
-	return *o.ObjDebug
-}
-
-// GetObjDebugOk returns a tuple with the ObjDebug field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *InscriptionnotauthenticatedGetCommunicationListV1Response) GetObjDebugOk() (*CommonResponseObjDebug, bool) {
-	if o == nil || IsNil(o.ObjDebug) {
-		return nil, false
-	}
-	return o.ObjDebug, true
-}
-
-// HasObjDebug returns a boolean if a field has been set.
-func (o *InscriptionnotauthenticatedGetCommunicationListV1Response) HasObjDebug() bool {
-	if o != nil && !IsNil(o.ObjDebug) {
-		return true
-	}
-
-	return false
-}
-
-// SetObjDebug gets a reference to the given CommonResponseObjDebug and assigns it to the ObjDebug field.
-func (o *InscriptionnotauthenticatedGetCommunicationListV1Response) SetObjDebug(v CommonResponseObjDebug) {
-	o.ObjDebug = &v
 }
 
 // GetMPayload returns the MPayload field value
@@ -138,10 +81,6 @@ func (o InscriptionnotauthenticatedGetCommunicationListV1Response) MarshalJSON()
 
 func (o InscriptionnotauthenticatedGetCommunicationListV1Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["objDebugPayload"] = o.ObjDebugPayload
-	if !IsNil(o.ObjDebug) {
-		toSerialize["objDebug"] = o.ObjDebug
-	}
 	toSerialize["mPayload"] = o.MPayload
 	return toSerialize, nil
 }
@@ -151,8 +90,8 @@ func (o *InscriptionnotauthenticatedGetCommunicationListV1Response) UnmarshalJSO
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"objDebugPayload",
 		"mPayload",
+		"objDebugPayload",
 	}
 
 	allProperties := make(map[string]interface{})

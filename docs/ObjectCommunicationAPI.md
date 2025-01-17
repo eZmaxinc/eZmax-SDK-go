@@ -98,7 +98,7 @@ import (
 )
 
 func main() {
-	communicationSendV1Request := *openapiclient.NewCommunicationSendV1Request([]openapiclient.CommunicationRequestCompound{*openapiclient.NewCommunicationRequestCompound(openapiclient.Field-eCommunicationType("Email"), "TCommunicationBody_example", false, []openapiclient.CustomCommunicationattachmentRequest{*openapiclient.NewCustomCommunicationattachmentRequest()}, []openapiclient.CommunicationrecipientRequestCompound{*openapiclient.NewCommunicationrecipientRequestCompound()}, []openapiclient.CommunicationreferenceRequestCompound{*openapiclient.NewCommunicationreferenceRequest()}, []openapiclient.CommunicationexternalrecipientRequestCompound{*openapiclient.NewCommunicationexternalrecipientRequestCompound()})}) // CommunicationSendV1Request | 
+	communicationSendV1Request := *openapiclient.NewCommunicationSendV1Request([]openapiclient.CommunicationRequestCompound{*openapiclient.NewCommunicationRequestCompound([]openapiclient.CustomCommunicationattachmentRequest{*openapiclient.NewCustomCommunicationattachmentRequest()}, []openapiclient.CommunicationrecipientRequestCompound{*openapiclient.NewCommunicationrecipientRequestCompound()}, []openapiclient.CommunicationreferenceRequestCompound{*openapiclient.NewCommunicationreferenceRequest()}, []openapiclient.CommunicationexternalrecipientRequestCompound{*openapiclient.NewCommunicationexternalrecipientRequestCompound()}, openapiclient.Field-eCommunicationType("Email"), "TCommunicationBody_example", false)}) // CommunicationSendV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

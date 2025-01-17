@@ -32,7 +32,7 @@ import (
 )
 
 func main() {
-	ezsigntemplateformfieldgroupCreateObjectV1Request := *openapiclient.NewEzsigntemplateformfieldgroupCreateObjectV1Request([]openapiclient.EzsigntemplateformfieldgroupRequestCompound{*openapiclient.NewEzsigntemplateformfieldgroupRequestCompound(int32(133), openapiclient.Field-eEzsigntemplateformfieldgroupType("Text"), "Allergies", int32(1), "Foo", int32(1), int32(2), false, []openapiclient.EzsigntemplateformfieldgroupsignerRequestCompound{*openapiclient.NewEzsigntemplateformfieldgroupsignerRequest(int32(9))}, []openapiclient.EzsigntemplateformfieldRequestCompound{*openapiclient.NewEzsigntemplateformfieldRequestCompound(int32(1), "Peanuts", int32(102), int32(22))})}) // EzsigntemplateformfieldgroupCreateObjectV1Request | 
+	ezsigntemplateformfieldgroupCreateObjectV1Request := *openapiclient.NewEzsigntemplateformfieldgroupCreateObjectV1Request([]openapiclient.EzsigntemplateformfieldgroupRequestCompound{*openapiclient.NewEzsigntemplateformfieldgroupRequestCompound([]openapiclient.EzsigntemplateformfieldgroupsignerRequestCompound{*openapiclient.NewEzsigntemplateformfieldgroupsignerRequest(int32(9))}, []openapiclient.EzsigntemplateformfieldRequestCompound{*openapiclient.NewEzsigntemplateformfieldRequestCompound(int32(1), "Peanuts", int32(102), int32(22))}, int32(133), openapiclient.Field-eEzsigntemplateformfieldgroupType("Text"), "Allergies", int32(1), "Foo", int32(1), int32(2), false)}) // EzsigntemplateformfieldgroupCreateObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -169,7 +169,7 @@ import (
 
 func main() {
 	pkiEzsigntemplateformfieldgroupID := int32(56) // int32 | 
-	ezsigntemplateformfieldgroupEditObjectV1Request := *openapiclient.NewEzsigntemplateformfieldgroupEditObjectV1Request(*openapiclient.NewEzsigntemplateformfieldgroupRequestCompound(int32(133), openapiclient.Field-eEzsigntemplateformfieldgroupType("Text"), "Allergies", int32(1), "Foo", int32(1), int32(2), false, []openapiclient.EzsigntemplateformfieldgroupsignerRequestCompound{*openapiclient.NewEzsigntemplateformfieldgroupsignerRequest(int32(9))}, []openapiclient.EzsigntemplateformfieldRequestCompound{*openapiclient.NewEzsigntemplateformfieldRequestCompound(int32(1), "Peanuts", int32(102), int32(22))})) // EzsigntemplateformfieldgroupEditObjectV1Request | 
+	ezsigntemplateformfieldgroupEditObjectV1Request := *openapiclient.NewEzsigntemplateformfieldgroupEditObjectV1Request(*openapiclient.NewEzsigntemplateformfieldgroupRequestCompound([]openapiclient.EzsigntemplateformfieldgroupsignerRequestCompound{*openapiclient.NewEzsigntemplateformfieldgroupsignerRequest(int32(9))}, []openapiclient.EzsigntemplateformfieldRequestCompound{*openapiclient.NewEzsigntemplateformfieldRequestCompound(int32(1), "Peanuts", int32(102), int32(22))}, int32(133), openapiclient.Field-eEzsigntemplateformfieldgroupType("Text"), "Allergies", int32(1), "Foo", int32(1), int32(2), false)) // EzsigntemplateformfieldgroupEditObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

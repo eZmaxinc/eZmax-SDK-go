@@ -22,23 +22,7 @@ var _ MappedNullable = &CommunicationRequestCompound{}
 
 // CommunicationRequestCompound Request for POST /1/object/communication
 type CommunicationRequestCompound struct {
-	// The unique ID of the Communication.
-	PkiCommunicationID *int32 `json:"pkiCommunicationID,omitempty"`
-	ECommunicationImportance *FieldECommunicationImportance `json:"eCommunicationImportance,omitempty"`
-	ECommunicationType FieldECommunicationType `json:"eCommunicationType"`
-	ObjCommunicationsender *CustomCommunicationsenderRequest `json:"objCommunicationsender,omitempty"`
-	// The subject of the Communication
-	SCommunicationSubject *string `json:"sCommunicationSubject,omitempty" validate:"regexp=^.{0,200}$"`
-	// The Body of the Communication
-	TCommunicationBody string `json:"tCommunicationBody"`
-	// Whether the Communication is private or not
-	BCommunicationPrivate bool `json:"bCommunicationPrivate"`
-	// How the attachment should be included in the email.   Only used if eCommunicationType is **Email**
-	ECommunicationAttachmenttype *string `json:"eCommunicationAttachmenttype,omitempty"`
-	// The number of days before the attachment link expired.   Only used if eCommunicationType is **Email** and eCommunicationattachmentType is **Link**
-	ICommunicationAttachmentlinkexpiration *int32 `json:"iCommunicationAttachmentlinkexpiration,omitempty"`
-	// Whether we ask for a read receipt or not.
-	BCommunicationReadreceipt *bool `json:"bCommunicationReadreceipt,omitempty"`
+	CommunicationRequest
 	AObjCommunicationattachment []CustomCommunicationattachmentRequest `json:"a_objCommunicationattachment"`
 	AObjCommunicationrecipient []CommunicationrecipientRequestCompound `json:"a_objCommunicationrecipient"`
 	AObjCommunicationreference []CommunicationreferenceRequestCompound `json:"a_objCommunicationreference"`
@@ -51,7 +35,7 @@ type _CommunicationRequestCompound CommunicationRequestCompound
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommunicationRequestCompound(eCommunicationType FieldECommunicationType, tCommunicationBody string, bCommunicationPrivate bool, aObjCommunicationattachment []CustomCommunicationattachmentRequest, aObjCommunicationrecipient []CommunicationrecipientRequestCompound, aObjCommunicationreference []CommunicationreferenceRequestCompound, aObjCommunicationexternalrecipient []CommunicationexternalrecipientRequestCompound) *CommunicationRequestCompound {
+func NewCommunicationRequestCompound(aObjCommunicationattachment []CustomCommunicationattachmentRequest, aObjCommunicationrecipient []CommunicationrecipientRequestCompound, aObjCommunicationreference []CommunicationreferenceRequestCompound, aObjCommunicationexternalrecipient []CommunicationexternalrecipientRequestCompound, eCommunicationType FieldECommunicationType, tCommunicationBody string, bCommunicationPrivate bool) *CommunicationRequestCompound {
 	this := CommunicationRequestCompound{}
 	this.ECommunicationType = eCommunicationType
 	this.TCommunicationBody = tCommunicationBody
@@ -69,302 +53,6 @@ func NewCommunicationRequestCompound(eCommunicationType FieldECommunicationType,
 func NewCommunicationRequestCompoundWithDefaults() *CommunicationRequestCompound {
 	this := CommunicationRequestCompound{}
 	return &this
-}
-
-// GetPkiCommunicationID returns the PkiCommunicationID field value if set, zero value otherwise.
-func (o *CommunicationRequestCompound) GetPkiCommunicationID() int32 {
-	if o == nil || IsNil(o.PkiCommunicationID) {
-		var ret int32
-		return ret
-	}
-	return *o.PkiCommunicationID
-}
-
-// GetPkiCommunicationIDOk returns a tuple with the PkiCommunicationID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CommunicationRequestCompound) GetPkiCommunicationIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.PkiCommunicationID) {
-		return nil, false
-	}
-	return o.PkiCommunicationID, true
-}
-
-// HasPkiCommunicationID returns a boolean if a field has been set.
-func (o *CommunicationRequestCompound) HasPkiCommunicationID() bool {
-	if o != nil && !IsNil(o.PkiCommunicationID) {
-		return true
-	}
-
-	return false
-}
-
-// SetPkiCommunicationID gets a reference to the given int32 and assigns it to the PkiCommunicationID field.
-func (o *CommunicationRequestCompound) SetPkiCommunicationID(v int32) {
-	o.PkiCommunicationID = &v
-}
-
-// GetECommunicationImportance returns the ECommunicationImportance field value if set, zero value otherwise.
-func (o *CommunicationRequestCompound) GetECommunicationImportance() FieldECommunicationImportance {
-	if o == nil || IsNil(o.ECommunicationImportance) {
-		var ret FieldECommunicationImportance
-		return ret
-	}
-	return *o.ECommunicationImportance
-}
-
-// GetECommunicationImportanceOk returns a tuple with the ECommunicationImportance field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CommunicationRequestCompound) GetECommunicationImportanceOk() (*FieldECommunicationImportance, bool) {
-	if o == nil || IsNil(o.ECommunicationImportance) {
-		return nil, false
-	}
-	return o.ECommunicationImportance, true
-}
-
-// HasECommunicationImportance returns a boolean if a field has been set.
-func (o *CommunicationRequestCompound) HasECommunicationImportance() bool {
-	if o != nil && !IsNil(o.ECommunicationImportance) {
-		return true
-	}
-
-	return false
-}
-
-// SetECommunicationImportance gets a reference to the given FieldECommunicationImportance and assigns it to the ECommunicationImportance field.
-func (o *CommunicationRequestCompound) SetECommunicationImportance(v FieldECommunicationImportance) {
-	o.ECommunicationImportance = &v
-}
-
-// GetECommunicationType returns the ECommunicationType field value
-func (o *CommunicationRequestCompound) GetECommunicationType() FieldECommunicationType {
-	if o == nil {
-		var ret FieldECommunicationType
-		return ret
-	}
-
-	return o.ECommunicationType
-}
-
-// GetECommunicationTypeOk returns a tuple with the ECommunicationType field value
-// and a boolean to check if the value has been set.
-func (o *CommunicationRequestCompound) GetECommunicationTypeOk() (*FieldECommunicationType, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ECommunicationType, true
-}
-
-// SetECommunicationType sets field value
-func (o *CommunicationRequestCompound) SetECommunicationType(v FieldECommunicationType) {
-	o.ECommunicationType = v
-}
-
-// GetObjCommunicationsender returns the ObjCommunicationsender field value if set, zero value otherwise.
-func (o *CommunicationRequestCompound) GetObjCommunicationsender() CustomCommunicationsenderRequest {
-	if o == nil || IsNil(o.ObjCommunicationsender) {
-		var ret CustomCommunicationsenderRequest
-		return ret
-	}
-	return *o.ObjCommunicationsender
-}
-
-// GetObjCommunicationsenderOk returns a tuple with the ObjCommunicationsender field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CommunicationRequestCompound) GetObjCommunicationsenderOk() (*CustomCommunicationsenderRequest, bool) {
-	if o == nil || IsNil(o.ObjCommunicationsender) {
-		return nil, false
-	}
-	return o.ObjCommunicationsender, true
-}
-
-// HasObjCommunicationsender returns a boolean if a field has been set.
-func (o *CommunicationRequestCompound) HasObjCommunicationsender() bool {
-	if o != nil && !IsNil(o.ObjCommunicationsender) {
-		return true
-	}
-
-	return false
-}
-
-// SetObjCommunicationsender gets a reference to the given CustomCommunicationsenderRequest and assigns it to the ObjCommunicationsender field.
-func (o *CommunicationRequestCompound) SetObjCommunicationsender(v CustomCommunicationsenderRequest) {
-	o.ObjCommunicationsender = &v
-}
-
-// GetSCommunicationSubject returns the SCommunicationSubject field value if set, zero value otherwise.
-func (o *CommunicationRequestCompound) GetSCommunicationSubject() string {
-	if o == nil || IsNil(o.SCommunicationSubject) {
-		var ret string
-		return ret
-	}
-	return *o.SCommunicationSubject
-}
-
-// GetSCommunicationSubjectOk returns a tuple with the SCommunicationSubject field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CommunicationRequestCompound) GetSCommunicationSubjectOk() (*string, bool) {
-	if o == nil || IsNil(o.SCommunicationSubject) {
-		return nil, false
-	}
-	return o.SCommunicationSubject, true
-}
-
-// HasSCommunicationSubject returns a boolean if a field has been set.
-func (o *CommunicationRequestCompound) HasSCommunicationSubject() bool {
-	if o != nil && !IsNil(o.SCommunicationSubject) {
-		return true
-	}
-
-	return false
-}
-
-// SetSCommunicationSubject gets a reference to the given string and assigns it to the SCommunicationSubject field.
-func (o *CommunicationRequestCompound) SetSCommunicationSubject(v string) {
-	o.SCommunicationSubject = &v
-}
-
-// GetTCommunicationBody returns the TCommunicationBody field value
-func (o *CommunicationRequestCompound) GetTCommunicationBody() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.TCommunicationBody
-}
-
-// GetTCommunicationBodyOk returns a tuple with the TCommunicationBody field value
-// and a boolean to check if the value has been set.
-func (o *CommunicationRequestCompound) GetTCommunicationBodyOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.TCommunicationBody, true
-}
-
-// SetTCommunicationBody sets field value
-func (o *CommunicationRequestCompound) SetTCommunicationBody(v string) {
-	o.TCommunicationBody = v
-}
-
-// GetBCommunicationPrivate returns the BCommunicationPrivate field value
-func (o *CommunicationRequestCompound) GetBCommunicationPrivate() bool {
-	if o == nil {
-		var ret bool
-		return ret
-	}
-
-	return o.BCommunicationPrivate
-}
-
-// GetBCommunicationPrivateOk returns a tuple with the BCommunicationPrivate field value
-// and a boolean to check if the value has been set.
-func (o *CommunicationRequestCompound) GetBCommunicationPrivateOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BCommunicationPrivate, true
-}
-
-// SetBCommunicationPrivate sets field value
-func (o *CommunicationRequestCompound) SetBCommunicationPrivate(v bool) {
-	o.BCommunicationPrivate = v
-}
-
-// GetECommunicationAttachmenttype returns the ECommunicationAttachmenttype field value if set, zero value otherwise.
-func (o *CommunicationRequestCompound) GetECommunicationAttachmenttype() string {
-	if o == nil || IsNil(o.ECommunicationAttachmenttype) {
-		var ret string
-		return ret
-	}
-	return *o.ECommunicationAttachmenttype
-}
-
-// GetECommunicationAttachmenttypeOk returns a tuple with the ECommunicationAttachmenttype field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CommunicationRequestCompound) GetECommunicationAttachmenttypeOk() (*string, bool) {
-	if o == nil || IsNil(o.ECommunicationAttachmenttype) {
-		return nil, false
-	}
-	return o.ECommunicationAttachmenttype, true
-}
-
-// HasECommunicationAttachmenttype returns a boolean if a field has been set.
-func (o *CommunicationRequestCompound) HasECommunicationAttachmenttype() bool {
-	if o != nil && !IsNil(o.ECommunicationAttachmenttype) {
-		return true
-	}
-
-	return false
-}
-
-// SetECommunicationAttachmenttype gets a reference to the given string and assigns it to the ECommunicationAttachmenttype field.
-func (o *CommunicationRequestCompound) SetECommunicationAttachmenttype(v string) {
-	o.ECommunicationAttachmenttype = &v
-}
-
-// GetICommunicationAttachmentlinkexpiration returns the ICommunicationAttachmentlinkexpiration field value if set, zero value otherwise.
-func (o *CommunicationRequestCompound) GetICommunicationAttachmentlinkexpiration() int32 {
-	if o == nil || IsNil(o.ICommunicationAttachmentlinkexpiration) {
-		var ret int32
-		return ret
-	}
-	return *o.ICommunicationAttachmentlinkexpiration
-}
-
-// GetICommunicationAttachmentlinkexpirationOk returns a tuple with the ICommunicationAttachmentlinkexpiration field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CommunicationRequestCompound) GetICommunicationAttachmentlinkexpirationOk() (*int32, bool) {
-	if o == nil || IsNil(o.ICommunicationAttachmentlinkexpiration) {
-		return nil, false
-	}
-	return o.ICommunicationAttachmentlinkexpiration, true
-}
-
-// HasICommunicationAttachmentlinkexpiration returns a boolean if a field has been set.
-func (o *CommunicationRequestCompound) HasICommunicationAttachmentlinkexpiration() bool {
-	if o != nil && !IsNil(o.ICommunicationAttachmentlinkexpiration) {
-		return true
-	}
-
-	return false
-}
-
-// SetICommunicationAttachmentlinkexpiration gets a reference to the given int32 and assigns it to the ICommunicationAttachmentlinkexpiration field.
-func (o *CommunicationRequestCompound) SetICommunicationAttachmentlinkexpiration(v int32) {
-	o.ICommunicationAttachmentlinkexpiration = &v
-}
-
-// GetBCommunicationReadreceipt returns the BCommunicationReadreceipt field value if set, zero value otherwise.
-func (o *CommunicationRequestCompound) GetBCommunicationReadreceipt() bool {
-	if o == nil || IsNil(o.BCommunicationReadreceipt) {
-		var ret bool
-		return ret
-	}
-	return *o.BCommunicationReadreceipt
-}
-
-// GetBCommunicationReadreceiptOk returns a tuple with the BCommunicationReadreceipt field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CommunicationRequestCompound) GetBCommunicationReadreceiptOk() (*bool, bool) {
-	if o == nil || IsNil(o.BCommunicationReadreceipt) {
-		return nil, false
-	}
-	return o.BCommunicationReadreceipt, true
-}
-
-// HasBCommunicationReadreceipt returns a boolean if a field has been set.
-func (o *CommunicationRequestCompound) HasBCommunicationReadreceipt() bool {
-	if o != nil && !IsNil(o.BCommunicationReadreceipt) {
-		return true
-	}
-
-	return false
-}
-
-// SetBCommunicationReadreceipt gets a reference to the given bool and assigns it to the BCommunicationReadreceipt field.
-func (o *CommunicationRequestCompound) SetBCommunicationReadreceipt(v bool) {
-	o.BCommunicationReadreceipt = &v
 }
 
 // GetAObjCommunicationattachment returns the AObjCommunicationattachment field value
@@ -473,30 +161,6 @@ func (o CommunicationRequestCompound) MarshalJSON() ([]byte, error) {
 
 func (o CommunicationRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.PkiCommunicationID) {
-		toSerialize["pkiCommunicationID"] = o.PkiCommunicationID
-	}
-	if !IsNil(o.ECommunicationImportance) {
-		toSerialize["eCommunicationImportance"] = o.ECommunicationImportance
-	}
-	toSerialize["eCommunicationType"] = o.ECommunicationType
-	if !IsNil(o.ObjCommunicationsender) {
-		toSerialize["objCommunicationsender"] = o.ObjCommunicationsender
-	}
-	if !IsNil(o.SCommunicationSubject) {
-		toSerialize["sCommunicationSubject"] = o.SCommunicationSubject
-	}
-	toSerialize["tCommunicationBody"] = o.TCommunicationBody
-	toSerialize["bCommunicationPrivate"] = o.BCommunicationPrivate
-	if !IsNil(o.ECommunicationAttachmenttype) {
-		toSerialize["eCommunicationAttachmenttype"] = o.ECommunicationAttachmenttype
-	}
-	if !IsNil(o.ICommunicationAttachmentlinkexpiration) {
-		toSerialize["iCommunicationAttachmentlinkexpiration"] = o.ICommunicationAttachmentlinkexpiration
-	}
-	if !IsNil(o.BCommunicationReadreceipt) {
-		toSerialize["bCommunicationReadreceipt"] = o.BCommunicationReadreceipt
-	}
 	toSerialize["a_objCommunicationattachment"] = o.AObjCommunicationattachment
 	toSerialize["a_objCommunicationrecipient"] = o.AObjCommunicationrecipient
 	toSerialize["a_objCommunicationreference"] = o.AObjCommunicationreference
@@ -509,13 +173,13 @@ func (o *CommunicationRequestCompound) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"eCommunicationType",
-		"tCommunicationBody",
-		"bCommunicationPrivate",
 		"a_objCommunicationattachment",
 		"a_objCommunicationrecipient",
 		"a_objCommunicationreference",
 		"a_objCommunicationexternalrecipient",
+		"eCommunicationType",
+		"tCommunicationBody",
+		"bCommunicationPrivate",
 	}
 
 	allProperties := make(map[string]interface{})

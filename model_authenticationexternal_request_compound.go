@@ -22,11 +22,7 @@ var _ MappedNullable = &AuthenticationexternalRequestCompound{}
 
 // AuthenticationexternalRequestCompound A Authenticationexternal Object and children
 type AuthenticationexternalRequestCompound struct {
-	// The unique ID of the Authenticationexternal
-	PkiAuthenticationexternalID *int32 `json:"pkiAuthenticationexternalID,omitempty"`
-	// The description of the Authenticationexternal
-	SAuthenticationexternalDescription string `json:"sAuthenticationexternalDescription" validate:"regexp=^.{0,50}$"`
-	EAuthenticationexternalType FieldEAuthenticationexternalType `json:"eAuthenticationexternalType"`
+	AuthenticationexternalRequest
 }
 
 type _AuthenticationexternalRequestCompound AuthenticationexternalRequestCompound
@@ -50,86 +46,6 @@ func NewAuthenticationexternalRequestCompoundWithDefaults() *Authenticationexter
 	return &this
 }
 
-// GetPkiAuthenticationexternalID returns the PkiAuthenticationexternalID field value if set, zero value otherwise.
-func (o *AuthenticationexternalRequestCompound) GetPkiAuthenticationexternalID() int32 {
-	if o == nil || IsNil(o.PkiAuthenticationexternalID) {
-		var ret int32
-		return ret
-	}
-	return *o.PkiAuthenticationexternalID
-}
-
-// GetPkiAuthenticationexternalIDOk returns a tuple with the PkiAuthenticationexternalID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AuthenticationexternalRequestCompound) GetPkiAuthenticationexternalIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.PkiAuthenticationexternalID) {
-		return nil, false
-	}
-	return o.PkiAuthenticationexternalID, true
-}
-
-// HasPkiAuthenticationexternalID returns a boolean if a field has been set.
-func (o *AuthenticationexternalRequestCompound) HasPkiAuthenticationexternalID() bool {
-	if o != nil && !IsNil(o.PkiAuthenticationexternalID) {
-		return true
-	}
-
-	return false
-}
-
-// SetPkiAuthenticationexternalID gets a reference to the given int32 and assigns it to the PkiAuthenticationexternalID field.
-func (o *AuthenticationexternalRequestCompound) SetPkiAuthenticationexternalID(v int32) {
-	o.PkiAuthenticationexternalID = &v
-}
-
-// GetSAuthenticationexternalDescription returns the SAuthenticationexternalDescription field value
-func (o *AuthenticationexternalRequestCompound) GetSAuthenticationexternalDescription() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SAuthenticationexternalDescription
-}
-
-// GetSAuthenticationexternalDescriptionOk returns a tuple with the SAuthenticationexternalDescription field value
-// and a boolean to check if the value has been set.
-func (o *AuthenticationexternalRequestCompound) GetSAuthenticationexternalDescriptionOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SAuthenticationexternalDescription, true
-}
-
-// SetSAuthenticationexternalDescription sets field value
-func (o *AuthenticationexternalRequestCompound) SetSAuthenticationexternalDescription(v string) {
-	o.SAuthenticationexternalDescription = v
-}
-
-// GetEAuthenticationexternalType returns the EAuthenticationexternalType field value
-func (o *AuthenticationexternalRequestCompound) GetEAuthenticationexternalType() FieldEAuthenticationexternalType {
-	if o == nil {
-		var ret FieldEAuthenticationexternalType
-		return ret
-	}
-
-	return o.EAuthenticationexternalType
-}
-
-// GetEAuthenticationexternalTypeOk returns a tuple with the EAuthenticationexternalType field value
-// and a boolean to check if the value has been set.
-func (o *AuthenticationexternalRequestCompound) GetEAuthenticationexternalTypeOk() (*FieldEAuthenticationexternalType, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.EAuthenticationexternalType, true
-}
-
-// SetEAuthenticationexternalType sets field value
-func (o *AuthenticationexternalRequestCompound) SetEAuthenticationexternalType(v FieldEAuthenticationexternalType) {
-	o.EAuthenticationexternalType = v
-}
-
 func (o AuthenticationexternalRequestCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -140,11 +56,6 @@ func (o AuthenticationexternalRequestCompound) MarshalJSON() ([]byte, error) {
 
 func (o AuthenticationexternalRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.PkiAuthenticationexternalID) {
-		toSerialize["pkiAuthenticationexternalID"] = o.PkiAuthenticationexternalID
-	}
-	toSerialize["sAuthenticationexternalDescription"] = o.SAuthenticationexternalDescription
-	toSerialize["eAuthenticationexternalType"] = o.EAuthenticationexternalType
 	return toSerialize, nil
 }
 

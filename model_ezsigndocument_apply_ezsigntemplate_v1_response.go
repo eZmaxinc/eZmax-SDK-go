@@ -22,8 +22,7 @@ var _ MappedNullable = &EzsigndocumentApplyEzsigntemplateV1Response{}
 
 // EzsigndocumentApplyEzsigntemplateV1Response Response for POST /1/object/ezsigndocument/{pkiEzsigndocument}/applyEzsigntemplate
 type EzsigndocumentApplyEzsigntemplateV1Response struct {
-	ObjDebugPayload CommonResponseObjDebugPayload `json:"objDebugPayload"`
-	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
+	CommonResponse
 }
 
 type _EzsigndocumentApplyEzsigntemplateV1Response EzsigndocumentApplyEzsigntemplateV1Response
@@ -46,62 +45,6 @@ func NewEzsigndocumentApplyEzsigntemplateV1ResponseWithDefaults() *Ezsigndocumen
 	return &this
 }
 
-// GetObjDebugPayload returns the ObjDebugPayload field value
-func (o *EzsigndocumentApplyEzsigntemplateV1Response) GetObjDebugPayload() CommonResponseObjDebugPayload {
-	if o == nil {
-		var ret CommonResponseObjDebugPayload
-		return ret
-	}
-
-	return o.ObjDebugPayload
-}
-
-// GetObjDebugPayloadOk returns a tuple with the ObjDebugPayload field value
-// and a boolean to check if the value has been set.
-func (o *EzsigndocumentApplyEzsigntemplateV1Response) GetObjDebugPayloadOk() (*CommonResponseObjDebugPayload, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ObjDebugPayload, true
-}
-
-// SetObjDebugPayload sets field value
-func (o *EzsigndocumentApplyEzsigntemplateV1Response) SetObjDebugPayload(v CommonResponseObjDebugPayload) {
-	o.ObjDebugPayload = v
-}
-
-// GetObjDebug returns the ObjDebug field value if set, zero value otherwise.
-func (o *EzsigndocumentApplyEzsigntemplateV1Response) GetObjDebug() CommonResponseObjDebug {
-	if o == nil || IsNil(o.ObjDebug) {
-		var ret CommonResponseObjDebug
-		return ret
-	}
-	return *o.ObjDebug
-}
-
-// GetObjDebugOk returns a tuple with the ObjDebug field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *EzsigndocumentApplyEzsigntemplateV1Response) GetObjDebugOk() (*CommonResponseObjDebug, bool) {
-	if o == nil || IsNil(o.ObjDebug) {
-		return nil, false
-	}
-	return o.ObjDebug, true
-}
-
-// HasObjDebug returns a boolean if a field has been set.
-func (o *EzsigndocumentApplyEzsigntemplateV1Response) HasObjDebug() bool {
-	if o != nil && !IsNil(o.ObjDebug) {
-		return true
-	}
-
-	return false
-}
-
-// SetObjDebug gets a reference to the given CommonResponseObjDebug and assigns it to the ObjDebug field.
-func (o *EzsigndocumentApplyEzsigntemplateV1Response) SetObjDebug(v CommonResponseObjDebug) {
-	o.ObjDebug = &v
-}
-
 func (o EzsigndocumentApplyEzsigntemplateV1Response) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -112,10 +55,6 @@ func (o EzsigndocumentApplyEzsigntemplateV1Response) MarshalJSON() ([]byte, erro
 
 func (o EzsigndocumentApplyEzsigntemplateV1Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["objDebugPayload"] = o.ObjDebugPayload
-	if !IsNil(o.ObjDebug) {
-		toSerialize["objDebug"] = o.ObjDebug
-	}
 	return toSerialize, nil
 }
 

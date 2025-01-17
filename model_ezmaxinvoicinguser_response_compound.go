@@ -22,23 +22,7 @@ var _ MappedNullable = &EzmaxinvoicinguserResponseCompound{}
 
 // EzmaxinvoicinguserResponseCompound A Ezmaxinvoicinguser Object
 type EzmaxinvoicinguserResponseCompound struct {
-	// The unique ID of the Ezmaxinvoicinguser
-	PkiEzmaxinvoicinguserID *int32 `json:"pkiEzmaxinvoicinguserID,omitempty"`
-	// The unique ID of the Ezmaxinvoicing
-	FkiEzmaxinvoicingID *int32 `json:"fkiEzmaxinvoicingID,omitempty"`
-	// The unique ID of the Billingentityinternal.
-	FkiBillingentityinternalID int32 `json:"fkiBillingentityinternalID"`
-	// The description of the Billingentityinternal in the language of the requester
-	SBillingentityinternalDescriptionX string `json:"sBillingentityinternalDescriptionX"`
-	// The unique ID of the User
-	FkiUserID int32 `json:"fkiUserID"`
-	// The number of ezsign documents
-	IEzmaxinvoicinguserEzsigndocument int32 `json:"iEzmaxinvoicinguserEzsigndocument"`
-	// Whether there is an eZsign account
-	BEzmaxinvoicinguserEzsignaccount bool `json:"bEzmaxinvoicinguserEzsignaccount"`
-	// Whether it is billable for eZsign
-	BEzmaxinvoicinguserBillableezsign bool `json:"bEzmaxinvoicinguserBillableezsign"`
-	EEzmaxinvoicinguserVariationezsign FieldEEzmaxinvoicinguserVariationezsign `json:"eEzmaxinvoicinguserVariationezsign"`
+	EzmaxinvoicinguserResponse
 	ObjContactName CustomContactNameResponse `json:"objContactName"`
 }
 
@@ -48,7 +32,7 @@ type _EzmaxinvoicinguserResponseCompound EzmaxinvoicinguserResponseCompound
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzmaxinvoicinguserResponseCompound(fkiBillingentityinternalID int32, sBillingentityinternalDescriptionX string, fkiUserID int32, iEzmaxinvoicinguserEzsigndocument int32, bEzmaxinvoicinguserEzsignaccount bool, bEzmaxinvoicinguserBillableezsign bool, eEzmaxinvoicinguserVariationezsign FieldEEzmaxinvoicinguserVariationezsign, objContactName CustomContactNameResponse) *EzmaxinvoicinguserResponseCompound {
+func NewEzmaxinvoicinguserResponseCompound(objContactName CustomContactNameResponse, fkiBillingentityinternalID int32, sBillingentityinternalDescriptionX string, fkiUserID int32, iEzmaxinvoicinguserEzsigndocument int32, bEzmaxinvoicinguserEzsignaccount bool, bEzmaxinvoicinguserBillableezsign bool, eEzmaxinvoicinguserVariationezsign FieldEEzmaxinvoicinguserVariationezsign) *EzmaxinvoicinguserResponseCompound {
 	this := EzmaxinvoicinguserResponseCompound{}
 	this.FkiBillingentityinternalID = fkiBillingentityinternalID
 	this.SBillingentityinternalDescriptionX = sBillingentityinternalDescriptionX
@@ -67,238 +51,6 @@ func NewEzmaxinvoicinguserResponseCompound(fkiBillingentityinternalID int32, sBi
 func NewEzmaxinvoicinguserResponseCompoundWithDefaults() *EzmaxinvoicinguserResponseCompound {
 	this := EzmaxinvoicinguserResponseCompound{}
 	return &this
-}
-
-// GetPkiEzmaxinvoicinguserID returns the PkiEzmaxinvoicinguserID field value if set, zero value otherwise.
-func (o *EzmaxinvoicinguserResponseCompound) GetPkiEzmaxinvoicinguserID() int32 {
-	if o == nil || IsNil(o.PkiEzmaxinvoicinguserID) {
-		var ret int32
-		return ret
-	}
-	return *o.PkiEzmaxinvoicinguserID
-}
-
-// GetPkiEzmaxinvoicinguserIDOk returns a tuple with the PkiEzmaxinvoicinguserID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *EzmaxinvoicinguserResponseCompound) GetPkiEzmaxinvoicinguserIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.PkiEzmaxinvoicinguserID) {
-		return nil, false
-	}
-	return o.PkiEzmaxinvoicinguserID, true
-}
-
-// HasPkiEzmaxinvoicinguserID returns a boolean if a field has been set.
-func (o *EzmaxinvoicinguserResponseCompound) HasPkiEzmaxinvoicinguserID() bool {
-	if o != nil && !IsNil(o.PkiEzmaxinvoicinguserID) {
-		return true
-	}
-
-	return false
-}
-
-// SetPkiEzmaxinvoicinguserID gets a reference to the given int32 and assigns it to the PkiEzmaxinvoicinguserID field.
-func (o *EzmaxinvoicinguserResponseCompound) SetPkiEzmaxinvoicinguserID(v int32) {
-	o.PkiEzmaxinvoicinguserID = &v
-}
-
-// GetFkiEzmaxinvoicingID returns the FkiEzmaxinvoicingID field value if set, zero value otherwise.
-func (o *EzmaxinvoicinguserResponseCompound) GetFkiEzmaxinvoicingID() int32 {
-	if o == nil || IsNil(o.FkiEzmaxinvoicingID) {
-		var ret int32
-		return ret
-	}
-	return *o.FkiEzmaxinvoicingID
-}
-
-// GetFkiEzmaxinvoicingIDOk returns a tuple with the FkiEzmaxinvoicingID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *EzmaxinvoicinguserResponseCompound) GetFkiEzmaxinvoicingIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.FkiEzmaxinvoicingID) {
-		return nil, false
-	}
-	return o.FkiEzmaxinvoicingID, true
-}
-
-// HasFkiEzmaxinvoicingID returns a boolean if a field has been set.
-func (o *EzmaxinvoicinguserResponseCompound) HasFkiEzmaxinvoicingID() bool {
-	if o != nil && !IsNil(o.FkiEzmaxinvoicingID) {
-		return true
-	}
-
-	return false
-}
-
-// SetFkiEzmaxinvoicingID gets a reference to the given int32 and assigns it to the FkiEzmaxinvoicingID field.
-func (o *EzmaxinvoicinguserResponseCompound) SetFkiEzmaxinvoicingID(v int32) {
-	o.FkiEzmaxinvoicingID = &v
-}
-
-// GetFkiBillingentityinternalID returns the FkiBillingentityinternalID field value
-func (o *EzmaxinvoicinguserResponseCompound) GetFkiBillingentityinternalID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.FkiBillingentityinternalID
-}
-
-// GetFkiBillingentityinternalIDOk returns a tuple with the FkiBillingentityinternalID field value
-// and a boolean to check if the value has been set.
-func (o *EzmaxinvoicinguserResponseCompound) GetFkiBillingentityinternalIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FkiBillingentityinternalID, true
-}
-
-// SetFkiBillingentityinternalID sets field value
-func (o *EzmaxinvoicinguserResponseCompound) SetFkiBillingentityinternalID(v int32) {
-	o.FkiBillingentityinternalID = v
-}
-
-// GetSBillingentityinternalDescriptionX returns the SBillingentityinternalDescriptionX field value
-func (o *EzmaxinvoicinguserResponseCompound) GetSBillingentityinternalDescriptionX() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SBillingentityinternalDescriptionX
-}
-
-// GetSBillingentityinternalDescriptionXOk returns a tuple with the SBillingentityinternalDescriptionX field value
-// and a boolean to check if the value has been set.
-func (o *EzmaxinvoicinguserResponseCompound) GetSBillingentityinternalDescriptionXOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SBillingentityinternalDescriptionX, true
-}
-
-// SetSBillingentityinternalDescriptionX sets field value
-func (o *EzmaxinvoicinguserResponseCompound) SetSBillingentityinternalDescriptionX(v string) {
-	o.SBillingentityinternalDescriptionX = v
-}
-
-// GetFkiUserID returns the FkiUserID field value
-func (o *EzmaxinvoicinguserResponseCompound) GetFkiUserID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.FkiUserID
-}
-
-// GetFkiUserIDOk returns a tuple with the FkiUserID field value
-// and a boolean to check if the value has been set.
-func (o *EzmaxinvoicinguserResponseCompound) GetFkiUserIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FkiUserID, true
-}
-
-// SetFkiUserID sets field value
-func (o *EzmaxinvoicinguserResponseCompound) SetFkiUserID(v int32) {
-	o.FkiUserID = v
-}
-
-// GetIEzmaxinvoicinguserEzsigndocument returns the IEzmaxinvoicinguserEzsigndocument field value
-func (o *EzmaxinvoicinguserResponseCompound) GetIEzmaxinvoicinguserEzsigndocument() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.IEzmaxinvoicinguserEzsigndocument
-}
-
-// GetIEzmaxinvoicinguserEzsigndocumentOk returns a tuple with the IEzmaxinvoicinguserEzsigndocument field value
-// and a boolean to check if the value has been set.
-func (o *EzmaxinvoicinguserResponseCompound) GetIEzmaxinvoicinguserEzsigndocumentOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.IEzmaxinvoicinguserEzsigndocument, true
-}
-
-// SetIEzmaxinvoicinguserEzsigndocument sets field value
-func (o *EzmaxinvoicinguserResponseCompound) SetIEzmaxinvoicinguserEzsigndocument(v int32) {
-	o.IEzmaxinvoicinguserEzsigndocument = v
-}
-
-// GetBEzmaxinvoicinguserEzsignaccount returns the BEzmaxinvoicinguserEzsignaccount field value
-func (o *EzmaxinvoicinguserResponseCompound) GetBEzmaxinvoicinguserEzsignaccount() bool {
-	if o == nil {
-		var ret bool
-		return ret
-	}
-
-	return o.BEzmaxinvoicinguserEzsignaccount
-}
-
-// GetBEzmaxinvoicinguserEzsignaccountOk returns a tuple with the BEzmaxinvoicinguserEzsignaccount field value
-// and a boolean to check if the value has been set.
-func (o *EzmaxinvoicinguserResponseCompound) GetBEzmaxinvoicinguserEzsignaccountOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BEzmaxinvoicinguserEzsignaccount, true
-}
-
-// SetBEzmaxinvoicinguserEzsignaccount sets field value
-func (o *EzmaxinvoicinguserResponseCompound) SetBEzmaxinvoicinguserEzsignaccount(v bool) {
-	o.BEzmaxinvoicinguserEzsignaccount = v
-}
-
-// GetBEzmaxinvoicinguserBillableezsign returns the BEzmaxinvoicinguserBillableezsign field value
-func (o *EzmaxinvoicinguserResponseCompound) GetBEzmaxinvoicinguserBillableezsign() bool {
-	if o == nil {
-		var ret bool
-		return ret
-	}
-
-	return o.BEzmaxinvoicinguserBillableezsign
-}
-
-// GetBEzmaxinvoicinguserBillableezsignOk returns a tuple with the BEzmaxinvoicinguserBillableezsign field value
-// and a boolean to check if the value has been set.
-func (o *EzmaxinvoicinguserResponseCompound) GetBEzmaxinvoicinguserBillableezsignOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BEzmaxinvoicinguserBillableezsign, true
-}
-
-// SetBEzmaxinvoicinguserBillableezsign sets field value
-func (o *EzmaxinvoicinguserResponseCompound) SetBEzmaxinvoicinguserBillableezsign(v bool) {
-	o.BEzmaxinvoicinguserBillableezsign = v
-}
-
-// GetEEzmaxinvoicinguserVariationezsign returns the EEzmaxinvoicinguserVariationezsign field value
-func (o *EzmaxinvoicinguserResponseCompound) GetEEzmaxinvoicinguserVariationezsign() FieldEEzmaxinvoicinguserVariationezsign {
-	if o == nil {
-		var ret FieldEEzmaxinvoicinguserVariationezsign
-		return ret
-	}
-
-	return o.EEzmaxinvoicinguserVariationezsign
-}
-
-// GetEEzmaxinvoicinguserVariationezsignOk returns a tuple with the EEzmaxinvoicinguserVariationezsign field value
-// and a boolean to check if the value has been set.
-func (o *EzmaxinvoicinguserResponseCompound) GetEEzmaxinvoicinguserVariationezsignOk() (*FieldEEzmaxinvoicinguserVariationezsign, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.EEzmaxinvoicinguserVariationezsign, true
-}
-
-// SetEEzmaxinvoicinguserVariationezsign sets field value
-func (o *EzmaxinvoicinguserResponseCompound) SetEEzmaxinvoicinguserVariationezsign(v FieldEEzmaxinvoicinguserVariationezsign) {
-	o.EEzmaxinvoicinguserVariationezsign = v
 }
 
 // GetObjContactName returns the ObjContactName field value
@@ -335,19 +87,6 @@ func (o EzmaxinvoicinguserResponseCompound) MarshalJSON() ([]byte, error) {
 
 func (o EzmaxinvoicinguserResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.PkiEzmaxinvoicinguserID) {
-		toSerialize["pkiEzmaxinvoicinguserID"] = o.PkiEzmaxinvoicinguserID
-	}
-	if !IsNil(o.FkiEzmaxinvoicingID) {
-		toSerialize["fkiEzmaxinvoicingID"] = o.FkiEzmaxinvoicingID
-	}
-	toSerialize["fkiBillingentityinternalID"] = o.FkiBillingentityinternalID
-	toSerialize["sBillingentityinternalDescriptionX"] = o.SBillingentityinternalDescriptionX
-	toSerialize["fkiUserID"] = o.FkiUserID
-	toSerialize["iEzmaxinvoicinguserEzsigndocument"] = o.IEzmaxinvoicinguserEzsigndocument
-	toSerialize["bEzmaxinvoicinguserEzsignaccount"] = o.BEzmaxinvoicinguserEzsignaccount
-	toSerialize["bEzmaxinvoicinguserBillableezsign"] = o.BEzmaxinvoicinguserBillableezsign
-	toSerialize["eEzmaxinvoicinguserVariationezsign"] = o.EEzmaxinvoicinguserVariationezsign
 	toSerialize["objContactName"] = o.ObjContactName
 	return toSerialize, nil
 }
@@ -357,6 +96,7 @@ func (o *EzmaxinvoicinguserResponseCompound) UnmarshalJSON(data []byte) (err err
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"objContactName",
 		"fkiBillingentityinternalID",
 		"sBillingentityinternalDescriptionX",
 		"fkiUserID",
@@ -364,7 +104,6 @@ func (o *EzmaxinvoicinguserResponseCompound) UnmarshalJSON(data []byte) (err err
 		"bEzmaxinvoicinguserEzsignaccount",
 		"bEzmaxinvoicinguserBillableezsign",
 		"eEzmaxinvoicinguserVariationezsign",
-		"objContactName",
 	}
 
 	allProperties := make(map[string]interface{})

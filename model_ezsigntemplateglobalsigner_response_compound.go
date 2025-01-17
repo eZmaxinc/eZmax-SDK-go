@@ -22,12 +22,7 @@ var _ MappedNullable = &EzsigntemplateglobalsignerResponseCompound{}
 
 // EzsigntemplateglobalsignerResponseCompound A Ezsigntemplateglobalsigner Object
 type EzsigntemplateglobalsignerResponseCompound struct {
-	// The unique ID of the Ezsigntemplateglobalsigner
-	PkiEzsigntemplateglobalsignerID int32 `json:"pkiEzsigntemplateglobalsignerID"`
-	// The unique ID of the Ezsigntemplateglobal
-	FkiEzsigntemplateglobalID int32 `json:"fkiEzsigntemplateglobalID"`
-	// The description of the Ezsigntemplateglobalsigner
-	SEzsigntemplateglobalsignerDescription string `json:"sEzsigntemplateglobalsignerDescription" validate:"regexp=^.{1,50}$"`
+	EzsigntemplateglobalsignerResponse
 }
 
 type _EzsigntemplateglobalsignerResponseCompound EzsigntemplateglobalsignerResponseCompound
@@ -52,78 +47,6 @@ func NewEzsigntemplateglobalsignerResponseCompoundWithDefaults() *Ezsigntemplate
 	return &this
 }
 
-// GetPkiEzsigntemplateglobalsignerID returns the PkiEzsigntemplateglobalsignerID field value
-func (o *EzsigntemplateglobalsignerResponseCompound) GetPkiEzsigntemplateglobalsignerID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.PkiEzsigntemplateglobalsignerID
-}
-
-// GetPkiEzsigntemplateglobalsignerIDOk returns a tuple with the PkiEzsigntemplateglobalsignerID field value
-// and a boolean to check if the value has been set.
-func (o *EzsigntemplateglobalsignerResponseCompound) GetPkiEzsigntemplateglobalsignerIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.PkiEzsigntemplateglobalsignerID, true
-}
-
-// SetPkiEzsigntemplateglobalsignerID sets field value
-func (o *EzsigntemplateglobalsignerResponseCompound) SetPkiEzsigntemplateglobalsignerID(v int32) {
-	o.PkiEzsigntemplateglobalsignerID = v
-}
-
-// GetFkiEzsigntemplateglobalID returns the FkiEzsigntemplateglobalID field value
-func (o *EzsigntemplateglobalsignerResponseCompound) GetFkiEzsigntemplateglobalID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.FkiEzsigntemplateglobalID
-}
-
-// GetFkiEzsigntemplateglobalIDOk returns a tuple with the FkiEzsigntemplateglobalID field value
-// and a boolean to check if the value has been set.
-func (o *EzsigntemplateglobalsignerResponseCompound) GetFkiEzsigntemplateglobalIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FkiEzsigntemplateglobalID, true
-}
-
-// SetFkiEzsigntemplateglobalID sets field value
-func (o *EzsigntemplateglobalsignerResponseCompound) SetFkiEzsigntemplateglobalID(v int32) {
-	o.FkiEzsigntemplateglobalID = v
-}
-
-// GetSEzsigntemplateglobalsignerDescription returns the SEzsigntemplateglobalsignerDescription field value
-func (o *EzsigntemplateglobalsignerResponseCompound) GetSEzsigntemplateglobalsignerDescription() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SEzsigntemplateglobalsignerDescription
-}
-
-// GetSEzsigntemplateglobalsignerDescriptionOk returns a tuple with the SEzsigntemplateglobalsignerDescription field value
-// and a boolean to check if the value has been set.
-func (o *EzsigntemplateglobalsignerResponseCompound) GetSEzsigntemplateglobalsignerDescriptionOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SEzsigntemplateglobalsignerDescription, true
-}
-
-// SetSEzsigntemplateglobalsignerDescription sets field value
-func (o *EzsigntemplateglobalsignerResponseCompound) SetSEzsigntemplateglobalsignerDescription(v string) {
-	o.SEzsigntemplateglobalsignerDescription = v
-}
-
 func (o EzsigntemplateglobalsignerResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -134,9 +57,6 @@ func (o EzsigntemplateglobalsignerResponseCompound) MarshalJSON() ([]byte, error
 
 func (o EzsigntemplateglobalsignerResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["pkiEzsigntemplateglobalsignerID"] = o.PkiEzsigntemplateglobalsignerID
-	toSerialize["fkiEzsigntemplateglobalID"] = o.FkiEzsigntemplateglobalID
-	toSerialize["sEzsigntemplateglobalsignerDescription"] = o.SEzsigntemplateglobalsignerDescription
 	return toSerialize, nil
 }
 

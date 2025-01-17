@@ -22,14 +22,7 @@ var _ MappedNullable = &WebhookheaderResponseCompound{}
 
 // WebhookheaderResponseCompound A Webhookheader Object
 type WebhookheaderResponseCompound struct {
-	// The unique ID of the Webhookheader
-	PkiWebhookheaderID int32 `json:"pkiWebhookheaderID"`
-	// The unique ID of the Webhook
-	FkiWebhookID int32 `json:"fkiWebhookID"`
-	// The Name of the Webhookheader
-	SWebhookheaderName string `json:"sWebhookheaderName" validate:"regexp=^(?!(?:e|E)(?:z|Z)(?:m|M)(?:a|A)(?:x|X))(?!(?:h|H)(?:o|O)(?:s|S)(?:t|T)$|(?:u|U)(?:s|S)(?:e|E)(?:r|R)-(?:a|A)(?:g|G)(?:e|E)(?:n|N)(?:t|T)$)(?!\\\\s)[^\\\\s].*$"`
-	// The Value of the Webhookheader
-	SWebhookheaderValue string `json:"sWebhookheaderValue" validate:"regexp=^.{1,255}$"`
+	WebhookheaderResponse
 }
 
 type _WebhookheaderResponseCompound WebhookheaderResponseCompound
@@ -55,102 +48,6 @@ func NewWebhookheaderResponseCompoundWithDefaults() *WebhookheaderResponseCompou
 	return &this
 }
 
-// GetPkiWebhookheaderID returns the PkiWebhookheaderID field value
-func (o *WebhookheaderResponseCompound) GetPkiWebhookheaderID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.PkiWebhookheaderID
-}
-
-// GetPkiWebhookheaderIDOk returns a tuple with the PkiWebhookheaderID field value
-// and a boolean to check if the value has been set.
-func (o *WebhookheaderResponseCompound) GetPkiWebhookheaderIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.PkiWebhookheaderID, true
-}
-
-// SetPkiWebhookheaderID sets field value
-func (o *WebhookheaderResponseCompound) SetPkiWebhookheaderID(v int32) {
-	o.PkiWebhookheaderID = v
-}
-
-// GetFkiWebhookID returns the FkiWebhookID field value
-func (o *WebhookheaderResponseCompound) GetFkiWebhookID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.FkiWebhookID
-}
-
-// GetFkiWebhookIDOk returns a tuple with the FkiWebhookID field value
-// and a boolean to check if the value has been set.
-func (o *WebhookheaderResponseCompound) GetFkiWebhookIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FkiWebhookID, true
-}
-
-// SetFkiWebhookID sets field value
-func (o *WebhookheaderResponseCompound) SetFkiWebhookID(v int32) {
-	o.FkiWebhookID = v
-}
-
-// GetSWebhookheaderName returns the SWebhookheaderName field value
-func (o *WebhookheaderResponseCompound) GetSWebhookheaderName() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SWebhookheaderName
-}
-
-// GetSWebhookheaderNameOk returns a tuple with the SWebhookheaderName field value
-// and a boolean to check if the value has been set.
-func (o *WebhookheaderResponseCompound) GetSWebhookheaderNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SWebhookheaderName, true
-}
-
-// SetSWebhookheaderName sets field value
-func (o *WebhookheaderResponseCompound) SetSWebhookheaderName(v string) {
-	o.SWebhookheaderName = v
-}
-
-// GetSWebhookheaderValue returns the SWebhookheaderValue field value
-func (o *WebhookheaderResponseCompound) GetSWebhookheaderValue() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SWebhookheaderValue
-}
-
-// GetSWebhookheaderValueOk returns a tuple with the SWebhookheaderValue field value
-// and a boolean to check if the value has been set.
-func (o *WebhookheaderResponseCompound) GetSWebhookheaderValueOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SWebhookheaderValue, true
-}
-
-// SetSWebhookheaderValue sets field value
-func (o *WebhookheaderResponseCompound) SetSWebhookheaderValue(v string) {
-	o.SWebhookheaderValue = v
-}
-
 func (o WebhookheaderResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -161,10 +58,6 @@ func (o WebhookheaderResponseCompound) MarshalJSON() ([]byte, error) {
 
 func (o WebhookheaderResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["pkiWebhookheaderID"] = o.PkiWebhookheaderID
-	toSerialize["fkiWebhookID"] = o.FkiWebhookID
-	toSerialize["sWebhookheaderName"] = o.SWebhookheaderName
-	toSerialize["sWebhookheaderValue"] = o.SWebhookheaderValue
 	return toSerialize, nil
 }
 

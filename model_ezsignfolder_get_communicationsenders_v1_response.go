@@ -22,8 +22,7 @@ var _ MappedNullable = &EzsignfolderGetCommunicationsendersV1Response{}
 
 // EzsignfolderGetCommunicationsendersV1Response Response for GET /1/object/ezsignfolder/{pkiEzsignfolderID}/getCommunicationrecipients
 type EzsignfolderGetCommunicationsendersV1Response struct {
-	ObjDebugPayload CommonResponseObjDebugPayload `json:"objDebugPayload"`
-	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
+	CommonResponse
 	MPayload EzsignfolderGetCommunicationsendersV1ResponseMPayload `json:"mPayload"`
 }
 
@@ -33,7 +32,7 @@ type _EzsignfolderGetCommunicationsendersV1Response EzsignfolderGetCommunication
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfolderGetCommunicationsendersV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload EzsignfolderGetCommunicationsendersV1ResponseMPayload) *EzsignfolderGetCommunicationsendersV1Response {
+func NewEzsignfolderGetCommunicationsendersV1Response(mPayload EzsignfolderGetCommunicationsendersV1ResponseMPayload, objDebugPayload CommonResponseObjDebugPayload) *EzsignfolderGetCommunicationsendersV1Response {
 	this := EzsignfolderGetCommunicationsendersV1Response{}
 	this.ObjDebugPayload = objDebugPayload
 	this.MPayload = mPayload
@@ -46,62 +45,6 @@ func NewEzsignfolderGetCommunicationsendersV1Response(objDebugPayload CommonResp
 func NewEzsignfolderGetCommunicationsendersV1ResponseWithDefaults() *EzsignfolderGetCommunicationsendersV1Response {
 	this := EzsignfolderGetCommunicationsendersV1Response{}
 	return &this
-}
-
-// GetObjDebugPayload returns the ObjDebugPayload field value
-func (o *EzsignfolderGetCommunicationsendersV1Response) GetObjDebugPayload() CommonResponseObjDebugPayload {
-	if o == nil {
-		var ret CommonResponseObjDebugPayload
-		return ret
-	}
-
-	return o.ObjDebugPayload
-}
-
-// GetObjDebugPayloadOk returns a tuple with the ObjDebugPayload field value
-// and a boolean to check if the value has been set.
-func (o *EzsignfolderGetCommunicationsendersV1Response) GetObjDebugPayloadOk() (*CommonResponseObjDebugPayload, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ObjDebugPayload, true
-}
-
-// SetObjDebugPayload sets field value
-func (o *EzsignfolderGetCommunicationsendersV1Response) SetObjDebugPayload(v CommonResponseObjDebugPayload) {
-	o.ObjDebugPayload = v
-}
-
-// GetObjDebug returns the ObjDebug field value if set, zero value otherwise.
-func (o *EzsignfolderGetCommunicationsendersV1Response) GetObjDebug() CommonResponseObjDebug {
-	if o == nil || IsNil(o.ObjDebug) {
-		var ret CommonResponseObjDebug
-		return ret
-	}
-	return *o.ObjDebug
-}
-
-// GetObjDebugOk returns a tuple with the ObjDebug field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *EzsignfolderGetCommunicationsendersV1Response) GetObjDebugOk() (*CommonResponseObjDebug, bool) {
-	if o == nil || IsNil(o.ObjDebug) {
-		return nil, false
-	}
-	return o.ObjDebug, true
-}
-
-// HasObjDebug returns a boolean if a field has been set.
-func (o *EzsignfolderGetCommunicationsendersV1Response) HasObjDebug() bool {
-	if o != nil && !IsNil(o.ObjDebug) {
-		return true
-	}
-
-	return false
-}
-
-// SetObjDebug gets a reference to the given CommonResponseObjDebug and assigns it to the ObjDebug field.
-func (o *EzsignfolderGetCommunicationsendersV1Response) SetObjDebug(v CommonResponseObjDebug) {
-	o.ObjDebug = &v
 }
 
 // GetMPayload returns the MPayload field value
@@ -138,10 +81,6 @@ func (o EzsignfolderGetCommunicationsendersV1Response) MarshalJSON() ([]byte, er
 
 func (o EzsignfolderGetCommunicationsendersV1Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["objDebugPayload"] = o.ObjDebugPayload
-	if !IsNil(o.ObjDebug) {
-		toSerialize["objDebug"] = o.ObjDebug
-	}
 	toSerialize["mPayload"] = o.MPayload
 	return toSerialize, nil
 }
@@ -151,8 +90,8 @@ func (o *EzsignfolderGetCommunicationsendersV1Response) UnmarshalJSON(data []byt
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"objDebugPayload",
 		"mPayload",
+		"objDebugPayload",
 	}
 
 	allProperties := make(map[string]interface{})

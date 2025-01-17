@@ -22,25 +22,7 @@ var _ MappedNullable = &ContactRequestCompoundV2{}
 
 // ContactRequestCompoundV2 A Contact Object and children to create a complete structure
 type ContactRequestCompoundV2 struct {
-	// The unique ID of the Contacttitle.  Valid values:  |Value|Description| |-|-| |1|Ms.| |2|Mr.| |4|(Blank)| |5|Me (For Notaries)|
-	FkiContacttitleID int32 `json:"fkiContacttitleID"`
-	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
-	FkiLanguageID int32 `json:"fkiLanguageID"`
-	EContactType FieldEContactType `json:"eContactType"`
-	// The First name of the contact
-	SContactFirstname string `json:"sContactFirstname"`
-	// The Last name of the contact
-	SContactLastname string `json:"sContactLastname"`
-	// The Company name of the contact
-	SContactCompany *string `json:"sContactCompany,omitempty"`
-	// The Birth Date of the contact
-	DtContactBirthdate *string `json:"dtContactBirthdate,omitempty"`
-	// The occupation of the Contact
-	SContactOccupation *string `json:"sContactOccupation,omitempty" validate:"regexp=^.{0,50}$"`
-	// The note of the Contact
-	TContactNote *string `json:"tContactNote,omitempty" validate:"regexp=^.{0,32000}$"`
-	// Whether the contact is active or not
-	BContactIsactive *bool `json:"bContactIsactive,omitempty"`
+	ContactRequestV2
 	ObjContactinformations ContactinformationsRequestCompoundV2 `json:"objContactinformations"`
 }
 
@@ -50,7 +32,7 @@ type _ContactRequestCompoundV2 ContactRequestCompoundV2
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewContactRequestCompoundV2(fkiContacttitleID int32, fkiLanguageID int32, eContactType FieldEContactType, sContactFirstname string, sContactLastname string, objContactinformations ContactinformationsRequestCompoundV2) *ContactRequestCompoundV2 {
+func NewContactRequestCompoundV2(objContactinformations ContactinformationsRequestCompoundV2, fkiContacttitleID int32, fkiLanguageID int32, eContactType FieldEContactType, sContactFirstname string, sContactLastname string) *ContactRequestCompoundV2 {
 	this := ContactRequestCompoundV2{}
 	this.FkiContacttitleID = fkiContacttitleID
 	this.FkiLanguageID = fkiLanguageID
@@ -67,286 +49,6 @@ func NewContactRequestCompoundV2(fkiContacttitleID int32, fkiLanguageID int32, e
 func NewContactRequestCompoundV2WithDefaults() *ContactRequestCompoundV2 {
 	this := ContactRequestCompoundV2{}
 	return &this
-}
-
-// GetFkiContacttitleID returns the FkiContacttitleID field value
-func (o *ContactRequestCompoundV2) GetFkiContacttitleID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.FkiContacttitleID
-}
-
-// GetFkiContacttitleIDOk returns a tuple with the FkiContacttitleID field value
-// and a boolean to check if the value has been set.
-func (o *ContactRequestCompoundV2) GetFkiContacttitleIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FkiContacttitleID, true
-}
-
-// SetFkiContacttitleID sets field value
-func (o *ContactRequestCompoundV2) SetFkiContacttitleID(v int32) {
-	o.FkiContacttitleID = v
-}
-
-// GetFkiLanguageID returns the FkiLanguageID field value
-func (o *ContactRequestCompoundV2) GetFkiLanguageID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.FkiLanguageID
-}
-
-// GetFkiLanguageIDOk returns a tuple with the FkiLanguageID field value
-// and a boolean to check if the value has been set.
-func (o *ContactRequestCompoundV2) GetFkiLanguageIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FkiLanguageID, true
-}
-
-// SetFkiLanguageID sets field value
-func (o *ContactRequestCompoundV2) SetFkiLanguageID(v int32) {
-	o.FkiLanguageID = v
-}
-
-// GetEContactType returns the EContactType field value
-func (o *ContactRequestCompoundV2) GetEContactType() FieldEContactType {
-	if o == nil {
-		var ret FieldEContactType
-		return ret
-	}
-
-	return o.EContactType
-}
-
-// GetEContactTypeOk returns a tuple with the EContactType field value
-// and a boolean to check if the value has been set.
-func (o *ContactRequestCompoundV2) GetEContactTypeOk() (*FieldEContactType, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.EContactType, true
-}
-
-// SetEContactType sets field value
-func (o *ContactRequestCompoundV2) SetEContactType(v FieldEContactType) {
-	o.EContactType = v
-}
-
-// GetSContactFirstname returns the SContactFirstname field value
-func (o *ContactRequestCompoundV2) GetSContactFirstname() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SContactFirstname
-}
-
-// GetSContactFirstnameOk returns a tuple with the SContactFirstname field value
-// and a boolean to check if the value has been set.
-func (o *ContactRequestCompoundV2) GetSContactFirstnameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SContactFirstname, true
-}
-
-// SetSContactFirstname sets field value
-func (o *ContactRequestCompoundV2) SetSContactFirstname(v string) {
-	o.SContactFirstname = v
-}
-
-// GetSContactLastname returns the SContactLastname field value
-func (o *ContactRequestCompoundV2) GetSContactLastname() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SContactLastname
-}
-
-// GetSContactLastnameOk returns a tuple with the SContactLastname field value
-// and a boolean to check if the value has been set.
-func (o *ContactRequestCompoundV2) GetSContactLastnameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SContactLastname, true
-}
-
-// SetSContactLastname sets field value
-func (o *ContactRequestCompoundV2) SetSContactLastname(v string) {
-	o.SContactLastname = v
-}
-
-// GetSContactCompany returns the SContactCompany field value if set, zero value otherwise.
-func (o *ContactRequestCompoundV2) GetSContactCompany() string {
-	if o == nil || IsNil(o.SContactCompany) {
-		var ret string
-		return ret
-	}
-	return *o.SContactCompany
-}
-
-// GetSContactCompanyOk returns a tuple with the SContactCompany field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ContactRequestCompoundV2) GetSContactCompanyOk() (*string, bool) {
-	if o == nil || IsNil(o.SContactCompany) {
-		return nil, false
-	}
-	return o.SContactCompany, true
-}
-
-// HasSContactCompany returns a boolean if a field has been set.
-func (o *ContactRequestCompoundV2) HasSContactCompany() bool {
-	if o != nil && !IsNil(o.SContactCompany) {
-		return true
-	}
-
-	return false
-}
-
-// SetSContactCompany gets a reference to the given string and assigns it to the SContactCompany field.
-func (o *ContactRequestCompoundV2) SetSContactCompany(v string) {
-	o.SContactCompany = &v
-}
-
-// GetDtContactBirthdate returns the DtContactBirthdate field value if set, zero value otherwise.
-func (o *ContactRequestCompoundV2) GetDtContactBirthdate() string {
-	if o == nil || IsNil(o.DtContactBirthdate) {
-		var ret string
-		return ret
-	}
-	return *o.DtContactBirthdate
-}
-
-// GetDtContactBirthdateOk returns a tuple with the DtContactBirthdate field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ContactRequestCompoundV2) GetDtContactBirthdateOk() (*string, bool) {
-	if o == nil || IsNil(o.DtContactBirthdate) {
-		return nil, false
-	}
-	return o.DtContactBirthdate, true
-}
-
-// HasDtContactBirthdate returns a boolean if a field has been set.
-func (o *ContactRequestCompoundV2) HasDtContactBirthdate() bool {
-	if o != nil && !IsNil(o.DtContactBirthdate) {
-		return true
-	}
-
-	return false
-}
-
-// SetDtContactBirthdate gets a reference to the given string and assigns it to the DtContactBirthdate field.
-func (o *ContactRequestCompoundV2) SetDtContactBirthdate(v string) {
-	o.DtContactBirthdate = &v
-}
-
-// GetSContactOccupation returns the SContactOccupation field value if set, zero value otherwise.
-func (o *ContactRequestCompoundV2) GetSContactOccupation() string {
-	if o == nil || IsNil(o.SContactOccupation) {
-		var ret string
-		return ret
-	}
-	return *o.SContactOccupation
-}
-
-// GetSContactOccupationOk returns a tuple with the SContactOccupation field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ContactRequestCompoundV2) GetSContactOccupationOk() (*string, bool) {
-	if o == nil || IsNil(o.SContactOccupation) {
-		return nil, false
-	}
-	return o.SContactOccupation, true
-}
-
-// HasSContactOccupation returns a boolean if a field has been set.
-func (o *ContactRequestCompoundV2) HasSContactOccupation() bool {
-	if o != nil && !IsNil(o.SContactOccupation) {
-		return true
-	}
-
-	return false
-}
-
-// SetSContactOccupation gets a reference to the given string and assigns it to the SContactOccupation field.
-func (o *ContactRequestCompoundV2) SetSContactOccupation(v string) {
-	o.SContactOccupation = &v
-}
-
-// GetTContactNote returns the TContactNote field value if set, zero value otherwise.
-func (o *ContactRequestCompoundV2) GetTContactNote() string {
-	if o == nil || IsNil(o.TContactNote) {
-		var ret string
-		return ret
-	}
-	return *o.TContactNote
-}
-
-// GetTContactNoteOk returns a tuple with the TContactNote field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ContactRequestCompoundV2) GetTContactNoteOk() (*string, bool) {
-	if o == nil || IsNil(o.TContactNote) {
-		return nil, false
-	}
-	return o.TContactNote, true
-}
-
-// HasTContactNote returns a boolean if a field has been set.
-func (o *ContactRequestCompoundV2) HasTContactNote() bool {
-	if o != nil && !IsNil(o.TContactNote) {
-		return true
-	}
-
-	return false
-}
-
-// SetTContactNote gets a reference to the given string and assigns it to the TContactNote field.
-func (o *ContactRequestCompoundV2) SetTContactNote(v string) {
-	o.TContactNote = &v
-}
-
-// GetBContactIsactive returns the BContactIsactive field value if set, zero value otherwise.
-func (o *ContactRequestCompoundV2) GetBContactIsactive() bool {
-	if o == nil || IsNil(o.BContactIsactive) {
-		var ret bool
-		return ret
-	}
-	return *o.BContactIsactive
-}
-
-// GetBContactIsactiveOk returns a tuple with the BContactIsactive field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ContactRequestCompoundV2) GetBContactIsactiveOk() (*bool, bool) {
-	if o == nil || IsNil(o.BContactIsactive) {
-		return nil, false
-	}
-	return o.BContactIsactive, true
-}
-
-// HasBContactIsactive returns a boolean if a field has been set.
-func (o *ContactRequestCompoundV2) HasBContactIsactive() bool {
-	if o != nil && !IsNil(o.BContactIsactive) {
-		return true
-	}
-
-	return false
-}
-
-// SetBContactIsactive gets a reference to the given bool and assigns it to the BContactIsactive field.
-func (o *ContactRequestCompoundV2) SetBContactIsactive(v bool) {
-	o.BContactIsactive = &v
 }
 
 // GetObjContactinformations returns the ObjContactinformations field value
@@ -383,26 +85,6 @@ func (o ContactRequestCompoundV2) MarshalJSON() ([]byte, error) {
 
 func (o ContactRequestCompoundV2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["fkiContacttitleID"] = o.FkiContacttitleID
-	toSerialize["fkiLanguageID"] = o.FkiLanguageID
-	toSerialize["eContactType"] = o.EContactType
-	toSerialize["sContactFirstname"] = o.SContactFirstname
-	toSerialize["sContactLastname"] = o.SContactLastname
-	if !IsNil(o.SContactCompany) {
-		toSerialize["sContactCompany"] = o.SContactCompany
-	}
-	if !IsNil(o.DtContactBirthdate) {
-		toSerialize["dtContactBirthdate"] = o.DtContactBirthdate
-	}
-	if !IsNil(o.SContactOccupation) {
-		toSerialize["sContactOccupation"] = o.SContactOccupation
-	}
-	if !IsNil(o.TContactNote) {
-		toSerialize["tContactNote"] = o.TContactNote
-	}
-	if !IsNil(o.BContactIsactive) {
-		toSerialize["bContactIsactive"] = o.BContactIsactive
-	}
 	toSerialize["objContactinformations"] = o.ObjContactinformations
 	return toSerialize, nil
 }
@@ -412,12 +94,12 @@ func (o *ContactRequestCompoundV2) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"objContactinformations",
 		"fkiContacttitleID",
 		"fkiLanguageID",
 		"eContactType",
 		"sContactFirstname",
 		"sContactLastname",
-		"objContactinformations",
 	}
 
 	allProperties := make(map[string]interface{})

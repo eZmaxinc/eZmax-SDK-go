@@ -22,10 +22,7 @@ var _ MappedNullable = &EzsigntemplateGetListV1ResponseMPayload{}
 
 // EzsigntemplateGetListV1ResponseMPayload Payload for GET /1/object/ezsigntemplate/getList
 type EzsigntemplateGetListV1ResponseMPayload struct {
-	// The number of rows returned
-	IRowReturned int32 `json:"iRowReturned"`
-	// The number of rows matching your filters (if any) or the total number of rows
-	IRowFiltered int32 `json:"iRowFiltered"`
+	CommonGetListV1ResponseMPayload
 	AObjEzsigntemplate []EzsigntemplateListElement `json:"a_objEzsigntemplate"`
 }
 
@@ -35,7 +32,7 @@ type _EzsigntemplateGetListV1ResponseMPayload EzsigntemplateGetListV1ResponseMPa
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigntemplateGetListV1ResponseMPayload(iRowReturned int32, iRowFiltered int32, aObjEzsigntemplate []EzsigntemplateListElement) *EzsigntemplateGetListV1ResponseMPayload {
+func NewEzsigntemplateGetListV1ResponseMPayload(aObjEzsigntemplate []EzsigntemplateListElement, iRowReturned int32, iRowFiltered int32) *EzsigntemplateGetListV1ResponseMPayload {
 	this := EzsigntemplateGetListV1ResponseMPayload{}
 	this.IRowReturned = iRowReturned
 	this.IRowFiltered = iRowFiltered
@@ -49,54 +46,6 @@ func NewEzsigntemplateGetListV1ResponseMPayload(iRowReturned int32, iRowFiltered
 func NewEzsigntemplateGetListV1ResponseMPayloadWithDefaults() *EzsigntemplateGetListV1ResponseMPayload {
 	this := EzsigntemplateGetListV1ResponseMPayload{}
 	return &this
-}
-
-// GetIRowReturned returns the IRowReturned field value
-func (o *EzsigntemplateGetListV1ResponseMPayload) GetIRowReturned() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.IRowReturned
-}
-
-// GetIRowReturnedOk returns a tuple with the IRowReturned field value
-// and a boolean to check if the value has been set.
-func (o *EzsigntemplateGetListV1ResponseMPayload) GetIRowReturnedOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.IRowReturned, true
-}
-
-// SetIRowReturned sets field value
-func (o *EzsigntemplateGetListV1ResponseMPayload) SetIRowReturned(v int32) {
-	o.IRowReturned = v
-}
-
-// GetIRowFiltered returns the IRowFiltered field value
-func (o *EzsigntemplateGetListV1ResponseMPayload) GetIRowFiltered() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.IRowFiltered
-}
-
-// GetIRowFilteredOk returns a tuple with the IRowFiltered field value
-// and a boolean to check if the value has been set.
-func (o *EzsigntemplateGetListV1ResponseMPayload) GetIRowFilteredOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.IRowFiltered, true
-}
-
-// SetIRowFiltered sets field value
-func (o *EzsigntemplateGetListV1ResponseMPayload) SetIRowFiltered(v int32) {
-	o.IRowFiltered = v
 }
 
 // GetAObjEzsigntemplate returns the AObjEzsigntemplate field value
@@ -133,8 +82,6 @@ func (o EzsigntemplateGetListV1ResponseMPayload) MarshalJSON() ([]byte, error) {
 
 func (o EzsigntemplateGetListV1ResponseMPayload) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["iRowReturned"] = o.IRowReturned
-	toSerialize["iRowFiltered"] = o.IRowFiltered
 	toSerialize["a_objEzsigntemplate"] = o.AObjEzsigntemplate
 	return toSerialize, nil
 }
@@ -144,9 +91,9 @@ func (o *EzsigntemplateGetListV1ResponseMPayload) UnmarshalJSON(data []byte) (er
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"a_objEzsigntemplate",
 		"iRowReturned",
 		"iRowFiltered",
-		"a_objEzsigntemplate",
 	}
 
 	allProperties := make(map[string]interface{})

@@ -22,12 +22,7 @@ var _ MappedNullable = &EzsigntemplatepackagemembershipRequestCompound{}
 
 // EzsigntemplatepackagemembershipRequestCompound A Ezsigntemplatepackagemembership Object and children
 type EzsigntemplatepackagemembershipRequestCompound struct {
-	// The unique ID of the Ezsigntemplatepackagemembership
-	PkiEzsigntemplatepackagemembershipID *int32 `json:"pkiEzsigntemplatepackagemembershipID,omitempty"`
-	// The unique ID of the Ezsigntemplatepackage
-	FkiEzsigntemplatepackageID int32 `json:"fkiEzsigntemplatepackageID"`
-	// The unique ID of the Ezsigntemplate
-	FkiEzsigntemplateID int32 `json:"fkiEzsigntemplateID"`
+	EzsigntemplatepackagemembershipRequest
 }
 
 type _EzsigntemplatepackagemembershipRequestCompound EzsigntemplatepackagemembershipRequestCompound
@@ -51,86 +46,6 @@ func NewEzsigntemplatepackagemembershipRequestCompoundWithDefaults() *Ezsigntemp
 	return &this
 }
 
-// GetPkiEzsigntemplatepackagemembershipID returns the PkiEzsigntemplatepackagemembershipID field value if set, zero value otherwise.
-func (o *EzsigntemplatepackagemembershipRequestCompound) GetPkiEzsigntemplatepackagemembershipID() int32 {
-	if o == nil || IsNil(o.PkiEzsigntemplatepackagemembershipID) {
-		var ret int32
-		return ret
-	}
-	return *o.PkiEzsigntemplatepackagemembershipID
-}
-
-// GetPkiEzsigntemplatepackagemembershipIDOk returns a tuple with the PkiEzsigntemplatepackagemembershipID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *EzsigntemplatepackagemembershipRequestCompound) GetPkiEzsigntemplatepackagemembershipIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.PkiEzsigntemplatepackagemembershipID) {
-		return nil, false
-	}
-	return o.PkiEzsigntemplatepackagemembershipID, true
-}
-
-// HasPkiEzsigntemplatepackagemembershipID returns a boolean if a field has been set.
-func (o *EzsigntemplatepackagemembershipRequestCompound) HasPkiEzsigntemplatepackagemembershipID() bool {
-	if o != nil && !IsNil(o.PkiEzsigntemplatepackagemembershipID) {
-		return true
-	}
-
-	return false
-}
-
-// SetPkiEzsigntemplatepackagemembershipID gets a reference to the given int32 and assigns it to the PkiEzsigntemplatepackagemembershipID field.
-func (o *EzsigntemplatepackagemembershipRequestCompound) SetPkiEzsigntemplatepackagemembershipID(v int32) {
-	o.PkiEzsigntemplatepackagemembershipID = &v
-}
-
-// GetFkiEzsigntemplatepackageID returns the FkiEzsigntemplatepackageID field value
-func (o *EzsigntemplatepackagemembershipRequestCompound) GetFkiEzsigntemplatepackageID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.FkiEzsigntemplatepackageID
-}
-
-// GetFkiEzsigntemplatepackageIDOk returns a tuple with the FkiEzsigntemplatepackageID field value
-// and a boolean to check if the value has been set.
-func (o *EzsigntemplatepackagemembershipRequestCompound) GetFkiEzsigntemplatepackageIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FkiEzsigntemplatepackageID, true
-}
-
-// SetFkiEzsigntemplatepackageID sets field value
-func (o *EzsigntemplatepackagemembershipRequestCompound) SetFkiEzsigntemplatepackageID(v int32) {
-	o.FkiEzsigntemplatepackageID = v
-}
-
-// GetFkiEzsigntemplateID returns the FkiEzsigntemplateID field value
-func (o *EzsigntemplatepackagemembershipRequestCompound) GetFkiEzsigntemplateID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.FkiEzsigntemplateID
-}
-
-// GetFkiEzsigntemplateIDOk returns a tuple with the FkiEzsigntemplateID field value
-// and a boolean to check if the value has been set.
-func (o *EzsigntemplatepackagemembershipRequestCompound) GetFkiEzsigntemplateIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FkiEzsigntemplateID, true
-}
-
-// SetFkiEzsigntemplateID sets field value
-func (o *EzsigntemplatepackagemembershipRequestCompound) SetFkiEzsigntemplateID(v int32) {
-	o.FkiEzsigntemplateID = v
-}
-
 func (o EzsigntemplatepackagemembershipRequestCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -141,11 +56,6 @@ func (o EzsigntemplatepackagemembershipRequestCompound) MarshalJSON() ([]byte, e
 
 func (o EzsigntemplatepackagemembershipRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.PkiEzsigntemplatepackagemembershipID) {
-		toSerialize["pkiEzsigntemplatepackagemembershipID"] = o.PkiEzsigntemplatepackagemembershipID
-	}
-	toSerialize["fkiEzsigntemplatepackageID"] = o.FkiEzsigntemplatepackageID
-	toSerialize["fkiEzsigntemplateID"] = o.FkiEzsigntemplateID
 	return toSerialize, nil
 }
 

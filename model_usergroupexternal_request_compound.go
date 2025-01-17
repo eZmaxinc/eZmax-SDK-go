@@ -22,12 +22,7 @@ var _ MappedNullable = &UsergroupexternalRequestCompound{}
 
 // UsergroupexternalRequestCompound A Usergroupexternal Object and children
 type UsergroupexternalRequestCompound struct {
-	// The unique ID of the Usergroupexternal
-	PkiUsergroupexternalID *int32 `json:"pkiUsergroupexternalID,omitempty"`
-	// The name of the Usergroupexternal
-	SUsergroupexternalName string `json:"sUsergroupexternalName" validate:"regexp=^.{0,64}$"`
-	// The id of the Usergroupexternal
-	SUsergroupexternalID string `json:"sUsergroupexternalID" validate:"regexp=^.{0,64}$"`
+	UsergroupexternalRequest
 }
 
 type _UsergroupexternalRequestCompound UsergroupexternalRequestCompound
@@ -51,86 +46,6 @@ func NewUsergroupexternalRequestCompoundWithDefaults() *UsergroupexternalRequest
 	return &this
 }
 
-// GetPkiUsergroupexternalID returns the PkiUsergroupexternalID field value if set, zero value otherwise.
-func (o *UsergroupexternalRequestCompound) GetPkiUsergroupexternalID() int32 {
-	if o == nil || IsNil(o.PkiUsergroupexternalID) {
-		var ret int32
-		return ret
-	}
-	return *o.PkiUsergroupexternalID
-}
-
-// GetPkiUsergroupexternalIDOk returns a tuple with the PkiUsergroupexternalID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *UsergroupexternalRequestCompound) GetPkiUsergroupexternalIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.PkiUsergroupexternalID) {
-		return nil, false
-	}
-	return o.PkiUsergroupexternalID, true
-}
-
-// HasPkiUsergroupexternalID returns a boolean if a field has been set.
-func (o *UsergroupexternalRequestCompound) HasPkiUsergroupexternalID() bool {
-	if o != nil && !IsNil(o.PkiUsergroupexternalID) {
-		return true
-	}
-
-	return false
-}
-
-// SetPkiUsergroupexternalID gets a reference to the given int32 and assigns it to the PkiUsergroupexternalID field.
-func (o *UsergroupexternalRequestCompound) SetPkiUsergroupexternalID(v int32) {
-	o.PkiUsergroupexternalID = &v
-}
-
-// GetSUsergroupexternalName returns the SUsergroupexternalName field value
-func (o *UsergroupexternalRequestCompound) GetSUsergroupexternalName() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SUsergroupexternalName
-}
-
-// GetSUsergroupexternalNameOk returns a tuple with the SUsergroupexternalName field value
-// and a boolean to check if the value has been set.
-func (o *UsergroupexternalRequestCompound) GetSUsergroupexternalNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SUsergroupexternalName, true
-}
-
-// SetSUsergroupexternalName sets field value
-func (o *UsergroupexternalRequestCompound) SetSUsergroupexternalName(v string) {
-	o.SUsergroupexternalName = v
-}
-
-// GetSUsergroupexternalID returns the SUsergroupexternalID field value
-func (o *UsergroupexternalRequestCompound) GetSUsergroupexternalID() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SUsergroupexternalID
-}
-
-// GetSUsergroupexternalIDOk returns a tuple with the SUsergroupexternalID field value
-// and a boolean to check if the value has been set.
-func (o *UsergroupexternalRequestCompound) GetSUsergroupexternalIDOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SUsergroupexternalID, true
-}
-
-// SetSUsergroupexternalID sets field value
-func (o *UsergroupexternalRequestCompound) SetSUsergroupexternalID(v string) {
-	o.SUsergroupexternalID = v
-}
-
 func (o UsergroupexternalRequestCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -141,11 +56,6 @@ func (o UsergroupexternalRequestCompound) MarshalJSON() ([]byte, error) {
 
 func (o UsergroupexternalRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.PkiUsergroupexternalID) {
-		toSerialize["pkiUsergroupexternalID"] = o.PkiUsergroupexternalID
-	}
-	toSerialize["sUsergroupexternalName"] = o.SUsergroupexternalName
-	toSerialize["sUsergroupexternalID"] = o.SUsergroupexternalID
 	return toSerialize, nil
 }
 

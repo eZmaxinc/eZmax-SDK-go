@@ -4,15 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjWebhook** | [**CustomWebhookResponse**](CustomWebhookResponse.md) |  | 
-**AObjAttempt** | [**[]AttemptResponse**](AttemptResponse.md) | An array containing details of previous attempts that were made to deliver the message. The array is empty if it&#39;s the first attempt. | 
 **ObjUser** | [**UserResponse**](UserResponse.md) | A User Object and children to create a complete structure | 
 
 ## Methods
 
 ### NewWebhookUserUserCreated
 
-`func NewWebhookUserUserCreated(objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound, objUser UserResponse, ) *WebhookUserUserCreated`
+`func NewWebhookUserUserCreated(objUser UserResponse, ) *WebhookUserUserCreated`
 
 NewWebhookUserUserCreated instantiates a new WebhookUserUserCreated object
 This constructor will assign default values to properties that have it defined,
@@ -26,46 +24,6 @@ will change when the set of required properties is changed
 NewWebhookUserUserCreatedWithDefaults instantiates a new WebhookUserUserCreated object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetObjWebhook
-
-`func (o *WebhookUserUserCreated) GetObjWebhook() CustomWebhookResponse`
-
-GetObjWebhook returns the ObjWebhook field if non-nil, zero value otherwise.
-
-### GetObjWebhookOk
-
-`func (o *WebhookUserUserCreated) GetObjWebhookOk() (*CustomWebhookResponse, bool)`
-
-GetObjWebhookOk returns a tuple with the ObjWebhook field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetObjWebhook
-
-`func (o *WebhookUserUserCreated) SetObjWebhook(v CustomWebhookResponse)`
-
-SetObjWebhook sets ObjWebhook field to given value.
-
-
-### GetAObjAttempt
-
-`func (o *WebhookUserUserCreated) GetAObjAttempt() []AttemptResponseCompound`
-
-GetAObjAttempt returns the AObjAttempt field if non-nil, zero value otherwise.
-
-### GetAObjAttemptOk
-
-`func (o *WebhookUserUserCreated) GetAObjAttemptOk() (*[]AttemptResponseCompound, bool)`
-
-GetAObjAttemptOk returns a tuple with the AObjAttempt field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAObjAttempt
-
-`func (o *WebhookUserUserCreated) SetAObjAttempt(v []AttemptResponseCompound)`
-
-SetAObjAttempt sets AObjAttempt field to given value.
-
 
 ### GetObjUser
 

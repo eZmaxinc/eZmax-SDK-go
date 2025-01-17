@@ -22,8 +22,7 @@ var _ MappedNullable = &EzsignannotationDeleteObjectV1Response{}
 
 // EzsignannotationDeleteObjectV1Response Response for DELETE /1/object/ezsignannotation/{pkiEzsignannotationID}
 type EzsignannotationDeleteObjectV1Response struct {
-	ObjDebugPayload CommonResponseObjDebugPayload `json:"objDebugPayload"`
-	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
+	CommonResponse
 }
 
 type _EzsignannotationDeleteObjectV1Response EzsignannotationDeleteObjectV1Response
@@ -46,62 +45,6 @@ func NewEzsignannotationDeleteObjectV1ResponseWithDefaults() *EzsignannotationDe
 	return &this
 }
 
-// GetObjDebugPayload returns the ObjDebugPayload field value
-func (o *EzsignannotationDeleteObjectV1Response) GetObjDebugPayload() CommonResponseObjDebugPayload {
-	if o == nil {
-		var ret CommonResponseObjDebugPayload
-		return ret
-	}
-
-	return o.ObjDebugPayload
-}
-
-// GetObjDebugPayloadOk returns a tuple with the ObjDebugPayload field value
-// and a boolean to check if the value has been set.
-func (o *EzsignannotationDeleteObjectV1Response) GetObjDebugPayloadOk() (*CommonResponseObjDebugPayload, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ObjDebugPayload, true
-}
-
-// SetObjDebugPayload sets field value
-func (o *EzsignannotationDeleteObjectV1Response) SetObjDebugPayload(v CommonResponseObjDebugPayload) {
-	o.ObjDebugPayload = v
-}
-
-// GetObjDebug returns the ObjDebug field value if set, zero value otherwise.
-func (o *EzsignannotationDeleteObjectV1Response) GetObjDebug() CommonResponseObjDebug {
-	if o == nil || IsNil(o.ObjDebug) {
-		var ret CommonResponseObjDebug
-		return ret
-	}
-	return *o.ObjDebug
-}
-
-// GetObjDebugOk returns a tuple with the ObjDebug field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *EzsignannotationDeleteObjectV1Response) GetObjDebugOk() (*CommonResponseObjDebug, bool) {
-	if o == nil || IsNil(o.ObjDebug) {
-		return nil, false
-	}
-	return o.ObjDebug, true
-}
-
-// HasObjDebug returns a boolean if a field has been set.
-func (o *EzsignannotationDeleteObjectV1Response) HasObjDebug() bool {
-	if o != nil && !IsNil(o.ObjDebug) {
-		return true
-	}
-
-	return false
-}
-
-// SetObjDebug gets a reference to the given CommonResponseObjDebug and assigns it to the ObjDebug field.
-func (o *EzsignannotationDeleteObjectV1Response) SetObjDebug(v CommonResponseObjDebug) {
-	o.ObjDebug = &v
-}
-
 func (o EzsignannotationDeleteObjectV1Response) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -112,10 +55,6 @@ func (o EzsignannotationDeleteObjectV1Response) MarshalJSON() ([]byte, error) {
 
 func (o EzsignannotationDeleteObjectV1Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["objDebugPayload"] = o.ObjDebugPayload
-	if !IsNil(o.ObjDebug) {
-		toSerialize["objDebug"] = o.ObjDebug
-	}
 	return toSerialize, nil
 }
 

@@ -22,12 +22,7 @@ var _ MappedNullable = &BillingentityinternalproductRequestCompound{}
 
 // BillingentityinternalproductRequestCompound A Billingentityinternalproduct Object and children
 type BillingentityinternalproductRequestCompound struct {
-	// The unique ID of the Billingentityinternalproduct
-	PkiBillingentityinternalproductID *int32 `json:"pkiBillingentityinternalproductID,omitempty"`
-	// The unique ID of the Ezmaxproduct
-	FkiEzmaxproductID int32 `json:"fkiEzmaxproductID"`
-	// The unique ID of the Billingentityexternal
-	FkiBillingentityexternalID int32 `json:"fkiBillingentityexternalID"`
+	BillingentityinternalproductRequest
 }
 
 type _BillingentityinternalproductRequestCompound BillingentityinternalproductRequestCompound
@@ -51,86 +46,6 @@ func NewBillingentityinternalproductRequestCompoundWithDefaults() *Billingentity
 	return &this
 }
 
-// GetPkiBillingentityinternalproductID returns the PkiBillingentityinternalproductID field value if set, zero value otherwise.
-func (o *BillingentityinternalproductRequestCompound) GetPkiBillingentityinternalproductID() int32 {
-	if o == nil || IsNil(o.PkiBillingentityinternalproductID) {
-		var ret int32
-		return ret
-	}
-	return *o.PkiBillingentityinternalproductID
-}
-
-// GetPkiBillingentityinternalproductIDOk returns a tuple with the PkiBillingentityinternalproductID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *BillingentityinternalproductRequestCompound) GetPkiBillingentityinternalproductIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.PkiBillingentityinternalproductID) {
-		return nil, false
-	}
-	return o.PkiBillingentityinternalproductID, true
-}
-
-// HasPkiBillingentityinternalproductID returns a boolean if a field has been set.
-func (o *BillingentityinternalproductRequestCompound) HasPkiBillingentityinternalproductID() bool {
-	if o != nil && !IsNil(o.PkiBillingentityinternalproductID) {
-		return true
-	}
-
-	return false
-}
-
-// SetPkiBillingentityinternalproductID gets a reference to the given int32 and assigns it to the PkiBillingentityinternalproductID field.
-func (o *BillingentityinternalproductRequestCompound) SetPkiBillingentityinternalproductID(v int32) {
-	o.PkiBillingentityinternalproductID = &v
-}
-
-// GetFkiEzmaxproductID returns the FkiEzmaxproductID field value
-func (o *BillingentityinternalproductRequestCompound) GetFkiEzmaxproductID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.FkiEzmaxproductID
-}
-
-// GetFkiEzmaxproductIDOk returns a tuple with the FkiEzmaxproductID field value
-// and a boolean to check if the value has been set.
-func (o *BillingentityinternalproductRequestCompound) GetFkiEzmaxproductIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FkiEzmaxproductID, true
-}
-
-// SetFkiEzmaxproductID sets field value
-func (o *BillingentityinternalproductRequestCompound) SetFkiEzmaxproductID(v int32) {
-	o.FkiEzmaxproductID = v
-}
-
-// GetFkiBillingentityexternalID returns the FkiBillingentityexternalID field value
-func (o *BillingentityinternalproductRequestCompound) GetFkiBillingentityexternalID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.FkiBillingentityexternalID
-}
-
-// GetFkiBillingentityexternalIDOk returns a tuple with the FkiBillingentityexternalID field value
-// and a boolean to check if the value has been set.
-func (o *BillingentityinternalproductRequestCompound) GetFkiBillingentityexternalIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FkiBillingentityexternalID, true
-}
-
-// SetFkiBillingentityexternalID sets field value
-func (o *BillingentityinternalproductRequestCompound) SetFkiBillingentityexternalID(v int32) {
-	o.FkiBillingentityexternalID = v
-}
-
 func (o BillingentityinternalproductRequestCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -141,11 +56,6 @@ func (o BillingentityinternalproductRequestCompound) MarshalJSON() ([]byte, erro
 
 func (o BillingentityinternalproductRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.PkiBillingentityinternalproductID) {
-		toSerialize["pkiBillingentityinternalproductID"] = o.PkiBillingentityinternalproductID
-	}
-	toSerialize["fkiEzmaxproductID"] = o.FkiEzmaxproductID
-	toSerialize["fkiBillingentityexternalID"] = o.FkiBillingentityexternalID
 	return toSerialize, nil
 }
 

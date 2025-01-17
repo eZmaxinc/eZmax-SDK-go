@@ -22,17 +22,7 @@ var _ MappedNullable = &DomainResponseCompound{}
 
 // DomainResponseCompound A Domain Object
 type DomainResponseCompound struct {
-	// The unique ID of the Domain
-	PkiDomainID int32 `json:"pkiDomainID"`
-	// The name of the Domain
-	SDomainName string `json:"sDomainName" validate:"regexp=^(?=.{4,75}$)([a-zA-Z0-9-]+\\\\.)+[a-zA-Z]{2,63}$"`
-	// Whether the DKIM is valid or not
-	BDomainValiddkim bool `json:"bDomainValiddkim"`
-	// Whether the mail from is valid or not
-	BDomainValidmailfrom bool `json:"bDomainValidmailfrom"`
-	// Whether the customer has access to it or not
-	BDomainValidcustomer bool `json:"bDomainValidcustomer"`
-	ObjAudit CommonAudit `json:"objAudit"`
+	DomainResponse
 	// 
 	AObjDnsrecord []CustomDnsrecordResponse `json:"a_objDnsrecord"`
 }
@@ -43,7 +33,7 @@ type _DomainResponseCompound DomainResponseCompound
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDomainResponseCompound(pkiDomainID int32, sDomainName string, bDomainValiddkim bool, bDomainValidmailfrom bool, bDomainValidcustomer bool, objAudit CommonAudit, aObjDnsrecord []CustomDnsrecordResponse) *DomainResponseCompound {
+func NewDomainResponseCompound(aObjDnsrecord []CustomDnsrecordResponse, pkiDomainID int32, sDomainName string, bDomainValiddkim bool, bDomainValidmailfrom bool, bDomainValidcustomer bool, objAudit CommonAudit) *DomainResponseCompound {
 	this := DomainResponseCompound{}
 	this.PkiDomainID = pkiDomainID
 	this.SDomainName = sDomainName
@@ -61,150 +51,6 @@ func NewDomainResponseCompound(pkiDomainID int32, sDomainName string, bDomainVal
 func NewDomainResponseCompoundWithDefaults() *DomainResponseCompound {
 	this := DomainResponseCompound{}
 	return &this
-}
-
-// GetPkiDomainID returns the PkiDomainID field value
-func (o *DomainResponseCompound) GetPkiDomainID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.PkiDomainID
-}
-
-// GetPkiDomainIDOk returns a tuple with the PkiDomainID field value
-// and a boolean to check if the value has been set.
-func (o *DomainResponseCompound) GetPkiDomainIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.PkiDomainID, true
-}
-
-// SetPkiDomainID sets field value
-func (o *DomainResponseCompound) SetPkiDomainID(v int32) {
-	o.PkiDomainID = v
-}
-
-// GetSDomainName returns the SDomainName field value
-func (o *DomainResponseCompound) GetSDomainName() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SDomainName
-}
-
-// GetSDomainNameOk returns a tuple with the SDomainName field value
-// and a boolean to check if the value has been set.
-func (o *DomainResponseCompound) GetSDomainNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SDomainName, true
-}
-
-// SetSDomainName sets field value
-func (o *DomainResponseCompound) SetSDomainName(v string) {
-	o.SDomainName = v
-}
-
-// GetBDomainValiddkim returns the BDomainValiddkim field value
-func (o *DomainResponseCompound) GetBDomainValiddkim() bool {
-	if o == nil {
-		var ret bool
-		return ret
-	}
-
-	return o.BDomainValiddkim
-}
-
-// GetBDomainValiddkimOk returns a tuple with the BDomainValiddkim field value
-// and a boolean to check if the value has been set.
-func (o *DomainResponseCompound) GetBDomainValiddkimOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BDomainValiddkim, true
-}
-
-// SetBDomainValiddkim sets field value
-func (o *DomainResponseCompound) SetBDomainValiddkim(v bool) {
-	o.BDomainValiddkim = v
-}
-
-// GetBDomainValidmailfrom returns the BDomainValidmailfrom field value
-func (o *DomainResponseCompound) GetBDomainValidmailfrom() bool {
-	if o == nil {
-		var ret bool
-		return ret
-	}
-
-	return o.BDomainValidmailfrom
-}
-
-// GetBDomainValidmailfromOk returns a tuple with the BDomainValidmailfrom field value
-// and a boolean to check if the value has been set.
-func (o *DomainResponseCompound) GetBDomainValidmailfromOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BDomainValidmailfrom, true
-}
-
-// SetBDomainValidmailfrom sets field value
-func (o *DomainResponseCompound) SetBDomainValidmailfrom(v bool) {
-	o.BDomainValidmailfrom = v
-}
-
-// GetBDomainValidcustomer returns the BDomainValidcustomer field value
-func (o *DomainResponseCompound) GetBDomainValidcustomer() bool {
-	if o == nil {
-		var ret bool
-		return ret
-	}
-
-	return o.BDomainValidcustomer
-}
-
-// GetBDomainValidcustomerOk returns a tuple with the BDomainValidcustomer field value
-// and a boolean to check if the value has been set.
-func (o *DomainResponseCompound) GetBDomainValidcustomerOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BDomainValidcustomer, true
-}
-
-// SetBDomainValidcustomer sets field value
-func (o *DomainResponseCompound) SetBDomainValidcustomer(v bool) {
-	o.BDomainValidcustomer = v
-}
-
-// GetObjAudit returns the ObjAudit field value
-func (o *DomainResponseCompound) GetObjAudit() CommonAudit {
-	if o == nil {
-		var ret CommonAudit
-		return ret
-	}
-
-	return o.ObjAudit
-}
-
-// GetObjAuditOk returns a tuple with the ObjAudit field value
-// and a boolean to check if the value has been set.
-func (o *DomainResponseCompound) GetObjAuditOk() (*CommonAudit, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ObjAudit, true
-}
-
-// SetObjAudit sets field value
-func (o *DomainResponseCompound) SetObjAudit(v CommonAudit) {
-	o.ObjAudit = v
 }
 
 // GetAObjDnsrecord returns the AObjDnsrecord field value
@@ -241,12 +87,6 @@ func (o DomainResponseCompound) MarshalJSON() ([]byte, error) {
 
 func (o DomainResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["pkiDomainID"] = o.PkiDomainID
-	toSerialize["sDomainName"] = o.SDomainName
-	toSerialize["bDomainValiddkim"] = o.BDomainValiddkim
-	toSerialize["bDomainValidmailfrom"] = o.BDomainValidmailfrom
-	toSerialize["bDomainValidcustomer"] = o.BDomainValidcustomer
-	toSerialize["objAudit"] = o.ObjAudit
 	toSerialize["a_objDnsrecord"] = o.AObjDnsrecord
 	return toSerialize, nil
 }
@@ -256,13 +96,13 @@ func (o *DomainResponseCompound) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"a_objDnsrecord",
 		"pkiDomainID",
 		"sDomainName",
 		"bDomainValiddkim",
 		"bDomainValidmailfrom",
 		"bDomainValidcustomer",
 		"objAudit",
-		"a_objDnsrecord",
 	}
 
 	allProperties := make(map[string]interface{})

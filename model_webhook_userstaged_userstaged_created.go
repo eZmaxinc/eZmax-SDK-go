@@ -22,9 +22,7 @@ var _ MappedNullable = &WebhookUserstagedUserstagedCreated{}
 
 // WebhookUserstagedUserstagedCreated This is the base Webhook object
 type WebhookUserstagedUserstagedCreated struct {
-	ObjWebhook CustomWebhookResponse `json:"objWebhook"`
-	// An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.
-	AObjAttempt []AttemptResponseCompound `json:"a_objAttempt"`
+	CommonWebhook
 	// A Userstaged Object
 	ObjUserstaged UserstagedResponse `json:"objUserstaged"`
 }
@@ -35,7 +33,7 @@ type _WebhookUserstagedUserstagedCreated WebhookUserstagedUserstagedCreated
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWebhookUserstagedUserstagedCreated(objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound, objUserstaged UserstagedResponse) *WebhookUserstagedUserstagedCreated {
+func NewWebhookUserstagedUserstagedCreated(objUserstaged UserstagedResponse, objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound) *WebhookUserstagedUserstagedCreated {
 	this := WebhookUserstagedUserstagedCreated{}
 	this.ObjWebhook = objWebhook
 	this.AObjAttempt = aObjAttempt
@@ -49,54 +47,6 @@ func NewWebhookUserstagedUserstagedCreated(objWebhook CustomWebhookResponse, aOb
 func NewWebhookUserstagedUserstagedCreatedWithDefaults() *WebhookUserstagedUserstagedCreated {
 	this := WebhookUserstagedUserstagedCreated{}
 	return &this
-}
-
-// GetObjWebhook returns the ObjWebhook field value
-func (o *WebhookUserstagedUserstagedCreated) GetObjWebhook() CustomWebhookResponse {
-	if o == nil {
-		var ret CustomWebhookResponse
-		return ret
-	}
-
-	return o.ObjWebhook
-}
-
-// GetObjWebhookOk returns a tuple with the ObjWebhook field value
-// and a boolean to check if the value has been set.
-func (o *WebhookUserstagedUserstagedCreated) GetObjWebhookOk() (*CustomWebhookResponse, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ObjWebhook, true
-}
-
-// SetObjWebhook sets field value
-func (o *WebhookUserstagedUserstagedCreated) SetObjWebhook(v CustomWebhookResponse) {
-	o.ObjWebhook = v
-}
-
-// GetAObjAttempt returns the AObjAttempt field value
-func (o *WebhookUserstagedUserstagedCreated) GetAObjAttempt() []AttemptResponseCompound {
-	if o == nil {
-		var ret []AttemptResponseCompound
-		return ret
-	}
-
-	return o.AObjAttempt
-}
-
-// GetAObjAttemptOk returns a tuple with the AObjAttempt field value
-// and a boolean to check if the value has been set.
-func (o *WebhookUserstagedUserstagedCreated) GetAObjAttemptOk() ([]AttemptResponseCompound, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.AObjAttempt, true
-}
-
-// SetAObjAttempt sets field value
-func (o *WebhookUserstagedUserstagedCreated) SetAObjAttempt(v []AttemptResponseCompound) {
-	o.AObjAttempt = v
 }
 
 // GetObjUserstaged returns the ObjUserstaged field value
@@ -133,8 +83,6 @@ func (o WebhookUserstagedUserstagedCreated) MarshalJSON() ([]byte, error) {
 
 func (o WebhookUserstagedUserstagedCreated) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["objWebhook"] = o.ObjWebhook
-	toSerialize["a_objAttempt"] = o.AObjAttempt
 	toSerialize["objUserstaged"] = o.ObjUserstaged
 	return toSerialize, nil
 }
@@ -144,9 +92,9 @@ func (o *WebhookUserstagedUserstagedCreated) UnmarshalJSON(data []byte) (err err
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"objUserstaged",
 		"objWebhook",
 		"a_objAttempt",
-		"objUserstaged",
 	}
 
 	allProperties := make(map[string]interface{})

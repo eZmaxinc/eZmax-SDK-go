@@ -22,9 +22,7 @@ var _ MappedNullable = &WebhookUserUserCreated{}
 
 // WebhookUserUserCreated This is the base Webhook object
 type WebhookUserUserCreated struct {
-	ObjWebhook CustomWebhookResponse `json:"objWebhook"`
-	// An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.
-	AObjAttempt []AttemptResponseCompound `json:"a_objAttempt"`
+	CommonWebhook
 	// A User Object and children to create a complete structure
 	ObjUser UserResponse `json:"objUser"`
 }
@@ -35,7 +33,7 @@ type _WebhookUserUserCreated WebhookUserUserCreated
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWebhookUserUserCreated(objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound, objUser UserResponse) *WebhookUserUserCreated {
+func NewWebhookUserUserCreated(objUser UserResponse, objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound) *WebhookUserUserCreated {
 	this := WebhookUserUserCreated{}
 	this.ObjWebhook = objWebhook
 	this.AObjAttempt = aObjAttempt
@@ -49,54 +47,6 @@ func NewWebhookUserUserCreated(objWebhook CustomWebhookResponse, aObjAttempt []A
 func NewWebhookUserUserCreatedWithDefaults() *WebhookUserUserCreated {
 	this := WebhookUserUserCreated{}
 	return &this
-}
-
-// GetObjWebhook returns the ObjWebhook field value
-func (o *WebhookUserUserCreated) GetObjWebhook() CustomWebhookResponse {
-	if o == nil {
-		var ret CustomWebhookResponse
-		return ret
-	}
-
-	return o.ObjWebhook
-}
-
-// GetObjWebhookOk returns a tuple with the ObjWebhook field value
-// and a boolean to check if the value has been set.
-func (o *WebhookUserUserCreated) GetObjWebhookOk() (*CustomWebhookResponse, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ObjWebhook, true
-}
-
-// SetObjWebhook sets field value
-func (o *WebhookUserUserCreated) SetObjWebhook(v CustomWebhookResponse) {
-	o.ObjWebhook = v
-}
-
-// GetAObjAttempt returns the AObjAttempt field value
-func (o *WebhookUserUserCreated) GetAObjAttempt() []AttemptResponseCompound {
-	if o == nil {
-		var ret []AttemptResponseCompound
-		return ret
-	}
-
-	return o.AObjAttempt
-}
-
-// GetAObjAttemptOk returns a tuple with the AObjAttempt field value
-// and a boolean to check if the value has been set.
-func (o *WebhookUserUserCreated) GetAObjAttemptOk() ([]AttemptResponseCompound, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.AObjAttempt, true
-}
-
-// SetAObjAttempt sets field value
-func (o *WebhookUserUserCreated) SetAObjAttempt(v []AttemptResponseCompound) {
-	o.AObjAttempt = v
 }
 
 // GetObjUser returns the ObjUser field value
@@ -133,8 +83,6 @@ func (o WebhookUserUserCreated) MarshalJSON() ([]byte, error) {
 
 func (o WebhookUserUserCreated) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["objWebhook"] = o.ObjWebhook
-	toSerialize["a_objAttempt"] = o.AObjAttempt
 	toSerialize["objUser"] = o.ObjUser
 	return toSerialize, nil
 }
@@ -144,9 +92,9 @@ func (o *WebhookUserUserCreated) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"objUser",
 		"objWebhook",
 		"a_objAttempt",
-		"objUser",
 	}
 
 	allProperties := make(map[string]interface{})

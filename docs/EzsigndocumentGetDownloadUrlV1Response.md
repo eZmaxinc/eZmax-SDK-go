@@ -4,15 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjDebugPayload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
-**ObjDebug** | Pointer to [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **MPayload** | [**EzsigndocumentGetDownloadUrlV1ResponseMPayload**](EzsigndocumentGetDownloadUrlV1ResponseMPayload.md) |  | 
 
 ## Methods
 
 ### NewEzsigndocumentGetDownloadUrlV1Response
 
-`func NewEzsigndocumentGetDownloadUrlV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload EzsigndocumentGetDownloadUrlV1ResponseMPayload, ) *EzsigndocumentGetDownloadUrlV1Response`
+`func NewEzsigndocumentGetDownloadUrlV1Response(mPayload EzsigndocumentGetDownloadUrlV1ResponseMPayload, ) *EzsigndocumentGetDownloadUrlV1Response`
 
 NewEzsigndocumentGetDownloadUrlV1Response instantiates a new EzsigndocumentGetDownloadUrlV1Response object
 This constructor will assign default values to properties that have it defined,
@@ -26,51 +24,6 @@ will change when the set of required properties is changed
 NewEzsigndocumentGetDownloadUrlV1ResponseWithDefaults instantiates a new EzsigndocumentGetDownloadUrlV1Response object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetObjDebugPayload
-
-`func (o *EzsigndocumentGetDownloadUrlV1Response) GetObjDebugPayload() CommonResponseObjDebugPayload`
-
-GetObjDebugPayload returns the ObjDebugPayload field if non-nil, zero value otherwise.
-
-### GetObjDebugPayloadOk
-
-`func (o *EzsigndocumentGetDownloadUrlV1Response) GetObjDebugPayloadOk() (*CommonResponseObjDebugPayload, bool)`
-
-GetObjDebugPayloadOk returns a tuple with the ObjDebugPayload field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetObjDebugPayload
-
-`func (o *EzsigndocumentGetDownloadUrlV1Response) SetObjDebugPayload(v CommonResponseObjDebugPayload)`
-
-SetObjDebugPayload sets ObjDebugPayload field to given value.
-
-
-### GetObjDebug
-
-`func (o *EzsigndocumentGetDownloadUrlV1Response) GetObjDebug() CommonResponseObjDebug`
-
-GetObjDebug returns the ObjDebug field if non-nil, zero value otherwise.
-
-### GetObjDebugOk
-
-`func (o *EzsigndocumentGetDownloadUrlV1Response) GetObjDebugOk() (*CommonResponseObjDebug, bool)`
-
-GetObjDebugOk returns a tuple with the ObjDebug field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetObjDebug
-
-`func (o *EzsigndocumentGetDownloadUrlV1Response) SetObjDebug(v CommonResponseObjDebug)`
-
-SetObjDebug sets ObjDebug field to given value.
-
-### HasObjDebug
-
-`func (o *EzsigndocumentGetDownloadUrlV1Response) HasObjDebug() bool`
-
-HasObjDebug returns a boolean if a field has been set.
 
 ### GetMPayload
 

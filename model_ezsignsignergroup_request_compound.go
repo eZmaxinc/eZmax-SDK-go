@@ -22,11 +22,7 @@ var _ MappedNullable = &EzsignsignergroupRequestCompound{}
 
 // EzsignsignergroupRequestCompound A Ezsignsignergroup Object and children
 type EzsignsignergroupRequestCompound struct {
-	// The unique ID of the Ezsignsignergroup
-	PkiEzsignsignergroupID *int32 `json:"pkiEzsignsignergroupID,omitempty"`
-	// The unique ID of the Ezsignfolder
-	FkiEzsignfolderID int32 `json:"fkiEzsignfolderID"`
-	ObjEzsignsignergroupDescription MultilingualEzsignsignergroupDescription `json:"objEzsignsignergroupDescription"`
+	EzsignsignergroupRequest
 }
 
 type _EzsignsignergroupRequestCompound EzsignsignergroupRequestCompound
@@ -50,86 +46,6 @@ func NewEzsignsignergroupRequestCompoundWithDefaults() *EzsignsignergroupRequest
 	return &this
 }
 
-// GetPkiEzsignsignergroupID returns the PkiEzsignsignergroupID field value if set, zero value otherwise.
-func (o *EzsignsignergroupRequestCompound) GetPkiEzsignsignergroupID() int32 {
-	if o == nil || IsNil(o.PkiEzsignsignergroupID) {
-		var ret int32
-		return ret
-	}
-	return *o.PkiEzsignsignergroupID
-}
-
-// GetPkiEzsignsignergroupIDOk returns a tuple with the PkiEzsignsignergroupID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *EzsignsignergroupRequestCompound) GetPkiEzsignsignergroupIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.PkiEzsignsignergroupID) {
-		return nil, false
-	}
-	return o.PkiEzsignsignergroupID, true
-}
-
-// HasPkiEzsignsignergroupID returns a boolean if a field has been set.
-func (o *EzsignsignergroupRequestCompound) HasPkiEzsignsignergroupID() bool {
-	if o != nil && !IsNil(o.PkiEzsignsignergroupID) {
-		return true
-	}
-
-	return false
-}
-
-// SetPkiEzsignsignergroupID gets a reference to the given int32 and assigns it to the PkiEzsignsignergroupID field.
-func (o *EzsignsignergroupRequestCompound) SetPkiEzsignsignergroupID(v int32) {
-	o.PkiEzsignsignergroupID = &v
-}
-
-// GetFkiEzsignfolderID returns the FkiEzsignfolderID field value
-func (o *EzsignsignergroupRequestCompound) GetFkiEzsignfolderID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.FkiEzsignfolderID
-}
-
-// GetFkiEzsignfolderIDOk returns a tuple with the FkiEzsignfolderID field value
-// and a boolean to check if the value has been set.
-func (o *EzsignsignergroupRequestCompound) GetFkiEzsignfolderIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FkiEzsignfolderID, true
-}
-
-// SetFkiEzsignfolderID sets field value
-func (o *EzsignsignergroupRequestCompound) SetFkiEzsignfolderID(v int32) {
-	o.FkiEzsignfolderID = v
-}
-
-// GetObjEzsignsignergroupDescription returns the ObjEzsignsignergroupDescription field value
-func (o *EzsignsignergroupRequestCompound) GetObjEzsignsignergroupDescription() MultilingualEzsignsignergroupDescription {
-	if o == nil {
-		var ret MultilingualEzsignsignergroupDescription
-		return ret
-	}
-
-	return o.ObjEzsignsignergroupDescription
-}
-
-// GetObjEzsignsignergroupDescriptionOk returns a tuple with the ObjEzsignsignergroupDescription field value
-// and a boolean to check if the value has been set.
-func (o *EzsignsignergroupRequestCompound) GetObjEzsignsignergroupDescriptionOk() (*MultilingualEzsignsignergroupDescription, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ObjEzsignsignergroupDescription, true
-}
-
-// SetObjEzsignsignergroupDescription sets field value
-func (o *EzsignsignergroupRequestCompound) SetObjEzsignsignergroupDescription(v MultilingualEzsignsignergroupDescription) {
-	o.ObjEzsignsignergroupDescription = v
-}
-
 func (o EzsignsignergroupRequestCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -140,11 +56,6 @@ func (o EzsignsignergroupRequestCompound) MarshalJSON() ([]byte, error) {
 
 func (o EzsignsignergroupRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.PkiEzsignsignergroupID) {
-		toSerialize["pkiEzsignsignergroupID"] = o.PkiEzsignsignergroupID
-	}
-	toSerialize["fkiEzsignfolderID"] = o.FkiEzsignfolderID
-	toSerialize["objEzsignsignergroupDescription"] = o.ObjEzsignsignergroupDescription
 	return toSerialize, nil
 }
 

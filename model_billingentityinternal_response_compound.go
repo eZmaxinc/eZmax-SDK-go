@@ -22,9 +22,7 @@ var _ MappedNullable = &BillingentityinternalResponseCompound{}
 
 // BillingentityinternalResponseCompound A Billingentityinternal Object
 type BillingentityinternalResponseCompound struct {
-	// The unique ID of the Billingentityinternal.
-	PkiBillingentityinternalID int32 `json:"pkiBillingentityinternalID"`
-	ObjBillingentityinternalDescription MultilingualBillingentityinternalDescription `json:"objBillingentityinternalDescription"`
+	BillingentityinternalResponse
 	AObjBillingentityinternalproduct []BillingentityinternalproductResponseCompound `json:"a_objBillingentityinternalproduct"`
 }
 
@@ -34,7 +32,7 @@ type _BillingentityinternalResponseCompound BillingentityinternalResponseCompoun
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBillingentityinternalResponseCompound(pkiBillingentityinternalID int32, objBillingentityinternalDescription MultilingualBillingentityinternalDescription, aObjBillingentityinternalproduct []BillingentityinternalproductResponseCompound) *BillingentityinternalResponseCompound {
+func NewBillingentityinternalResponseCompound(aObjBillingentityinternalproduct []BillingentityinternalproductResponseCompound, pkiBillingentityinternalID int32, objBillingentityinternalDescription MultilingualBillingentityinternalDescription) *BillingentityinternalResponseCompound {
 	this := BillingentityinternalResponseCompound{}
 	this.PkiBillingentityinternalID = pkiBillingentityinternalID
 	this.ObjBillingentityinternalDescription = objBillingentityinternalDescription
@@ -48,54 +46,6 @@ func NewBillingentityinternalResponseCompound(pkiBillingentityinternalID int32, 
 func NewBillingentityinternalResponseCompoundWithDefaults() *BillingentityinternalResponseCompound {
 	this := BillingentityinternalResponseCompound{}
 	return &this
-}
-
-// GetPkiBillingentityinternalID returns the PkiBillingentityinternalID field value
-func (o *BillingentityinternalResponseCompound) GetPkiBillingentityinternalID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.PkiBillingentityinternalID
-}
-
-// GetPkiBillingentityinternalIDOk returns a tuple with the PkiBillingentityinternalID field value
-// and a boolean to check if the value has been set.
-func (o *BillingentityinternalResponseCompound) GetPkiBillingentityinternalIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.PkiBillingentityinternalID, true
-}
-
-// SetPkiBillingentityinternalID sets field value
-func (o *BillingentityinternalResponseCompound) SetPkiBillingentityinternalID(v int32) {
-	o.PkiBillingentityinternalID = v
-}
-
-// GetObjBillingentityinternalDescription returns the ObjBillingentityinternalDescription field value
-func (o *BillingentityinternalResponseCompound) GetObjBillingentityinternalDescription() MultilingualBillingentityinternalDescription {
-	if o == nil {
-		var ret MultilingualBillingentityinternalDescription
-		return ret
-	}
-
-	return o.ObjBillingentityinternalDescription
-}
-
-// GetObjBillingentityinternalDescriptionOk returns a tuple with the ObjBillingentityinternalDescription field value
-// and a boolean to check if the value has been set.
-func (o *BillingentityinternalResponseCompound) GetObjBillingentityinternalDescriptionOk() (*MultilingualBillingentityinternalDescription, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ObjBillingentityinternalDescription, true
-}
-
-// SetObjBillingentityinternalDescription sets field value
-func (o *BillingentityinternalResponseCompound) SetObjBillingentityinternalDescription(v MultilingualBillingentityinternalDescription) {
-	o.ObjBillingentityinternalDescription = v
 }
 
 // GetAObjBillingentityinternalproduct returns the AObjBillingentityinternalproduct field value
@@ -132,8 +82,6 @@ func (o BillingentityinternalResponseCompound) MarshalJSON() ([]byte, error) {
 
 func (o BillingentityinternalResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["pkiBillingentityinternalID"] = o.PkiBillingentityinternalID
-	toSerialize["objBillingentityinternalDescription"] = o.ObjBillingentityinternalDescription
 	toSerialize["a_objBillingentityinternalproduct"] = o.AObjBillingentityinternalproduct
 	return toSerialize, nil
 }
@@ -143,9 +91,9 @@ func (o *BillingentityinternalResponseCompound) UnmarshalJSON(data []byte) (err 
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"a_objBillingentityinternalproduct",
 		"pkiBillingentityinternalID",
 		"objBillingentityinternalDescription",
-		"a_objBillingentityinternalproduct",
 	}
 
 	allProperties := make(map[string]interface{})

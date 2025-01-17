@@ -33,7 +33,7 @@ import (
 )
 
 func main() {
-	billingentityinternalCreateObjectV1Request := *openapiclient.NewBillingentityinternalCreateObjectV1Request([]openapiclient.BillingentityinternalRequestCompound{*openapiclient.NewBillingentityinternalRequestCompound(*openapiclient.NewMultilingualBillingentityinternalDescription(), []openapiclient.BillingentityinternalproductRequestCompound{*openapiclient.NewBillingentityinternalproductRequestCompound(int32(172), int32(83))})}) // BillingentityinternalCreateObjectV1Request | 
+	billingentityinternalCreateObjectV1Request := *openapiclient.NewBillingentityinternalCreateObjectV1Request([]openapiclient.BillingentityinternalRequestCompound{*openapiclient.NewBillingentityinternalRequestCompound([]openapiclient.BillingentityinternalproductRequestCompound{*openapiclient.NewBillingentityinternalproductRequestCompound(int32(172), int32(83))}, *openapiclient.NewMultilingualBillingentityinternalDescription())}) // BillingentityinternalCreateObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -100,7 +100,7 @@ import (
 
 func main() {
 	pkiBillingentityinternalID := int32(56) // int32 | 
-	billingentityinternalEditObjectV1Request := *openapiclient.NewBillingentityinternalEditObjectV1Request(*openapiclient.NewBillingentityinternalRequestCompound(*openapiclient.NewMultilingualBillingentityinternalDescription(), []openapiclient.BillingentityinternalproductRequestCompound{*openapiclient.NewBillingentityinternalproductRequestCompound(int32(172), int32(83))})) // BillingentityinternalEditObjectV1Request | 
+	billingentityinternalEditObjectV1Request := *openapiclient.NewBillingentityinternalEditObjectV1Request(*openapiclient.NewBillingentityinternalRequestCompound([]openapiclient.BillingentityinternalproductRequestCompound{*openapiclient.NewBillingentityinternalproductRequestCompound(int32(172), int32(83))}, *openapiclient.NewMultilingualBillingentityinternalDescription())) // BillingentityinternalEditObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

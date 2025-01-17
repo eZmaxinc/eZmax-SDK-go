@@ -22,19 +22,7 @@ var _ MappedNullable = &DiscussionResponseCompound{}
 
 // DiscussionResponseCompound A Discussion Object
 type DiscussionResponseCompound struct {
-	// The unique ID of the Discussion
-	PkiDiscussionID int32 `json:"pkiDiscussionID"`
-	// The description of the Discussion
-	SDiscussionDescription string `json:"sDiscussionDescription" validate:"regexp=^.{0,75}$"`
-	// Whether if it's an closed
-	BDiscussionClosed bool `json:"bDiscussionClosed"`
-	// The date the Discussion was last read
-	DtDiscussionLastread *string `json:"dtDiscussionLastread,omitempty"`
-	// The count of Attachment.
-	IDiscussionmessageCount int32 `json:"iDiscussionmessageCount"`
-	// The count of Attachment.
-	IDiscussionmessageCountunread int32 `json:"iDiscussionmessageCountunread"`
-	ObjDiscussionconfiguration *CustomDiscussionconfigurationResponse `json:"objDiscussionconfiguration,omitempty"`
+	DiscussionResponse
 	AObjDiscussionmembership []DiscussionmembershipResponseCompound `json:"a_objDiscussionmembership"`
 	AObjDiscussionmessage []DiscussionmessageResponseCompound `json:"a_objDiscussionmessage"`
 }
@@ -45,7 +33,7 @@ type _DiscussionResponseCompound DiscussionResponseCompound
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDiscussionResponseCompound(pkiDiscussionID int32, sDiscussionDescription string, bDiscussionClosed bool, iDiscussionmessageCount int32, iDiscussionmessageCountunread int32, aObjDiscussionmembership []DiscussionmembershipResponseCompound, aObjDiscussionmessage []DiscussionmessageResponseCompound) *DiscussionResponseCompound {
+func NewDiscussionResponseCompound(aObjDiscussionmembership []DiscussionmembershipResponseCompound, aObjDiscussionmessage []DiscussionmessageResponseCompound, pkiDiscussionID int32, sDiscussionDescription string, bDiscussionClosed bool, iDiscussionmessageCount int32, iDiscussionmessageCountunread int32) *DiscussionResponseCompound {
 	this := DiscussionResponseCompound{}
 	this.PkiDiscussionID = pkiDiscussionID
 	this.SDiscussionDescription = sDiscussionDescription
@@ -63,190 +51,6 @@ func NewDiscussionResponseCompound(pkiDiscussionID int32, sDiscussionDescription
 func NewDiscussionResponseCompoundWithDefaults() *DiscussionResponseCompound {
 	this := DiscussionResponseCompound{}
 	return &this
-}
-
-// GetPkiDiscussionID returns the PkiDiscussionID field value
-func (o *DiscussionResponseCompound) GetPkiDiscussionID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.PkiDiscussionID
-}
-
-// GetPkiDiscussionIDOk returns a tuple with the PkiDiscussionID field value
-// and a boolean to check if the value has been set.
-func (o *DiscussionResponseCompound) GetPkiDiscussionIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.PkiDiscussionID, true
-}
-
-// SetPkiDiscussionID sets field value
-func (o *DiscussionResponseCompound) SetPkiDiscussionID(v int32) {
-	o.PkiDiscussionID = v
-}
-
-// GetSDiscussionDescription returns the SDiscussionDescription field value
-func (o *DiscussionResponseCompound) GetSDiscussionDescription() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SDiscussionDescription
-}
-
-// GetSDiscussionDescriptionOk returns a tuple with the SDiscussionDescription field value
-// and a boolean to check if the value has been set.
-func (o *DiscussionResponseCompound) GetSDiscussionDescriptionOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SDiscussionDescription, true
-}
-
-// SetSDiscussionDescription sets field value
-func (o *DiscussionResponseCompound) SetSDiscussionDescription(v string) {
-	o.SDiscussionDescription = v
-}
-
-// GetBDiscussionClosed returns the BDiscussionClosed field value
-func (o *DiscussionResponseCompound) GetBDiscussionClosed() bool {
-	if o == nil {
-		var ret bool
-		return ret
-	}
-
-	return o.BDiscussionClosed
-}
-
-// GetBDiscussionClosedOk returns a tuple with the BDiscussionClosed field value
-// and a boolean to check if the value has been set.
-func (o *DiscussionResponseCompound) GetBDiscussionClosedOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BDiscussionClosed, true
-}
-
-// SetBDiscussionClosed sets field value
-func (o *DiscussionResponseCompound) SetBDiscussionClosed(v bool) {
-	o.BDiscussionClosed = v
-}
-
-// GetDtDiscussionLastread returns the DtDiscussionLastread field value if set, zero value otherwise.
-func (o *DiscussionResponseCompound) GetDtDiscussionLastread() string {
-	if o == nil || IsNil(o.DtDiscussionLastread) {
-		var ret string
-		return ret
-	}
-	return *o.DtDiscussionLastread
-}
-
-// GetDtDiscussionLastreadOk returns a tuple with the DtDiscussionLastread field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DiscussionResponseCompound) GetDtDiscussionLastreadOk() (*string, bool) {
-	if o == nil || IsNil(o.DtDiscussionLastread) {
-		return nil, false
-	}
-	return o.DtDiscussionLastread, true
-}
-
-// HasDtDiscussionLastread returns a boolean if a field has been set.
-func (o *DiscussionResponseCompound) HasDtDiscussionLastread() bool {
-	if o != nil && !IsNil(o.DtDiscussionLastread) {
-		return true
-	}
-
-	return false
-}
-
-// SetDtDiscussionLastread gets a reference to the given string and assigns it to the DtDiscussionLastread field.
-func (o *DiscussionResponseCompound) SetDtDiscussionLastread(v string) {
-	o.DtDiscussionLastread = &v
-}
-
-// GetIDiscussionmessageCount returns the IDiscussionmessageCount field value
-func (o *DiscussionResponseCompound) GetIDiscussionmessageCount() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.IDiscussionmessageCount
-}
-
-// GetIDiscussionmessageCountOk returns a tuple with the IDiscussionmessageCount field value
-// and a boolean to check if the value has been set.
-func (o *DiscussionResponseCompound) GetIDiscussionmessageCountOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.IDiscussionmessageCount, true
-}
-
-// SetIDiscussionmessageCount sets field value
-func (o *DiscussionResponseCompound) SetIDiscussionmessageCount(v int32) {
-	o.IDiscussionmessageCount = v
-}
-
-// GetIDiscussionmessageCountunread returns the IDiscussionmessageCountunread field value
-func (o *DiscussionResponseCompound) GetIDiscussionmessageCountunread() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.IDiscussionmessageCountunread
-}
-
-// GetIDiscussionmessageCountunreadOk returns a tuple with the IDiscussionmessageCountunread field value
-// and a boolean to check if the value has been set.
-func (o *DiscussionResponseCompound) GetIDiscussionmessageCountunreadOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.IDiscussionmessageCountunread, true
-}
-
-// SetIDiscussionmessageCountunread sets field value
-func (o *DiscussionResponseCompound) SetIDiscussionmessageCountunread(v int32) {
-	o.IDiscussionmessageCountunread = v
-}
-
-// GetObjDiscussionconfiguration returns the ObjDiscussionconfiguration field value if set, zero value otherwise.
-func (o *DiscussionResponseCompound) GetObjDiscussionconfiguration() CustomDiscussionconfigurationResponse {
-	if o == nil || IsNil(o.ObjDiscussionconfiguration) {
-		var ret CustomDiscussionconfigurationResponse
-		return ret
-	}
-	return *o.ObjDiscussionconfiguration
-}
-
-// GetObjDiscussionconfigurationOk returns a tuple with the ObjDiscussionconfiguration field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DiscussionResponseCompound) GetObjDiscussionconfigurationOk() (*CustomDiscussionconfigurationResponse, bool) {
-	if o == nil || IsNil(o.ObjDiscussionconfiguration) {
-		return nil, false
-	}
-	return o.ObjDiscussionconfiguration, true
-}
-
-// HasObjDiscussionconfiguration returns a boolean if a field has been set.
-func (o *DiscussionResponseCompound) HasObjDiscussionconfiguration() bool {
-	if o != nil && !IsNil(o.ObjDiscussionconfiguration) {
-		return true
-	}
-
-	return false
-}
-
-// SetObjDiscussionconfiguration gets a reference to the given CustomDiscussionconfigurationResponse and assigns it to the ObjDiscussionconfiguration field.
-func (o *DiscussionResponseCompound) SetObjDiscussionconfiguration(v CustomDiscussionconfigurationResponse) {
-	o.ObjDiscussionconfiguration = &v
 }
 
 // GetAObjDiscussionmembership returns the AObjDiscussionmembership field value
@@ -307,17 +111,6 @@ func (o DiscussionResponseCompound) MarshalJSON() ([]byte, error) {
 
 func (o DiscussionResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["pkiDiscussionID"] = o.PkiDiscussionID
-	toSerialize["sDiscussionDescription"] = o.SDiscussionDescription
-	toSerialize["bDiscussionClosed"] = o.BDiscussionClosed
-	if !IsNil(o.DtDiscussionLastread) {
-		toSerialize["dtDiscussionLastread"] = o.DtDiscussionLastread
-	}
-	toSerialize["iDiscussionmessageCount"] = o.IDiscussionmessageCount
-	toSerialize["iDiscussionmessageCountunread"] = o.IDiscussionmessageCountunread
-	if !IsNil(o.ObjDiscussionconfiguration) {
-		toSerialize["objDiscussionconfiguration"] = o.ObjDiscussionconfiguration
-	}
 	toSerialize["a_objDiscussionmembership"] = o.AObjDiscussionmembership
 	toSerialize["a_objDiscussionmessage"] = o.AObjDiscussionmessage
 	return toSerialize, nil
@@ -328,13 +121,13 @@ func (o *DiscussionResponseCompound) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"a_objDiscussionmembership",
+		"a_objDiscussionmessage",
 		"pkiDiscussionID",
 		"sDiscussionDescription",
 		"bDiscussionClosed",
 		"iDiscussionmessageCount",
 		"iDiscussionmessageCountunread",
-		"a_objDiscussionmembership",
-		"a_objDiscussionmessage",
 	}
 
 	allProperties := make(map[string]interface{})

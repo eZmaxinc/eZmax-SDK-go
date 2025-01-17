@@ -4,17 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PkiEzsigntemplatepackagesignermembershipID** | Pointer to **int32** | The unique ID of the Ezsigntemplatepackagesignermembership | [optional] 
-**FkiEzsigntemplatepackagemembershipID** | **int32** | The unique ID of the Ezsigntemplatepackagemembership | 
-**FkiEzsigntemplatepackagesignerID** | **int32** | The unique ID of the Ezsigntemplatepackagesigner | 
-**FkiEzsigntemplatesignerID** | **int32** | The unique ID of the Ezsigntemplatesigner | 
-**IEzsigntemplatepackagesignermembershipCopy** | Pointer to **int32** | The Copy number in case of multiple copies. | [optional] 
 
 ## Methods
 
 ### NewEzsigntemplatepackagesignermembershipRequestCompound
 
-`func NewEzsigntemplatepackagesignermembershipRequestCompound(fkiEzsigntemplatepackagemembershipID int32, fkiEzsigntemplatepackagesignerID int32, fkiEzsigntemplatesignerID int32, ) *EzsigntemplatepackagesignermembershipRequestCompound`
+`func NewEzsigntemplatepackagesignermembershipRequestCompound() *EzsigntemplatepackagesignermembershipRequestCompound`
 
 NewEzsigntemplatepackagesignermembershipRequestCompound instantiates a new EzsigntemplatepackagesignermembershipRequestCompound object
 This constructor will assign default values to properties that have it defined,
@@ -28,116 +23,6 @@ will change when the set of required properties is changed
 NewEzsigntemplatepackagesignermembershipRequestCompoundWithDefaults instantiates a new EzsigntemplatepackagesignermembershipRequestCompound object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetPkiEzsigntemplatepackagesignermembershipID
-
-`func (o *EzsigntemplatepackagesignermembershipRequestCompound) GetPkiEzsigntemplatepackagesignermembershipID() int32`
-
-GetPkiEzsigntemplatepackagesignermembershipID returns the PkiEzsigntemplatepackagesignermembershipID field if non-nil, zero value otherwise.
-
-### GetPkiEzsigntemplatepackagesignermembershipIDOk
-
-`func (o *EzsigntemplatepackagesignermembershipRequestCompound) GetPkiEzsigntemplatepackagesignermembershipIDOk() (*int32, bool)`
-
-GetPkiEzsigntemplatepackagesignermembershipIDOk returns a tuple with the PkiEzsigntemplatepackagesignermembershipID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPkiEzsigntemplatepackagesignermembershipID
-
-`func (o *EzsigntemplatepackagesignermembershipRequestCompound) SetPkiEzsigntemplatepackagesignermembershipID(v int32)`
-
-SetPkiEzsigntemplatepackagesignermembershipID sets PkiEzsigntemplatepackagesignermembershipID field to given value.
-
-### HasPkiEzsigntemplatepackagesignermembershipID
-
-`func (o *EzsigntemplatepackagesignermembershipRequestCompound) HasPkiEzsigntemplatepackagesignermembershipID() bool`
-
-HasPkiEzsigntemplatepackagesignermembershipID returns a boolean if a field has been set.
-
-### GetFkiEzsigntemplatepackagemembershipID
-
-`func (o *EzsigntemplatepackagesignermembershipRequestCompound) GetFkiEzsigntemplatepackagemembershipID() int32`
-
-GetFkiEzsigntemplatepackagemembershipID returns the FkiEzsigntemplatepackagemembershipID field if non-nil, zero value otherwise.
-
-### GetFkiEzsigntemplatepackagemembershipIDOk
-
-`func (o *EzsigntemplatepackagesignermembershipRequestCompound) GetFkiEzsigntemplatepackagemembershipIDOk() (*int32, bool)`
-
-GetFkiEzsigntemplatepackagemembershipIDOk returns a tuple with the FkiEzsigntemplatepackagemembershipID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFkiEzsigntemplatepackagemembershipID
-
-`func (o *EzsigntemplatepackagesignermembershipRequestCompound) SetFkiEzsigntemplatepackagemembershipID(v int32)`
-
-SetFkiEzsigntemplatepackagemembershipID sets FkiEzsigntemplatepackagemembershipID field to given value.
-
-
-### GetFkiEzsigntemplatepackagesignerID
-
-`func (o *EzsigntemplatepackagesignermembershipRequestCompound) GetFkiEzsigntemplatepackagesignerID() int32`
-
-GetFkiEzsigntemplatepackagesignerID returns the FkiEzsigntemplatepackagesignerID field if non-nil, zero value otherwise.
-
-### GetFkiEzsigntemplatepackagesignerIDOk
-
-`func (o *EzsigntemplatepackagesignermembershipRequestCompound) GetFkiEzsigntemplatepackagesignerIDOk() (*int32, bool)`
-
-GetFkiEzsigntemplatepackagesignerIDOk returns a tuple with the FkiEzsigntemplatepackagesignerID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFkiEzsigntemplatepackagesignerID
-
-`func (o *EzsigntemplatepackagesignermembershipRequestCompound) SetFkiEzsigntemplatepackagesignerID(v int32)`
-
-SetFkiEzsigntemplatepackagesignerID sets FkiEzsigntemplatepackagesignerID field to given value.
-
-
-### GetFkiEzsigntemplatesignerID
-
-`func (o *EzsigntemplatepackagesignermembershipRequestCompound) GetFkiEzsigntemplatesignerID() int32`
-
-GetFkiEzsigntemplatesignerID returns the FkiEzsigntemplatesignerID field if non-nil, zero value otherwise.
-
-### GetFkiEzsigntemplatesignerIDOk
-
-`func (o *EzsigntemplatepackagesignermembershipRequestCompound) GetFkiEzsigntemplatesignerIDOk() (*int32, bool)`
-
-GetFkiEzsigntemplatesignerIDOk returns a tuple with the FkiEzsigntemplatesignerID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFkiEzsigntemplatesignerID
-
-`func (o *EzsigntemplatepackagesignermembershipRequestCompound) SetFkiEzsigntemplatesignerID(v int32)`
-
-SetFkiEzsigntemplatesignerID sets FkiEzsigntemplatesignerID field to given value.
-
-
-### GetIEzsigntemplatepackagesignermembershipCopy
-
-`func (o *EzsigntemplatepackagesignermembershipRequestCompound) GetIEzsigntemplatepackagesignermembershipCopy() int32`
-
-GetIEzsigntemplatepackagesignermembershipCopy returns the IEzsigntemplatepackagesignermembershipCopy field if non-nil, zero value otherwise.
-
-### GetIEzsigntemplatepackagesignermembershipCopyOk
-
-`func (o *EzsigntemplatepackagesignermembershipRequestCompound) GetIEzsigntemplatepackagesignermembershipCopyOk() (*int32, bool)`
-
-GetIEzsigntemplatepackagesignermembershipCopyOk returns a tuple with the IEzsigntemplatepackagesignermembershipCopy field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIEzsigntemplatepackagesignermembershipCopy
-
-`func (o *EzsigntemplatepackagesignermembershipRequestCompound) SetIEzsigntemplatepackagesignermembershipCopy(v int32)`
-
-SetIEzsigntemplatepackagesignermembershipCopy sets IEzsigntemplatepackagesignermembershipCopy field to given value.
-
-### HasIEzsigntemplatepackagesignermembershipCopy
-
-`func (o *EzsigntemplatepackagesignermembershipRequestCompound) HasIEzsigntemplatepackagesignermembershipCopy() bool`
-
-HasIEzsigntemplatepackagesignermembershipCopy returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

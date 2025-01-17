@@ -22,14 +22,7 @@ var _ MappedNullable = &EzsignbulksenddocumentmappingRequestCompound{}
 
 // EzsignbulksenddocumentmappingRequestCompound A Ezsignbulksenddocumentmapping Object and children
 type EzsignbulksenddocumentmappingRequestCompound struct {
-	// The unique ID of the Ezsignbulksenddocumentmapping.
-	PkiEzsignbulksenddocumentmappingID *int32 `json:"pkiEzsignbulksenddocumentmappingID,omitempty"`
-	// The unique ID of the Ezsignbulksend
-	FkiEzsignbulksendID int32 `json:"fkiEzsignbulksendID"`
-	// The unique ID of the Ezsigntemplatepackage
-	FkiEzsigntemplatepackageID *int32 `json:"fkiEzsigntemplatepackageID,omitempty"`
-	// The unique ID of the Ezsigntemplate
-	FkiEzsigntemplateID *int32 `json:"fkiEzsigntemplateID,omitempty"`
+	EzsignbulksenddocumentmappingRequest
 }
 
 type _EzsignbulksenddocumentmappingRequestCompound EzsignbulksenddocumentmappingRequestCompound
@@ -52,126 +45,6 @@ func NewEzsignbulksenddocumentmappingRequestCompoundWithDefaults() *Ezsignbulkse
 	return &this
 }
 
-// GetPkiEzsignbulksenddocumentmappingID returns the PkiEzsignbulksenddocumentmappingID field value if set, zero value otherwise.
-func (o *EzsignbulksenddocumentmappingRequestCompound) GetPkiEzsignbulksenddocumentmappingID() int32 {
-	if o == nil || IsNil(o.PkiEzsignbulksenddocumentmappingID) {
-		var ret int32
-		return ret
-	}
-	return *o.PkiEzsignbulksenddocumentmappingID
-}
-
-// GetPkiEzsignbulksenddocumentmappingIDOk returns a tuple with the PkiEzsignbulksenddocumentmappingID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *EzsignbulksenddocumentmappingRequestCompound) GetPkiEzsignbulksenddocumentmappingIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.PkiEzsignbulksenddocumentmappingID) {
-		return nil, false
-	}
-	return o.PkiEzsignbulksenddocumentmappingID, true
-}
-
-// HasPkiEzsignbulksenddocumentmappingID returns a boolean if a field has been set.
-func (o *EzsignbulksenddocumentmappingRequestCompound) HasPkiEzsignbulksenddocumentmappingID() bool {
-	if o != nil && !IsNil(o.PkiEzsignbulksenddocumentmappingID) {
-		return true
-	}
-
-	return false
-}
-
-// SetPkiEzsignbulksenddocumentmappingID gets a reference to the given int32 and assigns it to the PkiEzsignbulksenddocumentmappingID field.
-func (o *EzsignbulksenddocumentmappingRequestCompound) SetPkiEzsignbulksenddocumentmappingID(v int32) {
-	o.PkiEzsignbulksenddocumentmappingID = &v
-}
-
-// GetFkiEzsignbulksendID returns the FkiEzsignbulksendID field value
-func (o *EzsignbulksenddocumentmappingRequestCompound) GetFkiEzsignbulksendID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.FkiEzsignbulksendID
-}
-
-// GetFkiEzsignbulksendIDOk returns a tuple with the FkiEzsignbulksendID field value
-// and a boolean to check if the value has been set.
-func (o *EzsignbulksenddocumentmappingRequestCompound) GetFkiEzsignbulksendIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FkiEzsignbulksendID, true
-}
-
-// SetFkiEzsignbulksendID sets field value
-func (o *EzsignbulksenddocumentmappingRequestCompound) SetFkiEzsignbulksendID(v int32) {
-	o.FkiEzsignbulksendID = v
-}
-
-// GetFkiEzsigntemplatepackageID returns the FkiEzsigntemplatepackageID field value if set, zero value otherwise.
-func (o *EzsignbulksenddocumentmappingRequestCompound) GetFkiEzsigntemplatepackageID() int32 {
-	if o == nil || IsNil(o.FkiEzsigntemplatepackageID) {
-		var ret int32
-		return ret
-	}
-	return *o.FkiEzsigntemplatepackageID
-}
-
-// GetFkiEzsigntemplatepackageIDOk returns a tuple with the FkiEzsigntemplatepackageID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *EzsignbulksenddocumentmappingRequestCompound) GetFkiEzsigntemplatepackageIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.FkiEzsigntemplatepackageID) {
-		return nil, false
-	}
-	return o.FkiEzsigntemplatepackageID, true
-}
-
-// HasFkiEzsigntemplatepackageID returns a boolean if a field has been set.
-func (o *EzsignbulksenddocumentmappingRequestCompound) HasFkiEzsigntemplatepackageID() bool {
-	if o != nil && !IsNil(o.FkiEzsigntemplatepackageID) {
-		return true
-	}
-
-	return false
-}
-
-// SetFkiEzsigntemplatepackageID gets a reference to the given int32 and assigns it to the FkiEzsigntemplatepackageID field.
-func (o *EzsignbulksenddocumentmappingRequestCompound) SetFkiEzsigntemplatepackageID(v int32) {
-	o.FkiEzsigntemplatepackageID = &v
-}
-
-// GetFkiEzsigntemplateID returns the FkiEzsigntemplateID field value if set, zero value otherwise.
-func (o *EzsignbulksenddocumentmappingRequestCompound) GetFkiEzsigntemplateID() int32 {
-	if o == nil || IsNil(o.FkiEzsigntemplateID) {
-		var ret int32
-		return ret
-	}
-	return *o.FkiEzsigntemplateID
-}
-
-// GetFkiEzsigntemplateIDOk returns a tuple with the FkiEzsigntemplateID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *EzsignbulksenddocumentmappingRequestCompound) GetFkiEzsigntemplateIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.FkiEzsigntemplateID) {
-		return nil, false
-	}
-	return o.FkiEzsigntemplateID, true
-}
-
-// HasFkiEzsigntemplateID returns a boolean if a field has been set.
-func (o *EzsignbulksenddocumentmappingRequestCompound) HasFkiEzsigntemplateID() bool {
-	if o != nil && !IsNil(o.FkiEzsigntemplateID) {
-		return true
-	}
-
-	return false
-}
-
-// SetFkiEzsigntemplateID gets a reference to the given int32 and assigns it to the FkiEzsigntemplateID field.
-func (o *EzsignbulksenddocumentmappingRequestCompound) SetFkiEzsigntemplateID(v int32) {
-	o.FkiEzsigntemplateID = &v
-}
-
 func (o EzsignbulksenddocumentmappingRequestCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -182,16 +55,6 @@ func (o EzsignbulksenddocumentmappingRequestCompound) MarshalJSON() ([]byte, err
 
 func (o EzsignbulksenddocumentmappingRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.PkiEzsignbulksenddocumentmappingID) {
-		toSerialize["pkiEzsignbulksenddocumentmappingID"] = o.PkiEzsignbulksenddocumentmappingID
-	}
-	toSerialize["fkiEzsignbulksendID"] = o.FkiEzsignbulksendID
-	if !IsNil(o.FkiEzsigntemplatepackageID) {
-		toSerialize["fkiEzsigntemplatepackageID"] = o.FkiEzsigntemplatepackageID
-	}
-	if !IsNil(o.FkiEzsigntemplateID) {
-		toSerialize["fkiEzsigntemplateID"] = o.FkiEzsigntemplateID
-	}
 	return toSerialize, nil
 }
 

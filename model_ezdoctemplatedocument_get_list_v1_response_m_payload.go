@@ -22,10 +22,7 @@ var _ MappedNullable = &EzdoctemplatedocumentGetListV1ResponseMPayload{}
 
 // EzdoctemplatedocumentGetListV1ResponseMPayload Payload for GET /1/object/ezdoctemplatedocument/getList
 type EzdoctemplatedocumentGetListV1ResponseMPayload struct {
-	// The number of rows returned
-	IRowReturned int32 `json:"iRowReturned"`
-	// The number of rows matching your filters (if any) or the total number of rows
-	IRowFiltered int32 `json:"iRowFiltered"`
+	CommonGetListV1ResponseMPayload
 	AObjEzdoctemplatedocument []EzdoctemplatedocumentListElement `json:"a_objEzdoctemplatedocument"`
 }
 
@@ -35,7 +32,7 @@ type _EzdoctemplatedocumentGetListV1ResponseMPayload EzdoctemplatedocumentGetLis
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzdoctemplatedocumentGetListV1ResponseMPayload(iRowReturned int32, iRowFiltered int32, aObjEzdoctemplatedocument []EzdoctemplatedocumentListElement) *EzdoctemplatedocumentGetListV1ResponseMPayload {
+func NewEzdoctemplatedocumentGetListV1ResponseMPayload(aObjEzdoctemplatedocument []EzdoctemplatedocumentListElement, iRowReturned int32, iRowFiltered int32) *EzdoctemplatedocumentGetListV1ResponseMPayload {
 	this := EzdoctemplatedocumentGetListV1ResponseMPayload{}
 	this.IRowReturned = iRowReturned
 	this.IRowFiltered = iRowFiltered
@@ -49,54 +46,6 @@ func NewEzdoctemplatedocumentGetListV1ResponseMPayload(iRowReturned int32, iRowF
 func NewEzdoctemplatedocumentGetListV1ResponseMPayloadWithDefaults() *EzdoctemplatedocumentGetListV1ResponseMPayload {
 	this := EzdoctemplatedocumentGetListV1ResponseMPayload{}
 	return &this
-}
-
-// GetIRowReturned returns the IRowReturned field value
-func (o *EzdoctemplatedocumentGetListV1ResponseMPayload) GetIRowReturned() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.IRowReturned
-}
-
-// GetIRowReturnedOk returns a tuple with the IRowReturned field value
-// and a boolean to check if the value has been set.
-func (o *EzdoctemplatedocumentGetListV1ResponseMPayload) GetIRowReturnedOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.IRowReturned, true
-}
-
-// SetIRowReturned sets field value
-func (o *EzdoctemplatedocumentGetListV1ResponseMPayload) SetIRowReturned(v int32) {
-	o.IRowReturned = v
-}
-
-// GetIRowFiltered returns the IRowFiltered field value
-func (o *EzdoctemplatedocumentGetListV1ResponseMPayload) GetIRowFiltered() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.IRowFiltered
-}
-
-// GetIRowFilteredOk returns a tuple with the IRowFiltered field value
-// and a boolean to check if the value has been set.
-func (o *EzdoctemplatedocumentGetListV1ResponseMPayload) GetIRowFilteredOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.IRowFiltered, true
-}
-
-// SetIRowFiltered sets field value
-func (o *EzdoctemplatedocumentGetListV1ResponseMPayload) SetIRowFiltered(v int32) {
-	o.IRowFiltered = v
 }
 
 // GetAObjEzdoctemplatedocument returns the AObjEzdoctemplatedocument field value
@@ -133,8 +82,6 @@ func (o EzdoctemplatedocumentGetListV1ResponseMPayload) MarshalJSON() ([]byte, e
 
 func (o EzdoctemplatedocumentGetListV1ResponseMPayload) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["iRowReturned"] = o.IRowReturned
-	toSerialize["iRowFiltered"] = o.IRowFiltered
 	toSerialize["a_objEzdoctemplatedocument"] = o.AObjEzdoctemplatedocument
 	return toSerialize, nil
 }
@@ -144,9 +91,9 @@ func (o *EzdoctemplatedocumentGetListV1ResponseMPayload) UnmarshalJSON(data []by
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"a_objEzdoctemplatedocument",
 		"iRowReturned",
 		"iRowFiltered",
-		"a_objEzdoctemplatedocument",
 	}
 
 	allProperties := make(map[string]interface{})

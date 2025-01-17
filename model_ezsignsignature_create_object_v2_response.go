@@ -22,8 +22,7 @@ var _ MappedNullable = &EzsignsignatureCreateObjectV2Response{}
 
 // EzsignsignatureCreateObjectV2Response Response for POST /2/object/ezsignsignature
 type EzsignsignatureCreateObjectV2Response struct {
-	ObjDebugPayload CommonResponseObjDebugPayload `json:"objDebugPayload"`
-	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
+	CommonResponse
 	MPayload EzsignsignatureCreateObjectV2ResponseMPayload `json:"mPayload"`
 }
 
@@ -33,7 +32,7 @@ type _EzsignsignatureCreateObjectV2Response EzsignsignatureCreateObjectV2Respons
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignsignatureCreateObjectV2Response(objDebugPayload CommonResponseObjDebugPayload, mPayload EzsignsignatureCreateObjectV2ResponseMPayload) *EzsignsignatureCreateObjectV2Response {
+func NewEzsignsignatureCreateObjectV2Response(mPayload EzsignsignatureCreateObjectV2ResponseMPayload, objDebugPayload CommonResponseObjDebugPayload) *EzsignsignatureCreateObjectV2Response {
 	this := EzsignsignatureCreateObjectV2Response{}
 	this.ObjDebugPayload = objDebugPayload
 	this.MPayload = mPayload
@@ -46,62 +45,6 @@ func NewEzsignsignatureCreateObjectV2Response(objDebugPayload CommonResponseObjD
 func NewEzsignsignatureCreateObjectV2ResponseWithDefaults() *EzsignsignatureCreateObjectV2Response {
 	this := EzsignsignatureCreateObjectV2Response{}
 	return &this
-}
-
-// GetObjDebugPayload returns the ObjDebugPayload field value
-func (o *EzsignsignatureCreateObjectV2Response) GetObjDebugPayload() CommonResponseObjDebugPayload {
-	if o == nil {
-		var ret CommonResponseObjDebugPayload
-		return ret
-	}
-
-	return o.ObjDebugPayload
-}
-
-// GetObjDebugPayloadOk returns a tuple with the ObjDebugPayload field value
-// and a boolean to check if the value has been set.
-func (o *EzsignsignatureCreateObjectV2Response) GetObjDebugPayloadOk() (*CommonResponseObjDebugPayload, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ObjDebugPayload, true
-}
-
-// SetObjDebugPayload sets field value
-func (o *EzsignsignatureCreateObjectV2Response) SetObjDebugPayload(v CommonResponseObjDebugPayload) {
-	o.ObjDebugPayload = v
-}
-
-// GetObjDebug returns the ObjDebug field value if set, zero value otherwise.
-func (o *EzsignsignatureCreateObjectV2Response) GetObjDebug() CommonResponseObjDebug {
-	if o == nil || IsNil(o.ObjDebug) {
-		var ret CommonResponseObjDebug
-		return ret
-	}
-	return *o.ObjDebug
-}
-
-// GetObjDebugOk returns a tuple with the ObjDebug field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *EzsignsignatureCreateObjectV2Response) GetObjDebugOk() (*CommonResponseObjDebug, bool) {
-	if o == nil || IsNil(o.ObjDebug) {
-		return nil, false
-	}
-	return o.ObjDebug, true
-}
-
-// HasObjDebug returns a boolean if a field has been set.
-func (o *EzsignsignatureCreateObjectV2Response) HasObjDebug() bool {
-	if o != nil && !IsNil(o.ObjDebug) {
-		return true
-	}
-
-	return false
-}
-
-// SetObjDebug gets a reference to the given CommonResponseObjDebug and assigns it to the ObjDebug field.
-func (o *EzsignsignatureCreateObjectV2Response) SetObjDebug(v CommonResponseObjDebug) {
-	o.ObjDebug = &v
 }
 
 // GetMPayload returns the MPayload field value
@@ -138,10 +81,6 @@ func (o EzsignsignatureCreateObjectV2Response) MarshalJSON() ([]byte, error) {
 
 func (o EzsignsignatureCreateObjectV2Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["objDebugPayload"] = o.ObjDebugPayload
-	if !IsNil(o.ObjDebug) {
-		toSerialize["objDebug"] = o.ObjDebug
-	}
 	toSerialize["mPayload"] = o.MPayload
 	return toSerialize, nil
 }
@@ -151,8 +90,8 @@ func (o *EzsignsignatureCreateObjectV2Response) UnmarshalJSON(data []byte) (err 
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"objDebugPayload",
 		"mPayload",
+		"objDebugPayload",
 	}
 
 	allProperties := make(map[string]interface{})

@@ -22,14 +22,7 @@ var _ MappedNullable = &ModulesectionResponseCompound{}
 
 // ModulesectionResponseCompound A Modulesection Object
 type ModulesectionResponseCompound struct {
-	// The unique ID of the Modulesection
-	PkiModulesectionID int32 `json:"pkiModulesectionID"`
-	// The unique ID of the Module
-	FkiModuleID int32 `json:"fkiModuleID"`
-	// The Internal name of the Module section.
-	SModulesectionInternalname string `json:"sModulesectionInternalname"`
-	// The Name of the Modulesection in the language of the requester
-	SModulesectionNameX string `json:"sModulesectionNameX"`
+	ModulesectionResponse
 	AObjPermission []PermissionResponseCompound `json:"a_objPermission,omitempty"`
 }
 
@@ -54,102 +47,6 @@ func NewModulesectionResponseCompound(pkiModulesectionID int32, fkiModuleID int3
 func NewModulesectionResponseCompoundWithDefaults() *ModulesectionResponseCompound {
 	this := ModulesectionResponseCompound{}
 	return &this
-}
-
-// GetPkiModulesectionID returns the PkiModulesectionID field value
-func (o *ModulesectionResponseCompound) GetPkiModulesectionID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.PkiModulesectionID
-}
-
-// GetPkiModulesectionIDOk returns a tuple with the PkiModulesectionID field value
-// and a boolean to check if the value has been set.
-func (o *ModulesectionResponseCompound) GetPkiModulesectionIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.PkiModulesectionID, true
-}
-
-// SetPkiModulesectionID sets field value
-func (o *ModulesectionResponseCompound) SetPkiModulesectionID(v int32) {
-	o.PkiModulesectionID = v
-}
-
-// GetFkiModuleID returns the FkiModuleID field value
-func (o *ModulesectionResponseCompound) GetFkiModuleID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.FkiModuleID
-}
-
-// GetFkiModuleIDOk returns a tuple with the FkiModuleID field value
-// and a boolean to check if the value has been set.
-func (o *ModulesectionResponseCompound) GetFkiModuleIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FkiModuleID, true
-}
-
-// SetFkiModuleID sets field value
-func (o *ModulesectionResponseCompound) SetFkiModuleID(v int32) {
-	o.FkiModuleID = v
-}
-
-// GetSModulesectionInternalname returns the SModulesectionInternalname field value
-func (o *ModulesectionResponseCompound) GetSModulesectionInternalname() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SModulesectionInternalname
-}
-
-// GetSModulesectionInternalnameOk returns a tuple with the SModulesectionInternalname field value
-// and a boolean to check if the value has been set.
-func (o *ModulesectionResponseCompound) GetSModulesectionInternalnameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SModulesectionInternalname, true
-}
-
-// SetSModulesectionInternalname sets field value
-func (o *ModulesectionResponseCompound) SetSModulesectionInternalname(v string) {
-	o.SModulesectionInternalname = v
-}
-
-// GetSModulesectionNameX returns the SModulesectionNameX field value
-func (o *ModulesectionResponseCompound) GetSModulesectionNameX() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SModulesectionNameX
-}
-
-// GetSModulesectionNameXOk returns a tuple with the SModulesectionNameX field value
-// and a boolean to check if the value has been set.
-func (o *ModulesectionResponseCompound) GetSModulesectionNameXOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SModulesectionNameX, true
-}
-
-// SetSModulesectionNameX sets field value
-func (o *ModulesectionResponseCompound) SetSModulesectionNameX(v string) {
-	o.SModulesectionNameX = v
 }
 
 // GetAObjPermission returns the AObjPermission field value if set, zero value otherwise.
@@ -194,10 +91,6 @@ func (o ModulesectionResponseCompound) MarshalJSON() ([]byte, error) {
 
 func (o ModulesectionResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["pkiModulesectionID"] = o.PkiModulesectionID
-	toSerialize["fkiModuleID"] = o.FkiModuleID
-	toSerialize["sModulesectionInternalname"] = o.SModulesectionInternalname
-	toSerialize["sModulesectionNameX"] = o.SModulesectionNameX
 	if !IsNil(o.AObjPermission) {
 		toSerialize["a_objPermission"] = o.AObjPermission
 	}

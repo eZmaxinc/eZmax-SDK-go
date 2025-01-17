@@ -22,9 +22,7 @@ var _ MappedNullable = &WebhookEzsignSignatureSigned{}
 
 // WebhookEzsignSignatureSigned This is the base Webhook object
 type WebhookEzsignSignatureSigned struct {
-	ObjWebhook CustomWebhookResponse `json:"objWebhook"`
-	// An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.
-	AObjAttempt []AttemptResponseCompound `json:"a_objAttempt"`
+	CommonWebhook
 	ObjEzsignsignature EzsignsignatureResponse `json:"objEzsignsignature"`
 }
 
@@ -34,7 +32,7 @@ type _WebhookEzsignSignatureSigned WebhookEzsignSignatureSigned
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWebhookEzsignSignatureSigned(objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound, objEzsignsignature EzsignsignatureResponse) *WebhookEzsignSignatureSigned {
+func NewWebhookEzsignSignatureSigned(objEzsignsignature EzsignsignatureResponse, objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound) *WebhookEzsignSignatureSigned {
 	this := WebhookEzsignSignatureSigned{}
 	this.ObjWebhook = objWebhook
 	this.AObjAttempt = aObjAttempt
@@ -48,54 +46,6 @@ func NewWebhookEzsignSignatureSigned(objWebhook CustomWebhookResponse, aObjAttem
 func NewWebhookEzsignSignatureSignedWithDefaults() *WebhookEzsignSignatureSigned {
 	this := WebhookEzsignSignatureSigned{}
 	return &this
-}
-
-// GetObjWebhook returns the ObjWebhook field value
-func (o *WebhookEzsignSignatureSigned) GetObjWebhook() CustomWebhookResponse {
-	if o == nil {
-		var ret CustomWebhookResponse
-		return ret
-	}
-
-	return o.ObjWebhook
-}
-
-// GetObjWebhookOk returns a tuple with the ObjWebhook field value
-// and a boolean to check if the value has been set.
-func (o *WebhookEzsignSignatureSigned) GetObjWebhookOk() (*CustomWebhookResponse, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ObjWebhook, true
-}
-
-// SetObjWebhook sets field value
-func (o *WebhookEzsignSignatureSigned) SetObjWebhook(v CustomWebhookResponse) {
-	o.ObjWebhook = v
-}
-
-// GetAObjAttempt returns the AObjAttempt field value
-func (o *WebhookEzsignSignatureSigned) GetAObjAttempt() []AttemptResponseCompound {
-	if o == nil {
-		var ret []AttemptResponseCompound
-		return ret
-	}
-
-	return o.AObjAttempt
-}
-
-// GetAObjAttemptOk returns a tuple with the AObjAttempt field value
-// and a boolean to check if the value has been set.
-func (o *WebhookEzsignSignatureSigned) GetAObjAttemptOk() ([]AttemptResponseCompound, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.AObjAttempt, true
-}
-
-// SetAObjAttempt sets field value
-func (o *WebhookEzsignSignatureSigned) SetAObjAttempt(v []AttemptResponseCompound) {
-	o.AObjAttempt = v
 }
 
 // GetObjEzsignsignature returns the ObjEzsignsignature field value
@@ -132,8 +82,6 @@ func (o WebhookEzsignSignatureSigned) MarshalJSON() ([]byte, error) {
 
 func (o WebhookEzsignSignatureSigned) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["objWebhook"] = o.ObjWebhook
-	toSerialize["a_objAttempt"] = o.AObjAttempt
 	toSerialize["objEzsignsignature"] = o.ObjEzsignsignature
 	return toSerialize, nil
 }
@@ -143,9 +91,9 @@ func (o *WebhookEzsignSignatureSigned) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"objEzsignsignature",
 		"objWebhook",
 		"a_objAttempt",
-		"objEzsignsignature",
 	}
 
 	allProperties := make(map[string]interface{})

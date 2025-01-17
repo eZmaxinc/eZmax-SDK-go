@@ -22,10 +22,7 @@ var _ MappedNullable = &UsergroupGetListV1ResponseMPayload{}
 
 // UsergroupGetListV1ResponseMPayload Payload for GET /1/object/usergroup/getList
 type UsergroupGetListV1ResponseMPayload struct {
-	// The number of rows returned
-	IRowReturned int32 `json:"iRowReturned"`
-	// The number of rows matching your filters (if any) or the total number of rows
-	IRowFiltered int32 `json:"iRowFiltered"`
+	CommonGetListV1ResponseMPayload
 	AObjUsergroup []UsergroupListElement `json:"a_objUsergroup"`
 }
 
@@ -35,7 +32,7 @@ type _UsergroupGetListV1ResponseMPayload UsergroupGetListV1ResponseMPayload
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUsergroupGetListV1ResponseMPayload(iRowReturned int32, iRowFiltered int32, aObjUsergroup []UsergroupListElement) *UsergroupGetListV1ResponseMPayload {
+func NewUsergroupGetListV1ResponseMPayload(aObjUsergroup []UsergroupListElement, iRowReturned int32, iRowFiltered int32) *UsergroupGetListV1ResponseMPayload {
 	this := UsergroupGetListV1ResponseMPayload{}
 	this.IRowReturned = iRowReturned
 	this.IRowFiltered = iRowFiltered
@@ -49,54 +46,6 @@ func NewUsergroupGetListV1ResponseMPayload(iRowReturned int32, iRowFiltered int3
 func NewUsergroupGetListV1ResponseMPayloadWithDefaults() *UsergroupGetListV1ResponseMPayload {
 	this := UsergroupGetListV1ResponseMPayload{}
 	return &this
-}
-
-// GetIRowReturned returns the IRowReturned field value
-func (o *UsergroupGetListV1ResponseMPayload) GetIRowReturned() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.IRowReturned
-}
-
-// GetIRowReturnedOk returns a tuple with the IRowReturned field value
-// and a boolean to check if the value has been set.
-func (o *UsergroupGetListV1ResponseMPayload) GetIRowReturnedOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.IRowReturned, true
-}
-
-// SetIRowReturned sets field value
-func (o *UsergroupGetListV1ResponseMPayload) SetIRowReturned(v int32) {
-	o.IRowReturned = v
-}
-
-// GetIRowFiltered returns the IRowFiltered field value
-func (o *UsergroupGetListV1ResponseMPayload) GetIRowFiltered() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.IRowFiltered
-}
-
-// GetIRowFilteredOk returns a tuple with the IRowFiltered field value
-// and a boolean to check if the value has been set.
-func (o *UsergroupGetListV1ResponseMPayload) GetIRowFilteredOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.IRowFiltered, true
-}
-
-// SetIRowFiltered sets field value
-func (o *UsergroupGetListV1ResponseMPayload) SetIRowFiltered(v int32) {
-	o.IRowFiltered = v
 }
 
 // GetAObjUsergroup returns the AObjUsergroup field value
@@ -133,8 +82,6 @@ func (o UsergroupGetListV1ResponseMPayload) MarshalJSON() ([]byte, error) {
 
 func (o UsergroupGetListV1ResponseMPayload) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["iRowReturned"] = o.IRowReturned
-	toSerialize["iRowFiltered"] = o.IRowFiltered
 	toSerialize["a_objUsergroup"] = o.AObjUsergroup
 	return toSerialize, nil
 }
@@ -144,9 +91,9 @@ func (o *UsergroupGetListV1ResponseMPayload) UnmarshalJSON(data []byte) (err err
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"a_objUsergroup",
 		"iRowReturned",
 		"iRowFiltered",
-		"a_objUsergroup",
 	}
 
 	allProperties := make(map[string]interface{})

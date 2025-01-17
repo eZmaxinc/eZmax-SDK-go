@@ -20,15 +20,7 @@ var _ MappedNullable = &CommunicationexternalrecipientRequestCompound{}
 
 // CommunicationexternalrecipientRequestCompound A Communicationexternalrecipient Object and children
 type CommunicationexternalrecipientRequestCompound struct {
-	// The unique ID of the Communicationexternalrecipient
-	PkiCommunicationexternalrecipientID *int32 `json:"pkiCommunicationexternalrecipientID,omitempty"`
-	// The email address.
-	SEmailAddress *string "json:\"sEmailAddress,omitempty\" validate:\"regexp=^[\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20}$\""
-	// A phone number in E.164 Format
-	SPhoneE164 *string `json:"sPhoneE164,omitempty" validate:"regexp=^\\\\+[1-9]\\\\d{1,14}$"`
-	ECommunicationexternalrecipientType *FieldECommunicationexternalrecipientType `json:"eCommunicationexternalrecipientType,omitempty"`
-	// The name of the Communicationexternalrecipient
-	SCommunicationexternalrecipientName *string `json:"sCommunicationexternalrecipientName,omitempty" validate:"regexp=^.{0,50}$"`
+	CommunicationexternalrecipientRequest
 }
 
 // NewCommunicationexternalrecipientRequestCompound instantiates a new CommunicationexternalrecipientRequestCompound object
@@ -48,166 +40,6 @@ func NewCommunicationexternalrecipientRequestCompoundWithDefaults() *Communicati
 	return &this
 }
 
-// GetPkiCommunicationexternalrecipientID returns the PkiCommunicationexternalrecipientID field value if set, zero value otherwise.
-func (o *CommunicationexternalrecipientRequestCompound) GetPkiCommunicationexternalrecipientID() int32 {
-	if o == nil || IsNil(o.PkiCommunicationexternalrecipientID) {
-		var ret int32
-		return ret
-	}
-	return *o.PkiCommunicationexternalrecipientID
-}
-
-// GetPkiCommunicationexternalrecipientIDOk returns a tuple with the PkiCommunicationexternalrecipientID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CommunicationexternalrecipientRequestCompound) GetPkiCommunicationexternalrecipientIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.PkiCommunicationexternalrecipientID) {
-		return nil, false
-	}
-	return o.PkiCommunicationexternalrecipientID, true
-}
-
-// HasPkiCommunicationexternalrecipientID returns a boolean if a field has been set.
-func (o *CommunicationexternalrecipientRequestCompound) HasPkiCommunicationexternalrecipientID() bool {
-	if o != nil && !IsNil(o.PkiCommunicationexternalrecipientID) {
-		return true
-	}
-
-	return false
-}
-
-// SetPkiCommunicationexternalrecipientID gets a reference to the given int32 and assigns it to the PkiCommunicationexternalrecipientID field.
-func (o *CommunicationexternalrecipientRequestCompound) SetPkiCommunicationexternalrecipientID(v int32) {
-	o.PkiCommunicationexternalrecipientID = &v
-}
-
-// GetSEmailAddress returns the SEmailAddress field value if set, zero value otherwise.
-func (o *CommunicationexternalrecipientRequestCompound) GetSEmailAddress() string {
-	if o == nil || IsNil(o.SEmailAddress) {
-		var ret string
-		return ret
-	}
-	return *o.SEmailAddress
-}
-
-// GetSEmailAddressOk returns a tuple with the SEmailAddress field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CommunicationexternalrecipientRequestCompound) GetSEmailAddressOk() (*string, bool) {
-	if o == nil || IsNil(o.SEmailAddress) {
-		return nil, false
-	}
-	return o.SEmailAddress, true
-}
-
-// HasSEmailAddress returns a boolean if a field has been set.
-func (o *CommunicationexternalrecipientRequestCompound) HasSEmailAddress() bool {
-	if o != nil && !IsNil(o.SEmailAddress) {
-		return true
-	}
-
-	return false
-}
-
-// SetSEmailAddress gets a reference to the given string and assigns it to the SEmailAddress field.
-func (o *CommunicationexternalrecipientRequestCompound) SetSEmailAddress(v string) {
-	o.SEmailAddress = &v
-}
-
-// GetSPhoneE164 returns the SPhoneE164 field value if set, zero value otherwise.
-func (o *CommunicationexternalrecipientRequestCompound) GetSPhoneE164() string {
-	if o == nil || IsNil(o.SPhoneE164) {
-		var ret string
-		return ret
-	}
-	return *o.SPhoneE164
-}
-
-// GetSPhoneE164Ok returns a tuple with the SPhoneE164 field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CommunicationexternalrecipientRequestCompound) GetSPhoneE164Ok() (*string, bool) {
-	if o == nil || IsNil(o.SPhoneE164) {
-		return nil, false
-	}
-	return o.SPhoneE164, true
-}
-
-// HasSPhoneE164 returns a boolean if a field has been set.
-func (o *CommunicationexternalrecipientRequestCompound) HasSPhoneE164() bool {
-	if o != nil && !IsNil(o.SPhoneE164) {
-		return true
-	}
-
-	return false
-}
-
-// SetSPhoneE164 gets a reference to the given string and assigns it to the SPhoneE164 field.
-func (o *CommunicationexternalrecipientRequestCompound) SetSPhoneE164(v string) {
-	o.SPhoneE164 = &v
-}
-
-// GetECommunicationexternalrecipientType returns the ECommunicationexternalrecipientType field value if set, zero value otherwise.
-func (o *CommunicationexternalrecipientRequestCompound) GetECommunicationexternalrecipientType() FieldECommunicationexternalrecipientType {
-	if o == nil || IsNil(o.ECommunicationexternalrecipientType) {
-		var ret FieldECommunicationexternalrecipientType
-		return ret
-	}
-	return *o.ECommunicationexternalrecipientType
-}
-
-// GetECommunicationexternalrecipientTypeOk returns a tuple with the ECommunicationexternalrecipientType field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CommunicationexternalrecipientRequestCompound) GetECommunicationexternalrecipientTypeOk() (*FieldECommunicationexternalrecipientType, bool) {
-	if o == nil || IsNil(o.ECommunicationexternalrecipientType) {
-		return nil, false
-	}
-	return o.ECommunicationexternalrecipientType, true
-}
-
-// HasECommunicationexternalrecipientType returns a boolean if a field has been set.
-func (o *CommunicationexternalrecipientRequestCompound) HasECommunicationexternalrecipientType() bool {
-	if o != nil && !IsNil(o.ECommunicationexternalrecipientType) {
-		return true
-	}
-
-	return false
-}
-
-// SetECommunicationexternalrecipientType gets a reference to the given FieldECommunicationexternalrecipientType and assigns it to the ECommunicationexternalrecipientType field.
-func (o *CommunicationexternalrecipientRequestCompound) SetECommunicationexternalrecipientType(v FieldECommunicationexternalrecipientType) {
-	o.ECommunicationexternalrecipientType = &v
-}
-
-// GetSCommunicationexternalrecipientName returns the SCommunicationexternalrecipientName field value if set, zero value otherwise.
-func (o *CommunicationexternalrecipientRequestCompound) GetSCommunicationexternalrecipientName() string {
-	if o == nil || IsNil(o.SCommunicationexternalrecipientName) {
-		var ret string
-		return ret
-	}
-	return *o.SCommunicationexternalrecipientName
-}
-
-// GetSCommunicationexternalrecipientNameOk returns a tuple with the SCommunicationexternalrecipientName field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CommunicationexternalrecipientRequestCompound) GetSCommunicationexternalrecipientNameOk() (*string, bool) {
-	if o == nil || IsNil(o.SCommunicationexternalrecipientName) {
-		return nil, false
-	}
-	return o.SCommunicationexternalrecipientName, true
-}
-
-// HasSCommunicationexternalrecipientName returns a boolean if a field has been set.
-func (o *CommunicationexternalrecipientRequestCompound) HasSCommunicationexternalrecipientName() bool {
-	if o != nil && !IsNil(o.SCommunicationexternalrecipientName) {
-		return true
-	}
-
-	return false
-}
-
-// SetSCommunicationexternalrecipientName gets a reference to the given string and assigns it to the SCommunicationexternalrecipientName field.
-func (o *CommunicationexternalrecipientRequestCompound) SetSCommunicationexternalrecipientName(v string) {
-	o.SCommunicationexternalrecipientName = &v
-}
-
 func (o CommunicationexternalrecipientRequestCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -218,21 +50,6 @@ func (o CommunicationexternalrecipientRequestCompound) MarshalJSON() ([]byte, er
 
 func (o CommunicationexternalrecipientRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.PkiCommunicationexternalrecipientID) {
-		toSerialize["pkiCommunicationexternalrecipientID"] = o.PkiCommunicationexternalrecipientID
-	}
-	if !IsNil(o.SEmailAddress) {
-		toSerialize["sEmailAddress"] = o.SEmailAddress
-	}
-	if !IsNil(o.SPhoneE164) {
-		toSerialize["sPhoneE164"] = o.SPhoneE164
-	}
-	if !IsNil(o.ECommunicationexternalrecipientType) {
-		toSerialize["eCommunicationexternalrecipientType"] = o.ECommunicationexternalrecipientType
-	}
-	if !IsNil(o.SCommunicationexternalrecipientName) {
-		toSerialize["sCommunicationexternalrecipientName"] = o.SCommunicationexternalrecipientName
-	}
 	return toSerialize, nil
 }
 

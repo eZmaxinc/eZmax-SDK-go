@@ -22,11 +22,7 @@ var _ MappedNullable = &CommonResponseErrorEzsignformValidation{}
 
 // CommonResponseErrorEzsignformValidation Generic Error Message
 type CommonResponseErrorEzsignformValidation struct {
-	// The message giving details about the error
-	SErrorMessage string `json:"sErrorMessage" validate:"regexp=^.{0,500}$"`
-	EErrorCode FieldEErrorCode `json:"eErrorCode"`
-	// More error message detail
-	ASErrorMessagedetail []string `json:"a_sErrorMessagedetail,omitempty"`
+	CommonResponseError
 	// 
 	AObjEzsignformfielderror []CustomEzsignformfielderrorResponse `json:"a_objEzsignformfielderror"`
 }
@@ -37,7 +33,7 @@ type _CommonResponseErrorEzsignformValidation CommonResponseErrorEzsignformValid
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommonResponseErrorEzsignformValidation(sErrorMessage string, eErrorCode FieldEErrorCode, aObjEzsignformfielderror []CustomEzsignformfielderrorResponse) *CommonResponseErrorEzsignformValidation {
+func NewCommonResponseErrorEzsignformValidation(aObjEzsignformfielderror []CustomEzsignformfielderrorResponse, sErrorMessage string, eErrorCode FieldEErrorCode) *CommonResponseErrorEzsignformValidation {
 	this := CommonResponseErrorEzsignformValidation{}
 	this.SErrorMessage = sErrorMessage
 	this.EErrorCode = eErrorCode
@@ -51,86 +47,6 @@ func NewCommonResponseErrorEzsignformValidation(sErrorMessage string, eErrorCode
 func NewCommonResponseErrorEzsignformValidationWithDefaults() *CommonResponseErrorEzsignformValidation {
 	this := CommonResponseErrorEzsignformValidation{}
 	return &this
-}
-
-// GetSErrorMessage returns the SErrorMessage field value
-func (o *CommonResponseErrorEzsignformValidation) GetSErrorMessage() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SErrorMessage
-}
-
-// GetSErrorMessageOk returns a tuple with the SErrorMessage field value
-// and a boolean to check if the value has been set.
-func (o *CommonResponseErrorEzsignformValidation) GetSErrorMessageOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SErrorMessage, true
-}
-
-// SetSErrorMessage sets field value
-func (o *CommonResponseErrorEzsignformValidation) SetSErrorMessage(v string) {
-	o.SErrorMessage = v
-}
-
-// GetEErrorCode returns the EErrorCode field value
-func (o *CommonResponseErrorEzsignformValidation) GetEErrorCode() FieldEErrorCode {
-	if o == nil {
-		var ret FieldEErrorCode
-		return ret
-	}
-
-	return o.EErrorCode
-}
-
-// GetEErrorCodeOk returns a tuple with the EErrorCode field value
-// and a boolean to check if the value has been set.
-func (o *CommonResponseErrorEzsignformValidation) GetEErrorCodeOk() (*FieldEErrorCode, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.EErrorCode, true
-}
-
-// SetEErrorCode sets field value
-func (o *CommonResponseErrorEzsignformValidation) SetEErrorCode(v FieldEErrorCode) {
-	o.EErrorCode = v
-}
-
-// GetASErrorMessagedetail returns the ASErrorMessagedetail field value if set, zero value otherwise.
-func (o *CommonResponseErrorEzsignformValidation) GetASErrorMessagedetail() []string {
-	if o == nil || IsNil(o.ASErrorMessagedetail) {
-		var ret []string
-		return ret
-	}
-	return o.ASErrorMessagedetail
-}
-
-// GetASErrorMessagedetailOk returns a tuple with the ASErrorMessagedetail field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CommonResponseErrorEzsignformValidation) GetASErrorMessagedetailOk() ([]string, bool) {
-	if o == nil || IsNil(o.ASErrorMessagedetail) {
-		return nil, false
-	}
-	return o.ASErrorMessagedetail, true
-}
-
-// HasASErrorMessagedetail returns a boolean if a field has been set.
-func (o *CommonResponseErrorEzsignformValidation) HasASErrorMessagedetail() bool {
-	if o != nil && !IsNil(o.ASErrorMessagedetail) {
-		return true
-	}
-
-	return false
-}
-
-// SetASErrorMessagedetail gets a reference to the given []string and assigns it to the ASErrorMessagedetail field.
-func (o *CommonResponseErrorEzsignformValidation) SetASErrorMessagedetail(v []string) {
-	o.ASErrorMessagedetail = v
 }
 
 // GetAObjEzsignformfielderror returns the AObjEzsignformfielderror field value
@@ -167,11 +83,6 @@ func (o CommonResponseErrorEzsignformValidation) MarshalJSON() ([]byte, error) {
 
 func (o CommonResponseErrorEzsignformValidation) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["sErrorMessage"] = o.SErrorMessage
-	toSerialize["eErrorCode"] = o.EErrorCode
-	if !IsNil(o.ASErrorMessagedetail) {
-		toSerialize["a_sErrorMessagedetail"] = o.ASErrorMessagedetail
-	}
 	toSerialize["a_objEzsignformfielderror"] = o.AObjEzsignformfielderror
 	return toSerialize, nil
 }
@@ -181,9 +92,9 @@ func (o *CommonResponseErrorEzsignformValidation) UnmarshalJSON(data []byte) (er
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"a_objEzsignformfielderror",
 		"sErrorMessage",
 		"eErrorCode",
-		"a_objEzsignformfielderror",
 	}
 
 	allProperties := make(map[string]interface{})

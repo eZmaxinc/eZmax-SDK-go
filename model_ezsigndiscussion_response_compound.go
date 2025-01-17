@@ -22,19 +22,7 @@ var _ MappedNullable = &EzsigndiscussionResponseCompound{}
 
 // EzsigndiscussionResponseCompound A Ezsigndiscussion Object
 type EzsigndiscussionResponseCompound struct {
-	// The unique ID of the Ezsigndiscussion
-	PkiEzsigndiscussionID int32 `json:"pkiEzsigndiscussionID"`
-	// The unique ID of the Ezsignpage
-	FkiEzsignpageID int32 `json:"fkiEzsignpageID"`
-	// The unique ID of the Discussion
-	FkiDiscussionID int32 `json:"fkiDiscussionID"`
-	// The x of the Ezsigndiscussion
-	IEzsigndiscussionX int32 `json:"iEzsigndiscussionX"`
-	// The y of the Ezsigndiscussion
-	IEzsigndiscussionY int32 `json:"iEzsigndiscussionY"`
-	// The page number in the Ezsigndocument for the Ezsigndiscussion
-	IEzsigndiscussionPagenumber int32 `json:"iEzsigndiscussionPagenumber"`
-	ObjDiscussion DiscussionResponseCompound `json:"objDiscussion"`
+	EzsigndiscussionResponse
 }
 
 type _EzsigndiscussionResponseCompound EzsigndiscussionResponseCompound
@@ -63,174 +51,6 @@ func NewEzsigndiscussionResponseCompoundWithDefaults() *EzsigndiscussionResponse
 	return &this
 }
 
-// GetPkiEzsigndiscussionID returns the PkiEzsigndiscussionID field value
-func (o *EzsigndiscussionResponseCompound) GetPkiEzsigndiscussionID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.PkiEzsigndiscussionID
-}
-
-// GetPkiEzsigndiscussionIDOk returns a tuple with the PkiEzsigndiscussionID field value
-// and a boolean to check if the value has been set.
-func (o *EzsigndiscussionResponseCompound) GetPkiEzsigndiscussionIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.PkiEzsigndiscussionID, true
-}
-
-// SetPkiEzsigndiscussionID sets field value
-func (o *EzsigndiscussionResponseCompound) SetPkiEzsigndiscussionID(v int32) {
-	o.PkiEzsigndiscussionID = v
-}
-
-// GetFkiEzsignpageID returns the FkiEzsignpageID field value
-func (o *EzsigndiscussionResponseCompound) GetFkiEzsignpageID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.FkiEzsignpageID
-}
-
-// GetFkiEzsignpageIDOk returns a tuple with the FkiEzsignpageID field value
-// and a boolean to check if the value has been set.
-func (o *EzsigndiscussionResponseCompound) GetFkiEzsignpageIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FkiEzsignpageID, true
-}
-
-// SetFkiEzsignpageID sets field value
-func (o *EzsigndiscussionResponseCompound) SetFkiEzsignpageID(v int32) {
-	o.FkiEzsignpageID = v
-}
-
-// GetFkiDiscussionID returns the FkiDiscussionID field value
-func (o *EzsigndiscussionResponseCompound) GetFkiDiscussionID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.FkiDiscussionID
-}
-
-// GetFkiDiscussionIDOk returns a tuple with the FkiDiscussionID field value
-// and a boolean to check if the value has been set.
-func (o *EzsigndiscussionResponseCompound) GetFkiDiscussionIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FkiDiscussionID, true
-}
-
-// SetFkiDiscussionID sets field value
-func (o *EzsigndiscussionResponseCompound) SetFkiDiscussionID(v int32) {
-	o.FkiDiscussionID = v
-}
-
-// GetIEzsigndiscussionX returns the IEzsigndiscussionX field value
-func (o *EzsigndiscussionResponseCompound) GetIEzsigndiscussionX() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.IEzsigndiscussionX
-}
-
-// GetIEzsigndiscussionXOk returns a tuple with the IEzsigndiscussionX field value
-// and a boolean to check if the value has been set.
-func (o *EzsigndiscussionResponseCompound) GetIEzsigndiscussionXOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.IEzsigndiscussionX, true
-}
-
-// SetIEzsigndiscussionX sets field value
-func (o *EzsigndiscussionResponseCompound) SetIEzsigndiscussionX(v int32) {
-	o.IEzsigndiscussionX = v
-}
-
-// GetIEzsigndiscussionY returns the IEzsigndiscussionY field value
-func (o *EzsigndiscussionResponseCompound) GetIEzsigndiscussionY() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.IEzsigndiscussionY
-}
-
-// GetIEzsigndiscussionYOk returns a tuple with the IEzsigndiscussionY field value
-// and a boolean to check if the value has been set.
-func (o *EzsigndiscussionResponseCompound) GetIEzsigndiscussionYOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.IEzsigndiscussionY, true
-}
-
-// SetIEzsigndiscussionY sets field value
-func (o *EzsigndiscussionResponseCompound) SetIEzsigndiscussionY(v int32) {
-	o.IEzsigndiscussionY = v
-}
-
-// GetIEzsigndiscussionPagenumber returns the IEzsigndiscussionPagenumber field value
-func (o *EzsigndiscussionResponseCompound) GetIEzsigndiscussionPagenumber() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.IEzsigndiscussionPagenumber
-}
-
-// GetIEzsigndiscussionPagenumberOk returns a tuple with the IEzsigndiscussionPagenumber field value
-// and a boolean to check if the value has been set.
-func (o *EzsigndiscussionResponseCompound) GetIEzsigndiscussionPagenumberOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.IEzsigndiscussionPagenumber, true
-}
-
-// SetIEzsigndiscussionPagenumber sets field value
-func (o *EzsigndiscussionResponseCompound) SetIEzsigndiscussionPagenumber(v int32) {
-	o.IEzsigndiscussionPagenumber = v
-}
-
-// GetObjDiscussion returns the ObjDiscussion field value
-func (o *EzsigndiscussionResponseCompound) GetObjDiscussion() DiscussionResponseCompound {
-	if o == nil {
-		var ret DiscussionResponseCompound
-		return ret
-	}
-
-	return o.ObjDiscussion
-}
-
-// GetObjDiscussionOk returns a tuple with the ObjDiscussion field value
-// and a boolean to check if the value has been set.
-func (o *EzsigndiscussionResponseCompound) GetObjDiscussionOk() (*DiscussionResponseCompound, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ObjDiscussion, true
-}
-
-// SetObjDiscussion sets field value
-func (o *EzsigndiscussionResponseCompound) SetObjDiscussion(v DiscussionResponseCompound) {
-	o.ObjDiscussion = v
-}
-
 func (o EzsigndiscussionResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -241,13 +61,6 @@ func (o EzsigndiscussionResponseCompound) MarshalJSON() ([]byte, error) {
 
 func (o EzsigndiscussionResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["pkiEzsigndiscussionID"] = o.PkiEzsigndiscussionID
-	toSerialize["fkiEzsignpageID"] = o.FkiEzsignpageID
-	toSerialize["fkiDiscussionID"] = o.FkiDiscussionID
-	toSerialize["iEzsigndiscussionX"] = o.IEzsigndiscussionX
-	toSerialize["iEzsigndiscussionY"] = o.IEzsigndiscussionY
-	toSerialize["iEzsigndiscussionPagenumber"] = o.IEzsigndiscussionPagenumber
-	toSerialize["objDiscussion"] = o.ObjDiscussion
 	return toSerialize, nil
 }
 

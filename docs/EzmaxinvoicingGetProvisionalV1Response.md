@@ -4,15 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjDebugPayload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
-**ObjDebug** | Pointer to [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **MPayload** | [**EzmaxinvoicingResponseCompound**](EzmaxinvoicingResponseCompound.md) | Payload for GET /1/object/ezmaxinvoicing/getProvisional | 
 
 ## Methods
 
 ### NewEzmaxinvoicingGetProvisionalV1Response
 
-`func NewEzmaxinvoicingGetProvisionalV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload EzmaxinvoicingResponseCompound, ) *EzmaxinvoicingGetProvisionalV1Response`
+`func NewEzmaxinvoicingGetProvisionalV1Response(mPayload EzmaxinvoicingResponseCompound, ) *EzmaxinvoicingGetProvisionalV1Response`
 
 NewEzmaxinvoicingGetProvisionalV1Response instantiates a new EzmaxinvoicingGetProvisionalV1Response object
 This constructor will assign default values to properties that have it defined,
@@ -26,51 +24,6 @@ will change when the set of required properties is changed
 NewEzmaxinvoicingGetProvisionalV1ResponseWithDefaults instantiates a new EzmaxinvoicingGetProvisionalV1Response object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetObjDebugPayload
-
-`func (o *EzmaxinvoicingGetProvisionalV1Response) GetObjDebugPayload() CommonResponseObjDebugPayload`
-
-GetObjDebugPayload returns the ObjDebugPayload field if non-nil, zero value otherwise.
-
-### GetObjDebugPayloadOk
-
-`func (o *EzmaxinvoicingGetProvisionalV1Response) GetObjDebugPayloadOk() (*CommonResponseObjDebugPayload, bool)`
-
-GetObjDebugPayloadOk returns a tuple with the ObjDebugPayload field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetObjDebugPayload
-
-`func (o *EzmaxinvoicingGetProvisionalV1Response) SetObjDebugPayload(v CommonResponseObjDebugPayload)`
-
-SetObjDebugPayload sets ObjDebugPayload field to given value.
-
-
-### GetObjDebug
-
-`func (o *EzmaxinvoicingGetProvisionalV1Response) GetObjDebug() CommonResponseObjDebug`
-
-GetObjDebug returns the ObjDebug field if non-nil, zero value otherwise.
-
-### GetObjDebugOk
-
-`func (o *EzmaxinvoicingGetProvisionalV1Response) GetObjDebugOk() (*CommonResponseObjDebug, bool)`
-
-GetObjDebugOk returns a tuple with the ObjDebug field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetObjDebug
-
-`func (o *EzmaxinvoicingGetProvisionalV1Response) SetObjDebug(v CommonResponseObjDebug)`
-
-SetObjDebug sets ObjDebug field to given value.
-
-### HasObjDebug
-
-`func (o *EzmaxinvoicingGetProvisionalV1Response) HasObjDebug() bool`
-
-HasObjDebug returns a boolean if a field has been set.
 
 ### GetMPayload
 

@@ -4,15 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PkiModulegroupID** | **int32** | The unique ID of the Modulegroup | 
-**SModulegroupNameX** | **string** | The name of the Modulegroup in the language of the requester | 
 **AObjModule** | Pointer to [**[]ModuleResponseCompound**](ModuleResponseCompound.md) |  | [optional] 
 
 ## Methods
 
 ### NewModulegroupResponseCompound
 
-`func NewModulegroupResponseCompound(pkiModulegroupID int32, sModulegroupNameX string, ) *ModulegroupResponseCompound`
+`func NewModulegroupResponseCompound() *ModulegroupResponseCompound`
 
 NewModulegroupResponseCompound instantiates a new ModulegroupResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -26,46 +24,6 @@ will change when the set of required properties is changed
 NewModulegroupResponseCompoundWithDefaults instantiates a new ModulegroupResponseCompound object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetPkiModulegroupID
-
-`func (o *ModulegroupResponseCompound) GetPkiModulegroupID() int32`
-
-GetPkiModulegroupID returns the PkiModulegroupID field if non-nil, zero value otherwise.
-
-### GetPkiModulegroupIDOk
-
-`func (o *ModulegroupResponseCompound) GetPkiModulegroupIDOk() (*int32, bool)`
-
-GetPkiModulegroupIDOk returns a tuple with the PkiModulegroupID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPkiModulegroupID
-
-`func (o *ModulegroupResponseCompound) SetPkiModulegroupID(v int32)`
-
-SetPkiModulegroupID sets PkiModulegroupID field to given value.
-
-
-### GetSModulegroupNameX
-
-`func (o *ModulegroupResponseCompound) GetSModulegroupNameX() string`
-
-GetSModulegroupNameX returns the SModulegroupNameX field if non-nil, zero value otherwise.
-
-### GetSModulegroupNameXOk
-
-`func (o *ModulegroupResponseCompound) GetSModulegroupNameXOk() (*string, bool)`
-
-GetSModulegroupNameXOk returns a tuple with the SModulegroupNameX field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSModulegroupNameX
-
-`func (o *ModulegroupResponseCompound) SetSModulegroupNameX(v string)`
-
-SetSModulegroupNameX sets SModulegroupNameX field to given value.
-
 
 ### GetAObjModule
 

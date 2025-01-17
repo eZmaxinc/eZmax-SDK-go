@@ -4,15 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PkiBillingentityinternalID** | **int32** | The unique ID of the Billingentityinternal. | 
-**ObjBillingentityinternalDescription** | [**MultilingualBillingentityinternalDescription**](MultilingualBillingentityinternalDescription.md) |  | 
 **AObjBillingentityinternalproduct** | [**[]BillingentityinternalproductResponseCompound**](BillingentityinternalproductResponseCompound.md) |  | 
 
 ## Methods
 
 ### NewBillingentityinternalResponseCompound
 
-`func NewBillingentityinternalResponseCompound(pkiBillingentityinternalID int32, objBillingentityinternalDescription MultilingualBillingentityinternalDescription, aObjBillingentityinternalproduct []BillingentityinternalproductResponseCompound, ) *BillingentityinternalResponseCompound`
+`func NewBillingentityinternalResponseCompound(aObjBillingentityinternalproduct []BillingentityinternalproductResponseCompound, ) *BillingentityinternalResponseCompound`
 
 NewBillingentityinternalResponseCompound instantiates a new BillingentityinternalResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -26,46 +24,6 @@ will change when the set of required properties is changed
 NewBillingentityinternalResponseCompoundWithDefaults instantiates a new BillingentityinternalResponseCompound object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetPkiBillingentityinternalID
-
-`func (o *BillingentityinternalResponseCompound) GetPkiBillingentityinternalID() int32`
-
-GetPkiBillingentityinternalID returns the PkiBillingentityinternalID field if non-nil, zero value otherwise.
-
-### GetPkiBillingentityinternalIDOk
-
-`func (o *BillingentityinternalResponseCompound) GetPkiBillingentityinternalIDOk() (*int32, bool)`
-
-GetPkiBillingentityinternalIDOk returns a tuple with the PkiBillingentityinternalID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPkiBillingentityinternalID
-
-`func (o *BillingentityinternalResponseCompound) SetPkiBillingentityinternalID(v int32)`
-
-SetPkiBillingentityinternalID sets PkiBillingentityinternalID field to given value.
-
-
-### GetObjBillingentityinternalDescription
-
-`func (o *BillingentityinternalResponseCompound) GetObjBillingentityinternalDescription() MultilingualBillingentityinternalDescription`
-
-GetObjBillingentityinternalDescription returns the ObjBillingentityinternalDescription field if non-nil, zero value otherwise.
-
-### GetObjBillingentityinternalDescriptionOk
-
-`func (o *BillingentityinternalResponseCompound) GetObjBillingentityinternalDescriptionOk() (*MultilingualBillingentityinternalDescription, bool)`
-
-GetObjBillingentityinternalDescriptionOk returns a tuple with the ObjBillingentityinternalDescription field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetObjBillingentityinternalDescription
-
-`func (o *BillingentityinternalResponseCompound) SetObjBillingentityinternalDescription(v MultilingualBillingentityinternalDescription)`
-
-SetObjBillingentityinternalDescription sets ObjBillingentityinternalDescription field to given value.
-
 
 ### GetAObjBillingentityinternalproduct
 

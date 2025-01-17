@@ -22,16 +22,7 @@ var _ MappedNullable = &AuthenticationexternalResponseCompound{}
 
 // AuthenticationexternalResponseCompound A Authenticationexternal Object
 type AuthenticationexternalResponseCompound struct {
-	// The unique ID of the Authenticationexternal
-	PkiAuthenticationexternalID int32 `json:"pkiAuthenticationexternalID"`
-	// The description of the Authenticationexternal
-	SAuthenticationexternalDescription string `json:"sAuthenticationexternalDescription" validate:"regexp=^.{0,50}$"`
-	EAuthenticationexternalType FieldEAuthenticationexternalType `json:"eAuthenticationexternalType"`
-	// Whether the Authenticationexternal has been connected or not
-	BAuthenticationexternalConnected *bool `json:"bAuthenticationexternalConnected,omitempty"`
-	// The url to authorize the Authenticationexternal
-	SAuthenticationexternalAuthorizationurl *string `json:"sAuthenticationexternalAuthorizationurl,omitempty" validate:"regexp=^(https|http):\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
-	ObjAudit CommonAudit `json:"objAudit"`
+	AuthenticationexternalResponse
 }
 
 type _AuthenticationexternalResponseCompound AuthenticationexternalResponseCompound
@@ -57,166 +48,6 @@ func NewAuthenticationexternalResponseCompoundWithDefaults() *Authenticationexte
 	return &this
 }
 
-// GetPkiAuthenticationexternalID returns the PkiAuthenticationexternalID field value
-func (o *AuthenticationexternalResponseCompound) GetPkiAuthenticationexternalID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.PkiAuthenticationexternalID
-}
-
-// GetPkiAuthenticationexternalIDOk returns a tuple with the PkiAuthenticationexternalID field value
-// and a boolean to check if the value has been set.
-func (o *AuthenticationexternalResponseCompound) GetPkiAuthenticationexternalIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.PkiAuthenticationexternalID, true
-}
-
-// SetPkiAuthenticationexternalID sets field value
-func (o *AuthenticationexternalResponseCompound) SetPkiAuthenticationexternalID(v int32) {
-	o.PkiAuthenticationexternalID = v
-}
-
-// GetSAuthenticationexternalDescription returns the SAuthenticationexternalDescription field value
-func (o *AuthenticationexternalResponseCompound) GetSAuthenticationexternalDescription() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SAuthenticationexternalDescription
-}
-
-// GetSAuthenticationexternalDescriptionOk returns a tuple with the SAuthenticationexternalDescription field value
-// and a boolean to check if the value has been set.
-func (o *AuthenticationexternalResponseCompound) GetSAuthenticationexternalDescriptionOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SAuthenticationexternalDescription, true
-}
-
-// SetSAuthenticationexternalDescription sets field value
-func (o *AuthenticationexternalResponseCompound) SetSAuthenticationexternalDescription(v string) {
-	o.SAuthenticationexternalDescription = v
-}
-
-// GetEAuthenticationexternalType returns the EAuthenticationexternalType field value
-func (o *AuthenticationexternalResponseCompound) GetEAuthenticationexternalType() FieldEAuthenticationexternalType {
-	if o == nil {
-		var ret FieldEAuthenticationexternalType
-		return ret
-	}
-
-	return o.EAuthenticationexternalType
-}
-
-// GetEAuthenticationexternalTypeOk returns a tuple with the EAuthenticationexternalType field value
-// and a boolean to check if the value has been set.
-func (o *AuthenticationexternalResponseCompound) GetEAuthenticationexternalTypeOk() (*FieldEAuthenticationexternalType, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.EAuthenticationexternalType, true
-}
-
-// SetEAuthenticationexternalType sets field value
-func (o *AuthenticationexternalResponseCompound) SetEAuthenticationexternalType(v FieldEAuthenticationexternalType) {
-	o.EAuthenticationexternalType = v
-}
-
-// GetBAuthenticationexternalConnected returns the BAuthenticationexternalConnected field value if set, zero value otherwise.
-func (o *AuthenticationexternalResponseCompound) GetBAuthenticationexternalConnected() bool {
-	if o == nil || IsNil(o.BAuthenticationexternalConnected) {
-		var ret bool
-		return ret
-	}
-	return *o.BAuthenticationexternalConnected
-}
-
-// GetBAuthenticationexternalConnectedOk returns a tuple with the BAuthenticationexternalConnected field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AuthenticationexternalResponseCompound) GetBAuthenticationexternalConnectedOk() (*bool, bool) {
-	if o == nil || IsNil(o.BAuthenticationexternalConnected) {
-		return nil, false
-	}
-	return o.BAuthenticationexternalConnected, true
-}
-
-// HasBAuthenticationexternalConnected returns a boolean if a field has been set.
-func (o *AuthenticationexternalResponseCompound) HasBAuthenticationexternalConnected() bool {
-	if o != nil && !IsNil(o.BAuthenticationexternalConnected) {
-		return true
-	}
-
-	return false
-}
-
-// SetBAuthenticationexternalConnected gets a reference to the given bool and assigns it to the BAuthenticationexternalConnected field.
-func (o *AuthenticationexternalResponseCompound) SetBAuthenticationexternalConnected(v bool) {
-	o.BAuthenticationexternalConnected = &v
-}
-
-// GetSAuthenticationexternalAuthorizationurl returns the SAuthenticationexternalAuthorizationurl field value if set, zero value otherwise.
-func (o *AuthenticationexternalResponseCompound) GetSAuthenticationexternalAuthorizationurl() string {
-	if o == nil || IsNil(o.SAuthenticationexternalAuthorizationurl) {
-		var ret string
-		return ret
-	}
-	return *o.SAuthenticationexternalAuthorizationurl
-}
-
-// GetSAuthenticationexternalAuthorizationurlOk returns a tuple with the SAuthenticationexternalAuthorizationurl field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AuthenticationexternalResponseCompound) GetSAuthenticationexternalAuthorizationurlOk() (*string, bool) {
-	if o == nil || IsNil(o.SAuthenticationexternalAuthorizationurl) {
-		return nil, false
-	}
-	return o.SAuthenticationexternalAuthorizationurl, true
-}
-
-// HasSAuthenticationexternalAuthorizationurl returns a boolean if a field has been set.
-func (o *AuthenticationexternalResponseCompound) HasSAuthenticationexternalAuthorizationurl() bool {
-	if o != nil && !IsNil(o.SAuthenticationexternalAuthorizationurl) {
-		return true
-	}
-
-	return false
-}
-
-// SetSAuthenticationexternalAuthorizationurl gets a reference to the given string and assigns it to the SAuthenticationexternalAuthorizationurl field.
-func (o *AuthenticationexternalResponseCompound) SetSAuthenticationexternalAuthorizationurl(v string) {
-	o.SAuthenticationexternalAuthorizationurl = &v
-}
-
-// GetObjAudit returns the ObjAudit field value
-func (o *AuthenticationexternalResponseCompound) GetObjAudit() CommonAudit {
-	if o == nil {
-		var ret CommonAudit
-		return ret
-	}
-
-	return o.ObjAudit
-}
-
-// GetObjAuditOk returns a tuple with the ObjAudit field value
-// and a boolean to check if the value has been set.
-func (o *AuthenticationexternalResponseCompound) GetObjAuditOk() (*CommonAudit, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ObjAudit, true
-}
-
-// SetObjAudit sets field value
-func (o *AuthenticationexternalResponseCompound) SetObjAudit(v CommonAudit) {
-	o.ObjAudit = v
-}
-
 func (o AuthenticationexternalResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -227,16 +58,6 @@ func (o AuthenticationexternalResponseCompound) MarshalJSON() ([]byte, error) {
 
 func (o AuthenticationexternalResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["pkiAuthenticationexternalID"] = o.PkiAuthenticationexternalID
-	toSerialize["sAuthenticationexternalDescription"] = o.SAuthenticationexternalDescription
-	toSerialize["eAuthenticationexternalType"] = o.EAuthenticationexternalType
-	if !IsNil(o.BAuthenticationexternalConnected) {
-		toSerialize["bAuthenticationexternalConnected"] = o.BAuthenticationexternalConnected
-	}
-	if !IsNil(o.SAuthenticationexternalAuthorizationurl) {
-		toSerialize["sAuthenticationexternalAuthorizationurl"] = o.SAuthenticationexternalAuthorizationurl
-	}
-	toSerialize["objAudit"] = o.ObjAudit
 	return toSerialize, nil
 }
 

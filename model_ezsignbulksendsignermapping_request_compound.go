@@ -22,14 +22,7 @@ var _ MappedNullable = &EzsignbulksendsignermappingRequestCompound{}
 
 // EzsignbulksendsignermappingRequestCompound A Ezsignbulksendsignermapping Object and children
 type EzsignbulksendsignermappingRequestCompound struct {
-	// The unique ID of the Ezsignbulksendsignermapping
-	PkiEzsignbulksendsignermappingID *int32 `json:"pkiEzsignbulksendsignermappingID,omitempty"`
-	// The unique ID of the Ezsignbulksend
-	FkiEzsignbulksendID int32 `json:"fkiEzsignbulksendID"`
-	// The unique ID of the User
-	FkiUserID *int32 `json:"fkiUserID,omitempty"`
-	// The description of the Ezsignbulksendsignermapping
-	SEzsignbulksendsignermappingDescription string `json:"sEzsignbulksendsignermappingDescription"`
+	EzsignbulksendsignermappingRequest
 }
 
 type _EzsignbulksendsignermappingRequestCompound EzsignbulksendsignermappingRequestCompound
@@ -53,118 +46,6 @@ func NewEzsignbulksendsignermappingRequestCompoundWithDefaults() *Ezsignbulksend
 	return &this
 }
 
-// GetPkiEzsignbulksendsignermappingID returns the PkiEzsignbulksendsignermappingID field value if set, zero value otherwise.
-func (o *EzsignbulksendsignermappingRequestCompound) GetPkiEzsignbulksendsignermappingID() int32 {
-	if o == nil || IsNil(o.PkiEzsignbulksendsignermappingID) {
-		var ret int32
-		return ret
-	}
-	return *o.PkiEzsignbulksendsignermappingID
-}
-
-// GetPkiEzsignbulksendsignermappingIDOk returns a tuple with the PkiEzsignbulksendsignermappingID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *EzsignbulksendsignermappingRequestCompound) GetPkiEzsignbulksendsignermappingIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.PkiEzsignbulksendsignermappingID) {
-		return nil, false
-	}
-	return o.PkiEzsignbulksendsignermappingID, true
-}
-
-// HasPkiEzsignbulksendsignermappingID returns a boolean if a field has been set.
-func (o *EzsignbulksendsignermappingRequestCompound) HasPkiEzsignbulksendsignermappingID() bool {
-	if o != nil && !IsNil(o.PkiEzsignbulksendsignermappingID) {
-		return true
-	}
-
-	return false
-}
-
-// SetPkiEzsignbulksendsignermappingID gets a reference to the given int32 and assigns it to the PkiEzsignbulksendsignermappingID field.
-func (o *EzsignbulksendsignermappingRequestCompound) SetPkiEzsignbulksendsignermappingID(v int32) {
-	o.PkiEzsignbulksendsignermappingID = &v
-}
-
-// GetFkiEzsignbulksendID returns the FkiEzsignbulksendID field value
-func (o *EzsignbulksendsignermappingRequestCompound) GetFkiEzsignbulksendID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.FkiEzsignbulksendID
-}
-
-// GetFkiEzsignbulksendIDOk returns a tuple with the FkiEzsignbulksendID field value
-// and a boolean to check if the value has been set.
-func (o *EzsignbulksendsignermappingRequestCompound) GetFkiEzsignbulksendIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FkiEzsignbulksendID, true
-}
-
-// SetFkiEzsignbulksendID sets field value
-func (o *EzsignbulksendsignermappingRequestCompound) SetFkiEzsignbulksendID(v int32) {
-	o.FkiEzsignbulksendID = v
-}
-
-// GetFkiUserID returns the FkiUserID field value if set, zero value otherwise.
-func (o *EzsignbulksendsignermappingRequestCompound) GetFkiUserID() int32 {
-	if o == nil || IsNil(o.FkiUserID) {
-		var ret int32
-		return ret
-	}
-	return *o.FkiUserID
-}
-
-// GetFkiUserIDOk returns a tuple with the FkiUserID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *EzsignbulksendsignermappingRequestCompound) GetFkiUserIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.FkiUserID) {
-		return nil, false
-	}
-	return o.FkiUserID, true
-}
-
-// HasFkiUserID returns a boolean if a field has been set.
-func (o *EzsignbulksendsignermappingRequestCompound) HasFkiUserID() bool {
-	if o != nil && !IsNil(o.FkiUserID) {
-		return true
-	}
-
-	return false
-}
-
-// SetFkiUserID gets a reference to the given int32 and assigns it to the FkiUserID field.
-func (o *EzsignbulksendsignermappingRequestCompound) SetFkiUserID(v int32) {
-	o.FkiUserID = &v
-}
-
-// GetSEzsignbulksendsignermappingDescription returns the SEzsignbulksendsignermappingDescription field value
-func (o *EzsignbulksendsignermappingRequestCompound) GetSEzsignbulksendsignermappingDescription() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SEzsignbulksendsignermappingDescription
-}
-
-// GetSEzsignbulksendsignermappingDescriptionOk returns a tuple with the SEzsignbulksendsignermappingDescription field value
-// and a boolean to check if the value has been set.
-func (o *EzsignbulksendsignermappingRequestCompound) GetSEzsignbulksendsignermappingDescriptionOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SEzsignbulksendsignermappingDescription, true
-}
-
-// SetSEzsignbulksendsignermappingDescription sets field value
-func (o *EzsignbulksendsignermappingRequestCompound) SetSEzsignbulksendsignermappingDescription(v string) {
-	o.SEzsignbulksendsignermappingDescription = v
-}
-
 func (o EzsignbulksendsignermappingRequestCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -175,14 +56,6 @@ func (o EzsignbulksendsignermappingRequestCompound) MarshalJSON() ([]byte, error
 
 func (o EzsignbulksendsignermappingRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.PkiEzsignbulksendsignermappingID) {
-		toSerialize["pkiEzsignbulksendsignermappingID"] = o.PkiEzsignbulksendsignermappingID
-	}
-	toSerialize["fkiEzsignbulksendID"] = o.FkiEzsignbulksendID
-	if !IsNil(o.FkiUserID) {
-		toSerialize["fkiUserID"] = o.FkiUserID
-	}
-	toSerialize["sEzsignbulksendsignermappingDescription"] = o.SEzsignbulksendsignermappingDescription
 	return toSerialize, nil
 }
 

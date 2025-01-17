@@ -37,7 +37,7 @@ import (
 )
 
 func main() {
-	ezsigntemplatepublicCreateEzsignfolderV1Request := *openapiclient.NewEzsigntemplatepublicCreateEzsignfolderV1Request("demo", "6B29FC40-CA47-1067-B31D-00DD010662DA", []string{"http://www.website.com/avatar.jpg"}, []openapiclient.EzsignsignerRequestCompound{*openapiclient.NewEzsignsignerRequestCompound(int32(1), *openapiclient.NewEzsignsignerRequestCompoundContact("John", "Doe", int32(2)))}) // EzsigntemplatepublicCreateEzsignfolderV1Request | 
+	ezsigntemplatepublicCreateEzsignfolderV1Request := *openapiclient.NewEzsigntemplatepublicCreateEzsignfolderV1Request("demo", "6B29FC40-CA47-1067-B31D-00DD010662DA", []string{"http://www.website.com/avatar.jpg"}, []openapiclient.EzsignsignerRequestCompound{*openapiclient.NewEzsignsignerRequestCompound(*openapiclient.NewEzsignsignerRequestCompoundContact("John", "Doe", int32(2)), int32(1))}) // EzsigntemplatepublicCreateEzsignfolderV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

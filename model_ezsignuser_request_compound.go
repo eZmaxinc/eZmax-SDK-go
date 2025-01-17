@@ -22,11 +22,7 @@ var _ MappedNullable = &EzsignuserRequestCompound{}
 
 // EzsignuserRequestCompound A Ezsignuser Object and children
 type EzsignuserRequestCompound struct {
-	// The unique ID of the Ezsignuser
-	PkiEzsignuserID *int32 `json:"pkiEzsignuserID,omitempty"`
-	// The unique ID of the Contact
-	FkiContactID int32 `json:"fkiContactID"`
-	ObjContact ContactRequestCompoundV2 `json:"objContact"`
+	EzsignuserRequest
 }
 
 type _EzsignuserRequestCompound EzsignuserRequestCompound
@@ -50,86 +46,6 @@ func NewEzsignuserRequestCompoundWithDefaults() *EzsignuserRequestCompound {
 	return &this
 }
 
-// GetPkiEzsignuserID returns the PkiEzsignuserID field value if set, zero value otherwise.
-func (o *EzsignuserRequestCompound) GetPkiEzsignuserID() int32 {
-	if o == nil || IsNil(o.PkiEzsignuserID) {
-		var ret int32
-		return ret
-	}
-	return *o.PkiEzsignuserID
-}
-
-// GetPkiEzsignuserIDOk returns a tuple with the PkiEzsignuserID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *EzsignuserRequestCompound) GetPkiEzsignuserIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.PkiEzsignuserID) {
-		return nil, false
-	}
-	return o.PkiEzsignuserID, true
-}
-
-// HasPkiEzsignuserID returns a boolean if a field has been set.
-func (o *EzsignuserRequestCompound) HasPkiEzsignuserID() bool {
-	if o != nil && !IsNil(o.PkiEzsignuserID) {
-		return true
-	}
-
-	return false
-}
-
-// SetPkiEzsignuserID gets a reference to the given int32 and assigns it to the PkiEzsignuserID field.
-func (o *EzsignuserRequestCompound) SetPkiEzsignuserID(v int32) {
-	o.PkiEzsignuserID = &v
-}
-
-// GetFkiContactID returns the FkiContactID field value
-func (o *EzsignuserRequestCompound) GetFkiContactID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.FkiContactID
-}
-
-// GetFkiContactIDOk returns a tuple with the FkiContactID field value
-// and a boolean to check if the value has been set.
-func (o *EzsignuserRequestCompound) GetFkiContactIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FkiContactID, true
-}
-
-// SetFkiContactID sets field value
-func (o *EzsignuserRequestCompound) SetFkiContactID(v int32) {
-	o.FkiContactID = v
-}
-
-// GetObjContact returns the ObjContact field value
-func (o *EzsignuserRequestCompound) GetObjContact() ContactRequestCompoundV2 {
-	if o == nil {
-		var ret ContactRequestCompoundV2
-		return ret
-	}
-
-	return o.ObjContact
-}
-
-// GetObjContactOk returns a tuple with the ObjContact field value
-// and a boolean to check if the value has been set.
-func (o *EzsignuserRequestCompound) GetObjContactOk() (*ContactRequestCompoundV2, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ObjContact, true
-}
-
-// SetObjContact sets field value
-func (o *EzsignuserRequestCompound) SetObjContact(v ContactRequestCompoundV2) {
-	o.ObjContact = v
-}
-
 func (o EzsignuserRequestCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -140,11 +56,6 @@ func (o EzsignuserRequestCompound) MarshalJSON() ([]byte, error) {
 
 func (o EzsignuserRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.PkiEzsignuserID) {
-		toSerialize["pkiEzsignuserID"] = o.PkiEzsignuserID
-	}
-	toSerialize["fkiContactID"] = o.FkiContactID
-	toSerialize["objContact"] = o.ObjContact
 	return toSerialize, nil
 }
 

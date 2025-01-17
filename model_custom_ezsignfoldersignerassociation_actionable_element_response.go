@@ -22,21 +22,7 @@ var _ MappedNullable = &CustomEzsignfoldersignerassociationActionableElementResp
 
 // CustomEzsignfoldersignerassociationActionableElementResponse A Ezsignfoldersignerassociation Object with actionable elements
 type CustomEzsignfoldersignerassociationActionableElementResponse struct {
-	// The unique ID of the Ezsignfoldersignerassociation
-	PkiEzsignfoldersignerassociationID int32 `json:"pkiEzsignfoldersignerassociationID"`
-	// The unique ID of the Ezsignfolder
-	FkiEzsignfolderID int32 `json:"fkiEzsignfolderID"`
-	// If this flag is true the signatory is part of a delayed send.
-	BEzsignfoldersignerassociationDelayedsend bool `json:"bEzsignfoldersignerassociationDelayedsend"`
-	// If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document.
-	BEzsignfoldersignerassociationReceivecopy bool `json:"bEzsignfoldersignerassociationReceivecopy"`
-	// A custom text message that will be added to the email sent.
-	TEzsignfoldersignerassociationMessage string `json:"tEzsignfoldersignerassociationMessage"`
-	// If the Ezsignfoldersignerassociation is allowed to sign in person or not
-	BEzsignfoldersignerassociationAllowsigninginperson bool `json:"bEzsignfoldersignerassociationAllowsigninginperson"`
-	ObjEzsignsignergroup *EzsignsignergroupResponseCompound `json:"objEzsignsignergroup,omitempty"`
-	ObjUser *EzsignfoldersignerassociationResponseCompoundUser `json:"objUser,omitempty"`
-	ObjEzsignsigner *EzsignsignerResponseCompound `json:"objEzsignsigner,omitempty"`
+	EzsignfoldersignerassociationResponseCompound
 	// Indicates if the Ezsignfoldersignerassociation has actionable elements in the current step
 	BEzsignfoldersignerassociationHasactionableelementsCurrent bool `json:"bEzsignfoldersignerassociationHasactionableelementsCurrent"`
 	// Indicates if the Ezsignfoldersignerassociation has actionable elements in a future step
@@ -49,7 +35,7 @@ type _CustomEzsignfoldersignerassociationActionableElementResponse CustomEzsignf
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomEzsignfoldersignerassociationActionableElementResponse(pkiEzsignfoldersignerassociationID int32, fkiEzsignfolderID int32, bEzsignfoldersignerassociationDelayedsend bool, bEzsignfoldersignerassociationReceivecopy bool, tEzsignfoldersignerassociationMessage string, bEzsignfoldersignerassociationAllowsigninginperson bool, bEzsignfoldersignerassociationHasactionableelementsCurrent bool, bEzsignfoldersignerassociationHasactionableelementsFuture bool) *CustomEzsignfoldersignerassociationActionableElementResponse {
+func NewCustomEzsignfoldersignerassociationActionableElementResponse(bEzsignfoldersignerassociationHasactionableelementsCurrent bool, bEzsignfoldersignerassociationHasactionableelementsFuture bool, pkiEzsignfoldersignerassociationID int32, fkiEzsignfolderID int32, bEzsignfoldersignerassociationDelayedsend bool, bEzsignfoldersignerassociationReceivecopy bool, tEzsignfoldersignerassociationMessage string, bEzsignfoldersignerassociationAllowsigninginperson bool) *CustomEzsignfoldersignerassociationActionableElementResponse {
 	this := CustomEzsignfoldersignerassociationActionableElementResponse{}
 	this.PkiEzsignfoldersignerassociationID = pkiEzsignfoldersignerassociationID
 	this.FkiEzsignfolderID = fkiEzsignfolderID
@@ -68,246 +54,6 @@ func NewCustomEzsignfoldersignerassociationActionableElementResponse(pkiEzsignfo
 func NewCustomEzsignfoldersignerassociationActionableElementResponseWithDefaults() *CustomEzsignfoldersignerassociationActionableElementResponse {
 	this := CustomEzsignfoldersignerassociationActionableElementResponse{}
 	return &this
-}
-
-// GetPkiEzsignfoldersignerassociationID returns the PkiEzsignfoldersignerassociationID field value
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) GetPkiEzsignfoldersignerassociationID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.PkiEzsignfoldersignerassociationID
-}
-
-// GetPkiEzsignfoldersignerassociationIDOk returns a tuple with the PkiEzsignfoldersignerassociationID field value
-// and a boolean to check if the value has been set.
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) GetPkiEzsignfoldersignerassociationIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.PkiEzsignfoldersignerassociationID, true
-}
-
-// SetPkiEzsignfoldersignerassociationID sets field value
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) SetPkiEzsignfoldersignerassociationID(v int32) {
-	o.PkiEzsignfoldersignerassociationID = v
-}
-
-// GetFkiEzsignfolderID returns the FkiEzsignfolderID field value
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) GetFkiEzsignfolderID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.FkiEzsignfolderID
-}
-
-// GetFkiEzsignfolderIDOk returns a tuple with the FkiEzsignfolderID field value
-// and a boolean to check if the value has been set.
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) GetFkiEzsignfolderIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FkiEzsignfolderID, true
-}
-
-// SetFkiEzsignfolderID sets field value
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) SetFkiEzsignfolderID(v int32) {
-	o.FkiEzsignfolderID = v
-}
-
-// GetBEzsignfoldersignerassociationDelayedsend returns the BEzsignfoldersignerassociationDelayedsend field value
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) GetBEzsignfoldersignerassociationDelayedsend() bool {
-	if o == nil {
-		var ret bool
-		return ret
-	}
-
-	return o.BEzsignfoldersignerassociationDelayedsend
-}
-
-// GetBEzsignfoldersignerassociationDelayedsendOk returns a tuple with the BEzsignfoldersignerassociationDelayedsend field value
-// and a boolean to check if the value has been set.
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) GetBEzsignfoldersignerassociationDelayedsendOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BEzsignfoldersignerassociationDelayedsend, true
-}
-
-// SetBEzsignfoldersignerassociationDelayedsend sets field value
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) SetBEzsignfoldersignerassociationDelayedsend(v bool) {
-	o.BEzsignfoldersignerassociationDelayedsend = v
-}
-
-// GetBEzsignfoldersignerassociationReceivecopy returns the BEzsignfoldersignerassociationReceivecopy field value
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) GetBEzsignfoldersignerassociationReceivecopy() bool {
-	if o == nil {
-		var ret bool
-		return ret
-	}
-
-	return o.BEzsignfoldersignerassociationReceivecopy
-}
-
-// GetBEzsignfoldersignerassociationReceivecopyOk returns a tuple with the BEzsignfoldersignerassociationReceivecopy field value
-// and a boolean to check if the value has been set.
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) GetBEzsignfoldersignerassociationReceivecopyOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BEzsignfoldersignerassociationReceivecopy, true
-}
-
-// SetBEzsignfoldersignerassociationReceivecopy sets field value
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) SetBEzsignfoldersignerassociationReceivecopy(v bool) {
-	o.BEzsignfoldersignerassociationReceivecopy = v
-}
-
-// GetTEzsignfoldersignerassociationMessage returns the TEzsignfoldersignerassociationMessage field value
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) GetTEzsignfoldersignerassociationMessage() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.TEzsignfoldersignerassociationMessage
-}
-
-// GetTEzsignfoldersignerassociationMessageOk returns a tuple with the TEzsignfoldersignerassociationMessage field value
-// and a boolean to check if the value has been set.
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) GetTEzsignfoldersignerassociationMessageOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.TEzsignfoldersignerassociationMessage, true
-}
-
-// SetTEzsignfoldersignerassociationMessage sets field value
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) SetTEzsignfoldersignerassociationMessage(v string) {
-	o.TEzsignfoldersignerassociationMessage = v
-}
-
-// GetBEzsignfoldersignerassociationAllowsigninginperson returns the BEzsignfoldersignerassociationAllowsigninginperson field value
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) GetBEzsignfoldersignerassociationAllowsigninginperson() bool {
-	if o == nil {
-		var ret bool
-		return ret
-	}
-
-	return o.BEzsignfoldersignerassociationAllowsigninginperson
-}
-
-// GetBEzsignfoldersignerassociationAllowsigninginpersonOk returns a tuple with the BEzsignfoldersignerassociationAllowsigninginperson field value
-// and a boolean to check if the value has been set.
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) GetBEzsignfoldersignerassociationAllowsigninginpersonOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BEzsignfoldersignerassociationAllowsigninginperson, true
-}
-
-// SetBEzsignfoldersignerassociationAllowsigninginperson sets field value
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) SetBEzsignfoldersignerassociationAllowsigninginperson(v bool) {
-	o.BEzsignfoldersignerassociationAllowsigninginperson = v
-}
-
-// GetObjEzsignsignergroup returns the ObjEzsignsignergroup field value if set, zero value otherwise.
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) GetObjEzsignsignergroup() EzsignsignergroupResponseCompound {
-	if o == nil || IsNil(o.ObjEzsignsignergroup) {
-		var ret EzsignsignergroupResponseCompound
-		return ret
-	}
-	return *o.ObjEzsignsignergroup
-}
-
-// GetObjEzsignsignergroupOk returns a tuple with the ObjEzsignsignergroup field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) GetObjEzsignsignergroupOk() (*EzsignsignergroupResponseCompound, bool) {
-	if o == nil || IsNil(o.ObjEzsignsignergroup) {
-		return nil, false
-	}
-	return o.ObjEzsignsignergroup, true
-}
-
-// HasObjEzsignsignergroup returns a boolean if a field has been set.
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) HasObjEzsignsignergroup() bool {
-	if o != nil && !IsNil(o.ObjEzsignsignergroup) {
-		return true
-	}
-
-	return false
-}
-
-// SetObjEzsignsignergroup gets a reference to the given EzsignsignergroupResponseCompound and assigns it to the ObjEzsignsignergroup field.
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) SetObjEzsignsignergroup(v EzsignsignergroupResponseCompound) {
-	o.ObjEzsignsignergroup = &v
-}
-
-// GetObjUser returns the ObjUser field value if set, zero value otherwise.
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) GetObjUser() EzsignfoldersignerassociationResponseCompoundUser {
-	if o == nil || IsNil(o.ObjUser) {
-		var ret EzsignfoldersignerassociationResponseCompoundUser
-		return ret
-	}
-	return *o.ObjUser
-}
-
-// GetObjUserOk returns a tuple with the ObjUser field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) GetObjUserOk() (*EzsignfoldersignerassociationResponseCompoundUser, bool) {
-	if o == nil || IsNil(o.ObjUser) {
-		return nil, false
-	}
-	return o.ObjUser, true
-}
-
-// HasObjUser returns a boolean if a field has been set.
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) HasObjUser() bool {
-	if o != nil && !IsNil(o.ObjUser) {
-		return true
-	}
-
-	return false
-}
-
-// SetObjUser gets a reference to the given EzsignfoldersignerassociationResponseCompoundUser and assigns it to the ObjUser field.
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) SetObjUser(v EzsignfoldersignerassociationResponseCompoundUser) {
-	o.ObjUser = &v
-}
-
-// GetObjEzsignsigner returns the ObjEzsignsigner field value if set, zero value otherwise.
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) GetObjEzsignsigner() EzsignsignerResponseCompound {
-	if o == nil || IsNil(o.ObjEzsignsigner) {
-		var ret EzsignsignerResponseCompound
-		return ret
-	}
-	return *o.ObjEzsignsigner
-}
-
-// GetObjEzsignsignerOk returns a tuple with the ObjEzsignsigner field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) GetObjEzsignsignerOk() (*EzsignsignerResponseCompound, bool) {
-	if o == nil || IsNil(o.ObjEzsignsigner) {
-		return nil, false
-	}
-	return o.ObjEzsignsigner, true
-}
-
-// HasObjEzsignsigner returns a boolean if a field has been set.
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) HasObjEzsignsigner() bool {
-	if o != nil && !IsNil(o.ObjEzsignsigner) {
-		return true
-	}
-
-	return false
-}
-
-// SetObjEzsignsigner gets a reference to the given EzsignsignerResponseCompound and assigns it to the ObjEzsignsigner field.
-func (o *CustomEzsignfoldersignerassociationActionableElementResponse) SetObjEzsignsigner(v EzsignsignerResponseCompound) {
-	o.ObjEzsignsigner = &v
 }
 
 // GetBEzsignfoldersignerassociationHasactionableelementsCurrent returns the BEzsignfoldersignerassociationHasactionableelementsCurrent field value
@@ -368,21 +114,6 @@ func (o CustomEzsignfoldersignerassociationActionableElementResponse) MarshalJSO
 
 func (o CustomEzsignfoldersignerassociationActionableElementResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["pkiEzsignfoldersignerassociationID"] = o.PkiEzsignfoldersignerassociationID
-	toSerialize["fkiEzsignfolderID"] = o.FkiEzsignfolderID
-	toSerialize["bEzsignfoldersignerassociationDelayedsend"] = o.BEzsignfoldersignerassociationDelayedsend
-	toSerialize["bEzsignfoldersignerassociationReceivecopy"] = o.BEzsignfoldersignerassociationReceivecopy
-	toSerialize["tEzsignfoldersignerassociationMessage"] = o.TEzsignfoldersignerassociationMessage
-	toSerialize["bEzsignfoldersignerassociationAllowsigninginperson"] = o.BEzsignfoldersignerassociationAllowsigninginperson
-	if !IsNil(o.ObjEzsignsignergroup) {
-		toSerialize["objEzsignsignergroup"] = o.ObjEzsignsignergroup
-	}
-	if !IsNil(o.ObjUser) {
-		toSerialize["objUser"] = o.ObjUser
-	}
-	if !IsNil(o.ObjEzsignsigner) {
-		toSerialize["objEzsignsigner"] = o.ObjEzsignsigner
-	}
 	toSerialize["bEzsignfoldersignerassociationHasactionableelementsCurrent"] = o.BEzsignfoldersignerassociationHasactionableelementsCurrent
 	toSerialize["bEzsignfoldersignerassociationHasactionableelementsFuture"] = o.BEzsignfoldersignerassociationHasactionableelementsFuture
 	return toSerialize, nil
@@ -393,14 +124,14 @@ func (o *CustomEzsignfoldersignerassociationActionableElementResponse) Unmarshal
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"bEzsignfoldersignerassociationHasactionableelementsCurrent",
+		"bEzsignfoldersignerassociationHasactionableelementsFuture",
 		"pkiEzsignfoldersignerassociationID",
 		"fkiEzsignfolderID",
 		"bEzsignfoldersignerassociationDelayedsend",
 		"bEzsignfoldersignerassociationReceivecopy",
 		"tEzsignfoldersignerassociationMessage",
 		"bEzsignfoldersignerassociationAllowsigninginperson",
-		"bEzsignfoldersignerassociationHasactionableelementsCurrent",
-		"bEzsignfoldersignerassociationHasactionableelementsFuture",
 	}
 
 	allProperties := make(map[string]interface{})

@@ -4,15 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjDebugPayload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
-**ObjDebug** | Pointer to [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **MPayload** | [**EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1ResponseMPayload**](EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1ResponseMPayload.md) |  | 
 
 ## Methods
 
 ### NewEzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Response
 
-`func NewEzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1ResponseMPayload, ) *EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Response`
+`func NewEzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Response(mPayload EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1ResponseMPayload, ) *EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Response`
 
 NewEzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Response instantiates a new EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Response object
 This constructor will assign default values to properties that have it defined,
@@ -26,51 +24,6 @@ will change when the set of required properties is changed
 NewEzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1ResponseWithDefaults instantiates a new EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Response object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetObjDebugPayload
-
-`func (o *EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Response) GetObjDebugPayload() CommonResponseObjDebugPayload`
-
-GetObjDebugPayload returns the ObjDebugPayload field if non-nil, zero value otherwise.
-
-### GetObjDebugPayloadOk
-
-`func (o *EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Response) GetObjDebugPayloadOk() (*CommonResponseObjDebugPayload, bool)`
-
-GetObjDebugPayloadOk returns a tuple with the ObjDebugPayload field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetObjDebugPayload
-
-`func (o *EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Response) SetObjDebugPayload(v CommonResponseObjDebugPayload)`
-
-SetObjDebugPayload sets ObjDebugPayload field to given value.
-
-
-### GetObjDebug
-
-`func (o *EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Response) GetObjDebug() CommonResponseObjDebug`
-
-GetObjDebug returns the ObjDebug field if non-nil, zero value otherwise.
-
-### GetObjDebugOk
-
-`func (o *EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Response) GetObjDebugOk() (*CommonResponseObjDebug, bool)`
-
-GetObjDebugOk returns a tuple with the ObjDebug field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetObjDebug
-
-`func (o *EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Response) SetObjDebug(v CommonResponseObjDebug)`
-
-SetObjDebug sets ObjDebug field to given value.
-
-### HasObjDebug
-
-`func (o *EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Response) HasObjDebug() bool`
-
-HasObjDebug returns a boolean if a field has been set.
 
 ### GetMPayload
 

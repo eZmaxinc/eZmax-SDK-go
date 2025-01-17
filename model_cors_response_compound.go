@@ -22,12 +22,7 @@ var _ MappedNullable = &CorsResponseCompound{}
 
 // CorsResponseCompound A Cors Object
 type CorsResponseCompound struct {
-	// The unique ID of the Cors
-	PkiCorsID int32 `json:"pkiCorsID"`
-	// The unique ID of the Apikey
-	FkiApikeyID int32 `json:"fkiApikeyID"`
-	// The entryurl of the Cors
-	SCorsEntryurl string `json:"sCorsEntryurl" validate:"regexp=^(https|http):\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
+	CorsResponse
 }
 
 type _CorsResponseCompound CorsResponseCompound
@@ -52,78 +47,6 @@ func NewCorsResponseCompoundWithDefaults() *CorsResponseCompound {
 	return &this
 }
 
-// GetPkiCorsID returns the PkiCorsID field value
-func (o *CorsResponseCompound) GetPkiCorsID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.PkiCorsID
-}
-
-// GetPkiCorsIDOk returns a tuple with the PkiCorsID field value
-// and a boolean to check if the value has been set.
-func (o *CorsResponseCompound) GetPkiCorsIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.PkiCorsID, true
-}
-
-// SetPkiCorsID sets field value
-func (o *CorsResponseCompound) SetPkiCorsID(v int32) {
-	o.PkiCorsID = v
-}
-
-// GetFkiApikeyID returns the FkiApikeyID field value
-func (o *CorsResponseCompound) GetFkiApikeyID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.FkiApikeyID
-}
-
-// GetFkiApikeyIDOk returns a tuple with the FkiApikeyID field value
-// and a boolean to check if the value has been set.
-func (o *CorsResponseCompound) GetFkiApikeyIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FkiApikeyID, true
-}
-
-// SetFkiApikeyID sets field value
-func (o *CorsResponseCompound) SetFkiApikeyID(v int32) {
-	o.FkiApikeyID = v
-}
-
-// GetSCorsEntryurl returns the SCorsEntryurl field value
-func (o *CorsResponseCompound) GetSCorsEntryurl() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SCorsEntryurl
-}
-
-// GetSCorsEntryurlOk returns a tuple with the SCorsEntryurl field value
-// and a boolean to check if the value has been set.
-func (o *CorsResponseCompound) GetSCorsEntryurlOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SCorsEntryurl, true
-}
-
-// SetSCorsEntryurl sets field value
-func (o *CorsResponseCompound) SetSCorsEntryurl(v string) {
-	o.SCorsEntryurl = v
-}
-
 func (o CorsResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -134,9 +57,6 @@ func (o CorsResponseCompound) MarshalJSON() ([]byte, error) {
 
 func (o CorsResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["pkiCorsID"] = o.PkiCorsID
-	toSerialize["fkiApikeyID"] = o.FkiApikeyID
-	toSerialize["sCorsEntryurl"] = o.SCorsEntryurl
 	return toSerialize, nil
 }
 

@@ -22,10 +22,7 @@ var _ MappedNullable = &DomainGetListV1ResponseMPayload{}
 
 // DomainGetListV1ResponseMPayload Payload for GET /1/object/domain/getList
 type DomainGetListV1ResponseMPayload struct {
-	// The number of rows returned
-	IRowReturned int32 `json:"iRowReturned"`
-	// The number of rows matching your filters (if any) or the total number of rows
-	IRowFiltered int32 `json:"iRowFiltered"`
+	CommonGetListV1ResponseMPayload
 	AObjDomain []DomainListElement `json:"a_objDomain"`
 }
 
@@ -35,7 +32,7 @@ type _DomainGetListV1ResponseMPayload DomainGetListV1ResponseMPayload
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDomainGetListV1ResponseMPayload(iRowReturned int32, iRowFiltered int32, aObjDomain []DomainListElement) *DomainGetListV1ResponseMPayload {
+func NewDomainGetListV1ResponseMPayload(aObjDomain []DomainListElement, iRowReturned int32, iRowFiltered int32) *DomainGetListV1ResponseMPayload {
 	this := DomainGetListV1ResponseMPayload{}
 	this.IRowReturned = iRowReturned
 	this.IRowFiltered = iRowFiltered
@@ -49,54 +46,6 @@ func NewDomainGetListV1ResponseMPayload(iRowReturned int32, iRowFiltered int32, 
 func NewDomainGetListV1ResponseMPayloadWithDefaults() *DomainGetListV1ResponseMPayload {
 	this := DomainGetListV1ResponseMPayload{}
 	return &this
-}
-
-// GetIRowReturned returns the IRowReturned field value
-func (o *DomainGetListV1ResponseMPayload) GetIRowReturned() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.IRowReturned
-}
-
-// GetIRowReturnedOk returns a tuple with the IRowReturned field value
-// and a boolean to check if the value has been set.
-func (o *DomainGetListV1ResponseMPayload) GetIRowReturnedOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.IRowReturned, true
-}
-
-// SetIRowReturned sets field value
-func (o *DomainGetListV1ResponseMPayload) SetIRowReturned(v int32) {
-	o.IRowReturned = v
-}
-
-// GetIRowFiltered returns the IRowFiltered field value
-func (o *DomainGetListV1ResponseMPayload) GetIRowFiltered() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.IRowFiltered
-}
-
-// GetIRowFilteredOk returns a tuple with the IRowFiltered field value
-// and a boolean to check if the value has been set.
-func (o *DomainGetListV1ResponseMPayload) GetIRowFilteredOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.IRowFiltered, true
-}
-
-// SetIRowFiltered sets field value
-func (o *DomainGetListV1ResponseMPayload) SetIRowFiltered(v int32) {
-	o.IRowFiltered = v
 }
 
 // GetAObjDomain returns the AObjDomain field value
@@ -133,8 +82,6 @@ func (o DomainGetListV1ResponseMPayload) MarshalJSON() ([]byte, error) {
 
 func (o DomainGetListV1ResponseMPayload) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["iRowReturned"] = o.IRowReturned
-	toSerialize["iRowFiltered"] = o.IRowFiltered
 	toSerialize["a_objDomain"] = o.AObjDomain
 	return toSerialize, nil
 }
@@ -144,9 +91,9 @@ func (o *DomainGetListV1ResponseMPayload) UnmarshalJSON(data []byte) (err error)
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"a_objDomain",
 		"iRowReturned",
 		"iRowFiltered",
-		"a_objDomain",
 	}
 
 	allProperties := make(map[string]interface{})

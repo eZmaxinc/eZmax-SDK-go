@@ -22,14 +22,7 @@ var _ MappedNullable = &DiscussionmessageRequestCompound{}
 
 // DiscussionmessageRequestCompound A Discussionmessage Object and children
 type DiscussionmessageRequestCompound struct {
-	// The unique ID of the Discussionmessage
-	PkiDiscussionmessageID *int32 `json:"pkiDiscussionmessageID,omitempty"`
-	// The unique ID of the Discussion
-	FkiDiscussionID int32 `json:"fkiDiscussionID"`
-	// The unique ID of the Discussionmembership
-	FkiDiscussionmembershipIDActionrequired *int32 `json:"fkiDiscussionmembershipIDActionrequired,omitempty"`
-	// The content of the Discussionmessage
-	TDiscussionmessageContent string `json:"tDiscussionmessageContent" validate:"regexp=^.{0,65535}$"`
+	DiscussionmessageRequest
 }
 
 type _DiscussionmessageRequestCompound DiscussionmessageRequestCompound
@@ -53,118 +46,6 @@ func NewDiscussionmessageRequestCompoundWithDefaults() *DiscussionmessageRequest
 	return &this
 }
 
-// GetPkiDiscussionmessageID returns the PkiDiscussionmessageID field value if set, zero value otherwise.
-func (o *DiscussionmessageRequestCompound) GetPkiDiscussionmessageID() int32 {
-	if o == nil || IsNil(o.PkiDiscussionmessageID) {
-		var ret int32
-		return ret
-	}
-	return *o.PkiDiscussionmessageID
-}
-
-// GetPkiDiscussionmessageIDOk returns a tuple with the PkiDiscussionmessageID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DiscussionmessageRequestCompound) GetPkiDiscussionmessageIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.PkiDiscussionmessageID) {
-		return nil, false
-	}
-	return o.PkiDiscussionmessageID, true
-}
-
-// HasPkiDiscussionmessageID returns a boolean if a field has been set.
-func (o *DiscussionmessageRequestCompound) HasPkiDiscussionmessageID() bool {
-	if o != nil && !IsNil(o.PkiDiscussionmessageID) {
-		return true
-	}
-
-	return false
-}
-
-// SetPkiDiscussionmessageID gets a reference to the given int32 and assigns it to the PkiDiscussionmessageID field.
-func (o *DiscussionmessageRequestCompound) SetPkiDiscussionmessageID(v int32) {
-	o.PkiDiscussionmessageID = &v
-}
-
-// GetFkiDiscussionID returns the FkiDiscussionID field value
-func (o *DiscussionmessageRequestCompound) GetFkiDiscussionID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.FkiDiscussionID
-}
-
-// GetFkiDiscussionIDOk returns a tuple with the FkiDiscussionID field value
-// and a boolean to check if the value has been set.
-func (o *DiscussionmessageRequestCompound) GetFkiDiscussionIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FkiDiscussionID, true
-}
-
-// SetFkiDiscussionID sets field value
-func (o *DiscussionmessageRequestCompound) SetFkiDiscussionID(v int32) {
-	o.FkiDiscussionID = v
-}
-
-// GetFkiDiscussionmembershipIDActionrequired returns the FkiDiscussionmembershipIDActionrequired field value if set, zero value otherwise.
-func (o *DiscussionmessageRequestCompound) GetFkiDiscussionmembershipIDActionrequired() int32 {
-	if o == nil || IsNil(o.FkiDiscussionmembershipIDActionrequired) {
-		var ret int32
-		return ret
-	}
-	return *o.FkiDiscussionmembershipIDActionrequired
-}
-
-// GetFkiDiscussionmembershipIDActionrequiredOk returns a tuple with the FkiDiscussionmembershipIDActionrequired field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DiscussionmessageRequestCompound) GetFkiDiscussionmembershipIDActionrequiredOk() (*int32, bool) {
-	if o == nil || IsNil(o.FkiDiscussionmembershipIDActionrequired) {
-		return nil, false
-	}
-	return o.FkiDiscussionmembershipIDActionrequired, true
-}
-
-// HasFkiDiscussionmembershipIDActionrequired returns a boolean if a field has been set.
-func (o *DiscussionmessageRequestCompound) HasFkiDiscussionmembershipIDActionrequired() bool {
-	if o != nil && !IsNil(o.FkiDiscussionmembershipIDActionrequired) {
-		return true
-	}
-
-	return false
-}
-
-// SetFkiDiscussionmembershipIDActionrequired gets a reference to the given int32 and assigns it to the FkiDiscussionmembershipIDActionrequired field.
-func (o *DiscussionmessageRequestCompound) SetFkiDiscussionmembershipIDActionrequired(v int32) {
-	o.FkiDiscussionmembershipIDActionrequired = &v
-}
-
-// GetTDiscussionmessageContent returns the TDiscussionmessageContent field value
-func (o *DiscussionmessageRequestCompound) GetTDiscussionmessageContent() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.TDiscussionmessageContent
-}
-
-// GetTDiscussionmessageContentOk returns a tuple with the TDiscussionmessageContent field value
-// and a boolean to check if the value has been set.
-func (o *DiscussionmessageRequestCompound) GetTDiscussionmessageContentOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.TDiscussionmessageContent, true
-}
-
-// SetTDiscussionmessageContent sets field value
-func (o *DiscussionmessageRequestCompound) SetTDiscussionmessageContent(v string) {
-	o.TDiscussionmessageContent = v
-}
-
 func (o DiscussionmessageRequestCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -175,14 +56,6 @@ func (o DiscussionmessageRequestCompound) MarshalJSON() ([]byte, error) {
 
 func (o DiscussionmessageRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.PkiDiscussionmessageID) {
-		toSerialize["pkiDiscussionmessageID"] = o.PkiDiscussionmessageID
-	}
-	toSerialize["fkiDiscussionID"] = o.FkiDiscussionID
-	if !IsNil(o.FkiDiscussionmembershipIDActionrequired) {
-		toSerialize["fkiDiscussionmembershipIDActionrequired"] = o.FkiDiscussionmembershipIDActionrequired
-	}
-	toSerialize["tDiscussionmessageContent"] = o.TDiscussionmessageContent
 	return toSerialize, nil
 }
 

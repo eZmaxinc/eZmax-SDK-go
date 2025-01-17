@@ -22,15 +22,7 @@ var _ MappedNullable = &EzsignbulksendtransmissionResponseCompound{}
 
 // EzsignbulksendtransmissionResponseCompound An Ezsignbulksendtransmission Object and children to create a complete structure
 type EzsignbulksendtransmissionResponseCompound struct {
-	// The unique ID of the Ezsignbulksendtransmission
-	PkiEzsignbulksendtransmissionID int32 `json:"pkiEzsignbulksendtransmissionID"`
-	// The unique ID of the Ezsignbulksend
-	FkiEzsignbulksendID int32 `json:"fkiEzsignbulksendID"`
-	// The description of the Ezsignbulksendtransmission
-	SEzsignbulksendtransmissionDescription string `json:"sEzsignbulksendtransmissionDescription"`
-	// The number of errors during the Ezsignbulksendtransmission
-	IEzsignbulksendtransmissionErrors int32 `json:"iEzsignbulksendtransmissionErrors"`
-	ObjAudit CommonAudit `json:"objAudit"`
+	EzsignbulksendtransmissionResponse
 	AObjEzsignfoldertransmission []CustomEzsignfoldertransmissionResponse `json:"a_objEzsignfoldertransmission"`
 }
 
@@ -40,7 +32,7 @@ type _EzsignbulksendtransmissionResponseCompound EzsignbulksendtransmissionRespo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignbulksendtransmissionResponseCompound(pkiEzsignbulksendtransmissionID int32, fkiEzsignbulksendID int32, sEzsignbulksendtransmissionDescription string, iEzsignbulksendtransmissionErrors int32, objAudit CommonAudit, aObjEzsignfoldertransmission []CustomEzsignfoldertransmissionResponse) *EzsignbulksendtransmissionResponseCompound {
+func NewEzsignbulksendtransmissionResponseCompound(aObjEzsignfoldertransmission []CustomEzsignfoldertransmissionResponse, pkiEzsignbulksendtransmissionID int32, fkiEzsignbulksendID int32, sEzsignbulksendtransmissionDescription string, iEzsignbulksendtransmissionErrors int32, objAudit CommonAudit) *EzsignbulksendtransmissionResponseCompound {
 	this := EzsignbulksendtransmissionResponseCompound{}
 	this.PkiEzsignbulksendtransmissionID = pkiEzsignbulksendtransmissionID
 	this.FkiEzsignbulksendID = fkiEzsignbulksendID
@@ -57,126 +49,6 @@ func NewEzsignbulksendtransmissionResponseCompound(pkiEzsignbulksendtransmission
 func NewEzsignbulksendtransmissionResponseCompoundWithDefaults() *EzsignbulksendtransmissionResponseCompound {
 	this := EzsignbulksendtransmissionResponseCompound{}
 	return &this
-}
-
-// GetPkiEzsignbulksendtransmissionID returns the PkiEzsignbulksendtransmissionID field value
-func (o *EzsignbulksendtransmissionResponseCompound) GetPkiEzsignbulksendtransmissionID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.PkiEzsignbulksendtransmissionID
-}
-
-// GetPkiEzsignbulksendtransmissionIDOk returns a tuple with the PkiEzsignbulksendtransmissionID field value
-// and a boolean to check if the value has been set.
-func (o *EzsignbulksendtransmissionResponseCompound) GetPkiEzsignbulksendtransmissionIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.PkiEzsignbulksendtransmissionID, true
-}
-
-// SetPkiEzsignbulksendtransmissionID sets field value
-func (o *EzsignbulksendtransmissionResponseCompound) SetPkiEzsignbulksendtransmissionID(v int32) {
-	o.PkiEzsignbulksendtransmissionID = v
-}
-
-// GetFkiEzsignbulksendID returns the FkiEzsignbulksendID field value
-func (o *EzsignbulksendtransmissionResponseCompound) GetFkiEzsignbulksendID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.FkiEzsignbulksendID
-}
-
-// GetFkiEzsignbulksendIDOk returns a tuple with the FkiEzsignbulksendID field value
-// and a boolean to check if the value has been set.
-func (o *EzsignbulksendtransmissionResponseCompound) GetFkiEzsignbulksendIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FkiEzsignbulksendID, true
-}
-
-// SetFkiEzsignbulksendID sets field value
-func (o *EzsignbulksendtransmissionResponseCompound) SetFkiEzsignbulksendID(v int32) {
-	o.FkiEzsignbulksendID = v
-}
-
-// GetSEzsignbulksendtransmissionDescription returns the SEzsignbulksendtransmissionDescription field value
-func (o *EzsignbulksendtransmissionResponseCompound) GetSEzsignbulksendtransmissionDescription() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SEzsignbulksendtransmissionDescription
-}
-
-// GetSEzsignbulksendtransmissionDescriptionOk returns a tuple with the SEzsignbulksendtransmissionDescription field value
-// and a boolean to check if the value has been set.
-func (o *EzsignbulksendtransmissionResponseCompound) GetSEzsignbulksendtransmissionDescriptionOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SEzsignbulksendtransmissionDescription, true
-}
-
-// SetSEzsignbulksendtransmissionDescription sets field value
-func (o *EzsignbulksendtransmissionResponseCompound) SetSEzsignbulksendtransmissionDescription(v string) {
-	o.SEzsignbulksendtransmissionDescription = v
-}
-
-// GetIEzsignbulksendtransmissionErrors returns the IEzsignbulksendtransmissionErrors field value
-func (o *EzsignbulksendtransmissionResponseCompound) GetIEzsignbulksendtransmissionErrors() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.IEzsignbulksendtransmissionErrors
-}
-
-// GetIEzsignbulksendtransmissionErrorsOk returns a tuple with the IEzsignbulksendtransmissionErrors field value
-// and a boolean to check if the value has been set.
-func (o *EzsignbulksendtransmissionResponseCompound) GetIEzsignbulksendtransmissionErrorsOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.IEzsignbulksendtransmissionErrors, true
-}
-
-// SetIEzsignbulksendtransmissionErrors sets field value
-func (o *EzsignbulksendtransmissionResponseCompound) SetIEzsignbulksendtransmissionErrors(v int32) {
-	o.IEzsignbulksendtransmissionErrors = v
-}
-
-// GetObjAudit returns the ObjAudit field value
-func (o *EzsignbulksendtransmissionResponseCompound) GetObjAudit() CommonAudit {
-	if o == nil {
-		var ret CommonAudit
-		return ret
-	}
-
-	return o.ObjAudit
-}
-
-// GetObjAuditOk returns a tuple with the ObjAudit field value
-// and a boolean to check if the value has been set.
-func (o *EzsignbulksendtransmissionResponseCompound) GetObjAuditOk() (*CommonAudit, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ObjAudit, true
-}
-
-// SetObjAudit sets field value
-func (o *EzsignbulksendtransmissionResponseCompound) SetObjAudit(v CommonAudit) {
-	o.ObjAudit = v
 }
 
 // GetAObjEzsignfoldertransmission returns the AObjEzsignfoldertransmission field value
@@ -213,11 +85,6 @@ func (o EzsignbulksendtransmissionResponseCompound) MarshalJSON() ([]byte, error
 
 func (o EzsignbulksendtransmissionResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["pkiEzsignbulksendtransmissionID"] = o.PkiEzsignbulksendtransmissionID
-	toSerialize["fkiEzsignbulksendID"] = o.FkiEzsignbulksendID
-	toSerialize["sEzsignbulksendtransmissionDescription"] = o.SEzsignbulksendtransmissionDescription
-	toSerialize["iEzsignbulksendtransmissionErrors"] = o.IEzsignbulksendtransmissionErrors
-	toSerialize["objAudit"] = o.ObjAudit
 	toSerialize["a_objEzsignfoldertransmission"] = o.AObjEzsignfoldertransmission
 	return toSerialize, nil
 }
@@ -227,12 +94,12 @@ func (o *EzsignbulksendtransmissionResponseCompound) UnmarshalJSON(data []byte) 
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"a_objEzsignfoldertransmission",
 		"pkiEzsignbulksendtransmissionID",
 		"fkiEzsignbulksendID",
 		"sEzsignbulksendtransmissionDescription",
 		"iEzsignbulksendtransmissionErrors",
 		"objAudit",
-		"a_objEzsignfoldertransmission",
 	}
 
 	allProperties := make(map[string]interface{})

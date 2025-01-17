@@ -22,16 +22,7 @@ var _ MappedNullable = &EzsignsignerResponseCompound{}
 
 // EzsignsignerResponseCompound An Ezsignsigner Object and children to create a complete structure
 type EzsignsignerResponseCompound struct {
-	// The unique ID of the Ezsignsigner
-	PkiEzsignsignerID int32 `json:"pkiEzsignsignerID"`
-	// The unique ID of the Taxassignment.  Valid values:  |Value|Description| |-|-| |1|No tax| |2|GST| |3|HST (ON)| |4|HST (NB)| |5|HST (NS)| |6|HST (NL)| |7|HST (PE)| |8|GST + QST (QC)| |9|GST + QST (QC) Non-Recoverable| |10|GST + PST (BC)| |11|GST + PST (SK)| |12|GST + RST (MB)| |13|GST + PST (BC) Non-Recoverable| |14|GST + PST (SK) Non-Recoverable| |15|GST + RST (MB) Non-Recoverable|
-	FkiTaxassignmentID int32 `json:"fkiTaxassignmentID"`
-	// The unique ID of the Secretquestion.  Valid values:  |Value|Description| |-|-| |1|The name of the hospital in which you were born| |2|The name of your grade school| |3|The last name of your favorite teacher| |4|Your favorite sports team| |5|Your favorite TV show| |6|Your favorite movie| |7|The name of the street on which you grew up| |8|The name of your first employer| |9|Your first car| |10|Your favorite food| |11|The name of your first pet| |12|Favorite musician/band| |13|What instrument you play| |14|Your father's middle name| |15|Your mother's maiden name| |16|Name of your eldest child| |17|Your spouse's middle name| |18|Favorite restaurant| |19|Childhood nickname| |20|Favorite vacation destination| |21|Your boat's name| |22|Date of Birth (YYYY-MM-DD)| |22|Secret Code| |22|Your reference code|
-	FkiSecretquestionID *int32 `json:"fkiSecretquestionID,omitempty"`
-	// The unique ID of the Userlogintype  Valid values:  |Value|Description|Detail| |-|-|-| |1|**Email Only**|The Ezsignsigner will receive a secure link by email| |2|**Email and phone or SMS**|The Ezsignsigner will receive a secure link by email and will need to authenticate using SMS or Phone call. **Additional fee applies**| |3|**Email and secret question**|The Ezsignsigner will receive a secure link by email and will need to authenticate using a predefined question and answer| |4|**In person only**|The Ezsignsigner will only be able to sign \"In-Person\" and there won't be any authentication. No email will be sent for invitation to sign. Make sure you evaluate the risk of signature denial and at minimum, we recommend you use a handwritten signature type| |5|**In person with phone or SMS**|The Ezsignsigner will only be able to sign \"In-Person\" and will need to authenticate using SMS or Phone call. No email will be sent for invitation to sign. **Additional fee applies**| |6|**Embedded**|The Ezsignsigner will only be able to sign in the embedded solution. No email will be sent for invitation to sign. **Additional fee applies**|   |7|**Embedded with phone or SMS**|The Ezsignsigner will only be able to sign in the embedded solution and will need to authenticate using SMS or Phone call. No email will be sent for invitation to sign. **Additional fee applies**|   |8|**No validation**|The Ezsignsigner will not receive an email and won't have to validate his connection using 2 factor. **Additional fee applies**|      |9|**Sms only**|The Ezsignsigner will not receive an email but will will need to authenticate using SMS. **Additional fee applies**|     
-	FkiUserlogintypeID int32 `json:"fkiUserlogintypeID"`
-	// The description of the Userlogintype in the language of the requester
-	SUserlogintypeDescriptionX string `json:"sUserlogintypeDescriptionX"`
+	EzsignsignerResponse
 	ObjContact EzsignsignerResponseCompoundContact `json:"objContact"`
 }
 
@@ -41,7 +32,7 @@ type _EzsignsignerResponseCompound EzsignsignerResponseCompound
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignsignerResponseCompound(pkiEzsignsignerID int32, fkiTaxassignmentID int32, fkiUserlogintypeID int32, sUserlogintypeDescriptionX string, objContact EzsignsignerResponseCompoundContact) *EzsignsignerResponseCompound {
+func NewEzsignsignerResponseCompound(objContact EzsignsignerResponseCompoundContact, pkiEzsignsignerID int32, fkiTaxassignmentID int32, fkiUserlogintypeID int32, sUserlogintypeDescriptionX string) *EzsignsignerResponseCompound {
 	this := EzsignsignerResponseCompound{}
 	this.PkiEzsignsignerID = pkiEzsignsignerID
 	this.FkiTaxassignmentID = fkiTaxassignmentID
@@ -57,134 +48,6 @@ func NewEzsignsignerResponseCompound(pkiEzsignsignerID int32, fkiTaxassignmentID
 func NewEzsignsignerResponseCompoundWithDefaults() *EzsignsignerResponseCompound {
 	this := EzsignsignerResponseCompound{}
 	return &this
-}
-
-// GetPkiEzsignsignerID returns the PkiEzsignsignerID field value
-func (o *EzsignsignerResponseCompound) GetPkiEzsignsignerID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.PkiEzsignsignerID
-}
-
-// GetPkiEzsignsignerIDOk returns a tuple with the PkiEzsignsignerID field value
-// and a boolean to check if the value has been set.
-func (o *EzsignsignerResponseCompound) GetPkiEzsignsignerIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.PkiEzsignsignerID, true
-}
-
-// SetPkiEzsignsignerID sets field value
-func (o *EzsignsignerResponseCompound) SetPkiEzsignsignerID(v int32) {
-	o.PkiEzsignsignerID = v
-}
-
-// GetFkiTaxassignmentID returns the FkiTaxassignmentID field value
-func (o *EzsignsignerResponseCompound) GetFkiTaxassignmentID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.FkiTaxassignmentID
-}
-
-// GetFkiTaxassignmentIDOk returns a tuple with the FkiTaxassignmentID field value
-// and a boolean to check if the value has been set.
-func (o *EzsignsignerResponseCompound) GetFkiTaxassignmentIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FkiTaxassignmentID, true
-}
-
-// SetFkiTaxassignmentID sets field value
-func (o *EzsignsignerResponseCompound) SetFkiTaxassignmentID(v int32) {
-	o.FkiTaxassignmentID = v
-}
-
-// GetFkiSecretquestionID returns the FkiSecretquestionID field value if set, zero value otherwise.
-func (o *EzsignsignerResponseCompound) GetFkiSecretquestionID() int32 {
-	if o == nil || IsNil(o.FkiSecretquestionID) {
-		var ret int32
-		return ret
-	}
-	return *o.FkiSecretquestionID
-}
-
-// GetFkiSecretquestionIDOk returns a tuple with the FkiSecretquestionID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *EzsignsignerResponseCompound) GetFkiSecretquestionIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.FkiSecretquestionID) {
-		return nil, false
-	}
-	return o.FkiSecretquestionID, true
-}
-
-// HasFkiSecretquestionID returns a boolean if a field has been set.
-func (o *EzsignsignerResponseCompound) HasFkiSecretquestionID() bool {
-	if o != nil && !IsNil(o.FkiSecretquestionID) {
-		return true
-	}
-
-	return false
-}
-
-// SetFkiSecretquestionID gets a reference to the given int32 and assigns it to the FkiSecretquestionID field.
-func (o *EzsignsignerResponseCompound) SetFkiSecretquestionID(v int32) {
-	o.FkiSecretquestionID = &v
-}
-
-// GetFkiUserlogintypeID returns the FkiUserlogintypeID field value
-func (o *EzsignsignerResponseCompound) GetFkiUserlogintypeID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.FkiUserlogintypeID
-}
-
-// GetFkiUserlogintypeIDOk returns a tuple with the FkiUserlogintypeID field value
-// and a boolean to check if the value has been set.
-func (o *EzsignsignerResponseCompound) GetFkiUserlogintypeIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FkiUserlogintypeID, true
-}
-
-// SetFkiUserlogintypeID sets field value
-func (o *EzsignsignerResponseCompound) SetFkiUserlogintypeID(v int32) {
-	o.FkiUserlogintypeID = v
-}
-
-// GetSUserlogintypeDescriptionX returns the SUserlogintypeDescriptionX field value
-func (o *EzsignsignerResponseCompound) GetSUserlogintypeDescriptionX() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SUserlogintypeDescriptionX
-}
-
-// GetSUserlogintypeDescriptionXOk returns a tuple with the SUserlogintypeDescriptionX field value
-// and a boolean to check if the value has been set.
-func (o *EzsignsignerResponseCompound) GetSUserlogintypeDescriptionXOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SUserlogintypeDescriptionX, true
-}
-
-// SetSUserlogintypeDescriptionX sets field value
-func (o *EzsignsignerResponseCompound) SetSUserlogintypeDescriptionX(v string) {
-	o.SUserlogintypeDescriptionX = v
 }
 
 // GetObjContact returns the ObjContact field value
@@ -221,13 +84,6 @@ func (o EzsignsignerResponseCompound) MarshalJSON() ([]byte, error) {
 
 func (o EzsignsignerResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["pkiEzsignsignerID"] = o.PkiEzsignsignerID
-	toSerialize["fkiTaxassignmentID"] = o.FkiTaxassignmentID
-	if !IsNil(o.FkiSecretquestionID) {
-		toSerialize["fkiSecretquestionID"] = o.FkiSecretquestionID
-	}
-	toSerialize["fkiUserlogintypeID"] = o.FkiUserlogintypeID
-	toSerialize["sUserlogintypeDescriptionX"] = o.SUserlogintypeDescriptionX
 	toSerialize["objContact"] = o.ObjContact
 	return toSerialize, nil
 }
@@ -237,11 +93,11 @@ func (o *EzsignsignerResponseCompound) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"objContact",
 		"pkiEzsignsignerID",
 		"fkiTaxassignmentID",
 		"fkiUserlogintypeID",
 		"sUserlogintypeDescriptionX",
-		"objContact",
 	}
 
 	allProperties := make(map[string]interface{})

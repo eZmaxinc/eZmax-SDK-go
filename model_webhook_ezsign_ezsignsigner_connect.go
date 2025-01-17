@@ -22,9 +22,7 @@ var _ MappedNullable = &WebhookEzsignEzsignsignerConnect{}
 
 // WebhookEzsignEzsignsignerConnect This is the base Webhook object
 type WebhookEzsignEzsignsignerConnect struct {
-	ObjWebhook CustomWebhookResponse `json:"objWebhook"`
-	// An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.
-	AObjAttempt []AttemptResponseCompound `json:"a_objAttempt"`
+	CommonWebhook
 	ObjEzsignfolder *EzsignfolderResponse `json:"objEzsignfolder,omitempty"`
 	ObjEzsignfoldersignerassociation EzsignfoldersignerassociationResponseCompound `json:"objEzsignfoldersignerassociation"`
 }
@@ -35,7 +33,7 @@ type _WebhookEzsignEzsignsignerConnect WebhookEzsignEzsignsignerConnect
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWebhookEzsignEzsignsignerConnect(objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound, objEzsignfoldersignerassociation EzsignfoldersignerassociationResponseCompound) *WebhookEzsignEzsignsignerConnect {
+func NewWebhookEzsignEzsignsignerConnect(objEzsignfoldersignerassociation EzsignfoldersignerassociationResponseCompound, objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound) *WebhookEzsignEzsignsignerConnect {
 	this := WebhookEzsignEzsignsignerConnect{}
 	this.ObjWebhook = objWebhook
 	this.AObjAttempt = aObjAttempt
@@ -49,54 +47,6 @@ func NewWebhookEzsignEzsignsignerConnect(objWebhook CustomWebhookResponse, aObjA
 func NewWebhookEzsignEzsignsignerConnectWithDefaults() *WebhookEzsignEzsignsignerConnect {
 	this := WebhookEzsignEzsignsignerConnect{}
 	return &this
-}
-
-// GetObjWebhook returns the ObjWebhook field value
-func (o *WebhookEzsignEzsignsignerConnect) GetObjWebhook() CustomWebhookResponse {
-	if o == nil {
-		var ret CustomWebhookResponse
-		return ret
-	}
-
-	return o.ObjWebhook
-}
-
-// GetObjWebhookOk returns a tuple with the ObjWebhook field value
-// and a boolean to check if the value has been set.
-func (o *WebhookEzsignEzsignsignerConnect) GetObjWebhookOk() (*CustomWebhookResponse, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ObjWebhook, true
-}
-
-// SetObjWebhook sets field value
-func (o *WebhookEzsignEzsignsignerConnect) SetObjWebhook(v CustomWebhookResponse) {
-	o.ObjWebhook = v
-}
-
-// GetAObjAttempt returns the AObjAttempt field value
-func (o *WebhookEzsignEzsignsignerConnect) GetAObjAttempt() []AttemptResponseCompound {
-	if o == nil {
-		var ret []AttemptResponseCompound
-		return ret
-	}
-
-	return o.AObjAttempt
-}
-
-// GetAObjAttemptOk returns a tuple with the AObjAttempt field value
-// and a boolean to check if the value has been set.
-func (o *WebhookEzsignEzsignsignerConnect) GetAObjAttemptOk() ([]AttemptResponseCompound, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.AObjAttempt, true
-}
-
-// SetAObjAttempt sets field value
-func (o *WebhookEzsignEzsignsignerConnect) SetAObjAttempt(v []AttemptResponseCompound) {
-	o.AObjAttempt = v
 }
 
 // GetObjEzsignfolder returns the ObjEzsignfolder field value if set, zero value otherwise.
@@ -165,8 +115,6 @@ func (o WebhookEzsignEzsignsignerConnect) MarshalJSON() ([]byte, error) {
 
 func (o WebhookEzsignEzsignsignerConnect) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["objWebhook"] = o.ObjWebhook
-	toSerialize["a_objAttempt"] = o.AObjAttempt
 	if !IsNil(o.ObjEzsignfolder) {
 		toSerialize["objEzsignfolder"] = o.ObjEzsignfolder
 	}
@@ -179,9 +127,9 @@ func (o *WebhookEzsignEzsignsignerConnect) UnmarshalJSON(data []byte) (err error
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"objEzsignfoldersignerassociation",
 		"objWebhook",
 		"a_objAttempt",
-		"objEzsignfoldersignerassociation",
 	}
 
 	allProperties := make(map[string]interface{})
