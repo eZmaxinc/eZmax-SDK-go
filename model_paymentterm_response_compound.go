@@ -22,7 +22,17 @@ var _ MappedNullable = &PaymenttermResponseCompound{}
 
 // PaymenttermResponseCompound A Paymentterm Object
 type PaymenttermResponseCompound struct {
-	PaymenttermResponse
+	// The unique ID of the Paymentterm
+	PkiPaymenttermID int32 `json:"pkiPaymenttermID"`
+	// The code of the Paymentterm
+	SPaymenttermCode string `json:"sPaymenttermCode" validate:"regexp=^[A-Z0-9]{1,4}$"`
+	EPaymenttermType FieldEPaymenttermType `json:"ePaymenttermType"`
+	// The day of the Paymentterm
+	IPaymenttermDay int32 `json:"iPaymenttermDay"`
+	ObjPaymenttermDescription MultilingualPaymenttermDescription `json:"objPaymenttermDescription"`
+	// Whether the Paymentterm is active or not
+	BPaymenttermIsactive bool `json:"bPaymenttermIsactive"`
+	ObjAudit CommonAudit `json:"objAudit"`
 }
 
 type _PaymenttermResponseCompound PaymenttermResponseCompound
@@ -51,6 +61,174 @@ func NewPaymenttermResponseCompoundWithDefaults() *PaymenttermResponseCompound {
 	return &this
 }
 
+// GetPkiPaymenttermID returns the PkiPaymenttermID field value
+func (o *PaymenttermResponseCompound) GetPkiPaymenttermID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.PkiPaymenttermID
+}
+
+// GetPkiPaymenttermIDOk returns a tuple with the PkiPaymenttermID field value
+// and a boolean to check if the value has been set.
+func (o *PaymenttermResponseCompound) GetPkiPaymenttermIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PkiPaymenttermID, true
+}
+
+// SetPkiPaymenttermID sets field value
+func (o *PaymenttermResponseCompound) SetPkiPaymenttermID(v int32) {
+	o.PkiPaymenttermID = v
+}
+
+// GetSPaymenttermCode returns the SPaymenttermCode field value
+func (o *PaymenttermResponseCompound) GetSPaymenttermCode() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SPaymenttermCode
+}
+
+// GetSPaymenttermCodeOk returns a tuple with the SPaymenttermCode field value
+// and a boolean to check if the value has been set.
+func (o *PaymenttermResponseCompound) GetSPaymenttermCodeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SPaymenttermCode, true
+}
+
+// SetSPaymenttermCode sets field value
+func (o *PaymenttermResponseCompound) SetSPaymenttermCode(v string) {
+	o.SPaymenttermCode = v
+}
+
+// GetEPaymenttermType returns the EPaymenttermType field value
+func (o *PaymenttermResponseCompound) GetEPaymenttermType() FieldEPaymenttermType {
+	if o == nil {
+		var ret FieldEPaymenttermType
+		return ret
+	}
+
+	return o.EPaymenttermType
+}
+
+// GetEPaymenttermTypeOk returns a tuple with the EPaymenttermType field value
+// and a boolean to check if the value has been set.
+func (o *PaymenttermResponseCompound) GetEPaymenttermTypeOk() (*FieldEPaymenttermType, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EPaymenttermType, true
+}
+
+// SetEPaymenttermType sets field value
+func (o *PaymenttermResponseCompound) SetEPaymenttermType(v FieldEPaymenttermType) {
+	o.EPaymenttermType = v
+}
+
+// GetIPaymenttermDay returns the IPaymenttermDay field value
+func (o *PaymenttermResponseCompound) GetIPaymenttermDay() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IPaymenttermDay
+}
+
+// GetIPaymenttermDayOk returns a tuple with the IPaymenttermDay field value
+// and a boolean to check if the value has been set.
+func (o *PaymenttermResponseCompound) GetIPaymenttermDayOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IPaymenttermDay, true
+}
+
+// SetIPaymenttermDay sets field value
+func (o *PaymenttermResponseCompound) SetIPaymenttermDay(v int32) {
+	o.IPaymenttermDay = v
+}
+
+// GetObjPaymenttermDescription returns the ObjPaymenttermDescription field value
+func (o *PaymenttermResponseCompound) GetObjPaymenttermDescription() MultilingualPaymenttermDescription {
+	if o == nil {
+		var ret MultilingualPaymenttermDescription
+		return ret
+	}
+
+	return o.ObjPaymenttermDescription
+}
+
+// GetObjPaymenttermDescriptionOk returns a tuple with the ObjPaymenttermDescription field value
+// and a boolean to check if the value has been set.
+func (o *PaymenttermResponseCompound) GetObjPaymenttermDescriptionOk() (*MultilingualPaymenttermDescription, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjPaymenttermDescription, true
+}
+
+// SetObjPaymenttermDescription sets field value
+func (o *PaymenttermResponseCompound) SetObjPaymenttermDescription(v MultilingualPaymenttermDescription) {
+	o.ObjPaymenttermDescription = v
+}
+
+// GetBPaymenttermIsactive returns the BPaymenttermIsactive field value
+func (o *PaymenttermResponseCompound) GetBPaymenttermIsactive() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BPaymenttermIsactive
+}
+
+// GetBPaymenttermIsactiveOk returns a tuple with the BPaymenttermIsactive field value
+// and a boolean to check if the value has been set.
+func (o *PaymenttermResponseCompound) GetBPaymenttermIsactiveOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BPaymenttermIsactive, true
+}
+
+// SetBPaymenttermIsactive sets field value
+func (o *PaymenttermResponseCompound) SetBPaymenttermIsactive(v bool) {
+	o.BPaymenttermIsactive = v
+}
+
+// GetObjAudit returns the ObjAudit field value
+func (o *PaymenttermResponseCompound) GetObjAudit() CommonAudit {
+	if o == nil {
+		var ret CommonAudit
+		return ret
+	}
+
+	return o.ObjAudit
+}
+
+// GetObjAuditOk returns a tuple with the ObjAudit field value
+// and a boolean to check if the value has been set.
+func (o *PaymenttermResponseCompound) GetObjAuditOk() (*CommonAudit, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjAudit, true
+}
+
+// SetObjAudit sets field value
+func (o *PaymenttermResponseCompound) SetObjAudit(v CommonAudit) {
+	o.ObjAudit = v
+}
+
 func (o PaymenttermResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -61,6 +239,13 @@ func (o PaymenttermResponseCompound) MarshalJSON() ([]byte, error) {
 
 func (o PaymenttermResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["pkiPaymenttermID"] = o.PkiPaymenttermID
+	toSerialize["sPaymenttermCode"] = o.SPaymenttermCode
+	toSerialize["ePaymenttermType"] = o.EPaymenttermType
+	toSerialize["iPaymenttermDay"] = o.IPaymenttermDay
+	toSerialize["objPaymenttermDescription"] = o.ObjPaymenttermDescription
+	toSerialize["bPaymenttermIsactive"] = o.BPaymenttermIsactive
+	toSerialize["objAudit"] = o.ObjAudit
 	return toSerialize, nil
 }
 

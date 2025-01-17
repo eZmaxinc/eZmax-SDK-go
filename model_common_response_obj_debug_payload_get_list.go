@@ -22,7 +22,16 @@ var _ MappedNullable = &CommonResponseObjDebugPayloadGetList{}
 
 // CommonResponseObjDebugPayloadGetList This is a debug object containing debugging information on the actual function
 type CommonResponseObjDebugPayloadGetList struct {
-	CommonResponseObjDebugPayload
+	// The minimum version of the function that can be called
+	IVersionMin int32 `json:"iVersionMin"`
+	// The maximum version of the function that can be called
+	IVersionMax int32 `json:"iVersionMax"`
+	// An array of permissions required to access this function.  If the value \"0\" is present in the array, anyone can call this function.  You must have one of the permission to access the function. You don't need to have all of them.
+	ARequiredPermission []int32 `json:"a_RequiredPermission"`
+	// Wheter the current route is deprecated or not
+	BVersionDeprecated bool `json:"bVersionDeprecated"`
+	// Represent a Date Time. The timezone is the one configured in the User's profile.
+	DtResponseDate string `json:"dtResponseDate"`
 	AFilter CommonResponseFilter `json:"a_Filter"`
 	// List of available values for *eOrderBy*
 	AOrderBy map[string]string `json:"a_OrderBy"`
@@ -38,7 +47,7 @@ type _CommonResponseObjDebugPayloadGetList CommonResponseObjDebugPayloadGetList
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommonResponseObjDebugPayloadGetList(aFilter CommonResponseFilter, aOrderBy map[string]string, iRowMax int32, iRowOffset int32, iVersionMin int32, iVersionMax int32, aRequiredPermission []int32, bVersionDeprecated bool, dtResponseDate string) *CommonResponseObjDebugPayloadGetList {
+func NewCommonResponseObjDebugPayloadGetList(iVersionMin int32, iVersionMax int32, aRequiredPermission []int32, bVersionDeprecated bool, dtResponseDate string, aFilter CommonResponseFilter, aOrderBy map[string]string, iRowMax int32, iRowOffset int32) *CommonResponseObjDebugPayloadGetList {
 	this := CommonResponseObjDebugPayloadGetList{}
 	this.IVersionMin = iVersionMin
 	this.IVersionMax = iVersionMax
@@ -60,6 +69,126 @@ func NewCommonResponseObjDebugPayloadGetListWithDefaults() *CommonResponseObjDeb
 	var iRowOffset int32 = 0
 	this.IRowOffset = iRowOffset
 	return &this
+}
+
+// GetIVersionMin returns the IVersionMin field value
+func (o *CommonResponseObjDebugPayloadGetList) GetIVersionMin() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IVersionMin
+}
+
+// GetIVersionMinOk returns a tuple with the IVersionMin field value
+// and a boolean to check if the value has been set.
+func (o *CommonResponseObjDebugPayloadGetList) GetIVersionMinOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IVersionMin, true
+}
+
+// SetIVersionMin sets field value
+func (o *CommonResponseObjDebugPayloadGetList) SetIVersionMin(v int32) {
+	o.IVersionMin = v
+}
+
+// GetIVersionMax returns the IVersionMax field value
+func (o *CommonResponseObjDebugPayloadGetList) GetIVersionMax() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IVersionMax
+}
+
+// GetIVersionMaxOk returns a tuple with the IVersionMax field value
+// and a boolean to check if the value has been set.
+func (o *CommonResponseObjDebugPayloadGetList) GetIVersionMaxOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IVersionMax, true
+}
+
+// SetIVersionMax sets field value
+func (o *CommonResponseObjDebugPayloadGetList) SetIVersionMax(v int32) {
+	o.IVersionMax = v
+}
+
+// GetARequiredPermission returns the ARequiredPermission field value
+func (o *CommonResponseObjDebugPayloadGetList) GetARequiredPermission() []int32 {
+	if o == nil {
+		var ret []int32
+		return ret
+	}
+
+	return o.ARequiredPermission
+}
+
+// GetARequiredPermissionOk returns a tuple with the ARequiredPermission field value
+// and a boolean to check if the value has been set.
+func (o *CommonResponseObjDebugPayloadGetList) GetARequiredPermissionOk() ([]int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ARequiredPermission, true
+}
+
+// SetARequiredPermission sets field value
+func (o *CommonResponseObjDebugPayloadGetList) SetARequiredPermission(v []int32) {
+	o.ARequiredPermission = v
+}
+
+// GetBVersionDeprecated returns the BVersionDeprecated field value
+func (o *CommonResponseObjDebugPayloadGetList) GetBVersionDeprecated() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BVersionDeprecated
+}
+
+// GetBVersionDeprecatedOk returns a tuple with the BVersionDeprecated field value
+// and a boolean to check if the value has been set.
+func (o *CommonResponseObjDebugPayloadGetList) GetBVersionDeprecatedOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BVersionDeprecated, true
+}
+
+// SetBVersionDeprecated sets field value
+func (o *CommonResponseObjDebugPayloadGetList) SetBVersionDeprecated(v bool) {
+	o.BVersionDeprecated = v
+}
+
+// GetDtResponseDate returns the DtResponseDate field value
+func (o *CommonResponseObjDebugPayloadGetList) GetDtResponseDate() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.DtResponseDate
+}
+
+// GetDtResponseDateOk returns a tuple with the DtResponseDate field value
+// and a boolean to check if the value has been set.
+func (o *CommonResponseObjDebugPayloadGetList) GetDtResponseDateOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.DtResponseDate, true
+}
+
+// SetDtResponseDate sets field value
+func (o *CommonResponseObjDebugPayloadGetList) SetDtResponseDate(v string) {
+	o.DtResponseDate = v
 }
 
 // GetAFilter returns the AFilter field value
@@ -168,6 +297,11 @@ func (o CommonResponseObjDebugPayloadGetList) MarshalJSON() ([]byte, error) {
 
 func (o CommonResponseObjDebugPayloadGetList) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["iVersionMin"] = o.IVersionMin
+	toSerialize["iVersionMax"] = o.IVersionMax
+	toSerialize["a_RequiredPermission"] = o.ARequiredPermission
+	toSerialize["bVersionDeprecated"] = o.BVersionDeprecated
+	toSerialize["dtResponseDate"] = o.DtResponseDate
 	toSerialize["a_Filter"] = o.AFilter
 	toSerialize["a_OrderBy"] = o.AOrderBy
 	toSerialize["iRowMax"] = o.IRowMax
@@ -180,15 +314,15 @@ func (o *CommonResponseObjDebugPayloadGetList) UnmarshalJSON(data []byte) (err e
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"a_Filter",
-		"a_OrderBy",
-		"iRowMax",
-		"iRowOffset",
 		"iVersionMin",
 		"iVersionMax",
 		"a_RequiredPermission",
 		"bVersionDeprecated",
 		"dtResponseDate",
+		"a_Filter",
+		"a_OrderBy",
+		"iRowMax",
+		"iRowOffset",
 	}
 
 	allProperties := make(map[string]interface{})

@@ -22,7 +22,10 @@ var _ MappedNullable = &ClonehistoryGetListV1ResponseMPayload{}
 
 // ClonehistoryGetListV1ResponseMPayload Payload for GET /1/object/clonehistory/getList
 type ClonehistoryGetListV1ResponseMPayload struct {
-	CommonGetListV1ResponseMPayload
+	// The number of rows returned
+	IRowReturned int32 `json:"iRowReturned"`
+	// The number of rows matching your filters (if any) or the total number of rows
+	IRowFiltered int32 `json:"iRowFiltered"`
 	AObjClonehistory []ClonehistoryListElement `json:"a_objClonehistory"`
 }
 
@@ -32,7 +35,7 @@ type _ClonehistoryGetListV1ResponseMPayload ClonehistoryGetListV1ResponseMPayloa
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewClonehistoryGetListV1ResponseMPayload(aObjClonehistory []ClonehistoryListElement, iRowReturned int32, iRowFiltered int32) *ClonehistoryGetListV1ResponseMPayload {
+func NewClonehistoryGetListV1ResponseMPayload(iRowReturned int32, iRowFiltered int32, aObjClonehistory []ClonehistoryListElement) *ClonehistoryGetListV1ResponseMPayload {
 	this := ClonehistoryGetListV1ResponseMPayload{}
 	this.IRowReturned = iRowReturned
 	this.IRowFiltered = iRowFiltered
@@ -46,6 +49,54 @@ func NewClonehistoryGetListV1ResponseMPayload(aObjClonehistory []ClonehistoryLis
 func NewClonehistoryGetListV1ResponseMPayloadWithDefaults() *ClonehistoryGetListV1ResponseMPayload {
 	this := ClonehistoryGetListV1ResponseMPayload{}
 	return &this
+}
+
+// GetIRowReturned returns the IRowReturned field value
+func (o *ClonehistoryGetListV1ResponseMPayload) GetIRowReturned() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IRowReturned
+}
+
+// GetIRowReturnedOk returns a tuple with the IRowReturned field value
+// and a boolean to check if the value has been set.
+func (o *ClonehistoryGetListV1ResponseMPayload) GetIRowReturnedOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IRowReturned, true
+}
+
+// SetIRowReturned sets field value
+func (o *ClonehistoryGetListV1ResponseMPayload) SetIRowReturned(v int32) {
+	o.IRowReturned = v
+}
+
+// GetIRowFiltered returns the IRowFiltered field value
+func (o *ClonehistoryGetListV1ResponseMPayload) GetIRowFiltered() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IRowFiltered
+}
+
+// GetIRowFilteredOk returns a tuple with the IRowFiltered field value
+// and a boolean to check if the value has been set.
+func (o *ClonehistoryGetListV1ResponseMPayload) GetIRowFilteredOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IRowFiltered, true
+}
+
+// SetIRowFiltered sets field value
+func (o *ClonehistoryGetListV1ResponseMPayload) SetIRowFiltered(v int32) {
+	o.IRowFiltered = v
 }
 
 // GetAObjClonehistory returns the AObjClonehistory field value
@@ -82,6 +133,8 @@ func (o ClonehistoryGetListV1ResponseMPayload) MarshalJSON() ([]byte, error) {
 
 func (o ClonehistoryGetListV1ResponseMPayload) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["iRowReturned"] = o.IRowReturned
+	toSerialize["iRowFiltered"] = o.IRowFiltered
 	toSerialize["a_objClonehistory"] = o.AObjClonehistory
 	return toSerialize, nil
 }
@@ -91,9 +144,9 @@ func (o *ClonehistoryGetListV1ResponseMPayload) UnmarshalJSON(data []byte) (err 
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"a_objClonehistory",
 		"iRowReturned",
 		"iRowFiltered",
+		"a_objClonehistory",
 	}
 
 	allProperties := make(map[string]interface{})

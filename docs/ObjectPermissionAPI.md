@@ -32,7 +32,7 @@ import (
 )
 
 func main() {
-	permissionCreateObjectV1Request := *openapiclient.NewPermissionCreateObjectV1Request([]openapiclient.PermissionRequestCompound{*openapiclient.NewPermissionRequest(int32(53))}) // PermissionCreateObjectV1Request | 
+	permissionCreateObjectV1Request := *openapiclient.NewPermissionCreateObjectV1Request([]openapiclient.PermissionRequestCompound{*openapiclient.NewPermissionRequestCompound(int32(53))}) // PermissionCreateObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ## PermissionDeleteObjectV1
 
-> CommonResponse PermissionDeleteObjectV1(ctx, pkiPermissionID).Execute()
+> PermissionDeleteObjectV1Response PermissionDeleteObjectV1(ctx, pkiPermissionID).Execute()
 
 Delete an existing Permission
 
@@ -107,7 +107,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectPermissionAPI.PermissionDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PermissionDeleteObjectV1`: CommonResponse
+	// response from `PermissionDeleteObjectV1`: PermissionDeleteObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectPermissionAPI.PermissionDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**PermissionDeleteObjectV1Response**](PermissionDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ## PermissionEditObjectV1
 
-> CommonResponse PermissionEditObjectV1(ctx, pkiPermissionID).PermissionEditObjectV1Request(permissionEditObjectV1Request).Execute()
+> PermissionEditObjectV1Response PermissionEditObjectV1(ctx, pkiPermissionID).PermissionEditObjectV1Request(permissionEditObjectV1Request).Execute()
 
 Edit an existing Permission
 
@@ -169,7 +169,7 @@ import (
 
 func main() {
 	pkiPermissionID := int32(56) // int32 | The unique ID of the Permission
-	permissionEditObjectV1Request := *openapiclient.NewPermissionEditObjectV1Request(*openapiclient.NewPermissionRequest(int32(53))) // PermissionEditObjectV1Request | 
+	permissionEditObjectV1Request := *openapiclient.NewPermissionEditObjectV1Request(*openapiclient.NewPermissionRequestCompound(int32(53))) // PermissionEditObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -178,7 +178,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectPermissionAPI.PermissionEditObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PermissionEditObjectV1`: CommonResponse
+	// response from `PermissionEditObjectV1`: PermissionEditObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectPermissionAPI.PermissionEditObjectV1`: %v\n", resp)
 }
 ```
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**PermissionEditObjectV1Response**](PermissionEditObjectV1Response.md)
 
 ### Authorization
 

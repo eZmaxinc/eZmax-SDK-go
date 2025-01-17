@@ -22,7 +22,15 @@ var _ MappedNullable = &SignatureResponseCompoundV3{}
 
 // SignatureResponseCompoundV3 A Signature Object
 type SignatureResponseCompoundV3 struct {
-	SignatureResponseV3
+	// The unique ID of the Signature
+	PkiSignatureID int32 `json:"pkiSignatureID"`
+	// The unique ID of the Font
+	FkiFontID int32 `json:"fkiFontID"`
+	ESignaturePreference FieldESignaturePreference `json:"eSignaturePreference"`
+	// Whether the signature has a SVG or not
+	BSignatureSvg bool `json:"bSignatureSvg"`
+	// Whether the initials has a SVG or not
+	BSignatureSvginitials bool `json:"bSignatureSvginitials"`
 }
 
 type _SignatureResponseCompoundV3 SignatureResponseCompoundV3
@@ -49,6 +57,126 @@ func NewSignatureResponseCompoundV3WithDefaults() *SignatureResponseCompoundV3 {
 	return &this
 }
 
+// GetPkiSignatureID returns the PkiSignatureID field value
+func (o *SignatureResponseCompoundV3) GetPkiSignatureID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.PkiSignatureID
+}
+
+// GetPkiSignatureIDOk returns a tuple with the PkiSignatureID field value
+// and a boolean to check if the value has been set.
+func (o *SignatureResponseCompoundV3) GetPkiSignatureIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PkiSignatureID, true
+}
+
+// SetPkiSignatureID sets field value
+func (o *SignatureResponseCompoundV3) SetPkiSignatureID(v int32) {
+	o.PkiSignatureID = v
+}
+
+// GetFkiFontID returns the FkiFontID field value
+func (o *SignatureResponseCompoundV3) GetFkiFontID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiFontID
+}
+
+// GetFkiFontIDOk returns a tuple with the FkiFontID field value
+// and a boolean to check if the value has been set.
+func (o *SignatureResponseCompoundV3) GetFkiFontIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiFontID, true
+}
+
+// SetFkiFontID sets field value
+func (o *SignatureResponseCompoundV3) SetFkiFontID(v int32) {
+	o.FkiFontID = v
+}
+
+// GetESignaturePreference returns the ESignaturePreference field value
+func (o *SignatureResponseCompoundV3) GetESignaturePreference() FieldESignaturePreference {
+	if o == nil {
+		var ret FieldESignaturePreference
+		return ret
+	}
+
+	return o.ESignaturePreference
+}
+
+// GetESignaturePreferenceOk returns a tuple with the ESignaturePreference field value
+// and a boolean to check if the value has been set.
+func (o *SignatureResponseCompoundV3) GetESignaturePreferenceOk() (*FieldESignaturePreference, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ESignaturePreference, true
+}
+
+// SetESignaturePreference sets field value
+func (o *SignatureResponseCompoundV3) SetESignaturePreference(v FieldESignaturePreference) {
+	o.ESignaturePreference = v
+}
+
+// GetBSignatureSvg returns the BSignatureSvg field value
+func (o *SignatureResponseCompoundV3) GetBSignatureSvg() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BSignatureSvg
+}
+
+// GetBSignatureSvgOk returns a tuple with the BSignatureSvg field value
+// and a boolean to check if the value has been set.
+func (o *SignatureResponseCompoundV3) GetBSignatureSvgOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BSignatureSvg, true
+}
+
+// SetBSignatureSvg sets field value
+func (o *SignatureResponseCompoundV3) SetBSignatureSvg(v bool) {
+	o.BSignatureSvg = v
+}
+
+// GetBSignatureSvginitials returns the BSignatureSvginitials field value
+func (o *SignatureResponseCompoundV3) GetBSignatureSvginitials() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BSignatureSvginitials
+}
+
+// GetBSignatureSvginitialsOk returns a tuple with the BSignatureSvginitials field value
+// and a boolean to check if the value has been set.
+func (o *SignatureResponseCompoundV3) GetBSignatureSvginitialsOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BSignatureSvginitials, true
+}
+
+// SetBSignatureSvginitials sets field value
+func (o *SignatureResponseCompoundV3) SetBSignatureSvginitials(v bool) {
+	o.BSignatureSvginitials = v
+}
+
 func (o SignatureResponseCompoundV3) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -59,6 +187,11 @@ func (o SignatureResponseCompoundV3) MarshalJSON() ([]byte, error) {
 
 func (o SignatureResponseCompoundV3) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["pkiSignatureID"] = o.PkiSignatureID
+	toSerialize["fkiFontID"] = o.FkiFontID
+	toSerialize["eSignaturePreference"] = o.ESignaturePreference
+	toSerialize["bSignatureSvg"] = o.BSignatureSvg
+	toSerialize["bSignatureSvginitials"] = o.BSignatureSvginitials
 	return toSerialize, nil
 }
 

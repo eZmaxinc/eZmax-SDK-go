@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 ## DiscussionDeleteObjectV1
 
-> CommonResponse DiscussionDeleteObjectV1(ctx, pkiDiscussionID).Execute()
+> DiscussionDeleteObjectV1Response DiscussionDeleteObjectV1(ctx, pkiDiscussionID).Execute()
 
 Delete an existing Discussion
 
@@ -108,7 +108,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectDiscussionAPI.DiscussionDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DiscussionDeleteObjectV1`: CommonResponse
+	// response from `DiscussionDeleteObjectV1`: DiscussionDeleteObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectDiscussionAPI.DiscussionDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**DiscussionDeleteObjectV1Response**](DiscussionDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 
 ## DiscussionPatchObjectV1
 
-> CommonResponse DiscussionPatchObjectV1(ctx, pkiDiscussionID).DiscussionPatchObjectV1Request(discussionPatchObjectV1Request).Execute()
+> DiscussionPatchObjectV1Response DiscussionPatchObjectV1(ctx, pkiDiscussionID).DiscussionPatchObjectV1Request(discussionPatchObjectV1Request).Execute()
 
 Patch an existing Discussion
 
@@ -249,7 +249,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectDiscussionAPI.DiscussionPatchObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DiscussionPatchObjectV1`: CommonResponse
+	// response from `DiscussionPatchObjectV1`: DiscussionPatchObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectDiscussionAPI.DiscussionPatchObjectV1`: %v\n", resp)
 }
 ```
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**DiscussionPatchObjectV1Response**](DiscussionPatchObjectV1Response.md)
 
 ### Authorization
 
@@ -292,7 +292,7 @@ Name | Type | Description  | Notes
 
 ## DiscussionUpdateDiscussionreadstatusV1
 
-> CommonResponse DiscussionUpdateDiscussionreadstatusV1(ctx, pkiDiscussionID).DiscussionUpdateDiscussionreadstatusV1Request(discussionUpdateDiscussionreadstatusV1Request).Execute()
+> DiscussionUpdateDiscussionreadstatusV1Response DiscussionUpdateDiscussionreadstatusV1(ctx, pkiDiscussionID).DiscussionUpdateDiscussionreadstatusV1Request(discussionUpdateDiscussionreadstatusV1Request).Execute()
 
 Update the read status of the discussion
 
@@ -319,7 +319,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectDiscussionAPI.DiscussionUpdateDiscussionreadstatusV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DiscussionUpdateDiscussionreadstatusV1`: CommonResponse
+	// response from `DiscussionUpdateDiscussionreadstatusV1`: DiscussionUpdateDiscussionreadstatusV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectDiscussionAPI.DiscussionUpdateDiscussionreadstatusV1`: %v\n", resp)
 }
 ```
@@ -344,7 +344,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**DiscussionUpdateDiscussionreadstatusV1Response**](DiscussionUpdateDiscussionreadstatusV1Response.md)
 
 ### Authorization
 

@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ## EzsigntemplatesignatureDeleteObjectV1
 
-> CommonResponse EzsigntemplatesignatureDeleteObjectV1(ctx, pkiEzsigntemplatesignatureID).Execute()
+> EzsigntemplatesignatureDeleteObjectV1Response EzsigntemplatesignatureDeleteObjectV1(ctx, pkiEzsigntemplatesignatureID).Execute()
 
 Delete an existing Ezsigntemplatesignature
 
@@ -107,7 +107,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatesignatureAPI.EzsigntemplatesignatureDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsigntemplatesignatureDeleteObjectV1`: CommonResponse
+	// response from `EzsigntemplatesignatureDeleteObjectV1`: EzsigntemplatesignatureDeleteObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatesignatureAPI.EzsigntemplatesignatureDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsigntemplatesignatureDeleteObjectV1Response**](EzsigntemplatesignatureDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ## EzsigntemplatesignatureEditObjectV2
 
-> CommonResponse EzsigntemplatesignatureEditObjectV2(ctx, pkiEzsigntemplatesignatureID).EzsigntemplatesignatureEditObjectV2Request(ezsigntemplatesignatureEditObjectV2Request).Execute()
+> EzsigntemplatesignatureEditObjectV2Response EzsigntemplatesignatureEditObjectV2(ctx, pkiEzsigntemplatesignatureID).EzsigntemplatesignatureEditObjectV2Request(ezsigntemplatesignatureEditObjectV2Request).Execute()
 
 Edit an existing Ezsigntemplatesignature
 
@@ -178,7 +178,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatesignatureAPI.EzsigntemplatesignatureEditObjectV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsigntemplatesignatureEditObjectV2`: CommonResponse
+	// response from `EzsigntemplatesignatureEditObjectV2`: EzsigntemplatesignatureEditObjectV2Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatesignatureAPI.EzsigntemplatesignatureEditObjectV2`: %v\n", resp)
 }
 ```
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsigntemplatesignatureEditObjectV2Response**](EzsigntemplatesignatureEditObjectV2Response.md)
 
 ### Authorization
 

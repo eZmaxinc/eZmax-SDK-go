@@ -22,7 +22,8 @@ var _ MappedNullable = &UserstagedGetListV1Response{}
 
 // UserstagedGetListV1Response Response for GET /1/object/userstaged/getList
 type UserstagedGetListV1Response struct {
-	CommonResponseGetList
+	ObjDebugPayload CommonResponseObjDebugPayloadGetList `json:"objDebugPayload"`
+	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
 	MPayload UserstagedGetListV1ResponseMPayload `json:"mPayload"`
 }
 
@@ -32,7 +33,7 @@ type _UserstagedGetListV1Response UserstagedGetListV1Response
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUserstagedGetListV1Response(mPayload UserstagedGetListV1ResponseMPayload, objDebugPayload CommonResponseObjDebugPayloadGetList) *UserstagedGetListV1Response {
+func NewUserstagedGetListV1Response(objDebugPayload CommonResponseObjDebugPayloadGetList, mPayload UserstagedGetListV1ResponseMPayload) *UserstagedGetListV1Response {
 	this := UserstagedGetListV1Response{}
 	this.ObjDebugPayload = objDebugPayload
 	this.MPayload = mPayload
@@ -45,6 +46,62 @@ func NewUserstagedGetListV1Response(mPayload UserstagedGetListV1ResponseMPayload
 func NewUserstagedGetListV1ResponseWithDefaults() *UserstagedGetListV1Response {
 	this := UserstagedGetListV1Response{}
 	return &this
+}
+
+// GetObjDebugPayload returns the ObjDebugPayload field value
+func (o *UserstagedGetListV1Response) GetObjDebugPayload() CommonResponseObjDebugPayloadGetList {
+	if o == nil {
+		var ret CommonResponseObjDebugPayloadGetList
+		return ret
+	}
+
+	return o.ObjDebugPayload
+}
+
+// GetObjDebugPayloadOk returns a tuple with the ObjDebugPayload field value
+// and a boolean to check if the value has been set.
+func (o *UserstagedGetListV1Response) GetObjDebugPayloadOk() (*CommonResponseObjDebugPayloadGetList, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjDebugPayload, true
+}
+
+// SetObjDebugPayload sets field value
+func (o *UserstagedGetListV1Response) SetObjDebugPayload(v CommonResponseObjDebugPayloadGetList) {
+	o.ObjDebugPayload = v
+}
+
+// GetObjDebug returns the ObjDebug field value if set, zero value otherwise.
+func (o *UserstagedGetListV1Response) GetObjDebug() CommonResponseObjDebug {
+	if o == nil || IsNil(o.ObjDebug) {
+		var ret CommonResponseObjDebug
+		return ret
+	}
+	return *o.ObjDebug
+}
+
+// GetObjDebugOk returns a tuple with the ObjDebug field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UserstagedGetListV1Response) GetObjDebugOk() (*CommonResponseObjDebug, bool) {
+	if o == nil || IsNil(o.ObjDebug) {
+		return nil, false
+	}
+	return o.ObjDebug, true
+}
+
+// HasObjDebug returns a boolean if a field has been set.
+func (o *UserstagedGetListV1Response) HasObjDebug() bool {
+	if o != nil && !IsNil(o.ObjDebug) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjDebug gets a reference to the given CommonResponseObjDebug and assigns it to the ObjDebug field.
+func (o *UserstagedGetListV1Response) SetObjDebug(v CommonResponseObjDebug) {
+	o.ObjDebug = &v
 }
 
 // GetMPayload returns the MPayload field value
@@ -81,6 +138,10 @@ func (o UserstagedGetListV1Response) MarshalJSON() ([]byte, error) {
 
 func (o UserstagedGetListV1Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["objDebugPayload"] = o.ObjDebugPayload
+	if !IsNil(o.ObjDebug) {
+		toSerialize["objDebug"] = o.ObjDebug
+	}
 	toSerialize["mPayload"] = o.MPayload
 	return toSerialize, nil
 }
@@ -90,8 +151,8 @@ func (o *UserstagedGetListV1Response) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"mPayload",
 		"objDebugPayload",
+		"mPayload",
 	}
 
 	allProperties := make(map[string]interface{})

@@ -4,13 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ObjDebugPayload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
+**ObjDebug** | Pointer to [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **MPayload** | [**EzsigntemplatepackageGetObjectV2ResponseMPayload**](EzsigntemplatepackageGetObjectV2ResponseMPayload.md) |  | 
 
 ## Methods
 
 ### NewEzsigntemplatepackageGetObjectV2Response
 
-`func NewEzsigntemplatepackageGetObjectV2Response(mPayload EzsigntemplatepackageGetObjectV2ResponseMPayload, ) *EzsigntemplatepackageGetObjectV2Response`
+`func NewEzsigntemplatepackageGetObjectV2Response(objDebugPayload CommonResponseObjDebugPayload, mPayload EzsigntemplatepackageGetObjectV2ResponseMPayload, ) *EzsigntemplatepackageGetObjectV2Response`
 
 NewEzsigntemplatepackageGetObjectV2Response instantiates a new EzsigntemplatepackageGetObjectV2Response object
 This constructor will assign default values to properties that have it defined,
@@ -24,6 +26,51 @@ will change when the set of required properties is changed
 NewEzsigntemplatepackageGetObjectV2ResponseWithDefaults instantiates a new EzsigntemplatepackageGetObjectV2Response object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetObjDebugPayload
+
+`func (o *EzsigntemplatepackageGetObjectV2Response) GetObjDebugPayload() CommonResponseObjDebugPayload`
+
+GetObjDebugPayload returns the ObjDebugPayload field if non-nil, zero value otherwise.
+
+### GetObjDebugPayloadOk
+
+`func (o *EzsigntemplatepackageGetObjectV2Response) GetObjDebugPayloadOk() (*CommonResponseObjDebugPayload, bool)`
+
+GetObjDebugPayloadOk returns a tuple with the ObjDebugPayload field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjDebugPayload
+
+`func (o *EzsigntemplatepackageGetObjectV2Response) SetObjDebugPayload(v CommonResponseObjDebugPayload)`
+
+SetObjDebugPayload sets ObjDebugPayload field to given value.
+
+
+### GetObjDebug
+
+`func (o *EzsigntemplatepackageGetObjectV2Response) GetObjDebug() CommonResponseObjDebug`
+
+GetObjDebug returns the ObjDebug field if non-nil, zero value otherwise.
+
+### GetObjDebugOk
+
+`func (o *EzsigntemplatepackageGetObjectV2Response) GetObjDebugOk() (*CommonResponseObjDebug, bool)`
+
+GetObjDebugOk returns a tuple with the ObjDebug field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjDebug
+
+`func (o *EzsigntemplatepackageGetObjectV2Response) SetObjDebug(v CommonResponseObjDebug)`
+
+SetObjDebug sets ObjDebug field to given value.
+
+### HasObjDebug
+
+`func (o *EzsigntemplatepackageGetObjectV2Response) HasObjDebug() bool`
+
+HasObjDebug returns a boolean if a field has been set.
 
 ### GetMPayload
 

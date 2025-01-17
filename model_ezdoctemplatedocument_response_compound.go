@@ -22,7 +22,28 @@ var _ MappedNullable = &EzdoctemplatedocumentResponseCompound{}
 
 // EzdoctemplatedocumentResponseCompound A Ezdoctemplatedocument Object
 type EzdoctemplatedocumentResponseCompound struct {
-	EzdoctemplatedocumentResponse
+	// The unique ID of the Ezdoctemplatedocument
+	PkiEzdoctemplatedocumentID int32 `json:"pkiEzdoctemplatedocumentID"`
+	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
+	FkiLanguageID int32 `json:"fkiLanguageID"`
+	// The unique ID of the Ezsignfoldertype.
+	FkiEzsignfoldertypeID *int32 `json:"fkiEzsignfoldertypeID,omitempty"`
+	// The unique ID of the Ezdoctemplatetype
+	FkiEzdoctemplatetypeID int32 `json:"fkiEzdoctemplatetypeID"`
+	// The unique ID of the Ezdoctemplatefieldtypecategory
+	FkiEzdoctemplatefieldtypecategoryID int32 `json:"fkiEzdoctemplatefieldtypecategoryID"`
+	EEzdoctemplatedocumentPrivacylevel *FieldEEzdoctemplatedocumentPrivacylevel `json:"eEzdoctemplatedocumentPrivacylevel,omitempty"`
+	// Whether the ezdoctemplatedocument is active or not
+	BEzdoctemplatedocumentIsactive bool `json:"bEzdoctemplatedocumentIsactive"`
+	ObjEzdoctemplatedocumentName MultilingualEzdoctemplatedocumentName `json:"objEzdoctemplatedocumentName"`
+	// The name of the Ezdoctemplatedocument in the language of the requester
+	SEzdoctemplatedocumentNameX *string `json:"sEzdoctemplatedocumentNameX,omitempty" validate:"regexp=^.{0,50}$"`
+	// The name of the Ezsignfoldertype in the language of the requester
+	SEzsignfoldertypeNameX *string `json:"sEzsignfoldertypeNameX,omitempty"`
+	// The description of the Ezdoctemplatefieldtypecategory in the language of the requester
+	SEzdoctemplatefieldtypecategoryDescriptionX string `json:"sEzdoctemplatefieldtypecategoryDescriptionX" validate:"regexp=^.{0,55}$"`
+	// The description of the Ezdoctemplatetype in the language of the requester
+	SEzdoctemplatetypeDescriptionX string `json:"sEzdoctemplatetypeDescriptionX" validate:"regexp=^.{0,50}$"`
 }
 
 type _EzdoctemplatedocumentResponseCompound EzdoctemplatedocumentResponseCompound
@@ -52,6 +73,326 @@ func NewEzdoctemplatedocumentResponseCompoundWithDefaults() *Ezdoctemplatedocume
 	return &this
 }
 
+// GetPkiEzdoctemplatedocumentID returns the PkiEzdoctemplatedocumentID field value
+func (o *EzdoctemplatedocumentResponseCompound) GetPkiEzdoctemplatedocumentID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.PkiEzdoctemplatedocumentID
+}
+
+// GetPkiEzdoctemplatedocumentIDOk returns a tuple with the PkiEzdoctemplatedocumentID field value
+// and a boolean to check if the value has been set.
+func (o *EzdoctemplatedocumentResponseCompound) GetPkiEzdoctemplatedocumentIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PkiEzdoctemplatedocumentID, true
+}
+
+// SetPkiEzdoctemplatedocumentID sets field value
+func (o *EzdoctemplatedocumentResponseCompound) SetPkiEzdoctemplatedocumentID(v int32) {
+	o.PkiEzdoctemplatedocumentID = v
+}
+
+// GetFkiLanguageID returns the FkiLanguageID field value
+func (o *EzdoctemplatedocumentResponseCompound) GetFkiLanguageID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiLanguageID
+}
+
+// GetFkiLanguageIDOk returns a tuple with the FkiLanguageID field value
+// and a boolean to check if the value has been set.
+func (o *EzdoctemplatedocumentResponseCompound) GetFkiLanguageIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiLanguageID, true
+}
+
+// SetFkiLanguageID sets field value
+func (o *EzdoctemplatedocumentResponseCompound) SetFkiLanguageID(v int32) {
+	o.FkiLanguageID = v
+}
+
+// GetFkiEzsignfoldertypeID returns the FkiEzsignfoldertypeID field value if set, zero value otherwise.
+func (o *EzdoctemplatedocumentResponseCompound) GetFkiEzsignfoldertypeID() int32 {
+	if o == nil || IsNil(o.FkiEzsignfoldertypeID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEzsignfoldertypeID
+}
+
+// GetFkiEzsignfoldertypeIDOk returns a tuple with the FkiEzsignfoldertypeID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzdoctemplatedocumentResponseCompound) GetFkiEzsignfoldertypeIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEzsignfoldertypeID) {
+		return nil, false
+	}
+	return o.FkiEzsignfoldertypeID, true
+}
+
+// HasFkiEzsignfoldertypeID returns a boolean if a field has been set.
+func (o *EzdoctemplatedocumentResponseCompound) HasFkiEzsignfoldertypeID() bool {
+	if o != nil && !IsNil(o.FkiEzsignfoldertypeID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzsignfoldertypeID gets a reference to the given int32 and assigns it to the FkiEzsignfoldertypeID field.
+func (o *EzdoctemplatedocumentResponseCompound) SetFkiEzsignfoldertypeID(v int32) {
+	o.FkiEzsignfoldertypeID = &v
+}
+
+// GetFkiEzdoctemplatetypeID returns the FkiEzdoctemplatetypeID field value
+func (o *EzdoctemplatedocumentResponseCompound) GetFkiEzdoctemplatetypeID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiEzdoctemplatetypeID
+}
+
+// GetFkiEzdoctemplatetypeIDOk returns a tuple with the FkiEzdoctemplatetypeID field value
+// and a boolean to check if the value has been set.
+func (o *EzdoctemplatedocumentResponseCompound) GetFkiEzdoctemplatetypeIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiEzdoctemplatetypeID, true
+}
+
+// SetFkiEzdoctemplatetypeID sets field value
+func (o *EzdoctemplatedocumentResponseCompound) SetFkiEzdoctemplatetypeID(v int32) {
+	o.FkiEzdoctemplatetypeID = v
+}
+
+// GetFkiEzdoctemplatefieldtypecategoryID returns the FkiEzdoctemplatefieldtypecategoryID field value
+func (o *EzdoctemplatedocumentResponseCompound) GetFkiEzdoctemplatefieldtypecategoryID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiEzdoctemplatefieldtypecategoryID
+}
+
+// GetFkiEzdoctemplatefieldtypecategoryIDOk returns a tuple with the FkiEzdoctemplatefieldtypecategoryID field value
+// and a boolean to check if the value has been set.
+func (o *EzdoctemplatedocumentResponseCompound) GetFkiEzdoctemplatefieldtypecategoryIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiEzdoctemplatefieldtypecategoryID, true
+}
+
+// SetFkiEzdoctemplatefieldtypecategoryID sets field value
+func (o *EzdoctemplatedocumentResponseCompound) SetFkiEzdoctemplatefieldtypecategoryID(v int32) {
+	o.FkiEzdoctemplatefieldtypecategoryID = v
+}
+
+// GetEEzdoctemplatedocumentPrivacylevel returns the EEzdoctemplatedocumentPrivacylevel field value if set, zero value otherwise.
+func (o *EzdoctemplatedocumentResponseCompound) GetEEzdoctemplatedocumentPrivacylevel() FieldEEzdoctemplatedocumentPrivacylevel {
+	if o == nil || IsNil(o.EEzdoctemplatedocumentPrivacylevel) {
+		var ret FieldEEzdoctemplatedocumentPrivacylevel
+		return ret
+	}
+	return *o.EEzdoctemplatedocumentPrivacylevel
+}
+
+// GetEEzdoctemplatedocumentPrivacylevelOk returns a tuple with the EEzdoctemplatedocumentPrivacylevel field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzdoctemplatedocumentResponseCompound) GetEEzdoctemplatedocumentPrivacylevelOk() (*FieldEEzdoctemplatedocumentPrivacylevel, bool) {
+	if o == nil || IsNil(o.EEzdoctemplatedocumentPrivacylevel) {
+		return nil, false
+	}
+	return o.EEzdoctemplatedocumentPrivacylevel, true
+}
+
+// HasEEzdoctemplatedocumentPrivacylevel returns a boolean if a field has been set.
+func (o *EzdoctemplatedocumentResponseCompound) HasEEzdoctemplatedocumentPrivacylevel() bool {
+	if o != nil && !IsNil(o.EEzdoctemplatedocumentPrivacylevel) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzdoctemplatedocumentPrivacylevel gets a reference to the given FieldEEzdoctemplatedocumentPrivacylevel and assigns it to the EEzdoctemplatedocumentPrivacylevel field.
+func (o *EzdoctemplatedocumentResponseCompound) SetEEzdoctemplatedocumentPrivacylevel(v FieldEEzdoctemplatedocumentPrivacylevel) {
+	o.EEzdoctemplatedocumentPrivacylevel = &v
+}
+
+// GetBEzdoctemplatedocumentIsactive returns the BEzdoctemplatedocumentIsactive field value
+func (o *EzdoctemplatedocumentResponseCompound) GetBEzdoctemplatedocumentIsactive() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BEzdoctemplatedocumentIsactive
+}
+
+// GetBEzdoctemplatedocumentIsactiveOk returns a tuple with the BEzdoctemplatedocumentIsactive field value
+// and a boolean to check if the value has been set.
+func (o *EzdoctemplatedocumentResponseCompound) GetBEzdoctemplatedocumentIsactiveOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BEzdoctemplatedocumentIsactive, true
+}
+
+// SetBEzdoctemplatedocumentIsactive sets field value
+func (o *EzdoctemplatedocumentResponseCompound) SetBEzdoctemplatedocumentIsactive(v bool) {
+	o.BEzdoctemplatedocumentIsactive = v
+}
+
+// GetObjEzdoctemplatedocumentName returns the ObjEzdoctemplatedocumentName field value
+func (o *EzdoctemplatedocumentResponseCompound) GetObjEzdoctemplatedocumentName() MultilingualEzdoctemplatedocumentName {
+	if o == nil {
+		var ret MultilingualEzdoctemplatedocumentName
+		return ret
+	}
+
+	return o.ObjEzdoctemplatedocumentName
+}
+
+// GetObjEzdoctemplatedocumentNameOk returns a tuple with the ObjEzdoctemplatedocumentName field value
+// and a boolean to check if the value has been set.
+func (o *EzdoctemplatedocumentResponseCompound) GetObjEzdoctemplatedocumentNameOk() (*MultilingualEzdoctemplatedocumentName, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjEzdoctemplatedocumentName, true
+}
+
+// SetObjEzdoctemplatedocumentName sets field value
+func (o *EzdoctemplatedocumentResponseCompound) SetObjEzdoctemplatedocumentName(v MultilingualEzdoctemplatedocumentName) {
+	o.ObjEzdoctemplatedocumentName = v
+}
+
+// GetSEzdoctemplatedocumentNameX returns the SEzdoctemplatedocumentNameX field value if set, zero value otherwise.
+func (o *EzdoctemplatedocumentResponseCompound) GetSEzdoctemplatedocumentNameX() string {
+	if o == nil || IsNil(o.SEzdoctemplatedocumentNameX) {
+		var ret string
+		return ret
+	}
+	return *o.SEzdoctemplatedocumentNameX
+}
+
+// GetSEzdoctemplatedocumentNameXOk returns a tuple with the SEzdoctemplatedocumentNameX field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzdoctemplatedocumentResponseCompound) GetSEzdoctemplatedocumentNameXOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzdoctemplatedocumentNameX) {
+		return nil, false
+	}
+	return o.SEzdoctemplatedocumentNameX, true
+}
+
+// HasSEzdoctemplatedocumentNameX returns a boolean if a field has been set.
+func (o *EzdoctemplatedocumentResponseCompound) HasSEzdoctemplatedocumentNameX() bool {
+	if o != nil && !IsNil(o.SEzdoctemplatedocumentNameX) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzdoctemplatedocumentNameX gets a reference to the given string and assigns it to the SEzdoctemplatedocumentNameX field.
+func (o *EzdoctemplatedocumentResponseCompound) SetSEzdoctemplatedocumentNameX(v string) {
+	o.SEzdoctemplatedocumentNameX = &v
+}
+
+// GetSEzsignfoldertypeNameX returns the SEzsignfoldertypeNameX field value if set, zero value otherwise.
+func (o *EzdoctemplatedocumentResponseCompound) GetSEzsignfoldertypeNameX() string {
+	if o == nil || IsNil(o.SEzsignfoldertypeNameX) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsignfoldertypeNameX
+}
+
+// GetSEzsignfoldertypeNameXOk returns a tuple with the SEzsignfoldertypeNameX field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzdoctemplatedocumentResponseCompound) GetSEzsignfoldertypeNameXOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsignfoldertypeNameX) {
+		return nil, false
+	}
+	return o.SEzsignfoldertypeNameX, true
+}
+
+// HasSEzsignfoldertypeNameX returns a boolean if a field has been set.
+func (o *EzdoctemplatedocumentResponseCompound) HasSEzsignfoldertypeNameX() bool {
+	if o != nil && !IsNil(o.SEzsignfoldertypeNameX) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsignfoldertypeNameX gets a reference to the given string and assigns it to the SEzsignfoldertypeNameX field.
+func (o *EzdoctemplatedocumentResponseCompound) SetSEzsignfoldertypeNameX(v string) {
+	o.SEzsignfoldertypeNameX = &v
+}
+
+// GetSEzdoctemplatefieldtypecategoryDescriptionX returns the SEzdoctemplatefieldtypecategoryDescriptionX field value
+func (o *EzdoctemplatedocumentResponseCompound) GetSEzdoctemplatefieldtypecategoryDescriptionX() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SEzdoctemplatefieldtypecategoryDescriptionX
+}
+
+// GetSEzdoctemplatefieldtypecategoryDescriptionXOk returns a tuple with the SEzdoctemplatefieldtypecategoryDescriptionX field value
+// and a boolean to check if the value has been set.
+func (o *EzdoctemplatedocumentResponseCompound) GetSEzdoctemplatefieldtypecategoryDescriptionXOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SEzdoctemplatefieldtypecategoryDescriptionX, true
+}
+
+// SetSEzdoctemplatefieldtypecategoryDescriptionX sets field value
+func (o *EzdoctemplatedocumentResponseCompound) SetSEzdoctemplatefieldtypecategoryDescriptionX(v string) {
+	o.SEzdoctemplatefieldtypecategoryDescriptionX = v
+}
+
+// GetSEzdoctemplatetypeDescriptionX returns the SEzdoctemplatetypeDescriptionX field value
+func (o *EzdoctemplatedocumentResponseCompound) GetSEzdoctemplatetypeDescriptionX() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SEzdoctemplatetypeDescriptionX
+}
+
+// GetSEzdoctemplatetypeDescriptionXOk returns a tuple with the SEzdoctemplatetypeDescriptionX field value
+// and a boolean to check if the value has been set.
+func (o *EzdoctemplatedocumentResponseCompound) GetSEzdoctemplatetypeDescriptionXOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SEzdoctemplatetypeDescriptionX, true
+}
+
+// SetSEzdoctemplatetypeDescriptionX sets field value
+func (o *EzdoctemplatedocumentResponseCompound) SetSEzdoctemplatetypeDescriptionX(v string) {
+	o.SEzdoctemplatetypeDescriptionX = v
+}
+
 func (o EzdoctemplatedocumentResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -62,6 +403,26 @@ func (o EzdoctemplatedocumentResponseCompound) MarshalJSON() ([]byte, error) {
 
 func (o EzdoctemplatedocumentResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["pkiEzdoctemplatedocumentID"] = o.PkiEzdoctemplatedocumentID
+	toSerialize["fkiLanguageID"] = o.FkiLanguageID
+	if !IsNil(o.FkiEzsignfoldertypeID) {
+		toSerialize["fkiEzsignfoldertypeID"] = o.FkiEzsignfoldertypeID
+	}
+	toSerialize["fkiEzdoctemplatetypeID"] = o.FkiEzdoctemplatetypeID
+	toSerialize["fkiEzdoctemplatefieldtypecategoryID"] = o.FkiEzdoctemplatefieldtypecategoryID
+	if !IsNil(o.EEzdoctemplatedocumentPrivacylevel) {
+		toSerialize["eEzdoctemplatedocumentPrivacylevel"] = o.EEzdoctemplatedocumentPrivacylevel
+	}
+	toSerialize["bEzdoctemplatedocumentIsactive"] = o.BEzdoctemplatedocumentIsactive
+	toSerialize["objEzdoctemplatedocumentName"] = o.ObjEzdoctemplatedocumentName
+	if !IsNil(o.SEzdoctemplatedocumentNameX) {
+		toSerialize["sEzdoctemplatedocumentNameX"] = o.SEzdoctemplatedocumentNameX
+	}
+	if !IsNil(o.SEzsignfoldertypeNameX) {
+		toSerialize["sEzsignfoldertypeNameX"] = o.SEzsignfoldertypeNameX
+	}
+	toSerialize["sEzdoctemplatefieldtypecategoryDescriptionX"] = o.SEzdoctemplatefieldtypecategoryDescriptionX
+	toSerialize["sEzdoctemplatetypeDescriptionX"] = o.SEzdoctemplatetypeDescriptionX
 	return toSerialize, nil
 }
 

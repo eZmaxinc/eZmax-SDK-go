@@ -22,7 +22,11 @@ var _ MappedNullable = &CommonResponseErrorSTemporaryFileUrl{}
 
 // CommonResponseErrorSTemporaryFileUrl Generic Error Message
 type CommonResponseErrorSTemporaryFileUrl struct {
-	CommonResponseError
+	// The message giving details about the error
+	SErrorMessage string `json:"sErrorMessage" validate:"regexp=^.{0,500}$"`
+	EErrorCode FieldEErrorCode `json:"eErrorCode"`
+	// More error message detail
+	ASErrorMessagedetail []string `json:"a_sErrorMessagedetail,omitempty"`
 	// The Temporary File Url of the document that was uploaded. That url can be reused instead of uploading the file again.
 	STemporaryFileUrl *string `json:"sTemporaryFileUrl,omitempty" validate:"regexp=^(https|http):\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
 }
@@ -46,6 +50,86 @@ func NewCommonResponseErrorSTemporaryFileUrl(sErrorMessage string, eErrorCode Fi
 func NewCommonResponseErrorSTemporaryFileUrlWithDefaults() *CommonResponseErrorSTemporaryFileUrl {
 	this := CommonResponseErrorSTemporaryFileUrl{}
 	return &this
+}
+
+// GetSErrorMessage returns the SErrorMessage field value
+func (o *CommonResponseErrorSTemporaryFileUrl) GetSErrorMessage() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SErrorMessage
+}
+
+// GetSErrorMessageOk returns a tuple with the SErrorMessage field value
+// and a boolean to check if the value has been set.
+func (o *CommonResponseErrorSTemporaryFileUrl) GetSErrorMessageOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SErrorMessage, true
+}
+
+// SetSErrorMessage sets field value
+func (o *CommonResponseErrorSTemporaryFileUrl) SetSErrorMessage(v string) {
+	o.SErrorMessage = v
+}
+
+// GetEErrorCode returns the EErrorCode field value
+func (o *CommonResponseErrorSTemporaryFileUrl) GetEErrorCode() FieldEErrorCode {
+	if o == nil {
+		var ret FieldEErrorCode
+		return ret
+	}
+
+	return o.EErrorCode
+}
+
+// GetEErrorCodeOk returns a tuple with the EErrorCode field value
+// and a boolean to check if the value has been set.
+func (o *CommonResponseErrorSTemporaryFileUrl) GetEErrorCodeOk() (*FieldEErrorCode, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EErrorCode, true
+}
+
+// SetEErrorCode sets field value
+func (o *CommonResponseErrorSTemporaryFileUrl) SetEErrorCode(v FieldEErrorCode) {
+	o.EErrorCode = v
+}
+
+// GetASErrorMessagedetail returns the ASErrorMessagedetail field value if set, zero value otherwise.
+func (o *CommonResponseErrorSTemporaryFileUrl) GetASErrorMessagedetail() []string {
+	if o == nil || IsNil(o.ASErrorMessagedetail) {
+		var ret []string
+		return ret
+	}
+	return o.ASErrorMessagedetail
+}
+
+// GetASErrorMessagedetailOk returns a tuple with the ASErrorMessagedetail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CommonResponseErrorSTemporaryFileUrl) GetASErrorMessagedetailOk() ([]string, bool) {
+	if o == nil || IsNil(o.ASErrorMessagedetail) {
+		return nil, false
+	}
+	return o.ASErrorMessagedetail, true
+}
+
+// HasASErrorMessagedetail returns a boolean if a field has been set.
+func (o *CommonResponseErrorSTemporaryFileUrl) HasASErrorMessagedetail() bool {
+	if o != nil && !IsNil(o.ASErrorMessagedetail) {
+		return true
+	}
+
+	return false
+}
+
+// SetASErrorMessagedetail gets a reference to the given []string and assigns it to the ASErrorMessagedetail field.
+func (o *CommonResponseErrorSTemporaryFileUrl) SetASErrorMessagedetail(v []string) {
+	o.ASErrorMessagedetail = v
 }
 
 // GetSTemporaryFileUrl returns the STemporaryFileUrl field value if set, zero value otherwise.
@@ -90,6 +174,11 @@ func (o CommonResponseErrorSTemporaryFileUrl) MarshalJSON() ([]byte, error) {
 
 func (o CommonResponseErrorSTemporaryFileUrl) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["sErrorMessage"] = o.SErrorMessage
+	toSerialize["eErrorCode"] = o.EErrorCode
+	if !IsNil(o.ASErrorMessagedetail) {
+		toSerialize["a_sErrorMessagedetail"] = o.ASErrorMessagedetail
+	}
 	if !IsNil(o.STemporaryFileUrl) {
 		toSerialize["sTemporaryFileUrl"] = o.STemporaryFileUrl
 	}

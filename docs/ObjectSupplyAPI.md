@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 ## SupplyDeleteObjectV1
 
-> CommonResponse SupplyDeleteObjectV1(ctx, pkiSupplyID).Execute()
+> SupplyDeleteObjectV1Response SupplyDeleteObjectV1(ctx, pkiSupplyID).Execute()
 
 Delete an existing Supply
 
@@ -109,7 +109,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSupplyAPI.SupplyDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `SupplyDeleteObjectV1`: CommonResponse
+	// response from `SupplyDeleteObjectV1`: SupplyDeleteObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectSupplyAPI.SupplyDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**SupplyDeleteObjectV1Response**](SupplyDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ## SupplyEditObjectV1
 
-> CommonResponse SupplyEditObjectV1(ctx, pkiSupplyID).SupplyEditObjectV1Request(supplyEditObjectV1Request).Execute()
+> SupplyEditObjectV1Response SupplyEditObjectV1(ctx, pkiSupplyID).SupplyEditObjectV1Request(supplyEditObjectV1Request).Execute()
 
 Edit an existing Supply
 
@@ -180,7 +180,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSupplyAPI.SupplyEditObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `SupplyEditObjectV1`: CommonResponse
+	// response from `SupplyEditObjectV1`: SupplyEditObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectSupplyAPI.SupplyEditObjectV1`: %v\n", resp)
 }
 ```
@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**SupplyEditObjectV1Response**](SupplyEditObjectV1Response.md)
 
 ### Authorization
 

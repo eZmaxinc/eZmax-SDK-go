@@ -22,7 +22,26 @@ var _ MappedNullable = &EzsignbulksendResponseCompound{}
 
 // EzsignbulksendResponseCompound An Ezsignbulksend Object and children to create a complete structure
 type EzsignbulksendResponseCompound struct {
-	EzsignbulksendResponse
+	// The unique ID of the Ezsignbulksend
+	PkiEzsignbulksendID int32 `json:"pkiEzsignbulksendID"`
+	// The unique ID of the Ezsignfoldertype.
+	FkiEzsignfoldertypeID int32 `json:"fkiEzsignfoldertypeID"`
+	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
+	FkiLanguageID int32 `json:"fkiLanguageID"`
+	// The Name of the Language in the language of the requester
+	SLanguageNameX string `json:"sLanguageNameX"`
+	EEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel `json:"eEzsignfoldertypePrivacylevel"`
+	// The name of the Ezsignfoldertype in the language of the requester
+	SEzsignfoldertypeNameX string `json:"sEzsignfoldertypeNameX"`
+	// The description of the Ezsignbulksend
+	SEzsignbulksendDescription string `json:"sEzsignbulksendDescription"`
+	// Note about the Ezsignbulksend
+	TEzsignbulksendNote string `json:"tEzsignbulksendNote"`
+	// Whether the Ezsigntemplatepackage was automatically modified and needs a manual validation
+	BEzsignbulksendNeedvalidation bool `json:"bEzsignbulksendNeedvalidation"`
+	// Whether the Ezsignbulksend is active or not
+	BEzsignbulksendIsactive bool `json:"bEzsignbulksendIsactive"`
+	ObjAudit CommonAudit `json:"objAudit"`
 	AObjEzsignbulksenddocumentmapping []EzsignbulksenddocumentmappingResponseCompound `json:"a_objEzsignbulksenddocumentmapping"`
 	AObjEzsignbulksendsignermapping []EzsignbulksendsignermappingResponse `json:"a_objEzsignbulksendsignermapping"`
 }
@@ -33,7 +52,7 @@ type _EzsignbulksendResponseCompound EzsignbulksendResponseCompound
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignbulksendResponseCompound(aObjEzsignbulksenddocumentmapping []EzsignbulksenddocumentmappingResponseCompound, aObjEzsignbulksendsignermapping []EzsignbulksendsignermappingResponse, pkiEzsignbulksendID int32, fkiEzsignfoldertypeID int32, fkiLanguageID int32, sLanguageNameX string, eEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX string, sEzsignbulksendDescription string, tEzsignbulksendNote string, bEzsignbulksendNeedvalidation bool, bEzsignbulksendIsactive bool, objAudit CommonAudit) *EzsignbulksendResponseCompound {
+func NewEzsignbulksendResponseCompound(pkiEzsignbulksendID int32, fkiEzsignfoldertypeID int32, fkiLanguageID int32, sLanguageNameX string, eEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX string, sEzsignbulksendDescription string, tEzsignbulksendNote string, bEzsignbulksendNeedvalidation bool, bEzsignbulksendIsactive bool, objAudit CommonAudit, aObjEzsignbulksenddocumentmapping []EzsignbulksenddocumentmappingResponseCompound, aObjEzsignbulksendsignermapping []EzsignbulksendsignermappingResponse) *EzsignbulksendResponseCompound {
 	this := EzsignbulksendResponseCompound{}
 	this.PkiEzsignbulksendID = pkiEzsignbulksendID
 	this.FkiEzsignfoldertypeID = fkiEzsignfoldertypeID
@@ -57,6 +76,270 @@ func NewEzsignbulksendResponseCompound(aObjEzsignbulksenddocumentmapping []Ezsig
 func NewEzsignbulksendResponseCompoundWithDefaults() *EzsignbulksendResponseCompound {
 	this := EzsignbulksendResponseCompound{}
 	return &this
+}
+
+// GetPkiEzsignbulksendID returns the PkiEzsignbulksendID field value
+func (o *EzsignbulksendResponseCompound) GetPkiEzsignbulksendID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.PkiEzsignbulksendID
+}
+
+// GetPkiEzsignbulksendIDOk returns a tuple with the PkiEzsignbulksendID field value
+// and a boolean to check if the value has been set.
+func (o *EzsignbulksendResponseCompound) GetPkiEzsignbulksendIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PkiEzsignbulksendID, true
+}
+
+// SetPkiEzsignbulksendID sets field value
+func (o *EzsignbulksendResponseCompound) SetPkiEzsignbulksendID(v int32) {
+	o.PkiEzsignbulksendID = v
+}
+
+// GetFkiEzsignfoldertypeID returns the FkiEzsignfoldertypeID field value
+func (o *EzsignbulksendResponseCompound) GetFkiEzsignfoldertypeID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiEzsignfoldertypeID
+}
+
+// GetFkiEzsignfoldertypeIDOk returns a tuple with the FkiEzsignfoldertypeID field value
+// and a boolean to check if the value has been set.
+func (o *EzsignbulksendResponseCompound) GetFkiEzsignfoldertypeIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiEzsignfoldertypeID, true
+}
+
+// SetFkiEzsignfoldertypeID sets field value
+func (o *EzsignbulksendResponseCompound) SetFkiEzsignfoldertypeID(v int32) {
+	o.FkiEzsignfoldertypeID = v
+}
+
+// GetFkiLanguageID returns the FkiLanguageID field value
+func (o *EzsignbulksendResponseCompound) GetFkiLanguageID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiLanguageID
+}
+
+// GetFkiLanguageIDOk returns a tuple with the FkiLanguageID field value
+// and a boolean to check if the value has been set.
+func (o *EzsignbulksendResponseCompound) GetFkiLanguageIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiLanguageID, true
+}
+
+// SetFkiLanguageID sets field value
+func (o *EzsignbulksendResponseCompound) SetFkiLanguageID(v int32) {
+	o.FkiLanguageID = v
+}
+
+// GetSLanguageNameX returns the SLanguageNameX field value
+func (o *EzsignbulksendResponseCompound) GetSLanguageNameX() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SLanguageNameX
+}
+
+// GetSLanguageNameXOk returns a tuple with the SLanguageNameX field value
+// and a boolean to check if the value has been set.
+func (o *EzsignbulksendResponseCompound) GetSLanguageNameXOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SLanguageNameX, true
+}
+
+// SetSLanguageNameX sets field value
+func (o *EzsignbulksendResponseCompound) SetSLanguageNameX(v string) {
+	o.SLanguageNameX = v
+}
+
+// GetEEzsignfoldertypePrivacylevel returns the EEzsignfoldertypePrivacylevel field value
+func (o *EzsignbulksendResponseCompound) GetEEzsignfoldertypePrivacylevel() FieldEEzsignfoldertypePrivacylevel {
+	if o == nil {
+		var ret FieldEEzsignfoldertypePrivacylevel
+		return ret
+	}
+
+	return o.EEzsignfoldertypePrivacylevel
+}
+
+// GetEEzsignfoldertypePrivacylevelOk returns a tuple with the EEzsignfoldertypePrivacylevel field value
+// and a boolean to check if the value has been set.
+func (o *EzsignbulksendResponseCompound) GetEEzsignfoldertypePrivacylevelOk() (*FieldEEzsignfoldertypePrivacylevel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EEzsignfoldertypePrivacylevel, true
+}
+
+// SetEEzsignfoldertypePrivacylevel sets field value
+func (o *EzsignbulksendResponseCompound) SetEEzsignfoldertypePrivacylevel(v FieldEEzsignfoldertypePrivacylevel) {
+	o.EEzsignfoldertypePrivacylevel = v
+}
+
+// GetSEzsignfoldertypeNameX returns the SEzsignfoldertypeNameX field value
+func (o *EzsignbulksendResponseCompound) GetSEzsignfoldertypeNameX() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SEzsignfoldertypeNameX
+}
+
+// GetSEzsignfoldertypeNameXOk returns a tuple with the SEzsignfoldertypeNameX field value
+// and a boolean to check if the value has been set.
+func (o *EzsignbulksendResponseCompound) GetSEzsignfoldertypeNameXOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SEzsignfoldertypeNameX, true
+}
+
+// SetSEzsignfoldertypeNameX sets field value
+func (o *EzsignbulksendResponseCompound) SetSEzsignfoldertypeNameX(v string) {
+	o.SEzsignfoldertypeNameX = v
+}
+
+// GetSEzsignbulksendDescription returns the SEzsignbulksendDescription field value
+func (o *EzsignbulksendResponseCompound) GetSEzsignbulksendDescription() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SEzsignbulksendDescription
+}
+
+// GetSEzsignbulksendDescriptionOk returns a tuple with the SEzsignbulksendDescription field value
+// and a boolean to check if the value has been set.
+func (o *EzsignbulksendResponseCompound) GetSEzsignbulksendDescriptionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SEzsignbulksendDescription, true
+}
+
+// SetSEzsignbulksendDescription sets field value
+func (o *EzsignbulksendResponseCompound) SetSEzsignbulksendDescription(v string) {
+	o.SEzsignbulksendDescription = v
+}
+
+// GetTEzsignbulksendNote returns the TEzsignbulksendNote field value
+func (o *EzsignbulksendResponseCompound) GetTEzsignbulksendNote() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.TEzsignbulksendNote
+}
+
+// GetTEzsignbulksendNoteOk returns a tuple with the TEzsignbulksendNote field value
+// and a boolean to check if the value has been set.
+func (o *EzsignbulksendResponseCompound) GetTEzsignbulksendNoteOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TEzsignbulksendNote, true
+}
+
+// SetTEzsignbulksendNote sets field value
+func (o *EzsignbulksendResponseCompound) SetTEzsignbulksendNote(v string) {
+	o.TEzsignbulksendNote = v
+}
+
+// GetBEzsignbulksendNeedvalidation returns the BEzsignbulksendNeedvalidation field value
+func (o *EzsignbulksendResponseCompound) GetBEzsignbulksendNeedvalidation() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BEzsignbulksendNeedvalidation
+}
+
+// GetBEzsignbulksendNeedvalidationOk returns a tuple with the BEzsignbulksendNeedvalidation field value
+// and a boolean to check if the value has been set.
+func (o *EzsignbulksendResponseCompound) GetBEzsignbulksendNeedvalidationOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BEzsignbulksendNeedvalidation, true
+}
+
+// SetBEzsignbulksendNeedvalidation sets field value
+func (o *EzsignbulksendResponseCompound) SetBEzsignbulksendNeedvalidation(v bool) {
+	o.BEzsignbulksendNeedvalidation = v
+}
+
+// GetBEzsignbulksendIsactive returns the BEzsignbulksendIsactive field value
+func (o *EzsignbulksendResponseCompound) GetBEzsignbulksendIsactive() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BEzsignbulksendIsactive
+}
+
+// GetBEzsignbulksendIsactiveOk returns a tuple with the BEzsignbulksendIsactive field value
+// and a boolean to check if the value has been set.
+func (o *EzsignbulksendResponseCompound) GetBEzsignbulksendIsactiveOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BEzsignbulksendIsactive, true
+}
+
+// SetBEzsignbulksendIsactive sets field value
+func (o *EzsignbulksendResponseCompound) SetBEzsignbulksendIsactive(v bool) {
+	o.BEzsignbulksendIsactive = v
+}
+
+// GetObjAudit returns the ObjAudit field value
+func (o *EzsignbulksendResponseCompound) GetObjAudit() CommonAudit {
+	if o == nil {
+		var ret CommonAudit
+		return ret
+	}
+
+	return o.ObjAudit
+}
+
+// GetObjAuditOk returns a tuple with the ObjAudit field value
+// and a boolean to check if the value has been set.
+func (o *EzsignbulksendResponseCompound) GetObjAuditOk() (*CommonAudit, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjAudit, true
+}
+
+// SetObjAudit sets field value
+func (o *EzsignbulksendResponseCompound) SetObjAudit(v CommonAudit) {
+	o.ObjAudit = v
 }
 
 // GetAObjEzsignbulksenddocumentmapping returns the AObjEzsignbulksenddocumentmapping field value
@@ -117,6 +400,17 @@ func (o EzsignbulksendResponseCompound) MarshalJSON() ([]byte, error) {
 
 func (o EzsignbulksendResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["pkiEzsignbulksendID"] = o.PkiEzsignbulksendID
+	toSerialize["fkiEzsignfoldertypeID"] = o.FkiEzsignfoldertypeID
+	toSerialize["fkiLanguageID"] = o.FkiLanguageID
+	toSerialize["sLanguageNameX"] = o.SLanguageNameX
+	toSerialize["eEzsignfoldertypePrivacylevel"] = o.EEzsignfoldertypePrivacylevel
+	toSerialize["sEzsignfoldertypeNameX"] = o.SEzsignfoldertypeNameX
+	toSerialize["sEzsignbulksendDescription"] = o.SEzsignbulksendDescription
+	toSerialize["tEzsignbulksendNote"] = o.TEzsignbulksendNote
+	toSerialize["bEzsignbulksendNeedvalidation"] = o.BEzsignbulksendNeedvalidation
+	toSerialize["bEzsignbulksendIsactive"] = o.BEzsignbulksendIsactive
+	toSerialize["objAudit"] = o.ObjAudit
 	toSerialize["a_objEzsignbulksenddocumentmapping"] = o.AObjEzsignbulksenddocumentmapping
 	toSerialize["a_objEzsignbulksendsignermapping"] = o.AObjEzsignbulksendsignermapping
 	return toSerialize, nil
@@ -127,8 +421,6 @@ func (o *EzsignbulksendResponseCompound) UnmarshalJSON(data []byte) (err error) 
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"a_objEzsignbulksenddocumentmapping",
-		"a_objEzsignbulksendsignermapping",
 		"pkiEzsignbulksendID",
 		"fkiEzsignfoldertypeID",
 		"fkiLanguageID",
@@ -140,6 +432,8 @@ func (o *EzsignbulksendResponseCompound) UnmarshalJSON(data []byte) (err error) 
 		"bEzsignbulksendNeedvalidation",
 		"bEzsignbulksendIsactive",
 		"objAudit",
+		"a_objEzsignbulksenddocumentmapping",
+		"a_objEzsignbulksendsignermapping",
 	}
 
 	allProperties := make(map[string]interface{})

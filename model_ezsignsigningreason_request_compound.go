@@ -22,7 +22,11 @@ var _ MappedNullable = &EzsignsigningreasonRequestCompound{}
 
 // EzsignsigningreasonRequestCompound A Ezsignsigningreason Object and children
 type EzsignsigningreasonRequestCompound struct {
-	EzsignsigningreasonRequest
+	// The unique ID of the Ezsignsigningreason
+	PkiEzsignsigningreasonID *int32 `json:"pkiEzsignsigningreasonID,omitempty"`
+	ObjEzsignsigningreasonDescription MultilingualEzsignsigningreasonDescription `json:"objEzsignsigningreasonDescription"`
+	// Whether the ezsignsigningreason is active or not
+	BEzsignsigningreasonIsactive bool `json:"bEzsignsigningreasonIsactive"`
 }
 
 type _EzsignsigningreasonRequestCompound EzsignsigningreasonRequestCompound
@@ -46,6 +50,86 @@ func NewEzsignsigningreasonRequestCompoundWithDefaults() *EzsignsigningreasonReq
 	return &this
 }
 
+// GetPkiEzsignsigningreasonID returns the PkiEzsignsigningreasonID field value if set, zero value otherwise.
+func (o *EzsignsigningreasonRequestCompound) GetPkiEzsignsigningreasonID() int32 {
+	if o == nil || IsNil(o.PkiEzsignsigningreasonID) {
+		var ret int32
+		return ret
+	}
+	return *o.PkiEzsignsigningreasonID
+}
+
+// GetPkiEzsignsigningreasonIDOk returns a tuple with the PkiEzsignsigningreasonID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsigningreasonRequestCompound) GetPkiEzsignsigningreasonIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.PkiEzsignsigningreasonID) {
+		return nil, false
+	}
+	return o.PkiEzsignsigningreasonID, true
+}
+
+// HasPkiEzsignsigningreasonID returns a boolean if a field has been set.
+func (o *EzsignsigningreasonRequestCompound) HasPkiEzsignsigningreasonID() bool {
+	if o != nil && !IsNil(o.PkiEzsignsigningreasonID) {
+		return true
+	}
+
+	return false
+}
+
+// SetPkiEzsignsigningreasonID gets a reference to the given int32 and assigns it to the PkiEzsignsigningreasonID field.
+func (o *EzsignsigningreasonRequestCompound) SetPkiEzsignsigningreasonID(v int32) {
+	o.PkiEzsignsigningreasonID = &v
+}
+
+// GetObjEzsignsigningreasonDescription returns the ObjEzsignsigningreasonDescription field value
+func (o *EzsignsigningreasonRequestCompound) GetObjEzsignsigningreasonDescription() MultilingualEzsignsigningreasonDescription {
+	if o == nil {
+		var ret MultilingualEzsignsigningreasonDescription
+		return ret
+	}
+
+	return o.ObjEzsignsigningreasonDescription
+}
+
+// GetObjEzsignsigningreasonDescriptionOk returns a tuple with the ObjEzsignsigningreasonDescription field value
+// and a boolean to check if the value has been set.
+func (o *EzsignsigningreasonRequestCompound) GetObjEzsignsigningreasonDescriptionOk() (*MultilingualEzsignsigningreasonDescription, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjEzsignsigningreasonDescription, true
+}
+
+// SetObjEzsignsigningreasonDescription sets field value
+func (o *EzsignsigningreasonRequestCompound) SetObjEzsignsigningreasonDescription(v MultilingualEzsignsigningreasonDescription) {
+	o.ObjEzsignsigningreasonDescription = v
+}
+
+// GetBEzsignsigningreasonIsactive returns the BEzsignsigningreasonIsactive field value
+func (o *EzsignsigningreasonRequestCompound) GetBEzsignsigningreasonIsactive() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BEzsignsigningreasonIsactive
+}
+
+// GetBEzsignsigningreasonIsactiveOk returns a tuple with the BEzsignsigningreasonIsactive field value
+// and a boolean to check if the value has been set.
+func (o *EzsignsigningreasonRequestCompound) GetBEzsignsigningreasonIsactiveOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BEzsignsigningreasonIsactive, true
+}
+
+// SetBEzsignsigningreasonIsactive sets field value
+func (o *EzsignsigningreasonRequestCompound) SetBEzsignsigningreasonIsactive(v bool) {
+	o.BEzsignsigningreasonIsactive = v
+}
+
 func (o EzsignsigningreasonRequestCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -56,6 +140,11 @@ func (o EzsignsigningreasonRequestCompound) MarshalJSON() ([]byte, error) {
 
 func (o EzsignsigningreasonRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.PkiEzsignsigningreasonID) {
+		toSerialize["pkiEzsignsigningreasonID"] = o.PkiEzsignsigningreasonID
+	}
+	toSerialize["objEzsignsigningreasonDescription"] = o.ObjEzsignsigningreasonDescription
+	toSerialize["bEzsignsigningreasonIsactive"] = o.BEzsignsigningreasonIsactive
 	return toSerialize, nil
 }
 

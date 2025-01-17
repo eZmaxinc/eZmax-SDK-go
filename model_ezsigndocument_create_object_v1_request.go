@@ -21,8 +21,7 @@ var _ MappedNullable = &EzsigndocumentCreateObjectV1Request{}
 // EzsigndocumentCreateObjectV1Request Request for POST /1/object/ezsigndocument
 type EzsigndocumentCreateObjectV1Request struct {
 	ObjEzsigndocument *EzsigndocumentRequest `json:"objEzsigndocument,omitempty"`
-	// An Ezsigndocument Object and children to create a complete structure
-	ObjEzsigndocumentCompound *EzsigndocumentRequest `json:"objEzsigndocumentCompound,omitempty"`
+	ObjEzsigndocumentCompound *EzsigndocumentRequestCompound `json:"objEzsigndocumentCompound,omitempty"`
 }
 
 // NewEzsigndocumentCreateObjectV1Request instantiates a new EzsigndocumentCreateObjectV1Request object
@@ -75,9 +74,9 @@ func (o *EzsigndocumentCreateObjectV1Request) SetObjEzsigndocument(v Ezsigndocum
 }
 
 // GetObjEzsigndocumentCompound returns the ObjEzsigndocumentCompound field value if set, zero value otherwise.
-func (o *EzsigndocumentCreateObjectV1Request) GetObjEzsigndocumentCompound() EzsigndocumentRequest {
+func (o *EzsigndocumentCreateObjectV1Request) GetObjEzsigndocumentCompound() EzsigndocumentRequestCompound {
 	if o == nil || IsNil(o.ObjEzsigndocumentCompound) {
-		var ret EzsigndocumentRequest
+		var ret EzsigndocumentRequestCompound
 		return ret
 	}
 	return *o.ObjEzsigndocumentCompound
@@ -85,7 +84,7 @@ func (o *EzsigndocumentCreateObjectV1Request) GetObjEzsigndocumentCompound() Ezs
 
 // GetObjEzsigndocumentCompoundOk returns a tuple with the ObjEzsigndocumentCompound field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EzsigndocumentCreateObjectV1Request) GetObjEzsigndocumentCompoundOk() (*EzsigndocumentRequest, bool) {
+func (o *EzsigndocumentCreateObjectV1Request) GetObjEzsigndocumentCompoundOk() (*EzsigndocumentRequestCompound, bool) {
 	if o == nil || IsNil(o.ObjEzsigndocumentCompound) {
 		return nil, false
 	}
@@ -101,8 +100,8 @@ func (o *EzsigndocumentCreateObjectV1Request) HasObjEzsigndocumentCompound() boo
 	return false
 }
 
-// SetObjEzsigndocumentCompound gets a reference to the given EzsigndocumentRequest and assigns it to the ObjEzsigndocumentCompound field.
-func (o *EzsigndocumentCreateObjectV1Request) SetObjEzsigndocumentCompound(v EzsigndocumentRequest) {
+// SetObjEzsigndocumentCompound gets a reference to the given EzsigndocumentRequestCompound and assigns it to the ObjEzsigndocumentCompound field.
+func (o *EzsigndocumentCreateObjectV1Request) SetObjEzsigndocumentCompound(v EzsigndocumentRequestCompound) {
 	o.ObjEzsigndocumentCompound = &v
 }
 

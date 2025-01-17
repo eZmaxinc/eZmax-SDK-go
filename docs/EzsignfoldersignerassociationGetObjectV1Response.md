@@ -4,13 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MPayload** | [**EzsignfoldersignerassociationResponseCompound**](EzsignfoldersignerassociationResponseCompound.md) | Payload for GET /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | 
+**ObjDebugPayload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
+**ObjDebug** | Pointer to [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
+**MPayload** | [**EzsignfoldersignerassociationGetObjectV1ResponseMPayload**](EzsignfoldersignerassociationGetObjectV1ResponseMPayload.md) |  | 
 
 ## Methods
 
 ### NewEzsignfoldersignerassociationGetObjectV1Response
 
-`func NewEzsignfoldersignerassociationGetObjectV1Response(mPayload EzsignfoldersignerassociationResponseCompound, ) *EzsignfoldersignerassociationGetObjectV1Response`
+`func NewEzsignfoldersignerassociationGetObjectV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload EzsignfoldersignerassociationGetObjectV1ResponseMPayload, ) *EzsignfoldersignerassociationGetObjectV1Response`
 
 NewEzsignfoldersignerassociationGetObjectV1Response instantiates a new EzsignfoldersignerassociationGetObjectV1Response object
 This constructor will assign default values to properties that have it defined,
@@ -25,22 +27,67 @@ NewEzsignfoldersignerassociationGetObjectV1ResponseWithDefaults instantiates a n
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetObjDebugPayload
+
+`func (o *EzsignfoldersignerassociationGetObjectV1Response) GetObjDebugPayload() CommonResponseObjDebugPayload`
+
+GetObjDebugPayload returns the ObjDebugPayload field if non-nil, zero value otherwise.
+
+### GetObjDebugPayloadOk
+
+`func (o *EzsignfoldersignerassociationGetObjectV1Response) GetObjDebugPayloadOk() (*CommonResponseObjDebugPayload, bool)`
+
+GetObjDebugPayloadOk returns a tuple with the ObjDebugPayload field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjDebugPayload
+
+`func (o *EzsignfoldersignerassociationGetObjectV1Response) SetObjDebugPayload(v CommonResponseObjDebugPayload)`
+
+SetObjDebugPayload sets ObjDebugPayload field to given value.
+
+
+### GetObjDebug
+
+`func (o *EzsignfoldersignerassociationGetObjectV1Response) GetObjDebug() CommonResponseObjDebug`
+
+GetObjDebug returns the ObjDebug field if non-nil, zero value otherwise.
+
+### GetObjDebugOk
+
+`func (o *EzsignfoldersignerassociationGetObjectV1Response) GetObjDebugOk() (*CommonResponseObjDebug, bool)`
+
+GetObjDebugOk returns a tuple with the ObjDebug field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjDebug
+
+`func (o *EzsignfoldersignerassociationGetObjectV1Response) SetObjDebug(v CommonResponseObjDebug)`
+
+SetObjDebug sets ObjDebug field to given value.
+
+### HasObjDebug
+
+`func (o *EzsignfoldersignerassociationGetObjectV1Response) HasObjDebug() bool`
+
+HasObjDebug returns a boolean if a field has been set.
+
 ### GetMPayload
 
-`func (o *EzsignfoldersignerassociationGetObjectV1Response) GetMPayload() EzsignfoldersignerassociationResponseCompound`
+`func (o *EzsignfoldersignerassociationGetObjectV1Response) GetMPayload() EzsignfoldersignerassociationGetObjectV1ResponseMPayload`
 
 GetMPayload returns the MPayload field if non-nil, zero value otherwise.
 
 ### GetMPayloadOk
 
-`func (o *EzsignfoldersignerassociationGetObjectV1Response) GetMPayloadOk() (*EzsignfoldersignerassociationResponseCompound, bool)`
+`func (o *EzsignfoldersignerassociationGetObjectV1Response) GetMPayloadOk() (*EzsignfoldersignerassociationGetObjectV1ResponseMPayload, bool)`
 
 GetMPayloadOk returns a tuple with the MPayload field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMPayload
 
-`func (o *EzsignfoldersignerassociationGetObjectV1Response) SetMPayload(v EzsignfoldersignerassociationResponseCompound)`
+`func (o *EzsignfoldersignerassociationGetObjectV1Response) SetMPayload(v EzsignfoldersignerassociationGetObjectV1ResponseMPayload)`
 
 SetMPayload sets MPayload field to given value.
 

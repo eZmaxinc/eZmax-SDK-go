@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjEzsigndocument** | [**EzsigndocumentRequest**](EzsigndocumentRequest.md) | An Ezsigndocument Object and children to create a complete structure | 
+**ObjEzsigndocument** | [**EzsigndocumentRequestCompound**](EzsigndocumentRequestCompound.md) |  | 
 
 ## Methods
 
 ### NewEzsigndocumentEditObjectV1Request
 
-`func NewEzsigndocumentEditObjectV1Request(objEzsigndocument EzsigndocumentRequest, ) *EzsigndocumentEditObjectV1Request`
+`func NewEzsigndocumentEditObjectV1Request(objEzsigndocument EzsigndocumentRequestCompound, ) *EzsigndocumentEditObjectV1Request`
 
 NewEzsigndocumentEditObjectV1Request instantiates a new EzsigndocumentEditObjectV1Request object
 This constructor will assign default values to properties that have it defined,
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetObjEzsigndocument
 
-`func (o *EzsigndocumentEditObjectV1Request) GetObjEzsigndocument() EzsigndocumentRequest`
+`func (o *EzsigndocumentEditObjectV1Request) GetObjEzsigndocument() EzsigndocumentRequestCompound`
 
 GetObjEzsigndocument returns the ObjEzsigndocument field if non-nil, zero value otherwise.
 
 ### GetObjEzsigndocumentOk
 
-`func (o *EzsigndocumentEditObjectV1Request) GetObjEzsigndocumentOk() (*EzsigndocumentRequest, bool)`
+`func (o *EzsigndocumentEditObjectV1Request) GetObjEzsigndocumentOk() (*EzsigndocumentRequestCompound, bool)`
 
 GetObjEzsigndocumentOk returns a tuple with the ObjEzsigndocument field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObjEzsigndocument
 
-`func (o *EzsigndocumentEditObjectV1Request) SetObjEzsigndocument(v EzsigndocumentRequest)`
+`func (o *EzsigndocumentEditObjectV1Request) SetObjEzsigndocument(v EzsigndocumentRequestCompound)`
 
 SetObjEzsigndocument sets ObjEzsigndocument field to given value.
 

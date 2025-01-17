@@ -4,6 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**PkiEzmaxinvoicingID** | Pointer to **int32** | The unique ID of the Ezmaxinvoicing | [optional] 
+**FkiEzmaxinvoicingcontractID** | **int32** | The unique ID of the Ezmaxinvoicingcontract | 
+**FkiEzmaxpricingID** | **int32** | The unique ID of the Ezmaxpricing | 
+**FkiSystemconfigurationtypeID** | **int32** | The unique ID of the Systemconfigurationtype | 
+**SSystemconfigurationtypeDescriptionX** | **string** | The description of the Systemconfigurationtype in the language of the requester | 
+**YyyymmEzmaxinvoicing** | **string** | The YYYYMM period of the Ezmaxinvoicing | 
+**IEzmaxinvoicingDays** | **int32** | The number of days invoiced | 
+**EEzmaxinvoicingPaymenttype** | [**FieldEEzmaxinvoicingPaymenttype**](FieldEEzmaxinvoicingPaymenttype.md) |  | 
+**DEzmaxinvoicingRebatepaymenttype** | **string** | The percentage of rebate depending of the payment type | 
+**IEzmaxinvoicingContractlength** | **int32** | The length of the contract in years | 
+**DEzmaxinvoicingRebatecontractlength** | **string** | The percentage of rebate depending of the contract length | 
+**BEzmaxinvoicingRebateEzsignallagents** | **bool** | Whether the rebate for eZsign is for all agents | 
+**ObjAudit** | Pointer to [**CommonAudit**](CommonAudit.md) |  | [optional] 
 **ObjEzmaxinvoicingcontract** | [**EzmaxinvoicingcontractResponseCompound**](EzmaxinvoicingcontractResponseCompound.md) |  | 
 **ObjEzmaxpricing** | [**CustomEzmaxpricingResponse**](CustomEzmaxpricingResponse.md) |  | 
 **AObjEzmaxinvoicingsummaryglobal** | [**[]EzmaxinvoicingsummaryglobalResponseCompound**](EzmaxinvoicingsummaryglobalResponseCompound.md) |  | 
@@ -11,14 +24,14 @@ Name | Type | Description | Notes
 **AObjEzmaxinvoicingsummaryinternal** | [**[]EzmaxinvoicingsummaryinternalResponseCompound**](EzmaxinvoicingsummaryinternalResponseCompound.md) |  | 
 **AObjEzmaxinvoicingagent** | [**[]EzmaxinvoicingagentResponseCompound**](EzmaxinvoicingagentResponseCompound.md) |  | 
 **AObjEzmaxinvoicinguser** | [**[]EzmaxinvoicinguserResponseCompound**](EzmaxinvoicinguserResponseCompound.md) |  | 
-**AObjEzmaxinvoicingezsignfolder** | **[]map[string]interface{}** |  | 
-**AObjEzmaxinvoicingezsigndocument** | **[]map[string]interface{}** |  | 
+**AObjEzmaxinvoicingezsignfolder** | [**[]CustomEzmaxinvoicingEzsignfolderResponse**](CustomEzmaxinvoicingEzsignfolderResponse.md) |  | 
+**AObjEzmaxinvoicingezsigndocument** | [**[]CustomEzmaxinvoicingEzsigndocumentResponse**](CustomEzmaxinvoicingEzsigndocumentResponse.md) |  | 
 
 ## Methods
 
 ### NewEzmaxinvoicingResponseCompound
 
-`func NewEzmaxinvoicingResponseCompound(objEzmaxinvoicingcontract EzmaxinvoicingcontractResponseCompound, objEzmaxpricing CustomEzmaxpricingResponse, aObjEzmaxinvoicingsummaryglobal []EzmaxinvoicingsummaryglobalResponseCompound, aObjEzmaxinvoicingsummaryexternal []EzmaxinvoicingsummaryexternalResponseCompound, aObjEzmaxinvoicingsummaryinternal []EzmaxinvoicingsummaryinternalResponseCompound, aObjEzmaxinvoicingagent []EzmaxinvoicingagentResponseCompound, aObjEzmaxinvoicinguser []EzmaxinvoicinguserResponseCompound, aObjEzmaxinvoicingezsignfolder []CustomEzmaxinvoicingEzsignfolderResponse, aObjEzmaxinvoicingezsigndocument []CustomEzmaxinvoicingEzsigndocumentResponse, ) *EzmaxinvoicingResponseCompound`
+`func NewEzmaxinvoicingResponseCompound(fkiEzmaxinvoicingcontractID int32, fkiEzmaxpricingID int32, fkiSystemconfigurationtypeID int32, sSystemconfigurationtypeDescriptionX string, yyyymmEzmaxinvoicing string, iEzmaxinvoicingDays int32, eEzmaxinvoicingPaymenttype FieldEEzmaxinvoicingPaymenttype, dEzmaxinvoicingRebatepaymenttype string, iEzmaxinvoicingContractlength int32, dEzmaxinvoicingRebatecontractlength string, bEzmaxinvoicingRebateEzsignallagents bool, objEzmaxinvoicingcontract EzmaxinvoicingcontractResponseCompound, objEzmaxpricing CustomEzmaxpricingResponse, aObjEzmaxinvoicingsummaryglobal []EzmaxinvoicingsummaryglobalResponseCompound, aObjEzmaxinvoicingsummaryexternal []EzmaxinvoicingsummaryexternalResponseCompound, aObjEzmaxinvoicingsummaryinternal []EzmaxinvoicingsummaryinternalResponseCompound, aObjEzmaxinvoicingagent []EzmaxinvoicingagentResponseCompound, aObjEzmaxinvoicinguser []EzmaxinvoicinguserResponseCompound, aObjEzmaxinvoicingezsignfolder []CustomEzmaxinvoicingEzsignfolderResponse, aObjEzmaxinvoicingezsigndocument []CustomEzmaxinvoicingEzsigndocumentResponse, ) *EzmaxinvoicingResponseCompound`
 
 NewEzmaxinvoicingResponseCompound instantiates a new EzmaxinvoicingResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -32,6 +45,276 @@ will change when the set of required properties is changed
 NewEzmaxinvoicingResponseCompoundWithDefaults instantiates a new EzmaxinvoicingResponseCompound object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetPkiEzmaxinvoicingID
+
+`func (o *EzmaxinvoicingResponseCompound) GetPkiEzmaxinvoicingID() int32`
+
+GetPkiEzmaxinvoicingID returns the PkiEzmaxinvoicingID field if non-nil, zero value otherwise.
+
+### GetPkiEzmaxinvoicingIDOk
+
+`func (o *EzmaxinvoicingResponseCompound) GetPkiEzmaxinvoicingIDOk() (*int32, bool)`
+
+GetPkiEzmaxinvoicingIDOk returns a tuple with the PkiEzmaxinvoicingID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPkiEzmaxinvoicingID
+
+`func (o *EzmaxinvoicingResponseCompound) SetPkiEzmaxinvoicingID(v int32)`
+
+SetPkiEzmaxinvoicingID sets PkiEzmaxinvoicingID field to given value.
+
+### HasPkiEzmaxinvoicingID
+
+`func (o *EzmaxinvoicingResponseCompound) HasPkiEzmaxinvoicingID() bool`
+
+HasPkiEzmaxinvoicingID returns a boolean if a field has been set.
+
+### GetFkiEzmaxinvoicingcontractID
+
+`func (o *EzmaxinvoicingResponseCompound) GetFkiEzmaxinvoicingcontractID() int32`
+
+GetFkiEzmaxinvoicingcontractID returns the FkiEzmaxinvoicingcontractID field if non-nil, zero value otherwise.
+
+### GetFkiEzmaxinvoicingcontractIDOk
+
+`func (o *EzmaxinvoicingResponseCompound) GetFkiEzmaxinvoicingcontractIDOk() (*int32, bool)`
+
+GetFkiEzmaxinvoicingcontractIDOk returns a tuple with the FkiEzmaxinvoicingcontractID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiEzmaxinvoicingcontractID
+
+`func (o *EzmaxinvoicingResponseCompound) SetFkiEzmaxinvoicingcontractID(v int32)`
+
+SetFkiEzmaxinvoicingcontractID sets FkiEzmaxinvoicingcontractID field to given value.
+
+
+### GetFkiEzmaxpricingID
+
+`func (o *EzmaxinvoicingResponseCompound) GetFkiEzmaxpricingID() int32`
+
+GetFkiEzmaxpricingID returns the FkiEzmaxpricingID field if non-nil, zero value otherwise.
+
+### GetFkiEzmaxpricingIDOk
+
+`func (o *EzmaxinvoicingResponseCompound) GetFkiEzmaxpricingIDOk() (*int32, bool)`
+
+GetFkiEzmaxpricingIDOk returns a tuple with the FkiEzmaxpricingID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiEzmaxpricingID
+
+`func (o *EzmaxinvoicingResponseCompound) SetFkiEzmaxpricingID(v int32)`
+
+SetFkiEzmaxpricingID sets FkiEzmaxpricingID field to given value.
+
+
+### GetFkiSystemconfigurationtypeID
+
+`func (o *EzmaxinvoicingResponseCompound) GetFkiSystemconfigurationtypeID() int32`
+
+GetFkiSystemconfigurationtypeID returns the FkiSystemconfigurationtypeID field if non-nil, zero value otherwise.
+
+### GetFkiSystemconfigurationtypeIDOk
+
+`func (o *EzmaxinvoicingResponseCompound) GetFkiSystemconfigurationtypeIDOk() (*int32, bool)`
+
+GetFkiSystemconfigurationtypeIDOk returns a tuple with the FkiSystemconfigurationtypeID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiSystemconfigurationtypeID
+
+`func (o *EzmaxinvoicingResponseCompound) SetFkiSystemconfigurationtypeID(v int32)`
+
+SetFkiSystemconfigurationtypeID sets FkiSystemconfigurationtypeID field to given value.
+
+
+### GetSSystemconfigurationtypeDescriptionX
+
+`func (o *EzmaxinvoicingResponseCompound) GetSSystemconfigurationtypeDescriptionX() string`
+
+GetSSystemconfigurationtypeDescriptionX returns the SSystemconfigurationtypeDescriptionX field if non-nil, zero value otherwise.
+
+### GetSSystemconfigurationtypeDescriptionXOk
+
+`func (o *EzmaxinvoicingResponseCompound) GetSSystemconfigurationtypeDescriptionXOk() (*string, bool)`
+
+GetSSystemconfigurationtypeDescriptionXOk returns a tuple with the SSystemconfigurationtypeDescriptionX field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSSystemconfigurationtypeDescriptionX
+
+`func (o *EzmaxinvoicingResponseCompound) SetSSystemconfigurationtypeDescriptionX(v string)`
+
+SetSSystemconfigurationtypeDescriptionX sets SSystemconfigurationtypeDescriptionX field to given value.
+
+
+### GetYyyymmEzmaxinvoicing
+
+`func (o *EzmaxinvoicingResponseCompound) GetYyyymmEzmaxinvoicing() string`
+
+GetYyyymmEzmaxinvoicing returns the YyyymmEzmaxinvoicing field if non-nil, zero value otherwise.
+
+### GetYyyymmEzmaxinvoicingOk
+
+`func (o *EzmaxinvoicingResponseCompound) GetYyyymmEzmaxinvoicingOk() (*string, bool)`
+
+GetYyyymmEzmaxinvoicingOk returns a tuple with the YyyymmEzmaxinvoicing field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetYyyymmEzmaxinvoicing
+
+`func (o *EzmaxinvoicingResponseCompound) SetYyyymmEzmaxinvoicing(v string)`
+
+SetYyyymmEzmaxinvoicing sets YyyymmEzmaxinvoicing field to given value.
+
+
+### GetIEzmaxinvoicingDays
+
+`func (o *EzmaxinvoicingResponseCompound) GetIEzmaxinvoicingDays() int32`
+
+GetIEzmaxinvoicingDays returns the IEzmaxinvoicingDays field if non-nil, zero value otherwise.
+
+### GetIEzmaxinvoicingDaysOk
+
+`func (o *EzmaxinvoicingResponseCompound) GetIEzmaxinvoicingDaysOk() (*int32, bool)`
+
+GetIEzmaxinvoicingDaysOk returns a tuple with the IEzmaxinvoicingDays field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIEzmaxinvoicingDays
+
+`func (o *EzmaxinvoicingResponseCompound) SetIEzmaxinvoicingDays(v int32)`
+
+SetIEzmaxinvoicingDays sets IEzmaxinvoicingDays field to given value.
+
+
+### GetEEzmaxinvoicingPaymenttype
+
+`func (o *EzmaxinvoicingResponseCompound) GetEEzmaxinvoicingPaymenttype() FieldEEzmaxinvoicingPaymenttype`
+
+GetEEzmaxinvoicingPaymenttype returns the EEzmaxinvoicingPaymenttype field if non-nil, zero value otherwise.
+
+### GetEEzmaxinvoicingPaymenttypeOk
+
+`func (o *EzmaxinvoicingResponseCompound) GetEEzmaxinvoicingPaymenttypeOk() (*FieldEEzmaxinvoicingPaymenttype, bool)`
+
+GetEEzmaxinvoicingPaymenttypeOk returns a tuple with the EEzmaxinvoicingPaymenttype field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzmaxinvoicingPaymenttype
+
+`func (o *EzmaxinvoicingResponseCompound) SetEEzmaxinvoicingPaymenttype(v FieldEEzmaxinvoicingPaymenttype)`
+
+SetEEzmaxinvoicingPaymenttype sets EEzmaxinvoicingPaymenttype field to given value.
+
+
+### GetDEzmaxinvoicingRebatepaymenttype
+
+`func (o *EzmaxinvoicingResponseCompound) GetDEzmaxinvoicingRebatepaymenttype() string`
+
+GetDEzmaxinvoicingRebatepaymenttype returns the DEzmaxinvoicingRebatepaymenttype field if non-nil, zero value otherwise.
+
+### GetDEzmaxinvoicingRebatepaymenttypeOk
+
+`func (o *EzmaxinvoicingResponseCompound) GetDEzmaxinvoicingRebatepaymenttypeOk() (*string, bool)`
+
+GetDEzmaxinvoicingRebatepaymenttypeOk returns a tuple with the DEzmaxinvoicingRebatepaymenttype field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDEzmaxinvoicingRebatepaymenttype
+
+`func (o *EzmaxinvoicingResponseCompound) SetDEzmaxinvoicingRebatepaymenttype(v string)`
+
+SetDEzmaxinvoicingRebatepaymenttype sets DEzmaxinvoicingRebatepaymenttype field to given value.
+
+
+### GetIEzmaxinvoicingContractlength
+
+`func (o *EzmaxinvoicingResponseCompound) GetIEzmaxinvoicingContractlength() int32`
+
+GetIEzmaxinvoicingContractlength returns the IEzmaxinvoicingContractlength field if non-nil, zero value otherwise.
+
+### GetIEzmaxinvoicingContractlengthOk
+
+`func (o *EzmaxinvoicingResponseCompound) GetIEzmaxinvoicingContractlengthOk() (*int32, bool)`
+
+GetIEzmaxinvoicingContractlengthOk returns a tuple with the IEzmaxinvoicingContractlength field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIEzmaxinvoicingContractlength
+
+`func (o *EzmaxinvoicingResponseCompound) SetIEzmaxinvoicingContractlength(v int32)`
+
+SetIEzmaxinvoicingContractlength sets IEzmaxinvoicingContractlength field to given value.
+
+
+### GetDEzmaxinvoicingRebatecontractlength
+
+`func (o *EzmaxinvoicingResponseCompound) GetDEzmaxinvoicingRebatecontractlength() string`
+
+GetDEzmaxinvoicingRebatecontractlength returns the DEzmaxinvoicingRebatecontractlength field if non-nil, zero value otherwise.
+
+### GetDEzmaxinvoicingRebatecontractlengthOk
+
+`func (o *EzmaxinvoicingResponseCompound) GetDEzmaxinvoicingRebatecontractlengthOk() (*string, bool)`
+
+GetDEzmaxinvoicingRebatecontractlengthOk returns a tuple with the DEzmaxinvoicingRebatecontractlength field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDEzmaxinvoicingRebatecontractlength
+
+`func (o *EzmaxinvoicingResponseCompound) SetDEzmaxinvoicingRebatecontractlength(v string)`
+
+SetDEzmaxinvoicingRebatecontractlength sets DEzmaxinvoicingRebatecontractlength field to given value.
+
+
+### GetBEzmaxinvoicingRebateEzsignallagents
+
+`func (o *EzmaxinvoicingResponseCompound) GetBEzmaxinvoicingRebateEzsignallagents() bool`
+
+GetBEzmaxinvoicingRebateEzsignallagents returns the BEzmaxinvoicingRebateEzsignallagents field if non-nil, zero value otherwise.
+
+### GetBEzmaxinvoicingRebateEzsignallagentsOk
+
+`func (o *EzmaxinvoicingResponseCompound) GetBEzmaxinvoicingRebateEzsignallagentsOk() (*bool, bool)`
+
+GetBEzmaxinvoicingRebateEzsignallagentsOk returns a tuple with the BEzmaxinvoicingRebateEzsignallagents field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzmaxinvoicingRebateEzsignallagents
+
+`func (o *EzmaxinvoicingResponseCompound) SetBEzmaxinvoicingRebateEzsignallagents(v bool)`
+
+SetBEzmaxinvoicingRebateEzsignallagents sets BEzmaxinvoicingRebateEzsignallagents field to given value.
+
+
+### GetObjAudit
+
+`func (o *EzmaxinvoicingResponseCompound) GetObjAudit() CommonAudit`
+
+GetObjAudit returns the ObjAudit field if non-nil, zero value otherwise.
+
+### GetObjAuditOk
+
+`func (o *EzmaxinvoicingResponseCompound) GetObjAuditOk() (*CommonAudit, bool)`
+
+GetObjAuditOk returns a tuple with the ObjAudit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjAudit
+
+`func (o *EzmaxinvoicingResponseCompound) SetObjAudit(v CommonAudit)`
+
+SetObjAudit sets ObjAudit field to given value.
+
+### HasObjAudit
+
+`func (o *EzmaxinvoicingResponseCompound) HasObjAudit() bool`
+
+HasObjAudit returns a boolean if a field has been set.
 
 ### GetObjEzmaxinvoicingcontract
 

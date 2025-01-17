@@ -22,7 +22,15 @@ var _ MappedNullable = &AttachmentlogResponseCompound{}
 
 // AttachmentlogResponseCompound A Attachmentlog Object
 type AttachmentlogResponseCompound struct {
-	AttachmentlogResponse
+	// The unique ID of the Attachment.
+	FkiAttachmentID int32 `json:"fkiAttachmentID"`
+	// The unique ID of the User
+	FkiUserID int32 `json:"fkiUserID"`
+	// The created date
+	DtAttachmentlogDatetime string `json:"dtAttachmentlogDatetime" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$"`
+	EAttachmentlogType FieldEAttachmentlogType `json:"eAttachmentlogType"`
+	// The additionnal detail
+	SAttachmentlogDetail *string `json:"sAttachmentlogDetail,omitempty" validate:"regexp=^.{0,75}$"`
 }
 
 type _AttachmentlogResponseCompound AttachmentlogResponseCompound
@@ -48,6 +56,134 @@ func NewAttachmentlogResponseCompoundWithDefaults() *AttachmentlogResponseCompou
 	return &this
 }
 
+// GetFkiAttachmentID returns the FkiAttachmentID field value
+func (o *AttachmentlogResponseCompound) GetFkiAttachmentID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiAttachmentID
+}
+
+// GetFkiAttachmentIDOk returns a tuple with the FkiAttachmentID field value
+// and a boolean to check if the value has been set.
+func (o *AttachmentlogResponseCompound) GetFkiAttachmentIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiAttachmentID, true
+}
+
+// SetFkiAttachmentID sets field value
+func (o *AttachmentlogResponseCompound) SetFkiAttachmentID(v int32) {
+	o.FkiAttachmentID = v
+}
+
+// GetFkiUserID returns the FkiUserID field value
+func (o *AttachmentlogResponseCompound) GetFkiUserID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiUserID
+}
+
+// GetFkiUserIDOk returns a tuple with the FkiUserID field value
+// and a boolean to check if the value has been set.
+func (o *AttachmentlogResponseCompound) GetFkiUserIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiUserID, true
+}
+
+// SetFkiUserID sets field value
+func (o *AttachmentlogResponseCompound) SetFkiUserID(v int32) {
+	o.FkiUserID = v
+}
+
+// GetDtAttachmentlogDatetime returns the DtAttachmentlogDatetime field value
+func (o *AttachmentlogResponseCompound) GetDtAttachmentlogDatetime() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.DtAttachmentlogDatetime
+}
+
+// GetDtAttachmentlogDatetimeOk returns a tuple with the DtAttachmentlogDatetime field value
+// and a boolean to check if the value has been set.
+func (o *AttachmentlogResponseCompound) GetDtAttachmentlogDatetimeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.DtAttachmentlogDatetime, true
+}
+
+// SetDtAttachmentlogDatetime sets field value
+func (o *AttachmentlogResponseCompound) SetDtAttachmentlogDatetime(v string) {
+	o.DtAttachmentlogDatetime = v
+}
+
+// GetEAttachmentlogType returns the EAttachmentlogType field value
+func (o *AttachmentlogResponseCompound) GetEAttachmentlogType() FieldEAttachmentlogType {
+	if o == nil {
+		var ret FieldEAttachmentlogType
+		return ret
+	}
+
+	return o.EAttachmentlogType
+}
+
+// GetEAttachmentlogTypeOk returns a tuple with the EAttachmentlogType field value
+// and a boolean to check if the value has been set.
+func (o *AttachmentlogResponseCompound) GetEAttachmentlogTypeOk() (*FieldEAttachmentlogType, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EAttachmentlogType, true
+}
+
+// SetEAttachmentlogType sets field value
+func (o *AttachmentlogResponseCompound) SetEAttachmentlogType(v FieldEAttachmentlogType) {
+	o.EAttachmentlogType = v
+}
+
+// GetSAttachmentlogDetail returns the SAttachmentlogDetail field value if set, zero value otherwise.
+func (o *AttachmentlogResponseCompound) GetSAttachmentlogDetail() string {
+	if o == nil || IsNil(o.SAttachmentlogDetail) {
+		var ret string
+		return ret
+	}
+	return *o.SAttachmentlogDetail
+}
+
+// GetSAttachmentlogDetailOk returns a tuple with the SAttachmentlogDetail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentlogResponseCompound) GetSAttachmentlogDetailOk() (*string, bool) {
+	if o == nil || IsNil(o.SAttachmentlogDetail) {
+		return nil, false
+	}
+	return o.SAttachmentlogDetail, true
+}
+
+// HasSAttachmentlogDetail returns a boolean if a field has been set.
+func (o *AttachmentlogResponseCompound) HasSAttachmentlogDetail() bool {
+	if o != nil && !IsNil(o.SAttachmentlogDetail) {
+		return true
+	}
+
+	return false
+}
+
+// SetSAttachmentlogDetail gets a reference to the given string and assigns it to the SAttachmentlogDetail field.
+func (o *AttachmentlogResponseCompound) SetSAttachmentlogDetail(v string) {
+	o.SAttachmentlogDetail = &v
+}
+
 func (o AttachmentlogResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -58,6 +194,13 @@ func (o AttachmentlogResponseCompound) MarshalJSON() ([]byte, error) {
 
 func (o AttachmentlogResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["fkiAttachmentID"] = o.FkiAttachmentID
+	toSerialize["fkiUserID"] = o.FkiUserID
+	toSerialize["dtAttachmentlogDatetime"] = o.DtAttachmentlogDatetime
+	toSerialize["eAttachmentlogType"] = o.EAttachmentlogType
+	if !IsNil(o.SAttachmentlogDetail) {
+		toSerialize["sAttachmentlogDetail"] = o.SAttachmentlogDetail
+	}
 	return toSerialize, nil
 }
 

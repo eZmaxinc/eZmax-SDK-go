@@ -36,7 +36,7 @@ func (r ApiEzsignuserEditObjectV1Request) EzsignuserEditObjectV1Request(ezsignus
 	return r
 }
 
-func (r ApiEzsignuserEditObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsignuserEditObjectV1Request) Execute() (*EzsignuserEditObjectV1Response, *http.Response, error) {
 	return r.ApiService.EzsignuserEditObjectV1Execute(r)
 }
 
@@ -58,13 +58,13 @@ func (a *ObjectEzsignuserAPIService) EzsignuserEditObjectV1(ctx context.Context,
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectEzsignuserAPIService) EzsignuserEditObjectV1Execute(r ApiEzsignuserEditObjectV1Request) (*CommonResponse, *http.Response, error) {
+//  @return EzsignuserEditObjectV1Response
+func (a *ObjectEzsignuserAPIService) EzsignuserEditObjectV1Execute(r ApiEzsignuserEditObjectV1Request) (*EzsignuserEditObjectV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsignuserEditObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignuserAPIService.EzsignuserEditObjectV1")

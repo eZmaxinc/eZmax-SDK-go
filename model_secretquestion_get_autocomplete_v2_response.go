@@ -22,7 +22,8 @@ var _ MappedNullable = &SecretquestionGetAutocompleteV2Response{}
 
 // SecretquestionGetAutocompleteV2Response Response for GET /2/object/secretquestion/getAutocomplete
 type SecretquestionGetAutocompleteV2Response struct {
-	CommonResponse
+	ObjDebugPayload CommonResponseObjDebugPayload `json:"objDebugPayload"`
+	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
 	MPayload SecretquestionGetAutocompleteV2ResponseMPayload `json:"mPayload"`
 }
 
@@ -32,7 +33,7 @@ type _SecretquestionGetAutocompleteV2Response SecretquestionGetAutocompleteV2Res
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSecretquestionGetAutocompleteV2Response(mPayload SecretquestionGetAutocompleteV2ResponseMPayload, objDebugPayload CommonResponseObjDebugPayload) *SecretquestionGetAutocompleteV2Response {
+func NewSecretquestionGetAutocompleteV2Response(objDebugPayload CommonResponseObjDebugPayload, mPayload SecretquestionGetAutocompleteV2ResponseMPayload) *SecretquestionGetAutocompleteV2Response {
 	this := SecretquestionGetAutocompleteV2Response{}
 	this.ObjDebugPayload = objDebugPayload
 	this.MPayload = mPayload
@@ -45,6 +46,62 @@ func NewSecretquestionGetAutocompleteV2Response(mPayload SecretquestionGetAutoco
 func NewSecretquestionGetAutocompleteV2ResponseWithDefaults() *SecretquestionGetAutocompleteV2Response {
 	this := SecretquestionGetAutocompleteV2Response{}
 	return &this
+}
+
+// GetObjDebugPayload returns the ObjDebugPayload field value
+func (o *SecretquestionGetAutocompleteV2Response) GetObjDebugPayload() CommonResponseObjDebugPayload {
+	if o == nil {
+		var ret CommonResponseObjDebugPayload
+		return ret
+	}
+
+	return o.ObjDebugPayload
+}
+
+// GetObjDebugPayloadOk returns a tuple with the ObjDebugPayload field value
+// and a boolean to check if the value has been set.
+func (o *SecretquestionGetAutocompleteV2Response) GetObjDebugPayloadOk() (*CommonResponseObjDebugPayload, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjDebugPayload, true
+}
+
+// SetObjDebugPayload sets field value
+func (o *SecretquestionGetAutocompleteV2Response) SetObjDebugPayload(v CommonResponseObjDebugPayload) {
+	o.ObjDebugPayload = v
+}
+
+// GetObjDebug returns the ObjDebug field value if set, zero value otherwise.
+func (o *SecretquestionGetAutocompleteV2Response) GetObjDebug() CommonResponseObjDebug {
+	if o == nil || IsNil(o.ObjDebug) {
+		var ret CommonResponseObjDebug
+		return ret
+	}
+	return *o.ObjDebug
+}
+
+// GetObjDebugOk returns a tuple with the ObjDebug field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SecretquestionGetAutocompleteV2Response) GetObjDebugOk() (*CommonResponseObjDebug, bool) {
+	if o == nil || IsNil(o.ObjDebug) {
+		return nil, false
+	}
+	return o.ObjDebug, true
+}
+
+// HasObjDebug returns a boolean if a field has been set.
+func (o *SecretquestionGetAutocompleteV2Response) HasObjDebug() bool {
+	if o != nil && !IsNil(o.ObjDebug) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjDebug gets a reference to the given CommonResponseObjDebug and assigns it to the ObjDebug field.
+func (o *SecretquestionGetAutocompleteV2Response) SetObjDebug(v CommonResponseObjDebug) {
+	o.ObjDebug = &v
 }
 
 // GetMPayload returns the MPayload field value
@@ -81,6 +138,10 @@ func (o SecretquestionGetAutocompleteV2Response) MarshalJSON() ([]byte, error) {
 
 func (o SecretquestionGetAutocompleteV2Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["objDebugPayload"] = o.ObjDebugPayload
+	if !IsNil(o.ObjDebug) {
+		toSerialize["objDebug"] = o.ObjDebug
+	}
 	toSerialize["mPayload"] = o.MPayload
 	return toSerialize, nil
 }
@@ -90,8 +151,8 @@ func (o *SecretquestionGetAutocompleteV2Response) UnmarshalJSON(data []byte) (er
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"mPayload",
 		"objDebugPayload",
+		"mPayload",
 	}
 
 	allProperties := make(map[string]interface{})

@@ -22,7 +22,11 @@ var _ MappedNullable = &EzsignsignergroupResponseCompound{}
 
 // EzsignsignergroupResponseCompound An Ezsignsignergroup Object
 type EzsignsignergroupResponseCompound struct {
-	EzsignsignergroupResponse
+	// The unique ID of the Ezsignsignergroup
+	PkiEzsignsignergroupID int32 `json:"pkiEzsignsignergroupID"`
+	ObjEzsignsignergroupDescription MultilingualEzsignsignergroupDescription `json:"objEzsignsignergroupDescription"`
+	// The Description of the Ezsignsignergroup in the language of the requester
+	SEzsignsignergroupDescriptionX *string `json:"sEzsignsignergroupDescriptionX,omitempty"`
 }
 
 type _EzsignsignergroupResponseCompound EzsignsignergroupResponseCompound
@@ -46,6 +50,86 @@ func NewEzsignsignergroupResponseCompoundWithDefaults() *EzsignsignergroupRespon
 	return &this
 }
 
+// GetPkiEzsignsignergroupID returns the PkiEzsignsignergroupID field value
+func (o *EzsignsignergroupResponseCompound) GetPkiEzsignsignergroupID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.PkiEzsignsignergroupID
+}
+
+// GetPkiEzsignsignergroupIDOk returns a tuple with the PkiEzsignsignergroupID field value
+// and a boolean to check if the value has been set.
+func (o *EzsignsignergroupResponseCompound) GetPkiEzsignsignergroupIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PkiEzsignsignergroupID, true
+}
+
+// SetPkiEzsignsignergroupID sets field value
+func (o *EzsignsignergroupResponseCompound) SetPkiEzsignsignergroupID(v int32) {
+	o.PkiEzsignsignergroupID = v
+}
+
+// GetObjEzsignsignergroupDescription returns the ObjEzsignsignergroupDescription field value
+func (o *EzsignsignergroupResponseCompound) GetObjEzsignsignergroupDescription() MultilingualEzsignsignergroupDescription {
+	if o == nil {
+		var ret MultilingualEzsignsignergroupDescription
+		return ret
+	}
+
+	return o.ObjEzsignsignergroupDescription
+}
+
+// GetObjEzsignsignergroupDescriptionOk returns a tuple with the ObjEzsignsignergroupDescription field value
+// and a boolean to check if the value has been set.
+func (o *EzsignsignergroupResponseCompound) GetObjEzsignsignergroupDescriptionOk() (*MultilingualEzsignsignergroupDescription, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjEzsignsignergroupDescription, true
+}
+
+// SetObjEzsignsignergroupDescription sets field value
+func (o *EzsignsignergroupResponseCompound) SetObjEzsignsignergroupDescription(v MultilingualEzsignsignergroupDescription) {
+	o.ObjEzsignsignergroupDescription = v
+}
+
+// GetSEzsignsignergroupDescriptionX returns the SEzsignsignergroupDescriptionX field value if set, zero value otherwise.
+func (o *EzsignsignergroupResponseCompound) GetSEzsignsignergroupDescriptionX() string {
+	if o == nil || IsNil(o.SEzsignsignergroupDescriptionX) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsignsignergroupDescriptionX
+}
+
+// GetSEzsignsignergroupDescriptionXOk returns a tuple with the SEzsignsignergroupDescriptionX field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignergroupResponseCompound) GetSEzsignsignergroupDescriptionXOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsignsignergroupDescriptionX) {
+		return nil, false
+	}
+	return o.SEzsignsignergroupDescriptionX, true
+}
+
+// HasSEzsignsignergroupDescriptionX returns a boolean if a field has been set.
+func (o *EzsignsignergroupResponseCompound) HasSEzsignsignergroupDescriptionX() bool {
+	if o != nil && !IsNil(o.SEzsignsignergroupDescriptionX) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsignsignergroupDescriptionX gets a reference to the given string and assigns it to the SEzsignsignergroupDescriptionX field.
+func (o *EzsignsignergroupResponseCompound) SetSEzsignsignergroupDescriptionX(v string) {
+	o.SEzsignsignergroupDescriptionX = &v
+}
+
 func (o EzsignsignergroupResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -56,6 +140,11 @@ func (o EzsignsignergroupResponseCompound) MarshalJSON() ([]byte, error) {
 
 func (o EzsignsignergroupResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["pkiEzsignsignergroupID"] = o.PkiEzsignsignergroupID
+	toSerialize["objEzsignsignergroupDescription"] = o.ObjEzsignsignergroupDescription
+	if !IsNil(o.SEzsignsignergroupDescriptionX) {
+		toSerialize["sEzsignsignergroupDescriptionX"] = o.SEzsignsignergroupDescriptionX
+	}
 	return toSerialize, nil
 }
 

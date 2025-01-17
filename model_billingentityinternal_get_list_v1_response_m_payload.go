@@ -22,7 +22,10 @@ var _ MappedNullable = &BillingentityinternalGetListV1ResponseMPayload{}
 
 // BillingentityinternalGetListV1ResponseMPayload Payload for GET /1/object/billingentityinternal/getList
 type BillingentityinternalGetListV1ResponseMPayload struct {
-	CommonGetListV1ResponseMPayload
+	// The number of rows returned
+	IRowReturned int32 `json:"iRowReturned"`
+	// The number of rows matching your filters (if any) or the total number of rows
+	IRowFiltered int32 `json:"iRowFiltered"`
 	AObjBillingentityinternal []BillingentityinternalListElement `json:"a_objBillingentityinternal"`
 }
 
@@ -32,7 +35,7 @@ type _BillingentityinternalGetListV1ResponseMPayload BillingentityinternalGetLis
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBillingentityinternalGetListV1ResponseMPayload(aObjBillingentityinternal []BillingentityinternalListElement, iRowReturned int32, iRowFiltered int32) *BillingentityinternalGetListV1ResponseMPayload {
+func NewBillingentityinternalGetListV1ResponseMPayload(iRowReturned int32, iRowFiltered int32, aObjBillingentityinternal []BillingentityinternalListElement) *BillingentityinternalGetListV1ResponseMPayload {
 	this := BillingentityinternalGetListV1ResponseMPayload{}
 	this.IRowReturned = iRowReturned
 	this.IRowFiltered = iRowFiltered
@@ -46,6 +49,54 @@ func NewBillingentityinternalGetListV1ResponseMPayload(aObjBillingentityinternal
 func NewBillingentityinternalGetListV1ResponseMPayloadWithDefaults() *BillingentityinternalGetListV1ResponseMPayload {
 	this := BillingentityinternalGetListV1ResponseMPayload{}
 	return &this
+}
+
+// GetIRowReturned returns the IRowReturned field value
+func (o *BillingentityinternalGetListV1ResponseMPayload) GetIRowReturned() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IRowReturned
+}
+
+// GetIRowReturnedOk returns a tuple with the IRowReturned field value
+// and a boolean to check if the value has been set.
+func (o *BillingentityinternalGetListV1ResponseMPayload) GetIRowReturnedOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IRowReturned, true
+}
+
+// SetIRowReturned sets field value
+func (o *BillingentityinternalGetListV1ResponseMPayload) SetIRowReturned(v int32) {
+	o.IRowReturned = v
+}
+
+// GetIRowFiltered returns the IRowFiltered field value
+func (o *BillingentityinternalGetListV1ResponseMPayload) GetIRowFiltered() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IRowFiltered
+}
+
+// GetIRowFilteredOk returns a tuple with the IRowFiltered field value
+// and a boolean to check if the value has been set.
+func (o *BillingentityinternalGetListV1ResponseMPayload) GetIRowFilteredOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IRowFiltered, true
+}
+
+// SetIRowFiltered sets field value
+func (o *BillingentityinternalGetListV1ResponseMPayload) SetIRowFiltered(v int32) {
+	o.IRowFiltered = v
 }
 
 // GetAObjBillingentityinternal returns the AObjBillingentityinternal field value
@@ -82,6 +133,8 @@ func (o BillingentityinternalGetListV1ResponseMPayload) MarshalJSON() ([]byte, e
 
 func (o BillingentityinternalGetListV1ResponseMPayload) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["iRowReturned"] = o.IRowReturned
+	toSerialize["iRowFiltered"] = o.IRowFiltered
 	toSerialize["a_objBillingentityinternal"] = o.AObjBillingentityinternal
 	return toSerialize, nil
 }
@@ -91,9 +144,9 @@ func (o *BillingentityinternalGetListV1ResponseMPayload) UnmarshalJSON(data []by
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"a_objBillingentityinternal",
 		"iRowReturned",
 		"iRowFiltered",
+		"a_objBillingentityinternal",
 	}
 
 	allProperties := make(map[string]interface{})

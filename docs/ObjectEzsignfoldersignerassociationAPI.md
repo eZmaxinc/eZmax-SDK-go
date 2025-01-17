@@ -224,7 +224,7 @@ Name | Type | Description  | Notes
 
 ## EzsignfoldersignerassociationDeleteObjectV1
 
-> CommonResponse EzsignfoldersignerassociationDeleteObjectV1(ctx, pkiEzsignfoldersignerassociationID).Execute()
+> EzsignfoldersignerassociationDeleteObjectV1Response EzsignfoldersignerassociationDeleteObjectV1(ctx, pkiEzsignfoldersignerassociationID).Execute()
 
 Delete an existing Ezsignfoldersignerassociation
 
@@ -252,7 +252,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldersignerassociationAPI.EzsignfoldersignerassociationDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignfoldersignerassociationDeleteObjectV1`: CommonResponse
+	// response from `EzsignfoldersignerassociationDeleteObjectV1`: EzsignfoldersignerassociationDeleteObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfoldersignerassociationAPI.EzsignfoldersignerassociationDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfoldersignerassociationDeleteObjectV1Response**](EzsignfoldersignerassociationDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -294,7 +294,7 @@ Name | Type | Description  | Notes
 
 ## EzsignfoldersignerassociationEditObjectV1
 
-> CommonResponse EzsignfoldersignerassociationEditObjectV1(ctx, pkiEzsignfoldersignerassociationID).EzsignfoldersignerassociationEditObjectV1Request(ezsignfoldersignerassociationEditObjectV1Request).Execute()
+> EzsignfoldersignerassociationEditObjectV1Response EzsignfoldersignerassociationEditObjectV1(ctx, pkiEzsignfoldersignerassociationID).EzsignfoldersignerassociationEditObjectV1Request(ezsignfoldersignerassociationEditObjectV1Request).Execute()
 
 Edit an existing Ezsignfoldersignerassociation
 
@@ -323,7 +323,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldersignerassociationAPI.EzsignfoldersignerassociationEditObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignfoldersignerassociationEditObjectV1`: CommonResponse
+	// response from `EzsignfoldersignerassociationEditObjectV1`: EzsignfoldersignerassociationEditObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfoldersignerassociationAPI.EzsignfoldersignerassociationEditObjectV1`: %v\n", resp)
 }
 ```
@@ -348,7 +348,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfoldersignerassociationEditObjectV1Response**](EzsignfoldersignerassociationEditObjectV1Response.md)
 
 ### Authorization
 
@@ -366,7 +366,7 @@ Name | Type | Description  | Notes
 
 ## EzsignfoldersignerassociationForceDisconnectV1
 
-> CommonResponse EzsignfoldersignerassociationForceDisconnectV1(ctx, pkiEzsignfoldersignerassociationID).Body(body).Execute()
+> EzsignfoldersignerassociationForceDisconnectV1Response EzsignfoldersignerassociationForceDisconnectV1(ctx, pkiEzsignfoldersignerassociationID).Body(body).Execute()
 
 Disconnects the Ezsignfoldersignerassociation
 
@@ -395,7 +395,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldersignerassociationAPI.EzsignfoldersignerassociationForceDisconnectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignfoldersignerassociationForceDisconnectV1`: CommonResponse
+	// response from `EzsignfoldersignerassociationForceDisconnectV1`: EzsignfoldersignerassociationForceDisconnectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfoldersignerassociationAPI.EzsignfoldersignerassociationForceDisconnectV1`: %v\n", resp)
 }
 ```
@@ -420,7 +420,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfoldersignerassociationForceDisconnectV1Response**](EzsignfoldersignerassociationForceDisconnectV1Response.md)
 
 ### Authorization
 
@@ -648,7 +648,7 @@ Name | Type | Description  | Notes
 
 ## EzsignfoldersignerassociationPatchObjectV1
 
-> CommonResponse EzsignfoldersignerassociationPatchObjectV1(ctx, pkiEzsignfoldersignerassociationID).EzsignfoldersignerassociationPatchObjectV1Request(ezsignfoldersignerassociationPatchObjectV1Request).Execute()
+> EzsignfoldersignerassociationPatchObjectV1Response EzsignfoldersignerassociationPatchObjectV1(ctx, pkiEzsignfoldersignerassociationID).EzsignfoldersignerassociationPatchObjectV1Request(ezsignfoldersignerassociationPatchObjectV1Request).Execute()
 
 Patch an existing Ezsignfoldersignerassociation
 
@@ -675,7 +675,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldersignerassociationAPI.EzsignfoldersignerassociationPatchObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignfoldersignerassociationPatchObjectV1`: CommonResponse
+	// response from `EzsignfoldersignerassociationPatchObjectV1`: EzsignfoldersignerassociationPatchObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfoldersignerassociationAPI.EzsignfoldersignerassociationPatchObjectV1`: %v\n", resp)
 }
 ```
@@ -700,7 +700,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfoldersignerassociationPatchObjectV1Response**](EzsignfoldersignerassociationPatchObjectV1Response.md)
 
 ### Authorization
 
@@ -718,7 +718,7 @@ Name | Type | Description  | Notes
 
 ## EzsignfoldersignerassociationReassignV1
 
-> CommonResponse EzsignfoldersignerassociationReassignV1(ctx, pkiEzsignfoldersignerassociationID).EzsignfoldersignerassociationReassignV1Request(ezsignfoldersignerassociationReassignV1Request).Execute()
+> EzsignfoldersignerassociationReassignV1Response EzsignfoldersignerassociationReassignV1(ctx, pkiEzsignfoldersignerassociationID).EzsignfoldersignerassociationReassignV1Request(ezsignfoldersignerassociationReassignV1Request).Execute()
 
 Reassign remaining unsigned signatures and forms
 
@@ -747,7 +747,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldersignerassociationAPI.EzsignfoldersignerassociationReassignV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignfoldersignerassociationReassignV1`: CommonResponse
+	// response from `EzsignfoldersignerassociationReassignV1`: EzsignfoldersignerassociationReassignV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfoldersignerassociationAPI.EzsignfoldersignerassociationReassignV1`: %v\n", resp)
 }
 ```
@@ -772,7 +772,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfoldersignerassociationReassignV1Response**](EzsignfoldersignerassociationReassignV1Response.md)
 
 ### Authorization
 

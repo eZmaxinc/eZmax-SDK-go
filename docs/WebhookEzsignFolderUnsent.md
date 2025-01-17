@@ -4,13 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ObjWebhook** | [**CustomWebhookResponse**](CustomWebhookResponse.md) |  | 
+**AObjAttempt** | [**[]AttemptResponseCompound**](AttemptResponseCompound.md) | An array containing details of previous attempts that were made to deliver the message. The array is empty if it&#39;s the first attempt. | 
 **ObjEzsignfolder** | [**EzsignfolderResponse**](EzsignfolderResponse.md) |  | 
 
 ## Methods
 
 ### NewWebhookEzsignFolderUnsent
 
-`func NewWebhookEzsignFolderUnsent(objEzsignfolder EzsignfolderResponse, ) *WebhookEzsignFolderUnsent`
+`func NewWebhookEzsignFolderUnsent(objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound, objEzsignfolder EzsignfolderResponse, ) *WebhookEzsignFolderUnsent`
 
 NewWebhookEzsignFolderUnsent instantiates a new WebhookEzsignFolderUnsent object
 This constructor will assign default values to properties that have it defined,
@@ -24,6 +26,46 @@ will change when the set of required properties is changed
 NewWebhookEzsignFolderUnsentWithDefaults instantiates a new WebhookEzsignFolderUnsent object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetObjWebhook
+
+`func (o *WebhookEzsignFolderUnsent) GetObjWebhook() CustomWebhookResponse`
+
+GetObjWebhook returns the ObjWebhook field if non-nil, zero value otherwise.
+
+### GetObjWebhookOk
+
+`func (o *WebhookEzsignFolderUnsent) GetObjWebhookOk() (*CustomWebhookResponse, bool)`
+
+GetObjWebhookOk returns a tuple with the ObjWebhook field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjWebhook
+
+`func (o *WebhookEzsignFolderUnsent) SetObjWebhook(v CustomWebhookResponse)`
+
+SetObjWebhook sets ObjWebhook field to given value.
+
+
+### GetAObjAttempt
+
+`func (o *WebhookEzsignFolderUnsent) GetAObjAttempt() []AttemptResponseCompound`
+
+GetAObjAttempt returns the AObjAttempt field if non-nil, zero value otherwise.
+
+### GetAObjAttemptOk
+
+`func (o *WebhookEzsignFolderUnsent) GetAObjAttemptOk() (*[]AttemptResponseCompound, bool)`
+
+GetAObjAttemptOk returns a tuple with the AObjAttempt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAObjAttempt
+
+`func (o *WebhookEzsignFolderUnsent) SetAObjAttempt(v []AttemptResponseCompound)`
+
+SetAObjAttempt sets AObjAttempt field to given value.
+
 
 ### GetObjEzsignfolder
 

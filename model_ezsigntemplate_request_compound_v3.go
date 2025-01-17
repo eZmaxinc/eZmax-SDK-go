@@ -22,7 +22,26 @@ var _ MappedNullable = &EzsigntemplateRequestCompoundV3{}
 
 // EzsigntemplateRequestCompoundV3 A Ezsigntemplate Object and children
 type EzsigntemplateRequestCompoundV3 struct {
-	EzsigntemplateRequestV3
+	// The unique ID of the Ezsigntemplate
+	PkiEzsigntemplateID *int32 `json:"pkiEzsigntemplateID,omitempty"`
+	// The unique ID of the Ezsignfoldertype.
+	FkiEzsignfoldertypeID *int32 `json:"fkiEzsignfoldertypeID,omitempty"`
+	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
+	FkiLanguageID int32 `json:"fkiLanguageID"`
+	// The unique ID of the Ezdoctemplatedocument
+	FkiEzdoctemplatedocumentID *int32 `json:"fkiEzdoctemplatedocumentID,omitempty"`
+	// The description of the Ezsigntemplate
+	SEzsigntemplateDescription string `json:"sEzsigntemplateDescription" validate:"regexp=^.{0,80}$"`
+	// The external description of the Ezsigntemplate
+	SEzsigntemplateExternaldescription *string `json:"sEzsigntemplateExternaldescription,omitempty" validate:"regexp=^.{0,75}$"`
+	// The comment of the Ezsigntemplate
+	TEzsigntemplateComment *string `json:"tEzsigntemplateComment,omitempty"`
+	EEzsigntemplateRecognition *FieldEEzsigntemplateRecognition `json:"eEzsigntemplateRecognition,omitempty"`
+	// The filename regexp of the Ezsigntemplate.
+	SEzsigntemplateFilenameregexp *string `json:"sEzsigntemplateFilenameregexp,omitempty" validate:"regexp=^.{1,50}$"`
+	// Whether the Ezsigntemplate can be accessed by admin users only (eUserType=Normal)
+	BEzsigntemplateAdminonly bool `json:"bEzsigntemplateAdminonly"`
+	EEzsigntemplateType FieldEEzsigntemplateType `json:"eEzsigntemplateType"`
 }
 
 type _EzsigntemplateRequestCompoundV3 EzsigntemplateRequestCompoundV3
@@ -47,7 +66,329 @@ func NewEzsigntemplateRequestCompoundV3(fkiLanguageID int32, sEzsigntemplateDesc
 // but it doesn't guarantee that properties required by API are set
 func NewEzsigntemplateRequestCompoundV3WithDefaults() *EzsigntemplateRequestCompoundV3 {
 	this := EzsigntemplateRequestCompoundV3{}
+	var eEzsigntemplateRecognition FieldEEzsigntemplateRecognition = NO
+	this.EEzsigntemplateRecognition = &eEzsigntemplateRecognition
 	return &this
+}
+
+// GetPkiEzsigntemplateID returns the PkiEzsigntemplateID field value if set, zero value otherwise.
+func (o *EzsigntemplateRequestCompoundV3) GetPkiEzsigntemplateID() int32 {
+	if o == nil || IsNil(o.PkiEzsigntemplateID) {
+		var ret int32
+		return ret
+	}
+	return *o.PkiEzsigntemplateID
+}
+
+// GetPkiEzsigntemplateIDOk returns a tuple with the PkiEzsigntemplateID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateRequestCompoundV3) GetPkiEzsigntemplateIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.PkiEzsigntemplateID) {
+		return nil, false
+	}
+	return o.PkiEzsigntemplateID, true
+}
+
+// HasPkiEzsigntemplateID returns a boolean if a field has been set.
+func (o *EzsigntemplateRequestCompoundV3) HasPkiEzsigntemplateID() bool {
+	if o != nil && !IsNil(o.PkiEzsigntemplateID) {
+		return true
+	}
+
+	return false
+}
+
+// SetPkiEzsigntemplateID gets a reference to the given int32 and assigns it to the PkiEzsigntemplateID field.
+func (o *EzsigntemplateRequestCompoundV3) SetPkiEzsigntemplateID(v int32) {
+	o.PkiEzsigntemplateID = &v
+}
+
+// GetFkiEzsignfoldertypeID returns the FkiEzsignfoldertypeID field value if set, zero value otherwise.
+func (o *EzsigntemplateRequestCompoundV3) GetFkiEzsignfoldertypeID() int32 {
+	if o == nil || IsNil(o.FkiEzsignfoldertypeID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEzsignfoldertypeID
+}
+
+// GetFkiEzsignfoldertypeIDOk returns a tuple with the FkiEzsignfoldertypeID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateRequestCompoundV3) GetFkiEzsignfoldertypeIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEzsignfoldertypeID) {
+		return nil, false
+	}
+	return o.FkiEzsignfoldertypeID, true
+}
+
+// HasFkiEzsignfoldertypeID returns a boolean if a field has been set.
+func (o *EzsigntemplateRequestCompoundV3) HasFkiEzsignfoldertypeID() bool {
+	if o != nil && !IsNil(o.FkiEzsignfoldertypeID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzsignfoldertypeID gets a reference to the given int32 and assigns it to the FkiEzsignfoldertypeID field.
+func (o *EzsigntemplateRequestCompoundV3) SetFkiEzsignfoldertypeID(v int32) {
+	o.FkiEzsignfoldertypeID = &v
+}
+
+// GetFkiLanguageID returns the FkiLanguageID field value
+func (o *EzsigntemplateRequestCompoundV3) GetFkiLanguageID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiLanguageID
+}
+
+// GetFkiLanguageIDOk returns a tuple with the FkiLanguageID field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateRequestCompoundV3) GetFkiLanguageIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiLanguageID, true
+}
+
+// SetFkiLanguageID sets field value
+func (o *EzsigntemplateRequestCompoundV3) SetFkiLanguageID(v int32) {
+	o.FkiLanguageID = v
+}
+
+// GetFkiEzdoctemplatedocumentID returns the FkiEzdoctemplatedocumentID field value if set, zero value otherwise.
+func (o *EzsigntemplateRequestCompoundV3) GetFkiEzdoctemplatedocumentID() int32 {
+	if o == nil || IsNil(o.FkiEzdoctemplatedocumentID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEzdoctemplatedocumentID
+}
+
+// GetFkiEzdoctemplatedocumentIDOk returns a tuple with the FkiEzdoctemplatedocumentID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateRequestCompoundV3) GetFkiEzdoctemplatedocumentIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEzdoctemplatedocumentID) {
+		return nil, false
+	}
+	return o.FkiEzdoctemplatedocumentID, true
+}
+
+// HasFkiEzdoctemplatedocumentID returns a boolean if a field has been set.
+func (o *EzsigntemplateRequestCompoundV3) HasFkiEzdoctemplatedocumentID() bool {
+	if o != nil && !IsNil(o.FkiEzdoctemplatedocumentID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzdoctemplatedocumentID gets a reference to the given int32 and assigns it to the FkiEzdoctemplatedocumentID field.
+func (o *EzsigntemplateRequestCompoundV3) SetFkiEzdoctemplatedocumentID(v int32) {
+	o.FkiEzdoctemplatedocumentID = &v
+}
+
+// GetSEzsigntemplateDescription returns the SEzsigntemplateDescription field value
+func (o *EzsigntemplateRequestCompoundV3) GetSEzsigntemplateDescription() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SEzsigntemplateDescription
+}
+
+// GetSEzsigntemplateDescriptionOk returns a tuple with the SEzsigntemplateDescription field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateRequestCompoundV3) GetSEzsigntemplateDescriptionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SEzsigntemplateDescription, true
+}
+
+// SetSEzsigntemplateDescription sets field value
+func (o *EzsigntemplateRequestCompoundV3) SetSEzsigntemplateDescription(v string) {
+	o.SEzsigntemplateDescription = v
+}
+
+// GetSEzsigntemplateExternaldescription returns the SEzsigntemplateExternaldescription field value if set, zero value otherwise.
+func (o *EzsigntemplateRequestCompoundV3) GetSEzsigntemplateExternaldescription() string {
+	if o == nil || IsNil(o.SEzsigntemplateExternaldescription) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsigntemplateExternaldescription
+}
+
+// GetSEzsigntemplateExternaldescriptionOk returns a tuple with the SEzsigntemplateExternaldescription field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateRequestCompoundV3) GetSEzsigntemplateExternaldescriptionOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsigntemplateExternaldescription) {
+		return nil, false
+	}
+	return o.SEzsigntemplateExternaldescription, true
+}
+
+// HasSEzsigntemplateExternaldescription returns a boolean if a field has been set.
+func (o *EzsigntemplateRequestCompoundV3) HasSEzsigntemplateExternaldescription() bool {
+	if o != nil && !IsNil(o.SEzsigntemplateExternaldescription) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsigntemplateExternaldescription gets a reference to the given string and assigns it to the SEzsigntemplateExternaldescription field.
+func (o *EzsigntemplateRequestCompoundV3) SetSEzsigntemplateExternaldescription(v string) {
+	o.SEzsigntemplateExternaldescription = &v
+}
+
+// GetTEzsigntemplateComment returns the TEzsigntemplateComment field value if set, zero value otherwise.
+func (o *EzsigntemplateRequestCompoundV3) GetTEzsigntemplateComment() string {
+	if o == nil || IsNil(o.TEzsigntemplateComment) {
+		var ret string
+		return ret
+	}
+	return *o.TEzsigntemplateComment
+}
+
+// GetTEzsigntemplateCommentOk returns a tuple with the TEzsigntemplateComment field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateRequestCompoundV3) GetTEzsigntemplateCommentOk() (*string, bool) {
+	if o == nil || IsNil(o.TEzsigntemplateComment) {
+		return nil, false
+	}
+	return o.TEzsigntemplateComment, true
+}
+
+// HasTEzsigntemplateComment returns a boolean if a field has been set.
+func (o *EzsigntemplateRequestCompoundV3) HasTEzsigntemplateComment() bool {
+	if o != nil && !IsNil(o.TEzsigntemplateComment) {
+		return true
+	}
+
+	return false
+}
+
+// SetTEzsigntemplateComment gets a reference to the given string and assigns it to the TEzsigntemplateComment field.
+func (o *EzsigntemplateRequestCompoundV3) SetTEzsigntemplateComment(v string) {
+	o.TEzsigntemplateComment = &v
+}
+
+// GetEEzsigntemplateRecognition returns the EEzsigntemplateRecognition field value if set, zero value otherwise.
+func (o *EzsigntemplateRequestCompoundV3) GetEEzsigntemplateRecognition() FieldEEzsigntemplateRecognition {
+	if o == nil || IsNil(o.EEzsigntemplateRecognition) {
+		var ret FieldEEzsigntemplateRecognition
+		return ret
+	}
+	return *o.EEzsigntemplateRecognition
+}
+
+// GetEEzsigntemplateRecognitionOk returns a tuple with the EEzsigntemplateRecognition field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateRequestCompoundV3) GetEEzsigntemplateRecognitionOk() (*FieldEEzsigntemplateRecognition, bool) {
+	if o == nil || IsNil(o.EEzsigntemplateRecognition) {
+		return nil, false
+	}
+	return o.EEzsigntemplateRecognition, true
+}
+
+// HasEEzsigntemplateRecognition returns a boolean if a field has been set.
+func (o *EzsigntemplateRequestCompoundV3) HasEEzsigntemplateRecognition() bool {
+	if o != nil && !IsNil(o.EEzsigntemplateRecognition) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsigntemplateRecognition gets a reference to the given FieldEEzsigntemplateRecognition and assigns it to the EEzsigntemplateRecognition field.
+func (o *EzsigntemplateRequestCompoundV3) SetEEzsigntemplateRecognition(v FieldEEzsigntemplateRecognition) {
+	o.EEzsigntemplateRecognition = &v
+}
+
+// GetSEzsigntemplateFilenameregexp returns the SEzsigntemplateFilenameregexp field value if set, zero value otherwise.
+func (o *EzsigntemplateRequestCompoundV3) GetSEzsigntemplateFilenameregexp() string {
+	if o == nil || IsNil(o.SEzsigntemplateFilenameregexp) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsigntemplateFilenameregexp
+}
+
+// GetSEzsigntemplateFilenameregexpOk returns a tuple with the SEzsigntemplateFilenameregexp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateRequestCompoundV3) GetSEzsigntemplateFilenameregexpOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsigntemplateFilenameregexp) {
+		return nil, false
+	}
+	return o.SEzsigntemplateFilenameregexp, true
+}
+
+// HasSEzsigntemplateFilenameregexp returns a boolean if a field has been set.
+func (o *EzsigntemplateRequestCompoundV3) HasSEzsigntemplateFilenameregexp() bool {
+	if o != nil && !IsNil(o.SEzsigntemplateFilenameregexp) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsigntemplateFilenameregexp gets a reference to the given string and assigns it to the SEzsigntemplateFilenameregexp field.
+func (o *EzsigntemplateRequestCompoundV3) SetSEzsigntemplateFilenameregexp(v string) {
+	o.SEzsigntemplateFilenameregexp = &v
+}
+
+// GetBEzsigntemplateAdminonly returns the BEzsigntemplateAdminonly field value
+func (o *EzsigntemplateRequestCompoundV3) GetBEzsigntemplateAdminonly() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BEzsigntemplateAdminonly
+}
+
+// GetBEzsigntemplateAdminonlyOk returns a tuple with the BEzsigntemplateAdminonly field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateRequestCompoundV3) GetBEzsigntemplateAdminonlyOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BEzsigntemplateAdminonly, true
+}
+
+// SetBEzsigntemplateAdminonly sets field value
+func (o *EzsigntemplateRequestCompoundV3) SetBEzsigntemplateAdminonly(v bool) {
+	o.BEzsigntemplateAdminonly = v
+}
+
+// GetEEzsigntemplateType returns the EEzsigntemplateType field value
+func (o *EzsigntemplateRequestCompoundV3) GetEEzsigntemplateType() FieldEEzsigntemplateType {
+	if o == nil {
+		var ret FieldEEzsigntemplateType
+		return ret
+	}
+
+	return o.EEzsigntemplateType
+}
+
+// GetEEzsigntemplateTypeOk returns a tuple with the EEzsigntemplateType field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateRequestCompoundV3) GetEEzsigntemplateTypeOk() (*FieldEEzsigntemplateType, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EEzsigntemplateType, true
+}
+
+// SetEEzsigntemplateType sets field value
+func (o *EzsigntemplateRequestCompoundV3) SetEEzsigntemplateType(v FieldEEzsigntemplateType) {
+	o.EEzsigntemplateType = v
 }
 
 func (o EzsigntemplateRequestCompoundV3) MarshalJSON() ([]byte, error) {
@@ -60,6 +401,31 @@ func (o EzsigntemplateRequestCompoundV3) MarshalJSON() ([]byte, error) {
 
 func (o EzsigntemplateRequestCompoundV3) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.PkiEzsigntemplateID) {
+		toSerialize["pkiEzsigntemplateID"] = o.PkiEzsigntemplateID
+	}
+	if !IsNil(o.FkiEzsignfoldertypeID) {
+		toSerialize["fkiEzsignfoldertypeID"] = o.FkiEzsignfoldertypeID
+	}
+	toSerialize["fkiLanguageID"] = o.FkiLanguageID
+	if !IsNil(o.FkiEzdoctemplatedocumentID) {
+		toSerialize["fkiEzdoctemplatedocumentID"] = o.FkiEzdoctemplatedocumentID
+	}
+	toSerialize["sEzsigntemplateDescription"] = o.SEzsigntemplateDescription
+	if !IsNil(o.SEzsigntemplateExternaldescription) {
+		toSerialize["sEzsigntemplateExternaldescription"] = o.SEzsigntemplateExternaldescription
+	}
+	if !IsNil(o.TEzsigntemplateComment) {
+		toSerialize["tEzsigntemplateComment"] = o.TEzsigntemplateComment
+	}
+	if !IsNil(o.EEzsigntemplateRecognition) {
+		toSerialize["eEzsigntemplateRecognition"] = o.EEzsigntemplateRecognition
+	}
+	if !IsNil(o.SEzsigntemplateFilenameregexp) {
+		toSerialize["sEzsigntemplateFilenameregexp"] = o.SEzsigntemplateFilenameregexp
+	}
+	toSerialize["bEzsigntemplateAdminonly"] = o.BEzsigntemplateAdminonly
+	toSerialize["eEzsigntemplateType"] = o.EEzsigntemplateType
 	return toSerialize, nil
 }
 

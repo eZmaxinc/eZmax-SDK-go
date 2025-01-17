@@ -154,7 +154,7 @@ type ApiEzsigntemplatedocumentpagerecognitionDeleteObjectV1Request struct {
 	pkiEzsigntemplatedocumentpagerecognitionID int32
 }
 
-func (r ApiEzsigntemplatedocumentpagerecognitionDeleteObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsigntemplatedocumentpagerecognitionDeleteObjectV1Request) Execute() (*EzsigntemplatedocumentpagerecognitionDeleteObjectV1Response, *http.Response, error) {
 	return r.ApiService.EzsigntemplatedocumentpagerecognitionDeleteObjectV1Execute(r)
 }
 
@@ -176,13 +176,13 @@ func (a *ObjectEzsigntemplatedocumentpagerecognitionAPIService) Ezsigntemplatedo
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectEzsigntemplatedocumentpagerecognitionAPIService) EzsigntemplatedocumentpagerecognitionDeleteObjectV1Execute(r ApiEzsigntemplatedocumentpagerecognitionDeleteObjectV1Request) (*CommonResponse, *http.Response, error) {
+//  @return EzsigntemplatedocumentpagerecognitionDeleteObjectV1Response
+func (a *ObjectEzsigntemplatedocumentpagerecognitionAPIService) EzsigntemplatedocumentpagerecognitionDeleteObjectV1Execute(r ApiEzsigntemplatedocumentpagerecognitionDeleteObjectV1Request) (*EzsigntemplatedocumentpagerecognitionDeleteObjectV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsigntemplatedocumentpagerecognitionDeleteObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigntemplatedocumentpagerecognitionAPIService.EzsigntemplatedocumentpagerecognitionDeleteObjectV1")
@@ -293,7 +293,7 @@ func (r ApiEzsigntemplatedocumentpagerecognitionEditObjectV1Request) Ezsigntempl
 	return r
 }
 
-func (r ApiEzsigntemplatedocumentpagerecognitionEditObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsigntemplatedocumentpagerecognitionEditObjectV1Request) Execute() (*EzsigntemplatedocumentpagerecognitionEditObjectV1Response, *http.Response, error) {
 	return r.ApiService.EzsigntemplatedocumentpagerecognitionEditObjectV1Execute(r)
 }
 
@@ -315,13 +315,13 @@ func (a *ObjectEzsigntemplatedocumentpagerecognitionAPIService) Ezsigntemplatedo
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectEzsigntemplatedocumentpagerecognitionAPIService) EzsigntemplatedocumentpagerecognitionEditObjectV1Execute(r ApiEzsigntemplatedocumentpagerecognitionEditObjectV1Request) (*CommonResponse, *http.Response, error) {
+//  @return EzsigntemplatedocumentpagerecognitionEditObjectV1Response
+func (a *ObjectEzsigntemplatedocumentpagerecognitionAPIService) EzsigntemplatedocumentpagerecognitionEditObjectV1Execute(r ApiEzsigntemplatedocumentpagerecognitionEditObjectV1Request) (*EzsigntemplatedocumentpagerecognitionEditObjectV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsigntemplatedocumentpagerecognitionEditObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigntemplatedocumentpagerecognitionAPIService.EzsigntemplatedocumentpagerecognitionEditObjectV1")

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## EzsignuserEditObjectV1
 
-> CommonResponse EzsignuserEditObjectV1(ctx, pkiEzsignuserID).EzsignuserEditObjectV1Request(ezsignuserEditObjectV1Request).Execute()
+> EzsignuserEditObjectV1Response EzsignuserEditObjectV1(ctx, pkiEzsignuserID).EzsignuserEditObjectV1Request(ezsignuserEditObjectV1Request).Execute()
 
 Edit an existing Ezsignuser
 
@@ -31,7 +31,7 @@ import (
 
 func main() {
 	pkiEzsignuserID := int32(56) // int32 | The unique ID of the Ezsignuser
-	ezsignuserEditObjectV1Request := *openapiclient.NewEzsignuserEditObjectV1Request(*openapiclient.NewEzsignuserRequestCompound(int32(21), *openapiclient.NewContactRequestCompoundV2(*openapiclient.NewContactinformationsRequestCompoundV2([]openapiclient.AddressRequestCompound{*openapiclient.NewAddressRequest(int32(1), "2540", "Daniel-Johnson Blvd.", "Laval", int32(11), int32(1), "H7T2S3")}, []openapiclient.PhoneRequestCompound{*openapiclient.NewPhoneRequest(int32(1))}, []openapiclient.EmailRequestCompound{*openapiclient.NewEmailRequest(int32(1), "email@example.com")}, []openapiclient.WebsiteRequestCompound{*openapiclient.NewWebsiteRequest(int32(1), "https://www.example.com")}, openapiclient.Field-eContactinformationsType("BankAccount"), int32(123), int32(123), int32(123), int32(123)), int32(2), int32(2), openapiclient.Field-eContactType("Agent"), "John", "Doe"))) // EzsignuserEditObjectV1Request | 
+	ezsignuserEditObjectV1Request := *openapiclient.NewEzsignuserEditObjectV1Request(*openapiclient.NewEzsignuserRequestCompound(int32(21), *openapiclient.NewContactRequestCompoundV2(int32(2), int32(2), openapiclient.Field-eContactType("Agent"), "John", "Doe", *openapiclient.NewContactinformationsRequestCompoundV2(openapiclient.Field-eContactinformationsType("BankAccount"), int32(123), int32(123), int32(123), int32(123), []openapiclient.AddressRequestCompound{*openapiclient.NewAddressRequestCompound(int32(1), "2540", "Daniel-Johnson Blvd.", "Laval", int32(11), int32(1), "H7T2S3")}, []openapiclient.PhoneRequestCompound{*openapiclient.NewPhoneRequestCompound(int32(1))}, []openapiclient.EmailRequestCompound{*openapiclient.NewEmailRequestCompound(int32(1), "email@example.com")}, []openapiclient.WebsiteRequestCompound{*openapiclient.NewWebsiteRequestCompound(int32(1), "https://www.example.com")})))) // EzsignuserEditObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -40,7 +40,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignuserAPI.EzsignuserEditObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignuserEditObjectV1`: CommonResponse
+	// response from `EzsignuserEditObjectV1`: EzsignuserEditObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignuserAPI.EzsignuserEditObjectV1`: %v\n", resp)
 }
 ```
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignuserEditObjectV1Response**](EzsignuserEditObjectV1Response.md)
 
 ### Authorization
 

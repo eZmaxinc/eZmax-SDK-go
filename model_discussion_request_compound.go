@@ -22,7 +22,12 @@ var _ MappedNullable = &DiscussionRequestCompound{}
 
 // DiscussionRequestCompound A Discussion Object and children
 type DiscussionRequestCompound struct {
-	DiscussionRequest
+	// The unique ID of the Discussion
+	PkiDiscussionID *int32 `json:"pkiDiscussionID,omitempty"`
+	// The description of the Discussion
+	SDiscussionDescription string `json:"sDiscussionDescription" validate:"regexp=^.{0,75}$"`
+	// Whether if it's an closed
+	BDiscussionClosed *bool `json:"bDiscussionClosed,omitempty"`
 }
 
 type _DiscussionRequestCompound DiscussionRequestCompound
@@ -45,6 +50,94 @@ func NewDiscussionRequestCompoundWithDefaults() *DiscussionRequestCompound {
 	return &this
 }
 
+// GetPkiDiscussionID returns the PkiDiscussionID field value if set, zero value otherwise.
+func (o *DiscussionRequestCompound) GetPkiDiscussionID() int32 {
+	if o == nil || IsNil(o.PkiDiscussionID) {
+		var ret int32
+		return ret
+	}
+	return *o.PkiDiscussionID
+}
+
+// GetPkiDiscussionIDOk returns a tuple with the PkiDiscussionID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DiscussionRequestCompound) GetPkiDiscussionIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.PkiDiscussionID) {
+		return nil, false
+	}
+	return o.PkiDiscussionID, true
+}
+
+// HasPkiDiscussionID returns a boolean if a field has been set.
+func (o *DiscussionRequestCompound) HasPkiDiscussionID() bool {
+	if o != nil && !IsNil(o.PkiDiscussionID) {
+		return true
+	}
+
+	return false
+}
+
+// SetPkiDiscussionID gets a reference to the given int32 and assigns it to the PkiDiscussionID field.
+func (o *DiscussionRequestCompound) SetPkiDiscussionID(v int32) {
+	o.PkiDiscussionID = &v
+}
+
+// GetSDiscussionDescription returns the SDiscussionDescription field value
+func (o *DiscussionRequestCompound) GetSDiscussionDescription() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SDiscussionDescription
+}
+
+// GetSDiscussionDescriptionOk returns a tuple with the SDiscussionDescription field value
+// and a boolean to check if the value has been set.
+func (o *DiscussionRequestCompound) GetSDiscussionDescriptionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SDiscussionDescription, true
+}
+
+// SetSDiscussionDescription sets field value
+func (o *DiscussionRequestCompound) SetSDiscussionDescription(v string) {
+	o.SDiscussionDescription = v
+}
+
+// GetBDiscussionClosed returns the BDiscussionClosed field value if set, zero value otherwise.
+func (o *DiscussionRequestCompound) GetBDiscussionClosed() bool {
+	if o == nil || IsNil(o.BDiscussionClosed) {
+		var ret bool
+		return ret
+	}
+	return *o.BDiscussionClosed
+}
+
+// GetBDiscussionClosedOk returns a tuple with the BDiscussionClosed field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DiscussionRequestCompound) GetBDiscussionClosedOk() (*bool, bool) {
+	if o == nil || IsNil(o.BDiscussionClosed) {
+		return nil, false
+	}
+	return o.BDiscussionClosed, true
+}
+
+// HasBDiscussionClosed returns a boolean if a field has been set.
+func (o *DiscussionRequestCompound) HasBDiscussionClosed() bool {
+	if o != nil && !IsNil(o.BDiscussionClosed) {
+		return true
+	}
+
+	return false
+}
+
+// SetBDiscussionClosed gets a reference to the given bool and assigns it to the BDiscussionClosed field.
+func (o *DiscussionRequestCompound) SetBDiscussionClosed(v bool) {
+	o.BDiscussionClosed = &v
+}
+
 func (o DiscussionRequestCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -55,6 +148,13 @@ func (o DiscussionRequestCompound) MarshalJSON() ([]byte, error) {
 
 func (o DiscussionRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.PkiDiscussionID) {
+		toSerialize["pkiDiscussionID"] = o.PkiDiscussionID
+	}
+	toSerialize["sDiscussionDescription"] = o.SDiscussionDescription
+	if !IsNil(o.BDiscussionClosed) {
+		toSerialize["bDiscussionClosed"] = o.BDiscussionClosed
+	}
 	return toSerialize, nil
 }
 

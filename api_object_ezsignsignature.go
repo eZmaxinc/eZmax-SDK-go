@@ -412,7 +412,7 @@ type ApiEzsignsignatureDeleteObjectV1Request struct {
 	pkiEzsignsignatureID int32
 }
 
-func (r ApiEzsignsignatureDeleteObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsignsignatureDeleteObjectV1Request) Execute() (*EzsignsignatureDeleteObjectV1Response, *http.Response, error) {
 	return r.ApiService.EzsignsignatureDeleteObjectV1Execute(r)
 }
 
@@ -434,13 +434,13 @@ func (a *ObjectEzsignsignatureAPIService) EzsignsignatureDeleteObjectV1(ctx cont
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectEzsignsignatureAPIService) EzsignsignatureDeleteObjectV1Execute(r ApiEzsignsignatureDeleteObjectV1Request) (*CommonResponse, *http.Response, error) {
+//  @return EzsignsignatureDeleteObjectV1Response
+func (a *ObjectEzsignsignatureAPIService) EzsignsignatureDeleteObjectV1Execute(r ApiEzsignsignatureDeleteObjectV1Request) (*EzsignsignatureDeleteObjectV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsignsignatureDeleteObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignsignatureAPIService.EzsignsignatureDeleteObjectV1")
@@ -559,7 +559,7 @@ func (r ApiEzsignsignatureEditObjectV2Request) EzsignsignatureEditObjectV2Reques
 	return r
 }
 
-func (r ApiEzsignsignatureEditObjectV2Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsignsignatureEditObjectV2Request) Execute() (*EzsignsignatureEditObjectV2Response, *http.Response, error) {
 	return r.ApiService.EzsignsignatureEditObjectV2Execute(r)
 }
 
@@ -581,13 +581,13 @@ func (a *ObjectEzsignsignatureAPIService) EzsignsignatureEditObjectV2(ctx contex
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectEzsignsignatureAPIService) EzsignsignatureEditObjectV2Execute(r ApiEzsignsignatureEditObjectV2Request) (*CommonResponse, *http.Response, error) {
+//  @return EzsignsignatureEditObjectV2Response
+func (a *ObjectEzsignsignatureAPIService) EzsignsignatureEditObjectV2Execute(r ApiEzsignsignatureEditObjectV2Request) (*EzsignsignatureEditObjectV2Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsignsignatureEditObjectV2Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignsignatureAPIService.EzsignsignatureEditObjectV2")

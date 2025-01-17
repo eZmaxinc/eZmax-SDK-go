@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SEzsignformfieldLabel** | **string** | The Label for the Ezsignformfield | 
-**AObjEzsignformfielderrortest** | **[]map[string]interface{}** |  | 
+**AObjEzsignformfielderrortest** | [**[]CustomEzsignformfielderrortestResponse**](CustomEzsignformfielderrortestResponse.md) |  | 
 
 ## Methods
 

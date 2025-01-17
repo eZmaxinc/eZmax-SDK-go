@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **STimezoneName** | **string** | The description of the Timezone | 
 **FkiLanguageID** | **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
 **SLanguageNameX** | **string** | The Name of the Language in the language of the requester | 
-**ObjEmail** | [**EmailResponse**](EmailResponse.md) | An Email Object and children to create a complete structure | 
+**ObjEmail** | [**EmailResponseCompound**](EmailResponseCompound.md) |  | 
 **FkiBillingentityinternalID** | **int32** | The unique ID of the Billingentityinternal. | 
 **SBillingentityinternalDescriptionX** | **string** | The description of the Billingentityinternal in the language of the requester | 
 **ObjPhoneHome** | Pointer to [**PhoneResponseCompound**](PhoneResponseCompound.md) |  | [optional] 
@@ -47,7 +47,7 @@ Name | Type | Description | Notes
 
 ### NewUserResponse
 
-`func NewUserResponse(pkiUserID int32, fkiCompanyIDDefault int32, sCompanyNameX string, fkiDepartmentIDDefault int32, sDepartmentNameX string, fkiTimezoneID int32, sTimezoneName string, fkiLanguageID int32, sLanguageNameX string, objEmail EmailResponse, fkiBillingentityinternalID int32, sBillingentityinternalDescriptionX string, eUserOrigin FieldEUserOrigin, eUserType FieldEUserType, eUserLogintype FieldEUserLogintype, sUserFirstname string, sUserLastname string, sUserLoginname string, eUserEzsignaccess FieldEUserEzsignaccess, bUserIsactive bool, bUserChangepassword bool, objAudit CommonAudit, ) *UserResponse`
+`func NewUserResponse(pkiUserID int32, fkiCompanyIDDefault int32, sCompanyNameX string, fkiDepartmentIDDefault int32, sDepartmentNameX string, fkiTimezoneID int32, sTimezoneName string, fkiLanguageID int32, sLanguageNameX string, objEmail EmailResponseCompound, fkiBillingentityinternalID int32, sBillingentityinternalDescriptionX string, eUserOrigin FieldEUserOrigin, eUserType FieldEUserType, eUserLogintype FieldEUserLogintype, sUserFirstname string, sUserLastname string, sUserLoginname string, eUserEzsignaccess FieldEUserEzsignaccess, bUserIsactive bool, bUserChangepassword bool, objAudit CommonAudit, ) *UserResponse`
 
 NewUserResponse instantiates a new UserResponse object
 This constructor will assign default values to properties that have it defined,
@@ -344,20 +344,20 @@ SetSLanguageNameX sets SLanguageNameX field to given value.
 
 ### GetObjEmail
 
-`func (o *UserResponse) GetObjEmail() EmailResponse`
+`func (o *UserResponse) GetObjEmail() EmailResponseCompound`
 
 GetObjEmail returns the ObjEmail field if non-nil, zero value otherwise.
 
 ### GetObjEmailOk
 
-`func (o *UserResponse) GetObjEmailOk() (*EmailResponse, bool)`
+`func (o *UserResponse) GetObjEmailOk() (*EmailResponseCompound, bool)`
 
 GetObjEmailOk returns a tuple with the ObjEmail field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObjEmail
 
-`func (o *UserResponse) SetObjEmail(v EmailResponse)`
+`func (o *UserResponse) SetObjEmail(v EmailResponseCompound)`
 
 SetObjEmail sets ObjEmail field to given value.
 

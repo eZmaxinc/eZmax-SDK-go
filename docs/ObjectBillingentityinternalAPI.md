@@ -33,7 +33,7 @@ import (
 )
 
 func main() {
-	billingentityinternalCreateObjectV1Request := *openapiclient.NewBillingentityinternalCreateObjectV1Request([]openapiclient.BillingentityinternalRequestCompound{*openapiclient.NewBillingentityinternalRequestCompound([]openapiclient.BillingentityinternalproductRequestCompound{*openapiclient.NewBillingentityinternalproductRequestCompound(int32(172), int32(83))}, *openapiclient.NewMultilingualBillingentityinternalDescription())}) // BillingentityinternalCreateObjectV1Request | 
+	billingentityinternalCreateObjectV1Request := *openapiclient.NewBillingentityinternalCreateObjectV1Request([]openapiclient.BillingentityinternalRequestCompound{*openapiclient.NewBillingentityinternalRequestCompound(*openapiclient.NewMultilingualBillingentityinternalDescription(), []openapiclient.BillingentityinternalproductRequestCompound{*openapiclient.NewBillingentityinternalproductRequestCompound(int32(172), int32(83))})}) // BillingentityinternalCreateObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 ## BillingentityinternalEditObjectV1
 
-> CommonResponse BillingentityinternalEditObjectV1(ctx, pkiBillingentityinternalID).BillingentityinternalEditObjectV1Request(billingentityinternalEditObjectV1Request).Execute()
+> BillingentityinternalEditObjectV1Response BillingentityinternalEditObjectV1(ctx, pkiBillingentityinternalID).BillingentityinternalEditObjectV1Request(billingentityinternalEditObjectV1Request).Execute()
 
 Edit an existing Billingentityinternal
 
@@ -100,7 +100,7 @@ import (
 
 func main() {
 	pkiBillingentityinternalID := int32(56) // int32 | 
-	billingentityinternalEditObjectV1Request := *openapiclient.NewBillingentityinternalEditObjectV1Request(*openapiclient.NewBillingentityinternalRequestCompound([]openapiclient.BillingentityinternalproductRequestCompound{*openapiclient.NewBillingentityinternalproductRequestCompound(int32(172), int32(83))}, *openapiclient.NewMultilingualBillingentityinternalDescription())) // BillingentityinternalEditObjectV1Request | 
+	billingentityinternalEditObjectV1Request := *openapiclient.NewBillingentityinternalEditObjectV1Request(*openapiclient.NewBillingentityinternalRequestCompound(*openapiclient.NewMultilingualBillingentityinternalDescription(), []openapiclient.BillingentityinternalproductRequestCompound{*openapiclient.NewBillingentityinternalproductRequestCompound(int32(172), int32(83))})) // BillingentityinternalEditObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -109,7 +109,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBillingentityinternalAPI.BillingentityinternalEditObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `BillingentityinternalEditObjectV1`: CommonResponse
+	// response from `BillingentityinternalEditObjectV1`: BillingentityinternalEditObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectBillingentityinternalAPI.BillingentityinternalEditObjectV1`: %v\n", resp)
 }
 ```
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**BillingentityinternalEditObjectV1Response**](BillingentityinternalEditObjectV1Response.md)
 
 ### Authorization
 

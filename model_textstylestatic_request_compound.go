@@ -22,7 +22,20 @@ var _ MappedNullable = &TextstylestaticRequestCompound{}
 
 // TextstylestaticRequestCompound A Textstylestatic Object and children
 type TextstylestaticRequestCompound struct {
-	TextstylestaticRequest
+	// The unique ID of the Font
+	FkiFontID int32 `json:"fkiFontID"`
+	// Whether the Textstylestatic is Bold or not
+	BTextstylestaticBold bool `json:"bTextstylestaticBold"`
+	// Whether the Textstylestatic is Underline or not
+	BTextstylestaticUnderline bool `json:"bTextstylestaticUnderline"`
+	// Whether the Textstylestatic is Italic or not
+	BTextstylestaticItalic bool `json:"bTextstylestaticItalic"`
+	// Whether the Textstylestatic is Strikethrough or not
+	BTextstylestaticStrikethrough bool `json:"bTextstylestaticStrikethrough"`
+	// The int32 representation of the Fontcolor. For example, RGB color #39435B would be 3752795
+	ITextstylestaticFontcolor int32 `json:"iTextstylestaticFontcolor"`
+	// The Size for the Font of the Textstylestatic
+	ITextstylestaticSize int32 `json:"iTextstylestaticSize"`
 }
 
 type _TextstylestaticRequestCompound TextstylestaticRequestCompound
@@ -51,6 +64,174 @@ func NewTextstylestaticRequestCompoundWithDefaults() *TextstylestaticRequestComp
 	return &this
 }
 
+// GetFkiFontID returns the FkiFontID field value
+func (o *TextstylestaticRequestCompound) GetFkiFontID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiFontID
+}
+
+// GetFkiFontIDOk returns a tuple with the FkiFontID field value
+// and a boolean to check if the value has been set.
+func (o *TextstylestaticRequestCompound) GetFkiFontIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiFontID, true
+}
+
+// SetFkiFontID sets field value
+func (o *TextstylestaticRequestCompound) SetFkiFontID(v int32) {
+	o.FkiFontID = v
+}
+
+// GetBTextstylestaticBold returns the BTextstylestaticBold field value
+func (o *TextstylestaticRequestCompound) GetBTextstylestaticBold() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BTextstylestaticBold
+}
+
+// GetBTextstylestaticBoldOk returns a tuple with the BTextstylestaticBold field value
+// and a boolean to check if the value has been set.
+func (o *TextstylestaticRequestCompound) GetBTextstylestaticBoldOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BTextstylestaticBold, true
+}
+
+// SetBTextstylestaticBold sets field value
+func (o *TextstylestaticRequestCompound) SetBTextstylestaticBold(v bool) {
+	o.BTextstylestaticBold = v
+}
+
+// GetBTextstylestaticUnderline returns the BTextstylestaticUnderline field value
+func (o *TextstylestaticRequestCompound) GetBTextstylestaticUnderline() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BTextstylestaticUnderline
+}
+
+// GetBTextstylestaticUnderlineOk returns a tuple with the BTextstylestaticUnderline field value
+// and a boolean to check if the value has been set.
+func (o *TextstylestaticRequestCompound) GetBTextstylestaticUnderlineOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BTextstylestaticUnderline, true
+}
+
+// SetBTextstylestaticUnderline sets field value
+func (o *TextstylestaticRequestCompound) SetBTextstylestaticUnderline(v bool) {
+	o.BTextstylestaticUnderline = v
+}
+
+// GetBTextstylestaticItalic returns the BTextstylestaticItalic field value
+func (o *TextstylestaticRequestCompound) GetBTextstylestaticItalic() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BTextstylestaticItalic
+}
+
+// GetBTextstylestaticItalicOk returns a tuple with the BTextstylestaticItalic field value
+// and a boolean to check if the value has been set.
+func (o *TextstylestaticRequestCompound) GetBTextstylestaticItalicOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BTextstylestaticItalic, true
+}
+
+// SetBTextstylestaticItalic sets field value
+func (o *TextstylestaticRequestCompound) SetBTextstylestaticItalic(v bool) {
+	o.BTextstylestaticItalic = v
+}
+
+// GetBTextstylestaticStrikethrough returns the BTextstylestaticStrikethrough field value
+func (o *TextstylestaticRequestCompound) GetBTextstylestaticStrikethrough() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BTextstylestaticStrikethrough
+}
+
+// GetBTextstylestaticStrikethroughOk returns a tuple with the BTextstylestaticStrikethrough field value
+// and a boolean to check if the value has been set.
+func (o *TextstylestaticRequestCompound) GetBTextstylestaticStrikethroughOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BTextstylestaticStrikethrough, true
+}
+
+// SetBTextstylestaticStrikethrough sets field value
+func (o *TextstylestaticRequestCompound) SetBTextstylestaticStrikethrough(v bool) {
+	o.BTextstylestaticStrikethrough = v
+}
+
+// GetITextstylestaticFontcolor returns the ITextstylestaticFontcolor field value
+func (o *TextstylestaticRequestCompound) GetITextstylestaticFontcolor() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.ITextstylestaticFontcolor
+}
+
+// GetITextstylestaticFontcolorOk returns a tuple with the ITextstylestaticFontcolor field value
+// and a boolean to check if the value has been set.
+func (o *TextstylestaticRequestCompound) GetITextstylestaticFontcolorOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ITextstylestaticFontcolor, true
+}
+
+// SetITextstylestaticFontcolor sets field value
+func (o *TextstylestaticRequestCompound) SetITextstylestaticFontcolor(v int32) {
+	o.ITextstylestaticFontcolor = v
+}
+
+// GetITextstylestaticSize returns the ITextstylestaticSize field value
+func (o *TextstylestaticRequestCompound) GetITextstylestaticSize() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.ITextstylestaticSize
+}
+
+// GetITextstylestaticSizeOk returns a tuple with the ITextstylestaticSize field value
+// and a boolean to check if the value has been set.
+func (o *TextstylestaticRequestCompound) GetITextstylestaticSizeOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ITextstylestaticSize, true
+}
+
+// SetITextstylestaticSize sets field value
+func (o *TextstylestaticRequestCompound) SetITextstylestaticSize(v int32) {
+	o.ITextstylestaticSize = v
+}
+
 func (o TextstylestaticRequestCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -61,6 +242,13 @@ func (o TextstylestaticRequestCompound) MarshalJSON() ([]byte, error) {
 
 func (o TextstylestaticRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["fkiFontID"] = o.FkiFontID
+	toSerialize["bTextstylestaticBold"] = o.BTextstylestaticBold
+	toSerialize["bTextstylestaticUnderline"] = o.BTextstylestaticUnderline
+	toSerialize["bTextstylestaticItalic"] = o.BTextstylestaticItalic
+	toSerialize["bTextstylestaticStrikethrough"] = o.BTextstylestaticStrikethrough
+	toSerialize["iTextstylestaticFontcolor"] = o.ITextstylestaticFontcolor
+	toSerialize["iTextstylestaticSize"] = o.ITextstylestaticSize
 	return toSerialize, nil
 }
 

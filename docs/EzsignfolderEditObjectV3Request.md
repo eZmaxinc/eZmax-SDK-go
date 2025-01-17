@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjEzsignfolder** | [**EzsignfolderRequestV3**](EzsignfolderRequestV3.md) | An Ezsignfolder Object and children to create a complete structure | 
+**ObjEzsignfolder** | [**EzsignfolderRequestCompoundV3**](EzsignfolderRequestCompoundV3.md) |  | 
 
 ## Methods
 
 ### NewEzsignfolderEditObjectV3Request
 
-`func NewEzsignfolderEditObjectV3Request(objEzsignfolder EzsignfolderRequestV3, ) *EzsignfolderEditObjectV3Request`
+`func NewEzsignfolderEditObjectV3Request(objEzsignfolder EzsignfolderRequestCompoundV3, ) *EzsignfolderEditObjectV3Request`
 
 NewEzsignfolderEditObjectV3Request instantiates a new EzsignfolderEditObjectV3Request object
 This constructor will assign default values to properties that have it defined,
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetObjEzsignfolder
 
-`func (o *EzsignfolderEditObjectV3Request) GetObjEzsignfolder() EzsignfolderRequestV3`
+`func (o *EzsignfolderEditObjectV3Request) GetObjEzsignfolder() EzsignfolderRequestCompoundV3`
 
 GetObjEzsignfolder returns the ObjEzsignfolder field if non-nil, zero value otherwise.
 
 ### GetObjEzsignfolderOk
 
-`func (o *EzsignfolderEditObjectV3Request) GetObjEzsignfolderOk() (*EzsignfolderRequestV3, bool)`
+`func (o *EzsignfolderEditObjectV3Request) GetObjEzsignfolderOk() (*EzsignfolderRequestCompoundV3, bool)`
 
 GetObjEzsignfolderOk returns a tuple with the ObjEzsignfolder field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObjEzsignfolder
 
-`func (o *EzsignfolderEditObjectV3Request) SetObjEzsignfolder(v EzsignfolderRequestV3)`
+`func (o *EzsignfolderEditObjectV3Request) SetObjEzsignfolder(v EzsignfolderRequestCompoundV3)`
 
 SetObjEzsignfolder sets ObjEzsignfolder field to given value.
 

@@ -22,7 +22,16 @@ var _ MappedNullable = &EzsigntemplatepackagesignermembershipResponseCompound{}
 
 // EzsigntemplatepackagesignermembershipResponseCompound A Ezsigntemplatepackagesignermembership Object
 type EzsigntemplatepackagesignermembershipResponseCompound struct {
-	EzsigntemplatepackagesignermembershipResponse
+	// The unique ID of the Ezsigntemplatepackagesignermembership
+	PkiEzsigntemplatepackagesignermembershipID int32 `json:"pkiEzsigntemplatepackagesignermembershipID"`
+	// The unique ID of the Ezsigntemplatepackagemembership
+	FkiEzsigntemplatepackagemembershipID int32 `json:"fkiEzsigntemplatepackagemembershipID"`
+	// The unique ID of the Ezsigntemplatepackagesigner
+	FkiEzsigntemplatepackagesignerID int32 `json:"fkiEzsigntemplatepackagesignerID"`
+	// The unique ID of the Ezsigntemplatesigner
+	FkiEzsigntemplatesignerID int32 `json:"fkiEzsigntemplatesignerID"`
+	// The Copy number in case of multiple copies.
+	IEzsigntemplatepackagesignermembershipCopy *int32 `json:"iEzsigntemplatepackagesignermembershipCopy,omitempty"`
 }
 
 type _EzsigntemplatepackagesignermembershipResponseCompound EzsigntemplatepackagesignermembershipResponseCompound
@@ -48,6 +57,134 @@ func NewEzsigntemplatepackagesignermembershipResponseCompoundWithDefaults() *Ezs
 	return &this
 }
 
+// GetPkiEzsigntemplatepackagesignermembershipID returns the PkiEzsigntemplatepackagesignermembershipID field value
+func (o *EzsigntemplatepackagesignermembershipResponseCompound) GetPkiEzsigntemplatepackagesignermembershipID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.PkiEzsigntemplatepackagesignermembershipID
+}
+
+// GetPkiEzsigntemplatepackagesignermembershipIDOk returns a tuple with the PkiEzsigntemplatepackagesignermembershipID field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatepackagesignermembershipResponseCompound) GetPkiEzsigntemplatepackagesignermembershipIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PkiEzsigntemplatepackagesignermembershipID, true
+}
+
+// SetPkiEzsigntemplatepackagesignermembershipID sets field value
+func (o *EzsigntemplatepackagesignermembershipResponseCompound) SetPkiEzsigntemplatepackagesignermembershipID(v int32) {
+	o.PkiEzsigntemplatepackagesignermembershipID = v
+}
+
+// GetFkiEzsigntemplatepackagemembershipID returns the FkiEzsigntemplatepackagemembershipID field value
+func (o *EzsigntemplatepackagesignermembershipResponseCompound) GetFkiEzsigntemplatepackagemembershipID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiEzsigntemplatepackagemembershipID
+}
+
+// GetFkiEzsigntemplatepackagemembershipIDOk returns a tuple with the FkiEzsigntemplatepackagemembershipID field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatepackagesignermembershipResponseCompound) GetFkiEzsigntemplatepackagemembershipIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiEzsigntemplatepackagemembershipID, true
+}
+
+// SetFkiEzsigntemplatepackagemembershipID sets field value
+func (o *EzsigntemplatepackagesignermembershipResponseCompound) SetFkiEzsigntemplatepackagemembershipID(v int32) {
+	o.FkiEzsigntemplatepackagemembershipID = v
+}
+
+// GetFkiEzsigntemplatepackagesignerID returns the FkiEzsigntemplatepackagesignerID field value
+func (o *EzsigntemplatepackagesignermembershipResponseCompound) GetFkiEzsigntemplatepackagesignerID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiEzsigntemplatepackagesignerID
+}
+
+// GetFkiEzsigntemplatepackagesignerIDOk returns a tuple with the FkiEzsigntemplatepackagesignerID field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatepackagesignermembershipResponseCompound) GetFkiEzsigntemplatepackagesignerIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiEzsigntemplatepackagesignerID, true
+}
+
+// SetFkiEzsigntemplatepackagesignerID sets field value
+func (o *EzsigntemplatepackagesignermembershipResponseCompound) SetFkiEzsigntemplatepackagesignerID(v int32) {
+	o.FkiEzsigntemplatepackagesignerID = v
+}
+
+// GetFkiEzsigntemplatesignerID returns the FkiEzsigntemplatesignerID field value
+func (o *EzsigntemplatepackagesignermembershipResponseCompound) GetFkiEzsigntemplatesignerID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiEzsigntemplatesignerID
+}
+
+// GetFkiEzsigntemplatesignerIDOk returns a tuple with the FkiEzsigntemplatesignerID field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatepackagesignermembershipResponseCompound) GetFkiEzsigntemplatesignerIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiEzsigntemplatesignerID, true
+}
+
+// SetFkiEzsigntemplatesignerID sets field value
+func (o *EzsigntemplatepackagesignermembershipResponseCompound) SetFkiEzsigntemplatesignerID(v int32) {
+	o.FkiEzsigntemplatesignerID = v
+}
+
+// GetIEzsigntemplatepackagesignermembershipCopy returns the IEzsigntemplatepackagesignermembershipCopy field value if set, zero value otherwise.
+func (o *EzsigntemplatepackagesignermembershipResponseCompound) GetIEzsigntemplatepackagesignermembershipCopy() int32 {
+	if o == nil || IsNil(o.IEzsigntemplatepackagesignermembershipCopy) {
+		var ret int32
+		return ret
+	}
+	return *o.IEzsigntemplatepackagesignermembershipCopy
+}
+
+// GetIEzsigntemplatepackagesignermembershipCopyOk returns a tuple with the IEzsigntemplatepackagesignermembershipCopy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatepackagesignermembershipResponseCompound) GetIEzsigntemplatepackagesignermembershipCopyOk() (*int32, bool) {
+	if o == nil || IsNil(o.IEzsigntemplatepackagesignermembershipCopy) {
+		return nil, false
+	}
+	return o.IEzsigntemplatepackagesignermembershipCopy, true
+}
+
+// HasIEzsigntemplatepackagesignermembershipCopy returns a boolean if a field has been set.
+func (o *EzsigntemplatepackagesignermembershipResponseCompound) HasIEzsigntemplatepackagesignermembershipCopy() bool {
+	if o != nil && !IsNil(o.IEzsigntemplatepackagesignermembershipCopy) {
+		return true
+	}
+
+	return false
+}
+
+// SetIEzsigntemplatepackagesignermembershipCopy gets a reference to the given int32 and assigns it to the IEzsigntemplatepackagesignermembershipCopy field.
+func (o *EzsigntemplatepackagesignermembershipResponseCompound) SetIEzsigntemplatepackagesignermembershipCopy(v int32) {
+	o.IEzsigntemplatepackagesignermembershipCopy = &v
+}
+
 func (o EzsigntemplatepackagesignermembershipResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -58,6 +195,13 @@ func (o EzsigntemplatepackagesignermembershipResponseCompound) MarshalJSON() ([]
 
 func (o EzsigntemplatepackagesignermembershipResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["pkiEzsigntemplatepackagesignermembershipID"] = o.PkiEzsigntemplatepackagesignermembershipID
+	toSerialize["fkiEzsigntemplatepackagemembershipID"] = o.FkiEzsigntemplatepackagemembershipID
+	toSerialize["fkiEzsigntemplatepackagesignerID"] = o.FkiEzsigntemplatepackagesignerID
+	toSerialize["fkiEzsigntemplatesignerID"] = o.FkiEzsigntemplatesignerID
+	if !IsNil(o.IEzsigntemplatepackagesignermembershipCopy) {
+		toSerialize["iEzsigntemplatepackagesignermembershipCopy"] = o.IEzsigntemplatepackagesignermembershipCopy
+	}
 	return toSerialize, nil
 }
 

@@ -22,7 +22,23 @@ var _ MappedNullable = &SupplyRequestCompound{}
 
 // SupplyRequestCompound A Supply Object and children
 type SupplyRequestCompound struct {
-	SupplyRequest
+	// The unique ID of the Supply
+	PkiSupplyID *int32 `json:"pkiSupplyID,omitempty"`
+	// The unique ID of the Glaccount
+	FkiGlaccountID *int32 `json:"fkiGlaccountID,omitempty"`
+	// The unique ID of the Glaccountcontainer
+	FkiGlaccountcontainerID *int32 `json:"fkiGlaccountcontainerID,omitempty"`
+	// The unique ID of the Variableexpense
+	FkiVariableexpenseID int32 `json:"fkiVariableexpenseID"`
+	// The code of the Supply
+	SSupplyCode string `json:"sSupplyCode" validate:"regexp=^.{0,5}$"`
+	ObjSupplyDescription MultilingualSupplyDescription `json:"objSupplyDescription"`
+	// The unit price of the Supply
+	DSupplyUnitprice string `json:"dSupplyUnitprice" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	// Whether the supply is active or not
+	BSupplyIsactive bool `json:"bSupplyIsactive"`
+	// Whether if the price is variable
+	BSupplyVariableprice bool `json:"bSupplyVariableprice"`
 }
 
 type _SupplyRequestCompound SupplyRequestCompound
@@ -50,6 +66,246 @@ func NewSupplyRequestCompoundWithDefaults() *SupplyRequestCompound {
 	return &this
 }
 
+// GetPkiSupplyID returns the PkiSupplyID field value if set, zero value otherwise.
+func (o *SupplyRequestCompound) GetPkiSupplyID() int32 {
+	if o == nil || IsNil(o.PkiSupplyID) {
+		var ret int32
+		return ret
+	}
+	return *o.PkiSupplyID
+}
+
+// GetPkiSupplyIDOk returns a tuple with the PkiSupplyID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SupplyRequestCompound) GetPkiSupplyIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.PkiSupplyID) {
+		return nil, false
+	}
+	return o.PkiSupplyID, true
+}
+
+// HasPkiSupplyID returns a boolean if a field has been set.
+func (o *SupplyRequestCompound) HasPkiSupplyID() bool {
+	if o != nil && !IsNil(o.PkiSupplyID) {
+		return true
+	}
+
+	return false
+}
+
+// SetPkiSupplyID gets a reference to the given int32 and assigns it to the PkiSupplyID field.
+func (o *SupplyRequestCompound) SetPkiSupplyID(v int32) {
+	o.PkiSupplyID = &v
+}
+
+// GetFkiGlaccountID returns the FkiGlaccountID field value if set, zero value otherwise.
+func (o *SupplyRequestCompound) GetFkiGlaccountID() int32 {
+	if o == nil || IsNil(o.FkiGlaccountID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiGlaccountID
+}
+
+// GetFkiGlaccountIDOk returns a tuple with the FkiGlaccountID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SupplyRequestCompound) GetFkiGlaccountIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiGlaccountID) {
+		return nil, false
+	}
+	return o.FkiGlaccountID, true
+}
+
+// HasFkiGlaccountID returns a boolean if a field has been set.
+func (o *SupplyRequestCompound) HasFkiGlaccountID() bool {
+	if o != nil && !IsNil(o.FkiGlaccountID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiGlaccountID gets a reference to the given int32 and assigns it to the FkiGlaccountID field.
+func (o *SupplyRequestCompound) SetFkiGlaccountID(v int32) {
+	o.FkiGlaccountID = &v
+}
+
+// GetFkiGlaccountcontainerID returns the FkiGlaccountcontainerID field value if set, zero value otherwise.
+func (o *SupplyRequestCompound) GetFkiGlaccountcontainerID() int32 {
+	if o == nil || IsNil(o.FkiGlaccountcontainerID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiGlaccountcontainerID
+}
+
+// GetFkiGlaccountcontainerIDOk returns a tuple with the FkiGlaccountcontainerID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SupplyRequestCompound) GetFkiGlaccountcontainerIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiGlaccountcontainerID) {
+		return nil, false
+	}
+	return o.FkiGlaccountcontainerID, true
+}
+
+// HasFkiGlaccountcontainerID returns a boolean if a field has been set.
+func (o *SupplyRequestCompound) HasFkiGlaccountcontainerID() bool {
+	if o != nil && !IsNil(o.FkiGlaccountcontainerID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiGlaccountcontainerID gets a reference to the given int32 and assigns it to the FkiGlaccountcontainerID field.
+func (o *SupplyRequestCompound) SetFkiGlaccountcontainerID(v int32) {
+	o.FkiGlaccountcontainerID = &v
+}
+
+// GetFkiVariableexpenseID returns the FkiVariableexpenseID field value
+func (o *SupplyRequestCompound) GetFkiVariableexpenseID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiVariableexpenseID
+}
+
+// GetFkiVariableexpenseIDOk returns a tuple with the FkiVariableexpenseID field value
+// and a boolean to check if the value has been set.
+func (o *SupplyRequestCompound) GetFkiVariableexpenseIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiVariableexpenseID, true
+}
+
+// SetFkiVariableexpenseID sets field value
+func (o *SupplyRequestCompound) SetFkiVariableexpenseID(v int32) {
+	o.FkiVariableexpenseID = v
+}
+
+// GetSSupplyCode returns the SSupplyCode field value
+func (o *SupplyRequestCompound) GetSSupplyCode() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SSupplyCode
+}
+
+// GetSSupplyCodeOk returns a tuple with the SSupplyCode field value
+// and a boolean to check if the value has been set.
+func (o *SupplyRequestCompound) GetSSupplyCodeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SSupplyCode, true
+}
+
+// SetSSupplyCode sets field value
+func (o *SupplyRequestCompound) SetSSupplyCode(v string) {
+	o.SSupplyCode = v
+}
+
+// GetObjSupplyDescription returns the ObjSupplyDescription field value
+func (o *SupplyRequestCompound) GetObjSupplyDescription() MultilingualSupplyDescription {
+	if o == nil {
+		var ret MultilingualSupplyDescription
+		return ret
+	}
+
+	return o.ObjSupplyDescription
+}
+
+// GetObjSupplyDescriptionOk returns a tuple with the ObjSupplyDescription field value
+// and a boolean to check if the value has been set.
+func (o *SupplyRequestCompound) GetObjSupplyDescriptionOk() (*MultilingualSupplyDescription, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjSupplyDescription, true
+}
+
+// SetObjSupplyDescription sets field value
+func (o *SupplyRequestCompound) SetObjSupplyDescription(v MultilingualSupplyDescription) {
+	o.ObjSupplyDescription = v
+}
+
+// GetDSupplyUnitprice returns the DSupplyUnitprice field value
+func (o *SupplyRequestCompound) GetDSupplyUnitprice() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.DSupplyUnitprice
+}
+
+// GetDSupplyUnitpriceOk returns a tuple with the DSupplyUnitprice field value
+// and a boolean to check if the value has been set.
+func (o *SupplyRequestCompound) GetDSupplyUnitpriceOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.DSupplyUnitprice, true
+}
+
+// SetDSupplyUnitprice sets field value
+func (o *SupplyRequestCompound) SetDSupplyUnitprice(v string) {
+	o.DSupplyUnitprice = v
+}
+
+// GetBSupplyIsactive returns the BSupplyIsactive field value
+func (o *SupplyRequestCompound) GetBSupplyIsactive() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BSupplyIsactive
+}
+
+// GetBSupplyIsactiveOk returns a tuple with the BSupplyIsactive field value
+// and a boolean to check if the value has been set.
+func (o *SupplyRequestCompound) GetBSupplyIsactiveOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BSupplyIsactive, true
+}
+
+// SetBSupplyIsactive sets field value
+func (o *SupplyRequestCompound) SetBSupplyIsactive(v bool) {
+	o.BSupplyIsactive = v
+}
+
+// GetBSupplyVariableprice returns the BSupplyVariableprice field value
+func (o *SupplyRequestCompound) GetBSupplyVariableprice() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BSupplyVariableprice
+}
+
+// GetBSupplyVariablepriceOk returns a tuple with the BSupplyVariableprice field value
+// and a boolean to check if the value has been set.
+func (o *SupplyRequestCompound) GetBSupplyVariablepriceOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BSupplyVariableprice, true
+}
+
+// SetBSupplyVariableprice sets field value
+func (o *SupplyRequestCompound) SetBSupplyVariableprice(v bool) {
+	o.BSupplyVariableprice = v
+}
+
 func (o SupplyRequestCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -60,6 +316,21 @@ func (o SupplyRequestCompound) MarshalJSON() ([]byte, error) {
 
 func (o SupplyRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.PkiSupplyID) {
+		toSerialize["pkiSupplyID"] = o.PkiSupplyID
+	}
+	if !IsNil(o.FkiGlaccountID) {
+		toSerialize["fkiGlaccountID"] = o.FkiGlaccountID
+	}
+	if !IsNil(o.FkiGlaccountcontainerID) {
+		toSerialize["fkiGlaccountcontainerID"] = o.FkiGlaccountcontainerID
+	}
+	toSerialize["fkiVariableexpenseID"] = o.FkiVariableexpenseID
+	toSerialize["sSupplyCode"] = o.SSupplyCode
+	toSerialize["objSupplyDescription"] = o.ObjSupplyDescription
+	toSerialize["dSupplyUnitprice"] = o.DSupplyUnitprice
+	toSerialize["bSupplyIsactive"] = o.BSupplyIsactive
+	toSerialize["bSupplyVariableprice"] = o.BSupplyVariableprice
 	return toSerialize, nil
 }
 

@@ -22,7 +22,12 @@ var _ MappedNullable = &UsergroupResponseCompound{}
 
 // UsergroupResponseCompound A Usergroup Object
 type UsergroupResponseCompound struct {
-	UsergroupResponse
+	// The unique ID of the Usergroup
+	PkiUsergroupID int32 `json:"pkiUsergroupID"`
+	ObjUsergroupName MultilingualUsergroupName `json:"objUsergroupName"`
+	// The Name of the Usergroup in the language of the requester
+	SUsergroupNameX *string `json:"sUsergroupNameX,omitempty" validate:"regexp=^.{0,50}$"`
+	ObjEmail *EmailRequest `json:"objEmail,omitempty"`
 }
 
 type _UsergroupResponseCompound UsergroupResponseCompound
@@ -46,6 +51,118 @@ func NewUsergroupResponseCompoundWithDefaults() *UsergroupResponseCompound {
 	return &this
 }
 
+// GetPkiUsergroupID returns the PkiUsergroupID field value
+func (o *UsergroupResponseCompound) GetPkiUsergroupID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.PkiUsergroupID
+}
+
+// GetPkiUsergroupIDOk returns a tuple with the PkiUsergroupID field value
+// and a boolean to check if the value has been set.
+func (o *UsergroupResponseCompound) GetPkiUsergroupIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PkiUsergroupID, true
+}
+
+// SetPkiUsergroupID sets field value
+func (o *UsergroupResponseCompound) SetPkiUsergroupID(v int32) {
+	o.PkiUsergroupID = v
+}
+
+// GetObjUsergroupName returns the ObjUsergroupName field value
+func (o *UsergroupResponseCompound) GetObjUsergroupName() MultilingualUsergroupName {
+	if o == nil {
+		var ret MultilingualUsergroupName
+		return ret
+	}
+
+	return o.ObjUsergroupName
+}
+
+// GetObjUsergroupNameOk returns a tuple with the ObjUsergroupName field value
+// and a boolean to check if the value has been set.
+func (o *UsergroupResponseCompound) GetObjUsergroupNameOk() (*MultilingualUsergroupName, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjUsergroupName, true
+}
+
+// SetObjUsergroupName sets field value
+func (o *UsergroupResponseCompound) SetObjUsergroupName(v MultilingualUsergroupName) {
+	o.ObjUsergroupName = v
+}
+
+// GetSUsergroupNameX returns the SUsergroupNameX field value if set, zero value otherwise.
+func (o *UsergroupResponseCompound) GetSUsergroupNameX() string {
+	if o == nil || IsNil(o.SUsergroupNameX) {
+		var ret string
+		return ret
+	}
+	return *o.SUsergroupNameX
+}
+
+// GetSUsergroupNameXOk returns a tuple with the SUsergroupNameX field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsergroupResponseCompound) GetSUsergroupNameXOk() (*string, bool) {
+	if o == nil || IsNil(o.SUsergroupNameX) {
+		return nil, false
+	}
+	return o.SUsergroupNameX, true
+}
+
+// HasSUsergroupNameX returns a boolean if a field has been set.
+func (o *UsergroupResponseCompound) HasSUsergroupNameX() bool {
+	if o != nil && !IsNil(o.SUsergroupNameX) {
+		return true
+	}
+
+	return false
+}
+
+// SetSUsergroupNameX gets a reference to the given string and assigns it to the SUsergroupNameX field.
+func (o *UsergroupResponseCompound) SetSUsergroupNameX(v string) {
+	o.SUsergroupNameX = &v
+}
+
+// GetObjEmail returns the ObjEmail field value if set, zero value otherwise.
+func (o *UsergroupResponseCompound) GetObjEmail() EmailRequest {
+	if o == nil || IsNil(o.ObjEmail) {
+		var ret EmailRequest
+		return ret
+	}
+	return *o.ObjEmail
+}
+
+// GetObjEmailOk returns a tuple with the ObjEmail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsergroupResponseCompound) GetObjEmailOk() (*EmailRequest, bool) {
+	if o == nil || IsNil(o.ObjEmail) {
+		return nil, false
+	}
+	return o.ObjEmail, true
+}
+
+// HasObjEmail returns a boolean if a field has been set.
+func (o *UsergroupResponseCompound) HasObjEmail() bool {
+	if o != nil && !IsNil(o.ObjEmail) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjEmail gets a reference to the given EmailRequest and assigns it to the ObjEmail field.
+func (o *UsergroupResponseCompound) SetObjEmail(v EmailRequest) {
+	o.ObjEmail = &v
+}
+
 func (o UsergroupResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -56,6 +173,14 @@ func (o UsergroupResponseCompound) MarshalJSON() ([]byte, error) {
 
 func (o UsergroupResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["pkiUsergroupID"] = o.PkiUsergroupID
+	toSerialize["objUsergroupName"] = o.ObjUsergroupName
+	if !IsNil(o.SUsergroupNameX) {
+		toSerialize["sUsergroupNameX"] = o.SUsergroupNameX
+	}
+	if !IsNil(o.ObjEmail) {
+		toSerialize["objEmail"] = o.ObjEmail
+	}
 	return toSerialize, nil
 }
 

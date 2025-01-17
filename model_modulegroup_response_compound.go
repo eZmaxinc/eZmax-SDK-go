@@ -22,7 +22,10 @@ var _ MappedNullable = &ModulegroupResponseCompound{}
 
 // ModulegroupResponseCompound A Modulegroup Object
 type ModulegroupResponseCompound struct {
-	ModulegroupResponse
+	// The unique ID of the Modulegroup
+	PkiModulegroupID int32 `json:"pkiModulegroupID"`
+	// The name of the Modulegroup in the language of the requester
+	SModulegroupNameX string `json:"sModulegroupNameX" validate:"regexp=^.{0,25}$"`
 	AObjModule []ModuleResponseCompound `json:"a_objModule,omitempty"`
 }
 
@@ -45,6 +48,54 @@ func NewModulegroupResponseCompound(pkiModulegroupID int32, sModulegroupNameX st
 func NewModulegroupResponseCompoundWithDefaults() *ModulegroupResponseCompound {
 	this := ModulegroupResponseCompound{}
 	return &this
+}
+
+// GetPkiModulegroupID returns the PkiModulegroupID field value
+func (o *ModulegroupResponseCompound) GetPkiModulegroupID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.PkiModulegroupID
+}
+
+// GetPkiModulegroupIDOk returns a tuple with the PkiModulegroupID field value
+// and a boolean to check if the value has been set.
+func (o *ModulegroupResponseCompound) GetPkiModulegroupIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PkiModulegroupID, true
+}
+
+// SetPkiModulegroupID sets field value
+func (o *ModulegroupResponseCompound) SetPkiModulegroupID(v int32) {
+	o.PkiModulegroupID = v
+}
+
+// GetSModulegroupNameX returns the SModulegroupNameX field value
+func (o *ModulegroupResponseCompound) GetSModulegroupNameX() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SModulegroupNameX
+}
+
+// GetSModulegroupNameXOk returns a tuple with the SModulegroupNameX field value
+// and a boolean to check if the value has been set.
+func (o *ModulegroupResponseCompound) GetSModulegroupNameXOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SModulegroupNameX, true
+}
+
+// SetSModulegroupNameX sets field value
+func (o *ModulegroupResponseCompound) SetSModulegroupNameX(v string) {
+	o.SModulegroupNameX = v
 }
 
 // GetAObjModule returns the AObjModule field value if set, zero value otherwise.
@@ -89,6 +140,8 @@ func (o ModulegroupResponseCompound) MarshalJSON() ([]byte, error) {
 
 func (o ModulegroupResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["pkiModulegroupID"] = o.PkiModulegroupID
+	toSerialize["sModulegroupNameX"] = o.SModulegroupNameX
 	if !IsNil(o.AObjModule) {
 		toSerialize["a_objModule"] = o.AObjModule
 	}

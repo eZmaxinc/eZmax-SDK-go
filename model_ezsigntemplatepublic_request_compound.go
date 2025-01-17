@@ -22,7 +22,25 @@ var _ MappedNullable = &EzsigntemplatepublicRequestCompound{}
 
 // EzsigntemplatepublicRequestCompound A Ezsigntemplatepublic Object and children
 type EzsigntemplatepublicRequestCompound struct {
-	EzsigntemplatepublicRequest
+	// The unique ID of the Ezsigntemplatepublic
+	PkiEzsigntemplatepublicID *int32 `json:"pkiEzsigntemplatepublicID,omitempty"`
+	// The unique ID of the Ezsignfoldertype.
+	FkiEzsignfoldertypeID int32 `json:"fkiEzsignfoldertypeID"`
+	// The unique ID of the Userlogintype  Valid values:  |Value|Description|Detail| |-|-|-| |1|**Email Only**|The Ezsignsigner will receive a secure link by email| |2|**Email and phone or SMS**|The Ezsignsigner will receive a secure link by email and will need to authenticate using SMS or Phone call. **Additional fee applies**| |3|**Email and secret question**|The Ezsignsigner will receive a secure link by email and will need to authenticate using a predefined question and answer| |4|**In person only**|The Ezsignsigner will only be able to sign \"In-Person\" and there won't be any authentication. No email will be sent for invitation to sign. Make sure you evaluate the risk of signature denial and at minimum, we recommend you use a handwritten signature type| |5|**In person with phone or SMS**|The Ezsignsigner will only be able to sign \"In-Person\" and will need to authenticate using SMS or Phone call. No email will be sent for invitation to sign. **Additional fee applies**| |6|**Embedded**|The Ezsignsigner will only be able to sign in the embedded solution. No email will be sent for invitation to sign. **Additional fee applies**|   |7|**Embedded with phone or SMS**|The Ezsignsigner will only be able to sign in the embedded solution and will need to authenticate using SMS or Phone call. No email will be sent for invitation to sign. **Additional fee applies**|   |8|**No validation**|The Ezsignsigner will not receive an email and won't have to validate his connection using 2 factor. **Additional fee applies**|      |9|**Sms only**|The Ezsignsigner will not receive an email but will will need to authenticate using SMS. **Additional fee applies**|     
+	FkiUserlogintypeID int32 `json:"fkiUserlogintypeID"`
+	// The unique ID of the Ezsigntemplate
+	FkiEzsigntemplateID *int32 `json:"fkiEzsigntemplateID,omitempty"`
+	// The unique ID of the Ezsigntemplatepackage
+	FkiEzsigntemplatepackageID *int32 `json:"fkiEzsigntemplatepackageID,omitempty"`
+	// The description of the Ezsigntemplatepublic
+	SEzsigntemplatepublicDescription string `json:"sEzsigntemplatepublicDescription" validate:"regexp=^.{0,80}$"`
+	// Whether the ezsigntemplatepublic is active or not
+	BEzsigntemplatepublicIsactive bool `json:"bEzsigntemplatepublicIsactive"`
+	// The note of the Ezsigntemplatepublic
+	TEzsigntemplatepublicNote string `json:"tEzsigntemplatepublicNote" validate:"regexp=^.{0,65535}$"`
+	EEzsigntemplatepublicLimittype FieldEEzsigntemplatepublicLimittype `json:"eEzsigntemplatepublicLimittype"`
+	// The limit of the Ezsigntemplatepublic
+	IEzsigntemplatepublicLimit int32 `json:"iEzsigntemplatepublicLimit"`
 }
 
 type _EzsigntemplatepublicRequestCompound EzsigntemplatepublicRequestCompound
@@ -51,6 +69,270 @@ func NewEzsigntemplatepublicRequestCompoundWithDefaults() *EzsigntemplatepublicR
 	return &this
 }
 
+// GetPkiEzsigntemplatepublicID returns the PkiEzsigntemplatepublicID field value if set, zero value otherwise.
+func (o *EzsigntemplatepublicRequestCompound) GetPkiEzsigntemplatepublicID() int32 {
+	if o == nil || IsNil(o.PkiEzsigntemplatepublicID) {
+		var ret int32
+		return ret
+	}
+	return *o.PkiEzsigntemplatepublicID
+}
+
+// GetPkiEzsigntemplatepublicIDOk returns a tuple with the PkiEzsigntemplatepublicID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatepublicRequestCompound) GetPkiEzsigntemplatepublicIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.PkiEzsigntemplatepublicID) {
+		return nil, false
+	}
+	return o.PkiEzsigntemplatepublicID, true
+}
+
+// HasPkiEzsigntemplatepublicID returns a boolean if a field has been set.
+func (o *EzsigntemplatepublicRequestCompound) HasPkiEzsigntemplatepublicID() bool {
+	if o != nil && !IsNil(o.PkiEzsigntemplatepublicID) {
+		return true
+	}
+
+	return false
+}
+
+// SetPkiEzsigntemplatepublicID gets a reference to the given int32 and assigns it to the PkiEzsigntemplatepublicID field.
+func (o *EzsigntemplatepublicRequestCompound) SetPkiEzsigntemplatepublicID(v int32) {
+	o.PkiEzsigntemplatepublicID = &v
+}
+
+// GetFkiEzsignfoldertypeID returns the FkiEzsignfoldertypeID field value
+func (o *EzsigntemplatepublicRequestCompound) GetFkiEzsignfoldertypeID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiEzsignfoldertypeID
+}
+
+// GetFkiEzsignfoldertypeIDOk returns a tuple with the FkiEzsignfoldertypeID field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatepublicRequestCompound) GetFkiEzsignfoldertypeIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiEzsignfoldertypeID, true
+}
+
+// SetFkiEzsignfoldertypeID sets field value
+func (o *EzsigntemplatepublicRequestCompound) SetFkiEzsignfoldertypeID(v int32) {
+	o.FkiEzsignfoldertypeID = v
+}
+
+// GetFkiUserlogintypeID returns the FkiUserlogintypeID field value
+func (o *EzsigntemplatepublicRequestCompound) GetFkiUserlogintypeID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiUserlogintypeID
+}
+
+// GetFkiUserlogintypeIDOk returns a tuple with the FkiUserlogintypeID field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatepublicRequestCompound) GetFkiUserlogintypeIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiUserlogintypeID, true
+}
+
+// SetFkiUserlogintypeID sets field value
+func (o *EzsigntemplatepublicRequestCompound) SetFkiUserlogintypeID(v int32) {
+	o.FkiUserlogintypeID = v
+}
+
+// GetFkiEzsigntemplateID returns the FkiEzsigntemplateID field value if set, zero value otherwise.
+func (o *EzsigntemplatepublicRequestCompound) GetFkiEzsigntemplateID() int32 {
+	if o == nil || IsNil(o.FkiEzsigntemplateID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEzsigntemplateID
+}
+
+// GetFkiEzsigntemplateIDOk returns a tuple with the FkiEzsigntemplateID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatepublicRequestCompound) GetFkiEzsigntemplateIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEzsigntemplateID) {
+		return nil, false
+	}
+	return o.FkiEzsigntemplateID, true
+}
+
+// HasFkiEzsigntemplateID returns a boolean if a field has been set.
+func (o *EzsigntemplatepublicRequestCompound) HasFkiEzsigntemplateID() bool {
+	if o != nil && !IsNil(o.FkiEzsigntemplateID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzsigntemplateID gets a reference to the given int32 and assigns it to the FkiEzsigntemplateID field.
+func (o *EzsigntemplatepublicRequestCompound) SetFkiEzsigntemplateID(v int32) {
+	o.FkiEzsigntemplateID = &v
+}
+
+// GetFkiEzsigntemplatepackageID returns the FkiEzsigntemplatepackageID field value if set, zero value otherwise.
+func (o *EzsigntemplatepublicRequestCompound) GetFkiEzsigntemplatepackageID() int32 {
+	if o == nil || IsNil(o.FkiEzsigntemplatepackageID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEzsigntemplatepackageID
+}
+
+// GetFkiEzsigntemplatepackageIDOk returns a tuple with the FkiEzsigntemplatepackageID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatepublicRequestCompound) GetFkiEzsigntemplatepackageIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEzsigntemplatepackageID) {
+		return nil, false
+	}
+	return o.FkiEzsigntemplatepackageID, true
+}
+
+// HasFkiEzsigntemplatepackageID returns a boolean if a field has been set.
+func (o *EzsigntemplatepublicRequestCompound) HasFkiEzsigntemplatepackageID() bool {
+	if o != nil && !IsNil(o.FkiEzsigntemplatepackageID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzsigntemplatepackageID gets a reference to the given int32 and assigns it to the FkiEzsigntemplatepackageID field.
+func (o *EzsigntemplatepublicRequestCompound) SetFkiEzsigntemplatepackageID(v int32) {
+	o.FkiEzsigntemplatepackageID = &v
+}
+
+// GetSEzsigntemplatepublicDescription returns the SEzsigntemplatepublicDescription field value
+func (o *EzsigntemplatepublicRequestCompound) GetSEzsigntemplatepublicDescription() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SEzsigntemplatepublicDescription
+}
+
+// GetSEzsigntemplatepublicDescriptionOk returns a tuple with the SEzsigntemplatepublicDescription field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatepublicRequestCompound) GetSEzsigntemplatepublicDescriptionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SEzsigntemplatepublicDescription, true
+}
+
+// SetSEzsigntemplatepublicDescription sets field value
+func (o *EzsigntemplatepublicRequestCompound) SetSEzsigntemplatepublicDescription(v string) {
+	o.SEzsigntemplatepublicDescription = v
+}
+
+// GetBEzsigntemplatepublicIsactive returns the BEzsigntemplatepublicIsactive field value
+func (o *EzsigntemplatepublicRequestCompound) GetBEzsigntemplatepublicIsactive() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BEzsigntemplatepublicIsactive
+}
+
+// GetBEzsigntemplatepublicIsactiveOk returns a tuple with the BEzsigntemplatepublicIsactive field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatepublicRequestCompound) GetBEzsigntemplatepublicIsactiveOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BEzsigntemplatepublicIsactive, true
+}
+
+// SetBEzsigntemplatepublicIsactive sets field value
+func (o *EzsigntemplatepublicRequestCompound) SetBEzsigntemplatepublicIsactive(v bool) {
+	o.BEzsigntemplatepublicIsactive = v
+}
+
+// GetTEzsigntemplatepublicNote returns the TEzsigntemplatepublicNote field value
+func (o *EzsigntemplatepublicRequestCompound) GetTEzsigntemplatepublicNote() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.TEzsigntemplatepublicNote
+}
+
+// GetTEzsigntemplatepublicNoteOk returns a tuple with the TEzsigntemplatepublicNote field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatepublicRequestCompound) GetTEzsigntemplatepublicNoteOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TEzsigntemplatepublicNote, true
+}
+
+// SetTEzsigntemplatepublicNote sets field value
+func (o *EzsigntemplatepublicRequestCompound) SetTEzsigntemplatepublicNote(v string) {
+	o.TEzsigntemplatepublicNote = v
+}
+
+// GetEEzsigntemplatepublicLimittype returns the EEzsigntemplatepublicLimittype field value
+func (o *EzsigntemplatepublicRequestCompound) GetEEzsigntemplatepublicLimittype() FieldEEzsigntemplatepublicLimittype {
+	if o == nil {
+		var ret FieldEEzsigntemplatepublicLimittype
+		return ret
+	}
+
+	return o.EEzsigntemplatepublicLimittype
+}
+
+// GetEEzsigntemplatepublicLimittypeOk returns a tuple with the EEzsigntemplatepublicLimittype field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatepublicRequestCompound) GetEEzsigntemplatepublicLimittypeOk() (*FieldEEzsigntemplatepublicLimittype, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EEzsigntemplatepublicLimittype, true
+}
+
+// SetEEzsigntemplatepublicLimittype sets field value
+func (o *EzsigntemplatepublicRequestCompound) SetEEzsigntemplatepublicLimittype(v FieldEEzsigntemplatepublicLimittype) {
+	o.EEzsigntemplatepublicLimittype = v
+}
+
+// GetIEzsigntemplatepublicLimit returns the IEzsigntemplatepublicLimit field value
+func (o *EzsigntemplatepublicRequestCompound) GetIEzsigntemplatepublicLimit() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IEzsigntemplatepublicLimit
+}
+
+// GetIEzsigntemplatepublicLimitOk returns a tuple with the IEzsigntemplatepublicLimit field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatepublicRequestCompound) GetIEzsigntemplatepublicLimitOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IEzsigntemplatepublicLimit, true
+}
+
+// SetIEzsigntemplatepublicLimit sets field value
+func (o *EzsigntemplatepublicRequestCompound) SetIEzsigntemplatepublicLimit(v int32) {
+	o.IEzsigntemplatepublicLimit = v
+}
+
 func (o EzsigntemplatepublicRequestCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -61,6 +343,22 @@ func (o EzsigntemplatepublicRequestCompound) MarshalJSON() ([]byte, error) {
 
 func (o EzsigntemplatepublicRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.PkiEzsigntemplatepublicID) {
+		toSerialize["pkiEzsigntemplatepublicID"] = o.PkiEzsigntemplatepublicID
+	}
+	toSerialize["fkiEzsignfoldertypeID"] = o.FkiEzsignfoldertypeID
+	toSerialize["fkiUserlogintypeID"] = o.FkiUserlogintypeID
+	if !IsNil(o.FkiEzsigntemplateID) {
+		toSerialize["fkiEzsigntemplateID"] = o.FkiEzsigntemplateID
+	}
+	if !IsNil(o.FkiEzsigntemplatepackageID) {
+		toSerialize["fkiEzsigntemplatepackageID"] = o.FkiEzsigntemplatepackageID
+	}
+	toSerialize["sEzsigntemplatepublicDescription"] = o.SEzsigntemplatepublicDescription
+	toSerialize["bEzsigntemplatepublicIsactive"] = o.BEzsigntemplatepublicIsactive
+	toSerialize["tEzsigntemplatepublicNote"] = o.TEzsigntemplatepublicNote
+	toSerialize["eEzsigntemplatepublicLimittype"] = o.EEzsigntemplatepublicLimittype
+	toSerialize["iEzsigntemplatepublicLimit"] = o.IEzsigntemplatepublicLimit
 	return toSerialize, nil
 }
 

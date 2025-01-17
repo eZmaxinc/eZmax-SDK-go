@@ -22,7 +22,12 @@ var _ MappedNullable = &UsergroupdelegationRequestCompound{}
 
 // UsergroupdelegationRequestCompound A Usergroupdelegation Object and children
 type UsergroupdelegationRequestCompound struct {
-	UsergroupdelegationRequest
+	// The unique ID of the Usergroupdelegation
+	PkiUsergroupdelegationID *int32 `json:"pkiUsergroupdelegationID,omitempty"`
+	// The unique ID of the Usergroup
+	FkiUsergroupID int32 `json:"fkiUsergroupID"`
+	// The unique ID of the User
+	FkiUserID int32 `json:"fkiUserID"`
 }
 
 type _UsergroupdelegationRequestCompound UsergroupdelegationRequestCompound
@@ -46,6 +51,86 @@ func NewUsergroupdelegationRequestCompoundWithDefaults() *UsergroupdelegationReq
 	return &this
 }
 
+// GetPkiUsergroupdelegationID returns the PkiUsergroupdelegationID field value if set, zero value otherwise.
+func (o *UsergroupdelegationRequestCompound) GetPkiUsergroupdelegationID() int32 {
+	if o == nil || IsNil(o.PkiUsergroupdelegationID) {
+		var ret int32
+		return ret
+	}
+	return *o.PkiUsergroupdelegationID
+}
+
+// GetPkiUsergroupdelegationIDOk returns a tuple with the PkiUsergroupdelegationID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsergroupdelegationRequestCompound) GetPkiUsergroupdelegationIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.PkiUsergroupdelegationID) {
+		return nil, false
+	}
+	return o.PkiUsergroupdelegationID, true
+}
+
+// HasPkiUsergroupdelegationID returns a boolean if a field has been set.
+func (o *UsergroupdelegationRequestCompound) HasPkiUsergroupdelegationID() bool {
+	if o != nil && !IsNil(o.PkiUsergroupdelegationID) {
+		return true
+	}
+
+	return false
+}
+
+// SetPkiUsergroupdelegationID gets a reference to the given int32 and assigns it to the PkiUsergroupdelegationID field.
+func (o *UsergroupdelegationRequestCompound) SetPkiUsergroupdelegationID(v int32) {
+	o.PkiUsergroupdelegationID = &v
+}
+
+// GetFkiUsergroupID returns the FkiUsergroupID field value
+func (o *UsergroupdelegationRequestCompound) GetFkiUsergroupID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiUsergroupID
+}
+
+// GetFkiUsergroupIDOk returns a tuple with the FkiUsergroupID field value
+// and a boolean to check if the value has been set.
+func (o *UsergroupdelegationRequestCompound) GetFkiUsergroupIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiUsergroupID, true
+}
+
+// SetFkiUsergroupID sets field value
+func (o *UsergroupdelegationRequestCompound) SetFkiUsergroupID(v int32) {
+	o.FkiUsergroupID = v
+}
+
+// GetFkiUserID returns the FkiUserID field value
+func (o *UsergroupdelegationRequestCompound) GetFkiUserID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiUserID
+}
+
+// GetFkiUserIDOk returns a tuple with the FkiUserID field value
+// and a boolean to check if the value has been set.
+func (o *UsergroupdelegationRequestCompound) GetFkiUserIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiUserID, true
+}
+
+// SetFkiUserID sets field value
+func (o *UsergroupdelegationRequestCompound) SetFkiUserID(v int32) {
+	o.FkiUserID = v
+}
+
 func (o UsergroupdelegationRequestCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -56,6 +141,11 @@ func (o UsergroupdelegationRequestCompound) MarshalJSON() ([]byte, error) {
 
 func (o UsergroupdelegationRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.PkiUsergroupdelegationID) {
+		toSerialize["pkiUsergroupdelegationID"] = o.PkiUsergroupdelegationID
+	}
+	toSerialize["fkiUsergroupID"] = o.FkiUsergroupID
+	toSerialize["fkiUserID"] = o.FkiUserID
 	return toSerialize, nil
 }
 

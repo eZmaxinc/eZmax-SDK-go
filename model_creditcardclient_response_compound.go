@@ -22,7 +22,19 @@ var _ MappedNullable = &CreditcardclientResponseCompound{}
 
 // CreditcardclientResponseCompound A Creditcardclient Object
 type CreditcardclientResponseCompound struct {
-	CreditcardclientResponse
+	// The unique ID of the Creditcardclient
+	PkiCreditcardclientID int32 `json:"pkiCreditcardclientID"`
+	// The unique ID of the Creditcarddetail
+	FkiCreditcarddetailID int32 `json:"fkiCreditcarddetailID"`
+	// Whether if it's the creditcardclient is the default one
+	BCreditcardclientrelationIsdefault bool `json:"bCreditcardclientrelationIsdefault"`
+	// The description of the Creditcardclient
+	SCreditcardclientDescription string `json:"sCreditcardclientDescription" validate:"regexp=^.{0,50}$"`
+	// Whether if it's an allowedagencypayment
+	BCreditcardclientAllowedcompanypayment bool `json:"bCreditcardclientAllowedcompanypayment"`
+	// Whether if it's an allowedtranquillit
+	BCreditcardclientAllowedtranquillit bool `json:"bCreditcardclientAllowedtranquillit"`
+	ObjCreditcarddetail CreditcarddetailResponseCompound `json:"objCreditcarddetail"`
 }
 
 type _CreditcardclientResponseCompound CreditcardclientResponseCompound
@@ -51,6 +63,174 @@ func NewCreditcardclientResponseCompoundWithDefaults() *CreditcardclientResponse
 	return &this
 }
 
+// GetPkiCreditcardclientID returns the PkiCreditcardclientID field value
+func (o *CreditcardclientResponseCompound) GetPkiCreditcardclientID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.PkiCreditcardclientID
+}
+
+// GetPkiCreditcardclientIDOk returns a tuple with the PkiCreditcardclientID field value
+// and a boolean to check if the value has been set.
+func (o *CreditcardclientResponseCompound) GetPkiCreditcardclientIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PkiCreditcardclientID, true
+}
+
+// SetPkiCreditcardclientID sets field value
+func (o *CreditcardclientResponseCompound) SetPkiCreditcardclientID(v int32) {
+	o.PkiCreditcardclientID = v
+}
+
+// GetFkiCreditcarddetailID returns the FkiCreditcarddetailID field value
+func (o *CreditcardclientResponseCompound) GetFkiCreditcarddetailID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiCreditcarddetailID
+}
+
+// GetFkiCreditcarddetailIDOk returns a tuple with the FkiCreditcarddetailID field value
+// and a boolean to check if the value has been set.
+func (o *CreditcardclientResponseCompound) GetFkiCreditcarddetailIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiCreditcarddetailID, true
+}
+
+// SetFkiCreditcarddetailID sets field value
+func (o *CreditcardclientResponseCompound) SetFkiCreditcarddetailID(v int32) {
+	o.FkiCreditcarddetailID = v
+}
+
+// GetBCreditcardclientrelationIsdefault returns the BCreditcardclientrelationIsdefault field value
+func (o *CreditcardclientResponseCompound) GetBCreditcardclientrelationIsdefault() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BCreditcardclientrelationIsdefault
+}
+
+// GetBCreditcardclientrelationIsdefaultOk returns a tuple with the BCreditcardclientrelationIsdefault field value
+// and a boolean to check if the value has been set.
+func (o *CreditcardclientResponseCompound) GetBCreditcardclientrelationIsdefaultOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BCreditcardclientrelationIsdefault, true
+}
+
+// SetBCreditcardclientrelationIsdefault sets field value
+func (o *CreditcardclientResponseCompound) SetBCreditcardclientrelationIsdefault(v bool) {
+	o.BCreditcardclientrelationIsdefault = v
+}
+
+// GetSCreditcardclientDescription returns the SCreditcardclientDescription field value
+func (o *CreditcardclientResponseCompound) GetSCreditcardclientDescription() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SCreditcardclientDescription
+}
+
+// GetSCreditcardclientDescriptionOk returns a tuple with the SCreditcardclientDescription field value
+// and a boolean to check if the value has been set.
+func (o *CreditcardclientResponseCompound) GetSCreditcardclientDescriptionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SCreditcardclientDescription, true
+}
+
+// SetSCreditcardclientDescription sets field value
+func (o *CreditcardclientResponseCompound) SetSCreditcardclientDescription(v string) {
+	o.SCreditcardclientDescription = v
+}
+
+// GetBCreditcardclientAllowedcompanypayment returns the BCreditcardclientAllowedcompanypayment field value
+func (o *CreditcardclientResponseCompound) GetBCreditcardclientAllowedcompanypayment() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BCreditcardclientAllowedcompanypayment
+}
+
+// GetBCreditcardclientAllowedcompanypaymentOk returns a tuple with the BCreditcardclientAllowedcompanypayment field value
+// and a boolean to check if the value has been set.
+func (o *CreditcardclientResponseCompound) GetBCreditcardclientAllowedcompanypaymentOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BCreditcardclientAllowedcompanypayment, true
+}
+
+// SetBCreditcardclientAllowedcompanypayment sets field value
+func (o *CreditcardclientResponseCompound) SetBCreditcardclientAllowedcompanypayment(v bool) {
+	o.BCreditcardclientAllowedcompanypayment = v
+}
+
+// GetBCreditcardclientAllowedtranquillit returns the BCreditcardclientAllowedtranquillit field value
+func (o *CreditcardclientResponseCompound) GetBCreditcardclientAllowedtranquillit() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BCreditcardclientAllowedtranquillit
+}
+
+// GetBCreditcardclientAllowedtranquillitOk returns a tuple with the BCreditcardclientAllowedtranquillit field value
+// and a boolean to check if the value has been set.
+func (o *CreditcardclientResponseCompound) GetBCreditcardclientAllowedtranquillitOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BCreditcardclientAllowedtranquillit, true
+}
+
+// SetBCreditcardclientAllowedtranquillit sets field value
+func (o *CreditcardclientResponseCompound) SetBCreditcardclientAllowedtranquillit(v bool) {
+	o.BCreditcardclientAllowedtranquillit = v
+}
+
+// GetObjCreditcarddetail returns the ObjCreditcarddetail field value
+func (o *CreditcardclientResponseCompound) GetObjCreditcarddetail() CreditcarddetailResponseCompound {
+	if o == nil {
+		var ret CreditcarddetailResponseCompound
+		return ret
+	}
+
+	return o.ObjCreditcarddetail
+}
+
+// GetObjCreditcarddetailOk returns a tuple with the ObjCreditcarddetail field value
+// and a boolean to check if the value has been set.
+func (o *CreditcardclientResponseCompound) GetObjCreditcarddetailOk() (*CreditcarddetailResponseCompound, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjCreditcarddetail, true
+}
+
+// SetObjCreditcarddetail sets field value
+func (o *CreditcardclientResponseCompound) SetObjCreditcarddetail(v CreditcarddetailResponseCompound) {
+	o.ObjCreditcarddetail = v
+}
+
 func (o CreditcardclientResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -61,6 +241,13 @@ func (o CreditcardclientResponseCompound) MarshalJSON() ([]byte, error) {
 
 func (o CreditcardclientResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["pkiCreditcardclientID"] = o.PkiCreditcardclientID
+	toSerialize["fkiCreditcarddetailID"] = o.FkiCreditcarddetailID
+	toSerialize["bCreditcardclientrelationIsdefault"] = o.BCreditcardclientrelationIsdefault
+	toSerialize["sCreditcardclientDescription"] = o.SCreditcardclientDescription
+	toSerialize["bCreditcardclientAllowedcompanypayment"] = o.BCreditcardclientAllowedcompanypayment
+	toSerialize["bCreditcardclientAllowedtranquillit"] = o.BCreditcardclientAllowedtranquillit
+	toSerialize["objCreditcarddetail"] = o.ObjCreditcarddetail
 	return toSerialize, nil
 }
 

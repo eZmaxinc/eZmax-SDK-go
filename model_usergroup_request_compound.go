@@ -22,7 +22,10 @@ var _ MappedNullable = &UsergroupRequestCompound{}
 
 // UsergroupRequestCompound A Usergroup Object and children
 type UsergroupRequestCompound struct {
-	UsergroupRequest
+	// The unique ID of the Usergroup
+	PkiUsergroupID *int32 `json:"pkiUsergroupID,omitempty"`
+	ObjEmail *EmailRequest `json:"objEmail,omitempty"`
+	ObjUsergroupName MultilingualUsergroupName `json:"objUsergroupName"`
 }
 
 type _UsergroupRequestCompound UsergroupRequestCompound
@@ -45,6 +48,94 @@ func NewUsergroupRequestCompoundWithDefaults() *UsergroupRequestCompound {
 	return &this
 }
 
+// GetPkiUsergroupID returns the PkiUsergroupID field value if set, zero value otherwise.
+func (o *UsergroupRequestCompound) GetPkiUsergroupID() int32 {
+	if o == nil || IsNil(o.PkiUsergroupID) {
+		var ret int32
+		return ret
+	}
+	return *o.PkiUsergroupID
+}
+
+// GetPkiUsergroupIDOk returns a tuple with the PkiUsergroupID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsergroupRequestCompound) GetPkiUsergroupIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.PkiUsergroupID) {
+		return nil, false
+	}
+	return o.PkiUsergroupID, true
+}
+
+// HasPkiUsergroupID returns a boolean if a field has been set.
+func (o *UsergroupRequestCompound) HasPkiUsergroupID() bool {
+	if o != nil && !IsNil(o.PkiUsergroupID) {
+		return true
+	}
+
+	return false
+}
+
+// SetPkiUsergroupID gets a reference to the given int32 and assigns it to the PkiUsergroupID field.
+func (o *UsergroupRequestCompound) SetPkiUsergroupID(v int32) {
+	o.PkiUsergroupID = &v
+}
+
+// GetObjEmail returns the ObjEmail field value if set, zero value otherwise.
+func (o *UsergroupRequestCompound) GetObjEmail() EmailRequest {
+	if o == nil || IsNil(o.ObjEmail) {
+		var ret EmailRequest
+		return ret
+	}
+	return *o.ObjEmail
+}
+
+// GetObjEmailOk returns a tuple with the ObjEmail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsergroupRequestCompound) GetObjEmailOk() (*EmailRequest, bool) {
+	if o == nil || IsNil(o.ObjEmail) {
+		return nil, false
+	}
+	return o.ObjEmail, true
+}
+
+// HasObjEmail returns a boolean if a field has been set.
+func (o *UsergroupRequestCompound) HasObjEmail() bool {
+	if o != nil && !IsNil(o.ObjEmail) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjEmail gets a reference to the given EmailRequest and assigns it to the ObjEmail field.
+func (o *UsergroupRequestCompound) SetObjEmail(v EmailRequest) {
+	o.ObjEmail = &v
+}
+
+// GetObjUsergroupName returns the ObjUsergroupName field value
+func (o *UsergroupRequestCompound) GetObjUsergroupName() MultilingualUsergroupName {
+	if o == nil {
+		var ret MultilingualUsergroupName
+		return ret
+	}
+
+	return o.ObjUsergroupName
+}
+
+// GetObjUsergroupNameOk returns a tuple with the ObjUsergroupName field value
+// and a boolean to check if the value has been set.
+func (o *UsergroupRequestCompound) GetObjUsergroupNameOk() (*MultilingualUsergroupName, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjUsergroupName, true
+}
+
+// SetObjUsergroupName sets field value
+func (o *UsergroupRequestCompound) SetObjUsergroupName(v MultilingualUsergroupName) {
+	o.ObjUsergroupName = v
+}
+
 func (o UsergroupRequestCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -55,6 +146,13 @@ func (o UsergroupRequestCompound) MarshalJSON() ([]byte, error) {
 
 func (o UsergroupRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.PkiUsergroupID) {
+		toSerialize["pkiUsergroupID"] = o.PkiUsergroupID
+	}
+	if !IsNil(o.ObjEmail) {
+		toSerialize["objEmail"] = o.ObjEmail
+	}
+	toSerialize["objUsergroupName"] = o.ObjUsergroupName
 	return toSerialize, nil
 }
 

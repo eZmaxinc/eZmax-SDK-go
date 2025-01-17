@@ -22,7 +22,23 @@ var _ MappedNullable = &BrandingResponseCompoundV3{}
 
 // BrandingResponseCompoundV3 A Branding Object
 type BrandingResponseCompoundV3 struct {
-	BrandingResponseV3
+	// The unique ID of the Branding
+	PkiBrandingID int32 `json:"pkiBrandingID"`
+	// The unique ID of the Email
+	FkiEmailID *int32 `json:"fkiEmailID,omitempty"`
+	ObjBrandingDescription MultilingualBrandingDescription `json:"objBrandingDescription"`
+	// The Description of the Branding in the language of the requester
+	SBrandingDescriptionX string `json:"sBrandingDescriptionX"`
+	// The name of the Branding  This value will only be set if you wish to overwrite the default name. If you want to keep the default name, leave this property empty
+	SBrandingName *string `json:"sBrandingName,omitempty" validate:"regexp=^.{0,55}$"`
+	// The email address.
+	SEmailAddress *string "json:\"sEmailAddress,omitempty\" validate:\"regexp=^[\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20}$\""
+	EBrandingLogo FieldEBrandingLogo `json:"eBrandingLogo"`
+	EBrandingAlignlogo FieldEBrandingAlignlogo `json:"eBrandingAlignlogo"`
+	// The primary color. This is a RGB color converted into integer
+	IBrandingColor int32 `json:"iBrandingColor"`
+	// Whether the Branding is active or not
+	BBrandingIsactive bool `json:"bBrandingIsactive"`
 	// The url of the picture used as logo in the Branding
 	SBrandingLogourl *string `json:"sBrandingLogourl,omitempty" validate:"regexp=^(https|http):\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
 	// The url of the picture used in email as logo in the Branding
@@ -55,6 +71,270 @@ func NewBrandingResponseCompoundV3(pkiBrandingID int32, objBrandingDescription M
 func NewBrandingResponseCompoundV3WithDefaults() *BrandingResponseCompoundV3 {
 	this := BrandingResponseCompoundV3{}
 	return &this
+}
+
+// GetPkiBrandingID returns the PkiBrandingID field value
+func (o *BrandingResponseCompoundV3) GetPkiBrandingID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.PkiBrandingID
+}
+
+// GetPkiBrandingIDOk returns a tuple with the PkiBrandingID field value
+// and a boolean to check if the value has been set.
+func (o *BrandingResponseCompoundV3) GetPkiBrandingIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PkiBrandingID, true
+}
+
+// SetPkiBrandingID sets field value
+func (o *BrandingResponseCompoundV3) SetPkiBrandingID(v int32) {
+	o.PkiBrandingID = v
+}
+
+// GetFkiEmailID returns the FkiEmailID field value if set, zero value otherwise.
+func (o *BrandingResponseCompoundV3) GetFkiEmailID() int32 {
+	if o == nil || IsNil(o.FkiEmailID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEmailID
+}
+
+// GetFkiEmailIDOk returns a tuple with the FkiEmailID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BrandingResponseCompoundV3) GetFkiEmailIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEmailID) {
+		return nil, false
+	}
+	return o.FkiEmailID, true
+}
+
+// HasFkiEmailID returns a boolean if a field has been set.
+func (o *BrandingResponseCompoundV3) HasFkiEmailID() bool {
+	if o != nil && !IsNil(o.FkiEmailID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEmailID gets a reference to the given int32 and assigns it to the FkiEmailID field.
+func (o *BrandingResponseCompoundV3) SetFkiEmailID(v int32) {
+	o.FkiEmailID = &v
+}
+
+// GetObjBrandingDescription returns the ObjBrandingDescription field value
+func (o *BrandingResponseCompoundV3) GetObjBrandingDescription() MultilingualBrandingDescription {
+	if o == nil {
+		var ret MultilingualBrandingDescription
+		return ret
+	}
+
+	return o.ObjBrandingDescription
+}
+
+// GetObjBrandingDescriptionOk returns a tuple with the ObjBrandingDescription field value
+// and a boolean to check if the value has been set.
+func (o *BrandingResponseCompoundV3) GetObjBrandingDescriptionOk() (*MultilingualBrandingDescription, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjBrandingDescription, true
+}
+
+// SetObjBrandingDescription sets field value
+func (o *BrandingResponseCompoundV3) SetObjBrandingDescription(v MultilingualBrandingDescription) {
+	o.ObjBrandingDescription = v
+}
+
+// GetSBrandingDescriptionX returns the SBrandingDescriptionX field value
+func (o *BrandingResponseCompoundV3) GetSBrandingDescriptionX() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SBrandingDescriptionX
+}
+
+// GetSBrandingDescriptionXOk returns a tuple with the SBrandingDescriptionX field value
+// and a boolean to check if the value has been set.
+func (o *BrandingResponseCompoundV3) GetSBrandingDescriptionXOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SBrandingDescriptionX, true
+}
+
+// SetSBrandingDescriptionX sets field value
+func (o *BrandingResponseCompoundV3) SetSBrandingDescriptionX(v string) {
+	o.SBrandingDescriptionX = v
+}
+
+// GetSBrandingName returns the SBrandingName field value if set, zero value otherwise.
+func (o *BrandingResponseCompoundV3) GetSBrandingName() string {
+	if o == nil || IsNil(o.SBrandingName) {
+		var ret string
+		return ret
+	}
+	return *o.SBrandingName
+}
+
+// GetSBrandingNameOk returns a tuple with the SBrandingName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BrandingResponseCompoundV3) GetSBrandingNameOk() (*string, bool) {
+	if o == nil || IsNil(o.SBrandingName) {
+		return nil, false
+	}
+	return o.SBrandingName, true
+}
+
+// HasSBrandingName returns a boolean if a field has been set.
+func (o *BrandingResponseCompoundV3) HasSBrandingName() bool {
+	if o != nil && !IsNil(o.SBrandingName) {
+		return true
+	}
+
+	return false
+}
+
+// SetSBrandingName gets a reference to the given string and assigns it to the SBrandingName field.
+func (o *BrandingResponseCompoundV3) SetSBrandingName(v string) {
+	o.SBrandingName = &v
+}
+
+// GetSEmailAddress returns the SEmailAddress field value if set, zero value otherwise.
+func (o *BrandingResponseCompoundV3) GetSEmailAddress() string {
+	if o == nil || IsNil(o.SEmailAddress) {
+		var ret string
+		return ret
+	}
+	return *o.SEmailAddress
+}
+
+// GetSEmailAddressOk returns a tuple with the SEmailAddress field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BrandingResponseCompoundV3) GetSEmailAddressOk() (*string, bool) {
+	if o == nil || IsNil(o.SEmailAddress) {
+		return nil, false
+	}
+	return o.SEmailAddress, true
+}
+
+// HasSEmailAddress returns a boolean if a field has been set.
+func (o *BrandingResponseCompoundV3) HasSEmailAddress() bool {
+	if o != nil && !IsNil(o.SEmailAddress) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEmailAddress gets a reference to the given string and assigns it to the SEmailAddress field.
+func (o *BrandingResponseCompoundV3) SetSEmailAddress(v string) {
+	o.SEmailAddress = &v
+}
+
+// GetEBrandingLogo returns the EBrandingLogo field value
+func (o *BrandingResponseCompoundV3) GetEBrandingLogo() FieldEBrandingLogo {
+	if o == nil {
+		var ret FieldEBrandingLogo
+		return ret
+	}
+
+	return o.EBrandingLogo
+}
+
+// GetEBrandingLogoOk returns a tuple with the EBrandingLogo field value
+// and a boolean to check if the value has been set.
+func (o *BrandingResponseCompoundV3) GetEBrandingLogoOk() (*FieldEBrandingLogo, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EBrandingLogo, true
+}
+
+// SetEBrandingLogo sets field value
+func (o *BrandingResponseCompoundV3) SetEBrandingLogo(v FieldEBrandingLogo) {
+	o.EBrandingLogo = v
+}
+
+// GetEBrandingAlignlogo returns the EBrandingAlignlogo field value
+func (o *BrandingResponseCompoundV3) GetEBrandingAlignlogo() FieldEBrandingAlignlogo {
+	if o == nil {
+		var ret FieldEBrandingAlignlogo
+		return ret
+	}
+
+	return o.EBrandingAlignlogo
+}
+
+// GetEBrandingAlignlogoOk returns a tuple with the EBrandingAlignlogo field value
+// and a boolean to check if the value has been set.
+func (o *BrandingResponseCompoundV3) GetEBrandingAlignlogoOk() (*FieldEBrandingAlignlogo, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EBrandingAlignlogo, true
+}
+
+// SetEBrandingAlignlogo sets field value
+func (o *BrandingResponseCompoundV3) SetEBrandingAlignlogo(v FieldEBrandingAlignlogo) {
+	o.EBrandingAlignlogo = v
+}
+
+// GetIBrandingColor returns the IBrandingColor field value
+func (o *BrandingResponseCompoundV3) GetIBrandingColor() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IBrandingColor
+}
+
+// GetIBrandingColorOk returns a tuple with the IBrandingColor field value
+// and a boolean to check if the value has been set.
+func (o *BrandingResponseCompoundV3) GetIBrandingColorOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IBrandingColor, true
+}
+
+// SetIBrandingColor sets field value
+func (o *BrandingResponseCompoundV3) SetIBrandingColor(v int32) {
+	o.IBrandingColor = v
+}
+
+// GetBBrandingIsactive returns the BBrandingIsactive field value
+func (o *BrandingResponseCompoundV3) GetBBrandingIsactive() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BBrandingIsactive
+}
+
+// GetBBrandingIsactiveOk returns a tuple with the BBrandingIsactive field value
+// and a boolean to check if the value has been set.
+func (o *BrandingResponseCompoundV3) GetBBrandingIsactiveOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BBrandingIsactive, true
+}
+
+// SetBBrandingIsactive sets field value
+func (o *BrandingResponseCompoundV3) SetBBrandingIsactive(v bool) {
+	o.BBrandingIsactive = v
 }
 
 // GetSBrandingLogourl returns the SBrandingLogourl field value if set, zero value otherwise.
@@ -163,6 +443,22 @@ func (o BrandingResponseCompoundV3) MarshalJSON() ([]byte, error) {
 
 func (o BrandingResponseCompoundV3) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["pkiBrandingID"] = o.PkiBrandingID
+	if !IsNil(o.FkiEmailID) {
+		toSerialize["fkiEmailID"] = o.FkiEmailID
+	}
+	toSerialize["objBrandingDescription"] = o.ObjBrandingDescription
+	toSerialize["sBrandingDescriptionX"] = o.SBrandingDescriptionX
+	if !IsNil(o.SBrandingName) {
+		toSerialize["sBrandingName"] = o.SBrandingName
+	}
+	if !IsNil(o.SEmailAddress) {
+		toSerialize["sEmailAddress"] = o.SEmailAddress
+	}
+	toSerialize["eBrandingLogo"] = o.EBrandingLogo
+	toSerialize["eBrandingAlignlogo"] = o.EBrandingAlignlogo
+	toSerialize["iBrandingColor"] = o.IBrandingColor
+	toSerialize["bBrandingIsactive"] = o.BBrandingIsactive
 	if !IsNil(o.SBrandingLogourl) {
 		toSerialize["sBrandingLogourl"] = o.SBrandingLogourl
 	}

@@ -22,7 +22,18 @@ var _ MappedNullable = &DiscussionmembershipRequestCompound{}
 
 // DiscussionmembershipRequestCompound A Discussionmembership Object and children
 type DiscussionmembershipRequestCompound struct {
-	DiscussionmembershipRequest
+	// The unique ID of the Discussionmembership
+	PkiDiscussionmembershipID *int32 `json:"pkiDiscussionmembershipID,omitempty"`
+	// The unique ID of the Discussion
+	FkiDiscussionID int32 `json:"fkiDiscussionID"`
+	// The unique ID of the User
+	FkiUserID *int32 `json:"fkiUserID,omitempty"`
+	// The unique ID of the Usergroup
+	FkiUsergroupID *int32 `json:"fkiUsergroupID,omitempty"`
+	// The unique ID of the Modulesection
+	FkiModulesectionID *int32 `json:"fkiModulesectionID,omitempty"`
+	// The joined date of the Discussionmembership
+	DtDiscussionmembershipJoined string `json:"dtDiscussionmembershipJoined" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$"`
 }
 
 type _DiscussionmembershipRequestCompound DiscussionmembershipRequestCompound
@@ -46,6 +57,182 @@ func NewDiscussionmembershipRequestCompoundWithDefaults() *DiscussionmembershipR
 	return &this
 }
 
+// GetPkiDiscussionmembershipID returns the PkiDiscussionmembershipID field value if set, zero value otherwise.
+func (o *DiscussionmembershipRequestCompound) GetPkiDiscussionmembershipID() int32 {
+	if o == nil || IsNil(o.PkiDiscussionmembershipID) {
+		var ret int32
+		return ret
+	}
+	return *o.PkiDiscussionmembershipID
+}
+
+// GetPkiDiscussionmembershipIDOk returns a tuple with the PkiDiscussionmembershipID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DiscussionmembershipRequestCompound) GetPkiDiscussionmembershipIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.PkiDiscussionmembershipID) {
+		return nil, false
+	}
+	return o.PkiDiscussionmembershipID, true
+}
+
+// HasPkiDiscussionmembershipID returns a boolean if a field has been set.
+func (o *DiscussionmembershipRequestCompound) HasPkiDiscussionmembershipID() bool {
+	if o != nil && !IsNil(o.PkiDiscussionmembershipID) {
+		return true
+	}
+
+	return false
+}
+
+// SetPkiDiscussionmembershipID gets a reference to the given int32 and assigns it to the PkiDiscussionmembershipID field.
+func (o *DiscussionmembershipRequestCompound) SetPkiDiscussionmembershipID(v int32) {
+	o.PkiDiscussionmembershipID = &v
+}
+
+// GetFkiDiscussionID returns the FkiDiscussionID field value
+func (o *DiscussionmembershipRequestCompound) GetFkiDiscussionID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiDiscussionID
+}
+
+// GetFkiDiscussionIDOk returns a tuple with the FkiDiscussionID field value
+// and a boolean to check if the value has been set.
+func (o *DiscussionmembershipRequestCompound) GetFkiDiscussionIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiDiscussionID, true
+}
+
+// SetFkiDiscussionID sets field value
+func (o *DiscussionmembershipRequestCompound) SetFkiDiscussionID(v int32) {
+	o.FkiDiscussionID = v
+}
+
+// GetFkiUserID returns the FkiUserID field value if set, zero value otherwise.
+func (o *DiscussionmembershipRequestCompound) GetFkiUserID() int32 {
+	if o == nil || IsNil(o.FkiUserID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiUserID
+}
+
+// GetFkiUserIDOk returns a tuple with the FkiUserID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DiscussionmembershipRequestCompound) GetFkiUserIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiUserID) {
+		return nil, false
+	}
+	return o.FkiUserID, true
+}
+
+// HasFkiUserID returns a boolean if a field has been set.
+func (o *DiscussionmembershipRequestCompound) HasFkiUserID() bool {
+	if o != nil && !IsNil(o.FkiUserID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiUserID gets a reference to the given int32 and assigns it to the FkiUserID field.
+func (o *DiscussionmembershipRequestCompound) SetFkiUserID(v int32) {
+	o.FkiUserID = &v
+}
+
+// GetFkiUsergroupID returns the FkiUsergroupID field value if set, zero value otherwise.
+func (o *DiscussionmembershipRequestCompound) GetFkiUsergroupID() int32 {
+	if o == nil || IsNil(o.FkiUsergroupID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiUsergroupID
+}
+
+// GetFkiUsergroupIDOk returns a tuple with the FkiUsergroupID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DiscussionmembershipRequestCompound) GetFkiUsergroupIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiUsergroupID) {
+		return nil, false
+	}
+	return o.FkiUsergroupID, true
+}
+
+// HasFkiUsergroupID returns a boolean if a field has been set.
+func (o *DiscussionmembershipRequestCompound) HasFkiUsergroupID() bool {
+	if o != nil && !IsNil(o.FkiUsergroupID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiUsergroupID gets a reference to the given int32 and assigns it to the FkiUsergroupID field.
+func (o *DiscussionmembershipRequestCompound) SetFkiUsergroupID(v int32) {
+	o.FkiUsergroupID = &v
+}
+
+// GetFkiModulesectionID returns the FkiModulesectionID field value if set, zero value otherwise.
+func (o *DiscussionmembershipRequestCompound) GetFkiModulesectionID() int32 {
+	if o == nil || IsNil(o.FkiModulesectionID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiModulesectionID
+}
+
+// GetFkiModulesectionIDOk returns a tuple with the FkiModulesectionID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DiscussionmembershipRequestCompound) GetFkiModulesectionIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiModulesectionID) {
+		return nil, false
+	}
+	return o.FkiModulesectionID, true
+}
+
+// HasFkiModulesectionID returns a boolean if a field has been set.
+func (o *DiscussionmembershipRequestCompound) HasFkiModulesectionID() bool {
+	if o != nil && !IsNil(o.FkiModulesectionID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiModulesectionID gets a reference to the given int32 and assigns it to the FkiModulesectionID field.
+func (o *DiscussionmembershipRequestCompound) SetFkiModulesectionID(v int32) {
+	o.FkiModulesectionID = &v
+}
+
+// GetDtDiscussionmembershipJoined returns the DtDiscussionmembershipJoined field value
+func (o *DiscussionmembershipRequestCompound) GetDtDiscussionmembershipJoined() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.DtDiscussionmembershipJoined
+}
+
+// GetDtDiscussionmembershipJoinedOk returns a tuple with the DtDiscussionmembershipJoined field value
+// and a boolean to check if the value has been set.
+func (o *DiscussionmembershipRequestCompound) GetDtDiscussionmembershipJoinedOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.DtDiscussionmembershipJoined, true
+}
+
+// SetDtDiscussionmembershipJoined sets field value
+func (o *DiscussionmembershipRequestCompound) SetDtDiscussionmembershipJoined(v string) {
+	o.DtDiscussionmembershipJoined = v
+}
+
 func (o DiscussionmembershipRequestCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -56,6 +243,20 @@ func (o DiscussionmembershipRequestCompound) MarshalJSON() ([]byte, error) {
 
 func (o DiscussionmembershipRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.PkiDiscussionmembershipID) {
+		toSerialize["pkiDiscussionmembershipID"] = o.PkiDiscussionmembershipID
+	}
+	toSerialize["fkiDiscussionID"] = o.FkiDiscussionID
+	if !IsNil(o.FkiUserID) {
+		toSerialize["fkiUserID"] = o.FkiUserID
+	}
+	if !IsNil(o.FkiUsergroupID) {
+		toSerialize["fkiUsergroupID"] = o.FkiUsergroupID
+	}
+	if !IsNil(o.FkiModulesectionID) {
+		toSerialize["fkiModulesectionID"] = o.FkiModulesectionID
+	}
+	toSerialize["dtDiscussionmembershipJoined"] = o.DtDiscussionmembershipJoined
 	return toSerialize, nil
 }
 

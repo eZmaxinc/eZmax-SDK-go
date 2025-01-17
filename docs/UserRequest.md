@@ -13,10 +13,10 @@ Name | Type | Description | Notes
 **FkiDepartmentIDDefault** | **int32** | The unique ID of the Department | 
 **FkiTimezoneID** | **int32** | The unique ID of the Timezone | 
 **FkiLanguageID** | **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
-**ObjEmail** | [**EmailRequest**](EmailRequest.md) | An Email Object and children to create a complete structure | 
+**ObjEmail** | [**EmailRequestCompound**](EmailRequestCompound.md) |  | 
 **FkiBillingentityinternalID** | **int32** | The unique ID of the Billingentityinternal. | 
-**ObjPhoneHome** | Pointer to [**PhoneRequest**](PhoneRequest.md) | A Phone Object and children to create a complete structure | [optional] 
-**ObjPhoneSMS** | Pointer to [**PhoneRequest**](PhoneRequest.md) | A Phone Object and children to create a complete structure | [optional] 
+**ObjPhoneHome** | Pointer to [**PhoneRequestCompound**](PhoneRequestCompound.md) |  | [optional] 
+**ObjPhoneSMS** | Pointer to [**PhoneRequestCompound**](PhoneRequestCompound.md) |  | [optional] 
 **FkiSecretquestionID** | Pointer to **int32** | The unique ID of the Secretquestion.  Valid values:  |Value|Description| |-|-| |1|The name of the hospital in which you were born| |2|The name of your grade school| |3|The last name of your favorite teacher| |4|Your favorite sports team| |5|Your favorite TV show| |6|Your favorite movie| |7|The name of the street on which you grew up| |8|The name of your first employer| |9|Your first car| |10|Your favorite food| |11|The name of your first pet| |12|Favorite musician/band| |13|What instrument you play| |14|Your father&#39;s middle name| |15|Your mother&#39;s maiden name| |16|Name of your eldest child| |17|Your spouse&#39;s middle name| |18|Favorite restaurant| |19|Childhood nickname| |20|Favorite vacation destination| |21|Your boat&#39;s name| |22|Date of Birth (YYYY-MM-DD)| |22|Secret Code| |22|Your reference code| | [optional] 
 **SUserSecretresponse** | Pointer to **string** | The answer to the Secretquestion | [optional] 
 **FkiModuleIDForm** | Pointer to **int32** | The unique ID of the Module | [optional] 
@@ -37,7 +37,7 @@ Name | Type | Description | Notes
 
 ### NewUserRequest
 
-`func NewUserRequest(fkiCompanyIDDefault int32, fkiDepartmentIDDefault int32, fkiTimezoneID int32, fkiLanguageID int32, objEmail EmailRequest, fkiBillingentityinternalID int32, eUserType FieldEUserType, eUserLogintype FieldEUserLogintype, sUserFirstname string, sUserLastname string, sUserLoginname string, eUserEzsignaccess FieldEUserEzsignaccess, bUserIsactive bool, ) *UserRequest`
+`func NewUserRequest(fkiCompanyIDDefault int32, fkiDepartmentIDDefault int32, fkiTimezoneID int32, fkiLanguageID int32, objEmail EmailRequestCompound, fkiBillingentityinternalID int32, eUserType FieldEUserType, eUserLogintype FieldEUserLogintype, sUserFirstname string, sUserLastname string, sUserLoginname string, eUserEzsignaccess FieldEUserEzsignaccess, bUserIsactive bool, ) *UserRequest`
 
 NewUserRequest instantiates a new UserRequest object
 This constructor will assign default values to properties that have it defined,
@@ -259,20 +259,20 @@ SetFkiLanguageID sets FkiLanguageID field to given value.
 
 ### GetObjEmail
 
-`func (o *UserRequest) GetObjEmail() EmailRequest`
+`func (o *UserRequest) GetObjEmail() EmailRequestCompound`
 
 GetObjEmail returns the ObjEmail field if non-nil, zero value otherwise.
 
 ### GetObjEmailOk
 
-`func (o *UserRequest) GetObjEmailOk() (*EmailRequest, bool)`
+`func (o *UserRequest) GetObjEmailOk() (*EmailRequestCompound, bool)`
 
 GetObjEmailOk returns a tuple with the ObjEmail field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObjEmail
 
-`func (o *UserRequest) SetObjEmail(v EmailRequest)`
+`func (o *UserRequest) SetObjEmail(v EmailRequestCompound)`
 
 SetObjEmail sets ObjEmail field to given value.
 
@@ -299,20 +299,20 @@ SetFkiBillingentityinternalID sets FkiBillingentityinternalID field to given val
 
 ### GetObjPhoneHome
 
-`func (o *UserRequest) GetObjPhoneHome() PhoneRequest`
+`func (o *UserRequest) GetObjPhoneHome() PhoneRequestCompound`
 
 GetObjPhoneHome returns the ObjPhoneHome field if non-nil, zero value otherwise.
 
 ### GetObjPhoneHomeOk
 
-`func (o *UserRequest) GetObjPhoneHomeOk() (*PhoneRequest, bool)`
+`func (o *UserRequest) GetObjPhoneHomeOk() (*PhoneRequestCompound, bool)`
 
 GetObjPhoneHomeOk returns a tuple with the ObjPhoneHome field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObjPhoneHome
 
-`func (o *UserRequest) SetObjPhoneHome(v PhoneRequest)`
+`func (o *UserRequest) SetObjPhoneHome(v PhoneRequestCompound)`
 
 SetObjPhoneHome sets ObjPhoneHome field to given value.
 
@@ -324,20 +324,20 @@ HasObjPhoneHome returns a boolean if a field has been set.
 
 ### GetObjPhoneSMS
 
-`func (o *UserRequest) GetObjPhoneSMS() PhoneRequest`
+`func (o *UserRequest) GetObjPhoneSMS() PhoneRequestCompound`
 
 GetObjPhoneSMS returns the ObjPhoneSMS field if non-nil, zero value otherwise.
 
 ### GetObjPhoneSMSOk
 
-`func (o *UserRequest) GetObjPhoneSMSOk() (*PhoneRequest, bool)`
+`func (o *UserRequest) GetObjPhoneSMSOk() (*PhoneRequestCompound, bool)`
 
 GetObjPhoneSMSOk returns a tuple with the ObjPhoneSMS field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObjPhoneSMS
 
-`func (o *UserRequest) SetObjPhoneSMS(v PhoneRequest)`
+`func (o *UserRequest) SetObjPhoneSMS(v PhoneRequestCompound)`
 
 SetObjPhoneSMS sets ObjPhoneSMS field to given value.
 

@@ -22,7 +22,18 @@ var _ MappedNullable = &ModuleResponseCompound{}
 
 // ModuleResponseCompound A Module Object
 type ModuleResponseCompound struct {
-	ModuleResponse
+	// The unique ID of the Module
+	PkiModuleID int32 `json:"pkiModuleID"`
+	// The unique ID of the Modulegroup
+	FkiModulegroupID int32 `json:"fkiModulegroupID"`
+	// The Internal name of the Module.  This is theoretically an enum field but there are so many possibles values we decided not to list them all.
+	EModuleInternalname string `json:"eModuleInternalname"`
+	// The Name of the Module in the language of the requester
+	SModuleNameX string `json:"sModuleNameX"`
+	// Whether the Module is registered or not
+	BModuleRegistered bool `json:"bModuleRegistered"`
+	// Whether the Module is registered or not for api use
+	BModuleRegisteredapi bool `json:"bModuleRegisteredapi"`
 	AObjModulesection []ModulesectionResponseCompound `json:"a_objModulesection,omitempty"`
 }
 
@@ -49,6 +60,150 @@ func NewModuleResponseCompound(pkiModuleID int32, fkiModulegroupID int32, eModul
 func NewModuleResponseCompoundWithDefaults() *ModuleResponseCompound {
 	this := ModuleResponseCompound{}
 	return &this
+}
+
+// GetPkiModuleID returns the PkiModuleID field value
+func (o *ModuleResponseCompound) GetPkiModuleID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.PkiModuleID
+}
+
+// GetPkiModuleIDOk returns a tuple with the PkiModuleID field value
+// and a boolean to check if the value has been set.
+func (o *ModuleResponseCompound) GetPkiModuleIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PkiModuleID, true
+}
+
+// SetPkiModuleID sets field value
+func (o *ModuleResponseCompound) SetPkiModuleID(v int32) {
+	o.PkiModuleID = v
+}
+
+// GetFkiModulegroupID returns the FkiModulegroupID field value
+func (o *ModuleResponseCompound) GetFkiModulegroupID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiModulegroupID
+}
+
+// GetFkiModulegroupIDOk returns a tuple with the FkiModulegroupID field value
+// and a boolean to check if the value has been set.
+func (o *ModuleResponseCompound) GetFkiModulegroupIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiModulegroupID, true
+}
+
+// SetFkiModulegroupID sets field value
+func (o *ModuleResponseCompound) SetFkiModulegroupID(v int32) {
+	o.FkiModulegroupID = v
+}
+
+// GetEModuleInternalname returns the EModuleInternalname field value
+func (o *ModuleResponseCompound) GetEModuleInternalname() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.EModuleInternalname
+}
+
+// GetEModuleInternalnameOk returns a tuple with the EModuleInternalname field value
+// and a boolean to check if the value has been set.
+func (o *ModuleResponseCompound) GetEModuleInternalnameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EModuleInternalname, true
+}
+
+// SetEModuleInternalname sets field value
+func (o *ModuleResponseCompound) SetEModuleInternalname(v string) {
+	o.EModuleInternalname = v
+}
+
+// GetSModuleNameX returns the SModuleNameX field value
+func (o *ModuleResponseCompound) GetSModuleNameX() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SModuleNameX
+}
+
+// GetSModuleNameXOk returns a tuple with the SModuleNameX field value
+// and a boolean to check if the value has been set.
+func (o *ModuleResponseCompound) GetSModuleNameXOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SModuleNameX, true
+}
+
+// SetSModuleNameX sets field value
+func (o *ModuleResponseCompound) SetSModuleNameX(v string) {
+	o.SModuleNameX = v
+}
+
+// GetBModuleRegistered returns the BModuleRegistered field value
+func (o *ModuleResponseCompound) GetBModuleRegistered() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BModuleRegistered
+}
+
+// GetBModuleRegisteredOk returns a tuple with the BModuleRegistered field value
+// and a boolean to check if the value has been set.
+func (o *ModuleResponseCompound) GetBModuleRegisteredOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BModuleRegistered, true
+}
+
+// SetBModuleRegistered sets field value
+func (o *ModuleResponseCompound) SetBModuleRegistered(v bool) {
+	o.BModuleRegistered = v
+}
+
+// GetBModuleRegisteredapi returns the BModuleRegisteredapi field value
+func (o *ModuleResponseCompound) GetBModuleRegisteredapi() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BModuleRegisteredapi
+}
+
+// GetBModuleRegisteredapiOk returns a tuple with the BModuleRegisteredapi field value
+// and a boolean to check if the value has been set.
+func (o *ModuleResponseCompound) GetBModuleRegisteredapiOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BModuleRegisteredapi, true
+}
+
+// SetBModuleRegisteredapi sets field value
+func (o *ModuleResponseCompound) SetBModuleRegisteredapi(v bool) {
+	o.BModuleRegisteredapi = v
 }
 
 // GetAObjModulesection returns the AObjModulesection field value if set, zero value otherwise.
@@ -93,6 +248,12 @@ func (o ModuleResponseCompound) MarshalJSON() ([]byte, error) {
 
 func (o ModuleResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["pkiModuleID"] = o.PkiModuleID
+	toSerialize["fkiModulegroupID"] = o.FkiModulegroupID
+	toSerialize["eModuleInternalname"] = o.EModuleInternalname
+	toSerialize["sModuleNameX"] = o.SModuleNameX
+	toSerialize["bModuleRegistered"] = o.BModuleRegistered
+	toSerialize["bModuleRegisteredapi"] = o.BModuleRegisteredapi
 	if !IsNil(o.AObjModulesection) {
 		toSerialize["a_objModulesection"] = o.AObjModulesection
 	}

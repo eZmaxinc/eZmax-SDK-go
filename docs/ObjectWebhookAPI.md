@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 ## WebhookDeleteObjectV1
 
-> CommonResponse WebhookDeleteObjectV1(ctx, pkiWebhookID).Execute()
+> WebhookDeleteObjectV1Response WebhookDeleteObjectV1(ctx, pkiWebhookID).Execute()
 
 Delete an existing Webhook
 
@@ -112,7 +112,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectWebhookAPI.WebhookDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `WebhookDeleteObjectV1`: CommonResponse
+	// response from `WebhookDeleteObjectV1`: WebhookDeleteObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectWebhookAPI.WebhookDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**WebhookDeleteObjectV1Response**](WebhookDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ## WebhookEditObjectV1
 
-> CommonResponse WebhookEditObjectV1(ctx, pkiWebhookID).WebhookEditObjectV1Request(webhookEditObjectV1Request).Execute()
+> WebhookEditObjectV1Response WebhookEditObjectV1(ctx, pkiWebhookID).WebhookEditObjectV1Request(webhookEditObjectV1Request).Execute()
 
 Edit an existing Webhook
 
@@ -183,7 +183,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectWebhookAPI.WebhookEditObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `WebhookEditObjectV1`: CommonResponse
+	// response from `WebhookEditObjectV1`: WebhookEditObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectWebhookAPI.WebhookEditObjectV1`: %v\n", resp)
 }
 ```
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**WebhookEditObjectV1Response**](WebhookEditObjectV1Response.md)
 
 ### Authorization
 
@@ -514,7 +514,7 @@ Name | Type | Description  | Notes
 
 ## WebhookSendWebhookV1
 
-> CommonResponse WebhookSendWebhookV1(ctx).WebhookSendWebhookV1Request(webhookSendWebhookV1Request).Execute()
+> WebhookSendWebhookV1Response WebhookSendWebhookV1(ctx).WebhookSendWebhookV1Request(webhookSendWebhookV1Request).Execute()
 
 Emit a Webhook event
 
@@ -540,7 +540,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectWebhookAPI.WebhookSendWebhookV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `WebhookSendWebhookV1`: CommonResponse
+	// response from `WebhookSendWebhookV1`: WebhookSendWebhookV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectWebhookAPI.WebhookSendWebhookV1`: %v\n", resp)
 }
 ```
@@ -560,7 +560,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**WebhookSendWebhookV1Response**](WebhookSendWebhookV1Response.md)
 
 ### Authorization
 
@@ -578,7 +578,7 @@ Name | Type | Description  | Notes
 
 ## WebhookTestV1
 
-> CommonResponse WebhookTestV1(ctx, pkiWebhookID).Body(body).Execute()
+> WebhookTestV1Response WebhookTestV1(ctx, pkiWebhookID).Body(body).Execute()
 
 Test the Webhook by calling the Url
 
@@ -607,7 +607,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectWebhookAPI.WebhookTestV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `WebhookTestV1`: CommonResponse
+	// response from `WebhookTestV1`: WebhookTestV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectWebhookAPI.WebhookTestV1`: %v\n", resp)
 }
 ```
@@ -632,7 +632,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**WebhookTestV1Response**](WebhookTestV1Response.md)
 
 ### Authorization
 

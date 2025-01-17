@@ -22,8 +22,7 @@ var _ MappedNullable = &UserstagedGetObjectV2ResponseMPayload{}
 
 // UserstagedGetObjectV2ResponseMPayload Payload for GET /2/object/userstaged/{pkiUserstagedID}
 type UserstagedGetObjectV2ResponseMPayload struct {
-	// A Userstaged Object
-	ObjUserstaged UserstagedResponse `json:"objUserstaged"`
+	ObjUserstaged UserstagedResponseCompound `json:"objUserstaged"`
 }
 
 type _UserstagedGetObjectV2ResponseMPayload UserstagedGetObjectV2ResponseMPayload
@@ -32,7 +31,7 @@ type _UserstagedGetObjectV2ResponseMPayload UserstagedGetObjectV2ResponseMPayloa
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUserstagedGetObjectV2ResponseMPayload(objUserstaged UserstagedResponse) *UserstagedGetObjectV2ResponseMPayload {
+func NewUserstagedGetObjectV2ResponseMPayload(objUserstaged UserstagedResponseCompound) *UserstagedGetObjectV2ResponseMPayload {
 	this := UserstagedGetObjectV2ResponseMPayload{}
 	this.ObjUserstaged = objUserstaged
 	return &this
@@ -47,9 +46,9 @@ func NewUserstagedGetObjectV2ResponseMPayloadWithDefaults() *UserstagedGetObject
 }
 
 // GetObjUserstaged returns the ObjUserstaged field value
-func (o *UserstagedGetObjectV2ResponseMPayload) GetObjUserstaged() UserstagedResponse {
+func (o *UserstagedGetObjectV2ResponseMPayload) GetObjUserstaged() UserstagedResponseCompound {
 	if o == nil {
-		var ret UserstagedResponse
+		var ret UserstagedResponseCompound
 		return ret
 	}
 
@@ -58,7 +57,7 @@ func (o *UserstagedGetObjectV2ResponseMPayload) GetObjUserstaged() UserstagedRes
 
 // GetObjUserstagedOk returns a tuple with the ObjUserstaged field value
 // and a boolean to check if the value has been set.
-func (o *UserstagedGetObjectV2ResponseMPayload) GetObjUserstagedOk() (*UserstagedResponse, bool) {
+func (o *UserstagedGetObjectV2ResponseMPayload) GetObjUserstagedOk() (*UserstagedResponseCompound, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -66,7 +65,7 @@ func (o *UserstagedGetObjectV2ResponseMPayload) GetObjUserstagedOk() (*Userstage
 }
 
 // SetObjUserstaged sets field value
-func (o *UserstagedGetObjectV2ResponseMPayload) SetObjUserstaged(v UserstagedResponse) {
+func (o *UserstagedGetObjectV2ResponseMPayload) SetObjUserstaged(v UserstagedResponseCompound) {
 	o.ObjUserstaged = v
 }
 

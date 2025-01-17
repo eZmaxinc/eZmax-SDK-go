@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **FkiSupplierID** | Pointer to **int32** | The unique ID of the Supplier. | [optional] 
 **ECommunicationrecipientsrecipientObjecttype** | **string** |  | 
 **ObjContactName** | [**CustomContactNameResponse**](CustomContactNameResponse.md) |  | 
-**ObjEmail** | Pointer to [**EmailResponse**](EmailResponse.md) | An Email Object and children to create a complete structure | [optional] 
+**ObjEmail** | Pointer to [**EmailResponseCompound**](EmailResponseCompound.md) |  | [optional] 
 **ObjPhoneFax** | Pointer to [**PhoneResponseCompound**](PhoneResponseCompound.md) |  | [optional] 
 **ObjPhoneSMS** | Pointer to [**PhoneResponseCompound**](PhoneResponseCompound.md) |  | [optional] 
 
@@ -461,20 +461,20 @@ SetObjContactName sets ObjContactName field to given value.
 
 ### GetObjEmail
 
-`func (o *CustomCommunicationrecipientsrecipientResponse) GetObjEmail() EmailResponse`
+`func (o *CustomCommunicationrecipientsrecipientResponse) GetObjEmail() EmailResponseCompound`
 
 GetObjEmail returns the ObjEmail field if non-nil, zero value otherwise.
 
 ### GetObjEmailOk
 
-`func (o *CustomCommunicationrecipientsrecipientResponse) GetObjEmailOk() (*EmailResponse, bool)`
+`func (o *CustomCommunicationrecipientsrecipientResponse) GetObjEmailOk() (*EmailResponseCompound, bool)`
 
 GetObjEmailOk returns a tuple with the ObjEmail field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObjEmail
 
-`func (o *CustomCommunicationrecipientsrecipientResponse) SetObjEmail(v EmailResponse)`
+`func (o *CustomCommunicationrecipientsrecipientResponse) SetObjEmail(v EmailResponseCompound)`
 
 SetObjEmail sets ObjEmail field to given value.
 

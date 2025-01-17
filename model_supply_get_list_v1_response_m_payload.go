@@ -22,7 +22,10 @@ var _ MappedNullable = &SupplyGetListV1ResponseMPayload{}
 
 // SupplyGetListV1ResponseMPayload Payload for GET /1/object/supply/getList
 type SupplyGetListV1ResponseMPayload struct {
-	CommonGetListV1ResponseMPayload
+	// The number of rows returned
+	IRowReturned int32 `json:"iRowReturned"`
+	// The number of rows matching your filters (if any) or the total number of rows
+	IRowFiltered int32 `json:"iRowFiltered"`
 	AObjSupply []SupplyListElement `json:"a_objSupply"`
 }
 
@@ -32,7 +35,7 @@ type _SupplyGetListV1ResponseMPayload SupplyGetListV1ResponseMPayload
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSupplyGetListV1ResponseMPayload(aObjSupply []SupplyListElement, iRowReturned int32, iRowFiltered int32) *SupplyGetListV1ResponseMPayload {
+func NewSupplyGetListV1ResponseMPayload(iRowReturned int32, iRowFiltered int32, aObjSupply []SupplyListElement) *SupplyGetListV1ResponseMPayload {
 	this := SupplyGetListV1ResponseMPayload{}
 	this.IRowReturned = iRowReturned
 	this.IRowFiltered = iRowFiltered
@@ -46,6 +49,54 @@ func NewSupplyGetListV1ResponseMPayload(aObjSupply []SupplyListElement, iRowRetu
 func NewSupplyGetListV1ResponseMPayloadWithDefaults() *SupplyGetListV1ResponseMPayload {
 	this := SupplyGetListV1ResponseMPayload{}
 	return &this
+}
+
+// GetIRowReturned returns the IRowReturned field value
+func (o *SupplyGetListV1ResponseMPayload) GetIRowReturned() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IRowReturned
+}
+
+// GetIRowReturnedOk returns a tuple with the IRowReturned field value
+// and a boolean to check if the value has been set.
+func (o *SupplyGetListV1ResponseMPayload) GetIRowReturnedOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IRowReturned, true
+}
+
+// SetIRowReturned sets field value
+func (o *SupplyGetListV1ResponseMPayload) SetIRowReturned(v int32) {
+	o.IRowReturned = v
+}
+
+// GetIRowFiltered returns the IRowFiltered field value
+func (o *SupplyGetListV1ResponseMPayload) GetIRowFiltered() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IRowFiltered
+}
+
+// GetIRowFilteredOk returns a tuple with the IRowFiltered field value
+// and a boolean to check if the value has been set.
+func (o *SupplyGetListV1ResponseMPayload) GetIRowFilteredOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IRowFiltered, true
+}
+
+// SetIRowFiltered sets field value
+func (o *SupplyGetListV1ResponseMPayload) SetIRowFiltered(v int32) {
+	o.IRowFiltered = v
 }
 
 // GetAObjSupply returns the AObjSupply field value
@@ -82,6 +133,8 @@ func (o SupplyGetListV1ResponseMPayload) MarshalJSON() ([]byte, error) {
 
 func (o SupplyGetListV1ResponseMPayload) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["iRowReturned"] = o.IRowReturned
+	toSerialize["iRowFiltered"] = o.IRowFiltered
 	toSerialize["a_objSupply"] = o.AObjSupply
 	return toSerialize, nil
 }
@@ -91,9 +144,9 @@ func (o *SupplyGetListV1ResponseMPayload) UnmarshalJSON(data []byte) (err error)
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"a_objSupply",
 		"iRowReturned",
 		"iRowFiltered",
+		"a_objSupply",
 	}
 
 	allProperties := make(map[string]interface{})

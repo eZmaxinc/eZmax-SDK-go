@@ -22,7 +22,20 @@ var _ MappedNullable = &EzsigntemplatedocumentResponseCompound{}
 
 // EzsigntemplatedocumentResponseCompound A Ezsigntemplatedocument Object
 type EzsigntemplatedocumentResponseCompound struct {
-	EzsigntemplatedocumentResponse
+	// The unique ID of the Ezsigntemplatedocument
+	PkiEzsigntemplatedocumentID int32 `json:"pkiEzsigntemplatedocumentID"`
+	// The unique ID of the Ezsigntemplate
+	FkiEzsigntemplateID int32 `json:"fkiEzsigntemplateID"`
+	// The name of the Ezsigntemplatedocument.
+	SEzsigntemplatedocumentName string `json:"sEzsigntemplatedocumentName"`
+	// The number of pages in the Ezsigntemplatedocument.
+	IEzsigntemplatedocumentPagetotal int32 `json:"iEzsigntemplatedocumentPagetotal"`
+	// The number of total signatures in the Ezsigntemplate.
+	IEzsigntemplatedocumentSignaturetotal int32 `json:"iEzsigntemplatedocumentSignaturetotal"`
+	// The number of total form fields in the Ezsigntemplate.
+	IEzsigntemplatedocumentFormfieldtotal int32 `json:"iEzsigntemplatedocumentFormfieldtotal"`
+	// If the Ezsigntemplatedocument contains signed signatures (From internal or external sources)
+	BEzsigntemplatedocumentHassignedsignatures bool `json:"bEzsigntemplatedocumentHassignedsignatures"`
 }
 
 type _EzsigntemplatedocumentResponseCompound EzsigntemplatedocumentResponseCompound
@@ -51,6 +64,174 @@ func NewEzsigntemplatedocumentResponseCompoundWithDefaults() *Ezsigntemplatedocu
 	return &this
 }
 
+// GetPkiEzsigntemplatedocumentID returns the PkiEzsigntemplatedocumentID field value
+func (o *EzsigntemplatedocumentResponseCompound) GetPkiEzsigntemplatedocumentID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.PkiEzsigntemplatedocumentID
+}
+
+// GetPkiEzsigntemplatedocumentIDOk returns a tuple with the PkiEzsigntemplatedocumentID field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatedocumentResponseCompound) GetPkiEzsigntemplatedocumentIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PkiEzsigntemplatedocumentID, true
+}
+
+// SetPkiEzsigntemplatedocumentID sets field value
+func (o *EzsigntemplatedocumentResponseCompound) SetPkiEzsigntemplatedocumentID(v int32) {
+	o.PkiEzsigntemplatedocumentID = v
+}
+
+// GetFkiEzsigntemplateID returns the FkiEzsigntemplateID field value
+func (o *EzsigntemplatedocumentResponseCompound) GetFkiEzsigntemplateID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiEzsigntemplateID
+}
+
+// GetFkiEzsigntemplateIDOk returns a tuple with the FkiEzsigntemplateID field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatedocumentResponseCompound) GetFkiEzsigntemplateIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiEzsigntemplateID, true
+}
+
+// SetFkiEzsigntemplateID sets field value
+func (o *EzsigntemplatedocumentResponseCompound) SetFkiEzsigntemplateID(v int32) {
+	o.FkiEzsigntemplateID = v
+}
+
+// GetSEzsigntemplatedocumentName returns the SEzsigntemplatedocumentName field value
+func (o *EzsigntemplatedocumentResponseCompound) GetSEzsigntemplatedocumentName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SEzsigntemplatedocumentName
+}
+
+// GetSEzsigntemplatedocumentNameOk returns a tuple with the SEzsigntemplatedocumentName field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatedocumentResponseCompound) GetSEzsigntemplatedocumentNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SEzsigntemplatedocumentName, true
+}
+
+// SetSEzsigntemplatedocumentName sets field value
+func (o *EzsigntemplatedocumentResponseCompound) SetSEzsigntemplatedocumentName(v string) {
+	o.SEzsigntemplatedocumentName = v
+}
+
+// GetIEzsigntemplatedocumentPagetotal returns the IEzsigntemplatedocumentPagetotal field value
+func (o *EzsigntemplatedocumentResponseCompound) GetIEzsigntemplatedocumentPagetotal() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IEzsigntemplatedocumentPagetotal
+}
+
+// GetIEzsigntemplatedocumentPagetotalOk returns a tuple with the IEzsigntemplatedocumentPagetotal field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatedocumentResponseCompound) GetIEzsigntemplatedocumentPagetotalOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IEzsigntemplatedocumentPagetotal, true
+}
+
+// SetIEzsigntemplatedocumentPagetotal sets field value
+func (o *EzsigntemplatedocumentResponseCompound) SetIEzsigntemplatedocumentPagetotal(v int32) {
+	o.IEzsigntemplatedocumentPagetotal = v
+}
+
+// GetIEzsigntemplatedocumentSignaturetotal returns the IEzsigntemplatedocumentSignaturetotal field value
+func (o *EzsigntemplatedocumentResponseCompound) GetIEzsigntemplatedocumentSignaturetotal() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IEzsigntemplatedocumentSignaturetotal
+}
+
+// GetIEzsigntemplatedocumentSignaturetotalOk returns a tuple with the IEzsigntemplatedocumentSignaturetotal field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatedocumentResponseCompound) GetIEzsigntemplatedocumentSignaturetotalOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IEzsigntemplatedocumentSignaturetotal, true
+}
+
+// SetIEzsigntemplatedocumentSignaturetotal sets field value
+func (o *EzsigntemplatedocumentResponseCompound) SetIEzsigntemplatedocumentSignaturetotal(v int32) {
+	o.IEzsigntemplatedocumentSignaturetotal = v
+}
+
+// GetIEzsigntemplatedocumentFormfieldtotal returns the IEzsigntemplatedocumentFormfieldtotal field value
+func (o *EzsigntemplatedocumentResponseCompound) GetIEzsigntemplatedocumentFormfieldtotal() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IEzsigntemplatedocumentFormfieldtotal
+}
+
+// GetIEzsigntemplatedocumentFormfieldtotalOk returns a tuple with the IEzsigntemplatedocumentFormfieldtotal field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatedocumentResponseCompound) GetIEzsigntemplatedocumentFormfieldtotalOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IEzsigntemplatedocumentFormfieldtotal, true
+}
+
+// SetIEzsigntemplatedocumentFormfieldtotal sets field value
+func (o *EzsigntemplatedocumentResponseCompound) SetIEzsigntemplatedocumentFormfieldtotal(v int32) {
+	o.IEzsigntemplatedocumentFormfieldtotal = v
+}
+
+// GetBEzsigntemplatedocumentHassignedsignatures returns the BEzsigntemplatedocumentHassignedsignatures field value
+func (o *EzsigntemplatedocumentResponseCompound) GetBEzsigntemplatedocumentHassignedsignatures() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BEzsigntemplatedocumentHassignedsignatures
+}
+
+// GetBEzsigntemplatedocumentHassignedsignaturesOk returns a tuple with the BEzsigntemplatedocumentHassignedsignatures field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatedocumentResponseCompound) GetBEzsigntemplatedocumentHassignedsignaturesOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BEzsigntemplatedocumentHassignedsignatures, true
+}
+
+// SetBEzsigntemplatedocumentHassignedsignatures sets field value
+func (o *EzsigntemplatedocumentResponseCompound) SetBEzsigntemplatedocumentHassignedsignatures(v bool) {
+	o.BEzsigntemplatedocumentHassignedsignatures = v
+}
+
 func (o EzsigntemplatedocumentResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -61,6 +242,13 @@ func (o EzsigntemplatedocumentResponseCompound) MarshalJSON() ([]byte, error) {
 
 func (o EzsigntemplatedocumentResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["pkiEzsigntemplatedocumentID"] = o.PkiEzsigntemplatedocumentID
+	toSerialize["fkiEzsigntemplateID"] = o.FkiEzsigntemplateID
+	toSerialize["sEzsigntemplatedocumentName"] = o.SEzsigntemplatedocumentName
+	toSerialize["iEzsigntemplatedocumentPagetotal"] = o.IEzsigntemplatedocumentPagetotal
+	toSerialize["iEzsigntemplatedocumentSignaturetotal"] = o.IEzsigntemplatedocumentSignaturetotal
+	toSerialize["iEzsigntemplatedocumentFormfieldtotal"] = o.IEzsigntemplatedocumentFormfieldtotal
+	toSerialize["bEzsigntemplatedocumentHassignedsignatures"] = o.BEzsigntemplatedocumentHassignedsignatures
 	return toSerialize, nil
 }
 

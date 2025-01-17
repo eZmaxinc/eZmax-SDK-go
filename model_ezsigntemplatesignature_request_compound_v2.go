@@ -22,7 +22,61 @@ var _ MappedNullable = &EzsigntemplatesignatureRequestCompoundV2{}
 
 // EzsigntemplatesignatureRequestCompoundV2 A Ezsigntemplatesignature Object and children
 type EzsigntemplatesignatureRequestCompoundV2 struct {
-	EzsigntemplatesignatureRequest
+	// The unique ID of the Ezsigntemplatesignature
+	PkiEzsigntemplatesignatureID *int32 `json:"pkiEzsigntemplatesignatureID,omitempty"`
+	// The unique ID of the Ezsigntemplatedocument
+	FkiEzsigntemplatedocumentID int32 `json:"fkiEzsigntemplatedocumentID"`
+	// The unique ID of the Ezsigntemplatesigner
+	FkiEzsigntemplatesignerID int32 `json:"fkiEzsigntemplatesignerID"`
+	// The unique ID of the Ezsigntemplatesigner
+	FkiEzsigntemplatesignerIDValidation *int32 `json:"fkiEzsigntemplatesignerIDValidation,omitempty"`
+	// Whether the Ezsigntemplatesignature must be handwritten or not when eEzsigntemplatesignatureType = Signature.
+	BEzsigntemplatesignatureHandwritten *bool `json:"bEzsigntemplatesignatureHandwritten,omitempty"`
+	// Whether the Ezsigntemplatesignature must include a reason or not when eEzsigntemplatesignatureType = Signature.
+	BEzsigntemplatesignatureReason *bool `json:"bEzsigntemplatesignatureReason,omitempty"`
+	EEzsigntemplatesignaturePositioning *FieldEEzsigntemplatesignaturePositioning `json:"eEzsigntemplatesignaturePositioning,omitempty"`
+	// The page number in the Ezsigntemplatedocument
+	IEzsigntemplatedocumentpagePagenumber int32 `json:"iEzsigntemplatedocumentpagePagenumber"`
+	// The X coordinate (Horizontal) where to put the Ezsigntemplatesignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplatesignature 2 inches from the left border of the page, you would use \"200\" for the X coordinate.
+	IEzsigntemplatesignatureX *int32 `json:"iEzsigntemplatesignatureX,omitempty"`
+	// The Y coordinate (Vertical) where to put the Ezsigntemplatesignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplatesignature 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.
+	IEzsigntemplatesignatureY *int32 `json:"iEzsigntemplatesignatureY,omitempty"`
+	// The width of the Ezsigntemplatesignature.  Size is calculated at 100dpi (dot per inch). So for example, if you want the Ezsigntemplatesignature to have a width of 2 inches, you would use \"200\" for the iEzsigntemplatesignatureWidth.
+	IEzsigntemplatesignatureWidth *int32 `json:"iEzsigntemplatesignatureWidth,omitempty"`
+	// The height of the Ezsigntemplatesignature.  Size is calculated at 100dpi (dot per inch). So for example, if you want the Ezsigntemplatesignature to have an height of 2 inches, you would use \"200\" for the iEzsigntemplatesignatureHeight.
+	IEzsigntemplatesignatureHeight *int32 `json:"iEzsigntemplatesignatureHeight,omitempty"`
+	// The step when the Ezsigntemplatesigner will be invited to sign
+	IEzsigntemplatesignatureStep int32 `json:"iEzsigntemplatesignatureStep"`
+	EEzsigntemplatesignatureType FieldEEzsigntemplatesignatureType `json:"eEzsigntemplatesignatureType"`
+	EEzsigntemplatesignatureConsultationtrigger *FieldEEzsigntemplatesignatureConsultationtrigger `json:"eEzsigntemplatesignatureConsultationtrigger,omitempty"`
+	// A tooltip that will be presented to Ezsigntemplatesigner about the Ezsigntemplatesignature
+	TEzsigntemplatesignatureTooltip *string `json:"tEzsigntemplatesignatureTooltip,omitempty"`
+	EEzsigntemplatesignatureTooltipposition *FieldEEzsigntemplatesignatureTooltipposition `json:"eEzsigntemplatesignatureTooltipposition,omitempty"`
+	EEzsigntemplatesignatureFont *FieldEEzsigntemplatesignatureFont `json:"eEzsigntemplatesignatureFont,omitempty"`
+	// Whether the Ezsigntemplatesignature is required or not. This field is relevant only with Ezsigntemplatesignature with eEzsigntemplatesignatureType = Attachments.
+	BEzsigntemplatesignatureRequired *bool `json:"bEzsigntemplatesignatureRequired,omitempty"`
+	EEzsigntemplatesignatureAttachmentnamesource *FieldEEzsigntemplatesignatureAttachmentnamesource `json:"eEzsigntemplatesignatureAttachmentnamesource,omitempty"`
+	// The description attached to the attachment name added in Ezsigntemplatesignature of eEzsigntemplatesignatureType Attachments
+	SEzsigntemplatesignatureAttachmentdescription *string `json:"sEzsigntemplatesignatureAttachmentdescription,omitempty"`
+	// The step when the Ezsigntemplatesigner will be invited to validate the Ezsigntemplatesignature of eEzsigntemplatesignatureType Attachments
+	IEzsigntemplatesignatureValidationstep *int32 `json:"iEzsigntemplatesignatureValidationstep,omitempty"`
+	// The maximum length for the value in the Ezsigntemplatesignature  This can only be set if eEzsigntemplatesignatureType is **FieldText** or **FieldTextarea**
+	IEzsigntemplatesignatureMaxlength *int32 `json:"iEzsigntemplatesignatureMaxlength,omitempty"`
+	// The default value for the Ezsigntemplatesignature  You can use the codes below and they will be replaced at signature time.    | Code | Description | Example | | ------------------------- | ------------ | ------------ | | {sUserFirstname} | The first name of the contact | John | | {sUserLastname} | The last name of the contact | Doe | | {sUserJobtitle} | The job title | Sales Representative | | {sCompany} | Company name | eZmax Solutions Inc. | | {sEmailAddress} | The email address | email@example.com | | {sPhoneE164} | A phone number in E.164 Format | +15149901516 | | {sPhoneE164Cell} | A phone number in E.164 Format | +15149901516 |
+	SEzsigntemplatesignatureDefaultvalue *string `json:"sEzsigntemplatesignatureDefaultvalue,omitempty"`
+	// A regular expression to indicate what values are acceptable for the Ezsigntemplatesignature.  This can only be set if eEzsigntemplatesignatureType is **Text** or **Textarea**
+	SEzsigntemplatesignatureRegexp *string `json:"sEzsigntemplatesignatureRegexp,omitempty" validate:"regexp=^\\\\^.*\\\\$$|^$"`
+	EEzsigntemplatesignatureTextvalidation *EnumTextvalidation `json:"eEzsigntemplatesignatureTextvalidation,omitempty"`
+	// Description of validation rule. Show by signatory.
+	SEzsigntemplatesignatureTextvalidationcustommessage *string `json:"sEzsigntemplatesignatureTextvalidationcustommessage,omitempty"`
+	EEzsigntemplatesignatureDependencyrequirement *FieldEEzsigntemplatesignatureDependencyrequirement `json:"eEzsigntemplatesignatureDependencyrequirement,omitempty"`
+	// The string pattern to search for the positioning. **This is not a regexp**  This will be required if **eEzsigntemplatesignaturePositioning** is set to **PerCoordinates**
+	SEzsigntemplatesignaturePositioningpattern *string `json:"sEzsigntemplatesignaturePositioningpattern,omitempty" validate:"regexp=^.{0,30}$"`
+	// The offset X  This will be required if **eEzsigntemplatesignaturePositioning** is set to **PerCoordinates**
+	IEzsigntemplatesignaturePositioningoffsetx *int32 `json:"iEzsigntemplatesignaturePositioningoffsetx,omitempty"`
+	// The offset Y  This will be required if **eEzsigntemplatesignaturePositioning** is set to **PerCoordinates**
+	IEzsigntemplatesignaturePositioningoffsety *int32 `json:"iEzsigntemplatesignaturePositioningoffsety,omitempty"`
+	EEzsigntemplatesignaturePositioningoccurence *FieldEEzsigntemplatesignaturePositioningoccurence `json:"eEzsigntemplatesignaturePositioningoccurence,omitempty"`
 	// Whether the Ezsigntemplatesignature has a custom date format or not. (Only possible when eEzsigntemplatesignatureType is **Name** or **Handwritten**)
 	BEzsigntemplatesignatureCustomdate *bool `json:"bEzsigntemplatesignatureCustomdate,omitempty"`
 	// An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsigntemplatesignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.
@@ -52,6 +106,990 @@ func NewEzsigntemplatesignatureRequestCompoundV2(fkiEzsigntemplatedocumentID int
 func NewEzsigntemplatesignatureRequestCompoundV2WithDefaults() *EzsigntemplatesignatureRequestCompoundV2 {
 	this := EzsigntemplatesignatureRequestCompoundV2{}
 	return &this
+}
+
+// GetPkiEzsigntemplatesignatureID returns the PkiEzsigntemplatesignatureID field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetPkiEzsigntemplatesignatureID() int32 {
+	if o == nil || IsNil(o.PkiEzsigntemplatesignatureID) {
+		var ret int32
+		return ret
+	}
+	return *o.PkiEzsigntemplatesignatureID
+}
+
+// GetPkiEzsigntemplatesignatureIDOk returns a tuple with the PkiEzsigntemplatesignatureID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetPkiEzsigntemplatesignatureIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.PkiEzsigntemplatesignatureID) {
+		return nil, false
+	}
+	return o.PkiEzsigntemplatesignatureID, true
+}
+
+// HasPkiEzsigntemplatesignatureID returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) HasPkiEzsigntemplatesignatureID() bool {
+	if o != nil && !IsNil(o.PkiEzsigntemplatesignatureID) {
+		return true
+	}
+
+	return false
+}
+
+// SetPkiEzsigntemplatesignatureID gets a reference to the given int32 and assigns it to the PkiEzsigntemplatesignatureID field.
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetPkiEzsigntemplatesignatureID(v int32) {
+	o.PkiEzsigntemplatesignatureID = &v
+}
+
+// GetFkiEzsigntemplatedocumentID returns the FkiEzsigntemplatedocumentID field value
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetFkiEzsigntemplatedocumentID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiEzsigntemplatedocumentID
+}
+
+// GetFkiEzsigntemplatedocumentIDOk returns a tuple with the FkiEzsigntemplatedocumentID field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetFkiEzsigntemplatedocumentIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiEzsigntemplatedocumentID, true
+}
+
+// SetFkiEzsigntemplatedocumentID sets field value
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetFkiEzsigntemplatedocumentID(v int32) {
+	o.FkiEzsigntemplatedocumentID = v
+}
+
+// GetFkiEzsigntemplatesignerID returns the FkiEzsigntemplatesignerID field value
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetFkiEzsigntemplatesignerID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiEzsigntemplatesignerID
+}
+
+// GetFkiEzsigntemplatesignerIDOk returns a tuple with the FkiEzsigntemplatesignerID field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetFkiEzsigntemplatesignerIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiEzsigntemplatesignerID, true
+}
+
+// SetFkiEzsigntemplatesignerID sets field value
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetFkiEzsigntemplatesignerID(v int32) {
+	o.FkiEzsigntemplatesignerID = v
+}
+
+// GetFkiEzsigntemplatesignerIDValidation returns the FkiEzsigntemplatesignerIDValidation field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetFkiEzsigntemplatesignerIDValidation() int32 {
+	if o == nil || IsNil(o.FkiEzsigntemplatesignerIDValidation) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEzsigntemplatesignerIDValidation
+}
+
+// GetFkiEzsigntemplatesignerIDValidationOk returns a tuple with the FkiEzsigntemplatesignerIDValidation field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetFkiEzsigntemplatesignerIDValidationOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEzsigntemplatesignerIDValidation) {
+		return nil, false
+	}
+	return o.FkiEzsigntemplatesignerIDValidation, true
+}
+
+// HasFkiEzsigntemplatesignerIDValidation returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) HasFkiEzsigntemplatesignerIDValidation() bool {
+	if o != nil && !IsNil(o.FkiEzsigntemplatesignerIDValidation) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzsigntemplatesignerIDValidation gets a reference to the given int32 and assigns it to the FkiEzsigntemplatesignerIDValidation field.
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetFkiEzsigntemplatesignerIDValidation(v int32) {
+	o.FkiEzsigntemplatesignerIDValidation = &v
+}
+
+// GetBEzsigntemplatesignatureHandwritten returns the BEzsigntemplatesignatureHandwritten field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetBEzsigntemplatesignatureHandwritten() bool {
+	if o == nil || IsNil(o.BEzsigntemplatesignatureHandwritten) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsigntemplatesignatureHandwritten
+}
+
+// GetBEzsigntemplatesignatureHandwrittenOk returns a tuple with the BEzsigntemplatesignatureHandwritten field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetBEzsigntemplatesignatureHandwrittenOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsigntemplatesignatureHandwritten) {
+		return nil, false
+	}
+	return o.BEzsigntemplatesignatureHandwritten, true
+}
+
+// HasBEzsigntemplatesignatureHandwritten returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) HasBEzsigntemplatesignatureHandwritten() bool {
+	if o != nil && !IsNil(o.BEzsigntemplatesignatureHandwritten) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsigntemplatesignatureHandwritten gets a reference to the given bool and assigns it to the BEzsigntemplatesignatureHandwritten field.
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetBEzsigntemplatesignatureHandwritten(v bool) {
+	o.BEzsigntemplatesignatureHandwritten = &v
+}
+
+// GetBEzsigntemplatesignatureReason returns the BEzsigntemplatesignatureReason field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetBEzsigntemplatesignatureReason() bool {
+	if o == nil || IsNil(o.BEzsigntemplatesignatureReason) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsigntemplatesignatureReason
+}
+
+// GetBEzsigntemplatesignatureReasonOk returns a tuple with the BEzsigntemplatesignatureReason field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetBEzsigntemplatesignatureReasonOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsigntemplatesignatureReason) {
+		return nil, false
+	}
+	return o.BEzsigntemplatesignatureReason, true
+}
+
+// HasBEzsigntemplatesignatureReason returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) HasBEzsigntemplatesignatureReason() bool {
+	if o != nil && !IsNil(o.BEzsigntemplatesignatureReason) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsigntemplatesignatureReason gets a reference to the given bool and assigns it to the BEzsigntemplatesignatureReason field.
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetBEzsigntemplatesignatureReason(v bool) {
+	o.BEzsigntemplatesignatureReason = &v
+}
+
+// GetEEzsigntemplatesignaturePositioning returns the EEzsigntemplatesignaturePositioning field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetEEzsigntemplatesignaturePositioning() FieldEEzsigntemplatesignaturePositioning {
+	if o == nil || IsNil(o.EEzsigntemplatesignaturePositioning) {
+		var ret FieldEEzsigntemplatesignaturePositioning
+		return ret
+	}
+	return *o.EEzsigntemplatesignaturePositioning
+}
+
+// GetEEzsigntemplatesignaturePositioningOk returns a tuple with the EEzsigntemplatesignaturePositioning field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetEEzsigntemplatesignaturePositioningOk() (*FieldEEzsigntemplatesignaturePositioning, bool) {
+	if o == nil || IsNil(o.EEzsigntemplatesignaturePositioning) {
+		return nil, false
+	}
+	return o.EEzsigntemplatesignaturePositioning, true
+}
+
+// HasEEzsigntemplatesignaturePositioning returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) HasEEzsigntemplatesignaturePositioning() bool {
+	if o != nil && !IsNil(o.EEzsigntemplatesignaturePositioning) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsigntemplatesignaturePositioning gets a reference to the given FieldEEzsigntemplatesignaturePositioning and assigns it to the EEzsigntemplatesignaturePositioning field.
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetEEzsigntemplatesignaturePositioning(v FieldEEzsigntemplatesignaturePositioning) {
+	o.EEzsigntemplatesignaturePositioning = &v
+}
+
+// GetIEzsigntemplatedocumentpagePagenumber returns the IEzsigntemplatedocumentpagePagenumber field value
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetIEzsigntemplatedocumentpagePagenumber() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IEzsigntemplatedocumentpagePagenumber
+}
+
+// GetIEzsigntemplatedocumentpagePagenumberOk returns a tuple with the IEzsigntemplatedocumentpagePagenumber field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetIEzsigntemplatedocumentpagePagenumberOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IEzsigntemplatedocumentpagePagenumber, true
+}
+
+// SetIEzsigntemplatedocumentpagePagenumber sets field value
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetIEzsigntemplatedocumentpagePagenumber(v int32) {
+	o.IEzsigntemplatedocumentpagePagenumber = v
+}
+
+// GetIEzsigntemplatesignatureX returns the IEzsigntemplatesignatureX field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetIEzsigntemplatesignatureX() int32 {
+	if o == nil || IsNil(o.IEzsigntemplatesignatureX) {
+		var ret int32
+		return ret
+	}
+	return *o.IEzsigntemplatesignatureX
+}
+
+// GetIEzsigntemplatesignatureXOk returns a tuple with the IEzsigntemplatesignatureX field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetIEzsigntemplatesignatureXOk() (*int32, bool) {
+	if o == nil || IsNil(o.IEzsigntemplatesignatureX) {
+		return nil, false
+	}
+	return o.IEzsigntemplatesignatureX, true
+}
+
+// HasIEzsigntemplatesignatureX returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) HasIEzsigntemplatesignatureX() bool {
+	if o != nil && !IsNil(o.IEzsigntemplatesignatureX) {
+		return true
+	}
+
+	return false
+}
+
+// SetIEzsigntemplatesignatureX gets a reference to the given int32 and assigns it to the IEzsigntemplatesignatureX field.
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetIEzsigntemplatesignatureX(v int32) {
+	o.IEzsigntemplatesignatureX = &v
+}
+
+// GetIEzsigntemplatesignatureY returns the IEzsigntemplatesignatureY field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetIEzsigntemplatesignatureY() int32 {
+	if o == nil || IsNil(o.IEzsigntemplatesignatureY) {
+		var ret int32
+		return ret
+	}
+	return *o.IEzsigntemplatesignatureY
+}
+
+// GetIEzsigntemplatesignatureYOk returns a tuple with the IEzsigntemplatesignatureY field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetIEzsigntemplatesignatureYOk() (*int32, bool) {
+	if o == nil || IsNil(o.IEzsigntemplatesignatureY) {
+		return nil, false
+	}
+	return o.IEzsigntemplatesignatureY, true
+}
+
+// HasIEzsigntemplatesignatureY returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) HasIEzsigntemplatesignatureY() bool {
+	if o != nil && !IsNil(o.IEzsigntemplatesignatureY) {
+		return true
+	}
+
+	return false
+}
+
+// SetIEzsigntemplatesignatureY gets a reference to the given int32 and assigns it to the IEzsigntemplatesignatureY field.
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetIEzsigntemplatesignatureY(v int32) {
+	o.IEzsigntemplatesignatureY = &v
+}
+
+// GetIEzsigntemplatesignatureWidth returns the IEzsigntemplatesignatureWidth field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetIEzsigntemplatesignatureWidth() int32 {
+	if o == nil || IsNil(o.IEzsigntemplatesignatureWidth) {
+		var ret int32
+		return ret
+	}
+	return *o.IEzsigntemplatesignatureWidth
+}
+
+// GetIEzsigntemplatesignatureWidthOk returns a tuple with the IEzsigntemplatesignatureWidth field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetIEzsigntemplatesignatureWidthOk() (*int32, bool) {
+	if o == nil || IsNil(o.IEzsigntemplatesignatureWidth) {
+		return nil, false
+	}
+	return o.IEzsigntemplatesignatureWidth, true
+}
+
+// HasIEzsigntemplatesignatureWidth returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) HasIEzsigntemplatesignatureWidth() bool {
+	if o != nil && !IsNil(o.IEzsigntemplatesignatureWidth) {
+		return true
+	}
+
+	return false
+}
+
+// SetIEzsigntemplatesignatureWidth gets a reference to the given int32 and assigns it to the IEzsigntemplatesignatureWidth field.
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetIEzsigntemplatesignatureWidth(v int32) {
+	o.IEzsigntemplatesignatureWidth = &v
+}
+
+// GetIEzsigntemplatesignatureHeight returns the IEzsigntemplatesignatureHeight field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetIEzsigntemplatesignatureHeight() int32 {
+	if o == nil || IsNil(o.IEzsigntemplatesignatureHeight) {
+		var ret int32
+		return ret
+	}
+	return *o.IEzsigntemplatesignatureHeight
+}
+
+// GetIEzsigntemplatesignatureHeightOk returns a tuple with the IEzsigntemplatesignatureHeight field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetIEzsigntemplatesignatureHeightOk() (*int32, bool) {
+	if o == nil || IsNil(o.IEzsigntemplatesignatureHeight) {
+		return nil, false
+	}
+	return o.IEzsigntemplatesignatureHeight, true
+}
+
+// HasIEzsigntemplatesignatureHeight returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) HasIEzsigntemplatesignatureHeight() bool {
+	if o != nil && !IsNil(o.IEzsigntemplatesignatureHeight) {
+		return true
+	}
+
+	return false
+}
+
+// SetIEzsigntemplatesignatureHeight gets a reference to the given int32 and assigns it to the IEzsigntemplatesignatureHeight field.
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetIEzsigntemplatesignatureHeight(v int32) {
+	o.IEzsigntemplatesignatureHeight = &v
+}
+
+// GetIEzsigntemplatesignatureStep returns the IEzsigntemplatesignatureStep field value
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetIEzsigntemplatesignatureStep() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IEzsigntemplatesignatureStep
+}
+
+// GetIEzsigntemplatesignatureStepOk returns a tuple with the IEzsigntemplatesignatureStep field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetIEzsigntemplatesignatureStepOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IEzsigntemplatesignatureStep, true
+}
+
+// SetIEzsigntemplatesignatureStep sets field value
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetIEzsigntemplatesignatureStep(v int32) {
+	o.IEzsigntemplatesignatureStep = v
+}
+
+// GetEEzsigntemplatesignatureType returns the EEzsigntemplatesignatureType field value
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetEEzsigntemplatesignatureType() FieldEEzsigntemplatesignatureType {
+	if o == nil {
+		var ret FieldEEzsigntemplatesignatureType
+		return ret
+	}
+
+	return o.EEzsigntemplatesignatureType
+}
+
+// GetEEzsigntemplatesignatureTypeOk returns a tuple with the EEzsigntemplatesignatureType field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetEEzsigntemplatesignatureTypeOk() (*FieldEEzsigntemplatesignatureType, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EEzsigntemplatesignatureType, true
+}
+
+// SetEEzsigntemplatesignatureType sets field value
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetEEzsigntemplatesignatureType(v FieldEEzsigntemplatesignatureType) {
+	o.EEzsigntemplatesignatureType = v
+}
+
+// GetEEzsigntemplatesignatureConsultationtrigger returns the EEzsigntemplatesignatureConsultationtrigger field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetEEzsigntemplatesignatureConsultationtrigger() FieldEEzsigntemplatesignatureConsultationtrigger {
+	if o == nil || IsNil(o.EEzsigntemplatesignatureConsultationtrigger) {
+		var ret FieldEEzsigntemplatesignatureConsultationtrigger
+		return ret
+	}
+	return *o.EEzsigntemplatesignatureConsultationtrigger
+}
+
+// GetEEzsigntemplatesignatureConsultationtriggerOk returns a tuple with the EEzsigntemplatesignatureConsultationtrigger field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetEEzsigntemplatesignatureConsultationtriggerOk() (*FieldEEzsigntemplatesignatureConsultationtrigger, bool) {
+	if o == nil || IsNil(o.EEzsigntemplatesignatureConsultationtrigger) {
+		return nil, false
+	}
+	return o.EEzsigntemplatesignatureConsultationtrigger, true
+}
+
+// HasEEzsigntemplatesignatureConsultationtrigger returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) HasEEzsigntemplatesignatureConsultationtrigger() bool {
+	if o != nil && !IsNil(o.EEzsigntemplatesignatureConsultationtrigger) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsigntemplatesignatureConsultationtrigger gets a reference to the given FieldEEzsigntemplatesignatureConsultationtrigger and assigns it to the EEzsigntemplatesignatureConsultationtrigger field.
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetEEzsigntemplatesignatureConsultationtrigger(v FieldEEzsigntemplatesignatureConsultationtrigger) {
+	o.EEzsigntemplatesignatureConsultationtrigger = &v
+}
+
+// GetTEzsigntemplatesignatureTooltip returns the TEzsigntemplatesignatureTooltip field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetTEzsigntemplatesignatureTooltip() string {
+	if o == nil || IsNil(o.TEzsigntemplatesignatureTooltip) {
+		var ret string
+		return ret
+	}
+	return *o.TEzsigntemplatesignatureTooltip
+}
+
+// GetTEzsigntemplatesignatureTooltipOk returns a tuple with the TEzsigntemplatesignatureTooltip field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetTEzsigntemplatesignatureTooltipOk() (*string, bool) {
+	if o == nil || IsNil(o.TEzsigntemplatesignatureTooltip) {
+		return nil, false
+	}
+	return o.TEzsigntemplatesignatureTooltip, true
+}
+
+// HasTEzsigntemplatesignatureTooltip returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) HasTEzsigntemplatesignatureTooltip() bool {
+	if o != nil && !IsNil(o.TEzsigntemplatesignatureTooltip) {
+		return true
+	}
+
+	return false
+}
+
+// SetTEzsigntemplatesignatureTooltip gets a reference to the given string and assigns it to the TEzsigntemplatesignatureTooltip field.
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetTEzsigntemplatesignatureTooltip(v string) {
+	o.TEzsigntemplatesignatureTooltip = &v
+}
+
+// GetEEzsigntemplatesignatureTooltipposition returns the EEzsigntemplatesignatureTooltipposition field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetEEzsigntemplatesignatureTooltipposition() FieldEEzsigntemplatesignatureTooltipposition {
+	if o == nil || IsNil(o.EEzsigntemplatesignatureTooltipposition) {
+		var ret FieldEEzsigntemplatesignatureTooltipposition
+		return ret
+	}
+	return *o.EEzsigntemplatesignatureTooltipposition
+}
+
+// GetEEzsigntemplatesignatureTooltippositionOk returns a tuple with the EEzsigntemplatesignatureTooltipposition field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetEEzsigntemplatesignatureTooltippositionOk() (*FieldEEzsigntemplatesignatureTooltipposition, bool) {
+	if o == nil || IsNil(o.EEzsigntemplatesignatureTooltipposition) {
+		return nil, false
+	}
+	return o.EEzsigntemplatesignatureTooltipposition, true
+}
+
+// HasEEzsigntemplatesignatureTooltipposition returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) HasEEzsigntemplatesignatureTooltipposition() bool {
+	if o != nil && !IsNil(o.EEzsigntemplatesignatureTooltipposition) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsigntemplatesignatureTooltipposition gets a reference to the given FieldEEzsigntemplatesignatureTooltipposition and assigns it to the EEzsigntemplatesignatureTooltipposition field.
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetEEzsigntemplatesignatureTooltipposition(v FieldEEzsigntemplatesignatureTooltipposition) {
+	o.EEzsigntemplatesignatureTooltipposition = &v
+}
+
+// GetEEzsigntemplatesignatureFont returns the EEzsigntemplatesignatureFont field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetEEzsigntemplatesignatureFont() FieldEEzsigntemplatesignatureFont {
+	if o == nil || IsNil(o.EEzsigntemplatesignatureFont) {
+		var ret FieldEEzsigntemplatesignatureFont
+		return ret
+	}
+	return *o.EEzsigntemplatesignatureFont
+}
+
+// GetEEzsigntemplatesignatureFontOk returns a tuple with the EEzsigntemplatesignatureFont field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetEEzsigntemplatesignatureFontOk() (*FieldEEzsigntemplatesignatureFont, bool) {
+	if o == nil || IsNil(o.EEzsigntemplatesignatureFont) {
+		return nil, false
+	}
+	return o.EEzsigntemplatesignatureFont, true
+}
+
+// HasEEzsigntemplatesignatureFont returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) HasEEzsigntemplatesignatureFont() bool {
+	if o != nil && !IsNil(o.EEzsigntemplatesignatureFont) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsigntemplatesignatureFont gets a reference to the given FieldEEzsigntemplatesignatureFont and assigns it to the EEzsigntemplatesignatureFont field.
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetEEzsigntemplatesignatureFont(v FieldEEzsigntemplatesignatureFont) {
+	o.EEzsigntemplatesignatureFont = &v
+}
+
+// GetBEzsigntemplatesignatureRequired returns the BEzsigntemplatesignatureRequired field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetBEzsigntemplatesignatureRequired() bool {
+	if o == nil || IsNil(o.BEzsigntemplatesignatureRequired) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsigntemplatesignatureRequired
+}
+
+// GetBEzsigntemplatesignatureRequiredOk returns a tuple with the BEzsigntemplatesignatureRequired field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetBEzsigntemplatesignatureRequiredOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsigntemplatesignatureRequired) {
+		return nil, false
+	}
+	return o.BEzsigntemplatesignatureRequired, true
+}
+
+// HasBEzsigntemplatesignatureRequired returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) HasBEzsigntemplatesignatureRequired() bool {
+	if o != nil && !IsNil(o.BEzsigntemplatesignatureRequired) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsigntemplatesignatureRequired gets a reference to the given bool and assigns it to the BEzsigntemplatesignatureRequired field.
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetBEzsigntemplatesignatureRequired(v bool) {
+	o.BEzsigntemplatesignatureRequired = &v
+}
+
+// GetEEzsigntemplatesignatureAttachmentnamesource returns the EEzsigntemplatesignatureAttachmentnamesource field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetEEzsigntemplatesignatureAttachmentnamesource() FieldEEzsigntemplatesignatureAttachmentnamesource {
+	if o == nil || IsNil(o.EEzsigntemplatesignatureAttachmentnamesource) {
+		var ret FieldEEzsigntemplatesignatureAttachmentnamesource
+		return ret
+	}
+	return *o.EEzsigntemplatesignatureAttachmentnamesource
+}
+
+// GetEEzsigntemplatesignatureAttachmentnamesourceOk returns a tuple with the EEzsigntemplatesignatureAttachmentnamesource field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetEEzsigntemplatesignatureAttachmentnamesourceOk() (*FieldEEzsigntemplatesignatureAttachmentnamesource, bool) {
+	if o == nil || IsNil(o.EEzsigntemplatesignatureAttachmentnamesource) {
+		return nil, false
+	}
+	return o.EEzsigntemplatesignatureAttachmentnamesource, true
+}
+
+// HasEEzsigntemplatesignatureAttachmentnamesource returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) HasEEzsigntemplatesignatureAttachmentnamesource() bool {
+	if o != nil && !IsNil(o.EEzsigntemplatesignatureAttachmentnamesource) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsigntemplatesignatureAttachmentnamesource gets a reference to the given FieldEEzsigntemplatesignatureAttachmentnamesource and assigns it to the EEzsigntemplatesignatureAttachmentnamesource field.
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetEEzsigntemplatesignatureAttachmentnamesource(v FieldEEzsigntemplatesignatureAttachmentnamesource) {
+	o.EEzsigntemplatesignatureAttachmentnamesource = &v
+}
+
+// GetSEzsigntemplatesignatureAttachmentdescription returns the SEzsigntemplatesignatureAttachmentdescription field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetSEzsigntemplatesignatureAttachmentdescription() string {
+	if o == nil || IsNil(o.SEzsigntemplatesignatureAttachmentdescription) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsigntemplatesignatureAttachmentdescription
+}
+
+// GetSEzsigntemplatesignatureAttachmentdescriptionOk returns a tuple with the SEzsigntemplatesignatureAttachmentdescription field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetSEzsigntemplatesignatureAttachmentdescriptionOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsigntemplatesignatureAttachmentdescription) {
+		return nil, false
+	}
+	return o.SEzsigntemplatesignatureAttachmentdescription, true
+}
+
+// HasSEzsigntemplatesignatureAttachmentdescription returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) HasSEzsigntemplatesignatureAttachmentdescription() bool {
+	if o != nil && !IsNil(o.SEzsigntemplatesignatureAttachmentdescription) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsigntemplatesignatureAttachmentdescription gets a reference to the given string and assigns it to the SEzsigntemplatesignatureAttachmentdescription field.
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetSEzsigntemplatesignatureAttachmentdescription(v string) {
+	o.SEzsigntemplatesignatureAttachmentdescription = &v
+}
+
+// GetIEzsigntemplatesignatureValidationstep returns the IEzsigntemplatesignatureValidationstep field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetIEzsigntemplatesignatureValidationstep() int32 {
+	if o == nil || IsNil(o.IEzsigntemplatesignatureValidationstep) {
+		var ret int32
+		return ret
+	}
+	return *o.IEzsigntemplatesignatureValidationstep
+}
+
+// GetIEzsigntemplatesignatureValidationstepOk returns a tuple with the IEzsigntemplatesignatureValidationstep field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetIEzsigntemplatesignatureValidationstepOk() (*int32, bool) {
+	if o == nil || IsNil(o.IEzsigntemplatesignatureValidationstep) {
+		return nil, false
+	}
+	return o.IEzsigntemplatesignatureValidationstep, true
+}
+
+// HasIEzsigntemplatesignatureValidationstep returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) HasIEzsigntemplatesignatureValidationstep() bool {
+	if o != nil && !IsNil(o.IEzsigntemplatesignatureValidationstep) {
+		return true
+	}
+
+	return false
+}
+
+// SetIEzsigntemplatesignatureValidationstep gets a reference to the given int32 and assigns it to the IEzsigntemplatesignatureValidationstep field.
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetIEzsigntemplatesignatureValidationstep(v int32) {
+	o.IEzsigntemplatesignatureValidationstep = &v
+}
+
+// GetIEzsigntemplatesignatureMaxlength returns the IEzsigntemplatesignatureMaxlength field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetIEzsigntemplatesignatureMaxlength() int32 {
+	if o == nil || IsNil(o.IEzsigntemplatesignatureMaxlength) {
+		var ret int32
+		return ret
+	}
+	return *o.IEzsigntemplatesignatureMaxlength
+}
+
+// GetIEzsigntemplatesignatureMaxlengthOk returns a tuple with the IEzsigntemplatesignatureMaxlength field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetIEzsigntemplatesignatureMaxlengthOk() (*int32, bool) {
+	if o == nil || IsNil(o.IEzsigntemplatesignatureMaxlength) {
+		return nil, false
+	}
+	return o.IEzsigntemplatesignatureMaxlength, true
+}
+
+// HasIEzsigntemplatesignatureMaxlength returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) HasIEzsigntemplatesignatureMaxlength() bool {
+	if o != nil && !IsNil(o.IEzsigntemplatesignatureMaxlength) {
+		return true
+	}
+
+	return false
+}
+
+// SetIEzsigntemplatesignatureMaxlength gets a reference to the given int32 and assigns it to the IEzsigntemplatesignatureMaxlength field.
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetIEzsigntemplatesignatureMaxlength(v int32) {
+	o.IEzsigntemplatesignatureMaxlength = &v
+}
+
+// GetSEzsigntemplatesignatureDefaultvalue returns the SEzsigntemplatesignatureDefaultvalue field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetSEzsigntemplatesignatureDefaultvalue() string {
+	if o == nil || IsNil(o.SEzsigntemplatesignatureDefaultvalue) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsigntemplatesignatureDefaultvalue
+}
+
+// GetSEzsigntemplatesignatureDefaultvalueOk returns a tuple with the SEzsigntemplatesignatureDefaultvalue field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetSEzsigntemplatesignatureDefaultvalueOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsigntemplatesignatureDefaultvalue) {
+		return nil, false
+	}
+	return o.SEzsigntemplatesignatureDefaultvalue, true
+}
+
+// HasSEzsigntemplatesignatureDefaultvalue returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) HasSEzsigntemplatesignatureDefaultvalue() bool {
+	if o != nil && !IsNil(o.SEzsigntemplatesignatureDefaultvalue) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsigntemplatesignatureDefaultvalue gets a reference to the given string and assigns it to the SEzsigntemplatesignatureDefaultvalue field.
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetSEzsigntemplatesignatureDefaultvalue(v string) {
+	o.SEzsigntemplatesignatureDefaultvalue = &v
+}
+
+// GetSEzsigntemplatesignatureRegexp returns the SEzsigntemplatesignatureRegexp field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetSEzsigntemplatesignatureRegexp() string {
+	if o == nil || IsNil(o.SEzsigntemplatesignatureRegexp) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsigntemplatesignatureRegexp
+}
+
+// GetSEzsigntemplatesignatureRegexpOk returns a tuple with the SEzsigntemplatesignatureRegexp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetSEzsigntemplatesignatureRegexpOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsigntemplatesignatureRegexp) {
+		return nil, false
+	}
+	return o.SEzsigntemplatesignatureRegexp, true
+}
+
+// HasSEzsigntemplatesignatureRegexp returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) HasSEzsigntemplatesignatureRegexp() bool {
+	if o != nil && !IsNil(o.SEzsigntemplatesignatureRegexp) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsigntemplatesignatureRegexp gets a reference to the given string and assigns it to the SEzsigntemplatesignatureRegexp field.
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetSEzsigntemplatesignatureRegexp(v string) {
+	o.SEzsigntemplatesignatureRegexp = &v
+}
+
+// GetEEzsigntemplatesignatureTextvalidation returns the EEzsigntemplatesignatureTextvalidation field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetEEzsigntemplatesignatureTextvalidation() EnumTextvalidation {
+	if o == nil || IsNil(o.EEzsigntemplatesignatureTextvalidation) {
+		var ret EnumTextvalidation
+		return ret
+	}
+	return *o.EEzsigntemplatesignatureTextvalidation
+}
+
+// GetEEzsigntemplatesignatureTextvalidationOk returns a tuple with the EEzsigntemplatesignatureTextvalidation field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetEEzsigntemplatesignatureTextvalidationOk() (*EnumTextvalidation, bool) {
+	if o == nil || IsNil(o.EEzsigntemplatesignatureTextvalidation) {
+		return nil, false
+	}
+	return o.EEzsigntemplatesignatureTextvalidation, true
+}
+
+// HasEEzsigntemplatesignatureTextvalidation returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) HasEEzsigntemplatesignatureTextvalidation() bool {
+	if o != nil && !IsNil(o.EEzsigntemplatesignatureTextvalidation) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsigntemplatesignatureTextvalidation gets a reference to the given EnumTextvalidation and assigns it to the EEzsigntemplatesignatureTextvalidation field.
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetEEzsigntemplatesignatureTextvalidation(v EnumTextvalidation) {
+	o.EEzsigntemplatesignatureTextvalidation = &v
+}
+
+// GetSEzsigntemplatesignatureTextvalidationcustommessage returns the SEzsigntemplatesignatureTextvalidationcustommessage field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetSEzsigntemplatesignatureTextvalidationcustommessage() string {
+	if o == nil || IsNil(o.SEzsigntemplatesignatureTextvalidationcustommessage) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsigntemplatesignatureTextvalidationcustommessage
+}
+
+// GetSEzsigntemplatesignatureTextvalidationcustommessageOk returns a tuple with the SEzsigntemplatesignatureTextvalidationcustommessage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetSEzsigntemplatesignatureTextvalidationcustommessageOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsigntemplatesignatureTextvalidationcustommessage) {
+		return nil, false
+	}
+	return o.SEzsigntemplatesignatureTextvalidationcustommessage, true
+}
+
+// HasSEzsigntemplatesignatureTextvalidationcustommessage returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) HasSEzsigntemplatesignatureTextvalidationcustommessage() bool {
+	if o != nil && !IsNil(o.SEzsigntemplatesignatureTextvalidationcustommessage) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsigntemplatesignatureTextvalidationcustommessage gets a reference to the given string and assigns it to the SEzsigntemplatesignatureTextvalidationcustommessage field.
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetSEzsigntemplatesignatureTextvalidationcustommessage(v string) {
+	o.SEzsigntemplatesignatureTextvalidationcustommessage = &v
+}
+
+// GetEEzsigntemplatesignatureDependencyrequirement returns the EEzsigntemplatesignatureDependencyrequirement field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetEEzsigntemplatesignatureDependencyrequirement() FieldEEzsigntemplatesignatureDependencyrequirement {
+	if o == nil || IsNil(o.EEzsigntemplatesignatureDependencyrequirement) {
+		var ret FieldEEzsigntemplatesignatureDependencyrequirement
+		return ret
+	}
+	return *o.EEzsigntemplatesignatureDependencyrequirement
+}
+
+// GetEEzsigntemplatesignatureDependencyrequirementOk returns a tuple with the EEzsigntemplatesignatureDependencyrequirement field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetEEzsigntemplatesignatureDependencyrequirementOk() (*FieldEEzsigntemplatesignatureDependencyrequirement, bool) {
+	if o == nil || IsNil(o.EEzsigntemplatesignatureDependencyrequirement) {
+		return nil, false
+	}
+	return o.EEzsigntemplatesignatureDependencyrequirement, true
+}
+
+// HasEEzsigntemplatesignatureDependencyrequirement returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) HasEEzsigntemplatesignatureDependencyrequirement() bool {
+	if o != nil && !IsNil(o.EEzsigntemplatesignatureDependencyrequirement) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsigntemplatesignatureDependencyrequirement gets a reference to the given FieldEEzsigntemplatesignatureDependencyrequirement and assigns it to the EEzsigntemplatesignatureDependencyrequirement field.
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetEEzsigntemplatesignatureDependencyrequirement(v FieldEEzsigntemplatesignatureDependencyrequirement) {
+	o.EEzsigntemplatesignatureDependencyrequirement = &v
+}
+
+// GetSEzsigntemplatesignaturePositioningpattern returns the SEzsigntemplatesignaturePositioningpattern field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetSEzsigntemplatesignaturePositioningpattern() string {
+	if o == nil || IsNil(o.SEzsigntemplatesignaturePositioningpattern) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsigntemplatesignaturePositioningpattern
+}
+
+// GetSEzsigntemplatesignaturePositioningpatternOk returns a tuple with the SEzsigntemplatesignaturePositioningpattern field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetSEzsigntemplatesignaturePositioningpatternOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsigntemplatesignaturePositioningpattern) {
+		return nil, false
+	}
+	return o.SEzsigntemplatesignaturePositioningpattern, true
+}
+
+// HasSEzsigntemplatesignaturePositioningpattern returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) HasSEzsigntemplatesignaturePositioningpattern() bool {
+	if o != nil && !IsNil(o.SEzsigntemplatesignaturePositioningpattern) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsigntemplatesignaturePositioningpattern gets a reference to the given string and assigns it to the SEzsigntemplatesignaturePositioningpattern field.
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetSEzsigntemplatesignaturePositioningpattern(v string) {
+	o.SEzsigntemplatesignaturePositioningpattern = &v
+}
+
+// GetIEzsigntemplatesignaturePositioningoffsetx returns the IEzsigntemplatesignaturePositioningoffsetx field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetIEzsigntemplatesignaturePositioningoffsetx() int32 {
+	if o == nil || IsNil(o.IEzsigntemplatesignaturePositioningoffsetx) {
+		var ret int32
+		return ret
+	}
+	return *o.IEzsigntemplatesignaturePositioningoffsetx
+}
+
+// GetIEzsigntemplatesignaturePositioningoffsetxOk returns a tuple with the IEzsigntemplatesignaturePositioningoffsetx field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetIEzsigntemplatesignaturePositioningoffsetxOk() (*int32, bool) {
+	if o == nil || IsNil(o.IEzsigntemplatesignaturePositioningoffsetx) {
+		return nil, false
+	}
+	return o.IEzsigntemplatesignaturePositioningoffsetx, true
+}
+
+// HasIEzsigntemplatesignaturePositioningoffsetx returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) HasIEzsigntemplatesignaturePositioningoffsetx() bool {
+	if o != nil && !IsNil(o.IEzsigntemplatesignaturePositioningoffsetx) {
+		return true
+	}
+
+	return false
+}
+
+// SetIEzsigntemplatesignaturePositioningoffsetx gets a reference to the given int32 and assigns it to the IEzsigntemplatesignaturePositioningoffsetx field.
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetIEzsigntemplatesignaturePositioningoffsetx(v int32) {
+	o.IEzsigntemplatesignaturePositioningoffsetx = &v
+}
+
+// GetIEzsigntemplatesignaturePositioningoffsety returns the IEzsigntemplatesignaturePositioningoffsety field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetIEzsigntemplatesignaturePositioningoffsety() int32 {
+	if o == nil || IsNil(o.IEzsigntemplatesignaturePositioningoffsety) {
+		var ret int32
+		return ret
+	}
+	return *o.IEzsigntemplatesignaturePositioningoffsety
+}
+
+// GetIEzsigntemplatesignaturePositioningoffsetyOk returns a tuple with the IEzsigntemplatesignaturePositioningoffsety field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetIEzsigntemplatesignaturePositioningoffsetyOk() (*int32, bool) {
+	if o == nil || IsNil(o.IEzsigntemplatesignaturePositioningoffsety) {
+		return nil, false
+	}
+	return o.IEzsigntemplatesignaturePositioningoffsety, true
+}
+
+// HasIEzsigntemplatesignaturePositioningoffsety returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) HasIEzsigntemplatesignaturePositioningoffsety() bool {
+	if o != nil && !IsNil(o.IEzsigntemplatesignaturePositioningoffsety) {
+		return true
+	}
+
+	return false
+}
+
+// SetIEzsigntemplatesignaturePositioningoffsety gets a reference to the given int32 and assigns it to the IEzsigntemplatesignaturePositioningoffsety field.
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetIEzsigntemplatesignaturePositioningoffsety(v int32) {
+	o.IEzsigntemplatesignaturePositioningoffsety = &v
+}
+
+// GetEEzsigntemplatesignaturePositioningoccurence returns the EEzsigntemplatesignaturePositioningoccurence field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetEEzsigntemplatesignaturePositioningoccurence() FieldEEzsigntemplatesignaturePositioningoccurence {
+	if o == nil || IsNil(o.EEzsigntemplatesignaturePositioningoccurence) {
+		var ret FieldEEzsigntemplatesignaturePositioningoccurence
+		return ret
+	}
+	return *o.EEzsigntemplatesignaturePositioningoccurence
+}
+
+// GetEEzsigntemplatesignaturePositioningoccurenceOk returns a tuple with the EEzsigntemplatesignaturePositioningoccurence field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) GetEEzsigntemplatesignaturePositioningoccurenceOk() (*FieldEEzsigntemplatesignaturePositioningoccurence, bool) {
+	if o == nil || IsNil(o.EEzsigntemplatesignaturePositioningoccurence) {
+		return nil, false
+	}
+	return o.EEzsigntemplatesignaturePositioningoccurence, true
+}
+
+// HasEEzsigntemplatesignaturePositioningoccurence returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequestCompoundV2) HasEEzsigntemplatesignaturePositioningoccurence() bool {
+	if o != nil && !IsNil(o.EEzsigntemplatesignaturePositioningoccurence) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsigntemplatesignaturePositioningoccurence gets a reference to the given FieldEEzsigntemplatesignaturePositioningoccurence and assigns it to the EEzsigntemplatesignaturePositioningoccurence field.
+func (o *EzsigntemplatesignatureRequestCompoundV2) SetEEzsigntemplatesignaturePositioningoccurence(v FieldEEzsigntemplatesignaturePositioningoccurence) {
+	o.EEzsigntemplatesignaturePositioningoccurence = &v
 }
 
 // GetBEzsigntemplatesignatureCustomdate returns the BEzsigntemplatesignatureCustomdate field value if set, zero value otherwise.
@@ -160,6 +1198,92 @@ func (o EzsigntemplatesignatureRequestCompoundV2) MarshalJSON() ([]byte, error) 
 
 func (o EzsigntemplatesignatureRequestCompoundV2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.PkiEzsigntemplatesignatureID) {
+		toSerialize["pkiEzsigntemplatesignatureID"] = o.PkiEzsigntemplatesignatureID
+	}
+	toSerialize["fkiEzsigntemplatedocumentID"] = o.FkiEzsigntemplatedocumentID
+	toSerialize["fkiEzsigntemplatesignerID"] = o.FkiEzsigntemplatesignerID
+	if !IsNil(o.FkiEzsigntemplatesignerIDValidation) {
+		toSerialize["fkiEzsigntemplatesignerIDValidation"] = o.FkiEzsigntemplatesignerIDValidation
+	}
+	if !IsNil(o.BEzsigntemplatesignatureHandwritten) {
+		toSerialize["bEzsigntemplatesignatureHandwritten"] = o.BEzsigntemplatesignatureHandwritten
+	}
+	if !IsNil(o.BEzsigntemplatesignatureReason) {
+		toSerialize["bEzsigntemplatesignatureReason"] = o.BEzsigntemplatesignatureReason
+	}
+	if !IsNil(o.EEzsigntemplatesignaturePositioning) {
+		toSerialize["eEzsigntemplatesignaturePositioning"] = o.EEzsigntemplatesignaturePositioning
+	}
+	toSerialize["iEzsigntemplatedocumentpagePagenumber"] = o.IEzsigntemplatedocumentpagePagenumber
+	if !IsNil(o.IEzsigntemplatesignatureX) {
+		toSerialize["iEzsigntemplatesignatureX"] = o.IEzsigntemplatesignatureX
+	}
+	if !IsNil(o.IEzsigntemplatesignatureY) {
+		toSerialize["iEzsigntemplatesignatureY"] = o.IEzsigntemplatesignatureY
+	}
+	if !IsNil(o.IEzsigntemplatesignatureWidth) {
+		toSerialize["iEzsigntemplatesignatureWidth"] = o.IEzsigntemplatesignatureWidth
+	}
+	if !IsNil(o.IEzsigntemplatesignatureHeight) {
+		toSerialize["iEzsigntemplatesignatureHeight"] = o.IEzsigntemplatesignatureHeight
+	}
+	toSerialize["iEzsigntemplatesignatureStep"] = o.IEzsigntemplatesignatureStep
+	toSerialize["eEzsigntemplatesignatureType"] = o.EEzsigntemplatesignatureType
+	if !IsNil(o.EEzsigntemplatesignatureConsultationtrigger) {
+		toSerialize["eEzsigntemplatesignatureConsultationtrigger"] = o.EEzsigntemplatesignatureConsultationtrigger
+	}
+	if !IsNil(o.TEzsigntemplatesignatureTooltip) {
+		toSerialize["tEzsigntemplatesignatureTooltip"] = o.TEzsigntemplatesignatureTooltip
+	}
+	if !IsNil(o.EEzsigntemplatesignatureTooltipposition) {
+		toSerialize["eEzsigntemplatesignatureTooltipposition"] = o.EEzsigntemplatesignatureTooltipposition
+	}
+	if !IsNil(o.EEzsigntemplatesignatureFont) {
+		toSerialize["eEzsigntemplatesignatureFont"] = o.EEzsigntemplatesignatureFont
+	}
+	if !IsNil(o.BEzsigntemplatesignatureRequired) {
+		toSerialize["bEzsigntemplatesignatureRequired"] = o.BEzsigntemplatesignatureRequired
+	}
+	if !IsNil(o.EEzsigntemplatesignatureAttachmentnamesource) {
+		toSerialize["eEzsigntemplatesignatureAttachmentnamesource"] = o.EEzsigntemplatesignatureAttachmentnamesource
+	}
+	if !IsNil(o.SEzsigntemplatesignatureAttachmentdescription) {
+		toSerialize["sEzsigntemplatesignatureAttachmentdescription"] = o.SEzsigntemplatesignatureAttachmentdescription
+	}
+	if !IsNil(o.IEzsigntemplatesignatureValidationstep) {
+		toSerialize["iEzsigntemplatesignatureValidationstep"] = o.IEzsigntemplatesignatureValidationstep
+	}
+	if !IsNil(o.IEzsigntemplatesignatureMaxlength) {
+		toSerialize["iEzsigntemplatesignatureMaxlength"] = o.IEzsigntemplatesignatureMaxlength
+	}
+	if !IsNil(o.SEzsigntemplatesignatureDefaultvalue) {
+		toSerialize["sEzsigntemplatesignatureDefaultvalue"] = o.SEzsigntemplatesignatureDefaultvalue
+	}
+	if !IsNil(o.SEzsigntemplatesignatureRegexp) {
+		toSerialize["sEzsigntemplatesignatureRegexp"] = o.SEzsigntemplatesignatureRegexp
+	}
+	if !IsNil(o.EEzsigntemplatesignatureTextvalidation) {
+		toSerialize["eEzsigntemplatesignatureTextvalidation"] = o.EEzsigntemplatesignatureTextvalidation
+	}
+	if !IsNil(o.SEzsigntemplatesignatureTextvalidationcustommessage) {
+		toSerialize["sEzsigntemplatesignatureTextvalidationcustommessage"] = o.SEzsigntemplatesignatureTextvalidationcustommessage
+	}
+	if !IsNil(o.EEzsigntemplatesignatureDependencyrequirement) {
+		toSerialize["eEzsigntemplatesignatureDependencyrequirement"] = o.EEzsigntemplatesignatureDependencyrequirement
+	}
+	if !IsNil(o.SEzsigntemplatesignaturePositioningpattern) {
+		toSerialize["sEzsigntemplatesignaturePositioningpattern"] = o.SEzsigntemplatesignaturePositioningpattern
+	}
+	if !IsNil(o.IEzsigntemplatesignaturePositioningoffsetx) {
+		toSerialize["iEzsigntemplatesignaturePositioningoffsetx"] = o.IEzsigntemplatesignaturePositioningoffsetx
+	}
+	if !IsNil(o.IEzsigntemplatesignaturePositioningoffsety) {
+		toSerialize["iEzsigntemplatesignaturePositioningoffsety"] = o.IEzsigntemplatesignaturePositioningoffsety
+	}
+	if !IsNil(o.EEzsigntemplatesignaturePositioningoccurence) {
+		toSerialize["eEzsigntemplatesignaturePositioningoccurence"] = o.EEzsigntemplatesignaturePositioningoccurence
+	}
 	if !IsNil(o.BEzsigntemplatesignatureCustomdate) {
 		toSerialize["bEzsigntemplatesignatureCustomdate"] = o.BEzsigntemplatesignatureCustomdate
 	}

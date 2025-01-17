@@ -22,7 +22,15 @@ var _ MappedNullable = &SignatureRequestCompound{}
 
 // SignatureRequestCompound A Signature Object and children
 type SignatureRequestCompound struct {
-	SignatureRequest
+	// The unique ID of the Signature
+	PkiSignatureID *int32 `json:"pkiSignatureID,omitempty"`
+	// The unique ID of the Font
+	FkiFontID int32 `json:"fkiFontID"`
+	ESignaturePreference FieldESignaturePreference `json:"eSignaturePreference"`
+	// The svg of the Signature
+	TSignatureSvg *string `json:"tSignatureSvg,omitempty" validate:"regexp=^.{60,65535}$"`
+	// The svg of the Initials
+	TSignatureSvginitials *string `json:"tSignatureSvginitials,omitempty" validate:"regexp=^.{60,65535}$"`
 }
 
 type _SignatureRequestCompound SignatureRequestCompound
@@ -46,6 +54,150 @@ func NewSignatureRequestCompoundWithDefaults() *SignatureRequestCompound {
 	return &this
 }
 
+// GetPkiSignatureID returns the PkiSignatureID field value if set, zero value otherwise.
+func (o *SignatureRequestCompound) GetPkiSignatureID() int32 {
+	if o == nil || IsNil(o.PkiSignatureID) {
+		var ret int32
+		return ret
+	}
+	return *o.PkiSignatureID
+}
+
+// GetPkiSignatureIDOk returns a tuple with the PkiSignatureID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SignatureRequestCompound) GetPkiSignatureIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.PkiSignatureID) {
+		return nil, false
+	}
+	return o.PkiSignatureID, true
+}
+
+// HasPkiSignatureID returns a boolean if a field has been set.
+func (o *SignatureRequestCompound) HasPkiSignatureID() bool {
+	if o != nil && !IsNil(o.PkiSignatureID) {
+		return true
+	}
+
+	return false
+}
+
+// SetPkiSignatureID gets a reference to the given int32 and assigns it to the PkiSignatureID field.
+func (o *SignatureRequestCompound) SetPkiSignatureID(v int32) {
+	o.PkiSignatureID = &v
+}
+
+// GetFkiFontID returns the FkiFontID field value
+func (o *SignatureRequestCompound) GetFkiFontID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiFontID
+}
+
+// GetFkiFontIDOk returns a tuple with the FkiFontID field value
+// and a boolean to check if the value has been set.
+func (o *SignatureRequestCompound) GetFkiFontIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiFontID, true
+}
+
+// SetFkiFontID sets field value
+func (o *SignatureRequestCompound) SetFkiFontID(v int32) {
+	o.FkiFontID = v
+}
+
+// GetESignaturePreference returns the ESignaturePreference field value
+func (o *SignatureRequestCompound) GetESignaturePreference() FieldESignaturePreference {
+	if o == nil {
+		var ret FieldESignaturePreference
+		return ret
+	}
+
+	return o.ESignaturePreference
+}
+
+// GetESignaturePreferenceOk returns a tuple with the ESignaturePreference field value
+// and a boolean to check if the value has been set.
+func (o *SignatureRequestCompound) GetESignaturePreferenceOk() (*FieldESignaturePreference, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ESignaturePreference, true
+}
+
+// SetESignaturePreference sets field value
+func (o *SignatureRequestCompound) SetESignaturePreference(v FieldESignaturePreference) {
+	o.ESignaturePreference = v
+}
+
+// GetTSignatureSvg returns the TSignatureSvg field value if set, zero value otherwise.
+func (o *SignatureRequestCompound) GetTSignatureSvg() string {
+	if o == nil || IsNil(o.TSignatureSvg) {
+		var ret string
+		return ret
+	}
+	return *o.TSignatureSvg
+}
+
+// GetTSignatureSvgOk returns a tuple with the TSignatureSvg field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SignatureRequestCompound) GetTSignatureSvgOk() (*string, bool) {
+	if o == nil || IsNil(o.TSignatureSvg) {
+		return nil, false
+	}
+	return o.TSignatureSvg, true
+}
+
+// HasTSignatureSvg returns a boolean if a field has been set.
+func (o *SignatureRequestCompound) HasTSignatureSvg() bool {
+	if o != nil && !IsNil(o.TSignatureSvg) {
+		return true
+	}
+
+	return false
+}
+
+// SetTSignatureSvg gets a reference to the given string and assigns it to the TSignatureSvg field.
+func (o *SignatureRequestCompound) SetTSignatureSvg(v string) {
+	o.TSignatureSvg = &v
+}
+
+// GetTSignatureSvginitials returns the TSignatureSvginitials field value if set, zero value otherwise.
+func (o *SignatureRequestCompound) GetTSignatureSvginitials() string {
+	if o == nil || IsNil(o.TSignatureSvginitials) {
+		var ret string
+		return ret
+	}
+	return *o.TSignatureSvginitials
+}
+
+// GetTSignatureSvginitialsOk returns a tuple with the TSignatureSvginitials field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SignatureRequestCompound) GetTSignatureSvginitialsOk() (*string, bool) {
+	if o == nil || IsNil(o.TSignatureSvginitials) {
+		return nil, false
+	}
+	return o.TSignatureSvginitials, true
+}
+
+// HasTSignatureSvginitials returns a boolean if a field has been set.
+func (o *SignatureRequestCompound) HasTSignatureSvginitials() bool {
+	if o != nil && !IsNil(o.TSignatureSvginitials) {
+		return true
+	}
+
+	return false
+}
+
+// SetTSignatureSvginitials gets a reference to the given string and assigns it to the TSignatureSvginitials field.
+func (o *SignatureRequestCompound) SetTSignatureSvginitials(v string) {
+	o.TSignatureSvginitials = &v
+}
+
 func (o SignatureRequestCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -56,6 +208,17 @@ func (o SignatureRequestCompound) MarshalJSON() ([]byte, error) {
 
 func (o SignatureRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.PkiSignatureID) {
+		toSerialize["pkiSignatureID"] = o.PkiSignatureID
+	}
+	toSerialize["fkiFontID"] = o.FkiFontID
+	toSerialize["eSignaturePreference"] = o.ESignaturePreference
+	if !IsNil(o.TSignatureSvg) {
+		toSerialize["tSignatureSvg"] = o.TSignatureSvg
+	}
+	if !IsNil(o.TSignatureSvginitials) {
+		toSerialize["tSignatureSvginitials"] = o.TSignatureSvginitials
+	}
 	return toSerialize, nil
 }
 

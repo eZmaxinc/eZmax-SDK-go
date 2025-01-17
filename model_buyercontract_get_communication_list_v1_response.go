@@ -22,7 +22,8 @@ var _ MappedNullable = &BuyercontractGetCommunicationListV1Response{}
 
 // BuyercontractGetCommunicationListV1Response Response for GET /1/object/buyercontract/{pkiBuyercontractID}/getCommunicationList
 type BuyercontractGetCommunicationListV1Response struct {
-	CommonResponseGetList
+	ObjDebugPayload CommonResponseObjDebugPayloadGetList `json:"objDebugPayload"`
+	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
 	MPayload BuyercontractGetCommunicationListV1ResponseMPayload `json:"mPayload"`
 }
 
@@ -32,7 +33,7 @@ type _BuyercontractGetCommunicationListV1Response BuyercontractGetCommunicationL
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBuyercontractGetCommunicationListV1Response(mPayload BuyercontractGetCommunicationListV1ResponseMPayload, objDebugPayload CommonResponseObjDebugPayloadGetList) *BuyercontractGetCommunicationListV1Response {
+func NewBuyercontractGetCommunicationListV1Response(objDebugPayload CommonResponseObjDebugPayloadGetList, mPayload BuyercontractGetCommunicationListV1ResponseMPayload) *BuyercontractGetCommunicationListV1Response {
 	this := BuyercontractGetCommunicationListV1Response{}
 	this.ObjDebugPayload = objDebugPayload
 	this.MPayload = mPayload
@@ -45,6 +46,62 @@ func NewBuyercontractGetCommunicationListV1Response(mPayload BuyercontractGetCom
 func NewBuyercontractGetCommunicationListV1ResponseWithDefaults() *BuyercontractGetCommunicationListV1Response {
 	this := BuyercontractGetCommunicationListV1Response{}
 	return &this
+}
+
+// GetObjDebugPayload returns the ObjDebugPayload field value
+func (o *BuyercontractGetCommunicationListV1Response) GetObjDebugPayload() CommonResponseObjDebugPayloadGetList {
+	if o == nil {
+		var ret CommonResponseObjDebugPayloadGetList
+		return ret
+	}
+
+	return o.ObjDebugPayload
+}
+
+// GetObjDebugPayloadOk returns a tuple with the ObjDebugPayload field value
+// and a boolean to check if the value has been set.
+func (o *BuyercontractGetCommunicationListV1Response) GetObjDebugPayloadOk() (*CommonResponseObjDebugPayloadGetList, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjDebugPayload, true
+}
+
+// SetObjDebugPayload sets field value
+func (o *BuyercontractGetCommunicationListV1Response) SetObjDebugPayload(v CommonResponseObjDebugPayloadGetList) {
+	o.ObjDebugPayload = v
+}
+
+// GetObjDebug returns the ObjDebug field value if set, zero value otherwise.
+func (o *BuyercontractGetCommunicationListV1Response) GetObjDebug() CommonResponseObjDebug {
+	if o == nil || IsNil(o.ObjDebug) {
+		var ret CommonResponseObjDebug
+		return ret
+	}
+	return *o.ObjDebug
+}
+
+// GetObjDebugOk returns a tuple with the ObjDebug field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BuyercontractGetCommunicationListV1Response) GetObjDebugOk() (*CommonResponseObjDebug, bool) {
+	if o == nil || IsNil(o.ObjDebug) {
+		return nil, false
+	}
+	return o.ObjDebug, true
+}
+
+// HasObjDebug returns a boolean if a field has been set.
+func (o *BuyercontractGetCommunicationListV1Response) HasObjDebug() bool {
+	if o != nil && !IsNil(o.ObjDebug) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjDebug gets a reference to the given CommonResponseObjDebug and assigns it to the ObjDebug field.
+func (o *BuyercontractGetCommunicationListV1Response) SetObjDebug(v CommonResponseObjDebug) {
+	o.ObjDebug = &v
 }
 
 // GetMPayload returns the MPayload field value
@@ -81,6 +138,10 @@ func (o BuyercontractGetCommunicationListV1Response) MarshalJSON() ([]byte, erro
 
 func (o BuyercontractGetCommunicationListV1Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["objDebugPayload"] = o.ObjDebugPayload
+	if !IsNil(o.ObjDebug) {
+		toSerialize["objDebug"] = o.ObjDebug
+	}
 	toSerialize["mPayload"] = o.MPayload
 	return toSerialize, nil
 }
@@ -90,8 +151,8 @@ func (o *BuyercontractGetCommunicationListV1Response) UnmarshalJSON(data []byte)
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"mPayload",
 		"objDebugPayload",
+		"mPayload",
 	}
 
 	allProperties := make(map[string]interface{})

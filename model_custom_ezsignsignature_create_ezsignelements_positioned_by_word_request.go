@@ -22,7 +22,58 @@ var _ MappedNullable = &CustomEzsignsignatureCreateEzsignelementsPositionedByWor
 
 // CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest An Ezsignsignature Object in the context of an CreateEzsignelementsPositionedByWord path
 type CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest struct {
-	EzsignsignatureRequestCompound
+	// The unique ID of the Ezsignsignature
+	PkiEzsignsignatureID *int32 `json:"pkiEzsignsignatureID,omitempty"`
+	// The unique ID of the Ezsignfoldersignerassociation
+	FkiEzsignfoldersignerassociationID int32 `json:"fkiEzsignfoldersignerassociationID"`
+	// The page number in the Ezsigndocument
+	IEzsignpagePagenumber int32 `json:"iEzsignpagePagenumber"`
+	// The X coordinate (Horizontal) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 2 inches from the left border of the page, you would use \"200\" for the X coordinate.
+	IEzsignsignatureX int32 `json:"iEzsignsignatureX"`
+	// The Y coordinate (Vertical) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.
+	IEzsignsignatureY int32 `json:"iEzsignsignatureY"`
+	// The width of the Ezsignsignature.  Size is calculated at 100dpi (dot per inch). So for example, if you want the Ezsignsignature to have a width of 2 inches, you would use \"200\" for the iEzsignsignatureWidth.
+	IEzsignsignatureWidth *int32 `json:"iEzsignsignatureWidth,omitempty"`
+	// The height of the Ezsignsignature.  Size is calculated at 100dpi (dot per inch). So for example, if you want the Ezsignsignature to have an height of 2 inches, you would use \"200\" for the iEzsignsignatureHeight.
+	IEzsignsignatureHeight *int32 `json:"iEzsignsignatureHeight,omitempty"`
+	// The step when the Ezsignsigner will be invited to sign
+	IEzsignsignatureStep int32 `json:"iEzsignsignatureStep"`
+	EEzsignsignatureType FieldEEzsignsignatureType `json:"eEzsignsignatureType"`
+	// The unique ID of the Ezsigndocument
+	FkiEzsigndocumentID int32 `json:"fkiEzsigndocumentID"`
+	// A tooltip that will be presented to Ezsignsigner about the Ezsignsignature
+	TEzsignsignatureTooltip *string `json:"tEzsignsignatureTooltip,omitempty"`
+	EEzsignsignatureTooltipposition *FieldEEzsignsignatureTooltipposition `json:"eEzsignsignatureTooltipposition,omitempty"`
+	EEzsignsignatureFont *FieldEEzsignsignatureFont `json:"eEzsignsignatureFont,omitempty"`
+	// The unique ID of the Ezsignfoldersignerassociation
+	FkiEzsignfoldersignerassociationIDValidation *int32 `json:"fkiEzsignfoldersignerassociationIDValidation,omitempty"`
+	// Whether the Ezsignsignature must be handwritten or not when eEzsignsignatureType = Signature.
+	BEzsignsignatureHandwritten *bool `json:"bEzsignsignatureHandwritten,omitempty"`
+	// Whether the Ezsignsignature must include a reason or not when eEzsignsignatureType = Signature.
+	BEzsignsignatureReason *bool `json:"bEzsignsignatureReason,omitempty"`
+	// Whether the Ezsignsignature is required or not. This field is relevant only with Ezsignsignature with eEzsignsignatureType = Attachments, Text or Textarea.
+	BEzsignsignatureRequired *bool `json:"bEzsignsignatureRequired,omitempty"`
+	EEzsignsignatureAttachmentnamesource *FieldEEzsignsignatureAttachmentnamesource `json:"eEzsignsignatureAttachmentnamesource,omitempty"`
+	// The description attached to the attachment name added in Ezsignsignature of eEzsignsignatureType Attachments
+	SEzsignsignatureAttachmentdescription *string `json:"sEzsignsignatureAttachmentdescription,omitempty"`
+	EEzsignsignatureConsultationtrigger *FieldEEzsignsignatureConsultationtrigger `json:"eEzsignsignatureConsultationtrigger,omitempty"`
+	// The step when the Ezsignsigner will be invited to validate the Ezsignsignature of eEzsignsignatureType Attachments
+	IEzsignsignatureValidationstep *int32 `json:"iEzsignsignatureValidationstep,omitempty"`
+	// The maximum length for the value in the Ezsignsignature  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea**
+	IEzsignsignatureMaxlength *int32 `json:"iEzsignsignatureMaxlength,omitempty"`
+	// The default value for the Ezsignsignature  You can use the codes below and they will be replaced at signature time.    | Code | Description | Example | | ------------------------- | ------------ | ------------ | | {sUserFirstname} | The first name of the contact | John | | {sUserLastname} | The last name of the contact | Doe | | {sUserJobtitle} | The job title | Sales Representative | | {sCompany} | Company name | eZmax Solutions Inc. | | {sEmailAddress} | The email address | email@example.com | | {sPhoneE164} | A phone number in E.164 Format | +15149901516 | | {sPhoneE164Cell} | A phone number in E.164 Format | +15149901516 |
+	SEzsignsignatureDefaultvalue *string `json:"sEzsignsignatureDefaultvalue,omitempty"`
+	EEzsignsignatureTextvalidation *EnumTextvalidation `json:"eEzsignsignatureTextvalidation,omitempty"`
+	// Description of validation rule. Show by signatory.
+	SEzsignsignatureTextvalidationcustommessage *string `json:"sEzsignsignatureTextvalidationcustommessage,omitempty"`
+	// A regular expression to indicate what values are acceptable for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** and eEzsignsignatureTextvalidation is **Custom**
+	SEzsignsignatureRegexp *string `json:"sEzsignsignatureRegexp,omitempty" validate:"regexp=^\\\\^.*\\\\$$|^$"`
+	EEzsignsignatureDependencyrequirement *FieldEEzsignsignatureDependencyrequirement `json:"eEzsignsignatureDependencyrequirement,omitempty"`
+	// Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is **Name** or **Handwritten**)
+	BEzsignsignatureCustomdate *bool `json:"bEzsignsignatureCustomdate,omitempty"`
+	// An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.
+	AObjEzsignsignaturecustomdate []EzsignsignaturecustomdateRequestCompound `json:"a_objEzsignsignaturecustomdate,omitempty"`
+	AObjEzsignelementdependency []EzsignelementdependencyRequestCompound `json:"a_objEzsignelementdependency,omitempty"`
 	ObjCreateezsignelementspositionedbyword CustomCreateEzsignelementsPositionedByWordRequest `json:"objCreateezsignelementspositionedbyword"`
 }
 
@@ -32,7 +83,7 @@ type _CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest CustomEzs
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest(objCreateezsignelementspositionedbyword CustomCreateEzsignelementsPositionedByWordRequest, fkiEzsignfoldersignerassociationID int32, iEzsignpagePagenumber int32, iEzsignsignatureX int32, iEzsignsignatureY int32, iEzsignsignatureStep int32, eEzsignsignatureType FieldEEzsignsignatureType, fkiEzsigndocumentID int32) *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest {
+func NewCustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest(fkiEzsignfoldersignerassociationID int32, iEzsignpagePagenumber int32, iEzsignsignatureX int32, iEzsignsignatureY int32, iEzsignsignatureStep int32, eEzsignsignatureType FieldEEzsignsignatureType, fkiEzsigndocumentID int32, objCreateezsignelementspositionedbyword CustomCreateEzsignelementsPositionedByWordRequest) *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest {
 	this := CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest{}
 	this.FkiEzsignfoldersignerassociationID = fkiEzsignfoldersignerassociationID
 	this.IEzsignpagePagenumber = iEzsignpagePagenumber
@@ -51,6 +102,910 @@ func NewCustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest(objCrea
 func NewCustomEzsignsignatureCreateEzsignelementsPositionedByWordRequestWithDefaults() *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest {
 	this := CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest{}
 	return &this
+}
+
+// GetPkiEzsignsignatureID returns the PkiEzsignsignatureID field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetPkiEzsignsignatureID() int32 {
+	if o == nil || IsNil(o.PkiEzsignsignatureID) {
+		var ret int32
+		return ret
+	}
+	return *o.PkiEzsignsignatureID
+}
+
+// GetPkiEzsignsignatureIDOk returns a tuple with the PkiEzsignsignatureID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetPkiEzsignsignatureIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.PkiEzsignsignatureID) {
+		return nil, false
+	}
+	return o.PkiEzsignsignatureID, true
+}
+
+// HasPkiEzsignsignatureID returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasPkiEzsignsignatureID() bool {
+	if o != nil && !IsNil(o.PkiEzsignsignatureID) {
+		return true
+	}
+
+	return false
+}
+
+// SetPkiEzsignsignatureID gets a reference to the given int32 and assigns it to the PkiEzsignsignatureID field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetPkiEzsignsignatureID(v int32) {
+	o.PkiEzsignsignatureID = &v
+}
+
+// GetFkiEzsignfoldersignerassociationID returns the FkiEzsignfoldersignerassociationID field value
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetFkiEzsignfoldersignerassociationID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiEzsignfoldersignerassociationID
+}
+
+// GetFkiEzsignfoldersignerassociationIDOk returns a tuple with the FkiEzsignfoldersignerassociationID field value
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetFkiEzsignfoldersignerassociationIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiEzsignfoldersignerassociationID, true
+}
+
+// SetFkiEzsignfoldersignerassociationID sets field value
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetFkiEzsignfoldersignerassociationID(v int32) {
+	o.FkiEzsignfoldersignerassociationID = v
+}
+
+// GetIEzsignpagePagenumber returns the IEzsignpagePagenumber field value
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetIEzsignpagePagenumber() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IEzsignpagePagenumber
+}
+
+// GetIEzsignpagePagenumberOk returns a tuple with the IEzsignpagePagenumber field value
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetIEzsignpagePagenumberOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IEzsignpagePagenumber, true
+}
+
+// SetIEzsignpagePagenumber sets field value
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetIEzsignpagePagenumber(v int32) {
+	o.IEzsignpagePagenumber = v
+}
+
+// GetIEzsignsignatureX returns the IEzsignsignatureX field value
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetIEzsignsignatureX() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IEzsignsignatureX
+}
+
+// GetIEzsignsignatureXOk returns a tuple with the IEzsignsignatureX field value
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetIEzsignsignatureXOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IEzsignsignatureX, true
+}
+
+// SetIEzsignsignatureX sets field value
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetIEzsignsignatureX(v int32) {
+	o.IEzsignsignatureX = v
+}
+
+// GetIEzsignsignatureY returns the IEzsignsignatureY field value
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetIEzsignsignatureY() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IEzsignsignatureY
+}
+
+// GetIEzsignsignatureYOk returns a tuple with the IEzsignsignatureY field value
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetIEzsignsignatureYOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IEzsignsignatureY, true
+}
+
+// SetIEzsignsignatureY sets field value
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetIEzsignsignatureY(v int32) {
+	o.IEzsignsignatureY = v
+}
+
+// GetIEzsignsignatureWidth returns the IEzsignsignatureWidth field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetIEzsignsignatureWidth() int32 {
+	if o == nil || IsNil(o.IEzsignsignatureWidth) {
+		var ret int32
+		return ret
+	}
+	return *o.IEzsignsignatureWidth
+}
+
+// GetIEzsignsignatureWidthOk returns a tuple with the IEzsignsignatureWidth field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetIEzsignsignatureWidthOk() (*int32, bool) {
+	if o == nil || IsNil(o.IEzsignsignatureWidth) {
+		return nil, false
+	}
+	return o.IEzsignsignatureWidth, true
+}
+
+// HasIEzsignsignatureWidth returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasIEzsignsignatureWidth() bool {
+	if o != nil && !IsNil(o.IEzsignsignatureWidth) {
+		return true
+	}
+
+	return false
+}
+
+// SetIEzsignsignatureWidth gets a reference to the given int32 and assigns it to the IEzsignsignatureWidth field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetIEzsignsignatureWidth(v int32) {
+	o.IEzsignsignatureWidth = &v
+}
+
+// GetIEzsignsignatureHeight returns the IEzsignsignatureHeight field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetIEzsignsignatureHeight() int32 {
+	if o == nil || IsNil(o.IEzsignsignatureHeight) {
+		var ret int32
+		return ret
+	}
+	return *o.IEzsignsignatureHeight
+}
+
+// GetIEzsignsignatureHeightOk returns a tuple with the IEzsignsignatureHeight field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetIEzsignsignatureHeightOk() (*int32, bool) {
+	if o == nil || IsNil(o.IEzsignsignatureHeight) {
+		return nil, false
+	}
+	return o.IEzsignsignatureHeight, true
+}
+
+// HasIEzsignsignatureHeight returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasIEzsignsignatureHeight() bool {
+	if o != nil && !IsNil(o.IEzsignsignatureHeight) {
+		return true
+	}
+
+	return false
+}
+
+// SetIEzsignsignatureHeight gets a reference to the given int32 and assigns it to the IEzsignsignatureHeight field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetIEzsignsignatureHeight(v int32) {
+	o.IEzsignsignatureHeight = &v
+}
+
+// GetIEzsignsignatureStep returns the IEzsignsignatureStep field value
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetIEzsignsignatureStep() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IEzsignsignatureStep
+}
+
+// GetIEzsignsignatureStepOk returns a tuple with the IEzsignsignatureStep field value
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetIEzsignsignatureStepOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IEzsignsignatureStep, true
+}
+
+// SetIEzsignsignatureStep sets field value
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetIEzsignsignatureStep(v int32) {
+	o.IEzsignsignatureStep = v
+}
+
+// GetEEzsignsignatureType returns the EEzsignsignatureType field value
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetEEzsignsignatureType() FieldEEzsignsignatureType {
+	if o == nil {
+		var ret FieldEEzsignsignatureType
+		return ret
+	}
+
+	return o.EEzsignsignatureType
+}
+
+// GetEEzsignsignatureTypeOk returns a tuple with the EEzsignsignatureType field value
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetEEzsignsignatureTypeOk() (*FieldEEzsignsignatureType, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EEzsignsignatureType, true
+}
+
+// SetEEzsignsignatureType sets field value
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetEEzsignsignatureType(v FieldEEzsignsignatureType) {
+	o.EEzsignsignatureType = v
+}
+
+// GetFkiEzsigndocumentID returns the FkiEzsigndocumentID field value
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetFkiEzsigndocumentID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiEzsigndocumentID
+}
+
+// GetFkiEzsigndocumentIDOk returns a tuple with the FkiEzsigndocumentID field value
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetFkiEzsigndocumentIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiEzsigndocumentID, true
+}
+
+// SetFkiEzsigndocumentID sets field value
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetFkiEzsigndocumentID(v int32) {
+	o.FkiEzsigndocumentID = v
+}
+
+// GetTEzsignsignatureTooltip returns the TEzsignsignatureTooltip field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetTEzsignsignatureTooltip() string {
+	if o == nil || IsNil(o.TEzsignsignatureTooltip) {
+		var ret string
+		return ret
+	}
+	return *o.TEzsignsignatureTooltip
+}
+
+// GetTEzsignsignatureTooltipOk returns a tuple with the TEzsignsignatureTooltip field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetTEzsignsignatureTooltipOk() (*string, bool) {
+	if o == nil || IsNil(o.TEzsignsignatureTooltip) {
+		return nil, false
+	}
+	return o.TEzsignsignatureTooltip, true
+}
+
+// HasTEzsignsignatureTooltip returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasTEzsignsignatureTooltip() bool {
+	if o != nil && !IsNil(o.TEzsignsignatureTooltip) {
+		return true
+	}
+
+	return false
+}
+
+// SetTEzsignsignatureTooltip gets a reference to the given string and assigns it to the TEzsignsignatureTooltip field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetTEzsignsignatureTooltip(v string) {
+	o.TEzsignsignatureTooltip = &v
+}
+
+// GetEEzsignsignatureTooltipposition returns the EEzsignsignatureTooltipposition field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetEEzsignsignatureTooltipposition() FieldEEzsignsignatureTooltipposition {
+	if o == nil || IsNil(o.EEzsignsignatureTooltipposition) {
+		var ret FieldEEzsignsignatureTooltipposition
+		return ret
+	}
+	return *o.EEzsignsignatureTooltipposition
+}
+
+// GetEEzsignsignatureTooltippositionOk returns a tuple with the EEzsignsignatureTooltipposition field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetEEzsignsignatureTooltippositionOk() (*FieldEEzsignsignatureTooltipposition, bool) {
+	if o == nil || IsNil(o.EEzsignsignatureTooltipposition) {
+		return nil, false
+	}
+	return o.EEzsignsignatureTooltipposition, true
+}
+
+// HasEEzsignsignatureTooltipposition returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasEEzsignsignatureTooltipposition() bool {
+	if o != nil && !IsNil(o.EEzsignsignatureTooltipposition) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsignsignatureTooltipposition gets a reference to the given FieldEEzsignsignatureTooltipposition and assigns it to the EEzsignsignatureTooltipposition field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetEEzsignsignatureTooltipposition(v FieldEEzsignsignatureTooltipposition) {
+	o.EEzsignsignatureTooltipposition = &v
+}
+
+// GetEEzsignsignatureFont returns the EEzsignsignatureFont field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetEEzsignsignatureFont() FieldEEzsignsignatureFont {
+	if o == nil || IsNil(o.EEzsignsignatureFont) {
+		var ret FieldEEzsignsignatureFont
+		return ret
+	}
+	return *o.EEzsignsignatureFont
+}
+
+// GetEEzsignsignatureFontOk returns a tuple with the EEzsignsignatureFont field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetEEzsignsignatureFontOk() (*FieldEEzsignsignatureFont, bool) {
+	if o == nil || IsNil(o.EEzsignsignatureFont) {
+		return nil, false
+	}
+	return o.EEzsignsignatureFont, true
+}
+
+// HasEEzsignsignatureFont returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasEEzsignsignatureFont() bool {
+	if o != nil && !IsNil(o.EEzsignsignatureFont) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsignsignatureFont gets a reference to the given FieldEEzsignsignatureFont and assigns it to the EEzsignsignatureFont field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetEEzsignsignatureFont(v FieldEEzsignsignatureFont) {
+	o.EEzsignsignatureFont = &v
+}
+
+// GetFkiEzsignfoldersignerassociationIDValidation returns the FkiEzsignfoldersignerassociationIDValidation field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetFkiEzsignfoldersignerassociationIDValidation() int32 {
+	if o == nil || IsNil(o.FkiEzsignfoldersignerassociationIDValidation) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEzsignfoldersignerassociationIDValidation
+}
+
+// GetFkiEzsignfoldersignerassociationIDValidationOk returns a tuple with the FkiEzsignfoldersignerassociationIDValidation field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetFkiEzsignfoldersignerassociationIDValidationOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEzsignfoldersignerassociationIDValidation) {
+		return nil, false
+	}
+	return o.FkiEzsignfoldersignerassociationIDValidation, true
+}
+
+// HasFkiEzsignfoldersignerassociationIDValidation returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasFkiEzsignfoldersignerassociationIDValidation() bool {
+	if o != nil && !IsNil(o.FkiEzsignfoldersignerassociationIDValidation) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzsignfoldersignerassociationIDValidation gets a reference to the given int32 and assigns it to the FkiEzsignfoldersignerassociationIDValidation field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetFkiEzsignfoldersignerassociationIDValidation(v int32) {
+	o.FkiEzsignfoldersignerassociationIDValidation = &v
+}
+
+// GetBEzsignsignatureHandwritten returns the BEzsignsignatureHandwritten field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetBEzsignsignatureHandwritten() bool {
+	if o == nil || IsNil(o.BEzsignsignatureHandwritten) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignsignatureHandwritten
+}
+
+// GetBEzsignsignatureHandwrittenOk returns a tuple with the BEzsignsignatureHandwritten field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetBEzsignsignatureHandwrittenOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignsignatureHandwritten) {
+		return nil, false
+	}
+	return o.BEzsignsignatureHandwritten, true
+}
+
+// HasBEzsignsignatureHandwritten returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasBEzsignsignatureHandwritten() bool {
+	if o != nil && !IsNil(o.BEzsignsignatureHandwritten) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignsignatureHandwritten gets a reference to the given bool and assigns it to the BEzsignsignatureHandwritten field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetBEzsignsignatureHandwritten(v bool) {
+	o.BEzsignsignatureHandwritten = &v
+}
+
+// GetBEzsignsignatureReason returns the BEzsignsignatureReason field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetBEzsignsignatureReason() bool {
+	if o == nil || IsNil(o.BEzsignsignatureReason) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignsignatureReason
+}
+
+// GetBEzsignsignatureReasonOk returns a tuple with the BEzsignsignatureReason field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetBEzsignsignatureReasonOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignsignatureReason) {
+		return nil, false
+	}
+	return o.BEzsignsignatureReason, true
+}
+
+// HasBEzsignsignatureReason returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasBEzsignsignatureReason() bool {
+	if o != nil && !IsNil(o.BEzsignsignatureReason) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignsignatureReason gets a reference to the given bool and assigns it to the BEzsignsignatureReason field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetBEzsignsignatureReason(v bool) {
+	o.BEzsignsignatureReason = &v
+}
+
+// GetBEzsignsignatureRequired returns the BEzsignsignatureRequired field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetBEzsignsignatureRequired() bool {
+	if o == nil || IsNil(o.BEzsignsignatureRequired) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignsignatureRequired
+}
+
+// GetBEzsignsignatureRequiredOk returns a tuple with the BEzsignsignatureRequired field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetBEzsignsignatureRequiredOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignsignatureRequired) {
+		return nil, false
+	}
+	return o.BEzsignsignatureRequired, true
+}
+
+// HasBEzsignsignatureRequired returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasBEzsignsignatureRequired() bool {
+	if o != nil && !IsNil(o.BEzsignsignatureRequired) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignsignatureRequired gets a reference to the given bool and assigns it to the BEzsignsignatureRequired field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetBEzsignsignatureRequired(v bool) {
+	o.BEzsignsignatureRequired = &v
+}
+
+// GetEEzsignsignatureAttachmentnamesource returns the EEzsignsignatureAttachmentnamesource field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetEEzsignsignatureAttachmentnamesource() FieldEEzsignsignatureAttachmentnamesource {
+	if o == nil || IsNil(o.EEzsignsignatureAttachmentnamesource) {
+		var ret FieldEEzsignsignatureAttachmentnamesource
+		return ret
+	}
+	return *o.EEzsignsignatureAttachmentnamesource
+}
+
+// GetEEzsignsignatureAttachmentnamesourceOk returns a tuple with the EEzsignsignatureAttachmentnamesource field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetEEzsignsignatureAttachmentnamesourceOk() (*FieldEEzsignsignatureAttachmentnamesource, bool) {
+	if o == nil || IsNil(o.EEzsignsignatureAttachmentnamesource) {
+		return nil, false
+	}
+	return o.EEzsignsignatureAttachmentnamesource, true
+}
+
+// HasEEzsignsignatureAttachmentnamesource returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasEEzsignsignatureAttachmentnamesource() bool {
+	if o != nil && !IsNil(o.EEzsignsignatureAttachmentnamesource) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsignsignatureAttachmentnamesource gets a reference to the given FieldEEzsignsignatureAttachmentnamesource and assigns it to the EEzsignsignatureAttachmentnamesource field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetEEzsignsignatureAttachmentnamesource(v FieldEEzsignsignatureAttachmentnamesource) {
+	o.EEzsignsignatureAttachmentnamesource = &v
+}
+
+// GetSEzsignsignatureAttachmentdescription returns the SEzsignsignatureAttachmentdescription field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetSEzsignsignatureAttachmentdescription() string {
+	if o == nil || IsNil(o.SEzsignsignatureAttachmentdescription) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsignsignatureAttachmentdescription
+}
+
+// GetSEzsignsignatureAttachmentdescriptionOk returns a tuple with the SEzsignsignatureAttachmentdescription field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetSEzsignsignatureAttachmentdescriptionOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsignsignatureAttachmentdescription) {
+		return nil, false
+	}
+	return o.SEzsignsignatureAttachmentdescription, true
+}
+
+// HasSEzsignsignatureAttachmentdescription returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasSEzsignsignatureAttachmentdescription() bool {
+	if o != nil && !IsNil(o.SEzsignsignatureAttachmentdescription) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsignsignatureAttachmentdescription gets a reference to the given string and assigns it to the SEzsignsignatureAttachmentdescription field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetSEzsignsignatureAttachmentdescription(v string) {
+	o.SEzsignsignatureAttachmentdescription = &v
+}
+
+// GetEEzsignsignatureConsultationtrigger returns the EEzsignsignatureConsultationtrigger field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetEEzsignsignatureConsultationtrigger() FieldEEzsignsignatureConsultationtrigger {
+	if o == nil || IsNil(o.EEzsignsignatureConsultationtrigger) {
+		var ret FieldEEzsignsignatureConsultationtrigger
+		return ret
+	}
+	return *o.EEzsignsignatureConsultationtrigger
+}
+
+// GetEEzsignsignatureConsultationtriggerOk returns a tuple with the EEzsignsignatureConsultationtrigger field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetEEzsignsignatureConsultationtriggerOk() (*FieldEEzsignsignatureConsultationtrigger, bool) {
+	if o == nil || IsNil(o.EEzsignsignatureConsultationtrigger) {
+		return nil, false
+	}
+	return o.EEzsignsignatureConsultationtrigger, true
+}
+
+// HasEEzsignsignatureConsultationtrigger returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasEEzsignsignatureConsultationtrigger() bool {
+	if o != nil && !IsNil(o.EEzsignsignatureConsultationtrigger) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsignsignatureConsultationtrigger gets a reference to the given FieldEEzsignsignatureConsultationtrigger and assigns it to the EEzsignsignatureConsultationtrigger field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetEEzsignsignatureConsultationtrigger(v FieldEEzsignsignatureConsultationtrigger) {
+	o.EEzsignsignatureConsultationtrigger = &v
+}
+
+// GetIEzsignsignatureValidationstep returns the IEzsignsignatureValidationstep field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetIEzsignsignatureValidationstep() int32 {
+	if o == nil || IsNil(o.IEzsignsignatureValidationstep) {
+		var ret int32
+		return ret
+	}
+	return *o.IEzsignsignatureValidationstep
+}
+
+// GetIEzsignsignatureValidationstepOk returns a tuple with the IEzsignsignatureValidationstep field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetIEzsignsignatureValidationstepOk() (*int32, bool) {
+	if o == nil || IsNil(o.IEzsignsignatureValidationstep) {
+		return nil, false
+	}
+	return o.IEzsignsignatureValidationstep, true
+}
+
+// HasIEzsignsignatureValidationstep returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasIEzsignsignatureValidationstep() bool {
+	if o != nil && !IsNil(o.IEzsignsignatureValidationstep) {
+		return true
+	}
+
+	return false
+}
+
+// SetIEzsignsignatureValidationstep gets a reference to the given int32 and assigns it to the IEzsignsignatureValidationstep field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetIEzsignsignatureValidationstep(v int32) {
+	o.IEzsignsignatureValidationstep = &v
+}
+
+// GetIEzsignsignatureMaxlength returns the IEzsignsignatureMaxlength field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetIEzsignsignatureMaxlength() int32 {
+	if o == nil || IsNil(o.IEzsignsignatureMaxlength) {
+		var ret int32
+		return ret
+	}
+	return *o.IEzsignsignatureMaxlength
+}
+
+// GetIEzsignsignatureMaxlengthOk returns a tuple with the IEzsignsignatureMaxlength field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetIEzsignsignatureMaxlengthOk() (*int32, bool) {
+	if o == nil || IsNil(o.IEzsignsignatureMaxlength) {
+		return nil, false
+	}
+	return o.IEzsignsignatureMaxlength, true
+}
+
+// HasIEzsignsignatureMaxlength returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasIEzsignsignatureMaxlength() bool {
+	if o != nil && !IsNil(o.IEzsignsignatureMaxlength) {
+		return true
+	}
+
+	return false
+}
+
+// SetIEzsignsignatureMaxlength gets a reference to the given int32 and assigns it to the IEzsignsignatureMaxlength field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetIEzsignsignatureMaxlength(v int32) {
+	o.IEzsignsignatureMaxlength = &v
+}
+
+// GetSEzsignsignatureDefaultvalue returns the SEzsignsignatureDefaultvalue field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetSEzsignsignatureDefaultvalue() string {
+	if o == nil || IsNil(o.SEzsignsignatureDefaultvalue) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsignsignatureDefaultvalue
+}
+
+// GetSEzsignsignatureDefaultvalueOk returns a tuple with the SEzsignsignatureDefaultvalue field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetSEzsignsignatureDefaultvalueOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsignsignatureDefaultvalue) {
+		return nil, false
+	}
+	return o.SEzsignsignatureDefaultvalue, true
+}
+
+// HasSEzsignsignatureDefaultvalue returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasSEzsignsignatureDefaultvalue() bool {
+	if o != nil && !IsNil(o.SEzsignsignatureDefaultvalue) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsignsignatureDefaultvalue gets a reference to the given string and assigns it to the SEzsignsignatureDefaultvalue field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetSEzsignsignatureDefaultvalue(v string) {
+	o.SEzsignsignatureDefaultvalue = &v
+}
+
+// GetEEzsignsignatureTextvalidation returns the EEzsignsignatureTextvalidation field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetEEzsignsignatureTextvalidation() EnumTextvalidation {
+	if o == nil || IsNil(o.EEzsignsignatureTextvalidation) {
+		var ret EnumTextvalidation
+		return ret
+	}
+	return *o.EEzsignsignatureTextvalidation
+}
+
+// GetEEzsignsignatureTextvalidationOk returns a tuple with the EEzsignsignatureTextvalidation field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetEEzsignsignatureTextvalidationOk() (*EnumTextvalidation, bool) {
+	if o == nil || IsNil(o.EEzsignsignatureTextvalidation) {
+		return nil, false
+	}
+	return o.EEzsignsignatureTextvalidation, true
+}
+
+// HasEEzsignsignatureTextvalidation returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasEEzsignsignatureTextvalidation() bool {
+	if o != nil && !IsNil(o.EEzsignsignatureTextvalidation) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsignsignatureTextvalidation gets a reference to the given EnumTextvalidation and assigns it to the EEzsignsignatureTextvalidation field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetEEzsignsignatureTextvalidation(v EnumTextvalidation) {
+	o.EEzsignsignatureTextvalidation = &v
+}
+
+// GetSEzsignsignatureTextvalidationcustommessage returns the SEzsignsignatureTextvalidationcustommessage field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetSEzsignsignatureTextvalidationcustommessage() string {
+	if o == nil || IsNil(o.SEzsignsignatureTextvalidationcustommessage) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsignsignatureTextvalidationcustommessage
+}
+
+// GetSEzsignsignatureTextvalidationcustommessageOk returns a tuple with the SEzsignsignatureTextvalidationcustommessage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetSEzsignsignatureTextvalidationcustommessageOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsignsignatureTextvalidationcustommessage) {
+		return nil, false
+	}
+	return o.SEzsignsignatureTextvalidationcustommessage, true
+}
+
+// HasSEzsignsignatureTextvalidationcustommessage returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasSEzsignsignatureTextvalidationcustommessage() bool {
+	if o != nil && !IsNil(o.SEzsignsignatureTextvalidationcustommessage) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsignsignatureTextvalidationcustommessage gets a reference to the given string and assigns it to the SEzsignsignatureTextvalidationcustommessage field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetSEzsignsignatureTextvalidationcustommessage(v string) {
+	o.SEzsignsignatureTextvalidationcustommessage = &v
+}
+
+// GetSEzsignsignatureRegexp returns the SEzsignsignatureRegexp field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetSEzsignsignatureRegexp() string {
+	if o == nil || IsNil(o.SEzsignsignatureRegexp) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsignsignatureRegexp
+}
+
+// GetSEzsignsignatureRegexpOk returns a tuple with the SEzsignsignatureRegexp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetSEzsignsignatureRegexpOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsignsignatureRegexp) {
+		return nil, false
+	}
+	return o.SEzsignsignatureRegexp, true
+}
+
+// HasSEzsignsignatureRegexp returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasSEzsignsignatureRegexp() bool {
+	if o != nil && !IsNil(o.SEzsignsignatureRegexp) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsignsignatureRegexp gets a reference to the given string and assigns it to the SEzsignsignatureRegexp field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetSEzsignsignatureRegexp(v string) {
+	o.SEzsignsignatureRegexp = &v
+}
+
+// GetEEzsignsignatureDependencyrequirement returns the EEzsignsignatureDependencyrequirement field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetEEzsignsignatureDependencyrequirement() FieldEEzsignsignatureDependencyrequirement {
+	if o == nil || IsNil(o.EEzsignsignatureDependencyrequirement) {
+		var ret FieldEEzsignsignatureDependencyrequirement
+		return ret
+	}
+	return *o.EEzsignsignatureDependencyrequirement
+}
+
+// GetEEzsignsignatureDependencyrequirementOk returns a tuple with the EEzsignsignatureDependencyrequirement field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetEEzsignsignatureDependencyrequirementOk() (*FieldEEzsignsignatureDependencyrequirement, bool) {
+	if o == nil || IsNil(o.EEzsignsignatureDependencyrequirement) {
+		return nil, false
+	}
+	return o.EEzsignsignatureDependencyrequirement, true
+}
+
+// HasEEzsignsignatureDependencyrequirement returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasEEzsignsignatureDependencyrequirement() bool {
+	if o != nil && !IsNil(o.EEzsignsignatureDependencyrequirement) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsignsignatureDependencyrequirement gets a reference to the given FieldEEzsignsignatureDependencyrequirement and assigns it to the EEzsignsignatureDependencyrequirement field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetEEzsignsignatureDependencyrequirement(v FieldEEzsignsignatureDependencyrequirement) {
+	o.EEzsignsignatureDependencyrequirement = &v
+}
+
+// GetBEzsignsignatureCustomdate returns the BEzsignsignatureCustomdate field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetBEzsignsignatureCustomdate() bool {
+	if o == nil || IsNil(o.BEzsignsignatureCustomdate) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignsignatureCustomdate
+}
+
+// GetBEzsignsignatureCustomdateOk returns a tuple with the BEzsignsignatureCustomdate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetBEzsignsignatureCustomdateOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignsignatureCustomdate) {
+		return nil, false
+	}
+	return o.BEzsignsignatureCustomdate, true
+}
+
+// HasBEzsignsignatureCustomdate returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasBEzsignsignatureCustomdate() bool {
+	if o != nil && !IsNil(o.BEzsignsignatureCustomdate) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignsignatureCustomdate gets a reference to the given bool and assigns it to the BEzsignsignatureCustomdate field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetBEzsignsignatureCustomdate(v bool) {
+	o.BEzsignsignatureCustomdate = &v
+}
+
+// GetAObjEzsignsignaturecustomdate returns the AObjEzsignsignaturecustomdate field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetAObjEzsignsignaturecustomdate() []EzsignsignaturecustomdateRequestCompound {
+	if o == nil || IsNil(o.AObjEzsignsignaturecustomdate) {
+		var ret []EzsignsignaturecustomdateRequestCompound
+		return ret
+	}
+	return o.AObjEzsignsignaturecustomdate
+}
+
+// GetAObjEzsignsignaturecustomdateOk returns a tuple with the AObjEzsignsignaturecustomdate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetAObjEzsignsignaturecustomdateOk() ([]EzsignsignaturecustomdateRequestCompound, bool) {
+	if o == nil || IsNil(o.AObjEzsignsignaturecustomdate) {
+		return nil, false
+	}
+	return o.AObjEzsignsignaturecustomdate, true
+}
+
+// HasAObjEzsignsignaturecustomdate returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasAObjEzsignsignaturecustomdate() bool {
+	if o != nil && !IsNil(o.AObjEzsignsignaturecustomdate) {
+		return true
+	}
+
+	return false
+}
+
+// SetAObjEzsignsignaturecustomdate gets a reference to the given []EzsignsignaturecustomdateRequestCompound and assigns it to the AObjEzsignsignaturecustomdate field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetAObjEzsignsignaturecustomdate(v []EzsignsignaturecustomdateRequestCompound) {
+	o.AObjEzsignsignaturecustomdate = v
+}
+
+// GetAObjEzsignelementdependency returns the AObjEzsignelementdependency field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetAObjEzsignelementdependency() []EzsignelementdependencyRequestCompound {
+	if o == nil || IsNil(o.AObjEzsignelementdependency) {
+		var ret []EzsignelementdependencyRequestCompound
+		return ret
+	}
+	return o.AObjEzsignelementdependency
+}
+
+// GetAObjEzsignelementdependencyOk returns a tuple with the AObjEzsignelementdependency field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetAObjEzsignelementdependencyOk() ([]EzsignelementdependencyRequestCompound, bool) {
+	if o == nil || IsNil(o.AObjEzsignelementdependency) {
+		return nil, false
+	}
+	return o.AObjEzsignelementdependency, true
+}
+
+// HasAObjEzsignelementdependency returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasAObjEzsignelementdependency() bool {
+	if o != nil && !IsNil(o.AObjEzsignelementdependency) {
+		return true
+	}
+
+	return false
+}
+
+// SetAObjEzsignelementdependency gets a reference to the given []EzsignelementdependencyRequestCompound and assigns it to the AObjEzsignelementdependency field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetAObjEzsignelementdependency(v []EzsignelementdependencyRequestCompound) {
+	o.AObjEzsignelementdependency = v
 }
 
 // GetObjCreateezsignelementspositionedbyword returns the ObjCreateezsignelementspositionedbyword field value
@@ -87,6 +1042,82 @@ func (o CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) Marsha
 
 func (o CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.PkiEzsignsignatureID) {
+		toSerialize["pkiEzsignsignatureID"] = o.PkiEzsignsignatureID
+	}
+	toSerialize["fkiEzsignfoldersignerassociationID"] = o.FkiEzsignfoldersignerassociationID
+	toSerialize["iEzsignpagePagenumber"] = o.IEzsignpagePagenumber
+	toSerialize["iEzsignsignatureX"] = o.IEzsignsignatureX
+	toSerialize["iEzsignsignatureY"] = o.IEzsignsignatureY
+	if !IsNil(o.IEzsignsignatureWidth) {
+		toSerialize["iEzsignsignatureWidth"] = o.IEzsignsignatureWidth
+	}
+	if !IsNil(o.IEzsignsignatureHeight) {
+		toSerialize["iEzsignsignatureHeight"] = o.IEzsignsignatureHeight
+	}
+	toSerialize["iEzsignsignatureStep"] = o.IEzsignsignatureStep
+	toSerialize["eEzsignsignatureType"] = o.EEzsignsignatureType
+	toSerialize["fkiEzsigndocumentID"] = o.FkiEzsigndocumentID
+	if !IsNil(o.TEzsignsignatureTooltip) {
+		toSerialize["tEzsignsignatureTooltip"] = o.TEzsignsignatureTooltip
+	}
+	if !IsNil(o.EEzsignsignatureTooltipposition) {
+		toSerialize["eEzsignsignatureTooltipposition"] = o.EEzsignsignatureTooltipposition
+	}
+	if !IsNil(o.EEzsignsignatureFont) {
+		toSerialize["eEzsignsignatureFont"] = o.EEzsignsignatureFont
+	}
+	if !IsNil(o.FkiEzsignfoldersignerassociationIDValidation) {
+		toSerialize["fkiEzsignfoldersignerassociationIDValidation"] = o.FkiEzsignfoldersignerassociationIDValidation
+	}
+	if !IsNil(o.BEzsignsignatureHandwritten) {
+		toSerialize["bEzsignsignatureHandwritten"] = o.BEzsignsignatureHandwritten
+	}
+	if !IsNil(o.BEzsignsignatureReason) {
+		toSerialize["bEzsignsignatureReason"] = o.BEzsignsignatureReason
+	}
+	if !IsNil(o.BEzsignsignatureRequired) {
+		toSerialize["bEzsignsignatureRequired"] = o.BEzsignsignatureRequired
+	}
+	if !IsNil(o.EEzsignsignatureAttachmentnamesource) {
+		toSerialize["eEzsignsignatureAttachmentnamesource"] = o.EEzsignsignatureAttachmentnamesource
+	}
+	if !IsNil(o.SEzsignsignatureAttachmentdescription) {
+		toSerialize["sEzsignsignatureAttachmentdescription"] = o.SEzsignsignatureAttachmentdescription
+	}
+	if !IsNil(o.EEzsignsignatureConsultationtrigger) {
+		toSerialize["eEzsignsignatureConsultationtrigger"] = o.EEzsignsignatureConsultationtrigger
+	}
+	if !IsNil(o.IEzsignsignatureValidationstep) {
+		toSerialize["iEzsignsignatureValidationstep"] = o.IEzsignsignatureValidationstep
+	}
+	if !IsNil(o.IEzsignsignatureMaxlength) {
+		toSerialize["iEzsignsignatureMaxlength"] = o.IEzsignsignatureMaxlength
+	}
+	if !IsNil(o.SEzsignsignatureDefaultvalue) {
+		toSerialize["sEzsignsignatureDefaultvalue"] = o.SEzsignsignatureDefaultvalue
+	}
+	if !IsNil(o.EEzsignsignatureTextvalidation) {
+		toSerialize["eEzsignsignatureTextvalidation"] = o.EEzsignsignatureTextvalidation
+	}
+	if !IsNil(o.SEzsignsignatureTextvalidationcustommessage) {
+		toSerialize["sEzsignsignatureTextvalidationcustommessage"] = o.SEzsignsignatureTextvalidationcustommessage
+	}
+	if !IsNil(o.SEzsignsignatureRegexp) {
+		toSerialize["sEzsignsignatureRegexp"] = o.SEzsignsignatureRegexp
+	}
+	if !IsNil(o.EEzsignsignatureDependencyrequirement) {
+		toSerialize["eEzsignsignatureDependencyrequirement"] = o.EEzsignsignatureDependencyrequirement
+	}
+	if !IsNil(o.BEzsignsignatureCustomdate) {
+		toSerialize["bEzsignsignatureCustomdate"] = o.BEzsignsignatureCustomdate
+	}
+	if !IsNil(o.AObjEzsignsignaturecustomdate) {
+		toSerialize["a_objEzsignsignaturecustomdate"] = o.AObjEzsignsignaturecustomdate
+	}
+	if !IsNil(o.AObjEzsignelementdependency) {
+		toSerialize["a_objEzsignelementdependency"] = o.AObjEzsignelementdependency
+	}
 	toSerialize["objCreateezsignelementspositionedbyword"] = o.ObjCreateezsignelementspositionedbyword
 	return toSerialize, nil
 }
@@ -96,7 +1127,6 @@ func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) Unmar
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"objCreateezsignelementspositionedbyword",
 		"fkiEzsignfoldersignerassociationID",
 		"iEzsignpagePagenumber",
 		"iEzsignsignatureX",
@@ -104,6 +1134,7 @@ func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) Unmar
 		"iEzsignsignatureStep",
 		"eEzsignsignatureType",
 		"fkiEzsigndocumentID",
+		"objCreateezsignelementspositionedbyword",
 	}
 
 	allProperties := make(map[string]interface{})

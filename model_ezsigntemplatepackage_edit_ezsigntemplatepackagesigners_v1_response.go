@@ -22,7 +22,8 @@ var _ MappedNullable = &EzsigntemplatepackageEditEzsigntemplatepackagesignersV1R
 
 // EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Response Response for PUT /1/object/ezsigntemplatepackage/{pkiEzsigntemplatepackageID}/editEzsigntemplatepackagesigners
 type EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Response struct {
-	CommonResponse
+	ObjDebugPayload CommonResponseObjDebugPayload `json:"objDebugPayload"`
+	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
 	MPayload EzsigntemplatepackageEditEzsigntemplatepackagesignersV1ResponseMPayload `json:"mPayload"`
 }
 
@@ -32,7 +33,7 @@ type _EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Response Ezsigntemp
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigntemplatepackageEditEzsigntemplatepackagesignersV1Response(mPayload EzsigntemplatepackageEditEzsigntemplatepackagesignersV1ResponseMPayload, objDebugPayload CommonResponseObjDebugPayload) *EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Response {
+func NewEzsigntemplatepackageEditEzsigntemplatepackagesignersV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload EzsigntemplatepackageEditEzsigntemplatepackagesignersV1ResponseMPayload) *EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Response {
 	this := EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Response{}
 	this.ObjDebugPayload = objDebugPayload
 	this.MPayload = mPayload
@@ -45,6 +46,62 @@ func NewEzsigntemplatepackageEditEzsigntemplatepackagesignersV1Response(mPayload
 func NewEzsigntemplatepackageEditEzsigntemplatepackagesignersV1ResponseWithDefaults() *EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Response {
 	this := EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Response{}
 	return &this
+}
+
+// GetObjDebugPayload returns the ObjDebugPayload field value
+func (o *EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Response) GetObjDebugPayload() CommonResponseObjDebugPayload {
+	if o == nil {
+		var ret CommonResponseObjDebugPayload
+		return ret
+	}
+
+	return o.ObjDebugPayload
+}
+
+// GetObjDebugPayloadOk returns a tuple with the ObjDebugPayload field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Response) GetObjDebugPayloadOk() (*CommonResponseObjDebugPayload, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjDebugPayload, true
+}
+
+// SetObjDebugPayload sets field value
+func (o *EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Response) SetObjDebugPayload(v CommonResponseObjDebugPayload) {
+	o.ObjDebugPayload = v
+}
+
+// GetObjDebug returns the ObjDebug field value if set, zero value otherwise.
+func (o *EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Response) GetObjDebug() CommonResponseObjDebug {
+	if o == nil || IsNil(o.ObjDebug) {
+		var ret CommonResponseObjDebug
+		return ret
+	}
+	return *o.ObjDebug
+}
+
+// GetObjDebugOk returns a tuple with the ObjDebug field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Response) GetObjDebugOk() (*CommonResponseObjDebug, bool) {
+	if o == nil || IsNil(o.ObjDebug) {
+		return nil, false
+	}
+	return o.ObjDebug, true
+}
+
+// HasObjDebug returns a boolean if a field has been set.
+func (o *EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Response) HasObjDebug() bool {
+	if o != nil && !IsNil(o.ObjDebug) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjDebug gets a reference to the given CommonResponseObjDebug and assigns it to the ObjDebug field.
+func (o *EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Response) SetObjDebug(v CommonResponseObjDebug) {
+	o.ObjDebug = &v
 }
 
 // GetMPayload returns the MPayload field value
@@ -81,6 +138,10 @@ func (o EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Response) Marshal
 
 func (o EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["objDebugPayload"] = o.ObjDebugPayload
+	if !IsNil(o.ObjDebug) {
+		toSerialize["objDebug"] = o.ObjDebug
+	}
 	toSerialize["mPayload"] = o.MPayload
 	return toSerialize, nil
 }
@@ -90,8 +151,8 @@ func (o *EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Response) Unmars
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"mPayload",
 		"objDebugPayload",
+		"mPayload",
 	}
 
 	allProperties := make(map[string]interface{})

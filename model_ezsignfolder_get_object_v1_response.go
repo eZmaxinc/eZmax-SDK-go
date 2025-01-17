@@ -22,9 +22,9 @@ var _ MappedNullable = &EzsignfolderGetObjectV1Response{}
 
 // EzsignfolderGetObjectV1Response Response for GET /1/object/ezsignfolder/{pkiEzsignfolderID}
 type EzsignfolderGetObjectV1Response struct {
-	CommonResponse
-	// Payload for GET /1/object/ezsignfolder/{pkiEzsignfolderID}
-	MPayload EzsignfolderResponseCompound `json:"mPayload"`
+	ObjDebugPayload CommonResponseObjDebugPayload `json:"objDebugPayload"`
+	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
+	MPayload EzsignfolderGetObjectV1ResponseMPayload `json:"mPayload"`
 }
 
 type _EzsignfolderGetObjectV1Response EzsignfolderGetObjectV1Response
@@ -33,7 +33,7 @@ type _EzsignfolderGetObjectV1Response EzsignfolderGetObjectV1Response
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfolderGetObjectV1Response(mPayload EzsignfolderResponseCompound, objDebugPayload CommonResponseObjDebugPayload) *EzsignfolderGetObjectV1Response {
+func NewEzsignfolderGetObjectV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload EzsignfolderGetObjectV1ResponseMPayload) *EzsignfolderGetObjectV1Response {
 	this := EzsignfolderGetObjectV1Response{}
 	this.ObjDebugPayload = objDebugPayload
 	this.MPayload = mPayload
@@ -48,10 +48,66 @@ func NewEzsignfolderGetObjectV1ResponseWithDefaults() *EzsignfolderGetObjectV1Re
 	return &this
 }
 
-// GetMPayload returns the MPayload field value
-func (o *EzsignfolderGetObjectV1Response) GetMPayload() EzsignfolderResponseCompound {
+// GetObjDebugPayload returns the ObjDebugPayload field value
+func (o *EzsignfolderGetObjectV1Response) GetObjDebugPayload() CommonResponseObjDebugPayload {
 	if o == nil {
-		var ret EzsignfolderResponseCompound
+		var ret CommonResponseObjDebugPayload
+		return ret
+	}
+
+	return o.ObjDebugPayload
+}
+
+// GetObjDebugPayloadOk returns a tuple with the ObjDebugPayload field value
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderGetObjectV1Response) GetObjDebugPayloadOk() (*CommonResponseObjDebugPayload, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjDebugPayload, true
+}
+
+// SetObjDebugPayload sets field value
+func (o *EzsignfolderGetObjectV1Response) SetObjDebugPayload(v CommonResponseObjDebugPayload) {
+	o.ObjDebugPayload = v
+}
+
+// GetObjDebug returns the ObjDebug field value if set, zero value otherwise.
+func (o *EzsignfolderGetObjectV1Response) GetObjDebug() CommonResponseObjDebug {
+	if o == nil || IsNil(o.ObjDebug) {
+		var ret CommonResponseObjDebug
+		return ret
+	}
+	return *o.ObjDebug
+}
+
+// GetObjDebugOk returns a tuple with the ObjDebug field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderGetObjectV1Response) GetObjDebugOk() (*CommonResponseObjDebug, bool) {
+	if o == nil || IsNil(o.ObjDebug) {
+		return nil, false
+	}
+	return o.ObjDebug, true
+}
+
+// HasObjDebug returns a boolean if a field has been set.
+func (o *EzsignfolderGetObjectV1Response) HasObjDebug() bool {
+	if o != nil && !IsNil(o.ObjDebug) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjDebug gets a reference to the given CommonResponseObjDebug and assigns it to the ObjDebug field.
+func (o *EzsignfolderGetObjectV1Response) SetObjDebug(v CommonResponseObjDebug) {
+	o.ObjDebug = &v
+}
+
+// GetMPayload returns the MPayload field value
+func (o *EzsignfolderGetObjectV1Response) GetMPayload() EzsignfolderGetObjectV1ResponseMPayload {
+	if o == nil {
+		var ret EzsignfolderGetObjectV1ResponseMPayload
 		return ret
 	}
 
@@ -60,7 +116,7 @@ func (o *EzsignfolderGetObjectV1Response) GetMPayload() EzsignfolderResponseComp
 
 // GetMPayloadOk returns a tuple with the MPayload field value
 // and a boolean to check if the value has been set.
-func (o *EzsignfolderGetObjectV1Response) GetMPayloadOk() (*EzsignfolderResponseCompound, bool) {
+func (o *EzsignfolderGetObjectV1Response) GetMPayloadOk() (*EzsignfolderGetObjectV1ResponseMPayload, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,7 +124,7 @@ func (o *EzsignfolderGetObjectV1Response) GetMPayloadOk() (*EzsignfolderResponse
 }
 
 // SetMPayload sets field value
-func (o *EzsignfolderGetObjectV1Response) SetMPayload(v EzsignfolderResponseCompound) {
+func (o *EzsignfolderGetObjectV1Response) SetMPayload(v EzsignfolderGetObjectV1ResponseMPayload) {
 	o.MPayload = v
 }
 
@@ -82,6 +138,10 @@ func (o EzsignfolderGetObjectV1Response) MarshalJSON() ([]byte, error) {
 
 func (o EzsignfolderGetObjectV1Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["objDebugPayload"] = o.ObjDebugPayload
+	if !IsNil(o.ObjDebug) {
+		toSerialize["objDebug"] = o.ObjDebug
+	}
 	toSerialize["mPayload"] = o.MPayload
 	return toSerialize, nil
 }
@@ -91,8 +151,8 @@ func (o *EzsignfolderGetObjectV1Response) UnmarshalJSON(data []byte) (err error)
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"mPayload",
 		"objDebugPayload",
+		"mPayload",
 	}
 
 	allProperties := make(map[string]interface{})

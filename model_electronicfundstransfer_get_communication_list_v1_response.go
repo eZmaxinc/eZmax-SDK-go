@@ -22,7 +22,8 @@ var _ MappedNullable = &ElectronicfundstransferGetCommunicationListV1Response{}
 
 // ElectronicfundstransferGetCommunicationListV1Response Response for GET /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationList
 type ElectronicfundstransferGetCommunicationListV1Response struct {
-	CommonResponseGetList
+	ObjDebugPayload CommonResponseObjDebugPayloadGetList `json:"objDebugPayload"`
+	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
 	MPayload ElectronicfundstransferGetCommunicationListV1ResponseMPayload `json:"mPayload"`
 }
 
@@ -32,7 +33,7 @@ type _ElectronicfundstransferGetCommunicationListV1Response Electronicfundstrans
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewElectronicfundstransferGetCommunicationListV1Response(mPayload ElectronicfundstransferGetCommunicationListV1ResponseMPayload, objDebugPayload CommonResponseObjDebugPayloadGetList) *ElectronicfundstransferGetCommunicationListV1Response {
+func NewElectronicfundstransferGetCommunicationListV1Response(objDebugPayload CommonResponseObjDebugPayloadGetList, mPayload ElectronicfundstransferGetCommunicationListV1ResponseMPayload) *ElectronicfundstransferGetCommunicationListV1Response {
 	this := ElectronicfundstransferGetCommunicationListV1Response{}
 	this.ObjDebugPayload = objDebugPayload
 	this.MPayload = mPayload
@@ -45,6 +46,62 @@ func NewElectronicfundstransferGetCommunicationListV1Response(mPayload Electroni
 func NewElectronicfundstransferGetCommunicationListV1ResponseWithDefaults() *ElectronicfundstransferGetCommunicationListV1Response {
 	this := ElectronicfundstransferGetCommunicationListV1Response{}
 	return &this
+}
+
+// GetObjDebugPayload returns the ObjDebugPayload field value
+func (o *ElectronicfundstransferGetCommunicationListV1Response) GetObjDebugPayload() CommonResponseObjDebugPayloadGetList {
+	if o == nil {
+		var ret CommonResponseObjDebugPayloadGetList
+		return ret
+	}
+
+	return o.ObjDebugPayload
+}
+
+// GetObjDebugPayloadOk returns a tuple with the ObjDebugPayload field value
+// and a boolean to check if the value has been set.
+func (o *ElectronicfundstransferGetCommunicationListV1Response) GetObjDebugPayloadOk() (*CommonResponseObjDebugPayloadGetList, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjDebugPayload, true
+}
+
+// SetObjDebugPayload sets field value
+func (o *ElectronicfundstransferGetCommunicationListV1Response) SetObjDebugPayload(v CommonResponseObjDebugPayloadGetList) {
+	o.ObjDebugPayload = v
+}
+
+// GetObjDebug returns the ObjDebug field value if set, zero value otherwise.
+func (o *ElectronicfundstransferGetCommunicationListV1Response) GetObjDebug() CommonResponseObjDebug {
+	if o == nil || IsNil(o.ObjDebug) {
+		var ret CommonResponseObjDebug
+		return ret
+	}
+	return *o.ObjDebug
+}
+
+// GetObjDebugOk returns a tuple with the ObjDebug field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ElectronicfundstransferGetCommunicationListV1Response) GetObjDebugOk() (*CommonResponseObjDebug, bool) {
+	if o == nil || IsNil(o.ObjDebug) {
+		return nil, false
+	}
+	return o.ObjDebug, true
+}
+
+// HasObjDebug returns a boolean if a field has been set.
+func (o *ElectronicfundstransferGetCommunicationListV1Response) HasObjDebug() bool {
+	if o != nil && !IsNil(o.ObjDebug) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjDebug gets a reference to the given CommonResponseObjDebug and assigns it to the ObjDebug field.
+func (o *ElectronicfundstransferGetCommunicationListV1Response) SetObjDebug(v CommonResponseObjDebug) {
+	o.ObjDebug = &v
 }
 
 // GetMPayload returns the MPayload field value
@@ -81,6 +138,10 @@ func (o ElectronicfundstransferGetCommunicationListV1Response) MarshalJSON() ([]
 
 func (o ElectronicfundstransferGetCommunicationListV1Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["objDebugPayload"] = o.ObjDebugPayload
+	if !IsNil(o.ObjDebug) {
+		toSerialize["objDebug"] = o.ObjDebug
+	}
 	toSerialize["mPayload"] = o.MPayload
 	return toSerialize, nil
 }
@@ -90,8 +151,8 @@ func (o *ElectronicfundstransferGetCommunicationListV1Response) UnmarshalJSON(da
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"mPayload",
 		"objDebugPayload",
+		"mPayload",
 	}
 
 	allProperties := make(map[string]interface{})

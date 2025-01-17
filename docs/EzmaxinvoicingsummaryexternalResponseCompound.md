@@ -4,13 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**PkiEzmaxinvoicingsummaryexternalID** | Pointer to **int32** | The unique ID of the Ezmaxinvoicingsummaryexternal | [optional] 
+**FkiEzmaxinvoicingID** | Pointer to **int32** | The unique ID of the Ezmaxinvoicing | [optional] 
+**FkiBillingentityexternalID** | **int32** | The unique ID of the Billingentityexternal | 
+**SBillingentityexternalDescription** | **string** | The description of the Billingentityexternal | 
+**SEzmaxinvoicingsummaryexternalDescription** | **string** | The description of the Ezmaxinvoicingsummaryexternal | 
 **AObjEzmaxinvoicingsummaryexternaldetail** | [**[]EzmaxinvoicingsummaryexternaldetailResponseCompound**](EzmaxinvoicingsummaryexternaldetailResponseCompound.md) |  | 
 
 ## Methods
 
 ### NewEzmaxinvoicingsummaryexternalResponseCompound
 
-`func NewEzmaxinvoicingsummaryexternalResponseCompound(aObjEzmaxinvoicingsummaryexternaldetail []EzmaxinvoicingsummaryexternaldetailResponseCompound, ) *EzmaxinvoicingsummaryexternalResponseCompound`
+`func NewEzmaxinvoicingsummaryexternalResponseCompound(fkiBillingentityexternalID int32, sBillingentityexternalDescription string, sEzmaxinvoicingsummaryexternalDescription string, aObjEzmaxinvoicingsummaryexternaldetail []EzmaxinvoicingsummaryexternaldetailResponseCompound, ) *EzmaxinvoicingsummaryexternalResponseCompound`
 
 NewEzmaxinvoicingsummaryexternalResponseCompound instantiates a new EzmaxinvoicingsummaryexternalResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -24,6 +29,116 @@ will change when the set of required properties is changed
 NewEzmaxinvoicingsummaryexternalResponseCompoundWithDefaults instantiates a new EzmaxinvoicingsummaryexternalResponseCompound object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetPkiEzmaxinvoicingsummaryexternalID
+
+`func (o *EzmaxinvoicingsummaryexternalResponseCompound) GetPkiEzmaxinvoicingsummaryexternalID() int32`
+
+GetPkiEzmaxinvoicingsummaryexternalID returns the PkiEzmaxinvoicingsummaryexternalID field if non-nil, zero value otherwise.
+
+### GetPkiEzmaxinvoicingsummaryexternalIDOk
+
+`func (o *EzmaxinvoicingsummaryexternalResponseCompound) GetPkiEzmaxinvoicingsummaryexternalIDOk() (*int32, bool)`
+
+GetPkiEzmaxinvoicingsummaryexternalIDOk returns a tuple with the PkiEzmaxinvoicingsummaryexternalID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPkiEzmaxinvoicingsummaryexternalID
+
+`func (o *EzmaxinvoicingsummaryexternalResponseCompound) SetPkiEzmaxinvoicingsummaryexternalID(v int32)`
+
+SetPkiEzmaxinvoicingsummaryexternalID sets PkiEzmaxinvoicingsummaryexternalID field to given value.
+
+### HasPkiEzmaxinvoicingsummaryexternalID
+
+`func (o *EzmaxinvoicingsummaryexternalResponseCompound) HasPkiEzmaxinvoicingsummaryexternalID() bool`
+
+HasPkiEzmaxinvoicingsummaryexternalID returns a boolean if a field has been set.
+
+### GetFkiEzmaxinvoicingID
+
+`func (o *EzmaxinvoicingsummaryexternalResponseCompound) GetFkiEzmaxinvoicingID() int32`
+
+GetFkiEzmaxinvoicingID returns the FkiEzmaxinvoicingID field if non-nil, zero value otherwise.
+
+### GetFkiEzmaxinvoicingIDOk
+
+`func (o *EzmaxinvoicingsummaryexternalResponseCompound) GetFkiEzmaxinvoicingIDOk() (*int32, bool)`
+
+GetFkiEzmaxinvoicingIDOk returns a tuple with the FkiEzmaxinvoicingID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiEzmaxinvoicingID
+
+`func (o *EzmaxinvoicingsummaryexternalResponseCompound) SetFkiEzmaxinvoicingID(v int32)`
+
+SetFkiEzmaxinvoicingID sets FkiEzmaxinvoicingID field to given value.
+
+### HasFkiEzmaxinvoicingID
+
+`func (o *EzmaxinvoicingsummaryexternalResponseCompound) HasFkiEzmaxinvoicingID() bool`
+
+HasFkiEzmaxinvoicingID returns a boolean if a field has been set.
+
+### GetFkiBillingentityexternalID
+
+`func (o *EzmaxinvoicingsummaryexternalResponseCompound) GetFkiBillingentityexternalID() int32`
+
+GetFkiBillingentityexternalID returns the FkiBillingentityexternalID field if non-nil, zero value otherwise.
+
+### GetFkiBillingentityexternalIDOk
+
+`func (o *EzmaxinvoicingsummaryexternalResponseCompound) GetFkiBillingentityexternalIDOk() (*int32, bool)`
+
+GetFkiBillingentityexternalIDOk returns a tuple with the FkiBillingentityexternalID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiBillingentityexternalID
+
+`func (o *EzmaxinvoicingsummaryexternalResponseCompound) SetFkiBillingentityexternalID(v int32)`
+
+SetFkiBillingentityexternalID sets FkiBillingentityexternalID field to given value.
+
+
+### GetSBillingentityexternalDescription
+
+`func (o *EzmaxinvoicingsummaryexternalResponseCompound) GetSBillingentityexternalDescription() string`
+
+GetSBillingentityexternalDescription returns the SBillingentityexternalDescription field if non-nil, zero value otherwise.
+
+### GetSBillingentityexternalDescriptionOk
+
+`func (o *EzmaxinvoicingsummaryexternalResponseCompound) GetSBillingentityexternalDescriptionOk() (*string, bool)`
+
+GetSBillingentityexternalDescriptionOk returns a tuple with the SBillingentityexternalDescription field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSBillingentityexternalDescription
+
+`func (o *EzmaxinvoicingsummaryexternalResponseCompound) SetSBillingentityexternalDescription(v string)`
+
+SetSBillingentityexternalDescription sets SBillingentityexternalDescription field to given value.
+
+
+### GetSEzmaxinvoicingsummaryexternalDescription
+
+`func (o *EzmaxinvoicingsummaryexternalResponseCompound) GetSEzmaxinvoicingsummaryexternalDescription() string`
+
+GetSEzmaxinvoicingsummaryexternalDescription returns the SEzmaxinvoicingsummaryexternalDescription field if non-nil, zero value otherwise.
+
+### GetSEzmaxinvoicingsummaryexternalDescriptionOk
+
+`func (o *EzmaxinvoicingsummaryexternalResponseCompound) GetSEzmaxinvoicingsummaryexternalDescriptionOk() (*string, bool)`
+
+GetSEzmaxinvoicingsummaryexternalDescriptionOk returns a tuple with the SEzmaxinvoicingsummaryexternalDescription field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzmaxinvoicingsummaryexternalDescription
+
+`func (o *EzmaxinvoicingsummaryexternalResponseCompound) SetSEzmaxinvoicingsummaryexternalDescription(v string)`
+
+SetSEzmaxinvoicingsummaryexternalDescription sets SEzmaxinvoicingsummaryexternalDescription field to given value.
+
 
 ### GetAObjEzmaxinvoicingsummaryexternaldetail
 

@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 
 ## UsergroupEditObjectV1
 
-> CommonResponse UsergroupEditObjectV1(ctx, pkiUsergroupID).UsergroupEditObjectV1Request(usergroupEditObjectV1Request).Execute()
+> UsergroupEditObjectV1Response UsergroupEditObjectV1(ctx, pkiUsergroupID).UsergroupEditObjectV1Request(usergroupEditObjectV1Request).Execute()
 
 Edit an existing Usergroup
 
@@ -115,7 +115,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupAPI.UsergroupEditObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UsergroupEditObjectV1`: CommonResponse
+	// response from `UsergroupEditObjectV1`: UsergroupEditObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupAPI.UsergroupEditObjectV1`: %v\n", resp)
 }
 ```
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**UsergroupEditObjectV1Response**](UsergroupEditObjectV1Response.md)
 
 ### Authorization
 
@@ -178,7 +178,7 @@ import (
 
 func main() {
 	pkiUsergroupID := int32(56) // int32 | 
-	usergroupEditPermissionsV1Request := *openapiclient.NewUsergroupEditPermissionsV1Request([]openapiclient.PermissionRequestCompound{*openapiclient.NewPermissionRequest(int32(53))}) // UsergroupEditPermissionsV1Request | 
+	usergroupEditPermissionsV1Request := *openapiclient.NewUsergroupEditPermissionsV1Request([]openapiclient.PermissionRequestCompound{*openapiclient.NewPermissionRequestCompound(int32(53))}) // UsergroupEditPermissionsV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

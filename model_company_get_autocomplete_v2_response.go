@@ -22,7 +22,8 @@ var _ MappedNullable = &CompanyGetAutocompleteV2Response{}
 
 // CompanyGetAutocompleteV2Response Response for GET /2/object/company/getAutocomplete
 type CompanyGetAutocompleteV2Response struct {
-	CommonResponse
+	ObjDebugPayload CommonResponseObjDebugPayload `json:"objDebugPayload"`
+	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
 	MPayload CompanyGetAutocompleteV2ResponseMPayload `json:"mPayload"`
 }
 
@@ -32,7 +33,7 @@ type _CompanyGetAutocompleteV2Response CompanyGetAutocompleteV2Response
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCompanyGetAutocompleteV2Response(mPayload CompanyGetAutocompleteV2ResponseMPayload, objDebugPayload CommonResponseObjDebugPayload) *CompanyGetAutocompleteV2Response {
+func NewCompanyGetAutocompleteV2Response(objDebugPayload CommonResponseObjDebugPayload, mPayload CompanyGetAutocompleteV2ResponseMPayload) *CompanyGetAutocompleteV2Response {
 	this := CompanyGetAutocompleteV2Response{}
 	this.ObjDebugPayload = objDebugPayload
 	this.MPayload = mPayload
@@ -45,6 +46,62 @@ func NewCompanyGetAutocompleteV2Response(mPayload CompanyGetAutocompleteV2Respon
 func NewCompanyGetAutocompleteV2ResponseWithDefaults() *CompanyGetAutocompleteV2Response {
 	this := CompanyGetAutocompleteV2Response{}
 	return &this
+}
+
+// GetObjDebugPayload returns the ObjDebugPayload field value
+func (o *CompanyGetAutocompleteV2Response) GetObjDebugPayload() CommonResponseObjDebugPayload {
+	if o == nil {
+		var ret CommonResponseObjDebugPayload
+		return ret
+	}
+
+	return o.ObjDebugPayload
+}
+
+// GetObjDebugPayloadOk returns a tuple with the ObjDebugPayload field value
+// and a boolean to check if the value has been set.
+func (o *CompanyGetAutocompleteV2Response) GetObjDebugPayloadOk() (*CommonResponseObjDebugPayload, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjDebugPayload, true
+}
+
+// SetObjDebugPayload sets field value
+func (o *CompanyGetAutocompleteV2Response) SetObjDebugPayload(v CommonResponseObjDebugPayload) {
+	o.ObjDebugPayload = v
+}
+
+// GetObjDebug returns the ObjDebug field value if set, zero value otherwise.
+func (o *CompanyGetAutocompleteV2Response) GetObjDebug() CommonResponseObjDebug {
+	if o == nil || IsNil(o.ObjDebug) {
+		var ret CommonResponseObjDebug
+		return ret
+	}
+	return *o.ObjDebug
+}
+
+// GetObjDebugOk returns a tuple with the ObjDebug field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CompanyGetAutocompleteV2Response) GetObjDebugOk() (*CommonResponseObjDebug, bool) {
+	if o == nil || IsNil(o.ObjDebug) {
+		return nil, false
+	}
+	return o.ObjDebug, true
+}
+
+// HasObjDebug returns a boolean if a field has been set.
+func (o *CompanyGetAutocompleteV2Response) HasObjDebug() bool {
+	if o != nil && !IsNil(o.ObjDebug) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjDebug gets a reference to the given CommonResponseObjDebug and assigns it to the ObjDebug field.
+func (o *CompanyGetAutocompleteV2Response) SetObjDebug(v CommonResponseObjDebug) {
+	o.ObjDebug = &v
 }
 
 // GetMPayload returns the MPayload field value
@@ -81,6 +138,10 @@ func (o CompanyGetAutocompleteV2Response) MarshalJSON() ([]byte, error) {
 
 func (o CompanyGetAutocompleteV2Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["objDebugPayload"] = o.ObjDebugPayload
+	if !IsNil(o.ObjDebug) {
+		toSerialize["objDebug"] = o.ObjDebug
+	}
 	toSerialize["mPayload"] = o.MPayload
 	return toSerialize, nil
 }
@@ -90,8 +151,8 @@ func (o *CompanyGetAutocompleteV2Response) UnmarshalJSON(data []byte) (err error
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"mPayload",
 		"objDebugPayload",
+		"mPayload",
 	}
 
 	allProperties := make(map[string]interface{})

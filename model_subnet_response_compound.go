@@ -22,7 +22,17 @@ var _ MappedNullable = &SubnetResponseCompound{}
 
 // SubnetResponseCompound A Subnet Object
 type SubnetResponseCompound struct {
-	SubnetResponse
+	// The unique ID of the Subnet
+	PkiSubnetID int32 `json:"pkiSubnetID"`
+	// The unique ID of the User
+	FkiUserID *int32 `json:"fkiUserID,omitempty"`
+	// The unique ID of the Apikey
+	FkiApikeyID *int32 `json:"fkiApikeyID,omitempty"`
+	ObjSubnetDescription MultilingualSubnetDescription `json:"objSubnetDescription"`
+	// The network of the Subnet in integer form. For example 8.8.8.0 would be 134744064
+	ISubnetNetwork int64 `json:"iSubnetNetwork"`
+	// The mask of the Subnet  in integer form. For example 255.255.255.0 would be 4294967040
+	ISubnetMask int64 `json:"iSubnetMask"`
 }
 
 type _SubnetResponseCompound SubnetResponseCompound
@@ -48,6 +58,166 @@ func NewSubnetResponseCompoundWithDefaults() *SubnetResponseCompound {
 	return &this
 }
 
+// GetPkiSubnetID returns the PkiSubnetID field value
+func (o *SubnetResponseCompound) GetPkiSubnetID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.PkiSubnetID
+}
+
+// GetPkiSubnetIDOk returns a tuple with the PkiSubnetID field value
+// and a boolean to check if the value has been set.
+func (o *SubnetResponseCompound) GetPkiSubnetIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PkiSubnetID, true
+}
+
+// SetPkiSubnetID sets field value
+func (o *SubnetResponseCompound) SetPkiSubnetID(v int32) {
+	o.PkiSubnetID = v
+}
+
+// GetFkiUserID returns the FkiUserID field value if set, zero value otherwise.
+func (o *SubnetResponseCompound) GetFkiUserID() int32 {
+	if o == nil || IsNil(o.FkiUserID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiUserID
+}
+
+// GetFkiUserIDOk returns a tuple with the FkiUserID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SubnetResponseCompound) GetFkiUserIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiUserID) {
+		return nil, false
+	}
+	return o.FkiUserID, true
+}
+
+// HasFkiUserID returns a boolean if a field has been set.
+func (o *SubnetResponseCompound) HasFkiUserID() bool {
+	if o != nil && !IsNil(o.FkiUserID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiUserID gets a reference to the given int32 and assigns it to the FkiUserID field.
+func (o *SubnetResponseCompound) SetFkiUserID(v int32) {
+	o.FkiUserID = &v
+}
+
+// GetFkiApikeyID returns the FkiApikeyID field value if set, zero value otherwise.
+func (o *SubnetResponseCompound) GetFkiApikeyID() int32 {
+	if o == nil || IsNil(o.FkiApikeyID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiApikeyID
+}
+
+// GetFkiApikeyIDOk returns a tuple with the FkiApikeyID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SubnetResponseCompound) GetFkiApikeyIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiApikeyID) {
+		return nil, false
+	}
+	return o.FkiApikeyID, true
+}
+
+// HasFkiApikeyID returns a boolean if a field has been set.
+func (o *SubnetResponseCompound) HasFkiApikeyID() bool {
+	if o != nil && !IsNil(o.FkiApikeyID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiApikeyID gets a reference to the given int32 and assigns it to the FkiApikeyID field.
+func (o *SubnetResponseCompound) SetFkiApikeyID(v int32) {
+	o.FkiApikeyID = &v
+}
+
+// GetObjSubnetDescription returns the ObjSubnetDescription field value
+func (o *SubnetResponseCompound) GetObjSubnetDescription() MultilingualSubnetDescription {
+	if o == nil {
+		var ret MultilingualSubnetDescription
+		return ret
+	}
+
+	return o.ObjSubnetDescription
+}
+
+// GetObjSubnetDescriptionOk returns a tuple with the ObjSubnetDescription field value
+// and a boolean to check if the value has been set.
+func (o *SubnetResponseCompound) GetObjSubnetDescriptionOk() (*MultilingualSubnetDescription, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjSubnetDescription, true
+}
+
+// SetObjSubnetDescription sets field value
+func (o *SubnetResponseCompound) SetObjSubnetDescription(v MultilingualSubnetDescription) {
+	o.ObjSubnetDescription = v
+}
+
+// GetISubnetNetwork returns the ISubnetNetwork field value
+func (o *SubnetResponseCompound) GetISubnetNetwork() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.ISubnetNetwork
+}
+
+// GetISubnetNetworkOk returns a tuple with the ISubnetNetwork field value
+// and a boolean to check if the value has been set.
+func (o *SubnetResponseCompound) GetISubnetNetworkOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ISubnetNetwork, true
+}
+
+// SetISubnetNetwork sets field value
+func (o *SubnetResponseCompound) SetISubnetNetwork(v int64) {
+	o.ISubnetNetwork = v
+}
+
+// GetISubnetMask returns the ISubnetMask field value
+func (o *SubnetResponseCompound) GetISubnetMask() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.ISubnetMask
+}
+
+// GetISubnetMaskOk returns a tuple with the ISubnetMask field value
+// and a boolean to check if the value has been set.
+func (o *SubnetResponseCompound) GetISubnetMaskOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ISubnetMask, true
+}
+
+// SetISubnetMask sets field value
+func (o *SubnetResponseCompound) SetISubnetMask(v int64) {
+	o.ISubnetMask = v
+}
+
 func (o SubnetResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -58,6 +228,16 @@ func (o SubnetResponseCompound) MarshalJSON() ([]byte, error) {
 
 func (o SubnetResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["pkiSubnetID"] = o.PkiSubnetID
+	if !IsNil(o.FkiUserID) {
+		toSerialize["fkiUserID"] = o.FkiUserID
+	}
+	if !IsNil(o.FkiApikeyID) {
+		toSerialize["fkiApikeyID"] = o.FkiApikeyID
+	}
+	toSerialize["objSubnetDescription"] = o.ObjSubnetDescription
+	toSerialize["iSubnetNetwork"] = o.ISubnetNetwork
+	toSerialize["iSubnetMask"] = o.ISubnetMask
 	return toSerialize, nil
 }
 

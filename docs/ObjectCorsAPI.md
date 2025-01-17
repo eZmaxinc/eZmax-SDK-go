@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ## CorsDeleteObjectV1
 
-> CommonResponse CorsDeleteObjectV1(ctx, pkiCorsID).Execute()
+> CorsDeleteObjectV1Response CorsDeleteObjectV1(ctx, pkiCorsID).Execute()
 
 Delete an existing Cors
 
@@ -107,7 +107,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectCorsAPI.CorsDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CorsDeleteObjectV1`: CommonResponse
+	// response from `CorsDeleteObjectV1`: CorsDeleteObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectCorsAPI.CorsDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**CorsDeleteObjectV1Response**](CorsDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ## CorsEditObjectV1
 
-> CommonResponse CorsEditObjectV1(ctx, pkiCorsID).CorsEditObjectV1Request(corsEditObjectV1Request).Execute()
+> CorsEditObjectV1Response CorsEditObjectV1(ctx, pkiCorsID).CorsEditObjectV1Request(corsEditObjectV1Request).Execute()
 
 Edit an existing Cors
 
@@ -178,7 +178,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectCorsAPI.CorsEditObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CorsEditObjectV1`: CommonResponse
+	// response from `CorsEditObjectV1`: CorsEditObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectCorsAPI.CorsEditObjectV1`: %v\n", resp)
 }
 ```
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**CorsEditObjectV1Response**](CorsEditObjectV1Response.md)
 
 ### Authorization
 

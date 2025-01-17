@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjApikey** | [**ApikeyResponse**](ApikeyResponse.md) | An Apikey Object and children to create a complete structure | 
+**ObjApikey** | [**ApikeyResponseCompound**](ApikeyResponseCompound.md) |  | 
 
 ## Methods
 
 ### NewApikeyRegenerateV1ResponseMPayload
 
-`func NewApikeyRegenerateV1ResponseMPayload(objApikey ApikeyResponse, ) *ApikeyRegenerateV1ResponseMPayload`
+`func NewApikeyRegenerateV1ResponseMPayload(objApikey ApikeyResponseCompound, ) *ApikeyRegenerateV1ResponseMPayload`
 
 NewApikeyRegenerateV1ResponseMPayload instantiates a new ApikeyRegenerateV1ResponseMPayload object
 This constructor will assign default values to properties that have it defined,
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetObjApikey
 
-`func (o *ApikeyRegenerateV1ResponseMPayload) GetObjApikey() ApikeyResponse`
+`func (o *ApikeyRegenerateV1ResponseMPayload) GetObjApikey() ApikeyResponseCompound`
 
 GetObjApikey returns the ObjApikey field if non-nil, zero value otherwise.
 
 ### GetObjApikeyOk
 
-`func (o *ApikeyRegenerateV1ResponseMPayload) GetObjApikeyOk() (*ApikeyResponse, bool)`
+`func (o *ApikeyRegenerateV1ResponseMPayload) GetObjApikeyOk() (*ApikeyResponseCompound, bool)`
 
 GetObjApikeyOk returns a tuple with the ObjApikey field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObjApikey
 
-`func (o *ApikeyRegenerateV1ResponseMPayload) SetObjApikey(v ApikeyResponse)`
+`func (o *ApikeyRegenerateV1ResponseMPayload) SetObjApikey(v ApikeyResponseCompound)`
 
 SetObjApikey sets ObjApikey field to given value.
 

@@ -436,7 +436,7 @@ func (r ApiUserEditObjectV1Request) UserEditObjectV1Request(userEditObjectV1Requ
 	return r
 }
 
-func (r ApiUserEditObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiUserEditObjectV1Request) Execute() (*UserEditObjectV1Response, *http.Response, error) {
 	return r.ApiService.UserEditObjectV1Execute(r)
 }
 
@@ -458,13 +458,13 @@ func (a *ObjectUserAPIService) UserEditObjectV1(ctx context.Context, pkiUserID i
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectUserAPIService) UserEditObjectV1Execute(r ApiUserEditObjectV1Request) (*CommonResponse, *http.Response, error) {
+//  @return UserEditObjectV1Response
+func (a *ObjectUserAPIService) UserEditObjectV1Execute(r ApiUserEditObjectV1Request) (*UserEditObjectV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *UserEditObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectUserAPIService.UserEditObjectV1")
@@ -2095,7 +2095,7 @@ func (r ApiUserSendPasswordResetV1Request) Body(body map[string]interface{}) Api
 	return r
 }
 
-func (r ApiUserSendPasswordResetV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiUserSendPasswordResetV1Request) Execute() (*UserSendPasswordResetV1Response, *http.Response, error) {
 	return r.ApiService.UserSendPasswordResetV1Execute(r)
 }
 
@@ -2117,13 +2117,13 @@ func (a *ObjectUserAPIService) UserSendPasswordResetV1(ctx context.Context, pkiU
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectUserAPIService) UserSendPasswordResetV1Execute(r ApiUserSendPasswordResetV1Request) (*CommonResponse, *http.Response, error) {
+//  @return UserSendPasswordResetV1Response
+func (a *ObjectUserAPIService) UserSendPasswordResetV1Execute(r ApiUserSendPasswordResetV1Request) (*UserSendPasswordResetV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *UserSendPasswordResetV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectUserAPIService.UserSendPasswordResetV1")

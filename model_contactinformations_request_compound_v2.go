@@ -22,7 +22,15 @@ var _ MappedNullable = &ContactinformationsRequestCompoundV2{}
 
 // ContactinformationsRequestCompoundV2 A Contactinformations Object and children to create a complete structure
 type ContactinformationsRequestCompoundV2 struct {
-	ContactinformationsRequestV2
+	EContactinformationsType FieldEContactinformationsType `json:"eContactinformationsType"`
+	// The index in the a_objAddress array (zero based index) representing the Address object that should become the default one.  You can leave the value to 0 if the array is empty.
+	IAddressDefault int32 `json:"iAddressDefault"`
+	// The index in the a_objPhone array (zero based index) representing the Phone object that should become the default one.  You can leave the value to 0 if the array is empty.
+	IPhoneDefault int32 `json:"iPhoneDefault"`
+	// The index in the a_objEmail array (zero based index) representing the Email object that should become the default one.  You can leave the value to 0 if the array is empty.
+	IEmailDefault int32 `json:"iEmailDefault"`
+	// The index in the a_objWebsite array (zero based index) representing the Website object that should become the default one.  You can leave the value to 0 if the array is empty.
+	IWebsiteDefault int32 `json:"iWebsiteDefault"`
 	AObjAddress []AddressRequestCompound `json:"a_objAddress"`
 	AObjPhone []PhoneRequestCompound `json:"a_objPhone"`
 	AObjEmail []EmailRequestCompound `json:"a_objEmail"`
@@ -35,7 +43,7 @@ type _ContactinformationsRequestCompoundV2 ContactinformationsRequestCompoundV2
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewContactinformationsRequestCompoundV2(aObjAddress []AddressRequestCompound, aObjPhone []PhoneRequestCompound, aObjEmail []EmailRequestCompound, aObjWebsite []WebsiteRequestCompound, eContactinformationsType FieldEContactinformationsType, iAddressDefault int32, iPhoneDefault int32, iEmailDefault int32, iWebsiteDefault int32) *ContactinformationsRequestCompoundV2 {
+func NewContactinformationsRequestCompoundV2(eContactinformationsType FieldEContactinformationsType, iAddressDefault int32, iPhoneDefault int32, iEmailDefault int32, iWebsiteDefault int32, aObjAddress []AddressRequestCompound, aObjPhone []PhoneRequestCompound, aObjEmail []EmailRequestCompound, aObjWebsite []WebsiteRequestCompound) *ContactinformationsRequestCompoundV2 {
 	this := ContactinformationsRequestCompoundV2{}
 	this.EContactinformationsType = eContactinformationsType
 	this.IAddressDefault = iAddressDefault
@@ -55,6 +63,126 @@ func NewContactinformationsRequestCompoundV2(aObjAddress []AddressRequestCompoun
 func NewContactinformationsRequestCompoundV2WithDefaults() *ContactinformationsRequestCompoundV2 {
 	this := ContactinformationsRequestCompoundV2{}
 	return &this
+}
+
+// GetEContactinformationsType returns the EContactinformationsType field value
+func (o *ContactinformationsRequestCompoundV2) GetEContactinformationsType() FieldEContactinformationsType {
+	if o == nil {
+		var ret FieldEContactinformationsType
+		return ret
+	}
+
+	return o.EContactinformationsType
+}
+
+// GetEContactinformationsTypeOk returns a tuple with the EContactinformationsType field value
+// and a boolean to check if the value has been set.
+func (o *ContactinformationsRequestCompoundV2) GetEContactinformationsTypeOk() (*FieldEContactinformationsType, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EContactinformationsType, true
+}
+
+// SetEContactinformationsType sets field value
+func (o *ContactinformationsRequestCompoundV2) SetEContactinformationsType(v FieldEContactinformationsType) {
+	o.EContactinformationsType = v
+}
+
+// GetIAddressDefault returns the IAddressDefault field value
+func (o *ContactinformationsRequestCompoundV2) GetIAddressDefault() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IAddressDefault
+}
+
+// GetIAddressDefaultOk returns a tuple with the IAddressDefault field value
+// and a boolean to check if the value has been set.
+func (o *ContactinformationsRequestCompoundV2) GetIAddressDefaultOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IAddressDefault, true
+}
+
+// SetIAddressDefault sets field value
+func (o *ContactinformationsRequestCompoundV2) SetIAddressDefault(v int32) {
+	o.IAddressDefault = v
+}
+
+// GetIPhoneDefault returns the IPhoneDefault field value
+func (o *ContactinformationsRequestCompoundV2) GetIPhoneDefault() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IPhoneDefault
+}
+
+// GetIPhoneDefaultOk returns a tuple with the IPhoneDefault field value
+// and a boolean to check if the value has been set.
+func (o *ContactinformationsRequestCompoundV2) GetIPhoneDefaultOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IPhoneDefault, true
+}
+
+// SetIPhoneDefault sets field value
+func (o *ContactinformationsRequestCompoundV2) SetIPhoneDefault(v int32) {
+	o.IPhoneDefault = v
+}
+
+// GetIEmailDefault returns the IEmailDefault field value
+func (o *ContactinformationsRequestCompoundV2) GetIEmailDefault() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IEmailDefault
+}
+
+// GetIEmailDefaultOk returns a tuple with the IEmailDefault field value
+// and a boolean to check if the value has been set.
+func (o *ContactinformationsRequestCompoundV2) GetIEmailDefaultOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IEmailDefault, true
+}
+
+// SetIEmailDefault sets field value
+func (o *ContactinformationsRequestCompoundV2) SetIEmailDefault(v int32) {
+	o.IEmailDefault = v
+}
+
+// GetIWebsiteDefault returns the IWebsiteDefault field value
+func (o *ContactinformationsRequestCompoundV2) GetIWebsiteDefault() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IWebsiteDefault
+}
+
+// GetIWebsiteDefaultOk returns a tuple with the IWebsiteDefault field value
+// and a boolean to check if the value has been set.
+func (o *ContactinformationsRequestCompoundV2) GetIWebsiteDefaultOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IWebsiteDefault, true
+}
+
+// SetIWebsiteDefault sets field value
+func (o *ContactinformationsRequestCompoundV2) SetIWebsiteDefault(v int32) {
+	o.IWebsiteDefault = v
 }
 
 // GetAObjAddress returns the AObjAddress field value
@@ -163,6 +291,11 @@ func (o ContactinformationsRequestCompoundV2) MarshalJSON() ([]byte, error) {
 
 func (o ContactinformationsRequestCompoundV2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["eContactinformationsType"] = o.EContactinformationsType
+	toSerialize["iAddressDefault"] = o.IAddressDefault
+	toSerialize["iPhoneDefault"] = o.IPhoneDefault
+	toSerialize["iEmailDefault"] = o.IEmailDefault
+	toSerialize["iWebsiteDefault"] = o.IWebsiteDefault
 	toSerialize["a_objAddress"] = o.AObjAddress
 	toSerialize["a_objPhone"] = o.AObjPhone
 	toSerialize["a_objEmail"] = o.AObjEmail
@@ -175,15 +308,15 @@ func (o *ContactinformationsRequestCompoundV2) UnmarshalJSON(data []byte) (err e
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"a_objAddress",
-		"a_objPhone",
-		"a_objEmail",
-		"a_objWebsite",
 		"eContactinformationsType",
 		"iAddressDefault",
 		"iPhoneDefault",
 		"iEmailDefault",
 		"iWebsiteDefault",
+		"a_objAddress",
+		"a_objPhone",
+		"a_objEmail",
+		"a_objWebsite",
 	}
 
 	allProperties := make(map[string]interface{})

@@ -22,7 +22,9 @@ var _ MappedNullable = &WebhookEzsignDocumentCompleted{}
 
 // WebhookEzsignDocumentCompleted This is the base Webhook object
 type WebhookEzsignDocumentCompleted struct {
-	CommonWebhook
+	ObjWebhook CustomWebhookResponse `json:"objWebhook"`
+	// An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.
+	AObjAttempt []AttemptResponseCompound `json:"a_objAttempt"`
 	ObjEzsigndocument EzsigndocumentResponse `json:"objEzsigndocument"`
 }
 
@@ -32,7 +34,7 @@ type _WebhookEzsignDocumentCompleted WebhookEzsignDocumentCompleted
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWebhookEzsignDocumentCompleted(objEzsigndocument EzsigndocumentResponse, objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound) *WebhookEzsignDocumentCompleted {
+func NewWebhookEzsignDocumentCompleted(objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound, objEzsigndocument EzsigndocumentResponse) *WebhookEzsignDocumentCompleted {
 	this := WebhookEzsignDocumentCompleted{}
 	this.ObjWebhook = objWebhook
 	this.AObjAttempt = aObjAttempt
@@ -46,6 +48,54 @@ func NewWebhookEzsignDocumentCompleted(objEzsigndocument EzsigndocumentResponse,
 func NewWebhookEzsignDocumentCompletedWithDefaults() *WebhookEzsignDocumentCompleted {
 	this := WebhookEzsignDocumentCompleted{}
 	return &this
+}
+
+// GetObjWebhook returns the ObjWebhook field value
+func (o *WebhookEzsignDocumentCompleted) GetObjWebhook() CustomWebhookResponse {
+	if o == nil {
+		var ret CustomWebhookResponse
+		return ret
+	}
+
+	return o.ObjWebhook
+}
+
+// GetObjWebhookOk returns a tuple with the ObjWebhook field value
+// and a boolean to check if the value has been set.
+func (o *WebhookEzsignDocumentCompleted) GetObjWebhookOk() (*CustomWebhookResponse, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjWebhook, true
+}
+
+// SetObjWebhook sets field value
+func (o *WebhookEzsignDocumentCompleted) SetObjWebhook(v CustomWebhookResponse) {
+	o.ObjWebhook = v
+}
+
+// GetAObjAttempt returns the AObjAttempt field value
+func (o *WebhookEzsignDocumentCompleted) GetAObjAttempt() []AttemptResponseCompound {
+	if o == nil {
+		var ret []AttemptResponseCompound
+		return ret
+	}
+
+	return o.AObjAttempt
+}
+
+// GetAObjAttemptOk returns a tuple with the AObjAttempt field value
+// and a boolean to check if the value has been set.
+func (o *WebhookEzsignDocumentCompleted) GetAObjAttemptOk() ([]AttemptResponseCompound, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AObjAttempt, true
+}
+
+// SetAObjAttempt sets field value
+func (o *WebhookEzsignDocumentCompleted) SetAObjAttempt(v []AttemptResponseCompound) {
+	o.AObjAttempt = v
 }
 
 // GetObjEzsigndocument returns the ObjEzsigndocument field value
@@ -82,6 +132,8 @@ func (o WebhookEzsignDocumentCompleted) MarshalJSON() ([]byte, error) {
 
 func (o WebhookEzsignDocumentCompleted) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["objWebhook"] = o.ObjWebhook
+	toSerialize["a_objAttempt"] = o.AObjAttempt
 	toSerialize["objEzsigndocument"] = o.ObjEzsigndocument
 	return toSerialize, nil
 }
@@ -91,9 +143,9 @@ func (o *WebhookEzsignDocumentCompleted) UnmarshalJSON(data []byte) (err error) 
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"objEzsigndocument",
 		"objWebhook",
 		"a_objAttempt",
+		"objEzsigndocument",
 	}
 
 	allProperties := make(map[string]interface{})

@@ -22,7 +22,10 @@ var _ MappedNullable = &EzsignfoldertypeGetListV1ResponseMPayload{}
 
 // EzsignfoldertypeGetListV1ResponseMPayload Payload for GET /1/object/ezsignfoldertype/getList
 type EzsignfoldertypeGetListV1ResponseMPayload struct {
-	CommonGetListV1ResponseMPayload
+	// The number of rows returned
+	IRowReturned int32 `json:"iRowReturned"`
+	// The number of rows matching your filters (if any) or the total number of rows
+	IRowFiltered int32 `json:"iRowFiltered"`
 	// 
 	AObjEzsignfoldertype []EzsignfoldertypeListElement `json:"a_objEzsignfoldertype"`
 }
@@ -33,7 +36,7 @@ type _EzsignfoldertypeGetListV1ResponseMPayload EzsignfoldertypeGetListV1Respons
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfoldertypeGetListV1ResponseMPayload(aObjEzsignfoldertype []EzsignfoldertypeListElement, iRowReturned int32, iRowFiltered int32) *EzsignfoldertypeGetListV1ResponseMPayload {
+func NewEzsignfoldertypeGetListV1ResponseMPayload(iRowReturned int32, iRowFiltered int32, aObjEzsignfoldertype []EzsignfoldertypeListElement) *EzsignfoldertypeGetListV1ResponseMPayload {
 	this := EzsignfoldertypeGetListV1ResponseMPayload{}
 	this.IRowReturned = iRowReturned
 	this.IRowFiltered = iRowFiltered
@@ -47,6 +50,54 @@ func NewEzsignfoldertypeGetListV1ResponseMPayload(aObjEzsignfoldertype []Ezsignf
 func NewEzsignfoldertypeGetListV1ResponseMPayloadWithDefaults() *EzsignfoldertypeGetListV1ResponseMPayload {
 	this := EzsignfoldertypeGetListV1ResponseMPayload{}
 	return &this
+}
+
+// GetIRowReturned returns the IRowReturned field value
+func (o *EzsignfoldertypeGetListV1ResponseMPayload) GetIRowReturned() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IRowReturned
+}
+
+// GetIRowReturnedOk returns a tuple with the IRowReturned field value
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldertypeGetListV1ResponseMPayload) GetIRowReturnedOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IRowReturned, true
+}
+
+// SetIRowReturned sets field value
+func (o *EzsignfoldertypeGetListV1ResponseMPayload) SetIRowReturned(v int32) {
+	o.IRowReturned = v
+}
+
+// GetIRowFiltered returns the IRowFiltered field value
+func (o *EzsignfoldertypeGetListV1ResponseMPayload) GetIRowFiltered() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IRowFiltered
+}
+
+// GetIRowFilteredOk returns a tuple with the IRowFiltered field value
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldertypeGetListV1ResponseMPayload) GetIRowFilteredOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IRowFiltered, true
+}
+
+// SetIRowFiltered sets field value
+func (o *EzsignfoldertypeGetListV1ResponseMPayload) SetIRowFiltered(v int32) {
+	o.IRowFiltered = v
 }
 
 // GetAObjEzsignfoldertype returns the AObjEzsignfoldertype field value
@@ -83,6 +134,8 @@ func (o EzsignfoldertypeGetListV1ResponseMPayload) MarshalJSON() ([]byte, error)
 
 func (o EzsignfoldertypeGetListV1ResponseMPayload) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["iRowReturned"] = o.IRowReturned
+	toSerialize["iRowFiltered"] = o.IRowFiltered
 	toSerialize["a_objEzsignfoldertype"] = o.AObjEzsignfoldertype
 	return toSerialize, nil
 }
@@ -92,9 +145,9 @@ func (o *EzsignfoldertypeGetListV1ResponseMPayload) UnmarshalJSON(data []byte) (
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"a_objEzsignfoldertype",
 		"iRowReturned",
 		"iRowFiltered",
+		"a_objEzsignfoldertype",
 	}
 
 	allProperties := make(map[string]interface{})

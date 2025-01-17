@@ -22,7 +22,10 @@ var _ MappedNullable = &DomainRequestCompound{}
 
 // DomainRequestCompound A Domain Object and children
 type DomainRequestCompound struct {
-	DomainRequest
+	// The unique ID of the Domain
+	PkiDomainID *int32 `json:"pkiDomainID,omitempty"`
+	// The name of the Domain
+	SDomainName string `json:"sDomainName" validate:"regexp=^(?=.{4,75}$)([a-zA-Z0-9-]+\\\\.)+[a-zA-Z]{2,63}$"`
 }
 
 type _DomainRequestCompound DomainRequestCompound
@@ -45,6 +48,62 @@ func NewDomainRequestCompoundWithDefaults() *DomainRequestCompound {
 	return &this
 }
 
+// GetPkiDomainID returns the PkiDomainID field value if set, zero value otherwise.
+func (o *DomainRequestCompound) GetPkiDomainID() int32 {
+	if o == nil || IsNil(o.PkiDomainID) {
+		var ret int32
+		return ret
+	}
+	return *o.PkiDomainID
+}
+
+// GetPkiDomainIDOk returns a tuple with the PkiDomainID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DomainRequestCompound) GetPkiDomainIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.PkiDomainID) {
+		return nil, false
+	}
+	return o.PkiDomainID, true
+}
+
+// HasPkiDomainID returns a boolean if a field has been set.
+func (o *DomainRequestCompound) HasPkiDomainID() bool {
+	if o != nil && !IsNil(o.PkiDomainID) {
+		return true
+	}
+
+	return false
+}
+
+// SetPkiDomainID gets a reference to the given int32 and assigns it to the PkiDomainID field.
+func (o *DomainRequestCompound) SetPkiDomainID(v int32) {
+	o.PkiDomainID = &v
+}
+
+// GetSDomainName returns the SDomainName field value
+func (o *DomainRequestCompound) GetSDomainName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SDomainName
+}
+
+// GetSDomainNameOk returns a tuple with the SDomainName field value
+// and a boolean to check if the value has been set.
+func (o *DomainRequestCompound) GetSDomainNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SDomainName, true
+}
+
+// SetSDomainName sets field value
+func (o *DomainRequestCompound) SetSDomainName(v string) {
+	o.SDomainName = v
+}
+
 func (o DomainRequestCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -55,6 +114,10 @@ func (o DomainRequestCompound) MarshalJSON() ([]byte, error) {
 
 func (o DomainRequestCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.PkiDomainID) {
+		toSerialize["pkiDomainID"] = o.PkiDomainID
+	}
+	toSerialize["sDomainName"] = o.SDomainName
 	return toSerialize, nil
 }
 

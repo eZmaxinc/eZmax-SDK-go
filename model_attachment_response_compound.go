@@ -22,7 +22,123 @@ var _ MappedNullable = &AttachmentResponseCompound{}
 
 // AttachmentResponseCompound A Attachment Object
 type AttachmentResponseCompound struct {
-	AttachmentResponse
+	// The unique ID of the Attachment.
+	PkiAttachmentID int32 `json:"pkiAttachmentID"`
+	// The unique ID of the Computer
+	FkiComputerID *int32 `json:"fkiComputerID,omitempty"`
+	// The unique ID of the Adjustment
+	FkiAdjustmentID *int32 `json:"fkiAdjustmentID,omitempty"`
+	// The unique ID of the Agent.
+	FkiAgentID *int32 `json:"fkiAgentID,omitempty"`
+	// The unique ID of the Bankaccount
+	FkiBankaccountID *int32 `json:"fkiBankaccountID,omitempty"`
+	// The unique ID of the Broker.
+	FkiBrokerID *int32 `json:"fkiBrokerID,omitempty"`
+	// The unique ID of the Commissionadvance
+	FkiCommissionadvanceID *int32 `json:"fkiCommissionadvanceID,omitempty"`
+	// The unique ID of the Communication.
+	FkiCommunicationID *int32 `json:"fkiCommunicationID,omitempty"`
+	// The unique ID of the Customer.
+	FkiCustomerID *int32 `json:"fkiCustomerID,omitempty"`
+	// The unique ID of the Customertemplate
+	FkiCustomertemplateID *int32 `json:"fkiCustomertemplateID,omitempty"`
+	// The unique ID of the Deposit
+	FkiDepositID *int32 `json:"fkiDepositID,omitempty"`
+	// The unique ID of the Deposittransitcheque
+	FkiDeposittransitchequeID *int32 `json:"fkiDeposittransitchequeID,omitempty"`
+	// The unique ID of the Electronicfundstransfer
+	FkiElectronicfundstransferID *int32 `json:"fkiElectronicfundstransferID,omitempty"`
+	// The unique ID of the Employee.
+	FkiEmployeeID *int32 `json:"fkiEmployeeID,omitempty"`
+	// The unique ID of the Externalbroker.
+	FkiExternalbrokerID *int32 `json:"fkiExternalbrokerID,omitempty"`
+	// The unique ID of the Ezcomadvanceserver
+	FkiEzcomadvanceserverID *int32 `json:"fkiEzcomadvanceserverID,omitempty"`
+	// The unique ID of the Ezcomcompany
+	FkiEzcomcompanyID *int32 `json:"fkiEzcomcompanyID,omitempty"`
+	// The unique ID of the Ezsigndocument
+	FkiEzsigndocumentID *int32 `json:"fkiEzsigndocumentID,omitempty"`
+	// The unique ID of the Ghacqcontract
+	FkiGhacqcontractID *int32 `json:"fkiGhacqcontractID,omitempty"`
+	// The unique ID of the Inscription.
+	FkiInscriptionID *int32 `json:"fkiInscriptionID,omitempty"`
+	// The unique ID of the Inscriptiontemp
+	FkiInscriptiontempID *int32 `json:"fkiInscriptiontempID,omitempty"`
+	// The unique ID of the Inscriptionnotauthenticated.
+	FkiInscriptionnotauthenticatedID *int32 `json:"fkiInscriptionnotauthenticatedID,omitempty"`
+	// The unique ID of the Invoice.
+	FkiInvoiceID *int32 `json:"fkiInvoiceID,omitempty"`
+	// The unique ID of the Buyercontract
+	FkiBuyercontractID *int32 `json:"fkiBuyercontractID,omitempty"`
+	// The unique ID of the Franchisebroker
+	FkiFranchisebrokerID *int32 `json:"fkiFranchisebrokerID,omitempty"`
+	// The unique ID of the Franchiseagence
+	FkiFranchiseagenceID *int32 `json:"fkiFranchiseagenceID,omitempty"`
+	// The unique ID of the Franchisereoffice
+	FkiFranchiseofficeID *int32 `json:"fkiFranchiseofficeID,omitempty"`
+	// The unique ID of the Franchisefranchise
+	FkiFranchisefranchiseID *int32 `json:"fkiFranchisefranchiseID,omitempty"`
+	// The unique ID of the Franchisecomplaint
+	FkiFranchisecomplaintID *int32 `json:"fkiFranchisecomplaintID,omitempty"`
+	// The unique ID of the Lead
+	FkiLeadID *int32 `json:"fkiLeadID,omitempty"`
+	// The unique ID of the Marketingprogram
+	FkiMarketingprogramID *int32 `json:"fkiMarketingprogramID,omitempty"`
+	// The unique ID of the Marketingfollow
+	FkiMarketingfollowID *int32 `json:"fkiMarketingfollowID,omitempty"`
+	// The unique ID of the Notary.
+	FkiNotaryID *int32 `json:"fkiNotaryID,omitempty"`
+	// The unique ID of the Officetaxreport
+	FkiOfficetaxreportID *int32 `json:"fkiOfficetaxreportID,omitempty"`
+	// The unique ID of the Otherincome
+	FkiOtherincomeID *int32 `json:"fkiOtherincomeID,omitempty"`
+	// The unique ID of the Paymentpreparation
+	FkiPaymentpreparationID *int32 `json:"fkiPaymentpreparationID,omitempty"`
+	// The unique ID of the Purchase
+	FkiPurchaseID *int32 `json:"fkiPurchaseID,omitempty"`
+	// The unique ID of the Salary
+	FkiSalaryID *int32 `json:"fkiSalaryID,omitempty"`
+	// The unique ID of the Supplier.
+	FkiSupplierID *int32 `json:"fkiSupplierID,omitempty"`
+	// The unique ID of the Tranqcontract
+	FkiTranqcontractID *int32 `json:"fkiTranqcontractID,omitempty"`
+	// The unique ID of the Template
+	FkiTemplateID *int32 `json:"fkiTemplateID,omitempty"`
+	// The unique ID of the Inscriptionchecklist
+	FkiInscriptionchecklistID *int32 `json:"fkiInscriptionchecklistID,omitempty"`
+	// The unique ID of the Folder
+	FkiFolderID *int32 `json:"fkiFolderID,omitempty"`
+	// The unique ID of the Rejectedoffertopurchase
+	FkiRejectedoffertopurchaseID *int32 `json:"fkiRejectedoffertopurchaseID,omitempty"`
+	// The unique ID of the Disclosure
+	FkiDisclosureID *int32 `json:"fkiDisclosureID,omitempty"`
+	// The unique ID of the Reconciliation
+	FkiReconciliationID *int32 `json:"fkiReconciliationID,omitempty"`
+	// The unique ID of the Ezsigndocument
+	FkiEzsigndocumentIDReference *int32 `json:"fkiEzsigndocumentIDReference,omitempty"`
+	EAttachmentDocumenttype FieldEAttachmentDocumenttype `json:"eAttachmentDocumenttype"`
+	// The name of the Attachment
+	SAttachmentName string `json:"sAttachmentName" validate:"regexp=^.{0,75}$"`
+	EAttachmentPrivacy FieldEAttachmentPrivacy `json:"eAttachmentPrivacy"`
+	// The unique ID of the User
+	FkiUserIDSpecific *int32 `json:"fkiUserIDSpecific,omitempty"`
+	EAttachmentType FieldEAttachmentType `json:"eAttachmentType"`
+	// The size of the Attachment
+	IAttachmentSize int32 `json:"iAttachmentSize"`
+	// The edmmoduleflag of the Attachment
+	IAttachmentEDMmoduleflag *int32 `json:"iAttachmentEDMmoduleflag,omitempty"`
+	// The md5 of the Attachment
+	SAttachmentMD5 string `json:"sAttachmentMD5" validate:"regexp=^.{0,32}$"`
+	// Whether if it's deleted
+	BAttachmentDeleted bool `json:"bAttachmentDeleted"`
+	// Whether if it's valid
+	BAttachmentValid bool `json:"bAttachmentValid"`
+	EAttachmentVerified FieldEAttachmentVerified `json:"eAttachmentVerified"`
+	// The rejectioncomment of the Attachment
+	TAttachmentRejectioncomment *string `json:"tAttachmentRejectioncomment,omitempty" validate:"regexp=^.{0,65535}$"`
+	// The unique ID of the User
+	FkiUserIDOwner *int32 `json:"fkiUserIDOwner,omitempty"`
+	ObjAudit *CommonAudit `json:"objAudit,omitempty"`
 }
 
 type _AttachmentResponseCompound AttachmentResponseCompound
@@ -54,6 +170,1878 @@ func NewAttachmentResponseCompoundWithDefaults() *AttachmentResponseCompound {
 	return &this
 }
 
+// GetPkiAttachmentID returns the PkiAttachmentID field value
+func (o *AttachmentResponseCompound) GetPkiAttachmentID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.PkiAttachmentID
+}
+
+// GetPkiAttachmentIDOk returns a tuple with the PkiAttachmentID field value
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetPkiAttachmentIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PkiAttachmentID, true
+}
+
+// SetPkiAttachmentID sets field value
+func (o *AttachmentResponseCompound) SetPkiAttachmentID(v int32) {
+	o.PkiAttachmentID = v
+}
+
+// GetFkiComputerID returns the FkiComputerID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiComputerID() int32 {
+	if o == nil || IsNil(o.FkiComputerID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiComputerID
+}
+
+// GetFkiComputerIDOk returns a tuple with the FkiComputerID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiComputerIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiComputerID) {
+		return nil, false
+	}
+	return o.FkiComputerID, true
+}
+
+// HasFkiComputerID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiComputerID() bool {
+	if o != nil && !IsNil(o.FkiComputerID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiComputerID gets a reference to the given int32 and assigns it to the FkiComputerID field.
+func (o *AttachmentResponseCompound) SetFkiComputerID(v int32) {
+	o.FkiComputerID = &v
+}
+
+// GetFkiAdjustmentID returns the FkiAdjustmentID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiAdjustmentID() int32 {
+	if o == nil || IsNil(o.FkiAdjustmentID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiAdjustmentID
+}
+
+// GetFkiAdjustmentIDOk returns a tuple with the FkiAdjustmentID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiAdjustmentIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiAdjustmentID) {
+		return nil, false
+	}
+	return o.FkiAdjustmentID, true
+}
+
+// HasFkiAdjustmentID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiAdjustmentID() bool {
+	if o != nil && !IsNil(o.FkiAdjustmentID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiAdjustmentID gets a reference to the given int32 and assigns it to the FkiAdjustmentID field.
+func (o *AttachmentResponseCompound) SetFkiAdjustmentID(v int32) {
+	o.FkiAdjustmentID = &v
+}
+
+// GetFkiAgentID returns the FkiAgentID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiAgentID() int32 {
+	if o == nil || IsNil(o.FkiAgentID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiAgentID
+}
+
+// GetFkiAgentIDOk returns a tuple with the FkiAgentID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiAgentIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiAgentID) {
+		return nil, false
+	}
+	return o.FkiAgentID, true
+}
+
+// HasFkiAgentID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiAgentID() bool {
+	if o != nil && !IsNil(o.FkiAgentID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiAgentID gets a reference to the given int32 and assigns it to the FkiAgentID field.
+func (o *AttachmentResponseCompound) SetFkiAgentID(v int32) {
+	o.FkiAgentID = &v
+}
+
+// GetFkiBankaccountID returns the FkiBankaccountID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiBankaccountID() int32 {
+	if o == nil || IsNil(o.FkiBankaccountID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiBankaccountID
+}
+
+// GetFkiBankaccountIDOk returns a tuple with the FkiBankaccountID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiBankaccountIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiBankaccountID) {
+		return nil, false
+	}
+	return o.FkiBankaccountID, true
+}
+
+// HasFkiBankaccountID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiBankaccountID() bool {
+	if o != nil && !IsNil(o.FkiBankaccountID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiBankaccountID gets a reference to the given int32 and assigns it to the FkiBankaccountID field.
+func (o *AttachmentResponseCompound) SetFkiBankaccountID(v int32) {
+	o.FkiBankaccountID = &v
+}
+
+// GetFkiBrokerID returns the FkiBrokerID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiBrokerID() int32 {
+	if o == nil || IsNil(o.FkiBrokerID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiBrokerID
+}
+
+// GetFkiBrokerIDOk returns a tuple with the FkiBrokerID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiBrokerIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiBrokerID) {
+		return nil, false
+	}
+	return o.FkiBrokerID, true
+}
+
+// HasFkiBrokerID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiBrokerID() bool {
+	if o != nil && !IsNil(o.FkiBrokerID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiBrokerID gets a reference to the given int32 and assigns it to the FkiBrokerID field.
+func (o *AttachmentResponseCompound) SetFkiBrokerID(v int32) {
+	o.FkiBrokerID = &v
+}
+
+// GetFkiCommissionadvanceID returns the FkiCommissionadvanceID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiCommissionadvanceID() int32 {
+	if o == nil || IsNil(o.FkiCommissionadvanceID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiCommissionadvanceID
+}
+
+// GetFkiCommissionadvanceIDOk returns a tuple with the FkiCommissionadvanceID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiCommissionadvanceIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiCommissionadvanceID) {
+		return nil, false
+	}
+	return o.FkiCommissionadvanceID, true
+}
+
+// HasFkiCommissionadvanceID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiCommissionadvanceID() bool {
+	if o != nil && !IsNil(o.FkiCommissionadvanceID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiCommissionadvanceID gets a reference to the given int32 and assigns it to the FkiCommissionadvanceID field.
+func (o *AttachmentResponseCompound) SetFkiCommissionadvanceID(v int32) {
+	o.FkiCommissionadvanceID = &v
+}
+
+// GetFkiCommunicationID returns the FkiCommunicationID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiCommunicationID() int32 {
+	if o == nil || IsNil(o.FkiCommunicationID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiCommunicationID
+}
+
+// GetFkiCommunicationIDOk returns a tuple with the FkiCommunicationID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiCommunicationIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiCommunicationID) {
+		return nil, false
+	}
+	return o.FkiCommunicationID, true
+}
+
+// HasFkiCommunicationID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiCommunicationID() bool {
+	if o != nil && !IsNil(o.FkiCommunicationID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiCommunicationID gets a reference to the given int32 and assigns it to the FkiCommunicationID field.
+func (o *AttachmentResponseCompound) SetFkiCommunicationID(v int32) {
+	o.FkiCommunicationID = &v
+}
+
+// GetFkiCustomerID returns the FkiCustomerID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiCustomerID() int32 {
+	if o == nil || IsNil(o.FkiCustomerID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiCustomerID
+}
+
+// GetFkiCustomerIDOk returns a tuple with the FkiCustomerID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiCustomerIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiCustomerID) {
+		return nil, false
+	}
+	return o.FkiCustomerID, true
+}
+
+// HasFkiCustomerID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiCustomerID() bool {
+	if o != nil && !IsNil(o.FkiCustomerID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiCustomerID gets a reference to the given int32 and assigns it to the FkiCustomerID field.
+func (o *AttachmentResponseCompound) SetFkiCustomerID(v int32) {
+	o.FkiCustomerID = &v
+}
+
+// GetFkiCustomertemplateID returns the FkiCustomertemplateID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiCustomertemplateID() int32 {
+	if o == nil || IsNil(o.FkiCustomertemplateID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiCustomertemplateID
+}
+
+// GetFkiCustomertemplateIDOk returns a tuple with the FkiCustomertemplateID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiCustomertemplateIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiCustomertemplateID) {
+		return nil, false
+	}
+	return o.FkiCustomertemplateID, true
+}
+
+// HasFkiCustomertemplateID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiCustomertemplateID() bool {
+	if o != nil && !IsNil(o.FkiCustomertemplateID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiCustomertemplateID gets a reference to the given int32 and assigns it to the FkiCustomertemplateID field.
+func (o *AttachmentResponseCompound) SetFkiCustomertemplateID(v int32) {
+	o.FkiCustomertemplateID = &v
+}
+
+// GetFkiDepositID returns the FkiDepositID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiDepositID() int32 {
+	if o == nil || IsNil(o.FkiDepositID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiDepositID
+}
+
+// GetFkiDepositIDOk returns a tuple with the FkiDepositID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiDepositIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiDepositID) {
+		return nil, false
+	}
+	return o.FkiDepositID, true
+}
+
+// HasFkiDepositID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiDepositID() bool {
+	if o != nil && !IsNil(o.FkiDepositID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiDepositID gets a reference to the given int32 and assigns it to the FkiDepositID field.
+func (o *AttachmentResponseCompound) SetFkiDepositID(v int32) {
+	o.FkiDepositID = &v
+}
+
+// GetFkiDeposittransitchequeID returns the FkiDeposittransitchequeID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiDeposittransitchequeID() int32 {
+	if o == nil || IsNil(o.FkiDeposittransitchequeID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiDeposittransitchequeID
+}
+
+// GetFkiDeposittransitchequeIDOk returns a tuple with the FkiDeposittransitchequeID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiDeposittransitchequeIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiDeposittransitchequeID) {
+		return nil, false
+	}
+	return o.FkiDeposittransitchequeID, true
+}
+
+// HasFkiDeposittransitchequeID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiDeposittransitchequeID() bool {
+	if o != nil && !IsNil(o.FkiDeposittransitchequeID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiDeposittransitchequeID gets a reference to the given int32 and assigns it to the FkiDeposittransitchequeID field.
+func (o *AttachmentResponseCompound) SetFkiDeposittransitchequeID(v int32) {
+	o.FkiDeposittransitchequeID = &v
+}
+
+// GetFkiElectronicfundstransferID returns the FkiElectronicfundstransferID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiElectronicfundstransferID() int32 {
+	if o == nil || IsNil(o.FkiElectronicfundstransferID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiElectronicfundstransferID
+}
+
+// GetFkiElectronicfundstransferIDOk returns a tuple with the FkiElectronicfundstransferID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiElectronicfundstransferIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiElectronicfundstransferID) {
+		return nil, false
+	}
+	return o.FkiElectronicfundstransferID, true
+}
+
+// HasFkiElectronicfundstransferID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiElectronicfundstransferID() bool {
+	if o != nil && !IsNil(o.FkiElectronicfundstransferID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiElectronicfundstransferID gets a reference to the given int32 and assigns it to the FkiElectronicfundstransferID field.
+func (o *AttachmentResponseCompound) SetFkiElectronicfundstransferID(v int32) {
+	o.FkiElectronicfundstransferID = &v
+}
+
+// GetFkiEmployeeID returns the FkiEmployeeID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiEmployeeID() int32 {
+	if o == nil || IsNil(o.FkiEmployeeID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEmployeeID
+}
+
+// GetFkiEmployeeIDOk returns a tuple with the FkiEmployeeID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiEmployeeIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEmployeeID) {
+		return nil, false
+	}
+	return o.FkiEmployeeID, true
+}
+
+// HasFkiEmployeeID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiEmployeeID() bool {
+	if o != nil && !IsNil(o.FkiEmployeeID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEmployeeID gets a reference to the given int32 and assigns it to the FkiEmployeeID field.
+func (o *AttachmentResponseCompound) SetFkiEmployeeID(v int32) {
+	o.FkiEmployeeID = &v
+}
+
+// GetFkiExternalbrokerID returns the FkiExternalbrokerID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiExternalbrokerID() int32 {
+	if o == nil || IsNil(o.FkiExternalbrokerID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiExternalbrokerID
+}
+
+// GetFkiExternalbrokerIDOk returns a tuple with the FkiExternalbrokerID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiExternalbrokerIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiExternalbrokerID) {
+		return nil, false
+	}
+	return o.FkiExternalbrokerID, true
+}
+
+// HasFkiExternalbrokerID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiExternalbrokerID() bool {
+	if o != nil && !IsNil(o.FkiExternalbrokerID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiExternalbrokerID gets a reference to the given int32 and assigns it to the FkiExternalbrokerID field.
+func (o *AttachmentResponseCompound) SetFkiExternalbrokerID(v int32) {
+	o.FkiExternalbrokerID = &v
+}
+
+// GetFkiEzcomadvanceserverID returns the FkiEzcomadvanceserverID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiEzcomadvanceserverID() int32 {
+	if o == nil || IsNil(o.FkiEzcomadvanceserverID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEzcomadvanceserverID
+}
+
+// GetFkiEzcomadvanceserverIDOk returns a tuple with the FkiEzcomadvanceserverID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiEzcomadvanceserverIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEzcomadvanceserverID) {
+		return nil, false
+	}
+	return o.FkiEzcomadvanceserverID, true
+}
+
+// HasFkiEzcomadvanceserverID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiEzcomadvanceserverID() bool {
+	if o != nil && !IsNil(o.FkiEzcomadvanceserverID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzcomadvanceserverID gets a reference to the given int32 and assigns it to the FkiEzcomadvanceserverID field.
+func (o *AttachmentResponseCompound) SetFkiEzcomadvanceserverID(v int32) {
+	o.FkiEzcomadvanceserverID = &v
+}
+
+// GetFkiEzcomcompanyID returns the FkiEzcomcompanyID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiEzcomcompanyID() int32 {
+	if o == nil || IsNil(o.FkiEzcomcompanyID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEzcomcompanyID
+}
+
+// GetFkiEzcomcompanyIDOk returns a tuple with the FkiEzcomcompanyID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiEzcomcompanyIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEzcomcompanyID) {
+		return nil, false
+	}
+	return o.FkiEzcomcompanyID, true
+}
+
+// HasFkiEzcomcompanyID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiEzcomcompanyID() bool {
+	if o != nil && !IsNil(o.FkiEzcomcompanyID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzcomcompanyID gets a reference to the given int32 and assigns it to the FkiEzcomcompanyID field.
+func (o *AttachmentResponseCompound) SetFkiEzcomcompanyID(v int32) {
+	o.FkiEzcomcompanyID = &v
+}
+
+// GetFkiEzsigndocumentID returns the FkiEzsigndocumentID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiEzsigndocumentID() int32 {
+	if o == nil || IsNil(o.FkiEzsigndocumentID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEzsigndocumentID
+}
+
+// GetFkiEzsigndocumentIDOk returns a tuple with the FkiEzsigndocumentID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiEzsigndocumentIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEzsigndocumentID) {
+		return nil, false
+	}
+	return o.FkiEzsigndocumentID, true
+}
+
+// HasFkiEzsigndocumentID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiEzsigndocumentID() bool {
+	if o != nil && !IsNil(o.FkiEzsigndocumentID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzsigndocumentID gets a reference to the given int32 and assigns it to the FkiEzsigndocumentID field.
+func (o *AttachmentResponseCompound) SetFkiEzsigndocumentID(v int32) {
+	o.FkiEzsigndocumentID = &v
+}
+
+// GetFkiGhacqcontractID returns the FkiGhacqcontractID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiGhacqcontractID() int32 {
+	if o == nil || IsNil(o.FkiGhacqcontractID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiGhacqcontractID
+}
+
+// GetFkiGhacqcontractIDOk returns a tuple with the FkiGhacqcontractID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiGhacqcontractIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiGhacqcontractID) {
+		return nil, false
+	}
+	return o.FkiGhacqcontractID, true
+}
+
+// HasFkiGhacqcontractID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiGhacqcontractID() bool {
+	if o != nil && !IsNil(o.FkiGhacqcontractID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiGhacqcontractID gets a reference to the given int32 and assigns it to the FkiGhacqcontractID field.
+func (o *AttachmentResponseCompound) SetFkiGhacqcontractID(v int32) {
+	o.FkiGhacqcontractID = &v
+}
+
+// GetFkiInscriptionID returns the FkiInscriptionID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiInscriptionID() int32 {
+	if o == nil || IsNil(o.FkiInscriptionID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiInscriptionID
+}
+
+// GetFkiInscriptionIDOk returns a tuple with the FkiInscriptionID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiInscriptionIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiInscriptionID) {
+		return nil, false
+	}
+	return o.FkiInscriptionID, true
+}
+
+// HasFkiInscriptionID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiInscriptionID() bool {
+	if o != nil && !IsNil(o.FkiInscriptionID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiInscriptionID gets a reference to the given int32 and assigns it to the FkiInscriptionID field.
+func (o *AttachmentResponseCompound) SetFkiInscriptionID(v int32) {
+	o.FkiInscriptionID = &v
+}
+
+// GetFkiInscriptiontempID returns the FkiInscriptiontempID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiInscriptiontempID() int32 {
+	if o == nil || IsNil(o.FkiInscriptiontempID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiInscriptiontempID
+}
+
+// GetFkiInscriptiontempIDOk returns a tuple with the FkiInscriptiontempID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiInscriptiontempIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiInscriptiontempID) {
+		return nil, false
+	}
+	return o.FkiInscriptiontempID, true
+}
+
+// HasFkiInscriptiontempID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiInscriptiontempID() bool {
+	if o != nil && !IsNil(o.FkiInscriptiontempID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiInscriptiontempID gets a reference to the given int32 and assigns it to the FkiInscriptiontempID field.
+func (o *AttachmentResponseCompound) SetFkiInscriptiontempID(v int32) {
+	o.FkiInscriptiontempID = &v
+}
+
+// GetFkiInscriptionnotauthenticatedID returns the FkiInscriptionnotauthenticatedID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiInscriptionnotauthenticatedID() int32 {
+	if o == nil || IsNil(o.FkiInscriptionnotauthenticatedID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiInscriptionnotauthenticatedID
+}
+
+// GetFkiInscriptionnotauthenticatedIDOk returns a tuple with the FkiInscriptionnotauthenticatedID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiInscriptionnotauthenticatedIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiInscriptionnotauthenticatedID) {
+		return nil, false
+	}
+	return o.FkiInscriptionnotauthenticatedID, true
+}
+
+// HasFkiInscriptionnotauthenticatedID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiInscriptionnotauthenticatedID() bool {
+	if o != nil && !IsNil(o.FkiInscriptionnotauthenticatedID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiInscriptionnotauthenticatedID gets a reference to the given int32 and assigns it to the FkiInscriptionnotauthenticatedID field.
+func (o *AttachmentResponseCompound) SetFkiInscriptionnotauthenticatedID(v int32) {
+	o.FkiInscriptionnotauthenticatedID = &v
+}
+
+// GetFkiInvoiceID returns the FkiInvoiceID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiInvoiceID() int32 {
+	if o == nil || IsNil(o.FkiInvoiceID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiInvoiceID
+}
+
+// GetFkiInvoiceIDOk returns a tuple with the FkiInvoiceID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiInvoiceIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiInvoiceID) {
+		return nil, false
+	}
+	return o.FkiInvoiceID, true
+}
+
+// HasFkiInvoiceID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiInvoiceID() bool {
+	if o != nil && !IsNil(o.FkiInvoiceID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiInvoiceID gets a reference to the given int32 and assigns it to the FkiInvoiceID field.
+func (o *AttachmentResponseCompound) SetFkiInvoiceID(v int32) {
+	o.FkiInvoiceID = &v
+}
+
+// GetFkiBuyercontractID returns the FkiBuyercontractID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiBuyercontractID() int32 {
+	if o == nil || IsNil(o.FkiBuyercontractID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiBuyercontractID
+}
+
+// GetFkiBuyercontractIDOk returns a tuple with the FkiBuyercontractID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiBuyercontractIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiBuyercontractID) {
+		return nil, false
+	}
+	return o.FkiBuyercontractID, true
+}
+
+// HasFkiBuyercontractID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiBuyercontractID() bool {
+	if o != nil && !IsNil(o.FkiBuyercontractID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiBuyercontractID gets a reference to the given int32 and assigns it to the FkiBuyercontractID field.
+func (o *AttachmentResponseCompound) SetFkiBuyercontractID(v int32) {
+	o.FkiBuyercontractID = &v
+}
+
+// GetFkiFranchisebrokerID returns the FkiFranchisebrokerID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiFranchisebrokerID() int32 {
+	if o == nil || IsNil(o.FkiFranchisebrokerID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiFranchisebrokerID
+}
+
+// GetFkiFranchisebrokerIDOk returns a tuple with the FkiFranchisebrokerID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiFranchisebrokerIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiFranchisebrokerID) {
+		return nil, false
+	}
+	return o.FkiFranchisebrokerID, true
+}
+
+// HasFkiFranchisebrokerID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiFranchisebrokerID() bool {
+	if o != nil && !IsNil(o.FkiFranchisebrokerID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiFranchisebrokerID gets a reference to the given int32 and assigns it to the FkiFranchisebrokerID field.
+func (o *AttachmentResponseCompound) SetFkiFranchisebrokerID(v int32) {
+	o.FkiFranchisebrokerID = &v
+}
+
+// GetFkiFranchiseagenceID returns the FkiFranchiseagenceID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiFranchiseagenceID() int32 {
+	if o == nil || IsNil(o.FkiFranchiseagenceID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiFranchiseagenceID
+}
+
+// GetFkiFranchiseagenceIDOk returns a tuple with the FkiFranchiseagenceID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiFranchiseagenceIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiFranchiseagenceID) {
+		return nil, false
+	}
+	return o.FkiFranchiseagenceID, true
+}
+
+// HasFkiFranchiseagenceID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiFranchiseagenceID() bool {
+	if o != nil && !IsNil(o.FkiFranchiseagenceID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiFranchiseagenceID gets a reference to the given int32 and assigns it to the FkiFranchiseagenceID field.
+func (o *AttachmentResponseCompound) SetFkiFranchiseagenceID(v int32) {
+	o.FkiFranchiseagenceID = &v
+}
+
+// GetFkiFranchiseofficeID returns the FkiFranchiseofficeID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiFranchiseofficeID() int32 {
+	if o == nil || IsNil(o.FkiFranchiseofficeID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiFranchiseofficeID
+}
+
+// GetFkiFranchiseofficeIDOk returns a tuple with the FkiFranchiseofficeID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiFranchiseofficeIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiFranchiseofficeID) {
+		return nil, false
+	}
+	return o.FkiFranchiseofficeID, true
+}
+
+// HasFkiFranchiseofficeID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiFranchiseofficeID() bool {
+	if o != nil && !IsNil(o.FkiFranchiseofficeID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiFranchiseofficeID gets a reference to the given int32 and assigns it to the FkiFranchiseofficeID field.
+func (o *AttachmentResponseCompound) SetFkiFranchiseofficeID(v int32) {
+	o.FkiFranchiseofficeID = &v
+}
+
+// GetFkiFranchisefranchiseID returns the FkiFranchisefranchiseID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiFranchisefranchiseID() int32 {
+	if o == nil || IsNil(o.FkiFranchisefranchiseID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiFranchisefranchiseID
+}
+
+// GetFkiFranchisefranchiseIDOk returns a tuple with the FkiFranchisefranchiseID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiFranchisefranchiseIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiFranchisefranchiseID) {
+		return nil, false
+	}
+	return o.FkiFranchisefranchiseID, true
+}
+
+// HasFkiFranchisefranchiseID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiFranchisefranchiseID() bool {
+	if o != nil && !IsNil(o.FkiFranchisefranchiseID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiFranchisefranchiseID gets a reference to the given int32 and assigns it to the FkiFranchisefranchiseID field.
+func (o *AttachmentResponseCompound) SetFkiFranchisefranchiseID(v int32) {
+	o.FkiFranchisefranchiseID = &v
+}
+
+// GetFkiFranchisecomplaintID returns the FkiFranchisecomplaintID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiFranchisecomplaintID() int32 {
+	if o == nil || IsNil(o.FkiFranchisecomplaintID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiFranchisecomplaintID
+}
+
+// GetFkiFranchisecomplaintIDOk returns a tuple with the FkiFranchisecomplaintID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiFranchisecomplaintIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiFranchisecomplaintID) {
+		return nil, false
+	}
+	return o.FkiFranchisecomplaintID, true
+}
+
+// HasFkiFranchisecomplaintID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiFranchisecomplaintID() bool {
+	if o != nil && !IsNil(o.FkiFranchisecomplaintID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiFranchisecomplaintID gets a reference to the given int32 and assigns it to the FkiFranchisecomplaintID field.
+func (o *AttachmentResponseCompound) SetFkiFranchisecomplaintID(v int32) {
+	o.FkiFranchisecomplaintID = &v
+}
+
+// GetFkiLeadID returns the FkiLeadID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiLeadID() int32 {
+	if o == nil || IsNil(o.FkiLeadID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiLeadID
+}
+
+// GetFkiLeadIDOk returns a tuple with the FkiLeadID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiLeadIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiLeadID) {
+		return nil, false
+	}
+	return o.FkiLeadID, true
+}
+
+// HasFkiLeadID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiLeadID() bool {
+	if o != nil && !IsNil(o.FkiLeadID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiLeadID gets a reference to the given int32 and assigns it to the FkiLeadID field.
+func (o *AttachmentResponseCompound) SetFkiLeadID(v int32) {
+	o.FkiLeadID = &v
+}
+
+// GetFkiMarketingprogramID returns the FkiMarketingprogramID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiMarketingprogramID() int32 {
+	if o == nil || IsNil(o.FkiMarketingprogramID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiMarketingprogramID
+}
+
+// GetFkiMarketingprogramIDOk returns a tuple with the FkiMarketingprogramID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiMarketingprogramIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiMarketingprogramID) {
+		return nil, false
+	}
+	return o.FkiMarketingprogramID, true
+}
+
+// HasFkiMarketingprogramID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiMarketingprogramID() bool {
+	if o != nil && !IsNil(o.FkiMarketingprogramID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiMarketingprogramID gets a reference to the given int32 and assigns it to the FkiMarketingprogramID field.
+func (o *AttachmentResponseCompound) SetFkiMarketingprogramID(v int32) {
+	o.FkiMarketingprogramID = &v
+}
+
+// GetFkiMarketingfollowID returns the FkiMarketingfollowID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiMarketingfollowID() int32 {
+	if o == nil || IsNil(o.FkiMarketingfollowID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiMarketingfollowID
+}
+
+// GetFkiMarketingfollowIDOk returns a tuple with the FkiMarketingfollowID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiMarketingfollowIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiMarketingfollowID) {
+		return nil, false
+	}
+	return o.FkiMarketingfollowID, true
+}
+
+// HasFkiMarketingfollowID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiMarketingfollowID() bool {
+	if o != nil && !IsNil(o.FkiMarketingfollowID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiMarketingfollowID gets a reference to the given int32 and assigns it to the FkiMarketingfollowID field.
+func (o *AttachmentResponseCompound) SetFkiMarketingfollowID(v int32) {
+	o.FkiMarketingfollowID = &v
+}
+
+// GetFkiNotaryID returns the FkiNotaryID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiNotaryID() int32 {
+	if o == nil || IsNil(o.FkiNotaryID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiNotaryID
+}
+
+// GetFkiNotaryIDOk returns a tuple with the FkiNotaryID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiNotaryIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiNotaryID) {
+		return nil, false
+	}
+	return o.FkiNotaryID, true
+}
+
+// HasFkiNotaryID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiNotaryID() bool {
+	if o != nil && !IsNil(o.FkiNotaryID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiNotaryID gets a reference to the given int32 and assigns it to the FkiNotaryID field.
+func (o *AttachmentResponseCompound) SetFkiNotaryID(v int32) {
+	o.FkiNotaryID = &v
+}
+
+// GetFkiOfficetaxreportID returns the FkiOfficetaxreportID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiOfficetaxreportID() int32 {
+	if o == nil || IsNil(o.FkiOfficetaxreportID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiOfficetaxreportID
+}
+
+// GetFkiOfficetaxreportIDOk returns a tuple with the FkiOfficetaxreportID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiOfficetaxreportIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiOfficetaxreportID) {
+		return nil, false
+	}
+	return o.FkiOfficetaxreportID, true
+}
+
+// HasFkiOfficetaxreportID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiOfficetaxreportID() bool {
+	if o != nil && !IsNil(o.FkiOfficetaxreportID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiOfficetaxreportID gets a reference to the given int32 and assigns it to the FkiOfficetaxreportID field.
+func (o *AttachmentResponseCompound) SetFkiOfficetaxreportID(v int32) {
+	o.FkiOfficetaxreportID = &v
+}
+
+// GetFkiOtherincomeID returns the FkiOtherincomeID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiOtherincomeID() int32 {
+	if o == nil || IsNil(o.FkiOtherincomeID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiOtherincomeID
+}
+
+// GetFkiOtherincomeIDOk returns a tuple with the FkiOtherincomeID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiOtherincomeIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiOtherincomeID) {
+		return nil, false
+	}
+	return o.FkiOtherincomeID, true
+}
+
+// HasFkiOtherincomeID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiOtherincomeID() bool {
+	if o != nil && !IsNil(o.FkiOtherincomeID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiOtherincomeID gets a reference to the given int32 and assigns it to the FkiOtherincomeID field.
+func (o *AttachmentResponseCompound) SetFkiOtherincomeID(v int32) {
+	o.FkiOtherincomeID = &v
+}
+
+// GetFkiPaymentpreparationID returns the FkiPaymentpreparationID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiPaymentpreparationID() int32 {
+	if o == nil || IsNil(o.FkiPaymentpreparationID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiPaymentpreparationID
+}
+
+// GetFkiPaymentpreparationIDOk returns a tuple with the FkiPaymentpreparationID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiPaymentpreparationIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiPaymentpreparationID) {
+		return nil, false
+	}
+	return o.FkiPaymentpreparationID, true
+}
+
+// HasFkiPaymentpreparationID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiPaymentpreparationID() bool {
+	if o != nil && !IsNil(o.FkiPaymentpreparationID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiPaymentpreparationID gets a reference to the given int32 and assigns it to the FkiPaymentpreparationID field.
+func (o *AttachmentResponseCompound) SetFkiPaymentpreparationID(v int32) {
+	o.FkiPaymentpreparationID = &v
+}
+
+// GetFkiPurchaseID returns the FkiPurchaseID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiPurchaseID() int32 {
+	if o == nil || IsNil(o.FkiPurchaseID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiPurchaseID
+}
+
+// GetFkiPurchaseIDOk returns a tuple with the FkiPurchaseID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiPurchaseIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiPurchaseID) {
+		return nil, false
+	}
+	return o.FkiPurchaseID, true
+}
+
+// HasFkiPurchaseID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiPurchaseID() bool {
+	if o != nil && !IsNil(o.FkiPurchaseID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiPurchaseID gets a reference to the given int32 and assigns it to the FkiPurchaseID field.
+func (o *AttachmentResponseCompound) SetFkiPurchaseID(v int32) {
+	o.FkiPurchaseID = &v
+}
+
+// GetFkiSalaryID returns the FkiSalaryID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiSalaryID() int32 {
+	if o == nil || IsNil(o.FkiSalaryID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiSalaryID
+}
+
+// GetFkiSalaryIDOk returns a tuple with the FkiSalaryID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiSalaryIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiSalaryID) {
+		return nil, false
+	}
+	return o.FkiSalaryID, true
+}
+
+// HasFkiSalaryID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiSalaryID() bool {
+	if o != nil && !IsNil(o.FkiSalaryID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiSalaryID gets a reference to the given int32 and assigns it to the FkiSalaryID field.
+func (o *AttachmentResponseCompound) SetFkiSalaryID(v int32) {
+	o.FkiSalaryID = &v
+}
+
+// GetFkiSupplierID returns the FkiSupplierID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiSupplierID() int32 {
+	if o == nil || IsNil(o.FkiSupplierID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiSupplierID
+}
+
+// GetFkiSupplierIDOk returns a tuple with the FkiSupplierID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiSupplierIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiSupplierID) {
+		return nil, false
+	}
+	return o.FkiSupplierID, true
+}
+
+// HasFkiSupplierID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiSupplierID() bool {
+	if o != nil && !IsNil(o.FkiSupplierID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiSupplierID gets a reference to the given int32 and assigns it to the FkiSupplierID field.
+func (o *AttachmentResponseCompound) SetFkiSupplierID(v int32) {
+	o.FkiSupplierID = &v
+}
+
+// GetFkiTranqcontractID returns the FkiTranqcontractID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiTranqcontractID() int32 {
+	if o == nil || IsNil(o.FkiTranqcontractID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiTranqcontractID
+}
+
+// GetFkiTranqcontractIDOk returns a tuple with the FkiTranqcontractID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiTranqcontractIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiTranqcontractID) {
+		return nil, false
+	}
+	return o.FkiTranqcontractID, true
+}
+
+// HasFkiTranqcontractID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiTranqcontractID() bool {
+	if o != nil && !IsNil(o.FkiTranqcontractID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiTranqcontractID gets a reference to the given int32 and assigns it to the FkiTranqcontractID field.
+func (o *AttachmentResponseCompound) SetFkiTranqcontractID(v int32) {
+	o.FkiTranqcontractID = &v
+}
+
+// GetFkiTemplateID returns the FkiTemplateID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiTemplateID() int32 {
+	if o == nil || IsNil(o.FkiTemplateID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiTemplateID
+}
+
+// GetFkiTemplateIDOk returns a tuple with the FkiTemplateID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiTemplateIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiTemplateID) {
+		return nil, false
+	}
+	return o.FkiTemplateID, true
+}
+
+// HasFkiTemplateID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiTemplateID() bool {
+	if o != nil && !IsNil(o.FkiTemplateID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiTemplateID gets a reference to the given int32 and assigns it to the FkiTemplateID field.
+func (o *AttachmentResponseCompound) SetFkiTemplateID(v int32) {
+	o.FkiTemplateID = &v
+}
+
+// GetFkiInscriptionchecklistID returns the FkiInscriptionchecklistID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiInscriptionchecklistID() int32 {
+	if o == nil || IsNil(o.FkiInscriptionchecklistID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiInscriptionchecklistID
+}
+
+// GetFkiInscriptionchecklistIDOk returns a tuple with the FkiInscriptionchecklistID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiInscriptionchecklistIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiInscriptionchecklistID) {
+		return nil, false
+	}
+	return o.FkiInscriptionchecklistID, true
+}
+
+// HasFkiInscriptionchecklistID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiInscriptionchecklistID() bool {
+	if o != nil && !IsNil(o.FkiInscriptionchecklistID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiInscriptionchecklistID gets a reference to the given int32 and assigns it to the FkiInscriptionchecklistID field.
+func (o *AttachmentResponseCompound) SetFkiInscriptionchecklistID(v int32) {
+	o.FkiInscriptionchecklistID = &v
+}
+
+// GetFkiFolderID returns the FkiFolderID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiFolderID() int32 {
+	if o == nil || IsNil(o.FkiFolderID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiFolderID
+}
+
+// GetFkiFolderIDOk returns a tuple with the FkiFolderID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiFolderIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiFolderID) {
+		return nil, false
+	}
+	return o.FkiFolderID, true
+}
+
+// HasFkiFolderID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiFolderID() bool {
+	if o != nil && !IsNil(o.FkiFolderID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiFolderID gets a reference to the given int32 and assigns it to the FkiFolderID field.
+func (o *AttachmentResponseCompound) SetFkiFolderID(v int32) {
+	o.FkiFolderID = &v
+}
+
+// GetFkiRejectedoffertopurchaseID returns the FkiRejectedoffertopurchaseID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiRejectedoffertopurchaseID() int32 {
+	if o == nil || IsNil(o.FkiRejectedoffertopurchaseID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiRejectedoffertopurchaseID
+}
+
+// GetFkiRejectedoffertopurchaseIDOk returns a tuple with the FkiRejectedoffertopurchaseID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiRejectedoffertopurchaseIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiRejectedoffertopurchaseID) {
+		return nil, false
+	}
+	return o.FkiRejectedoffertopurchaseID, true
+}
+
+// HasFkiRejectedoffertopurchaseID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiRejectedoffertopurchaseID() bool {
+	if o != nil && !IsNil(o.FkiRejectedoffertopurchaseID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiRejectedoffertopurchaseID gets a reference to the given int32 and assigns it to the FkiRejectedoffertopurchaseID field.
+func (o *AttachmentResponseCompound) SetFkiRejectedoffertopurchaseID(v int32) {
+	o.FkiRejectedoffertopurchaseID = &v
+}
+
+// GetFkiDisclosureID returns the FkiDisclosureID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiDisclosureID() int32 {
+	if o == nil || IsNil(o.FkiDisclosureID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiDisclosureID
+}
+
+// GetFkiDisclosureIDOk returns a tuple with the FkiDisclosureID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiDisclosureIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiDisclosureID) {
+		return nil, false
+	}
+	return o.FkiDisclosureID, true
+}
+
+// HasFkiDisclosureID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiDisclosureID() bool {
+	if o != nil && !IsNil(o.FkiDisclosureID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiDisclosureID gets a reference to the given int32 and assigns it to the FkiDisclosureID field.
+func (o *AttachmentResponseCompound) SetFkiDisclosureID(v int32) {
+	o.FkiDisclosureID = &v
+}
+
+// GetFkiReconciliationID returns the FkiReconciliationID field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiReconciliationID() int32 {
+	if o == nil || IsNil(o.FkiReconciliationID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiReconciliationID
+}
+
+// GetFkiReconciliationIDOk returns a tuple with the FkiReconciliationID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiReconciliationIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiReconciliationID) {
+		return nil, false
+	}
+	return o.FkiReconciliationID, true
+}
+
+// HasFkiReconciliationID returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiReconciliationID() bool {
+	if o != nil && !IsNil(o.FkiReconciliationID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiReconciliationID gets a reference to the given int32 and assigns it to the FkiReconciliationID field.
+func (o *AttachmentResponseCompound) SetFkiReconciliationID(v int32) {
+	o.FkiReconciliationID = &v
+}
+
+// GetFkiEzsigndocumentIDReference returns the FkiEzsigndocumentIDReference field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiEzsigndocumentIDReference() int32 {
+	if o == nil || IsNil(o.FkiEzsigndocumentIDReference) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEzsigndocumentIDReference
+}
+
+// GetFkiEzsigndocumentIDReferenceOk returns a tuple with the FkiEzsigndocumentIDReference field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiEzsigndocumentIDReferenceOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEzsigndocumentIDReference) {
+		return nil, false
+	}
+	return o.FkiEzsigndocumentIDReference, true
+}
+
+// HasFkiEzsigndocumentIDReference returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiEzsigndocumentIDReference() bool {
+	if o != nil && !IsNil(o.FkiEzsigndocumentIDReference) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzsigndocumentIDReference gets a reference to the given int32 and assigns it to the FkiEzsigndocumentIDReference field.
+func (o *AttachmentResponseCompound) SetFkiEzsigndocumentIDReference(v int32) {
+	o.FkiEzsigndocumentIDReference = &v
+}
+
+// GetEAttachmentDocumenttype returns the EAttachmentDocumenttype field value
+func (o *AttachmentResponseCompound) GetEAttachmentDocumenttype() FieldEAttachmentDocumenttype {
+	if o == nil {
+		var ret FieldEAttachmentDocumenttype
+		return ret
+	}
+
+	return o.EAttachmentDocumenttype
+}
+
+// GetEAttachmentDocumenttypeOk returns a tuple with the EAttachmentDocumenttype field value
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetEAttachmentDocumenttypeOk() (*FieldEAttachmentDocumenttype, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EAttachmentDocumenttype, true
+}
+
+// SetEAttachmentDocumenttype sets field value
+func (o *AttachmentResponseCompound) SetEAttachmentDocumenttype(v FieldEAttachmentDocumenttype) {
+	o.EAttachmentDocumenttype = v
+}
+
+// GetSAttachmentName returns the SAttachmentName field value
+func (o *AttachmentResponseCompound) GetSAttachmentName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SAttachmentName
+}
+
+// GetSAttachmentNameOk returns a tuple with the SAttachmentName field value
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetSAttachmentNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SAttachmentName, true
+}
+
+// SetSAttachmentName sets field value
+func (o *AttachmentResponseCompound) SetSAttachmentName(v string) {
+	o.SAttachmentName = v
+}
+
+// GetEAttachmentPrivacy returns the EAttachmentPrivacy field value
+func (o *AttachmentResponseCompound) GetEAttachmentPrivacy() FieldEAttachmentPrivacy {
+	if o == nil {
+		var ret FieldEAttachmentPrivacy
+		return ret
+	}
+
+	return o.EAttachmentPrivacy
+}
+
+// GetEAttachmentPrivacyOk returns a tuple with the EAttachmentPrivacy field value
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetEAttachmentPrivacyOk() (*FieldEAttachmentPrivacy, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EAttachmentPrivacy, true
+}
+
+// SetEAttachmentPrivacy sets field value
+func (o *AttachmentResponseCompound) SetEAttachmentPrivacy(v FieldEAttachmentPrivacy) {
+	o.EAttachmentPrivacy = v
+}
+
+// GetFkiUserIDSpecific returns the FkiUserIDSpecific field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiUserIDSpecific() int32 {
+	if o == nil || IsNil(o.FkiUserIDSpecific) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiUserIDSpecific
+}
+
+// GetFkiUserIDSpecificOk returns a tuple with the FkiUserIDSpecific field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiUserIDSpecificOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiUserIDSpecific) {
+		return nil, false
+	}
+	return o.FkiUserIDSpecific, true
+}
+
+// HasFkiUserIDSpecific returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiUserIDSpecific() bool {
+	if o != nil && !IsNil(o.FkiUserIDSpecific) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiUserIDSpecific gets a reference to the given int32 and assigns it to the FkiUserIDSpecific field.
+func (o *AttachmentResponseCompound) SetFkiUserIDSpecific(v int32) {
+	o.FkiUserIDSpecific = &v
+}
+
+// GetEAttachmentType returns the EAttachmentType field value
+func (o *AttachmentResponseCompound) GetEAttachmentType() FieldEAttachmentType {
+	if o == nil {
+		var ret FieldEAttachmentType
+		return ret
+	}
+
+	return o.EAttachmentType
+}
+
+// GetEAttachmentTypeOk returns a tuple with the EAttachmentType field value
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetEAttachmentTypeOk() (*FieldEAttachmentType, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EAttachmentType, true
+}
+
+// SetEAttachmentType sets field value
+func (o *AttachmentResponseCompound) SetEAttachmentType(v FieldEAttachmentType) {
+	o.EAttachmentType = v
+}
+
+// GetIAttachmentSize returns the IAttachmentSize field value
+func (o *AttachmentResponseCompound) GetIAttachmentSize() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IAttachmentSize
+}
+
+// GetIAttachmentSizeOk returns a tuple with the IAttachmentSize field value
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetIAttachmentSizeOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IAttachmentSize, true
+}
+
+// SetIAttachmentSize sets field value
+func (o *AttachmentResponseCompound) SetIAttachmentSize(v int32) {
+	o.IAttachmentSize = v
+}
+
+// GetIAttachmentEDMmoduleflag returns the IAttachmentEDMmoduleflag field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetIAttachmentEDMmoduleflag() int32 {
+	if o == nil || IsNil(o.IAttachmentEDMmoduleflag) {
+		var ret int32
+		return ret
+	}
+	return *o.IAttachmentEDMmoduleflag
+}
+
+// GetIAttachmentEDMmoduleflagOk returns a tuple with the IAttachmentEDMmoduleflag field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetIAttachmentEDMmoduleflagOk() (*int32, bool) {
+	if o == nil || IsNil(o.IAttachmentEDMmoduleflag) {
+		return nil, false
+	}
+	return o.IAttachmentEDMmoduleflag, true
+}
+
+// HasIAttachmentEDMmoduleflag returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasIAttachmentEDMmoduleflag() bool {
+	if o != nil && !IsNil(o.IAttachmentEDMmoduleflag) {
+		return true
+	}
+
+	return false
+}
+
+// SetIAttachmentEDMmoduleflag gets a reference to the given int32 and assigns it to the IAttachmentEDMmoduleflag field.
+func (o *AttachmentResponseCompound) SetIAttachmentEDMmoduleflag(v int32) {
+	o.IAttachmentEDMmoduleflag = &v
+}
+
+// GetSAttachmentMD5 returns the SAttachmentMD5 field value
+func (o *AttachmentResponseCompound) GetSAttachmentMD5() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SAttachmentMD5
+}
+
+// GetSAttachmentMD5Ok returns a tuple with the SAttachmentMD5 field value
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetSAttachmentMD5Ok() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SAttachmentMD5, true
+}
+
+// SetSAttachmentMD5 sets field value
+func (o *AttachmentResponseCompound) SetSAttachmentMD5(v string) {
+	o.SAttachmentMD5 = v
+}
+
+// GetBAttachmentDeleted returns the BAttachmentDeleted field value
+func (o *AttachmentResponseCompound) GetBAttachmentDeleted() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BAttachmentDeleted
+}
+
+// GetBAttachmentDeletedOk returns a tuple with the BAttachmentDeleted field value
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetBAttachmentDeletedOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BAttachmentDeleted, true
+}
+
+// SetBAttachmentDeleted sets field value
+func (o *AttachmentResponseCompound) SetBAttachmentDeleted(v bool) {
+	o.BAttachmentDeleted = v
+}
+
+// GetBAttachmentValid returns the BAttachmentValid field value
+func (o *AttachmentResponseCompound) GetBAttachmentValid() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BAttachmentValid
+}
+
+// GetBAttachmentValidOk returns a tuple with the BAttachmentValid field value
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetBAttachmentValidOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BAttachmentValid, true
+}
+
+// SetBAttachmentValid sets field value
+func (o *AttachmentResponseCompound) SetBAttachmentValid(v bool) {
+	o.BAttachmentValid = v
+}
+
+// GetEAttachmentVerified returns the EAttachmentVerified field value
+func (o *AttachmentResponseCompound) GetEAttachmentVerified() FieldEAttachmentVerified {
+	if o == nil {
+		var ret FieldEAttachmentVerified
+		return ret
+	}
+
+	return o.EAttachmentVerified
+}
+
+// GetEAttachmentVerifiedOk returns a tuple with the EAttachmentVerified field value
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetEAttachmentVerifiedOk() (*FieldEAttachmentVerified, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EAttachmentVerified, true
+}
+
+// SetEAttachmentVerified sets field value
+func (o *AttachmentResponseCompound) SetEAttachmentVerified(v FieldEAttachmentVerified) {
+	o.EAttachmentVerified = v
+}
+
+// GetTAttachmentRejectioncomment returns the TAttachmentRejectioncomment field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetTAttachmentRejectioncomment() string {
+	if o == nil || IsNil(o.TAttachmentRejectioncomment) {
+		var ret string
+		return ret
+	}
+	return *o.TAttachmentRejectioncomment
+}
+
+// GetTAttachmentRejectioncommentOk returns a tuple with the TAttachmentRejectioncomment field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetTAttachmentRejectioncommentOk() (*string, bool) {
+	if o == nil || IsNil(o.TAttachmentRejectioncomment) {
+		return nil, false
+	}
+	return o.TAttachmentRejectioncomment, true
+}
+
+// HasTAttachmentRejectioncomment returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasTAttachmentRejectioncomment() bool {
+	if o != nil && !IsNil(o.TAttachmentRejectioncomment) {
+		return true
+	}
+
+	return false
+}
+
+// SetTAttachmentRejectioncomment gets a reference to the given string and assigns it to the TAttachmentRejectioncomment field.
+func (o *AttachmentResponseCompound) SetTAttachmentRejectioncomment(v string) {
+	o.TAttachmentRejectioncomment = &v
+}
+
+// GetFkiUserIDOwner returns the FkiUserIDOwner field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetFkiUserIDOwner() int32 {
+	if o == nil || IsNil(o.FkiUserIDOwner) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiUserIDOwner
+}
+
+// GetFkiUserIDOwnerOk returns a tuple with the FkiUserIDOwner field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetFkiUserIDOwnerOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiUserIDOwner) {
+		return nil, false
+	}
+	return o.FkiUserIDOwner, true
+}
+
+// HasFkiUserIDOwner returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasFkiUserIDOwner() bool {
+	if o != nil && !IsNil(o.FkiUserIDOwner) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiUserIDOwner gets a reference to the given int32 and assigns it to the FkiUserIDOwner field.
+func (o *AttachmentResponseCompound) SetFkiUserIDOwner(v int32) {
+	o.FkiUserIDOwner = &v
+}
+
+// GetObjAudit returns the ObjAudit field value if set, zero value otherwise.
+func (o *AttachmentResponseCompound) GetObjAudit() CommonAudit {
+	if o == nil || IsNil(o.ObjAudit) {
+		var ret CommonAudit
+		return ret
+	}
+	return *o.ObjAudit
+}
+
+// GetObjAuditOk returns a tuple with the ObjAudit field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponseCompound) GetObjAuditOk() (*CommonAudit, bool) {
+	if o == nil || IsNil(o.ObjAudit) {
+		return nil, false
+	}
+	return o.ObjAudit, true
+}
+
+// HasObjAudit returns a boolean if a field has been set.
+func (o *AttachmentResponseCompound) HasObjAudit() bool {
+	if o != nil && !IsNil(o.ObjAudit) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjAudit gets a reference to the given CommonAudit and assigns it to the ObjAudit field.
+func (o *AttachmentResponseCompound) SetObjAudit(v CommonAudit) {
+	o.ObjAudit = &v
+}
+
 func (o AttachmentResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -64,6 +2052,169 @@ func (o AttachmentResponseCompound) MarshalJSON() ([]byte, error) {
 
 func (o AttachmentResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["pkiAttachmentID"] = o.PkiAttachmentID
+	if !IsNil(o.FkiComputerID) {
+		toSerialize["fkiComputerID"] = o.FkiComputerID
+	}
+	if !IsNil(o.FkiAdjustmentID) {
+		toSerialize["fkiAdjustmentID"] = o.FkiAdjustmentID
+	}
+	if !IsNil(o.FkiAgentID) {
+		toSerialize["fkiAgentID"] = o.FkiAgentID
+	}
+	if !IsNil(o.FkiBankaccountID) {
+		toSerialize["fkiBankaccountID"] = o.FkiBankaccountID
+	}
+	if !IsNil(o.FkiBrokerID) {
+		toSerialize["fkiBrokerID"] = o.FkiBrokerID
+	}
+	if !IsNil(o.FkiCommissionadvanceID) {
+		toSerialize["fkiCommissionadvanceID"] = o.FkiCommissionadvanceID
+	}
+	if !IsNil(o.FkiCommunicationID) {
+		toSerialize["fkiCommunicationID"] = o.FkiCommunicationID
+	}
+	if !IsNil(o.FkiCustomerID) {
+		toSerialize["fkiCustomerID"] = o.FkiCustomerID
+	}
+	if !IsNil(o.FkiCustomertemplateID) {
+		toSerialize["fkiCustomertemplateID"] = o.FkiCustomertemplateID
+	}
+	if !IsNil(o.FkiDepositID) {
+		toSerialize["fkiDepositID"] = o.FkiDepositID
+	}
+	if !IsNil(o.FkiDeposittransitchequeID) {
+		toSerialize["fkiDeposittransitchequeID"] = o.FkiDeposittransitchequeID
+	}
+	if !IsNil(o.FkiElectronicfundstransferID) {
+		toSerialize["fkiElectronicfundstransferID"] = o.FkiElectronicfundstransferID
+	}
+	if !IsNil(o.FkiEmployeeID) {
+		toSerialize["fkiEmployeeID"] = o.FkiEmployeeID
+	}
+	if !IsNil(o.FkiExternalbrokerID) {
+		toSerialize["fkiExternalbrokerID"] = o.FkiExternalbrokerID
+	}
+	if !IsNil(o.FkiEzcomadvanceserverID) {
+		toSerialize["fkiEzcomadvanceserverID"] = o.FkiEzcomadvanceserverID
+	}
+	if !IsNil(o.FkiEzcomcompanyID) {
+		toSerialize["fkiEzcomcompanyID"] = o.FkiEzcomcompanyID
+	}
+	if !IsNil(o.FkiEzsigndocumentID) {
+		toSerialize["fkiEzsigndocumentID"] = o.FkiEzsigndocumentID
+	}
+	if !IsNil(o.FkiGhacqcontractID) {
+		toSerialize["fkiGhacqcontractID"] = o.FkiGhacqcontractID
+	}
+	if !IsNil(o.FkiInscriptionID) {
+		toSerialize["fkiInscriptionID"] = o.FkiInscriptionID
+	}
+	if !IsNil(o.FkiInscriptiontempID) {
+		toSerialize["fkiInscriptiontempID"] = o.FkiInscriptiontempID
+	}
+	if !IsNil(o.FkiInscriptionnotauthenticatedID) {
+		toSerialize["fkiInscriptionnotauthenticatedID"] = o.FkiInscriptionnotauthenticatedID
+	}
+	if !IsNil(o.FkiInvoiceID) {
+		toSerialize["fkiInvoiceID"] = o.FkiInvoiceID
+	}
+	if !IsNil(o.FkiBuyercontractID) {
+		toSerialize["fkiBuyercontractID"] = o.FkiBuyercontractID
+	}
+	if !IsNil(o.FkiFranchisebrokerID) {
+		toSerialize["fkiFranchisebrokerID"] = o.FkiFranchisebrokerID
+	}
+	if !IsNil(o.FkiFranchiseagenceID) {
+		toSerialize["fkiFranchiseagenceID"] = o.FkiFranchiseagenceID
+	}
+	if !IsNil(o.FkiFranchiseofficeID) {
+		toSerialize["fkiFranchiseofficeID"] = o.FkiFranchiseofficeID
+	}
+	if !IsNil(o.FkiFranchisefranchiseID) {
+		toSerialize["fkiFranchisefranchiseID"] = o.FkiFranchisefranchiseID
+	}
+	if !IsNil(o.FkiFranchisecomplaintID) {
+		toSerialize["fkiFranchisecomplaintID"] = o.FkiFranchisecomplaintID
+	}
+	if !IsNil(o.FkiLeadID) {
+		toSerialize["fkiLeadID"] = o.FkiLeadID
+	}
+	if !IsNil(o.FkiMarketingprogramID) {
+		toSerialize["fkiMarketingprogramID"] = o.FkiMarketingprogramID
+	}
+	if !IsNil(o.FkiMarketingfollowID) {
+		toSerialize["fkiMarketingfollowID"] = o.FkiMarketingfollowID
+	}
+	if !IsNil(o.FkiNotaryID) {
+		toSerialize["fkiNotaryID"] = o.FkiNotaryID
+	}
+	if !IsNil(o.FkiOfficetaxreportID) {
+		toSerialize["fkiOfficetaxreportID"] = o.FkiOfficetaxreportID
+	}
+	if !IsNil(o.FkiOtherincomeID) {
+		toSerialize["fkiOtherincomeID"] = o.FkiOtherincomeID
+	}
+	if !IsNil(o.FkiPaymentpreparationID) {
+		toSerialize["fkiPaymentpreparationID"] = o.FkiPaymentpreparationID
+	}
+	if !IsNil(o.FkiPurchaseID) {
+		toSerialize["fkiPurchaseID"] = o.FkiPurchaseID
+	}
+	if !IsNil(o.FkiSalaryID) {
+		toSerialize["fkiSalaryID"] = o.FkiSalaryID
+	}
+	if !IsNil(o.FkiSupplierID) {
+		toSerialize["fkiSupplierID"] = o.FkiSupplierID
+	}
+	if !IsNil(o.FkiTranqcontractID) {
+		toSerialize["fkiTranqcontractID"] = o.FkiTranqcontractID
+	}
+	if !IsNil(o.FkiTemplateID) {
+		toSerialize["fkiTemplateID"] = o.FkiTemplateID
+	}
+	if !IsNil(o.FkiInscriptionchecklistID) {
+		toSerialize["fkiInscriptionchecklistID"] = o.FkiInscriptionchecklistID
+	}
+	if !IsNil(o.FkiFolderID) {
+		toSerialize["fkiFolderID"] = o.FkiFolderID
+	}
+	if !IsNil(o.FkiRejectedoffertopurchaseID) {
+		toSerialize["fkiRejectedoffertopurchaseID"] = o.FkiRejectedoffertopurchaseID
+	}
+	if !IsNil(o.FkiDisclosureID) {
+		toSerialize["fkiDisclosureID"] = o.FkiDisclosureID
+	}
+	if !IsNil(o.FkiReconciliationID) {
+		toSerialize["fkiReconciliationID"] = o.FkiReconciliationID
+	}
+	if !IsNil(o.FkiEzsigndocumentIDReference) {
+		toSerialize["fkiEzsigndocumentIDReference"] = o.FkiEzsigndocumentIDReference
+	}
+	toSerialize["eAttachmentDocumenttype"] = o.EAttachmentDocumenttype
+	toSerialize["sAttachmentName"] = o.SAttachmentName
+	toSerialize["eAttachmentPrivacy"] = o.EAttachmentPrivacy
+	if !IsNil(o.FkiUserIDSpecific) {
+		toSerialize["fkiUserIDSpecific"] = o.FkiUserIDSpecific
+	}
+	toSerialize["eAttachmentType"] = o.EAttachmentType
+	toSerialize["iAttachmentSize"] = o.IAttachmentSize
+	if !IsNil(o.IAttachmentEDMmoduleflag) {
+		toSerialize["iAttachmentEDMmoduleflag"] = o.IAttachmentEDMmoduleflag
+	}
+	toSerialize["sAttachmentMD5"] = o.SAttachmentMD5
+	toSerialize["bAttachmentDeleted"] = o.BAttachmentDeleted
+	toSerialize["bAttachmentValid"] = o.BAttachmentValid
+	toSerialize["eAttachmentVerified"] = o.EAttachmentVerified
+	if !IsNil(o.TAttachmentRejectioncomment) {
+		toSerialize["tAttachmentRejectioncomment"] = o.TAttachmentRejectioncomment
+	}
+	if !IsNil(o.FkiUserIDOwner) {
+		toSerialize["fkiUserIDOwner"] = o.FkiUserIDOwner
+	}
+	if !IsNil(o.ObjAudit) {
+		toSerialize["objAudit"] = o.ObjAudit
+	}
 	return toSerialize, nil
 }
 

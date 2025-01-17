@@ -304,7 +304,7 @@ type ApiEzsignbulksendDeleteObjectV1Request struct {
 	pkiEzsignbulksendID int32
 }
 
-func (r ApiEzsignbulksendDeleteObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsignbulksendDeleteObjectV1Request) Execute() (*EzsignbulksendDeleteObjectV1Response, *http.Response, error) {
 	return r.ApiService.EzsignbulksendDeleteObjectV1Execute(r)
 }
 
@@ -326,13 +326,13 @@ func (a *ObjectEzsignbulksendAPIService) EzsignbulksendDeleteObjectV1(ctx contex
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectEzsignbulksendAPIService) EzsignbulksendDeleteObjectV1Execute(r ApiEzsignbulksendDeleteObjectV1Request) (*CommonResponse, *http.Response, error) {
+//  @return EzsignbulksendDeleteObjectV1Response
+func (a *ObjectEzsignbulksendAPIService) EzsignbulksendDeleteObjectV1Execute(r ApiEzsignbulksendDeleteObjectV1Request) (*EzsignbulksendDeleteObjectV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsignbulksendDeleteObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignbulksendAPIService.EzsignbulksendDeleteObjectV1")
@@ -451,7 +451,7 @@ func (r ApiEzsignbulksendEditObjectV1Request) EzsignbulksendEditObjectV1Request(
 	return r
 }
 
-func (r ApiEzsignbulksendEditObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsignbulksendEditObjectV1Request) Execute() (*EzsignbulksendEditObjectV1Response, *http.Response, error) {
 	return r.ApiService.EzsignbulksendEditObjectV1Execute(r)
 }
 
@@ -473,13 +473,13 @@ func (a *ObjectEzsignbulksendAPIService) EzsignbulksendEditObjectV1(ctx context.
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectEzsignbulksendAPIService) EzsignbulksendEditObjectV1Execute(r ApiEzsignbulksendEditObjectV1Request) (*CommonResponse, *http.Response, error) {
+//  @return EzsignbulksendEditObjectV1Response
+func (a *ObjectEzsignbulksendAPIService) EzsignbulksendEditObjectV1Execute(r ApiEzsignbulksendEditObjectV1Request) (*EzsignbulksendEditObjectV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsignbulksendEditObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignbulksendAPIService.EzsignbulksendEditObjectV1")
@@ -1484,7 +1484,7 @@ func (r ApiEzsignbulksendReorderV1Request) EzsignbulksendReorderV1Request(ezsign
 	return r
 }
 
-func (r ApiEzsignbulksendReorderV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsignbulksendReorderV1Request) Execute() (*EzsignbulksendReorderV1Response, *http.Response, error) {
 	return r.ApiService.EzsignbulksendReorderV1Execute(r)
 }
 
@@ -1504,13 +1504,13 @@ func (a *ObjectEzsignbulksendAPIService) EzsignbulksendReorderV1(ctx context.Con
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectEzsignbulksendAPIService) EzsignbulksendReorderV1Execute(r ApiEzsignbulksendReorderV1Request) (*CommonResponse, *http.Response, error) {
+//  @return EzsignbulksendReorderV1Response
+func (a *ObjectEzsignbulksendAPIService) EzsignbulksendReorderV1Execute(r ApiEzsignbulksendReorderV1Request) (*EzsignbulksendReorderV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsignbulksendReorderV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignbulksendAPIService.EzsignbulksendReorderV1")

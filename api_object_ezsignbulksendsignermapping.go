@@ -154,7 +154,7 @@ type ApiEzsignbulksendsignermappingDeleteObjectV1Request struct {
 	pkiEzsignbulksendsignermappingID int32
 }
 
-func (r ApiEzsignbulksendsignermappingDeleteObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsignbulksendsignermappingDeleteObjectV1Request) Execute() (*EzsignbulksendsignermappingDeleteObjectV1Response, *http.Response, error) {
 	return r.ApiService.EzsignbulksendsignermappingDeleteObjectV1Execute(r)
 }
 
@@ -176,13 +176,13 @@ func (a *ObjectEzsignbulksendsignermappingAPIService) Ezsignbulksendsignermappin
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectEzsignbulksendsignermappingAPIService) EzsignbulksendsignermappingDeleteObjectV1Execute(r ApiEzsignbulksendsignermappingDeleteObjectV1Request) (*CommonResponse, *http.Response, error) {
+//  @return EzsignbulksendsignermappingDeleteObjectV1Response
+func (a *ObjectEzsignbulksendsignermappingAPIService) EzsignbulksendsignermappingDeleteObjectV1Execute(r ApiEzsignbulksendsignermappingDeleteObjectV1Request) (*EzsignbulksendsignermappingDeleteObjectV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsignbulksendsignermappingDeleteObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignbulksendsignermappingAPIService.EzsignbulksendsignermappingDeleteObjectV1")

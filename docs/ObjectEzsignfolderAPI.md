@@ -41,7 +41,7 @@ Method | HTTP request | Description
 
 ## EzsignfolderArchiveV1
 
-> CommonResponse EzsignfolderArchiveV1(ctx, pkiEzsignfolderID).Body(body).Execute()
+> EzsignfolderArchiveV1Response EzsignfolderArchiveV1(ctx, pkiEzsignfolderID).Body(body).Execute()
 
 Archive the Ezsignfolder
 
@@ -70,7 +70,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderArchiveV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignfolderArchiveV1`: CommonResponse
+	// response from `EzsignfolderArchiveV1`: EzsignfolderArchiveV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderArchiveV1`: %v\n", resp)
 }
 ```
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderArchiveV1Response**](EzsignfolderArchiveV1Response.md)
 
 ### Authorization
 
@@ -268,7 +268,7 @@ import (
 )
 
 func main() {
-	ezsignfolderCreateObjectV2Request := *openapiclient.NewEzsignfolderCreateObjectV2Request([]openapiclient.EzsignfolderRequestCompound{*openapiclient.NewEzsignfolderRequest(int32(5), "Test eZsign Folder", openapiclient.Field-eEzsignfolderSendreminderfrequency("None"))}) // EzsignfolderCreateObjectV2Request | 
+	ezsignfolderCreateObjectV2Request := *openapiclient.NewEzsignfolderCreateObjectV2Request([]openapiclient.EzsignfolderRequestCompound{*openapiclient.NewEzsignfolderRequestCompound(int32(5), "Test eZsign Folder", openapiclient.Field-eEzsignfolderSendreminderfrequency("None"))}) // EzsignfolderCreateObjectV2Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -334,7 +334,7 @@ import (
 )
 
 func main() {
-	ezsignfolderCreateObjectV3Request := *openapiclient.NewEzsignfolderCreateObjectV3Request([]openapiclient.EzsignfolderRequestCompoundV3{*openapiclient.NewEzsignfolderRequestV3(int32(5), "Test eZsign Folder", int32(30), int32(30))}) // EzsignfolderCreateObjectV3Request | 
+	ezsignfolderCreateObjectV3Request := *openapiclient.NewEzsignfolderCreateObjectV3Request([]openapiclient.EzsignfolderRequestCompoundV3{*openapiclient.NewEzsignfolderRequestCompoundV3(int32(5), "Test eZsign Folder", int32(30), int32(30))}) // EzsignfolderCreateObjectV3Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -381,7 +381,7 @@ Name | Type | Description  | Notes
 
 ## EzsignfolderDeleteObjectV1
 
-> CommonResponse EzsignfolderDeleteObjectV1(ctx, pkiEzsignfolderID).Execute()
+> EzsignfolderDeleteObjectV1Response EzsignfolderDeleteObjectV1(ctx, pkiEzsignfolderID).Execute()
 
 Delete an existing Ezsignfolder
 
@@ -407,7 +407,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignfolderDeleteObjectV1`: CommonResponse
+	// response from `EzsignfolderDeleteObjectV1`: EzsignfolderDeleteObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -431,7 +431,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderDeleteObjectV1Response**](EzsignfolderDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -449,7 +449,7 @@ Name | Type | Description  | Notes
 
 ## EzsignfolderDisposeEzsignfoldersV1
 
-> CommonResponse EzsignfolderDisposeEzsignfoldersV1(ctx).EzsignfolderDisposeEzsignfoldersV1Request(ezsignfolderDisposeEzsignfoldersV1Request).Execute()
+> EzsignfolderDisposeEzsignfoldersV1Response EzsignfolderDisposeEzsignfoldersV1(ctx).EzsignfolderDisposeEzsignfoldersV1Request(ezsignfolderDisposeEzsignfoldersV1Request).Execute()
 
 Dispose Ezsignfolders
 
@@ -477,7 +477,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderDisposeEzsignfoldersV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignfolderDisposeEzsignfoldersV1`: CommonResponse
+	// response from `EzsignfolderDisposeEzsignfoldersV1`: EzsignfolderDisposeEzsignfoldersV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderDisposeEzsignfoldersV1`: %v\n", resp)
 }
 ```
@@ -497,7 +497,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderDisposeEzsignfoldersV1Response**](EzsignfolderDisposeEzsignfoldersV1Response.md)
 
 ### Authorization
 
@@ -515,7 +515,7 @@ Name | Type | Description  | Notes
 
 ## EzsignfolderDisposeV1
 
-> CommonResponse EzsignfolderDisposeV1(ctx, pkiEzsignfolderID).Body(body).Execute()
+> EzsignfolderDisposeV1Response EzsignfolderDisposeV1(ctx, pkiEzsignfolderID).Body(body).Execute()
 
 Dispose the Ezsignfolder
 
@@ -544,7 +544,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderDisposeV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignfolderDisposeV1`: CommonResponse
+	// response from `EzsignfolderDisposeV1`: EzsignfolderDisposeV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderDisposeV1`: %v\n", resp)
 }
 ```
@@ -569,7 +569,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderDisposeV1Response**](EzsignfolderDisposeV1Response.md)
 
 ### Authorization
 
@@ -587,7 +587,7 @@ Name | Type | Description  | Notes
 
 ## EzsignfolderEditObjectV3
 
-> CommonResponse EzsignfolderEditObjectV3(ctx, pkiEzsignfolderID).EzsignfolderEditObjectV3Request(ezsignfolderEditObjectV3Request).Execute()
+> EzsignfolderEditObjectV3Response EzsignfolderEditObjectV3(ctx, pkiEzsignfolderID).EzsignfolderEditObjectV3Request(ezsignfolderEditObjectV3Request).Execute()
 
 Edit an existing Ezsignfolder
 
@@ -607,7 +607,7 @@ import (
 
 func main() {
 	pkiEzsignfolderID := int32(56) // int32 | 
-	ezsignfolderEditObjectV3Request := *openapiclient.NewEzsignfolderEditObjectV3Request(*openapiclient.NewEzsignfolderRequestV3(int32(5), "Test eZsign Folder", int32(30), int32(30))) // EzsignfolderEditObjectV3Request | 
+	ezsignfolderEditObjectV3Request := *openapiclient.NewEzsignfolderEditObjectV3Request(*openapiclient.NewEzsignfolderRequestCompoundV3(int32(5), "Test eZsign Folder", int32(30), int32(30))) // EzsignfolderEditObjectV3Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -616,7 +616,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderEditObjectV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignfolderEditObjectV3`: CommonResponse
+	// response from `EzsignfolderEditObjectV3`: EzsignfolderEditObjectV3Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderEditObjectV3`: %v\n", resp)
 }
 ```
@@ -641,7 +641,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderEditObjectV3Response**](EzsignfolderEditObjectV3Response.md)
 
 ### Authorization
 
@@ -659,7 +659,7 @@ Name | Type | Description  | Notes
 
 ## EzsignfolderEndPrematurelyV1
 
-> CommonResponse EzsignfolderEndPrematurelyV1(ctx, pkiEzsignfolderID).Body(body).Execute()
+> EzsignfolderEndPrematurelyV1Response EzsignfolderEndPrematurelyV1(ctx, pkiEzsignfolderID).Body(body).Execute()
 
 End prematurely
 
@@ -688,7 +688,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderEndPrematurelyV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignfolderEndPrematurelyV1`: CommonResponse
+	// response from `EzsignfolderEndPrematurelyV1`: EzsignfolderEndPrematurelyV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderEndPrematurelyV1`: %v\n", resp)
 }
 ```
@@ -713,7 +713,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderEndPrematurelyV1Response**](EzsignfolderEndPrematurelyV1Response.md)
 
 ### Authorization
 
@@ -1927,7 +1927,7 @@ Name | Type | Description  | Notes
 
 ## EzsignfolderReorderV1
 
-> CommonResponse EzsignfolderReorderV1(ctx, pkiEzsignfolderID).EzsignfolderReorderV1Request(ezsignfolderReorderV1Request).Execute()
+> EzsignfolderReorderV1Response EzsignfolderReorderV1(ctx, pkiEzsignfolderID).EzsignfolderReorderV1Request(ezsignfolderReorderV1Request).Execute()
 
 Reorder Ezsigndocuments in the Ezsignfolder
 
@@ -1954,7 +1954,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderReorderV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignfolderReorderV1`: CommonResponse
+	// response from `EzsignfolderReorderV1`: EzsignfolderReorderV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderReorderV1`: %v\n", resp)
 }
 ```
@@ -1979,7 +1979,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderReorderV1Response**](EzsignfolderReorderV1Response.md)
 
 ### Authorization
 
@@ -1997,7 +1997,7 @@ Name | Type | Description  | Notes
 
 ## EzsignfolderReorderV2
 
-> CommonResponse EzsignfolderReorderV2(ctx, pkiEzsignfolderID).EzsignfolderReorderV2Request(ezsignfolderReorderV2Request).Execute()
+> EzsignfolderReorderV2Response EzsignfolderReorderV2(ctx, pkiEzsignfolderID).EzsignfolderReorderV2Request(ezsignfolderReorderV2Request).Execute()
 
 Reorder Ezsigndocuments in the Ezsignfolder
 
@@ -2015,7 +2015,7 @@ import (
 
 func main() {
 	pkiEzsignfolderID := int32(56) // int32 | 
-	ezsignfolderReorderV2Request := *openapiclient.NewEzsignfolderReorderV2Request([]openapiclient.CustomEzsigndocumentRequest{*openapiclient.NewCustomEzsigndocumentRequest(int32(97), []openapiclient.EzsigndocumentdependencyRequestCompound{*openapiclient.NewEzsigndocumentdependencyRequest(int32(97))})}) // EzsignfolderReorderV2Request | 
+	ezsignfolderReorderV2Request := *openapiclient.NewEzsignfolderReorderV2Request([]openapiclient.CustomEzsigndocumentRequest{*openapiclient.NewCustomEzsigndocumentRequest(int32(97), []openapiclient.EzsigndocumentdependencyRequestCompound{*openapiclient.NewEzsigndocumentdependencyRequestCompound(int32(97))})}) // EzsignfolderReorderV2Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2024,7 +2024,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderReorderV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignfolderReorderV2`: CommonResponse
+	// response from `EzsignfolderReorderV2`: EzsignfolderReorderV2Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderReorderV2`: %v\n", resp)
 }
 ```
@@ -2049,7 +2049,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderReorderV2Response**](EzsignfolderReorderV2Response.md)
 
 ### Authorization
 
@@ -2067,7 +2067,7 @@ Name | Type | Description  | Notes
 
 ## EzsignfolderSendV1
 
-> CommonResponse EzsignfolderSendV1(ctx, pkiEzsignfolderID).EzsignfolderSendV1Request(ezsignfolderSendV1Request).Execute()
+> EzsignfolderSendV1Response EzsignfolderSendV1(ctx, pkiEzsignfolderID).EzsignfolderSendV1Request(ezsignfolderSendV1Request).Execute()
 
 Send the Ezsignfolder to the signatories for signature
 
@@ -2104,7 +2104,7 @@ Mary") // EzsignfolderSendV1Request |
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderSendV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignfolderSendV1`: CommonResponse
+	// response from `EzsignfolderSendV1`: EzsignfolderSendV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderSendV1`: %v\n", resp)
 }
 ```
@@ -2129,7 +2129,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderSendV1Response**](EzsignfolderSendV1Response.md)
 
 ### Authorization
 
@@ -2147,7 +2147,7 @@ Name | Type | Description  | Notes
 
 ## EzsignfolderSendV3
 
-> CommonResponse EzsignfolderSendV3(ctx, pkiEzsignfolderID).EzsignfolderSendV3Request(ezsignfolderSendV3Request).Execute()
+> EzsignfolderSendV3Response EzsignfolderSendV3(ctx, pkiEzsignfolderID).EzsignfolderSendV3Request(ezsignfolderSendV3Request).Execute()
 
 Send the Ezsignfolder to the signatories for signature
 
@@ -2176,7 +2176,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderSendV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignfolderSendV3`: CommonResponse
+	// response from `EzsignfolderSendV3`: EzsignfolderSendV3Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderSendV3`: %v\n", resp)
 }
 ```
@@ -2201,7 +2201,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderSendV3Response**](EzsignfolderSendV3Response.md)
 
 ### Authorization
 
@@ -2219,7 +2219,7 @@ Name | Type | Description  | Notes
 
 ## EzsignfolderUnsendV1
 
-> CommonResponse EzsignfolderUnsendV1(ctx, pkiEzsignfolderID).Body(body).Execute()
+> EzsignfolderUnsendV1Response EzsignfolderUnsendV1(ctx, pkiEzsignfolderID).Body(body).Execute()
 
 Unsend the Ezsignfolder
 
@@ -2248,7 +2248,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderUnsendV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignfolderUnsendV1`: CommonResponse
+	// response from `EzsignfolderUnsendV1`: EzsignfolderUnsendV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderUnsendV1`: %v\n", resp)
 }
 ```
@@ -2273,7 +2273,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderUnsendV1Response**](EzsignfolderUnsendV1Response.md)
 
 ### Authorization
 

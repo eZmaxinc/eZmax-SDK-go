@@ -160,7 +160,7 @@ func (r ApiUsergroupEditObjectV1Request) UsergroupEditObjectV1Request(usergroupE
 	return r
 }
 
-func (r ApiUsergroupEditObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiUsergroupEditObjectV1Request) Execute() (*UsergroupEditObjectV1Response, *http.Response, error) {
 	return r.ApiService.UsergroupEditObjectV1Execute(r)
 }
 
@@ -182,13 +182,13 @@ func (a *ObjectUsergroupAPIService) UsergroupEditObjectV1(ctx context.Context, p
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectUsergroupAPIService) UsergroupEditObjectV1Execute(r ApiUsergroupEditObjectV1Request) (*CommonResponse, *http.Response, error) {
+//  @return UsergroupEditObjectV1Response
+func (a *ObjectUsergroupAPIService) UsergroupEditObjectV1Execute(r ApiUsergroupEditObjectV1Request) (*UsergroupEditObjectV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *UsergroupEditObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectUsergroupAPIService.UsergroupEditObjectV1")

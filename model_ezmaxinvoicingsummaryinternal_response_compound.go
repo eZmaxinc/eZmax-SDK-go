@@ -22,7 +22,17 @@ var _ MappedNullable = &EzmaxinvoicingsummaryinternalResponseCompound{}
 
 // EzmaxinvoicingsummaryinternalResponseCompound A Ezmaxinvoicingsummaryinternal Object
 type EzmaxinvoicingsummaryinternalResponseCompound struct {
-	EzmaxinvoicingsummaryinternalResponse
+	// The unique ID of the Ezmaxinvoicingsummaryinternal
+	PkiEzmaxinvoicingsummaryinternalID *int32 `json:"pkiEzmaxinvoicingsummaryinternalID,omitempty"`
+	ObjEzmaxinvoicingsummaryinternalDescription MultilingualEzmaxinvoicingsummaryinternalDescription `json:"objEzmaxinvoicingsummaryinternalDescription"`
+	// The Ezmaxinvoicingsummaryinternal description in the language of the requester
+	SEzmaxinvoicingsummaryinternalDescriptionX string `json:"sEzmaxinvoicingsummaryinternalDescriptionX"`
+	// The unique ID of the Ezmaxinvoicing
+	FkiEzmaxinvoicingID *int32 `json:"fkiEzmaxinvoicingID,omitempty"`
+	// The unique ID of the Billingentityinternal.
+	FkiBillingentityinternalID int32 `json:"fkiBillingentityinternalID"`
+	// The description of the Billingentityinternal in the language of the requester
+	SBillingentityinternalDescriptionX string `json:"sBillingentityinternalDescriptionX"`
 	// 
 	AObjEzmaxinvoicingsummaryinternaldetail []EzmaxinvoicingsummaryinternaldetailResponseCompound `json:"a_objEzmaxinvoicingsummaryinternaldetail"`
 }
@@ -33,7 +43,7 @@ type _EzmaxinvoicingsummaryinternalResponseCompound Ezmaxinvoicingsummaryinterna
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzmaxinvoicingsummaryinternalResponseCompound(aObjEzmaxinvoicingsummaryinternaldetail []EzmaxinvoicingsummaryinternaldetailResponseCompound, objEzmaxinvoicingsummaryinternalDescription MultilingualEzmaxinvoicingsummaryinternalDescription, sEzmaxinvoicingsummaryinternalDescriptionX string, fkiBillingentityinternalID int32, sBillingentityinternalDescriptionX string) *EzmaxinvoicingsummaryinternalResponseCompound {
+func NewEzmaxinvoicingsummaryinternalResponseCompound(objEzmaxinvoicingsummaryinternalDescription MultilingualEzmaxinvoicingsummaryinternalDescription, sEzmaxinvoicingsummaryinternalDescriptionX string, fkiBillingentityinternalID int32, sBillingentityinternalDescriptionX string, aObjEzmaxinvoicingsummaryinternaldetail []EzmaxinvoicingsummaryinternaldetailResponseCompound) *EzmaxinvoicingsummaryinternalResponseCompound {
 	this := EzmaxinvoicingsummaryinternalResponseCompound{}
 	this.ObjEzmaxinvoicingsummaryinternalDescription = objEzmaxinvoicingsummaryinternalDescription
 	this.SEzmaxinvoicingsummaryinternalDescriptionX = sEzmaxinvoicingsummaryinternalDescriptionX
@@ -49,6 +59,166 @@ func NewEzmaxinvoicingsummaryinternalResponseCompound(aObjEzmaxinvoicingsummaryi
 func NewEzmaxinvoicingsummaryinternalResponseCompoundWithDefaults() *EzmaxinvoicingsummaryinternalResponseCompound {
 	this := EzmaxinvoicingsummaryinternalResponseCompound{}
 	return &this
+}
+
+// GetPkiEzmaxinvoicingsummaryinternalID returns the PkiEzmaxinvoicingsummaryinternalID field value if set, zero value otherwise.
+func (o *EzmaxinvoicingsummaryinternalResponseCompound) GetPkiEzmaxinvoicingsummaryinternalID() int32 {
+	if o == nil || IsNil(o.PkiEzmaxinvoicingsummaryinternalID) {
+		var ret int32
+		return ret
+	}
+	return *o.PkiEzmaxinvoicingsummaryinternalID
+}
+
+// GetPkiEzmaxinvoicingsummaryinternalIDOk returns a tuple with the PkiEzmaxinvoicingsummaryinternalID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzmaxinvoicingsummaryinternalResponseCompound) GetPkiEzmaxinvoicingsummaryinternalIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.PkiEzmaxinvoicingsummaryinternalID) {
+		return nil, false
+	}
+	return o.PkiEzmaxinvoicingsummaryinternalID, true
+}
+
+// HasPkiEzmaxinvoicingsummaryinternalID returns a boolean if a field has been set.
+func (o *EzmaxinvoicingsummaryinternalResponseCompound) HasPkiEzmaxinvoicingsummaryinternalID() bool {
+	if o != nil && !IsNil(o.PkiEzmaxinvoicingsummaryinternalID) {
+		return true
+	}
+
+	return false
+}
+
+// SetPkiEzmaxinvoicingsummaryinternalID gets a reference to the given int32 and assigns it to the PkiEzmaxinvoicingsummaryinternalID field.
+func (o *EzmaxinvoicingsummaryinternalResponseCompound) SetPkiEzmaxinvoicingsummaryinternalID(v int32) {
+	o.PkiEzmaxinvoicingsummaryinternalID = &v
+}
+
+// GetObjEzmaxinvoicingsummaryinternalDescription returns the ObjEzmaxinvoicingsummaryinternalDescription field value
+func (o *EzmaxinvoicingsummaryinternalResponseCompound) GetObjEzmaxinvoicingsummaryinternalDescription() MultilingualEzmaxinvoicingsummaryinternalDescription {
+	if o == nil {
+		var ret MultilingualEzmaxinvoicingsummaryinternalDescription
+		return ret
+	}
+
+	return o.ObjEzmaxinvoicingsummaryinternalDescription
+}
+
+// GetObjEzmaxinvoicingsummaryinternalDescriptionOk returns a tuple with the ObjEzmaxinvoicingsummaryinternalDescription field value
+// and a boolean to check if the value has been set.
+func (o *EzmaxinvoicingsummaryinternalResponseCompound) GetObjEzmaxinvoicingsummaryinternalDescriptionOk() (*MultilingualEzmaxinvoicingsummaryinternalDescription, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjEzmaxinvoicingsummaryinternalDescription, true
+}
+
+// SetObjEzmaxinvoicingsummaryinternalDescription sets field value
+func (o *EzmaxinvoicingsummaryinternalResponseCompound) SetObjEzmaxinvoicingsummaryinternalDescription(v MultilingualEzmaxinvoicingsummaryinternalDescription) {
+	o.ObjEzmaxinvoicingsummaryinternalDescription = v
+}
+
+// GetSEzmaxinvoicingsummaryinternalDescriptionX returns the SEzmaxinvoicingsummaryinternalDescriptionX field value
+func (o *EzmaxinvoicingsummaryinternalResponseCompound) GetSEzmaxinvoicingsummaryinternalDescriptionX() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SEzmaxinvoicingsummaryinternalDescriptionX
+}
+
+// GetSEzmaxinvoicingsummaryinternalDescriptionXOk returns a tuple with the SEzmaxinvoicingsummaryinternalDescriptionX field value
+// and a boolean to check if the value has been set.
+func (o *EzmaxinvoicingsummaryinternalResponseCompound) GetSEzmaxinvoicingsummaryinternalDescriptionXOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SEzmaxinvoicingsummaryinternalDescriptionX, true
+}
+
+// SetSEzmaxinvoicingsummaryinternalDescriptionX sets field value
+func (o *EzmaxinvoicingsummaryinternalResponseCompound) SetSEzmaxinvoicingsummaryinternalDescriptionX(v string) {
+	o.SEzmaxinvoicingsummaryinternalDescriptionX = v
+}
+
+// GetFkiEzmaxinvoicingID returns the FkiEzmaxinvoicingID field value if set, zero value otherwise.
+func (o *EzmaxinvoicingsummaryinternalResponseCompound) GetFkiEzmaxinvoicingID() int32 {
+	if o == nil || IsNil(o.FkiEzmaxinvoicingID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEzmaxinvoicingID
+}
+
+// GetFkiEzmaxinvoicingIDOk returns a tuple with the FkiEzmaxinvoicingID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzmaxinvoicingsummaryinternalResponseCompound) GetFkiEzmaxinvoicingIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEzmaxinvoicingID) {
+		return nil, false
+	}
+	return o.FkiEzmaxinvoicingID, true
+}
+
+// HasFkiEzmaxinvoicingID returns a boolean if a field has been set.
+func (o *EzmaxinvoicingsummaryinternalResponseCompound) HasFkiEzmaxinvoicingID() bool {
+	if o != nil && !IsNil(o.FkiEzmaxinvoicingID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzmaxinvoicingID gets a reference to the given int32 and assigns it to the FkiEzmaxinvoicingID field.
+func (o *EzmaxinvoicingsummaryinternalResponseCompound) SetFkiEzmaxinvoicingID(v int32) {
+	o.FkiEzmaxinvoicingID = &v
+}
+
+// GetFkiBillingentityinternalID returns the FkiBillingentityinternalID field value
+func (o *EzmaxinvoicingsummaryinternalResponseCompound) GetFkiBillingentityinternalID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiBillingentityinternalID
+}
+
+// GetFkiBillingentityinternalIDOk returns a tuple with the FkiBillingentityinternalID field value
+// and a boolean to check if the value has been set.
+func (o *EzmaxinvoicingsummaryinternalResponseCompound) GetFkiBillingentityinternalIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiBillingentityinternalID, true
+}
+
+// SetFkiBillingentityinternalID sets field value
+func (o *EzmaxinvoicingsummaryinternalResponseCompound) SetFkiBillingentityinternalID(v int32) {
+	o.FkiBillingentityinternalID = v
+}
+
+// GetSBillingentityinternalDescriptionX returns the SBillingentityinternalDescriptionX field value
+func (o *EzmaxinvoicingsummaryinternalResponseCompound) GetSBillingentityinternalDescriptionX() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SBillingentityinternalDescriptionX
+}
+
+// GetSBillingentityinternalDescriptionXOk returns a tuple with the SBillingentityinternalDescriptionX field value
+// and a boolean to check if the value has been set.
+func (o *EzmaxinvoicingsummaryinternalResponseCompound) GetSBillingentityinternalDescriptionXOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SBillingentityinternalDescriptionX, true
+}
+
+// SetSBillingentityinternalDescriptionX sets field value
+func (o *EzmaxinvoicingsummaryinternalResponseCompound) SetSBillingentityinternalDescriptionX(v string) {
+	o.SBillingentityinternalDescriptionX = v
 }
 
 // GetAObjEzmaxinvoicingsummaryinternaldetail returns the AObjEzmaxinvoicingsummaryinternaldetail field value
@@ -85,6 +255,16 @@ func (o EzmaxinvoicingsummaryinternalResponseCompound) MarshalJSON() ([]byte, er
 
 func (o EzmaxinvoicingsummaryinternalResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.PkiEzmaxinvoicingsummaryinternalID) {
+		toSerialize["pkiEzmaxinvoicingsummaryinternalID"] = o.PkiEzmaxinvoicingsummaryinternalID
+	}
+	toSerialize["objEzmaxinvoicingsummaryinternalDescription"] = o.ObjEzmaxinvoicingsummaryinternalDescription
+	toSerialize["sEzmaxinvoicingsummaryinternalDescriptionX"] = o.SEzmaxinvoicingsummaryinternalDescriptionX
+	if !IsNil(o.FkiEzmaxinvoicingID) {
+		toSerialize["fkiEzmaxinvoicingID"] = o.FkiEzmaxinvoicingID
+	}
+	toSerialize["fkiBillingentityinternalID"] = o.FkiBillingentityinternalID
+	toSerialize["sBillingentityinternalDescriptionX"] = o.SBillingentityinternalDescriptionX
 	toSerialize["a_objEzmaxinvoicingsummaryinternaldetail"] = o.AObjEzmaxinvoicingsummaryinternaldetail
 	return toSerialize, nil
 }
@@ -94,11 +274,11 @@ func (o *EzmaxinvoicingsummaryinternalResponseCompound) UnmarshalJSON(data []byt
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"a_objEzmaxinvoicingsummaryinternaldetail",
 		"objEzmaxinvoicingsummaryinternalDescription",
 		"sEzmaxinvoicingsummaryinternalDescriptionX",
 		"fkiBillingentityinternalID",
 		"sBillingentityinternalDescriptionX",
+		"a_objEzmaxinvoicingsummaryinternaldetail",
 	}
 
 	allProperties := make(map[string]interface{})
