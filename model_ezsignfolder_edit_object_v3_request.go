@@ -22,7 +22,8 @@ var _ MappedNullable = &EzsignfolderEditObjectV3Request{}
 
 // EzsignfolderEditObjectV3Request Request for PUT /3/object/ezsignfolder/{pkiEzsignfolderID}
 type EzsignfolderEditObjectV3Request struct {
-	ObjEzsignfolder EzsignfolderRequestCompoundV3 `json:"objEzsignfolder"`
+	// An Ezsignfolder Object and children to create a complete structure
+	ObjEzsignfolder EzsignfolderRequestV3 `json:"objEzsignfolder"`
 }
 
 type _EzsignfolderEditObjectV3Request EzsignfolderEditObjectV3Request
@@ -31,7 +32,7 @@ type _EzsignfolderEditObjectV3Request EzsignfolderEditObjectV3Request
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfolderEditObjectV3Request(objEzsignfolder EzsignfolderRequestCompoundV3) *EzsignfolderEditObjectV3Request {
+func NewEzsignfolderEditObjectV3Request(objEzsignfolder EzsignfolderRequestV3) *EzsignfolderEditObjectV3Request {
 	this := EzsignfolderEditObjectV3Request{}
 	this.ObjEzsignfolder = objEzsignfolder
 	return &this
@@ -46,9 +47,9 @@ func NewEzsignfolderEditObjectV3RequestWithDefaults() *EzsignfolderEditObjectV3R
 }
 
 // GetObjEzsignfolder returns the ObjEzsignfolder field value
-func (o *EzsignfolderEditObjectV3Request) GetObjEzsignfolder() EzsignfolderRequestCompoundV3 {
+func (o *EzsignfolderEditObjectV3Request) GetObjEzsignfolder() EzsignfolderRequestV3 {
 	if o == nil {
-		var ret EzsignfolderRequestCompoundV3
+		var ret EzsignfolderRequestV3
 		return ret
 	}
 
@@ -57,7 +58,7 @@ func (o *EzsignfolderEditObjectV3Request) GetObjEzsignfolder() EzsignfolderReque
 
 // GetObjEzsignfolderOk returns a tuple with the ObjEzsignfolder field value
 // and a boolean to check if the value has been set.
-func (o *EzsignfolderEditObjectV3Request) GetObjEzsignfolderOk() (*EzsignfolderRequestCompoundV3, bool) {
+func (o *EzsignfolderEditObjectV3Request) GetObjEzsignfolderOk() (*EzsignfolderRequestV3, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,7 +66,7 @@ func (o *EzsignfolderEditObjectV3Request) GetObjEzsignfolderOk() (*EzsignfolderR
 }
 
 // SetObjEzsignfolder sets field value
-func (o *EzsignfolderEditObjectV3Request) SetObjEzsignfolder(v EzsignfolderRequestCompoundV3) {
+func (o *EzsignfolderEditObjectV3Request) SetObjEzsignfolder(v EzsignfolderRequestV3) {
 	o.ObjEzsignfolder = v
 }
 

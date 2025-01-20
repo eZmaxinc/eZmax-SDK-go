@@ -154,7 +154,7 @@ type ApiDomainDeleteObjectV1Request struct {
 	pkiDomainID int32
 }
 
-func (r ApiDomainDeleteObjectV1Request) Execute() (*DomainDeleteObjectV1Response, *http.Response, error) {
+func (r ApiDomainDeleteObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.DomainDeleteObjectV1Execute(r)
 }
 
@@ -176,13 +176,13 @@ func (a *ObjectDomainAPIService) DomainDeleteObjectV1(ctx context.Context, pkiDo
 }
 
 // Execute executes the request
-//  @return DomainDeleteObjectV1Response
-func (a *ObjectDomainAPIService) DomainDeleteObjectV1Execute(r ApiDomainDeleteObjectV1Request) (*DomainDeleteObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectDomainAPIService) DomainDeleteObjectV1Execute(r ApiDomainDeleteObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DomainDeleteObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectDomainAPIService.DomainDeleteObjectV1")

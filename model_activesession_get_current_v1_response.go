@@ -24,7 +24,8 @@ var _ MappedNullable = &ActivesessionGetCurrentV1Response{}
 type ActivesessionGetCurrentV1Response struct {
 	ObjDebugPayload CommonResponseObjDebugPayload `json:"objDebugPayload"`
 	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
-	MPayload ActivesessionGetCurrentV1ResponseMPayload `json:"mPayload"`
+	// Payload for GET /1/object/activesession/getCurrent
+	MPayload ActivesessionResponseCompound `json:"mPayload"`
 }
 
 type _ActivesessionGetCurrentV1Response ActivesessionGetCurrentV1Response
@@ -33,7 +34,7 @@ type _ActivesessionGetCurrentV1Response ActivesessionGetCurrentV1Response
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewActivesessionGetCurrentV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload ActivesessionGetCurrentV1ResponseMPayload) *ActivesessionGetCurrentV1Response {
+func NewActivesessionGetCurrentV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload ActivesessionResponseCompound) *ActivesessionGetCurrentV1Response {
 	this := ActivesessionGetCurrentV1Response{}
 	this.ObjDebugPayload = objDebugPayload
 	this.MPayload = mPayload
@@ -105,9 +106,9 @@ func (o *ActivesessionGetCurrentV1Response) SetObjDebug(v CommonResponseObjDebug
 }
 
 // GetMPayload returns the MPayload field value
-func (o *ActivesessionGetCurrentV1Response) GetMPayload() ActivesessionGetCurrentV1ResponseMPayload {
+func (o *ActivesessionGetCurrentV1Response) GetMPayload() ActivesessionResponseCompound {
 	if o == nil {
-		var ret ActivesessionGetCurrentV1ResponseMPayload
+		var ret ActivesessionResponseCompound
 		return ret
 	}
 
@@ -116,7 +117,7 @@ func (o *ActivesessionGetCurrentV1Response) GetMPayload() ActivesessionGetCurren
 
 // GetMPayloadOk returns a tuple with the MPayload field value
 // and a boolean to check if the value has been set.
-func (o *ActivesessionGetCurrentV1Response) GetMPayloadOk() (*ActivesessionGetCurrentV1ResponseMPayload, bool) {
+func (o *ActivesessionGetCurrentV1Response) GetMPayloadOk() (*ActivesessionResponseCompound, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -124,7 +125,7 @@ func (o *ActivesessionGetCurrentV1Response) GetMPayloadOk() (*ActivesessionGetCu
 }
 
 // SetMPayload sets field value
-func (o *ActivesessionGetCurrentV1Response) SetMPayload(v ActivesessionGetCurrentV1ResponseMPayload) {
+func (o *ActivesessionGetCurrentV1Response) SetMPayload(v ActivesessionResponseCompound) {
 	o.MPayload = v
 }
 

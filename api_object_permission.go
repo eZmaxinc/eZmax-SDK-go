@@ -164,7 +164,7 @@ type ApiPermissionDeleteObjectV1Request struct {
 	pkiPermissionID int32
 }
 
-func (r ApiPermissionDeleteObjectV1Request) Execute() (*PermissionDeleteObjectV1Response, *http.Response, error) {
+func (r ApiPermissionDeleteObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.PermissionDeleteObjectV1Execute(r)
 }
 
@@ -186,13 +186,13 @@ func (a *ObjectPermissionAPIService) PermissionDeleteObjectV1(ctx context.Contex
 }
 
 // Execute executes the request
-//  @return PermissionDeleteObjectV1Response
-func (a *ObjectPermissionAPIService) PermissionDeleteObjectV1Execute(r ApiPermissionDeleteObjectV1Request) (*PermissionDeleteObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectPermissionAPIService) PermissionDeleteObjectV1Execute(r ApiPermissionDeleteObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *PermissionDeleteObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectPermissionAPIService.PermissionDeleteObjectV1")
@@ -303,7 +303,7 @@ func (r ApiPermissionEditObjectV1Request) PermissionEditObjectV1Request(permissi
 	return r
 }
 
-func (r ApiPermissionEditObjectV1Request) Execute() (*PermissionEditObjectV1Response, *http.Response, error) {
+func (r ApiPermissionEditObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.PermissionEditObjectV1Execute(r)
 }
 
@@ -325,13 +325,13 @@ func (a *ObjectPermissionAPIService) PermissionEditObjectV1(ctx context.Context,
 }
 
 // Execute executes the request
-//  @return PermissionEditObjectV1Response
-func (a *ObjectPermissionAPIService) PermissionEditObjectV1Execute(r ApiPermissionEditObjectV1Request) (*PermissionEditObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectPermissionAPIService) PermissionEditObjectV1Execute(r ApiPermissionEditObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *PermissionEditObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectPermissionAPIService.PermissionEditObjectV1")

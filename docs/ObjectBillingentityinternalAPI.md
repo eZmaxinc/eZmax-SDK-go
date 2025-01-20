@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 ## BillingentityinternalEditObjectV1
 
-> BillingentityinternalEditObjectV1Response BillingentityinternalEditObjectV1(ctx, pkiBillingentityinternalID).BillingentityinternalEditObjectV1Request(billingentityinternalEditObjectV1Request).Execute()
+> CommonResponse BillingentityinternalEditObjectV1(ctx, pkiBillingentityinternalID).BillingentityinternalEditObjectV1Request(billingentityinternalEditObjectV1Request).Execute()
 
 Edit an existing Billingentityinternal
 
@@ -109,7 +109,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBillingentityinternalAPI.BillingentityinternalEditObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `BillingentityinternalEditObjectV1`: BillingentityinternalEditObjectV1Response
+	// response from `BillingentityinternalEditObjectV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectBillingentityinternalAPI.BillingentityinternalEditObjectV1`: %v\n", resp)
 }
 ```
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BillingentityinternalEditObjectV1Response**](BillingentityinternalEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

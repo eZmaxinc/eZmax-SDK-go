@@ -160,7 +160,7 @@ func (r ApiApikeyEditObjectV1Request) ApikeyEditObjectV1Request(apikeyEditObject
 	return r
 }
 
-func (r ApiApikeyEditObjectV1Request) Execute() (*ApikeyEditObjectV1Response, *http.Response, error) {
+func (r ApiApikeyEditObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.ApikeyEditObjectV1Execute(r)
 }
 
@@ -182,13 +182,13 @@ func (a *ObjectApikeyAPIService) ApikeyEditObjectV1(ctx context.Context, pkiApik
 }
 
 // Execute executes the request
-//  @return ApikeyEditObjectV1Response
-func (a *ObjectApikeyAPIService) ApikeyEditObjectV1Execute(r ApiApikeyEditObjectV1Request) (*ApikeyEditObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectApikeyAPIService) ApikeyEditObjectV1Execute(r ApiApikeyEditObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ApikeyEditObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectApikeyAPIService.ApikeyEditObjectV1")

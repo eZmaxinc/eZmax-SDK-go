@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiEzsigndocumentID** | **int32** | The unique ID of the Ezsigndocument | 
-**AObjEzsigndocumentdependency** | [**[]EzsigndocumentdependencyRequestCompound**](EzsigndocumentdependencyRequestCompound.md) |  | 
+**AObjEzsigndocumentdependency** | [**[]EzsigndocumentdependencyRequest**](EzsigndocumentdependencyRequest.md) |  | 
 
 ## Methods
 

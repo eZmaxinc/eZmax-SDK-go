@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ObjEzsigndocument** | Pointer to [**EzsigndocumentRequest**](EzsigndocumentRequest.md) |  | [optional] 
-**ObjEzsigndocumentCompound** | Pointer to [**EzsigndocumentRequestCompound**](EzsigndocumentRequestCompound.md) |  | [optional] 
+**ObjEzsigndocumentCompound** | Pointer to [**EzsigndocumentRequest**](EzsigndocumentRequest.md) | An Ezsigndocument Object and children to create a complete structure | [optional] 
 
 ## Methods
 
@@ -53,20 +53,20 @@ HasObjEzsigndocument returns a boolean if a field has been set.
 
 ### GetObjEzsigndocumentCompound
 
-`func (o *EzsigndocumentCreateObjectV1Request) GetObjEzsigndocumentCompound() EzsigndocumentRequestCompound`
+`func (o *EzsigndocumentCreateObjectV1Request) GetObjEzsigndocumentCompound() EzsigndocumentRequest`
 
 GetObjEzsigndocumentCompound returns the ObjEzsigndocumentCompound field if non-nil, zero value otherwise.
 
 ### GetObjEzsigndocumentCompoundOk
 
-`func (o *EzsigndocumentCreateObjectV1Request) GetObjEzsigndocumentCompoundOk() (*EzsigndocumentRequestCompound, bool)`
+`func (o *EzsigndocumentCreateObjectV1Request) GetObjEzsigndocumentCompoundOk() (*EzsigndocumentRequest, bool)`
 
 GetObjEzsigndocumentCompoundOk returns a tuple with the ObjEzsigndocumentCompound field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObjEzsigndocumentCompound
 
-`func (o *EzsigndocumentCreateObjectV1Request) SetObjEzsigndocumentCompound(v EzsigndocumentRequestCompound)`
+`func (o *EzsigndocumentCreateObjectV1Request) SetObjEzsigndocumentCompound(v EzsigndocumentRequest)`
 
 SetObjEzsigndocumentCompound sets ObjEzsigndocumentCompound field to given value.
 

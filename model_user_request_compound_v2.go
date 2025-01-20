@@ -40,11 +40,14 @@ type UserRequestCompoundV2 struct {
 	FkiTimezoneID int32 `json:"fkiTimezoneID"`
 	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
 	FkiLanguageID int32 `json:"fkiLanguageID"`
-	ObjEmail EmailRequestCompound `json:"objEmail"`
+	// An Email Object and children to create a complete structure
+	ObjEmail EmailRequest `json:"objEmail"`
 	// The unique ID of the Billingentityinternal.
 	FkiBillingentityinternalID int32 `json:"fkiBillingentityinternalID"`
-	ObjPhoneHome *PhoneRequestCompoundV2 `json:"objPhoneHome,omitempty"`
-	ObjPhoneSMS *PhoneRequestCompoundV2 `json:"objPhoneSMS,omitempty"`
+	// A Phone Object and children to create a complete structure
+	ObjPhoneHome *PhoneRequestV2 `json:"objPhoneHome,omitempty"`
+	// A Phone Object and children to create a complete structure
+	ObjPhoneSMS *PhoneRequestV2 `json:"objPhoneSMS,omitempty"`
 	// The unique ID of the Secretquestion.  Valid values:  |Value|Description| |-|-| |1|The name of the hospital in which you were born| |2|The name of your grade school| |3|The last name of your favorite teacher| |4|Your favorite sports team| |5|Your favorite TV show| |6|Your favorite movie| |7|The name of the street on which you grew up| |8|The name of your first employer| |9|Your first car| |10|Your favorite food| |11|The name of your first pet| |12|Favorite musician/band| |13|What instrument you play| |14|Your father's middle name| |15|Your mother's maiden name| |16|Name of your eldest child| |17|Your spouse's middle name| |18|Favorite restaurant| |19|Childhood nickname| |20|Favorite vacation destination| |21|Your boat's name| |22|Date of Birth (YYYY-MM-DD)| |22|Secret Code| |22|Your reference code|
 	FkiSecretquestionID *int32 `json:"fkiSecretquestionID,omitempty"`
 	// The answer to the Secretquestion
@@ -80,7 +83,7 @@ type _UserRequestCompoundV2 UserRequestCompoundV2
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUserRequestCompoundV2(fkiCompanyIDDefault int32, fkiDepartmentIDDefault int32, fkiTimezoneID int32, fkiLanguageID int32, objEmail EmailRequestCompound, fkiBillingentityinternalID int32, eUserType FieldEUserType, eUserLogintype FieldEUserLogintype, sUserFirstname string, sUserLastname string, sUserLoginname string, eUserEzsignaccess FieldEUserEzsignaccess, bUserIsactive bool) *UserRequestCompoundV2 {
+func NewUserRequestCompoundV2(fkiCompanyIDDefault int32, fkiDepartmentIDDefault int32, fkiTimezoneID int32, fkiLanguageID int32, objEmail EmailRequest, fkiBillingentityinternalID int32, eUserType FieldEUserType, eUserLogintype FieldEUserLogintype, sUserFirstname string, sUserLastname string, sUserLoginname string, eUserEzsignaccess FieldEUserEzsignaccess, bUserIsactive bool) *UserRequestCompoundV2 {
 	this := UserRequestCompoundV2{}
 	this.FkiCompanyIDDefault = fkiCompanyIDDefault
 	this.FkiDepartmentIDDefault = fkiDepartmentIDDefault
@@ -363,9 +366,9 @@ func (o *UserRequestCompoundV2) SetFkiLanguageID(v int32) {
 }
 
 // GetObjEmail returns the ObjEmail field value
-func (o *UserRequestCompoundV2) GetObjEmail() EmailRequestCompound {
+func (o *UserRequestCompoundV2) GetObjEmail() EmailRequest {
 	if o == nil {
-		var ret EmailRequestCompound
+		var ret EmailRequest
 		return ret
 	}
 
@@ -374,7 +377,7 @@ func (o *UserRequestCompoundV2) GetObjEmail() EmailRequestCompound {
 
 // GetObjEmailOk returns a tuple with the ObjEmail field value
 // and a boolean to check if the value has been set.
-func (o *UserRequestCompoundV2) GetObjEmailOk() (*EmailRequestCompound, bool) {
+func (o *UserRequestCompoundV2) GetObjEmailOk() (*EmailRequest, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -382,7 +385,7 @@ func (o *UserRequestCompoundV2) GetObjEmailOk() (*EmailRequestCompound, bool) {
 }
 
 // SetObjEmail sets field value
-func (o *UserRequestCompoundV2) SetObjEmail(v EmailRequestCompound) {
+func (o *UserRequestCompoundV2) SetObjEmail(v EmailRequest) {
 	o.ObjEmail = v
 }
 
@@ -411,9 +414,9 @@ func (o *UserRequestCompoundV2) SetFkiBillingentityinternalID(v int32) {
 }
 
 // GetObjPhoneHome returns the ObjPhoneHome field value if set, zero value otherwise.
-func (o *UserRequestCompoundV2) GetObjPhoneHome() PhoneRequestCompoundV2 {
+func (o *UserRequestCompoundV2) GetObjPhoneHome() PhoneRequestV2 {
 	if o == nil || IsNil(o.ObjPhoneHome) {
-		var ret PhoneRequestCompoundV2
+		var ret PhoneRequestV2
 		return ret
 	}
 	return *o.ObjPhoneHome
@@ -421,7 +424,7 @@ func (o *UserRequestCompoundV2) GetObjPhoneHome() PhoneRequestCompoundV2 {
 
 // GetObjPhoneHomeOk returns a tuple with the ObjPhoneHome field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UserRequestCompoundV2) GetObjPhoneHomeOk() (*PhoneRequestCompoundV2, bool) {
+func (o *UserRequestCompoundV2) GetObjPhoneHomeOk() (*PhoneRequestV2, bool) {
 	if o == nil || IsNil(o.ObjPhoneHome) {
 		return nil, false
 	}
@@ -437,15 +440,15 @@ func (o *UserRequestCompoundV2) HasObjPhoneHome() bool {
 	return false
 }
 
-// SetObjPhoneHome gets a reference to the given PhoneRequestCompoundV2 and assigns it to the ObjPhoneHome field.
-func (o *UserRequestCompoundV2) SetObjPhoneHome(v PhoneRequestCompoundV2) {
+// SetObjPhoneHome gets a reference to the given PhoneRequestV2 and assigns it to the ObjPhoneHome field.
+func (o *UserRequestCompoundV2) SetObjPhoneHome(v PhoneRequestV2) {
 	o.ObjPhoneHome = &v
 }
 
 // GetObjPhoneSMS returns the ObjPhoneSMS field value if set, zero value otherwise.
-func (o *UserRequestCompoundV2) GetObjPhoneSMS() PhoneRequestCompoundV2 {
+func (o *UserRequestCompoundV2) GetObjPhoneSMS() PhoneRequestV2 {
 	if o == nil || IsNil(o.ObjPhoneSMS) {
-		var ret PhoneRequestCompoundV2
+		var ret PhoneRequestV2
 		return ret
 	}
 	return *o.ObjPhoneSMS
@@ -453,7 +456,7 @@ func (o *UserRequestCompoundV2) GetObjPhoneSMS() PhoneRequestCompoundV2 {
 
 // GetObjPhoneSMSOk returns a tuple with the ObjPhoneSMS field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UserRequestCompoundV2) GetObjPhoneSMSOk() (*PhoneRequestCompoundV2, bool) {
+func (o *UserRequestCompoundV2) GetObjPhoneSMSOk() (*PhoneRequestV2, bool) {
 	if o == nil || IsNil(o.ObjPhoneSMS) {
 		return nil, false
 	}
@@ -469,8 +472,8 @@ func (o *UserRequestCompoundV2) HasObjPhoneSMS() bool {
 	return false
 }
 
-// SetObjPhoneSMS gets a reference to the given PhoneRequestCompoundV2 and assigns it to the ObjPhoneSMS field.
-func (o *UserRequestCompoundV2) SetObjPhoneSMS(v PhoneRequestCompoundV2) {
+// SetObjPhoneSMS gets a reference to the given PhoneRequestV2 and assigns it to the ObjPhoneSMS field.
+func (o *UserRequestCompoundV2) SetObjPhoneSMS(v PhoneRequestV2) {
 	o.ObjPhoneSMS = &v
 }
 

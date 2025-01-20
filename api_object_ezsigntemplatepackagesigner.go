@@ -290,7 +290,7 @@ func (r ApiEzsigntemplatepackagesignerEditObjectV1Request) Ezsigntemplatepackage
 	return r
 }
 
-func (r ApiEzsigntemplatepackagesignerEditObjectV1Request) Execute() (*EzsigntemplatepackagesignerEditObjectV1Response, *http.Response, error) {
+func (r ApiEzsigntemplatepackagesignerEditObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.EzsigntemplatepackagesignerEditObjectV1Execute(r)
 }
 
@@ -312,13 +312,13 @@ func (a *ObjectEzsigntemplatepackagesignerAPIService) Ezsigntemplatepackagesigne
 }
 
 // Execute executes the request
-//  @return EzsigntemplatepackagesignerEditObjectV1Response
-func (a *ObjectEzsigntemplatepackagesignerAPIService) EzsigntemplatepackagesignerEditObjectV1Execute(r ApiEzsigntemplatepackagesignerEditObjectV1Request) (*EzsigntemplatepackagesignerEditObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectEzsigntemplatepackagesignerAPIService) EzsigntemplatepackagesignerEditObjectV1Execute(r ApiEzsigntemplatepackagesignerEditObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *EzsigntemplatepackagesignerEditObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigntemplatepackagesignerAPIService.EzsigntemplatepackagesignerEditObjectV1")

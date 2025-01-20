@@ -154,7 +154,7 @@ type ApiDiscussionmembershipDeleteObjectV1Request struct {
 	pkiDiscussionmembershipID int32
 }
 
-func (r ApiDiscussionmembershipDeleteObjectV1Request) Execute() (*DiscussionmembershipDeleteObjectV1Response, *http.Response, error) {
+func (r ApiDiscussionmembershipDeleteObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.DiscussionmembershipDeleteObjectV1Execute(r)
 }
 
@@ -176,13 +176,13 @@ func (a *ObjectDiscussionmembershipAPIService) DiscussionmembershipDeleteObjectV
 }
 
 // Execute executes the request
-//  @return DiscussionmembershipDeleteObjectV1Response
-func (a *ObjectDiscussionmembershipAPIService) DiscussionmembershipDeleteObjectV1Execute(r ApiDiscussionmembershipDeleteObjectV1Request) (*DiscussionmembershipDeleteObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectDiscussionmembershipAPIService) DiscussionmembershipDeleteObjectV1Execute(r ApiDiscussionmembershipDeleteObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DiscussionmembershipDeleteObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectDiscussionmembershipAPIService.DiscussionmembershipDeleteObjectV1")

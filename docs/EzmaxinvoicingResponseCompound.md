@@ -24,8 +24,8 @@ Name | Type | Description | Notes
 **AObjEzmaxinvoicingsummaryinternal** | [**[]EzmaxinvoicingsummaryinternalResponseCompound**](EzmaxinvoicingsummaryinternalResponseCompound.md) |  | 
 **AObjEzmaxinvoicingagent** | [**[]EzmaxinvoicingagentResponseCompound**](EzmaxinvoicingagentResponseCompound.md) |  | 
 **AObjEzmaxinvoicinguser** | [**[]EzmaxinvoicinguserResponseCompound**](EzmaxinvoicinguserResponseCompound.md) |  | 
-**AObjEzmaxinvoicingezsignfolder** | [**[]CustomEzmaxinvoicingEzsignfolderResponse**](CustomEzmaxinvoicingEzsignfolderResponse.md) |  | 
-**AObjEzmaxinvoicingezsigndocument** | [**[]CustomEzmaxinvoicingEzsigndocumentResponse**](CustomEzmaxinvoicingEzsigndocumentResponse.md) |  | 
+**AObjEzmaxinvoicingezsignfolder** | **[]map[string]interface{}** |  | 
+**AObjEzmaxinvoicingezsigndocument** | **[]map[string]interface{}** |  | 
 
 ## Methods
 

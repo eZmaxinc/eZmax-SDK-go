@@ -154,7 +154,7 @@ type ApiEzsigndiscussionDeleteObjectV1Request struct {
 	pkiEzsigndiscussionID int32
 }
 
-func (r ApiEzsigndiscussionDeleteObjectV1Request) Execute() (*EzsigndiscussionDeleteObjectV1Response, *http.Response, error) {
+func (r ApiEzsigndiscussionDeleteObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.EzsigndiscussionDeleteObjectV1Execute(r)
 }
 
@@ -176,13 +176,13 @@ func (a *ObjectEzsigndiscussionAPIService) EzsigndiscussionDeleteObjectV1(ctx co
 }
 
 // Execute executes the request
-//  @return EzsigndiscussionDeleteObjectV1Response
-func (a *ObjectEzsigndiscussionAPIService) EzsigndiscussionDeleteObjectV1Execute(r ApiEzsigndiscussionDeleteObjectV1Request) (*EzsigndiscussionDeleteObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectEzsigndiscussionAPIService) EzsigndiscussionDeleteObjectV1Execute(r ApiEzsigndiscussionDeleteObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *EzsigndiscussionDeleteObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigndiscussionAPIService.EzsigndiscussionDeleteObjectV1")

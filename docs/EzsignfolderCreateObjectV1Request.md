@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ObjEzsignfolder** | Pointer to [**EzsignfolderRequest**](EzsignfolderRequest.md) |  | [optional] 
-**ObjEzsignfolderCompound** | Pointer to [**EzsignfolderRequestCompound**](EzsignfolderRequestCompound.md) |  | [optional] 
+**ObjEzsignfolderCompound** | Pointer to [**EzsignfolderRequest**](EzsignfolderRequest.md) | An Ezsignfolder Object and children to create a complete structure | [optional] 
 
 ## Methods
 
@@ -53,20 +53,20 @@ HasObjEzsignfolder returns a boolean if a field has been set.
 
 ### GetObjEzsignfolderCompound
 
-`func (o *EzsignfolderCreateObjectV1Request) GetObjEzsignfolderCompound() EzsignfolderRequestCompound`
+`func (o *EzsignfolderCreateObjectV1Request) GetObjEzsignfolderCompound() EzsignfolderRequest`
 
 GetObjEzsignfolderCompound returns the ObjEzsignfolderCompound field if non-nil, zero value otherwise.
 
 ### GetObjEzsignfolderCompoundOk
 
-`func (o *EzsignfolderCreateObjectV1Request) GetObjEzsignfolderCompoundOk() (*EzsignfolderRequestCompound, bool)`
+`func (o *EzsignfolderCreateObjectV1Request) GetObjEzsignfolderCompoundOk() (*EzsignfolderRequest, bool)`
 
 GetObjEzsignfolderCompoundOk returns a tuple with the ObjEzsignfolderCompound field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObjEzsignfolderCompound
 
-`func (o *EzsignfolderCreateObjectV1Request) SetObjEzsignfolderCompound(v EzsignfolderRequestCompound)`
+`func (o *EzsignfolderCreateObjectV1Request) SetObjEzsignfolderCompound(v EzsignfolderRequest)`
 
 SetObjEzsignfolderCompound sets ObjEzsignfolderCompound field to given value.
 

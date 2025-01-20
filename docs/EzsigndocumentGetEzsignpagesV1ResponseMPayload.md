@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AObjEzsignpage** | [**[]EzsignpageResponseCompound**](EzsignpageResponseCompound.md) |  | 
+**AObjEzsignpage** | [**[]EzsignpageResponse**](EzsignpageResponse.md) |  | 
 
 ## Methods
 

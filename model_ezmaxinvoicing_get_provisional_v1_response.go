@@ -24,7 +24,8 @@ var _ MappedNullable = &EzmaxinvoicingGetProvisionalV1Response{}
 type EzmaxinvoicingGetProvisionalV1Response struct {
 	ObjDebugPayload CommonResponseObjDebugPayload `json:"objDebugPayload"`
 	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
-	MPayload EzmaxinvoicingGetProvisionalV1ResponseMPayload `json:"mPayload"`
+	// Payload for GET /1/object/ezmaxinvoicing/getProvisional
+	MPayload EzmaxinvoicingResponseCompound `json:"mPayload"`
 }
 
 type _EzmaxinvoicingGetProvisionalV1Response EzmaxinvoicingGetProvisionalV1Response
@@ -33,7 +34,7 @@ type _EzmaxinvoicingGetProvisionalV1Response EzmaxinvoicingGetProvisionalV1Respo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzmaxinvoicingGetProvisionalV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload EzmaxinvoicingGetProvisionalV1ResponseMPayload) *EzmaxinvoicingGetProvisionalV1Response {
+func NewEzmaxinvoicingGetProvisionalV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload EzmaxinvoicingResponseCompound) *EzmaxinvoicingGetProvisionalV1Response {
 	this := EzmaxinvoicingGetProvisionalV1Response{}
 	this.ObjDebugPayload = objDebugPayload
 	this.MPayload = mPayload
@@ -105,9 +106,9 @@ func (o *EzmaxinvoicingGetProvisionalV1Response) SetObjDebug(v CommonResponseObj
 }
 
 // GetMPayload returns the MPayload field value
-func (o *EzmaxinvoicingGetProvisionalV1Response) GetMPayload() EzmaxinvoicingGetProvisionalV1ResponseMPayload {
+func (o *EzmaxinvoicingGetProvisionalV1Response) GetMPayload() EzmaxinvoicingResponseCompound {
 	if o == nil {
-		var ret EzmaxinvoicingGetProvisionalV1ResponseMPayload
+		var ret EzmaxinvoicingResponseCompound
 		return ret
 	}
 
@@ -116,7 +117,7 @@ func (o *EzmaxinvoicingGetProvisionalV1Response) GetMPayload() EzmaxinvoicingGet
 
 // GetMPayloadOk returns a tuple with the MPayload field value
 // and a boolean to check if the value has been set.
-func (o *EzmaxinvoicingGetProvisionalV1Response) GetMPayloadOk() (*EzmaxinvoicingGetProvisionalV1ResponseMPayload, bool) {
+func (o *EzmaxinvoicingGetProvisionalV1Response) GetMPayloadOk() (*EzmaxinvoicingResponseCompound, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -124,7 +125,7 @@ func (o *EzmaxinvoicingGetProvisionalV1Response) GetMPayloadOk() (*Ezmaxinvoicin
 }
 
 // SetMPayload sets field value
-func (o *EzmaxinvoicingGetProvisionalV1Response) SetMPayload(v EzmaxinvoicingGetProvisionalV1ResponseMPayload) {
+func (o *EzmaxinvoicingGetProvisionalV1Response) SetMPayload(v EzmaxinvoicingResponseCompound) {
 	o.MPayload = v
 }
 

@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 ## EzsignbulksenddocumentmappingDeleteObjectV1
 
-> EzsignbulksenddocumentmappingDeleteObjectV1Response EzsignbulksenddocumentmappingDeleteObjectV1(ctx, pkiEzsignbulksenddocumentmappingID).Execute()
+> CommonResponse EzsignbulksenddocumentmappingDeleteObjectV1(ctx, pkiEzsignbulksenddocumentmappingID).Execute()
 
 Delete an existing Ezsignbulksenddocumentmapping
 
@@ -106,7 +106,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksenddocumentmappingAPI.EzsignbulksenddocumentmappingDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignbulksenddocumentmappingDeleteObjectV1`: EzsignbulksenddocumentmappingDeleteObjectV1Response
+	// response from `EzsignbulksenddocumentmappingDeleteObjectV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksenddocumentmappingAPI.EzsignbulksenddocumentmappingDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignbulksenddocumentmappingDeleteObjectV1Response**](EzsignbulksenddocumentmappingDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

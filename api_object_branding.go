@@ -160,7 +160,7 @@ func (r ApiBrandingEditObjectV2Request) BrandingEditObjectV2Request(brandingEdit
 	return r
 }
 
-func (r ApiBrandingEditObjectV2Request) Execute() (*BrandingEditObjectV2Response, *http.Response, error) {
+func (r ApiBrandingEditObjectV2Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.BrandingEditObjectV2Execute(r)
 }
 
@@ -182,13 +182,13 @@ func (a *ObjectBrandingAPIService) BrandingEditObjectV2(ctx context.Context, pki
 }
 
 // Execute executes the request
-//  @return BrandingEditObjectV2Response
-func (a *ObjectBrandingAPIService) BrandingEditObjectV2Execute(r ApiBrandingEditObjectV2Request) (*BrandingEditObjectV2Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectBrandingAPIService) BrandingEditObjectV2Execute(r ApiBrandingEditObjectV2Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *BrandingEditObjectV2Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectBrandingAPIService.BrandingEditObjectV2")

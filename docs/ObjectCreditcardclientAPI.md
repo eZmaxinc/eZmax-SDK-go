@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 ## CreditcardclientDeleteObjectV1
 
-> CreditcardclientDeleteObjectV1Response CreditcardclientDeleteObjectV1(ctx, pkiCreditcardclientID).Execute()
+> CommonResponse CreditcardclientDeleteObjectV1(ctx, pkiCreditcardclientID).Execute()
 
 Delete an existing Creditcardclient
 
@@ -110,7 +110,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectCreditcardclientAPI.CreditcardclientDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreditcardclientDeleteObjectV1`: CreditcardclientDeleteObjectV1Response
+	// response from `CreditcardclientDeleteObjectV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectCreditcardclientAPI.CreditcardclientDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreditcardclientDeleteObjectV1Response**](CreditcardclientDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 ## CreditcardclientEditObjectV1
 
-> CreditcardclientEditObjectV1Response CreditcardclientEditObjectV1(ctx, pkiCreditcardclientID).CreditcardclientEditObjectV1Request(creditcardclientEditObjectV1Request).Execute()
+> CommonResponse CreditcardclientEditObjectV1(ctx, pkiCreditcardclientID).CreditcardclientEditObjectV1Request(creditcardclientEditObjectV1Request).Execute()
 
 Edit an existing Creditcardclient
 
@@ -181,7 +181,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectCreditcardclientAPI.CreditcardclientEditObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreditcardclientEditObjectV1`: CreditcardclientEditObjectV1Response
+	// response from `CreditcardclientEditObjectV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectCreditcardclientAPI.CreditcardclientEditObjectV1`: %v\n", resp)
 }
 ```
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreditcardclientEditObjectV1Response**](CreditcardclientEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -444,7 +444,7 @@ Name | Type | Description  | Notes
 
 ## CreditcardclientPatchObjectV1
 
-> CreditcardclientPatchObjectV1Response CreditcardclientPatchObjectV1(ctx, pkiCreditcardclientID).CreditcardclientPatchObjectV1Request(creditcardclientPatchObjectV1Request).Execute()
+> CommonResponse CreditcardclientPatchObjectV1(ctx, pkiCreditcardclientID).CreditcardclientPatchObjectV1Request(creditcardclientPatchObjectV1Request).Execute()
 
 Patch an existing Creditcardclient
 
@@ -473,7 +473,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectCreditcardclientAPI.CreditcardclientPatchObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreditcardclientPatchObjectV1`: CreditcardclientPatchObjectV1Response
+	// response from `CreditcardclientPatchObjectV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectCreditcardclientAPI.CreditcardclientPatchObjectV1`: %v\n", resp)
 }
 ```
@@ -498,7 +498,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreditcardclientPatchObjectV1Response**](CreditcardclientPatchObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

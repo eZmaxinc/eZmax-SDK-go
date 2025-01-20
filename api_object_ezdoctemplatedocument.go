@@ -296,7 +296,7 @@ func (r ApiEzdoctemplatedocumentEditObjectV1Request) EzdoctemplatedocumentEditOb
 	return r
 }
 
-func (r ApiEzdoctemplatedocumentEditObjectV1Request) Execute() (*EzdoctemplatedocumentEditObjectV1Response, *http.Response, error) {
+func (r ApiEzdoctemplatedocumentEditObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.EzdoctemplatedocumentEditObjectV1Execute(r)
 }
 
@@ -318,13 +318,13 @@ func (a *ObjectEzdoctemplatedocumentAPIService) EzdoctemplatedocumentEditObjectV
 }
 
 // Execute executes the request
-//  @return EzdoctemplatedocumentEditObjectV1Response
-func (a *ObjectEzdoctemplatedocumentAPIService) EzdoctemplatedocumentEditObjectV1Execute(r ApiEzdoctemplatedocumentEditObjectV1Request) (*EzdoctemplatedocumentEditObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectEzdoctemplatedocumentAPIService) EzdoctemplatedocumentEditObjectV1Execute(r ApiEzdoctemplatedocumentEditObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *EzdoctemplatedocumentEditObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzdoctemplatedocumentAPIService.EzdoctemplatedocumentEditObjectV1")
@@ -926,7 +926,7 @@ func (r ApiEzdoctemplatedocumentPatchObjectV1Request) EzdoctemplatedocumentPatch
 	return r
 }
 
-func (r ApiEzdoctemplatedocumentPatchObjectV1Request) Execute() (*EzdoctemplatedocumentPatchObjectV1Response, *http.Response, error) {
+func (r ApiEzdoctemplatedocumentPatchObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.EzdoctemplatedocumentPatchObjectV1Execute(r)
 }
 
@@ -948,13 +948,13 @@ func (a *ObjectEzdoctemplatedocumentAPIService) EzdoctemplatedocumentPatchObject
 }
 
 // Execute executes the request
-//  @return EzdoctemplatedocumentPatchObjectV1Response
-func (a *ObjectEzdoctemplatedocumentAPIService) EzdoctemplatedocumentPatchObjectV1Execute(r ApiEzdoctemplatedocumentPatchObjectV1Request) (*EzdoctemplatedocumentPatchObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectEzdoctemplatedocumentAPIService) EzdoctemplatedocumentPatchObjectV1Execute(r ApiEzdoctemplatedocumentPatchObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *EzdoctemplatedocumentPatchObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzdoctemplatedocumentAPIService.EzdoctemplatedocumentPatchObjectV1")

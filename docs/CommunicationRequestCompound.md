@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **BCommunicationReadreceipt** | Pointer to **bool** | Whether we ask for a read receipt or not. | [optional] 
 **AObjCommunicationattachment** | [**[]CustomCommunicationattachmentRequest**](CustomCommunicationattachmentRequest.md) |  | 
 **AObjCommunicationrecipient** | [**[]CommunicationrecipientRequestCompound**](CommunicationrecipientRequestCompound.md) |  | 
-**AObjCommunicationreference** | [**[]CommunicationreferenceRequestCompound**](CommunicationreferenceRequestCompound.md) |  | 
+**AObjCommunicationreference** | [**[]CommunicationreferenceRequest**](CommunicationreferenceRequest.md) |  | 
 **AObjCommunicationexternalrecipient** | [**[]CommunicationexternalrecipientRequestCompound**](CommunicationexternalrecipientRequestCompound.md) |  | 
 
 ## Methods

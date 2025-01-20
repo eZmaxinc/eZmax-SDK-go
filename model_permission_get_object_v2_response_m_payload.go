@@ -22,7 +22,8 @@ var _ MappedNullable = &PermissionGetObjectV2ResponseMPayload{}
 
 // PermissionGetObjectV2ResponseMPayload Payload for GET /2/object/permission/{pkiPermissionID}
 type PermissionGetObjectV2ResponseMPayload struct {
-	ObjPermission PermissionResponseCompound `json:"objPermission"`
+	// A Permission Object and children to create a complete structure
+	ObjPermission PermissionResponse `json:"objPermission"`
 }
 
 type _PermissionGetObjectV2ResponseMPayload PermissionGetObjectV2ResponseMPayload
@@ -31,7 +32,7 @@ type _PermissionGetObjectV2ResponseMPayload PermissionGetObjectV2ResponseMPayloa
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPermissionGetObjectV2ResponseMPayload(objPermission PermissionResponseCompound) *PermissionGetObjectV2ResponseMPayload {
+func NewPermissionGetObjectV2ResponseMPayload(objPermission PermissionResponse) *PermissionGetObjectV2ResponseMPayload {
 	this := PermissionGetObjectV2ResponseMPayload{}
 	this.ObjPermission = objPermission
 	return &this
@@ -46,9 +47,9 @@ func NewPermissionGetObjectV2ResponseMPayloadWithDefaults() *PermissionGetObject
 }
 
 // GetObjPermission returns the ObjPermission field value
-func (o *PermissionGetObjectV2ResponseMPayload) GetObjPermission() PermissionResponseCompound {
+func (o *PermissionGetObjectV2ResponseMPayload) GetObjPermission() PermissionResponse {
 	if o == nil {
-		var ret PermissionResponseCompound
+		var ret PermissionResponse
 		return ret
 	}
 
@@ -57,7 +58,7 @@ func (o *PermissionGetObjectV2ResponseMPayload) GetObjPermission() PermissionRes
 
 // GetObjPermissionOk returns a tuple with the ObjPermission field value
 // and a boolean to check if the value has been set.
-func (o *PermissionGetObjectV2ResponseMPayload) GetObjPermissionOk() (*PermissionResponseCompound, bool) {
+func (o *PermissionGetObjectV2ResponseMPayload) GetObjPermissionOk() (*PermissionResponse, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,7 +66,7 @@ func (o *PermissionGetObjectV2ResponseMPayload) GetObjPermissionOk() (*Permissio
 }
 
 // SetObjPermission sets field value
-func (o *PermissionGetObjectV2ResponseMPayload) SetObjPermission(v PermissionResponseCompound) {
+func (o *PermissionGetObjectV2ResponseMPayload) SetObjPermission(v PermissionResponse) {
 	o.ObjPermission = v
 }
 

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## EzsignpageConsultV1
 
-> EzsignpageConsultV1Response EzsignpageConsultV1(ctx, pkiEzsignpageID).Body(body).Execute()
+> CommonResponse EzsignpageConsultV1(ctx, pkiEzsignpageID).Body(body).Execute()
 
 Consult an Ezsignpage
 
@@ -37,7 +37,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignpageAPI.EzsignpageConsultV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignpageConsultV1`: EzsignpageConsultV1Response
+	// response from `EzsignpageConsultV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignpageAPI.EzsignpageConsultV1`: %v\n", resp)
 }
 ```
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignpageConsultV1Response**](EzsignpageConsultV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

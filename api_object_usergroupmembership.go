@@ -154,7 +154,7 @@ type ApiUsergroupmembershipDeleteObjectV1Request struct {
 	pkiUsergroupmembershipID int32
 }
 
-func (r ApiUsergroupmembershipDeleteObjectV1Request) Execute() (*UsergroupmembershipDeleteObjectV1Response, *http.Response, error) {
+func (r ApiUsergroupmembershipDeleteObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.UsergroupmembershipDeleteObjectV1Execute(r)
 }
 
@@ -176,13 +176,13 @@ func (a *ObjectUsergroupmembershipAPIService) UsergroupmembershipDeleteObjectV1(
 }
 
 // Execute executes the request
-//  @return UsergroupmembershipDeleteObjectV1Response
-func (a *ObjectUsergroupmembershipAPIService) UsergroupmembershipDeleteObjectV1Execute(r ApiUsergroupmembershipDeleteObjectV1Request) (*UsergroupmembershipDeleteObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectUsergroupmembershipAPIService) UsergroupmembershipDeleteObjectV1Execute(r ApiUsergroupmembershipDeleteObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UsergroupmembershipDeleteObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectUsergroupmembershipAPIService.UsergroupmembershipDeleteObjectV1")
@@ -293,7 +293,7 @@ func (r ApiUsergroupmembershipEditObjectV1Request) UsergroupmembershipEditObject
 	return r
 }
 
-func (r ApiUsergroupmembershipEditObjectV1Request) Execute() (*UsergroupmembershipEditObjectV1Response, *http.Response, error) {
+func (r ApiUsergroupmembershipEditObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.UsergroupmembershipEditObjectV1Execute(r)
 }
 
@@ -315,13 +315,13 @@ func (a *ObjectUsergroupmembershipAPIService) UsergroupmembershipEditObjectV1(ct
 }
 
 // Execute executes the request
-//  @return UsergroupmembershipEditObjectV1Response
-func (a *ObjectUsergroupmembershipAPIService) UsergroupmembershipEditObjectV1Execute(r ApiUsergroupmembershipEditObjectV1Request) (*UsergroupmembershipEditObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectUsergroupmembershipAPIService) UsergroupmembershipEditObjectV1Execute(r ApiUsergroupmembershipEditObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UsergroupmembershipEditObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectUsergroupmembershipAPIService.UsergroupmembershipEditObjectV1")

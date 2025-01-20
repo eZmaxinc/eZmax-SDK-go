@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ObjDebugPayload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
 **ObjDebug** | Pointer to [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
-**MPayload** | [**EzsigndocumentGetObjectV1ResponseMPayload**](EzsigndocumentGetObjectV1ResponseMPayload.md) |  | 
+**MPayload** | [**EzsigndocumentResponseCompound**](EzsigndocumentResponseCompound.md) | Payload for GET /1/object/ezsigndocument/{pkiEzsigndocumentID} | 
 
 ## Methods
 
 ### NewEzsigndocumentGetObjectV1Response
 
-`func NewEzsigndocumentGetObjectV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload EzsigndocumentGetObjectV1ResponseMPayload, ) *EzsigndocumentGetObjectV1Response`
+`func NewEzsigndocumentGetObjectV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload EzsigndocumentResponseCompound, ) *EzsigndocumentGetObjectV1Response`
 
 NewEzsigndocumentGetObjectV1Response instantiates a new EzsigndocumentGetObjectV1Response object
 This constructor will assign default values to properties that have it defined,
@@ -74,20 +74,20 @@ HasObjDebug returns a boolean if a field has been set.
 
 ### GetMPayload
 
-`func (o *EzsigndocumentGetObjectV1Response) GetMPayload() EzsigndocumentGetObjectV1ResponseMPayload`
+`func (o *EzsigndocumentGetObjectV1Response) GetMPayload() EzsigndocumentResponseCompound`
 
 GetMPayload returns the MPayload field if non-nil, zero value otherwise.
 
 ### GetMPayloadOk
 
-`func (o *EzsigndocumentGetObjectV1Response) GetMPayloadOk() (*EzsigndocumentGetObjectV1ResponseMPayload, bool)`
+`func (o *EzsigndocumentGetObjectV1Response) GetMPayloadOk() (*EzsigndocumentResponseCompound, bool)`
 
 GetMPayloadOk returns a tuple with the MPayload field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMPayload
 
-`func (o *EzsigndocumentGetObjectV1Response) SetMPayload(v EzsigndocumentGetObjectV1ResponseMPayload)`
+`func (o *EzsigndocumentGetObjectV1Response) SetMPayload(v EzsigndocumentResponseCompound)`
 
 SetMPayload sets MPayload field to given value.
 
