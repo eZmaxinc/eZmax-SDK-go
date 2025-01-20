@@ -25,8 +25,7 @@ type WebhookUserUserCreated struct {
 	ObjWebhook CustomWebhookResponse `json:"objWebhook"`
 	// An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.
 	AObjAttempt []AttemptResponseCompound `json:"a_objAttempt"`
-	// A User Object and children to create a complete structure
-	ObjUser UserResponse `json:"objUser"`
+	ObjUser UserResponseCompound `json:"objUser"`
 }
 
 type _WebhookUserUserCreated WebhookUserUserCreated
@@ -35,7 +34,7 @@ type _WebhookUserUserCreated WebhookUserUserCreated
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWebhookUserUserCreated(objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound, objUser UserResponse) *WebhookUserUserCreated {
+func NewWebhookUserUserCreated(objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound, objUser UserResponseCompound) *WebhookUserUserCreated {
 	this := WebhookUserUserCreated{}
 	this.ObjWebhook = objWebhook
 	this.AObjAttempt = aObjAttempt
@@ -100,9 +99,9 @@ func (o *WebhookUserUserCreated) SetAObjAttempt(v []AttemptResponseCompound) {
 }
 
 // GetObjUser returns the ObjUser field value
-func (o *WebhookUserUserCreated) GetObjUser() UserResponse {
+func (o *WebhookUserUserCreated) GetObjUser() UserResponseCompound {
 	if o == nil {
-		var ret UserResponse
+		var ret UserResponseCompound
 		return ret
 	}
 
@@ -111,7 +110,7 @@ func (o *WebhookUserUserCreated) GetObjUser() UserResponse {
 
 // GetObjUserOk returns a tuple with the ObjUser field value
 // and a boolean to check if the value has been set.
-func (o *WebhookUserUserCreated) GetObjUserOk() (*UserResponse, bool) {
+func (o *WebhookUserUserCreated) GetObjUserOk() (*UserResponseCompound, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -119,7 +118,7 @@ func (o *WebhookUserUserCreated) GetObjUserOk() (*UserResponse, bool) {
 }
 
 // SetObjUser sets field value
-func (o *WebhookUserUserCreated) SetObjUser(v UserResponse) {
+func (o *WebhookUserUserCreated) SetObjUser(v UserResponseCompound) {
 	o.ObjUser = v
 }
 

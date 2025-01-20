@@ -941,7 +941,7 @@ func (r ApiEzsigntemplatedocumentFlattenV1Request) Body(body map[string]interfac
 	return r
 }
 
-func (r ApiEzsigntemplatedocumentFlattenV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsigntemplatedocumentFlattenV1Request) Execute() (*EzsigntemplatedocumentFlattenV1Response, *http.Response, error) {
 	return r.ApiService.EzsigntemplatedocumentFlattenV1Execute(r)
 }
 
@@ -963,13 +963,13 @@ func (a *ObjectEzsigntemplatedocumentAPIService) EzsigntemplatedocumentFlattenV1
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectEzsigntemplatedocumentAPIService) EzsigntemplatedocumentFlattenV1Execute(r ApiEzsigntemplatedocumentFlattenV1Request) (*CommonResponse, *http.Response, error) {
+//  @return EzsigntemplatedocumentFlattenV1Response
+func (a *ObjectEzsigntemplatedocumentAPIService) EzsigntemplatedocumentFlattenV1Execute(r ApiEzsigntemplatedocumentFlattenV1Request) (*EzsigntemplatedocumentFlattenV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsigntemplatedocumentFlattenV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigntemplatedocumentAPIService.EzsigntemplatedocumentFlattenV1")
@@ -1917,7 +1917,7 @@ func (r ApiEzsigntemplatedocumentPatchObjectV1Request) EzsigntemplatedocumentPat
 	return r
 }
 
-func (r ApiEzsigntemplatedocumentPatchObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsigntemplatedocumentPatchObjectV1Request) Execute() (*EzsigntemplatedocumentPatchObjectV1Response, *http.Response, error) {
 	return r.ApiService.EzsigntemplatedocumentPatchObjectV1Execute(r)
 }
 
@@ -1939,13 +1939,13 @@ func (a *ObjectEzsigntemplatedocumentAPIService) EzsigntemplatedocumentPatchObje
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectEzsigntemplatedocumentAPIService) EzsigntemplatedocumentPatchObjectV1Execute(r ApiEzsigntemplatedocumentPatchObjectV1Request) (*CommonResponse, *http.Response, error) {
+//  @return EzsigntemplatedocumentPatchObjectV1Response
+func (a *ObjectEzsigntemplatedocumentAPIService) EzsigntemplatedocumentPatchObjectV1Execute(r ApiEzsigntemplatedocumentPatchObjectV1Request) (*EzsigntemplatedocumentPatchObjectV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsigntemplatedocumentPatchObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigntemplatedocumentAPIService.EzsigntemplatedocumentPatchObjectV1")

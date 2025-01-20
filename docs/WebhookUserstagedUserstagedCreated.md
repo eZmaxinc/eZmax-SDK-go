@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ObjWebhook** | [**CustomWebhookResponse**](CustomWebhookResponse.md) |  | 
-**AObjAttempt** | [**[]AttemptResponse**](AttemptResponse.md) | An array containing details of previous attempts that were made to deliver the message. The array is empty if it&#39;s the first attempt. | 
-**ObjUserstaged** | [**UserstagedResponse**](UserstagedResponse.md) | A Userstaged Object | 
+**AObjAttempt** | [**[]AttemptResponseCompound**](AttemptResponseCompound.md) | An array containing details of previous attempts that were made to deliver the message. The array is empty if it&#39;s the first attempt. | 
+**ObjUserstaged** | [**UserstagedResponseCompound**](UserstagedResponseCompound.md) |  | 
 
 ## Methods
 
 ### NewWebhookUserstagedUserstagedCreated
 
-`func NewWebhookUserstagedUserstagedCreated(objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound, objUserstaged UserstagedResponse, ) *WebhookUserstagedUserstagedCreated`
+`func NewWebhookUserstagedUserstagedCreated(objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound, objUserstaged UserstagedResponseCompound, ) *WebhookUserstagedUserstagedCreated`
 
 NewWebhookUserstagedUserstagedCreated instantiates a new WebhookUserstagedUserstagedCreated object
 This constructor will assign default values to properties that have it defined,
@@ -69,20 +69,20 @@ SetAObjAttempt sets AObjAttempt field to given value.
 
 ### GetObjUserstaged
 
-`func (o *WebhookUserstagedUserstagedCreated) GetObjUserstaged() UserstagedResponse`
+`func (o *WebhookUserstagedUserstagedCreated) GetObjUserstaged() UserstagedResponseCompound`
 
 GetObjUserstaged returns the ObjUserstaged field if non-nil, zero value otherwise.
 
 ### GetObjUserstagedOk
 
-`func (o *WebhookUserstagedUserstagedCreated) GetObjUserstagedOk() (*UserstagedResponse, bool)`
+`func (o *WebhookUserstagedUserstagedCreated) GetObjUserstagedOk() (*UserstagedResponseCompound, bool)`
 
 GetObjUserstagedOk returns a tuple with the ObjUserstaged field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObjUserstaged
 
-`func (o *WebhookUserstagedUserstagedCreated) SetObjUserstaged(v UserstagedResponse)`
+`func (o *WebhookUserstagedUserstagedCreated) SetObjUserstaged(v UserstagedResponseCompound)`
 
 SetObjUserstaged sets ObjUserstaged field to given value.
 

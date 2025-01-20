@@ -154,7 +154,7 @@ type ApiEzsignformfieldgroupDeleteObjectV1Request struct {
 	pkiEzsignformfieldgroupID int32
 }
 
-func (r ApiEzsignformfieldgroupDeleteObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsignformfieldgroupDeleteObjectV1Request) Execute() (*EzsignformfieldgroupDeleteObjectV1Response, *http.Response, error) {
 	return r.ApiService.EzsignformfieldgroupDeleteObjectV1Execute(r)
 }
 
@@ -176,13 +176,13 @@ func (a *ObjectEzsignformfieldgroupAPIService) EzsignformfieldgroupDeleteObjectV
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectEzsignformfieldgroupAPIService) EzsignformfieldgroupDeleteObjectV1Execute(r ApiEzsignformfieldgroupDeleteObjectV1Request) (*CommonResponse, *http.Response, error) {
+//  @return EzsignformfieldgroupDeleteObjectV1Response
+func (a *ObjectEzsignformfieldgroupAPIService) EzsignformfieldgroupDeleteObjectV1Execute(r ApiEzsignformfieldgroupDeleteObjectV1Request) (*EzsignformfieldgroupDeleteObjectV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsignformfieldgroupDeleteObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignformfieldgroupAPIService.EzsignformfieldgroupDeleteObjectV1")
@@ -301,7 +301,7 @@ func (r ApiEzsignformfieldgroupEditObjectV1Request) EzsignformfieldgroupEditObje
 	return r
 }
 
-func (r ApiEzsignformfieldgroupEditObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsignformfieldgroupEditObjectV1Request) Execute() (*EzsignformfieldgroupEditObjectV1Response, *http.Response, error) {
 	return r.ApiService.EzsignformfieldgroupEditObjectV1Execute(r)
 }
 
@@ -323,13 +323,13 @@ func (a *ObjectEzsignformfieldgroupAPIService) EzsignformfieldgroupEditObjectV1(
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectEzsignformfieldgroupAPIService) EzsignformfieldgroupEditObjectV1Execute(r ApiEzsignformfieldgroupEditObjectV1Request) (*CommonResponse, *http.Response, error) {
+//  @return EzsignformfieldgroupEditObjectV1Response
+func (a *ObjectEzsignformfieldgroupAPIService) EzsignformfieldgroupEditObjectV1Execute(r ApiEzsignformfieldgroupEditObjectV1Request) (*EzsignformfieldgroupEditObjectV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsignformfieldgroupEditObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignformfieldgroupAPIService.EzsignformfieldgroupEditObjectV1")

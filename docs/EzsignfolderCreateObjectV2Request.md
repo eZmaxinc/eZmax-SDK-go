@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AObjEzsignfolder** | [**[]EzsignfolderRequest**](EzsignfolderRequest.md) |  | 
+**AObjEzsignfolder** | [**[]EzsignfolderRequestCompound**](EzsignfolderRequestCompound.md) |  | 
 
 ## Methods
 

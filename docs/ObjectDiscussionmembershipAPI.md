@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 ## DiscussionmembershipDeleteObjectV1
 
-> CommonResponse DiscussionmembershipDeleteObjectV1(ctx, pkiDiscussionmembershipID).Execute()
+> DiscussionmembershipDeleteObjectV1Response DiscussionmembershipDeleteObjectV1(ctx, pkiDiscussionmembershipID).Execute()
 
 Delete an existing Discussionmembership
 
@@ -105,7 +105,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectDiscussionmembershipAPI.DiscussionmembershipDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DiscussionmembershipDeleteObjectV1`: CommonResponse
+	// response from `DiscussionmembershipDeleteObjectV1`: DiscussionmembershipDeleteObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectDiscussionmembershipAPI.DiscussionmembershipDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**DiscussionmembershipDeleteObjectV1Response**](DiscussionmembershipDeleteObjectV1Response.md)
 
 ### Authorization
 

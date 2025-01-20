@@ -42,9 +42,9 @@ Name | Type | Description | Notes
 **ObjContactNameDelegation** | Pointer to [**CustomContactNameResponse**](CustomContactNameResponse.md) |  | [optional] 
 **ObjSignature** | Pointer to [**SignatureResponseCompound**](SignatureResponseCompound.md) |  | [optional] 
 **BEzsignsignatureCustomdate** | Pointer to **bool** | Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is **Name** or **Handwritten**) | [optional] 
-**AObjEzsignsignaturecustomdate** | Pointer to [**[]EzsignsignaturecustomdateResponseV2**](EzsignsignaturecustomdateResponseV2.md) | An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don&#39;t want to have a date at all. | [optional] 
+**AObjEzsignsignaturecustomdate** | Pointer to [**[]EzsignsignaturecustomdateResponseCompoundV2**](EzsignsignaturecustomdateResponseCompoundV2.md) | An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don&#39;t want to have a date at all. | [optional] 
 **ObjCreditcardtransaction** | Pointer to [**CustomCreditcardtransactionResponse**](CustomCreditcardtransactionResponse.md) |  | [optional] 
-**AObjEzsignelementdependency** | Pointer to [**[]EzsignelementdependencyResponse**](EzsignelementdependencyResponse.md) |  | [optional] 
+**AObjEzsignelementdependency** | Pointer to [**[]EzsignelementdependencyResponseCompound**](EzsignelementdependencyResponseCompound.md) |  | [optional] 
 
 ## Methods
 

@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 ## SignatureDeleteObjectV1
 
-> CommonResponse SignatureDeleteObjectV1(ctx, pkiSignatureID).Execute()
+> SignatureDeleteObjectV1Response SignatureDeleteObjectV1(ctx, pkiSignatureID).Execute()
 
 Delete an existing Signature
 
@@ -110,7 +110,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSignatureAPI.SignatureDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `SignatureDeleteObjectV1`: CommonResponse
+	// response from `SignatureDeleteObjectV1`: SignatureDeleteObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectSignatureAPI.SignatureDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**SignatureDeleteObjectV1Response**](SignatureDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 ## SignatureEditObjectV1
 
-> CommonResponse SignatureEditObjectV1(ctx, pkiSignatureID).SignatureEditObjectV1Request(signatureEditObjectV1Request).Execute()
+> SignatureEditObjectV1Response SignatureEditObjectV1(ctx, pkiSignatureID).SignatureEditObjectV1Request(signatureEditObjectV1Request).Execute()
 
 Edit an existing Signature
 
@@ -181,7 +181,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSignatureAPI.SignatureEditObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `SignatureEditObjectV1`: CommonResponse
+	// response from `SignatureEditObjectV1`: SignatureEditObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectSignatureAPI.SignatureEditObjectV1`: %v\n", resp)
 }
 ```
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**SignatureEditObjectV1Response**](SignatureEditObjectV1Response.md)
 
 ### Authorization
 

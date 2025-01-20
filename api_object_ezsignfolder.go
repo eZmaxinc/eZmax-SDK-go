@@ -37,7 +37,7 @@ func (r ApiEzsignfolderArchiveV1Request) Body(body map[string]interface{}) ApiEz
 	return r
 }
 
-func (r ApiEzsignfolderArchiveV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsignfolderArchiveV1Request) Execute() (*EzsignfolderArchiveV1Response, *http.Response, error) {
 	return r.ApiService.EzsignfolderArchiveV1Execute(r)
 }
 
@@ -59,13 +59,13 @@ func (a *ObjectEzsignfolderAPIService) EzsignfolderArchiveV1(ctx context.Context
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectEzsignfolderAPIService) EzsignfolderArchiveV1Execute(r ApiEzsignfolderArchiveV1Request) (*CommonResponse, *http.Response, error) {
+//  @return EzsignfolderArchiveV1Response
+func (a *ObjectEzsignfolderAPIService) EzsignfolderArchiveV1Execute(r ApiEzsignfolderArchiveV1Request) (*EzsignfolderArchiveV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsignfolderArchiveV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfolderAPIService.EzsignfolderArchiveV1")
@@ -726,7 +726,7 @@ type ApiEzsignfolderDeleteObjectV1Request struct {
 	pkiEzsignfolderID int32
 }
 
-func (r ApiEzsignfolderDeleteObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsignfolderDeleteObjectV1Request) Execute() (*EzsignfolderDeleteObjectV1Response, *http.Response, error) {
 	return r.ApiService.EzsignfolderDeleteObjectV1Execute(r)
 }
 
@@ -746,13 +746,13 @@ func (a *ObjectEzsignfolderAPIService) EzsignfolderDeleteObjectV1(ctx context.Co
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectEzsignfolderAPIService) EzsignfolderDeleteObjectV1Execute(r ApiEzsignfolderDeleteObjectV1Request) (*CommonResponse, *http.Response, error) {
+//  @return EzsignfolderDeleteObjectV1Response
+func (a *ObjectEzsignfolderAPIService) EzsignfolderDeleteObjectV1Execute(r ApiEzsignfolderDeleteObjectV1Request) (*EzsignfolderDeleteObjectV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsignfolderDeleteObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfolderAPIService.EzsignfolderDeleteObjectV1")
@@ -870,7 +870,7 @@ func (r ApiEzsignfolderDisposeEzsignfoldersV1Request) EzsignfolderDisposeEzsignf
 	return r
 }
 
-func (r ApiEzsignfolderDisposeEzsignfoldersV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsignfolderDisposeEzsignfoldersV1Request) Execute() (*EzsignfolderDisposeEzsignfoldersV1Response, *http.Response, error) {
 	return r.ApiService.EzsignfolderDisposeEzsignfoldersV1Execute(r)
 }
 
@@ -890,13 +890,13 @@ func (a *ObjectEzsignfolderAPIService) EzsignfolderDisposeEzsignfoldersV1(ctx co
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectEzsignfolderAPIService) EzsignfolderDisposeEzsignfoldersV1Execute(r ApiEzsignfolderDisposeEzsignfoldersV1Request) (*CommonResponse, *http.Response, error) {
+//  @return EzsignfolderDisposeEzsignfoldersV1Response
+func (a *ObjectEzsignfolderAPIService) EzsignfolderDisposeEzsignfoldersV1Execute(r ApiEzsignfolderDisposeEzsignfoldersV1Request) (*EzsignfolderDisposeEzsignfoldersV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsignfolderDisposeEzsignfoldersV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfolderAPIService.EzsignfolderDisposeEzsignfoldersV1")
@@ -1016,7 +1016,7 @@ func (r ApiEzsignfolderDisposeV1Request) Body(body map[string]interface{}) ApiEz
 	return r
 }
 
-func (r ApiEzsignfolderDisposeV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsignfolderDisposeV1Request) Execute() (*EzsignfolderDisposeV1Response, *http.Response, error) {
 	return r.ApiService.EzsignfolderDisposeV1Execute(r)
 }
 
@@ -1038,13 +1038,13 @@ func (a *ObjectEzsignfolderAPIService) EzsignfolderDisposeV1(ctx context.Context
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectEzsignfolderAPIService) EzsignfolderDisposeV1Execute(r ApiEzsignfolderDisposeV1Request) (*CommonResponse, *http.Response, error) {
+//  @return EzsignfolderDisposeV1Response
+func (a *ObjectEzsignfolderAPIService) EzsignfolderDisposeV1Execute(r ApiEzsignfolderDisposeV1Request) (*EzsignfolderDisposeV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsignfolderDisposeV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfolderAPIService.EzsignfolderDisposeV1")
@@ -1168,7 +1168,7 @@ func (r ApiEzsignfolderEditObjectV3Request) EzsignfolderEditObjectV3Request(ezsi
 	return r
 }
 
-func (r ApiEzsignfolderEditObjectV3Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsignfolderEditObjectV3Request) Execute() (*EzsignfolderEditObjectV3Response, *http.Response, error) {
 	return r.ApiService.EzsignfolderEditObjectV3Execute(r)
 }
 
@@ -1190,13 +1190,13 @@ func (a *ObjectEzsignfolderAPIService) EzsignfolderEditObjectV3(ctx context.Cont
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectEzsignfolderAPIService) EzsignfolderEditObjectV3Execute(r ApiEzsignfolderEditObjectV3Request) (*CommonResponse, *http.Response, error) {
+//  @return EzsignfolderEditObjectV3Response
+func (a *ObjectEzsignfolderAPIService) EzsignfolderEditObjectV3Execute(r ApiEzsignfolderEditObjectV3Request) (*EzsignfolderEditObjectV3Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsignfolderEditObjectV3Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfolderAPIService.EzsignfolderEditObjectV3")
@@ -1320,7 +1320,7 @@ func (r ApiEzsignfolderEndPrematurelyV1Request) Body(body map[string]interface{}
 	return r
 }
 
-func (r ApiEzsignfolderEndPrematurelyV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsignfolderEndPrematurelyV1Request) Execute() (*EzsignfolderEndPrematurelyV1Response, *http.Response, error) {
 	return r.ApiService.EzsignfolderEndPrematurelyV1Execute(r)
 }
 
@@ -1342,13 +1342,13 @@ func (a *ObjectEzsignfolderAPIService) EzsignfolderEndPrematurelyV1(ctx context.
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectEzsignfolderAPIService) EzsignfolderEndPrematurelyV1Execute(r ApiEzsignfolderEndPrematurelyV1Request) (*CommonResponse, *http.Response, error) {
+//  @return EzsignfolderEndPrematurelyV1Response
+func (a *ObjectEzsignfolderAPIService) EzsignfolderEndPrematurelyV1Execute(r ApiEzsignfolderEndPrematurelyV1Request) (*EzsignfolderEndPrematurelyV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsignfolderEndPrematurelyV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfolderAPIService.EzsignfolderEndPrematurelyV1")
@@ -3834,7 +3834,7 @@ func (r ApiEzsignfolderReorderV1Request) EzsignfolderReorderV1Request(ezsignfold
 	return r
 }
 
-func (r ApiEzsignfolderReorderV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsignfolderReorderV1Request) Execute() (*EzsignfolderReorderV1Response, *http.Response, error) {
 	return r.ApiService.EzsignfolderReorderV1Execute(r)
 }
 
@@ -3856,14 +3856,14 @@ func (a *ObjectEzsignfolderAPIService) EzsignfolderReorderV1(ctx context.Context
 }
 
 // Execute executes the request
-//  @return CommonResponse
+//  @return EzsignfolderReorderV1Response
 // Deprecated
-func (a *ObjectEzsignfolderAPIService) EzsignfolderReorderV1Execute(r ApiEzsignfolderReorderV1Request) (*CommonResponse, *http.Response, error) {
+func (a *ObjectEzsignfolderAPIService) EzsignfolderReorderV1Execute(r ApiEzsignfolderReorderV1Request) (*EzsignfolderReorderV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsignfolderReorderV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfolderAPIService.EzsignfolderReorderV1")
@@ -3987,7 +3987,7 @@ func (r ApiEzsignfolderReorderV2Request) EzsignfolderReorderV2Request(ezsignfold
 	return r
 }
 
-func (r ApiEzsignfolderReorderV2Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsignfolderReorderV2Request) Execute() (*EzsignfolderReorderV2Response, *http.Response, error) {
 	return r.ApiService.EzsignfolderReorderV2Execute(r)
 }
 
@@ -4007,13 +4007,13 @@ func (a *ObjectEzsignfolderAPIService) EzsignfolderReorderV2(ctx context.Context
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectEzsignfolderAPIService) EzsignfolderReorderV2Execute(r ApiEzsignfolderReorderV2Request) (*CommonResponse, *http.Response, error) {
+//  @return EzsignfolderReorderV2Response
+func (a *ObjectEzsignfolderAPIService) EzsignfolderReorderV2Execute(r ApiEzsignfolderReorderV2Request) (*EzsignfolderReorderV2Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsignfolderReorderV2Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfolderAPIService.EzsignfolderReorderV2")
@@ -4137,7 +4137,7 @@ func (r ApiEzsignfolderSendV1Request) EzsignfolderSendV1Request(ezsignfolderSend
 	return r
 }
 
-func (r ApiEzsignfolderSendV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsignfolderSendV1Request) Execute() (*EzsignfolderSendV1Response, *http.Response, error) {
 	return r.ApiService.EzsignfolderSendV1Execute(r)
 }
 
@@ -4161,14 +4161,14 @@ func (a *ObjectEzsignfolderAPIService) EzsignfolderSendV1(ctx context.Context, p
 }
 
 // Execute executes the request
-//  @return CommonResponse
+//  @return EzsignfolderSendV1Response
 // Deprecated
-func (a *ObjectEzsignfolderAPIService) EzsignfolderSendV1Execute(r ApiEzsignfolderSendV1Request) (*CommonResponse, *http.Response, error) {
+func (a *ObjectEzsignfolderAPIService) EzsignfolderSendV1Execute(r ApiEzsignfolderSendV1Request) (*EzsignfolderSendV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsignfolderSendV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfolderAPIService.EzsignfolderSendV1")
@@ -4292,7 +4292,7 @@ func (r ApiEzsignfolderSendV3Request) EzsignfolderSendV3Request(ezsignfolderSend
 	return r
 }
 
-func (r ApiEzsignfolderSendV3Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsignfolderSendV3Request) Execute() (*EzsignfolderSendV3Response, *http.Response, error) {
 	return r.ApiService.EzsignfolderSendV3Execute(r)
 }
 
@@ -4314,13 +4314,13 @@ func (a *ObjectEzsignfolderAPIService) EzsignfolderSendV3(ctx context.Context, p
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectEzsignfolderAPIService) EzsignfolderSendV3Execute(r ApiEzsignfolderSendV3Request) (*CommonResponse, *http.Response, error) {
+//  @return EzsignfolderSendV3Response
+func (a *ObjectEzsignfolderAPIService) EzsignfolderSendV3Execute(r ApiEzsignfolderSendV3Request) (*EzsignfolderSendV3Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsignfolderSendV3Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfolderAPIService.EzsignfolderSendV3")
@@ -4444,7 +4444,7 @@ func (r ApiEzsignfolderUnsendV1Request) Body(body map[string]interface{}) ApiEzs
 	return r
 }
 
-func (r ApiEzsignfolderUnsendV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsignfolderUnsendV1Request) Execute() (*EzsignfolderUnsendV1Response, *http.Response, error) {
 	return r.ApiService.EzsignfolderUnsendV1Execute(r)
 }
 
@@ -4472,13 +4472,13 @@ func (a *ObjectEzsignfolderAPIService) EzsignfolderUnsendV1(ctx context.Context,
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectEzsignfolderAPIService) EzsignfolderUnsendV1Execute(r ApiEzsignfolderUnsendV1Request) (*CommonResponse, *http.Response, error) {
+//  @return EzsignfolderUnsendV1Response
+func (a *ObjectEzsignfolderAPIService) EzsignfolderUnsendV1Execute(r ApiEzsignfolderUnsendV1Request) (*EzsignfolderUnsendV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsignfolderUnsendV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfolderAPIService.EzsignfolderUnsendV1")

@@ -48,8 +48,7 @@ type UserResponseCompound struct {
 	FkiLanguageID int32 `json:"fkiLanguageID"`
 	// The Name of the Language in the language of the requester
 	SLanguageNameX string `json:"sLanguageNameX"`
-	// An Email Object and children to create a complete structure
-	ObjEmail EmailResponse `json:"objEmail"`
+	ObjEmail EmailResponseCompound `json:"objEmail"`
 	// The unique ID of the Billingentityinternal.
 	FkiBillingentityinternalID int32 `json:"fkiBillingentityinternalID"`
 	// The description of the Billingentityinternal in the language of the requester
@@ -99,7 +98,7 @@ type _UserResponseCompound UserResponseCompound
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUserResponseCompound(pkiUserID int32, fkiCompanyIDDefault int32, sCompanyNameX string, fkiDepartmentIDDefault int32, sDepartmentNameX string, fkiTimezoneID int32, sTimezoneName string, fkiLanguageID int32, sLanguageNameX string, objEmail EmailResponse, fkiBillingentityinternalID int32, sBillingentityinternalDescriptionX string, eUserOrigin FieldEUserOrigin, eUserType FieldEUserType, eUserLogintype FieldEUserLogintype, sUserFirstname string, sUserLastname string, sUserLoginname string, eUserEzsignaccess FieldEUserEzsignaccess, bUserIsactive bool, bUserChangepassword bool, objAudit CommonAudit) *UserResponseCompound {
+func NewUserResponseCompound(pkiUserID int32, fkiCompanyIDDefault int32, sCompanyNameX string, fkiDepartmentIDDefault int32, sDepartmentNameX string, fkiTimezoneID int32, sTimezoneName string, fkiLanguageID int32, sLanguageNameX string, objEmail EmailResponseCompound, fkiBillingentityinternalID int32, sBillingentityinternalDescriptionX string, eUserOrigin FieldEUserOrigin, eUserType FieldEUserType, eUserLogintype FieldEUserLogintype, sUserFirstname string, sUserLastname string, sUserLoginname string, eUserEzsignaccess FieldEUserEzsignaccess, bUserIsactive bool, bUserChangepassword bool, objAudit CommonAudit) *UserResponseCompound {
 	this := UserResponseCompound{}
 	this.PkiUserID = pkiUserID
 	this.FkiCompanyIDDefault = fkiCompanyIDDefault
@@ -479,9 +478,9 @@ func (o *UserResponseCompound) SetSLanguageNameX(v string) {
 }
 
 // GetObjEmail returns the ObjEmail field value
-func (o *UserResponseCompound) GetObjEmail() EmailResponse {
+func (o *UserResponseCompound) GetObjEmail() EmailResponseCompound {
 	if o == nil {
-		var ret EmailResponse
+		var ret EmailResponseCompound
 		return ret
 	}
 
@@ -490,7 +489,7 @@ func (o *UserResponseCompound) GetObjEmail() EmailResponse {
 
 // GetObjEmailOk returns a tuple with the ObjEmail field value
 // and a boolean to check if the value has been set.
-func (o *UserResponseCompound) GetObjEmailOk() (*EmailResponse, bool) {
+func (o *UserResponseCompound) GetObjEmailOk() (*EmailResponseCompound, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -498,7 +497,7 @@ func (o *UserResponseCompound) GetObjEmailOk() (*EmailResponse, bool) {
 }
 
 // SetObjEmail sets field value
-func (o *UserResponseCompound) SetObjEmail(v EmailResponse) {
+func (o *UserResponseCompound) SetObjEmail(v EmailResponseCompound) {
 	o.ObjEmail = v
 }
 

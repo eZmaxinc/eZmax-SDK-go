@@ -160,7 +160,7 @@ func (r ApiVariableexpenseEditObjectV1Request) VariableexpenseEditObjectV1Reques
 	return r
 }
 
-func (r ApiVariableexpenseEditObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiVariableexpenseEditObjectV1Request) Execute() (*VariableexpenseEditObjectV1Response, *http.Response, error) {
 	return r.ApiService.VariableexpenseEditObjectV1Execute(r)
 }
 
@@ -182,13 +182,13 @@ func (a *ObjectVariableexpenseAPIService) VariableexpenseEditObjectV1(ctx contex
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectVariableexpenseAPIService) VariableexpenseEditObjectV1Execute(r ApiVariableexpenseEditObjectV1Request) (*CommonResponse, *http.Response, error) {
+//  @return VariableexpenseEditObjectV1Response
+func (a *ObjectVariableexpenseAPIService) VariableexpenseEditObjectV1Execute(r ApiVariableexpenseEditObjectV1Request) (*VariableexpenseEditObjectV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *VariableexpenseEditObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectVariableexpenseAPIService.VariableexpenseEditObjectV1")

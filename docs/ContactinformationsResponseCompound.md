@@ -11,14 +11,14 @@ Name | Type | Description | Notes
 **FkiWebsiteIDDefault** | Pointer to **int32** | The unique ID of the Website Default | [optional] 
 **EContactinformationsType** | [**FieldEContactinformationsType**](FieldEContactinformationsType.md) |  | 
 **SContactinformationsUrl** | Pointer to **string** | The url of the Contactinformations | [optional] 
-**ObjAddressDefault** | Pointer to [**AddressResponse**](AddressResponse.md) | An Address Object and children to create a complete structure | [optional] 
+**ObjAddressDefault** | Pointer to [**AddressResponseCompound**](AddressResponseCompound.md) |  | [optional] 
 **ObjPhoneDefault** | Pointer to [**PhoneResponseCompound**](PhoneResponseCompound.md) |  | [optional] 
-**ObjEmailDefault** | Pointer to [**EmailResponse**](EmailResponse.md) | An Email Object and children to create a complete structure | [optional] 
-**ObjWebsiteDefault** | Pointer to [**WebsiteResponse**](WebsiteResponse.md) | A Website Object and children to create a complete structure | [optional] 
-**AObjAddress** | [**[]AddressResponse**](AddressResponse.md) |  | 
+**ObjEmailDefault** | Pointer to [**EmailResponseCompound**](EmailResponseCompound.md) |  | [optional] 
+**ObjWebsiteDefault** | Pointer to [**WebsiteResponseCompound**](WebsiteResponseCompound.md) |  | [optional] 
+**AObjAddress** | [**[]AddressResponseCompound**](AddressResponseCompound.md) |  | 
 **AObjPhone** | [**[]PhoneResponseCompound**](PhoneResponseCompound.md) |  | 
-**AObjEmail** | [**[]EmailResponse**](EmailResponse.md) |  | 
-**AObjWebsite** | [**[]WebsiteResponse**](WebsiteResponse.md) |  | 
+**AObjEmail** | [**[]EmailResponseCompound**](EmailResponseCompound.md) |  | 
+**AObjWebsite** | [**[]WebsiteResponseCompound**](WebsiteResponseCompound.md) |  | 
 
 ## Methods
 
@@ -206,20 +206,20 @@ HasSContactinformationsUrl returns a boolean if a field has been set.
 
 ### GetObjAddressDefault
 
-`func (o *ContactinformationsResponseCompound) GetObjAddressDefault() AddressResponse`
+`func (o *ContactinformationsResponseCompound) GetObjAddressDefault() AddressResponseCompound`
 
 GetObjAddressDefault returns the ObjAddressDefault field if non-nil, zero value otherwise.
 
 ### GetObjAddressDefaultOk
 
-`func (o *ContactinformationsResponseCompound) GetObjAddressDefaultOk() (*AddressResponse, bool)`
+`func (o *ContactinformationsResponseCompound) GetObjAddressDefaultOk() (*AddressResponseCompound, bool)`
 
 GetObjAddressDefaultOk returns a tuple with the ObjAddressDefault field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObjAddressDefault
 
-`func (o *ContactinformationsResponseCompound) SetObjAddressDefault(v AddressResponse)`
+`func (o *ContactinformationsResponseCompound) SetObjAddressDefault(v AddressResponseCompound)`
 
 SetObjAddressDefault sets ObjAddressDefault field to given value.
 
@@ -256,20 +256,20 @@ HasObjPhoneDefault returns a boolean if a field has been set.
 
 ### GetObjEmailDefault
 
-`func (o *ContactinformationsResponseCompound) GetObjEmailDefault() EmailResponse`
+`func (o *ContactinformationsResponseCompound) GetObjEmailDefault() EmailResponseCompound`
 
 GetObjEmailDefault returns the ObjEmailDefault field if non-nil, zero value otherwise.
 
 ### GetObjEmailDefaultOk
 
-`func (o *ContactinformationsResponseCompound) GetObjEmailDefaultOk() (*EmailResponse, bool)`
+`func (o *ContactinformationsResponseCompound) GetObjEmailDefaultOk() (*EmailResponseCompound, bool)`
 
 GetObjEmailDefaultOk returns a tuple with the ObjEmailDefault field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObjEmailDefault
 
-`func (o *ContactinformationsResponseCompound) SetObjEmailDefault(v EmailResponse)`
+`func (o *ContactinformationsResponseCompound) SetObjEmailDefault(v EmailResponseCompound)`
 
 SetObjEmailDefault sets ObjEmailDefault field to given value.
 
@@ -281,20 +281,20 @@ HasObjEmailDefault returns a boolean if a field has been set.
 
 ### GetObjWebsiteDefault
 
-`func (o *ContactinformationsResponseCompound) GetObjWebsiteDefault() WebsiteResponse`
+`func (o *ContactinformationsResponseCompound) GetObjWebsiteDefault() WebsiteResponseCompound`
 
 GetObjWebsiteDefault returns the ObjWebsiteDefault field if non-nil, zero value otherwise.
 
 ### GetObjWebsiteDefaultOk
 
-`func (o *ContactinformationsResponseCompound) GetObjWebsiteDefaultOk() (*WebsiteResponse, bool)`
+`func (o *ContactinformationsResponseCompound) GetObjWebsiteDefaultOk() (*WebsiteResponseCompound, bool)`
 
 GetObjWebsiteDefaultOk returns a tuple with the ObjWebsiteDefault field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObjWebsiteDefault
 
-`func (o *ContactinformationsResponseCompound) SetObjWebsiteDefault(v WebsiteResponse)`
+`func (o *ContactinformationsResponseCompound) SetObjWebsiteDefault(v WebsiteResponseCompound)`
 
 SetObjWebsiteDefault sets ObjWebsiteDefault field to given value.
 

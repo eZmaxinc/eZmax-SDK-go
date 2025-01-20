@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ## UsergroupdelegationDeleteObjectV1
 
-> CommonResponse UsergroupdelegationDeleteObjectV1(ctx, pkiUsergroupdelegationID).Execute()
+> UsergroupdelegationDeleteObjectV1Response UsergroupdelegationDeleteObjectV1(ctx, pkiUsergroupdelegationID).Execute()
 
 Delete an existing Usergroupdelegation
 
@@ -107,7 +107,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupdelegationAPI.UsergroupdelegationDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UsergroupdelegationDeleteObjectV1`: CommonResponse
+	// response from `UsergroupdelegationDeleteObjectV1`: UsergroupdelegationDeleteObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupdelegationAPI.UsergroupdelegationDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**UsergroupdelegationDeleteObjectV1Response**](UsergroupdelegationDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ## UsergroupdelegationEditObjectV1
 
-> CommonResponse UsergroupdelegationEditObjectV1(ctx, pkiUsergroupdelegationID).UsergroupdelegationEditObjectV1Request(usergroupdelegationEditObjectV1Request).Execute()
+> UsergroupdelegationEditObjectV1Response UsergroupdelegationEditObjectV1(ctx, pkiUsergroupdelegationID).UsergroupdelegationEditObjectV1Request(usergroupdelegationEditObjectV1Request).Execute()
 
 Edit an existing Usergroupdelegation
 
@@ -178,7 +178,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUsergroupdelegationAPI.UsergroupdelegationEditObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UsergroupdelegationEditObjectV1`: CommonResponse
+	// response from `UsergroupdelegationEditObjectV1`: UsergroupdelegationEditObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectUsergroupdelegationAPI.UsergroupdelegationEditObjectV1`: %v\n", resp)
 }
 ```
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**UsergroupdelegationEditObjectV1Response**](UsergroupdelegationEditObjectV1Response.md)
 
 ### Authorization
 

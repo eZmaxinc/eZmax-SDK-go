@@ -154,7 +154,7 @@ type ApiSignatureDeleteObjectV1Request struct {
 	pkiSignatureID int32
 }
 
-func (r ApiSignatureDeleteObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiSignatureDeleteObjectV1Request) Execute() (*SignatureDeleteObjectV1Response, *http.Response, error) {
 	return r.ApiService.SignatureDeleteObjectV1Execute(r)
 }
 
@@ -176,13 +176,13 @@ func (a *ObjectSignatureAPIService) SignatureDeleteObjectV1(ctx context.Context,
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectSignatureAPIService) SignatureDeleteObjectV1Execute(r ApiSignatureDeleteObjectV1Request) (*CommonResponse, *http.Response, error) {
+//  @return SignatureDeleteObjectV1Response
+func (a *ObjectSignatureAPIService) SignatureDeleteObjectV1Execute(r ApiSignatureDeleteObjectV1Request) (*SignatureDeleteObjectV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *SignatureDeleteObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectSignatureAPIService.SignatureDeleteObjectV1")
@@ -293,7 +293,7 @@ func (r ApiSignatureEditObjectV1Request) SignatureEditObjectV1Request(signatureE
 	return r
 }
 
-func (r ApiSignatureEditObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiSignatureEditObjectV1Request) Execute() (*SignatureEditObjectV1Response, *http.Response, error) {
 	return r.ApiService.SignatureEditObjectV1Execute(r)
 }
 
@@ -315,13 +315,13 @@ func (a *ObjectSignatureAPIService) SignatureEditObjectV1(ctx context.Context, p
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectSignatureAPIService) SignatureEditObjectV1Execute(r ApiSignatureEditObjectV1Request) (*CommonResponse, *http.Response, error) {
+//  @return SignatureEditObjectV1Response
+func (a *ObjectSignatureAPIService) SignatureEditObjectV1Execute(r ApiSignatureEditObjectV1Request) (*SignatureEditObjectV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *SignatureEditObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectSignatureAPIService.SignatureEditObjectV1")

@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ObjDebugPayload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
 **ObjDebug** | Pointer to [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
-**MPayload** | [**EzsignfolderResponseCompound**](EzsignfolderResponseCompound.md) | Payload for GET /1/object/ezsignfolder/{pkiEzsignfolderID} | 
+**MPayload** | [**EzsignfolderGetObjectV1ResponseMPayload**](EzsignfolderGetObjectV1ResponseMPayload.md) |  | 
 
 ## Methods
 
 ### NewEzsignfolderGetObjectV1Response
 
-`func NewEzsignfolderGetObjectV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload EzsignfolderResponseCompound, ) *EzsignfolderGetObjectV1Response`
+`func NewEzsignfolderGetObjectV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload EzsignfolderGetObjectV1ResponseMPayload, ) *EzsignfolderGetObjectV1Response`
 
 NewEzsignfolderGetObjectV1Response instantiates a new EzsignfolderGetObjectV1Response object
 This constructor will assign default values to properties that have it defined,
@@ -74,20 +74,20 @@ HasObjDebug returns a boolean if a field has been set.
 
 ### GetMPayload
 
-`func (o *EzsignfolderGetObjectV1Response) GetMPayload() EzsignfolderResponseCompound`
+`func (o *EzsignfolderGetObjectV1Response) GetMPayload() EzsignfolderGetObjectV1ResponseMPayload`
 
 GetMPayload returns the MPayload field if non-nil, zero value otherwise.
 
 ### GetMPayloadOk
 
-`func (o *EzsignfolderGetObjectV1Response) GetMPayloadOk() (*EzsignfolderResponseCompound, bool)`
+`func (o *EzsignfolderGetObjectV1Response) GetMPayloadOk() (*EzsignfolderGetObjectV1ResponseMPayload, bool)`
 
 GetMPayloadOk returns a tuple with the MPayload field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMPayload
 
-`func (o *EzsignfolderGetObjectV1Response) SetMPayload(v EzsignfolderResponseCompound)`
+`func (o *EzsignfolderGetObjectV1Response) SetMPayload(v EzsignfolderGetObjectV1ResponseMPayload)`
 
 SetMPayload sets MPayload field to given value.
 

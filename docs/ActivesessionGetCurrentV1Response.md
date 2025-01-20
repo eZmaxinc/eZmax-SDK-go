@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ObjDebugPayload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
 **ObjDebug** | Pointer to [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
-**MPayload** | [**ActivesessionResponseCompound**](ActivesessionResponseCompound.md) | Payload for GET /1/object/activesession/getCurrent | 
+**MPayload** | [**ActivesessionGetCurrentV1ResponseMPayload**](ActivesessionGetCurrentV1ResponseMPayload.md) |  | 
 
 ## Methods
 
 ### NewActivesessionGetCurrentV1Response
 
-`func NewActivesessionGetCurrentV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload ActivesessionResponseCompound, ) *ActivesessionGetCurrentV1Response`
+`func NewActivesessionGetCurrentV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload ActivesessionGetCurrentV1ResponseMPayload, ) *ActivesessionGetCurrentV1Response`
 
 NewActivesessionGetCurrentV1Response instantiates a new ActivesessionGetCurrentV1Response object
 This constructor will assign default values to properties that have it defined,
@@ -74,20 +74,20 @@ HasObjDebug returns a boolean if a field has been set.
 
 ### GetMPayload
 
-`func (o *ActivesessionGetCurrentV1Response) GetMPayload() ActivesessionResponseCompound`
+`func (o *ActivesessionGetCurrentV1Response) GetMPayload() ActivesessionGetCurrentV1ResponseMPayload`
 
 GetMPayload returns the MPayload field if non-nil, zero value otherwise.
 
 ### GetMPayloadOk
 
-`func (o *ActivesessionGetCurrentV1Response) GetMPayloadOk() (*ActivesessionResponseCompound, bool)`
+`func (o *ActivesessionGetCurrentV1Response) GetMPayloadOk() (*ActivesessionGetCurrentV1ResponseMPayload, bool)`
 
 GetMPayloadOk returns a tuple with the MPayload field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMPayload
 
-`func (o *ActivesessionGetCurrentV1Response) SetMPayload(v ActivesessionResponseCompound)`
+`func (o *ActivesessionGetCurrentV1Response) SetMPayload(v ActivesessionGetCurrentV1ResponseMPayload)`
 
 SetMPayload sets MPayload field to given value.
 

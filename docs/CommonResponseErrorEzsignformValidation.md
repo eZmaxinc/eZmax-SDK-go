@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **SErrorMessage** | **string** | The message giving details about the error | 
 **EErrorCode** | [**FieldEErrorCode**](FieldEErrorCode.md) |  | 
 **ASErrorMessagedetail** | Pointer to **[]string** | More error message detail | [optional] 
-**AObjEzsignformfielderror** | **[]map[string]interface{}** |  | 
+**AObjEzsignformfielderror** | [**[]CustomEzsignformfielderrorResponse**](CustomEzsignformfielderrorResponse.md) |  | 
 
 ## Methods
 

@@ -44,7 +44,7 @@ import (
 )
 
 func main() {
-	userCreateObjectV1Request := *openapiclient.NewUserCreateObjectV1Request([]openapiclient.UserRequestCompound{*openapiclient.NewUserRequestCompound(int32(1), int32(21), int32(247), int32(2), *openapiclient.NewEmailRequest(int32(1), "email@example.com"), int32(1), openapiclient.Field-eUserType("AgentBroker"), openapiclient.Field-eUserLogintype("Password"), "John", "Doe", "JohnDoe", openapiclient.Field-eUserEzsignaccess("No"), true)}) // UserCreateObjectV1Request | 
+	userCreateObjectV1Request := *openapiclient.NewUserCreateObjectV1Request([]openapiclient.UserRequestCompound{*openapiclient.NewUserRequestCompound(int32(1), int32(21), int32(247), int32(2), *openapiclient.NewEmailRequestCompound(int32(1), "email@example.com"), int32(1), openapiclient.Field-eUserType("AgentBroker"), openapiclient.Field-eUserLogintype("Password"), "John", "Doe", "JohnDoe", openapiclient.Field-eUserEzsignaccess("No"), true)}) // UserCreateObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -110,7 +110,7 @@ import (
 )
 
 func main() {
-	userCreateObjectV2Request := *openapiclient.NewUserCreateObjectV2Request([]openapiclient.UserRequestCompoundV2{*openapiclient.NewUserRequestCompoundV2(int32(1), int32(21), int32(247), int32(2), *openapiclient.NewEmailRequest(int32(1), "email@example.com"), int32(1), openapiclient.Field-eUserType("AgentBroker"), openapiclient.Field-eUserLogintype("Password"), "John", "Doe", "JohnDoe", openapiclient.Field-eUserEzsignaccess("No"), true)}) // UserCreateObjectV2Request | 
+	userCreateObjectV2Request := *openapiclient.NewUserCreateObjectV2Request([]openapiclient.UserRequestCompoundV2{*openapiclient.NewUserRequestCompoundV2(int32(1), int32(21), int32(247), int32(2), *openapiclient.NewEmailRequestCompound(int32(1), "email@example.com"), int32(1), openapiclient.Field-eUserType("AgentBroker"), openapiclient.Field-eUserLogintype("Password"), "John", "Doe", "JohnDoe", openapiclient.Field-eUserEzsignaccess("No"), true)}) // UserCreateObjectV2Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -229,7 +229,7 @@ Name | Type | Description  | Notes
 
 ## UserEditObjectV1
 
-> CommonResponse UserEditObjectV1(ctx, pkiUserID).UserEditObjectV1Request(userEditObjectV1Request).Execute()
+> UserEditObjectV1Response UserEditObjectV1(ctx, pkiUserID).UserEditObjectV1Request(userEditObjectV1Request).Execute()
 
 Edit an existing User
 
@@ -249,7 +249,7 @@ import (
 
 func main() {
 	pkiUserID := int32(56) // int32 | The unique ID of the User
-	userEditObjectV1Request := *openapiclient.NewUserEditObjectV1Request(*openapiclient.NewUserRequestCompound(int32(1), int32(21), int32(247), int32(2), *openapiclient.NewEmailRequest(int32(1), "email@example.com"), int32(1), openapiclient.Field-eUserType("AgentBroker"), openapiclient.Field-eUserLogintype("Password"), "John", "Doe", "JohnDoe", openapiclient.Field-eUserEzsignaccess("No"), true)) // UserEditObjectV1Request | 
+	userEditObjectV1Request := *openapiclient.NewUserEditObjectV1Request(*openapiclient.NewUserRequestCompound(int32(1), int32(21), int32(247), int32(2), *openapiclient.NewEmailRequestCompound(int32(1), "email@example.com"), int32(1), openapiclient.Field-eUserType("AgentBroker"), openapiclient.Field-eUserLogintype("Password"), "John", "Doe", "JohnDoe", openapiclient.Field-eUserEzsignaccess("No"), true)) // UserEditObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -258,7 +258,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserEditObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UserEditObjectV1`: CommonResponse
+	// response from `UserEditObjectV1`: UserEditObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserEditObjectV1`: %v\n", resp)
 }
 ```
@@ -283,7 +283,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**UserEditObjectV1Response**](UserEditObjectV1Response.md)
 
 ### Authorization
 
@@ -321,7 +321,7 @@ import (
 
 func main() {
 	pkiUserID := int32(56) // int32 | 
-	userEditPermissionsV1Request := *openapiclient.NewUserEditPermissionsV1Request([]openapiclient.PermissionRequestCompound{*openapiclient.NewPermissionRequest(int32(53))}) // UserEditPermissionsV1Request | 
+	userEditPermissionsV1Request := *openapiclient.NewUserEditPermissionsV1Request([]openapiclient.PermissionRequestCompound{*openapiclient.NewPermissionRequestCompound(int32(53))}) // UserEditPermissionsV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1071,7 +1071,7 @@ Name | Type | Description  | Notes
 
 ## UserSendPasswordResetV1
 
-> CommonResponse UserSendPasswordResetV1(ctx, pkiUserID).Body(body).Execute()
+> UserSendPasswordResetV1Response UserSendPasswordResetV1(ctx, pkiUserID).Body(body).Execute()
 
 Send password reset
 
@@ -1100,7 +1100,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserSendPasswordResetV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UserSendPasswordResetV1`: CommonResponse
+	// response from `UserSendPasswordResetV1`: UserSendPasswordResetV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserSendPasswordResetV1`: %v\n", resp)
 }
 ```
@@ -1125,7 +1125,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**UserSendPasswordResetV1Response**](UserSendPasswordResetV1Response.md)
 
 ### Authorization
 

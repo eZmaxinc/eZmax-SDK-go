@@ -22,8 +22,7 @@ var _ MappedNullable = &EzsigndocumentEditObjectV1Request{}
 
 // EzsigndocumentEditObjectV1Request Request for PUT /1/object/ezsigndocument/{pkiEzsigndocumentID}
 type EzsigndocumentEditObjectV1Request struct {
-	// An Ezsigndocument Object and children to create a complete structure
-	ObjEzsigndocument EzsigndocumentRequest `json:"objEzsigndocument"`
+	ObjEzsigndocument EzsigndocumentRequestCompound `json:"objEzsigndocument"`
 }
 
 type _EzsigndocumentEditObjectV1Request EzsigndocumentEditObjectV1Request
@@ -32,7 +31,7 @@ type _EzsigndocumentEditObjectV1Request EzsigndocumentEditObjectV1Request
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigndocumentEditObjectV1Request(objEzsigndocument EzsigndocumentRequest) *EzsigndocumentEditObjectV1Request {
+func NewEzsigndocumentEditObjectV1Request(objEzsigndocument EzsigndocumentRequestCompound) *EzsigndocumentEditObjectV1Request {
 	this := EzsigndocumentEditObjectV1Request{}
 	this.ObjEzsigndocument = objEzsigndocument
 	return &this
@@ -47,9 +46,9 @@ func NewEzsigndocumentEditObjectV1RequestWithDefaults() *EzsigndocumentEditObjec
 }
 
 // GetObjEzsigndocument returns the ObjEzsigndocument field value
-func (o *EzsigndocumentEditObjectV1Request) GetObjEzsigndocument() EzsigndocumentRequest {
+func (o *EzsigndocumentEditObjectV1Request) GetObjEzsigndocument() EzsigndocumentRequestCompound {
 	if o == nil {
-		var ret EzsigndocumentRequest
+		var ret EzsigndocumentRequestCompound
 		return ret
 	}
 
@@ -58,7 +57,7 @@ func (o *EzsigndocumentEditObjectV1Request) GetObjEzsigndocument() Ezsigndocumen
 
 // GetObjEzsigndocumentOk returns a tuple with the ObjEzsigndocument field value
 // and a boolean to check if the value has been set.
-func (o *EzsigndocumentEditObjectV1Request) GetObjEzsigndocumentOk() (*EzsigndocumentRequest, bool) {
+func (o *EzsigndocumentEditObjectV1Request) GetObjEzsigndocumentOk() (*EzsigndocumentRequestCompound, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -66,7 +65,7 @@ func (o *EzsigndocumentEditObjectV1Request) GetObjEzsigndocumentOk() (*Ezsigndoc
 }
 
 // SetObjEzsigndocument sets field value
-func (o *EzsigndocumentEditObjectV1Request) SetObjEzsigndocument(v EzsigndocumentRequest) {
+func (o *EzsigndocumentEditObjectV1Request) SetObjEzsigndocument(v EzsigndocumentRequestCompound) {
 	o.ObjEzsigndocument = v
 }
 

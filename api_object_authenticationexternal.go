@@ -154,7 +154,7 @@ type ApiAuthenticationexternalDeleteObjectV1Request struct {
 	pkiAuthenticationexternalID int32
 }
 
-func (r ApiAuthenticationexternalDeleteObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiAuthenticationexternalDeleteObjectV1Request) Execute() (*AuthenticationexternalDeleteObjectV1Response, *http.Response, error) {
 	return r.ApiService.AuthenticationexternalDeleteObjectV1Execute(r)
 }
 
@@ -176,13 +176,13 @@ func (a *ObjectAuthenticationexternalAPIService) AuthenticationexternalDeleteObj
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectAuthenticationexternalAPIService) AuthenticationexternalDeleteObjectV1Execute(r ApiAuthenticationexternalDeleteObjectV1Request) (*CommonResponse, *http.Response, error) {
+//  @return AuthenticationexternalDeleteObjectV1Response
+func (a *ObjectAuthenticationexternalAPIService) AuthenticationexternalDeleteObjectV1Execute(r ApiAuthenticationexternalDeleteObjectV1Request) (*AuthenticationexternalDeleteObjectV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *AuthenticationexternalDeleteObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectAuthenticationexternalAPIService.AuthenticationexternalDeleteObjectV1")
@@ -293,7 +293,7 @@ func (r ApiAuthenticationexternalEditObjectV1Request) AuthenticationexternalEdit
 	return r
 }
 
-func (r ApiAuthenticationexternalEditObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiAuthenticationexternalEditObjectV1Request) Execute() (*AuthenticationexternalEditObjectV1Response, *http.Response, error) {
 	return r.ApiService.AuthenticationexternalEditObjectV1Execute(r)
 }
 
@@ -315,13 +315,13 @@ func (a *ObjectAuthenticationexternalAPIService) AuthenticationexternalEditObjec
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectAuthenticationexternalAPIService) AuthenticationexternalEditObjectV1Execute(r ApiAuthenticationexternalEditObjectV1Request) (*CommonResponse, *http.Response, error) {
+//  @return AuthenticationexternalEditObjectV1Response
+func (a *ObjectAuthenticationexternalAPIService) AuthenticationexternalEditObjectV1Execute(r ApiAuthenticationexternalEditObjectV1Request) (*AuthenticationexternalEditObjectV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *AuthenticationexternalEditObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectAuthenticationexternalAPIService.AuthenticationexternalEditObjectV1")
@@ -906,7 +906,7 @@ func (r ApiAuthenticationexternalResetAuthorizationV1Request) Body(body map[stri
 	return r
 }
 
-func (r ApiAuthenticationexternalResetAuthorizationV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiAuthenticationexternalResetAuthorizationV1Request) Execute() (*AuthenticationexternalResetAuthorizationV1Response, *http.Response, error) {
 	return r.ApiService.AuthenticationexternalResetAuthorizationV1Execute(r)
 }
 
@@ -928,13 +928,13 @@ func (a *ObjectAuthenticationexternalAPIService) AuthenticationexternalResetAuth
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectAuthenticationexternalAPIService) AuthenticationexternalResetAuthorizationV1Execute(r ApiAuthenticationexternalResetAuthorizationV1Request) (*CommonResponse, *http.Response, error) {
+//  @return AuthenticationexternalResetAuthorizationV1Response
+func (a *ObjectAuthenticationexternalAPIService) AuthenticationexternalResetAuthorizationV1Execute(r ApiAuthenticationexternalResetAuthorizationV1Request) (*AuthenticationexternalResetAuthorizationV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *AuthenticationexternalResetAuthorizationV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectAuthenticationexternalAPIService.AuthenticationexternalResetAuthorizationV1")

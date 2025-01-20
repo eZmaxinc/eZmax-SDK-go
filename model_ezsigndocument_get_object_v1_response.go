@@ -24,8 +24,7 @@ var _ MappedNullable = &EzsigndocumentGetObjectV1Response{}
 type EzsigndocumentGetObjectV1Response struct {
 	ObjDebugPayload CommonResponseObjDebugPayload `json:"objDebugPayload"`
 	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
-	// Payload for GET /1/object/ezsigndocument/{pkiEzsigndocumentID}
-	MPayload EzsigndocumentResponseCompound `json:"mPayload"`
+	MPayload EzsigndocumentGetObjectV1ResponseMPayload `json:"mPayload"`
 }
 
 type _EzsigndocumentGetObjectV1Response EzsigndocumentGetObjectV1Response
@@ -34,7 +33,7 @@ type _EzsigndocumentGetObjectV1Response EzsigndocumentGetObjectV1Response
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigndocumentGetObjectV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload EzsigndocumentResponseCompound) *EzsigndocumentGetObjectV1Response {
+func NewEzsigndocumentGetObjectV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload EzsigndocumentGetObjectV1ResponseMPayload) *EzsigndocumentGetObjectV1Response {
 	this := EzsigndocumentGetObjectV1Response{}
 	this.ObjDebugPayload = objDebugPayload
 	this.MPayload = mPayload
@@ -106,9 +105,9 @@ func (o *EzsigndocumentGetObjectV1Response) SetObjDebug(v CommonResponseObjDebug
 }
 
 // GetMPayload returns the MPayload field value
-func (o *EzsigndocumentGetObjectV1Response) GetMPayload() EzsigndocumentResponseCompound {
+func (o *EzsigndocumentGetObjectV1Response) GetMPayload() EzsigndocumentGetObjectV1ResponseMPayload {
 	if o == nil {
-		var ret EzsigndocumentResponseCompound
+		var ret EzsigndocumentGetObjectV1ResponseMPayload
 		return ret
 	}
 
@@ -117,7 +116,7 @@ func (o *EzsigndocumentGetObjectV1Response) GetMPayload() EzsigndocumentResponse
 
 // GetMPayloadOk returns a tuple with the MPayload field value
 // and a boolean to check if the value has been set.
-func (o *EzsigndocumentGetObjectV1Response) GetMPayloadOk() (*EzsigndocumentResponseCompound, bool) {
+func (o *EzsigndocumentGetObjectV1Response) GetMPayloadOk() (*EzsigndocumentGetObjectV1ResponseMPayload, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -125,7 +124,7 @@ func (o *EzsigndocumentGetObjectV1Response) GetMPayloadOk() (*EzsigndocumentResp
 }
 
 // SetMPayload sets field value
-func (o *EzsigndocumentGetObjectV1Response) SetMPayload(v EzsigndocumentResponseCompound) {
+func (o *EzsigndocumentGetObjectV1Response) SetMPayload(v EzsigndocumentGetObjectV1ResponseMPayload) {
 	o.MPayload = v
 }
 

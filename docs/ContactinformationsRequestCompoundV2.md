@@ -9,10 +9,10 @@ Name | Type | Description | Notes
 **IPhoneDefault** | **int32** | The index in the a_objPhone array (zero based index) representing the Phone object that should become the default one.  You can leave the value to 0 if the array is empty. | 
 **IEmailDefault** | **int32** | The index in the a_objEmail array (zero based index) representing the Email object that should become the default one.  You can leave the value to 0 if the array is empty. | 
 **IWebsiteDefault** | **int32** | The index in the a_objWebsite array (zero based index) representing the Website object that should become the default one.  You can leave the value to 0 if the array is empty. | 
-**AObjAddress** | [**[]AddressRequest**](AddressRequest.md) |  | 
-**AObjPhone** | [**[]PhoneRequest**](PhoneRequest.md) |  | 
-**AObjEmail** | [**[]EmailRequest**](EmailRequest.md) |  | 
-**AObjWebsite** | [**[]WebsiteRequest**](WebsiteRequest.md) |  | 
+**AObjAddress** | [**[]AddressRequestCompound**](AddressRequestCompound.md) |  | 
+**AObjPhone** | [**[]PhoneRequestCompound**](PhoneRequestCompound.md) |  | 
+**AObjEmail** | [**[]EmailRequestCompound**](EmailRequestCompound.md) |  | 
+**AObjWebsite** | [**[]WebsiteRequestCompound**](WebsiteRequestCompound.md) |  | 
 
 ## Methods
 

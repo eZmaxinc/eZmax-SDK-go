@@ -35,13 +35,10 @@ type ContactinformationsResponseCompound struct {
 	EContactinformationsType FieldEContactinformationsType `json:"eContactinformationsType"`
 	// The url of the Contactinformations
 	SContactinformationsUrl *string `json:"sContactinformationsUrl,omitempty" validate:"regexp=^.{0,255}$"`
-	// An Address Object and children to create a complete structure
-	ObjAddressDefault *AddressResponse `json:"objAddressDefault,omitempty"`
+	ObjAddressDefault *AddressResponseCompound `json:"objAddressDefault,omitempty"`
 	ObjPhoneDefault *PhoneResponseCompound `json:"objPhoneDefault,omitempty"`
-	// An Email Object and children to create a complete structure
-	ObjEmailDefault *EmailResponse `json:"objEmailDefault,omitempty"`
-	// A Website Object and children to create a complete structure
-	ObjWebsiteDefault *WebsiteResponse `json:"objWebsiteDefault,omitempty"`
+	ObjEmailDefault *EmailResponseCompound `json:"objEmailDefault,omitempty"`
+	ObjWebsiteDefault *WebsiteResponseCompound `json:"objWebsiteDefault,omitempty"`
 	AObjAddress []AddressResponseCompound `json:"a_objAddress"`
 	AObjPhone []PhoneResponseCompound `json:"a_objPhone"`
 	AObjEmail []EmailResponseCompound `json:"a_objEmail"`
@@ -282,9 +279,9 @@ func (o *ContactinformationsResponseCompound) SetSContactinformationsUrl(v strin
 }
 
 // GetObjAddressDefault returns the ObjAddressDefault field value if set, zero value otherwise.
-func (o *ContactinformationsResponseCompound) GetObjAddressDefault() AddressResponse {
+func (o *ContactinformationsResponseCompound) GetObjAddressDefault() AddressResponseCompound {
 	if o == nil || IsNil(o.ObjAddressDefault) {
-		var ret AddressResponse
+		var ret AddressResponseCompound
 		return ret
 	}
 	return *o.ObjAddressDefault
@@ -292,7 +289,7 @@ func (o *ContactinformationsResponseCompound) GetObjAddressDefault() AddressResp
 
 // GetObjAddressDefaultOk returns a tuple with the ObjAddressDefault field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ContactinformationsResponseCompound) GetObjAddressDefaultOk() (*AddressResponse, bool) {
+func (o *ContactinformationsResponseCompound) GetObjAddressDefaultOk() (*AddressResponseCompound, bool) {
 	if o == nil || IsNil(o.ObjAddressDefault) {
 		return nil, false
 	}
@@ -308,8 +305,8 @@ func (o *ContactinformationsResponseCompound) HasObjAddressDefault() bool {
 	return false
 }
 
-// SetObjAddressDefault gets a reference to the given AddressResponse and assigns it to the ObjAddressDefault field.
-func (o *ContactinformationsResponseCompound) SetObjAddressDefault(v AddressResponse) {
+// SetObjAddressDefault gets a reference to the given AddressResponseCompound and assigns it to the ObjAddressDefault field.
+func (o *ContactinformationsResponseCompound) SetObjAddressDefault(v AddressResponseCompound) {
 	o.ObjAddressDefault = &v
 }
 
@@ -346,9 +343,9 @@ func (o *ContactinformationsResponseCompound) SetObjPhoneDefault(v PhoneResponse
 }
 
 // GetObjEmailDefault returns the ObjEmailDefault field value if set, zero value otherwise.
-func (o *ContactinformationsResponseCompound) GetObjEmailDefault() EmailResponse {
+func (o *ContactinformationsResponseCompound) GetObjEmailDefault() EmailResponseCompound {
 	if o == nil || IsNil(o.ObjEmailDefault) {
-		var ret EmailResponse
+		var ret EmailResponseCompound
 		return ret
 	}
 	return *o.ObjEmailDefault
@@ -356,7 +353,7 @@ func (o *ContactinformationsResponseCompound) GetObjEmailDefault() EmailResponse
 
 // GetObjEmailDefaultOk returns a tuple with the ObjEmailDefault field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ContactinformationsResponseCompound) GetObjEmailDefaultOk() (*EmailResponse, bool) {
+func (o *ContactinformationsResponseCompound) GetObjEmailDefaultOk() (*EmailResponseCompound, bool) {
 	if o == nil || IsNil(o.ObjEmailDefault) {
 		return nil, false
 	}
@@ -372,15 +369,15 @@ func (o *ContactinformationsResponseCompound) HasObjEmailDefault() bool {
 	return false
 }
 
-// SetObjEmailDefault gets a reference to the given EmailResponse and assigns it to the ObjEmailDefault field.
-func (o *ContactinformationsResponseCompound) SetObjEmailDefault(v EmailResponse) {
+// SetObjEmailDefault gets a reference to the given EmailResponseCompound and assigns it to the ObjEmailDefault field.
+func (o *ContactinformationsResponseCompound) SetObjEmailDefault(v EmailResponseCompound) {
 	o.ObjEmailDefault = &v
 }
 
 // GetObjWebsiteDefault returns the ObjWebsiteDefault field value if set, zero value otherwise.
-func (o *ContactinformationsResponseCompound) GetObjWebsiteDefault() WebsiteResponse {
+func (o *ContactinformationsResponseCompound) GetObjWebsiteDefault() WebsiteResponseCompound {
 	if o == nil || IsNil(o.ObjWebsiteDefault) {
-		var ret WebsiteResponse
+		var ret WebsiteResponseCompound
 		return ret
 	}
 	return *o.ObjWebsiteDefault
@@ -388,7 +385,7 @@ func (o *ContactinformationsResponseCompound) GetObjWebsiteDefault() WebsiteResp
 
 // GetObjWebsiteDefaultOk returns a tuple with the ObjWebsiteDefault field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ContactinformationsResponseCompound) GetObjWebsiteDefaultOk() (*WebsiteResponse, bool) {
+func (o *ContactinformationsResponseCompound) GetObjWebsiteDefaultOk() (*WebsiteResponseCompound, bool) {
 	if o == nil || IsNil(o.ObjWebsiteDefault) {
 		return nil, false
 	}
@@ -404,8 +401,8 @@ func (o *ContactinformationsResponseCompound) HasObjWebsiteDefault() bool {
 	return false
 }
 
-// SetObjWebsiteDefault gets a reference to the given WebsiteResponse and assigns it to the ObjWebsiteDefault field.
-func (o *ContactinformationsResponseCompound) SetObjWebsiteDefault(v WebsiteResponse) {
+// SetObjWebsiteDefault gets a reference to the given WebsiteResponseCompound and assigns it to the ObjWebsiteDefault field.
+func (o *ContactinformationsResponseCompound) SetObjWebsiteDefault(v WebsiteResponseCompound) {
 	o.ObjWebsiteDefault = &v
 }
 

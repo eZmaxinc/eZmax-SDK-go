@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AObjPermission** | [**[]PermissionRequest**](PermissionRequest.md) |  | 
+**AObjPermission** | [**[]PermissionRequestCompound**](PermissionRequestCompound.md) |  | 
 
 ## Methods
 

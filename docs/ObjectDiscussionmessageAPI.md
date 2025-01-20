@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 ## DiscussionmessageDeleteObjectV1
 
-> CommonResponse DiscussionmessageDeleteObjectV1(ctx, pkiDiscussionmessageID).Execute()
+> DiscussionmessageDeleteObjectV1Response DiscussionmessageDeleteObjectV1(ctx, pkiDiscussionmessageID).Execute()
 
 Delete an existing Discussionmessage
 
@@ -106,7 +106,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectDiscussionmessageAPI.DiscussionmessageDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DiscussionmessageDeleteObjectV1`: CommonResponse
+	// response from `DiscussionmessageDeleteObjectV1`: DiscussionmessageDeleteObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectDiscussionmessageAPI.DiscussionmessageDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**DiscussionmessageDeleteObjectV1Response**](DiscussionmessageDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 
 ## DiscussionmessagePatchObjectV1
 
-> CommonResponse DiscussionmessagePatchObjectV1(ctx, pkiDiscussionmessageID).DiscussionmessagePatchObjectV1Request(discussionmessagePatchObjectV1Request).Execute()
+> DiscussionmessagePatchObjectV1Response DiscussionmessagePatchObjectV1(ctx, pkiDiscussionmessageID).DiscussionmessagePatchObjectV1Request(discussionmessagePatchObjectV1Request).Execute()
 
 Patch an existing Discussionmessage
 
@@ -177,7 +177,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectDiscussionmessageAPI.DiscussionmessagePatchObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DiscussionmessagePatchObjectV1`: CommonResponse
+	// response from `DiscussionmessagePatchObjectV1`: DiscussionmessagePatchObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectDiscussionmessageAPI.DiscussionmessagePatchObjectV1`: %v\n", resp)
 }
 ```
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**DiscussionmessagePatchObjectV1Response**](DiscussionmessagePatchObjectV1Response.md)
 
 ### Authorization
 

@@ -160,7 +160,7 @@ func (r ApiEzsignfoldertypeEditObjectV3Request) EzsignfoldertypeEditObjectV3Requ
 	return r
 }
 
-func (r ApiEzsignfoldertypeEditObjectV3Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsignfoldertypeEditObjectV3Request) Execute() (*EzsignfoldertypeEditObjectV3Response, *http.Response, error) {
 	return r.ApiService.EzsignfoldertypeEditObjectV3Execute(r)
 }
 
@@ -182,13 +182,13 @@ func (a *ObjectEzsignfoldertypeAPIService) EzsignfoldertypeEditObjectV3(ctx cont
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectEzsignfoldertypeAPIService) EzsignfoldertypeEditObjectV3Execute(r ApiEzsignfoldertypeEditObjectV3Request) (*CommonResponse, *http.Response, error) {
+//  @return EzsignfoldertypeEditObjectV3Response
+func (a *ObjectEzsignfoldertypeAPIService) EzsignfoldertypeEditObjectV3Execute(r ApiEzsignfoldertypeEditObjectV3Request) (*EzsignfoldertypeEditObjectV3Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsignfoldertypeEditObjectV3Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfoldertypeAPIService.EzsignfoldertypeEditObjectV3")

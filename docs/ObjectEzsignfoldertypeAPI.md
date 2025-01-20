@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 ## EzsignfoldertypeEditObjectV3
 
-> CommonResponse EzsignfoldertypeEditObjectV3(ctx, pkiEzsignfoldertypeID).EzsignfoldertypeEditObjectV3Request(ezsignfoldertypeEditObjectV3Request).Execute()
+> EzsignfoldertypeEditObjectV3Response EzsignfoldertypeEditObjectV3(ctx, pkiEzsignfoldertypeID).EzsignfoldertypeEditObjectV3Request(ezsignfoldertypeEditObjectV3Request).Execute()
 
 Edit an existing Ezsignfoldertype
 
@@ -110,7 +110,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldertypeAPI.EzsignfoldertypeEditObjectV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignfoldertypeEditObjectV3`: CommonResponse
+	// response from `EzsignfoldertypeEditObjectV3`: EzsignfoldertypeEditObjectV3Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfoldertypeAPI.EzsignfoldertypeEditObjectV3`: %v\n", resp)
 }
 ```
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfoldertypeEditObjectV3Response**](EzsignfoldertypeEditObjectV3Response.md)
 
 ### Authorization
 

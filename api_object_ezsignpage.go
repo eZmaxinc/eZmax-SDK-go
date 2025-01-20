@@ -36,7 +36,7 @@ func (r ApiEzsignpageConsultV1Request) Body(body map[string]interface{}) ApiEzsi
 	return r
 }
 
-func (r ApiEzsignpageConsultV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsignpageConsultV1Request) Execute() (*EzsignpageConsultV1Response, *http.Response, error) {
 	return r.ApiService.EzsignpageConsultV1Execute(r)
 }
 
@@ -56,13 +56,13 @@ func (a *ObjectEzsignpageAPIService) EzsignpageConsultV1(ctx context.Context, pk
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectEzsignpageAPIService) EzsignpageConsultV1Execute(r ApiEzsignpageConsultV1Request) (*CommonResponse, *http.Response, error) {
+//  @return EzsignpageConsultV1Response
+func (a *ObjectEzsignpageAPIService) EzsignpageConsultV1Execute(r ApiEzsignpageConsultV1Request) (*EzsignpageConsultV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsignpageConsultV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignpageAPIService.EzsignpageConsultV1")

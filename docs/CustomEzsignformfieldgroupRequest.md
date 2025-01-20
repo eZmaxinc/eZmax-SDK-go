@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiEzsignformfieldgroupID** | Pointer to **int32** | The unique ID of the Ezsignformfieldgroup | [optional] 
 **SEzsignformfieldgroupLabel** | Pointer to **string** | The Label for the Ezsignformfieldgroup | [optional] 
-**AObjEzsignformfield** | **[]map[string]interface{}** | An array containing all the values to fill the Ezsignform. | 
+**AObjEzsignformfield** | [**[]CustomEzsignformfieldRequest**](CustomEzsignformfieldRequest.md) | An array containing all the values to fill the Ezsignform. | 
 
 ## Methods
 

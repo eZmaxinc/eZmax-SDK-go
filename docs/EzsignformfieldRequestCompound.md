@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **EEzsignformfieldDependencyrequirement** | Pointer to [**FieldEEzsignformfieldDependencyrequirement**](FieldEEzsignformfieldDependencyrequirement.md) |  | [optional] 
 **EEzsignformfieldHorizontalalignment** | Pointer to [**EnumHorizontalalignment**](EnumHorizontalalignment.md) |  | [optional] 
 **ObjTextstylestatic** | Pointer to [**TextstylestaticRequestCompound**](TextstylestaticRequestCompound.md) |  | [optional] 
-**AObjEzsignelementdependency** | Pointer to [**[]EzsignelementdependencyRequest**](EzsignelementdependencyRequest.md) |  | [optional] 
+**AObjEzsignelementdependency** | Pointer to [**[]EzsignelementdependencyRequestCompound**](EzsignelementdependencyRequestCompound.md) |  | [optional] 
 
 ## Methods
 

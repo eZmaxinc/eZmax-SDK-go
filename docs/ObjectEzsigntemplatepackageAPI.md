@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 ## EzsigntemplatepackageDeleteObjectV1
 
-> CommonResponse EzsigntemplatepackageDeleteObjectV1(ctx, pkiEzsigntemplatepackageID).Execute()
+> EzsigntemplatepackageDeleteObjectV1Response EzsigntemplatepackageDeleteObjectV1(ctx, pkiEzsigntemplatepackageID).Execute()
 
 Delete an existing Ezsigntemplatepackage
 
@@ -110,7 +110,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatepackageAPI.EzsigntemplatepackageDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsigntemplatepackageDeleteObjectV1`: CommonResponse
+	// response from `EzsigntemplatepackageDeleteObjectV1`: EzsigntemplatepackageDeleteObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatepackageAPI.EzsigntemplatepackageDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsigntemplatepackageDeleteObjectV1Response**](EzsigntemplatepackageDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -224,7 +224,7 @@ Name | Type | Description  | Notes
 
 ## EzsigntemplatepackageEditObjectV1
 
-> CommonResponse EzsigntemplatepackageEditObjectV1(ctx, pkiEzsigntemplatepackageID).EzsigntemplatepackageEditObjectV1Request(ezsigntemplatepackageEditObjectV1Request).Execute()
+> EzsigntemplatepackageEditObjectV1Response EzsigntemplatepackageEditObjectV1(ctx, pkiEzsigntemplatepackageID).EzsigntemplatepackageEditObjectV1Request(ezsigntemplatepackageEditObjectV1Request).Execute()
 
 Edit an existing Ezsigntemplatepackage
 
@@ -253,7 +253,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatepackageAPI.EzsigntemplatepackageEditObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsigntemplatepackageEditObjectV1`: CommonResponse
+	// response from `EzsigntemplatepackageEditObjectV1`: EzsigntemplatepackageEditObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatepackageAPI.EzsigntemplatepackageEditObjectV1`: %v\n", resp)
 }
 ```
@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsigntemplatepackageEditObjectV1Response**](EzsigntemplatepackageEditObjectV1Response.md)
 
 ### Authorization
 
