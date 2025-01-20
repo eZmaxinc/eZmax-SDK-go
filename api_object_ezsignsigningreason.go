@@ -160,7 +160,7 @@ func (r ApiEzsignsigningreasonEditObjectV1Request) EzsignsigningreasonEditObject
 	return r
 }
 
-func (r ApiEzsignsigningreasonEditObjectV1Request) Execute() (*EzsignsigningreasonEditObjectV1Response, *http.Response, error) {
+func (r ApiEzsignsigningreasonEditObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.EzsignsigningreasonEditObjectV1Execute(r)
 }
 
@@ -182,13 +182,13 @@ func (a *ObjectEzsignsigningreasonAPIService) EzsignsigningreasonEditObjectV1(ct
 }
 
 // Execute executes the request
-//  @return EzsignsigningreasonEditObjectV1Response
-func (a *ObjectEzsignsigningreasonAPIService) EzsignsigningreasonEditObjectV1Execute(r ApiEzsignsigningreasonEditObjectV1Request) (*EzsignsigningreasonEditObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectEzsignsigningreasonAPIService) EzsignsigningreasonEditObjectV1Execute(r ApiEzsignsigningreasonEditObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *EzsignsigningreasonEditObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignsigningreasonAPIService.EzsignsigningreasonEditObjectV1")

@@ -24,7 +24,8 @@ var _ MappedNullable = &EzsignfoldersignerassociationGetObjectV1Response{}
 type EzsignfoldersignerassociationGetObjectV1Response struct {
 	ObjDebugPayload CommonResponseObjDebugPayload `json:"objDebugPayload"`
 	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
-	MPayload EzsignfoldersignerassociationGetObjectV1ResponseMPayload `json:"mPayload"`
+	// Payload for GET /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}
+	MPayload EzsignfoldersignerassociationResponseCompound `json:"mPayload"`
 }
 
 type _EzsignfoldersignerassociationGetObjectV1Response EzsignfoldersignerassociationGetObjectV1Response
@@ -33,7 +34,7 @@ type _EzsignfoldersignerassociationGetObjectV1Response Ezsignfoldersignerassocia
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfoldersignerassociationGetObjectV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload EzsignfoldersignerassociationGetObjectV1ResponseMPayload) *EzsignfoldersignerassociationGetObjectV1Response {
+func NewEzsignfoldersignerassociationGetObjectV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload EzsignfoldersignerassociationResponseCompound) *EzsignfoldersignerassociationGetObjectV1Response {
 	this := EzsignfoldersignerassociationGetObjectV1Response{}
 	this.ObjDebugPayload = objDebugPayload
 	this.MPayload = mPayload
@@ -105,9 +106,9 @@ func (o *EzsignfoldersignerassociationGetObjectV1Response) SetObjDebug(v CommonR
 }
 
 // GetMPayload returns the MPayload field value
-func (o *EzsignfoldersignerassociationGetObjectV1Response) GetMPayload() EzsignfoldersignerassociationGetObjectV1ResponseMPayload {
+func (o *EzsignfoldersignerassociationGetObjectV1Response) GetMPayload() EzsignfoldersignerassociationResponseCompound {
 	if o == nil {
-		var ret EzsignfoldersignerassociationGetObjectV1ResponseMPayload
+		var ret EzsignfoldersignerassociationResponseCompound
 		return ret
 	}
 
@@ -116,7 +117,7 @@ func (o *EzsignfoldersignerassociationGetObjectV1Response) GetMPayload() Ezsignf
 
 // GetMPayloadOk returns a tuple with the MPayload field value
 // and a boolean to check if the value has been set.
-func (o *EzsignfoldersignerassociationGetObjectV1Response) GetMPayloadOk() (*EzsignfoldersignerassociationGetObjectV1ResponseMPayload, bool) {
+func (o *EzsignfoldersignerassociationGetObjectV1Response) GetMPayloadOk() (*EzsignfoldersignerassociationResponseCompound, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -124,7 +125,7 @@ func (o *EzsignfoldersignerassociationGetObjectV1Response) GetMPayloadOk() (*Ezs
 }
 
 // SetMPayload sets field value
-func (o *EzsignfoldersignerassociationGetObjectV1Response) SetMPayload(v EzsignfoldersignerassociationGetObjectV1ResponseMPayload) {
+func (o *EzsignfoldersignerassociationGetObjectV1Response) SetMPayload(v EzsignfoldersignerassociationResponseCompound) {
 	o.MPayload = v
 }
 

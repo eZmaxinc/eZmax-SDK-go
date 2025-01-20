@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AObjWebhooklog** | [**[]CustomWebhooklogResponse**](CustomWebhooklogResponse.md) |  | 
+**AObjWebhooklog** | **[]map[string]interface{}** |  | 
 
 ## Methods
 

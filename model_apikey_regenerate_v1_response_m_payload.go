@@ -22,7 +22,8 @@ var _ MappedNullable = &ApikeyRegenerateV1ResponseMPayload{}
 
 // ApikeyRegenerateV1ResponseMPayload Response for GET /1/object/apikey/{pkiApikeyID}/regenerate
 type ApikeyRegenerateV1ResponseMPayload struct {
-	ObjApikey ApikeyResponseCompound `json:"objApikey"`
+	// An Apikey Object and children to create a complete structure
+	ObjApikey ApikeyResponse `json:"objApikey"`
 }
 
 type _ApikeyRegenerateV1ResponseMPayload ApikeyRegenerateV1ResponseMPayload
@@ -31,7 +32,7 @@ type _ApikeyRegenerateV1ResponseMPayload ApikeyRegenerateV1ResponseMPayload
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApikeyRegenerateV1ResponseMPayload(objApikey ApikeyResponseCompound) *ApikeyRegenerateV1ResponseMPayload {
+func NewApikeyRegenerateV1ResponseMPayload(objApikey ApikeyResponse) *ApikeyRegenerateV1ResponseMPayload {
 	this := ApikeyRegenerateV1ResponseMPayload{}
 	this.ObjApikey = objApikey
 	return &this
@@ -46,9 +47,9 @@ func NewApikeyRegenerateV1ResponseMPayloadWithDefaults() *ApikeyRegenerateV1Resp
 }
 
 // GetObjApikey returns the ObjApikey field value
-func (o *ApikeyRegenerateV1ResponseMPayload) GetObjApikey() ApikeyResponseCompound {
+func (o *ApikeyRegenerateV1ResponseMPayload) GetObjApikey() ApikeyResponse {
 	if o == nil {
-		var ret ApikeyResponseCompound
+		var ret ApikeyResponse
 		return ret
 	}
 
@@ -57,7 +58,7 @@ func (o *ApikeyRegenerateV1ResponseMPayload) GetObjApikey() ApikeyResponseCompou
 
 // GetObjApikeyOk returns a tuple with the ObjApikey field value
 // and a boolean to check if the value has been set.
-func (o *ApikeyRegenerateV1ResponseMPayload) GetObjApikeyOk() (*ApikeyResponseCompound, bool) {
+func (o *ApikeyRegenerateV1ResponseMPayload) GetObjApikeyOk() (*ApikeyResponse, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,7 +66,7 @@ func (o *ApikeyRegenerateV1ResponseMPayload) GetObjApikeyOk() (*ApikeyResponseCo
 }
 
 // SetObjApikey sets field value
-func (o *ApikeyRegenerateV1ResponseMPayload) SetObjApikey(v ApikeyResponseCompound) {
+func (o *ApikeyRegenerateV1ResponseMPayload) SetObjApikey(v ApikeyResponse) {
 	o.ObjApikey = v
 }
 

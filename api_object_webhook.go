@@ -154,7 +154,7 @@ type ApiWebhookDeleteObjectV1Request struct {
 	pkiWebhookID int32
 }
 
-func (r ApiWebhookDeleteObjectV1Request) Execute() (*WebhookDeleteObjectV1Response, *http.Response, error) {
+func (r ApiWebhookDeleteObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.WebhookDeleteObjectV1Execute(r)
 }
 
@@ -176,13 +176,13 @@ func (a *ObjectWebhookAPIService) WebhookDeleteObjectV1(ctx context.Context, pki
 }
 
 // Execute executes the request
-//  @return WebhookDeleteObjectV1Response
-func (a *ObjectWebhookAPIService) WebhookDeleteObjectV1Execute(r ApiWebhookDeleteObjectV1Request) (*WebhookDeleteObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectWebhookAPIService) WebhookDeleteObjectV1Execute(r ApiWebhookDeleteObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *WebhookDeleteObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectWebhookAPIService.WebhookDeleteObjectV1")
@@ -287,7 +287,7 @@ func (r ApiWebhookEditObjectV1Request) WebhookEditObjectV1Request(webhookEditObj
 	return r
 }
 
-func (r ApiWebhookEditObjectV1Request) Execute() (*WebhookEditObjectV1Response, *http.Response, error) {
+func (r ApiWebhookEditObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.WebhookEditObjectV1Execute(r)
 }
 
@@ -309,13 +309,13 @@ func (a *ObjectWebhookAPIService) WebhookEditObjectV1(ctx context.Context, pkiWe
 }
 
 // Execute executes the request
-//  @return WebhookEditObjectV1Response
-func (a *ObjectWebhookAPIService) WebhookEditObjectV1Execute(r ApiWebhookEditObjectV1Request) (*WebhookEditObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectWebhookAPIService) WebhookEditObjectV1Execute(r ApiWebhookEditObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *WebhookEditObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectWebhookAPIService.WebhookEditObjectV1")
@@ -1016,7 +1016,7 @@ func (r ApiWebhookSendWebhookV1Request) WebhookSendWebhookV1Request(webhookSendW
 	return r
 }
 
-func (r ApiWebhookSendWebhookV1Request) Execute() (*WebhookSendWebhookV1Response, *http.Response, error) {
+func (r ApiWebhookSendWebhookV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.WebhookSendWebhookV1Execute(r)
 }
 
@@ -1034,13 +1034,13 @@ func (a *ObjectWebhookAPIService) WebhookSendWebhookV1(ctx context.Context) ApiW
 }
 
 // Execute executes the request
-//  @return WebhookSendWebhookV1Response
-func (a *ObjectWebhookAPIService) WebhookSendWebhookV1Execute(r ApiWebhookSendWebhookV1Request) (*WebhookSendWebhookV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectWebhookAPIService) WebhookSendWebhookV1Execute(r ApiWebhookSendWebhookV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *WebhookSendWebhookV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectWebhookAPIService.WebhookSendWebhookV1")
@@ -1149,7 +1149,7 @@ func (r ApiWebhookTestV1Request) Body(body map[string]interface{}) ApiWebhookTes
 	return r
 }
 
-func (r ApiWebhookTestV1Request) Execute() (*WebhookTestV1Response, *http.Response, error) {
+func (r ApiWebhookTestV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.WebhookTestV1Execute(r)
 }
 
@@ -1171,13 +1171,13 @@ func (a *ObjectWebhookAPIService) WebhookTestV1(ctx context.Context, pkiWebhookI
 }
 
 // Execute executes the request
-//  @return WebhookTestV1Response
-func (a *ObjectWebhookAPIService) WebhookTestV1Execute(r ApiWebhookTestV1Request) (*WebhookTestV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectWebhookAPIService) WebhookTestV1Execute(r ApiWebhookTestV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *WebhookTestV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectWebhookAPIService.WebhookTestV1")

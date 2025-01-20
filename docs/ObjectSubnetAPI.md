@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ## SubnetDeleteObjectV1
 
-> SubnetDeleteObjectV1Response SubnetDeleteObjectV1(ctx, pkiSubnetID).Execute()
+> CommonResponse SubnetDeleteObjectV1(ctx, pkiSubnetID).Execute()
 
 Delete an existing Subnet
 
@@ -107,7 +107,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSubnetAPI.SubnetDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `SubnetDeleteObjectV1`: SubnetDeleteObjectV1Response
+	// response from `SubnetDeleteObjectV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectSubnetAPI.SubnetDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SubnetDeleteObjectV1Response**](SubnetDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ## SubnetEditObjectV1
 
-> SubnetEditObjectV1Response SubnetEditObjectV1(ctx, pkiSubnetID).SubnetEditObjectV1Request(subnetEditObjectV1Request).Execute()
+> CommonResponse SubnetEditObjectV1(ctx, pkiSubnetID).SubnetEditObjectV1Request(subnetEditObjectV1Request).Execute()
 
 Edit an existing Subnet
 
@@ -178,7 +178,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSubnetAPI.SubnetEditObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `SubnetEditObjectV1`: SubnetEditObjectV1Response
+	// response from `SubnetEditObjectV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectSubnetAPI.SubnetEditObjectV1`: %v\n", resp)
 }
 ```
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SubnetEditObjectV1Response**](SubnetEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

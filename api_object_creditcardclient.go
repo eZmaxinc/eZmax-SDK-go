@@ -164,7 +164,7 @@ type ApiCreditcardclientDeleteObjectV1Request struct {
 	pkiCreditcardclientID int32
 }
 
-func (r ApiCreditcardclientDeleteObjectV1Request) Execute() (*CreditcardclientDeleteObjectV1Response, *http.Response, error) {
+func (r ApiCreditcardclientDeleteObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.CreditcardclientDeleteObjectV1Execute(r)
 }
 
@@ -186,13 +186,13 @@ func (a *ObjectCreditcardclientAPIService) CreditcardclientDeleteObjectV1(ctx co
 }
 
 // Execute executes the request
-//  @return CreditcardclientDeleteObjectV1Response
-func (a *ObjectCreditcardclientAPIService) CreditcardclientDeleteObjectV1Execute(r ApiCreditcardclientDeleteObjectV1Request) (*CreditcardclientDeleteObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectCreditcardclientAPIService) CreditcardclientDeleteObjectV1Execute(r ApiCreditcardclientDeleteObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreditcardclientDeleteObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectCreditcardclientAPIService.CreditcardclientDeleteObjectV1")
@@ -303,7 +303,7 @@ func (r ApiCreditcardclientEditObjectV1Request) CreditcardclientEditObjectV1Requ
 	return r
 }
 
-func (r ApiCreditcardclientEditObjectV1Request) Execute() (*CreditcardclientEditObjectV1Response, *http.Response, error) {
+func (r ApiCreditcardclientEditObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.CreditcardclientEditObjectV1Execute(r)
 }
 
@@ -325,13 +325,13 @@ func (a *ObjectCreditcardclientAPIService) CreditcardclientEditObjectV1(ctx cont
 }
 
 // Execute executes the request
-//  @return CreditcardclientEditObjectV1Response
-func (a *ObjectCreditcardclientAPIService) CreditcardclientEditObjectV1Execute(r ApiCreditcardclientEditObjectV1Request) (*CreditcardclientEditObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectCreditcardclientAPIService) CreditcardclientEditObjectV1Execute(r ApiCreditcardclientEditObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreditcardclientEditObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectCreditcardclientAPIService.CreditcardclientEditObjectV1")
@@ -912,7 +912,7 @@ func (r ApiCreditcardclientPatchObjectV1Request) CreditcardclientPatchObjectV1Re
 	return r
 }
 
-func (r ApiCreditcardclientPatchObjectV1Request) Execute() (*CreditcardclientPatchObjectV1Response, *http.Response, error) {
+func (r ApiCreditcardclientPatchObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.CreditcardclientPatchObjectV1Execute(r)
 }
 
@@ -934,13 +934,13 @@ func (a *ObjectCreditcardclientAPIService) CreditcardclientPatchObjectV1(ctx con
 }
 
 // Execute executes the request
-//  @return CreditcardclientPatchObjectV1Response
-func (a *ObjectCreditcardclientAPIService) CreditcardclientPatchObjectV1Execute(r ApiCreditcardclientPatchObjectV1Request) (*CreditcardclientPatchObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectCreditcardclientAPIService) CreditcardclientPatchObjectV1Execute(r ApiCreditcardclientPatchObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CreditcardclientPatchObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectCreditcardclientAPIService.CreditcardclientPatchObjectV1")

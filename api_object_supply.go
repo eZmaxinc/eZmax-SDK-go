@@ -154,7 +154,7 @@ type ApiSupplyDeleteObjectV1Request struct {
 	pkiSupplyID int32
 }
 
-func (r ApiSupplyDeleteObjectV1Request) Execute() (*SupplyDeleteObjectV1Response, *http.Response, error) {
+func (r ApiSupplyDeleteObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.SupplyDeleteObjectV1Execute(r)
 }
 
@@ -176,13 +176,13 @@ func (a *ObjectSupplyAPIService) SupplyDeleteObjectV1(ctx context.Context, pkiSu
 }
 
 // Execute executes the request
-//  @return SupplyDeleteObjectV1Response
-func (a *ObjectSupplyAPIService) SupplyDeleteObjectV1Execute(r ApiSupplyDeleteObjectV1Request) (*SupplyDeleteObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectSupplyAPIService) SupplyDeleteObjectV1Execute(r ApiSupplyDeleteObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SupplyDeleteObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectSupplyAPIService.SupplyDeleteObjectV1")
@@ -293,7 +293,7 @@ func (r ApiSupplyEditObjectV1Request) SupplyEditObjectV1Request(supplyEditObject
 	return r
 }
 
-func (r ApiSupplyEditObjectV1Request) Execute() (*SupplyEditObjectV1Response, *http.Response, error) {
+func (r ApiSupplyEditObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.SupplyEditObjectV1Execute(r)
 }
 
@@ -315,13 +315,13 @@ func (a *ObjectSupplyAPIService) SupplyEditObjectV1(ctx context.Context, pkiSupp
 }
 
 // Execute executes the request
-//  @return SupplyEditObjectV1Response
-func (a *ObjectSupplyAPIService) SupplyEditObjectV1Execute(r ApiSupplyEditObjectV1Request) (*SupplyEditObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectSupplyAPIService) SupplyEditObjectV1Execute(r ApiSupplyEditObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SupplyEditObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectSupplyAPIService.SupplyEditObjectV1")

@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 ## EzsigndiscussionDeleteObjectV1
 
-> EzsigndiscussionDeleteObjectV1Response EzsigndiscussionDeleteObjectV1(ctx, pkiEzsigndiscussionID).Execute()
+> CommonResponse EzsigndiscussionDeleteObjectV1(ctx, pkiEzsigndiscussionID).Execute()
 
 Delete an existing Ezsigndiscussion
 
@@ -106,7 +106,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndiscussionAPI.EzsigndiscussionDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsigndiscussionDeleteObjectV1`: EzsigndiscussionDeleteObjectV1Response
+	// response from `EzsigndiscussionDeleteObjectV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigndiscussionAPI.EzsigndiscussionDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigndiscussionDeleteObjectV1Response**](EzsigndiscussionDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 ## BrandingEditObjectV2
 
-> BrandingEditObjectV2Response BrandingEditObjectV2(ctx, pkiBrandingID).BrandingEditObjectV2Request(brandingEditObjectV2Request).Execute()
+> CommonResponse BrandingEditObjectV2(ctx, pkiBrandingID).BrandingEditObjectV2Request(brandingEditObjectV2Request).Execute()
 
 Edit an existing Branding
 
@@ -109,7 +109,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBrandingAPI.BrandingEditObjectV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `BrandingEditObjectV2`: BrandingEditObjectV2Response
+	// response from `BrandingEditObjectV2`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectBrandingAPI.BrandingEditObjectV2`: %v\n", resp)
 }
 ```
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BrandingEditObjectV2Response**](BrandingEditObjectV2Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

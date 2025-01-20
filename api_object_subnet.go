@@ -164,7 +164,7 @@ type ApiSubnetDeleteObjectV1Request struct {
 	pkiSubnetID int32
 }
 
-func (r ApiSubnetDeleteObjectV1Request) Execute() (*SubnetDeleteObjectV1Response, *http.Response, error) {
+func (r ApiSubnetDeleteObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.SubnetDeleteObjectV1Execute(r)
 }
 
@@ -186,13 +186,13 @@ func (a *ObjectSubnetAPIService) SubnetDeleteObjectV1(ctx context.Context, pkiSu
 }
 
 // Execute executes the request
-//  @return SubnetDeleteObjectV1Response
-func (a *ObjectSubnetAPIService) SubnetDeleteObjectV1Execute(r ApiSubnetDeleteObjectV1Request) (*SubnetDeleteObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectSubnetAPIService) SubnetDeleteObjectV1Execute(r ApiSubnetDeleteObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SubnetDeleteObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectSubnetAPIService.SubnetDeleteObjectV1")
@@ -314,7 +314,7 @@ func (r ApiSubnetEditObjectV1Request) SubnetEditObjectV1Request(subnetEditObject
 	return r
 }
 
-func (r ApiSubnetEditObjectV1Request) Execute() (*SubnetEditObjectV1Response, *http.Response, error) {
+func (r ApiSubnetEditObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.SubnetEditObjectV1Execute(r)
 }
 
@@ -336,13 +336,13 @@ func (a *ObjectSubnetAPIService) SubnetEditObjectV1(ctx context.Context, pkiSubn
 }
 
 // Execute executes the request
-//  @return SubnetEditObjectV1Response
-func (a *ObjectSubnetAPIService) SubnetEditObjectV1Execute(r ApiSubnetEditObjectV1Request) (*SubnetEditObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectSubnetAPIService) SubnetEditObjectV1Execute(r ApiSubnetEditObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SubnetEditObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectSubnetAPIService.SubnetEditObjectV1")

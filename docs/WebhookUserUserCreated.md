@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ObjWebhook** | [**CustomWebhookResponse**](CustomWebhookResponse.md) |  | 
-**AObjAttempt** | [**[]AttemptResponseCompound**](AttemptResponseCompound.md) | An array containing details of previous attempts that were made to deliver the message. The array is empty if it&#39;s the first attempt. | 
-**ObjUser** | [**UserResponseCompound**](UserResponseCompound.md) |  | 
+**AObjAttempt** | [**[]AttemptResponse**](AttemptResponse.md) | An array containing details of previous attempts that were made to deliver the message. The array is empty if it&#39;s the first attempt. | 
+**ObjUser** | [**UserResponse**](UserResponse.md) | A User Object and children to create a complete structure | 
 
 ## Methods
 
 ### NewWebhookUserUserCreated
 
-`func NewWebhookUserUserCreated(objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound, objUser UserResponseCompound, ) *WebhookUserUserCreated`
+`func NewWebhookUserUserCreated(objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound, objUser UserResponse, ) *WebhookUserUserCreated`
 
 NewWebhookUserUserCreated instantiates a new WebhookUserUserCreated object
 This constructor will assign default values to properties that have it defined,
@@ -69,20 +69,20 @@ SetAObjAttempt sets AObjAttempt field to given value.
 
 ### GetObjUser
 
-`func (o *WebhookUserUserCreated) GetObjUser() UserResponseCompound`
+`func (o *WebhookUserUserCreated) GetObjUser() UserResponse`
 
 GetObjUser returns the ObjUser field if non-nil, zero value otherwise.
 
 ### GetObjUserOk
 
-`func (o *WebhookUserUserCreated) GetObjUserOk() (*UserResponseCompound, bool)`
+`func (o *WebhookUserUserCreated) GetObjUserOk() (*UserResponse, bool)`
 
 GetObjUserOk returns a tuple with the ObjUser field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObjUser
 
-`func (o *WebhookUserUserCreated) SetObjUser(v UserResponseCompound)`
+`func (o *WebhookUserUserCreated) SetObjUser(v UserResponse)`
 
 SetObjUser sets ObjUser field to given value.
 

@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ## DomainDeleteObjectV1
 
-> DomainDeleteObjectV1Response DomainDeleteObjectV1(ctx, pkiDomainID).Execute()
+> CommonResponse DomainDeleteObjectV1(ctx, pkiDomainID).Execute()
 
 Delete an existing Domain
 
@@ -107,7 +107,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectDomainAPI.DomainDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DomainDeleteObjectV1`: DomainDeleteObjectV1Response
+	// response from `DomainDeleteObjectV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectDomainAPI.DomainDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DomainDeleteObjectV1Response**](DomainDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

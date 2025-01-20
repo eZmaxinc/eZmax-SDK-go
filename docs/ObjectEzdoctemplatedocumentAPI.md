@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ## EzdoctemplatedocumentEditObjectV1
 
-> EzdoctemplatedocumentEditObjectV1Response EzdoctemplatedocumentEditObjectV1(ctx, pkiEzdoctemplatedocumentID).EzdoctemplatedocumentEditObjectV1Request(ezdoctemplatedocumentEditObjectV1Request).Execute()
+> CommonResponse EzdoctemplatedocumentEditObjectV1(ctx, pkiEzdoctemplatedocumentID).EzdoctemplatedocumentEditObjectV1Request(ezdoctemplatedocumentEditObjectV1Request).Execute()
 
 Edit an existing Ezdoctemplatedocument
 
@@ -179,7 +179,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzdoctemplatedocumentAPI.EzdoctemplatedocumentEditObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzdoctemplatedocumentEditObjectV1`: EzdoctemplatedocumentEditObjectV1Response
+	// response from `EzdoctemplatedocumentEditObjectV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzdoctemplatedocumentAPI.EzdoctemplatedocumentEditObjectV1`: %v\n", resp)
 }
 ```
@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzdoctemplatedocumentEditObjectV1Response**](EzdoctemplatedocumentEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -446,7 +446,7 @@ Name | Type | Description  | Notes
 
 ## EzdoctemplatedocumentPatchObjectV1
 
-> EzdoctemplatedocumentPatchObjectV1Response EzdoctemplatedocumentPatchObjectV1(ctx, pkiEzdoctemplatedocumentID).EzdoctemplatedocumentPatchObjectV1Request(ezdoctemplatedocumentPatchObjectV1Request).Execute()
+> CommonResponse EzdoctemplatedocumentPatchObjectV1(ctx, pkiEzdoctemplatedocumentID).EzdoctemplatedocumentPatchObjectV1Request(ezdoctemplatedocumentPatchObjectV1Request).Execute()
 
 Patch an existing Ezdoctemplatedocument
 
@@ -475,7 +475,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzdoctemplatedocumentAPI.EzdoctemplatedocumentPatchObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzdoctemplatedocumentPatchObjectV1`: EzdoctemplatedocumentPatchObjectV1Response
+	// response from `EzdoctemplatedocumentPatchObjectV1`: CommonResponse
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzdoctemplatedocumentAPI.EzdoctemplatedocumentPatchObjectV1`: %v\n", resp)
 }
 ```
@@ -500,7 +500,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzdoctemplatedocumentPatchObjectV1Response**](EzdoctemplatedocumentPatchObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

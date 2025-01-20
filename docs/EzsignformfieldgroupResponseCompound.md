@@ -22,8 +22,8 @@ Name | Type | Description | Notes
 **TEzsignformfieldgroupTooltip** | Pointer to **string** | A tooltip that will be presented to Ezsignsigner about the Ezsignformfieldgroup | [optional] 
 **EEzsignformfieldgroupTooltipposition** | Pointer to [**FieldEEzsignformfieldgroupTooltipposition**](FieldEEzsignformfieldgroupTooltipposition.md) |  | [optional] 
 **AObjEzsignformfield** | [**[]EzsignformfieldResponseCompound**](EzsignformfieldResponseCompound.md) |  | 
-**AObjDropdownElement** | Pointer to [**[]CustomDropdownElementResponseCompound**](CustomDropdownElementResponseCompound.md) |  | [optional] 
-**AObjEzsignformfieldgroupsigner** | [**[]EzsignformfieldgroupsignerResponseCompound**](EzsignformfieldgroupsignerResponseCompound.md) |  | 
+**AObjDropdownElement** | Pointer to [**[]CustomDropdownElementResponse**](CustomDropdownElementResponse.md) |  | [optional] 
+**AObjEzsignformfieldgroupsigner** | [**[]EzsignformfieldgroupsignerResponse**](EzsignformfieldgroupsignerResponse.md) |  | 
 
 ## Methods
 

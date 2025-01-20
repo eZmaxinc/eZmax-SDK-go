@@ -21,7 +21,8 @@ var _ MappedNullable = &EzsignfolderCreateObjectV1Request{}
 // EzsignfolderCreateObjectV1Request Request for POST /1/object/ezsignfolder
 type EzsignfolderCreateObjectV1Request struct {
 	ObjEzsignfolder *EzsignfolderRequest `json:"objEzsignfolder,omitempty"`
-	ObjEzsignfolderCompound *EzsignfolderRequestCompound `json:"objEzsignfolderCompound,omitempty"`
+	// An Ezsignfolder Object and children to create a complete structure
+	ObjEzsignfolderCompound *EzsignfolderRequest `json:"objEzsignfolderCompound,omitempty"`
 }
 
 // NewEzsignfolderCreateObjectV1Request instantiates a new EzsignfolderCreateObjectV1Request object
@@ -74,9 +75,9 @@ func (o *EzsignfolderCreateObjectV1Request) SetObjEzsignfolder(v EzsignfolderReq
 }
 
 // GetObjEzsignfolderCompound returns the ObjEzsignfolderCompound field value if set, zero value otherwise.
-func (o *EzsignfolderCreateObjectV1Request) GetObjEzsignfolderCompound() EzsignfolderRequestCompound {
+func (o *EzsignfolderCreateObjectV1Request) GetObjEzsignfolderCompound() EzsignfolderRequest {
 	if o == nil || IsNil(o.ObjEzsignfolderCompound) {
-		var ret EzsignfolderRequestCompound
+		var ret EzsignfolderRequest
 		return ret
 	}
 	return *o.ObjEzsignfolderCompound
@@ -84,7 +85,7 @@ func (o *EzsignfolderCreateObjectV1Request) GetObjEzsignfolderCompound() Ezsignf
 
 // GetObjEzsignfolderCompoundOk returns a tuple with the ObjEzsignfolderCompound field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EzsignfolderCreateObjectV1Request) GetObjEzsignfolderCompoundOk() (*EzsignfolderRequestCompound, bool) {
+func (o *EzsignfolderCreateObjectV1Request) GetObjEzsignfolderCompoundOk() (*EzsignfolderRequest, bool) {
 	if o == nil || IsNil(o.ObjEzsignfolderCompound) {
 		return nil, false
 	}
@@ -100,8 +101,8 @@ func (o *EzsignfolderCreateObjectV1Request) HasObjEzsignfolderCompound() bool {
 	return false
 }
 
-// SetObjEzsignfolderCompound gets a reference to the given EzsignfolderRequestCompound and assigns it to the ObjEzsignfolderCompound field.
-func (o *EzsignfolderCreateObjectV1Request) SetObjEzsignfolderCompound(v EzsignfolderRequestCompound) {
+// SetObjEzsignfolderCompound gets a reference to the given EzsignfolderRequest and assigns it to the ObjEzsignfolderCompound field.
+func (o *EzsignfolderCreateObjectV1Request) SetObjEzsignfolderCompound(v EzsignfolderRequest) {
 	o.ObjEzsignfolderCompound = &v
 }
 

@@ -154,7 +154,7 @@ type ApiEzsignannotationDeleteObjectV1Request struct {
 	pkiEzsignannotationID int32
 }
 
-func (r ApiEzsignannotationDeleteObjectV1Request) Execute() (*EzsignannotationDeleteObjectV1Response, *http.Response, error) {
+func (r ApiEzsignannotationDeleteObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.EzsignannotationDeleteObjectV1Execute(r)
 }
 
@@ -176,13 +176,13 @@ func (a *ObjectEzsignannotationAPIService) EzsignannotationDeleteObjectV1(ctx co
 }
 
 // Execute executes the request
-//  @return EzsignannotationDeleteObjectV1Response
-func (a *ObjectEzsignannotationAPIService) EzsignannotationDeleteObjectV1Execute(r ApiEzsignannotationDeleteObjectV1Request) (*EzsignannotationDeleteObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectEzsignannotationAPIService) EzsignannotationDeleteObjectV1Execute(r ApiEzsignannotationDeleteObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *EzsignannotationDeleteObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignannotationAPIService.EzsignannotationDeleteObjectV1")
@@ -287,7 +287,7 @@ func (r ApiEzsignannotationEditObjectV1Request) EzsignannotationEditObjectV1Requ
 	return r
 }
 
-func (r ApiEzsignannotationEditObjectV1Request) Execute() (*EzsignannotationEditObjectV1Response, *http.Response, error) {
+func (r ApiEzsignannotationEditObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.EzsignannotationEditObjectV1Execute(r)
 }
 
@@ -309,13 +309,13 @@ func (a *ObjectEzsignannotationAPIService) EzsignannotationEditObjectV1(ctx cont
 }
 
 // Execute executes the request
-//  @return EzsignannotationEditObjectV1Response
-func (a *ObjectEzsignannotationAPIService) EzsignannotationEditObjectV1Execute(r ApiEzsignannotationEditObjectV1Request) (*EzsignannotationEditObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectEzsignannotationAPIService) EzsignannotationEditObjectV1Execute(r ApiEzsignannotationEditObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *EzsignannotationEditObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignannotationAPIService.EzsignannotationEditObjectV1")

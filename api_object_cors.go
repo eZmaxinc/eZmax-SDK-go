@@ -154,7 +154,7 @@ type ApiCorsDeleteObjectV1Request struct {
 	pkiCorsID int32
 }
 
-func (r ApiCorsDeleteObjectV1Request) Execute() (*CorsDeleteObjectV1Response, *http.Response, error) {
+func (r ApiCorsDeleteObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.CorsDeleteObjectV1Execute(r)
 }
 
@@ -176,13 +176,13 @@ func (a *ObjectCorsAPIService) CorsDeleteObjectV1(ctx context.Context, pkiCorsID
 }
 
 // Execute executes the request
-//  @return CorsDeleteObjectV1Response
-func (a *ObjectCorsAPIService) CorsDeleteObjectV1Execute(r ApiCorsDeleteObjectV1Request) (*CorsDeleteObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectCorsAPIService) CorsDeleteObjectV1Execute(r ApiCorsDeleteObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CorsDeleteObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectCorsAPIService.CorsDeleteObjectV1")
@@ -293,7 +293,7 @@ func (r ApiCorsEditObjectV1Request) CorsEditObjectV1Request(corsEditObjectV1Requ
 	return r
 }
 
-func (r ApiCorsEditObjectV1Request) Execute() (*CorsEditObjectV1Response, *http.Response, error) {
+func (r ApiCorsEditObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
 	return r.ApiService.CorsEditObjectV1Execute(r)
 }
 
@@ -315,13 +315,13 @@ func (a *ObjectCorsAPIService) CorsEditObjectV1(ctx context.Context, pkiCorsID i
 }
 
 // Execute executes the request
-//  @return CorsEditObjectV1Response
-func (a *ObjectCorsAPIService) CorsEditObjectV1Execute(r ApiCorsEditObjectV1Request) (*CorsEditObjectV1Response, *http.Response, error) {
+//  @return CommonResponse
+func (a *ObjectCorsAPIService) CorsEditObjectV1Execute(r ApiCorsEditObjectV1Request) (*CommonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CorsEditObjectV1Response
+		localVarReturnValue  *CommonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectCorsAPIService.CorsEditObjectV1")
