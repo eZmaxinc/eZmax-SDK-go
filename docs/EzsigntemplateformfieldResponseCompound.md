@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **EEzsigntemplateformfieldPositioningoccurence** | Pointer to [**FieldEEzsigntemplateformfieldPositioningoccurence**](FieldEEzsigntemplateformfieldPositioningoccurence.md) |  | [optional] 
 **EEzsigntemplateformfieldHorizontalalignment** | Pointer to [**EnumHorizontalalignment**](EnumHorizontalalignment.md) |  | [optional] 
 **ObjTextstylestatic** | Pointer to [**TextstylestaticResponseCompound**](TextstylestaticResponseCompound.md) |  | [optional] 
-**AObjEzsigntemplateelementdependency** | Pointer to [**[]EzsigntemplateelementdependencyResponse**](EzsigntemplateelementdependencyResponse.md) |  | [optional] 
+**AObjEzsigntemplateelementdependency** | Pointer to [**[]EzsigntemplateelementdependencyResponseCompound**](EzsigntemplateelementdependencyResponseCompound.md) |  | [optional] 
 
 ## Methods
 

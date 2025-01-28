@@ -21,8 +21,8 @@ Name | Type | Description | Notes
 **EEzsigntemplateformfieldgroupTextvalidation** | Pointer to [**EnumTextvalidation**](EnumTextvalidation.md) |  | [optional] 
 **TEzsigntemplateformfieldgroupTooltip** | Pointer to **string** | A tooltip that will be presented to Ezsigntemplatesigner about the Ezsigntemplateformfieldgroup | [optional] 
 **EEzsigntemplateformfieldgroupTooltipposition** | Pointer to [**FieldEEzsigntemplateformfieldgroupTooltipposition**](FieldEEzsigntemplateformfieldgroupTooltipposition.md) |  | [optional] 
-**AObjEzsigntemplateformfieldgroupsigner** | [**[]EzsigntemplateformfieldgroupsignerResponse**](EzsigntemplateformfieldgroupsignerResponse.md) |  | 
-**AObjDropdownElement** | Pointer to [**[]CustomDropdownElementResponse**](CustomDropdownElementResponse.md) |  | [optional] 
+**AObjEzsigntemplateformfieldgroupsigner** | [**[]EzsigntemplateformfieldgroupsignerResponseCompound**](EzsigntemplateformfieldgroupsignerResponseCompound.md) |  | 
+**AObjDropdownElement** | Pointer to [**[]CustomDropdownElementResponseCompound**](CustomDropdownElementResponseCompound.md) |  | [optional] 
 **AObjEzsigntemplateformfield** | [**[]EzsigntemplateformfieldResponseCompound**](EzsigntemplateformfieldResponseCompound.md) |  | 
 
 ## Methods

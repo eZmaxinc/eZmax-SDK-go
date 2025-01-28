@@ -21,9 +21,9 @@ type FieldESystemconfigurationLanguage2 string
 
 // List of Field-eSystemconfigurationLanguage2
 const (
-	CA FieldESystemconfigurationLanguage2 = "en_CA"
-	QC FieldESystemconfigurationLanguage2 = "en_QC"
-	US FieldESystemconfigurationLanguage2 = "en_US"
+	EN_CA FieldESystemconfigurationLanguage2 = "en_CA"
+	EN_QC FieldESystemconfigurationLanguage2 = "en_QC"
+	EN_US FieldESystemconfigurationLanguage2 = "en_US"
 )
 
 // All allowed values of FieldESystemconfigurationLanguage2 enum

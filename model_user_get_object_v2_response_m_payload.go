@@ -22,8 +22,7 @@ var _ MappedNullable = &UserGetObjectV2ResponseMPayload{}
 
 // UserGetObjectV2ResponseMPayload Payload for GET /2/object/user/{pkiUserID}
 type UserGetObjectV2ResponseMPayload struct {
-	// A User Object and children to create a complete structure
-	ObjUser UserResponse `json:"objUser"`
+	ObjUser UserResponseCompound `json:"objUser"`
 }
 
 type _UserGetObjectV2ResponseMPayload UserGetObjectV2ResponseMPayload
@@ -32,7 +31,7 @@ type _UserGetObjectV2ResponseMPayload UserGetObjectV2ResponseMPayload
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUserGetObjectV2ResponseMPayload(objUser UserResponse) *UserGetObjectV2ResponseMPayload {
+func NewUserGetObjectV2ResponseMPayload(objUser UserResponseCompound) *UserGetObjectV2ResponseMPayload {
 	this := UserGetObjectV2ResponseMPayload{}
 	this.ObjUser = objUser
 	return &this
@@ -47,9 +46,9 @@ func NewUserGetObjectV2ResponseMPayloadWithDefaults() *UserGetObjectV2ResponseMP
 }
 
 // GetObjUser returns the ObjUser field value
-func (o *UserGetObjectV2ResponseMPayload) GetObjUser() UserResponse {
+func (o *UserGetObjectV2ResponseMPayload) GetObjUser() UserResponseCompound {
 	if o == nil {
-		var ret UserResponse
+		var ret UserResponseCompound
 		return ret
 	}
 
@@ -58,7 +57,7 @@ func (o *UserGetObjectV2ResponseMPayload) GetObjUser() UserResponse {
 
 // GetObjUserOk returns a tuple with the ObjUser field value
 // and a boolean to check if the value has been set.
-func (o *UserGetObjectV2ResponseMPayload) GetObjUserOk() (*UserResponse, bool) {
+func (o *UserGetObjectV2ResponseMPayload) GetObjUserOk() (*UserResponseCompound, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -66,7 +65,7 @@ func (o *UserGetObjectV2ResponseMPayload) GetObjUserOk() (*UserResponse, bool) {
 }
 
 // SetObjUser sets field value
-func (o *UserGetObjectV2ResponseMPayload) SetObjUser(v UserResponse) {
+func (o *UserGetObjectV2ResponseMPayload) SetObjUser(v UserResponseCompound) {
 	o.ObjUser = v
 }
 

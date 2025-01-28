@@ -36,7 +36,7 @@ func (r ApiSystemconfigurationEditObjectV1Request) SystemconfigurationEditObject
 	return r
 }
 
-func (r ApiSystemconfigurationEditObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiSystemconfigurationEditObjectV1Request) Execute() (*SystemconfigurationEditObjectV1Response, *http.Response, error) {
 	return r.ApiService.SystemconfigurationEditObjectV1Execute(r)
 }
 
@@ -58,13 +58,13 @@ func (a *ObjectSystemconfigurationAPIService) SystemconfigurationEditObjectV1(ct
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectSystemconfigurationAPIService) SystemconfigurationEditObjectV1Execute(r ApiSystemconfigurationEditObjectV1Request) (*CommonResponse, *http.Response, error) {
+//  @return SystemconfigurationEditObjectV1Response
+func (a *ObjectSystemconfigurationAPIService) SystemconfigurationEditObjectV1Execute(r ApiSystemconfigurationEditObjectV1Request) (*SystemconfigurationEditObjectV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *SystemconfigurationEditObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectSystemconfigurationAPIService.SystemconfigurationEditObjectV1")

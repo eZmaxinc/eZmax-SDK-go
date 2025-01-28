@@ -170,7 +170,7 @@ func (r ApiPaymenttermEditObjectV1Request) PaymenttermEditObjectV1Request(paymen
 	return r
 }
 
-func (r ApiPaymenttermEditObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiPaymenttermEditObjectV1Request) Execute() (*PaymenttermEditObjectV1Response, *http.Response, error) {
 	return r.ApiService.PaymenttermEditObjectV1Execute(r)
 }
 
@@ -192,13 +192,13 @@ func (a *ObjectPaymenttermAPIService) PaymenttermEditObjectV1(ctx context.Contex
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectPaymenttermAPIService) PaymenttermEditObjectV1Execute(r ApiPaymenttermEditObjectV1Request) (*CommonResponse, *http.Response, error) {
+//  @return PaymenttermEditObjectV1Response
+func (a *ObjectPaymenttermAPIService) PaymenttermEditObjectV1Execute(r ApiPaymenttermEditObjectV1Request) (*PaymenttermEditObjectV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *PaymenttermEditObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectPaymenttermAPIService.PaymenttermEditObjectV1")

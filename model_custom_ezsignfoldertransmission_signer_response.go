@@ -25,9 +25,9 @@ type CustomEzsignfoldertransmissionSignerResponse struct {
 	// The unique ID of the User
 	FkiUserID *int32 `json:"fkiUserID,omitempty"`
 	// The First name of the contact
-	SContactFirstname string `json:"sContactFirstname"`
+	SContactFirstname string `json:"sContactFirstname" validate:"regexp=^.{1,20}$"`
 	// The Last name of the contact
-	SContactLastname string `json:"sContactLastname"`
+	SContactLastname string `json:"sContactLastname" validate:"regexp=^.{1,25}$"`
 }
 
 type _CustomEzsignfoldertransmissionSignerResponse CustomEzsignfoldertransmissionSignerResponse

@@ -34,8 +34,7 @@ type CustomCommunicationsenderResponse struct {
 	FkiPhonelinesharedID *int32 `json:"fkiPhonelinesharedID,omitempty"`
 	ECommunicationsenderObjecttype string `json:"eCommunicationsenderObjecttype"`
 	ObjContactName CustomContactNameResponse `json:"objContactName"`
-	// An Email Object and children to create a complete structure
-	ObjEmail *EmailResponse `json:"objEmail,omitempty"`
+	ObjEmail *EmailResponseCompound `json:"objEmail,omitempty"`
 	ObjPhoneFax *PhoneResponseCompound `json:"objPhoneFax,omitempty"`
 	ObjPhoneSMS *PhoneResponseCompound `json:"objPhoneSMS,omitempty"`
 }
@@ -270,9 +269,9 @@ func (o *CustomCommunicationsenderResponse) SetObjContactName(v CustomContactNam
 }
 
 // GetObjEmail returns the ObjEmail field value if set, zero value otherwise.
-func (o *CustomCommunicationsenderResponse) GetObjEmail() EmailResponse {
+func (o *CustomCommunicationsenderResponse) GetObjEmail() EmailResponseCompound {
 	if o == nil || IsNil(o.ObjEmail) {
-		var ret EmailResponse
+		var ret EmailResponseCompound
 		return ret
 	}
 	return *o.ObjEmail
@@ -280,7 +279,7 @@ func (o *CustomCommunicationsenderResponse) GetObjEmail() EmailResponse {
 
 // GetObjEmailOk returns a tuple with the ObjEmail field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CustomCommunicationsenderResponse) GetObjEmailOk() (*EmailResponse, bool) {
+func (o *CustomCommunicationsenderResponse) GetObjEmailOk() (*EmailResponseCompound, bool) {
 	if o == nil || IsNil(o.ObjEmail) {
 		return nil, false
 	}
@@ -296,8 +295,8 @@ func (o *CustomCommunicationsenderResponse) HasObjEmail() bool {
 	return false
 }
 
-// SetObjEmail gets a reference to the given EmailResponse and assigns it to the ObjEmail field.
-func (o *CustomCommunicationsenderResponse) SetObjEmail(v EmailResponse) {
+// SetObjEmail gets a reference to the given EmailResponseCompound and assigns it to the ObjEmail field.
+func (o *CustomCommunicationsenderResponse) SetObjEmail(v EmailResponseCompound) {
 	o.ObjEmail = &v
 }
 

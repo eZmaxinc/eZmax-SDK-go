@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 ## EzsignsigningreasonEditObjectV1
 
-> CommonResponse EzsignsigningreasonEditObjectV1(ctx, pkiEzsignsigningreasonID).EzsignsigningreasonEditObjectV1Request(ezsignsigningreasonEditObjectV1Request).Execute()
+> EzsignsigningreasonEditObjectV1Response EzsignsigningreasonEditObjectV1(ctx, pkiEzsignsigningreasonID).EzsignsigningreasonEditObjectV1Request(ezsignsigningreasonEditObjectV1Request).Execute()
 
 Edit an existing Ezsignsigningreason
 
@@ -109,7 +109,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsigningreasonAPI.EzsignsigningreasonEditObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignsigningreasonEditObjectV1`: CommonResponse
+	// response from `EzsignsigningreasonEditObjectV1`: EzsignsigningreasonEditObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsigningreasonAPI.EzsignsigningreasonEditObjectV1`: %v\n", resp)
 }
 ```
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignsigningreasonEditObjectV1Response**](EzsignsigningreasonEditObjectV1Response.md)
 
 ### Authorization
 

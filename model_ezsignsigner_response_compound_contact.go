@@ -25,9 +25,9 @@ type EzsignsignerResponseCompoundContact struct {
 	// The unique ID of the Contact
 	PkiContactID int32 `json:"pkiContactID"`
 	// The First name of the contact
-	SContactFirstname string `json:"sContactFirstname"`
+	SContactFirstname string `json:"sContactFirstname" validate:"regexp=^.{1,20}$"`
 	// The Last name of the contact
-	SContactLastname string `json:"sContactLastname"`
+	SContactLastname string `json:"sContactLastname" validate:"regexp=^.{1,25}$"`
 	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
 	FkiLanguageID int32 `json:"fkiLanguageID"`
 	// The email address.

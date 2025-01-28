@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ## EzsigntemplateDeleteObjectV1
 
-> CommonResponse EzsigntemplateDeleteObjectV1(ctx, pkiEzsigntemplateID).Execute()
+> EzsigntemplateDeleteObjectV1Response EzsigntemplateDeleteObjectV1(ctx, pkiEzsigntemplateID).Execute()
 
 Delete an existing Ezsigntemplate
 
@@ -182,7 +182,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplateAPI.EzsigntemplateDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsigntemplateDeleteObjectV1`: CommonResponse
+	// response from `EzsigntemplateDeleteObjectV1`: EzsigntemplateDeleteObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplateAPI.EzsigntemplateDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsigntemplateDeleteObjectV1Response**](EzsigntemplateDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -224,7 +224,7 @@ Name | Type | Description  | Notes
 
 ## EzsigntemplateEditObjectV3
 
-> CommonResponse EzsigntemplateEditObjectV3(ctx, pkiEzsigntemplateID).EzsigntemplateEditObjectV3Request(ezsigntemplateEditObjectV3Request).Execute()
+> EzsigntemplateEditObjectV3Response EzsigntemplateEditObjectV3(ctx, pkiEzsigntemplateID).EzsigntemplateEditObjectV3Request(ezsigntemplateEditObjectV3Request).Execute()
 
 Edit an existing Ezsigntemplate
 
@@ -253,7 +253,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplateAPI.EzsigntemplateEditObjectV3``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsigntemplateEditObjectV3`: CommonResponse
+	// response from `EzsigntemplateEditObjectV3`: EzsigntemplateEditObjectV3Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplateAPI.EzsigntemplateEditObjectV3`: %v\n", resp)
 }
 ```
@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsigntemplateEditObjectV3Response**](EzsigntemplateEditObjectV3Response.md)
 
 ### Authorization
 

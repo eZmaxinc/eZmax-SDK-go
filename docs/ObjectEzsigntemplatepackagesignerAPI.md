@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ## EzsigntemplatepackagesignerEditObjectV1
 
-> CommonResponse EzsigntemplatepackagesignerEditObjectV1(ctx, pkiEzsigntemplatepackagesignerID).EzsigntemplatepackagesignerEditObjectV1Request(ezsigntemplatepackagesignerEditObjectV1Request).Execute()
+> EzsigntemplatepackagesignerEditObjectV1Response EzsigntemplatepackagesignerEditObjectV1(ctx, pkiEzsigntemplatepackagesignerID).EzsigntemplatepackagesignerEditObjectV1Request(ezsigntemplatepackagesignerEditObjectV1Request).Execute()
 
 Edit an existing Ezsigntemplatepackagesigner
 
@@ -178,7 +178,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatepackagesignerAPI.EzsigntemplatepackagesignerEditObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsigntemplatepackagesignerEditObjectV1`: CommonResponse
+	// response from `EzsigntemplatepackagesignerEditObjectV1`: EzsigntemplatepackagesignerEditObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatepackagesignerAPI.EzsigntemplatepackagesignerEditObjectV1`: %v\n", resp)
 }
 ```
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsigntemplatepackagesignerEditObjectV1Response**](EzsigntemplatepackagesignerEditObjectV1Response.md)
 
 ### Authorization
 

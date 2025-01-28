@@ -21,8 +21,8 @@ Name | Type | Description | Notes
 **TEzsignformfieldgroupTooltip** | Pointer to **string** | A tooltip that will be presented to Ezsignsigner about the Ezsignformfieldgroup | [optional] 
 **EEzsignformfieldgroupTooltipposition** | Pointer to [**FieldEEzsignformfieldgroupTooltipposition**](FieldEEzsignformfieldgroupTooltipposition.md) |  | [optional] 
 **EEzsignformfieldgroupTextvalidation** | Pointer to [**EnumTextvalidation**](EnumTextvalidation.md) |  | [optional] 
-**AObjEzsignformfieldgroupsigner** | [**[]EzsignformfieldgroupsignerRequest**](EzsignformfieldgroupsignerRequest.md) |  | 
-**AObjDropdownElement** | Pointer to [**[]CustomDropdownElementRequest**](CustomDropdownElementRequest.md) |  | [optional] 
+**AObjEzsignformfieldgroupsigner** | [**[]EzsignformfieldgroupsignerRequestCompound**](EzsignformfieldgroupsignerRequestCompound.md) |  | 
+**AObjDropdownElement** | Pointer to [**[]CustomDropdownElementRequestCompound**](CustomDropdownElementRequestCompound.md) |  | [optional] 
 **AObjEzsignformfield** | [**[]EzsignformfieldRequestCompound**](EzsignformfieldRequestCompound.md) |  | 
 **ObjCreateezsignelementspositionedbyword** | [**CustomCreateEzsignelementsPositionedByWordRequest**](CustomCreateEzsignelementsPositionedByWordRequest.md) |  | 
 

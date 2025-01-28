@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AObjApikey** | [**[]ApikeyResponse**](ApikeyResponse.md) |  | 
+**AObjApikey** | [**[]ApikeyResponseCompound**](ApikeyResponseCompound.md) |  | 
 
 ## Methods
 

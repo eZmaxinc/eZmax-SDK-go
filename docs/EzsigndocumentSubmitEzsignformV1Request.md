@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BEzsignformIsdraft** | **bool** | Whether the Ezsignform submitted is a draft or not. | 
-**AObjEzsignformfieldgroup** | **[]map[string]interface{}** |  | 
+**AObjEzsignformfieldgroup** | [**[]CustomEzsignformfieldgroupRequest**](CustomEzsignformfieldgroupRequest.md) |  | 
 
 ## Methods
 

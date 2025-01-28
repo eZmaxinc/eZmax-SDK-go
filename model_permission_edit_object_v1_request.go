@@ -22,8 +22,7 @@ var _ MappedNullable = &PermissionEditObjectV1Request{}
 
 // PermissionEditObjectV1Request Request for PUT /1/object/permission/{pkiPermissionID}
 type PermissionEditObjectV1Request struct {
-	// A Permission Object and children to create a complete structure
-	ObjPermission PermissionRequest `json:"objPermission"`
+	ObjPermission PermissionRequestCompound `json:"objPermission"`
 }
 
 type _PermissionEditObjectV1Request PermissionEditObjectV1Request
@@ -32,7 +31,7 @@ type _PermissionEditObjectV1Request PermissionEditObjectV1Request
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPermissionEditObjectV1Request(objPermission PermissionRequest) *PermissionEditObjectV1Request {
+func NewPermissionEditObjectV1Request(objPermission PermissionRequestCompound) *PermissionEditObjectV1Request {
 	this := PermissionEditObjectV1Request{}
 	this.ObjPermission = objPermission
 	return &this
@@ -47,9 +46,9 @@ func NewPermissionEditObjectV1RequestWithDefaults() *PermissionEditObjectV1Reque
 }
 
 // GetObjPermission returns the ObjPermission field value
-func (o *PermissionEditObjectV1Request) GetObjPermission() PermissionRequest {
+func (o *PermissionEditObjectV1Request) GetObjPermission() PermissionRequestCompound {
 	if o == nil {
-		var ret PermissionRequest
+		var ret PermissionRequestCompound
 		return ret
 	}
 
@@ -58,7 +57,7 @@ func (o *PermissionEditObjectV1Request) GetObjPermission() PermissionRequest {
 
 // GetObjPermissionOk returns a tuple with the ObjPermission field value
 // and a boolean to check if the value has been set.
-func (o *PermissionEditObjectV1Request) GetObjPermissionOk() (*PermissionRequest, bool) {
+func (o *PermissionEditObjectV1Request) GetObjPermissionOk() (*PermissionRequestCompound, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -66,7 +65,7 @@ func (o *PermissionEditObjectV1Request) GetObjPermissionOk() (*PermissionRequest
 }
 
 // SetObjPermission sets field value
-func (o *PermissionEditObjectV1Request) SetObjPermission(v PermissionRequest) {
+func (o *PermissionEditObjectV1Request) SetObjPermission(v PermissionRequestCompound) {
 	o.ObjPermission = v
 }
 

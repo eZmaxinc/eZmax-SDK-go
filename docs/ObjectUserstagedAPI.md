@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 
 ## UserstagedDeleteObjectV1
 
-> CommonResponse UserstagedDeleteObjectV1(ctx, pkiUserstagedID).Execute()
+> UserstagedDeleteObjectV1Response UserstagedDeleteObjectV1(ctx, pkiUserstagedID).Execute()
 
 Delete an existing Userstaged
 
@@ -114,7 +114,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserstagedAPI.UserstagedDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UserstagedDeleteObjectV1`: CommonResponse
+	// response from `UserstagedDeleteObjectV1`: UserstagedDeleteObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectUserstagedAPI.UserstagedDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**UserstagedDeleteObjectV1Response**](UserstagedDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -300,7 +300,7 @@ Name | Type | Description  | Notes
 
 ## UserstagedMapV1
 
-> CommonResponse UserstagedMapV1(ctx, pkiUserstagedID).UserstagedMapV1Request(userstagedMapV1Request).Execute()
+> UserstagedMapV1Response UserstagedMapV1(ctx, pkiUserstagedID).UserstagedMapV1Request(userstagedMapV1Request).Execute()
 
 Map the Userstaged to an existing user
 
@@ -329,7 +329,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserstagedAPI.UserstagedMapV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UserstagedMapV1`: CommonResponse
+	// response from `UserstagedMapV1`: UserstagedMapV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectUserstagedAPI.UserstagedMapV1`: %v\n", resp)
 }
 ```
@@ -354,7 +354,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**UserstagedMapV1Response**](UserstagedMapV1Response.md)
 
 ### Authorization
 

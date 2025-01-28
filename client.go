@@ -68,6 +68,8 @@ type APIClient struct {
 
 	ObjectAuthenticationexternalAPI *ObjectAuthenticationexternalAPIService
 
+	ObjectBankaccountAPI *ObjectBankaccountAPIService
+
 	ObjectBillingentityexternalAPI *ObjectBillingentityexternalAPIService
 
 	ObjectBillingentityinternalAPI *ObjectBillingentityinternalAPIService
@@ -89,6 +91,8 @@ type APIClient struct {
 	ObjectCountryAPI *ObjectCountryAPIService
 
 	ObjectCreditcardclientAPI *ObjectCreditcardclientAPIService
+
+	ObjectCreditcardmerchantAPI *ObjectCreditcardmerchantAPIService
 
 	ObjectCreditcardtypeAPI *ObjectCreditcardtypeAPIService
 
@@ -294,6 +298,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectApikeyAPI = (*ObjectApikeyAPIService)(&c.common)
 	c.ObjectAttachmentAPI = (*ObjectAttachmentAPIService)(&c.common)
 	c.ObjectAuthenticationexternalAPI = (*ObjectAuthenticationexternalAPIService)(&c.common)
+	c.ObjectBankaccountAPI = (*ObjectBankaccountAPIService)(&c.common)
 	c.ObjectBillingentityexternalAPI = (*ObjectBillingentityexternalAPIService)(&c.common)
 	c.ObjectBillingentityinternalAPI = (*ObjectBillingentityinternalAPIService)(&c.common)
 	c.ObjectBrandingAPI = (*ObjectBrandingAPIService)(&c.common)
@@ -305,6 +310,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectCorsAPI = (*ObjectCorsAPIService)(&c.common)
 	c.ObjectCountryAPI = (*ObjectCountryAPIService)(&c.common)
 	c.ObjectCreditcardclientAPI = (*ObjectCreditcardclientAPIService)(&c.common)
+	c.ObjectCreditcardmerchantAPI = (*ObjectCreditcardmerchantAPIService)(&c.common)
 	c.ObjectCreditcardtypeAPI = (*ObjectCreditcardtypeAPIService)(&c.common)
 	c.ObjectCustomerAPI = (*ObjectCustomerAPIService)(&c.common)
 	c.ObjectDepartmentAPI = (*ObjectDepartmentAPIService)(&c.common)

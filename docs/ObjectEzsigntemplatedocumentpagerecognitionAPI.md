@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ## EzsigntemplatedocumentpagerecognitionDeleteObjectV1
 
-> CommonResponse EzsigntemplatedocumentpagerecognitionDeleteObjectV1(ctx, pkiEzsigntemplatedocumentpagerecognitionID).Execute()
+> EzsigntemplatedocumentpagerecognitionDeleteObjectV1Response EzsigntemplatedocumentpagerecognitionDeleteObjectV1(ctx, pkiEzsigntemplatedocumentpagerecognitionID).Execute()
 
 Delete an existing Ezsigntemplatedocumentpagerecognition
 
@@ -107,7 +107,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatedocumentpagerecognitionAPI.EzsigntemplatedocumentpagerecognitionDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsigntemplatedocumentpagerecognitionDeleteObjectV1`: CommonResponse
+	// response from `EzsigntemplatedocumentpagerecognitionDeleteObjectV1`: EzsigntemplatedocumentpagerecognitionDeleteObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatedocumentpagerecognitionAPI.EzsigntemplatedocumentpagerecognitionDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsigntemplatedocumentpagerecognitionDeleteObjectV1Response**](EzsigntemplatedocumentpagerecognitionDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ## EzsigntemplatedocumentpagerecognitionEditObjectV1
 
-> CommonResponse EzsigntemplatedocumentpagerecognitionEditObjectV1(ctx, pkiEzsigntemplatedocumentpagerecognitionID).EzsigntemplatedocumentpagerecognitionEditObjectV1Request(ezsigntemplatedocumentpagerecognitionEditObjectV1Request).Execute()
+> EzsigntemplatedocumentpagerecognitionEditObjectV1Response EzsigntemplatedocumentpagerecognitionEditObjectV1(ctx, pkiEzsigntemplatedocumentpagerecognitionID).EzsigntemplatedocumentpagerecognitionEditObjectV1Request(ezsigntemplatedocumentpagerecognitionEditObjectV1Request).Execute()
 
 Edit an existing Ezsigntemplatedocumentpagerecognition
 
@@ -178,7 +178,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatedocumentpagerecognitionAPI.EzsigntemplatedocumentpagerecognitionEditObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsigntemplatedocumentpagerecognitionEditObjectV1`: CommonResponse
+	// response from `EzsigntemplatedocumentpagerecognitionEditObjectV1`: EzsigntemplatedocumentpagerecognitionEditObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatedocumentpagerecognitionAPI.EzsigntemplatedocumentpagerecognitionEditObjectV1`: %v\n", resp)
 }
 ```
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsigntemplatedocumentpagerecognitionEditObjectV1Response**](EzsigntemplatedocumentpagerecognitionEditObjectV1Response.md)
 
 ### Authorization
 

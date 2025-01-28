@@ -154,7 +154,7 @@ type ApiDiscussionmessageDeleteObjectV1Request struct {
 	pkiDiscussionmessageID int32
 }
 
-func (r ApiDiscussionmessageDeleteObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiDiscussionmessageDeleteObjectV1Request) Execute() (*DiscussionmessageDeleteObjectV1Response, *http.Response, error) {
 	return r.ApiService.DiscussionmessageDeleteObjectV1Execute(r)
 }
 
@@ -176,13 +176,13 @@ func (a *ObjectDiscussionmessageAPIService) DiscussionmessageDeleteObjectV1(ctx 
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectDiscussionmessageAPIService) DiscussionmessageDeleteObjectV1Execute(r ApiDiscussionmessageDeleteObjectV1Request) (*CommonResponse, *http.Response, error) {
+//  @return DiscussionmessageDeleteObjectV1Response
+func (a *ObjectDiscussionmessageAPIService) DiscussionmessageDeleteObjectV1Execute(r ApiDiscussionmessageDeleteObjectV1Request) (*DiscussionmessageDeleteObjectV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *DiscussionmessageDeleteObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectDiscussionmessageAPIService.DiscussionmessageDeleteObjectV1")
@@ -304,7 +304,7 @@ func (r ApiDiscussionmessagePatchObjectV1Request) DiscussionmessagePatchObjectV1
 	return r
 }
 
-func (r ApiDiscussionmessagePatchObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiDiscussionmessagePatchObjectV1Request) Execute() (*DiscussionmessagePatchObjectV1Response, *http.Response, error) {
 	return r.ApiService.DiscussionmessagePatchObjectV1Execute(r)
 }
 
@@ -326,13 +326,13 @@ func (a *ObjectDiscussionmessageAPIService) DiscussionmessagePatchObjectV1(ctx c
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectDiscussionmessageAPIService) DiscussionmessagePatchObjectV1Execute(r ApiDiscussionmessagePatchObjectV1Request) (*CommonResponse, *http.Response, error) {
+//  @return DiscussionmessagePatchObjectV1Response
+func (a *ObjectDiscussionmessageAPIService) DiscussionmessagePatchObjectV1Execute(r ApiDiscussionmessagePatchObjectV1Request) (*DiscussionmessagePatchObjectV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *DiscussionmessagePatchObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectDiscussionmessageAPIService.DiscussionmessagePatchObjectV1")

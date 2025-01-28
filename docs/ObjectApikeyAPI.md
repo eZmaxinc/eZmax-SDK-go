@@ -38,7 +38,7 @@ import (
 )
 
 func main() {
-	apikeyCreateObjectV2Request := *openapiclient.NewApikeyCreateObjectV2Request([]openapiclient.ApikeyRequestCompound{*openapiclient.NewApikeyRequest(int32(70), *openapiclient.NewMultilingualApikeyDescription())}) // ApikeyCreateObjectV2Request | 
+	apikeyCreateObjectV2Request := *openapiclient.NewApikeyCreateObjectV2Request([]openapiclient.ApikeyRequestCompound{*openapiclient.NewApikeyRequestCompound(int32(70), *openapiclient.NewMultilingualApikeyDescription())}) // ApikeyCreateObjectV2Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 
 ## ApikeyEditObjectV1
 
-> CommonResponse ApikeyEditObjectV1(ctx, pkiApikeyID).ApikeyEditObjectV1Request(apikeyEditObjectV1Request).Execute()
+> ApikeyEditObjectV1Response ApikeyEditObjectV1(ctx, pkiApikeyID).ApikeyEditObjectV1Request(apikeyEditObjectV1Request).Execute()
 
 Edit an existing Apikey
 
@@ -105,7 +105,7 @@ import (
 
 func main() {
 	pkiApikeyID := int32(56) // int32 | The unique ID of the Apikey
-	apikeyEditObjectV1Request := *openapiclient.NewApikeyEditObjectV1Request(*openapiclient.NewApikeyRequest(int32(70), *openapiclient.NewMultilingualApikeyDescription())) // ApikeyEditObjectV1Request | 
+	apikeyEditObjectV1Request := *openapiclient.NewApikeyEditObjectV1Request(*openapiclient.NewApikeyRequestCompound(int32(70), *openapiclient.NewMultilingualApikeyDescription())) // ApikeyEditObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -114,7 +114,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectApikeyAPI.ApikeyEditObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApikeyEditObjectV1`: CommonResponse
+	// response from `ApikeyEditObjectV1`: ApikeyEditObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectApikeyAPI.ApikeyEditObjectV1`: %v\n", resp)
 }
 ```
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**ApikeyEditObjectV1Response**](ApikeyEditObjectV1Response.md)
 
 ### Authorization
 
@@ -177,7 +177,7 @@ import (
 
 func main() {
 	pkiApikeyID := int32(56) // int32 | 
-	apikeyEditPermissionsV1Request := *openapiclient.NewApikeyEditPermissionsV1Request([]openapiclient.PermissionRequestCompound{*openapiclient.NewPermissionRequest(int32(53))}) // ApikeyEditPermissionsV1Request | 
+	apikeyEditPermissionsV1Request := *openapiclient.NewApikeyEditPermissionsV1Request([]openapiclient.PermissionRequestCompound{*openapiclient.NewPermissionRequestCompound(int32(53))}) // ApikeyEditPermissionsV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

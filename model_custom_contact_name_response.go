@@ -21,9 +21,9 @@ var _ MappedNullable = &CustomContactNameResponse{}
 // CustomContactNameResponse A Custom ContactName Object
 type CustomContactNameResponse struct {
 	// The First name of the contact
-	SContactFirstname *string `json:"sContactFirstname,omitempty"`
+	SContactFirstname *string `json:"sContactFirstname,omitempty" validate:"regexp=^.{1,20}$"`
 	// The Last name of the contact
-	SContactLastname *string `json:"sContactLastname,omitempty"`
+	SContactLastname *string `json:"sContactLastname,omitempty" validate:"regexp=^.{1,25}$"`
 	// The Company name of the contact
 	SContactCompany *string `json:"sContactCompany,omitempty"`
 }

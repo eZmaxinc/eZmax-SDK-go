@@ -25,8 +25,7 @@ type WebhookUserstagedUserstagedCreated struct {
 	ObjWebhook CustomWebhookResponse `json:"objWebhook"`
 	// An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.
 	AObjAttempt []AttemptResponseCompound `json:"a_objAttempt"`
-	// A Userstaged Object
-	ObjUserstaged UserstagedResponse `json:"objUserstaged"`
+	ObjUserstaged UserstagedResponseCompound `json:"objUserstaged"`
 }
 
 type _WebhookUserstagedUserstagedCreated WebhookUserstagedUserstagedCreated
@@ -35,7 +34,7 @@ type _WebhookUserstagedUserstagedCreated WebhookUserstagedUserstagedCreated
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWebhookUserstagedUserstagedCreated(objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound, objUserstaged UserstagedResponse) *WebhookUserstagedUserstagedCreated {
+func NewWebhookUserstagedUserstagedCreated(objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound, objUserstaged UserstagedResponseCompound) *WebhookUserstagedUserstagedCreated {
 	this := WebhookUserstagedUserstagedCreated{}
 	this.ObjWebhook = objWebhook
 	this.AObjAttempt = aObjAttempt
@@ -100,9 +99,9 @@ func (o *WebhookUserstagedUserstagedCreated) SetAObjAttempt(v []AttemptResponseC
 }
 
 // GetObjUserstaged returns the ObjUserstaged field value
-func (o *WebhookUserstagedUserstagedCreated) GetObjUserstaged() UserstagedResponse {
+func (o *WebhookUserstagedUserstagedCreated) GetObjUserstaged() UserstagedResponseCompound {
 	if o == nil {
-		var ret UserstagedResponse
+		var ret UserstagedResponseCompound
 		return ret
 	}
 
@@ -111,7 +110,7 @@ func (o *WebhookUserstagedUserstagedCreated) GetObjUserstaged() UserstagedRespon
 
 // GetObjUserstagedOk returns a tuple with the ObjUserstaged field value
 // and a boolean to check if the value has been set.
-func (o *WebhookUserstagedUserstagedCreated) GetObjUserstagedOk() (*UserstagedResponse, bool) {
+func (o *WebhookUserstagedUserstagedCreated) GetObjUserstagedOk() (*UserstagedResponseCompound, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -119,7 +118,7 @@ func (o *WebhookUserstagedUserstagedCreated) GetObjUserstagedOk() (*UserstagedRe
 }
 
 // SetObjUserstaged sets field value
-func (o *WebhookUserstagedUserstagedCreated) SetObjUserstaged(v UserstagedResponse) {
+func (o *WebhookUserstagedUserstagedCreated) SetObjUserstaged(v UserstagedResponseCompound) {
 	o.ObjUserstaged = v
 }
 

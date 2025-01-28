@@ -164,7 +164,7 @@ type ApiEzsigntemplatepackagemembershipDeleteObjectV1Request struct {
 	pkiEzsigntemplatepackagemembershipID int32
 }
 
-func (r ApiEzsigntemplatepackagemembershipDeleteObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsigntemplatepackagemembershipDeleteObjectV1Request) Execute() (*EzsigntemplatepackagemembershipDeleteObjectV1Response, *http.Response, error) {
 	return r.ApiService.EzsigntemplatepackagemembershipDeleteObjectV1Execute(r)
 }
 
@@ -186,13 +186,13 @@ func (a *ObjectEzsigntemplatepackagemembershipAPIService) Ezsigntemplatepackagem
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectEzsigntemplatepackagemembershipAPIService) EzsigntemplatepackagemembershipDeleteObjectV1Execute(r ApiEzsigntemplatepackagemembershipDeleteObjectV1Request) (*CommonResponse, *http.Response, error) {
+//  @return EzsigntemplatepackagemembershipDeleteObjectV1Response
+func (a *ObjectEzsigntemplatepackagemembershipAPIService) EzsigntemplatepackagemembershipDeleteObjectV1Execute(r ApiEzsigntemplatepackagemembershipDeleteObjectV1Request) (*EzsigntemplatepackagemembershipDeleteObjectV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsigntemplatepackagemembershipDeleteObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigntemplatepackagemembershipAPIService.EzsigntemplatepackagemembershipDeleteObjectV1")

@@ -216,7 +216,7 @@ Name | Type | Description  | Notes
 
 ## EzsignsignatureDeleteObjectV1
 
-> CommonResponse EzsignsignatureDeleteObjectV1(ctx, pkiEzsignsignatureID).Execute()
+> EzsignsignatureDeleteObjectV1Response EzsignsignatureDeleteObjectV1(ctx, pkiEzsignsignatureID).Execute()
 
 Delete an existing Ezsignsignature
 
@@ -244,7 +244,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignatureAPI.EzsignsignatureDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignsignatureDeleteObjectV1`: CommonResponse
+	// response from `EzsignsignatureDeleteObjectV1`: EzsignsignatureDeleteObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsignatureAPI.EzsignsignatureDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -268,7 +268,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignsignatureDeleteObjectV1Response**](EzsignsignatureDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -286,7 +286,7 @@ Name | Type | Description  | Notes
 
 ## EzsignsignatureEditObjectV2
 
-> CommonResponse EzsignsignatureEditObjectV2(ctx, pkiEzsignsignatureID).EzsignsignatureEditObjectV2Request(ezsignsignatureEditObjectV2Request).Execute()
+> EzsignsignatureEditObjectV2Response EzsignsignatureEditObjectV2(ctx, pkiEzsignsignatureID).EzsignsignatureEditObjectV2Request(ezsignsignatureEditObjectV2Request).Execute()
 
 Edit an existing Ezsignsignature
 
@@ -315,7 +315,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignatureAPI.EzsignsignatureEditObjectV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignsignatureEditObjectV2`: CommonResponse
+	// response from `EzsignsignatureEditObjectV2`: EzsignsignatureEditObjectV2Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsignatureAPI.EzsignsignatureEditObjectV2`: %v\n", resp)
 }
 ```
@@ -340,7 +340,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignsignatureEditObjectV2Response**](EzsignsignatureEditObjectV2Response.md)
 
 ### Authorization
 

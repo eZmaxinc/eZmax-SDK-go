@@ -34,7 +34,7 @@ import (
 )
 
 func main() {
-	supplyCreateObjectV1Request := *openapiclient.NewSupplyCreateObjectV1Request([]openapiclient.SupplyRequestCompound{*openapiclient.NewSupplyRequestCompound(int32(2), "PPLET", *openapiclient.NewMultilingualSupplyDescription(), "8", true, true)}) // SupplyCreateObjectV1Request | 
+	supplyCreateObjectV1Request := *openapiclient.NewSupplyCreateObjectV1Request([]openapiclient.SupplyRequestCompound{*openapiclient.NewSupplyRequestCompound(int32(2), "PPLET", *openapiclient.NewMultilingualSupplyDescription(), "8.00", true, true)}) // SupplyCreateObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 ## SupplyDeleteObjectV1
 
-> CommonResponse SupplyDeleteObjectV1(ctx, pkiSupplyID).Execute()
+> SupplyDeleteObjectV1Response SupplyDeleteObjectV1(ctx, pkiSupplyID).Execute()
 
 Delete an existing Supply
 
@@ -109,7 +109,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSupplyAPI.SupplyDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `SupplyDeleteObjectV1`: CommonResponse
+	// response from `SupplyDeleteObjectV1`: SupplyDeleteObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectSupplyAPI.SupplyDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**SupplyDeleteObjectV1Response**](SupplyDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ## SupplyEditObjectV1
 
-> CommonResponse SupplyEditObjectV1(ctx, pkiSupplyID).SupplyEditObjectV1Request(supplyEditObjectV1Request).Execute()
+> SupplyEditObjectV1Response SupplyEditObjectV1(ctx, pkiSupplyID).SupplyEditObjectV1Request(supplyEditObjectV1Request).Execute()
 
 Edit an existing Supply
 
@@ -171,7 +171,7 @@ import (
 
 func main() {
 	pkiSupplyID := int32(56) // int32 | The unique ID of the Supply
-	supplyEditObjectV1Request := *openapiclient.NewSupplyEditObjectV1Request(*openapiclient.NewSupplyRequestCompound(int32(2), "PPLET", *openapiclient.NewMultilingualSupplyDescription(), "8", true, true)) // SupplyEditObjectV1Request | 
+	supplyEditObjectV1Request := *openapiclient.NewSupplyEditObjectV1Request(*openapiclient.NewSupplyRequestCompound(int32(2), "PPLET", *openapiclient.NewMultilingualSupplyDescription(), "8.00", true, true)) // SupplyEditObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -180,7 +180,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSupplyAPI.SupplyEditObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `SupplyEditObjectV1`: CommonResponse
+	// response from `SupplyEditObjectV1`: SupplyEditObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectSupplyAPI.SupplyEditObjectV1`: %v\n", resp)
 }
 ```
@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**SupplyEditObjectV1Response**](SupplyEditObjectV1Response.md)
 
 ### Authorization
 

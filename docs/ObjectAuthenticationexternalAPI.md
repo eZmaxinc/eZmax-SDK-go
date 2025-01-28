@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 ## AuthenticationexternalDeleteObjectV1
 
-> CommonResponse AuthenticationexternalDeleteObjectV1(ctx, pkiAuthenticationexternalID).Execute()
+> AuthenticationexternalDeleteObjectV1Response AuthenticationexternalDeleteObjectV1(ctx, pkiAuthenticationexternalID).Execute()
 
 Delete an existing Authenticationexternal
 
@@ -110,7 +110,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectAuthenticationexternalAPI.AuthenticationexternalDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `AuthenticationexternalDeleteObjectV1`: CommonResponse
+	// response from `AuthenticationexternalDeleteObjectV1`: AuthenticationexternalDeleteObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectAuthenticationexternalAPI.AuthenticationexternalDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**AuthenticationexternalDeleteObjectV1Response**](AuthenticationexternalDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 ## AuthenticationexternalEditObjectV1
 
-> CommonResponse AuthenticationexternalEditObjectV1(ctx, pkiAuthenticationexternalID).AuthenticationexternalEditObjectV1Request(authenticationexternalEditObjectV1Request).Execute()
+> AuthenticationexternalEditObjectV1Response AuthenticationexternalEditObjectV1(ctx, pkiAuthenticationexternalID).AuthenticationexternalEditObjectV1Request(authenticationexternalEditObjectV1Request).Execute()
 
 Edit an existing Authenticationexternal
 
@@ -181,7 +181,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectAuthenticationexternalAPI.AuthenticationexternalEditObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `AuthenticationexternalEditObjectV1`: CommonResponse
+	// response from `AuthenticationexternalEditObjectV1`: AuthenticationexternalEditObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectAuthenticationexternalAPI.AuthenticationexternalEditObjectV1`: %v\n", resp)
 }
 ```
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**AuthenticationexternalEditObjectV1Response**](AuthenticationexternalEditObjectV1Response.md)
 
 ### Authorization
 
@@ -444,7 +444,7 @@ Name | Type | Description  | Notes
 
 ## AuthenticationexternalResetAuthorizationV1
 
-> CommonResponse AuthenticationexternalResetAuthorizationV1(ctx, pkiAuthenticationexternalID).Body(body).Execute()
+> AuthenticationexternalResetAuthorizationV1Response AuthenticationexternalResetAuthorizationV1(ctx, pkiAuthenticationexternalID).Body(body).Execute()
 
 Reset the Authenticationexternal authorization
 
@@ -473,7 +473,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectAuthenticationexternalAPI.AuthenticationexternalResetAuthorizationV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `AuthenticationexternalResetAuthorizationV1`: CommonResponse
+	// response from `AuthenticationexternalResetAuthorizationV1`: AuthenticationexternalResetAuthorizationV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectAuthenticationexternalAPI.AuthenticationexternalResetAuthorizationV1`: %v\n", resp)
 }
 ```
@@ -498,7 +498,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**AuthenticationexternalResetAuthorizationV1Response**](AuthenticationexternalResetAuthorizationV1Response.md)
 
 ### Authorization
 

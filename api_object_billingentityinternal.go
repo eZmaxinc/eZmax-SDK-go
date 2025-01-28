@@ -160,7 +160,7 @@ func (r ApiBillingentityinternalEditObjectV1Request) BillingentityinternalEditOb
 	return r
 }
 
-func (r ApiBillingentityinternalEditObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiBillingentityinternalEditObjectV1Request) Execute() (*BillingentityinternalEditObjectV1Response, *http.Response, error) {
 	return r.ApiService.BillingentityinternalEditObjectV1Execute(r)
 }
 
@@ -182,13 +182,13 @@ func (a *ObjectBillingentityinternalAPIService) BillingentityinternalEditObjectV
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectBillingentityinternalAPIService) BillingentityinternalEditObjectV1Execute(r ApiBillingentityinternalEditObjectV1Request) (*CommonResponse, *http.Response, error) {
+//  @return BillingentityinternalEditObjectV1Response
+func (a *ObjectBillingentityinternalAPIService) BillingentityinternalEditObjectV1Execute(r ApiBillingentityinternalEditObjectV1Request) (*BillingentityinternalEditObjectV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *BillingentityinternalEditObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectBillingentityinternalAPIService.BillingentityinternalEditObjectV1")

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AObjEzsigndocument** | [**[]EzsigndocumentRequest**](EzsigndocumentRequest.md) |  | 
+**AObjEzsigndocument** | [**[]EzsigndocumentRequestCompound**](EzsigndocumentRequestCompound.md) |  | 
 
 ## Methods
 

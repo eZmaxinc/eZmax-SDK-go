@@ -28,9 +28,9 @@ type ContactRequestV2 struct {
 	FkiLanguageID int32 `json:"fkiLanguageID"`
 	EContactType FieldEContactType `json:"eContactType"`
 	// The First name of the contact
-	SContactFirstname string `json:"sContactFirstname"`
+	SContactFirstname string `json:"sContactFirstname" validate:"regexp=^.{1,20}$"`
 	// The Last name of the contact
-	SContactLastname string `json:"sContactLastname"`
+	SContactLastname string `json:"sContactLastname" validate:"regexp=^.{1,25}$"`
 	// The Company name of the contact
 	SContactCompany *string `json:"sContactCompany,omitempty"`
 	// The Birth Date of the contact

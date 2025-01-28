@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ## EzsignannotationDeleteObjectV1
 
-> CommonResponse EzsignannotationDeleteObjectV1(ctx, pkiEzsignannotationID).Execute()
+> EzsignannotationDeleteObjectV1Response EzsignannotationDeleteObjectV1(ctx, pkiEzsignannotationID).Execute()
 
 Delete an existing Ezsignannotation
 
@@ -107,7 +107,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignannotationAPI.EzsignannotationDeleteObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignannotationDeleteObjectV1`: CommonResponse
+	// response from `EzsignannotationDeleteObjectV1`: EzsignannotationDeleteObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignannotationAPI.EzsignannotationDeleteObjectV1`: %v\n", resp)
 }
 ```
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignannotationDeleteObjectV1Response**](EzsignannotationDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ## EzsignannotationEditObjectV1
 
-> CommonResponse EzsignannotationEditObjectV1(ctx, pkiEzsignannotationID).EzsignannotationEditObjectV1Request(ezsignannotationEditObjectV1Request).Execute()
+> EzsignannotationEditObjectV1Response EzsignannotationEditObjectV1(ctx, pkiEzsignannotationID).EzsignannotationEditObjectV1Request(ezsignannotationEditObjectV1Request).Execute()
 
 Edit an existing Ezsignannotation
 
@@ -178,7 +178,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignannotationAPI.EzsignannotationEditObjectV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `EzsignannotationEditObjectV1`: CommonResponse
+	// response from `EzsignannotationEditObjectV1`: EzsignannotationEditObjectV1Response
 	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignannotationAPI.EzsignannotationEditObjectV1`: %v\n", resp)
 }
 ```
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignannotationEditObjectV1Response**](EzsignannotationEditObjectV1Response.md)
 
 ### Authorization
 

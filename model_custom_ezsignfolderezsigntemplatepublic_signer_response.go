@@ -25,9 +25,9 @@ type CustomEzsignfolderezsigntemplatepublicSignerResponse struct {
 	// The unique ID of the Ezsignsignergroup
 	FkiEzsignsignergroupID *int32 `json:"fkiEzsignsignergroupID,omitempty"`
 	// The First name of the contact
-	SContactFirstname *string `json:"sContactFirstname,omitempty"`
+	SContactFirstname *string `json:"sContactFirstname,omitempty" validate:"regexp=^.{1,20}$"`
 	// The Last name of the contact
-	SContactLastname *string `json:"sContactLastname,omitempty"`
+	SContactLastname *string `json:"sContactLastname,omitempty" validate:"regexp=^.{1,25}$"`
 	// The Description of the Ezsignsignergroup in the language of the requester
 	SEzsignsignergroupDescriptionX *string `json:"sEzsignsignergroupDescriptionX,omitempty"`
 }

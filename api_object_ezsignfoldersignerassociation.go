@@ -439,7 +439,7 @@ type ApiEzsignfoldersignerassociationDeleteObjectV1Request struct {
 	pkiEzsignfoldersignerassociationID int32
 }
 
-func (r ApiEzsignfoldersignerassociationDeleteObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsignfoldersignerassociationDeleteObjectV1Request) Execute() (*EzsignfoldersignerassociationDeleteObjectV1Response, *http.Response, error) {
 	return r.ApiService.EzsignfoldersignerassociationDeleteObjectV1Execute(r)
 }
 
@@ -461,13 +461,13 @@ func (a *ObjectEzsignfoldersignerassociationAPIService) Ezsignfoldersignerassoci
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectEzsignfoldersignerassociationAPIService) EzsignfoldersignerassociationDeleteObjectV1Execute(r ApiEzsignfoldersignerassociationDeleteObjectV1Request) (*CommonResponse, *http.Response, error) {
+//  @return EzsignfoldersignerassociationDeleteObjectV1Response
+func (a *ObjectEzsignfoldersignerassociationAPIService) EzsignfoldersignerassociationDeleteObjectV1Execute(r ApiEzsignfoldersignerassociationDeleteObjectV1Request) (*EzsignfoldersignerassociationDeleteObjectV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsignfoldersignerassociationDeleteObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfoldersignerassociationAPIService.EzsignfoldersignerassociationDeleteObjectV1")
@@ -586,7 +586,7 @@ func (r ApiEzsignfoldersignerassociationEditObjectV1Request) Ezsignfoldersignera
 	return r
 }
 
-func (r ApiEzsignfoldersignerassociationEditObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsignfoldersignerassociationEditObjectV1Request) Execute() (*EzsignfoldersignerassociationEditObjectV1Response, *http.Response, error) {
 	return r.ApiService.EzsignfoldersignerassociationEditObjectV1Execute(r)
 }
 
@@ -608,13 +608,13 @@ func (a *ObjectEzsignfoldersignerassociationAPIService) Ezsignfoldersignerassoci
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectEzsignfoldersignerassociationAPIService) EzsignfoldersignerassociationEditObjectV1Execute(r ApiEzsignfoldersignerassociationEditObjectV1Request) (*CommonResponse, *http.Response, error) {
+//  @return EzsignfoldersignerassociationEditObjectV1Response
+func (a *ObjectEzsignfoldersignerassociationAPIService) EzsignfoldersignerassociationEditObjectV1Execute(r ApiEzsignfoldersignerassociationEditObjectV1Request) (*EzsignfoldersignerassociationEditObjectV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsignfoldersignerassociationEditObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfoldersignerassociationAPIService.EzsignfoldersignerassociationEditObjectV1")
@@ -738,7 +738,7 @@ func (r ApiEzsignfoldersignerassociationForceDisconnectV1Request) Body(body map[
 	return r
 }
 
-func (r ApiEzsignfoldersignerassociationForceDisconnectV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsignfoldersignerassociationForceDisconnectV1Request) Execute() (*EzsignfoldersignerassociationForceDisconnectV1Response, *http.Response, error) {
 	return r.ApiService.EzsignfoldersignerassociationForceDisconnectV1Execute(r)
 }
 
@@ -760,13 +760,13 @@ func (a *ObjectEzsignfoldersignerassociationAPIService) Ezsignfoldersignerassoci
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectEzsignfoldersignerassociationAPIService) EzsignfoldersignerassociationForceDisconnectV1Execute(r ApiEzsignfoldersignerassociationForceDisconnectV1Request) (*CommonResponse, *http.Response, error) {
+//  @return EzsignfoldersignerassociationForceDisconnectV1Response
+func (a *ObjectEzsignfoldersignerassociationAPIService) EzsignfoldersignerassociationForceDisconnectV1Execute(r ApiEzsignfoldersignerassociationForceDisconnectV1Request) (*EzsignfoldersignerassociationForceDisconnectV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsignfoldersignerassociationForceDisconnectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfoldersignerassociationAPIService.EzsignfoldersignerassociationForceDisconnectV1")
@@ -1296,7 +1296,7 @@ func (r ApiEzsignfoldersignerassociationPatchObjectV1Request) Ezsignfoldersigner
 	return r
 }
 
-func (r ApiEzsignfoldersignerassociationPatchObjectV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsignfoldersignerassociationPatchObjectV1Request) Execute() (*EzsignfoldersignerassociationPatchObjectV1Response, *http.Response, error) {
 	return r.ApiService.EzsignfoldersignerassociationPatchObjectV1Execute(r)
 }
 
@@ -1316,13 +1316,13 @@ func (a *ObjectEzsignfoldersignerassociationAPIService) Ezsignfoldersignerassoci
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectEzsignfoldersignerassociationAPIService) EzsignfoldersignerassociationPatchObjectV1Execute(r ApiEzsignfoldersignerassociationPatchObjectV1Request) (*CommonResponse, *http.Response, error) {
+//  @return EzsignfoldersignerassociationPatchObjectV1Response
+func (a *ObjectEzsignfoldersignerassociationAPIService) EzsignfoldersignerassociationPatchObjectV1Execute(r ApiEzsignfoldersignerassociationPatchObjectV1Request) (*EzsignfoldersignerassociationPatchObjectV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsignfoldersignerassociationPatchObjectV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfoldersignerassociationAPIService.EzsignfoldersignerassociationPatchObjectV1")
@@ -1446,7 +1446,7 @@ func (r ApiEzsignfoldersignerassociationReassignV1Request) Ezsignfoldersignerass
 	return r
 }
 
-func (r ApiEzsignfoldersignerassociationReassignV1Request) Execute() (*CommonResponse, *http.Response, error) {
+func (r ApiEzsignfoldersignerassociationReassignV1Request) Execute() (*EzsignfoldersignerassociationReassignV1Response, *http.Response, error) {
 	return r.ApiService.EzsignfoldersignerassociationReassignV1Execute(r)
 }
 
@@ -1468,13 +1468,13 @@ func (a *ObjectEzsignfoldersignerassociationAPIService) Ezsignfoldersignerassoci
 }
 
 // Execute executes the request
-//  @return CommonResponse
-func (a *ObjectEzsignfoldersignerassociationAPIService) EzsignfoldersignerassociationReassignV1Execute(r ApiEzsignfoldersignerassociationReassignV1Request) (*CommonResponse, *http.Response, error) {
+//  @return EzsignfoldersignerassociationReassignV1Response
+func (a *ObjectEzsignfoldersignerassociationAPIService) EzsignfoldersignerassociationReassignV1Execute(r ApiEzsignfoldersignerassociationReassignV1Request) (*EzsignfoldersignerassociationReassignV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CommonResponse
+		localVarReturnValue  *EzsignfoldersignerassociationReassignV1Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfoldersignerassociationAPIService.EzsignfoldersignerassociationReassignV1")
