@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**EzsigntemplatepublicCreateEzsignfolderV1**](ObjectEzsigntemplatepublicAPI.md#EzsigntemplatepublicCreateEzsignfolderV1) | **Post** /1/object/ezsigntemplatepublic/createEzsignfolder | Create an Ezsignfolder
 [**EzsigntemplatepublicCreateObjectV1**](ObjectEzsigntemplatepublicAPI.md#EzsigntemplatepublicCreateObjectV1) | **Post** /1/object/ezsigntemplatepublic | Create a new Ezsigntemplatepublic
+[**EzsigntemplatepublicDeleteObjectV1**](ObjectEzsigntemplatepublicAPI.md#EzsigntemplatepublicDeleteObjectV1) | **Delete** /1/object/ezsigntemplatepublic/{pkiEzsigntemplatepublicID} | Delete an existing Ezsigntemplatepublic
 [**EzsigntemplatepublicEditObjectV1**](ObjectEzsigntemplatepublicAPI.md#EzsigntemplatepublicEditObjectV1) | **Put** /1/object/ezsigntemplatepublic/{pkiEzsigntemplatepublicID} | Edit an existing Ezsigntemplatepublic
 [**EzsigntemplatepublicGetEzsigntemplatepublicDetailsV1**](ObjectEzsigntemplatepublicAPI.md#EzsigntemplatepublicGetEzsigntemplatepublicDetailsV1) | **Post** /1/object/ezsigntemplatepublic/getEzsigntemplatepublicDetails | Retrieve the Ezsigntemplatepublic details
 [**EzsigntemplatepublicGetFormsDataV1**](ObjectEzsigntemplatepublicAPI.md#EzsigntemplatepublicGetFormsDataV1) | **Get** /1/object/ezsigntemplatepublic/{pkiEzsigntemplatepublicID}/getFormsData | Retrieve an existing Ezsigntemplatepublic&#39;s forms data
@@ -141,6 +142,76 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsigntemplatepublicDeleteObjectV1
+
+> EzsigntemplatepublicDeleteObjectV1Response EzsigntemplatepublicDeleteObjectV1(ctx, pkiEzsigntemplatepublicID).Execute()
+
+Delete an existing Ezsigntemplatepublic
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsigntemplatepublicID := int32(56) // int32 | The unique ID of the Ezsigntemplatepublic
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigntemplatepublicAPI.EzsigntemplatepublicDeleteObjectV1(context.Background(), pkiEzsigntemplatepublicID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatepublicAPI.EzsigntemplatepublicDeleteObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigntemplatepublicDeleteObjectV1`: EzsigntemplatepublicDeleteObjectV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatepublicAPI.EzsigntemplatepublicDeleteObjectV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsigntemplatepublicID** | **int32** | The unique ID of the Ezsigntemplatepublic | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsigntemplatepublicDeleteObjectV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**EzsigntemplatepublicDeleteObjectV1Response**](EzsigntemplatepublicDeleteObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
