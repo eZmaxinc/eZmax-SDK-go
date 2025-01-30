@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.1
+API version: 1.2.2
 Contact: support-api@ezmax.ca
 */
 
@@ -88,6 +88,8 @@ type EzsignsignatureResponseCompound struct {
 	ObjSignature *SignatureResponseCompound `json:"objSignature,omitempty"`
 	// The date the Ezsignsignature was signed in folder's timezone
 	DtEzsignsignatureDateInFolderTimezone *string `json:"dtEzsignsignatureDateInFolderTimezone,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$"`
+	// The Description of the Ezsignsignergroup in the language of the requester
+	SEzsignsignergroupDescriptionX *string `json:"sEzsignsignergroupDescriptionX,omitempty"`
 	// Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is **Name** or **Handwritten**)
 	BEzsignsignatureCustomdate *bool `json:"bEzsignsignatureCustomdate,omitempty"`
 	// An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.
@@ -1269,6 +1271,38 @@ func (o *EzsignsignatureResponseCompound) SetDtEzsignsignatureDateInFolderTimezo
 	o.DtEzsignsignatureDateInFolderTimezone = &v
 }
 
+// GetSEzsignsignergroupDescriptionX returns the SEzsignsignergroupDescriptionX field value if set, zero value otherwise.
+func (o *EzsignsignatureResponseCompound) GetSEzsignsignergroupDescriptionX() string {
+	if o == nil || IsNil(o.SEzsignsignergroupDescriptionX) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsignsignergroupDescriptionX
+}
+
+// GetSEzsignsignergroupDescriptionXOk returns a tuple with the SEzsignsignergroupDescriptionX field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureResponseCompound) GetSEzsignsignergroupDescriptionXOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsignsignergroupDescriptionX) {
+		return nil, false
+	}
+	return o.SEzsignsignergroupDescriptionX, true
+}
+
+// HasSEzsignsignergroupDescriptionX returns a boolean if a field has been set.
+func (o *EzsignsignatureResponseCompound) HasSEzsignsignergroupDescriptionX() bool {
+	if o != nil && !IsNil(o.SEzsignsignergroupDescriptionX) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsignsignergroupDescriptionX gets a reference to the given string and assigns it to the SEzsignsignergroupDescriptionX field.
+func (o *EzsignsignatureResponseCompound) SetSEzsignsignergroupDescriptionX(v string) {
+	o.SEzsignsignergroupDescriptionX = &v
+}
+
 // GetBEzsignsignatureCustomdate returns the BEzsignsignatureCustomdate field value if set, zero value otherwise.
 func (o *EzsignsignatureResponseCompound) GetBEzsignsignatureCustomdate() bool {
 	if o == nil || IsNil(o.BEzsignsignatureCustomdate) {
@@ -1534,6 +1568,9 @@ func (o EzsignsignatureResponseCompound) ToMap() (map[string]interface{}, error)
 	}
 	if !IsNil(o.DtEzsignsignatureDateInFolderTimezone) {
 		toSerialize["dtEzsignsignatureDateInFolderTimezone"] = o.DtEzsignsignatureDateInFolderTimezone
+	}
+	if !IsNil(o.SEzsignsignergroupDescriptionX) {
+		toSerialize["sEzsignsignergroupDescriptionX"] = o.SEzsignsignergroupDescriptionX
 	}
 	if !IsNil(o.BEzsignsignatureCustomdate) {
 		toSerialize["bEzsignsignatureCustomdate"] = o.BEzsignsignatureCustomdate

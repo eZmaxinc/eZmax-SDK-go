@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.1
+API version: 1.2.2
 Contact: support-api@ezmax.ca
 */
 
@@ -93,7 +93,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/1.2.1/go",
+		UserAgent:        "OpenAPI-Generator/1.2.2/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{

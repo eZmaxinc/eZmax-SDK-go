@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.1
+API version: 1.2.2
 Contact: support-api@ezmax.ca
 */
 

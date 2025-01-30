@@ -41,6 +41,7 @@ Name | Type | Description | Notes
 **ObjContactName** | [**CustomContactNameResponse**](CustomContactNameResponse.md) |  | 
 **ObjContactNameDelegation** | Pointer to [**CustomContactNameResponse**](CustomContactNameResponse.md) |  | [optional] 
 **ObjSignature** | Pointer to [**SignatureResponseCompound**](SignatureResponseCompound.md) |  | [optional] 
+**SEzsignsignergroupDescriptionX** | Pointer to **string** | The Description of the Ezsignsignergroup in the language of the requester | [optional] 
 **BEzsignsignatureCustomdate** | Pointer to **bool** | Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is **Name** or **Handwritten**) | [optional] 
 **AObjEzsignsignaturecustomdate** | Pointer to [**[]EzsignsignaturecustomdateResponseCompoundV2**](EzsignsignaturecustomdateResponseCompoundV2.md) | An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don&#39;t want to have a date at all. | [optional] 
 **ObjCreditcardtransaction** | Pointer to [**CustomCreditcardtransactionResponse**](CustomCreditcardtransactionResponse.md) |  | [optional] 
@@ -944,6 +945,31 @@ SetObjSignature sets ObjSignature field to given value.
 `func (o *EzsignsignatureResponseCompoundV3) HasObjSignature() bool`
 
 HasObjSignature returns a boolean if a field has been set.
+
+### GetSEzsignsignergroupDescriptionX
+
+`func (o *EzsignsignatureResponseCompoundV3) GetSEzsignsignergroupDescriptionX() string`
+
+GetSEzsignsignergroupDescriptionX returns the SEzsignsignergroupDescriptionX field if non-nil, zero value otherwise.
+
+### GetSEzsignsignergroupDescriptionXOk
+
+`func (o *EzsignsignatureResponseCompoundV3) GetSEzsignsignergroupDescriptionXOk() (*string, bool)`
+
+GetSEzsignsignergroupDescriptionXOk returns a tuple with the SEzsignsignergroupDescriptionX field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzsignsignergroupDescriptionX
+
+`func (o *EzsignsignatureResponseCompoundV3) SetSEzsignsignergroupDescriptionX(v string)`
+
+SetSEzsignsignergroupDescriptionX sets SEzsignsignergroupDescriptionX field to given value.
+
+### HasSEzsignsignergroupDescriptionX
+
+`func (o *EzsignsignatureResponseCompoundV3) HasSEzsignsignergroupDescriptionX() bool`
+
+HasSEzsignsignergroupDescriptionX returns a boolean if a field has been set.
 
 ### GetBEzsignsignatureCustomdate
 
