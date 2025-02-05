@@ -96,6 +96,8 @@ type APIClient struct {
 
 	ObjectCreditcardtypeAPI *ObjectCreditcardtypeAPIService
 
+	ObjectCurrencyAPI *ObjectCurrencyAPIService
+
 	ObjectCustomerAPI *ObjectCustomerAPIService
 
 	ObjectDepartmentAPI *ObjectDepartmentAPIService
@@ -312,6 +314,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectCreditcardclientAPI = (*ObjectCreditcardclientAPIService)(&c.common)
 	c.ObjectCreditcardmerchantAPI = (*ObjectCreditcardmerchantAPIService)(&c.common)
 	c.ObjectCreditcardtypeAPI = (*ObjectCreditcardtypeAPIService)(&c.common)
+	c.ObjectCurrencyAPI = (*ObjectCurrencyAPIService)(&c.common)
 	c.ObjectCustomerAPI = (*ObjectCustomerAPIService)(&c.common)
 	c.ObjectDepartmentAPI = (*ObjectDepartmentAPIService)(&c.common)
 	c.ObjectDiscussionAPI = (*ObjectDiscussionAPIService)(&c.common)
