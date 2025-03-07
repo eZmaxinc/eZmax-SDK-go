@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **FkiEzsignfoldersignerassociationID** | **int32** | The unique ID of the Ezsignfoldersignerassociation | 
 **FkiEzsignsigningreasonID** | Pointer to **int32** | The unique ID of the Ezsignsigningreason | [optional] 
 **FkiFontID** | Pointer to **int32** | The unique ID of the Font | [optional] 
+**SCurrencyDescriptionX** | Pointer to **string** | The description of the Currency in the language of the requester | [optional] 
 **SEzsignsigningreasonDescriptionX** | Pointer to **string** | The description of the Ezsignsigningreason in the language of the requester | [optional] 
 **IEzsignpagePagenumber** | **int32** | The page number in the Ezsigndocument | 
 **IEzsignsignatureX** | **int32** | The X coordinate (Horizontal) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 2 inches from the left border of the page, you would use \&quot;200\&quot; for the X coordinate. | 
@@ -48,6 +49,7 @@ Name | Type | Description | Notes
 **ObjCreditcardtransaction** | Pointer to [**CustomCreditcardtransactionResponse**](CustomCreditcardtransactionResponse.md) |  | [optional] 
 **AObjEzsignelementdependency** | Pointer to [**[]EzsignelementdependencyResponseCompound**](EzsignelementdependencyResponseCompound.md) |  | [optional] 
 **ObjTimezone** | Pointer to [**CustomTimezoneWithCodeResponse**](CustomTimezoneWithCodeResponse.md) |  | [optional] 
+**AObjEzsignsignaturepaymentdetail** | Pointer to [**[]EzsignsignaturepaymentdetailRequestCompound**](EzsignsignaturepaymentdetailRequestCompound.md) |  | [optional] 
 
 ## Methods
 
@@ -177,6 +179,31 @@ SetFkiFontID sets FkiFontID field to given value.
 `func (o *EzsignsignatureResponseCompound) HasFkiFontID() bool`
 
 HasFkiFontID returns a boolean if a field has been set.
+
+### GetSCurrencyDescriptionX
+
+`func (o *EzsignsignatureResponseCompound) GetSCurrencyDescriptionX() string`
+
+GetSCurrencyDescriptionX returns the SCurrencyDescriptionX field if non-nil, zero value otherwise.
+
+### GetSCurrencyDescriptionXOk
+
+`func (o *EzsignsignatureResponseCompound) GetSCurrencyDescriptionXOk() (*string, bool)`
+
+GetSCurrencyDescriptionXOk returns a tuple with the SCurrencyDescriptionX field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSCurrencyDescriptionX
+
+`func (o *EzsignsignatureResponseCompound) SetSCurrencyDescriptionX(v string)`
+
+SetSCurrencyDescriptionX sets SCurrencyDescriptionX field to given value.
+
+### HasSCurrencyDescriptionX
+
+`func (o *EzsignsignatureResponseCompound) HasSCurrencyDescriptionX() bool`
+
+HasSCurrencyDescriptionX returns a boolean if a field has been set.
 
 ### GetSEzsignsigningreasonDescriptionX
 
@@ -1122,6 +1149,31 @@ SetObjTimezone sets ObjTimezone field to given value.
 `func (o *EzsignsignatureResponseCompound) HasObjTimezone() bool`
 
 HasObjTimezone returns a boolean if a field has been set.
+
+### GetAObjEzsignsignaturepaymentdetail
+
+`func (o *EzsignsignatureResponseCompound) GetAObjEzsignsignaturepaymentdetail() []EzsignsignaturepaymentdetailRequestCompound`
+
+GetAObjEzsignsignaturepaymentdetail returns the AObjEzsignsignaturepaymentdetail field if non-nil, zero value otherwise.
+
+### GetAObjEzsignsignaturepaymentdetailOk
+
+`func (o *EzsignsignatureResponseCompound) GetAObjEzsignsignaturepaymentdetailOk() (*[]EzsignsignaturepaymentdetailRequestCompound, bool)`
+
+GetAObjEzsignsignaturepaymentdetailOk returns a tuple with the AObjEzsignsignaturepaymentdetail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAObjEzsignsignaturepaymentdetail
+
+`func (o *EzsignsignatureResponseCompound) SetAObjEzsignsignaturepaymentdetail(v []EzsignsignaturepaymentdetailRequestCompound)`
+
+SetAObjEzsignsignaturepaymentdetail sets AObjEzsignsignaturepaymentdetail field to given value.
+
+### HasAObjEzsignsignaturepaymentdetail
+
+`func (o *EzsignsignatureResponseCompound) HasAObjEzsignsignaturepaymentdetail() bool`
+
+HasAObjEzsignsignaturepaymentdetail returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

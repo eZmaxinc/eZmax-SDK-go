@@ -36,6 +36,7 @@ Method | HTTP request | Description
 [**EzsigndocumentGetTemporaryProofV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentGetTemporaryProofV1) | **Get** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getTemporaryProof | Retrieve the temporary proof
 [**EzsigndocumentGetWordsPositionsV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentGetWordsPositionsV1) | **Post** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions | Retrieve positions X,Y of given words from a Ezsigndocument
 [**EzsigndocumentPatchObjectV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentPatchObjectV1) | **Patch** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Patch an existing Ezsigndocument
+[**EzsigndocumentPrefillEzsignformV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentPrefillEzsignformV1) | **Post** /1/object/ezsigndocument/{pkiEzsigndocumentID}/prefillEzsignform | Prefill an Ezsignform
 [**EzsigndocumentSubmitEzsignformV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentSubmitEzsignformV1) | **Post** /1/object/ezsigndocument/{pkiEzsigndocumentID}/submitEzsignform | Submit the Ezsignform
 [**EzsigndocumentUnsendV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentUnsendV1) | **Post** /1/object/ezsigndocument/{pkiEzsigndocumentID}/unsend | Unsend the Ezsigndocument
 
@@ -2283,6 +2284,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsigndocumentPatchObjectV1Response**](EzsigndocumentPatchObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsigndocumentPrefillEzsignformV1
+
+> EzsigndocumentPrefillEzsignformV1Response EzsigndocumentPrefillEzsignformV1(ctx, pkiEzsigndocumentID).EzsigndocumentPrefillEzsignformV1Request(ezsigndocumentPrefillEzsignformV1Request).Execute()
+
+Prefill an Ezsignform
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsigndocumentID := int32(56) // int32 | 
+	ezsigndocumentPrefillEzsignformV1Request := *openapiclient.NewEzsigndocumentPrefillEzsignformV1Request([]openapiclient.CustomPrefillEzsignformValueRequest{*openapiclient.NewCustomPrefillEzsignformValueRequest("Allergies")}) // EzsigndocumentPrefillEzsignformV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigndocumentAPI.EzsigndocumentPrefillEzsignformV1(context.Background(), pkiEzsigndocumentID).EzsigndocumentPrefillEzsignformV1Request(ezsigndocumentPrefillEzsignformV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentAPI.EzsigndocumentPrefillEzsignformV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigndocumentPrefillEzsignformV1`: EzsigndocumentPrefillEzsignformV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigndocumentAPI.EzsigndocumentPrefillEzsignformV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsigndocumentID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsigndocumentPrefillEzsignformV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **ezsigndocumentPrefillEzsignformV1Request** | [**EzsigndocumentPrefillEzsignformV1Request**](EzsigndocumentPrefillEzsignformV1Request.md) |  | 
+
+### Return type
+
+[**EzsigndocumentPrefillEzsignformV1Response**](EzsigndocumentPrefillEzsignformV1Response.md)
 
 ### Authorization
 

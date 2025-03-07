@@ -26,6 +26,8 @@ type CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest struct {
 	PkiEzsignsignatureID *int32 `json:"pkiEzsignsignatureID,omitempty"`
 	// The unique ID of the Ezsignfoldersignerassociation
 	FkiEzsignfoldersignerassociationID int32 `json:"fkiEzsignfoldersignerassociationID"`
+	// The unique ID of the Paymentgateway
+	FkiPaymentgatewayID *int32 `json:"fkiPaymentgatewayID,omitempty"`
 	// The page number in the Ezsigndocument
 	IEzsignpagePagenumber int32 `json:"iEzsignpagePagenumber"`
 	// The X coordinate (Horizontal) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 2 inches from the left border of the page, you would use \"200\" for the X coordinate.
@@ -158,6 +160,38 @@ func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetFk
 // SetFkiEzsignfoldersignerassociationID sets field value
 func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetFkiEzsignfoldersignerassociationID(v int32) {
 	o.FkiEzsignfoldersignerassociationID = v
+}
+
+// GetFkiPaymentgatewayID returns the FkiPaymentgatewayID field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetFkiPaymentgatewayID() int32 {
+	if o == nil || IsNil(o.FkiPaymentgatewayID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiPaymentgatewayID
+}
+
+// GetFkiPaymentgatewayIDOk returns a tuple with the FkiPaymentgatewayID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetFkiPaymentgatewayIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiPaymentgatewayID) {
+		return nil, false
+	}
+	return o.FkiPaymentgatewayID, true
+}
+
+// HasFkiPaymentgatewayID returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasFkiPaymentgatewayID() bool {
+	if o != nil && !IsNil(o.FkiPaymentgatewayID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiPaymentgatewayID gets a reference to the given int32 and assigns it to the FkiPaymentgatewayID field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetFkiPaymentgatewayID(v int32) {
+	o.FkiPaymentgatewayID = &v
 }
 
 // GetIEzsignpagePagenumber returns the IEzsignpagePagenumber field value
@@ -1046,6 +1080,9 @@ func (o CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) ToMap(
 		toSerialize["pkiEzsignsignatureID"] = o.PkiEzsignsignatureID
 	}
 	toSerialize["fkiEzsignfoldersignerassociationID"] = o.FkiEzsignfoldersignerassociationID
+	if !IsNil(o.FkiPaymentgatewayID) {
+		toSerialize["fkiPaymentgatewayID"] = o.FkiPaymentgatewayID
+	}
 	toSerialize["iEzsignpagePagenumber"] = o.IEzsignpagePagenumber
 	toSerialize["iEzsignsignatureX"] = o.IEzsignsignatureX
 	toSerialize["iEzsignsignatureY"] = o.IEzsignsignatureY

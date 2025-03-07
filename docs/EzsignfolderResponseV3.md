@@ -27,6 +27,8 @@ Name | Type | Description | Notes
 **DtEzsignfolderScheduleddispose** | Pointer to **string** | The scheduled date at which the Ezsignfolder should be Disposed. | [optional] 
 **EEzsignfolderStep** | Pointer to [**FieldEEzsignfolderStep**](FieldEEzsignfolderStep.md) |  | [optional] 
 **DtEzsignfolderClose** | Pointer to **string** | The date and time at which the Ezsignfolder was closed. Either by applying the last signature or by completing it prematurely. | [optional] 
+**DtEzsignfolderArchive** | Pointer to **string** | The date and time at which the Ezsignfolder was archived. | [optional] 
+**DtEzsignfolderDispose** | Pointer to **string** | The date and time at which the Ezsignfolder was disposed. | [optional] 
 **TEzsignfolderMessage** | Pointer to **string** | A custom text message that will be added to the email sent. | [optional] 
 **ObjAudit** | Pointer to [**CommonAudit**](CommonAudit.md) |  | [optional] 
 **SEzsignfolderExternalid** | Pointer to **string** | This field can be used to store an External ID from the client&#39;s system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format.  | [optional] 
@@ -610,6 +612,56 @@ SetDtEzsignfolderClose sets DtEzsignfolderClose field to given value.
 `func (o *EzsignfolderResponseV3) HasDtEzsignfolderClose() bool`
 
 HasDtEzsignfolderClose returns a boolean if a field has been set.
+
+### GetDtEzsignfolderArchive
+
+`func (o *EzsignfolderResponseV3) GetDtEzsignfolderArchive() string`
+
+GetDtEzsignfolderArchive returns the DtEzsignfolderArchive field if non-nil, zero value otherwise.
+
+### GetDtEzsignfolderArchiveOk
+
+`func (o *EzsignfolderResponseV3) GetDtEzsignfolderArchiveOk() (*string, bool)`
+
+GetDtEzsignfolderArchiveOk returns a tuple with the DtEzsignfolderArchive field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDtEzsignfolderArchive
+
+`func (o *EzsignfolderResponseV3) SetDtEzsignfolderArchive(v string)`
+
+SetDtEzsignfolderArchive sets DtEzsignfolderArchive field to given value.
+
+### HasDtEzsignfolderArchive
+
+`func (o *EzsignfolderResponseV3) HasDtEzsignfolderArchive() bool`
+
+HasDtEzsignfolderArchive returns a boolean if a field has been set.
+
+### GetDtEzsignfolderDispose
+
+`func (o *EzsignfolderResponseV3) GetDtEzsignfolderDispose() string`
+
+GetDtEzsignfolderDispose returns the DtEzsignfolderDispose field if non-nil, zero value otherwise.
+
+### GetDtEzsignfolderDisposeOk
+
+`func (o *EzsignfolderResponseV3) GetDtEzsignfolderDisposeOk() (*string, bool)`
+
+GetDtEzsignfolderDisposeOk returns a tuple with the DtEzsignfolderDispose field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDtEzsignfolderDispose
+
+`func (o *EzsignfolderResponseV3) SetDtEzsignfolderDispose(v string)`
+
+SetDtEzsignfolderDispose sets DtEzsignfolderDispose field to given value.
+
+### HasDtEzsignfolderDispose
+
+`func (o *EzsignfolderResponseV3) HasDtEzsignfolderDispose() bool`
+
+HasDtEzsignfolderDispose returns a boolean if a field has been set.
 
 ### GetTEzsignfolderMessage
 

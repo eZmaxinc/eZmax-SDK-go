@@ -30,6 +30,8 @@ type EzsigndocumentRequest struct {
 	FkiEzsigntemplateID *int32 `json:"fkiEzsigntemplateID,omitempty"`
 	// The unique ID of the Ezsignfoldersignerassociation
 	FkiEzsignfoldersignerassociationID *int32 `json:"fkiEzsignfoldersignerassociationID,omitempty"`
+	// The unique ID of the Ezsignimportdocument
+	FkiEzsignimportdocumentID *int32 `json:"fkiEzsignimportdocumentID,omitempty"`
 	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
 	FkiLanguageID int32 `json:"fkiLanguageID"`
 	// Indicates where to look for the document binary content.
@@ -200,6 +202,38 @@ func (o *EzsigndocumentRequest) HasFkiEzsignfoldersignerassociationID() bool {
 // SetFkiEzsignfoldersignerassociationID gets a reference to the given int32 and assigns it to the FkiEzsignfoldersignerassociationID field.
 func (o *EzsigndocumentRequest) SetFkiEzsignfoldersignerassociationID(v int32) {
 	o.FkiEzsignfoldersignerassociationID = &v
+}
+
+// GetFkiEzsignimportdocumentID returns the FkiEzsignimportdocumentID field value if set, zero value otherwise.
+func (o *EzsigndocumentRequest) GetFkiEzsignimportdocumentID() int32 {
+	if o == nil || IsNil(o.FkiEzsignimportdocumentID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEzsignimportdocumentID
+}
+
+// GetFkiEzsignimportdocumentIDOk returns a tuple with the FkiEzsignimportdocumentID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentRequest) GetFkiEzsignimportdocumentIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEzsignimportdocumentID) {
+		return nil, false
+	}
+	return o.FkiEzsignimportdocumentID, true
+}
+
+// HasFkiEzsignimportdocumentID returns a boolean if a field has been set.
+func (o *EzsigndocumentRequest) HasFkiEzsignimportdocumentID() bool {
+	if o != nil && !IsNil(o.FkiEzsignimportdocumentID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzsignimportdocumentID gets a reference to the given int32 and assigns it to the FkiEzsignimportdocumentID field.
+func (o *EzsigndocumentRequest) SetFkiEzsignimportdocumentID(v int32) {
+	o.FkiEzsignimportdocumentID = &v
 }
 
 // GetFkiLanguageID returns the FkiLanguageID field value
@@ -541,6 +575,9 @@ func (o EzsigndocumentRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.FkiEzsignfoldersignerassociationID) {
 		toSerialize["fkiEzsignfoldersignerassociationID"] = o.FkiEzsignfoldersignerassociationID
+	}
+	if !IsNil(o.FkiEzsignimportdocumentID) {
+		toSerialize["fkiEzsignimportdocumentID"] = o.FkiEzsignimportdocumentID
 	}
 	toSerialize["fkiLanguageID"] = o.FkiLanguageID
 	toSerialize["eEzsigndocumentSource"] = o.EEzsigndocumentSource

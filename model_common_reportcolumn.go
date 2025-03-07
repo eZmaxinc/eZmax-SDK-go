@@ -25,6 +25,7 @@ type CommonReportcolumn struct {
 	ObjReportcellstyleDefault CommonReportcellstyle `json:"objReportcellstyleDefault"`
 	// The Reportcolumn width in pixels
 	IReportcolumnWidth int32 `json:"iReportcolumnWidth"`
+	EReportcolumnType EnumReportdataType `json:"eReportcolumnType"`
 }
 
 type _CommonReportcolumn CommonReportcolumn
@@ -33,10 +34,11 @@ type _CommonReportcolumn CommonReportcolumn
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommonReportcolumn(objReportcellstyleDefault CommonReportcellstyle, iReportcolumnWidth int32) *CommonReportcolumn {
+func NewCommonReportcolumn(objReportcellstyleDefault CommonReportcellstyle, iReportcolumnWidth int32, eReportcolumnType EnumReportdataType) *CommonReportcolumn {
 	this := CommonReportcolumn{}
 	this.ObjReportcellstyleDefault = objReportcellstyleDefault
 	this.IReportcolumnWidth = iReportcolumnWidth
+	this.EReportcolumnType = eReportcolumnType
 	return &this
 }
 
@@ -96,6 +98,30 @@ func (o *CommonReportcolumn) SetIReportcolumnWidth(v int32) {
 	o.IReportcolumnWidth = v
 }
 
+// GetEReportcolumnType returns the EReportcolumnType field value
+func (o *CommonReportcolumn) GetEReportcolumnType() EnumReportdataType {
+	if o == nil {
+		var ret EnumReportdataType
+		return ret
+	}
+
+	return o.EReportcolumnType
+}
+
+// GetEReportcolumnTypeOk returns a tuple with the EReportcolumnType field value
+// and a boolean to check if the value has been set.
+func (o *CommonReportcolumn) GetEReportcolumnTypeOk() (*EnumReportdataType, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EReportcolumnType, true
+}
+
+// SetEReportcolumnType sets field value
+func (o *CommonReportcolumn) SetEReportcolumnType(v EnumReportdataType) {
+	o.EReportcolumnType = v
+}
+
 func (o CommonReportcolumn) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -108,6 +134,7 @@ func (o CommonReportcolumn) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["objReportcellstyleDefault"] = o.ObjReportcellstyleDefault
 	toSerialize["iReportcolumnWidth"] = o.IReportcolumnWidth
+	toSerialize["eReportcolumnType"] = o.EReportcolumnType
 	return toSerialize, nil
 }
 
@@ -118,6 +145,7 @@ func (o *CommonReportcolumn) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"objReportcellstyleDefault",
 		"iReportcolumnWidth",
+		"eReportcolumnType",
 	}
 
 	allProperties := make(map[string]interface{})

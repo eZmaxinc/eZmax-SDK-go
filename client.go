@@ -120,6 +120,8 @@ type APIClient struct {
 
 	ObjectEzdoctemplatetypeAPI *ObjectEzdoctemplatetypeAPIService
 
+	ObjectEzmaxcaseAPI *ObjectEzmaxcaseAPIService
+
 	ObjectEzmaxinvoicingAPI *ObjectEzmaxinvoicingAPIService
 
 	ObjectEzmaxproductAPI *ObjectEzmaxproductAPIService
@@ -145,6 +147,10 @@ type APIClient struct {
 	ObjectEzsignfoldertypeAPI *ObjectEzsignfoldertypeAPIService
 
 	ObjectEzsignformfieldgroupAPI *ObjectEzsignformfieldgroupAPIService
+
+	ObjectEzsignimportdocumentAPI *ObjectEzsignimportdocumentAPIService
+
+	ObjectEzsignimportfolderAPI *ObjectEzsignimportfolderAPIService
 
 	ObjectEzsignpageAPI *ObjectEzsignpageAPIService
 
@@ -215,6 +221,8 @@ type APIClient struct {
 	ObjectNotificationtestAPI *ObjectNotificationtestAPIService
 
 	ObjectOtherincomeAPI *ObjectOtherincomeAPIService
+
+	ObjectPaymentgatewayAPI *ObjectPaymentgatewayAPIService
 
 	ObjectPaymenttermAPI *ObjectPaymenttermAPIService
 
@@ -326,6 +334,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectEzdoctemplatedocumentAPI = (*ObjectEzdoctemplatedocumentAPIService)(&c.common)
 	c.ObjectEzdoctemplatefieldtypecategoryAPI = (*ObjectEzdoctemplatefieldtypecategoryAPIService)(&c.common)
 	c.ObjectEzdoctemplatetypeAPI = (*ObjectEzdoctemplatetypeAPIService)(&c.common)
+	c.ObjectEzmaxcaseAPI = (*ObjectEzmaxcaseAPIService)(&c.common)
 	c.ObjectEzmaxinvoicingAPI = (*ObjectEzmaxinvoicingAPIService)(&c.common)
 	c.ObjectEzmaxproductAPI = (*ObjectEzmaxproductAPIService)(&c.common)
 	c.ObjectEzsignannotationAPI = (*ObjectEzsignannotationAPIService)(&c.common)
@@ -339,6 +348,8 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectEzsignfoldersignerassociationAPI = (*ObjectEzsignfoldersignerassociationAPIService)(&c.common)
 	c.ObjectEzsignfoldertypeAPI = (*ObjectEzsignfoldertypeAPIService)(&c.common)
 	c.ObjectEzsignformfieldgroupAPI = (*ObjectEzsignformfieldgroupAPIService)(&c.common)
+	c.ObjectEzsignimportdocumentAPI = (*ObjectEzsignimportdocumentAPIService)(&c.common)
+	c.ObjectEzsignimportfolderAPI = (*ObjectEzsignimportfolderAPIService)(&c.common)
 	c.ObjectEzsignpageAPI = (*ObjectEzsignpageAPIService)(&c.common)
 	c.ObjectEzsignsignatureAPI = (*ObjectEzsignsignatureAPIService)(&c.common)
 	c.ObjectEzsignsignergroupAPI = (*ObjectEzsignsignergroupAPIService)(&c.common)
@@ -374,6 +385,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectNotificationsectionAPI = (*ObjectNotificationsectionAPIService)(&c.common)
 	c.ObjectNotificationtestAPI = (*ObjectNotificationtestAPIService)(&c.common)
 	c.ObjectOtherincomeAPI = (*ObjectOtherincomeAPIService)(&c.common)
+	c.ObjectPaymentgatewayAPI = (*ObjectPaymentgatewayAPIService)(&c.common)
 	c.ObjectPaymenttermAPI = (*ObjectPaymenttermAPIService)(&c.common)
 	c.ObjectPdfalevelAPI = (*ObjectPdfalevelAPIService)(&c.common)
 	c.ObjectPeriodAPI = (*ObjectPeriodAPIService)(&c.common)
@@ -461,6 +473,10 @@ func typeCheckParameter(obj interface{}, expected string, name string) error {
 
 func parameterValueToString( obj interface{}, key string ) string {
 	if reflect.TypeOf(obj).Kind() != reflect.Ptr {
+		if actualObj, ok := obj.(interface{ GetActualInstanceValue() interface{} }); ok {
+			return fmt.Sprintf("%v", actualObj.GetActualInstanceValue())
+		}
+
 		return fmt.Sprintf("%v", obj)
 	}
 	var param,ok = obj.(MappedNullable)

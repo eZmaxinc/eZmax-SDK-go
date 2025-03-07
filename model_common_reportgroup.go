@@ -24,6 +24,9 @@ var _ MappedNullable = &CommonReportgroup{}
 type CommonReportgroup struct {
 	AObjReport []CommonReport `json:"a_objReport"`
 	AObjReportcellstyleCustom []CommonReportcellstyle `json:"a_objReportcellstyleCustom"`
+	AObjReportgroupParameter []CommonReportgroupParameter `json:"a_objReportgroupParameter"`
+	// The name of the file
+	SReportgroupFilename string `json:"sReportgroupFilename"`
 }
 
 type _CommonReportgroup CommonReportgroup
@@ -32,10 +35,12 @@ type _CommonReportgroup CommonReportgroup
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommonReportgroup(aObjReport []CommonReport, aObjReportcellstyleCustom []CommonReportcellstyle) *CommonReportgroup {
+func NewCommonReportgroup(aObjReport []CommonReport, aObjReportcellstyleCustom []CommonReportcellstyle, aObjReportgroupParameter []CommonReportgroupParameter, sReportgroupFilename string) *CommonReportgroup {
 	this := CommonReportgroup{}
 	this.AObjReport = aObjReport
 	this.AObjReportcellstyleCustom = aObjReportcellstyleCustom
+	this.AObjReportgroupParameter = aObjReportgroupParameter
+	this.SReportgroupFilename = sReportgroupFilename
 	return &this
 }
 
@@ -95,6 +100,54 @@ func (o *CommonReportgroup) SetAObjReportcellstyleCustom(v []CommonReportcellsty
 	o.AObjReportcellstyleCustom = v
 }
 
+// GetAObjReportgroupParameter returns the AObjReportgroupParameter field value
+func (o *CommonReportgroup) GetAObjReportgroupParameter() []CommonReportgroupParameter {
+	if o == nil {
+		var ret []CommonReportgroupParameter
+		return ret
+	}
+
+	return o.AObjReportgroupParameter
+}
+
+// GetAObjReportgroupParameterOk returns a tuple with the AObjReportgroupParameter field value
+// and a boolean to check if the value has been set.
+func (o *CommonReportgroup) GetAObjReportgroupParameterOk() ([]CommonReportgroupParameter, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AObjReportgroupParameter, true
+}
+
+// SetAObjReportgroupParameter sets field value
+func (o *CommonReportgroup) SetAObjReportgroupParameter(v []CommonReportgroupParameter) {
+	o.AObjReportgroupParameter = v
+}
+
+// GetSReportgroupFilename returns the SReportgroupFilename field value
+func (o *CommonReportgroup) GetSReportgroupFilename() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SReportgroupFilename
+}
+
+// GetSReportgroupFilenameOk returns a tuple with the SReportgroupFilename field value
+// and a boolean to check if the value has been set.
+func (o *CommonReportgroup) GetSReportgroupFilenameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SReportgroupFilename, true
+}
+
+// SetSReportgroupFilename sets field value
+func (o *CommonReportgroup) SetSReportgroupFilename(v string) {
+	o.SReportgroupFilename = v
+}
+
 func (o CommonReportgroup) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -107,6 +160,8 @@ func (o CommonReportgroup) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_objReport"] = o.AObjReport
 	toSerialize["a_objReportcellstyleCustom"] = o.AObjReportcellstyleCustom
+	toSerialize["a_objReportgroupParameter"] = o.AObjReportgroupParameter
+	toSerialize["sReportgroupFilename"] = o.SReportgroupFilename
 	return toSerialize, nil
 }
 
@@ -117,6 +172,8 @@ func (o *CommonReportgroup) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"a_objReport",
 		"a_objReportcellstyleCustom",
+		"a_objReportgroupParameter",
+		"sReportgroupFilename",
 	}
 
 	allProperties := make(map[string]interface{})

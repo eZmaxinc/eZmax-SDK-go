@@ -23,6 +23,10 @@ var _ MappedNullable = &CommonReport{}
 // CommonReport A Report containing Reportsections 
 type CommonReport struct {
 	AObjReportsection []CommonReportsection `json:"a_objReportsection"`
+	// Whether we display pagination in the report
+	BReportPaginate *bool `json:"bReportPaginate,omitempty"`
+	// The title of this Report
+	SReportTitle *string `json:"sReportTitle,omitempty"`
 }
 
 type _CommonReport CommonReport
@@ -69,6 +73,70 @@ func (o *CommonReport) SetAObjReportsection(v []CommonReportsection) {
 	o.AObjReportsection = v
 }
 
+// GetBReportPaginate returns the BReportPaginate field value if set, zero value otherwise.
+func (o *CommonReport) GetBReportPaginate() bool {
+	if o == nil || IsNil(o.BReportPaginate) {
+		var ret bool
+		return ret
+	}
+	return *o.BReportPaginate
+}
+
+// GetBReportPaginateOk returns a tuple with the BReportPaginate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CommonReport) GetBReportPaginateOk() (*bool, bool) {
+	if o == nil || IsNil(o.BReportPaginate) {
+		return nil, false
+	}
+	return o.BReportPaginate, true
+}
+
+// HasBReportPaginate returns a boolean if a field has been set.
+func (o *CommonReport) HasBReportPaginate() bool {
+	if o != nil && !IsNil(o.BReportPaginate) {
+		return true
+	}
+
+	return false
+}
+
+// SetBReportPaginate gets a reference to the given bool and assigns it to the BReportPaginate field.
+func (o *CommonReport) SetBReportPaginate(v bool) {
+	o.BReportPaginate = &v
+}
+
+// GetSReportTitle returns the SReportTitle field value if set, zero value otherwise.
+func (o *CommonReport) GetSReportTitle() string {
+	if o == nil || IsNil(o.SReportTitle) {
+		var ret string
+		return ret
+	}
+	return *o.SReportTitle
+}
+
+// GetSReportTitleOk returns a tuple with the SReportTitle field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CommonReport) GetSReportTitleOk() (*string, bool) {
+	if o == nil || IsNil(o.SReportTitle) {
+		return nil, false
+	}
+	return o.SReportTitle, true
+}
+
+// HasSReportTitle returns a boolean if a field has been set.
+func (o *CommonReport) HasSReportTitle() bool {
+	if o != nil && !IsNil(o.SReportTitle) {
+		return true
+	}
+
+	return false
+}
+
+// SetSReportTitle gets a reference to the given string and assigns it to the SReportTitle field.
+func (o *CommonReport) SetSReportTitle(v string) {
+	o.SReportTitle = &v
+}
+
 func (o CommonReport) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -80,6 +148,12 @@ func (o CommonReport) MarshalJSON() ([]byte, error) {
 func (o CommonReport) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_objReportsection"] = o.AObjReportsection
+	if !IsNil(o.BReportPaginate) {
+		toSerialize["bReportPaginate"] = o.BReportPaginate
+	}
+	if !IsNil(o.SReportTitle) {
+		toSerialize["sReportTitle"] = o.SReportTitle
+	}
 	return toSerialize, nil
 }
 

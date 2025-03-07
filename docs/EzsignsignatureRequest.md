@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiEzsignsignatureID** | Pointer to **int32** | The unique ID of the Ezsignsignature | [optional] 
 **FkiEzsignfoldersignerassociationID** | **int32** | The unique ID of the Ezsignfoldersignerassociation | 
+**FkiPaymentgatewayID** | Pointer to **int32** | The unique ID of the Paymentgateway | [optional] 
 **IEzsignpagePagenumber** | **int32** | The page number in the Ezsigndocument | 
 **IEzsignsignatureX** | **int32** | The X coordinate (Horizontal) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 2 inches from the left border of the page, you would use \&quot;200\&quot; for the X coordinate. | 
 **IEzsignsignatureY** | **int32** | The Y coordinate (Vertical) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 3 inches from the top border of the page, you would use \&quot;300\&quot; for the Y coordinate. | 
@@ -95,6 +96,31 @@ and a boolean to check if the value has been set.
 
 SetFkiEzsignfoldersignerassociationID sets FkiEzsignfoldersignerassociationID field to given value.
 
+
+### GetFkiPaymentgatewayID
+
+`func (o *EzsignsignatureRequest) GetFkiPaymentgatewayID() int32`
+
+GetFkiPaymentgatewayID returns the FkiPaymentgatewayID field if non-nil, zero value otherwise.
+
+### GetFkiPaymentgatewayIDOk
+
+`func (o *EzsignsignatureRequest) GetFkiPaymentgatewayIDOk() (*int32, bool)`
+
+GetFkiPaymentgatewayIDOk returns a tuple with the FkiPaymentgatewayID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiPaymentgatewayID
+
+`func (o *EzsignsignatureRequest) SetFkiPaymentgatewayID(v int32)`
+
+SetFkiPaymentgatewayID sets FkiPaymentgatewayID field to given value.
+
+### HasFkiPaymentgatewayID
+
+`func (o *EzsignsignatureRequest) HasFkiPaymentgatewayID() bool`
+
+HasFkiPaymentgatewayID returns a boolean if a field has been set.
 
 ### GetIEzsignpagePagenumber
 

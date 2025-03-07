@@ -6,12 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **IReportcellColumnspan** | **int32** | The number of Reportcolumns the Reportcell spans | 
 **IReportcellRowspan** | **int32** | The number of Reportrows the Reportcell spans | 
+**SReportcellContent** | **string** | The content of this Reportcell | 
+**IReportcellColumn** | **int32** | Position of the column where it is placed | 
 
 ## Methods
 
 ### NewCommonReportcell
 
-`func NewCommonReportcell(iReportcellColumnspan int32, iReportcellRowspan int32, ) *CommonReportcell`
+`func NewCommonReportcell(iReportcellColumnspan int32, iReportcellRowspan int32, sReportcellContent string, iReportcellColumn int32, ) *CommonReportcell`
 
 NewCommonReportcell instantiates a new CommonReportcell object
 This constructor will assign default values to properties that have it defined,
@@ -64,6 +66,46 @@ and a boolean to check if the value has been set.
 `func (o *CommonReportcell) SetIReportcellRowspan(v int32)`
 
 SetIReportcellRowspan sets IReportcellRowspan field to given value.
+
+
+### GetSReportcellContent
+
+`func (o *CommonReportcell) GetSReportcellContent() string`
+
+GetSReportcellContent returns the SReportcellContent field if non-nil, zero value otherwise.
+
+### GetSReportcellContentOk
+
+`func (o *CommonReportcell) GetSReportcellContentOk() (*string, bool)`
+
+GetSReportcellContentOk returns a tuple with the SReportcellContent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSReportcellContent
+
+`func (o *CommonReportcell) SetSReportcellContent(v string)`
+
+SetSReportcellContent sets SReportcellContent field to given value.
+
+
+### GetIReportcellColumn
+
+`func (o *CommonReportcell) GetIReportcellColumn() int32`
+
+GetIReportcellColumn returns the IReportcellColumn field if non-nil, zero value otherwise.
+
+### GetIReportcellColumnOk
+
+`func (o *CommonReportcell) GetIReportcellColumnOk() (*int32, bool)`
+
+GetIReportcellColumnOk returns a tuple with the IReportcellColumn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIReportcellColumn
+
+`func (o *CommonReportcell) SetIReportcellColumn(v int32)`
+
+SetIReportcellColumn sets IReportcellColumn field to given value.
 
 
 

@@ -24,6 +24,9 @@ Name | Type | Description | Notes
 **DEzsignfolderCompletedpercentage** | **string** | Percentage of Ezsignform/Ezsignsignatures has completed | 
 **DEzsignfolderFormcompletedpercentage** | **string** | Percentage of Ezsignform has completed | 
 **DEzsignfolderSignaturecompletedpercentage** | **string** | Percentage of Ezsignsignatures has signed | 
+**DtEzsignfolderClose** | Pointer to **string** | The date and time at which the Ezsignfolder was closed. Either by applying the last signature or by completing it prematurely. | [optional] 
+**DtEzsignfolderArchive** | Pointer to **string** | The date and time at which the Ezsignfolder was archived. | [optional] 
+**DtEzsignfolderDispose** | Pointer to **string** | The date and time at which the Ezsignfolder was disposed. | [optional] 
 **BEzsignfolderSigner** | Pointer to **bool** | Whether the Ezsignfolder has an Ezsignsignatures that need to be signed or an Ezsignformfieldgroups that need to be filled by the current user | [optional] 
 
 ## Methods
@@ -464,6 +467,81 @@ and a boolean to check if the value has been set.
 
 SetDEzsignfolderSignaturecompletedpercentage sets DEzsignfolderSignaturecompletedpercentage field to given value.
 
+
+### GetDtEzsignfolderClose
+
+`func (o *EzsignfolderListElement) GetDtEzsignfolderClose() string`
+
+GetDtEzsignfolderClose returns the DtEzsignfolderClose field if non-nil, zero value otherwise.
+
+### GetDtEzsignfolderCloseOk
+
+`func (o *EzsignfolderListElement) GetDtEzsignfolderCloseOk() (*string, bool)`
+
+GetDtEzsignfolderCloseOk returns a tuple with the DtEzsignfolderClose field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDtEzsignfolderClose
+
+`func (o *EzsignfolderListElement) SetDtEzsignfolderClose(v string)`
+
+SetDtEzsignfolderClose sets DtEzsignfolderClose field to given value.
+
+### HasDtEzsignfolderClose
+
+`func (o *EzsignfolderListElement) HasDtEzsignfolderClose() bool`
+
+HasDtEzsignfolderClose returns a boolean if a field has been set.
+
+### GetDtEzsignfolderArchive
+
+`func (o *EzsignfolderListElement) GetDtEzsignfolderArchive() string`
+
+GetDtEzsignfolderArchive returns the DtEzsignfolderArchive field if non-nil, zero value otherwise.
+
+### GetDtEzsignfolderArchiveOk
+
+`func (o *EzsignfolderListElement) GetDtEzsignfolderArchiveOk() (*string, bool)`
+
+GetDtEzsignfolderArchiveOk returns a tuple with the DtEzsignfolderArchive field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDtEzsignfolderArchive
+
+`func (o *EzsignfolderListElement) SetDtEzsignfolderArchive(v string)`
+
+SetDtEzsignfolderArchive sets DtEzsignfolderArchive field to given value.
+
+### HasDtEzsignfolderArchive
+
+`func (o *EzsignfolderListElement) HasDtEzsignfolderArchive() bool`
+
+HasDtEzsignfolderArchive returns a boolean if a field has been set.
+
+### GetDtEzsignfolderDispose
+
+`func (o *EzsignfolderListElement) GetDtEzsignfolderDispose() string`
+
+GetDtEzsignfolderDispose returns the DtEzsignfolderDispose field if non-nil, zero value otherwise.
+
+### GetDtEzsignfolderDisposeOk
+
+`func (o *EzsignfolderListElement) GetDtEzsignfolderDisposeOk() (*string, bool)`
+
+GetDtEzsignfolderDisposeOk returns a tuple with the DtEzsignfolderDispose field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDtEzsignfolderDispose
+
+`func (o *EzsignfolderListElement) SetDtEzsignfolderDispose(v string)`
+
+SetDtEzsignfolderDispose sets DtEzsignfolderDispose field to given value.
+
+### HasDtEzsignfolderDispose
+
+`func (o *EzsignfolderListElement) HasDtEzsignfolderDispose() bool`
+
+HasDtEzsignfolderDispose returns a boolean if a field has been set.
 
 ### GetBEzsignfolderSigner
 

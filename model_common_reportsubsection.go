@@ -25,6 +25,8 @@ type CommonReportsubsection struct {
 	ObjReportsubsectionpartHeader CommonReportsubsectionpart `json:"objReportsubsectionpartHeader"`
 	ObjReportsubsectionpartBody CommonReportsubsectionpart `json:"objReportsubsectionpartBody"`
 	ObjReportsubsectionpartFooter CommonReportsubsectionpart `json:"objReportsubsectionpartFooter"`
+	// The title of this Reportsubsection
+	SReportsubsectionTitle *string `json:"sReportsubsectionTitle,omitempty"`
 }
 
 type _CommonReportsubsection CommonReportsubsection
@@ -121,6 +123,38 @@ func (o *CommonReportsubsection) SetObjReportsubsectionpartFooter(v CommonReport
 	o.ObjReportsubsectionpartFooter = v
 }
 
+// GetSReportsubsectionTitle returns the SReportsubsectionTitle field value if set, zero value otherwise.
+func (o *CommonReportsubsection) GetSReportsubsectionTitle() string {
+	if o == nil || IsNil(o.SReportsubsectionTitle) {
+		var ret string
+		return ret
+	}
+	return *o.SReportsubsectionTitle
+}
+
+// GetSReportsubsectionTitleOk returns a tuple with the SReportsubsectionTitle field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CommonReportsubsection) GetSReportsubsectionTitleOk() (*string, bool) {
+	if o == nil || IsNil(o.SReportsubsectionTitle) {
+		return nil, false
+	}
+	return o.SReportsubsectionTitle, true
+}
+
+// HasSReportsubsectionTitle returns a boolean if a field has been set.
+func (o *CommonReportsubsection) HasSReportsubsectionTitle() bool {
+	if o != nil && !IsNil(o.SReportsubsectionTitle) {
+		return true
+	}
+
+	return false
+}
+
+// SetSReportsubsectionTitle gets a reference to the given string and assigns it to the SReportsubsectionTitle field.
+func (o *CommonReportsubsection) SetSReportsubsectionTitle(v string) {
+	o.SReportsubsectionTitle = &v
+}
+
 func (o CommonReportsubsection) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -134,6 +168,9 @@ func (o CommonReportsubsection) ToMap() (map[string]interface{}, error) {
 	toSerialize["objReportsubsectionpartHeader"] = o.ObjReportsubsectionpartHeader
 	toSerialize["objReportsubsectionpartBody"] = o.ObjReportsubsectionpartBody
 	toSerialize["objReportsubsectionpartFooter"] = o.ObjReportsubsectionpartFooter
+	if !IsNil(o.SReportsubsectionTitle) {
+		toSerialize["sReportsubsectionTitle"] = o.SReportsubsectionTitle
+	}
 	return toSerialize, nil
 }
 

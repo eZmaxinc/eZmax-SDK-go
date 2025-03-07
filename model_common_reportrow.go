@@ -23,6 +23,8 @@ var _ MappedNullable = &CommonReportrow{}
 // CommonReportrow A row in a Reportsubsectionpart 
 type CommonReportrow struct {
 	AObjReportcell []CommonReportcell `json:"a_objReportcell"`
+	// A Variable object without predefined property names
+	ObjVariableobject map[string]interface{} `json:"objVariableobject"`
 	// The reportrow height in pixels
 	IReportrowHeight int32 `json:"iReportrowHeight"`
 }
@@ -33,9 +35,10 @@ type _CommonReportrow CommonReportrow
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommonReportrow(aObjReportcell []CommonReportcell, iReportrowHeight int32) *CommonReportrow {
+func NewCommonReportrow(aObjReportcell []CommonReportcell, objVariableobject map[string]interface{}, iReportrowHeight int32) *CommonReportrow {
 	this := CommonReportrow{}
 	this.AObjReportcell = aObjReportcell
+	this.ObjVariableobject = objVariableobject
 	this.IReportrowHeight = iReportrowHeight
 	return &this
 }
@@ -70,6 +73,30 @@ func (o *CommonReportrow) GetAObjReportcellOk() ([]CommonReportcell, bool) {
 // SetAObjReportcell sets field value
 func (o *CommonReportrow) SetAObjReportcell(v []CommonReportcell) {
 	o.AObjReportcell = v
+}
+
+// GetObjVariableobject returns the ObjVariableobject field value
+func (o *CommonReportrow) GetObjVariableobject() map[string]interface{} {
+	if o == nil {
+		var ret map[string]interface{}
+		return ret
+	}
+
+	return o.ObjVariableobject
+}
+
+// GetObjVariableobjectOk returns a tuple with the ObjVariableobject field value
+// and a boolean to check if the value has been set.
+func (o *CommonReportrow) GetObjVariableobjectOk() (map[string]interface{}, bool) {
+	if o == nil {
+		return map[string]interface{}{}, false
+	}
+	return o.ObjVariableobject, true
+}
+
+// SetObjVariableobject sets field value
+func (o *CommonReportrow) SetObjVariableobject(v map[string]interface{}) {
+	o.ObjVariableobject = v
 }
 
 // GetIReportrowHeight returns the IReportrowHeight field value
@@ -107,6 +134,7 @@ func (o CommonReportrow) MarshalJSON() ([]byte, error) {
 func (o CommonReportrow) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_objReportcell"] = o.AObjReportcell
+	toSerialize["objVariableobject"] = o.ObjVariableobject
 	toSerialize["iReportrowHeight"] = o.IReportrowHeight
 	return toSerialize, nil
 }
@@ -117,6 +145,7 @@ func (o *CommonReportrow) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"a_objReportcell",
+		"objVariableobject",
 		"iReportrowHeight",
 	}
 

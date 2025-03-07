@@ -26,6 +26,8 @@ type EzsignsignatureRequestCompoundV2 struct {
 	PkiEzsignsignatureID *int32 `json:"pkiEzsignsignatureID,omitempty"`
 	// The unique ID of the Ezsignfoldersignerassociation
 	FkiEzsignfoldersignerassociationID int32 `json:"fkiEzsignfoldersignerassociationID"`
+	// The unique ID of the Paymentgateway
+	FkiPaymentgatewayID *int32 `json:"fkiPaymentgatewayID,omitempty"`
 	// The page number in the Ezsigndocument
 	IEzsignpagePagenumber int32 `json:"iEzsignpagePagenumber"`
 	// The X coordinate (Horizontal) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 2 inches from the left border of the page, you would use \"200\" for the X coordinate.
@@ -74,6 +76,7 @@ type EzsignsignatureRequestCompoundV2 struct {
 	// An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.
 	AObjEzsignsignaturecustomdate []EzsignsignaturecustomdateRequestCompoundV2 `json:"a_objEzsignsignaturecustomdate,omitempty"`
 	AObjEzsignelementdependency []EzsignelementdependencyRequestCompound `json:"a_objEzsignelementdependency,omitempty"`
+	AObjEzsignsignaturepaymentdetail []EzsignsignaturepaymentdetailRequestCompound `json:"a_objEzsignsignaturepaymentdetail,omitempty"`
 }
 
 type _EzsignsignatureRequestCompoundV2 EzsignsignatureRequestCompoundV2
@@ -156,6 +159,38 @@ func (o *EzsignsignatureRequestCompoundV2) GetFkiEzsignfoldersignerassociationID
 // SetFkiEzsignfoldersignerassociationID sets field value
 func (o *EzsignsignatureRequestCompoundV2) SetFkiEzsignfoldersignerassociationID(v int32) {
 	o.FkiEzsignfoldersignerassociationID = v
+}
+
+// GetFkiPaymentgatewayID returns the FkiPaymentgatewayID field value if set, zero value otherwise.
+func (o *EzsignsignatureRequestCompoundV2) GetFkiPaymentgatewayID() int32 {
+	if o == nil || IsNil(o.FkiPaymentgatewayID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiPaymentgatewayID
+}
+
+// GetFkiPaymentgatewayIDOk returns a tuple with the FkiPaymentgatewayID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureRequestCompoundV2) GetFkiPaymentgatewayIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiPaymentgatewayID) {
+		return nil, false
+	}
+	return o.FkiPaymentgatewayID, true
+}
+
+// HasFkiPaymentgatewayID returns a boolean if a field has been set.
+func (o *EzsignsignatureRequestCompoundV2) HasFkiPaymentgatewayID() bool {
+	if o != nil && !IsNil(o.FkiPaymentgatewayID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiPaymentgatewayID gets a reference to the given int32 and assigns it to the FkiPaymentgatewayID field.
+func (o *EzsignsignatureRequestCompoundV2) SetFkiPaymentgatewayID(v int32) {
+	o.FkiPaymentgatewayID = &v
 }
 
 // GetIEzsignpagePagenumber returns the IEzsignpagePagenumber field value
@@ -1006,6 +1041,38 @@ func (o *EzsignsignatureRequestCompoundV2) SetAObjEzsignelementdependency(v []Ez
 	o.AObjEzsignelementdependency = v
 }
 
+// GetAObjEzsignsignaturepaymentdetail returns the AObjEzsignsignaturepaymentdetail field value if set, zero value otherwise.
+func (o *EzsignsignatureRequestCompoundV2) GetAObjEzsignsignaturepaymentdetail() []EzsignsignaturepaymentdetailRequestCompound {
+	if o == nil || IsNil(o.AObjEzsignsignaturepaymentdetail) {
+		var ret []EzsignsignaturepaymentdetailRequestCompound
+		return ret
+	}
+	return o.AObjEzsignsignaturepaymentdetail
+}
+
+// GetAObjEzsignsignaturepaymentdetailOk returns a tuple with the AObjEzsignsignaturepaymentdetail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureRequestCompoundV2) GetAObjEzsignsignaturepaymentdetailOk() ([]EzsignsignaturepaymentdetailRequestCompound, bool) {
+	if o == nil || IsNil(o.AObjEzsignsignaturepaymentdetail) {
+		return nil, false
+	}
+	return o.AObjEzsignsignaturepaymentdetail, true
+}
+
+// HasAObjEzsignsignaturepaymentdetail returns a boolean if a field has been set.
+func (o *EzsignsignatureRequestCompoundV2) HasAObjEzsignsignaturepaymentdetail() bool {
+	if o != nil && !IsNil(o.AObjEzsignsignaturepaymentdetail) {
+		return true
+	}
+
+	return false
+}
+
+// SetAObjEzsignsignaturepaymentdetail gets a reference to the given []EzsignsignaturepaymentdetailRequestCompound and assigns it to the AObjEzsignsignaturepaymentdetail field.
+func (o *EzsignsignatureRequestCompoundV2) SetAObjEzsignsignaturepaymentdetail(v []EzsignsignaturepaymentdetailRequestCompound) {
+	o.AObjEzsignsignaturepaymentdetail = v
+}
+
 func (o EzsignsignatureRequestCompoundV2) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1020,6 +1087,9 @@ func (o EzsignsignatureRequestCompoundV2) ToMap() (map[string]interface{}, error
 		toSerialize["pkiEzsignsignatureID"] = o.PkiEzsignsignatureID
 	}
 	toSerialize["fkiEzsignfoldersignerassociationID"] = o.FkiEzsignfoldersignerassociationID
+	if !IsNil(o.FkiPaymentgatewayID) {
+		toSerialize["fkiPaymentgatewayID"] = o.FkiPaymentgatewayID
+	}
 	toSerialize["iEzsignpagePagenumber"] = o.IEzsignpagePagenumber
 	toSerialize["iEzsignsignatureX"] = o.IEzsignsignatureX
 	toSerialize["iEzsignsignatureY"] = o.IEzsignsignatureY
@@ -1091,6 +1161,9 @@ func (o EzsignsignatureRequestCompoundV2) ToMap() (map[string]interface{}, error
 	}
 	if !IsNil(o.AObjEzsignelementdependency) {
 		toSerialize["a_objEzsignelementdependency"] = o.AObjEzsignelementdependency
+	}
+	if !IsNil(o.AObjEzsignsignaturepaymentdetail) {
+		toSerialize["a_objEzsignsignaturepaymentdetail"] = o.AObjEzsignsignaturepaymentdetail
 	}
 	return toSerialize, nil
 }

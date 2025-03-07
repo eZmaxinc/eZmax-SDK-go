@@ -6,12 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AObjReport** | [**[]CommonReport**](CommonReport.md) |  | 
 **AObjReportcellstyleCustom** | [**[]CommonReportcellstyle**](CommonReportcellstyle.md) |  | 
+**AObjReportgroupParameter** | [**[]CommonReportgroupParameter**](CommonReportgroupParameter.md) |  | 
+**SReportgroupFilename** | **string** | The name of the file | 
 
 ## Methods
 
 ### NewCommonReportgroup
 
-`func NewCommonReportgroup(aObjReport []CommonReport, aObjReportcellstyleCustom []CommonReportcellstyle, ) *CommonReportgroup`
+`func NewCommonReportgroup(aObjReport []CommonReport, aObjReportcellstyleCustom []CommonReportcellstyle, aObjReportgroupParameter []CommonReportgroupParameter, sReportgroupFilename string, ) *CommonReportgroup`
 
 NewCommonReportgroup instantiates a new CommonReportgroup object
 This constructor will assign default values to properties that have it defined,
@@ -64,6 +66,46 @@ and a boolean to check if the value has been set.
 `func (o *CommonReportgroup) SetAObjReportcellstyleCustom(v []CommonReportcellstyle)`
 
 SetAObjReportcellstyleCustom sets AObjReportcellstyleCustom field to given value.
+
+
+### GetAObjReportgroupParameter
+
+`func (o *CommonReportgroup) GetAObjReportgroupParameter() []CommonReportgroupParameter`
+
+GetAObjReportgroupParameter returns the AObjReportgroupParameter field if non-nil, zero value otherwise.
+
+### GetAObjReportgroupParameterOk
+
+`func (o *CommonReportgroup) GetAObjReportgroupParameterOk() (*[]CommonReportgroupParameter, bool)`
+
+GetAObjReportgroupParameterOk returns a tuple with the AObjReportgroupParameter field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAObjReportgroupParameter
+
+`func (o *CommonReportgroup) SetAObjReportgroupParameter(v []CommonReportgroupParameter)`
+
+SetAObjReportgroupParameter sets AObjReportgroupParameter field to given value.
+
+
+### GetSReportgroupFilename
+
+`func (o *CommonReportgroup) GetSReportgroupFilename() string`
+
+GetSReportgroupFilename returns the SReportgroupFilename field if non-nil, zero value otherwise.
+
+### GetSReportgroupFilenameOk
+
+`func (o *CommonReportgroup) GetSReportgroupFilenameOk() (*string, bool)`
+
+GetSReportgroupFilenameOk returns a tuple with the SReportgroupFilename field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSReportgroupFilename
+
+`func (o *CommonReportgroup) SetSReportgroupFilename(v string)`
+
+SetSReportgroupFilename sets SReportgroupFilename field to given value.
 
 
 

@@ -6,12 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ObjReportcellstyleDefault** | [**CommonReportcellstyle**](CommonReportcellstyle.md) |  | 
 **IReportcolumnWidth** | **int32** | The Reportcolumn width in pixels | 
+**EReportcolumnType** | [**EnumReportdataType**](EnumReportdataType.md) |  | 
 
 ## Methods
 
 ### NewCommonReportcolumn
 
-`func NewCommonReportcolumn(objReportcellstyleDefault CommonReportcellstyle, iReportcolumnWidth int32, ) *CommonReportcolumn`
+`func NewCommonReportcolumn(objReportcellstyleDefault CommonReportcellstyle, iReportcolumnWidth int32, eReportcolumnType EnumReportdataType, ) *CommonReportcolumn`
 
 NewCommonReportcolumn instantiates a new CommonReportcolumn object
 This constructor will assign default values to properties that have it defined,
@@ -64,6 +65,26 @@ and a boolean to check if the value has been set.
 `func (o *CommonReportcolumn) SetIReportcolumnWidth(v int32)`
 
 SetIReportcolumnWidth sets IReportcolumnWidth field to given value.
+
+
+### GetEReportcolumnType
+
+`func (o *CommonReportcolumn) GetEReportcolumnType() EnumReportdataType`
+
+GetEReportcolumnType returns the EReportcolumnType field if non-nil, zero value otherwise.
+
+### GetEReportcolumnTypeOk
+
+`func (o *CommonReportcolumn) GetEReportcolumnTypeOk() (*EnumReportdataType, bool)`
+
+GetEReportcolumnTypeOk returns a tuple with the EReportcolumnType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEReportcolumnType
+
+`func (o *CommonReportcolumn) SetEReportcolumnType(v EnumReportdataType)`
+
+SetEReportcolumnType sets EReportcolumnType field to given value.
 
 
 

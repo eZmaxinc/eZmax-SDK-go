@@ -16,36 +16,38 @@ import (
 	"fmt"
 )
 
-// FieldEEzsigntemplatesignatureType The type of signature.  1. **Acknowledgement** is for an acknowledgment of receipt. 2. **City** is to request the city where the document is signed. 3. **Handwritten** is for a handwritten kind of signature where users needs to \"draw\" their signature on screen. **Deprecated** 4. **Initials** is a simple \"click to add initials\" block. 5. **Name** is a simple \"Click to sign\" block. This is the most common block of signature. **Deprecated** 6. **NameReason** is to ask for a signing reason.  7. **Attachments** is to ask for files as attachment that may be validate in another step.     8. **Signature** is replacing **Name** and **Handwritten**. Will be normal or handwritten once signed
+// FieldEEzsigntemplatesignatureType The type of signature.  1. **Acknowledgement** is for an acknowledgment of receipt. 2. **Attachments** is to ask for files as attachment that may be validate in another step.  3. **City** is to request the city where the document is signed. 4. **Consultation** is to trigger the webhook Signaturesigned when the user consult the document 5. **Creditcard** is to ask for a payment using a creditcard 6. **FieldText** is to ask for a short text. 7. **Fieldtextarea** is to ask for a text     8. **Handwritten** is for a handwritten kind of signature where users needs to \"draw\" their signature on screen. **DEPRECATED** 9. **Initials** is a simple \"click to add initials\" block. 10. **Name** is a simple \"Click to sign\" block. This is the most common block of signature. **DEPRECATED** 11. **NameReason** is to ask for a signing reason. **DEPRECATED** 12. **Signature** is the type replacing **Name** and **Handwritten** and will support a font or svg
 type FieldEEzsigntemplatesignatureType string
 
 // List of Field-eEzsigntemplatesignatureType
 const (
 	ACKNOWLEDGEMENT FieldEEzsigntemplatesignatureType = "Acknowledgement"
+	ATTACHMENTS FieldEEzsigntemplatesignatureType = "Attachments"
 	CITY FieldEEzsigntemplatesignatureType = "City"
+	CONSULTATION FieldEEzsigntemplatesignatureType = "Consultation"
+	CREDITCARD FieldEEzsigntemplatesignatureType = "Creditcard"
+	FIELD_TEXT FieldEEzsigntemplatesignatureType = "FieldText"
+	FIELD_TEXTAREA FieldEEzsigntemplatesignatureType = "FieldTextarea"
 	HANDWRITTEN FieldEEzsigntemplatesignatureType = "Handwritten"
 	INITIALS FieldEEzsigntemplatesignatureType = "Initials"
 	NAME FieldEEzsigntemplatesignatureType = "Name"
 	NAME_REASON FieldEEzsigntemplatesignatureType = "NameReason"
-	ATTACHMENTS FieldEEzsigntemplatesignatureType = "Attachments"
-	FIELD_TEXT FieldEEzsigntemplatesignatureType = "FieldText"
-	FIELD_TEXTAREA FieldEEzsigntemplatesignatureType = "FieldTextarea"
-	CONSULTATION FieldEEzsigntemplatesignatureType = "Consultation"
 	SIGNATURE FieldEEzsigntemplatesignatureType = "Signature"
 )
 
 // All allowed values of FieldEEzsigntemplatesignatureType enum
 var AllowedFieldEEzsigntemplatesignatureTypeEnumValues = []FieldEEzsigntemplatesignatureType{
 	"Acknowledgement",
+	"Attachments",
 	"City",
+	"Consultation",
+	"Creditcard",
+	"FieldText",
+	"FieldTextarea",
 	"Handwritten",
 	"Initials",
 	"Name",
 	"NameReason",
-	"Attachments",
-	"FieldText",
-	"FieldTextarea",
-	"Consultation",
 	"Signature",
 }
 

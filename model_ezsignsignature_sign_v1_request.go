@@ -35,6 +35,7 @@ type EzsignsignatureSignV1Request struct {
 	// The SVG of the signature.  This can only be set if eEzsignsignatureType is **Signature**_/_**Initials** and **bIsAutomatic** is false
 	SSvg *string `json:"sSvg,omitempty" validate:"regexp=^.{0,65535}$"`
 	AObjFile []CommonFile `json:"a_objFile,omitempty"`
+	ObjCreditcard *CustomCreditcardRequest `json:"objCreditcard,omitempty"`
 	// Indicates if the Ezsignsignature was part of an automatic process or not.  This can only be true if eEzsignsignatureType is **Acknowledgement**, **City**, **Signature**, **Initials** or **Stamp**. 
 	BIsAutomatic bool `json:"bIsAutomatic"`
 }
@@ -283,6 +284,38 @@ func (o *EzsignsignatureSignV1Request) SetAObjFile(v []CommonFile) {
 	o.AObjFile = v
 }
 
+// GetObjCreditcard returns the ObjCreditcard field value if set, zero value otherwise.
+func (o *EzsignsignatureSignV1Request) GetObjCreditcard() CustomCreditcardRequest {
+	if o == nil || IsNil(o.ObjCreditcard) {
+		var ret CustomCreditcardRequest
+		return ret
+	}
+	return *o.ObjCreditcard
+}
+
+// GetObjCreditcardOk returns a tuple with the ObjCreditcard field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureSignV1Request) GetObjCreditcardOk() (*CustomCreditcardRequest, bool) {
+	if o == nil || IsNil(o.ObjCreditcard) {
+		return nil, false
+	}
+	return o.ObjCreditcard, true
+}
+
+// HasObjCreditcard returns a boolean if a field has been set.
+func (o *EzsignsignatureSignV1Request) HasObjCreditcard() bool {
+	if o != nil && !IsNil(o.ObjCreditcard) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjCreditcard gets a reference to the given CustomCreditcardRequest and assigns it to the ObjCreditcard field.
+func (o *EzsignsignatureSignV1Request) SetObjCreditcard(v CustomCreditcardRequest) {
+	o.ObjCreditcard = &v
+}
+
 // GetBIsAutomatic returns the BIsAutomatic field value
 func (o *EzsignsignatureSignV1Request) GetBIsAutomatic() bool {
 	if o == nil {
@@ -337,6 +370,9 @@ func (o EzsignsignatureSignV1Request) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.AObjFile) {
 		toSerialize["a_objFile"] = o.AObjFile
+	}
+	if !IsNil(o.ObjCreditcard) {
+		toSerialize["objCreditcard"] = o.ObjCreditcard
 	}
 	toSerialize["bIsAutomatic"] = o.BIsAutomatic
 	return toSerialize, nil

@@ -32,6 +32,8 @@ type EzsignsignatureResponse struct {
 	FkiEzsignsigningreasonID *int32 `json:"fkiEzsignsigningreasonID,omitempty"`
 	// The unique ID of the Font
 	FkiFontID *int32 `json:"fkiFontID,omitempty"`
+	// The description of the Currency in the language of the requester
+	SCurrencyDescriptionX *string `json:"sCurrencyDescriptionX,omitempty" validate:"regexp=^.{1,20}$"`
 	// The description of the Ezsignsigningreason in the language of the requester
 	SEzsignsigningreasonDescriptionX *string `json:"sEzsignsigningreasonDescriptionX,omitempty" validate:"regexp=^.{0,50}$"`
 	// The page number in the Ezsigndocument
@@ -250,6 +252,38 @@ func (o *EzsignsignatureResponse) HasFkiFontID() bool {
 // SetFkiFontID gets a reference to the given int32 and assigns it to the FkiFontID field.
 func (o *EzsignsignatureResponse) SetFkiFontID(v int32) {
 	o.FkiFontID = &v
+}
+
+// GetSCurrencyDescriptionX returns the SCurrencyDescriptionX field value if set, zero value otherwise.
+func (o *EzsignsignatureResponse) GetSCurrencyDescriptionX() string {
+	if o == nil || IsNil(o.SCurrencyDescriptionX) {
+		var ret string
+		return ret
+	}
+	return *o.SCurrencyDescriptionX
+}
+
+// GetSCurrencyDescriptionXOk returns a tuple with the SCurrencyDescriptionX field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureResponse) GetSCurrencyDescriptionXOk() (*string, bool) {
+	if o == nil || IsNil(o.SCurrencyDescriptionX) {
+		return nil, false
+	}
+	return o.SCurrencyDescriptionX, true
+}
+
+// HasSCurrencyDescriptionX returns a boolean if a field has been set.
+func (o *EzsignsignatureResponse) HasSCurrencyDescriptionX() bool {
+	if o != nil && !IsNil(o.SCurrencyDescriptionX) {
+		return true
+	}
+
+	return false
+}
+
+// SetSCurrencyDescriptionX gets a reference to the given string and assigns it to the SCurrencyDescriptionX field.
+func (o *EzsignsignatureResponse) SetSCurrencyDescriptionX(v string) {
+	o.SCurrencyDescriptionX = &v
 }
 
 // GetSEzsignsigningreasonDescriptionX returns the SEzsignsigningreasonDescriptionX field value if set, zero value otherwise.
@@ -1246,6 +1280,9 @@ func (o EzsignsignatureResponse) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.FkiFontID) {
 		toSerialize["fkiFontID"] = o.FkiFontID
+	}
+	if !IsNil(o.SCurrencyDescriptionX) {
+		toSerialize["sCurrencyDescriptionX"] = o.SCurrencyDescriptionX
 	}
 	if !IsNil(o.SEzsignsigningreasonDescriptionX) {
 		toSerialize["sEzsignsigningreasonDescriptionX"] = o.SEzsignsigningreasonDescriptionX

@@ -5,13 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AObjReportcell** | [**[]CommonReportcell**](CommonReportcell.md) |  | 
+**ObjVariableobject** | **map[string]interface{}** | A Variable object without predefined property names | 
 **IReportrowHeight** | **int32** | The reportrow height in pixels | 
 
 ## Methods
 
 ### NewCommonReportrow
 
-`func NewCommonReportrow(aObjReportcell []CommonReportcell, iReportrowHeight int32, ) *CommonReportrow`
+`func NewCommonReportrow(aObjReportcell []CommonReportcell, objVariableobject map[string]interface{}, iReportrowHeight int32, ) *CommonReportrow`
 
 NewCommonReportrow instantiates a new CommonReportrow object
 This constructor will assign default values to properties that have it defined,
@@ -44,6 +45,26 @@ and a boolean to check if the value has been set.
 `func (o *CommonReportrow) SetAObjReportcell(v []CommonReportcell)`
 
 SetAObjReportcell sets AObjReportcell field to given value.
+
+
+### GetObjVariableobject
+
+`func (o *CommonReportrow) GetObjVariableobject() map[string]interface{}`
+
+GetObjVariableobject returns the ObjVariableobject field if non-nil, zero value otherwise.
+
+### GetObjVariableobjectOk
+
+`func (o *CommonReportrow) GetObjVariableobjectOk() (*map[string]interface{}, bool)`
+
+GetObjVariableobjectOk returns a tuple with the ObjVariableobject field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjVariableobject
+
+`func (o *CommonReportrow) SetObjVariableobject(v map[string]interface{})`
+
+SetObjVariableobject sets ObjVariableobject field to given value.
 
 
 ### GetIReportrowHeight

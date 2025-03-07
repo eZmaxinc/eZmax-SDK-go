@@ -60,6 +60,12 @@ type EzsignfolderListElement struct {
 	DEzsignfolderFormcompletedpercentage string `json:"dEzsignfolderFormcompletedpercentage" validate:"regexp=^-{0,1}[\\\\d]{1,3}?\\\\.[\\\\d]{2}$"`
 	// Percentage of Ezsignsignatures has signed
 	DEzsignfolderSignaturecompletedpercentage string `json:"dEzsignfolderSignaturecompletedpercentage" validate:"regexp=^-{0,1}[\\\\d]{1,3}?\\\\.[\\\\d]{2}$"`
+	// The date and time at which the Ezsignfolder was closed. Either by applying the last signature or by completing it prematurely.
+	DtEzsignfolderClose *string `json:"dtEzsignfolderClose,omitempty"`
+	// The date and time at which the Ezsignfolder was archived.
+	DtEzsignfolderArchive *string `json:"dtEzsignfolderArchive,omitempty"`
+	// The date and time at which the Ezsignfolder was disposed.
+	DtEzsignfolderDispose *string `json:"dtEzsignfolderDispose,omitempty"`
 	// Whether the Ezsignfolder has an Ezsignsignatures that need to be signed or an Ezsignformfieldgroups that need to be filled by the current user
 	BEzsignfolderSigner *bool `json:"bEzsignfolderSigner,omitempty"`
 }
@@ -611,6 +617,102 @@ func (o *EzsignfolderListElement) SetDEzsignfolderSignaturecompletedpercentage(v
 	o.DEzsignfolderSignaturecompletedpercentage = v
 }
 
+// GetDtEzsignfolderClose returns the DtEzsignfolderClose field value if set, zero value otherwise.
+func (o *EzsignfolderListElement) GetDtEzsignfolderClose() string {
+	if o == nil || IsNil(o.DtEzsignfolderClose) {
+		var ret string
+		return ret
+	}
+	return *o.DtEzsignfolderClose
+}
+
+// GetDtEzsignfolderCloseOk returns a tuple with the DtEzsignfolderClose field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderListElement) GetDtEzsignfolderCloseOk() (*string, bool) {
+	if o == nil || IsNil(o.DtEzsignfolderClose) {
+		return nil, false
+	}
+	return o.DtEzsignfolderClose, true
+}
+
+// HasDtEzsignfolderClose returns a boolean if a field has been set.
+func (o *EzsignfolderListElement) HasDtEzsignfolderClose() bool {
+	if o != nil && !IsNil(o.DtEzsignfolderClose) {
+		return true
+	}
+
+	return false
+}
+
+// SetDtEzsignfolderClose gets a reference to the given string and assigns it to the DtEzsignfolderClose field.
+func (o *EzsignfolderListElement) SetDtEzsignfolderClose(v string) {
+	o.DtEzsignfolderClose = &v
+}
+
+// GetDtEzsignfolderArchive returns the DtEzsignfolderArchive field value if set, zero value otherwise.
+func (o *EzsignfolderListElement) GetDtEzsignfolderArchive() string {
+	if o == nil || IsNil(o.DtEzsignfolderArchive) {
+		var ret string
+		return ret
+	}
+	return *o.DtEzsignfolderArchive
+}
+
+// GetDtEzsignfolderArchiveOk returns a tuple with the DtEzsignfolderArchive field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderListElement) GetDtEzsignfolderArchiveOk() (*string, bool) {
+	if o == nil || IsNil(o.DtEzsignfolderArchive) {
+		return nil, false
+	}
+	return o.DtEzsignfolderArchive, true
+}
+
+// HasDtEzsignfolderArchive returns a boolean if a field has been set.
+func (o *EzsignfolderListElement) HasDtEzsignfolderArchive() bool {
+	if o != nil && !IsNil(o.DtEzsignfolderArchive) {
+		return true
+	}
+
+	return false
+}
+
+// SetDtEzsignfolderArchive gets a reference to the given string and assigns it to the DtEzsignfolderArchive field.
+func (o *EzsignfolderListElement) SetDtEzsignfolderArchive(v string) {
+	o.DtEzsignfolderArchive = &v
+}
+
+// GetDtEzsignfolderDispose returns the DtEzsignfolderDispose field value if set, zero value otherwise.
+func (o *EzsignfolderListElement) GetDtEzsignfolderDispose() string {
+	if o == nil || IsNil(o.DtEzsignfolderDispose) {
+		var ret string
+		return ret
+	}
+	return *o.DtEzsignfolderDispose
+}
+
+// GetDtEzsignfolderDisposeOk returns a tuple with the DtEzsignfolderDispose field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderListElement) GetDtEzsignfolderDisposeOk() (*string, bool) {
+	if o == nil || IsNil(o.DtEzsignfolderDispose) {
+		return nil, false
+	}
+	return o.DtEzsignfolderDispose, true
+}
+
+// HasDtEzsignfolderDispose returns a boolean if a field has been set.
+func (o *EzsignfolderListElement) HasDtEzsignfolderDispose() bool {
+	if o != nil && !IsNil(o.DtEzsignfolderDispose) {
+		return true
+	}
+
+	return false
+}
+
+// SetDtEzsignfolderDispose gets a reference to the given string and assigns it to the DtEzsignfolderDispose field.
+func (o *EzsignfolderListElement) SetDtEzsignfolderDispose(v string) {
+	o.DtEzsignfolderDispose = &v
+}
+
 // GetBEzsignfolderSigner returns the BEzsignfolderSigner field value if set, zero value otherwise.
 func (o *EzsignfolderListElement) GetBEzsignfolderSigner() bool {
 	if o == nil || IsNil(o.BEzsignfolderSigner) {
@@ -681,6 +783,15 @@ func (o EzsignfolderListElement) ToMap() (map[string]interface{}, error) {
 	toSerialize["dEzsignfolderCompletedpercentage"] = o.DEzsignfolderCompletedpercentage
 	toSerialize["dEzsignfolderFormcompletedpercentage"] = o.DEzsignfolderFormcompletedpercentage
 	toSerialize["dEzsignfolderSignaturecompletedpercentage"] = o.DEzsignfolderSignaturecompletedpercentage
+	if !IsNil(o.DtEzsignfolderClose) {
+		toSerialize["dtEzsignfolderClose"] = o.DtEzsignfolderClose
+	}
+	if !IsNil(o.DtEzsignfolderArchive) {
+		toSerialize["dtEzsignfolderArchive"] = o.DtEzsignfolderArchive
+	}
+	if !IsNil(o.DtEzsignfolderDispose) {
+		toSerialize["dtEzsignfolderDispose"] = o.DtEzsignfolderDispose
+	}
 	if !IsNil(o.BEzsignfolderSigner) {
 		toSerialize["bEzsignfolderSigner"] = o.BEzsignfolderSigner
 	}

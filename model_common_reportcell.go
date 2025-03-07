@@ -26,6 +26,10 @@ type CommonReportcell struct {
 	IReportcellColumnspan int32 `json:"iReportcellColumnspan"`
 	// The number of Reportrows the Reportcell spans
 	IReportcellRowspan int32 `json:"iReportcellRowspan"`
+	// The content of this Reportcell
+	SReportcellContent string `json:"sReportcellContent"`
+	// Position of the column where it is placed
+	IReportcellColumn int32 `json:"iReportcellColumn"`
 }
 
 type _CommonReportcell CommonReportcell
@@ -34,10 +38,12 @@ type _CommonReportcell CommonReportcell
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommonReportcell(iReportcellColumnspan int32, iReportcellRowspan int32) *CommonReportcell {
+func NewCommonReportcell(iReportcellColumnspan int32, iReportcellRowspan int32, sReportcellContent string, iReportcellColumn int32) *CommonReportcell {
 	this := CommonReportcell{}
 	this.IReportcellColumnspan = iReportcellColumnspan
 	this.IReportcellRowspan = iReportcellRowspan
+	this.SReportcellContent = sReportcellContent
+	this.IReportcellColumn = iReportcellColumn
 	return &this
 }
 
@@ -97,6 +103,54 @@ func (o *CommonReportcell) SetIReportcellRowspan(v int32) {
 	o.IReportcellRowspan = v
 }
 
+// GetSReportcellContent returns the SReportcellContent field value
+func (o *CommonReportcell) GetSReportcellContent() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SReportcellContent
+}
+
+// GetSReportcellContentOk returns a tuple with the SReportcellContent field value
+// and a boolean to check if the value has been set.
+func (o *CommonReportcell) GetSReportcellContentOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SReportcellContent, true
+}
+
+// SetSReportcellContent sets field value
+func (o *CommonReportcell) SetSReportcellContent(v string) {
+	o.SReportcellContent = v
+}
+
+// GetIReportcellColumn returns the IReportcellColumn field value
+func (o *CommonReportcell) GetIReportcellColumn() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IReportcellColumn
+}
+
+// GetIReportcellColumnOk returns a tuple with the IReportcellColumn field value
+// and a boolean to check if the value has been set.
+func (o *CommonReportcell) GetIReportcellColumnOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IReportcellColumn, true
+}
+
+// SetIReportcellColumn sets field value
+func (o *CommonReportcell) SetIReportcellColumn(v int32) {
+	o.IReportcellColumn = v
+}
+
 func (o CommonReportcell) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -109,6 +163,8 @@ func (o CommonReportcell) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["iReportcellColumnspan"] = o.IReportcellColumnspan
 	toSerialize["iReportcellRowspan"] = o.IReportcellRowspan
+	toSerialize["sReportcellContent"] = o.SReportcellContent
+	toSerialize["iReportcellColumn"] = o.IReportcellColumn
 	return toSerialize, nil
 }
 
@@ -119,6 +175,8 @@ func (o *CommonReportcell) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"iReportcellColumnspan",
 		"iReportcellRowspan",
+		"sReportcellContent",
+		"iReportcellColumn",
 	}
 
 	allProperties := make(map[string]interface{})

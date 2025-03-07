@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **SAttachmentsRefusalReason** | Pointer to **string** | The reason of refused.  This can only be set if eEzsignsignatureType is **AttachmentsConfirmation** | [optional] 
 **SSvg** | Pointer to **string** | The SVG of the signature.  This can only be set if eEzsignsignatureType is **Signature**_/_**Initials** and **bIsAutomatic** is false | [optional] 
 **AObjFile** | Pointer to [**[]CommonFile**](CommonFile.md) |  | [optional] 
+**ObjCreditcard** | Pointer to [**CustomCreditcardRequest**](CustomCreditcardRequest.md) |  | [optional] 
 **BIsAutomatic** | **bool** | Indicates if the Ezsignsignature was part of an automatic process or not.  This can only be true if eEzsignsignatureType is **Acknowledgement**, **City**, **Signature**, **Initials** or **Stamp**.  | 
 
 ## Methods
@@ -206,6 +207,31 @@ SetAObjFile sets AObjFile field to given value.
 `func (o *EzsignsignatureSignV1Request) HasAObjFile() bool`
 
 HasAObjFile returns a boolean if a field has been set.
+
+### GetObjCreditcard
+
+`func (o *EzsignsignatureSignV1Request) GetObjCreditcard() CustomCreditcardRequest`
+
+GetObjCreditcard returns the ObjCreditcard field if non-nil, zero value otherwise.
+
+### GetObjCreditcardOk
+
+`func (o *EzsignsignatureSignV1Request) GetObjCreditcardOk() (*CustomCreditcardRequest, bool)`
+
+GetObjCreditcardOk returns a tuple with the ObjCreditcard field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjCreditcard
+
+`func (o *EzsignsignatureSignV1Request) SetObjCreditcard(v CustomCreditcardRequest)`
+
+SetObjCreditcard sets ObjCreditcard field to given value.
+
+### HasObjCreditcard
+
+`func (o *EzsignsignatureSignV1Request) HasObjCreditcard() bool`
+
+HasObjCreditcard returns a boolean if a field has been set.
 
 ### GetBIsAutomatic
 

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **ObjReportsubsectionpartHeader** | [**CommonReportsubsectionpart**](CommonReportsubsectionpart.md) |  | 
 **ObjReportsubsectionpartBody** | [**CommonReportsubsectionpart**](CommonReportsubsectionpart.md) |  | 
 **ObjReportsubsectionpartFooter** | [**CommonReportsubsectionpart**](CommonReportsubsectionpart.md) |  | 
+**SReportsubsectionTitle** | Pointer to **string** | The title of this Reportsubsection | [optional] 
 
 ## Methods
 
@@ -86,6 +87,31 @@ and a boolean to check if the value has been set.
 
 SetObjReportsubsectionpartFooter sets ObjReportsubsectionpartFooter field to given value.
 
+
+### GetSReportsubsectionTitle
+
+`func (o *CommonReportsubsection) GetSReportsubsectionTitle() string`
+
+GetSReportsubsectionTitle returns the SReportsubsectionTitle field if non-nil, zero value otherwise.
+
+### GetSReportsubsectionTitleOk
+
+`func (o *CommonReportsubsection) GetSReportsubsectionTitleOk() (*string, bool)`
+
+GetSReportsubsectionTitleOk returns a tuple with the SReportsubsectionTitle field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSReportsubsectionTitle
+
+`func (o *CommonReportsubsection) SetSReportsubsectionTitle(v string)`
+
+SetSReportsubsectionTitle sets SReportsubsectionTitle field to given value.
+
+### HasSReportsubsectionTitle
+
+`func (o *CommonReportsubsection) HasSReportsubsectionTitle() bool`
+
+HasSReportsubsectionTitle returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

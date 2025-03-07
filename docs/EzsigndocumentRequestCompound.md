@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **FkiEzsignfolderID** | **int32** | The unique ID of the Ezsignfolder | 
 **FkiEzsigntemplateID** | Pointer to **int32** | The unique ID of the Ezsigntemplate | [optional] 
 **FkiEzsignfoldersignerassociationID** | Pointer to **int32** | The unique ID of the Ezsignfoldersignerassociation | [optional] 
+**FkiEzsignimportdocumentID** | Pointer to **int32** | The unique ID of the Ezsignimportdocument | [optional] 
 **FkiLanguageID** | **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
 **EEzsigndocumentSource** | **string** | Indicates where to look for the document binary content. | 
 **EEzsigndocumentFormat** | Pointer to **string** | Indicates the format of the document. | [optional] 
@@ -133,6 +134,31 @@ SetFkiEzsignfoldersignerassociationID sets FkiEzsignfoldersignerassociationID fi
 `func (o *EzsigndocumentRequestCompound) HasFkiEzsignfoldersignerassociationID() bool`
 
 HasFkiEzsignfoldersignerassociationID returns a boolean if a field has been set.
+
+### GetFkiEzsignimportdocumentID
+
+`func (o *EzsigndocumentRequestCompound) GetFkiEzsignimportdocumentID() int32`
+
+GetFkiEzsignimportdocumentID returns the FkiEzsignimportdocumentID field if non-nil, zero value otherwise.
+
+### GetFkiEzsignimportdocumentIDOk
+
+`func (o *EzsigndocumentRequestCompound) GetFkiEzsignimportdocumentIDOk() (*int32, bool)`
+
+GetFkiEzsignimportdocumentIDOk returns a tuple with the FkiEzsignimportdocumentID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiEzsignimportdocumentID
+
+`func (o *EzsigndocumentRequestCompound) SetFkiEzsignimportdocumentID(v int32)`
+
+SetFkiEzsignimportdocumentID sets FkiEzsignimportdocumentID field to given value.
+
+### HasFkiEzsignimportdocumentID
+
+`func (o *EzsigndocumentRequestCompound) HasFkiEzsignimportdocumentID() bool`
+
+HasFkiEzsignimportdocumentID returns a boolean if a field has been set.
 
 ### GetFkiLanguageID
 

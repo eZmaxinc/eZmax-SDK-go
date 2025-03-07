@@ -32,6 +32,8 @@ type EzsignsignatureResponseCompoundV3 struct {
 	FkiEzsignsigningreasonID *int32 `json:"fkiEzsignsigningreasonID,omitempty"`
 	// The unique ID of the Font
 	FkiFontID *int32 `json:"fkiFontID,omitempty"`
+	// The description of the Currency in the language of the requester
+	SCurrencyDescriptionX *string `json:"sCurrencyDescriptionX,omitempty" validate:"regexp=^.{1,20}$"`
 	// The description of the Ezsignsigningreason in the language of the requester
 	SEzsignsigningreasonDescriptionX *string `json:"sEzsignsigningreasonDescriptionX,omitempty" validate:"regexp=^.{0,50}$"`
 	// The page number in the Ezsigndocument
@@ -94,6 +96,7 @@ type EzsignsignatureResponseCompoundV3 struct {
 	AObjEzsignsignaturecustomdate []EzsignsignaturecustomdateResponseCompoundV2 `json:"a_objEzsignsignaturecustomdate,omitempty"`
 	ObjCreditcardtransaction *CustomCreditcardtransactionResponse `json:"objCreditcardtransaction,omitempty"`
 	AObjEzsignelementdependency []EzsignelementdependencyResponseCompound `json:"a_objEzsignelementdependency,omitempty"`
+	AObjEzsignsignaturepaymentdetail []EzsignsignaturepaymentdetailResponseCompound `json:"a_objEzsignsignaturepaymentdetail,omitempty"`
 }
 
 type _EzsignsignatureResponseCompoundV3 EzsignsignatureResponseCompoundV3
@@ -258,6 +261,38 @@ func (o *EzsignsignatureResponseCompoundV3) HasFkiFontID() bool {
 // SetFkiFontID gets a reference to the given int32 and assigns it to the FkiFontID field.
 func (o *EzsignsignatureResponseCompoundV3) SetFkiFontID(v int32) {
 	o.FkiFontID = &v
+}
+
+// GetSCurrencyDescriptionX returns the SCurrencyDescriptionX field value if set, zero value otherwise.
+func (o *EzsignsignatureResponseCompoundV3) GetSCurrencyDescriptionX() string {
+	if o == nil || IsNil(o.SCurrencyDescriptionX) {
+		var ret string
+		return ret
+	}
+	return *o.SCurrencyDescriptionX
+}
+
+// GetSCurrencyDescriptionXOk returns a tuple with the SCurrencyDescriptionX field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureResponseCompoundV3) GetSCurrencyDescriptionXOk() (*string, bool) {
+	if o == nil || IsNil(o.SCurrencyDescriptionX) {
+		return nil, false
+	}
+	return o.SCurrencyDescriptionX, true
+}
+
+// HasSCurrencyDescriptionX returns a boolean if a field has been set.
+func (o *EzsignsignatureResponseCompoundV3) HasSCurrencyDescriptionX() bool {
+	if o != nil && !IsNil(o.SCurrencyDescriptionX) {
+		return true
+	}
+
+	return false
+}
+
+// SetSCurrencyDescriptionX gets a reference to the given string and assigns it to the SCurrencyDescriptionX field.
+func (o *EzsignsignatureResponseCompoundV3) SetSCurrencyDescriptionX(v string) {
+	o.SCurrencyDescriptionX = &v
 }
 
 // GetSEzsignsigningreasonDescriptionX returns the SEzsignsigningreasonDescriptionX field value if set, zero value otherwise.
@@ -1396,6 +1431,38 @@ func (o *EzsignsignatureResponseCompoundV3) SetAObjEzsignelementdependency(v []E
 	o.AObjEzsignelementdependency = v
 }
 
+// GetAObjEzsignsignaturepaymentdetail returns the AObjEzsignsignaturepaymentdetail field value if set, zero value otherwise.
+func (o *EzsignsignatureResponseCompoundV3) GetAObjEzsignsignaturepaymentdetail() []EzsignsignaturepaymentdetailResponseCompound {
+	if o == nil || IsNil(o.AObjEzsignsignaturepaymentdetail) {
+		var ret []EzsignsignaturepaymentdetailResponseCompound
+		return ret
+	}
+	return o.AObjEzsignsignaturepaymentdetail
+}
+
+// GetAObjEzsignsignaturepaymentdetailOk returns a tuple with the AObjEzsignsignaturepaymentdetail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureResponseCompoundV3) GetAObjEzsignsignaturepaymentdetailOk() ([]EzsignsignaturepaymentdetailResponseCompound, bool) {
+	if o == nil || IsNil(o.AObjEzsignsignaturepaymentdetail) {
+		return nil, false
+	}
+	return o.AObjEzsignsignaturepaymentdetail, true
+}
+
+// HasAObjEzsignsignaturepaymentdetail returns a boolean if a field has been set.
+func (o *EzsignsignatureResponseCompoundV3) HasAObjEzsignsignaturepaymentdetail() bool {
+	if o != nil && !IsNil(o.AObjEzsignsignaturepaymentdetail) {
+		return true
+	}
+
+	return false
+}
+
+// SetAObjEzsignsignaturepaymentdetail gets a reference to the given []EzsignsignaturepaymentdetailResponseCompound and assigns it to the AObjEzsignsignaturepaymentdetail field.
+func (o *EzsignsignatureResponseCompoundV3) SetAObjEzsignsignaturepaymentdetail(v []EzsignsignaturepaymentdetailResponseCompound) {
+	o.AObjEzsignsignaturepaymentdetail = v
+}
+
 func (o EzsignsignatureResponseCompoundV3) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1414,6 +1481,9 @@ func (o EzsignsignatureResponseCompoundV3) ToMap() (map[string]interface{}, erro
 	}
 	if !IsNil(o.FkiFontID) {
 		toSerialize["fkiFontID"] = o.FkiFontID
+	}
+	if !IsNil(o.SCurrencyDescriptionX) {
+		toSerialize["sCurrencyDescriptionX"] = o.SCurrencyDescriptionX
 	}
 	if !IsNil(o.SEzsignsigningreasonDescriptionX) {
 		toSerialize["sEzsignsigningreasonDescriptionX"] = o.SEzsignsigningreasonDescriptionX
@@ -1513,6 +1583,9 @@ func (o EzsignsignatureResponseCompoundV3) ToMap() (map[string]interface{}, erro
 	}
 	if !IsNil(o.AObjEzsignelementdependency) {
 		toSerialize["a_objEzsignelementdependency"] = o.AObjEzsignelementdependency
+	}
+	if !IsNil(o.AObjEzsignsignaturepaymentdetail) {
+		toSerialize["a_objEzsignsignaturepaymentdetail"] = o.AObjEzsignsignaturepaymentdetail
 	}
 	return toSerialize, nil
 }

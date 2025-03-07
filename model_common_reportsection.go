@@ -29,6 +29,8 @@ type CommonReportsection struct {
 	IReportsectionColumncount int32 `json:"iReportsectionColumncount"`
 	// The combined width of all the Reportcolumns in the Reportsection
 	IReportsectionWidth int32 `json:"iReportsectionWidth"`
+	// The title of this Reportsection
+	SReportsectionTitle *string `json:"sReportsectionTitle,omitempty"`
 }
 
 type _CommonReportsection CommonReportsection
@@ -175,6 +177,38 @@ func (o *CommonReportsection) SetIReportsectionWidth(v int32) {
 	o.IReportsectionWidth = v
 }
 
+// GetSReportsectionTitle returns the SReportsectionTitle field value if set, zero value otherwise.
+func (o *CommonReportsection) GetSReportsectionTitle() string {
+	if o == nil || IsNil(o.SReportsectionTitle) {
+		var ret string
+		return ret
+	}
+	return *o.SReportsectionTitle
+}
+
+// GetSReportsectionTitleOk returns a tuple with the SReportsectionTitle field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CommonReportsection) GetSReportsectionTitleOk() (*string, bool) {
+	if o == nil || IsNil(o.SReportsectionTitle) {
+		return nil, false
+	}
+	return o.SReportsectionTitle, true
+}
+
+// HasSReportsectionTitle returns a boolean if a field has been set.
+func (o *CommonReportsection) HasSReportsectionTitle() bool {
+	if o != nil && !IsNil(o.SReportsectionTitle) {
+		return true
+	}
+
+	return false
+}
+
+// SetSReportsectionTitle gets a reference to the given string and assigns it to the SReportsectionTitle field.
+func (o *CommonReportsection) SetSReportsectionTitle(v string) {
+	o.SReportsectionTitle = &v
+}
+
 func (o CommonReportsection) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -190,6 +224,9 @@ func (o CommonReportsection) ToMap() (map[string]interface{}, error) {
 	toSerialize["eReportsectionHorizontalalignment"] = o.EReportsectionHorizontalalignment
 	toSerialize["iReportsectionColumncount"] = o.IReportsectionColumncount
 	toSerialize["iReportsectionWidth"] = o.IReportsectionWidth
+	if !IsNil(o.SReportsectionTitle) {
+		toSerialize["sReportsectionTitle"] = o.SReportsectionTitle
+	}
 	return toSerialize, nil
 }
 

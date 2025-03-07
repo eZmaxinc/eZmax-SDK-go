@@ -35,7 +35,6 @@ Name | Type | Description | Notes
 **BEzsignfoldertypeSendsignedtouser** | Pointer to **bool** | Whether we send an email to User who signed when document is completed | [optional] 
 **BEzsignfoldertypeSendattachmentezsignsigner** | Pointer to **bool** | Whether we send the Ezsigndocument in the email to Ezsignsigner | [optional] 
 **BEzsignfoldertypeSendproofezsignsigner** | Pointer to **bool** | Whether we send the proof in the email to Ezsignsigner | [optional] 
-**BEzsignfoldertypeSendattachmentreceivecopy** | Pointer to **bool** | Whether we send the Ezsigndocument in the email to Ezsignsigner or User when bEzsignfoldersignerassociationReceivecopy &#x3D; 1 | [optional] 
 **BEzsignfoldertypeSendattachmentuser** | Pointer to **bool** | Whether we send the Ezsigndocument in the email to User | [optional] 
 **BEzsignfoldertypeSendproofuser** | Pointer to **bool** | Whether we send the proof in the email to User | [optional] 
 **BEzsignfoldertypeSendproofemail** | Pointer to **bool** | Whether we send the proof in the email to external recipient | [optional] 
@@ -803,31 +802,6 @@ SetBEzsignfoldertypeSendproofezsignsigner sets BEzsignfoldertypeSendproofezsigns
 `func (o *EzsignfoldertypeResponse) HasBEzsignfoldertypeSendproofezsignsigner() bool`
 
 HasBEzsignfoldertypeSendproofezsignsigner returns a boolean if a field has been set.
-
-### GetBEzsignfoldertypeSendattachmentreceivecopy
-
-`func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeSendattachmentreceivecopy() bool`
-
-GetBEzsignfoldertypeSendattachmentreceivecopy returns the BEzsignfoldertypeSendattachmentreceivecopy field if non-nil, zero value otherwise.
-
-### GetBEzsignfoldertypeSendattachmentreceivecopyOk
-
-`func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeSendattachmentreceivecopyOk() (*bool, bool)`
-
-GetBEzsignfoldertypeSendattachmentreceivecopyOk returns a tuple with the BEzsignfoldertypeSendattachmentreceivecopy field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBEzsignfoldertypeSendattachmentreceivecopy
-
-`func (o *EzsignfoldertypeResponse) SetBEzsignfoldertypeSendattachmentreceivecopy(v bool)`
-
-SetBEzsignfoldertypeSendattachmentreceivecopy sets BEzsignfoldertypeSendattachmentreceivecopy field to given value.
-
-### HasBEzsignfoldertypeSendattachmentreceivecopy
-
-`func (o *EzsignfoldertypeResponse) HasBEzsignfoldertypeSendattachmentreceivecopy() bool`
-
-HasBEzsignfoldertypeSendattachmentreceivecopy returns a boolean if a field has been set.
 
 ### GetBEzsignfoldertypeSendattachmentuser
 

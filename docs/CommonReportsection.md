@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **EReportsectionHorizontalalignment** | [**EnumHorizontalalignment**](EnumHorizontalalignment.md) |  | 
 **IReportsectionColumncount** | **int32** | The number of Reportcolumns in the Reportsection | 
 **IReportsectionWidth** | **int32** | The combined width of all the Reportcolumns in the Reportsection | 
+**SReportsectionTitle** | Pointer to **string** | The title of this Reportsection | [optional] 
 
 ## Methods
 
@@ -128,6 +129,31 @@ and a boolean to check if the value has been set.
 
 SetIReportsectionWidth sets IReportsectionWidth field to given value.
 
+
+### GetSReportsectionTitle
+
+`func (o *CommonReportsection) GetSReportsectionTitle() string`
+
+GetSReportsectionTitle returns the SReportsectionTitle field if non-nil, zero value otherwise.
+
+### GetSReportsectionTitleOk
+
+`func (o *CommonReportsection) GetSReportsectionTitleOk() (*string, bool)`
+
+GetSReportsectionTitleOk returns a tuple with the SReportsectionTitle field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSReportsectionTitle
+
+`func (o *CommonReportsection) SetSReportsectionTitle(v string)`
+
+SetSReportsectionTitle sets SReportsectionTitle field to given value.
+
+### HasSReportsectionTitle
+
+`func (o *CommonReportsection) HasSReportsectionTitle() bool`
+
+HasSReportsectionTitle returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

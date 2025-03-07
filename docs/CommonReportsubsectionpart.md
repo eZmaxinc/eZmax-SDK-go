@@ -6,12 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EReportsubsectionpartType** | **string** | The type of the Reportsubsectionpart | 
 **AObjReportrow** | [**[]CommonReportrow**](CommonReportrow.md) |  | 
+**ASVariableobjectProperty** | **[]string** |  | 
 
 ## Methods
 
 ### NewCommonReportsubsectionpart
 
-`func NewCommonReportsubsectionpart(eReportsubsectionpartType string, aObjReportrow []CommonReportrow, ) *CommonReportsubsectionpart`
+`func NewCommonReportsubsectionpart(eReportsubsectionpartType string, aObjReportrow []CommonReportrow, aSVariableobjectProperty []string, ) *CommonReportsubsectionpart`
 
 NewCommonReportsubsectionpart instantiates a new CommonReportsubsectionpart object
 This constructor will assign default values to properties that have it defined,
@@ -64,6 +65,26 @@ and a boolean to check if the value has been set.
 `func (o *CommonReportsubsectionpart) SetAObjReportrow(v []CommonReportrow)`
 
 SetAObjReportrow sets AObjReportrow field to given value.
+
+
+### GetASVariableobjectProperty
+
+`func (o *CommonReportsubsectionpart) GetASVariableobjectProperty() []string`
+
+GetASVariableobjectProperty returns the ASVariableobjectProperty field if non-nil, zero value otherwise.
+
+### GetASVariableobjectPropertyOk
+
+`func (o *CommonReportsubsectionpart) GetASVariableobjectPropertyOk() (*[]string, bool)`
+
+GetASVariableobjectPropertyOk returns a tuple with the ASVariableobjectProperty field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetASVariableobjectProperty
+
+`func (o *CommonReportsubsectionpart) SetASVariableobjectProperty(v []string)`
+
+SetASVariableobjectProperty sets ASVariableobjectProperty field to given value.
 
 
 

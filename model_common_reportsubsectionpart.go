@@ -25,6 +25,7 @@ type CommonReportsubsectionpart struct {
 	// The type of the Reportsubsectionpart
 	EReportsubsectionpartType string `json:"eReportsubsectionpartType"`
 	AObjReportrow []CommonReportrow `json:"a_objReportrow"`
+	ASVariableobjectProperty []string `json:"a_sVariableobjectProperty"`
 }
 
 type _CommonReportsubsectionpart CommonReportsubsectionpart
@@ -33,10 +34,11 @@ type _CommonReportsubsectionpart CommonReportsubsectionpart
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommonReportsubsectionpart(eReportsubsectionpartType string, aObjReportrow []CommonReportrow) *CommonReportsubsectionpart {
+func NewCommonReportsubsectionpart(eReportsubsectionpartType string, aObjReportrow []CommonReportrow, aSVariableobjectProperty []string) *CommonReportsubsectionpart {
 	this := CommonReportsubsectionpart{}
 	this.EReportsubsectionpartType = eReportsubsectionpartType
 	this.AObjReportrow = aObjReportrow
+	this.ASVariableobjectProperty = aSVariableobjectProperty
 	return &this
 }
 
@@ -96,6 +98,30 @@ func (o *CommonReportsubsectionpart) SetAObjReportrow(v []CommonReportrow) {
 	o.AObjReportrow = v
 }
 
+// GetASVariableobjectProperty returns the ASVariableobjectProperty field value
+func (o *CommonReportsubsectionpart) GetASVariableobjectProperty() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.ASVariableobjectProperty
+}
+
+// GetASVariableobjectPropertyOk returns a tuple with the ASVariableobjectProperty field value
+// and a boolean to check if the value has been set.
+func (o *CommonReportsubsectionpart) GetASVariableobjectPropertyOk() ([]string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ASVariableobjectProperty, true
+}
+
+// SetASVariableobjectProperty sets field value
+func (o *CommonReportsubsectionpart) SetASVariableobjectProperty(v []string) {
+	o.ASVariableobjectProperty = v
+}
+
 func (o CommonReportsubsectionpart) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -108,6 +134,7 @@ func (o CommonReportsubsectionpart) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["eReportsubsectionpartType"] = o.EReportsubsectionpartType
 	toSerialize["a_objReportrow"] = o.AObjReportrow
+	toSerialize["a_sVariableobjectProperty"] = o.ASVariableobjectProperty
 	return toSerialize, nil
 }
 
@@ -118,6 +145,7 @@ func (o *CommonReportsubsectionpart) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"eReportsubsectionpartType",
 		"a_objReportrow",
+		"a_sVariableobjectProperty",
 	}
 
 	allProperties := make(map[string]interface{})

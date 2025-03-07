@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **PkiEzsigntemplateID** | **int32** | The unique ID of the Ezsigntemplate | 
 **FkiEzsigntemplatedocumentID** | Pointer to **int32** | The unique ID of the Ezsigntemplatedocument | [optional] 
 **FkiEzsignfoldertypeID** | Pointer to **int32** | The unique ID of the Ezsignfoldertype. | [optional] 
+**ObjEzsignfoldertype** | Pointer to [**CustomEzsignfoldertypeTemplateResponse**](CustomEzsignfoldertypeTemplateResponse.md) |  | [optional] 
 **FkiLanguageID** | **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
 **FkiEzdoctemplatedocumentID** | Pointer to **int32** | The unique ID of the Ezdoctemplatedocument | [optional] 
 **SEzdoctemplatedocumentNameX** | Pointer to **string** | The name of the Ezdoctemplatedocument in the language of the requester | [optional] 
@@ -110,6 +111,31 @@ SetFkiEzsignfoldertypeID sets FkiEzsignfoldertypeID field to given value.
 `func (o *EzsigntemplateResponseV3) HasFkiEzsignfoldertypeID() bool`
 
 HasFkiEzsignfoldertypeID returns a boolean if a field has been set.
+
+### GetObjEzsignfoldertype
+
+`func (o *EzsigntemplateResponseV3) GetObjEzsignfoldertype() CustomEzsignfoldertypeTemplateResponse`
+
+GetObjEzsignfoldertype returns the ObjEzsignfoldertype field if non-nil, zero value otherwise.
+
+### GetObjEzsignfoldertypeOk
+
+`func (o *EzsigntemplateResponseV3) GetObjEzsignfoldertypeOk() (*CustomEzsignfoldertypeTemplateResponse, bool)`
+
+GetObjEzsignfoldertypeOk returns a tuple with the ObjEzsignfoldertype field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjEzsignfoldertype
+
+`func (o *EzsigntemplateResponseV3) SetObjEzsignfoldertype(v CustomEzsignfoldertypeTemplateResponse)`
+
+SetObjEzsignfoldertype sets ObjEzsignfoldertype field to given value.
+
+### HasObjEzsignfoldertype
+
+`func (o *EzsigntemplateResponseV3) HasObjEzsignfoldertype() bool`
+
+HasObjEzsignfoldertype returns a boolean if a field has been set.
 
 ### GetFkiLanguageID
 

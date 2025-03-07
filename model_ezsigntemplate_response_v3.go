@@ -28,6 +28,7 @@ type EzsigntemplateResponseV3 struct {
 	FkiEzsigntemplatedocumentID *int32 `json:"fkiEzsigntemplatedocumentID,omitempty"`
 	// The unique ID of the Ezsignfoldertype.
 	FkiEzsignfoldertypeID *int32 `json:"fkiEzsignfoldertypeID,omitempty"`
+	ObjEzsignfoldertype *CustomEzsignfoldertypeTemplateResponse `json:"objEzsignfoldertype,omitempty"`
 	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
 	FkiLanguageID int32 `json:"fkiLanguageID"`
 	// The unique ID of the Ezdoctemplatedocument
@@ -171,6 +172,38 @@ func (o *EzsigntemplateResponseV3) HasFkiEzsignfoldertypeID() bool {
 // SetFkiEzsignfoldertypeID gets a reference to the given int32 and assigns it to the FkiEzsignfoldertypeID field.
 func (o *EzsigntemplateResponseV3) SetFkiEzsignfoldertypeID(v int32) {
 	o.FkiEzsignfoldertypeID = &v
+}
+
+// GetObjEzsignfoldertype returns the ObjEzsignfoldertype field value if set, zero value otherwise.
+func (o *EzsigntemplateResponseV3) GetObjEzsignfoldertype() CustomEzsignfoldertypeTemplateResponse {
+	if o == nil || IsNil(o.ObjEzsignfoldertype) {
+		var ret CustomEzsignfoldertypeTemplateResponse
+		return ret
+	}
+	return *o.ObjEzsignfoldertype
+}
+
+// GetObjEzsignfoldertypeOk returns a tuple with the ObjEzsignfoldertype field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateResponseV3) GetObjEzsignfoldertypeOk() (*CustomEzsignfoldertypeTemplateResponse, bool) {
+	if o == nil || IsNil(o.ObjEzsignfoldertype) {
+		return nil, false
+	}
+	return o.ObjEzsignfoldertype, true
+}
+
+// HasObjEzsignfoldertype returns a boolean if a field has been set.
+func (o *EzsigntemplateResponseV3) HasObjEzsignfoldertype() bool {
+	if o != nil && !IsNil(o.ObjEzsignfoldertype) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjEzsignfoldertype gets a reference to the given CustomEzsignfoldertypeTemplateResponse and assigns it to the ObjEzsignfoldertype field.
+func (o *EzsigntemplateResponseV3) SetObjEzsignfoldertype(v CustomEzsignfoldertypeTemplateResponse) {
+	o.ObjEzsignfoldertype = &v
 }
 
 // GetFkiLanguageID returns the FkiLanguageID field value
@@ -589,6 +622,9 @@ func (o EzsigntemplateResponseV3) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.FkiEzsignfoldertypeID) {
 		toSerialize["fkiEzsignfoldertypeID"] = o.FkiEzsignfoldertypeID
+	}
+	if !IsNil(o.ObjEzsignfoldertype) {
+		toSerialize["objEzsignfoldertype"] = o.ObjEzsignfoldertype
 	}
 	toSerialize["fkiLanguageID"] = o.FkiLanguageID
 	if !IsNil(o.FkiEzdoctemplatedocumentID) {

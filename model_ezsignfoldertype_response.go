@@ -79,8 +79,6 @@ type EzsignfoldertypeResponse struct {
 	BEzsignfoldertypeSendattachmentezsignsigner *bool `json:"bEzsignfoldertypeSendattachmentezsignsigner,omitempty"`
 	// Whether we send the proof in the email to Ezsignsigner
 	BEzsignfoldertypeSendproofezsignsigner *bool `json:"bEzsignfoldertypeSendproofezsignsigner,omitempty"`
-	// Whether we send the Ezsigndocument in the email to Ezsignsigner or User when bEzsignfoldersignerassociationReceivecopy = 1
-	BEzsignfoldertypeSendattachmentreceivecopy *bool `json:"bEzsignfoldertypeSendattachmentreceivecopy,omitempty"`
 	// Whether we send the Ezsigndocument in the email to User
 	BEzsignfoldertypeSendattachmentuser *bool `json:"bEzsignfoldertypeSendattachmentuser,omitempty"`
 	// Whether we send the proof in the email to User
@@ -1075,38 +1073,6 @@ func (o *EzsignfoldertypeResponse) SetBEzsignfoldertypeSendproofezsignsigner(v b
 	o.BEzsignfoldertypeSendproofezsignsigner = &v
 }
 
-// GetBEzsignfoldertypeSendattachmentreceivecopy returns the BEzsignfoldertypeSendattachmentreceivecopy field value if set, zero value otherwise.
-func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeSendattachmentreceivecopy() bool {
-	if o == nil || IsNil(o.BEzsignfoldertypeSendattachmentreceivecopy) {
-		var ret bool
-		return ret
-	}
-	return *o.BEzsignfoldertypeSendattachmentreceivecopy
-}
-
-// GetBEzsignfoldertypeSendattachmentreceivecopyOk returns a tuple with the BEzsignfoldertypeSendattachmentreceivecopy field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeSendattachmentreceivecopyOk() (*bool, bool) {
-	if o == nil || IsNil(o.BEzsignfoldertypeSendattachmentreceivecopy) {
-		return nil, false
-	}
-	return o.BEzsignfoldertypeSendattachmentreceivecopy, true
-}
-
-// HasBEzsignfoldertypeSendattachmentreceivecopy returns a boolean if a field has been set.
-func (o *EzsignfoldertypeResponse) HasBEzsignfoldertypeSendattachmentreceivecopy() bool {
-	if o != nil && !IsNil(o.BEzsignfoldertypeSendattachmentreceivecopy) {
-		return true
-	}
-
-	return false
-}
-
-// SetBEzsignfoldertypeSendattachmentreceivecopy gets a reference to the given bool and assigns it to the BEzsignfoldertypeSendattachmentreceivecopy field.
-func (o *EzsignfoldertypeResponse) SetBEzsignfoldertypeSendattachmentreceivecopy(v bool) {
-	o.BEzsignfoldertypeSendattachmentreceivecopy = &v
-}
-
 // GetBEzsignfoldertypeSendattachmentuser returns the BEzsignfoldertypeSendattachmentuser field value if set, zero value otherwise.
 func (o *EzsignfoldertypeResponse) GetBEzsignfoldertypeSendattachmentuser() bool {
 	if o == nil || IsNil(o.BEzsignfoldertypeSendattachmentuser) {
@@ -1703,9 +1669,6 @@ func (o EzsignfoldertypeResponse) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.BEzsignfoldertypeSendproofezsignsigner) {
 		toSerialize["bEzsignfoldertypeSendproofezsignsigner"] = o.BEzsignfoldertypeSendproofezsignsigner
-	}
-	if !IsNil(o.BEzsignfoldertypeSendattachmentreceivecopy) {
-		toSerialize["bEzsignfoldertypeSendattachmentreceivecopy"] = o.BEzsignfoldertypeSendattachmentreceivecopy
 	}
 	if !IsNil(o.BEzsignfoldertypeSendattachmentuser) {
 		toSerialize["bEzsignfoldertypeSendattachmentuser"] = o.BEzsignfoldertypeSendattachmentuser
