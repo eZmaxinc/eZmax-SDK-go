@@ -38,7 +38,6 @@ api_object_emailtype.go
 api_object_ezdoctemplatedocument.go
 api_object_ezdoctemplatefieldtypecategory.go
 api_object_ezdoctemplatetype.go
-api_object_ezmaxcase.go
 api_object_ezmaxinvoicing.go
 api_object_ezmaxproduct.go
 api_object_ezsignannotation.go
@@ -551,9 +550,6 @@ docs/EzdoctemplatefieldtypecategoryGetAutocompleteV2ResponseMPayload.md
 docs/EzdoctemplatetypeAutocompleteElementResponse.md
 docs/EzdoctemplatetypeGetAutocompleteV2Response.md
 docs/EzdoctemplatetypeGetAutocompleteV2ResponseMPayload.md
-docs/EzmaxcasePatchObjectV1Request.md
-docs/EzmaxcasePatchObjectV1Response.md
-docs/EzmaxcaseRequestPatch.md
 docs/EzmaxinvoicingAutocompleteElementResponse.md
 docs/EzmaxinvoicingGetAutocompleteV2Response.md
 docs/EzmaxinvoicingGetAutocompleteV2ResponseMPayload.md
@@ -1476,7 +1472,6 @@ docs/ObjectEmailtypeAPI.md
 docs/ObjectEzdoctemplatedocumentAPI.md
 docs/ObjectEzdoctemplatefieldtypecategoryAPI.md
 docs/ObjectEzdoctemplatetypeAPI.md
-docs/ObjectEzmaxcaseAPI.md
 docs/ObjectEzmaxinvoicingAPI.md
 docs/ObjectEzmaxproductAPI.md
 docs/ObjectEzsignannotationAPI.md
@@ -2374,9 +2369,6 @@ model_ezdoctemplatefieldtypecategory_get_autocomplete_v2_response_m_payload.go
 model_ezdoctemplatetype_autocomplete_element_response.go
 model_ezdoctemplatetype_get_autocomplete_v2_response.go
 model_ezdoctemplatetype_get_autocomplete_v2_response_m_payload.go
-model_ezmaxcase_patch_object_v1_request.go
-model_ezmaxcase_patch_object_v1_response.go
-model_ezmaxcase_request_patch.go
 model_ezmaxinvoicing_autocomplete_element_response.go
 model_ezmaxinvoicing_get_autocomplete_v2_response.go
 model_ezmaxinvoicing_get_autocomplete_v2_response_m_payload.go

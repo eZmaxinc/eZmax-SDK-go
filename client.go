@@ -120,8 +120,6 @@ type APIClient struct {
 
 	ObjectEzdoctemplatetypeAPI *ObjectEzdoctemplatetypeAPIService
 
-	ObjectEzmaxcaseAPI *ObjectEzmaxcaseAPIService
-
 	ObjectEzmaxinvoicingAPI *ObjectEzmaxinvoicingAPIService
 
 	ObjectEzmaxproductAPI *ObjectEzmaxproductAPIService
@@ -334,7 +332,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectEzdoctemplatedocumentAPI = (*ObjectEzdoctemplatedocumentAPIService)(&c.common)
 	c.ObjectEzdoctemplatefieldtypecategoryAPI = (*ObjectEzdoctemplatefieldtypecategoryAPIService)(&c.common)
 	c.ObjectEzdoctemplatetypeAPI = (*ObjectEzdoctemplatetypeAPIService)(&c.common)
-	c.ObjectEzmaxcaseAPI = (*ObjectEzmaxcaseAPIService)(&c.common)
 	c.ObjectEzmaxinvoicingAPI = (*ObjectEzmaxinvoicingAPIService)(&c.common)
 	c.ObjectEzmaxproductAPI = (*ObjectEzmaxproductAPIService)(&c.common)
 	c.ObjectEzsignannotationAPI = (*ObjectEzsignannotationAPIService)(&c.common)
