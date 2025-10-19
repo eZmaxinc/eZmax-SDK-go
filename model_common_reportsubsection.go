@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -22,6 +22,11 @@ var _ MappedNullable = &CommonReportsubsection{}
 
 // CommonReportsubsection A Subsection in a Reportsection. It contains 3 Reportsubsectionparts (Header, Body and Footer) 
 type CommonReportsubsection struct {
+	AObjReportcolumn []CommonReportcolumn `json:"a_objReportcolumn"`
+	// The number of Reportcolumns in the Reportsection
+	IReportsubsectionColumncount int32 `json:"iReportsubsectionColumncount"`
+	// The combined width of all the Reportcolumns in the Reportsection
+	IReportsubsectionWidth int32 `json:"iReportsubsectionWidth"`
 	ObjReportsubsectionpartHeader CommonReportsubsectionpart `json:"objReportsubsectionpartHeader"`
 	ObjReportsubsectionpartBody CommonReportsubsectionpart `json:"objReportsubsectionpartBody"`
 	ObjReportsubsectionpartFooter CommonReportsubsectionpart `json:"objReportsubsectionpartFooter"`
@@ -35,8 +40,11 @@ type _CommonReportsubsection CommonReportsubsection
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommonReportsubsection(objReportsubsectionpartHeader CommonReportsubsectionpart, objReportsubsectionpartBody CommonReportsubsectionpart, objReportsubsectionpartFooter CommonReportsubsectionpart) *CommonReportsubsection {
+func NewCommonReportsubsection(aObjReportcolumn []CommonReportcolumn, iReportsubsectionColumncount int32, iReportsubsectionWidth int32, objReportsubsectionpartHeader CommonReportsubsectionpart, objReportsubsectionpartBody CommonReportsubsectionpart, objReportsubsectionpartFooter CommonReportsubsectionpart) *CommonReportsubsection {
 	this := CommonReportsubsection{}
+	this.AObjReportcolumn = aObjReportcolumn
+	this.IReportsubsectionColumncount = iReportsubsectionColumncount
+	this.IReportsubsectionWidth = iReportsubsectionWidth
 	this.ObjReportsubsectionpartHeader = objReportsubsectionpartHeader
 	this.ObjReportsubsectionpartBody = objReportsubsectionpartBody
 	this.ObjReportsubsectionpartFooter = objReportsubsectionpartFooter
@@ -49,6 +57,78 @@ func NewCommonReportsubsection(objReportsubsectionpartHeader CommonReportsubsect
 func NewCommonReportsubsectionWithDefaults() *CommonReportsubsection {
 	this := CommonReportsubsection{}
 	return &this
+}
+
+// GetAObjReportcolumn returns the AObjReportcolumn field value
+func (o *CommonReportsubsection) GetAObjReportcolumn() []CommonReportcolumn {
+	if o == nil {
+		var ret []CommonReportcolumn
+		return ret
+	}
+
+	return o.AObjReportcolumn
+}
+
+// GetAObjReportcolumnOk returns a tuple with the AObjReportcolumn field value
+// and a boolean to check if the value has been set.
+func (o *CommonReportsubsection) GetAObjReportcolumnOk() ([]CommonReportcolumn, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AObjReportcolumn, true
+}
+
+// SetAObjReportcolumn sets field value
+func (o *CommonReportsubsection) SetAObjReportcolumn(v []CommonReportcolumn) {
+	o.AObjReportcolumn = v
+}
+
+// GetIReportsubsectionColumncount returns the IReportsubsectionColumncount field value
+func (o *CommonReportsubsection) GetIReportsubsectionColumncount() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IReportsubsectionColumncount
+}
+
+// GetIReportsubsectionColumncountOk returns a tuple with the IReportsubsectionColumncount field value
+// and a boolean to check if the value has been set.
+func (o *CommonReportsubsection) GetIReportsubsectionColumncountOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IReportsubsectionColumncount, true
+}
+
+// SetIReportsubsectionColumncount sets field value
+func (o *CommonReportsubsection) SetIReportsubsectionColumncount(v int32) {
+	o.IReportsubsectionColumncount = v
+}
+
+// GetIReportsubsectionWidth returns the IReportsubsectionWidth field value
+func (o *CommonReportsubsection) GetIReportsubsectionWidth() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IReportsubsectionWidth
+}
+
+// GetIReportsubsectionWidthOk returns a tuple with the IReportsubsectionWidth field value
+// and a boolean to check if the value has been set.
+func (o *CommonReportsubsection) GetIReportsubsectionWidthOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IReportsubsectionWidth, true
+}
+
+// SetIReportsubsectionWidth sets field value
+func (o *CommonReportsubsection) SetIReportsubsectionWidth(v int32) {
+	o.IReportsubsectionWidth = v
 }
 
 // GetObjReportsubsectionpartHeader returns the ObjReportsubsectionpartHeader field value
@@ -165,6 +245,9 @@ func (o CommonReportsubsection) MarshalJSON() ([]byte, error) {
 
 func (o CommonReportsubsection) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["a_objReportcolumn"] = o.AObjReportcolumn
+	toSerialize["iReportsubsectionColumncount"] = o.IReportsubsectionColumncount
+	toSerialize["iReportsubsectionWidth"] = o.IReportsubsectionWidth
 	toSerialize["objReportsubsectionpartHeader"] = o.ObjReportsubsectionpartHeader
 	toSerialize["objReportsubsectionpartBody"] = o.ObjReportsubsectionpartBody
 	toSerialize["objReportsubsectionpartFooter"] = o.ObjReportsubsectionpartFooter
@@ -179,6 +262,9 @@ func (o *CommonReportsubsection) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"a_objReportcolumn",
+		"iReportsubsectionColumncount",
+		"iReportsubsectionWidth",
 		"objReportsubsectionpartHeader",
 		"objReportsubsectionpartBody",
 		"objReportsubsectionpartFooter",

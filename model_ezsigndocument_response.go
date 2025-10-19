@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -52,15 +52,17 @@ type EzsigndocumentResponse struct {
 	// The number of total Ezsignformfield that were requested in the Ezsigndocument.
 	IEzsigndocumentFormfieldtotal int32 `json:"iEzsigndocumentFormfieldtotal"`
 	// MD5 Hash of the initial PDF Document before signatures were applied to it.
-	SEzsigndocumentMD5initial *string `json:"sEzsigndocumentMD5initial,omitempty"`
+	SEzsigndocumentMD5initial *string `json:"sEzsigndocumentMD5initial,omitempty" validate:"regexp=^.{32}$"`
 	// A custom text message that will contain the refusal message if the Ezsigndocument is declined to sign
 	TEzsigndocumentDeclinedtosignreason *string `json:"tEzsigndocumentDeclinedtosignreason,omitempty"`
 	// MD5 Hash of the final PDF Document after all signatures were applied to it.
-	SEzsigndocumentMD5signed *string `json:"sEzsigndocumentMD5signed,omitempty"`
+	SEzsigndocumentMD5signed *string `json:"sEzsigndocumentMD5signed,omitempty" validate:"regexp=^.{32}$"`
 	// If the Ezsigndocument contains an Ezsignform or not
 	BEzsigndocumentEzsignform *bool `json:"bEzsigndocumentEzsignform,omitempty"`
 	// If the Ezsigndocument contains signed signatures (From internal or external sources)
 	BEzsigndocumentHassignedsignatures *bool `json:"bEzsigndocumentHassignedsignatures,omitempty"`
+	// Whether the Ezsigndocument was copied to EDM
+	BEzsigndocumentSendtoged *bool `json:"bEzsigndocumentSendtoged,omitempty"`
 	ObjAudit *CommonAudit `json:"objAudit,omitempty"`
 	// This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format. 
 	SEzsigndocumentExternalid *string `json:"sEzsigndocumentExternalid,omitempty" validate:"regexp=^.{0,128}$"`
@@ -661,6 +663,38 @@ func (o *EzsigndocumentResponse) SetBEzsigndocumentHassignedsignatures(v bool) {
 	o.BEzsigndocumentHassignedsignatures = &v
 }
 
+// GetBEzsigndocumentSendtoged returns the BEzsigndocumentSendtoged field value if set, zero value otherwise.
+func (o *EzsigndocumentResponse) GetBEzsigndocumentSendtoged() bool {
+	if o == nil || IsNil(o.BEzsigndocumentSendtoged) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsigndocumentSendtoged
+}
+
+// GetBEzsigndocumentSendtogedOk returns a tuple with the BEzsigndocumentSendtoged field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigndocumentResponse) GetBEzsigndocumentSendtogedOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsigndocumentSendtoged) {
+		return nil, false
+	}
+	return o.BEzsigndocumentSendtoged, true
+}
+
+// HasBEzsigndocumentSendtoged returns a boolean if a field has been set.
+func (o *EzsigndocumentResponse) HasBEzsigndocumentSendtoged() bool {
+	if o != nil && !IsNil(o.BEzsigndocumentSendtoged) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsigndocumentSendtoged gets a reference to the given bool and assigns it to the BEzsigndocumentSendtoged field.
+func (o *EzsigndocumentResponse) SetBEzsigndocumentSendtoged(v bool) {
+	o.BEzsigndocumentSendtoged = &v
+}
+
 // GetObjAudit returns the ObjAudit field value if set, zero value otherwise.
 func (o *EzsigndocumentResponse) GetObjAudit() CommonAudit {
 	if o == nil || IsNil(o.ObjAudit) {
@@ -822,6 +856,9 @@ func (o EzsigndocumentResponse) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.BEzsigndocumentHassignedsignatures) {
 		toSerialize["bEzsigndocumentHassignedsignatures"] = o.BEzsigndocumentHassignedsignatures
+	}
+	if !IsNil(o.BEzsigndocumentSendtoged) {
+		toSerialize["bEzsigndocumentSendtoged"] = o.BEzsigndocumentSendtoged
 	}
 	if !IsNil(o.ObjAudit) {
 		toSerialize["objAudit"] = o.ObjAudit

@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -32,6 +32,7 @@ type EzsignfoldersignerassociationResponseCompoundUser struct {
 	SUserLastname string `json:"sUserLastname"`
 	// The email address.
 	SEmailAddress string "json:\"sEmailAddress\" validate:\"regexp=^[\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20}$\""
+	EUserType FieldEUserType `json:"eUserType"`
 }
 
 type _EzsignfoldersignerassociationResponseCompoundUser EzsignfoldersignerassociationResponseCompoundUser
@@ -40,13 +41,14 @@ type _EzsignfoldersignerassociationResponseCompoundUser Ezsignfoldersignerassoci
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfoldersignerassociationResponseCompoundUser(pkiUserID int32, fkiLanguageID int32, sUserFirstname string, sUserLastname string, sEmailAddress string) *EzsignfoldersignerassociationResponseCompoundUser {
+func NewEzsignfoldersignerassociationResponseCompoundUser(pkiUserID int32, fkiLanguageID int32, sUserFirstname string, sUserLastname string, sEmailAddress string, eUserType FieldEUserType) *EzsignfoldersignerassociationResponseCompoundUser {
 	this := EzsignfoldersignerassociationResponseCompoundUser{}
 	this.PkiUserID = pkiUserID
 	this.FkiLanguageID = fkiLanguageID
 	this.SUserFirstname = sUserFirstname
 	this.SUserLastname = sUserLastname
 	this.SEmailAddress = sEmailAddress
+	this.EUserType = eUserType
 	return &this
 }
 
@@ -178,6 +180,30 @@ func (o *EzsignfoldersignerassociationResponseCompoundUser) SetSEmailAddress(v s
 	o.SEmailAddress = v
 }
 
+// GetEUserType returns the EUserType field value
+func (o *EzsignfoldersignerassociationResponseCompoundUser) GetEUserType() FieldEUserType {
+	if o == nil {
+		var ret FieldEUserType
+		return ret
+	}
+
+	return o.EUserType
+}
+
+// GetEUserTypeOk returns a tuple with the EUserType field value
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldersignerassociationResponseCompoundUser) GetEUserTypeOk() (*FieldEUserType, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EUserType, true
+}
+
+// SetEUserType sets field value
+func (o *EzsignfoldersignerassociationResponseCompoundUser) SetEUserType(v FieldEUserType) {
+	o.EUserType = v
+}
+
 func (o EzsignfoldersignerassociationResponseCompoundUser) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -193,6 +219,7 @@ func (o EzsignfoldersignerassociationResponseCompoundUser) ToMap() (map[string]i
 	toSerialize["sUserFirstname"] = o.SUserFirstname
 	toSerialize["sUserLastname"] = o.SUserLastname
 	toSerialize["sEmailAddress"] = o.SEmailAddress
+	toSerialize["eUserType"] = o.EUserType
 	return toSerialize, nil
 }
 
@@ -206,6 +233,7 @@ func (o *EzsignfoldersignerassociationResponseCompoundUser) UnmarshalJSON(data [
 		"sUserFirstname",
 		"sUserLastname",
 		"sEmailAddress",
+		"eUserType",
 	}
 
 	allProperties := make(map[string]interface{})

@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -21,14 +21,12 @@ type FieldEEzsigntemplateformfieldPositioningoccurence string
 
 // List of Field-eEzsigntemplateformfieldPositioningoccurence
 const (
-	ALL FieldEEzsigntemplateformfieldPositioningoccurence = "All"
 	FIRST FieldEEzsigntemplateformfieldPositioningoccurence = "First"
 	LAST FieldEEzsigntemplateformfieldPositioningoccurence = "Last"
 )
 
 // All allowed values of FieldEEzsigntemplateformfieldPositioningoccurence enum
 var AllowedFieldEEzsigntemplateformfieldPositioningoccurenceEnumValues = []FieldEEzsigntemplateformfieldPositioningoccurence{
-	"All",
 	"First",
 	"Last",
 }

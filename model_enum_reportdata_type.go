@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -22,9 +22,12 @@ type EnumReportdataType string
 // List of Enum-ReportdataType
 const (
 	DATE EnumReportdataType = "Date"
+	FILE_SIZE EnumReportdataType = "FileSize"
+	INTEGER EnumReportdataType = "Integer"
 	MONEY EnumReportdataType = "Money"
 	NUMBER EnumReportdataType = "Number"
 	PERCENTAGE EnumReportdataType = "Percentage"
+	PERCENTAGE_INT EnumReportdataType = "PercentageInt"
 	PERIOD EnumReportdataType = "Period"
 	STRING EnumReportdataType = "String"
 )
@@ -32,9 +35,12 @@ const (
 // All allowed values of EnumReportdataType enum
 var AllowedEnumReportdataTypeEnumValues = []EnumReportdataType{
 	"Date",
+	"FileSize",
+	"Integer",
 	"Money",
 	"Number",
 	"Percentage",
+	"PercentageInt",
 	"Period",
 	"String",
 }

@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **SAuthenticationexternalDescription** | Pointer to **string** | The description of the Authenticationexternal | [optional] 
 **ObjAudit** | [**CommonAudit**](CommonAudit.md) |  | 
 **SWebhookEvent** | Pointer to **string** | The concatenated string to describe the Webhook event | [optional] 
+**SWebhookAuthentificationexternalerror** | Pointer to **string** | Error message when token renewal failed or is not configured. Only if an Authenticationexternal is set. | [optional] 
 **AObjWebhookheader** | Pointer to [**[]WebhookheaderResponseCompound**](WebhookheaderResponseCompound.md) |  | [optional] 
 **PksCustomerCode** | **string** | The customer code assigned to your account | 
 **BWebhookTest** | **bool** | Wheter the webhook received is a manual test or a real event | 
@@ -450,6 +451,31 @@ SetSWebhookEvent sets SWebhookEvent field to given value.
 `func (o *CustomWebhookResponse) HasSWebhookEvent() bool`
 
 HasSWebhookEvent returns a boolean if a field has been set.
+
+### GetSWebhookAuthentificationexternalerror
+
+`func (o *CustomWebhookResponse) GetSWebhookAuthentificationexternalerror() string`
+
+GetSWebhookAuthentificationexternalerror returns the SWebhookAuthentificationexternalerror field if non-nil, zero value otherwise.
+
+### GetSWebhookAuthentificationexternalerrorOk
+
+`func (o *CustomWebhookResponse) GetSWebhookAuthentificationexternalerrorOk() (*string, bool)`
+
+GetSWebhookAuthentificationexternalerrorOk returns a tuple with the SWebhookAuthentificationexternalerror field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSWebhookAuthentificationexternalerror
+
+`func (o *CustomWebhookResponse) SetSWebhookAuthentificationexternalerror(v string)`
+
+SetSWebhookAuthentificationexternalerror sets SWebhookAuthentificationexternalerror field to given value.
+
+### HasSWebhookAuthentificationexternalerror
+
+`func (o *CustomWebhookResponse) HasSWebhookAuthentificationexternalerror() bool`
+
+HasSWebhookAuthentificationexternalerror returns a boolean if a field has been set.
 
 ### GetAObjWebhookheader
 

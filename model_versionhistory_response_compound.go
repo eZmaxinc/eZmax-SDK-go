@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -34,9 +34,9 @@ type VersionhistoryResponseCompound struct {
 	SModulesectionNameX *string `json:"sModulesectionNameX,omitempty"`
 	EVersionhistoryUsertype *FieldEVersionhistoryUsertype `json:"eVersionhistoryUsertype,omitempty"`
 	ObjVersionhistoryDetail MultilingualVersionhistoryDetail `json:"objVersionhistoryDetail"`
-	// The date  at which the Versionhistory was published or should be published
+	// The date at which the Versionhistory was published or should be published
 	DtVersionhistoryDate string `json:"dtVersionhistoryDate"`
-	// The date  at which the Versionhistory will no longer be visible
+	// The date at which the Versionhistory will no longer be visible
 	DtVersionhistoryDateend *string `json:"dtVersionhistoryDateend,omitempty"`
 	EVersionhistoryType FieldEVersionhistoryType `json:"eVersionhistoryType"`
 	// Whether the Versionhistory is published or still a draft

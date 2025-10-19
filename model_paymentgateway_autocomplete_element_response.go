@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -26,7 +26,7 @@ type PaymentgatewayAutocompleteElementResponse struct {
 	PkiPaymentgatewayID int32 `json:"pkiPaymentgatewayID"`
 	// The description of the Paymentgateway in the language of the requester
 	SPaymentgatewayDescriptionX string `json:"sPaymentgatewayDescriptionX" validate:"regexp=^.{1,50}$"`
-	// Whether the Currency is active or not
+	// Whether the Paymentgateway is active or not
 	BPaymentgatewayIsactive bool `json:"bPaymentgatewayIsactive"`
 }
 

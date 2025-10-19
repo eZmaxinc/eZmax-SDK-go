@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -34,6 +34,8 @@ type ActivesessionResponseCompoundUser struct {
 	SUserLastname string `json:"sUserLastname"`
 	// The email address.
 	SEmailAddress *string "json:\"sEmailAddress,omitempty\" validate:\"regexp=^[\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20}$\""
+	// Whether if I want to automatically add myself during the creation of Ezsignfolder of which I am the owner
+	BUserAddmeinezsignfolder bool `json:"bUserAddmeinezsignfolder"`
 	EUserEzsignsendreminderfrequency FieldEUserEzsignsendreminderfrequency `json:"eUserEzsignsendreminderfrequency"`
 	// The int32 representation of the interface color. For example, RGB color #39435B would be 3752795
 	IUserInterfacecolor int32 `json:"iUserInterfacecolor"`
@@ -41,6 +43,8 @@ type ActivesessionResponseCompoundUser struct {
 	BUserInterfacedark bool `json:"bUserInterfacedark"`
 	// The number of rows to return by default in lists
 	IUserListresult int32 `json:"iUserListresult"`
+	// Goals save as bit wise (one bit per goal)
+	IUserFrontendgoal int32 `json:"iUserFrontendgoal"`
 }
 
 type _ActivesessionResponseCompoundUser ActivesessionResponseCompoundUser
@@ -49,16 +53,18 @@ type _ActivesessionResponseCompoundUser ActivesessionResponseCompoundUser
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewActivesessionResponseCompoundUser(pkiUserID int32, fkiTimezoneID int32, sUserFirstname string, sUserLastname string, eUserEzsignsendreminderfrequency FieldEUserEzsignsendreminderfrequency, iUserInterfacecolor int32, bUserInterfacedark bool, iUserListresult int32) *ActivesessionResponseCompoundUser {
+func NewActivesessionResponseCompoundUser(pkiUserID int32, fkiTimezoneID int32, sUserFirstname string, sUserLastname string, bUserAddmeinezsignfolder bool, eUserEzsignsendreminderfrequency FieldEUserEzsignsendreminderfrequency, iUserInterfacecolor int32, bUserInterfacedark bool, iUserListresult int32, iUserFrontendgoal int32) *ActivesessionResponseCompoundUser {
 	this := ActivesessionResponseCompoundUser{}
 	this.PkiUserID = pkiUserID
 	this.FkiTimezoneID = fkiTimezoneID
 	this.SUserFirstname = sUserFirstname
 	this.SUserLastname = sUserLastname
+	this.BUserAddmeinezsignfolder = bUserAddmeinezsignfolder
 	this.EUserEzsignsendreminderfrequency = eUserEzsignsendreminderfrequency
 	this.IUserInterfacecolor = iUserInterfacecolor
 	this.BUserInterfacedark = bUserInterfacedark
 	this.IUserListresult = iUserListresult
+	this.IUserFrontendgoal = iUserFrontendgoal
 	return &this
 }
 
@@ -230,6 +236,30 @@ func (o *ActivesessionResponseCompoundUser) SetSEmailAddress(v string) {
 	o.SEmailAddress = &v
 }
 
+// GetBUserAddmeinezsignfolder returns the BUserAddmeinezsignfolder field value
+func (o *ActivesessionResponseCompoundUser) GetBUserAddmeinezsignfolder() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BUserAddmeinezsignfolder
+}
+
+// GetBUserAddmeinezsignfolderOk returns a tuple with the BUserAddmeinezsignfolder field value
+// and a boolean to check if the value has been set.
+func (o *ActivesessionResponseCompoundUser) GetBUserAddmeinezsignfolderOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BUserAddmeinezsignfolder, true
+}
+
+// SetBUserAddmeinezsignfolder sets field value
+func (o *ActivesessionResponseCompoundUser) SetBUserAddmeinezsignfolder(v bool) {
+	o.BUserAddmeinezsignfolder = v
+}
+
 // GetEUserEzsignsendreminderfrequency returns the EUserEzsignsendreminderfrequency field value
 func (o *ActivesessionResponseCompoundUser) GetEUserEzsignsendreminderfrequency() FieldEUserEzsignsendreminderfrequency {
 	if o == nil {
@@ -326,6 +356,30 @@ func (o *ActivesessionResponseCompoundUser) SetIUserListresult(v int32) {
 	o.IUserListresult = v
 }
 
+// GetIUserFrontendgoal returns the IUserFrontendgoal field value
+func (o *ActivesessionResponseCompoundUser) GetIUserFrontendgoal() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IUserFrontendgoal
+}
+
+// GetIUserFrontendgoalOk returns a tuple with the IUserFrontendgoal field value
+// and a boolean to check if the value has been set.
+func (o *ActivesessionResponseCompoundUser) GetIUserFrontendgoalOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IUserFrontendgoal, true
+}
+
+// SetIUserFrontendgoal sets field value
+func (o *ActivesessionResponseCompoundUser) SetIUserFrontendgoal(v int32) {
+	o.IUserFrontendgoal = v
+}
+
 func (o ActivesessionResponseCompoundUser) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -346,10 +400,12 @@ func (o ActivesessionResponseCompoundUser) ToMap() (map[string]interface{}, erro
 	if !IsNil(o.SEmailAddress) {
 		toSerialize["sEmailAddress"] = o.SEmailAddress
 	}
+	toSerialize["bUserAddmeinezsignfolder"] = o.BUserAddmeinezsignfolder
 	toSerialize["eUserEzsignsendreminderfrequency"] = o.EUserEzsignsendreminderfrequency
 	toSerialize["iUserInterfacecolor"] = o.IUserInterfacecolor
 	toSerialize["bUserInterfacedark"] = o.BUserInterfacedark
 	toSerialize["iUserListresult"] = o.IUserListresult
+	toSerialize["iUserFrontendgoal"] = o.IUserFrontendgoal
 	return toSerialize, nil
 }
 
@@ -362,10 +418,12 @@ func (o *ActivesessionResponseCompoundUser) UnmarshalJSON(data []byte) (err erro
 		"fkiTimezoneID",
 		"sUserFirstname",
 		"sUserLastname",
+		"bUserAddmeinezsignfolder",
 		"eUserEzsignsendreminderfrequency",
 		"iUserInterfacecolor",
 		"bUserInterfacedark",
 		"iUserListresult",
+		"iUserFrontendgoal",
 	}
 
 	allProperties := make(map[string]interface{})

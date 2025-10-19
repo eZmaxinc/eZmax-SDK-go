@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **EUserEzsignprepaid** | Pointer to [**FieldEUserEzsignprepaid**](FieldEUserEzsignprepaid.md) |  | [optional] 
 **BUserEzsigntrial** | Pointer to **bool** | Whether the User&#39;s eZsign subscription is a trial | [optional] 
 **DtUserEzsignprepaidexpiration** | Pointer to **string** | The eZsign prepaid expiration date | [optional] 
+**DtUserNpsrequest** | Pointer to **string** | The date at which the NPS questionnaire will be show | [optional] 
 **APkiPermissionID** | **[]int32** | An array of permissions granted to the user or api key | 
 **ObjUserReal** | [**ActivesessionResponseCompoundUser**](ActivesessionResponseCompoundUser.md) |  | 
 **ObjUserCloned** | Pointer to [**ActivesessionResponseCompoundUser**](ActivesessionResponseCompoundUser.md) |  | [optional] 
@@ -644,6 +645,31 @@ SetDtUserEzsignprepaidexpiration sets DtUserEzsignprepaidexpiration field to giv
 `func (o *ActivesessionGetCurrentV1ResponseMPayload) HasDtUserEzsignprepaidexpiration() bool`
 
 HasDtUserEzsignprepaidexpiration returns a boolean if a field has been set.
+
+### GetDtUserNpsrequest
+
+`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetDtUserNpsrequest() string`
+
+GetDtUserNpsrequest returns the DtUserNpsrequest field if non-nil, zero value otherwise.
+
+### GetDtUserNpsrequestOk
+
+`func (o *ActivesessionGetCurrentV1ResponseMPayload) GetDtUserNpsrequestOk() (*string, bool)`
+
+GetDtUserNpsrequestOk returns a tuple with the DtUserNpsrequest field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDtUserNpsrequest
+
+`func (o *ActivesessionGetCurrentV1ResponseMPayload) SetDtUserNpsrequest(v string)`
+
+SetDtUserNpsrequest sets DtUserNpsrequest field to given value.
+
+### HasDtUserNpsrequest
+
+`func (o *ActivesessionGetCurrentV1ResponseMPayload) HasDtUserNpsrequest() bool`
+
+HasDtUserNpsrequest returns a boolean if a field has been set.
 
 ### GetAPkiPermissionID
 

@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -16,19 +16,21 @@ import (
 	"fmt"
 )
 
-// FieldEEzsignfoldertypeCompletion Indicates if the Ezsigndocument is completed when all signatures of this Ezsigndocument were applied or when all signatures of all Ezsigndocument  were applied
+// FieldEEzsignfoldertypeCompletion Indicates if the Ezsigndocument is completed when all signatures of this Ezsigndocument were applied or when all signatures of all Ezsigndocument were applied. When eEzsignfoldertypeCompletion equals PerEzsignfolderStepSync, the document steps are synchronized. All documents move to a new step when all forms or signatures from the previous step have been completed for all documents.
 type FieldEEzsignfoldertypeCompletion string
 
 // List of Field-eEzsignfoldertypeCompletion
 const (
 	PER_EZSIGNDOCUMENT FieldEEzsignfoldertypeCompletion = "PerEzsigndocument"
 	PER_EZSIGNFOLDER FieldEEzsignfoldertypeCompletion = "PerEzsignfolder"
+	PER_EZSIGNFOLDER_STEP_SYNC FieldEEzsignfoldertypeCompletion = "PerEzsignfolderStepSync"
 )
 
 // All allowed values of FieldEEzsignfoldertypeCompletion enum
 var AllowedFieldEEzsignfoldertypeCompletionEnumValues = []FieldEEzsignfoldertypeCompletion{
 	"PerEzsigndocument",
 	"PerEzsignfolder",
+	"PerEzsignfolderStepSync",
 }
 
 func (v *FieldEEzsignfoldertypeCompletion) UnmarshalJSON(src []byte) error {

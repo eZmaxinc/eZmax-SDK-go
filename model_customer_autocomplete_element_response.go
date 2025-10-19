@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -24,6 +24,8 @@ var _ MappedNullable = &CustomerAutocompleteElementResponse{}
 type CustomerAutocompleteElementResponse struct {
 	// The unique ID of the Customer.
 	PkiCustomerID int32 `json:"pkiCustomerID"`
+	// The unique ID of the Department
+	FkiDepartmentID int32 `json:"fkiDepartmentID"`
 	// The name of the Customer
 	SCustomerName string `json:"sCustomerName" validate:"regexp=^.{0,50}$"`
 	// Whether the customer is active or not
@@ -36,9 +38,10 @@ type _CustomerAutocompleteElementResponse CustomerAutocompleteElementResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomerAutocompleteElementResponse(pkiCustomerID int32, sCustomerName string, bCustomerIsactive bool) *CustomerAutocompleteElementResponse {
+func NewCustomerAutocompleteElementResponse(pkiCustomerID int32, fkiDepartmentID int32, sCustomerName string, bCustomerIsactive bool) *CustomerAutocompleteElementResponse {
 	this := CustomerAutocompleteElementResponse{}
 	this.PkiCustomerID = pkiCustomerID
+	this.FkiDepartmentID = fkiDepartmentID
 	this.SCustomerName = sCustomerName
 	this.BCustomerIsactive = bCustomerIsactive
 	return &this
@@ -74,6 +77,30 @@ func (o *CustomerAutocompleteElementResponse) GetPkiCustomerIDOk() (*int32, bool
 // SetPkiCustomerID sets field value
 func (o *CustomerAutocompleteElementResponse) SetPkiCustomerID(v int32) {
 	o.PkiCustomerID = v
+}
+
+// GetFkiDepartmentID returns the FkiDepartmentID field value
+func (o *CustomerAutocompleteElementResponse) GetFkiDepartmentID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiDepartmentID
+}
+
+// GetFkiDepartmentIDOk returns a tuple with the FkiDepartmentID field value
+// and a boolean to check if the value has been set.
+func (o *CustomerAutocompleteElementResponse) GetFkiDepartmentIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiDepartmentID, true
+}
+
+// SetFkiDepartmentID sets field value
+func (o *CustomerAutocompleteElementResponse) SetFkiDepartmentID(v int32) {
+	o.FkiDepartmentID = v
 }
 
 // GetSCustomerName returns the SCustomerName field value
@@ -135,6 +162,7 @@ func (o CustomerAutocompleteElementResponse) MarshalJSON() ([]byte, error) {
 func (o CustomerAutocompleteElementResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiCustomerID"] = o.PkiCustomerID
+	toSerialize["fkiDepartmentID"] = o.FkiDepartmentID
 	toSerialize["sCustomerName"] = o.SCustomerName
 	toSerialize["bCustomerIsactive"] = o.BCustomerIsactive
 	return toSerialize, nil
@@ -146,6 +174,7 @@ func (o *CustomerAutocompleteElementResponse) UnmarshalJSON(data []byte) (err er
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"pkiCustomerID",
+		"fkiDepartmentID",
 		"sCustomerName",
 		"bCustomerIsactive",
 	}

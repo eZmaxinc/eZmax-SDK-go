@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **FkiCompanyID** | **int32** | The unique ID of the Company | 
 **FkiCustomergroupID** | **int32** | The unique ID of the Customergroup | 
 **SCustomerName** | **string** | The name of the Customer | 
+**SCustomerNote** | Pointer to **string** | A note for the Customer | [optional] 
 **FkiContactinformationsID** | **int32** | The unique ID of the Contactinformations | 
 **FkiContactcontainerID** | **int32** | The unique ID of the Contactcontainer | 
 **FkiImageID** | **int32** | The unique ID of the Image | 
@@ -159,6 +160,31 @@ and a boolean to check if the value has been set.
 
 SetSCustomerName sets SCustomerName field to given value.
 
+
+### GetSCustomerNote
+
+`func (o *CustomerRequest) GetSCustomerNote() string`
+
+GetSCustomerNote returns the SCustomerNote field if non-nil, zero value otherwise.
+
+### GetSCustomerNoteOk
+
+`func (o *CustomerRequest) GetSCustomerNoteOk() (*string, bool)`
+
+GetSCustomerNoteOk returns a tuple with the SCustomerNote field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSCustomerNote
+
+`func (o *CustomerRequest) SetSCustomerNote(v string)`
+
+SetSCustomerNote sets SCustomerNote field to given value.
+
+### HasSCustomerNote
+
+`func (o *CustomerRequest) HasSCustomerNote() bool`
+
+HasSCustomerNote returns a boolean if a field has been set.
 
 ### GetFkiContactinformationsID
 

@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **IEzsignfoldertypeDeadlinedays** | Pointer to **int32** | The number of days to get all Ezsignsignatures | [optional] 
 **IEzsignfoldertypeFontsizeannotation** | Pointer to **int32** | Font size for annotations | [optional] 
 **IEzsignfoldertypeFontsizeformfield** | Pointer to **int32** | Font size for form fields | [optional] 
+**EEzsignfoldertypeDocumentmerge** | Pointer to [**FieldEEzsignfoldertypeDocumentmerge**](FieldEEzsignfoldertypeDocumentmerge.md) |  | [optional] [default to NO]
 
 ## Methods
 
@@ -460,6 +461,31 @@ SetIEzsignfoldertypeFontsizeformfield sets IEzsignfoldertypeFontsizeformfield fi
 `func (o *CustomEzsignfoldertypeResponse) HasIEzsignfoldertypeFontsizeformfield() bool`
 
 HasIEzsignfoldertypeFontsizeformfield returns a boolean if a field has been set.
+
+### GetEEzsignfoldertypeDocumentmerge
+
+`func (o *CustomEzsignfoldertypeResponse) GetEEzsignfoldertypeDocumentmerge() FieldEEzsignfoldertypeDocumentmerge`
+
+GetEEzsignfoldertypeDocumentmerge returns the EEzsignfoldertypeDocumentmerge field if non-nil, zero value otherwise.
+
+### GetEEzsignfoldertypeDocumentmergeOk
+
+`func (o *CustomEzsignfoldertypeResponse) GetEEzsignfoldertypeDocumentmergeOk() (*FieldEEzsignfoldertypeDocumentmerge, bool)`
+
+GetEEzsignfoldertypeDocumentmergeOk returns a tuple with the EEzsignfoldertypeDocumentmerge field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsignfoldertypeDocumentmerge
+
+`func (o *CustomEzsignfoldertypeResponse) SetEEzsignfoldertypeDocumentmerge(v FieldEEzsignfoldertypeDocumentmerge)`
+
+SetEEzsignfoldertypeDocumentmerge sets EEzsignfoldertypeDocumentmerge field to given value.
+
+### HasEEzsignfoldertypeDocumentmerge
+
+`func (o *CustomEzsignfoldertypeResponse) HasEEzsignfoldertypeDocumentmerge() bool`
+
+HasEEzsignfoldertypeDocumentmerge returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

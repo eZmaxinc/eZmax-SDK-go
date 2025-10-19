@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -28,6 +28,8 @@ type EzsignbulksendsignermappingRequestCompound struct {
 	FkiEzsignbulksendID int32 `json:"fkiEzsignbulksendID"`
 	// The unique ID of the User
 	FkiUserID *int32 `json:"fkiUserID,omitempty"`
+	// Whether the Ezsignbulksendsigner will receive a copy or not
+	BEzsignbulksendsignermappingReceivecopy *bool `json:"bEzsignbulksendsignermappingReceivecopy,omitempty"`
 	// The description of the Ezsignbulksendsignermapping
 	SEzsignbulksendsignermappingDescription string `json:"sEzsignbulksendsignermappingDescription"`
 }
@@ -141,6 +143,38 @@ func (o *EzsignbulksendsignermappingRequestCompound) SetFkiUserID(v int32) {
 	o.FkiUserID = &v
 }
 
+// GetBEzsignbulksendsignermappingReceivecopy returns the BEzsignbulksendsignermappingReceivecopy field value if set, zero value otherwise.
+func (o *EzsignbulksendsignermappingRequestCompound) GetBEzsignbulksendsignermappingReceivecopy() bool {
+	if o == nil || IsNil(o.BEzsignbulksendsignermappingReceivecopy) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignbulksendsignermappingReceivecopy
+}
+
+// GetBEzsignbulksendsignermappingReceivecopyOk returns a tuple with the BEzsignbulksendsignermappingReceivecopy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignbulksendsignermappingRequestCompound) GetBEzsignbulksendsignermappingReceivecopyOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignbulksendsignermappingReceivecopy) {
+		return nil, false
+	}
+	return o.BEzsignbulksendsignermappingReceivecopy, true
+}
+
+// HasBEzsignbulksendsignermappingReceivecopy returns a boolean if a field has been set.
+func (o *EzsignbulksendsignermappingRequestCompound) HasBEzsignbulksendsignermappingReceivecopy() bool {
+	if o != nil && !IsNil(o.BEzsignbulksendsignermappingReceivecopy) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignbulksendsignermappingReceivecopy gets a reference to the given bool and assigns it to the BEzsignbulksendsignermappingReceivecopy field.
+func (o *EzsignbulksendsignermappingRequestCompound) SetBEzsignbulksendsignermappingReceivecopy(v bool) {
+	o.BEzsignbulksendsignermappingReceivecopy = &v
+}
+
 // GetSEzsignbulksendsignermappingDescription returns the SEzsignbulksendsignermappingDescription field value
 func (o *EzsignbulksendsignermappingRequestCompound) GetSEzsignbulksendsignermappingDescription() string {
 	if o == nil {
@@ -181,6 +215,9 @@ func (o EzsignbulksendsignermappingRequestCompound) ToMap() (map[string]interfac
 	toSerialize["fkiEzsignbulksendID"] = o.FkiEzsignbulksendID
 	if !IsNil(o.FkiUserID) {
 		toSerialize["fkiUserID"] = o.FkiUserID
+	}
+	if !IsNil(o.BEzsignbulksendsignermappingReceivecopy) {
+		toSerialize["bEzsignbulksendsignermappingReceivecopy"] = o.BEzsignbulksendsignermappingReceivecopy
 	}
 	toSerialize["sEzsignbulksendsignermappingDescription"] = o.SEzsignbulksendsignermappingDescription
 	return toSerialize, nil

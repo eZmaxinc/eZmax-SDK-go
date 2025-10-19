@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -495,6 +495,322 @@ func (a *ObjectRejectedoffertopurchaseAPIService) RejectedoffertopurchaseGetComm
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiRejectedoffertopurchaseGetListV1Request struct {
+	ctx context.Context
+	ApiService *ObjectRejectedoffertopurchaseAPIService
+	eOrderBy *string
+	iRowMax *int32
+	iRowOffset *int32
+	acceptLanguage *HeaderAcceptLanguage
+	sFilter *string
+}
+
+// Specify how you want the results to be sorted
+func (r ApiRejectedoffertopurchaseGetListV1Request) EOrderBy(eOrderBy string) ApiRejectedoffertopurchaseGetListV1Request {
+	r.eOrderBy = &eOrderBy
+	return r
+}
+
+func (r ApiRejectedoffertopurchaseGetListV1Request) IRowMax(iRowMax int32) ApiRejectedoffertopurchaseGetListV1Request {
+	r.iRowMax = &iRowMax
+	return r
+}
+
+func (r ApiRejectedoffertopurchaseGetListV1Request) IRowOffset(iRowOffset int32) ApiRejectedoffertopurchaseGetListV1Request {
+	r.iRowOffset = &iRowOffset
+	return r
+}
+
+func (r ApiRejectedoffertopurchaseGetListV1Request) AcceptLanguage(acceptLanguage HeaderAcceptLanguage) ApiRejectedoffertopurchaseGetListV1Request {
+	r.acceptLanguage = &acceptLanguage
+	return r
+}
+
+func (r ApiRejectedoffertopurchaseGetListV1Request) SFilter(sFilter string) ApiRejectedoffertopurchaseGetListV1Request {
+	r.sFilter = &sFilter
+	return r
+}
+
+func (r ApiRejectedoffertopurchaseGetListV1Request) Execute() (*RejectedoffertopurchaseGetListV1Response, *http.Response, error) {
+	return r.ApiService.RejectedoffertopurchaseGetListV1Execute(r)
+}
+
+/*
+RejectedoffertopurchaseGetListV1 Retrieve Rejectedoffertopurchase list
+
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiRejectedoffertopurchaseGetListV1Request
+*/
+func (a *ObjectRejectedoffertopurchaseAPIService) RejectedoffertopurchaseGetListV1(ctx context.Context) ApiRejectedoffertopurchaseGetListV1Request {
+	return ApiRejectedoffertopurchaseGetListV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return RejectedoffertopurchaseGetListV1Response
+func (a *ObjectRejectedoffertopurchaseAPIService) RejectedoffertopurchaseGetListV1Execute(r ApiRejectedoffertopurchaseGetListV1Request) (*RejectedoffertopurchaseGetListV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *RejectedoffertopurchaseGetListV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectRejectedoffertopurchaseAPIService.RejectedoffertopurchaseGetListV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/rejectedoffertopurchase/getList"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.eOrderBy != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "eOrderBy", r.eOrderBy, "form", "")
+	}
+	if r.iRowMax != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowMax", r.iRowMax, "form", "")
+	}
+	if r.iRowOffset != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowOffset", r.iRowOffset, "form", "")
+	} else {
+		var defaultValue int32 = 0
+		r.iRowOffset = &defaultValue
+	}
+	if r.sFilter != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sFilter", r.sFilter, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.acceptLanguage != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept-Language", r.acceptLanguage, "simple", "")
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiRejectedoffertopurchaseImportIntoEDMV1Request struct {
+	ctx context.Context
+	ApiService *ObjectRejectedoffertopurchaseAPIService
+	pkiRejectedoffertopurchaseID int32
+	rejectedoffertopurchaseImportIntoEDMV1Request *RejectedoffertopurchaseImportIntoEDMV1Request
+}
+
+func (r ApiRejectedoffertopurchaseImportIntoEDMV1Request) RejectedoffertopurchaseImportIntoEDMV1Request(rejectedoffertopurchaseImportIntoEDMV1Request RejectedoffertopurchaseImportIntoEDMV1Request) ApiRejectedoffertopurchaseImportIntoEDMV1Request {
+	r.rejectedoffertopurchaseImportIntoEDMV1Request = &rejectedoffertopurchaseImportIntoEDMV1Request
+	return r
+}
+
+func (r ApiRejectedoffertopurchaseImportIntoEDMV1Request) Execute() (*RejectedoffertopurchaseImportIntoEDMV1Response, *http.Response, error) {
+	return r.ApiService.RejectedoffertopurchaseImportIntoEDMV1Execute(r)
+}
+
+/*
+RejectedoffertopurchaseImportIntoEDMV1 Import attachments into the Rejectedoffertopurchase
+
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiRejectedoffertopurchaseID
+ @return ApiRejectedoffertopurchaseImportIntoEDMV1Request
+*/
+func (a *ObjectRejectedoffertopurchaseAPIService) RejectedoffertopurchaseImportIntoEDMV1(ctx context.Context, pkiRejectedoffertopurchaseID int32) ApiRejectedoffertopurchaseImportIntoEDMV1Request {
+	return ApiRejectedoffertopurchaseImportIntoEDMV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiRejectedoffertopurchaseID: pkiRejectedoffertopurchaseID,
+	}
+}
+
+// Execute executes the request
+//  @return RejectedoffertopurchaseImportIntoEDMV1Response
+func (a *ObjectRejectedoffertopurchaseAPIService) RejectedoffertopurchaseImportIntoEDMV1Execute(r ApiRejectedoffertopurchaseImportIntoEDMV1Request) (*RejectedoffertopurchaseImportIntoEDMV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *RejectedoffertopurchaseImportIntoEDMV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectRejectedoffertopurchaseAPIService.RejectedoffertopurchaseImportIntoEDMV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/importIntoEDM"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiRejectedoffertopurchaseID"+"}", url.PathEscape(parameterValueToString(r.pkiRejectedoffertopurchaseID, "pkiRejectedoffertopurchaseID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiRejectedoffertopurchaseID < 1 {
+		return localVarReturnValue, nil, reportError("pkiRejectedoffertopurchaseID must be greater than 1")
+	}
+	if r.pkiRejectedoffertopurchaseID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiRejectedoffertopurchaseID must be less than 65535")
+	}
+	if r.rejectedoffertopurchaseImportIntoEDMV1Request == nil {
+		return localVarReturnValue, nil, reportError("rejectedoffertopurchaseImportIntoEDMV1Request is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.rejectedoffertopurchaseImportIntoEDMV1Request
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

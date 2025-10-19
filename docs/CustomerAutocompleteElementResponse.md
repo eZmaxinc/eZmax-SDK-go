@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiCustomerID** | **int32** | The unique ID of the Customer. | 
+**FkiDepartmentID** | **int32** | The unique ID of the Department | 
 **SCustomerName** | **string** | The name of the Customer | 
 **BCustomerIsactive** | **bool** | Whether the customer is active or not | 
 
@@ -12,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewCustomerAutocompleteElementResponse
 
-`func NewCustomerAutocompleteElementResponse(pkiCustomerID int32, sCustomerName string, bCustomerIsactive bool, ) *CustomerAutocompleteElementResponse`
+`func NewCustomerAutocompleteElementResponse(pkiCustomerID int32, fkiDepartmentID int32, sCustomerName string, bCustomerIsactive bool, ) *CustomerAutocompleteElementResponse`
 
 NewCustomerAutocompleteElementResponse instantiates a new CustomerAutocompleteElementResponse object
 This constructor will assign default values to properties that have it defined,
@@ -45,6 +46,26 @@ and a boolean to check if the value has been set.
 `func (o *CustomerAutocompleteElementResponse) SetPkiCustomerID(v int32)`
 
 SetPkiCustomerID sets PkiCustomerID field to given value.
+
+
+### GetFkiDepartmentID
+
+`func (o *CustomerAutocompleteElementResponse) GetFkiDepartmentID() int32`
+
+GetFkiDepartmentID returns the FkiDepartmentID field if non-nil, zero value otherwise.
+
+### GetFkiDepartmentIDOk
+
+`func (o *CustomerAutocompleteElementResponse) GetFkiDepartmentIDOk() (*int32, bool)`
+
+GetFkiDepartmentIDOk returns a tuple with the FkiDepartmentID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiDepartmentID
+
+`func (o *CustomerAutocompleteElementResponse) SetFkiDepartmentID(v int32)`
+
+SetFkiDepartmentID sets FkiDepartmentID field to given value.
 
 
 ### GetSCustomerName

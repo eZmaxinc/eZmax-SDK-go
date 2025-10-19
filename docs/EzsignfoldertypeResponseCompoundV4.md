@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **EEzsignfoldertypePdfarequirement** | Pointer to [**FieldEEzsignfoldertypePdfarequirement**](FieldEEzsignfoldertypePdfarequirement.md) |  | [optional] 
 **EEzsignfoldertypePdfanoncompliantaction** | Pointer to [**FieldEEzsignfoldertypePdfanoncompliantaction**](FieldEEzsignfoldertypePdfanoncompliantaction.md) |  | [optional] 
 **EEzsignfoldertypePrivacylevel** | [**FieldEEzsignfoldertypePrivacylevel**](FieldEEzsignfoldertypePrivacylevel.md) |  | 
+**EEzsignfoldertypeDocumentmerge** | Pointer to [**FieldEEzsignfoldertypeDocumentmerge**](FieldEEzsignfoldertypeDocumentmerge.md) |  | [optional] [default to NO]
 **IEzsignfoldertypeFontsizeannotation** | Pointer to **int32** | Font size for annotations | [optional] 
 **IEzsignfoldertypeFontsizeformfield** | Pointer to **int32** | Font size for form fields | [optional] 
 **IEzsignfoldertypeSendreminderfirstdays** | Pointer to **int32** | The number of days before the the first reminder sending | [optional] 
@@ -43,13 +44,18 @@ Name | Type | Description | Notes
 **BEzsignfoldertypeSendsignedtoezsignsigner** | Pointer to **bool** | Whether we send an email to Ezsignsigner  when document is completed | [optional] 
 **BEzsignfoldertypeSendsignedtouser** | Pointer to **bool** | Whether we send an email to User who signed when document is completed | [optional] 
 **BEzsignfoldertypeSendattachmentezsignsigner** | Pointer to **bool** | Whether we send the Ezsigndocument in the email to Ezsignsigner | [optional] 
+**BEzsignfoldertypeSendsignatureattachmentezsignsigner** | Pointer to **bool** | Whether we send the attachments contained in the Ezsignsignatures in the email to Ezsignsigner | [optional] 
+**BEzsignfoldertypeSendsignatureattachment** | Pointer to **bool** | Whether we send the attachments contained in the Ezsignsignatures in the email to external recipient | [optional] 
 **BEzsignfoldertypeSendproofezsignsigner** | Pointer to **bool** | Whether we send the proof in the email to Ezsignsigner | [optional] 
 **BEzsignfoldertypeSendattachmentuser** | Pointer to **bool** | Whether we send the Ezsigndocument in the email to User | [optional] 
+**BEzsignfoldertypeSendsignatureattachmentuser** | Pointer to **bool** | Whether we send the attachments contained in the Ezsignsignatures in the email to User | [optional] 
 **BEzsignfoldertypeSendproofuser** | Pointer to **bool** | Whether we send the proof in the email to User | [optional] 
 **BEzsignfoldertypeSendproofemail** | Pointer to **bool** | Whether we send the proof in the email to external recipient | [optional] 
 **BEzsignfoldertypeAllowdownloadattachmentezsignsigner** | Pointer to **bool** | Whether we allow the Ezsigndocument to be downloaded by an Ezsignsigner | [optional] 
+**BEzsignfoldertypeAllowdownloadsignatureattachmentezsignsigner** | Pointer to **bool** | Whether we allow the attachments in the Ezsignsignatures to be downloaded by an Ezsignsigner | [optional] 
 **BEzsignfoldertypeAllowdownloadproofezsignsigner** | Pointer to **bool** | Whether we allow the proof to be downloaded by an Ezsignsigner | [optional] 
 **BEzsignfoldertypeSendproofreceivealldocument** | Pointer to **bool** | Whether we send the proof to user and Ezsignsigner who receive all documents. | [optional] 
+**BEzsignfoldertypeSendsignatureattachmentreceivealldocument** | Pointer to **bool** | Whether we send the attachments contained in the Ezsignsignatures to user and Ezsignsigner who receive all documents. | [optional] 
 **BEzsignfoldertypeSendsignedtodocumentowner** | **bool** | Whether we send the signed Ezsigndocument to the Ezsigndocument&#39;s owner | 
 **BEzsignfoldertypeSendsignedtofolderowner** | **bool** | Whether we send the signed Ezsigndocument to the Ezsignfolder&#39;s owner | 
 **BEzsignfoldertypeSendsignedtofullgroup** | Pointer to **bool** | Whether we send the signed Ezsigndocument to the Usergroup that has acces to all Ezsignfolders | [optional] 
@@ -514,6 +520,31 @@ and a boolean to check if the value has been set.
 
 SetEEzsignfoldertypePrivacylevel sets EEzsignfoldertypePrivacylevel field to given value.
 
+
+### GetEEzsignfoldertypeDocumentmerge
+
+`func (o *EzsignfoldertypeResponseCompoundV4) GetEEzsignfoldertypeDocumentmerge() FieldEEzsignfoldertypeDocumentmerge`
+
+GetEEzsignfoldertypeDocumentmerge returns the EEzsignfoldertypeDocumentmerge field if non-nil, zero value otherwise.
+
+### GetEEzsignfoldertypeDocumentmergeOk
+
+`func (o *EzsignfoldertypeResponseCompoundV4) GetEEzsignfoldertypeDocumentmergeOk() (*FieldEEzsignfoldertypeDocumentmerge, bool)`
+
+GetEEzsignfoldertypeDocumentmergeOk returns a tuple with the EEzsignfoldertypeDocumentmerge field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsignfoldertypeDocumentmerge
+
+`func (o *EzsignfoldertypeResponseCompoundV4) SetEEzsignfoldertypeDocumentmerge(v FieldEEzsignfoldertypeDocumentmerge)`
+
+SetEEzsignfoldertypeDocumentmerge sets EEzsignfoldertypeDocumentmerge field to given value.
+
+### HasEEzsignfoldertypeDocumentmerge
+
+`func (o *EzsignfoldertypeResponseCompoundV4) HasEEzsignfoldertypeDocumentmerge() bool`
+
+HasEEzsignfoldertypeDocumentmerge returns a boolean if a field has been set.
 
 ### GetIEzsignfoldertypeFontsizeannotation
 
@@ -1020,6 +1051,56 @@ SetBEzsignfoldertypeSendattachmentezsignsigner sets BEzsignfoldertypeSendattachm
 
 HasBEzsignfoldertypeSendattachmentezsignsigner returns a boolean if a field has been set.
 
+### GetBEzsignfoldertypeSendsignatureattachmentezsignsigner
+
+`func (o *EzsignfoldertypeResponseCompoundV4) GetBEzsignfoldertypeSendsignatureattachmentezsignsigner() bool`
+
+GetBEzsignfoldertypeSendsignatureattachmentezsignsigner returns the BEzsignfoldertypeSendsignatureattachmentezsignsigner field if non-nil, zero value otherwise.
+
+### GetBEzsignfoldertypeSendsignatureattachmentezsignsignerOk
+
+`func (o *EzsignfoldertypeResponseCompoundV4) GetBEzsignfoldertypeSendsignatureattachmentezsignsignerOk() (*bool, bool)`
+
+GetBEzsignfoldertypeSendsignatureattachmentezsignsignerOk returns a tuple with the BEzsignfoldertypeSendsignatureattachmentezsignsigner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsignfoldertypeSendsignatureattachmentezsignsigner
+
+`func (o *EzsignfoldertypeResponseCompoundV4) SetBEzsignfoldertypeSendsignatureattachmentezsignsigner(v bool)`
+
+SetBEzsignfoldertypeSendsignatureattachmentezsignsigner sets BEzsignfoldertypeSendsignatureattachmentezsignsigner field to given value.
+
+### HasBEzsignfoldertypeSendsignatureattachmentezsignsigner
+
+`func (o *EzsignfoldertypeResponseCompoundV4) HasBEzsignfoldertypeSendsignatureattachmentezsignsigner() bool`
+
+HasBEzsignfoldertypeSendsignatureattachmentezsignsigner returns a boolean if a field has been set.
+
+### GetBEzsignfoldertypeSendsignatureattachment
+
+`func (o *EzsignfoldertypeResponseCompoundV4) GetBEzsignfoldertypeSendsignatureattachment() bool`
+
+GetBEzsignfoldertypeSendsignatureattachment returns the BEzsignfoldertypeSendsignatureattachment field if non-nil, zero value otherwise.
+
+### GetBEzsignfoldertypeSendsignatureattachmentOk
+
+`func (o *EzsignfoldertypeResponseCompoundV4) GetBEzsignfoldertypeSendsignatureattachmentOk() (*bool, bool)`
+
+GetBEzsignfoldertypeSendsignatureattachmentOk returns a tuple with the BEzsignfoldertypeSendsignatureattachment field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsignfoldertypeSendsignatureattachment
+
+`func (o *EzsignfoldertypeResponseCompoundV4) SetBEzsignfoldertypeSendsignatureattachment(v bool)`
+
+SetBEzsignfoldertypeSendsignatureattachment sets BEzsignfoldertypeSendsignatureattachment field to given value.
+
+### HasBEzsignfoldertypeSendsignatureattachment
+
+`func (o *EzsignfoldertypeResponseCompoundV4) HasBEzsignfoldertypeSendsignatureattachment() bool`
+
+HasBEzsignfoldertypeSendsignatureattachment returns a boolean if a field has been set.
+
 ### GetBEzsignfoldertypeSendproofezsignsigner
 
 `func (o *EzsignfoldertypeResponseCompoundV4) GetBEzsignfoldertypeSendproofezsignsigner() bool`
@@ -1069,6 +1150,31 @@ SetBEzsignfoldertypeSendattachmentuser sets BEzsignfoldertypeSendattachmentuser 
 `func (o *EzsignfoldertypeResponseCompoundV4) HasBEzsignfoldertypeSendattachmentuser() bool`
 
 HasBEzsignfoldertypeSendattachmentuser returns a boolean if a field has been set.
+
+### GetBEzsignfoldertypeSendsignatureattachmentuser
+
+`func (o *EzsignfoldertypeResponseCompoundV4) GetBEzsignfoldertypeSendsignatureattachmentuser() bool`
+
+GetBEzsignfoldertypeSendsignatureattachmentuser returns the BEzsignfoldertypeSendsignatureattachmentuser field if non-nil, zero value otherwise.
+
+### GetBEzsignfoldertypeSendsignatureattachmentuserOk
+
+`func (o *EzsignfoldertypeResponseCompoundV4) GetBEzsignfoldertypeSendsignatureattachmentuserOk() (*bool, bool)`
+
+GetBEzsignfoldertypeSendsignatureattachmentuserOk returns a tuple with the BEzsignfoldertypeSendsignatureattachmentuser field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsignfoldertypeSendsignatureattachmentuser
+
+`func (o *EzsignfoldertypeResponseCompoundV4) SetBEzsignfoldertypeSendsignatureattachmentuser(v bool)`
+
+SetBEzsignfoldertypeSendsignatureattachmentuser sets BEzsignfoldertypeSendsignatureattachmentuser field to given value.
+
+### HasBEzsignfoldertypeSendsignatureattachmentuser
+
+`func (o *EzsignfoldertypeResponseCompoundV4) HasBEzsignfoldertypeSendsignatureattachmentuser() bool`
+
+HasBEzsignfoldertypeSendsignatureattachmentuser returns a boolean if a field has been set.
 
 ### GetBEzsignfoldertypeSendproofuser
 
@@ -1145,6 +1251,31 @@ SetBEzsignfoldertypeAllowdownloadattachmentezsignsigner sets BEzsignfoldertypeAl
 
 HasBEzsignfoldertypeAllowdownloadattachmentezsignsigner returns a boolean if a field has been set.
 
+### GetBEzsignfoldertypeAllowdownloadsignatureattachmentezsignsigner
+
+`func (o *EzsignfoldertypeResponseCompoundV4) GetBEzsignfoldertypeAllowdownloadsignatureattachmentezsignsigner() bool`
+
+GetBEzsignfoldertypeAllowdownloadsignatureattachmentezsignsigner returns the BEzsignfoldertypeAllowdownloadsignatureattachmentezsignsigner field if non-nil, zero value otherwise.
+
+### GetBEzsignfoldertypeAllowdownloadsignatureattachmentezsignsignerOk
+
+`func (o *EzsignfoldertypeResponseCompoundV4) GetBEzsignfoldertypeAllowdownloadsignatureattachmentezsignsignerOk() (*bool, bool)`
+
+GetBEzsignfoldertypeAllowdownloadsignatureattachmentezsignsignerOk returns a tuple with the BEzsignfoldertypeAllowdownloadsignatureattachmentezsignsigner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsignfoldertypeAllowdownloadsignatureattachmentezsignsigner
+
+`func (o *EzsignfoldertypeResponseCompoundV4) SetBEzsignfoldertypeAllowdownloadsignatureattachmentezsignsigner(v bool)`
+
+SetBEzsignfoldertypeAllowdownloadsignatureattachmentezsignsigner sets BEzsignfoldertypeAllowdownloadsignatureattachmentezsignsigner field to given value.
+
+### HasBEzsignfoldertypeAllowdownloadsignatureattachmentezsignsigner
+
+`func (o *EzsignfoldertypeResponseCompoundV4) HasBEzsignfoldertypeAllowdownloadsignatureattachmentezsignsigner() bool`
+
+HasBEzsignfoldertypeAllowdownloadsignatureattachmentezsignsigner returns a boolean if a field has been set.
+
 ### GetBEzsignfoldertypeAllowdownloadproofezsignsigner
 
 `func (o *EzsignfoldertypeResponseCompoundV4) GetBEzsignfoldertypeAllowdownloadproofezsignsigner() bool`
@@ -1194,6 +1325,31 @@ SetBEzsignfoldertypeSendproofreceivealldocument sets BEzsignfoldertypeSendproofr
 `func (o *EzsignfoldertypeResponseCompoundV4) HasBEzsignfoldertypeSendproofreceivealldocument() bool`
 
 HasBEzsignfoldertypeSendproofreceivealldocument returns a boolean if a field has been set.
+
+### GetBEzsignfoldertypeSendsignatureattachmentreceivealldocument
+
+`func (o *EzsignfoldertypeResponseCompoundV4) GetBEzsignfoldertypeSendsignatureattachmentreceivealldocument() bool`
+
+GetBEzsignfoldertypeSendsignatureattachmentreceivealldocument returns the BEzsignfoldertypeSendsignatureattachmentreceivealldocument field if non-nil, zero value otherwise.
+
+### GetBEzsignfoldertypeSendsignatureattachmentreceivealldocumentOk
+
+`func (o *EzsignfoldertypeResponseCompoundV4) GetBEzsignfoldertypeSendsignatureattachmentreceivealldocumentOk() (*bool, bool)`
+
+GetBEzsignfoldertypeSendsignatureattachmentreceivealldocumentOk returns a tuple with the BEzsignfoldertypeSendsignatureattachmentreceivealldocument field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsignfoldertypeSendsignatureattachmentreceivealldocument
+
+`func (o *EzsignfoldertypeResponseCompoundV4) SetBEzsignfoldertypeSendsignatureattachmentreceivealldocument(v bool)`
+
+SetBEzsignfoldertypeSendsignatureattachmentreceivealldocument sets BEzsignfoldertypeSendsignatureattachmentreceivealldocument field to given value.
+
+### HasBEzsignfoldertypeSendsignatureattachmentreceivealldocument
+
+`func (o *EzsignfoldertypeResponseCompoundV4) HasBEzsignfoldertypeSendsignatureattachmentreceivealldocument() bool`
+
+HasBEzsignfoldertypeSendsignatureattachmentreceivealldocument returns a boolean if a field has been set.
 
 ### GetBEzsignfoldertypeSendsignedtodocumentowner
 

@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -23,12 +23,7 @@ var _ MappedNullable = &CommonReportsection{}
 // CommonReportsection A section in a Report. Each Reportsection shares Reportcolumns disposition with all its Reportsubsection 
 type CommonReportsection struct {
 	AObjReportsubsection []CommonReportsubsection `json:"a_objReportsubsection"`
-	AObjReportcolumn []CommonReportcolumn `json:"a_objReportcolumn"`
 	EReportsectionHorizontalalignment EnumHorizontalalignment `json:"eReportsectionHorizontalalignment"`
-	// The number of Reportcolumns in the Reportsection
-	IReportsectionColumncount int32 `json:"iReportsectionColumncount"`
-	// The combined width of all the Reportcolumns in the Reportsection
-	IReportsectionWidth int32 `json:"iReportsectionWidth"`
 	// The title of this Reportsection
 	SReportsectionTitle *string `json:"sReportsectionTitle,omitempty"`
 }
@@ -39,13 +34,10 @@ type _CommonReportsection CommonReportsection
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommonReportsection(aObjReportsubsection []CommonReportsubsection, aObjReportcolumn []CommonReportcolumn, eReportsectionHorizontalalignment EnumHorizontalalignment, iReportsectionColumncount int32, iReportsectionWidth int32) *CommonReportsection {
+func NewCommonReportsection(aObjReportsubsection []CommonReportsubsection, eReportsectionHorizontalalignment EnumHorizontalalignment) *CommonReportsection {
 	this := CommonReportsection{}
 	this.AObjReportsubsection = aObjReportsubsection
-	this.AObjReportcolumn = aObjReportcolumn
 	this.EReportsectionHorizontalalignment = eReportsectionHorizontalalignment
-	this.IReportsectionColumncount = iReportsectionColumncount
-	this.IReportsectionWidth = iReportsectionWidth
 	return &this
 }
 
@@ -81,30 +73,6 @@ func (o *CommonReportsection) SetAObjReportsubsection(v []CommonReportsubsection
 	o.AObjReportsubsection = v
 }
 
-// GetAObjReportcolumn returns the AObjReportcolumn field value
-func (o *CommonReportsection) GetAObjReportcolumn() []CommonReportcolumn {
-	if o == nil {
-		var ret []CommonReportcolumn
-		return ret
-	}
-
-	return o.AObjReportcolumn
-}
-
-// GetAObjReportcolumnOk returns a tuple with the AObjReportcolumn field value
-// and a boolean to check if the value has been set.
-func (o *CommonReportsection) GetAObjReportcolumnOk() ([]CommonReportcolumn, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.AObjReportcolumn, true
-}
-
-// SetAObjReportcolumn sets field value
-func (o *CommonReportsection) SetAObjReportcolumn(v []CommonReportcolumn) {
-	o.AObjReportcolumn = v
-}
-
 // GetEReportsectionHorizontalalignment returns the EReportsectionHorizontalalignment field value
 func (o *CommonReportsection) GetEReportsectionHorizontalalignment() EnumHorizontalalignment {
 	if o == nil {
@@ -127,54 +95,6 @@ func (o *CommonReportsection) GetEReportsectionHorizontalalignmentOk() (*EnumHor
 // SetEReportsectionHorizontalalignment sets field value
 func (o *CommonReportsection) SetEReportsectionHorizontalalignment(v EnumHorizontalalignment) {
 	o.EReportsectionHorizontalalignment = v
-}
-
-// GetIReportsectionColumncount returns the IReportsectionColumncount field value
-func (o *CommonReportsection) GetIReportsectionColumncount() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.IReportsectionColumncount
-}
-
-// GetIReportsectionColumncountOk returns a tuple with the IReportsectionColumncount field value
-// and a boolean to check if the value has been set.
-func (o *CommonReportsection) GetIReportsectionColumncountOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.IReportsectionColumncount, true
-}
-
-// SetIReportsectionColumncount sets field value
-func (o *CommonReportsection) SetIReportsectionColumncount(v int32) {
-	o.IReportsectionColumncount = v
-}
-
-// GetIReportsectionWidth returns the IReportsectionWidth field value
-func (o *CommonReportsection) GetIReportsectionWidth() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.IReportsectionWidth
-}
-
-// GetIReportsectionWidthOk returns a tuple with the IReportsectionWidth field value
-// and a boolean to check if the value has been set.
-func (o *CommonReportsection) GetIReportsectionWidthOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.IReportsectionWidth, true
-}
-
-// SetIReportsectionWidth sets field value
-func (o *CommonReportsection) SetIReportsectionWidth(v int32) {
-	o.IReportsectionWidth = v
 }
 
 // GetSReportsectionTitle returns the SReportsectionTitle field value if set, zero value otherwise.
@@ -220,10 +140,7 @@ func (o CommonReportsection) MarshalJSON() ([]byte, error) {
 func (o CommonReportsection) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["a_objReportsubsection"] = o.AObjReportsubsection
-	toSerialize["a_objReportcolumn"] = o.AObjReportcolumn
 	toSerialize["eReportsectionHorizontalalignment"] = o.EReportsectionHorizontalalignment
-	toSerialize["iReportsectionColumncount"] = o.IReportsectionColumncount
-	toSerialize["iReportsectionWidth"] = o.IReportsectionWidth
 	if !IsNil(o.SReportsectionTitle) {
 		toSerialize["sReportsectionTitle"] = o.SReportsectionTitle
 	}
@@ -236,10 +153,7 @@ func (o *CommonReportsection) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"a_objReportsubsection",
-		"a_objReportcolumn",
 		"eReportsectionHorizontalalignment",
-		"iReportsectionColumncount",
-		"iReportsectionWidth",
 	}
 
 	allProperties := make(map[string]interface{})

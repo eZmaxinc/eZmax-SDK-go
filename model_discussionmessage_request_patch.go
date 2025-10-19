@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -23,7 +23,7 @@ type DiscussionmessageRequestPatch struct {
 	// The unique ID of the Discussionmembership
 	FkiDiscussionmembershipIDActionrequired *int32 `json:"fkiDiscussionmembershipIDActionrequired,omitempty"`
 	// The content of the Discussionmessage
-	TDiscussionmessageContent *string `json:"tDiscussionmessageContent,omitempty" validate:"regexp=^.{0,65535}$"`
+	TDiscussionmessageContent *string `json:"tDiscussionmessageContent,omitempty" validate:"regexp=^[\\\\s\\\\S]{0,65535}$"`
 }
 
 // NewDiscussionmessageRequestPatch instantiates a new DiscussionmessageRequestPatch object

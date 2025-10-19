@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**ElectronicfundstransferGetCommunicationListV1**](ObjectElectronicfundstransferAPI.md#ElectronicfundstransferGetCommunicationListV1) | **Get** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationList | Retrieve Communication list
 [**ElectronicfundstransferGetCommunicationrecipientsV1**](ObjectElectronicfundstransferAPI.md#ElectronicfundstransferGetCommunicationrecipientsV1) | **Get** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationrecipients | Retrieve Electronicfundstransfer&#39;s Communicationrecipient
 [**ElectronicfundstransferGetCommunicationsendersV1**](ObjectElectronicfundstransferAPI.md#ElectronicfundstransferGetCommunicationsendersV1) | **Get** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationsenders | Retrieve Electronicfundstransfer&#39;s Communicationsender
+[**ElectronicfundstransferImportIntoEDMV1**](ObjectElectronicfundstransferAPI.md#ElectronicfundstransferImportIntoEDMV1) | **Post** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/importIntoEDM | Import attachments into the Electronicfundstransfer
 
 
 
@@ -284,6 +285,78 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ElectronicfundstransferImportIntoEDMV1
+
+> ElectronicfundstransferImportIntoEDMV1Response ElectronicfundstransferImportIntoEDMV1(ctx, pkiElectronicfundstransferID).ElectronicfundstransferImportIntoEDMV1Request(electronicfundstransferImportIntoEDMV1Request).Execute()
+
+Import attachments into the Electronicfundstransfer
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiElectronicfundstransferID := int32(56) // int32 | 
+	electronicfundstransferImportIntoEDMV1Request := *openapiclient.NewElectronicfundstransferImportIntoEDMV1Request([]openapiclient.CustomAttachmentImportIntoEDMRequest{*openapiclient.NewCustomAttachmentImportIntoEDMRequest("EAttachmentSource_example", "Document.pdf", "Inscription", openapiclient.Field-eAttachmentPrivacy("All"))}) // ElectronicfundstransferImportIntoEDMV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectElectronicfundstransferAPI.ElectronicfundstransferImportIntoEDMV1(context.Background(), pkiElectronicfundstransferID).ElectronicfundstransferImportIntoEDMV1Request(electronicfundstransferImportIntoEDMV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectElectronicfundstransferAPI.ElectronicfundstransferImportIntoEDMV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ElectronicfundstransferImportIntoEDMV1`: ElectronicfundstransferImportIntoEDMV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectElectronicfundstransferAPI.ElectronicfundstransferImportIntoEDMV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiElectronicfundstransferID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiElectronicfundstransferImportIntoEDMV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **electronicfundstransferImportIntoEDMV1Request** | [**ElectronicfundstransferImportIntoEDMV1Request**](ElectronicfundstransferImportIntoEDMV1Request.md) |  | 
+
+### Return type
+
+[**ElectronicfundstransferImportIntoEDMV1Response**](ElectronicfundstransferImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

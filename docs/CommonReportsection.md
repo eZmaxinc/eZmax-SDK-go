@@ -5,17 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AObjReportsubsection** | [**[]CommonReportsubsection**](CommonReportsubsection.md) |  | 
-**AObjReportcolumn** | [**[]CommonReportcolumn**](CommonReportcolumn.md) |  | 
 **EReportsectionHorizontalalignment** | [**EnumHorizontalalignment**](EnumHorizontalalignment.md) |  | 
-**IReportsectionColumncount** | **int32** | The number of Reportcolumns in the Reportsection | 
-**IReportsectionWidth** | **int32** | The combined width of all the Reportcolumns in the Reportsection | 
 **SReportsectionTitle** | Pointer to **string** | The title of this Reportsection | [optional] 
 
 ## Methods
 
 ### NewCommonReportsection
 
-`func NewCommonReportsection(aObjReportsubsection []CommonReportsubsection, aObjReportcolumn []CommonReportcolumn, eReportsectionHorizontalalignment EnumHorizontalalignment, iReportsectionColumncount int32, iReportsectionWidth int32, ) *CommonReportsection`
+`func NewCommonReportsection(aObjReportsubsection []CommonReportsubsection, eReportsectionHorizontalalignment EnumHorizontalalignment, ) *CommonReportsection`
 
 NewCommonReportsection instantiates a new CommonReportsection object
 This constructor will assign default values to properties that have it defined,
@@ -50,26 +47,6 @@ and a boolean to check if the value has been set.
 SetAObjReportsubsection sets AObjReportsubsection field to given value.
 
 
-### GetAObjReportcolumn
-
-`func (o *CommonReportsection) GetAObjReportcolumn() []CommonReportcolumn`
-
-GetAObjReportcolumn returns the AObjReportcolumn field if non-nil, zero value otherwise.
-
-### GetAObjReportcolumnOk
-
-`func (o *CommonReportsection) GetAObjReportcolumnOk() (*[]CommonReportcolumn, bool)`
-
-GetAObjReportcolumnOk returns a tuple with the AObjReportcolumn field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAObjReportcolumn
-
-`func (o *CommonReportsection) SetAObjReportcolumn(v []CommonReportcolumn)`
-
-SetAObjReportcolumn sets AObjReportcolumn field to given value.
-
-
 ### GetEReportsectionHorizontalalignment
 
 `func (o *CommonReportsection) GetEReportsectionHorizontalalignment() EnumHorizontalalignment`
@@ -88,46 +65,6 @@ and a boolean to check if the value has been set.
 `func (o *CommonReportsection) SetEReportsectionHorizontalalignment(v EnumHorizontalalignment)`
 
 SetEReportsectionHorizontalalignment sets EReportsectionHorizontalalignment field to given value.
-
-
-### GetIReportsectionColumncount
-
-`func (o *CommonReportsection) GetIReportsectionColumncount() int32`
-
-GetIReportsectionColumncount returns the IReportsectionColumncount field if non-nil, zero value otherwise.
-
-### GetIReportsectionColumncountOk
-
-`func (o *CommonReportsection) GetIReportsectionColumncountOk() (*int32, bool)`
-
-GetIReportsectionColumncountOk returns a tuple with the IReportsectionColumncount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIReportsectionColumncount
-
-`func (o *CommonReportsection) SetIReportsectionColumncount(v int32)`
-
-SetIReportsectionColumncount sets IReportsectionColumncount field to given value.
-
-
-### GetIReportsectionWidth
-
-`func (o *CommonReportsection) GetIReportsectionWidth() int32`
-
-GetIReportsectionWidth returns the IReportsectionWidth field if non-nil, zero value otherwise.
-
-### GetIReportsectionWidthOk
-
-`func (o *CommonReportsection) GetIReportsectionWidthOk() (*int32, bool)`
-
-GetIReportsectionWidthOk returns a tuple with the IReportsectionWidth field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIReportsectionWidth
-
-`func (o *CommonReportsection) SetIReportsectionWidth(v int32)`
-
-SetIReportsectionWidth sets IReportsectionWidth field to given value.
 
 
 ### GetSReportsectionTitle

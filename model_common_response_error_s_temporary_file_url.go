@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -28,7 +28,7 @@ type CommonResponseErrorSTemporaryFileUrl struct {
 	// More error message detail
 	ASErrorMessagedetail []string `json:"a_sErrorMessagedetail,omitempty"`
 	// The Temporary File Url of the document that was uploaded. That url can be reused instead of uploading the file again.
-	STemporaryFileUrl *string `json:"sTemporaryFileUrl,omitempty" validate:"regexp=^(https|http):\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
+	STemporaryFileUrl *string `json:"sTemporaryFileUrl,omitempty" validate:"regexp=^https:\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
 }
 
 type _CommonResponseErrorSTemporaryFileUrl CommonResponseErrorSTemporaryFileUrl

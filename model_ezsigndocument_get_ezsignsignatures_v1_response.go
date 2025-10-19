@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -20,7 +20,7 @@ import (
 // checks if the EzsigndocumentGetEzsignsignaturesV1Response type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &EzsigndocumentGetEzsignsignaturesV1Response{}
 
-// EzsigndocumentGetEzsignsignaturesV1Response Response for GET /1/object/ezsigndocument/{pkiEzsigndocument}/getEzsignsignatures
+// EzsigndocumentGetEzsignsignaturesV1Response Response for GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignsignatures
 type EzsigndocumentGetEzsignsignaturesV1Response struct {
 	ObjDebugPayload CommonResponseObjDebugPayload `json:"objDebugPayload"`
 	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`

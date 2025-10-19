@@ -6,6 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiEzsignimportdocumentID** | **int32** | The unique ID of the Ezsignimportdocument | 
 **SEzsignimportdocumentName** | **string** | The name of the Ezsignimportdocument | 
+**FkiEzsigntemplateglobalID** | Pointer to **int32** | The unique ID of the Ezsigntemplateglobal | [optional] 
+**SEzsigntemplateglobalDescription** | Pointer to **string** | The description of the Ezsigntemplate | [optional] 
 **FkiEzsignfolderID** | Pointer to **int32** | The unique ID of the Ezsignfolder | [optional] 
 **SEzsignfolderDescription** | Pointer to **string** | The description of the Ezsignfolder | [optional] 
 
@@ -67,6 +69,56 @@ and a boolean to check if the value has been set.
 
 SetSEzsignimportdocumentName sets SEzsignimportdocumentName field to given value.
 
+
+### GetFkiEzsigntemplateglobalID
+
+`func (o *CustomEzsignimportdocumentResponse) GetFkiEzsigntemplateglobalID() int32`
+
+GetFkiEzsigntemplateglobalID returns the FkiEzsigntemplateglobalID field if non-nil, zero value otherwise.
+
+### GetFkiEzsigntemplateglobalIDOk
+
+`func (o *CustomEzsignimportdocumentResponse) GetFkiEzsigntemplateglobalIDOk() (*int32, bool)`
+
+GetFkiEzsigntemplateglobalIDOk returns a tuple with the FkiEzsigntemplateglobalID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiEzsigntemplateglobalID
+
+`func (o *CustomEzsignimportdocumentResponse) SetFkiEzsigntemplateglobalID(v int32)`
+
+SetFkiEzsigntemplateglobalID sets FkiEzsigntemplateglobalID field to given value.
+
+### HasFkiEzsigntemplateglobalID
+
+`func (o *CustomEzsignimportdocumentResponse) HasFkiEzsigntemplateglobalID() bool`
+
+HasFkiEzsigntemplateglobalID returns a boolean if a field has been set.
+
+### GetSEzsigntemplateglobalDescription
+
+`func (o *CustomEzsignimportdocumentResponse) GetSEzsigntemplateglobalDescription() string`
+
+GetSEzsigntemplateglobalDescription returns the SEzsigntemplateglobalDescription field if non-nil, zero value otherwise.
+
+### GetSEzsigntemplateglobalDescriptionOk
+
+`func (o *CustomEzsignimportdocumentResponse) GetSEzsigntemplateglobalDescriptionOk() (*string, bool)`
+
+GetSEzsigntemplateglobalDescriptionOk returns a tuple with the SEzsigntemplateglobalDescription field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzsigntemplateglobalDescription
+
+`func (o *CustomEzsignimportdocumentResponse) SetSEzsigntemplateglobalDescription(v string)`
+
+SetSEzsigntemplateglobalDescription sets SEzsigntemplateglobalDescription field to given value.
+
+### HasSEzsigntemplateglobalDescription
+
+`func (o *CustomEzsignimportdocumentResponse) HasSEzsigntemplateglobalDescription() bool`
+
+HasSEzsigntemplateglobalDescription returns a boolean if a field has been set.
 
 ### GetFkiEzsignfolderID
 

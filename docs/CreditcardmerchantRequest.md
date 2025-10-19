@@ -5,8 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiCreditcardmerchantID** | Pointer to **int32** | The unique ID of the Creditcardmerchant | [optional] 
-**FkiBankaccountID** | **int32** | The unique ID of the Bankaccount | 
-**FkiLanguageID** | Pointer to **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | [optional] 
+**FkiBankaccountID** | Pointer to **int32** | The unique ID of the Bankaccount | [optional] 
+**FkiLanguageID** | **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
+**FkiCurrencyID** | **int32** | The unique ID of the Currency. | 
 **BCreditcardmerchantDenyvisa** | **bool** | Whether if visa are denied | 
 **BCreditcardmerchantDenymastercard** | **bool** | Whether if mastercard are denied | 
 **BCreditcardmerchantDenyamex** | **bool** | Whether if amex are denied | 
@@ -19,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewCreditcardmerchantRequest
 
-`func NewCreditcardmerchantRequest(fkiBankaccountID int32, bCreditcardmerchantDenyvisa bool, bCreditcardmerchantDenymastercard bool, bCreditcardmerchantDenyamex bool, bCreditcardmerchantIsactive bool, sCreditcardmerchantDescription string, sCreditcardmerchantStoreid string, ) *CreditcardmerchantRequest`
+`func NewCreditcardmerchantRequest(fkiLanguageID int32, fkiCurrencyID int32, bCreditcardmerchantDenyvisa bool, bCreditcardmerchantDenymastercard bool, bCreditcardmerchantDenyamex bool, bCreditcardmerchantIsactive bool, sCreditcardmerchantDescription string, sCreditcardmerchantStoreid string, ) *CreditcardmerchantRequest`
 
 NewCreditcardmerchantRequest instantiates a new CreditcardmerchantRequest object
 This constructor will assign default values to properties that have it defined,
@@ -78,6 +79,11 @@ and a boolean to check if the value has been set.
 
 SetFkiBankaccountID sets FkiBankaccountID field to given value.
 
+### HasFkiBankaccountID
+
+`func (o *CreditcardmerchantRequest) HasFkiBankaccountID() bool`
+
+HasFkiBankaccountID returns a boolean if a field has been set.
 
 ### GetFkiLanguageID
 
@@ -98,11 +104,26 @@ and a boolean to check if the value has been set.
 
 SetFkiLanguageID sets FkiLanguageID field to given value.
 
-### HasFkiLanguageID
 
-`func (o *CreditcardmerchantRequest) HasFkiLanguageID() bool`
+### GetFkiCurrencyID
 
-HasFkiLanguageID returns a boolean if a field has been set.
+`func (o *CreditcardmerchantRequest) GetFkiCurrencyID() int32`
+
+GetFkiCurrencyID returns the FkiCurrencyID field if non-nil, zero value otherwise.
+
+### GetFkiCurrencyIDOk
+
+`func (o *CreditcardmerchantRequest) GetFkiCurrencyIDOk() (*int32, bool)`
+
+GetFkiCurrencyIDOk returns a tuple with the FkiCurrencyID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiCurrencyID
+
+`func (o *CreditcardmerchantRequest) SetFkiCurrencyID(v int32)`
+
+SetFkiCurrencyID sets FkiCurrencyID field to given value.
+
 
 ### GetBCreditcardmerchantDenyvisa
 

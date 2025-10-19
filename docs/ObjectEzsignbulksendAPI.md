@@ -6,14 +6,18 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**EzsignbulksendCreateEzsignbulksendtransmissionV2**](ObjectEzsignbulksendAPI.md#EzsignbulksendCreateEzsignbulksendtransmissionV2) | **Post** /2/object/ezsignbulksend/{pkiEzsignbulksendID}/createEzsignbulksendtransmission | Create a new Ezsignbulksendtransmission in the Ezsignbulksend
 [**EzsignbulksendCreateObjectV1**](ObjectEzsignbulksendAPI.md#EzsignbulksendCreateObjectV1) | **Post** /1/object/ezsignbulksend | Create a new Ezsignbulksend
+[**EzsignbulksendCreateObjectV2**](ObjectEzsignbulksendAPI.md#EzsignbulksendCreateObjectV2) | **Post** /2/object/ezsignbulksend | Create a new Ezsignbulksend
 [**EzsignbulksendDeleteObjectV1**](ObjectEzsignbulksendAPI.md#EzsignbulksendDeleteObjectV1) | **Delete** /1/object/ezsignbulksend/{pkiEzsignbulksendID} | Delete an existing Ezsignbulksend
 [**EzsignbulksendEditObjectV1**](ObjectEzsignbulksendAPI.md#EzsignbulksendEditObjectV1) | **Put** /1/object/ezsignbulksend/{pkiEzsignbulksendID} | Edit an existing Ezsignbulksend
+[**EzsignbulksendEditObjectV2**](ObjectEzsignbulksendAPI.md#EzsignbulksendEditObjectV2) | **Put** /2/object/ezsignbulksend/{pkiEzsignbulksendID} | Edit an existing Ezsignbulksend
+[**EzsignbulksendGetBatchFileV1**](ObjectEzsignbulksendAPI.md#EzsignbulksendGetBatchFileV1) | **Get** /1/object/ezsignbulksend/{pkiEzsignbulksendID}/getBatchFile | Retrieve file to download documents in batch
 [**EzsignbulksendGetCsvTemplateV1**](ObjectEzsignbulksendAPI.md#EzsignbulksendGetCsvTemplateV1) | **Get** /1/object/ezsignbulksend/{pkiEzsignbulksendID}/getCsvTemplate | Retrieve an existing Ezsignbulksend&#39;s empty Csv template
 [**EzsignbulksendGetEzsignbulksendtransmissionsV1**](ObjectEzsignbulksendAPI.md#EzsignbulksendGetEzsignbulksendtransmissionsV1) | **Get** /1/object/ezsignbulksend/{pkiEzsignbulksendID}/getEzsignbulksendtransmissions | Retrieve an existing Ezsignbulksend&#39;s Ezsignbulksendtransmissions
 [**EzsignbulksendGetEzsignsignaturesAutomaticV1**](ObjectEzsignbulksendAPI.md#EzsignbulksendGetEzsignsignaturesAutomaticV1) | **Get** /1/object/ezsignbulksend/{pkiEzsignbulksendID}/getEzsignsignaturesAutomatic | Retrieve an existing Ezsignbulksend&#39;s automatic Ezsignsignatures
 [**EzsignbulksendGetFormsDataV1**](ObjectEzsignbulksendAPI.md#EzsignbulksendGetFormsDataV1) | **Get** /1/object/ezsignbulksend/{pkiEzsignbulksendID}/getFormsData | Retrieve an existing Ezsignbulksend&#39;s forms data
 [**EzsignbulksendGetListV1**](ObjectEzsignbulksendAPI.md#EzsignbulksendGetListV1) | **Get** /1/object/ezsignbulksend/getList | Retrieve Ezsignbulksend list
 [**EzsignbulksendGetObjectV2**](ObjectEzsignbulksendAPI.md#EzsignbulksendGetObjectV2) | **Get** /2/object/ezsignbulksend/{pkiEzsignbulksendID} | Retrieve an existing Ezsignbulksend
+[**EzsignbulksendGetObjectV3**](ObjectEzsignbulksendAPI.md#EzsignbulksendGetObjectV3) | **Get** /3/object/ezsignbulksend/{pkiEzsignbulksendID} | Retrieve an existing Ezsignbulksend
 [**EzsignbulksendReorderV1**](ObjectEzsignbulksendAPI.md#EzsignbulksendReorderV1) | **Post** /1/object/ezsignbulksend/{pkiEzsignbulksendID}/reorder | Reorder Ezsignbulksenddocumentmappings in the Ezsignbulksend
 
 
@@ -147,6 +151,72 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignbulksendCreateObjectV1Response**](EzsignbulksendCreateObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsignbulksendCreateObjectV2
+
+> EzsignbulksendCreateObjectV2Response EzsignbulksendCreateObjectV2(ctx).EzsignbulksendCreateObjectV2Request(ezsignbulksendCreateObjectV2Request).Execute()
+
+Create a new Ezsignbulksend
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	ezsignbulksendCreateObjectV2Request := *openapiclient.NewEzsignbulksendCreateObjectV2Request([]openapiclient.EzsignbulksendRequestCompoundV2{*openapiclient.NewEzsignbulksendRequestCompoundV2(int32(5), int32(2), openapiclient.Field-eEzsignbulksendEzsignformfieldorder("Position"), "Test eZsign Bulk Send", "This is a note", false, true)}) // EzsignbulksendCreateObjectV2Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignbulksendAPI.EzsignbulksendCreateObjectV2(context.Background()).EzsignbulksendCreateObjectV2Request(ezsignbulksendCreateObjectV2Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendCreateObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignbulksendCreateObjectV2`: EzsignbulksendCreateObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendCreateObjectV2`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsignbulksendCreateObjectV2Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ezsignbulksendCreateObjectV2Request** | [**EzsignbulksendCreateObjectV2Request**](EzsignbulksendCreateObjectV2Request.md) |  | 
+
+### Return type
+
+[**EzsignbulksendCreateObjectV2Response**](EzsignbulksendCreateObjectV2Response.md)
 
 ### Authorization
 
@@ -298,6 +368,154 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsignbulksendEditObjectV2
+
+> EzsignbulksendEditObjectV2Response EzsignbulksendEditObjectV2(ctx, pkiEzsignbulksendID).EzsignbulksendEditObjectV2Request(ezsignbulksendEditObjectV2Request).Execute()
+
+Edit an existing Ezsignbulksend
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsignbulksendID := int32(56) // int32 | 
+	ezsignbulksendEditObjectV2Request := *openapiclient.NewEzsignbulksendEditObjectV2Request(*openapiclient.NewEzsignbulksendRequestCompoundV2(int32(5), int32(2), openapiclient.Field-eEzsignbulksendEzsignformfieldorder("Position"), "Test eZsign Bulk Send", "This is a note", false, true)) // EzsignbulksendEditObjectV2Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignbulksendAPI.EzsignbulksendEditObjectV2(context.Background(), pkiEzsignbulksendID).EzsignbulksendEditObjectV2Request(ezsignbulksendEditObjectV2Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendEditObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignbulksendEditObjectV2`: EzsignbulksendEditObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendEditObjectV2`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsignbulksendID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsignbulksendEditObjectV2Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **ezsignbulksendEditObjectV2Request** | [**EzsignbulksendEditObjectV2Request**](EzsignbulksendEditObjectV2Request.md) |  | 
+
+### Return type
+
+[**EzsignbulksendEditObjectV2Response**](EzsignbulksendEditObjectV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsignbulksendGetBatchFileV1
+
+> *os.File EzsignbulksendGetBatchFileV1(ctx, pkiEzsignbulksendID).BIncludeSigned(bIncludeSigned).BIncludeAttachment(bIncludeAttachment).BIncludeProofdocument(bIncludeProofdocument).BIncludeProof(bIncludeProof).Execute()
+
+Retrieve file to download documents in batch
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsignbulksendID := int32(56) // int32 | 
+	bIncludeSigned := true // bool | Include final document once all signatures were applied (optional)
+	bIncludeAttachment := true // bool | Include attached files in signatures (optional)
+	bIncludeProofdocument := true // bool | Include the evidence report (optional)
+	bIncludeProof := true // bool | include the complete evidence archive including all of the above and more (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignbulksendAPI.EzsignbulksendGetBatchFileV1(context.Background(), pkiEzsignbulksendID).BIncludeSigned(bIncludeSigned).BIncludeAttachment(bIncludeAttachment).BIncludeProofdocument(bIncludeProofdocument).BIncludeProof(bIncludeProof).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendGetBatchFileV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignbulksendGetBatchFileV1`: *os.File
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendGetBatchFileV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsignbulksendID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsignbulksendGetBatchFileV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **bIncludeSigned** | **bool** | Include final document once all signatures were applied | 
+ **bIncludeAttachment** | **bool** | Include attached files in signatures | 
+ **bIncludeProofdocument** | **bool** | Include the evidence report | 
+ **bIncludeProof** | **bool** | include the complete evidence archive including all of the above and more | 
+
+### Return type
+
+[***os.File**](*os.File.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/xml, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -715,6 +933,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignbulksendGetObjectV2Response**](EzsignbulksendGetObjectV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsignbulksendGetObjectV3
+
+> EzsignbulksendGetObjectV3Response EzsignbulksendGetObjectV3(ctx, pkiEzsignbulksendID).Execute()
+
+Retrieve an existing Ezsignbulksend
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsignbulksendID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignbulksendAPI.EzsignbulksendGetObjectV3(context.Background(), pkiEzsignbulksendID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendGetObjectV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignbulksendGetObjectV3`: EzsignbulksendGetObjectV3Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendGetObjectV3`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsignbulksendID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsignbulksendGetObjectV3Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**EzsignbulksendGetObjectV3Response**](EzsignbulksendGetObjectV3Response.md)
 
 ### Authorization
 

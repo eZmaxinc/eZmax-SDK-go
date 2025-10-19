@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **DtEzsignfolderScheduledarchive** | Pointer to **string** | The scheduled date and time at which the Ezsignfolder should be archived. | [optional] 
 **DtEzsignfolderScheduleddispose** | Pointer to **string** | The scheduled date at which the Ezsignfolder should be Disposed. | [optional] 
 **EEzsignfolderStep** | Pointer to [**FieldEEzsignfolderStep**](FieldEEzsignfolderStep.md) |  | [optional] 
+**EEzsignfolderMessageorder** | Pointer to [**FieldEEzsignfolderMessageorder**](FieldEEzsignfolderMessageorder.md) |  | [optional] [default to GLOBAL_FIRST]
 **DtEzsignfolderClose** | Pointer to **string** | The date and time at which the Ezsignfolder was closed. Either by applying the last signature or by completing it prematurely. | [optional] 
 **TEzsignfolderMessage** | Pointer to **string** | A custom text message that will be added to the email sent. | [optional] 
 **ObjAudit** | Pointer to [**CommonAudit**](CommonAudit.md) |  | [optional] 
@@ -585,6 +586,31 @@ SetEEzsignfolderStep sets EEzsignfolderStep field to given value.
 `func (o *EzsignfolderGetObjectV1ResponseMPayload) HasEEzsignfolderStep() bool`
 
 HasEEzsignfolderStep returns a boolean if a field has been set.
+
+### GetEEzsignfolderMessageorder
+
+`func (o *EzsignfolderGetObjectV1ResponseMPayload) GetEEzsignfolderMessageorder() FieldEEzsignfolderMessageorder`
+
+GetEEzsignfolderMessageorder returns the EEzsignfolderMessageorder field if non-nil, zero value otherwise.
+
+### GetEEzsignfolderMessageorderOk
+
+`func (o *EzsignfolderGetObjectV1ResponseMPayload) GetEEzsignfolderMessageorderOk() (*FieldEEzsignfolderMessageorder, bool)`
+
+GetEEzsignfolderMessageorderOk returns a tuple with the EEzsignfolderMessageorder field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsignfolderMessageorder
+
+`func (o *EzsignfolderGetObjectV1ResponseMPayload) SetEEzsignfolderMessageorder(v FieldEEzsignfolderMessageorder)`
+
+SetEEzsignfolderMessageorder sets EEzsignfolderMessageorder field to given value.
+
+### HasEEzsignfolderMessageorder
+
+`func (o *EzsignfolderGetObjectV1ResponseMPayload) HasEEzsignfolderMessageorder() bool`
+
+HasEEzsignfolderMessageorder returns a boolean if a field has been set.
 
 ### GetDtEzsignfolderClose
 

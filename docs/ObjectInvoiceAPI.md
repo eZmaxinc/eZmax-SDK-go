@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**InvoiceGetCommunicationListV1**](ObjectInvoiceAPI.md#InvoiceGetCommunicationListV1) | **Get** /1/object/invoice/{pkiInvoiceID}/getCommunicationList | Retrieve Communication list
 [**InvoiceGetCommunicationrecipientsV1**](ObjectInvoiceAPI.md#InvoiceGetCommunicationrecipientsV1) | **Get** /1/object/invoice/{pkiInvoiceID}/getCommunicationrecipients | Retrieve Invoice&#39;s Communicationrecipient
 [**InvoiceGetCommunicationsendersV1**](ObjectInvoiceAPI.md#InvoiceGetCommunicationsendersV1) | **Get** /1/object/invoice/{pkiInvoiceID}/getCommunicationsenders | Retrieve Invoice&#39;s Communicationsender
+[**InvoiceImportIntoEDMV1**](ObjectInvoiceAPI.md#InvoiceImportIntoEDMV1) | **Post** /1/object/invoice/{pkiInvoiceID}/importIntoEDM | Import attachments into the Invoice
 
 
 
@@ -355,6 +356,78 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## InvoiceImportIntoEDMV1
+
+> InvoiceImportIntoEDMV1Response InvoiceImportIntoEDMV1(ctx, pkiInvoiceID).InvoiceImportIntoEDMV1Request(invoiceImportIntoEDMV1Request).Execute()
+
+Import attachments into the Invoice
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiInvoiceID := int32(56) // int32 | 
+	invoiceImportIntoEDMV1Request := *openapiclient.NewInvoiceImportIntoEDMV1Request([]openapiclient.CustomAttachmentImportIntoEDMRequest{*openapiclient.NewCustomAttachmentImportIntoEDMRequest("EAttachmentSource_example", "Document.pdf", "Inscription", openapiclient.Field-eAttachmentPrivacy("All"))}) // InvoiceImportIntoEDMV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectInvoiceAPI.InvoiceImportIntoEDMV1(context.Background(), pkiInvoiceID).InvoiceImportIntoEDMV1Request(invoiceImportIntoEDMV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectInvoiceAPI.InvoiceImportIntoEDMV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InvoiceImportIntoEDMV1`: InvoiceImportIntoEDMV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectInvoiceAPI.InvoiceImportIntoEDMV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiInvoiceID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInvoiceImportIntoEDMV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **invoiceImportIntoEDMV1Request** | [**InvoiceImportIntoEDMV1Request**](InvoiceImportIntoEDMV1Request.md) |  | 
+
+### Return type
+
+[**InvoiceImportIntoEDMV1Response**](InvoiceImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

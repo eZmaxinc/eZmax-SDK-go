@@ -5,6 +5,7 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**EzsignfoldersignerassociationCreateEmbeddedUrlV1**](ObjectEzsignfoldersignerassociationAPI.md#EzsignfoldersignerassociationCreateEmbeddedUrlV1) | **Post** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/createEmbeddedUrl | Creates an Url to allow embedded signing
+[**EzsignfoldersignerassociationCreateEmbeddedUrlV2**](ObjectEzsignfoldersignerassociationAPI.md#EzsignfoldersignerassociationCreateEmbeddedUrlV2) | **Post** /2/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/createEmbeddedUrl | Creates an Url to allow embedded signing
 [**EzsignfoldersignerassociationCreateObjectV1**](ObjectEzsignfoldersignerassociationAPI.md#EzsignfoldersignerassociationCreateObjectV1) | **Post** /1/object/ezsignfoldersignerassociation | Create a new Ezsignfoldersignerassociation
 [**EzsignfoldersignerassociationCreateObjectV2**](ObjectEzsignfoldersignerassociationAPI.md#EzsignfoldersignerassociationCreateObjectV2) | **Post** /2/object/ezsignfoldersignerassociation | Create a new Ezsignfoldersignerassociation
 [**EzsignfoldersignerassociationDeleteObjectV1**](ObjectEzsignfoldersignerassociationAPI.md#EzsignfoldersignerassociationDeleteObjectV1) | **Delete** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Delete an existing Ezsignfoldersignerassociation
@@ -75,6 +76,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignfoldersignerassociationCreateEmbeddedUrlV1Response**](EzsignfoldersignerassociationCreateEmbeddedUrlV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsignfoldersignerassociationCreateEmbeddedUrlV2
+
+> EzsignfoldersignerassociationCreateEmbeddedUrlV2Response EzsignfoldersignerassociationCreateEmbeddedUrlV2(ctx, pkiEzsignfoldersignerassociationID).EzsignfoldersignerassociationCreateEmbeddedUrlV2Request(ezsignfoldersignerassociationCreateEmbeddedUrlV2Request).Execute()
+
+Creates an Url to allow embedded signing
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsignfoldersignerassociationID := int32(56) // int32 | 
+	ezsignfoldersignerassociationCreateEmbeddedUrlV2Request := *openapiclient.NewEzsignfoldersignerassociationCreateEmbeddedUrlV2Request() // EzsignfoldersignerassociationCreateEmbeddedUrlV2Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfoldersignerassociationAPI.EzsignfoldersignerassociationCreateEmbeddedUrlV2(context.Background(), pkiEzsignfoldersignerassociationID).EzsignfoldersignerassociationCreateEmbeddedUrlV2Request(ezsignfoldersignerassociationCreateEmbeddedUrlV2Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldersignerassociationAPI.EzsignfoldersignerassociationCreateEmbeddedUrlV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfoldersignerassociationCreateEmbeddedUrlV2`: EzsignfoldersignerassociationCreateEmbeddedUrlV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfoldersignerassociationAPI.EzsignfoldersignerassociationCreateEmbeddedUrlV2`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsignfoldersignerassociationID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsignfoldersignerassociationCreateEmbeddedUrlV2Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **ezsignfoldersignerassociationCreateEmbeddedUrlV2Request** | [**EzsignfoldersignerassociationCreateEmbeddedUrlV2Request**](EzsignfoldersignerassociationCreateEmbeddedUrlV2Request.md) |  | 
+
+### Return type
+
+[**EzsignfoldersignerassociationCreateEmbeddedUrlV2Response**](EzsignfoldersignerassociationCreateEmbeddedUrlV2Response.md)
 
 ### Authorization
 

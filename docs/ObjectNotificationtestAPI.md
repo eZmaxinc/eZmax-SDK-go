@@ -5,6 +5,7 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**NotificationtestGetElementsV1**](ObjectNotificationtestAPI.md#NotificationtestGetElementsV1) | **Get** /1/object/notificationtest/{pkiNotificationtestID}/getElements | Retrieve an existing Notificationtest&#39;s Elements
+[**NotificationtestGetElementsV2**](ObjectNotificationtestAPI.md#NotificationtestGetElementsV2) | **Get** /2/object/notificationtest/{pkiNotificationtestID}/getElements | Retrieve an existing Notificationtest&#39;s Elements
 
 
 
@@ -63,6 +64,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**NotificationtestGetElementsV1Response**](NotificationtestGetElementsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## NotificationtestGetElementsV2
+
+> NotificationtestGetElementsV2Response NotificationtestGetElementsV2(ctx, pkiNotificationtestID).Execute()
+
+Retrieve an existing Notificationtest's Elements
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiNotificationtestID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectNotificationtestAPI.NotificationtestGetElementsV2(context.Background(), pkiNotificationtestID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectNotificationtestAPI.NotificationtestGetElementsV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `NotificationtestGetElementsV2`: NotificationtestGetElementsV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectNotificationtestAPI.NotificationtestGetElementsV2`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiNotificationtestID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiNotificationtestGetElementsV2Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**NotificationtestGetElementsV2Response**](NotificationtestGetElementsV2Response.md)
 
 ### Authorization
 

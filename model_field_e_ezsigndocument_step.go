@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -25,6 +25,7 @@ const (
 	UNSIGNED FieldEEzsigndocumentStep = "Unsigned"
 	PARTIALLY_SIGNED FieldEEzsigndocumentStep = "PartiallySigned"
 	DECLINED_TO_SIGN FieldEEzsigndocumentStep = "DeclinedToSign"
+	PENDING_PREMATURELY_ENDED FieldEEzsigndocumentStep = "PendingPrematurelyEnded"
 	PREMATURELY_ENDED FieldEEzsigndocumentStep = "PrematurelyEnded"
 	PENDING_COMPLETION FieldEEzsigndocumentStep = "PendingCompletion"
 	COMPLETED FieldEEzsigndocumentStep = "Completed"
@@ -37,6 +38,7 @@ var AllowedFieldEEzsigndocumentStepEnumValues = []FieldEEzsigndocumentStep{
 	"Unsigned",
 	"PartiallySigned",
 	"DeclinedToSign",
+	"PendingPrematurelyEnded",
 	"PrematurelyEnded",
 	"PendingCompletion",
 	"Completed",

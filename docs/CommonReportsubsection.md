@@ -4,6 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AObjReportcolumn** | [**[]CommonReportcolumn**](CommonReportcolumn.md) |  | 
+**IReportsubsectionColumncount** | **int32** | The number of Reportcolumns in the Reportsection | 
+**IReportsubsectionWidth** | **int32** | The combined width of all the Reportcolumns in the Reportsection | 
 **ObjReportsubsectionpartHeader** | [**CommonReportsubsectionpart**](CommonReportsubsectionpart.md) |  | 
 **ObjReportsubsectionpartBody** | [**CommonReportsubsectionpart**](CommonReportsubsectionpart.md) |  | 
 **ObjReportsubsectionpartFooter** | [**CommonReportsubsectionpart**](CommonReportsubsectionpart.md) |  | 
@@ -13,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewCommonReportsubsection
 
-`func NewCommonReportsubsection(objReportsubsectionpartHeader CommonReportsubsectionpart, objReportsubsectionpartBody CommonReportsubsectionpart, objReportsubsectionpartFooter CommonReportsubsectionpart, ) *CommonReportsubsection`
+`func NewCommonReportsubsection(aObjReportcolumn []CommonReportcolumn, iReportsubsectionColumncount int32, iReportsubsectionWidth int32, objReportsubsectionpartHeader CommonReportsubsectionpart, objReportsubsectionpartBody CommonReportsubsectionpart, objReportsubsectionpartFooter CommonReportsubsectionpart, ) *CommonReportsubsection`
 
 NewCommonReportsubsection instantiates a new CommonReportsubsection object
 This constructor will assign default values to properties that have it defined,
@@ -27,6 +30,66 @@ will change when the set of required properties is changed
 NewCommonReportsubsectionWithDefaults instantiates a new CommonReportsubsection object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAObjReportcolumn
+
+`func (o *CommonReportsubsection) GetAObjReportcolumn() []CommonReportcolumn`
+
+GetAObjReportcolumn returns the AObjReportcolumn field if non-nil, zero value otherwise.
+
+### GetAObjReportcolumnOk
+
+`func (o *CommonReportsubsection) GetAObjReportcolumnOk() (*[]CommonReportcolumn, bool)`
+
+GetAObjReportcolumnOk returns a tuple with the AObjReportcolumn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAObjReportcolumn
+
+`func (o *CommonReportsubsection) SetAObjReportcolumn(v []CommonReportcolumn)`
+
+SetAObjReportcolumn sets AObjReportcolumn field to given value.
+
+
+### GetIReportsubsectionColumncount
+
+`func (o *CommonReportsubsection) GetIReportsubsectionColumncount() int32`
+
+GetIReportsubsectionColumncount returns the IReportsubsectionColumncount field if non-nil, zero value otherwise.
+
+### GetIReportsubsectionColumncountOk
+
+`func (o *CommonReportsubsection) GetIReportsubsectionColumncountOk() (*int32, bool)`
+
+GetIReportsubsectionColumncountOk returns a tuple with the IReportsubsectionColumncount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIReportsubsectionColumncount
+
+`func (o *CommonReportsubsection) SetIReportsubsectionColumncount(v int32)`
+
+SetIReportsubsectionColumncount sets IReportsubsectionColumncount field to given value.
+
+
+### GetIReportsubsectionWidth
+
+`func (o *CommonReportsubsection) GetIReportsubsectionWidth() int32`
+
+GetIReportsubsectionWidth returns the IReportsubsectionWidth field if non-nil, zero value otherwise.
+
+### GetIReportsubsectionWidthOk
+
+`func (o *CommonReportsubsection) GetIReportsubsectionWidthOk() (*int32, bool)`
+
+GetIReportsubsectionWidthOk returns a tuple with the IReportsubsectionWidth field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIReportsubsectionWidth
+
+`func (o *CommonReportsubsection) SetIReportsubsectionWidth(v int32)`
+
+SetIReportsubsectionWidth sets IReportsubsectionWidth field to given value.
+
 
 ### GetObjReportsubsectionpartHeader
 

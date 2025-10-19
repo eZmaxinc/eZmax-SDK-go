@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -494,9 +494,15 @@ EzsigntemplatedocumentEditEzsigntemplatesignaturesV1 Edit multiple Ezsigntemplat
 
 Using this endpoint, you can edit multiple Ezsigntemplatesignatures at the same time.
 
+Major step overhaul.
+
+Endpoints that existed before version 1.3 do not allow you to combine forms and signatures in the same step. The step numbers are different from those indicated by endpoints added since version 1.3. This endpoint is compatible with endpoints that existed before 1.3 but are not compatible with those added since 1.3.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiEzsigntemplatedocumentID
  @return ApiEzsigntemplatedocumentEditEzsigntemplatesignaturesV1Request
+
+Deprecated
 */
 func (a *ObjectEzsigntemplatedocumentAPIService) EzsigntemplatedocumentEditEzsigntemplatesignaturesV1(ctx context.Context, pkiEzsigntemplatedocumentID int32) ApiEzsigntemplatedocumentEditEzsigntemplatesignaturesV1Request {
 	return ApiEzsigntemplatedocumentEditEzsigntemplatesignaturesV1Request{
@@ -508,6 +514,7 @@ func (a *ObjectEzsigntemplatedocumentAPIService) EzsigntemplatedocumentEditEzsig
 
 // Execute executes the request
 //  @return EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Response
+// Deprecated
 func (a *ObjectEzsigntemplatedocumentAPIService) EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Execute(r ApiEzsigntemplatedocumentEditEzsigntemplatesignaturesV1Request) (*EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
@@ -553,6 +560,158 @@ func (a *ObjectEzsigntemplatedocumentAPIService) EzsigntemplatedocumentEditEzsig
 	}
 	// body params
 	localVarPostBody = r.ezsigntemplatedocumentEditEzsigntemplatesignaturesV1Request
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiEzsigntemplatedocumentEditEzsigntemplatesignaturesV2Request struct {
+	ctx context.Context
+	ApiService *ObjectEzsigntemplatedocumentAPIService
+	pkiEzsigntemplatedocumentID int32
+	ezsigntemplatedocumentEditEzsigntemplatesignaturesV2Request *EzsigntemplatedocumentEditEzsigntemplatesignaturesV2Request
+}
+
+func (r ApiEzsigntemplatedocumentEditEzsigntemplatesignaturesV2Request) EzsigntemplatedocumentEditEzsigntemplatesignaturesV2Request(ezsigntemplatedocumentEditEzsigntemplatesignaturesV2Request EzsigntemplatedocumentEditEzsigntemplatesignaturesV2Request) ApiEzsigntemplatedocumentEditEzsigntemplatesignaturesV2Request {
+	r.ezsigntemplatedocumentEditEzsigntemplatesignaturesV2Request = &ezsigntemplatedocumentEditEzsigntemplatesignaturesV2Request
+	return r
+}
+
+func (r ApiEzsigntemplatedocumentEditEzsigntemplatesignaturesV2Request) Execute() (*EzsigntemplatedocumentEditEzsigntemplatesignaturesV2Response, *http.Response, error) {
+	return r.ApiService.EzsigntemplatedocumentEditEzsigntemplatesignaturesV2Execute(r)
+}
+
+/*
+EzsigntemplatedocumentEditEzsigntemplatesignaturesV2 Edit multiple Ezsigntemplatesignatures
+
+Using this endpoint, you can edit multiple Ezsigntemplatesignatures at the same time.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiEzsigntemplatedocumentID
+ @return ApiEzsigntemplatedocumentEditEzsigntemplatesignaturesV2Request
+*/
+func (a *ObjectEzsigntemplatedocumentAPIService) EzsigntemplatedocumentEditEzsigntemplatesignaturesV2(ctx context.Context, pkiEzsigntemplatedocumentID int32) ApiEzsigntemplatedocumentEditEzsigntemplatesignaturesV2Request {
+	return ApiEzsigntemplatedocumentEditEzsigntemplatesignaturesV2Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiEzsigntemplatedocumentID: pkiEzsigntemplatedocumentID,
+	}
+}
+
+// Execute executes the request
+//  @return EzsigntemplatedocumentEditEzsigntemplatesignaturesV2Response
+func (a *ObjectEzsigntemplatedocumentAPIService) EzsigntemplatedocumentEditEzsigntemplatesignaturesV2Execute(r ApiEzsigntemplatedocumentEditEzsigntemplatesignaturesV2Request) (*EzsigntemplatedocumentEditEzsigntemplatesignaturesV2Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EzsigntemplatedocumentEditEzsigntemplatesignaturesV2Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigntemplatedocumentAPIService.EzsigntemplatedocumentEditEzsigntemplatesignaturesV2")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/editEzsigntemplatesignatures"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsigntemplatedocumentID"+"}", url.PathEscape(parameterValueToString(r.pkiEzsigntemplatedocumentID, "pkiEzsigntemplatedocumentID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiEzsigntemplatedocumentID < 0 {
+		return localVarReturnValue, nil, reportError("pkiEzsigntemplatedocumentID must be greater than 0")
+	}
+	if r.ezsigntemplatedocumentEditEzsigntemplatesignaturesV2Request == nil {
+		return localVarReturnValue, nil, reportError("ezsigntemplatedocumentEditEzsigntemplatesignaturesV2Request is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.ezsigntemplatedocumentEditEzsigntemplatesignaturesV2Request
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1506,11 +1665,15 @@ func (r ApiEzsigntemplatedocumentGetEzsigntemplatesignaturesV1Request) Execute()
 /*
 EzsigntemplatedocumentGetEzsigntemplatesignaturesV1 Retrieve an existing Ezsigntemplatedocument's Ezsigntemplatesignatures
 
+Major step overhaul.
 
+Endpoints that existed before version 1.3 do not allow you to combine forms and signatures in the same step. The step numbers are different from those indicated by endpoints added since version 1.3. This endpoint is compatible with endpoints that existed before 1.3 but are not compatible with those added since 1.3.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiEzsigntemplatedocumentID
  @return ApiEzsigntemplatedocumentGetEzsigntemplatesignaturesV1Request
+
+Deprecated
 */
 func (a *ObjectEzsigntemplatedocumentAPIService) EzsigntemplatedocumentGetEzsigntemplatesignaturesV1(ctx context.Context, pkiEzsigntemplatedocumentID int32) ApiEzsigntemplatedocumentGetEzsigntemplatesignaturesV1Request {
 	return ApiEzsigntemplatedocumentGetEzsigntemplatesignaturesV1Request{
@@ -1522,6 +1685,7 @@ func (a *ObjectEzsigntemplatedocumentAPIService) EzsigntemplatedocumentGetEzsign
 
 // Execute executes the request
 //  @return EzsigntemplatedocumentGetEzsigntemplatesignaturesV1Response
+// Deprecated
 func (a *ObjectEzsigntemplatedocumentAPIService) EzsigntemplatedocumentGetEzsigntemplatesignaturesV1Execute(r ApiEzsigntemplatedocumentGetEzsigntemplatesignaturesV1Request) (*EzsigntemplatedocumentGetEzsigntemplatesignaturesV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -1536,6 +1700,147 @@ func (a *ObjectEzsigntemplatedocumentAPIService) EzsigntemplatedocumentGetEzsign
 	}
 
 	localVarPath := localBasePath + "/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplatesignatures"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsigntemplatedocumentID"+"}", url.PathEscape(parameterValueToString(r.pkiEzsigntemplatedocumentID, "pkiEzsigntemplatedocumentID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiEzsigntemplatedocumentID < 0 {
+		return localVarReturnValue, nil, reportError("pkiEzsigntemplatedocumentID must be greater than 0")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiEzsigntemplatedocumentGetEzsigntemplatesignaturesV2Request struct {
+	ctx context.Context
+	ApiService *ObjectEzsigntemplatedocumentAPIService
+	pkiEzsigntemplatedocumentID int32
+}
+
+func (r ApiEzsigntemplatedocumentGetEzsigntemplatesignaturesV2Request) Execute() (*EzsigntemplatedocumentGetEzsigntemplatesignaturesV2Response, *http.Response, error) {
+	return r.ApiService.EzsigntemplatedocumentGetEzsigntemplatesignaturesV2Execute(r)
+}
+
+/*
+EzsigntemplatedocumentGetEzsigntemplatesignaturesV2 Retrieve an existing Ezsigntemplatedocument's Ezsigntemplatesignatures
+
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiEzsigntemplatedocumentID
+ @return ApiEzsigntemplatedocumentGetEzsigntemplatesignaturesV2Request
+*/
+func (a *ObjectEzsigntemplatedocumentAPIService) EzsigntemplatedocumentGetEzsigntemplatesignaturesV2(ctx context.Context, pkiEzsigntemplatedocumentID int32) ApiEzsigntemplatedocumentGetEzsigntemplatesignaturesV2Request {
+	return ApiEzsigntemplatedocumentGetEzsigntemplatesignaturesV2Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiEzsigntemplatedocumentID: pkiEzsigntemplatedocumentID,
+	}
+}
+
+// Execute executes the request
+//  @return EzsigntemplatedocumentGetEzsigntemplatesignaturesV2Response
+func (a *ObjectEzsigntemplatedocumentAPIService) EzsigntemplatedocumentGetEzsigntemplatesignaturesV2Execute(r ApiEzsigntemplatedocumentGetEzsigntemplatesignaturesV2Request) (*EzsigntemplatedocumentGetEzsigntemplatesignaturesV2Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EzsigntemplatedocumentGetEzsigntemplatesignaturesV2Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsigntemplatedocumentAPIService.EzsigntemplatedocumentGetEzsigntemplatesignaturesV2")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplatesignatures"
 	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsigntemplatedocumentID"+"}", url.PathEscape(parameterValueToString(r.pkiEzsigntemplatedocumentID, "pkiEzsigntemplatedocumentID")), -1)
 
 	localVarHeaderParams := make(map[string]string)

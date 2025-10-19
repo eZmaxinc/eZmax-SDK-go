@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DtEzsignsignatureDateInFolderTimezone** | **string** | The date the Ezsignsignature was signed in folder&#39;s timezone | 
 **ObjTimezone** | Pointer to [**CustomTimezoneWithCodeResponse**](CustomTimezoneWithCodeResponse.md) |  | [optional] 
+**ObjCreditcardtransaction** | Pointer to [**CustomCreditcardtransactionResponse**](CustomCreditcardtransactionResponse.md) |  | [optional] 
 
 ## Methods
 
@@ -70,6 +71,31 @@ SetObjTimezone sets ObjTimezone field to given value.
 `func (o *EzsignsignatureSignV1ResponseMPayload) HasObjTimezone() bool`
 
 HasObjTimezone returns a boolean if a field has been set.
+
+### GetObjCreditcardtransaction
+
+`func (o *EzsignsignatureSignV1ResponseMPayload) GetObjCreditcardtransaction() CustomCreditcardtransactionResponse`
+
+GetObjCreditcardtransaction returns the ObjCreditcardtransaction field if non-nil, zero value otherwise.
+
+### GetObjCreditcardtransactionOk
+
+`func (o *EzsignsignatureSignV1ResponseMPayload) GetObjCreditcardtransactionOk() (*CustomCreditcardtransactionResponse, bool)`
+
+GetObjCreditcardtransactionOk returns a tuple with the ObjCreditcardtransaction field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjCreditcardtransaction
+
+`func (o *EzsignsignatureSignV1ResponseMPayload) SetObjCreditcardtransaction(v CustomCreditcardtransactionResponse)`
+
+SetObjCreditcardtransaction sets ObjCreditcardtransaction field to given value.
+
+### HasObjCreditcardtransaction
+
+`func (o *EzsignsignatureSignV1ResponseMPayload) HasObjCreditcardtransaction() bool`
+
+HasObjCreditcardtransaction returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

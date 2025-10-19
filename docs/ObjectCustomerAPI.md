@@ -6,7 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CustomerCreateObjectV1**](ObjectCustomerAPI.md#CustomerCreateObjectV1) | **Post** /1/object/customer | Create a new Customer
 [**CustomerGetAutocompleteV2**](ObjectCustomerAPI.md#CustomerGetAutocompleteV2) | **Get** /2/object/customer/getAutocomplete/{sSelector} | Retrieve Customers and IDs
+[**CustomerGetListV1**](ObjectCustomerAPI.md#CustomerGetListV1) | **Get** /1/object/customer/getList | Retrieve Customer list
 [**CustomerGetObjectV2**](ObjectCustomerAPI.md#CustomerGetObjectV2) | **Get** /2/object/customer/{pkiCustomerID} | Retrieve an existing Customer
+[**CustomerImportIntoEDMV1**](ObjectCustomerAPI.md#CustomerImportIntoEDMV1) | **Post** /1/object/customer/{pkiCustomerID}/importIntoEDM | Import attachments into the Buyercontract
 
 
 
@@ -152,6 +154,80 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## CustomerGetListV1
+
+> CustomerGetListV1Response CustomerGetListV1(ctx).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
+
+Retrieve Customer list
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
+	iRowMax := int32(56) // int32 |  (optional)
+	iRowOffset := int32(56) // int32 |  (optional) (default to 0)
+	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
+	sFilter := "sFilter_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectCustomerAPI.CustomerGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectCustomerAPI.CustomerGetListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CustomerGetListV1`: CustomerGetListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectCustomerAPI.CustomerGetListV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCustomerGetListV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **eOrderBy** | **string** | Specify how you want the results to be sorted | 
+ **iRowMax** | **int32** |  | 
+ **iRowOffset** | **int32** |  | [default to 0]
+ **acceptLanguage** | [**HeaderAcceptLanguage**](HeaderAcceptLanguage.md) |  | 
+ **sFilter** | **string** |  | 
+
+### Return type
+
+[**CustomerGetListV1Response**](CustomerGetListV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## CustomerGetObjectV2
 
 > CustomerGetObjectV2Response CustomerGetObjectV2(ctx, pkiCustomerID).Execute()
@@ -215,6 +291,78 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CustomerImportIntoEDMV1
+
+> CustomerImportIntoEDMV1Response CustomerImportIntoEDMV1(ctx, pkiCustomerID).CustomerImportIntoEDMV1Request(customerImportIntoEDMV1Request).Execute()
+
+Import attachments into the Buyercontract
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiCustomerID := int32(56) // int32 | 
+	customerImportIntoEDMV1Request := *openapiclient.NewCustomerImportIntoEDMV1Request([]openapiclient.CustomAttachmentImportIntoEDMRequest{*openapiclient.NewCustomAttachmentImportIntoEDMRequest("EAttachmentSource_example", "Document.pdf", "Inscription", openapiclient.Field-eAttachmentPrivacy("All"))}) // CustomerImportIntoEDMV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectCustomerAPI.CustomerImportIntoEDMV1(context.Background(), pkiCustomerID).CustomerImportIntoEDMV1Request(customerImportIntoEDMV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectCustomerAPI.CustomerImportIntoEDMV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CustomerImportIntoEDMV1`: CustomerImportIntoEDMV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectCustomerAPI.CustomerImportIntoEDMV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiCustomerID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCustomerImportIntoEDMV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **customerImportIntoEDMV1Request** | [**CustomerImportIntoEDMV1Request**](CustomerImportIntoEDMV1Request.md) |  | 
+
+### Return type
+
+[**CustomerImportIntoEDMV1Response**](CustomerImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

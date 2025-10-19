@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -613,6 +613,464 @@ func (a *ObjectInscriptionAPIService) InscriptionGetCommunicationsendersV1Execut
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiInscriptionGetListV1Request struct {
+	ctx context.Context
+	ApiService *ObjectInscriptionAPIService
+	eOrderBy *string
+	iRowMax *int32
+	iRowOffset *int32
+	acceptLanguage *HeaderAcceptLanguage
+	sFilter *string
+}
+
+// Specify how you want the results to be sorted
+func (r ApiInscriptionGetListV1Request) EOrderBy(eOrderBy string) ApiInscriptionGetListV1Request {
+	r.eOrderBy = &eOrderBy
+	return r
+}
+
+func (r ApiInscriptionGetListV1Request) IRowMax(iRowMax int32) ApiInscriptionGetListV1Request {
+	r.iRowMax = &iRowMax
+	return r
+}
+
+func (r ApiInscriptionGetListV1Request) IRowOffset(iRowOffset int32) ApiInscriptionGetListV1Request {
+	r.iRowOffset = &iRowOffset
+	return r
+}
+
+func (r ApiInscriptionGetListV1Request) AcceptLanguage(acceptLanguage HeaderAcceptLanguage) ApiInscriptionGetListV1Request {
+	r.acceptLanguage = &acceptLanguage
+	return r
+}
+
+func (r ApiInscriptionGetListV1Request) SFilter(sFilter string) ApiInscriptionGetListV1Request {
+	r.sFilter = &sFilter
+	return r
+}
+
+func (r ApiInscriptionGetListV1Request) Execute() (*InscriptionGetListV1Response, *http.Response, error) {
+	return r.ApiService.InscriptionGetListV1Execute(r)
+}
+
+/*
+InscriptionGetListV1 Retrieve Inscription list
+
+Enum values that can be filtered in query parameter *sFilter*:
+
+| Variable | Valid values |
+|---|---|
+| eInscriptionStep | TemporaryNotAuthenticated<br>ImportedInscription<br>Inscription<br>ModifiedInscription<br>ContractEnded<br>ExpiredInscription<br>Out-market<br>ImportedNotauthenticated<br>NotAuthenticated<br>ModifiedNotauthenticated<br>Authenticated |
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiInscriptionGetListV1Request
+*/
+func (a *ObjectInscriptionAPIService) InscriptionGetListV1(ctx context.Context) ApiInscriptionGetListV1Request {
+	return ApiInscriptionGetListV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return InscriptionGetListV1Response
+func (a *ObjectInscriptionAPIService) InscriptionGetListV1Execute(r ApiInscriptionGetListV1Request) (*InscriptionGetListV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *InscriptionGetListV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectInscriptionAPIService.InscriptionGetListV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/inscription/getList"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.eOrderBy != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "eOrderBy", r.eOrderBy, "form", "")
+	}
+	if r.iRowMax != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowMax", r.iRowMax, "form", "")
+	}
+	if r.iRowOffset != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowOffset", r.iRowOffset, "form", "")
+	} else {
+		var defaultValue int32 = 0
+		r.iRowOffset = &defaultValue
+	}
+	if r.sFilter != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sFilter", r.sFilter, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.acceptLanguage != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept-Language", r.acceptLanguage, "simple", "")
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiInscriptionImportIntoEDMV1Request struct {
+	ctx context.Context
+	ApiService *ObjectInscriptionAPIService
+	pkiInscriptionID int32
+	inscriptionImportIntoEDMV1Request *InscriptionImportIntoEDMV1Request
+}
+
+func (r ApiInscriptionImportIntoEDMV1Request) InscriptionImportIntoEDMV1Request(inscriptionImportIntoEDMV1Request InscriptionImportIntoEDMV1Request) ApiInscriptionImportIntoEDMV1Request {
+	r.inscriptionImportIntoEDMV1Request = &inscriptionImportIntoEDMV1Request
+	return r
+}
+
+func (r ApiInscriptionImportIntoEDMV1Request) Execute() (*InscriptionImportIntoEDMV1Response, *http.Response, error) {
+	return r.ApiService.InscriptionImportIntoEDMV1Execute(r)
+}
+
+/*
+InscriptionImportIntoEDMV1 Import attachments into the Inscription
+
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiInscriptionID
+ @return ApiInscriptionImportIntoEDMV1Request
+*/
+func (a *ObjectInscriptionAPIService) InscriptionImportIntoEDMV1(ctx context.Context, pkiInscriptionID int32) ApiInscriptionImportIntoEDMV1Request {
+	return ApiInscriptionImportIntoEDMV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiInscriptionID: pkiInscriptionID,
+	}
+}
+
+// Execute executes the request
+//  @return InscriptionImportIntoEDMV1Response
+func (a *ObjectInscriptionAPIService) InscriptionImportIntoEDMV1Execute(r ApiInscriptionImportIntoEDMV1Request) (*InscriptionImportIntoEDMV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *InscriptionImportIntoEDMV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectInscriptionAPIService.InscriptionImportIntoEDMV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/inscription/{pkiInscriptionID}/importIntoEDM"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiInscriptionID"+"}", url.PathEscape(parameterValueToString(r.pkiInscriptionID, "pkiInscriptionID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiInscriptionID < 0 {
+		return localVarReturnValue, nil, reportError("pkiInscriptionID must be greater than 0")
+	}
+	if r.inscriptionImportIntoEDMV1Request == nil {
+		return localVarReturnValue, nil, reportError("inscriptionImportIntoEDMV1Request is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.inscriptionImportIntoEDMV1Request
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiInscriptionPrepareFilesTransferV1Request struct {
+	ctx context.Context
+	ApiService *ObjectInscriptionAPIService
+	pkiInscriptionID int32
+	inscriptionPrepareFilesTransferV1Request *InscriptionPrepareFilesTransferV1Request
+}
+
+func (r ApiInscriptionPrepareFilesTransferV1Request) InscriptionPrepareFilesTransferV1Request(inscriptionPrepareFilesTransferV1Request InscriptionPrepareFilesTransferV1Request) ApiInscriptionPrepareFilesTransferV1Request {
+	r.inscriptionPrepareFilesTransferV1Request = &inscriptionPrepareFilesTransferV1Request
+	return r
+}
+
+func (r ApiInscriptionPrepareFilesTransferV1Request) Execute() (*InscriptionPrepareFilesTransferV1Response, *http.Response, error) {
+	return r.ApiService.InscriptionPrepareFilesTransferV1Execute(r)
+}
+
+/*
+InscriptionPrepareFilesTransferV1 Prepares file transfer into EDM
+
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiInscriptionID
+ @return ApiInscriptionPrepareFilesTransferV1Request
+*/
+func (a *ObjectInscriptionAPIService) InscriptionPrepareFilesTransferV1(ctx context.Context, pkiInscriptionID int32) ApiInscriptionPrepareFilesTransferV1Request {
+	return ApiInscriptionPrepareFilesTransferV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiInscriptionID: pkiInscriptionID,
+	}
+}
+
+// Execute executes the request
+//  @return InscriptionPrepareFilesTransferV1Response
+func (a *ObjectInscriptionAPIService) InscriptionPrepareFilesTransferV1Execute(r ApiInscriptionPrepareFilesTransferV1Request) (*InscriptionPrepareFilesTransferV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *InscriptionPrepareFilesTransferV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectInscriptionAPIService.InscriptionPrepareFilesTransferV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/inscription/{pkiInscriptionID}/prepareFilesTransfer"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiInscriptionID"+"}", url.PathEscape(parameterValueToString(r.pkiInscriptionID, "pkiInscriptionID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiInscriptionID < 0 {
+		return localVarReturnValue, nil, reportError("pkiInscriptionID must be greater than 0")
+	}
+	if r.inscriptionPrepareFilesTransferV1Request == nil {
+		return localVarReturnValue, nil, reportError("inscriptionPrepareFilesTransferV1Request is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.inscriptionPrepareFilesTransferV1Request
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

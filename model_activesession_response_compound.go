@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -64,6 +64,8 @@ type ActivesessionResponseCompound struct {
 	BUserEzsigntrial *bool `json:"bUserEzsigntrial,omitempty"`
 	// The eZsign prepaid expiration date
 	DtUserEzsignprepaidexpiration *string `json:"dtUserEzsignprepaidexpiration,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
+	// The date at which the NPS questionnaire will be show
+	DtUserNpsrequest *string `json:"dtUserNpsrequest,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// An array of permissions granted to the user or api key
 	APkiPermissionID []int32 `json:"a_pkiPermissionID"`
 	ObjUserReal ActivesessionResponseCompoundUser `json:"objUserReal"`
@@ -843,6 +845,38 @@ func (o *ActivesessionResponseCompound) SetDtUserEzsignprepaidexpiration(v strin
 	o.DtUserEzsignprepaidexpiration = &v
 }
 
+// GetDtUserNpsrequest returns the DtUserNpsrequest field value if set, zero value otherwise.
+func (o *ActivesessionResponseCompound) GetDtUserNpsrequest() string {
+	if o == nil || IsNil(o.DtUserNpsrequest) {
+		var ret string
+		return ret
+	}
+	return *o.DtUserNpsrequest
+}
+
+// GetDtUserNpsrequestOk returns a tuple with the DtUserNpsrequest field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ActivesessionResponseCompound) GetDtUserNpsrequestOk() (*string, bool) {
+	if o == nil || IsNil(o.DtUserNpsrequest) {
+		return nil, false
+	}
+	return o.DtUserNpsrequest, true
+}
+
+// HasDtUserNpsrequest returns a boolean if a field has been set.
+func (o *ActivesessionResponseCompound) HasDtUserNpsrequest() bool {
+	if o != nil && !IsNil(o.DtUserNpsrequest) {
+		return true
+	}
+
+	return false
+}
+
+// SetDtUserNpsrequest gets a reference to the given string and assigns it to the DtUserNpsrequest field.
+func (o *ActivesessionResponseCompound) SetDtUserNpsrequest(v string) {
+	o.DtUserNpsrequest = &v
+}
+
 // GetAPkiPermissionID returns the APkiPermissionID field value
 func (o *ActivesessionResponseCompound) GetAPkiPermissionID() []int32 {
 	if o == nil {
@@ -1042,6 +1076,9 @@ func (o ActivesessionResponseCompound) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.DtUserEzsignprepaidexpiration) {
 		toSerialize["dtUserEzsignprepaidexpiration"] = o.DtUserEzsignprepaidexpiration
+	}
+	if !IsNil(o.DtUserNpsrequest) {
+		toSerialize["dtUserNpsrequest"] = o.DtUserNpsrequest
 	}
 	toSerialize["a_pkiPermissionID"] = o.APkiPermissionID
 	toSerialize["objUserReal"] = o.ObjUserReal

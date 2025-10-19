@@ -5,14 +5,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FkiUserID** | Pointer to **int32** | The unique ID of the User | [optional] 
-**SContactFirstname** | **string** | The First name of the contact | 
-**SContactLastname** | **string** | The Last name of the contact | 
+**SContactFirstname** | Pointer to **string** | The First name of the contact | [optional] 
+**SContactLastname** | Pointer to **string** | The Last name of the contact | [optional] 
+**SEzsignsignergroupDescriptionX** | Pointer to **string** | The Description of the Ezsignsignergroup in the language of the requester | [optional] 
 
 ## Methods
 
 ### NewCustomEzsignfoldertransmissionSignerResponse
 
-`func NewCustomEzsignfoldertransmissionSignerResponse(sContactFirstname string, sContactLastname string, ) *CustomEzsignfoldertransmissionSignerResponse`
+`func NewCustomEzsignfoldertransmissionSignerResponse() *CustomEzsignfoldertransmissionSignerResponse`
 
 NewCustomEzsignfoldertransmissionSignerResponse instantiates a new CustomEzsignfoldertransmissionSignerResponse object
 This constructor will assign default values to properties that have it defined,
@@ -71,6 +72,11 @@ and a boolean to check if the value has been set.
 
 SetSContactFirstname sets SContactFirstname field to given value.
 
+### HasSContactFirstname
+
+`func (o *CustomEzsignfoldertransmissionSignerResponse) HasSContactFirstname() bool`
+
+HasSContactFirstname returns a boolean if a field has been set.
 
 ### GetSContactLastname
 
@@ -91,6 +97,36 @@ and a boolean to check if the value has been set.
 
 SetSContactLastname sets SContactLastname field to given value.
 
+### HasSContactLastname
+
+`func (o *CustomEzsignfoldertransmissionSignerResponse) HasSContactLastname() bool`
+
+HasSContactLastname returns a boolean if a field has been set.
+
+### GetSEzsignsignergroupDescriptionX
+
+`func (o *CustomEzsignfoldertransmissionSignerResponse) GetSEzsignsignergroupDescriptionX() string`
+
+GetSEzsignsignergroupDescriptionX returns the SEzsignsignergroupDescriptionX field if non-nil, zero value otherwise.
+
+### GetSEzsignsignergroupDescriptionXOk
+
+`func (o *CustomEzsignfoldertransmissionSignerResponse) GetSEzsignsignergroupDescriptionXOk() (*string, bool)`
+
+GetSEzsignsignergroupDescriptionXOk returns a tuple with the SEzsignsignergroupDescriptionX field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzsignsignergroupDescriptionX
+
+`func (o *CustomEzsignfoldertransmissionSignerResponse) SetSEzsignsignergroupDescriptionX(v string)`
+
+SetSEzsignsignergroupDescriptionX sets SEzsignsignergroupDescriptionX field to given value.
+
+### HasSEzsignsignergroupDescriptionX
+
+`func (o *CustomEzsignfoldertransmissionSignerResponse) HasSEzsignsignergroupDescriptionX() bool`
+
+HasSEzsignsignergroupDescriptionX returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

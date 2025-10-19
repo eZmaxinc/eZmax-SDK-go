@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -42,7 +42,7 @@ var (
 	queryDescape    = strings.NewReplacer( "%5B", "[", "%5D", "]" )
 )
 
-// APIClient manages communication with the eZmax API Definition (Full) API v1.2.2
+// APIClient manages communication with the eZmax API Definition (Full) API v1.3.0
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration
@@ -62,6 +62,10 @@ type APIClient struct {
 
 	ObjectActivesessionAPI *ObjectActivesessionAPIService
 
+	ObjectAgentAPI *ObjectAgentAPIService
+
+	ObjectAgenttypeAPI *ObjectAgenttypeAPIService
+
 	ObjectApikeyAPI *ObjectApikeyAPIService
 
 	ObjectAttachmentAPI *ObjectAttachmentAPIService
@@ -75,6 +79,10 @@ type APIClient struct {
 	ObjectBillingentityinternalAPI *ObjectBillingentityinternalAPIService
 
 	ObjectBrandingAPI *ObjectBrandingAPIService
+
+	ObjectBrokerAPI *ObjectBrokerAPIService
+
+	ObjectBrokertypeAPI *ObjectBrokertypeAPIService
 
 	ObjectBuyercontractAPI *ObjectBuyercontractAPIService
 
@@ -114,11 +122,19 @@ type APIClient struct {
 
 	ObjectEmailtypeAPI *ObjectEmailtypeAPIService
 
+	ObjectEmployeeAPI *ObjectEmployeeAPIService
+
+	ObjectExternalbrokerAPI *ObjectExternalbrokerAPIService
+
 	ObjectEzdoctemplatedocumentAPI *ObjectEzdoctemplatedocumentAPIService
 
 	ObjectEzdoctemplatefieldtypecategoryAPI *ObjectEzdoctemplatefieldtypecategoryAPIService
 
 	ObjectEzdoctemplatetypeAPI *ObjectEzdoctemplatetypeAPIService
+
+	ObjectEzmaxcustomerAPI *ObjectEzmaxcustomerAPIService
+
+	ObjectEzmaxcustomeruserAPI *ObjectEzmaxcustomeruserAPIService
 
 	ObjectEzmaxinvoicingAPI *ObjectEzmaxinvoicingAPIService
 
@@ -202,13 +218,21 @@ type APIClient struct {
 
 	ObjectInscriptionAPI *ObjectInscriptionAPIService
 
+	ObjectInscriptionchecklistAPI *ObjectInscriptionchecklistAPIService
+
 	ObjectInscriptionnotauthenticatedAPI *ObjectInscriptionnotauthenticatedAPIService
 
 	ObjectInscriptiontempAPI *ObjectInscriptiontempAPIService
 
+	ObjectInscriptiontypeAPI *ObjectInscriptiontypeAPIService
+
 	ObjectInvoiceAPI *ObjectInvoiceAPIService
 
 	ObjectLanguageAPI *ObjectLanguageAPIService
+
+	ObjectLeadAPI *ObjectLeadAPIService
+
+	ObjectLeadsourceAPI *ObjectLeadsourceAPIService
 
 	ObjectModuleAPI *ObjectModuleAPIService
 
@@ -220,7 +244,11 @@ type APIClient struct {
 
 	ObjectOtherincomeAPI *ObjectOtherincomeAPIService
 
+	ObjectOtherincometypeAPI *ObjectOtherincometypeAPIService
+
 	ObjectPaymentgatewayAPI *ObjectPaymentgatewayAPIService
+
+	ObjectPaymentmethodAPI *ObjectPaymentmethodAPIService
 
 	ObjectPaymenttermAPI *ObjectPaymenttermAPIService
 
@@ -243,6 +271,8 @@ type APIClient struct {
 	ObjectSignatureAPI *ObjectSignatureAPIService
 
 	ObjectSubnetAPI *ObjectSubnetAPIService
+
+	ObjectSupplierAPI *ObjectSupplierAPIService
 
 	ObjectSupplyAPI *ObjectSupplyAPIService
 
@@ -303,6 +333,8 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ModuleReportAPI = (*ModuleReportAPIService)(&c.common)
 	c.ModuleUserAPI = (*ModuleUserAPIService)(&c.common)
 	c.ObjectActivesessionAPI = (*ObjectActivesessionAPIService)(&c.common)
+	c.ObjectAgentAPI = (*ObjectAgentAPIService)(&c.common)
+	c.ObjectAgenttypeAPI = (*ObjectAgenttypeAPIService)(&c.common)
 	c.ObjectApikeyAPI = (*ObjectApikeyAPIService)(&c.common)
 	c.ObjectAttachmentAPI = (*ObjectAttachmentAPIService)(&c.common)
 	c.ObjectAuthenticationexternalAPI = (*ObjectAuthenticationexternalAPIService)(&c.common)
@@ -310,6 +342,8 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectBillingentityexternalAPI = (*ObjectBillingentityexternalAPIService)(&c.common)
 	c.ObjectBillingentityinternalAPI = (*ObjectBillingentityinternalAPIService)(&c.common)
 	c.ObjectBrandingAPI = (*ObjectBrandingAPIService)(&c.common)
+	c.ObjectBrokerAPI = (*ObjectBrokerAPIService)(&c.common)
+	c.ObjectBrokertypeAPI = (*ObjectBrokertypeAPIService)(&c.common)
 	c.ObjectBuyercontractAPI = (*ObjectBuyercontractAPIService)(&c.common)
 	c.ObjectClonehistoryAPI = (*ObjectClonehistoryAPIService)(&c.common)
 	c.ObjectCommunicationAPI = (*ObjectCommunicationAPIService)(&c.common)
@@ -329,9 +363,13 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectDomainAPI = (*ObjectDomainAPIService)(&c.common)
 	c.ObjectElectronicfundstransferAPI = (*ObjectElectronicfundstransferAPIService)(&c.common)
 	c.ObjectEmailtypeAPI = (*ObjectEmailtypeAPIService)(&c.common)
+	c.ObjectEmployeeAPI = (*ObjectEmployeeAPIService)(&c.common)
+	c.ObjectExternalbrokerAPI = (*ObjectExternalbrokerAPIService)(&c.common)
 	c.ObjectEzdoctemplatedocumentAPI = (*ObjectEzdoctemplatedocumentAPIService)(&c.common)
 	c.ObjectEzdoctemplatefieldtypecategoryAPI = (*ObjectEzdoctemplatefieldtypecategoryAPIService)(&c.common)
 	c.ObjectEzdoctemplatetypeAPI = (*ObjectEzdoctemplatetypeAPIService)(&c.common)
+	c.ObjectEzmaxcustomerAPI = (*ObjectEzmaxcustomerAPIService)(&c.common)
+	c.ObjectEzmaxcustomeruserAPI = (*ObjectEzmaxcustomeruserAPIService)(&c.common)
 	c.ObjectEzmaxinvoicingAPI = (*ObjectEzmaxinvoicingAPIService)(&c.common)
 	c.ObjectEzmaxproductAPI = (*ObjectEzmaxproductAPIService)(&c.common)
 	c.ObjectEzsignannotationAPI = (*ObjectEzsignannotationAPIService)(&c.common)
@@ -373,16 +411,22 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectGlaccountAPI = (*ObjectGlaccountAPIService)(&c.common)
 	c.ObjectGlaccountcontainerAPI = (*ObjectGlaccountcontainerAPIService)(&c.common)
 	c.ObjectInscriptionAPI = (*ObjectInscriptionAPIService)(&c.common)
+	c.ObjectInscriptionchecklistAPI = (*ObjectInscriptionchecklistAPIService)(&c.common)
 	c.ObjectInscriptionnotauthenticatedAPI = (*ObjectInscriptionnotauthenticatedAPIService)(&c.common)
 	c.ObjectInscriptiontempAPI = (*ObjectInscriptiontempAPIService)(&c.common)
+	c.ObjectInscriptiontypeAPI = (*ObjectInscriptiontypeAPIService)(&c.common)
 	c.ObjectInvoiceAPI = (*ObjectInvoiceAPIService)(&c.common)
 	c.ObjectLanguageAPI = (*ObjectLanguageAPIService)(&c.common)
+	c.ObjectLeadAPI = (*ObjectLeadAPIService)(&c.common)
+	c.ObjectLeadsourceAPI = (*ObjectLeadsourceAPIService)(&c.common)
 	c.ObjectModuleAPI = (*ObjectModuleAPIService)(&c.common)
 	c.ObjectModulegroupAPI = (*ObjectModulegroupAPIService)(&c.common)
 	c.ObjectNotificationsectionAPI = (*ObjectNotificationsectionAPIService)(&c.common)
 	c.ObjectNotificationtestAPI = (*ObjectNotificationtestAPIService)(&c.common)
 	c.ObjectOtherincomeAPI = (*ObjectOtherincomeAPIService)(&c.common)
+	c.ObjectOtherincometypeAPI = (*ObjectOtherincometypeAPIService)(&c.common)
 	c.ObjectPaymentgatewayAPI = (*ObjectPaymentgatewayAPIService)(&c.common)
+	c.ObjectPaymentmethodAPI = (*ObjectPaymentmethodAPIService)(&c.common)
 	c.ObjectPaymenttermAPI = (*ObjectPaymenttermAPIService)(&c.common)
 	c.ObjectPdfalevelAPI = (*ObjectPdfalevelAPIService)(&c.common)
 	c.ObjectPeriodAPI = (*ObjectPeriodAPIService)(&c.common)
@@ -394,6 +438,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectSessionhistoryAPI = (*ObjectSessionhistoryAPIService)(&c.common)
 	c.ObjectSignatureAPI = (*ObjectSignatureAPIService)(&c.common)
 	c.ObjectSubnetAPI = (*ObjectSubnetAPIService)(&c.common)
+	c.ObjectSupplierAPI = (*ObjectSupplierAPIService)(&c.common)
 	c.ObjectSupplyAPI = (*ObjectSupplyAPIService)(&c.common)
 	c.ObjectSystemconfigurationAPI = (*ObjectSystemconfigurationAPIService)(&c.common)
 	c.ObjectTaxassignmentAPI = (*ObjectTaxassignmentAPIService)(&c.common)

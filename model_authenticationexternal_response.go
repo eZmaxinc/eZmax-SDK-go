@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -30,7 +30,7 @@ type AuthenticationexternalResponse struct {
 	// Whether the Authenticationexternal has been connected or not
 	BAuthenticationexternalConnected *bool `json:"bAuthenticationexternalConnected,omitempty"`
 	// The url to authorize the Authenticationexternal
-	SAuthenticationexternalAuthorizationurl *string `json:"sAuthenticationexternalAuthorizationurl,omitempty" validate:"regexp=^(https|http):\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
+	SAuthenticationexternalAuthorizationurl *string `json:"sAuthenticationexternalAuthorizationurl,omitempty" validate:"regexp=^https:\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
 	ObjAudit CommonAudit `json:"objAudit"`
 }
 

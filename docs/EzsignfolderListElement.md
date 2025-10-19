@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **SEzsignfoldertypeNameX** | **string** | The name of the Ezsignfoldertype in the language of the requester | 
 **SEzsignfolderDescription** | **string** | The description of the Ezsignfolder | 
 **EEzsignfolderStep** | [**FieldEEzsignfolderStep**](FieldEEzsignfolderStep.md) |  | 
+**EEzsignfolderCompletion** | [**FieldEEzsignfolderCompletion**](FieldEEzsignfolderCompletion.md) |  | 
 **DtCreatedDate** | **string** | The date and time at which the object was created | 
 **DtEzsignfolderDelayedsenddate** | Pointer to **string** | The date and time at which the Ezsignfolder will be sent in the future. | [optional] 
 **DtEzsignfolderSentdate** | Pointer to **string** | The date and time at which the Ezsignfolder was sent the last time. | [optional] 
@@ -33,7 +34,7 @@ Name | Type | Description | Notes
 
 ### NewEzsignfolderListElement
 
-`func NewEzsignfolderListElement(pkiEzsignfolderID int32, fkiEzsignfoldertypeID int32, eEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX string, sEzsignfolderDescription string, eEzsignfolderStep FieldEEzsignfolderStep, dtCreatedDate string, iEzsigndocument int32, iEzsigndocumentEdm int32, iEzsignsignature int32, iEzsignsignatureSigned int32, iEzsignformfieldgroup int32, iEzsignformfieldgroupCompleted int32, dEzsignfolderCompletedpercentage string, dEzsignfolderFormcompletedpercentage string, dEzsignfolderSignaturecompletedpercentage string, ) *EzsignfolderListElement`
+`func NewEzsignfolderListElement(pkiEzsignfolderID int32, fkiEzsignfoldertypeID int32, eEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX string, sEzsignfolderDescription string, eEzsignfolderStep FieldEEzsignfolderStep, eEzsignfolderCompletion FieldEEzsignfolderCompletion, dtCreatedDate string, iEzsigndocument int32, iEzsigndocumentEdm int32, iEzsignsignature int32, iEzsignsignatureSigned int32, iEzsignformfieldgroup int32, iEzsignformfieldgroupCompleted int32, dEzsignfolderCompletedpercentage string, dEzsignfolderFormcompletedpercentage string, dEzsignfolderSignaturecompletedpercentage string, ) *EzsignfolderListElement`
 
 NewEzsignfolderListElement instantiates a new EzsignfolderListElement object
 This constructor will assign default values to properties that have it defined,
@@ -166,6 +167,26 @@ and a boolean to check if the value has been set.
 `func (o *EzsignfolderListElement) SetEEzsignfolderStep(v FieldEEzsignfolderStep)`
 
 SetEEzsignfolderStep sets EEzsignfolderStep field to given value.
+
+
+### GetEEzsignfolderCompletion
+
+`func (o *EzsignfolderListElement) GetEEzsignfolderCompletion() FieldEEzsignfolderCompletion`
+
+GetEEzsignfolderCompletion returns the EEzsignfolderCompletion field if non-nil, zero value otherwise.
+
+### GetEEzsignfolderCompletionOk
+
+`func (o *EzsignfolderListElement) GetEEzsignfolderCompletionOk() (*FieldEEzsignfolderCompletion, bool)`
+
+GetEEzsignfolderCompletionOk returns a tuple with the EEzsignfolderCompletion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsignfolderCompletion
+
+`func (o *EzsignfolderListElement) SetEEzsignfolderCompletion(v FieldEEzsignfolderCompletion)`
+
+SetEEzsignfolderCompletion sets EEzsignfolderCompletion field to given value.
 
 
 ### GetDtCreatedDate

@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -495,6 +495,326 @@ func (a *ObjectOtherincomeAPIService) OtherincomeGetCommunicationsendersV1Execut
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiOtherincomeGetListV1Request struct {
+	ctx context.Context
+	ApiService *ObjectOtherincomeAPIService
+	eOrderBy *string
+	iRowMax *int32
+	iRowOffset *int32
+	acceptLanguage *HeaderAcceptLanguage
+	sFilter *string
+}
+
+// Specify how you want the results to be sorted
+func (r ApiOtherincomeGetListV1Request) EOrderBy(eOrderBy string) ApiOtherincomeGetListV1Request {
+	r.eOrderBy = &eOrderBy
+	return r
+}
+
+func (r ApiOtherincomeGetListV1Request) IRowMax(iRowMax int32) ApiOtherincomeGetListV1Request {
+	r.iRowMax = &iRowMax
+	return r
+}
+
+func (r ApiOtherincomeGetListV1Request) IRowOffset(iRowOffset int32) ApiOtherincomeGetListV1Request {
+	r.iRowOffset = &iRowOffset
+	return r
+}
+
+func (r ApiOtherincomeGetListV1Request) AcceptLanguage(acceptLanguage HeaderAcceptLanguage) ApiOtherincomeGetListV1Request {
+	r.acceptLanguage = &acceptLanguage
+	return r
+}
+
+func (r ApiOtherincomeGetListV1Request) SFilter(sFilter string) ApiOtherincomeGetListV1Request {
+	r.sFilter = &sFilter
+	return r
+}
+
+func (r ApiOtherincomeGetListV1Request) Execute() (*OtherincomeGetListV1Response, *http.Response, error) {
+	return r.ApiService.OtherincomeGetListV1Execute(r)
+}
+
+/*
+OtherincomeGetListV1 Retrieve Otherincome list
+
+Enum values that can be filtered in query parameter *sFilter*:
+
+| Variable | Valid values |
+|---|---|
+| eOtherincomeRemunerationtype | Dollars<br>DollarsTaxesIncluded |
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiOtherincomeGetListV1Request
+*/
+func (a *ObjectOtherincomeAPIService) OtherincomeGetListV1(ctx context.Context) ApiOtherincomeGetListV1Request {
+	return ApiOtherincomeGetListV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return OtherincomeGetListV1Response
+func (a *ObjectOtherincomeAPIService) OtherincomeGetListV1Execute(r ApiOtherincomeGetListV1Request) (*OtherincomeGetListV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *OtherincomeGetListV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectOtherincomeAPIService.OtherincomeGetListV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/otherincome/getList"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.eOrderBy != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "eOrderBy", r.eOrderBy, "form", "")
+	}
+	if r.iRowMax != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowMax", r.iRowMax, "form", "")
+	}
+	if r.iRowOffset != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowOffset", r.iRowOffset, "form", "")
+	} else {
+		var defaultValue int32 = 0
+		r.iRowOffset = &defaultValue
+	}
+	if r.sFilter != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sFilter", r.sFilter, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.acceptLanguage != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept-Language", r.acceptLanguage, "simple", "")
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiOtherincomeImportIntoEDMV1Request struct {
+	ctx context.Context
+	ApiService *ObjectOtherincomeAPIService
+	pkiOtherincomeID int32
+	otherincomeImportIntoEDMV1Request *OtherincomeImportIntoEDMV1Request
+}
+
+func (r ApiOtherincomeImportIntoEDMV1Request) OtherincomeImportIntoEDMV1Request(otherincomeImportIntoEDMV1Request OtherincomeImportIntoEDMV1Request) ApiOtherincomeImportIntoEDMV1Request {
+	r.otherincomeImportIntoEDMV1Request = &otherincomeImportIntoEDMV1Request
+	return r
+}
+
+func (r ApiOtherincomeImportIntoEDMV1Request) Execute() (*OtherincomeImportIntoEDMV1Response, *http.Response, error) {
+	return r.ApiService.OtherincomeImportIntoEDMV1Execute(r)
+}
+
+/*
+OtherincomeImportIntoEDMV1 Import attachments into the Otherincome
+
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiOtherincomeID
+ @return ApiOtherincomeImportIntoEDMV1Request
+*/
+func (a *ObjectOtherincomeAPIService) OtherincomeImportIntoEDMV1(ctx context.Context, pkiOtherincomeID int32) ApiOtherincomeImportIntoEDMV1Request {
+	return ApiOtherincomeImportIntoEDMV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiOtherincomeID: pkiOtherincomeID,
+	}
+}
+
+// Execute executes the request
+//  @return OtherincomeImportIntoEDMV1Response
+func (a *ObjectOtherincomeAPIService) OtherincomeImportIntoEDMV1Execute(r ApiOtherincomeImportIntoEDMV1Request) (*OtherincomeImportIntoEDMV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *OtherincomeImportIntoEDMV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectOtherincomeAPIService.OtherincomeImportIntoEDMV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/otherincome/{pkiOtherincomeID}/importIntoEDM"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiOtherincomeID"+"}", url.PathEscape(parameterValueToString(r.pkiOtherincomeID, "pkiOtherincomeID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiOtherincomeID < 1 {
+		return localVarReturnValue, nil, reportError("pkiOtherincomeID must be greater than 1")
+	}
+	if r.pkiOtherincomeID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiOtherincomeID must be less than 65535")
+	}
+	if r.otherincomeImportIntoEDMV1Request == nil {
+		return localVarReturnValue, nil, reportError("otherincomeImportIntoEDMV1Request is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.otherincomeImportIntoEDMV1Request
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

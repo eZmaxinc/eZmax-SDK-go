@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -13,8 +13,6 @@ package eZmaxApi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the CustomEzsignfoldertransmissionSignerResponse type satisfies the MappedNullable interface at compile time
@@ -25,21 +23,19 @@ type CustomEzsignfoldertransmissionSignerResponse struct {
 	// The unique ID of the User
 	FkiUserID *int32 `json:"fkiUserID,omitempty"`
 	// The First name of the contact
-	SContactFirstname string `json:"sContactFirstname" validate:"regexp=^.{1,20}$"`
+	SContactFirstname *string `json:"sContactFirstname,omitempty" validate:"regexp=^.{1,20}$"`
 	// The Last name of the contact
-	SContactLastname string `json:"sContactLastname" validate:"regexp=^.{1,25}$"`
+	SContactLastname *string `json:"sContactLastname,omitempty" validate:"regexp=^.{1,25}$"`
+	// The Description of the Ezsignsignergroup in the language of the requester
+	SEzsignsignergroupDescriptionX *string `json:"sEzsignsignergroupDescriptionX,omitempty"`
 }
-
-type _CustomEzsignfoldertransmissionSignerResponse CustomEzsignfoldertransmissionSignerResponse
 
 // NewCustomEzsignfoldertransmissionSignerResponse instantiates a new CustomEzsignfoldertransmissionSignerResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomEzsignfoldertransmissionSignerResponse(sContactFirstname string, sContactLastname string) *CustomEzsignfoldertransmissionSignerResponse {
+func NewCustomEzsignfoldertransmissionSignerResponse() *CustomEzsignfoldertransmissionSignerResponse {
 	this := CustomEzsignfoldertransmissionSignerResponse{}
-	this.SContactFirstname = sContactFirstname
-	this.SContactLastname = sContactLastname
 	return &this
 }
 
@@ -83,52 +79,100 @@ func (o *CustomEzsignfoldertransmissionSignerResponse) SetFkiUserID(v int32) {
 	o.FkiUserID = &v
 }
 
-// GetSContactFirstname returns the SContactFirstname field value
+// GetSContactFirstname returns the SContactFirstname field value if set, zero value otherwise.
 func (o *CustomEzsignfoldertransmissionSignerResponse) GetSContactFirstname() string {
-	if o == nil {
+	if o == nil || IsNil(o.SContactFirstname) {
 		var ret string
 		return ret
 	}
-
-	return o.SContactFirstname
+	return *o.SContactFirstname
 }
 
-// GetSContactFirstnameOk returns a tuple with the SContactFirstname field value
+// GetSContactFirstnameOk returns a tuple with the SContactFirstname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CustomEzsignfoldertransmissionSignerResponse) GetSContactFirstnameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SContactFirstname) {
 		return nil, false
 	}
-	return &o.SContactFirstname, true
+	return o.SContactFirstname, true
 }
 
-// SetSContactFirstname sets field value
+// HasSContactFirstname returns a boolean if a field has been set.
+func (o *CustomEzsignfoldertransmissionSignerResponse) HasSContactFirstname() bool {
+	if o != nil && !IsNil(o.SContactFirstname) {
+		return true
+	}
+
+	return false
+}
+
+// SetSContactFirstname gets a reference to the given string and assigns it to the SContactFirstname field.
 func (o *CustomEzsignfoldertransmissionSignerResponse) SetSContactFirstname(v string) {
-	o.SContactFirstname = v
+	o.SContactFirstname = &v
 }
 
-// GetSContactLastname returns the SContactLastname field value
+// GetSContactLastname returns the SContactLastname field value if set, zero value otherwise.
 func (o *CustomEzsignfoldertransmissionSignerResponse) GetSContactLastname() string {
-	if o == nil {
+	if o == nil || IsNil(o.SContactLastname) {
 		var ret string
 		return ret
 	}
-
-	return o.SContactLastname
+	return *o.SContactLastname
 }
 
-// GetSContactLastnameOk returns a tuple with the SContactLastname field value
+// GetSContactLastnameOk returns a tuple with the SContactLastname field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CustomEzsignfoldertransmissionSignerResponse) GetSContactLastnameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SContactLastname) {
 		return nil, false
 	}
-	return &o.SContactLastname, true
+	return o.SContactLastname, true
 }
 
-// SetSContactLastname sets field value
+// HasSContactLastname returns a boolean if a field has been set.
+func (o *CustomEzsignfoldertransmissionSignerResponse) HasSContactLastname() bool {
+	if o != nil && !IsNil(o.SContactLastname) {
+		return true
+	}
+
+	return false
+}
+
+// SetSContactLastname gets a reference to the given string and assigns it to the SContactLastname field.
 func (o *CustomEzsignfoldertransmissionSignerResponse) SetSContactLastname(v string) {
-	o.SContactLastname = v
+	o.SContactLastname = &v
+}
+
+// GetSEzsignsignergroupDescriptionX returns the SEzsignsignergroupDescriptionX field value if set, zero value otherwise.
+func (o *CustomEzsignfoldertransmissionSignerResponse) GetSEzsignsignergroupDescriptionX() string {
+	if o == nil || IsNil(o.SEzsignsignergroupDescriptionX) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsignsignergroupDescriptionX
+}
+
+// GetSEzsignsignergroupDescriptionXOk returns a tuple with the SEzsignsignergroupDescriptionX field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignfoldertransmissionSignerResponse) GetSEzsignsignergroupDescriptionXOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsignsignergroupDescriptionX) {
+		return nil, false
+	}
+	return o.SEzsignsignergroupDescriptionX, true
+}
+
+// HasSEzsignsignergroupDescriptionX returns a boolean if a field has been set.
+func (o *CustomEzsignfoldertransmissionSignerResponse) HasSEzsignsignergroupDescriptionX() bool {
+	if o != nil && !IsNil(o.SEzsignsignergroupDescriptionX) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsignsignergroupDescriptionX gets a reference to the given string and assigns it to the SEzsignsignergroupDescriptionX field.
+func (o *CustomEzsignfoldertransmissionSignerResponse) SetSEzsignsignergroupDescriptionX(v string) {
+	o.SEzsignsignergroupDescriptionX = &v
 }
 
 func (o CustomEzsignfoldertransmissionSignerResponse) MarshalJSON() ([]byte, error) {
@@ -144,47 +188,16 @@ func (o CustomEzsignfoldertransmissionSignerResponse) ToMap() (map[string]interf
 	if !IsNil(o.FkiUserID) {
 		toSerialize["fkiUserID"] = o.FkiUserID
 	}
-	toSerialize["sContactFirstname"] = o.SContactFirstname
-	toSerialize["sContactLastname"] = o.SContactLastname
+	if !IsNil(o.SContactFirstname) {
+		toSerialize["sContactFirstname"] = o.SContactFirstname
+	}
+	if !IsNil(o.SContactLastname) {
+		toSerialize["sContactLastname"] = o.SContactLastname
+	}
+	if !IsNil(o.SEzsignsignergroupDescriptionX) {
+		toSerialize["sEzsignsignergroupDescriptionX"] = o.SEzsignsignergroupDescriptionX
+	}
 	return toSerialize, nil
-}
-
-func (o *CustomEzsignfoldertransmissionSignerResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"sContactFirstname",
-		"sContactLastname",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varCustomEzsignfoldertransmissionSignerResponse := _CustomEzsignfoldertransmissionSignerResponse{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCustomEzsignfoldertransmissionSignerResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = CustomEzsignfoldertransmissionSignerResponse(varCustomEzsignfoldertransmissionSignerResponse)
-
-	return err
 }
 
 type NullableCustomEzsignfoldertransmissionSignerResponse struct {

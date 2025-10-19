@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiPaymentgatewayID** | **int32** | The unique ID of the Paymentgateway | 
 **SPaymentgatewayDescriptionX** | **string** | The description of the Paymentgateway in the language of the requester | 
-**BPaymentgatewayIsactive** | **bool** | Whether the Currency is active or not | 
+**BPaymentgatewayIsactive** | **bool** | Whether the Paymentgateway is active or not | 
 
 ## Methods
 

@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -32,8 +32,6 @@ type CustomEzmaxinvoicingEzsignfolderResponse struct {
 	BEzsigntsarequirementBillable bool `json:"bEzsigntsarequirementBillable"`
 	// Whether the MFA was used or not for the Ezsignfolder
 	BEzsignfolderMfaused bool `json:"bEzsignfolderMfaused"`
-	// Whether there was a signature is of type payment
-	BEzsignfolderPaymentused bool `json:"bEzsignfolderPaymentused"`
 	// Whether you have access to the Ezsignfolder or not
 	BEzsignfolderAllowed bool `json:"bEzsignfolderAllowed"`
 }
@@ -44,13 +42,12 @@ type _CustomEzmaxinvoicingEzsignfolderResponse CustomEzmaxinvoicingEzsignfolderR
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomEzmaxinvoicingEzsignfolderResponse(fkiEzsignfolderID int32, sEzsignfolderDescription string, bEzsigntsarequirementBillable bool, bEzsignfolderMfaused bool, bEzsignfolderPaymentused bool, bEzsignfolderAllowed bool) *CustomEzmaxinvoicingEzsignfolderResponse {
+func NewCustomEzmaxinvoicingEzsignfolderResponse(fkiEzsignfolderID int32, sEzsignfolderDescription string, bEzsigntsarequirementBillable bool, bEzsignfolderMfaused bool, bEzsignfolderAllowed bool) *CustomEzmaxinvoicingEzsignfolderResponse {
 	this := CustomEzmaxinvoicingEzsignfolderResponse{}
 	this.FkiEzsignfolderID = fkiEzsignfolderID
 	this.SEzsignfolderDescription = sEzsignfolderDescription
 	this.BEzsigntsarequirementBillable = bEzsigntsarequirementBillable
 	this.BEzsignfolderMfaused = bEzsignfolderMfaused
-	this.BEzsignfolderPaymentused = bEzsignfolderPaymentused
 	this.BEzsignfolderAllowed = bEzsignfolderAllowed
 	return &this
 }
@@ -191,30 +188,6 @@ func (o *CustomEzmaxinvoicingEzsignfolderResponse) SetBEzsignfolderMfaused(v boo
 	o.BEzsignfolderMfaused = v
 }
 
-// GetBEzsignfolderPaymentused returns the BEzsignfolderPaymentused field value
-func (o *CustomEzmaxinvoicingEzsignfolderResponse) GetBEzsignfolderPaymentused() bool {
-	if o == nil {
-		var ret bool
-		return ret
-	}
-
-	return o.BEzsignfolderPaymentused
-}
-
-// GetBEzsignfolderPaymentusedOk returns a tuple with the BEzsignfolderPaymentused field value
-// and a boolean to check if the value has been set.
-func (o *CustomEzmaxinvoicingEzsignfolderResponse) GetBEzsignfolderPaymentusedOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BEzsignfolderPaymentused, true
-}
-
-// SetBEzsignfolderPaymentused sets field value
-func (o *CustomEzmaxinvoicingEzsignfolderResponse) SetBEzsignfolderPaymentused(v bool) {
-	o.BEzsignfolderPaymentused = v
-}
-
 // GetBEzsignfolderAllowed returns the BEzsignfolderAllowed field value
 func (o *CustomEzmaxinvoicingEzsignfolderResponse) GetBEzsignfolderAllowed() bool {
 	if o == nil {
@@ -256,7 +229,6 @@ func (o CustomEzmaxinvoicingEzsignfolderResponse) ToMap() (map[string]interface{
 	toSerialize["sEzsignfolderDescription"] = o.SEzsignfolderDescription
 	toSerialize["bEzsigntsarequirementBillable"] = o.BEzsigntsarequirementBillable
 	toSerialize["bEzsignfolderMfaused"] = o.BEzsignfolderMfaused
-	toSerialize["bEzsignfolderPaymentused"] = o.BEzsignfolderPaymentused
 	toSerialize["bEzsignfolderAllowed"] = o.BEzsignfolderAllowed
 	return toSerialize, nil
 }
@@ -270,7 +242,6 @@ func (o *CustomEzmaxinvoicingEzsignfolderResponse) UnmarshalJSON(data []byte) (e
 		"sEzsignfolderDescription",
 		"bEzsigntsarequirementBillable",
 		"bEzsignfolderMfaused",
-		"bEzsignfolderPaymentused",
 		"bEzsignfolderAllowed",
 	}
 

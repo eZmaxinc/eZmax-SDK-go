@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -63,6 +63,7 @@ type EzsignfolderResponse struct {
 	// The scheduled date at which the Ezsignfolder should be Disposed.
 	DtEzsignfolderScheduleddispose *string `json:"dtEzsignfolderScheduleddispose,omitempty"`
 	EEzsignfolderStep *FieldEEzsignfolderStep `json:"eEzsignfolderStep,omitempty"`
+	EEzsignfolderMessageorder *FieldEEzsignfolderMessageorder `json:"eEzsignfolderMessageorder,omitempty"`
 	// The date and time at which the Ezsignfolder was closed. Either by applying the last signature or by completing it prematurely.
 	DtEzsignfolderClose *string `json:"dtEzsignfolderClose,omitempty"`
 	// A custom text message that will be added to the email sent.
@@ -83,6 +84,8 @@ func NewEzsignfolderResponse(pkiEzsignfolderID int32, eEzsignfolderCompletion Fi
 	this.PkiEzsignfolderID = pkiEzsignfolderID
 	this.EEzsignfolderCompletion = eEzsignfolderCompletion
 	this.SEzsignfolderDescription = sEzsignfolderDescription
+	var eEzsignfolderMessageorder FieldEEzsignfolderMessageorder = GLOBAL_FIRST
+	this.EEzsignfolderMessageorder = &eEzsignfolderMessageorder
 	return &this
 }
 
@@ -91,6 +94,8 @@ func NewEzsignfolderResponse(pkiEzsignfolderID int32, eEzsignfolderCompletion Fi
 // but it doesn't guarantee that properties required by API are set
 func NewEzsignfolderResponseWithDefaults() *EzsignfolderResponse {
 	this := EzsignfolderResponse{}
+	var eEzsignfolderMessageorder FieldEEzsignfolderMessageorder = GLOBAL_FIRST
+	this.EEzsignfolderMessageorder = &eEzsignfolderMessageorder
 	return &this
 }
 
@@ -780,6 +785,38 @@ func (o *EzsignfolderResponse) SetEEzsignfolderStep(v FieldEEzsignfolderStep) {
 	o.EEzsignfolderStep = &v
 }
 
+// GetEEzsignfolderMessageorder returns the EEzsignfolderMessageorder field value if set, zero value otherwise.
+func (o *EzsignfolderResponse) GetEEzsignfolderMessageorder() FieldEEzsignfolderMessageorder {
+	if o == nil || IsNil(o.EEzsignfolderMessageorder) {
+		var ret FieldEEzsignfolderMessageorder
+		return ret
+	}
+	return *o.EEzsignfolderMessageorder
+}
+
+// GetEEzsignfolderMessageorderOk returns a tuple with the EEzsignfolderMessageorder field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderResponse) GetEEzsignfolderMessageorderOk() (*FieldEEzsignfolderMessageorder, bool) {
+	if o == nil || IsNil(o.EEzsignfolderMessageorder) {
+		return nil, false
+	}
+	return o.EEzsignfolderMessageorder, true
+}
+
+// HasEEzsignfolderMessageorder returns a boolean if a field has been set.
+func (o *EzsignfolderResponse) HasEEzsignfolderMessageorder() bool {
+	if o != nil && !IsNil(o.EEzsignfolderMessageorder) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsignfolderMessageorder gets a reference to the given FieldEEzsignfolderMessageorder and assigns it to the EEzsignfolderMessageorder field.
+func (o *EzsignfolderResponse) SetEEzsignfolderMessageorder(v FieldEEzsignfolderMessageorder) {
+	o.EEzsignfolderMessageorder = &v
+}
+
 // GetDtEzsignfolderClose returns the DtEzsignfolderClose field value if set, zero value otherwise.
 func (o *EzsignfolderResponse) GetDtEzsignfolderClose() string {
 	if o == nil || IsNil(o.DtEzsignfolderClose) {
@@ -977,6 +1014,9 @@ func (o EzsignfolderResponse) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.EEzsignfolderStep) {
 		toSerialize["eEzsignfolderStep"] = o.EEzsignfolderStep
+	}
+	if !IsNil(o.EEzsignfolderMessageorder) {
+		toSerialize["eEzsignfolderMessageorder"] = o.EEzsignfolderMessageorder
 	}
 	if !IsNil(o.DtEzsignfolderClose) {
 		toSerialize["dtEzsignfolderClose"] = o.DtEzsignfolderClose

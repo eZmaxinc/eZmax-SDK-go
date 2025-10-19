@@ -4,12 +4,79 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**DiscussionChatV1**](ObjectDiscussionAPI.md#DiscussionChatV1) | **Post** /1/object/discussion/chat | Have a Discussion with the AI Chatbot
 [**DiscussionCreateObjectV1**](ObjectDiscussionAPI.md#DiscussionCreateObjectV1) | **Post** /1/object/discussion | Create a new Discussion
 [**DiscussionDeleteObjectV1**](ObjectDiscussionAPI.md#DiscussionDeleteObjectV1) | **Delete** /1/object/discussion/{pkiDiscussionID} | Delete an existing Discussion
 [**DiscussionGetObjectV2**](ObjectDiscussionAPI.md#DiscussionGetObjectV2) | **Get** /2/object/discussion/{pkiDiscussionID} | Retrieve an existing Discussion
 [**DiscussionPatchObjectV1**](ObjectDiscussionAPI.md#DiscussionPatchObjectV1) | **Patch** /1/object/discussion/{pkiDiscussionID} | Patch an existing Discussion
 [**DiscussionUpdateDiscussionreadstatusV1**](ObjectDiscussionAPI.md#DiscussionUpdateDiscussionreadstatusV1) | **Post** /1/object/discussion/{pkiDiscussionID}/updateDiscussionreadstatus | Update the read status of the discussion
 
+
+
+## DiscussionChatV1
+
+> DiscussionChatV1200Response DiscussionChatV1(ctx).DiscussionChatV1Request(discussionChatV1Request).Execute()
+
+Have a Discussion with the AI Chatbot
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	discussionChatV1Request := *openapiclient.NewDiscussionChatV1Request(openapiclient.Field-eDiscussionRobot("Advanced"), "Hello, this is an example of content in a message") // DiscussionChatV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectDiscussionAPI.DiscussionChatV1(context.Background()).DiscussionChatV1Request(discussionChatV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectDiscussionAPI.DiscussionChatV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DiscussionChatV1`: DiscussionChatV1200Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectDiscussionAPI.DiscussionChatV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDiscussionChatV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **discussionChatV1Request** | [**DiscussionChatV1Request**](DiscussionChatV1Request.md) |  | 
+
+### Return type
+
+[**DiscussionChatV1200Response**](DiscussionChatV1200Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: text/event-stream
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## DiscussionCreateObjectV1

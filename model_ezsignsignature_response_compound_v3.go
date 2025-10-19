@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -32,8 +32,14 @@ type EzsignsignatureResponseCompoundV3 struct {
 	FkiEzsignsigningreasonID *int32 `json:"fkiEzsignsigningreasonID,omitempty"`
 	// The unique ID of the Font
 	FkiFontID *int32 `json:"fkiFontID,omitempty"`
+	// The unique ID of the Paymentgateway
+	FkiPaymentgatewayID *int32 `json:"fkiPaymentgatewayID,omitempty"`
 	// The description of the Currency in the language of the requester
 	SCurrencyDescriptionX *string `json:"sCurrencyDescriptionX,omitempty" validate:"regexp=^.{1,20}$"`
+	// The amount of the Creditcard signature
+	DEzsignsignatureCreditcardamount *string `json:"dEzsignsignatureCreditcardamount,omitempty" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	// The description of the Creditcard signature
+	SEzsignsignatureCreditcardamountdescription *string `json:"sEzsignsignatureCreditcardamountdescription,omitempty" validate:"regexp=^.{1,50}$"`
 	// The description of the Ezsignsigningreason in the language of the requester
 	SEzsignsigningreasonDescriptionX *string `json:"sEzsignsigningreasonDescriptionX,omitempty" validate:"regexp=^.{0,50}$"`
 	// The page number in the Ezsigndocument
@@ -263,6 +269,38 @@ func (o *EzsignsignatureResponseCompoundV3) SetFkiFontID(v int32) {
 	o.FkiFontID = &v
 }
 
+// GetFkiPaymentgatewayID returns the FkiPaymentgatewayID field value if set, zero value otherwise.
+func (o *EzsignsignatureResponseCompoundV3) GetFkiPaymentgatewayID() int32 {
+	if o == nil || IsNil(o.FkiPaymentgatewayID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiPaymentgatewayID
+}
+
+// GetFkiPaymentgatewayIDOk returns a tuple with the FkiPaymentgatewayID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureResponseCompoundV3) GetFkiPaymentgatewayIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiPaymentgatewayID) {
+		return nil, false
+	}
+	return o.FkiPaymentgatewayID, true
+}
+
+// HasFkiPaymentgatewayID returns a boolean if a field has been set.
+func (o *EzsignsignatureResponseCompoundV3) HasFkiPaymentgatewayID() bool {
+	if o != nil && !IsNil(o.FkiPaymentgatewayID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiPaymentgatewayID gets a reference to the given int32 and assigns it to the FkiPaymentgatewayID field.
+func (o *EzsignsignatureResponseCompoundV3) SetFkiPaymentgatewayID(v int32) {
+	o.FkiPaymentgatewayID = &v
+}
+
 // GetSCurrencyDescriptionX returns the SCurrencyDescriptionX field value if set, zero value otherwise.
 func (o *EzsignsignatureResponseCompoundV3) GetSCurrencyDescriptionX() string {
 	if o == nil || IsNil(o.SCurrencyDescriptionX) {
@@ -293,6 +331,70 @@ func (o *EzsignsignatureResponseCompoundV3) HasSCurrencyDescriptionX() bool {
 // SetSCurrencyDescriptionX gets a reference to the given string and assigns it to the SCurrencyDescriptionX field.
 func (o *EzsignsignatureResponseCompoundV3) SetSCurrencyDescriptionX(v string) {
 	o.SCurrencyDescriptionX = &v
+}
+
+// GetDEzsignsignatureCreditcardamount returns the DEzsignsignatureCreditcardamount field value if set, zero value otherwise.
+func (o *EzsignsignatureResponseCompoundV3) GetDEzsignsignatureCreditcardamount() string {
+	if o == nil || IsNil(o.DEzsignsignatureCreditcardamount) {
+		var ret string
+		return ret
+	}
+	return *o.DEzsignsignatureCreditcardamount
+}
+
+// GetDEzsignsignatureCreditcardamountOk returns a tuple with the DEzsignsignatureCreditcardamount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureResponseCompoundV3) GetDEzsignsignatureCreditcardamountOk() (*string, bool) {
+	if o == nil || IsNil(o.DEzsignsignatureCreditcardamount) {
+		return nil, false
+	}
+	return o.DEzsignsignatureCreditcardamount, true
+}
+
+// HasDEzsignsignatureCreditcardamount returns a boolean if a field has been set.
+func (o *EzsignsignatureResponseCompoundV3) HasDEzsignsignatureCreditcardamount() bool {
+	if o != nil && !IsNil(o.DEzsignsignatureCreditcardamount) {
+		return true
+	}
+
+	return false
+}
+
+// SetDEzsignsignatureCreditcardamount gets a reference to the given string and assigns it to the DEzsignsignatureCreditcardamount field.
+func (o *EzsignsignatureResponseCompoundV3) SetDEzsignsignatureCreditcardamount(v string) {
+	o.DEzsignsignatureCreditcardamount = &v
+}
+
+// GetSEzsignsignatureCreditcardamountdescription returns the SEzsignsignatureCreditcardamountdescription field value if set, zero value otherwise.
+func (o *EzsignsignatureResponseCompoundV3) GetSEzsignsignatureCreditcardamountdescription() string {
+	if o == nil || IsNil(o.SEzsignsignatureCreditcardamountdescription) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsignsignatureCreditcardamountdescription
+}
+
+// GetSEzsignsignatureCreditcardamountdescriptionOk returns a tuple with the SEzsignsignatureCreditcardamountdescription field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureResponseCompoundV3) GetSEzsignsignatureCreditcardamountdescriptionOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsignsignatureCreditcardamountdescription) {
+		return nil, false
+	}
+	return o.SEzsignsignatureCreditcardamountdescription, true
+}
+
+// HasSEzsignsignatureCreditcardamountdescription returns a boolean if a field has been set.
+func (o *EzsignsignatureResponseCompoundV3) HasSEzsignsignatureCreditcardamountdescription() bool {
+	if o != nil && !IsNil(o.SEzsignsignatureCreditcardamountdescription) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsignsignatureCreditcardamountdescription gets a reference to the given string and assigns it to the SEzsignsignatureCreditcardamountdescription field.
+func (o *EzsignsignatureResponseCompoundV3) SetSEzsignsignatureCreditcardamountdescription(v string) {
+	o.SEzsignsignatureCreditcardamountdescription = &v
 }
 
 // GetSEzsignsigningreasonDescriptionX returns the SEzsignsigningreasonDescriptionX field value if set, zero value otherwise.
@@ -1482,8 +1584,17 @@ func (o EzsignsignatureResponseCompoundV3) ToMap() (map[string]interface{}, erro
 	if !IsNil(o.FkiFontID) {
 		toSerialize["fkiFontID"] = o.FkiFontID
 	}
+	if !IsNil(o.FkiPaymentgatewayID) {
+		toSerialize["fkiPaymentgatewayID"] = o.FkiPaymentgatewayID
+	}
 	if !IsNil(o.SCurrencyDescriptionX) {
 		toSerialize["sCurrencyDescriptionX"] = o.SCurrencyDescriptionX
+	}
+	if !IsNil(o.DEzsignsignatureCreditcardamount) {
+		toSerialize["dEzsignsignatureCreditcardamount"] = o.DEzsignsignatureCreditcardamount
+	}
+	if !IsNil(o.SEzsignsignatureCreditcardamountdescription) {
+		toSerialize["sEzsignsignatureCreditcardamountdescription"] = o.SEzsignsignatureCreditcardamountdescription
 	}
 	if !IsNil(o.SEzsignsigningreasonDescriptionX) {
 		toSerialize["sEzsignsigningreasonDescriptionX"] = o.SEzsignsigningreasonDescriptionX

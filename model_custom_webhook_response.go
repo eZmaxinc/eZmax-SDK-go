@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -54,6 +54,8 @@ type CustomWebhookResponse struct {
 	ObjAudit CommonAudit `json:"objAudit"`
 	// The concatenated string to describe the Webhook event
 	SWebhookEvent *string `json:"sWebhookEvent,omitempty"`
+	// Error message when token renewal failed or is not configured. Only if an Authenticationexternal is set.
+	SWebhookAuthentificationexternalerror *string `json:"sWebhookAuthentificationexternalerror,omitempty"`
 	AObjWebhookheader []WebhookheaderResponseCompound `json:"a_objWebhookheader,omitempty"`
 	// The customer code assigned to your account
 	PksCustomerCode string `json:"pksCustomerCode"`
@@ -598,6 +600,38 @@ func (o *CustomWebhookResponse) SetSWebhookEvent(v string) {
 	o.SWebhookEvent = &v
 }
 
+// GetSWebhookAuthentificationexternalerror returns the SWebhookAuthentificationexternalerror field value if set, zero value otherwise.
+func (o *CustomWebhookResponse) GetSWebhookAuthentificationexternalerror() string {
+	if o == nil || IsNil(o.SWebhookAuthentificationexternalerror) {
+		var ret string
+		return ret
+	}
+	return *o.SWebhookAuthentificationexternalerror
+}
+
+// GetSWebhookAuthentificationexternalerrorOk returns a tuple with the SWebhookAuthentificationexternalerror field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomWebhookResponse) GetSWebhookAuthentificationexternalerrorOk() (*string, bool) {
+	if o == nil || IsNil(o.SWebhookAuthentificationexternalerror) {
+		return nil, false
+	}
+	return o.SWebhookAuthentificationexternalerror, true
+}
+
+// HasSWebhookAuthentificationexternalerror returns a boolean if a field has been set.
+func (o *CustomWebhookResponse) HasSWebhookAuthentificationexternalerror() bool {
+	if o != nil && !IsNil(o.SWebhookAuthentificationexternalerror) {
+		return true
+	}
+
+	return false
+}
+
+// SetSWebhookAuthentificationexternalerror gets a reference to the given string and assigns it to the SWebhookAuthentificationexternalerror field.
+func (o *CustomWebhookResponse) SetSWebhookAuthentificationexternalerror(v string) {
+	o.SWebhookAuthentificationexternalerror = &v
+}
+
 // GetAObjWebhookheader returns the AObjWebhookheader field value if set, zero value otherwise.
 func (o *CustomWebhookResponse) GetAObjWebhookheader() []WebhookheaderResponseCompound {
 	if o == nil || IsNil(o.AObjWebhookheader) {
@@ -758,6 +792,9 @@ func (o CustomWebhookResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["objAudit"] = o.ObjAudit
 	if !IsNil(o.SWebhookEvent) {
 		toSerialize["sWebhookEvent"] = o.SWebhookEvent
+	}
+	if !IsNil(o.SWebhookAuthentificationexternalerror) {
+		toSerialize["sWebhookAuthentificationexternalerror"] = o.SWebhookAuthentificationexternalerror
 	}
 	if !IsNil(o.AObjWebhookheader) {
 		toSerialize["a_objWebhookheader"] = o.AObjWebhookheader

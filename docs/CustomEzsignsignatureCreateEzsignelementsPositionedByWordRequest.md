@@ -32,9 +32,12 @@ Name | Type | Description | Notes
 **SEzsignsignatureTextvalidationcustommessage** | Pointer to **string** | Description of validation rule. Show by signatory. | [optional] 
 **SEzsignsignatureRegexp** | Pointer to **string** | A regular expression to indicate what values are acceptable for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** and eEzsignsignatureTextvalidation is **Custom** | [optional] 
 **EEzsignsignatureDependencyrequirement** | Pointer to [**FieldEEzsignsignatureDependencyrequirement**](FieldEEzsignsignatureDependencyrequirement.md) |  | [optional] 
+**SEzsignsignatureCreditcardamountdescription** | Pointer to **string** | The description of the Creditcard signature | [optional] 
+**DEzsignsignatureCreditcardamount** | Pointer to **string** | The amount of the Creditcard signature | [optional] 
 **BEzsignsignatureCustomdate** | Pointer to **bool** | Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is **Name** or **Handwritten**) | [optional] 
 **AObjEzsignsignaturecustomdate** | Pointer to [**[]EzsignsignaturecustomdateRequestCompound**](EzsignsignaturecustomdateRequestCompound.md) | An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don&#39;t want to have a date at all. | [optional] 
 **AObjEzsignelementdependency** | Pointer to [**[]EzsignelementdependencyRequestCompound**](EzsignelementdependencyRequestCompound.md) |  | [optional] 
+**AObjEzsignsignaturepaymentdetail** | Pointer to [**[]EzsignsignaturepaymentdetailRequestCompound**](EzsignsignaturepaymentdetailRequestCompound.md) |  | [optional] 
 **ObjCreateezsignelementspositionedbyword** | [**CustomCreateEzsignelementsPositionedByWordRequest**](CustomCreateEzsignelementsPositionedByWordRequest.md) |  | 
 
 ## Methods
@@ -721,6 +724,56 @@ SetEEzsignsignatureDependencyrequirement sets EEzsignsignatureDependencyrequirem
 
 HasEEzsignsignatureDependencyrequirement returns a boolean if a field has been set.
 
+### GetSEzsignsignatureCreditcardamountdescription
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetSEzsignsignatureCreditcardamountdescription() string`
+
+GetSEzsignsignatureCreditcardamountdescription returns the SEzsignsignatureCreditcardamountdescription field if non-nil, zero value otherwise.
+
+### GetSEzsignsignatureCreditcardamountdescriptionOk
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetSEzsignsignatureCreditcardamountdescriptionOk() (*string, bool)`
+
+GetSEzsignsignatureCreditcardamountdescriptionOk returns a tuple with the SEzsignsignatureCreditcardamountdescription field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzsignsignatureCreditcardamountdescription
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetSEzsignsignatureCreditcardamountdescription(v string)`
+
+SetSEzsignsignatureCreditcardamountdescription sets SEzsignsignatureCreditcardamountdescription field to given value.
+
+### HasSEzsignsignatureCreditcardamountdescription
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasSEzsignsignatureCreditcardamountdescription() bool`
+
+HasSEzsignsignatureCreditcardamountdescription returns a boolean if a field has been set.
+
+### GetDEzsignsignatureCreditcardamount
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetDEzsignsignatureCreditcardamount() string`
+
+GetDEzsignsignatureCreditcardamount returns the DEzsignsignatureCreditcardamount field if non-nil, zero value otherwise.
+
+### GetDEzsignsignatureCreditcardamountOk
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetDEzsignsignatureCreditcardamountOk() (*string, bool)`
+
+GetDEzsignsignatureCreditcardamountOk returns a tuple with the DEzsignsignatureCreditcardamount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDEzsignsignatureCreditcardamount
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetDEzsignsignatureCreditcardamount(v string)`
+
+SetDEzsignsignatureCreditcardamount sets DEzsignsignatureCreditcardamount field to given value.
+
+### HasDEzsignsignatureCreditcardamount
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasDEzsignsignatureCreditcardamount() bool`
+
+HasDEzsignsignatureCreditcardamount returns a boolean if a field has been set.
+
 ### GetBEzsignsignatureCustomdate
 
 `func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetBEzsignsignatureCustomdate() bool`
@@ -795,6 +848,31 @@ SetAObjEzsignelementdependency sets AObjEzsignelementdependency field to given v
 `func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasAObjEzsignelementdependency() bool`
 
 HasAObjEzsignelementdependency returns a boolean if a field has been set.
+
+### GetAObjEzsignsignaturepaymentdetail
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetAObjEzsignsignaturepaymentdetail() []EzsignsignaturepaymentdetailRequestCompound`
+
+GetAObjEzsignsignaturepaymentdetail returns the AObjEzsignsignaturepaymentdetail field if non-nil, zero value otherwise.
+
+### GetAObjEzsignsignaturepaymentdetailOk
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetAObjEzsignsignaturepaymentdetailOk() (*[]EzsignsignaturepaymentdetailRequestCompound, bool)`
+
+GetAObjEzsignsignaturepaymentdetailOk returns a tuple with the AObjEzsignsignaturepaymentdetail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAObjEzsignsignaturepaymentdetail
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetAObjEzsignsignaturepaymentdetail(v []EzsignsignaturepaymentdetailRequestCompound)`
+
+SetAObjEzsignsignaturepaymentdetail sets AObjEzsignsignaturepaymentdetail field to given value.
+
+### HasAObjEzsignsignaturepaymentdetail
+
+`func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasAObjEzsignsignaturepaymentdetail() bool`
+
+HasAObjEzsignsignaturepaymentdetail returns a boolean if a field has been set.
 
 ### GetObjCreateezsignelementspositionedbyword
 

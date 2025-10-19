@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -24,6 +24,8 @@ var _ MappedNullable = &BrandingRequestV2{}
 type BrandingRequestV2 struct {
 	// The unique ID of the Branding
 	PkiBrandingID *int32 `json:"pkiBrandingID,omitempty"`
+	// The unique ID of the Domain
+	FkiDomainID *int32 `json:"fkiDomainID,omitempty"`
 	ObjBrandingDescription MultilingualBrandingDescription `json:"objBrandingDescription"`
 	EBrandingLogo FieldEBrandingLogo `json:"eBrandingLogo"`
 	EBrandingAlignlogo *FieldEBrandingAlignlogo `json:"eBrandingAlignlogo,omitempty"`
@@ -92,6 +94,38 @@ func (o *BrandingRequestV2) HasPkiBrandingID() bool {
 // SetPkiBrandingID gets a reference to the given int32 and assigns it to the PkiBrandingID field.
 func (o *BrandingRequestV2) SetPkiBrandingID(v int32) {
 	o.PkiBrandingID = &v
+}
+
+// GetFkiDomainID returns the FkiDomainID field value if set, zero value otherwise.
+func (o *BrandingRequestV2) GetFkiDomainID() int32 {
+	if o == nil || IsNil(o.FkiDomainID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiDomainID
+}
+
+// GetFkiDomainIDOk returns a tuple with the FkiDomainID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BrandingRequestV2) GetFkiDomainIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiDomainID) {
+		return nil, false
+	}
+	return o.FkiDomainID, true
+}
+
+// HasFkiDomainID returns a boolean if a field has been set.
+func (o *BrandingRequestV2) HasFkiDomainID() bool {
+	if o != nil && !IsNil(o.FkiDomainID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiDomainID gets a reference to the given int32 and assigns it to the FkiDomainID field.
+func (o *BrandingRequestV2) SetFkiDomainID(v int32) {
+	o.FkiDomainID = &v
 }
 
 // GetObjBrandingDescription returns the ObjBrandingDescription field value
@@ -330,6 +364,9 @@ func (o BrandingRequestV2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.PkiBrandingID) {
 		toSerialize["pkiBrandingID"] = o.PkiBrandingID
+	}
+	if !IsNil(o.FkiDomainID) {
+		toSerialize["fkiDomainID"] = o.FkiDomainID
 	}
 	toSerialize["objBrandingDescription"] = o.ObjBrandingDescription
 	toSerialize["eBrandingLogo"] = o.EBrandingLogo

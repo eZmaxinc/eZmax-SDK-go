@@ -9,14 +9,13 @@ Name | Type | Description | Notes
 **SEzsignfolderDescription** | **string** | The description of the Ezsignfolder | 
 **BEzsigntsarequirementBillable** | **bool** | Whether the TSA requirement is billable or not | 
 **BEzsignfolderMfaused** | **bool** | Whether the MFA was used or not for the Ezsignfolder | 
-**BEzsignfolderPaymentused** | **bool** | Whether there was a signature is of type payment | 
 **BEzsignfolderAllowed** | **bool** | Whether you have access to the Ezsignfolder or not | 
 
 ## Methods
 
 ### NewCustomEzmaxinvoicingEzsignfolderResponse
 
-`func NewCustomEzmaxinvoicingEzsignfolderResponse(fkiEzsignfolderID int32, sEzsignfolderDescription string, bEzsigntsarequirementBillable bool, bEzsignfolderMfaused bool, bEzsignfolderPaymentused bool, bEzsignfolderAllowed bool, ) *CustomEzmaxinvoicingEzsignfolderResponse`
+`func NewCustomEzmaxinvoicingEzsignfolderResponse(fkiEzsignfolderID int32, sEzsignfolderDescription string, bEzsigntsarequirementBillable bool, bEzsignfolderMfaused bool, bEzsignfolderAllowed bool, ) *CustomEzmaxinvoicingEzsignfolderResponse`
 
 NewCustomEzmaxinvoicingEzsignfolderResponse instantiates a new CustomEzmaxinvoicingEzsignfolderResponse object
 This constructor will assign default values to properties that have it defined,
@@ -134,26 +133,6 @@ and a boolean to check if the value has been set.
 `func (o *CustomEzmaxinvoicingEzsignfolderResponse) SetBEzsignfolderMfaused(v bool)`
 
 SetBEzsignfolderMfaused sets BEzsignfolderMfaused field to given value.
-
-
-### GetBEzsignfolderPaymentused
-
-`func (o *CustomEzmaxinvoicingEzsignfolderResponse) GetBEzsignfolderPaymentused() bool`
-
-GetBEzsignfolderPaymentused returns the BEzsignfolderPaymentused field if non-nil, zero value otherwise.
-
-### GetBEzsignfolderPaymentusedOk
-
-`func (o *CustomEzmaxinvoicingEzsignfolderResponse) GetBEzsignfolderPaymentusedOk() (*bool, bool)`
-
-GetBEzsignfolderPaymentusedOk returns a tuple with the BEzsignfolderPaymentused field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBEzsignfolderPaymentused
-
-`func (o *CustomEzmaxinvoicingEzsignfolderResponse) SetBEzsignfolderPaymentused(v bool)`
-
-SetBEzsignfolderPaymentused sets BEzsignfolderPaymentused field to given value.
 
 
 ### GetBEzsignfolderAllowed

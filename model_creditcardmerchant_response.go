@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -25,13 +25,17 @@ type CreditcardmerchantResponse struct {
 	// The unique ID of the Creditcardmerchant
 	PkiCreditcardmerchantID int32 `json:"pkiCreditcardmerchantID"`
 	// The unique ID of the Bankaccount
-	FkiBankaccountID int32 `json:"fkiBankaccountID"`
+	FkiBankaccountID *int32 `json:"fkiBankaccountID,omitempty"`
+	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
+	FkiLanguageID int32 `json:"fkiLanguageID"`
+	// The Name of the Language in the language of the requester
+	SLanguageNameX string `json:"sLanguageNameX"`
+	// The unique ID of the Currency.
+	FkiCurrencyID int32 `json:"fkiCurrencyID"`
+	// The description of the Currency in the language of the requester
+	SCurrencyDescriptionX string `json:"sCurrencyDescriptionX" validate:"regexp=^.{1,20}$"`
 	// The name of the bank
 	SBankaccountBankname *string `json:"sBankaccountBankname,omitempty"`
-	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
-	FkiLanguageID *int32 `json:"fkiLanguageID,omitempty"`
-	// The Name of the Language in the language of the requester
-	SLanguageNameX *string `json:"sLanguageNameX,omitempty"`
 	// Whether if visa are denied
 	BCreditcardmerchantDenyvisa bool `json:"bCreditcardmerchantDenyvisa"`
 	// Whether if mastercard are denied
@@ -52,10 +56,13 @@ type _CreditcardmerchantResponse CreditcardmerchantResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreditcardmerchantResponse(pkiCreditcardmerchantID int32, fkiBankaccountID int32, bCreditcardmerchantDenyvisa bool, bCreditcardmerchantDenymastercard bool, bCreditcardmerchantDenyamex bool, bCreditcardmerchantIsactive bool, sCreditcardmerchantDescription string, sCreditcardmerchantStoreid string) *CreditcardmerchantResponse {
+func NewCreditcardmerchantResponse(pkiCreditcardmerchantID int32, fkiLanguageID int32, sLanguageNameX string, fkiCurrencyID int32, sCurrencyDescriptionX string, bCreditcardmerchantDenyvisa bool, bCreditcardmerchantDenymastercard bool, bCreditcardmerchantDenyamex bool, bCreditcardmerchantIsactive bool, sCreditcardmerchantDescription string, sCreditcardmerchantStoreid string) *CreditcardmerchantResponse {
 	this := CreditcardmerchantResponse{}
 	this.PkiCreditcardmerchantID = pkiCreditcardmerchantID
-	this.FkiBankaccountID = fkiBankaccountID
+	this.FkiLanguageID = fkiLanguageID
+	this.SLanguageNameX = sLanguageNameX
+	this.FkiCurrencyID = fkiCurrencyID
+	this.SCurrencyDescriptionX = sCurrencyDescriptionX
 	this.BCreditcardmerchantDenyvisa = bCreditcardmerchantDenyvisa
 	this.BCreditcardmerchantDenymastercard = bCreditcardmerchantDenymastercard
 	this.BCreditcardmerchantDenyamex = bCreditcardmerchantDenyamex
@@ -97,28 +104,132 @@ func (o *CreditcardmerchantResponse) SetPkiCreditcardmerchantID(v int32) {
 	o.PkiCreditcardmerchantID = v
 }
 
-// GetFkiBankaccountID returns the FkiBankaccountID field value
+// GetFkiBankaccountID returns the FkiBankaccountID field value if set, zero value otherwise.
 func (o *CreditcardmerchantResponse) GetFkiBankaccountID() int32 {
+	if o == nil || IsNil(o.FkiBankaccountID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiBankaccountID
+}
+
+// GetFkiBankaccountIDOk returns a tuple with the FkiBankaccountID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreditcardmerchantResponse) GetFkiBankaccountIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiBankaccountID) {
+		return nil, false
+	}
+	return o.FkiBankaccountID, true
+}
+
+// HasFkiBankaccountID returns a boolean if a field has been set.
+func (o *CreditcardmerchantResponse) HasFkiBankaccountID() bool {
+	if o != nil && !IsNil(o.FkiBankaccountID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiBankaccountID gets a reference to the given int32 and assigns it to the FkiBankaccountID field.
+func (o *CreditcardmerchantResponse) SetFkiBankaccountID(v int32) {
+	o.FkiBankaccountID = &v
+}
+
+// GetFkiLanguageID returns the FkiLanguageID field value
+func (o *CreditcardmerchantResponse) GetFkiLanguageID() int32 {
 	if o == nil {
 		var ret int32
 		return ret
 	}
 
-	return o.FkiBankaccountID
+	return o.FkiLanguageID
 }
 
-// GetFkiBankaccountIDOk returns a tuple with the FkiBankaccountID field value
+// GetFkiLanguageIDOk returns a tuple with the FkiLanguageID field value
 // and a boolean to check if the value has been set.
-func (o *CreditcardmerchantResponse) GetFkiBankaccountIDOk() (*int32, bool) {
+func (o *CreditcardmerchantResponse) GetFkiLanguageIDOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.FkiBankaccountID, true
+	return &o.FkiLanguageID, true
 }
 
-// SetFkiBankaccountID sets field value
-func (o *CreditcardmerchantResponse) SetFkiBankaccountID(v int32) {
-	o.FkiBankaccountID = v
+// SetFkiLanguageID sets field value
+func (o *CreditcardmerchantResponse) SetFkiLanguageID(v int32) {
+	o.FkiLanguageID = v
+}
+
+// GetSLanguageNameX returns the SLanguageNameX field value
+func (o *CreditcardmerchantResponse) GetSLanguageNameX() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SLanguageNameX
+}
+
+// GetSLanguageNameXOk returns a tuple with the SLanguageNameX field value
+// and a boolean to check if the value has been set.
+func (o *CreditcardmerchantResponse) GetSLanguageNameXOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SLanguageNameX, true
+}
+
+// SetSLanguageNameX sets field value
+func (o *CreditcardmerchantResponse) SetSLanguageNameX(v string) {
+	o.SLanguageNameX = v
+}
+
+// GetFkiCurrencyID returns the FkiCurrencyID field value
+func (o *CreditcardmerchantResponse) GetFkiCurrencyID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiCurrencyID
+}
+
+// GetFkiCurrencyIDOk returns a tuple with the FkiCurrencyID field value
+// and a boolean to check if the value has been set.
+func (o *CreditcardmerchantResponse) GetFkiCurrencyIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiCurrencyID, true
+}
+
+// SetFkiCurrencyID sets field value
+func (o *CreditcardmerchantResponse) SetFkiCurrencyID(v int32) {
+	o.FkiCurrencyID = v
+}
+
+// GetSCurrencyDescriptionX returns the SCurrencyDescriptionX field value
+func (o *CreditcardmerchantResponse) GetSCurrencyDescriptionX() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SCurrencyDescriptionX
+}
+
+// GetSCurrencyDescriptionXOk returns a tuple with the SCurrencyDescriptionX field value
+// and a boolean to check if the value has been set.
+func (o *CreditcardmerchantResponse) GetSCurrencyDescriptionXOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SCurrencyDescriptionX, true
+}
+
+// SetSCurrencyDescriptionX sets field value
+func (o *CreditcardmerchantResponse) SetSCurrencyDescriptionX(v string) {
+	o.SCurrencyDescriptionX = v
 }
 
 // GetSBankaccountBankname returns the SBankaccountBankname field value if set, zero value otherwise.
@@ -151,70 +262,6 @@ func (o *CreditcardmerchantResponse) HasSBankaccountBankname() bool {
 // SetSBankaccountBankname gets a reference to the given string and assigns it to the SBankaccountBankname field.
 func (o *CreditcardmerchantResponse) SetSBankaccountBankname(v string) {
 	o.SBankaccountBankname = &v
-}
-
-// GetFkiLanguageID returns the FkiLanguageID field value if set, zero value otherwise.
-func (o *CreditcardmerchantResponse) GetFkiLanguageID() int32 {
-	if o == nil || IsNil(o.FkiLanguageID) {
-		var ret int32
-		return ret
-	}
-	return *o.FkiLanguageID
-}
-
-// GetFkiLanguageIDOk returns a tuple with the FkiLanguageID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CreditcardmerchantResponse) GetFkiLanguageIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.FkiLanguageID) {
-		return nil, false
-	}
-	return o.FkiLanguageID, true
-}
-
-// HasFkiLanguageID returns a boolean if a field has been set.
-func (o *CreditcardmerchantResponse) HasFkiLanguageID() bool {
-	if o != nil && !IsNil(o.FkiLanguageID) {
-		return true
-	}
-
-	return false
-}
-
-// SetFkiLanguageID gets a reference to the given int32 and assigns it to the FkiLanguageID field.
-func (o *CreditcardmerchantResponse) SetFkiLanguageID(v int32) {
-	o.FkiLanguageID = &v
-}
-
-// GetSLanguageNameX returns the SLanguageNameX field value if set, zero value otherwise.
-func (o *CreditcardmerchantResponse) GetSLanguageNameX() string {
-	if o == nil || IsNil(o.SLanguageNameX) {
-		var ret string
-		return ret
-	}
-	return *o.SLanguageNameX
-}
-
-// GetSLanguageNameXOk returns a tuple with the SLanguageNameX field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CreditcardmerchantResponse) GetSLanguageNameXOk() (*string, bool) {
-	if o == nil || IsNil(o.SLanguageNameX) {
-		return nil, false
-	}
-	return o.SLanguageNameX, true
-}
-
-// HasSLanguageNameX returns a boolean if a field has been set.
-func (o *CreditcardmerchantResponse) HasSLanguageNameX() bool {
-	if o != nil && !IsNil(o.SLanguageNameX) {
-		return true
-	}
-
-	return false
-}
-
-// SetSLanguageNameX gets a reference to the given string and assigns it to the SLanguageNameX field.
-func (o *CreditcardmerchantResponse) SetSLanguageNameX(v string) {
-	o.SLanguageNameX = &v
 }
 
 // GetBCreditcardmerchantDenyvisa returns the BCreditcardmerchantDenyvisa field value
@@ -372,15 +419,15 @@ func (o CreditcardmerchantResponse) MarshalJSON() ([]byte, error) {
 func (o CreditcardmerchantResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiCreditcardmerchantID"] = o.PkiCreditcardmerchantID
-	toSerialize["fkiBankaccountID"] = o.FkiBankaccountID
+	if !IsNil(o.FkiBankaccountID) {
+		toSerialize["fkiBankaccountID"] = o.FkiBankaccountID
+	}
+	toSerialize["fkiLanguageID"] = o.FkiLanguageID
+	toSerialize["sLanguageNameX"] = o.SLanguageNameX
+	toSerialize["fkiCurrencyID"] = o.FkiCurrencyID
+	toSerialize["sCurrencyDescriptionX"] = o.SCurrencyDescriptionX
 	if !IsNil(o.SBankaccountBankname) {
 		toSerialize["sBankaccountBankname"] = o.SBankaccountBankname
-	}
-	if !IsNil(o.FkiLanguageID) {
-		toSerialize["fkiLanguageID"] = o.FkiLanguageID
-	}
-	if !IsNil(o.SLanguageNameX) {
-		toSerialize["sLanguageNameX"] = o.SLanguageNameX
 	}
 	toSerialize["bCreditcardmerchantDenyvisa"] = o.BCreditcardmerchantDenyvisa
 	toSerialize["bCreditcardmerchantDenymastercard"] = o.BCreditcardmerchantDenymastercard
@@ -397,7 +444,10 @@ func (o *CreditcardmerchantResponse) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"pkiCreditcardmerchantID",
-		"fkiBankaccountID",
+		"fkiLanguageID",
+		"sLanguageNameX",
+		"fkiCurrencyID",
+		"sCurrencyDescriptionX",
 		"bCreditcardmerchantDenyvisa",
 		"bCreditcardmerchantDenymastercard",
 		"bCreditcardmerchantDenyamex",

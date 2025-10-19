@@ -32,9 +32,12 @@ Name | Type | Description | Notes
 **SEzsignsignatureTextvalidationcustommessage** | Pointer to **string** | Description of validation rule. Show by signatory. | [optional] 
 **SEzsignsignatureRegexp** | Pointer to **string** | A regular expression to indicate what values are acceptable for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** and eEzsignsignatureTextvalidation is **Custom** | [optional] 
 **EEzsignsignatureDependencyrequirement** | Pointer to [**FieldEEzsignsignatureDependencyrequirement**](FieldEEzsignsignatureDependencyrequirement.md) |  | [optional] 
+**SEzsignsignatureCreditcardamountdescription** | Pointer to **string** | The description of the Creditcard signature | [optional] 
+**DEzsignsignatureCreditcardamount** | Pointer to **string** | The amount of the Creditcard signature | [optional] 
 **BEzsignsignatureCustomdate** | Pointer to **bool** | Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is **Name** or **Handwritten**) | [optional] 
 **AObjEzsignsignaturecustomdate** | Pointer to [**[]EzsignsignaturecustomdateRequestCompound**](EzsignsignaturecustomdateRequestCompound.md) | An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don&#39;t want to have a date at all. | [optional] 
 **AObjEzsignelementdependency** | Pointer to [**[]EzsignelementdependencyRequestCompound**](EzsignelementdependencyRequestCompound.md) |  | [optional] 
+**AObjEzsignsignaturepaymentdetail** | Pointer to [**[]EzsignsignaturepaymentdetailRequestCompound**](EzsignsignaturepaymentdetailRequestCompound.md) |  | [optional] 
 
 ## Methods
 
@@ -720,6 +723,56 @@ SetEEzsignsignatureDependencyrequirement sets EEzsignsignatureDependencyrequirem
 
 HasEEzsignsignatureDependencyrequirement returns a boolean if a field has been set.
 
+### GetSEzsignsignatureCreditcardamountdescription
+
+`func (o *EzsignsignatureRequestCompound) GetSEzsignsignatureCreditcardamountdescription() string`
+
+GetSEzsignsignatureCreditcardamountdescription returns the SEzsignsignatureCreditcardamountdescription field if non-nil, zero value otherwise.
+
+### GetSEzsignsignatureCreditcardamountdescriptionOk
+
+`func (o *EzsignsignatureRequestCompound) GetSEzsignsignatureCreditcardamountdescriptionOk() (*string, bool)`
+
+GetSEzsignsignatureCreditcardamountdescriptionOk returns a tuple with the SEzsignsignatureCreditcardamountdescription field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzsignsignatureCreditcardamountdescription
+
+`func (o *EzsignsignatureRequestCompound) SetSEzsignsignatureCreditcardamountdescription(v string)`
+
+SetSEzsignsignatureCreditcardamountdescription sets SEzsignsignatureCreditcardamountdescription field to given value.
+
+### HasSEzsignsignatureCreditcardamountdescription
+
+`func (o *EzsignsignatureRequestCompound) HasSEzsignsignatureCreditcardamountdescription() bool`
+
+HasSEzsignsignatureCreditcardamountdescription returns a boolean if a field has been set.
+
+### GetDEzsignsignatureCreditcardamount
+
+`func (o *EzsignsignatureRequestCompound) GetDEzsignsignatureCreditcardamount() string`
+
+GetDEzsignsignatureCreditcardamount returns the DEzsignsignatureCreditcardamount field if non-nil, zero value otherwise.
+
+### GetDEzsignsignatureCreditcardamountOk
+
+`func (o *EzsignsignatureRequestCompound) GetDEzsignsignatureCreditcardamountOk() (*string, bool)`
+
+GetDEzsignsignatureCreditcardamountOk returns a tuple with the DEzsignsignatureCreditcardamount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDEzsignsignatureCreditcardamount
+
+`func (o *EzsignsignatureRequestCompound) SetDEzsignsignatureCreditcardamount(v string)`
+
+SetDEzsignsignatureCreditcardamount sets DEzsignsignatureCreditcardamount field to given value.
+
+### HasDEzsignsignatureCreditcardamount
+
+`func (o *EzsignsignatureRequestCompound) HasDEzsignsignatureCreditcardamount() bool`
+
+HasDEzsignsignatureCreditcardamount returns a boolean if a field has been set.
+
 ### GetBEzsignsignatureCustomdate
 
 `func (o *EzsignsignatureRequestCompound) GetBEzsignsignatureCustomdate() bool`
@@ -794,6 +847,31 @@ SetAObjEzsignelementdependency sets AObjEzsignelementdependency field to given v
 `func (o *EzsignsignatureRequestCompound) HasAObjEzsignelementdependency() bool`
 
 HasAObjEzsignelementdependency returns a boolean if a field has been set.
+
+### GetAObjEzsignsignaturepaymentdetail
+
+`func (o *EzsignsignatureRequestCompound) GetAObjEzsignsignaturepaymentdetail() []EzsignsignaturepaymentdetailRequestCompound`
+
+GetAObjEzsignsignaturepaymentdetail returns the AObjEzsignsignaturepaymentdetail field if non-nil, zero value otherwise.
+
+### GetAObjEzsignsignaturepaymentdetailOk
+
+`func (o *EzsignsignatureRequestCompound) GetAObjEzsignsignaturepaymentdetailOk() (*[]EzsignsignaturepaymentdetailRequestCompound, bool)`
+
+GetAObjEzsignsignaturepaymentdetailOk returns a tuple with the AObjEzsignsignaturepaymentdetail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAObjEzsignsignaturepaymentdetail
+
+`func (o *EzsignsignatureRequestCompound) SetAObjEzsignsignaturepaymentdetail(v []EzsignsignaturepaymentdetailRequestCompound)`
+
+SetAObjEzsignsignaturepaymentdetail sets AObjEzsignsignaturepaymentdetail field to given value.
+
+### HasAObjEzsignsignaturepaymentdetail
+
+`func (o *EzsignsignatureRequestCompound) HasAObjEzsignsignaturepaymentdetail() bool`
+
+HasAObjEzsignsignaturepaymentdetail returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

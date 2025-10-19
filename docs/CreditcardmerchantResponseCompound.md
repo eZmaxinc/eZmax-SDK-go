@@ -5,10 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiCreditcardmerchantID** | **int32** | The unique ID of the Creditcardmerchant | 
-**FkiBankaccountID** | **int32** | The unique ID of the Bankaccount | 
+**FkiBankaccountID** | Pointer to **int32** | The unique ID of the Bankaccount | [optional] 
+**FkiLanguageID** | **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
+**SLanguageNameX** | **string** | The Name of the Language in the language of the requester | 
+**FkiCurrencyID** | **int32** | The unique ID of the Currency. | 
+**SCurrencyDescriptionX** | **string** | The description of the Currency in the language of the requester | 
 **SBankaccountBankname** | Pointer to **string** | The name of the bank | [optional] 
-**FkiLanguageID** | Pointer to **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | [optional] 
-**SLanguageNameX** | Pointer to **string** | The Name of the Language in the language of the requester | [optional] 
 **BCreditcardmerchantDenyvisa** | **bool** | Whether if visa are denied | 
 **BCreditcardmerchantDenymastercard** | **bool** | Whether if mastercard are denied | 
 **BCreditcardmerchantDenyamex** | **bool** | Whether if amex are denied | 
@@ -20,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewCreditcardmerchantResponseCompound
 
-`func NewCreditcardmerchantResponseCompound(pkiCreditcardmerchantID int32, fkiBankaccountID int32, bCreditcardmerchantDenyvisa bool, bCreditcardmerchantDenymastercard bool, bCreditcardmerchantDenyamex bool, bCreditcardmerchantIsactive bool, sCreditcardmerchantDescription string, sCreditcardmerchantStoreid string, ) *CreditcardmerchantResponseCompound`
+`func NewCreditcardmerchantResponseCompound(pkiCreditcardmerchantID int32, fkiLanguageID int32, sLanguageNameX string, fkiCurrencyID int32, sCurrencyDescriptionX string, bCreditcardmerchantDenyvisa bool, bCreditcardmerchantDenymastercard bool, bCreditcardmerchantDenyamex bool, bCreditcardmerchantIsactive bool, sCreditcardmerchantDescription string, sCreditcardmerchantStoreid string, ) *CreditcardmerchantResponseCompound`
 
 NewCreditcardmerchantResponseCompound instantiates a new CreditcardmerchantResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -74,6 +76,91 @@ and a boolean to check if the value has been set.
 
 SetFkiBankaccountID sets FkiBankaccountID field to given value.
 
+### HasFkiBankaccountID
+
+`func (o *CreditcardmerchantResponseCompound) HasFkiBankaccountID() bool`
+
+HasFkiBankaccountID returns a boolean if a field has been set.
+
+### GetFkiLanguageID
+
+`func (o *CreditcardmerchantResponseCompound) GetFkiLanguageID() int32`
+
+GetFkiLanguageID returns the FkiLanguageID field if non-nil, zero value otherwise.
+
+### GetFkiLanguageIDOk
+
+`func (o *CreditcardmerchantResponseCompound) GetFkiLanguageIDOk() (*int32, bool)`
+
+GetFkiLanguageIDOk returns a tuple with the FkiLanguageID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiLanguageID
+
+`func (o *CreditcardmerchantResponseCompound) SetFkiLanguageID(v int32)`
+
+SetFkiLanguageID sets FkiLanguageID field to given value.
+
+
+### GetSLanguageNameX
+
+`func (o *CreditcardmerchantResponseCompound) GetSLanguageNameX() string`
+
+GetSLanguageNameX returns the SLanguageNameX field if non-nil, zero value otherwise.
+
+### GetSLanguageNameXOk
+
+`func (o *CreditcardmerchantResponseCompound) GetSLanguageNameXOk() (*string, bool)`
+
+GetSLanguageNameXOk returns a tuple with the SLanguageNameX field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSLanguageNameX
+
+`func (o *CreditcardmerchantResponseCompound) SetSLanguageNameX(v string)`
+
+SetSLanguageNameX sets SLanguageNameX field to given value.
+
+
+### GetFkiCurrencyID
+
+`func (o *CreditcardmerchantResponseCompound) GetFkiCurrencyID() int32`
+
+GetFkiCurrencyID returns the FkiCurrencyID field if non-nil, zero value otherwise.
+
+### GetFkiCurrencyIDOk
+
+`func (o *CreditcardmerchantResponseCompound) GetFkiCurrencyIDOk() (*int32, bool)`
+
+GetFkiCurrencyIDOk returns a tuple with the FkiCurrencyID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiCurrencyID
+
+`func (o *CreditcardmerchantResponseCompound) SetFkiCurrencyID(v int32)`
+
+SetFkiCurrencyID sets FkiCurrencyID field to given value.
+
+
+### GetSCurrencyDescriptionX
+
+`func (o *CreditcardmerchantResponseCompound) GetSCurrencyDescriptionX() string`
+
+GetSCurrencyDescriptionX returns the SCurrencyDescriptionX field if non-nil, zero value otherwise.
+
+### GetSCurrencyDescriptionXOk
+
+`func (o *CreditcardmerchantResponseCompound) GetSCurrencyDescriptionXOk() (*string, bool)`
+
+GetSCurrencyDescriptionXOk returns a tuple with the SCurrencyDescriptionX field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSCurrencyDescriptionX
+
+`func (o *CreditcardmerchantResponseCompound) SetSCurrencyDescriptionX(v string)`
+
+SetSCurrencyDescriptionX sets SCurrencyDescriptionX field to given value.
+
 
 ### GetSBankaccountBankname
 
@@ -99,56 +186,6 @@ SetSBankaccountBankname sets SBankaccountBankname field to given value.
 `func (o *CreditcardmerchantResponseCompound) HasSBankaccountBankname() bool`
 
 HasSBankaccountBankname returns a boolean if a field has been set.
-
-### GetFkiLanguageID
-
-`func (o *CreditcardmerchantResponseCompound) GetFkiLanguageID() int32`
-
-GetFkiLanguageID returns the FkiLanguageID field if non-nil, zero value otherwise.
-
-### GetFkiLanguageIDOk
-
-`func (o *CreditcardmerchantResponseCompound) GetFkiLanguageIDOk() (*int32, bool)`
-
-GetFkiLanguageIDOk returns a tuple with the FkiLanguageID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFkiLanguageID
-
-`func (o *CreditcardmerchantResponseCompound) SetFkiLanguageID(v int32)`
-
-SetFkiLanguageID sets FkiLanguageID field to given value.
-
-### HasFkiLanguageID
-
-`func (o *CreditcardmerchantResponseCompound) HasFkiLanguageID() bool`
-
-HasFkiLanguageID returns a boolean if a field has been set.
-
-### GetSLanguageNameX
-
-`func (o *CreditcardmerchantResponseCompound) GetSLanguageNameX() string`
-
-GetSLanguageNameX returns the SLanguageNameX field if non-nil, zero value otherwise.
-
-### GetSLanguageNameXOk
-
-`func (o *CreditcardmerchantResponseCompound) GetSLanguageNameXOk() (*string, bool)`
-
-GetSLanguageNameXOk returns a tuple with the SLanguageNameX field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSLanguageNameX
-
-`func (o *CreditcardmerchantResponseCompound) SetSLanguageNameX(v string)`
-
-SetSLanguageNameX sets SLanguageNameX field to given value.
-
-### HasSLanguageNameX
-
-`func (o *CreditcardmerchantResponseCompound) HasSLanguageNameX() bool`
-
-HasSLanguageNameX returns a boolean if a field has been set.
 
 ### GetBCreditcardmerchantDenyvisa
 

@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -71,11 +71,16 @@ type EzsignsignatureRequestCompound struct {
 	// A regular expression to indicate what values are acceptable for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** and eEzsignsignatureTextvalidation is **Custom**
 	SEzsignsignatureRegexp *string `json:"sEzsignsignatureRegexp,omitempty" validate:"regexp=^\\\\^.*\\\\$$|^$"`
 	EEzsignsignatureDependencyrequirement *FieldEEzsignsignatureDependencyrequirement `json:"eEzsignsignatureDependencyrequirement,omitempty"`
+	// The description of the Creditcard signature
+	SEzsignsignatureCreditcardamountdescription *string `json:"sEzsignsignatureCreditcardamountdescription,omitempty" validate:"regexp=^.{1,50}$"`
+	// The amount of the Creditcard signature
+	DEzsignsignatureCreditcardamount *string `json:"dEzsignsignatureCreditcardamount,omitempty" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
 	// Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is **Name** or **Handwritten**)
 	BEzsignsignatureCustomdate *bool `json:"bEzsignsignatureCustomdate,omitempty"`
 	// An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.
 	AObjEzsignsignaturecustomdate []EzsignsignaturecustomdateRequestCompound `json:"a_objEzsignsignaturecustomdate,omitempty"`
 	AObjEzsignelementdependency []EzsignelementdependencyRequestCompound `json:"a_objEzsignelementdependency,omitempty"`
+	AObjEzsignsignaturepaymentdetail []EzsignsignaturepaymentdetailRequestCompound `json:"a_objEzsignsignaturepaymentdetail,omitempty"`
 }
 
 type _EzsignsignatureRequestCompound EzsignsignatureRequestCompound
@@ -944,6 +949,70 @@ func (o *EzsignsignatureRequestCompound) SetEEzsignsignatureDependencyrequiremen
 	o.EEzsignsignatureDependencyrequirement = &v
 }
 
+// GetSEzsignsignatureCreditcardamountdescription returns the SEzsignsignatureCreditcardamountdescription field value if set, zero value otherwise.
+func (o *EzsignsignatureRequestCompound) GetSEzsignsignatureCreditcardamountdescription() string {
+	if o == nil || IsNil(o.SEzsignsignatureCreditcardamountdescription) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsignsignatureCreditcardamountdescription
+}
+
+// GetSEzsignsignatureCreditcardamountdescriptionOk returns a tuple with the SEzsignsignatureCreditcardamountdescription field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureRequestCompound) GetSEzsignsignatureCreditcardamountdescriptionOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsignsignatureCreditcardamountdescription) {
+		return nil, false
+	}
+	return o.SEzsignsignatureCreditcardamountdescription, true
+}
+
+// HasSEzsignsignatureCreditcardamountdescription returns a boolean if a field has been set.
+func (o *EzsignsignatureRequestCompound) HasSEzsignsignatureCreditcardamountdescription() bool {
+	if o != nil && !IsNil(o.SEzsignsignatureCreditcardamountdescription) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsignsignatureCreditcardamountdescription gets a reference to the given string and assigns it to the SEzsignsignatureCreditcardamountdescription field.
+func (o *EzsignsignatureRequestCompound) SetSEzsignsignatureCreditcardamountdescription(v string) {
+	o.SEzsignsignatureCreditcardamountdescription = &v
+}
+
+// GetDEzsignsignatureCreditcardamount returns the DEzsignsignatureCreditcardamount field value if set, zero value otherwise.
+func (o *EzsignsignatureRequestCompound) GetDEzsignsignatureCreditcardamount() string {
+	if o == nil || IsNil(o.DEzsignsignatureCreditcardamount) {
+		var ret string
+		return ret
+	}
+	return *o.DEzsignsignatureCreditcardamount
+}
+
+// GetDEzsignsignatureCreditcardamountOk returns a tuple with the DEzsignsignatureCreditcardamount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureRequestCompound) GetDEzsignsignatureCreditcardamountOk() (*string, bool) {
+	if o == nil || IsNil(o.DEzsignsignatureCreditcardamount) {
+		return nil, false
+	}
+	return o.DEzsignsignatureCreditcardamount, true
+}
+
+// HasDEzsignsignatureCreditcardamount returns a boolean if a field has been set.
+func (o *EzsignsignatureRequestCompound) HasDEzsignsignatureCreditcardamount() bool {
+	if o != nil && !IsNil(o.DEzsignsignatureCreditcardamount) {
+		return true
+	}
+
+	return false
+}
+
+// SetDEzsignsignatureCreditcardamount gets a reference to the given string and assigns it to the DEzsignsignatureCreditcardamount field.
+func (o *EzsignsignatureRequestCompound) SetDEzsignsignatureCreditcardamount(v string) {
+	o.DEzsignsignatureCreditcardamount = &v
+}
+
 // GetBEzsignsignatureCustomdate returns the BEzsignsignatureCustomdate field value if set, zero value otherwise.
 func (o *EzsignsignatureRequestCompound) GetBEzsignsignatureCustomdate() bool {
 	if o == nil || IsNil(o.BEzsignsignatureCustomdate) {
@@ -1040,6 +1109,38 @@ func (o *EzsignsignatureRequestCompound) SetAObjEzsignelementdependency(v []Ezsi
 	o.AObjEzsignelementdependency = v
 }
 
+// GetAObjEzsignsignaturepaymentdetail returns the AObjEzsignsignaturepaymentdetail field value if set, zero value otherwise.
+func (o *EzsignsignatureRequestCompound) GetAObjEzsignsignaturepaymentdetail() []EzsignsignaturepaymentdetailRequestCompound {
+	if o == nil || IsNil(o.AObjEzsignsignaturepaymentdetail) {
+		var ret []EzsignsignaturepaymentdetailRequestCompound
+		return ret
+	}
+	return o.AObjEzsignsignaturepaymentdetail
+}
+
+// GetAObjEzsignsignaturepaymentdetailOk returns a tuple with the AObjEzsignsignaturepaymentdetail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureRequestCompound) GetAObjEzsignsignaturepaymentdetailOk() ([]EzsignsignaturepaymentdetailRequestCompound, bool) {
+	if o == nil || IsNil(o.AObjEzsignsignaturepaymentdetail) {
+		return nil, false
+	}
+	return o.AObjEzsignsignaturepaymentdetail, true
+}
+
+// HasAObjEzsignsignaturepaymentdetail returns a boolean if a field has been set.
+func (o *EzsignsignatureRequestCompound) HasAObjEzsignsignaturepaymentdetail() bool {
+	if o != nil && !IsNil(o.AObjEzsignsignaturepaymentdetail) {
+		return true
+	}
+
+	return false
+}
+
+// SetAObjEzsignsignaturepaymentdetail gets a reference to the given []EzsignsignaturepaymentdetailRequestCompound and assigns it to the AObjEzsignsignaturepaymentdetail field.
+func (o *EzsignsignatureRequestCompound) SetAObjEzsignsignaturepaymentdetail(v []EzsignsignaturepaymentdetailRequestCompound) {
+	o.AObjEzsignsignaturepaymentdetail = v
+}
+
 func (o EzsignsignatureRequestCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1120,6 +1221,12 @@ func (o EzsignsignatureRequestCompound) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.EEzsignsignatureDependencyrequirement) {
 		toSerialize["eEzsignsignatureDependencyrequirement"] = o.EEzsignsignatureDependencyrequirement
 	}
+	if !IsNil(o.SEzsignsignatureCreditcardamountdescription) {
+		toSerialize["sEzsignsignatureCreditcardamountdescription"] = o.SEzsignsignatureCreditcardamountdescription
+	}
+	if !IsNil(o.DEzsignsignatureCreditcardamount) {
+		toSerialize["dEzsignsignatureCreditcardamount"] = o.DEzsignsignatureCreditcardamount
+	}
 	if !IsNil(o.BEzsignsignatureCustomdate) {
 		toSerialize["bEzsignsignatureCustomdate"] = o.BEzsignsignatureCustomdate
 	}
@@ -1128,6 +1235,9 @@ func (o EzsignsignatureRequestCompound) ToMap() (map[string]interface{}, error) 
 	}
 	if !IsNil(o.AObjEzsignelementdependency) {
 		toSerialize["a_objEzsignelementdependency"] = o.AObjEzsignelementdependency
+	}
+	if !IsNil(o.AObjEzsignsignaturepaymentdetail) {
+		toSerialize["a_objEzsignsignaturepaymentdetail"] = o.AObjEzsignsignaturepaymentdetail
 	}
 	return toSerialize, nil
 }

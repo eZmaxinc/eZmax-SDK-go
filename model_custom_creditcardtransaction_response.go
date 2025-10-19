@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -26,7 +26,7 @@ type CustomCreditcardtransactionResponse struct {
 	// The amount of the Creditcardtransaction
 	DCreditcardtransactionAmount string `json:"dCreditcardtransactionAmount" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
 	// The partially decrypted credit card number used in the Creditcardtransaction
-	SCreditcardtransactionPartiallydecryptednumber string `json:"sCreditcardtransactionPartiallydecryptednumber" validate:"regexp=^([X]{4}[ ]){3}(\\\\d){4}$"`
+	SCreditcardtransactionPartiallydecryptednumber string `json:"sCreditcardtransactionPartiallydecryptednumber" validate:"regexp=^(([X]{4}[ ]){3}(\\\\d){4})|([X]{4}[ ][X]{6}[ ][X][\\\\d]{4})$"`
 	// The reference number on the creditcard service for the Creditcardtransaction
 	SCreditcardtransactionReferencenumber string `json:"sCreditcardtransactionReferencenumber" validate:"regexp=^[\\\\d]{18}$"`
 }

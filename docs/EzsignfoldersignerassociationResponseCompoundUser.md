@@ -9,12 +9,13 @@ Name | Type | Description | Notes
 **SUserFirstname** | **string** | The first name of the user | 
 **SUserLastname** | **string** | The last name of the user | 
 **SEmailAddress** | **string** | The email address. | 
+**EUserType** | [**FieldEUserType**](FieldEUserType.md) |  | 
 
 ## Methods
 
 ### NewEzsignfoldersignerassociationResponseCompoundUser
 
-`func NewEzsignfoldersignerassociationResponseCompoundUser(pkiUserID int32, fkiLanguageID int32, sUserFirstname string, sUserLastname string, sEmailAddress string, ) *EzsignfoldersignerassociationResponseCompoundUser`
+`func NewEzsignfoldersignerassociationResponseCompoundUser(pkiUserID int32, fkiLanguageID int32, sUserFirstname string, sUserLastname string, sEmailAddress string, eUserType FieldEUserType, ) *EzsignfoldersignerassociationResponseCompoundUser`
 
 NewEzsignfoldersignerassociationResponseCompoundUser instantiates a new EzsignfoldersignerassociationResponseCompoundUser object
 This constructor will assign default values to properties that have it defined,
@@ -127,6 +128,26 @@ and a boolean to check if the value has been set.
 `func (o *EzsignfoldersignerassociationResponseCompoundUser) SetSEmailAddress(v string)`
 
 SetSEmailAddress sets SEmailAddress field to given value.
+
+
+### GetEUserType
+
+`func (o *EzsignfoldersignerassociationResponseCompoundUser) GetEUserType() FieldEUserType`
+
+GetEUserType returns the EUserType field if non-nil, zero value otherwise.
+
+### GetEUserTypeOk
+
+`func (o *EzsignfoldersignerassociationResponseCompoundUser) GetEUserTypeOk() (*FieldEUserType, bool)`
+
+GetEUserTypeOk returns a tuple with the EUserType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEUserType
+
+`func (o *EzsignfoldersignerassociationResponseCompoundUser) SetEUserType(v FieldEUserType)`
+
+SetEUserType sets EUserType field to given value.
 
 
 

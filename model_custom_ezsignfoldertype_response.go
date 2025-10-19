@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -56,6 +56,7 @@ type CustomEzsignfoldertypeResponse struct {
 	IEzsignfoldertypeFontsizeannotation *int32 `json:"iEzsignfoldertypeFontsizeannotation,omitempty"`
 	// Font size for form fields
 	IEzsignfoldertypeFontsizeformfield *int32 `json:"iEzsignfoldertypeFontsizeformfield,omitempty"`
+	EEzsignfoldertypeDocumentmerge *FieldEEzsignfoldertypeDocumentmerge `json:"eEzsignfoldertypeDocumentmerge,omitempty"`
 }
 
 type _CustomEzsignfoldertypeResponse CustomEzsignfoldertypeResponse
@@ -67,6 +68,8 @@ type _CustomEzsignfoldertypeResponse CustomEzsignfoldertypeResponse
 func NewCustomEzsignfoldertypeResponse(pkiEzsignfoldertypeID int32) *CustomEzsignfoldertypeResponse {
 	this := CustomEzsignfoldertypeResponse{}
 	this.PkiEzsignfoldertypeID = pkiEzsignfoldertypeID
+	var eEzsignfoldertypeDocumentmerge FieldEEzsignfoldertypeDocumentmerge = NO
+	this.EEzsignfoldertypeDocumentmerge = &eEzsignfoldertypeDocumentmerge
 	return &this
 }
 
@@ -75,6 +78,8 @@ func NewCustomEzsignfoldertypeResponse(pkiEzsignfoldertypeID int32) *CustomEzsig
 // but it doesn't guarantee that properties required by API are set
 func NewCustomEzsignfoldertypeResponseWithDefaults() *CustomEzsignfoldertypeResponse {
 	this := CustomEzsignfoldertypeResponse{}
+	var eEzsignfoldertypeDocumentmerge FieldEEzsignfoldertypeDocumentmerge = NO
+	this.EEzsignfoldertypeDocumentmerge = &eEzsignfoldertypeDocumentmerge
 	return &this
 }
 
@@ -614,6 +619,38 @@ func (o *CustomEzsignfoldertypeResponse) SetIEzsignfoldertypeFontsizeformfield(v
 	o.IEzsignfoldertypeFontsizeformfield = &v
 }
 
+// GetEEzsignfoldertypeDocumentmerge returns the EEzsignfoldertypeDocumentmerge field value if set, zero value otherwise.
+func (o *CustomEzsignfoldertypeResponse) GetEEzsignfoldertypeDocumentmerge() FieldEEzsignfoldertypeDocumentmerge {
+	if o == nil || IsNil(o.EEzsignfoldertypeDocumentmerge) {
+		var ret FieldEEzsignfoldertypeDocumentmerge
+		return ret
+	}
+	return *o.EEzsignfoldertypeDocumentmerge
+}
+
+// GetEEzsignfoldertypeDocumentmergeOk returns a tuple with the EEzsignfoldertypeDocumentmerge field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignfoldertypeResponse) GetEEzsignfoldertypeDocumentmergeOk() (*FieldEEzsignfoldertypeDocumentmerge, bool) {
+	if o == nil || IsNil(o.EEzsignfoldertypeDocumentmerge) {
+		return nil, false
+	}
+	return o.EEzsignfoldertypeDocumentmerge, true
+}
+
+// HasEEzsignfoldertypeDocumentmerge returns a boolean if a field has been set.
+func (o *CustomEzsignfoldertypeResponse) HasEEzsignfoldertypeDocumentmerge() bool {
+	if o != nil && !IsNil(o.EEzsignfoldertypeDocumentmerge) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsignfoldertypeDocumentmerge gets a reference to the given FieldEEzsignfoldertypeDocumentmerge and assigns it to the EEzsignfoldertypeDocumentmerge field.
+func (o *CustomEzsignfoldertypeResponse) SetEEzsignfoldertypeDocumentmerge(v FieldEEzsignfoldertypeDocumentmerge) {
+	o.EEzsignfoldertypeDocumentmerge = &v
+}
+
 func (o CustomEzsignfoldertypeResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -672,6 +709,9 @@ func (o CustomEzsignfoldertypeResponse) ToMap() (map[string]interface{}, error) 
 	}
 	if !IsNil(o.IEzsignfoldertypeFontsizeformfield) {
 		toSerialize["iEzsignfoldertypeFontsizeformfield"] = o.IEzsignfoldertypeFontsizeformfield
+	}
+	if !IsNil(o.EEzsignfoldertypeDocumentmerge) {
+		toSerialize["eEzsignfoldertypeDocumentmerge"] = o.EEzsignfoldertypeDocumentmerge
 	}
 	return toSerialize, nil
 }

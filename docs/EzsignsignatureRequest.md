@@ -32,6 +32,8 @@ Name | Type | Description | Notes
 **SEzsignsignatureTextvalidationcustommessage** | Pointer to **string** | Description of validation rule. Show by signatory. | [optional] 
 **SEzsignsignatureRegexp** | Pointer to **string** | A regular expression to indicate what values are acceptable for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** and eEzsignsignatureTextvalidation is **Custom** | [optional] 
 **EEzsignsignatureDependencyrequirement** | Pointer to [**FieldEEzsignsignatureDependencyrequirement**](FieldEEzsignsignatureDependencyrequirement.md) |  | [optional] 
+**SEzsignsignatureCreditcardamountdescription** | Pointer to **string** | The description of the Creditcard signature | [optional] 
+**DEzsignsignatureCreditcardamount** | Pointer to **string** | The amount of the Creditcard signature | [optional] 
 
 ## Methods
 
@@ -716,6 +718,56 @@ SetEEzsignsignatureDependencyrequirement sets EEzsignsignatureDependencyrequirem
 `func (o *EzsignsignatureRequest) HasEEzsignsignatureDependencyrequirement() bool`
 
 HasEEzsignsignatureDependencyrequirement returns a boolean if a field has been set.
+
+### GetSEzsignsignatureCreditcardamountdescription
+
+`func (o *EzsignsignatureRequest) GetSEzsignsignatureCreditcardamountdescription() string`
+
+GetSEzsignsignatureCreditcardamountdescription returns the SEzsignsignatureCreditcardamountdescription field if non-nil, zero value otherwise.
+
+### GetSEzsignsignatureCreditcardamountdescriptionOk
+
+`func (o *EzsignsignatureRequest) GetSEzsignsignatureCreditcardamountdescriptionOk() (*string, bool)`
+
+GetSEzsignsignatureCreditcardamountdescriptionOk returns a tuple with the SEzsignsignatureCreditcardamountdescription field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSEzsignsignatureCreditcardamountdescription
+
+`func (o *EzsignsignatureRequest) SetSEzsignsignatureCreditcardamountdescription(v string)`
+
+SetSEzsignsignatureCreditcardamountdescription sets SEzsignsignatureCreditcardamountdescription field to given value.
+
+### HasSEzsignsignatureCreditcardamountdescription
+
+`func (o *EzsignsignatureRequest) HasSEzsignsignatureCreditcardamountdescription() bool`
+
+HasSEzsignsignatureCreditcardamountdescription returns a boolean if a field has been set.
+
+### GetDEzsignsignatureCreditcardamount
+
+`func (o *EzsignsignatureRequest) GetDEzsignsignatureCreditcardamount() string`
+
+GetDEzsignsignatureCreditcardamount returns the DEzsignsignatureCreditcardamount field if non-nil, zero value otherwise.
+
+### GetDEzsignsignatureCreditcardamountOk
+
+`func (o *EzsignsignatureRequest) GetDEzsignsignatureCreditcardamountOk() (*string, bool)`
+
+GetDEzsignsignatureCreditcardamountOk returns a tuple with the DEzsignsignatureCreditcardamount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDEzsignsignatureCreditcardamount
+
+`func (o *EzsignsignatureRequest) SetDEzsignsignatureCreditcardamount(v string)`
+
+SetDEzsignsignatureCreditcardamount sets DEzsignsignatureCreditcardamount field to given value.
+
+### HasDEzsignsignatureCreditcardamount
+
+`func (o *EzsignsignatureRequest) HasDEzsignsignatureCreditcardamount() bool`
+
+HasDEzsignsignatureCreditcardamount returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiBrandingID** | Pointer to **int32** | The unique ID of the Branding | [optional] 
+**FkiDomainID** | Pointer to **int32** | The unique ID of the Domain | [optional] 
 **ObjBrandingDescription** | [**MultilingualBrandingDescription**](MultilingualBrandingDescription.md) |  | 
 **EBrandingLogo** | [**FieldEBrandingLogo**](FieldEBrandingLogo.md) |  | 
 **EBrandingAlignlogo** | Pointer to [**FieldEBrandingAlignlogo**](FieldEBrandingAlignlogo.md) |  | [optional] 
@@ -57,6 +58,31 @@ SetPkiBrandingID sets PkiBrandingID field to given value.
 `func (o *BrandingRequestV2) HasPkiBrandingID() bool`
 
 HasPkiBrandingID returns a boolean if a field has been set.
+
+### GetFkiDomainID
+
+`func (o *BrandingRequestV2) GetFkiDomainID() int32`
+
+GetFkiDomainID returns the FkiDomainID field if non-nil, zero value otherwise.
+
+### GetFkiDomainIDOk
+
+`func (o *BrandingRequestV2) GetFkiDomainIDOk() (*int32, bool)`
+
+GetFkiDomainIDOk returns a tuple with the FkiDomainID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiDomainID
+
+`func (o *BrandingRequestV2) SetFkiDomainID(v int32)`
+
+SetFkiDomainID sets FkiDomainID field to given value.
+
+### HasFkiDomainID
+
+`func (o *BrandingRequestV2) HasFkiDomainID() bool`
+
+HasFkiDomainID returns a boolean if a field has been set.
 
 ### GetObjBrandingDescription
 

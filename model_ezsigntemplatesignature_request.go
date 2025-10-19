@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -30,6 +30,8 @@ type EzsigntemplatesignatureRequest struct {
 	FkiEzsigntemplatesignerID int32 `json:"fkiEzsigntemplatesignerID"`
 	// The unique ID of the Ezsigntemplatesigner
 	FkiEzsigntemplatesignerIDValidation *int32 `json:"fkiEzsigntemplatesignerIDValidation,omitempty"`
+	// The unique ID of the Paymentgateway
+	FkiPaymentgatewayID *int32 `json:"fkiPaymentgatewayID,omitempty"`
 	// Whether the Ezsigntemplatesignature must be handwritten or not when eEzsigntemplatesignatureType = Signature.
 	BEzsigntemplatesignatureHandwritten *bool `json:"bEzsigntemplatesignatureHandwritten,omitempty"`
 	// Whether the Ezsigntemplatesignature must include a reason or not when eEzsigntemplatesignatureType = Signature.
@@ -77,6 +79,10 @@ type EzsigntemplatesignatureRequest struct {
 	// The offset Y  This will be required if **eEzsigntemplatesignaturePositioning** is set to **PerCoordinates**
 	IEzsigntemplatesignaturePositioningoffsety *int32 `json:"iEzsigntemplatesignaturePositioningoffsety,omitempty"`
 	EEzsigntemplatesignaturePositioningoccurence *FieldEEzsigntemplatesignaturePositioningoccurence `json:"eEzsigntemplatesignaturePositioningoccurence,omitempty"`
+	// The description of the Creditcard signature
+	SEzsigntemplatesignatureCreditcardamountdescription *string `json:"sEzsigntemplatesignatureCreditcardamountdescription,omitempty" validate:"regexp=^.{1,50}$"`
+	// The amount of the Creditcard signature
+	DEzsigntemplatesignatureCreditcardamount *string `json:"dEzsigntemplatesignatureCreditcardamount,omitempty" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
 }
 
 type _EzsigntemplatesignatureRequest EzsigntemplatesignatureRequest
@@ -213,6 +219,38 @@ func (o *EzsigntemplatesignatureRequest) HasFkiEzsigntemplatesignerIDValidation(
 // SetFkiEzsigntemplatesignerIDValidation gets a reference to the given int32 and assigns it to the FkiEzsigntemplatesignerIDValidation field.
 func (o *EzsigntemplatesignatureRequest) SetFkiEzsigntemplatesignerIDValidation(v int32) {
 	o.FkiEzsigntemplatesignerIDValidation = &v
+}
+
+// GetFkiPaymentgatewayID returns the FkiPaymentgatewayID field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequest) GetFkiPaymentgatewayID() int32 {
+	if o == nil || IsNil(o.FkiPaymentgatewayID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiPaymentgatewayID
+}
+
+// GetFkiPaymentgatewayIDOk returns a tuple with the FkiPaymentgatewayID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequest) GetFkiPaymentgatewayIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiPaymentgatewayID) {
+		return nil, false
+	}
+	return o.FkiPaymentgatewayID, true
+}
+
+// HasFkiPaymentgatewayID returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequest) HasFkiPaymentgatewayID() bool {
+	if o != nil && !IsNil(o.FkiPaymentgatewayID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiPaymentgatewayID gets a reference to the given int32 and assigns it to the FkiPaymentgatewayID field.
+func (o *EzsigntemplatesignatureRequest) SetFkiPaymentgatewayID(v int32) {
+	o.FkiPaymentgatewayID = &v
 }
 
 // GetBEzsigntemplatesignatureHandwritten returns the BEzsigntemplatesignatureHandwritten field value if set, zero value otherwise.
@@ -1087,6 +1125,70 @@ func (o *EzsigntemplatesignatureRequest) SetEEzsigntemplatesignaturePositioningo
 	o.EEzsigntemplatesignaturePositioningoccurence = &v
 }
 
+// GetSEzsigntemplatesignatureCreditcardamountdescription returns the SEzsigntemplatesignatureCreditcardamountdescription field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequest) GetSEzsigntemplatesignatureCreditcardamountdescription() string {
+	if o == nil || IsNil(o.SEzsigntemplatesignatureCreditcardamountdescription) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsigntemplatesignatureCreditcardamountdescription
+}
+
+// GetSEzsigntemplatesignatureCreditcardamountdescriptionOk returns a tuple with the SEzsigntemplatesignatureCreditcardamountdescription field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequest) GetSEzsigntemplatesignatureCreditcardamountdescriptionOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsigntemplatesignatureCreditcardamountdescription) {
+		return nil, false
+	}
+	return o.SEzsigntemplatesignatureCreditcardamountdescription, true
+}
+
+// HasSEzsigntemplatesignatureCreditcardamountdescription returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequest) HasSEzsigntemplatesignatureCreditcardamountdescription() bool {
+	if o != nil && !IsNil(o.SEzsigntemplatesignatureCreditcardamountdescription) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsigntemplatesignatureCreditcardamountdescription gets a reference to the given string and assigns it to the SEzsigntemplatesignatureCreditcardamountdescription field.
+func (o *EzsigntemplatesignatureRequest) SetSEzsigntemplatesignatureCreditcardamountdescription(v string) {
+	o.SEzsigntemplatesignatureCreditcardamountdescription = &v
+}
+
+// GetDEzsigntemplatesignatureCreditcardamount returns the DEzsigntemplatesignatureCreditcardamount field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequest) GetDEzsigntemplatesignatureCreditcardamount() string {
+	if o == nil || IsNil(o.DEzsigntemplatesignatureCreditcardamount) {
+		var ret string
+		return ret
+	}
+	return *o.DEzsigntemplatesignatureCreditcardamount
+}
+
+// GetDEzsigntemplatesignatureCreditcardamountOk returns a tuple with the DEzsigntemplatesignatureCreditcardamount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequest) GetDEzsigntemplatesignatureCreditcardamountOk() (*string, bool) {
+	if o == nil || IsNil(o.DEzsigntemplatesignatureCreditcardamount) {
+		return nil, false
+	}
+	return o.DEzsigntemplatesignatureCreditcardamount, true
+}
+
+// HasDEzsigntemplatesignatureCreditcardamount returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequest) HasDEzsigntemplatesignatureCreditcardamount() bool {
+	if o != nil && !IsNil(o.DEzsigntemplatesignatureCreditcardamount) {
+		return true
+	}
+
+	return false
+}
+
+// SetDEzsigntemplatesignatureCreditcardamount gets a reference to the given string and assigns it to the DEzsigntemplatesignatureCreditcardamount field.
+func (o *EzsigntemplatesignatureRequest) SetDEzsigntemplatesignatureCreditcardamount(v string) {
+	o.DEzsigntemplatesignatureCreditcardamount = &v
+}
+
 func (o EzsigntemplatesignatureRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1104,6 +1206,9 @@ func (o EzsigntemplatesignatureRequest) ToMap() (map[string]interface{}, error) 
 	toSerialize["fkiEzsigntemplatesignerID"] = o.FkiEzsigntemplatesignerID
 	if !IsNil(o.FkiEzsigntemplatesignerIDValidation) {
 		toSerialize["fkiEzsigntemplatesignerIDValidation"] = o.FkiEzsigntemplatesignerIDValidation
+	}
+	if !IsNil(o.FkiPaymentgatewayID) {
+		toSerialize["fkiPaymentgatewayID"] = o.FkiPaymentgatewayID
 	}
 	if !IsNil(o.BEzsigntemplatesignatureHandwritten) {
 		toSerialize["bEzsigntemplatesignatureHandwritten"] = o.BEzsigntemplatesignatureHandwritten
@@ -1182,6 +1287,12 @@ func (o EzsigntemplatesignatureRequest) ToMap() (map[string]interface{}, error) 
 	}
 	if !IsNil(o.EEzsigntemplatesignaturePositioningoccurence) {
 		toSerialize["eEzsigntemplatesignaturePositioningoccurence"] = o.EEzsigntemplatesignaturePositioningoccurence
+	}
+	if !IsNil(o.SEzsigntemplatesignatureCreditcardamountdescription) {
+		toSerialize["sEzsigntemplatesignatureCreditcardamountdescription"] = o.SEzsigntemplatesignatureCreditcardamountdescription
+	}
+	if !IsNil(o.DEzsigntemplatesignatureCreditcardamount) {
+		toSerialize["dEzsigntemplatesignatureCreditcardamount"] = o.DEzsigntemplatesignatureCreditcardamount
 	}
 	return toSerialize, nil
 }

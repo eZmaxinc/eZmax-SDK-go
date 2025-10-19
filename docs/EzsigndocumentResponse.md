@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **SEzsigndocumentMD5signed** | Pointer to **string** | MD5 Hash of the final PDF Document after all signatures were applied to it. | [optional] 
 **BEzsigndocumentEzsignform** | Pointer to **bool** | If the Ezsigndocument contains an Ezsignform or not | [optional] 
 **BEzsigndocumentHassignedsignatures** | Pointer to **bool** | If the Ezsigndocument contains signed signatures (From internal or external sources) | [optional] 
+**BEzsigndocumentSendtoged** | Pointer to **bool** | Whether the Ezsigndocument was copied to EDM | [optional] 
 **ObjAudit** | Pointer to [**CommonAudit**](CommonAudit.md) |  | [optional] 
 **SEzsigndocumentExternalid** | Pointer to **string** | This field can be used to store an External ID from the client&#39;s system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format.  | [optional] 
 **IEzsigndocumentEzsignsignatureattachmenttotal** | **int32** | The number of Ezsigndocumentattachment total | 
@@ -497,6 +498,31 @@ SetBEzsigndocumentHassignedsignatures sets BEzsigndocumentHassignedsignatures fi
 `func (o *EzsigndocumentResponse) HasBEzsigndocumentHassignedsignatures() bool`
 
 HasBEzsigndocumentHassignedsignatures returns a boolean if a field has been set.
+
+### GetBEzsigndocumentSendtoged
+
+`func (o *EzsigndocumentResponse) GetBEzsigndocumentSendtoged() bool`
+
+GetBEzsigndocumentSendtoged returns the BEzsigndocumentSendtoged field if non-nil, zero value otherwise.
+
+### GetBEzsigndocumentSendtogedOk
+
+`func (o *EzsigndocumentResponse) GetBEzsigndocumentSendtogedOk() (*bool, bool)`
+
+GetBEzsigndocumentSendtogedOk returns a tuple with the BEzsigndocumentSendtoged field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsigndocumentSendtoged
+
+`func (o *EzsigndocumentResponse) SetBEzsigndocumentSendtoged(v bool)`
+
+SetBEzsigndocumentSendtoged sets BEzsigndocumentSendtoged field to given value.
+
+### HasBEzsigndocumentSendtoged
+
+`func (o *EzsigndocumentResponse) HasBEzsigndocumentSendtoged() bool`
+
+HasBEzsigndocumentSendtoged returns a boolean if a field has been set.
 
 ### GetObjAudit
 

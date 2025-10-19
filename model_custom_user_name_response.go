@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -22,10 +22,14 @@ var _ MappedNullable = &CustomUserNameResponse{}
 
 // CustomUserNameResponse A User name Object
 type CustomUserNameResponse struct {
+	// The name of the Contacttitle in the language of the requester
+	SContacttitleNameX *string `json:"sContacttitleNameX,omitempty" validate:"regexp=^.{0,10}$"`
 	// The last name of the user
 	SUserLastname string `json:"sUserLastname"`
 	// The first name of the user
 	SUserFirstname string `json:"sUserFirstname"`
+	// The job title of the user
+	SUserJobtitle *string `json:"sUserJobtitle,omitempty" validate:"regexp=^.{0,50}$"`
 }
 
 type _CustomUserNameResponse CustomUserNameResponse
@@ -47,6 +51,38 @@ func NewCustomUserNameResponse(sUserLastname string, sUserFirstname string) *Cus
 func NewCustomUserNameResponseWithDefaults() *CustomUserNameResponse {
 	this := CustomUserNameResponse{}
 	return &this
+}
+
+// GetSContacttitleNameX returns the SContacttitleNameX field value if set, zero value otherwise.
+func (o *CustomUserNameResponse) GetSContacttitleNameX() string {
+	if o == nil || IsNil(o.SContacttitleNameX) {
+		var ret string
+		return ret
+	}
+	return *o.SContacttitleNameX
+}
+
+// GetSContacttitleNameXOk returns a tuple with the SContacttitleNameX field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomUserNameResponse) GetSContacttitleNameXOk() (*string, bool) {
+	if o == nil || IsNil(o.SContacttitleNameX) {
+		return nil, false
+	}
+	return o.SContacttitleNameX, true
+}
+
+// HasSContacttitleNameX returns a boolean if a field has been set.
+func (o *CustomUserNameResponse) HasSContacttitleNameX() bool {
+	if o != nil && !IsNil(o.SContacttitleNameX) {
+		return true
+	}
+
+	return false
+}
+
+// SetSContacttitleNameX gets a reference to the given string and assigns it to the SContacttitleNameX field.
+func (o *CustomUserNameResponse) SetSContacttitleNameX(v string) {
+	o.SContacttitleNameX = &v
 }
 
 // GetSUserLastname returns the SUserLastname field value
@@ -97,6 +133,38 @@ func (o *CustomUserNameResponse) SetSUserFirstname(v string) {
 	o.SUserFirstname = v
 }
 
+// GetSUserJobtitle returns the SUserJobtitle field value if set, zero value otherwise.
+func (o *CustomUserNameResponse) GetSUserJobtitle() string {
+	if o == nil || IsNil(o.SUserJobtitle) {
+		var ret string
+		return ret
+	}
+	return *o.SUserJobtitle
+}
+
+// GetSUserJobtitleOk returns a tuple with the SUserJobtitle field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomUserNameResponse) GetSUserJobtitleOk() (*string, bool) {
+	if o == nil || IsNil(o.SUserJobtitle) {
+		return nil, false
+	}
+	return o.SUserJobtitle, true
+}
+
+// HasSUserJobtitle returns a boolean if a field has been set.
+func (o *CustomUserNameResponse) HasSUserJobtitle() bool {
+	if o != nil && !IsNil(o.SUserJobtitle) {
+		return true
+	}
+
+	return false
+}
+
+// SetSUserJobtitle gets a reference to the given string and assigns it to the SUserJobtitle field.
+func (o *CustomUserNameResponse) SetSUserJobtitle(v string) {
+	o.SUserJobtitle = &v
+}
+
 func (o CustomUserNameResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -107,8 +175,14 @@ func (o CustomUserNameResponse) MarshalJSON() ([]byte, error) {
 
 func (o CustomUserNameResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.SContacttitleNameX) {
+		toSerialize["sContacttitleNameX"] = o.SContacttitleNameX
+	}
 	toSerialize["sUserLastname"] = o.SUserLastname
 	toSerialize["sUserFirstname"] = o.SUserFirstname
+	if !IsNil(o.SUserJobtitle) {
+		toSerialize["sUserJobtitle"] = o.SUserJobtitle
+	}
 	return toSerialize, nil
 }
 

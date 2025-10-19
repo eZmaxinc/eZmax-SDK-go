@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -495,6 +495,150 @@ func (a *ObjectTranqcontractAPIService) TranqcontractGetCommunicationsendersV1Ex
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiTranqcontractImportIntoEDMV1Request struct {
+	ctx context.Context
+	ApiService *ObjectTranqcontractAPIService
+	pkiTranqcontractID int32
+	tranqcontractImportIntoEDMV1Request *TranqcontractImportIntoEDMV1Request
+}
+
+func (r ApiTranqcontractImportIntoEDMV1Request) TranqcontractImportIntoEDMV1Request(tranqcontractImportIntoEDMV1Request TranqcontractImportIntoEDMV1Request) ApiTranqcontractImportIntoEDMV1Request {
+	r.tranqcontractImportIntoEDMV1Request = &tranqcontractImportIntoEDMV1Request
+	return r
+}
+
+func (r ApiTranqcontractImportIntoEDMV1Request) Execute() (*TranqcontractImportIntoEDMV1Response, *http.Response, error) {
+	return r.ApiService.TranqcontractImportIntoEDMV1Execute(r)
+}
+
+/*
+TranqcontractImportIntoEDMV1 Import attachments into the Tranqcontract
+
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiTranqcontractID
+ @return ApiTranqcontractImportIntoEDMV1Request
+*/
+func (a *ObjectTranqcontractAPIService) TranqcontractImportIntoEDMV1(ctx context.Context, pkiTranqcontractID int32) ApiTranqcontractImportIntoEDMV1Request {
+	return ApiTranqcontractImportIntoEDMV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiTranqcontractID: pkiTranqcontractID,
+	}
+}
+
+// Execute executes the request
+//  @return TranqcontractImportIntoEDMV1Response
+func (a *ObjectTranqcontractAPIService) TranqcontractImportIntoEDMV1Execute(r ApiTranqcontractImportIntoEDMV1Request) (*TranqcontractImportIntoEDMV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TranqcontractImportIntoEDMV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectTranqcontractAPIService.TranqcontractImportIntoEDMV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/tranqcontract/{pkiTranqcontractID}/importIntoEDM"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiTranqcontractID"+"}", url.PathEscape(parameterValueToString(r.pkiTranqcontractID, "pkiTranqcontractID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiTranqcontractID < 0 {
+		return localVarReturnValue, nil, reportError("pkiTranqcontractID must be greater than 0")
+	}
+	if r.pkiTranqcontractID > 16777215 {
+		return localVarReturnValue, nil, reportError("pkiTranqcontractID must be less than 16777215")
+	}
+	if r.tranqcontractImportIntoEDMV1Request == nil {
+		return localVarReturnValue, nil, reportError("tranqcontractImportIntoEDMV1Request is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.tranqcontractImportIntoEDMV1Request
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

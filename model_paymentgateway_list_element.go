@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -29,6 +29,8 @@ type PaymentgatewayListElement struct {
 	EPaymentgatewayProcessor FieldEPaymentgatewayProcessor `json:"ePaymentgatewayProcessor"`
 	// The description of the Paymentgateway in the language of the requester
 	SPaymentgatewayDescriptionX string `json:"sPaymentgatewayDescriptionX" validate:"regexp=^.{1,50}$"`
+	// Whether the Paymentgateway is active or not
+	BPaymentgatewayIsactive bool `json:"bPaymentgatewayIsactive"`
 }
 
 type _PaymentgatewayListElement PaymentgatewayListElement
@@ -37,12 +39,13 @@ type _PaymentgatewayListElement PaymentgatewayListElement
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPaymentgatewayListElement(pkiPaymentgatewayID int32, fkiCreditcardmerchantID int32, ePaymentgatewayProcessor FieldEPaymentgatewayProcessor, sPaymentgatewayDescriptionX string) *PaymentgatewayListElement {
+func NewPaymentgatewayListElement(pkiPaymentgatewayID int32, fkiCreditcardmerchantID int32, ePaymentgatewayProcessor FieldEPaymentgatewayProcessor, sPaymentgatewayDescriptionX string, bPaymentgatewayIsactive bool) *PaymentgatewayListElement {
 	this := PaymentgatewayListElement{}
 	this.PkiPaymentgatewayID = pkiPaymentgatewayID
 	this.FkiCreditcardmerchantID = fkiCreditcardmerchantID
 	this.EPaymentgatewayProcessor = ePaymentgatewayProcessor
 	this.SPaymentgatewayDescriptionX = sPaymentgatewayDescriptionX
+	this.BPaymentgatewayIsactive = bPaymentgatewayIsactive
 	return &this
 }
 
@@ -150,6 +153,30 @@ func (o *PaymentgatewayListElement) SetSPaymentgatewayDescriptionX(v string) {
 	o.SPaymentgatewayDescriptionX = v
 }
 
+// GetBPaymentgatewayIsactive returns the BPaymentgatewayIsactive field value
+func (o *PaymentgatewayListElement) GetBPaymentgatewayIsactive() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BPaymentgatewayIsactive
+}
+
+// GetBPaymentgatewayIsactiveOk returns a tuple with the BPaymentgatewayIsactive field value
+// and a boolean to check if the value has been set.
+func (o *PaymentgatewayListElement) GetBPaymentgatewayIsactiveOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BPaymentgatewayIsactive, true
+}
+
+// SetBPaymentgatewayIsactive sets field value
+func (o *PaymentgatewayListElement) SetBPaymentgatewayIsactive(v bool) {
+	o.BPaymentgatewayIsactive = v
+}
+
 func (o PaymentgatewayListElement) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -164,6 +191,7 @@ func (o PaymentgatewayListElement) ToMap() (map[string]interface{}, error) {
 	toSerialize["fkiCreditcardmerchantID"] = o.FkiCreditcardmerchantID
 	toSerialize["ePaymentgatewayProcessor"] = o.EPaymentgatewayProcessor
 	toSerialize["sPaymentgatewayDescriptionX"] = o.SPaymentgatewayDescriptionX
+	toSerialize["bPaymentgatewayIsactive"] = o.BPaymentgatewayIsactive
 	return toSerialize, nil
 }
 
@@ -176,6 +204,7 @@ func (o *PaymentgatewayListElement) UnmarshalJSON(data []byte) (err error) {
 		"fkiCreditcardmerchantID",
 		"ePaymentgatewayProcessor",
 		"sPaymentgatewayDescriptionX",
+		"bPaymentgatewayIsactive",
 	}
 
 	allProperties := make(map[string]interface{})

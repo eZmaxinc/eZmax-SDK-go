@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **SModulesectionNameX** | Pointer to **string** | The Name of the Modulesection in the language of the requester | [optional] 
 **EVersionhistoryUsertype** | Pointer to [**FieldEVersionhistoryUsertype**](FieldEVersionhistoryUsertype.md) |  | [optional] 
 **ObjVersionhistoryDetail** | [**MultilingualVersionhistoryDetail**](MultilingualVersionhistoryDetail.md) |  | 
-**DtVersionhistoryDate** | **string** | The date  at which the Versionhistory was published or should be published | 
-**DtVersionhistoryDateend** | Pointer to **string** | The date  at which the Versionhistory will no longer be visible | [optional] 
+**DtVersionhistoryDate** | **string** | The date at which the Versionhistory was published or should be published | 
+**DtVersionhistoryDateend** | Pointer to **string** | The date at which the Versionhistory will no longer be visible | [optional] 
 **EVersionhistoryType** | [**FieldEVersionhistoryType**](FieldEVersionhistoryType.md) |  | 
 **BVersionhistoryDraft** | **bool** | Whether the Versionhistory is published or still a draft | 
 

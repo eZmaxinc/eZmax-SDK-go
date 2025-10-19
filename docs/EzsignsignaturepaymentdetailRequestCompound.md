@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiEzsignsignaturepaymentdetailID** | Pointer to **int32** | The unique ID of the Ezsignsignaturepaymentdetail | [optional] 
-**FkiGlaccountcontainerID** | Pointer to **int32** | The unique ID of the Glaccountcontainer | [optional] 
+**FkiGlaccountcontainerID** | **int32** | The unique ID of the Glaccountcontainer | 
 **TEzsignsignaturepaymentdetailDescription** | **string** | A description for the Ezsignsignaturepaymentdetail. | 
 **DEzsignsignaturepaymentdetailAmount** | **string** | The amount of the for the Ezsignsignaturepaymentdetail | 
 **EEzsignsignaturepaymentdetailTaxable** | [**FieldEEzsignsignaturepaymentdetailTaxable**](FieldEEzsignsignaturepaymentdetailTaxable.md) |  | 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewEzsignsignaturepaymentdetailRequestCompound
 
-`func NewEzsignsignaturepaymentdetailRequestCompound(tEzsignsignaturepaymentdetailDescription string, dEzsignsignaturepaymentdetailAmount string, eEzsignsignaturepaymentdetailTaxable FieldEEzsignsignaturepaymentdetailTaxable, ) *EzsignsignaturepaymentdetailRequestCompound`
+`func NewEzsignsignaturepaymentdetailRequestCompound(fkiGlaccountcontainerID int32, tEzsignsignaturepaymentdetailDescription string, dEzsignsignaturepaymentdetailAmount string, eEzsignsignaturepaymentdetailTaxable FieldEEzsignsignaturepaymentdetailTaxable, ) *EzsignsignaturepaymentdetailRequestCompound`
 
 NewEzsignsignaturepaymentdetailRequestCompound instantiates a new EzsignsignaturepaymentdetailRequestCompound object
 This constructor will assign default values to properties that have it defined,
@@ -73,11 +73,6 @@ and a boolean to check if the value has been set.
 
 SetFkiGlaccountcontainerID sets FkiGlaccountcontainerID field to given value.
 
-### HasFkiGlaccountcontainerID
-
-`func (o *EzsignsignaturepaymentdetailRequestCompound) HasFkiGlaccountcontainerID() bool`
-
-HasFkiGlaccountcontainerID returns a boolean if a field has been set.
 
 ### GetTEzsignsignaturepaymentdetailDescription
 

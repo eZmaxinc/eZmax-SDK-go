@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -32,6 +32,7 @@ type EzsignfolderListElement struct {
 	// The description of the Ezsignfolder
 	SEzsignfolderDescription string `json:"sEzsignfolderDescription" validate:"regexp=^.{0,75}$"`
 	EEzsignfolderStep FieldEEzsignfolderStep `json:"eEzsignfolderStep"`
+	EEzsignfolderCompletion FieldEEzsignfolderCompletion `json:"eEzsignfolderCompletion"`
 	// The date and time at which the object was created
 	DtCreatedDate string `json:"dtCreatedDate"`
 	// The date and time at which the Ezsignfolder will be sent in the future.
@@ -76,7 +77,7 @@ type _EzsignfolderListElement EzsignfolderListElement
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfolderListElement(pkiEzsignfolderID int32, fkiEzsignfoldertypeID int32, eEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX string, sEzsignfolderDescription string, eEzsignfolderStep FieldEEzsignfolderStep, dtCreatedDate string, iEzsigndocument int32, iEzsigndocumentEdm int32, iEzsignsignature int32, iEzsignsignatureSigned int32, iEzsignformfieldgroup int32, iEzsignformfieldgroupCompleted int32, dEzsignfolderCompletedpercentage string, dEzsignfolderFormcompletedpercentage string, dEzsignfolderSignaturecompletedpercentage string) *EzsignfolderListElement {
+func NewEzsignfolderListElement(pkiEzsignfolderID int32, fkiEzsignfoldertypeID int32, eEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX string, sEzsignfolderDescription string, eEzsignfolderStep FieldEEzsignfolderStep, eEzsignfolderCompletion FieldEEzsignfolderCompletion, dtCreatedDate string, iEzsigndocument int32, iEzsigndocumentEdm int32, iEzsignsignature int32, iEzsignsignatureSigned int32, iEzsignformfieldgroup int32, iEzsignformfieldgroupCompleted int32, dEzsignfolderCompletedpercentage string, dEzsignfolderFormcompletedpercentage string, dEzsignfolderSignaturecompletedpercentage string) *EzsignfolderListElement {
 	this := EzsignfolderListElement{}
 	this.PkiEzsignfolderID = pkiEzsignfolderID
 	this.FkiEzsignfoldertypeID = fkiEzsignfoldertypeID
@@ -84,6 +85,7 @@ func NewEzsignfolderListElement(pkiEzsignfolderID int32, fkiEzsignfoldertypeID i
 	this.SEzsignfoldertypeNameX = sEzsignfoldertypeNameX
 	this.SEzsignfolderDescription = sEzsignfolderDescription
 	this.EEzsignfolderStep = eEzsignfolderStep
+	this.EEzsignfolderCompletion = eEzsignfolderCompletion
 	this.DtCreatedDate = dtCreatedDate
 	this.IEzsigndocument = iEzsigndocument
 	this.IEzsigndocumentEdm = iEzsigndocumentEdm
@@ -247,6 +249,30 @@ func (o *EzsignfolderListElement) GetEEzsignfolderStepOk() (*FieldEEzsignfolderS
 // SetEEzsignfolderStep sets field value
 func (o *EzsignfolderListElement) SetEEzsignfolderStep(v FieldEEzsignfolderStep) {
 	o.EEzsignfolderStep = v
+}
+
+// GetEEzsignfolderCompletion returns the EEzsignfolderCompletion field value
+func (o *EzsignfolderListElement) GetEEzsignfolderCompletion() FieldEEzsignfolderCompletion {
+	if o == nil {
+		var ret FieldEEzsignfolderCompletion
+		return ret
+	}
+
+	return o.EEzsignfolderCompletion
+}
+
+// GetEEzsignfolderCompletionOk returns a tuple with the EEzsignfolderCompletion field value
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderListElement) GetEEzsignfolderCompletionOk() (*FieldEEzsignfolderCompletion, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EEzsignfolderCompletion, true
+}
+
+// SetEEzsignfolderCompletion sets field value
+func (o *EzsignfolderListElement) SetEEzsignfolderCompletion(v FieldEEzsignfolderCompletion) {
+	o.EEzsignfolderCompletion = v
 }
 
 // GetDtCreatedDate returns the DtCreatedDate field value
@@ -761,6 +787,7 @@ func (o EzsignfolderListElement) ToMap() (map[string]interface{}, error) {
 	toSerialize["sEzsignfoldertypeNameX"] = o.SEzsignfoldertypeNameX
 	toSerialize["sEzsignfolderDescription"] = o.SEzsignfolderDescription
 	toSerialize["eEzsignfolderStep"] = o.EEzsignfolderStep
+	toSerialize["eEzsignfolderCompletion"] = o.EEzsignfolderCompletion
 	toSerialize["dtCreatedDate"] = o.DtCreatedDate
 	if !IsNil(o.DtEzsignfolderDelayedsenddate) {
 		toSerialize["dtEzsignfolderDelayedsenddate"] = o.DtEzsignfolderDelayedsenddate
@@ -809,6 +836,7 @@ func (o *EzsignfolderListElement) UnmarshalJSON(data []byte) (err error) {
 		"sEzsignfoldertypeNameX",
 		"sEzsignfolderDescription",
 		"eEzsignfolderStep",
+		"eEzsignfolderCompletion",
 		"dtCreatedDate",
 		"iEzsigndocument",
 		"iEzsigndocumentEdm",

@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -127,8 +127,8 @@ type AttachmentResponseCompound struct {
 	IAttachmentSize int32 `json:"iAttachmentSize"`
 	// The edmmoduleflag of the Attachment
 	IAttachmentEDMmoduleflag *int32 `json:"iAttachmentEDMmoduleflag,omitempty"`
-	// The md5 of the Attachment
-	SAttachmentMD5 string `json:"sAttachmentMD5" validate:"regexp=^.{0,32}$"`
+	// The MD5 of the Attachment
+	SAttachmentMD5 string `json:"sAttachmentMD5" validate:"regexp=^.{32}$"`
 	// Whether if it's deleted
 	BAttachmentDeleted bool `json:"bAttachmentDeleted"`
 	// Whether if it's valid

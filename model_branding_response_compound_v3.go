@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -24,6 +24,10 @@ var _ MappedNullable = &BrandingResponseCompoundV3{}
 type BrandingResponseCompoundV3 struct {
 	// The unique ID of the Branding
 	PkiBrandingID int32 `json:"pkiBrandingID"`
+	// The unique ID of the Domain
+	FkiDomainID *int32 `json:"fkiDomainID,omitempty"`
+	// The name of the Domain
+	SDomainName *string `json:"sDomainName,omitempty" validate:"regexp=^(?=.{4,75}$)([a-zA-Z0-9-]+\\\\.)+[a-zA-Z]{2,63}$"`
 	// The unique ID of the Email
 	FkiEmailID *int32 `json:"fkiEmailID,omitempty"`
 	ObjBrandingDescription MultilingualBrandingDescription `json:"objBrandingDescription"`
@@ -95,6 +99,70 @@ func (o *BrandingResponseCompoundV3) GetPkiBrandingIDOk() (*int32, bool) {
 // SetPkiBrandingID sets field value
 func (o *BrandingResponseCompoundV3) SetPkiBrandingID(v int32) {
 	o.PkiBrandingID = v
+}
+
+// GetFkiDomainID returns the FkiDomainID field value if set, zero value otherwise.
+func (o *BrandingResponseCompoundV3) GetFkiDomainID() int32 {
+	if o == nil || IsNil(o.FkiDomainID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiDomainID
+}
+
+// GetFkiDomainIDOk returns a tuple with the FkiDomainID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BrandingResponseCompoundV3) GetFkiDomainIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiDomainID) {
+		return nil, false
+	}
+	return o.FkiDomainID, true
+}
+
+// HasFkiDomainID returns a boolean if a field has been set.
+func (o *BrandingResponseCompoundV3) HasFkiDomainID() bool {
+	if o != nil && !IsNil(o.FkiDomainID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiDomainID gets a reference to the given int32 and assigns it to the FkiDomainID field.
+func (o *BrandingResponseCompoundV3) SetFkiDomainID(v int32) {
+	o.FkiDomainID = &v
+}
+
+// GetSDomainName returns the SDomainName field value if set, zero value otherwise.
+func (o *BrandingResponseCompoundV3) GetSDomainName() string {
+	if o == nil || IsNil(o.SDomainName) {
+		var ret string
+		return ret
+	}
+	return *o.SDomainName
+}
+
+// GetSDomainNameOk returns a tuple with the SDomainName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BrandingResponseCompoundV3) GetSDomainNameOk() (*string, bool) {
+	if o == nil || IsNil(o.SDomainName) {
+		return nil, false
+	}
+	return o.SDomainName, true
+}
+
+// HasSDomainName returns a boolean if a field has been set.
+func (o *BrandingResponseCompoundV3) HasSDomainName() bool {
+	if o != nil && !IsNil(o.SDomainName) {
+		return true
+	}
+
+	return false
+}
+
+// SetSDomainName gets a reference to the given string and assigns it to the SDomainName field.
+func (o *BrandingResponseCompoundV3) SetSDomainName(v string) {
+	o.SDomainName = &v
 }
 
 // GetFkiEmailID returns the FkiEmailID field value if set, zero value otherwise.
@@ -444,6 +512,12 @@ func (o BrandingResponseCompoundV3) MarshalJSON() ([]byte, error) {
 func (o BrandingResponseCompoundV3) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiBrandingID"] = o.PkiBrandingID
+	if !IsNil(o.FkiDomainID) {
+		toSerialize["fkiDomainID"] = o.FkiDomainID
+	}
+	if !IsNil(o.SDomainName) {
+		toSerialize["sDomainName"] = o.SDomainName
+	}
 	if !IsNil(o.FkiEmailID) {
 		toSerialize["fkiEmailID"] = o.FkiEmailID
 	}

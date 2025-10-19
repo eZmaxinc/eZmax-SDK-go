@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -27,6 +27,7 @@ type CommonReportrow struct {
 	ObjVariableobject map[string]interface{} `json:"objVariableobject"`
 	// The reportrow height in pixels
 	IReportrowHeight int32 `json:"iReportrowHeight"`
+	ObjReportcellstyleCustom *CommonReportcellstylecustom `json:"objReportcellstyleCustom,omitempty"`
 }
 
 type _CommonReportrow CommonReportrow
@@ -123,6 +124,38 @@ func (o *CommonReportrow) SetIReportrowHeight(v int32) {
 	o.IReportrowHeight = v
 }
 
+// GetObjReportcellstyleCustom returns the ObjReportcellstyleCustom field value if set, zero value otherwise.
+func (o *CommonReportrow) GetObjReportcellstyleCustom() CommonReportcellstylecustom {
+	if o == nil || IsNil(o.ObjReportcellstyleCustom) {
+		var ret CommonReportcellstylecustom
+		return ret
+	}
+	return *o.ObjReportcellstyleCustom
+}
+
+// GetObjReportcellstyleCustomOk returns a tuple with the ObjReportcellstyleCustom field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CommonReportrow) GetObjReportcellstyleCustomOk() (*CommonReportcellstylecustom, bool) {
+	if o == nil || IsNil(o.ObjReportcellstyleCustom) {
+		return nil, false
+	}
+	return o.ObjReportcellstyleCustom, true
+}
+
+// HasObjReportcellstyleCustom returns a boolean if a field has been set.
+func (o *CommonReportrow) HasObjReportcellstyleCustom() bool {
+	if o != nil && !IsNil(o.ObjReportcellstyleCustom) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjReportcellstyleCustom gets a reference to the given CommonReportcellstylecustom and assigns it to the ObjReportcellstyleCustom field.
+func (o *CommonReportrow) SetObjReportcellstyleCustom(v CommonReportcellstylecustom) {
+	o.ObjReportcellstyleCustom = &v
+}
+
 func (o CommonReportrow) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -136,6 +169,9 @@ func (o CommonReportrow) ToMap() (map[string]interface{}, error) {
 	toSerialize["a_objReportcell"] = o.AObjReportcell
 	toSerialize["objVariableobject"] = o.ObjVariableobject
 	toSerialize["iReportrowHeight"] = o.IReportrowHeight
+	if !IsNil(o.ObjReportcellstyleCustom) {
+		toSerialize["objReportcellstyleCustom"] = o.ObjReportcellstyleCustom
+	}
 	return toSerialize, nil
 }
 

@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -25,7 +25,7 @@ type EzsignsignaturepaymentdetailRequestCompound struct {
 	// The unique ID of the Ezsignsignaturepaymentdetail
 	PkiEzsignsignaturepaymentdetailID *int32 `json:"pkiEzsignsignaturepaymentdetailID,omitempty"`
 	// The unique ID of the Glaccountcontainer
-	FkiGlaccountcontainerID *int32 `json:"fkiGlaccountcontainerID,omitempty"`
+	FkiGlaccountcontainerID int32 `json:"fkiGlaccountcontainerID"`
 	// A description for the Ezsignsignaturepaymentdetail.
 	TEzsignsignaturepaymentdetailDescription string `json:"tEzsignsignaturepaymentdetailDescription"`
 	// The amount of the for the Ezsignsignaturepaymentdetail
@@ -39,8 +39,9 @@ type _EzsignsignaturepaymentdetailRequestCompound EzsignsignaturepaymentdetailRe
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignsignaturepaymentdetailRequestCompound(tEzsignsignaturepaymentdetailDescription string, dEzsignsignaturepaymentdetailAmount string, eEzsignsignaturepaymentdetailTaxable FieldEEzsignsignaturepaymentdetailTaxable) *EzsignsignaturepaymentdetailRequestCompound {
+func NewEzsignsignaturepaymentdetailRequestCompound(fkiGlaccountcontainerID int32, tEzsignsignaturepaymentdetailDescription string, dEzsignsignaturepaymentdetailAmount string, eEzsignsignaturepaymentdetailTaxable FieldEEzsignsignaturepaymentdetailTaxable) *EzsignsignaturepaymentdetailRequestCompound {
 	this := EzsignsignaturepaymentdetailRequestCompound{}
+	this.FkiGlaccountcontainerID = fkiGlaccountcontainerID
 	this.TEzsignsignaturepaymentdetailDescription = tEzsignsignaturepaymentdetailDescription
 	this.DEzsignsignaturepaymentdetailAmount = dEzsignsignaturepaymentdetailAmount
 	this.EEzsignsignaturepaymentdetailTaxable = eEzsignsignaturepaymentdetailTaxable
@@ -87,36 +88,28 @@ func (o *EzsignsignaturepaymentdetailRequestCompound) SetPkiEzsignsignaturepayme
 	o.PkiEzsignsignaturepaymentdetailID = &v
 }
 
-// GetFkiGlaccountcontainerID returns the FkiGlaccountcontainerID field value if set, zero value otherwise.
+// GetFkiGlaccountcontainerID returns the FkiGlaccountcontainerID field value
 func (o *EzsignsignaturepaymentdetailRequestCompound) GetFkiGlaccountcontainerID() int32 {
-	if o == nil || IsNil(o.FkiGlaccountcontainerID) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.FkiGlaccountcontainerID
+
+	return o.FkiGlaccountcontainerID
 }
 
-// GetFkiGlaccountcontainerIDOk returns a tuple with the FkiGlaccountcontainerID field value if set, nil otherwise
+// GetFkiGlaccountcontainerIDOk returns a tuple with the FkiGlaccountcontainerID field value
 // and a boolean to check if the value has been set.
 func (o *EzsignsignaturepaymentdetailRequestCompound) GetFkiGlaccountcontainerIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.FkiGlaccountcontainerID) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FkiGlaccountcontainerID, true
+	return &o.FkiGlaccountcontainerID, true
 }
 
-// HasFkiGlaccountcontainerID returns a boolean if a field has been set.
-func (o *EzsignsignaturepaymentdetailRequestCompound) HasFkiGlaccountcontainerID() bool {
-	if o != nil && !IsNil(o.FkiGlaccountcontainerID) {
-		return true
-	}
-
-	return false
-}
-
-// SetFkiGlaccountcontainerID gets a reference to the given int32 and assigns it to the FkiGlaccountcontainerID field.
+// SetFkiGlaccountcontainerID sets field value
 func (o *EzsignsignaturepaymentdetailRequestCompound) SetFkiGlaccountcontainerID(v int32) {
-	o.FkiGlaccountcontainerID = &v
+	o.FkiGlaccountcontainerID = v
 }
 
 // GetTEzsignsignaturepaymentdetailDescription returns the TEzsignsignaturepaymentdetailDescription field value
@@ -204,9 +197,7 @@ func (o EzsignsignaturepaymentdetailRequestCompound) ToMap() (map[string]interfa
 	if !IsNil(o.PkiEzsignsignaturepaymentdetailID) {
 		toSerialize["pkiEzsignsignaturepaymentdetailID"] = o.PkiEzsignsignaturepaymentdetailID
 	}
-	if !IsNil(o.FkiGlaccountcontainerID) {
-		toSerialize["fkiGlaccountcontainerID"] = o.FkiGlaccountcontainerID
-	}
+	toSerialize["fkiGlaccountcontainerID"] = o.FkiGlaccountcontainerID
 	toSerialize["tEzsignsignaturepaymentdetailDescription"] = o.TEzsignsignaturepaymentdetailDescription
 	toSerialize["dEzsignsignaturepaymentdetailAmount"] = o.DEzsignsignaturepaymentdetailAmount
 	toSerialize["eEzsignsignaturepaymentdetailTaxable"] = o.EEzsignsignaturepaymentdetailTaxable
@@ -218,6 +209,7 @@ func (o *EzsignsignaturepaymentdetailRequestCompound) UnmarshalJSON(data []byte)
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"fkiGlaccountcontainerID",
 		"tEzsignsignaturepaymentdetailDescription",
 		"dEzsignsignaturepaymentdetailAmount",
 		"eEzsignsignaturepaymentdetailTaxable",

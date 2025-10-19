@@ -10,16 +10,18 @@ Name | Type | Description | Notes
 **SUserFirstname** | **string** | The first name of the user | 
 **SUserLastname** | **string** | The last name of the user | 
 **SEmailAddress** | Pointer to **string** | The email address. | [optional] 
+**BUserAddmeinezsignfolder** | **bool** | Whether if I want to automatically add myself during the creation of Ezsignfolder of which I am the owner | 
 **EUserEzsignsendreminderfrequency** | [**FieldEUserEzsignsendreminderfrequency**](FieldEUserEzsignsendreminderfrequency.md) |  | 
 **IUserInterfacecolor** | **int32** | The int32 representation of the interface color. For example, RGB color #39435B would be 3752795 | 
 **BUserInterfacedark** | **bool** | Whether to use a dark mode interface | 
 **IUserListresult** | **int32** | The number of rows to return by default in lists | 
+**IUserFrontendgoal** | **int32** | Goals save as bit wise (one bit per goal) | 
 
 ## Methods
 
 ### NewActivesessionResponseCompoundUser
 
-`func NewActivesessionResponseCompoundUser(pkiUserID int32, fkiTimezoneID int32, sUserFirstname string, sUserLastname string, eUserEzsignsendreminderfrequency FieldEUserEzsignsendreminderfrequency, iUserInterfacecolor int32, bUserInterfacedark bool, iUserListresult int32, ) *ActivesessionResponseCompoundUser`
+`func NewActivesessionResponseCompoundUser(pkiUserID int32, fkiTimezoneID int32, sUserFirstname string, sUserLastname string, bUserAddmeinezsignfolder bool, eUserEzsignsendreminderfrequency FieldEUserEzsignsendreminderfrequency, iUserInterfacecolor int32, bUserInterfacedark bool, iUserListresult int32, iUserFrontendgoal int32, ) *ActivesessionResponseCompoundUser`
 
 NewActivesessionResponseCompoundUser instantiates a new ActivesessionResponseCompoundUser object
 This constructor will assign default values to properties that have it defined,
@@ -164,6 +166,26 @@ SetSEmailAddress sets SEmailAddress field to given value.
 
 HasSEmailAddress returns a boolean if a field has been set.
 
+### GetBUserAddmeinezsignfolder
+
+`func (o *ActivesessionResponseCompoundUser) GetBUserAddmeinezsignfolder() bool`
+
+GetBUserAddmeinezsignfolder returns the BUserAddmeinezsignfolder field if non-nil, zero value otherwise.
+
+### GetBUserAddmeinezsignfolderOk
+
+`func (o *ActivesessionResponseCompoundUser) GetBUserAddmeinezsignfolderOk() (*bool, bool)`
+
+GetBUserAddmeinezsignfolderOk returns a tuple with the BUserAddmeinezsignfolder field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBUserAddmeinezsignfolder
+
+`func (o *ActivesessionResponseCompoundUser) SetBUserAddmeinezsignfolder(v bool)`
+
+SetBUserAddmeinezsignfolder sets BUserAddmeinezsignfolder field to given value.
+
+
 ### GetEUserEzsignsendreminderfrequency
 
 `func (o *ActivesessionResponseCompoundUser) GetEUserEzsignsendreminderfrequency() FieldEUserEzsignsendreminderfrequency`
@@ -242,6 +264,26 @@ and a boolean to check if the value has been set.
 `func (o *ActivesessionResponseCompoundUser) SetIUserListresult(v int32)`
 
 SetIUserListresult sets IUserListresult field to given value.
+
+
+### GetIUserFrontendgoal
+
+`func (o *ActivesessionResponseCompoundUser) GetIUserFrontendgoal() int32`
+
+GetIUserFrontendgoal returns the IUserFrontendgoal field if non-nil, zero value otherwise.
+
+### GetIUserFrontendgoalOk
+
+`func (o *ActivesessionResponseCompoundUser) GetIUserFrontendgoalOk() (*int32, bool)`
+
+GetIUserFrontendgoalOk returns a tuple with the IUserFrontendgoal field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIUserFrontendgoal
+
+`func (o *ActivesessionResponseCompoundUser) SetIUserFrontendgoal(v int32)`
+
+SetIUserFrontendgoal sets IUserFrontendgoal field to given value.
 
 
 

@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -25,6 +25,7 @@ type EzsignsignatureSignV1ResponseMPayload struct {
 	// The date the Ezsignsignature was signed in folder's timezone
 	DtEzsignsignatureDateInFolderTimezone string `json:"dtEzsignsignatureDateInFolderTimezone" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$"`
 	ObjTimezone *CustomTimezoneWithCodeResponse `json:"objTimezone,omitempty"`
+	ObjCreditcardtransaction *CustomCreditcardtransactionResponse `json:"objCreditcardtransaction,omitempty"`
 }
 
 type _EzsignsignatureSignV1ResponseMPayload EzsignsignatureSignV1ResponseMPayload
@@ -103,6 +104,38 @@ func (o *EzsignsignatureSignV1ResponseMPayload) SetObjTimezone(v CustomTimezoneW
 	o.ObjTimezone = &v
 }
 
+// GetObjCreditcardtransaction returns the ObjCreditcardtransaction field value if set, zero value otherwise.
+func (o *EzsignsignatureSignV1ResponseMPayload) GetObjCreditcardtransaction() CustomCreditcardtransactionResponse {
+	if o == nil || IsNil(o.ObjCreditcardtransaction) {
+		var ret CustomCreditcardtransactionResponse
+		return ret
+	}
+	return *o.ObjCreditcardtransaction
+}
+
+// GetObjCreditcardtransactionOk returns a tuple with the ObjCreditcardtransaction field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureSignV1ResponseMPayload) GetObjCreditcardtransactionOk() (*CustomCreditcardtransactionResponse, bool) {
+	if o == nil || IsNil(o.ObjCreditcardtransaction) {
+		return nil, false
+	}
+	return o.ObjCreditcardtransaction, true
+}
+
+// HasObjCreditcardtransaction returns a boolean if a field has been set.
+func (o *EzsignsignatureSignV1ResponseMPayload) HasObjCreditcardtransaction() bool {
+	if o != nil && !IsNil(o.ObjCreditcardtransaction) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjCreditcardtransaction gets a reference to the given CustomCreditcardtransactionResponse and assigns it to the ObjCreditcardtransaction field.
+func (o *EzsignsignatureSignV1ResponseMPayload) SetObjCreditcardtransaction(v CustomCreditcardtransactionResponse) {
+	o.ObjCreditcardtransaction = &v
+}
+
 func (o EzsignsignatureSignV1ResponseMPayload) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -116,6 +149,9 @@ func (o EzsignsignatureSignV1ResponseMPayload) ToMap() (map[string]interface{}, 
 	toSerialize["dtEzsignsignatureDateInFolderTimezone"] = o.DtEzsignsignatureDateInFolderTimezone
 	if !IsNil(o.ObjTimezone) {
 		toSerialize["objTimezone"] = o.ObjTimezone
+	}
+	if !IsNil(o.ObjCreditcardtransaction) {
+		toSerialize["objCreditcardtransaction"] = o.ObjCreditcardtransaction
 	}
 	return toSerialize, nil
 }

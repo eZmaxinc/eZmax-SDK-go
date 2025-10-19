@@ -7,11 +7,14 @@ Method | HTTP request | Description
 [**EzsignsignatureCreateObjectV1**](ObjectEzsignsignatureAPI.md#EzsignsignatureCreateObjectV1) | **Post** /1/object/ezsignsignature | Create a new Ezsignsignature
 [**EzsignsignatureCreateObjectV2**](ObjectEzsignsignatureAPI.md#EzsignsignatureCreateObjectV2) | **Post** /2/object/ezsignsignature | Create a new Ezsignsignature
 [**EzsignsignatureCreateObjectV3**](ObjectEzsignsignatureAPI.md#EzsignsignatureCreateObjectV3) | **Post** /3/object/ezsignsignature | Create a new Ezsignsignature
+[**EzsignsignatureCreateObjectV4**](ObjectEzsignsignatureAPI.md#EzsignsignatureCreateObjectV4) | **Post** /4/object/ezsignsignature | Create a new Ezsignsignature
 [**EzsignsignatureDeleteObjectV1**](ObjectEzsignsignatureAPI.md#EzsignsignatureDeleteObjectV1) | **Delete** /1/object/ezsignsignature/{pkiEzsignsignatureID} | Delete an existing Ezsignsignature
 [**EzsignsignatureEditObjectV2**](ObjectEzsignsignatureAPI.md#EzsignsignatureEditObjectV2) | **Put** /2/object/ezsignsignature/{pkiEzsignsignatureID} | Edit an existing Ezsignsignature
+[**EzsignsignatureEditObjectV3**](ObjectEzsignsignatureAPI.md#EzsignsignatureEditObjectV3) | **Put** /3/object/ezsignsignature/{pkiEzsignsignatureID} | Edit an existing Ezsignsignature
 [**EzsignsignatureGetEzsignsignatureattachmentV1**](ObjectEzsignsignatureAPI.md#EzsignsignatureGetEzsignsignatureattachmentV1) | **Get** /1/object/ezsignsignature/{pkiEzsignsignatureID}/getEzsignsignatureattachment | Retrieve an existing Ezsignsignature&#39;s Ezsignsignatureattachments
 [**EzsignsignatureGetEzsignsignaturesAutomaticV1**](ObjectEzsignsignatureAPI.md#EzsignsignatureGetEzsignsignaturesAutomaticV1) | **Get** /1/object/ezsignsignature/getEzsignsignaturesAutomatic | Retrieve all automatic Ezsignsignatures
 [**EzsignsignatureGetObjectV3**](ObjectEzsignsignatureAPI.md#EzsignsignatureGetObjectV3) | **Get** /3/object/ezsignsignature/{pkiEzsignsignatureID} | Retrieve an existing Ezsignsignature
+[**EzsignsignatureGetObjectV4**](ObjectEzsignsignatureAPI.md#EzsignsignatureGetObjectV4) | **Get** /4/object/ezsignsignature/{pkiEzsignsignatureID} | Retrieve an existing Ezsignsignature
 [**EzsignsignatureSignV1**](ObjectEzsignsignatureAPI.md#EzsignsignatureSignV1) | **Post** /1/object/ezsignsignature/{pkiEzsignsignatureID}/sign | Sign the Ezsignsignature
 
 
@@ -214,6 +217,72 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## EzsignsignatureCreateObjectV4
+
+> EzsignsignatureCreateObjectV4Response EzsignsignatureCreateObjectV4(ctx).EzsignsignatureCreateObjectV4Request(ezsignsignatureCreateObjectV4Request).Execute()
+
+Create a new Ezsignsignature
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	ezsignsignatureCreateObjectV4Request := *openapiclient.NewEzsignsignatureCreateObjectV4Request([]openapiclient.EzsignsignatureRequestCompoundV2{*openapiclient.NewEzsignsignatureRequestCompoundV2(int32(20), int32(1), int32(200), int32(300), int32(1), openapiclient.Field-eEzsignsignatureType("Acknowledgement"), int32(97))}) // EzsignsignatureCreateObjectV4Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignsignatureAPI.EzsignsignatureCreateObjectV4(context.Background()).EzsignsignatureCreateObjectV4Request(ezsignsignatureCreateObjectV4Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignatureAPI.EzsignsignatureCreateObjectV4``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignsignatureCreateObjectV4`: EzsignsignatureCreateObjectV4Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsignatureAPI.EzsignsignatureCreateObjectV4`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsignsignatureCreateObjectV4Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ezsignsignatureCreateObjectV4Request** | [**EzsignsignatureCreateObjectV4Request**](EzsignsignatureCreateObjectV4Request.md) |  | 
+
+### Return type
+
+[**EzsignsignatureCreateObjectV4Response**](EzsignsignatureCreateObjectV4Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## EzsignsignatureDeleteObjectV1
 
 > EzsignsignatureDeleteObjectV1Response EzsignsignatureDeleteObjectV1(ctx, pkiEzsignsignatureID).Execute()
@@ -341,6 +410,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignsignatureEditObjectV2Response**](EzsignsignatureEditObjectV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsignsignatureEditObjectV3
+
+> EzsignsignatureEditObjectV3Response EzsignsignatureEditObjectV3(ctx, pkiEzsignsignatureID).EzsignsignatureEditObjectV3Request(ezsignsignatureEditObjectV3Request).Execute()
+
+Edit an existing Ezsignsignature
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsignsignatureID := int32(56) // int32 | 
+	ezsignsignatureEditObjectV3Request := *openapiclient.NewEzsignsignatureEditObjectV3Request(*openapiclient.NewEzsignsignatureRequestCompoundV2(int32(20), int32(1), int32(200), int32(300), int32(1), openapiclient.Field-eEzsignsignatureType("Acknowledgement"), int32(97))) // EzsignsignatureEditObjectV3Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignsignatureAPI.EzsignsignatureEditObjectV3(context.Background(), pkiEzsignsignatureID).EzsignsignatureEditObjectV3Request(ezsignsignatureEditObjectV3Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignatureAPI.EzsignsignatureEditObjectV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignsignatureEditObjectV3`: EzsignsignatureEditObjectV3Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsignatureAPI.EzsignsignatureEditObjectV3`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsignsignatureID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsignsignatureEditObjectV3Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **ezsignsignatureEditObjectV3Request** | [**EzsignsignatureEditObjectV3Request**](EzsignsignatureEditObjectV3Request.md) |  | 
+
+### Return type
+
+[**EzsignsignatureEditObjectV3Response**](EzsignsignatureEditObjectV3Response.md)
 
 ### Authorization
 
@@ -540,6 +681,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignsignatureGetObjectV3Response**](EzsignsignatureGetObjectV3Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsignsignatureGetObjectV4
+
+> EzsignsignatureGetObjectV4Response EzsignsignatureGetObjectV4(ctx, pkiEzsignsignatureID).Execute()
+
+Retrieve an existing Ezsignsignature
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsignsignatureID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignsignatureAPI.EzsignsignatureGetObjectV4(context.Background(), pkiEzsignsignatureID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignsignatureAPI.EzsignsignatureGetObjectV4``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignsignatureGetObjectV4`: EzsignsignatureGetObjectV4Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignsignatureAPI.EzsignsignatureGetObjectV4`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsignsignatureID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsignsignatureGetObjectV4Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**EzsignsignatureGetObjectV4Response**](EzsignsignatureGetObjectV4Response.md)
 
 ### Authorization
 

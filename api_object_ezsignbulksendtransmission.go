@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -18,11 +18,202 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"os"
 )
 
 
 // ObjectEzsignbulksendtransmissionAPIService ObjectEzsignbulksendtransmissionAPI service
 type ObjectEzsignbulksendtransmissionAPIService service
+
+type ApiEzsignbulksendtransmissionGetBatchFileV1Request struct {
+	ctx context.Context
+	ApiService *ObjectEzsignbulksendtransmissionAPIService
+	pkiEzsignbulksendtransmissionID int32
+	bIncludeSigned *bool
+	bIncludeAttachment *bool
+	bIncludeProofdocument *bool
+	bIncludeProof *bool
+}
+
+// Include final document once all signatures were applied
+func (r ApiEzsignbulksendtransmissionGetBatchFileV1Request) BIncludeSigned(bIncludeSigned bool) ApiEzsignbulksendtransmissionGetBatchFileV1Request {
+	r.bIncludeSigned = &bIncludeSigned
+	return r
+}
+
+// Include attached files in signatures
+func (r ApiEzsignbulksendtransmissionGetBatchFileV1Request) BIncludeAttachment(bIncludeAttachment bool) ApiEzsignbulksendtransmissionGetBatchFileV1Request {
+	r.bIncludeAttachment = &bIncludeAttachment
+	return r
+}
+
+// Include the evidence report
+func (r ApiEzsignbulksendtransmissionGetBatchFileV1Request) BIncludeProofdocument(bIncludeProofdocument bool) ApiEzsignbulksendtransmissionGetBatchFileV1Request {
+	r.bIncludeProofdocument = &bIncludeProofdocument
+	return r
+}
+
+// include the complete evidence archive including all of the above and more
+func (r ApiEzsignbulksendtransmissionGetBatchFileV1Request) BIncludeProof(bIncludeProof bool) ApiEzsignbulksendtransmissionGetBatchFileV1Request {
+	r.bIncludeProof = &bIncludeProof
+	return r
+}
+
+func (r ApiEzsignbulksendtransmissionGetBatchFileV1Request) Execute() (*os.File, *http.Response, error) {
+	return r.ApiService.EzsignbulksendtransmissionGetBatchFileV1Execute(r)
+}
+
+/*
+EzsignbulksendtransmissionGetBatchFileV1 Retrieve file to download documents in batch
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiEzsignbulksendtransmissionID
+ @return ApiEzsignbulksendtransmissionGetBatchFileV1Request
+*/
+func (a *ObjectEzsignbulksendtransmissionAPIService) EzsignbulksendtransmissionGetBatchFileV1(ctx context.Context, pkiEzsignbulksendtransmissionID int32) ApiEzsignbulksendtransmissionGetBatchFileV1Request {
+	return ApiEzsignbulksendtransmissionGetBatchFileV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiEzsignbulksendtransmissionID: pkiEzsignbulksendtransmissionID,
+	}
+}
+
+// Execute executes the request
+//  @return *os.File
+func (a *ObjectEzsignbulksendtransmissionAPIService) EzsignbulksendtransmissionGetBatchFileV1Execute(r ApiEzsignbulksendtransmissionGetBatchFileV1Request) (*os.File, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *os.File
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignbulksendtransmissionAPIService.EzsignbulksendtransmissionGetBatchFileV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/ezsignbulksendtransmission/{pkiEzsignbulksendtransmissionID}/getBatchFile"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsignbulksendtransmissionID"+"}", url.PathEscape(parameterValueToString(r.pkiEzsignbulksendtransmissionID, "pkiEzsignbulksendtransmissionID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiEzsignbulksendtransmissionID < 0 {
+		return localVarReturnValue, nil, reportError("pkiEzsignbulksendtransmissionID must be greater than 0")
+	}
+
+	if r.bIncludeSigned != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "bIncludeSigned", r.bIncludeSigned, "form", "")
+	}
+	if r.bIncludeAttachment != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "bIncludeAttachment", r.bIncludeAttachment, "form", "")
+	}
+	if r.bIncludeProofdocument != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "bIncludeProofdocument", r.bIncludeProofdocument, "form", "")
+	}
+	if r.bIncludeProof != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "bIncludeProof", r.bIncludeProof, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"text/xml", "application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
 
 type ApiEzsignbulksendtransmissionGetCsvErrorsV1Request struct {
 	ctx context.Context

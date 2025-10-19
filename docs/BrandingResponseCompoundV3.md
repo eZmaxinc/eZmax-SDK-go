@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiBrandingID** | **int32** | The unique ID of the Branding | 
+**FkiDomainID** | Pointer to **int32** | The unique ID of the Domain | [optional] 
+**SDomainName** | Pointer to **string** | The name of the Domain | [optional] 
 **FkiEmailID** | Pointer to **int32** | The unique ID of the Email | [optional] 
 **ObjBrandingDescription** | [**MultilingualBrandingDescription**](MultilingualBrandingDescription.md) |  | 
 **SBrandingDescriptionX** | **string** | The Description of the Branding in the language of the requester | 
@@ -56,6 +58,56 @@ and a boolean to check if the value has been set.
 
 SetPkiBrandingID sets PkiBrandingID field to given value.
 
+
+### GetFkiDomainID
+
+`func (o *BrandingResponseCompoundV3) GetFkiDomainID() int32`
+
+GetFkiDomainID returns the FkiDomainID field if non-nil, zero value otherwise.
+
+### GetFkiDomainIDOk
+
+`func (o *BrandingResponseCompoundV3) GetFkiDomainIDOk() (*int32, bool)`
+
+GetFkiDomainIDOk returns a tuple with the FkiDomainID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiDomainID
+
+`func (o *BrandingResponseCompoundV3) SetFkiDomainID(v int32)`
+
+SetFkiDomainID sets FkiDomainID field to given value.
+
+### HasFkiDomainID
+
+`func (o *BrandingResponseCompoundV3) HasFkiDomainID() bool`
+
+HasFkiDomainID returns a boolean if a field has been set.
+
+### GetSDomainName
+
+`func (o *BrandingResponseCompoundV3) GetSDomainName() string`
+
+GetSDomainName returns the SDomainName field if non-nil, zero value otherwise.
+
+### GetSDomainNameOk
+
+`func (o *BrandingResponseCompoundV3) GetSDomainNameOk() (*string, bool)`
+
+GetSDomainNameOk returns a tuple with the SDomainName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSDomainName
+
+`func (o *BrandingResponseCompoundV3) SetSDomainName(v string)`
+
+SetSDomainName sets SDomainName field to given value.
+
+### HasSDomainName
+
+`func (o *BrandingResponseCompoundV3) HasSDomainName() bool`
+
+HasSDomainName returns a boolean if a field has been set.
 
 ### GetFkiEmailID
 

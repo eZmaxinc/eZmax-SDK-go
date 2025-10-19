@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **AObjReportcell** | [**[]CommonReportcell**](CommonReportcell.md) |  | 
 **ObjVariableobject** | **map[string]interface{}** | A Variable object without predefined property names | 
 **IReportrowHeight** | **int32** | The reportrow height in pixels | 
+**ObjReportcellstyleCustom** | Pointer to [**CommonReportcellstylecustom**](CommonReportcellstylecustom.md) |  | [optional] 
 
 ## Methods
 
@@ -86,6 +87,31 @@ and a boolean to check if the value has been set.
 
 SetIReportrowHeight sets IReportrowHeight field to given value.
 
+
+### GetObjReportcellstyleCustom
+
+`func (o *CommonReportrow) GetObjReportcellstyleCustom() CommonReportcellstylecustom`
+
+GetObjReportcellstyleCustom returns the ObjReportcellstyleCustom field if non-nil, zero value otherwise.
+
+### GetObjReportcellstyleCustomOk
+
+`func (o *CommonReportrow) GetObjReportcellstyleCustomOk() (*CommonReportcellstylecustom, bool)`
+
+GetObjReportcellstyleCustomOk returns a tuple with the ObjReportcellstyleCustom field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjReportcellstyleCustom
+
+`func (o *CommonReportrow) SetObjReportcellstyleCustom(v CommonReportcellstylecustom)`
+
+SetObjReportcellstyleCustom sets ObjReportcellstyleCustom field to given value.
+
+### HasObjReportcellstyleCustom
+
+`func (o *CommonReportrow) HasObjReportcellstyleCustom() bool`
+
+HasObjReportcellstyleCustom returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

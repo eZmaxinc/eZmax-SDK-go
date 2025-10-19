@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -71,11 +71,16 @@ type CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest struct {
 	// A regular expression to indicate what values are acceptable for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** and eEzsignsignatureTextvalidation is **Custom**
 	SEzsignsignatureRegexp *string `json:"sEzsignsignatureRegexp,omitempty" validate:"regexp=^\\\\^.*\\\\$$|^$"`
 	EEzsignsignatureDependencyrequirement *FieldEEzsignsignatureDependencyrequirement `json:"eEzsignsignatureDependencyrequirement,omitempty"`
+	// The description of the Creditcard signature
+	SEzsignsignatureCreditcardamountdescription *string `json:"sEzsignsignatureCreditcardamountdescription,omitempty" validate:"regexp=^.{1,50}$"`
+	// The amount of the Creditcard signature
+	DEzsignsignatureCreditcardamount *string `json:"dEzsignsignatureCreditcardamount,omitempty" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
 	// Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is **Name** or **Handwritten**)
 	BEzsignsignatureCustomdate *bool `json:"bEzsignsignatureCustomdate,omitempty"`
 	// An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.
 	AObjEzsignsignaturecustomdate []EzsignsignaturecustomdateRequestCompound `json:"a_objEzsignsignaturecustomdate,omitempty"`
 	AObjEzsignelementdependency []EzsignelementdependencyRequestCompound `json:"a_objEzsignelementdependency,omitempty"`
+	AObjEzsignsignaturepaymentdetail []EzsignsignaturepaymentdetailRequestCompound `json:"a_objEzsignsignaturepaymentdetail,omitempty"`
 	ObjCreateezsignelementspositionedbyword CustomCreateEzsignelementsPositionedByWordRequest `json:"objCreateezsignelementspositionedbyword"`
 }
 
@@ -946,6 +951,70 @@ func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetEE
 	o.EEzsignsignatureDependencyrequirement = &v
 }
 
+// GetSEzsignsignatureCreditcardamountdescription returns the SEzsignsignatureCreditcardamountdescription field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetSEzsignsignatureCreditcardamountdescription() string {
+	if o == nil || IsNil(o.SEzsignsignatureCreditcardamountdescription) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsignsignatureCreditcardamountdescription
+}
+
+// GetSEzsignsignatureCreditcardamountdescriptionOk returns a tuple with the SEzsignsignatureCreditcardamountdescription field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetSEzsignsignatureCreditcardamountdescriptionOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsignsignatureCreditcardamountdescription) {
+		return nil, false
+	}
+	return o.SEzsignsignatureCreditcardamountdescription, true
+}
+
+// HasSEzsignsignatureCreditcardamountdescription returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasSEzsignsignatureCreditcardamountdescription() bool {
+	if o != nil && !IsNil(o.SEzsignsignatureCreditcardamountdescription) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsignsignatureCreditcardamountdescription gets a reference to the given string and assigns it to the SEzsignsignatureCreditcardamountdescription field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetSEzsignsignatureCreditcardamountdescription(v string) {
+	o.SEzsignsignatureCreditcardamountdescription = &v
+}
+
+// GetDEzsignsignatureCreditcardamount returns the DEzsignsignatureCreditcardamount field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetDEzsignsignatureCreditcardamount() string {
+	if o == nil || IsNil(o.DEzsignsignatureCreditcardamount) {
+		var ret string
+		return ret
+	}
+	return *o.DEzsignsignatureCreditcardamount
+}
+
+// GetDEzsignsignatureCreditcardamountOk returns a tuple with the DEzsignsignatureCreditcardamount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetDEzsignsignatureCreditcardamountOk() (*string, bool) {
+	if o == nil || IsNil(o.DEzsignsignatureCreditcardamount) {
+		return nil, false
+	}
+	return o.DEzsignsignatureCreditcardamount, true
+}
+
+// HasDEzsignsignatureCreditcardamount returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasDEzsignsignatureCreditcardamount() bool {
+	if o != nil && !IsNil(o.DEzsignsignatureCreditcardamount) {
+		return true
+	}
+
+	return false
+}
+
+// SetDEzsignsignatureCreditcardamount gets a reference to the given string and assigns it to the DEzsignsignatureCreditcardamount field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetDEzsignsignatureCreditcardamount(v string) {
+	o.DEzsignsignatureCreditcardamount = &v
+}
+
 // GetBEzsignsignatureCustomdate returns the BEzsignsignatureCustomdate field value if set, zero value otherwise.
 func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetBEzsignsignatureCustomdate() bool {
 	if o == nil || IsNil(o.BEzsignsignatureCustomdate) {
@@ -1040,6 +1109,38 @@ func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasAO
 // SetAObjEzsignelementdependency gets a reference to the given []EzsignelementdependencyRequestCompound and assigns it to the AObjEzsignelementdependency field.
 func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetAObjEzsignelementdependency(v []EzsignelementdependencyRequestCompound) {
 	o.AObjEzsignelementdependency = v
+}
+
+// GetAObjEzsignsignaturepaymentdetail returns the AObjEzsignsignaturepaymentdetail field value if set, zero value otherwise.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetAObjEzsignsignaturepaymentdetail() []EzsignsignaturepaymentdetailRequestCompound {
+	if o == nil || IsNil(o.AObjEzsignsignaturepaymentdetail) {
+		var ret []EzsignsignaturepaymentdetailRequestCompound
+		return ret
+	}
+	return o.AObjEzsignsignaturepaymentdetail
+}
+
+// GetAObjEzsignsignaturepaymentdetailOk returns a tuple with the AObjEzsignsignaturepaymentdetail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) GetAObjEzsignsignaturepaymentdetailOk() ([]EzsignsignaturepaymentdetailRequestCompound, bool) {
+	if o == nil || IsNil(o.AObjEzsignsignaturepaymentdetail) {
+		return nil, false
+	}
+	return o.AObjEzsignsignaturepaymentdetail, true
+}
+
+// HasAObjEzsignsignaturepaymentdetail returns a boolean if a field has been set.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) HasAObjEzsignsignaturepaymentdetail() bool {
+	if o != nil && !IsNil(o.AObjEzsignsignaturepaymentdetail) {
+		return true
+	}
+
+	return false
+}
+
+// SetAObjEzsignsignaturepaymentdetail gets a reference to the given []EzsignsignaturepaymentdetailRequestCompound and assigns it to the AObjEzsignsignaturepaymentdetail field.
+func (o *CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) SetAObjEzsignsignaturepaymentdetail(v []EzsignsignaturepaymentdetailRequestCompound) {
+	o.AObjEzsignsignaturepaymentdetail = v
 }
 
 // GetObjCreateezsignelementspositionedbyword returns the ObjCreateezsignelementspositionedbyword field value
@@ -1146,6 +1247,12 @@ func (o CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) ToMap(
 	if !IsNil(o.EEzsignsignatureDependencyrequirement) {
 		toSerialize["eEzsignsignatureDependencyrequirement"] = o.EEzsignsignatureDependencyrequirement
 	}
+	if !IsNil(o.SEzsignsignatureCreditcardamountdescription) {
+		toSerialize["sEzsignsignatureCreditcardamountdescription"] = o.SEzsignsignatureCreditcardamountdescription
+	}
+	if !IsNil(o.DEzsignsignatureCreditcardamount) {
+		toSerialize["dEzsignsignatureCreditcardamount"] = o.DEzsignsignatureCreditcardamount
+	}
 	if !IsNil(o.BEzsignsignatureCustomdate) {
 		toSerialize["bEzsignsignatureCustomdate"] = o.BEzsignsignatureCustomdate
 	}
@@ -1154,6 +1261,9 @@ func (o CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest) ToMap(
 	}
 	if !IsNil(o.AObjEzsignelementdependency) {
 		toSerialize["a_objEzsignelementdependency"] = o.AObjEzsignelementdependency
+	}
+	if !IsNil(o.AObjEzsignsignaturepaymentdetail) {
+		toSerialize["a_objEzsignsignaturepaymentdetail"] = o.AObjEzsignsignaturepaymentdetail
 	}
 	toSerialize["objCreateezsignelementspositionedbyword"] = o.ObjCreateezsignelementspositionedbyword
 	return toSerialize, nil

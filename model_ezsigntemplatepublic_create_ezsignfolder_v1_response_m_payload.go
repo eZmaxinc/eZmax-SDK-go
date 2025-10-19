@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -21,7 +21,7 @@ var _ MappedNullable = &EzsigntemplatepublicCreateEzsignfolderV1ResponseMPayload
 // EzsigntemplatepublicCreateEzsignfolderV1ResponseMPayload Payload for POST /1/object/ezsigntemplatepublic/createEzsignfolder
 type EzsigntemplatepublicCreateEzsignfolderV1ResponseMPayload struct {
 	// The url to sign the Ezsignfolder created by the Ezsigntemplatepublic. Only used when fkiUserLogintypeID is **No validation** or **Sms only**
-	SEzsigntemplatepublicSigningurl *string `json:"sEzsigntemplatepublicSigningurl,omitempty" validate:"regexp=^(https|http):\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
+	SEzsigntemplatepublicSigningurl *string `json:"sEzsigntemplatepublicSigningurl,omitempty" validate:"regexp=^https:\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
 }
 
 // NewEzsigntemplatepublicCreateEzsignfolderV1ResponseMPayload instantiates a new EzsigntemplatepublicCreateEzsignfolderV1ResponseMPayload object

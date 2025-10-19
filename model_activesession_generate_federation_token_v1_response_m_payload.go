@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -24,7 +24,7 @@ var _ MappedNullable = &ActivesessionGenerateFederationTokenV1ResponseMPayload{}
 type ActivesessionGenerateFederationTokenV1ResponseMPayload struct {
 	ObjApikeyfederation CustomApikeyfederation `json:"objApikeyfederation"`
 	// The url of the server the Ezmaxcustomer is located
-	SEzmaxcustomercodeUrl string `json:"sEzmaxcustomercodeUrl" validate:"regexp=^(https|http):\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
+	SEzmaxcustomercodeUrl string `json:"sEzmaxcustomercodeUrl" validate:"regexp=^https:\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
 }
 
 type _ActivesessionGenerateFederationTokenV1ResponseMPayload ActivesessionGenerateFederationTokenV1ResponseMPayload

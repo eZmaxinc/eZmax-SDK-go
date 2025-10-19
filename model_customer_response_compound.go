@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -30,6 +30,8 @@ type CustomerResponseCompound struct {
 	FkiCustomergroupID int32 `json:"fkiCustomergroupID"`
 	// The name of the Customer
 	SCustomerName string `json:"sCustomerName" validate:"regexp=^.{0,50}$"`
+	// A note for the Customer
+	SCustomerNote *string `json:"sCustomerNote,omitempty" validate:"regexp=^.{0,25}$"`
 	// The unique ID of the Contactinformations
 	FkiContactinformationsID int32 `json:"fkiContactinformationsID"`
 	// The unique ID of the Contactcontainer
@@ -284,6 +286,38 @@ func (o *CustomerResponseCompound) GetSCustomerNameOk() (*string, bool) {
 // SetSCustomerName sets field value
 func (o *CustomerResponseCompound) SetSCustomerName(v string) {
 	o.SCustomerName = v
+}
+
+// GetSCustomerNote returns the SCustomerNote field value if set, zero value otherwise.
+func (o *CustomerResponseCompound) GetSCustomerNote() string {
+	if o == nil || IsNil(o.SCustomerNote) {
+		var ret string
+		return ret
+	}
+	return *o.SCustomerNote
+}
+
+// GetSCustomerNoteOk returns a tuple with the SCustomerNote field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomerResponseCompound) GetSCustomerNoteOk() (*string, bool) {
+	if o == nil || IsNil(o.SCustomerNote) {
+		return nil, false
+	}
+	return o.SCustomerNote, true
+}
+
+// HasSCustomerNote returns a boolean if a field has been set.
+func (o *CustomerResponseCompound) HasSCustomerNote() bool {
+	if o != nil && !IsNil(o.SCustomerNote) {
+		return true
+	}
+
+	return false
+}
+
+// SetSCustomerNote gets a reference to the given string and assigns it to the SCustomerNote field.
+func (o *CustomerResponseCompound) SetSCustomerNote(v string) {
+	o.SCustomerNote = &v
 }
 
 // GetFkiContactinformationsID returns the FkiContactinformationsID field value
@@ -1452,6 +1486,9 @@ func (o CustomerResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize["fkiCompanyID"] = o.FkiCompanyID
 	toSerialize["fkiCustomergroupID"] = o.FkiCustomergroupID
 	toSerialize["sCustomerName"] = o.SCustomerName
+	if !IsNil(o.SCustomerNote) {
+		toSerialize["sCustomerNote"] = o.SCustomerNote
+	}
 	toSerialize["fkiContactinformationsID"] = o.FkiContactinformationsID
 	toSerialize["fkiContactcontainerID"] = o.FkiContactcontainerID
 	toSerialize["fkiImageID"] = o.FkiImageID

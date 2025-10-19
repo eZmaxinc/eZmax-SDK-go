@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **PkiEzsignbulksendsignermappingID** | **int32** | The unique ID of the Ezsignbulksendsignermapping | 
 **FkiEzsignbulksendID** | **int32** | The unique ID of the Ezsignbulksend | 
 **FkiUserID** | Pointer to **int32** | The unique ID of the User | [optional] 
+**BEzsignbulksendsignermappingReceivecopy** | Pointer to **bool** | Whether the Ezsignbulksendsigner will receive a copy or not | [optional] 
 **SEzsignbulksendsignermappingDescription** | **string** | The description of the Ezsignbulksendsignermapping | 
 
 ## Methods
@@ -92,6 +93,31 @@ SetFkiUserID sets FkiUserID field to given value.
 `func (o *EzsignbulksendsignermappingResponse) HasFkiUserID() bool`
 
 HasFkiUserID returns a boolean if a field has been set.
+
+### GetBEzsignbulksendsignermappingReceivecopy
+
+`func (o *EzsignbulksendsignermappingResponse) GetBEzsignbulksendsignermappingReceivecopy() bool`
+
+GetBEzsignbulksendsignermappingReceivecopy returns the BEzsignbulksendsignermappingReceivecopy field if non-nil, zero value otherwise.
+
+### GetBEzsignbulksendsignermappingReceivecopyOk
+
+`func (o *EzsignbulksendsignermappingResponse) GetBEzsignbulksendsignermappingReceivecopyOk() (*bool, bool)`
+
+GetBEzsignbulksendsignermappingReceivecopyOk returns a tuple with the BEzsignbulksendsignermappingReceivecopy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsignbulksendsignermappingReceivecopy
+
+`func (o *EzsignbulksendsignermappingResponse) SetBEzsignbulksendsignermappingReceivecopy(v bool)`
+
+SetBEzsignbulksendsignermappingReceivecopy sets BEzsignbulksendsignermappingReceivecopy field to given value.
+
+### HasBEzsignbulksendsignermappingReceivecopy
+
+`func (o *EzsignbulksendsignermappingResponse) HasBEzsignbulksendsignermappingReceivecopy() bool`
+
+HasBEzsignbulksendsignermappingReceivecopy returns a boolean if a field has been set.
 
 ### GetSEzsignbulksendsignermappingDescription
 

@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -42,6 +42,8 @@ NotificationtestGetElementsV1 Retrieve an existing Notificationtest's Elements
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiNotificationtestID
  @return ApiNotificationtestGetElementsV1Request
+
+Deprecated
 */
 func (a *ObjectNotificationtestAPIService) NotificationtestGetElementsV1(ctx context.Context, pkiNotificationtestID int32) ApiNotificationtestGetElementsV1Request {
 	return ApiNotificationtestGetElementsV1Request{
@@ -53,6 +55,7 @@ func (a *ObjectNotificationtestAPIService) NotificationtestGetElementsV1(ctx con
 
 // Execute executes the request
 //  @return NotificationtestGetElementsV1Response
+// Deprecated
 func (a *ObjectNotificationtestAPIService) NotificationtestGetElementsV1Execute(r ApiNotificationtestGetElementsV1Request) (*NotificationtestGetElementsV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -67,6 +70,136 @@ func (a *ObjectNotificationtestAPIService) NotificationtestGetElementsV1Execute(
 	}
 
 	localVarPath := localBasePath + "/1/object/notificationtest/{pkiNotificationtestID}/getElements"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiNotificationtestID"+"}", url.PathEscape(parameterValueToString(r.pkiNotificationtestID, "pkiNotificationtestID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiNotificationtestID < 0 {
+		return localVarReturnValue, nil, reportError("pkiNotificationtestID must be greater than 0")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiNotificationtestGetElementsV2Request struct {
+	ctx context.Context
+	ApiService *ObjectNotificationtestAPIService
+	pkiNotificationtestID int32
+}
+
+func (r ApiNotificationtestGetElementsV2Request) Execute() (*NotificationtestGetElementsV2Response, *http.Response, error) {
+	return r.ApiService.NotificationtestGetElementsV2Execute(r)
+}
+
+/*
+NotificationtestGetElementsV2 Retrieve an existing Notificationtest's Elements
+
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiNotificationtestID
+ @return ApiNotificationtestGetElementsV2Request
+*/
+func (a *ObjectNotificationtestAPIService) NotificationtestGetElementsV2(ctx context.Context, pkiNotificationtestID int32) ApiNotificationtestGetElementsV2Request {
+	return ApiNotificationtestGetElementsV2Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiNotificationtestID: pkiNotificationtestID,
+	}
+}
+
+// Execute executes the request
+//  @return NotificationtestGetElementsV2Response
+func (a *ObjectNotificationtestAPIService) NotificationtestGetElementsV2Execute(r ApiNotificationtestGetElementsV2Request) (*NotificationtestGetElementsV2Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *NotificationtestGetElementsV2Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectNotificationtestAPIService.NotificationtestGetElementsV2")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/2/object/notificationtest/{pkiNotificationtestID}/getElements"
 	localVarPath = strings.Replace(localVarPath, "{"+"pkiNotificationtestID"+"}", url.PathEscape(parameterValueToString(r.pkiNotificationtestID, "pkiNotificationtestID")), -1)
 
 	localVarHeaderParams := make(map[string]string)

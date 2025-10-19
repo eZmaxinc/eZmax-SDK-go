@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.2.2
+API version: 1.3.0
 Contact: support-api@ezmax.ca
 */
 
@@ -26,6 +26,10 @@ type CustomEzsignimportdocumentResponse struct {
 	PkiEzsignimportdocumentID int32 `json:"pkiEzsignimportdocumentID"`
 	// The name of the Ezsignimportdocument
 	SEzsignimportdocumentName string `json:"sEzsignimportdocumentName" validate:"regexp=^.{0,150}$"`
+	// The unique ID of the Ezsigntemplateglobal
+	FkiEzsigntemplateglobalID *int32 `json:"fkiEzsigntemplateglobalID,omitempty"`
+	// The description of the Ezsigntemplate
+	SEzsigntemplateglobalDescription *string `json:"sEzsigntemplateglobalDescription,omitempty"`
 	// The unique ID of the Ezsignfolder
 	FkiEzsignfolderID *int32 `json:"fkiEzsignfolderID,omitempty"`
 	// The description of the Ezsignfolder
@@ -99,6 +103,70 @@ func (o *CustomEzsignimportdocumentResponse) GetSEzsignimportdocumentNameOk() (*
 // SetSEzsignimportdocumentName sets field value
 func (o *CustomEzsignimportdocumentResponse) SetSEzsignimportdocumentName(v string) {
 	o.SEzsignimportdocumentName = v
+}
+
+// GetFkiEzsigntemplateglobalID returns the FkiEzsigntemplateglobalID field value if set, zero value otherwise.
+func (o *CustomEzsignimportdocumentResponse) GetFkiEzsigntemplateglobalID() int32 {
+	if o == nil || IsNil(o.FkiEzsigntemplateglobalID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEzsigntemplateglobalID
+}
+
+// GetFkiEzsigntemplateglobalIDOk returns a tuple with the FkiEzsigntemplateglobalID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignimportdocumentResponse) GetFkiEzsigntemplateglobalIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEzsigntemplateglobalID) {
+		return nil, false
+	}
+	return o.FkiEzsigntemplateglobalID, true
+}
+
+// HasFkiEzsigntemplateglobalID returns a boolean if a field has been set.
+func (o *CustomEzsignimportdocumentResponse) HasFkiEzsigntemplateglobalID() bool {
+	if o != nil && !IsNil(o.FkiEzsigntemplateglobalID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzsigntemplateglobalID gets a reference to the given int32 and assigns it to the FkiEzsigntemplateglobalID field.
+func (o *CustomEzsignimportdocumentResponse) SetFkiEzsigntemplateglobalID(v int32) {
+	o.FkiEzsigntemplateglobalID = &v
+}
+
+// GetSEzsigntemplateglobalDescription returns the SEzsigntemplateglobalDescription field value if set, zero value otherwise.
+func (o *CustomEzsignimportdocumentResponse) GetSEzsigntemplateglobalDescription() string {
+	if o == nil || IsNil(o.SEzsigntemplateglobalDescription) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsigntemplateglobalDescription
+}
+
+// GetSEzsigntemplateglobalDescriptionOk returns a tuple with the SEzsigntemplateglobalDescription field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomEzsignimportdocumentResponse) GetSEzsigntemplateglobalDescriptionOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsigntemplateglobalDescription) {
+		return nil, false
+	}
+	return o.SEzsigntemplateglobalDescription, true
+}
+
+// HasSEzsigntemplateglobalDescription returns a boolean if a field has been set.
+func (o *CustomEzsignimportdocumentResponse) HasSEzsigntemplateglobalDescription() bool {
+	if o != nil && !IsNil(o.SEzsigntemplateglobalDescription) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsigntemplateglobalDescription gets a reference to the given string and assigns it to the SEzsigntemplateglobalDescription field.
+func (o *CustomEzsignimportdocumentResponse) SetSEzsigntemplateglobalDescription(v string) {
+	o.SEzsigntemplateglobalDescription = &v
 }
 
 // GetFkiEzsignfolderID returns the FkiEzsignfolderID field value if set, zero value otherwise.
@@ -177,6 +245,12 @@ func (o CustomEzsignimportdocumentResponse) ToMap() (map[string]interface{}, err
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiEzsignimportdocumentID"] = o.PkiEzsignimportdocumentID
 	toSerialize["sEzsignimportdocumentName"] = o.SEzsignimportdocumentName
+	if !IsNil(o.FkiEzsigntemplateglobalID) {
+		toSerialize["fkiEzsigntemplateglobalID"] = o.FkiEzsigntemplateglobalID
+	}
+	if !IsNil(o.SEzsigntemplateglobalDescription) {
+		toSerialize["sEzsigntemplateglobalDescription"] = o.SEzsigntemplateglobalDescription
+	}
 	if !IsNil(o.FkiEzsignfolderID) {
 		toSerialize["fkiEzsignfolderID"] = o.FkiEzsignfolderID
 	}

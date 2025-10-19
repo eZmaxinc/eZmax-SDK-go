@@ -8,12 +8,13 @@ Name | Type | Description | Notes
 **FkiCreditcardmerchantID** | **int32** | The unique ID of the Creditcardmerchant | 
 **EPaymentgatewayProcessor** | [**FieldEPaymentgatewayProcessor**](FieldEPaymentgatewayProcessor.md) |  | 
 **SPaymentgatewayDescriptionX** | **string** | The description of the Paymentgateway in the language of the requester | 
+**BPaymentgatewayIsactive** | **bool** | Whether the Paymentgateway is active or not | 
 
 ## Methods
 
 ### NewPaymentgatewayListElement
 
-`func NewPaymentgatewayListElement(pkiPaymentgatewayID int32, fkiCreditcardmerchantID int32, ePaymentgatewayProcessor FieldEPaymentgatewayProcessor, sPaymentgatewayDescriptionX string, ) *PaymentgatewayListElement`
+`func NewPaymentgatewayListElement(pkiPaymentgatewayID int32, fkiCreditcardmerchantID int32, ePaymentgatewayProcessor FieldEPaymentgatewayProcessor, sPaymentgatewayDescriptionX string, bPaymentgatewayIsactive bool, ) *PaymentgatewayListElement`
 
 NewPaymentgatewayListElement instantiates a new PaymentgatewayListElement object
 This constructor will assign default values to properties that have it defined,
@@ -106,6 +107,26 @@ and a boolean to check if the value has been set.
 `func (o *PaymentgatewayListElement) SetSPaymentgatewayDescriptionX(v string)`
 
 SetSPaymentgatewayDescriptionX sets SPaymentgatewayDescriptionX field to given value.
+
+
+### GetBPaymentgatewayIsactive
+
+`func (o *PaymentgatewayListElement) GetBPaymentgatewayIsactive() bool`
+
+GetBPaymentgatewayIsactive returns the BPaymentgatewayIsactive field if non-nil, zero value otherwise.
+
+### GetBPaymentgatewayIsactiveOk
+
+`func (o *PaymentgatewayListElement) GetBPaymentgatewayIsactiveOk() (*bool, bool)`
+
+GetBPaymentgatewayIsactiveOk returns a tuple with the BPaymentgatewayIsactive field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBPaymentgatewayIsactive
+
+`func (o *PaymentgatewayListElement) SetBPaymentgatewayIsactive(v bool)`
+
+SetBPaymentgatewayIsactive sets BPaymentgatewayIsactive field to given value.
 
 
 
