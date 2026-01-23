@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **SCurrencyDescriptionX** | Pointer to **string** | The description of the Currency in the language of the requester | [optional] 
 **DEzsignsignatureCreditcardamount** | Pointer to **string** | The amount of the Creditcard signature | [optional] 
 **SEzsignsignatureCreditcardamountdescription** | Pointer to **string** | The description of the Creditcard signature | [optional] 
+**BEzsignsignatureCreditcardcustomamount** | Pointer to **bool** | Whether we can enter a custom amount while signing an Ezsignsignature &#39;Creditcard&#39; or not | [optional] 
 **SEzsignsigningreasonDescriptionX** | Pointer to **string** | The description of the Ezsignsigningreason in the language of the requester | [optional] 
 **IEzsignpagePagenumber** | **int32** | The page number in the Ezsigndocument | 
 **IEzsignsignatureX** | **int32** | The X coordinate (Horizontal) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 2 inches from the left border of the page, you would use \&quot;200\&quot; for the X coordinate. | 
@@ -22,6 +23,8 @@ Name | Type | Description | Notes
 **IEzsignsignatureStep** | **int32** | The step when the Ezsignsigner will be invited to sign | 
 **IEzsignsignatureStepadjusted** | Pointer to **int32** | The step when the Ezsignsigner will be invited to sign | [optional] 
 **EEzsignsignatureType** | [**FieldEEzsignsignatureType**](FieldEEzsignsignatureType.md) |  | 
+**EEzsignsignatureSignaturepad** | Pointer to [**FieldEEzsignsignatureSignaturepad**](FieldEEzsignsignatureSignaturepad.md) |  | [optional] 
+**EEzsignsignatureSignaturepadrequired** | Pointer to [**FieldEEzsignsignatureSignaturepadrequired**](FieldEEzsignsignatureSignaturepadrequired.md) |  | [optional] 
 **TEzsignsignatureTooltip** | Pointer to **string** | A tooltip that will be presented to Ezsignsigner about the Ezsignsignature | [optional] 
 **EEzsignsignatureTooltipposition** | Pointer to [**FieldEEzsignsignatureTooltipposition**](FieldEEzsignsignatureTooltipposition.md) |  | [optional] 
 **EEzsignsignatureFont** | Pointer to [**FieldEEzsignsignatureFont**](FieldEEzsignsignatureFont.md) |  | [optional] 
@@ -283,6 +286,31 @@ SetSEzsignsignatureCreditcardamountdescription sets SEzsignsignatureCreditcardam
 
 HasSEzsignsignatureCreditcardamountdescription returns a boolean if a field has been set.
 
+### GetBEzsignsignatureCreditcardcustomamount
+
+`func (o *EzsignsignatureResponseCompound) GetBEzsignsignatureCreditcardcustomamount() bool`
+
+GetBEzsignsignatureCreditcardcustomamount returns the BEzsignsignatureCreditcardcustomamount field if non-nil, zero value otherwise.
+
+### GetBEzsignsignatureCreditcardcustomamountOk
+
+`func (o *EzsignsignatureResponseCompound) GetBEzsignsignatureCreditcardcustomamountOk() (*bool, bool)`
+
+GetBEzsignsignatureCreditcardcustomamountOk returns a tuple with the BEzsignsignatureCreditcardcustomamount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsignsignatureCreditcardcustomamount
+
+`func (o *EzsignsignatureResponseCompound) SetBEzsignsignatureCreditcardcustomamount(v bool)`
+
+SetBEzsignsignatureCreditcardcustomamount sets BEzsignsignatureCreditcardcustomamount field to given value.
+
+### HasBEzsignsignatureCreditcardcustomamount
+
+`func (o *EzsignsignatureResponseCompound) HasBEzsignsignatureCreditcardcustomamount() bool`
+
+HasBEzsignsignatureCreditcardcustomamount returns a boolean if a field has been set.
+
 ### GetSEzsignsigningreasonDescriptionX
 
 `func (o *EzsignsignatureResponseCompound) GetSEzsignsigningreasonDescriptionX() string`
@@ -482,6 +510,56 @@ and a boolean to check if the value has been set.
 
 SetEEzsignsignatureType sets EEzsignsignatureType field to given value.
 
+
+### GetEEzsignsignatureSignaturepad
+
+`func (o *EzsignsignatureResponseCompound) GetEEzsignsignatureSignaturepad() FieldEEzsignsignatureSignaturepad`
+
+GetEEzsignsignatureSignaturepad returns the EEzsignsignatureSignaturepad field if non-nil, zero value otherwise.
+
+### GetEEzsignsignatureSignaturepadOk
+
+`func (o *EzsignsignatureResponseCompound) GetEEzsignsignatureSignaturepadOk() (*FieldEEzsignsignatureSignaturepad, bool)`
+
+GetEEzsignsignatureSignaturepadOk returns a tuple with the EEzsignsignatureSignaturepad field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsignsignatureSignaturepad
+
+`func (o *EzsignsignatureResponseCompound) SetEEzsignsignatureSignaturepad(v FieldEEzsignsignatureSignaturepad)`
+
+SetEEzsignsignatureSignaturepad sets EEzsignsignatureSignaturepad field to given value.
+
+### HasEEzsignsignatureSignaturepad
+
+`func (o *EzsignsignatureResponseCompound) HasEEzsignsignatureSignaturepad() bool`
+
+HasEEzsignsignatureSignaturepad returns a boolean if a field has been set.
+
+### GetEEzsignsignatureSignaturepadrequired
+
+`func (o *EzsignsignatureResponseCompound) GetEEzsignsignatureSignaturepadrequired() FieldEEzsignsignatureSignaturepadrequired`
+
+GetEEzsignsignatureSignaturepadrequired returns the EEzsignsignatureSignaturepadrequired field if non-nil, zero value otherwise.
+
+### GetEEzsignsignatureSignaturepadrequiredOk
+
+`func (o *EzsignsignatureResponseCompound) GetEEzsignsignatureSignaturepadrequiredOk() (*FieldEEzsignsignatureSignaturepadrequired, bool)`
+
+GetEEzsignsignatureSignaturepadrequiredOk returns a tuple with the EEzsignsignatureSignaturepadrequired field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsignsignatureSignaturepadrequired
+
+`func (o *EzsignsignatureResponseCompound) SetEEzsignsignatureSignaturepadrequired(v FieldEEzsignsignatureSignaturepadrequired)`
+
+SetEEzsignsignatureSignaturepadrequired sets EEzsignsignatureSignaturepadrequired field to given value.
+
+### HasEEzsignsignatureSignaturepadrequired
+
+`func (o *EzsignsignatureResponseCompound) HasEEzsignsignatureSignaturepadrequired() bool`
+
+HasEEzsignsignatureSignaturepadrequired returns a boolean if a field has been set.
 
 ### GetTEzsignsignatureTooltip
 

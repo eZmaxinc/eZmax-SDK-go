@@ -28,6 +28,10 @@ type SystemconfigurationResponse struct {
 	FkiSystemconfigurationtypeID int32 `json:"fkiSystemconfigurationtypeID"`
 	// The unique ID of the Branding
 	FkiBrandingID *int32 `json:"fkiBrandingID,omitempty"`
+	// The unique ID of the Timezone
+	FkiTimezoneIDDefault int32 `json:"fkiTimezoneIDDefault"`
+	// The description of the Timezone
+	STimezoneNameDefault string `json:"sTimezoneNameDefault"`
 	// The description of the Systemconfigurationtype in the language of the requester
 	SSystemconfigurationtypeDescriptionX string `json:"sSystemconfigurationtypeDescriptionX"`
 	ESystemconfigurationNewexternaluseraction FieldESystemconfigurationNewexternaluseraction `json:"eSystemconfigurationNewexternaluseraction"`
@@ -51,6 +55,8 @@ type SystemconfigurationResponse struct {
 	// The end date where the system will be in read only
 	DtSystemconfigurationReadonlyexpirationend *string `json:"dtSystemconfigurationReadonlyexpirationend,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	ObjBranding *CustomBrandingResponse `json:"objBranding,omitempty"`
+	// The hour we will send the eZsign reminders
+	ISystemconfigurationEzsignreminderhoursend *int32 `json:"iSystemconfigurationEzsignreminderhoursend,omitempty"`
 }
 
 type _SystemconfigurationResponse SystemconfigurationResponse
@@ -59,10 +65,12 @@ type _SystemconfigurationResponse SystemconfigurationResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSystemconfigurationResponse(pkiSystemconfigurationID int32, fkiSystemconfigurationtypeID int32, sSystemconfigurationtypeDescriptionX string, eSystemconfigurationNewexternaluseraction FieldESystemconfigurationNewexternaluseraction, eSystemconfigurationLanguage1 FieldESystemconfigurationLanguage1, eSystemconfigurationLanguage2 FieldESystemconfigurationLanguage2, bSystemconfigurationEzsignpersonnal bool, bSystemconfigurationSspr bool) *SystemconfigurationResponse {
+func NewSystemconfigurationResponse(pkiSystemconfigurationID int32, fkiSystemconfigurationtypeID int32, fkiTimezoneIDDefault int32, sTimezoneNameDefault string, sSystemconfigurationtypeDescriptionX string, eSystemconfigurationNewexternaluseraction FieldESystemconfigurationNewexternaluseraction, eSystemconfigurationLanguage1 FieldESystemconfigurationLanguage1, eSystemconfigurationLanguage2 FieldESystemconfigurationLanguage2, bSystemconfigurationEzsignpersonnal bool, bSystemconfigurationSspr bool) *SystemconfigurationResponse {
 	this := SystemconfigurationResponse{}
 	this.PkiSystemconfigurationID = pkiSystemconfigurationID
 	this.FkiSystemconfigurationtypeID = fkiSystemconfigurationtypeID
+	this.FkiTimezoneIDDefault = fkiTimezoneIDDefault
+	this.STimezoneNameDefault = sTimezoneNameDefault
 	this.SSystemconfigurationtypeDescriptionX = sSystemconfigurationtypeDescriptionX
 	this.ESystemconfigurationNewexternaluseraction = eSystemconfigurationNewexternaluseraction
 	this.ESystemconfigurationLanguage1 = eSystemconfigurationLanguage1
@@ -158,6 +166,54 @@ func (o *SystemconfigurationResponse) HasFkiBrandingID() bool {
 // SetFkiBrandingID gets a reference to the given int32 and assigns it to the FkiBrandingID field.
 func (o *SystemconfigurationResponse) SetFkiBrandingID(v int32) {
 	o.FkiBrandingID = &v
+}
+
+// GetFkiTimezoneIDDefault returns the FkiTimezoneIDDefault field value
+func (o *SystemconfigurationResponse) GetFkiTimezoneIDDefault() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiTimezoneIDDefault
+}
+
+// GetFkiTimezoneIDDefaultOk returns a tuple with the FkiTimezoneIDDefault field value
+// and a boolean to check if the value has been set.
+func (o *SystemconfigurationResponse) GetFkiTimezoneIDDefaultOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiTimezoneIDDefault, true
+}
+
+// SetFkiTimezoneIDDefault sets field value
+func (o *SystemconfigurationResponse) SetFkiTimezoneIDDefault(v int32) {
+	o.FkiTimezoneIDDefault = v
+}
+
+// GetSTimezoneNameDefault returns the STimezoneNameDefault field value
+func (o *SystemconfigurationResponse) GetSTimezoneNameDefault() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.STimezoneNameDefault
+}
+
+// GetSTimezoneNameDefaultOk returns a tuple with the STimezoneNameDefault field value
+// and a boolean to check if the value has been set.
+func (o *SystemconfigurationResponse) GetSTimezoneNameDefaultOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.STimezoneNameDefault, true
+}
+
+// SetSTimezoneNameDefault sets field value
+func (o *SystemconfigurationResponse) SetSTimezoneNameDefault(v string) {
+	o.STimezoneNameDefault = v
 }
 
 // GetSSystemconfigurationtypeDescriptionX returns the SSystemconfigurationtypeDescriptionX field value
@@ -563,6 +619,38 @@ func (o *SystemconfigurationResponse) SetObjBranding(v CustomBrandingResponse) {
 	o.ObjBranding = &v
 }
 
+// GetISystemconfigurationEzsignreminderhoursend returns the ISystemconfigurationEzsignreminderhoursend field value if set, zero value otherwise.
+func (o *SystemconfigurationResponse) GetISystemconfigurationEzsignreminderhoursend() int32 {
+	if o == nil || IsNil(o.ISystemconfigurationEzsignreminderhoursend) {
+		var ret int32
+		return ret
+	}
+	return *o.ISystemconfigurationEzsignreminderhoursend
+}
+
+// GetISystemconfigurationEzsignreminderhoursendOk returns a tuple with the ISystemconfigurationEzsignreminderhoursend field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SystemconfigurationResponse) GetISystemconfigurationEzsignreminderhoursendOk() (*int32, bool) {
+	if o == nil || IsNil(o.ISystemconfigurationEzsignreminderhoursend) {
+		return nil, false
+	}
+	return o.ISystemconfigurationEzsignreminderhoursend, true
+}
+
+// HasISystemconfigurationEzsignreminderhoursend returns a boolean if a field has been set.
+func (o *SystemconfigurationResponse) HasISystemconfigurationEzsignreminderhoursend() bool {
+	if o != nil && !IsNil(o.ISystemconfigurationEzsignreminderhoursend) {
+		return true
+	}
+
+	return false
+}
+
+// SetISystemconfigurationEzsignreminderhoursend gets a reference to the given int32 and assigns it to the ISystemconfigurationEzsignreminderhoursend field.
+func (o *SystemconfigurationResponse) SetISystemconfigurationEzsignreminderhoursend(v int32) {
+	o.ISystemconfigurationEzsignreminderhoursend = &v
+}
+
 func (o SystemconfigurationResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -578,6 +666,8 @@ func (o SystemconfigurationResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.FkiBrandingID) {
 		toSerialize["fkiBrandingID"] = o.FkiBrandingID
 	}
+	toSerialize["fkiTimezoneIDDefault"] = o.FkiTimezoneIDDefault
+	toSerialize["sTimezoneNameDefault"] = o.STimezoneNameDefault
 	toSerialize["sSystemconfigurationtypeDescriptionX"] = o.SSystemconfigurationtypeDescriptionX
 	toSerialize["eSystemconfigurationNewexternaluseraction"] = o.ESystemconfigurationNewexternaluseraction
 	toSerialize["eSystemconfigurationLanguage1"] = o.ESystemconfigurationLanguage1
@@ -608,6 +698,9 @@ func (o SystemconfigurationResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ObjBranding) {
 		toSerialize["objBranding"] = o.ObjBranding
 	}
+	if !IsNil(o.ISystemconfigurationEzsignreminderhoursend) {
+		toSerialize["iSystemconfigurationEzsignreminderhoursend"] = o.ISystemconfigurationEzsignreminderhoursend
+	}
 	return toSerialize, nil
 }
 
@@ -618,6 +711,8 @@ func (o *SystemconfigurationResponse) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"pkiSystemconfigurationID",
 		"fkiSystemconfigurationtypeID",
+		"fkiTimezoneIDDefault",
+		"sTimezoneNameDefault",
 		"sSystemconfigurationtypeDescriptionX",
 		"eSystemconfigurationNewexternaluseraction",
 		"eSystemconfigurationLanguage1",

@@ -97,6 +97,7 @@ func (a *ObjectOtherincometypeAPIService) OtherincometypeGetAutocompleteV2Execut
 		parameterAddToHeaderOrQuery(localVarQueryParams, "eFilterActive", r.eFilterActive, "form", "")
 	} else {
 		var defaultValue string = "Active"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "eFilterActive", defaultValue, "form", "")
 		r.eFilterActive = &defaultValue
 	}
 	if r.sQuery != nil {

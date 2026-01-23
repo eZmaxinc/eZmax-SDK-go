@@ -70,6 +70,7 @@ type EzsignfolderResponseV3 struct {
 	DtEzsignfolderDispose *string `json:"dtEzsignfolderDispose,omitempty"`
 	// A custom text message that will be added to the email sent.
 	TEzsignfolderMessage *string `json:"tEzsignfolderMessage,omitempty"`
+	EEzsignfolderMessageorder *FieldEEzsignfolderMessageorder `json:"eEzsignfolderMessageorder,omitempty"`
 	ObjAudit *CommonAudit `json:"objAudit,omitempty"`
 	// This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format. 
 	SEzsignfolderExternalid *string `json:"sEzsignfolderExternalid,omitempty" validate:"regexp=^.{0,128}$"`
@@ -87,6 +88,8 @@ func NewEzsignfolderResponseV3(pkiEzsignfolderID int32, eEzsignfolderCompletion 
 	this.PkiEzsignfolderID = pkiEzsignfolderID
 	this.EEzsignfolderCompletion = eEzsignfolderCompletion
 	this.SEzsignfolderDescription = sEzsignfolderDescription
+	var eEzsignfolderMessageorder FieldEEzsignfolderMessageorder = GLOBAL_FIRST
+	this.EEzsignfolderMessageorder = &eEzsignfolderMessageorder
 	return &this
 }
 
@@ -95,6 +98,8 @@ func NewEzsignfolderResponseV3(pkiEzsignfolderID int32, eEzsignfolderCompletion 
 // but it doesn't guarantee that properties required by API are set
 func NewEzsignfolderResponseV3WithDefaults() *EzsignfolderResponseV3 {
 	this := EzsignfolderResponseV3{}
+	var eEzsignfolderMessageorder FieldEEzsignfolderMessageorder = GLOBAL_FIRST
+	this.EEzsignfolderMessageorder = &eEzsignfolderMessageorder
 	return &this
 }
 
@@ -909,6 +914,38 @@ func (o *EzsignfolderResponseV3) SetTEzsignfolderMessage(v string) {
 	o.TEzsignfolderMessage = &v
 }
 
+// GetEEzsignfolderMessageorder returns the EEzsignfolderMessageorder field value if set, zero value otherwise.
+func (o *EzsignfolderResponseV3) GetEEzsignfolderMessageorder() FieldEEzsignfolderMessageorder {
+	if o == nil || IsNil(o.EEzsignfolderMessageorder) {
+		var ret FieldEEzsignfolderMessageorder
+		return ret
+	}
+	return *o.EEzsignfolderMessageorder
+}
+
+// GetEEzsignfolderMessageorderOk returns a tuple with the EEzsignfolderMessageorder field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderResponseV3) GetEEzsignfolderMessageorderOk() (*FieldEEzsignfolderMessageorder, bool) {
+	if o == nil || IsNil(o.EEzsignfolderMessageorder) {
+		return nil, false
+	}
+	return o.EEzsignfolderMessageorder, true
+}
+
+// HasEEzsignfolderMessageorder returns a boolean if a field has been set.
+func (o *EzsignfolderResponseV3) HasEEzsignfolderMessageorder() bool {
+	if o != nil && !IsNil(o.EEzsignfolderMessageorder) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsignfolderMessageorder gets a reference to the given FieldEEzsignfolderMessageorder and assigns it to the EEzsignfolderMessageorder field.
+func (o *EzsignfolderResponseV3) SetEEzsignfolderMessageorder(v FieldEEzsignfolderMessageorder) {
+	o.EEzsignfolderMessageorder = &v
+}
+
 // GetObjAudit returns the ObjAudit field value if set, zero value otherwise.
 func (o *EzsignfolderResponseV3) GetObjAudit() CommonAudit {
 	if o == nil || IsNil(o.ObjAudit) {
@@ -1086,6 +1123,9 @@ func (o EzsignfolderResponseV3) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.TEzsignfolderMessage) {
 		toSerialize["tEzsignfolderMessage"] = o.TEzsignfolderMessage
+	}
+	if !IsNil(o.EEzsignfolderMessageorder) {
+		toSerialize["eEzsignfolderMessageorder"] = o.EEzsignfolderMessageorder
 	}
 	if !IsNil(o.ObjAudit) {
 		toSerialize["objAudit"] = o.ObjAudit

@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **DtEzsignfolderArchive** | Pointer to **string** | The date and time at which the Ezsignfolder was archived. | [optional] 
 **DtEzsignfolderDispose** | Pointer to **string** | The date and time at which the Ezsignfolder was disposed. | [optional] 
 **TEzsignfolderMessage** | Pointer to **string** | A custom text message that will be added to the email sent. | [optional] 
+**EEzsignfolderMessageorder** | Pointer to [**FieldEEzsignfolderMessageorder**](FieldEEzsignfolderMessageorder.md) |  | [optional] [default to GLOBAL_FIRST]
 **ObjAudit** | Pointer to [**CommonAudit**](CommonAudit.md) |  | [optional] 
 **SEzsignfolderExternalid** | Pointer to **string** | This field can be used to store an External ID from the client&#39;s system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format.  | [optional] 
 **EEzsignfolderAccess** | Pointer to [**ComputedEEzsignfolderAccess**](ComputedEEzsignfolderAccess.md) |  | [optional] 
@@ -688,6 +689,31 @@ SetTEzsignfolderMessage sets TEzsignfolderMessage field to given value.
 `func (o *EzsignfolderResponseCompoundV3) HasTEzsignfolderMessage() bool`
 
 HasTEzsignfolderMessage returns a boolean if a field has been set.
+
+### GetEEzsignfolderMessageorder
+
+`func (o *EzsignfolderResponseCompoundV3) GetEEzsignfolderMessageorder() FieldEEzsignfolderMessageorder`
+
+GetEEzsignfolderMessageorder returns the EEzsignfolderMessageorder field if non-nil, zero value otherwise.
+
+### GetEEzsignfolderMessageorderOk
+
+`func (o *EzsignfolderResponseCompoundV3) GetEEzsignfolderMessageorderOk() (*FieldEEzsignfolderMessageorder, bool)`
+
+GetEEzsignfolderMessageorderOk returns a tuple with the EEzsignfolderMessageorder field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsignfolderMessageorder
+
+`func (o *EzsignfolderResponseCompoundV3) SetEEzsignfolderMessageorder(v FieldEEzsignfolderMessageorder)`
+
+SetEEzsignfolderMessageorder sets EEzsignfolderMessageorder field to given value.
+
+### HasEEzsignfolderMessageorder
+
+`func (o *EzsignfolderResponseCompoundV3) HasEEzsignfolderMessageorder() bool`
+
+HasEEzsignfolderMessageorder returns a boolean if a field has been set.
 
 ### GetObjAudit
 

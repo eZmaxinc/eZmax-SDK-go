@@ -37,9 +37,11 @@ type EzsignsignatureResponse struct {
 	// The description of the Currency in the language of the requester
 	SCurrencyDescriptionX *string `json:"sCurrencyDescriptionX,omitempty" validate:"regexp=^.{1,20}$"`
 	// The amount of the Creditcard signature
-	DEzsignsignatureCreditcardamount *string `json:"dEzsignsignatureCreditcardamount,omitempty" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	DEzsignsignatureCreditcardamount *string `json:"dEzsignsignatureCreditcardamount,omitempty" validate:"regexp=^[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
 	// The description of the Creditcard signature
 	SEzsignsignatureCreditcardamountdescription *string `json:"sEzsignsignatureCreditcardamountdescription,omitempty" validate:"regexp=^.{1,50}$"`
+	// Whether we can enter a custom amount while signing an Ezsignsignature 'Creditcard' or not
+	BEzsignsignatureCreditcardcustomamount *bool `json:"bEzsignsignatureCreditcardcustomamount,omitempty"`
 	// The description of the Ezsignsigningreason in the language of the requester
 	SEzsignsigningreasonDescriptionX *string `json:"sEzsignsigningreasonDescriptionX,omitempty" validate:"regexp=^.{0,50}$"`
 	// The page number in the Ezsigndocument
@@ -57,6 +59,8 @@ type EzsignsignatureResponse struct {
 	// The step when the Ezsignsigner will be invited to sign
 	IEzsignsignatureStepadjusted *int32 `json:"iEzsignsignatureStepadjusted,omitempty"`
 	EEzsignsignatureType FieldEEzsignsignatureType `json:"eEzsignsignatureType"`
+	EEzsignsignatureSignaturepad *FieldEEzsignsignatureSignaturepad `json:"eEzsignsignatureSignaturepad,omitempty"`
+	EEzsignsignatureSignaturepadrequired *FieldEEzsignsignatureSignaturepadrequired `json:"eEzsignsignatureSignaturepadrequired,omitempty"`
 	// A tooltip that will be presented to Ezsignsigner about the Ezsignsignature
 	TEzsignsignatureTooltip *string `json:"tEzsignsignatureTooltip,omitempty"`
 	EEzsignsignatureTooltipposition *FieldEEzsignsignatureTooltipposition `json:"eEzsignsignatureTooltipposition,omitempty"`
@@ -388,6 +392,38 @@ func (o *EzsignsignatureResponse) SetSEzsignsignatureCreditcardamountdescription
 	o.SEzsignsignatureCreditcardamountdescription = &v
 }
 
+// GetBEzsignsignatureCreditcardcustomamount returns the BEzsignsignatureCreditcardcustomamount field value if set, zero value otherwise.
+func (o *EzsignsignatureResponse) GetBEzsignsignatureCreditcardcustomamount() bool {
+	if o == nil || IsNil(o.BEzsignsignatureCreditcardcustomamount) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignsignatureCreditcardcustomamount
+}
+
+// GetBEzsignsignatureCreditcardcustomamountOk returns a tuple with the BEzsignsignatureCreditcardcustomamount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureResponse) GetBEzsignsignatureCreditcardcustomamountOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignsignatureCreditcardcustomamount) {
+		return nil, false
+	}
+	return o.BEzsignsignatureCreditcardcustomamount, true
+}
+
+// HasBEzsignsignatureCreditcardcustomamount returns a boolean if a field has been set.
+func (o *EzsignsignatureResponse) HasBEzsignsignatureCreditcardcustomamount() bool {
+	if o != nil && !IsNil(o.BEzsignsignatureCreditcardcustomamount) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignsignatureCreditcardcustomamount gets a reference to the given bool and assigns it to the BEzsignsignatureCreditcardcustomamount field.
+func (o *EzsignsignatureResponse) SetBEzsignsignatureCreditcardcustomamount(v bool) {
+	o.BEzsignsignatureCreditcardcustomamount = &v
+}
+
 // GetSEzsignsigningreasonDescriptionX returns the SEzsignsigningreasonDescriptionX field value if set, zero value otherwise.
 func (o *EzsignsignatureResponse) GetSEzsignsigningreasonDescriptionX() string {
 	if o == nil || IsNil(o.SEzsignsigningreasonDescriptionX) {
@@ -634,6 +670,70 @@ func (o *EzsignsignatureResponse) GetEEzsignsignatureTypeOk() (*FieldEEzsignsign
 // SetEEzsignsignatureType sets field value
 func (o *EzsignsignatureResponse) SetEEzsignsignatureType(v FieldEEzsignsignatureType) {
 	o.EEzsignsignatureType = v
+}
+
+// GetEEzsignsignatureSignaturepad returns the EEzsignsignatureSignaturepad field value if set, zero value otherwise.
+func (o *EzsignsignatureResponse) GetEEzsignsignatureSignaturepad() FieldEEzsignsignatureSignaturepad {
+	if o == nil || IsNil(o.EEzsignsignatureSignaturepad) {
+		var ret FieldEEzsignsignatureSignaturepad
+		return ret
+	}
+	return *o.EEzsignsignatureSignaturepad
+}
+
+// GetEEzsignsignatureSignaturepadOk returns a tuple with the EEzsignsignatureSignaturepad field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureResponse) GetEEzsignsignatureSignaturepadOk() (*FieldEEzsignsignatureSignaturepad, bool) {
+	if o == nil || IsNil(o.EEzsignsignatureSignaturepad) {
+		return nil, false
+	}
+	return o.EEzsignsignatureSignaturepad, true
+}
+
+// HasEEzsignsignatureSignaturepad returns a boolean if a field has been set.
+func (o *EzsignsignatureResponse) HasEEzsignsignatureSignaturepad() bool {
+	if o != nil && !IsNil(o.EEzsignsignatureSignaturepad) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsignsignatureSignaturepad gets a reference to the given FieldEEzsignsignatureSignaturepad and assigns it to the EEzsignsignatureSignaturepad field.
+func (o *EzsignsignatureResponse) SetEEzsignsignatureSignaturepad(v FieldEEzsignsignatureSignaturepad) {
+	o.EEzsignsignatureSignaturepad = &v
+}
+
+// GetEEzsignsignatureSignaturepadrequired returns the EEzsignsignatureSignaturepadrequired field value if set, zero value otherwise.
+func (o *EzsignsignatureResponse) GetEEzsignsignatureSignaturepadrequired() FieldEEzsignsignatureSignaturepadrequired {
+	if o == nil || IsNil(o.EEzsignsignatureSignaturepadrequired) {
+		var ret FieldEEzsignsignatureSignaturepadrequired
+		return ret
+	}
+	return *o.EEzsignsignatureSignaturepadrequired
+}
+
+// GetEEzsignsignatureSignaturepadrequiredOk returns a tuple with the EEzsignsignatureSignaturepadrequired field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureResponse) GetEEzsignsignatureSignaturepadrequiredOk() (*FieldEEzsignsignatureSignaturepadrequired, bool) {
+	if o == nil || IsNil(o.EEzsignsignatureSignaturepadrequired) {
+		return nil, false
+	}
+	return o.EEzsignsignatureSignaturepadrequired, true
+}
+
+// HasEEzsignsignatureSignaturepadrequired returns a boolean if a field has been set.
+func (o *EzsignsignatureResponse) HasEEzsignsignatureSignaturepadrequired() bool {
+	if o != nil && !IsNil(o.EEzsignsignatureSignaturepadrequired) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsignsignatureSignaturepadrequired gets a reference to the given FieldEEzsignsignatureSignaturepadrequired and assigns it to the EEzsignsignatureSignaturepadrequired field.
+func (o *EzsignsignatureResponse) SetEEzsignsignatureSignaturepadrequired(v FieldEEzsignsignatureSignaturepadrequired) {
+	o.EEzsignsignatureSignaturepadrequired = &v
 }
 
 // GetTEzsignsignatureTooltip returns the TEzsignsignatureTooltip field value if set, zero value otherwise.
@@ -1395,6 +1495,9 @@ func (o EzsignsignatureResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.SEzsignsignatureCreditcardamountdescription) {
 		toSerialize["sEzsignsignatureCreditcardamountdescription"] = o.SEzsignsignatureCreditcardamountdescription
 	}
+	if !IsNil(o.BEzsignsignatureCreditcardcustomamount) {
+		toSerialize["bEzsignsignatureCreditcardcustomamount"] = o.BEzsignsignatureCreditcardcustomamount
+	}
 	if !IsNil(o.SEzsignsigningreasonDescriptionX) {
 		toSerialize["sEzsignsigningreasonDescriptionX"] = o.SEzsignsigningreasonDescriptionX
 	}
@@ -1412,6 +1515,12 @@ func (o EzsignsignatureResponse) ToMap() (map[string]interface{}, error) {
 		toSerialize["iEzsignsignatureStepadjusted"] = o.IEzsignsignatureStepadjusted
 	}
 	toSerialize["eEzsignsignatureType"] = o.EEzsignsignatureType
+	if !IsNil(o.EEzsignsignatureSignaturepad) {
+		toSerialize["eEzsignsignatureSignaturepad"] = o.EEzsignsignatureSignaturepad
+	}
+	if !IsNil(o.EEzsignsignatureSignaturepadrequired) {
+		toSerialize["eEzsignsignatureSignaturepadrequired"] = o.EEzsignsignatureSignaturepadrequired
+	}
 	if !IsNil(o.TEzsignsignatureTooltip) {
 		toSerialize["tEzsignsignatureTooltip"] = o.TEzsignsignatureTooltip
 	}

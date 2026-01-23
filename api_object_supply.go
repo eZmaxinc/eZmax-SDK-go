@@ -509,6 +509,7 @@ func (a *ObjectSupplyAPIService) SupplyGetAutocompleteV2Execute(r ApiSupplyGetAu
 		parameterAddToHeaderOrQuery(localVarQueryParams, "eFilterActive", r.eFilterActive, "form", "")
 	} else {
 		var defaultValue string = "Active"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "eFilterActive", defaultValue, "form", "")
 		r.eFilterActive = &defaultValue
 	}
 	if r.sQuery != nil {
@@ -671,6 +672,7 @@ func (a *ObjectSupplyAPIService) SupplyGetListV1Execute(r ApiSupplyGetListV1Requ
 		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowOffset", r.iRowOffset, "form", "")
 	} else {
 		var defaultValue int32 = 0
+		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowOffset", defaultValue, "form", "")
 		r.iRowOffset = &defaultValue
 	}
 	if r.sFilter != nil {

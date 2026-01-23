@@ -7,13 +7,14 @@ Name | Type | Description | Notes
 **PkiCustomerID** | **int32** | The unique ID of the Customer. | 
 **FkiDepartmentID** | **int32** | The unique ID of the Department | 
 **SCustomerName** | **string** | The name of the Customer | 
+**SCustomerCode** | **string** | The code of the Customer | 
 **BCustomerIsactive** | **bool** | Whether the customer is active or not | 
 
 ## Methods
 
 ### NewCustomerAutocompleteElementResponse
 
-`func NewCustomerAutocompleteElementResponse(pkiCustomerID int32, fkiDepartmentID int32, sCustomerName string, bCustomerIsactive bool, ) *CustomerAutocompleteElementResponse`
+`func NewCustomerAutocompleteElementResponse(pkiCustomerID int32, fkiDepartmentID int32, sCustomerName string, sCustomerCode string, bCustomerIsactive bool, ) *CustomerAutocompleteElementResponse`
 
 NewCustomerAutocompleteElementResponse instantiates a new CustomerAutocompleteElementResponse object
 This constructor will assign default values to properties that have it defined,
@@ -86,6 +87,26 @@ and a boolean to check if the value has been set.
 `func (o *CustomerAutocompleteElementResponse) SetSCustomerName(v string)`
 
 SetSCustomerName sets SCustomerName field to given value.
+
+
+### GetSCustomerCode
+
+`func (o *CustomerAutocompleteElementResponse) GetSCustomerCode() string`
+
+GetSCustomerCode returns the SCustomerCode field if non-nil, zero value otherwise.
+
+### GetSCustomerCodeOk
+
+`func (o *CustomerAutocompleteElementResponse) GetSCustomerCodeOk() (*string, bool)`
+
+GetSCustomerCodeOk returns a tuple with the SCustomerCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSCustomerCode
+
+`func (o *CustomerAutocompleteElementResponse) SetSCustomerCode(v string)`
+
+SetSCustomerCode sets SCustomerCode field to given value.
 
 
 ### GetBCustomerIsactive

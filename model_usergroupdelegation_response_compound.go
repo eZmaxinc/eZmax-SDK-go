@@ -36,6 +36,8 @@ type UsergroupdelegationResponseCompound struct {
 	SUserLoginname string "json:\"sUserLoginname\" validate:\"regexp=^(?:([\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$\""
 	// The email address.
 	SEmailAddress *string "json:\"sEmailAddress,omitempty\" validate:\"regexp=^[\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20}$\""
+	// Whether the User is active or not
+	BUserIsactive bool `json:"bUserIsactive"`
 	// The Name of the Usergroup in the language of the requester
 	SUsergroupNameX string `json:"sUsergroupNameX" validate:"regexp=^.{0,50}$"`
 }
@@ -46,7 +48,7 @@ type _UsergroupdelegationResponseCompound UsergroupdelegationResponseCompound
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUsergroupdelegationResponseCompound(pkiUsergroupdelegationID int32, fkiUsergroupID int32, fkiUserID int32, sUserFirstname string, sUserLastname string, sUserLoginname string, sUsergroupNameX string) *UsergroupdelegationResponseCompound {
+func NewUsergroupdelegationResponseCompound(pkiUsergroupdelegationID int32, fkiUsergroupID int32, fkiUserID int32, sUserFirstname string, sUserLastname string, sUserLoginname string, bUserIsactive bool, sUsergroupNameX string) *UsergroupdelegationResponseCompound {
 	this := UsergroupdelegationResponseCompound{}
 	this.PkiUsergroupdelegationID = pkiUsergroupdelegationID
 	this.FkiUsergroupID = fkiUsergroupID
@@ -54,6 +56,7 @@ func NewUsergroupdelegationResponseCompound(pkiUsergroupdelegationID int32, fkiU
 	this.SUserFirstname = sUserFirstname
 	this.SUserLastname = sUserLastname
 	this.SUserLoginname = sUserLoginname
+	this.BUserIsactive = bUserIsactive
 	this.SUsergroupNameX = sUsergroupNameX
 	return &this
 }
@@ -242,6 +245,30 @@ func (o *UsergroupdelegationResponseCompound) SetSEmailAddress(v string) {
 	o.SEmailAddress = &v
 }
 
+// GetBUserIsactive returns the BUserIsactive field value
+func (o *UsergroupdelegationResponseCompound) GetBUserIsactive() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BUserIsactive
+}
+
+// GetBUserIsactiveOk returns a tuple with the BUserIsactive field value
+// and a boolean to check if the value has been set.
+func (o *UsergroupdelegationResponseCompound) GetBUserIsactiveOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BUserIsactive, true
+}
+
+// SetBUserIsactive sets field value
+func (o *UsergroupdelegationResponseCompound) SetBUserIsactive(v bool) {
+	o.BUserIsactive = v
+}
+
 // GetSUsergroupNameX returns the SUsergroupNameX field value
 func (o *UsergroupdelegationResponseCompound) GetSUsergroupNameX() string {
 	if o == nil {
@@ -285,6 +312,7 @@ func (o UsergroupdelegationResponseCompound) ToMap() (map[string]interface{}, er
 	if !IsNil(o.SEmailAddress) {
 		toSerialize["sEmailAddress"] = o.SEmailAddress
 	}
+	toSerialize["bUserIsactive"] = o.BUserIsactive
 	toSerialize["sUsergroupNameX"] = o.SUsergroupNameX
 	return toSerialize, nil
 }
@@ -300,6 +328,7 @@ func (o *UsergroupdelegationResponseCompound) UnmarshalJSON(data []byte) (err er
 		"sUserFirstname",
 		"sUserLastname",
 		"sUserLoginname",
+		"bUserIsactive",
 		"sUsergroupNameX",
 	}
 

@@ -7,6 +7,8 @@
 
 * `ASSISTANT` (value: `"Assistant"`)
 
+* `EMPLOYEE` (value: `"Employee"`)
+
 * `EZSIGN_SIGNER` (value: `"EzsignSigner"`)
 
 * `EZSIGN_USER` (value: `"EzsignUser"`)

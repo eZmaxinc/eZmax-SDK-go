@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**EzsignfolderEndPrematurelyV1**](ObjectEzsignfolderAPI.md#EzsignfolderEndPrematurelyV1) | **Post** /1/object/ezsignfolder/{pkiEzsignfolderID}/endPrematurely | End prematurely
 [**EzsignfolderGetActionableElementsV1**](ObjectEzsignfolderAPI.md#EzsignfolderGetActionableElementsV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getActionableElements | Retrieve actionable elements for the Ezsignfolder
 [**EzsignfolderGetActionableElementsV2**](ObjectEzsignfolderAPI.md#EzsignfolderGetActionableElementsV2) | **Get** /2/object/ezsignfolder/{pkiEzsignfolderID}/getActionableElements | Retrieve actionable elements for the Ezsignfolder
+[**EzsignfolderGetActionableElementsV3**](ObjectEzsignfolderAPI.md#EzsignfolderGetActionableElementsV3) | **Get** /3/object/ezsignfolder/{pkiEzsignfolderID}/getActionableElements | Retrieve actionable elements for the Ezsignfolder
 [**EzsignfolderGetAttachmentCountV1**](ObjectEzsignfolderAPI.md#EzsignfolderGetAttachmentCountV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getAttachmentCount | Retrieve Attachment count
 [**EzsignfolderGetAttachmentsV1**](ObjectEzsignfolderAPI.md#EzsignfolderGetAttachmentsV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getAttachments | Retrieve Ezsignfolder&#39;s Attachments
 [**EzsignfolderGetCommunicationCountV1**](ObjectEzsignfolderAPI.md#EzsignfolderGetCommunicationCountV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getCommunicationCount | Retrieve Communication count
@@ -34,7 +35,6 @@ Method | HTTP request | Description
 [**EzsignfolderImportEzsignfoldersignerassociationsV1**](ObjectEzsignfolderAPI.md#EzsignfolderImportEzsignfoldersignerassociationsV1) | **Post** /1/object/ezsignfolder/{pkiEzsignfolderID}/importEzsignfoldersignerassociations | Import an existing Ezsignfoldersignerassociation into this Ezsignfolder
 [**EzsignfolderImportEzsigntemplatepackageV1**](ObjectEzsignfolderAPI.md#EzsignfolderImportEzsigntemplatepackageV1) | **Post** /1/object/ezsignfolder/{pkiEzsignfolderID}/importEzsigntemplatepackage | Import an Ezsigntemplatepackage in the Ezsignfolder
 [**EzsignfolderImportEzsigntemplatepackageV2**](ObjectEzsignfolderAPI.md#EzsignfolderImportEzsigntemplatepackageV2) | **Post** /2/object/ezsignfolder/{pkiEzsignfolderID}/importEzsigntemplatepackage | Import an Ezsigntemplatepackage in the Ezsignfolder
-[**EzsignfolderReorderV1**](ObjectEzsignfolderAPI.md#EzsignfolderReorderV1) | **Post** /1/object/ezsignfolder/{pkiEzsignfolderID}/reorder | Reorder Ezsigndocuments in the Ezsignfolder
 [**EzsignfolderReorderV2**](ObjectEzsignfolderAPI.md#EzsignfolderReorderV2) | **Post** /2/object/ezsignfolder/{pkiEzsignfolderID}/reorder | Reorder Ezsigndocuments in the Ezsignfolder
 [**EzsignfolderSendV1**](ObjectEzsignfolderAPI.md#EzsignfolderSendV1) | **Post** /1/object/ezsignfolder/{pkiEzsignfolderID}/send | Send the Ezsignfolder to the signatories for signature
 [**EzsignfolderSendV3**](ObjectEzsignfolderAPI.md#EzsignfolderSendV3) | **Post** /3/object/ezsignfolder/{pkiEzsignfolderID}/send | Send the Ezsignfolder to the signatories for signature
@@ -857,6 +857,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignfolderGetActionableElementsV2Response**](EzsignfolderGetActionableElementsV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsignfolderGetActionableElementsV3
+
+> EzsignfolderGetActionableElementsV3Response EzsignfolderGetActionableElementsV3(ctx, pkiEzsignfolderID).Execute()
+
+Retrieve actionable elements for the Ezsignfolder
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsignfolderID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetActionableElementsV3(context.Background(), pkiEzsignfolderID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderGetActionableElementsV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderGetActionableElementsV3`: EzsignfolderGetActionableElementsV3Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderGetActionableElementsV3`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsignfolderID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsignfolderGetActionableElementsV3Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**EzsignfolderGetActionableElementsV3Response**](EzsignfolderGetActionableElementsV3Response.md)
 
 ### Authorization
 
@@ -2125,76 +2195,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignfolderImportEzsigntemplatepackageV2Response**](EzsignfolderImportEzsigntemplatepackageV2Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## EzsignfolderReorderV1
-
-> EzsignfolderReorderV1Response EzsignfolderReorderV1(ctx, pkiEzsignfolderID).EzsignfolderReorderV1Request(ezsignfolderReorderV1Request).Execute()
-
-Reorder Ezsigndocuments in the Ezsignfolder
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiEzsignfolderID := int32(56) // int32 | 
-	ezsignfolderReorderV1Request := *openapiclient.NewEzsignfolderReorderV1Request([]int32{int32(97)}) // EzsignfolderReorderV1Request | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderReorderV1(context.Background(), pkiEzsignfolderID).EzsignfolderReorderV1Request(ezsignfolderReorderV1Request).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderReorderV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `EzsignfolderReorderV1`: EzsignfolderReorderV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderReorderV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiEzsignfolderID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiEzsignfolderReorderV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **ezsignfolderReorderV1Request** | [**EzsignfolderReorderV1Request**](EzsignfolderReorderV1Request.md) |  | 
-
-### Return type
-
-[**EzsignfolderReorderV1Response**](EzsignfolderReorderV1Response.md)
 
 ### Authorization
 

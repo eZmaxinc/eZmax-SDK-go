@@ -7,12 +7,13 @@ Name | Type | Description | Notes
 **PkiUsergroupID** | **int32** | The unique ID of the Usergroup | 
 **SUsergroupNameX** | **string** | The Name of the Usergroup in the language of the requester | 
 **ICountUser** | **int32** | Number of users in group | 
+**ICountInactiveuser** | **int32** | Number of inactive users in group | 
 
 ## Methods
 
 ### NewUsergroupListElement
 
-`func NewUsergroupListElement(pkiUsergroupID int32, sUsergroupNameX string, iCountUser int32, ) *UsergroupListElement`
+`func NewUsergroupListElement(pkiUsergroupID int32, sUsergroupNameX string, iCountUser int32, iCountInactiveuser int32, ) *UsergroupListElement`
 
 NewUsergroupListElement instantiates a new UsergroupListElement object
 This constructor will assign default values to properties that have it defined,
@@ -85,6 +86,26 @@ and a boolean to check if the value has been set.
 `func (o *UsergroupListElement) SetICountUser(v int32)`
 
 SetICountUser sets ICountUser field to given value.
+
+
+### GetICountInactiveuser
+
+`func (o *UsergroupListElement) GetICountInactiveuser() int32`
+
+GetICountInactiveuser returns the ICountInactiveuser field if non-nil, zero value otherwise.
+
+### GetICountInactiveuserOk
+
+`func (o *UsergroupListElement) GetICountInactiveuserOk() (*int32, bool)`
+
+GetICountInactiveuserOk returns a tuple with the ICountInactiveuser field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetICountInactiveuser
+
+`func (o *UsergroupListElement) SetICountInactiveuser(v int32)`
+
+SetICountInactiveuser sets ICountInactiveuser field to given value.
 
 
 

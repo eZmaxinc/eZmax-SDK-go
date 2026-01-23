@@ -40,6 +40,8 @@ type UsergroupmembershipResponseCompound struct {
 	SEmailAddress *string "json:\"sEmailAddress,omitempty\" validate:\"regexp=^[\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20}$\""
 	// The Name of the Usergroup in the language of the requester
 	SUsergroupNameX string `json:"sUsergroupNameX" validate:"regexp=^.{0,50}$"`
+	// Whether the User is active or not
+	BUserIsactive *bool `json:"bUserIsactive,omitempty"`
 	// The name of the Usergroupexternal
 	SUsergroupexternalName *string `json:"sUsergroupexternalName,omitempty" validate:"regexp=^.{0,64}$"`
 }
@@ -330,6 +332,38 @@ func (o *UsergroupmembershipResponseCompound) SetSUsergroupNameX(v string) {
 	o.SUsergroupNameX = v
 }
 
+// GetBUserIsactive returns the BUserIsactive field value if set, zero value otherwise.
+func (o *UsergroupmembershipResponseCompound) GetBUserIsactive() bool {
+	if o == nil || IsNil(o.BUserIsactive) {
+		var ret bool
+		return ret
+	}
+	return *o.BUserIsactive
+}
+
+// GetBUserIsactiveOk returns a tuple with the BUserIsactive field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsergroupmembershipResponseCompound) GetBUserIsactiveOk() (*bool, bool) {
+	if o == nil || IsNil(o.BUserIsactive) {
+		return nil, false
+	}
+	return o.BUserIsactive, true
+}
+
+// HasBUserIsactive returns a boolean if a field has been set.
+func (o *UsergroupmembershipResponseCompound) HasBUserIsactive() bool {
+	if o != nil && !IsNil(o.BUserIsactive) {
+		return true
+	}
+
+	return false
+}
+
+// SetBUserIsactive gets a reference to the given bool and assigns it to the BUserIsactive field.
+func (o *UsergroupmembershipResponseCompound) SetBUserIsactive(v bool) {
+	o.BUserIsactive = &v
+}
+
 // GetSUsergroupexternalName returns the SUsergroupexternalName field value if set, zero value otherwise.
 func (o *UsergroupmembershipResponseCompound) GetSUsergroupexternalName() string {
 	if o == nil || IsNil(o.SUsergroupexternalName) {
@@ -393,6 +427,9 @@ func (o UsergroupmembershipResponseCompound) ToMap() (map[string]interface{}, er
 		toSerialize["sEmailAddress"] = o.SEmailAddress
 	}
 	toSerialize["sUsergroupNameX"] = o.SUsergroupNameX
+	if !IsNil(o.BUserIsactive) {
+		toSerialize["bUserIsactive"] = o.BUserIsactive
+	}
 	if !IsNil(o.SUsergroupexternalName) {
 		toSerialize["sUsergroupexternalName"] = o.SUsergroupexternalName
 	}

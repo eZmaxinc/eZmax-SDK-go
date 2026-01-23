@@ -5,6 +5,7 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**EzsigntemplatedocumentCreateObjectV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentCreateObjectV1) | **Post** /1/object/ezsigntemplatedocument | Create a new Ezsigntemplatedocument
+[**EzsigntemplatedocumentDownloadV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentDownloadV1) | **Get** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/download | Retrieve an existing Ezsigntemplatedocument&#39;s original file
 [**EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1) | **Put** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/editEzsigntemplatedocumentpagerecognitions | Edit multiple Ezsigntemplatedocumentpagerecognitions
 [**EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1) | **Put** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/editEzsigntemplateformfieldgroups | Edit multiple Ezsigntemplateformfieldgroups
 [**EzsigntemplatedocumentEditEzsigntemplatesignaturesV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentEditEzsigntemplatesignaturesV1) | **Put** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/editEzsigntemplatesignatures | Edit multiple Ezsigntemplatesignatures
@@ -15,7 +16,6 @@ Method | HTTP request | Description
 [**EzsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1) | **Get** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplatedocumentpagerecognitions | Retrieve an existing Ezsigntemplatedocument&#39;s Ezsigntemplatedocumentpagerecognitions
 [**EzsigntemplatedocumentGetEzsigntemplatedocumentpagesV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentGetEzsigntemplatedocumentpagesV1) | **Get** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplatedocumentpages | Retrieve an existing Ezsigntemplatedocument&#39;s Ezsigntemplatedocumentpages
 [**EzsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1) | **Get** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplateformfieldgroups | Retrieve an existing Ezsigntemplatedocument&#39;s Ezsigntemplateformfieldgroups
-[**EzsigntemplatedocumentGetEzsigntemplatesignaturesV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentGetEzsigntemplatesignaturesV1) | **Get** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplatesignatures | Retrieve an existing Ezsigntemplatedocument&#39;s Ezsigntemplatesignatures
 [**EzsigntemplatedocumentGetEzsigntemplatesignaturesV2**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentGetEzsigntemplatesignaturesV2) | **Get** /2/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplatesignatures | Retrieve an existing Ezsigntemplatedocument&#39;s Ezsigntemplatesignatures
 [**EzsigntemplatedocumentGetObjectV2**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentGetObjectV2) | **Get** /2/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID} | Retrieve an existing Ezsigntemplatedocument
 [**EzsigntemplatedocumentGetWordsPositionsV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentGetWordsPositionsV1) | **Post** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getWordsPositions | Retrieve positions X,Y of given words from a Ezsigntemplatedocument
@@ -82,6 +82,74 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsigntemplatedocumentDownloadV1
+
+> EzsigntemplatedocumentDownloadV1(ctx, pkiEzsigntemplatedocumentID).Execute()
+
+Retrieve an existing Ezsigntemplatedocument's original file
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsigntemplatedocumentID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ObjectEzsigntemplatedocumentAPI.EzsigntemplatedocumentDownloadV1(context.Background(), pkiEzsigntemplatedocumentID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatedocumentAPI.EzsigntemplatedocumentDownloadV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsigntemplatedocumentID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsigntemplatedocumentDownloadV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -788,76 +856,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1Response**](EzsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## EzsigntemplatedocumentGetEzsigntemplatesignaturesV1
-
-> EzsigntemplatedocumentGetEzsigntemplatesignaturesV1Response EzsigntemplatedocumentGetEzsigntemplatesignaturesV1(ctx, pkiEzsigntemplatedocumentID).Execute()
-
-Retrieve an existing Ezsigntemplatedocument's Ezsigntemplatesignatures
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiEzsigntemplatedocumentID := int32(56) // int32 | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectEzsigntemplatedocumentAPI.EzsigntemplatedocumentGetEzsigntemplatesignaturesV1(context.Background(), pkiEzsigntemplatedocumentID).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatedocumentAPI.EzsigntemplatedocumentGetEzsigntemplatesignaturesV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `EzsigntemplatedocumentGetEzsigntemplatesignaturesV1`: EzsigntemplatedocumentGetEzsigntemplatesignaturesV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatedocumentAPI.EzsigntemplatedocumentGetEzsigntemplatesignaturesV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiEzsigntemplatedocumentID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiEzsigntemplatedocumentGetEzsigntemplatesignaturesV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**EzsigntemplatedocumentGetEzsigntemplatesignaturesV1Response**](EzsigntemplatedocumentGetEzsigntemplatesignaturesV1Response.md)
 
 ### Authorization
 

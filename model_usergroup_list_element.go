@@ -28,6 +28,8 @@ type UsergroupListElement struct {
 	SUsergroupNameX string `json:"sUsergroupNameX" validate:"regexp=^.{0,50}$"`
 	// Number of users in group
 	ICountUser int32 `json:"iCountUser"`
+	// Number of inactive users in group
+	ICountInactiveuser int32 `json:"iCountInactiveuser"`
 }
 
 type _UsergroupListElement UsergroupListElement
@@ -36,11 +38,12 @@ type _UsergroupListElement UsergroupListElement
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUsergroupListElement(pkiUsergroupID int32, sUsergroupNameX string, iCountUser int32) *UsergroupListElement {
+func NewUsergroupListElement(pkiUsergroupID int32, sUsergroupNameX string, iCountUser int32, iCountInactiveuser int32) *UsergroupListElement {
 	this := UsergroupListElement{}
 	this.PkiUsergroupID = pkiUsergroupID
 	this.SUsergroupNameX = sUsergroupNameX
 	this.ICountUser = iCountUser
+	this.ICountInactiveuser = iCountInactiveuser
 	return &this
 }
 
@@ -124,6 +127,30 @@ func (o *UsergroupListElement) SetICountUser(v int32) {
 	o.ICountUser = v
 }
 
+// GetICountInactiveuser returns the ICountInactiveuser field value
+func (o *UsergroupListElement) GetICountInactiveuser() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.ICountInactiveuser
+}
+
+// GetICountInactiveuserOk returns a tuple with the ICountInactiveuser field value
+// and a boolean to check if the value has been set.
+func (o *UsergroupListElement) GetICountInactiveuserOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ICountInactiveuser, true
+}
+
+// SetICountInactiveuser sets field value
+func (o *UsergroupListElement) SetICountInactiveuser(v int32) {
+	o.ICountInactiveuser = v
+}
+
 func (o UsergroupListElement) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -137,6 +164,7 @@ func (o UsergroupListElement) ToMap() (map[string]interface{}, error) {
 	toSerialize["pkiUsergroupID"] = o.PkiUsergroupID
 	toSerialize["sUsergroupNameX"] = o.SUsergroupNameX
 	toSerialize["iCountUser"] = o.ICountUser
+	toSerialize["iCountInactiveuser"] = o.ICountInactiveuser
 	return toSerialize, nil
 }
 
@@ -148,6 +176,7 @@ func (o *UsergroupListElement) UnmarshalJSON(data []byte) (err error) {
 		"pkiUsergroupID",
 		"sUsergroupNameX",
 		"iCountUser",
+		"iCountInactiveuser",
 	}
 
 	allProperties := make(map[string]interface{})

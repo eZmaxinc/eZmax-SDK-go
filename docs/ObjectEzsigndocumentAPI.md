@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**EzsigndocumentDeleteObjectV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentDeleteObjectV1) | **Delete** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Delete an existing Ezsigndocument
 [**EzsigndocumentEditEzsignannotationsV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentEditEzsignannotationsV1) | **Put** /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignannotations | Edit multiple Ezsignannotations
 [**EzsigndocumentEditEzsignformfieldgroupsV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentEditEzsignformfieldgroupsV1) | **Put** /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignformfieldgroups | Edit multiple Ezsignformfieldgroups
+[**EzsigndocumentEditEzsignformfieldgroupsV2**](ObjectEzsigndocumentAPI.md#EzsigndocumentEditEzsignformfieldgroupsV2) | **Put** /2/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignformfieldgroups | Edit multiple Ezsignformfieldgroups
 [**EzsigndocumentEditEzsignsignaturesV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentEditEzsignsignaturesV1) | **Put** /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignsignatures | Edit multiple Ezsignsignatures
 [**EzsigndocumentEditEzsignsignaturesV2**](ObjectEzsigndocumentAPI.md#EzsigndocumentEditEzsignsignaturesV2) | **Put** /2/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignsignatures | Edit multiple Ezsignsignatures
 [**EzsigndocumentEditObjectV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentEditObjectV1) | **Put** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Edit an existing Ezsigndocument
@@ -24,6 +25,7 @@ Method | HTTP request | Description
 [**EzsigndocumentFlattenV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentFlattenV1) | **Post** /1/object/ezsigndocument/{pkiEzsigndocumentID}/flatten | Flatten
 [**EzsigndocumentGetActionableElementsV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentGetActionableElementsV1) | **Get** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getActionableElements | Retrieve actionable elements for the Ezsigndocument
 [**EzsigndocumentGetActionableElementsV2**](ObjectEzsigndocumentAPI.md#EzsigndocumentGetActionableElementsV2) | **Get** /2/object/ezsigndocument/{pkiEzsigndocumentID}/getActionableElements | Retrieve actionable elements for the Ezsigndocument
+[**EzsigndocumentGetActionableElementsV3**](ObjectEzsigndocumentAPI.md#EzsigndocumentGetActionableElementsV3) | **Get** /3/object/ezsigndocument/{pkiEzsigndocumentID}/getActionableElements | Retrieve actionable elements for the Ezsigndocument
 [**EzsigndocumentGetAttachmentsV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentGetAttachmentsV1) | **Get** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getAttachments | Retrieve Ezsigndocument&#39;s Attachments
 [**EzsigndocumentGetCompletedElementsV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentGetCompletedElementsV1) | **Get** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getCompletedElements | Retrieve completed elements for the Ezsigndocument
 [**EzsigndocumentGetCompletedElementsV2**](ObjectEzsigndocumentAPI.md#EzsigndocumentGetCompletedElementsV2) | **Get** /2/object/ezsigndocument/{pkiEzsigndocumentID}/getCompletedElements | Retrieve completed elements for the Ezsigndocument
@@ -495,7 +497,7 @@ import (
 )
 
 func main() {
-	ezsigndocumentCreateObjectV2Request := *openapiclient.NewEzsigndocumentCreateObjectV2Request([]openapiclient.EzsigndocumentRequestCompound{*openapiclient.NewEzsigndocumentRequestCompound(int32(33), int32(2), "EEzsigndocumentSource_example", "2020-12-31 23:59:59", "Contract #123")}) // EzsigndocumentCreateObjectV2Request | 
+	ezsigndocumentCreateObjectV2Request := *openapiclient.NewEzsigndocumentCreateObjectV2Request([]openapiclient.EzsigndocumentRequestCompound{*openapiclient.NewEzsigndocumentRequestCompound(int32(33), int32(2), "EEzsigndocumentSource_example", "Contract #123")}) // EzsigndocumentCreateObjectV2Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -561,7 +563,7 @@ import (
 )
 
 func main() {
-	ezsigndocumentCreateObjectV3Request := *openapiclient.NewEzsigndocumentCreateObjectV3Request([]openapiclient.EzsigndocumentRequestCompound{*openapiclient.NewEzsigndocumentRequestCompound(int32(33), int32(2), "EEzsigndocumentSource_example", "2020-12-31 23:59:59", "Contract #123")}) // EzsigndocumentCreateObjectV3Request | 
+	ezsigndocumentCreateObjectV3Request := *openapiclient.NewEzsigndocumentCreateObjectV3Request([]openapiclient.EzsigndocumentRequestCompound{*openapiclient.NewEzsigndocumentRequestCompound(int32(33), int32(2), "EEzsigndocumentSource_example", "Contract #123")}) // EzsigndocumentCreateObjectV3Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -892,6 +894,78 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## EzsigndocumentEditEzsignformfieldgroupsV2
+
+> EzsigndocumentEditEzsignformfieldgroupsV2Response EzsigndocumentEditEzsignformfieldgroupsV2(ctx, pkiEzsigndocumentID).EzsigndocumentEditEzsignformfieldgroupsV2Request(ezsigndocumentEditEzsignformfieldgroupsV2Request).Execute()
+
+Edit multiple Ezsignformfieldgroups
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsigndocumentID := int32(56) // int32 | 
+	ezsigndocumentEditEzsignformfieldgroupsV2Request := *openapiclient.NewEzsigndocumentEditEzsignformfieldgroupsV2Request([]openapiclient.EzsignformfieldgroupRequestCompound{*openapiclient.NewEzsignformfieldgroupRequestCompound(int32(97), openapiclient.Field-eEzsignformfieldgroupType("Text"), "Allergies", int32(1), int32(1), int32(2), false, []openapiclient.EzsignformfieldgroupsignerRequestCompound{*openapiclient.NewEzsignformfieldgroupsignerRequestCompound(int32(20))}, []openapiclient.EzsignformfieldRequestCompound{*openapiclient.NewEzsignformfieldRequestCompound(int32(1), "Peanuts", int32(200), int32(300), int32(102), int32(22))})}) // EzsigndocumentEditEzsignformfieldgroupsV2Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigndocumentAPI.EzsigndocumentEditEzsignformfieldgroupsV2(context.Background(), pkiEzsigndocumentID).EzsigndocumentEditEzsignformfieldgroupsV2Request(ezsigndocumentEditEzsignformfieldgroupsV2Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentAPI.EzsigndocumentEditEzsignformfieldgroupsV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigndocumentEditEzsignformfieldgroupsV2`: EzsigndocumentEditEzsignformfieldgroupsV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigndocumentAPI.EzsigndocumentEditEzsignformfieldgroupsV2`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsigndocumentID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsigndocumentEditEzsignformfieldgroupsV2Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **ezsigndocumentEditEzsignformfieldgroupsV2Request** | [**EzsigndocumentEditEzsignformfieldgroupsV2Request**](EzsigndocumentEditEzsignformfieldgroupsV2Request.md) |  | 
+
+### Return type
+
+[**EzsigndocumentEditEzsignformfieldgroupsV2Response**](EzsigndocumentEditEzsignformfieldgroupsV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## EzsigndocumentEditEzsignsignaturesV1
 
 > EzsigndocumentEditEzsignsignaturesV1Response EzsigndocumentEditEzsignsignaturesV1(ctx, pkiEzsigndocumentID).EzsigndocumentEditEzsignsignaturesV1Request(ezsigndocumentEditEzsignsignaturesV1Request).Execute()
@@ -1058,7 +1132,7 @@ import (
 
 func main() {
 	pkiEzsigndocumentID := int32(56) // int32 | 
-	ezsigndocumentEditObjectV1Request := *openapiclient.NewEzsigndocumentEditObjectV1Request(*openapiclient.NewEzsigndocumentRequestCompound(int32(33), int32(2), "EEzsigndocumentSource_example", "2020-12-31 23:59:59", "Contract #123")) // EzsigndocumentEditObjectV1Request | 
+	ezsigndocumentEditObjectV1Request := *openapiclient.NewEzsigndocumentEditObjectV1Request(*openapiclient.NewEzsigndocumentRequestCompound(int32(33), int32(2), "EEzsigndocumentSource_example", "Contract #123")) // EzsigndocumentEditObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1449,6 +1523,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsigndocumentGetActionableElementsV2Response**](EzsigndocumentGetActionableElementsV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsigndocumentGetActionableElementsV3
+
+> EzsigndocumentGetActionableElementsV3Response EzsigndocumentGetActionableElementsV3(ctx, pkiEzsigndocumentID).Execute()
+
+Retrieve actionable elements for the Ezsigndocument
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsigndocumentID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigndocumentAPI.EzsigndocumentGetActionableElementsV3(context.Background(), pkiEzsigndocumentID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentAPI.EzsigndocumentGetActionableElementsV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigndocumentGetActionableElementsV3`: EzsigndocumentGetActionableElementsV3Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigndocumentAPI.EzsigndocumentGetActionableElementsV3`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsigndocumentID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsigndocumentGetActionableElementsV3Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**EzsigndocumentGetActionableElementsV3Response**](EzsigndocumentGetActionableElementsV3Response.md)
 
 ### Authorization
 

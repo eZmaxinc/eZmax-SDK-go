@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **IEzsignsignatureHeight** | Pointer to **int32** | The height of the Ezsignsignature.  Size is calculated at 100dpi (dot per inch). So for example, if you want the Ezsignsignature to have an height of 2 inches, you would use \&quot;200\&quot; for the iEzsignsignatureHeight. | [optional] 
 **IEzsignsignatureStep** | **int32** | The step when the Ezsignsigner will be invited to sign | 
 **EEzsignsignatureType** | [**FieldEEzsignsignatureType**](FieldEEzsignsignatureType.md) |  | 
+**EEzsignsignatureSignaturepad** | Pointer to [**FieldEEzsignsignatureSignaturepad**](FieldEEzsignsignatureSignaturepad.md) |  | [optional] 
+**EEzsignsignatureSignaturepadrequired** | Pointer to [**FieldEEzsignsignatureSignaturepadrequired**](FieldEEzsignsignatureSignaturepadrequired.md) |  | [optional] 
 **FkiEzsigndocumentID** | **int32** | The unique ID of the Ezsigndocument | 
 **TEzsignsignatureTooltip** | Pointer to **string** | A tooltip that will be presented to Ezsignsigner about the Ezsignsignature | [optional] 
 **EEzsignsignatureTooltipposition** | Pointer to [**FieldEEzsignsignatureTooltipposition**](FieldEEzsignsignatureTooltipposition.md) |  | [optional] 
@@ -34,6 +36,7 @@ Name | Type | Description | Notes
 **EEzsignsignatureDependencyrequirement** | Pointer to [**FieldEEzsignsignatureDependencyrequirement**](FieldEEzsignsignatureDependencyrequirement.md) |  | [optional] 
 **SEzsignsignatureCreditcardamountdescription** | Pointer to **string** | The description of the Creditcard signature | [optional] 
 **DEzsignsignatureCreditcardamount** | Pointer to **string** | The amount of the Creditcard signature | [optional] 
+**BEzsignsignatureCreditcardcustomamount** | Pointer to **bool** | Whether we can enter a custom amount while signing an Ezsignsignature &#39;Creditcard&#39; or not | [optional] 
 **BEzsignsignatureCustomdate** | Pointer to **bool** | Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is **Name** or **Handwritten**) | [optional] 
 **AObjEzsignsignaturecustomdate** | Pointer to [**[]EzsignsignaturecustomdateRequestCompound**](EzsignsignaturecustomdateRequestCompound.md) | An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don&#39;t want to have a date at all. | [optional] 
 **AObjEzsignelementdependency** | Pointer to [**[]EzsignelementdependencyRequestCompound**](EzsignelementdependencyRequestCompound.md) |  | [optional] 
@@ -277,6 +280,56 @@ and a boolean to check if the value has been set.
 
 SetEEzsignsignatureType sets EEzsignsignatureType field to given value.
 
+
+### GetEEzsignsignatureSignaturepad
+
+`func (o *EzsignsignatureRequestCompound) GetEEzsignsignatureSignaturepad() FieldEEzsignsignatureSignaturepad`
+
+GetEEzsignsignatureSignaturepad returns the EEzsignsignatureSignaturepad field if non-nil, zero value otherwise.
+
+### GetEEzsignsignatureSignaturepadOk
+
+`func (o *EzsignsignatureRequestCompound) GetEEzsignsignatureSignaturepadOk() (*FieldEEzsignsignatureSignaturepad, bool)`
+
+GetEEzsignsignatureSignaturepadOk returns a tuple with the EEzsignsignatureSignaturepad field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsignsignatureSignaturepad
+
+`func (o *EzsignsignatureRequestCompound) SetEEzsignsignatureSignaturepad(v FieldEEzsignsignatureSignaturepad)`
+
+SetEEzsignsignatureSignaturepad sets EEzsignsignatureSignaturepad field to given value.
+
+### HasEEzsignsignatureSignaturepad
+
+`func (o *EzsignsignatureRequestCompound) HasEEzsignsignatureSignaturepad() bool`
+
+HasEEzsignsignatureSignaturepad returns a boolean if a field has been set.
+
+### GetEEzsignsignatureSignaturepadrequired
+
+`func (o *EzsignsignatureRequestCompound) GetEEzsignsignatureSignaturepadrequired() FieldEEzsignsignatureSignaturepadrequired`
+
+GetEEzsignsignatureSignaturepadrequired returns the EEzsignsignatureSignaturepadrequired field if non-nil, zero value otherwise.
+
+### GetEEzsignsignatureSignaturepadrequiredOk
+
+`func (o *EzsignsignatureRequestCompound) GetEEzsignsignatureSignaturepadrequiredOk() (*FieldEEzsignsignatureSignaturepadrequired, bool)`
+
+GetEEzsignsignatureSignaturepadrequiredOk returns a tuple with the EEzsignsignatureSignaturepadrequired field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsignsignatureSignaturepadrequired
+
+`func (o *EzsignsignatureRequestCompound) SetEEzsignsignatureSignaturepadrequired(v FieldEEzsignsignatureSignaturepadrequired)`
+
+SetEEzsignsignatureSignaturepadrequired sets EEzsignsignatureSignaturepadrequired field to given value.
+
+### HasEEzsignsignatureSignaturepadrequired
+
+`func (o *EzsignsignatureRequestCompound) HasEEzsignsignatureSignaturepadrequired() bool`
+
+HasEEzsignsignatureSignaturepadrequired returns a boolean if a field has been set.
 
 ### GetFkiEzsigndocumentID
 
@@ -772,6 +825,31 @@ SetDEzsignsignatureCreditcardamount sets DEzsignsignatureCreditcardamount field 
 `func (o *EzsignsignatureRequestCompound) HasDEzsignsignatureCreditcardamount() bool`
 
 HasDEzsignsignatureCreditcardamount returns a boolean if a field has been set.
+
+### GetBEzsignsignatureCreditcardcustomamount
+
+`func (o *EzsignsignatureRequestCompound) GetBEzsignsignatureCreditcardcustomamount() bool`
+
+GetBEzsignsignatureCreditcardcustomamount returns the BEzsignsignatureCreditcardcustomamount field if non-nil, zero value otherwise.
+
+### GetBEzsignsignatureCreditcardcustomamountOk
+
+`func (o *EzsignsignatureRequestCompound) GetBEzsignsignatureCreditcardcustomamountOk() (*bool, bool)`
+
+GetBEzsignsignatureCreditcardcustomamountOk returns a tuple with the BEzsignsignatureCreditcardcustomamount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsignsignatureCreditcardcustomamount
+
+`func (o *EzsignsignatureRequestCompound) SetBEzsignsignatureCreditcardcustomamount(v bool)`
+
+SetBEzsignsignatureCreditcardcustomamount sets BEzsignsignatureCreditcardcustomamount field to given value.
+
+### HasBEzsignsignatureCreditcardcustomamount
+
+`func (o *EzsignsignatureRequestCompound) HasBEzsignsignatureCreditcardcustomamount() bool`
+
+HasBEzsignsignatureCreditcardcustomamount returns a boolean if a field has been set.
 
 ### GetBEzsignsignatureCustomdate
 

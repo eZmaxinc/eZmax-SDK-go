@@ -4,14 +4,14 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**SystemconfigurationEditObjectV1**](ObjectSystemconfigurationAPI.md#SystemconfigurationEditObjectV1) | **Put** /1/object/systemconfiguration/{pkiSystemconfigurationID} | Edit an existing Systemconfiguration
+[**SystemconfigurationEditObjectV2**](ObjectSystemconfigurationAPI.md#SystemconfigurationEditObjectV2) | **Put** /2/object/systemconfiguration/{pkiSystemconfigurationID} | Edit an existing Systemconfiguration
 [**SystemconfigurationGetObjectV2**](ObjectSystemconfigurationAPI.md#SystemconfigurationGetObjectV2) | **Get** /2/object/systemconfiguration/{pkiSystemconfigurationID} | Retrieve an existing Systemconfiguration
 
 
 
-## SystemconfigurationEditObjectV1
+## SystemconfigurationEditObjectV2
 
-> SystemconfigurationEditObjectV1Response SystemconfigurationEditObjectV1(ctx, pkiSystemconfigurationID).SystemconfigurationEditObjectV1Request(systemconfigurationEditObjectV1Request).Execute()
+> SystemconfigurationEditObjectV2Response SystemconfigurationEditObjectV2(ctx, pkiSystemconfigurationID).SystemconfigurationEditObjectV2Request(systemconfigurationEditObjectV2Request).Execute()
 
 Edit an existing Systemconfiguration
 
@@ -31,17 +31,17 @@ import (
 
 func main() {
 	pkiSystemconfigurationID := int32(56) // int32 | The unique ID of the Systemconfiguration
-	systemconfigurationEditObjectV1Request := *openapiclient.NewSystemconfigurationEditObjectV1Request(*openapiclient.NewSystemconfigurationRequestCompound(openapiclient.Field-eSystemconfigurationNewexternaluseraction("Stage"), openapiclient.Field-eSystemconfigurationLanguage1("fr_QC"), openapiclient.Field-eSystemconfigurationLanguage2("en_CA"), true, true)) // SystemconfigurationEditObjectV1Request | 
+	systemconfigurationEditObjectV2Request := *openapiclient.NewSystemconfigurationEditObjectV2Request(*openapiclient.NewSystemconfigurationRequestCompoundV2(openapiclient.Field-eSystemconfigurationNewexternaluseraction("Stage"), openapiclient.Field-eSystemconfigurationLanguage1("fr_QC"), openapiclient.Field-eSystemconfigurationLanguage2("en_CA"), true, true, int32(1))) // SystemconfigurationEditObjectV2Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectSystemconfigurationAPI.SystemconfigurationEditObjectV1(context.Background(), pkiSystemconfigurationID).SystemconfigurationEditObjectV1Request(systemconfigurationEditObjectV1Request).Execute()
+	resp, r, err := apiClient.ObjectSystemconfigurationAPI.SystemconfigurationEditObjectV2(context.Background(), pkiSystemconfigurationID).SystemconfigurationEditObjectV2Request(systemconfigurationEditObjectV2Request).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSystemconfigurationAPI.SystemconfigurationEditObjectV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSystemconfigurationAPI.SystemconfigurationEditObjectV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `SystemconfigurationEditObjectV1`: SystemconfigurationEditObjectV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectSystemconfigurationAPI.SystemconfigurationEditObjectV1`: %v\n", resp)
+	// response from `SystemconfigurationEditObjectV2`: SystemconfigurationEditObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectSystemconfigurationAPI.SystemconfigurationEditObjectV2`: %v\n", resp)
 }
 ```
 
@@ -55,17 +55,17 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiSystemconfigurationEditObjectV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiSystemconfigurationEditObjectV2Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **systemconfigurationEditObjectV1Request** | [**SystemconfigurationEditObjectV1Request**](SystemconfigurationEditObjectV1Request.md) |  | 
+ **systemconfigurationEditObjectV2Request** | [**SystemconfigurationEditObjectV2Request**](SystemconfigurationEditObjectV2Request.md) |  | 
 
 ### Return type
 
-[**SystemconfigurationEditObjectV1Response**](SystemconfigurationEditObjectV1Response.md)
+[**SystemconfigurationEditObjectV2Response**](SystemconfigurationEditObjectV2Response.md)
 
 ### Authorization
 

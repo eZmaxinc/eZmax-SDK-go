@@ -26,6 +26,8 @@ type EzsignsignatureSignV1Request struct {
 	FkiEzsignsigningreasonID *int32 `json:"fkiEzsignsigningreasonID,omitempty"`
 	// The unique ID of the Font
 	FkiFontID *int32 `json:"fkiFontID,omitempty"`
+	// The amount of the Creditcard signature
+	DEzsignsignatureCreditcardamount *string `json:"dEzsignsignatureCreditcardamount,omitempty" validate:"regexp=^[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
 	// The value required for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **City**, **FieldText** or **FieldTextarea**
 	SValue *string `json:"sValue,omitempty"`
 	// Whether the attachment are accepted or refused.  This can only be set if eEzsignsignatureType is **AttachmentsConfirmation**
@@ -122,6 +124,38 @@ func (o *EzsignsignatureSignV1Request) HasFkiFontID() bool {
 // SetFkiFontID gets a reference to the given int32 and assigns it to the FkiFontID field.
 func (o *EzsignsignatureSignV1Request) SetFkiFontID(v int32) {
 	o.FkiFontID = &v
+}
+
+// GetDEzsignsignatureCreditcardamount returns the DEzsignsignatureCreditcardamount field value if set, zero value otherwise.
+func (o *EzsignsignatureSignV1Request) GetDEzsignsignatureCreditcardamount() string {
+	if o == nil || IsNil(o.DEzsignsignatureCreditcardamount) {
+		var ret string
+		return ret
+	}
+	return *o.DEzsignsignatureCreditcardamount
+}
+
+// GetDEzsignsignatureCreditcardamountOk returns a tuple with the DEzsignsignatureCreditcardamount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureSignV1Request) GetDEzsignsignatureCreditcardamountOk() (*string, bool) {
+	if o == nil || IsNil(o.DEzsignsignatureCreditcardamount) {
+		return nil, false
+	}
+	return o.DEzsignsignatureCreditcardamount, true
+}
+
+// HasDEzsignsignatureCreditcardamount returns a boolean if a field has been set.
+func (o *EzsignsignatureSignV1Request) HasDEzsignsignatureCreditcardamount() bool {
+	if o != nil && !IsNil(o.DEzsignsignatureCreditcardamount) {
+		return true
+	}
+
+	return false
+}
+
+// SetDEzsignsignatureCreditcardamount gets a reference to the given string and assigns it to the DEzsignsignatureCreditcardamount field.
+func (o *EzsignsignatureSignV1Request) SetDEzsignsignatureCreditcardamount(v string) {
+	o.DEzsignsignatureCreditcardamount = &v
 }
 
 // GetSValue returns the SValue field value if set, zero value otherwise.
@@ -355,6 +389,9 @@ func (o EzsignsignatureSignV1Request) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.FkiFontID) {
 		toSerialize["fkiFontID"] = o.FkiFontID
+	}
+	if !IsNil(o.DEzsignsignatureCreditcardamount) {
+		toSerialize["dEzsignsignatureCreditcardamount"] = o.DEzsignsignatureCreditcardamount
 	}
 	if !IsNil(o.SValue) {
 		toSerialize["sValue"] = o.SValue

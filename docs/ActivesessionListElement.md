@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiActivesessionID** | **int32** | The unique ID of the Activesession | 
 **FkiUserID** | **int32** | The unique ID of the User | 
-**FkiComputerID** | **int32** | The unique ID of the Computer | 
+**FkiComputerID** | Pointer to **int32** | The unique ID of the Computer | [optional] 
 **FkiCompanyID** | **int32** | The unique ID of the Company | 
 **FkiDepartmentID** | **int32** | The unique ID of the Department | 
 **SCompanyNameX** | **string** | The Name of the Company in the language of the requester | 
 **SDepartmentNameX** | **string** | The Name of the Department in the language of the requester | 
 **SActivesessionLoginname** | **string** | The loginname of the Activesession | 
-**SComputerDescription** | **string** | The description of the Computer | 
+**SComputerDescription** | Pointer to **string** | The description of the Computer | [optional] 
 **DtActivesessionFirsthit** | **string** | The first hit of the Activesession | 
 **DtActivesessionLasthit** | **string** | The last hit of the Activesession | 
 **SActivesessionIP** | **string** | Represent an IP address. | 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewActivesessionListElement
 
-`func NewActivesessionListElement(pkiActivesessionID int32, fkiUserID int32, fkiComputerID int32, fkiCompanyID int32, fkiDepartmentID int32, sCompanyNameX string, sDepartmentNameX string, sActivesessionLoginname string, sComputerDescription string, dtActivesessionFirsthit string, dtActivesessionLasthit string, sActivesessionIP string, ) *ActivesessionListElement`
+`func NewActivesessionListElement(pkiActivesessionID int32, fkiUserID int32, fkiCompanyID int32, fkiDepartmentID int32, sCompanyNameX string, sDepartmentNameX string, sActivesessionLoginname string, dtActivesessionFirsthit string, dtActivesessionLasthit string, sActivesessionIP string, ) *ActivesessionListElement`
 
 NewActivesessionListElement instantiates a new ActivesessionListElement object
 This constructor will assign default values to properties that have it defined,
@@ -95,6 +95,11 @@ and a boolean to check if the value has been set.
 
 SetFkiComputerID sets FkiComputerID field to given value.
 
+### HasFkiComputerID
+
+`func (o *ActivesessionListElement) HasFkiComputerID() bool`
+
+HasFkiComputerID returns a boolean if a field has been set.
 
 ### GetFkiCompanyID
 
@@ -215,6 +220,11 @@ and a boolean to check if the value has been set.
 
 SetSComputerDescription sets SComputerDescription field to given value.
 
+### HasSComputerDescription
+
+`func (o *ActivesessionListElement) HasSComputerDescription() bool`
+
+HasSComputerDescription returns a boolean if a field has been set.
 
 ### GetDtActivesessionFirsthit
 

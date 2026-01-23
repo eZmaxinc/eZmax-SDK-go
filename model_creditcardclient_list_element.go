@@ -30,6 +30,8 @@ type CreditcardclientListElement struct {
 	FkiCreditcardtypeID int32 `json:"fkiCreditcardtypeID"`
 	// Whether if it's the creditcardclient is the default one
 	BCreditcardclientrelationIsdefault bool `json:"bCreditcardclientrelationIsdefault"`
+	// Whether the Creditcardclient is legacy or not
+	BCreditcardclientLegacy bool `json:"bCreditcardclientLegacy"`
 	// The description of the Creditcardclient
 	SCreditcardclientDescription string `json:"sCreditcardclientDescription" validate:"regexp=^.{0,50}$"`
 	// Whether if it's an allowedagencypayment
@@ -50,12 +52,13 @@ type _CreditcardclientListElement CreditcardclientListElement
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreditcardclientListElement(pkiCreditcardclientID int32, fkiCreditcarddetailID int32, fkiCreditcardtypeID int32, bCreditcardclientrelationIsdefault bool, sCreditcardclientDescription string, bCreditcardclientAllowedcompanypayment bool, bCreditcardclientAllowedtranquillit bool, iCreditcarddetailExpirationmonth int32, iCreditcarddetailExpirationyear int32, iCreditcarddetailLastdigits int32) *CreditcardclientListElement {
+func NewCreditcardclientListElement(pkiCreditcardclientID int32, fkiCreditcarddetailID int32, fkiCreditcardtypeID int32, bCreditcardclientrelationIsdefault bool, bCreditcardclientLegacy bool, sCreditcardclientDescription string, bCreditcardclientAllowedcompanypayment bool, bCreditcardclientAllowedtranquillit bool, iCreditcarddetailExpirationmonth int32, iCreditcarddetailExpirationyear int32, iCreditcarddetailLastdigits int32) *CreditcardclientListElement {
 	this := CreditcardclientListElement{}
 	this.PkiCreditcardclientID = pkiCreditcardclientID
 	this.FkiCreditcarddetailID = fkiCreditcarddetailID
 	this.FkiCreditcardtypeID = fkiCreditcardtypeID
 	this.BCreditcardclientrelationIsdefault = bCreditcardclientrelationIsdefault
+	this.BCreditcardclientLegacy = bCreditcardclientLegacy
 	this.SCreditcardclientDescription = sCreditcardclientDescription
 	this.BCreditcardclientAllowedcompanypayment = bCreditcardclientAllowedcompanypayment
 	this.BCreditcardclientAllowedtranquillit = bCreditcardclientAllowedtranquillit
@@ -167,6 +170,30 @@ func (o *CreditcardclientListElement) GetBCreditcardclientrelationIsdefaultOk() 
 // SetBCreditcardclientrelationIsdefault sets field value
 func (o *CreditcardclientListElement) SetBCreditcardclientrelationIsdefault(v bool) {
 	o.BCreditcardclientrelationIsdefault = v
+}
+
+// GetBCreditcardclientLegacy returns the BCreditcardclientLegacy field value
+func (o *CreditcardclientListElement) GetBCreditcardclientLegacy() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.BCreditcardclientLegacy
+}
+
+// GetBCreditcardclientLegacyOk returns a tuple with the BCreditcardclientLegacy field value
+// and a boolean to check if the value has been set.
+func (o *CreditcardclientListElement) GetBCreditcardclientLegacyOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BCreditcardclientLegacy, true
+}
+
+// SetBCreditcardclientLegacy sets field value
+func (o *CreditcardclientListElement) SetBCreditcardclientLegacy(v bool) {
+	o.BCreditcardclientLegacy = v
 }
 
 // GetSCreditcardclientDescription returns the SCreditcardclientDescription field value
@@ -327,6 +354,7 @@ func (o CreditcardclientListElement) ToMap() (map[string]interface{}, error) {
 	toSerialize["fkiCreditcarddetailID"] = o.FkiCreditcarddetailID
 	toSerialize["fkiCreditcardtypeID"] = o.FkiCreditcardtypeID
 	toSerialize["bCreditcardclientrelationIsdefault"] = o.BCreditcardclientrelationIsdefault
+	toSerialize["bCreditcardclientLegacy"] = o.BCreditcardclientLegacy
 	toSerialize["sCreditcardclientDescription"] = o.SCreditcardclientDescription
 	toSerialize["bCreditcardclientAllowedcompanypayment"] = o.BCreditcardclientAllowedcompanypayment
 	toSerialize["bCreditcardclientAllowedtranquillit"] = o.BCreditcardclientAllowedtranquillit
@@ -345,6 +373,7 @@ func (o *CreditcardclientListElement) UnmarshalJSON(data []byte) (err error) {
 		"fkiCreditcarddetailID",
 		"fkiCreditcardtypeID",
 		"bCreditcardclientrelationIsdefault",
+		"bCreditcardclientLegacy",
 		"sCreditcardclientDescription",
 		"bCreditcardclientAllowedcompanypayment",
 		"bCreditcardclientAllowedtranquillit",

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **SUserLoginname** | Pointer to **string** | The login name of the User. | [optional] 
 **SEmailAddress** | Pointer to **string** | The email address. | [optional] 
 **SUsergroupNameX** | **string** | The Name of the Usergroup in the language of the requester | 
+**BUserIsactive** | Pointer to **bool** | Whether the User is active or not | [optional] 
 **SUsergroupexternalName** | Pointer to **string** | The name of the Usergroupexternal | [optional] 
 
 ## Methods
@@ -243,6 +244,31 @@ and a boolean to check if the value has been set.
 
 SetSUsergroupNameX sets SUsergroupNameX field to given value.
 
+
+### GetBUserIsactive
+
+`func (o *UsergroupmembershipResponseCompound) GetBUserIsactive() bool`
+
+GetBUserIsactive returns the BUserIsactive field if non-nil, zero value otherwise.
+
+### GetBUserIsactiveOk
+
+`func (o *UsergroupmembershipResponseCompound) GetBUserIsactiveOk() (*bool, bool)`
+
+GetBUserIsactiveOk returns a tuple with the BUserIsactive field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBUserIsactive
+
+`func (o *UsergroupmembershipResponseCompound) SetBUserIsactive(v bool)`
+
+SetBUserIsactive sets BUserIsactive field to given value.
+
+### HasBUserIsactive
+
+`func (o *UsergroupmembershipResponseCompound) HasBUserIsactive() bool`
+
+HasBUserIsactive returns a boolean if a field has been set.
 
 ### GetSUsergroupexternalName
 

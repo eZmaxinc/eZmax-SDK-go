@@ -8,7 +8,6 @@ Method | HTTP request | Description
 [**EzsignbulksendCreateObjectV1**](ObjectEzsignbulksendAPI.md#EzsignbulksendCreateObjectV1) | **Post** /1/object/ezsignbulksend | Create a new Ezsignbulksend
 [**EzsignbulksendCreateObjectV2**](ObjectEzsignbulksendAPI.md#EzsignbulksendCreateObjectV2) | **Post** /2/object/ezsignbulksend | Create a new Ezsignbulksend
 [**EzsignbulksendDeleteObjectV1**](ObjectEzsignbulksendAPI.md#EzsignbulksendDeleteObjectV1) | **Delete** /1/object/ezsignbulksend/{pkiEzsignbulksendID} | Delete an existing Ezsignbulksend
-[**EzsignbulksendEditObjectV1**](ObjectEzsignbulksendAPI.md#EzsignbulksendEditObjectV1) | **Put** /1/object/ezsignbulksend/{pkiEzsignbulksendID} | Edit an existing Ezsignbulksend
 [**EzsignbulksendEditObjectV2**](ObjectEzsignbulksendAPI.md#EzsignbulksendEditObjectV2) | **Put** /2/object/ezsignbulksend/{pkiEzsignbulksendID} | Edit an existing Ezsignbulksend
 [**EzsignbulksendGetBatchFileV1**](ObjectEzsignbulksendAPI.md#EzsignbulksendGetBatchFileV1) | **Get** /1/object/ezsignbulksend/{pkiEzsignbulksendID}/getBatchFile | Retrieve file to download documents in batch
 [**EzsignbulksendGetCsvTemplateV1**](ObjectEzsignbulksendAPI.md#EzsignbulksendGetCsvTemplateV1) | **Get** /1/object/ezsignbulksend/{pkiEzsignbulksendID}/getCsvTemplate | Retrieve an existing Ezsignbulksend&#39;s empty Csv template
@@ -295,78 +294,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## EzsignbulksendEditObjectV1
-
-> EzsignbulksendEditObjectV1Response EzsignbulksendEditObjectV1(ctx, pkiEzsignbulksendID).EzsignbulksendEditObjectV1Request(ezsignbulksendEditObjectV1Request).Execute()
-
-Edit an existing Ezsignbulksend
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiEzsignbulksendID := int32(56) // int32 | 
-	ezsignbulksendEditObjectV1Request := *openapiclient.NewEzsignbulksendEditObjectV1Request(*openapiclient.NewEzsignbulksendRequestCompound(int32(5), int32(2), "Test eZsign Bulk Send", "This is a note", false, true)) // EzsignbulksendEditObjectV1Request | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectEzsignbulksendAPI.EzsignbulksendEditObjectV1(context.Background(), pkiEzsignbulksendID).EzsignbulksendEditObjectV1Request(ezsignbulksendEditObjectV1Request).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendEditObjectV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `EzsignbulksendEditObjectV1`: EzsignbulksendEditObjectV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendEditObjectV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiEzsignbulksendID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiEzsignbulksendEditObjectV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **ezsignbulksendEditObjectV1Request** | [**EzsignbulksendEditObjectV1Request**](EzsignbulksendEditObjectV1Request.md) |  | 
-
-### Return type
-
-[**EzsignbulksendEditObjectV1Response**](EzsignbulksendEditObjectV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

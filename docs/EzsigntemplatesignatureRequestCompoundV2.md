@@ -19,6 +19,8 @@ Name | Type | Description | Notes
 **IEzsigntemplatesignatureHeight** | Pointer to **int32** | The height of the Ezsigntemplatesignature.  Size is calculated at 100dpi (dot per inch). So for example, if you want the Ezsigntemplatesignature to have an height of 2 inches, you would use \&quot;200\&quot; for the iEzsigntemplatesignatureHeight. | [optional] 
 **IEzsigntemplatesignatureStep** | **int32** | The step when the Ezsigntemplatesigner will be invited to sign | 
 **EEzsigntemplatesignatureType** | [**FieldEEzsigntemplatesignatureType**](FieldEEzsigntemplatesignatureType.md) |  | 
+**EEzsigntemplatesignatureSignaturepad** | Pointer to [**FieldEEzsigntemplatesignatureSignaturepad**](FieldEEzsigntemplatesignatureSignaturepad.md) |  | [optional] 
+**EEzsigntemplatesignatureSignaturepadrequired** | Pointer to [**FieldEEzsigntemplatesignatureSignaturepadrequired**](FieldEEzsigntemplatesignatureSignaturepadrequired.md) |  | [optional] 
 **EEzsigntemplatesignatureConsultationtrigger** | Pointer to [**FieldEEzsigntemplatesignatureConsultationtrigger**](FieldEEzsigntemplatesignatureConsultationtrigger.md) |  | [optional] 
 **TEzsigntemplatesignatureTooltip** | Pointer to **string** | A tooltip that will be presented to Ezsigntemplatesigner about the Ezsigntemplatesignature | [optional] 
 **EEzsigntemplatesignatureTooltipposition** | Pointer to [**FieldEEzsigntemplatesignatureTooltipposition**](FieldEEzsigntemplatesignatureTooltipposition.md) |  | [optional] 
@@ -412,6 +414,56 @@ and a boolean to check if the value has been set.
 
 SetEEzsigntemplatesignatureType sets EEzsigntemplatesignatureType field to given value.
 
+
+### GetEEzsigntemplatesignatureSignaturepad
+
+`func (o *EzsigntemplatesignatureRequestCompoundV2) GetEEzsigntemplatesignatureSignaturepad() FieldEEzsigntemplatesignatureSignaturepad`
+
+GetEEzsigntemplatesignatureSignaturepad returns the EEzsigntemplatesignatureSignaturepad field if non-nil, zero value otherwise.
+
+### GetEEzsigntemplatesignatureSignaturepadOk
+
+`func (o *EzsigntemplatesignatureRequestCompoundV2) GetEEzsigntemplatesignatureSignaturepadOk() (*FieldEEzsigntemplatesignatureSignaturepad, bool)`
+
+GetEEzsigntemplatesignatureSignaturepadOk returns a tuple with the EEzsigntemplatesignatureSignaturepad field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsigntemplatesignatureSignaturepad
+
+`func (o *EzsigntemplatesignatureRequestCompoundV2) SetEEzsigntemplatesignatureSignaturepad(v FieldEEzsigntemplatesignatureSignaturepad)`
+
+SetEEzsigntemplatesignatureSignaturepad sets EEzsigntemplatesignatureSignaturepad field to given value.
+
+### HasEEzsigntemplatesignatureSignaturepad
+
+`func (o *EzsigntemplatesignatureRequestCompoundV2) HasEEzsigntemplatesignatureSignaturepad() bool`
+
+HasEEzsigntemplatesignatureSignaturepad returns a boolean if a field has been set.
+
+### GetEEzsigntemplatesignatureSignaturepadrequired
+
+`func (o *EzsigntemplatesignatureRequestCompoundV2) GetEEzsigntemplatesignatureSignaturepadrequired() FieldEEzsigntemplatesignatureSignaturepadrequired`
+
+GetEEzsigntemplatesignatureSignaturepadrequired returns the EEzsigntemplatesignatureSignaturepadrequired field if non-nil, zero value otherwise.
+
+### GetEEzsigntemplatesignatureSignaturepadrequiredOk
+
+`func (o *EzsigntemplatesignatureRequestCompoundV2) GetEEzsigntemplatesignatureSignaturepadrequiredOk() (*FieldEEzsigntemplatesignatureSignaturepadrequired, bool)`
+
+GetEEzsigntemplatesignatureSignaturepadrequiredOk returns a tuple with the EEzsigntemplatesignatureSignaturepadrequired field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsigntemplatesignatureSignaturepadrequired
+
+`func (o *EzsigntemplatesignatureRequestCompoundV2) SetEEzsigntemplatesignatureSignaturepadrequired(v FieldEEzsigntemplatesignatureSignaturepadrequired)`
+
+SetEEzsigntemplatesignatureSignaturepadrequired sets EEzsigntemplatesignatureSignaturepadrequired field to given value.
+
+### HasEEzsigntemplatesignatureSignaturepadrequired
+
+`func (o *EzsigntemplatesignatureRequestCompoundV2) HasEEzsigntemplatesignatureSignaturepadrequired() bool`
+
+HasEEzsigntemplatesignatureSignaturepadrequired returns a boolean if a field has been set.
 
 ### GetEEzsigntemplatesignatureConsultationtrigger
 

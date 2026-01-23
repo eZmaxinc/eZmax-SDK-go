@@ -23,6 +23,7 @@ type FieldEActivesessionUsertype string
 const (
 	AGENT_BROKER FieldEActivesessionUsertype = "AgentBroker"
 	ASSISTANT FieldEActivesessionUsertype = "Assistant"
+	EMPLOYEE FieldEActivesessionUsertype = "Employee"
 	EZSIGN_SIGNER FieldEActivesessionUsertype = "EzsignSigner"
 	EZSIGN_USER FieldEActivesessionUsertype = "EzsignUser"
 	NORMAL FieldEActivesessionUsertype = "Normal"
@@ -32,6 +33,7 @@ const (
 var AllowedFieldEActivesessionUsertypeEnumValues = []FieldEActivesessionUsertype{
 	"AgentBroker",
 	"Assistant",
+	"Employee",
 	"EzsignSigner",
 	"EzsignUser",
 	"Normal",

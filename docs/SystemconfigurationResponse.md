@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **PkiSystemconfigurationID** | **int32** | The unique ID of the Systemconfiguration | 
 **FkiSystemconfigurationtypeID** | **int32** | The unique ID of the Systemconfigurationtype | 
 **FkiBrandingID** | Pointer to **int32** | The unique ID of the Branding | [optional] 
+**FkiTimezoneIDDefault** | **int32** | The unique ID of the Timezone | 
+**STimezoneNameDefault** | **string** | The description of the Timezone | 
 **SSystemconfigurationtypeDescriptionX** | **string** | The description of the Systemconfigurationtype in the language of the requester | 
 **ESystemconfigurationNewexternaluseraction** | [**FieldESystemconfigurationNewexternaluseraction**](FieldESystemconfigurationNewexternaluseraction.md) |  | 
 **ESystemconfigurationLanguage1** | [**FieldESystemconfigurationLanguage1**](FieldESystemconfigurationLanguage1.md) |  | 
@@ -21,12 +23,13 @@ Name | Type | Description | Notes
 **DtSystemconfigurationReadonlyexpirationstart** | Pointer to **string** | The start date where the system will be in read only | [optional] 
 **DtSystemconfigurationReadonlyexpirationend** | Pointer to **string** | The end date where the system will be in read only | [optional] 
 **ObjBranding** | Pointer to [**CustomBrandingResponse**](CustomBrandingResponse.md) |  | [optional] 
+**ISystemconfigurationEzsignreminderhoursend** | Pointer to **int32** | The hour we will send the eZsign reminders | [optional] 
 
 ## Methods
 
 ### NewSystemconfigurationResponse
 
-`func NewSystemconfigurationResponse(pkiSystemconfigurationID int32, fkiSystemconfigurationtypeID int32, sSystemconfigurationtypeDescriptionX string, eSystemconfigurationNewexternaluseraction FieldESystemconfigurationNewexternaluseraction, eSystemconfigurationLanguage1 FieldESystemconfigurationLanguage1, eSystemconfigurationLanguage2 FieldESystemconfigurationLanguage2, bSystemconfigurationEzsignpersonnal bool, bSystemconfigurationSspr bool, ) *SystemconfigurationResponse`
+`func NewSystemconfigurationResponse(pkiSystemconfigurationID int32, fkiSystemconfigurationtypeID int32, fkiTimezoneIDDefault int32, sTimezoneNameDefault string, sSystemconfigurationtypeDescriptionX string, eSystemconfigurationNewexternaluseraction FieldESystemconfigurationNewexternaluseraction, eSystemconfigurationLanguage1 FieldESystemconfigurationLanguage1, eSystemconfigurationLanguage2 FieldESystemconfigurationLanguage2, bSystemconfigurationEzsignpersonnal bool, bSystemconfigurationSspr bool, ) *SystemconfigurationResponse`
 
 NewSystemconfigurationResponse instantiates a new SystemconfigurationResponse object
 This constructor will assign default values to properties that have it defined,
@@ -105,6 +108,46 @@ SetFkiBrandingID sets FkiBrandingID field to given value.
 `func (o *SystemconfigurationResponse) HasFkiBrandingID() bool`
 
 HasFkiBrandingID returns a boolean if a field has been set.
+
+### GetFkiTimezoneIDDefault
+
+`func (o *SystemconfigurationResponse) GetFkiTimezoneIDDefault() int32`
+
+GetFkiTimezoneIDDefault returns the FkiTimezoneIDDefault field if non-nil, zero value otherwise.
+
+### GetFkiTimezoneIDDefaultOk
+
+`func (o *SystemconfigurationResponse) GetFkiTimezoneIDDefaultOk() (*int32, bool)`
+
+GetFkiTimezoneIDDefaultOk returns a tuple with the FkiTimezoneIDDefault field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiTimezoneIDDefault
+
+`func (o *SystemconfigurationResponse) SetFkiTimezoneIDDefault(v int32)`
+
+SetFkiTimezoneIDDefault sets FkiTimezoneIDDefault field to given value.
+
+
+### GetSTimezoneNameDefault
+
+`func (o *SystemconfigurationResponse) GetSTimezoneNameDefault() string`
+
+GetSTimezoneNameDefault returns the STimezoneNameDefault field if non-nil, zero value otherwise.
+
+### GetSTimezoneNameDefaultOk
+
+`func (o *SystemconfigurationResponse) GetSTimezoneNameDefaultOk() (*string, bool)`
+
+GetSTimezoneNameDefaultOk returns a tuple with the STimezoneNameDefault field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSTimezoneNameDefault
+
+`func (o *SystemconfigurationResponse) SetSTimezoneNameDefault(v string)`
+
+SetSTimezoneNameDefault sets STimezoneNameDefault field to given value.
+
 
 ### GetSSystemconfigurationtypeDescriptionX
 
@@ -425,6 +468,31 @@ SetObjBranding sets ObjBranding field to given value.
 `func (o *SystemconfigurationResponse) HasObjBranding() bool`
 
 HasObjBranding returns a boolean if a field has been set.
+
+### GetISystemconfigurationEzsignreminderhoursend
+
+`func (o *SystemconfigurationResponse) GetISystemconfigurationEzsignreminderhoursend() int32`
+
+GetISystemconfigurationEzsignreminderhoursend returns the ISystemconfigurationEzsignreminderhoursend field if non-nil, zero value otherwise.
+
+### GetISystemconfigurationEzsignreminderhoursendOk
+
+`func (o *SystemconfigurationResponse) GetISystemconfigurationEzsignreminderhoursendOk() (*int32, bool)`
+
+GetISystemconfigurationEzsignreminderhoursendOk returns a tuple with the ISystemconfigurationEzsignreminderhoursend field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetISystemconfigurationEzsignreminderhoursend
+
+`func (o *SystemconfigurationResponse) SetISystemconfigurationEzsignreminderhoursend(v int32)`
+
+SetISystemconfigurationEzsignreminderhoursend sets ISystemconfigurationEzsignreminderhoursend field to given value.
+
+### HasISystemconfigurationEzsignreminderhoursend
+
+`func (o *SystemconfigurationResponse) HasISystemconfigurationEzsignreminderhoursend() bool`
+
+HasISystemconfigurationEzsignreminderhoursend returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

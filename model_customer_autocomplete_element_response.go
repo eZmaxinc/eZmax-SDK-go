@@ -28,6 +28,8 @@ type CustomerAutocompleteElementResponse struct {
 	FkiDepartmentID int32 `json:"fkiDepartmentID"`
 	// The name of the Customer
 	SCustomerName string `json:"sCustomerName" validate:"regexp=^.{0,50}$"`
+	// The code of the Customer
+	SCustomerCode string `json:"sCustomerCode" validate:"regexp=^.{0,6}$"`
 	// Whether the customer is active or not
 	BCustomerIsactive bool `json:"bCustomerIsactive"`
 }
@@ -38,11 +40,12 @@ type _CustomerAutocompleteElementResponse CustomerAutocompleteElementResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomerAutocompleteElementResponse(pkiCustomerID int32, fkiDepartmentID int32, sCustomerName string, bCustomerIsactive bool) *CustomerAutocompleteElementResponse {
+func NewCustomerAutocompleteElementResponse(pkiCustomerID int32, fkiDepartmentID int32, sCustomerName string, sCustomerCode string, bCustomerIsactive bool) *CustomerAutocompleteElementResponse {
 	this := CustomerAutocompleteElementResponse{}
 	this.PkiCustomerID = pkiCustomerID
 	this.FkiDepartmentID = fkiDepartmentID
 	this.SCustomerName = sCustomerName
+	this.SCustomerCode = sCustomerCode
 	this.BCustomerIsactive = bCustomerIsactive
 	return &this
 }
@@ -127,6 +130,30 @@ func (o *CustomerAutocompleteElementResponse) SetSCustomerName(v string) {
 	o.SCustomerName = v
 }
 
+// GetSCustomerCode returns the SCustomerCode field value
+func (o *CustomerAutocompleteElementResponse) GetSCustomerCode() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SCustomerCode
+}
+
+// GetSCustomerCodeOk returns a tuple with the SCustomerCode field value
+// and a boolean to check if the value has been set.
+func (o *CustomerAutocompleteElementResponse) GetSCustomerCodeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SCustomerCode, true
+}
+
+// SetSCustomerCode sets field value
+func (o *CustomerAutocompleteElementResponse) SetSCustomerCode(v string) {
+	o.SCustomerCode = v
+}
+
 // GetBCustomerIsactive returns the BCustomerIsactive field value
 func (o *CustomerAutocompleteElementResponse) GetBCustomerIsactive() bool {
 	if o == nil {
@@ -164,6 +191,7 @@ func (o CustomerAutocompleteElementResponse) ToMap() (map[string]interface{}, er
 	toSerialize["pkiCustomerID"] = o.PkiCustomerID
 	toSerialize["fkiDepartmentID"] = o.FkiDepartmentID
 	toSerialize["sCustomerName"] = o.SCustomerName
+	toSerialize["sCustomerCode"] = o.SCustomerCode
 	toSerialize["bCustomerIsactive"] = o.BCustomerIsactive
 	return toSerialize, nil
 }
@@ -176,6 +204,7 @@ func (o *CustomerAutocompleteElementResponse) UnmarshalJSON(data []byte) (err er
 		"pkiCustomerID",
 		"fkiDepartmentID",
 		"sCustomerName",
+		"sCustomerCode",
 		"bCustomerIsactive",
 	}
 

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **FkiCreditcarddetailID** | **int32** | The unique ID of the Creditcarddetail | 
 **FkiCreditcardtypeID** | **int32** | The unique ID of the Creditcardtype | 
 **BCreditcardclientrelationIsdefault** | **bool** | Whether if it&#39;s the creditcardclient is the default one | 
+**BCreditcardclientLegacy** | **bool** | Whether the Creditcardclient is legacy or not | 
 **SCreditcardclientDescription** | **string** | The description of the Creditcardclient | 
 **BCreditcardclientAllowedcompanypayment** | **bool** | Whether if it&#39;s an allowedagencypayment | 
 **BCreditcardclientAllowedtranquillit** | **bool** | Whether if it&#39;s an allowedtranquillit | 
@@ -19,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewCreditcardclientListElement
 
-`func NewCreditcardclientListElement(pkiCreditcardclientID int32, fkiCreditcarddetailID int32, fkiCreditcardtypeID int32, bCreditcardclientrelationIsdefault bool, sCreditcardclientDescription string, bCreditcardclientAllowedcompanypayment bool, bCreditcardclientAllowedtranquillit bool, iCreditcarddetailExpirationmonth int32, iCreditcarddetailExpirationyear int32, iCreditcarddetailLastdigits int32, ) *CreditcardclientListElement`
+`func NewCreditcardclientListElement(pkiCreditcardclientID int32, fkiCreditcarddetailID int32, fkiCreditcardtypeID int32, bCreditcardclientrelationIsdefault bool, bCreditcardclientLegacy bool, sCreditcardclientDescription string, bCreditcardclientAllowedcompanypayment bool, bCreditcardclientAllowedtranquillit bool, iCreditcarddetailExpirationmonth int32, iCreditcarddetailExpirationyear int32, iCreditcarddetailLastdigits int32, ) *CreditcardclientListElement`
 
 NewCreditcardclientListElement instantiates a new CreditcardclientListElement object
 This constructor will assign default values to properties that have it defined,
@@ -112,6 +113,26 @@ and a boolean to check if the value has been set.
 `func (o *CreditcardclientListElement) SetBCreditcardclientrelationIsdefault(v bool)`
 
 SetBCreditcardclientrelationIsdefault sets BCreditcardclientrelationIsdefault field to given value.
+
+
+### GetBCreditcardclientLegacy
+
+`func (o *CreditcardclientListElement) GetBCreditcardclientLegacy() bool`
+
+GetBCreditcardclientLegacy returns the BCreditcardclientLegacy field if non-nil, zero value otherwise.
+
+### GetBCreditcardclientLegacyOk
+
+`func (o *CreditcardclientListElement) GetBCreditcardclientLegacyOk() (*bool, bool)`
+
+GetBCreditcardclientLegacyOk returns a tuple with the BCreditcardclientLegacy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBCreditcardclientLegacy
+
+`func (o *CreditcardclientListElement) SetBCreditcardclientLegacy(v bool)`
+
+SetBCreditcardclientLegacy sets BCreditcardclientLegacy field to given value.
 
 
 ### GetSCreditcardclientDescription

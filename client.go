@@ -216,6 +216,8 @@ type APIClient struct {
 
 	ObjectGlaccountcontainerAPI *ObjectGlaccountcontainerAPIService
 
+	ObjectInfrastructureregionAPI *ObjectInfrastructureregionAPIService
+
 	ObjectInscriptionAPI *ObjectInscriptionAPIService
 
 	ObjectInscriptionchecklistAPI *ObjectInscriptionchecklistAPIService
@@ -262,6 +264,10 @@ type APIClient struct {
 
 	ObjectProvinceAPI *ObjectProvinceAPIService
 
+	ObjectRealestateassociationAPI *ObjectRealestateassociationAPIService
+
+	ObjectRealestateboardAPI *ObjectRealestateboardAPIService
+
 	ObjectRejectedoffertopurchaseAPI *ObjectRejectedoffertopurchaseAPIService
 
 	ObjectSecretquestionAPI *ObjectSecretquestionAPIService
@@ -277,6 +283,8 @@ type APIClient struct {
 	ObjectSupplyAPI *ObjectSupplyAPIService
 
 	ObjectSystemconfigurationAPI *ObjectSystemconfigurationAPIService
+
+	ObjectSystemconfigurationtypeAPI *ObjectSystemconfigurationtypeAPIService
 
 	ObjectTaxassignmentAPI *ObjectTaxassignmentAPIService
 
@@ -410,6 +418,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectFranchisereferalincomeAPI = (*ObjectFranchisereferalincomeAPIService)(&c.common)
 	c.ObjectGlaccountAPI = (*ObjectGlaccountAPIService)(&c.common)
 	c.ObjectGlaccountcontainerAPI = (*ObjectGlaccountcontainerAPIService)(&c.common)
+	c.ObjectInfrastructureregionAPI = (*ObjectInfrastructureregionAPIService)(&c.common)
 	c.ObjectInscriptionAPI = (*ObjectInscriptionAPIService)(&c.common)
 	c.ObjectInscriptionchecklistAPI = (*ObjectInscriptionchecklistAPIService)(&c.common)
 	c.ObjectInscriptionnotauthenticatedAPI = (*ObjectInscriptionnotauthenticatedAPIService)(&c.common)
@@ -433,6 +442,8 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectPermissionAPI = (*ObjectPermissionAPIService)(&c.common)
 	c.ObjectPhonetypeAPI = (*ObjectPhonetypeAPIService)(&c.common)
 	c.ObjectProvinceAPI = (*ObjectProvinceAPIService)(&c.common)
+	c.ObjectRealestateassociationAPI = (*ObjectRealestateassociationAPIService)(&c.common)
+	c.ObjectRealestateboardAPI = (*ObjectRealestateboardAPIService)(&c.common)
 	c.ObjectRejectedoffertopurchaseAPI = (*ObjectRejectedoffertopurchaseAPIService)(&c.common)
 	c.ObjectSecretquestionAPI = (*ObjectSecretquestionAPIService)(&c.common)
 	c.ObjectSessionhistoryAPI = (*ObjectSessionhistoryAPIService)(&c.common)
@@ -441,6 +452,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectSupplierAPI = (*ObjectSupplierAPIService)(&c.common)
 	c.ObjectSupplyAPI = (*ObjectSupplyAPIService)(&c.common)
 	c.ObjectSystemconfigurationAPI = (*ObjectSystemconfigurationAPIService)(&c.common)
+	c.ObjectSystemconfigurationtypeAPI = (*ObjectSystemconfigurationtypeAPIService)(&c.common)
 	c.ObjectTaxassignmentAPI = (*ObjectTaxassignmentAPIService)(&c.common)
 	c.ObjectTimezoneAPI = (*ObjectTimezoneAPIService)(&c.common)
 	c.ObjectTranqcontractAPI = (*ObjectTranqcontractAPIService)(&c.common)
@@ -880,10 +892,7 @@ func addFile(w *multipart.Writer, fieldName, path string) error {
 	if err != nil {
 		return err
 	}
-	err = file.Close()
-	if err != nil {
-		return err
-	}
+	defer file.Close()
 
 	part, err := w.CreateFormFile(fieldName, filepath.Base(path))
 	if err != nil {

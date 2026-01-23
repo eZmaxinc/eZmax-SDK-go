@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FkiEzsignsigningreasonID** | Pointer to **int32** | The unique ID of the Ezsignsigningreason | [optional] 
 **FkiFontID** | Pointer to **int32** | The unique ID of the Font | [optional] 
+**DEzsignsignatureCreditcardamount** | Pointer to **string** | The amount of the Creditcard signature | [optional] 
 **SValue** | Pointer to **string** | The value required for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **City**, **FieldText** or **FieldTextarea** | [optional] 
 **EAttachmentsConfirmationDecision** | Pointer to **string** | Whether the attachment are accepted or refused.  This can only be set if eEzsignsignatureType is **AttachmentsConfirmation** | [optional] 
 **SAttachmentsRefusalReason** | Pointer to **string** | The reason of refused.  This can only be set if eEzsignsignatureType is **AttachmentsConfirmation** | [optional] 
@@ -82,6 +83,31 @@ SetFkiFontID sets FkiFontID field to given value.
 `func (o *EzsignsignatureSignV1Request) HasFkiFontID() bool`
 
 HasFkiFontID returns a boolean if a field has been set.
+
+### GetDEzsignsignatureCreditcardamount
+
+`func (o *EzsignsignatureSignV1Request) GetDEzsignsignatureCreditcardamount() string`
+
+GetDEzsignsignatureCreditcardamount returns the DEzsignsignatureCreditcardamount field if non-nil, zero value otherwise.
+
+### GetDEzsignsignatureCreditcardamountOk
+
+`func (o *EzsignsignatureSignV1Request) GetDEzsignsignatureCreditcardamountOk() (*string, bool)`
+
+GetDEzsignsignatureCreditcardamountOk returns a tuple with the DEzsignsignatureCreditcardamount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDEzsignsignatureCreditcardamount
+
+`func (o *EzsignsignatureSignV1Request) SetDEzsignsignatureCreditcardamount(v string)`
+
+SetDEzsignsignatureCreditcardamount sets DEzsignsignatureCreditcardamount field to given value.
+
+### HasDEzsignsignatureCreditcardamount
+
+`func (o *EzsignsignatureSignV1Request) HasDEzsignsignatureCreditcardamount() bool`
+
+HasDEzsignsignatureCreditcardamount returns a boolean if a field has been set.
 
 ### GetSValue
 

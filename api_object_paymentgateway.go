@@ -376,6 +376,7 @@ func (a *ObjectPaymentgatewayAPIService) PaymentgatewayGetAutocompleteV2Execute(
 		parameterAddToHeaderOrQuery(localVarQueryParams, "eFilterActive", r.eFilterActive, "form", "")
 	} else {
 		var defaultValue string = "Active"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "eFilterActive", defaultValue, "form", "")
 		r.eFilterActive = &defaultValue
 	}
 	if r.sQuery != nil {
@@ -542,6 +543,7 @@ func (a *ObjectPaymentgatewayAPIService) PaymentgatewayGetListV1Execute(r ApiPay
 		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowOffset", r.iRowOffset, "form", "")
 	} else {
 		var defaultValue int32 = 0
+		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowOffset", defaultValue, "form", "")
 		r.iRowOffset = &defaultValue
 	}
 	if r.sFilter != nil {

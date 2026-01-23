@@ -1626,6 +1626,8 @@ Return the Ezsignsignatures that can be signed and Ezsignformfieldgroups that ca
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiEzsignfolderID
  @return ApiEzsignfolderGetActionableElementsV2Request
+
+Deprecated
 */
 func (a *ObjectEzsignfolderAPIService) EzsignfolderGetActionableElementsV2(ctx context.Context, pkiEzsignfolderID int32) ApiEzsignfolderGetActionableElementsV2Request {
 	return ApiEzsignfolderGetActionableElementsV2Request{
@@ -1637,6 +1639,7 @@ func (a *ObjectEzsignfolderAPIService) EzsignfolderGetActionableElementsV2(ctx c
 
 // Execute executes the request
 //  @return EzsignfolderGetActionableElementsV2Response
+// Deprecated
 func (a *ObjectEzsignfolderAPIService) EzsignfolderGetActionableElementsV2Execute(r ApiEzsignfolderGetActionableElementsV2Request) (*EzsignfolderGetActionableElementsV2Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -1651,6 +1654,147 @@ func (a *ObjectEzsignfolderAPIService) EzsignfolderGetActionableElementsV2Execut
 	}
 
 	localVarPath := localBasePath + "/2/object/ezsignfolder/{pkiEzsignfolderID}/getActionableElements"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsignfolderID"+"}", url.PathEscape(parameterValueToString(r.pkiEzsignfolderID, "pkiEzsignfolderID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiEzsignfolderID < 0 {
+		return localVarReturnValue, nil, reportError("pkiEzsignfolderID must be greater than 0")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiEzsignfolderGetActionableElementsV3Request struct {
+	ctx context.Context
+	ApiService *ObjectEzsignfolderAPIService
+	pkiEzsignfolderID int32
+}
+
+func (r ApiEzsignfolderGetActionableElementsV3Request) Execute() (*EzsignfolderGetActionableElementsV3Response, *http.Response, error) {
+	return r.ApiService.EzsignfolderGetActionableElementsV3Execute(r)
+}
+
+/*
+EzsignfolderGetActionableElementsV3 Retrieve actionable elements for the Ezsignfolder
+
+Return the Ezsignsignatures that can be signed and Ezsignformfieldgroups that can be filled by the current user at the current step in the process
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiEzsignfolderID
+ @return ApiEzsignfolderGetActionableElementsV3Request
+*/
+func (a *ObjectEzsignfolderAPIService) EzsignfolderGetActionableElementsV3(ctx context.Context, pkiEzsignfolderID int32) ApiEzsignfolderGetActionableElementsV3Request {
+	return ApiEzsignfolderGetActionableElementsV3Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiEzsignfolderID: pkiEzsignfolderID,
+	}
+}
+
+// Execute executes the request
+//  @return EzsignfolderGetActionableElementsV3Response
+func (a *ObjectEzsignfolderAPIService) EzsignfolderGetActionableElementsV3Execute(r ApiEzsignfolderGetActionableElementsV3Request) (*EzsignfolderGetActionableElementsV3Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EzsignfolderGetActionableElementsV3Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfolderAPIService.EzsignfolderGetActionableElementsV3")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/3/object/ezsignfolder/{pkiEzsignfolderID}/getActionableElements"
 	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsignfolderID"+"}", url.PathEscape(parameterValueToString(r.pkiEzsignfolderID, "pkiEzsignfolderID")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -3308,6 +3452,7 @@ func (a *ObjectEzsignfolderAPIService) EzsignfolderGetListV1Execute(r ApiEzsignf
 		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowOffset", r.iRowOffset, "form", "")
 	} else {
 		var defaultValue int32 = 0
+		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowOffset", defaultValue, "form", "")
 		r.iRowOffset = &defaultValue
 	}
 	if r.sFilter != nil {
@@ -4194,159 +4339,6 @@ func (a *ObjectEzsignfolderAPIService) EzsignfolderImportEzsigntemplatepackageV2
 	}
 	// body params
 	localVarPostBody = r.ezsignfolderImportEzsigntemplatepackageV2Request
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Authorization"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v CommonResponseError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 422 {
-			var v CommonResponseError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiEzsignfolderReorderV1Request struct {
-	ctx context.Context
-	ApiService *ObjectEzsignfolderAPIService
-	pkiEzsignfolderID int32
-	ezsignfolderReorderV1Request *EzsignfolderReorderV1Request
-}
-
-func (r ApiEzsignfolderReorderV1Request) EzsignfolderReorderV1Request(ezsignfolderReorderV1Request EzsignfolderReorderV1Request) ApiEzsignfolderReorderV1Request {
-	r.ezsignfolderReorderV1Request = &ezsignfolderReorderV1Request
-	return r
-}
-
-func (r ApiEzsignfolderReorderV1Request) Execute() (*EzsignfolderReorderV1Response, *http.Response, error) {
-	return r.ApiService.EzsignfolderReorderV1Execute(r)
-}
-
-/*
-EzsignfolderReorderV1 Reorder Ezsigndocuments in the Ezsignfolder
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pkiEzsignfolderID
- @return ApiEzsignfolderReorderV1Request
-
-Deprecated
-*/
-func (a *ObjectEzsignfolderAPIService) EzsignfolderReorderV1(ctx context.Context, pkiEzsignfolderID int32) ApiEzsignfolderReorderV1Request {
-	return ApiEzsignfolderReorderV1Request{
-		ApiService: a,
-		ctx: ctx,
-		pkiEzsignfolderID: pkiEzsignfolderID,
-	}
-}
-
-// Execute executes the request
-//  @return EzsignfolderReorderV1Response
-// Deprecated
-func (a *ObjectEzsignfolderAPIService) EzsignfolderReorderV1Execute(r ApiEzsignfolderReorderV1Request) (*EzsignfolderReorderV1Response, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *EzsignfolderReorderV1Response
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfolderAPIService.EzsignfolderReorderV1")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/1/object/ezsignfolder/{pkiEzsignfolderID}/reorder"
-	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsignfolderID"+"}", url.PathEscape(parameterValueToString(r.pkiEzsignfolderID, "pkiEzsignfolderID")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.pkiEzsignfolderID < 0 {
-		return localVarReturnValue, nil, reportError("pkiEzsignfolderID must be greater than 0")
-	}
-	if r.ezsignfolderReorderV1Request == nil {
-		return localVarReturnValue, nil, reportError("ezsignfolderReorderV1Request is required and must be specified")
-	}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.ezsignfolderReorderV1Request
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

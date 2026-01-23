@@ -11,13 +11,14 @@ Name | Type | Description | Notes
 **SUserLastname** | **string** | The last name of the user | 
 **SUserLoginname** | **string** | The login name of the User. | 
 **SEmailAddress** | Pointer to **string** | The email address. | [optional] 
+**BUserIsactive** | **bool** | Whether the User is active or not | 
 **SUsergroupNameX** | **string** | The Name of the Usergroup in the language of the requester | 
 
 ## Methods
 
 ### NewUsergroupdelegationResponse
 
-`func NewUsergroupdelegationResponse(pkiUsergroupdelegationID int32, fkiUsergroupID int32, fkiUserID int32, sUserFirstname string, sUserLastname string, sUserLoginname string, sUsergroupNameX string, ) *UsergroupdelegationResponse`
+`func NewUsergroupdelegationResponse(pkiUsergroupdelegationID int32, fkiUsergroupID int32, fkiUserID int32, sUserFirstname string, sUserLastname string, sUserLoginname string, bUserIsactive bool, sUsergroupNameX string, ) *UsergroupdelegationResponse`
 
 NewUsergroupdelegationResponse instantiates a new UsergroupdelegationResponse object
 This constructor will assign default values to properties that have it defined,
@@ -176,6 +177,26 @@ SetSEmailAddress sets SEmailAddress field to given value.
 `func (o *UsergroupdelegationResponse) HasSEmailAddress() bool`
 
 HasSEmailAddress returns a boolean if a field has been set.
+
+### GetBUserIsactive
+
+`func (o *UsergroupdelegationResponse) GetBUserIsactive() bool`
+
+GetBUserIsactive returns the BUserIsactive field if non-nil, zero value otherwise.
+
+### GetBUserIsactiveOk
+
+`func (o *UsergroupdelegationResponse) GetBUserIsactiveOk() (*bool, bool)`
+
+GetBUserIsactiveOk returns a tuple with the BUserIsactive field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBUserIsactive
+
+`func (o *UsergroupdelegationResponse) SetBUserIsactive(v bool)`
+
+SetBUserIsactive sets BUserIsactive field to given value.
+
 
 ### GetSUsergroupNameX
 

@@ -50,6 +50,8 @@ type EzsigntemplatesignatureResponseCompound struct {
 	// The step when the Ezsigntemplatesigner will be invited to sign
 	IEzsigntemplatesignatureStep int32 `json:"iEzsigntemplatesignatureStep"`
 	EEzsigntemplatesignatureType FieldEEzsigntemplatesignatureType `json:"eEzsigntemplatesignatureType"`
+	EEzsigntemplatesignatureSignaturepad *FieldEEzsigntemplatesignatureSignaturepad `json:"eEzsigntemplatesignatureSignaturepad,omitempty"`
+	EEzsigntemplatesignatureSignaturepadrequired *FieldEEzsigntemplatesignatureSignaturepadrequired `json:"eEzsigntemplatesignatureSignaturepadrequired,omitempty"`
 	EEzsigntemplatesignatureConsultationtrigger *FieldEEzsigntemplatesignatureConsultationtrigger `json:"eEzsigntemplatesignatureConsultationtrigger,omitempty"`
 	// A tooltip that will be presented to Ezsigntemplatesigner about the Ezsigntemplatesignature
 	TEzsigntemplatesignatureTooltip *string `json:"tEzsigntemplatesignatureTooltip,omitempty"`
@@ -546,6 +548,70 @@ func (o *EzsigntemplatesignatureResponseCompound) GetEEzsigntemplatesignatureTyp
 // SetEEzsigntemplatesignatureType sets field value
 func (o *EzsigntemplatesignatureResponseCompound) SetEEzsigntemplatesignatureType(v FieldEEzsigntemplatesignatureType) {
 	o.EEzsigntemplatesignatureType = v
+}
+
+// GetEEzsigntemplatesignatureSignaturepad returns the EEzsigntemplatesignatureSignaturepad field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureResponseCompound) GetEEzsigntemplatesignatureSignaturepad() FieldEEzsigntemplatesignatureSignaturepad {
+	if o == nil || IsNil(o.EEzsigntemplatesignatureSignaturepad) {
+		var ret FieldEEzsigntemplatesignatureSignaturepad
+		return ret
+	}
+	return *o.EEzsigntemplatesignatureSignaturepad
+}
+
+// GetEEzsigntemplatesignatureSignaturepadOk returns a tuple with the EEzsigntemplatesignatureSignaturepad field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureResponseCompound) GetEEzsigntemplatesignatureSignaturepadOk() (*FieldEEzsigntemplatesignatureSignaturepad, bool) {
+	if o == nil || IsNil(o.EEzsigntemplatesignatureSignaturepad) {
+		return nil, false
+	}
+	return o.EEzsigntemplatesignatureSignaturepad, true
+}
+
+// HasEEzsigntemplatesignatureSignaturepad returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureResponseCompound) HasEEzsigntemplatesignatureSignaturepad() bool {
+	if o != nil && !IsNil(o.EEzsigntemplatesignatureSignaturepad) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsigntemplatesignatureSignaturepad gets a reference to the given FieldEEzsigntemplatesignatureSignaturepad and assigns it to the EEzsigntemplatesignatureSignaturepad field.
+func (o *EzsigntemplatesignatureResponseCompound) SetEEzsigntemplatesignatureSignaturepad(v FieldEEzsigntemplatesignatureSignaturepad) {
+	o.EEzsigntemplatesignatureSignaturepad = &v
+}
+
+// GetEEzsigntemplatesignatureSignaturepadrequired returns the EEzsigntemplatesignatureSignaturepadrequired field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureResponseCompound) GetEEzsigntemplatesignatureSignaturepadrequired() FieldEEzsigntemplatesignatureSignaturepadrequired {
+	if o == nil || IsNil(o.EEzsigntemplatesignatureSignaturepadrequired) {
+		var ret FieldEEzsigntemplatesignatureSignaturepadrequired
+		return ret
+	}
+	return *o.EEzsigntemplatesignatureSignaturepadrequired
+}
+
+// GetEEzsigntemplatesignatureSignaturepadrequiredOk returns a tuple with the EEzsigntemplatesignatureSignaturepadrequired field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureResponseCompound) GetEEzsigntemplatesignatureSignaturepadrequiredOk() (*FieldEEzsigntemplatesignatureSignaturepadrequired, bool) {
+	if o == nil || IsNil(o.EEzsigntemplatesignatureSignaturepadrequired) {
+		return nil, false
+	}
+	return o.EEzsigntemplatesignatureSignaturepadrequired, true
+}
+
+// HasEEzsigntemplatesignatureSignaturepadrequired returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureResponseCompound) HasEEzsigntemplatesignatureSignaturepadrequired() bool {
+	if o != nil && !IsNil(o.EEzsigntemplatesignatureSignaturepadrequired) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsigntemplatesignatureSignaturepadrequired gets a reference to the given FieldEEzsigntemplatesignatureSignaturepadrequired and assigns it to the EEzsigntemplatesignatureSignaturepadrequired field.
+func (o *EzsigntemplatesignatureResponseCompound) SetEEzsigntemplatesignatureSignaturepadrequired(v FieldEEzsigntemplatesignatureSignaturepadrequired) {
+	o.EEzsigntemplatesignatureSignaturepadrequired = &v
 }
 
 // GetEEzsigntemplatesignatureConsultationtrigger returns the EEzsigntemplatesignatureConsultationtrigger field value if set, zero value otherwise.
@@ -1359,6 +1425,12 @@ func (o EzsigntemplatesignatureResponseCompound) ToMap() (map[string]interface{}
 	}
 	toSerialize["iEzsigntemplatesignatureStep"] = o.IEzsigntemplatesignatureStep
 	toSerialize["eEzsigntemplatesignatureType"] = o.EEzsigntemplatesignatureType
+	if !IsNil(o.EEzsigntemplatesignatureSignaturepad) {
+		toSerialize["eEzsigntemplatesignatureSignaturepad"] = o.EEzsigntemplatesignatureSignaturepad
+	}
+	if !IsNil(o.EEzsigntemplatesignatureSignaturepadrequired) {
+		toSerialize["eEzsigntemplatesignatureSignaturepadrequired"] = o.EEzsigntemplatesignatureSignaturepadrequired
+	}
 	if !IsNil(o.EEzsigntemplatesignatureConsultationtrigger) {
 		toSerialize["eEzsigntemplatesignatureConsultationtrigger"] = o.EEzsigntemplatesignatureConsultationtrigger
 	}

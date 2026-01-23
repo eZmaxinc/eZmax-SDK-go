@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **AObjReportsubsection** | [**[]CommonReportsubsection**](CommonReportsubsection.md) |  | 
 **EReportsectionHorizontalalignment** | [**EnumHorizontalalignment**](EnumHorizontalalignment.md) |  | 
 **SReportsectionTitle** | Pointer to **string** | The title of this Reportsection | [optional] 
+**SReportsectionTabname** | Pointer to **string** | The name of tab in excel version | [optional] 
 
 ## Methods
 
@@ -91,6 +92,31 @@ SetSReportsectionTitle sets SReportsectionTitle field to given value.
 `func (o *CommonReportsection) HasSReportsectionTitle() bool`
 
 HasSReportsectionTitle returns a boolean if a field has been set.
+
+### GetSReportsectionTabname
+
+`func (o *CommonReportsection) GetSReportsectionTabname() string`
+
+GetSReportsectionTabname returns the SReportsectionTabname field if non-nil, zero value otherwise.
+
+### GetSReportsectionTabnameOk
+
+`func (o *CommonReportsection) GetSReportsectionTabnameOk() (*string, bool)`
+
+GetSReportsectionTabnameOk returns a tuple with the SReportsectionTabname field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSReportsectionTabname
+
+`func (o *CommonReportsection) SetSReportsectionTabname(v string)`
+
+SetSReportsectionTabname sets SReportsectionTabname field to given value.
+
+### HasSReportsectionTabname
+
+`func (o *CommonReportsection) HasSReportsectionTabname() bool`
+
+HasSReportsectionTabname returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

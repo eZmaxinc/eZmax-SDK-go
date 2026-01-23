@@ -380,6 +380,7 @@ func (a *ObjectPaymenttermAPIService) PaymenttermGetAutocompleteV2Execute(r ApiP
 		parameterAddToHeaderOrQuery(localVarQueryParams, "eFilterActive", r.eFilterActive, "form", "")
 	} else {
 		var defaultValue string = "Active"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "eFilterActive", defaultValue, "form", "")
 		r.eFilterActive = &defaultValue
 	}
 	if r.sQuery != nil {
@@ -540,6 +541,7 @@ func (a *ObjectPaymenttermAPIService) PaymenttermGetListV1Execute(r ApiPaymentte
 		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowOffset", r.iRowOffset, "form", "")
 	} else {
 		var defaultValue int32 = 0
+		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowOffset", defaultValue, "form", "")
 		r.iRowOffset = &defaultValue
 	}
 	if r.sFilter != nil {

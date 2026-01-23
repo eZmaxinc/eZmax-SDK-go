@@ -27,7 +27,7 @@ type ActivesessionListElement struct {
 	// The unique ID of the User
 	FkiUserID int32 `json:"fkiUserID"`
 	// The unique ID of the Computer
-	FkiComputerID int32 `json:"fkiComputerID"`
+	FkiComputerID *int32 `json:"fkiComputerID,omitempty"`
 	// The unique ID of the Company
 	FkiCompanyID int32 `json:"fkiCompanyID"`
 	// The unique ID of the Department
@@ -39,7 +39,7 @@ type ActivesessionListElement struct {
 	// The loginname of the Activesession
 	SActivesessionLoginname string `json:"sActivesessionLoginname" validate:"regexp=^.{0,32}$"`
 	// The description of the Computer
-	SComputerDescription string `json:"sComputerDescription" validate:"regexp=^.{0,50}$"`
+	SComputerDescription *string `json:"sComputerDescription,omitempty" validate:"regexp=^.{0,50}$"`
 	// The first hit of the Activesession
 	DtActivesessionFirsthit string `json:"dtActivesessionFirsthit" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$"`
 	// The last hit of the Activesession
@@ -54,17 +54,15 @@ type _ActivesessionListElement ActivesessionListElement
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewActivesessionListElement(pkiActivesessionID int32, fkiUserID int32, fkiComputerID int32, fkiCompanyID int32, fkiDepartmentID int32, sCompanyNameX string, sDepartmentNameX string, sActivesessionLoginname string, sComputerDescription string, dtActivesessionFirsthit string, dtActivesessionLasthit string, sActivesessionIP string) *ActivesessionListElement {
+func NewActivesessionListElement(pkiActivesessionID int32, fkiUserID int32, fkiCompanyID int32, fkiDepartmentID int32, sCompanyNameX string, sDepartmentNameX string, sActivesessionLoginname string, dtActivesessionFirsthit string, dtActivesessionLasthit string, sActivesessionIP string) *ActivesessionListElement {
 	this := ActivesessionListElement{}
 	this.PkiActivesessionID = pkiActivesessionID
 	this.FkiUserID = fkiUserID
-	this.FkiComputerID = fkiComputerID
 	this.FkiCompanyID = fkiCompanyID
 	this.FkiDepartmentID = fkiDepartmentID
 	this.SCompanyNameX = sCompanyNameX
 	this.SDepartmentNameX = sDepartmentNameX
 	this.SActivesessionLoginname = sActivesessionLoginname
-	this.SComputerDescription = sComputerDescription
 	this.DtActivesessionFirsthit = dtActivesessionFirsthit
 	this.DtActivesessionLasthit = dtActivesessionLasthit
 	this.SActivesessionIP = sActivesessionIP
@@ -127,28 +125,36 @@ func (o *ActivesessionListElement) SetFkiUserID(v int32) {
 	o.FkiUserID = v
 }
 
-// GetFkiComputerID returns the FkiComputerID field value
+// GetFkiComputerID returns the FkiComputerID field value if set, zero value otherwise.
 func (o *ActivesessionListElement) GetFkiComputerID() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.FkiComputerID) {
 		var ret int32
 		return ret
 	}
-
-	return o.FkiComputerID
+	return *o.FkiComputerID
 }
 
-// GetFkiComputerIDOk returns a tuple with the FkiComputerID field value
+// GetFkiComputerIDOk returns a tuple with the FkiComputerID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ActivesessionListElement) GetFkiComputerIDOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FkiComputerID) {
 		return nil, false
 	}
-	return &o.FkiComputerID, true
+	return o.FkiComputerID, true
 }
 
-// SetFkiComputerID sets field value
+// HasFkiComputerID returns a boolean if a field has been set.
+func (o *ActivesessionListElement) HasFkiComputerID() bool {
+	if o != nil && !IsNil(o.FkiComputerID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiComputerID gets a reference to the given int32 and assigns it to the FkiComputerID field.
 func (o *ActivesessionListElement) SetFkiComputerID(v int32) {
-	o.FkiComputerID = v
+	o.FkiComputerID = &v
 }
 
 // GetFkiCompanyID returns the FkiCompanyID field value
@@ -271,28 +277,36 @@ func (o *ActivesessionListElement) SetSActivesessionLoginname(v string) {
 	o.SActivesessionLoginname = v
 }
 
-// GetSComputerDescription returns the SComputerDescription field value
+// GetSComputerDescription returns the SComputerDescription field value if set, zero value otherwise.
 func (o *ActivesessionListElement) GetSComputerDescription() string {
-	if o == nil {
+	if o == nil || IsNil(o.SComputerDescription) {
 		var ret string
 		return ret
 	}
-
-	return o.SComputerDescription
+	return *o.SComputerDescription
 }
 
-// GetSComputerDescriptionOk returns a tuple with the SComputerDescription field value
+// GetSComputerDescriptionOk returns a tuple with the SComputerDescription field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ActivesessionListElement) GetSComputerDescriptionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SComputerDescription) {
 		return nil, false
 	}
-	return &o.SComputerDescription, true
+	return o.SComputerDescription, true
 }
 
-// SetSComputerDescription sets field value
+// HasSComputerDescription returns a boolean if a field has been set.
+func (o *ActivesessionListElement) HasSComputerDescription() bool {
+	if o != nil && !IsNil(o.SComputerDescription) {
+		return true
+	}
+
+	return false
+}
+
+// SetSComputerDescription gets a reference to the given string and assigns it to the SComputerDescription field.
 func (o *ActivesessionListElement) SetSComputerDescription(v string) {
-	o.SComputerDescription = v
+	o.SComputerDescription = &v
 }
 
 // GetDtActivesessionFirsthit returns the DtActivesessionFirsthit field value
@@ -379,13 +393,17 @@ func (o ActivesessionListElement) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiActivesessionID"] = o.PkiActivesessionID
 	toSerialize["fkiUserID"] = o.FkiUserID
-	toSerialize["fkiComputerID"] = o.FkiComputerID
+	if !IsNil(o.FkiComputerID) {
+		toSerialize["fkiComputerID"] = o.FkiComputerID
+	}
 	toSerialize["fkiCompanyID"] = o.FkiCompanyID
 	toSerialize["fkiDepartmentID"] = o.FkiDepartmentID
 	toSerialize["sCompanyNameX"] = o.SCompanyNameX
 	toSerialize["sDepartmentNameX"] = o.SDepartmentNameX
 	toSerialize["sActivesessionLoginname"] = o.SActivesessionLoginname
-	toSerialize["sComputerDescription"] = o.SComputerDescription
+	if !IsNil(o.SComputerDescription) {
+		toSerialize["sComputerDescription"] = o.SComputerDescription
+	}
 	toSerialize["dtActivesessionFirsthit"] = o.DtActivesessionFirsthit
 	toSerialize["dtActivesessionLasthit"] = o.DtActivesessionLasthit
 	toSerialize["sActivesessionIP"] = o.SActivesessionIP
@@ -399,13 +417,11 @@ func (o *ActivesessionListElement) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"pkiActivesessionID",
 		"fkiUserID",
-		"fkiComputerID",
 		"fkiCompanyID",
 		"fkiDepartmentID",
 		"sCompanyNameX",
 		"sDepartmentNameX",
 		"sActivesessionLoginname",
-		"sComputerDescription",
 		"dtActivesessionFirsthit",
 		"dtActivesessionLasthit",
 		"sActivesessionIP",

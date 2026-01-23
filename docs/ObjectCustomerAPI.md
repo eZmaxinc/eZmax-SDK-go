@@ -4,78 +4,10 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CustomerCreateObjectV1**](ObjectCustomerAPI.md#CustomerCreateObjectV1) | **Post** /1/object/customer | Create a new Customer
 [**CustomerGetAutocompleteV2**](ObjectCustomerAPI.md#CustomerGetAutocompleteV2) | **Get** /2/object/customer/getAutocomplete/{sSelector} | Retrieve Customers and IDs
-[**CustomerGetListV1**](ObjectCustomerAPI.md#CustomerGetListV1) | **Get** /1/object/customer/getList | Retrieve Customer list
 [**CustomerGetObjectV2**](ObjectCustomerAPI.md#CustomerGetObjectV2) | **Get** /2/object/customer/{pkiCustomerID} | Retrieve an existing Customer
-[**CustomerImportIntoEDMV1**](ObjectCustomerAPI.md#CustomerImportIntoEDMV1) | **Post** /1/object/customer/{pkiCustomerID}/importIntoEDM | Import attachments into the Buyercontract
+[**CustomerImportIntoEDMV1**](ObjectCustomerAPI.md#CustomerImportIntoEDMV1) | **Post** /1/object/customer/{pkiCustomerID}/importIntoEDM | Import attachments into the Customer
 
-
-
-## CustomerCreateObjectV1
-
-> CustomerCreateObjectV1Response CustomerCreateObjectV1(ctx).CustomerCreateObjectV1Request(customerCreateObjectV1Request).Execute()
-
-Create a new Customer
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	customerCreateObjectV1Request := *openapiclient.NewCustomerCreateObjectV1Request([]openapiclient.CustomerRequestCompound{*openapiclient.NewCustomerRequestCompound(int32(1), int32(229), "eZmax Solutions", int32(55), int32(150), int32(164), int32(66), int32(2), int32(21), int32(166), int32(36), int32(36), int32(223), int32(1), int32(170), int32(1), int32(26), int32(18), int32(66), int32(1), int32(26), int32(18), int32(66), int32(242), int32(107), "EZMA1", "4.00", int32(7085237), int32(12316524), int32(172), int32(193), "4.00", "2020-12-31", "2020-12-31 23:59:59", "2020-12-31 23:59:59", "2020-12-31 23:59:59", true, true, true, true, true, true, openapiclient.Field-eCustomerType("Normal"), openapiclient.Field-eCustomerMarketingcorrespondence("No"), true, true, "This is a comment")}) // CustomerCreateObjectV1Request | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectCustomerAPI.CustomerCreateObjectV1(context.Background()).CustomerCreateObjectV1Request(customerCreateObjectV1Request).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectCustomerAPI.CustomerCreateObjectV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CustomerCreateObjectV1`: CustomerCreateObjectV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectCustomerAPI.CustomerCreateObjectV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCustomerCreateObjectV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **customerCreateObjectV1Request** | [**CustomerCreateObjectV1Request**](CustomerCreateObjectV1Request.md) |  | 
-
-### Return type
-
-[**CustomerCreateObjectV1Response**](CustomerCreateObjectV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
 
 
 ## CustomerGetAutocompleteV2
@@ -148,80 +80,6 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## CustomerGetListV1
-
-> CustomerGetListV1Response CustomerGetListV1(ctx).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
-
-Retrieve Customer list
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
-	iRowMax := int32(56) // int32 |  (optional)
-	iRowOffset := int32(56) // int32 |  (optional) (default to 0)
-	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
-	sFilter := "sFilter_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectCustomerAPI.CustomerGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectCustomerAPI.CustomerGetListV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CustomerGetListV1`: CustomerGetListV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectCustomerAPI.CustomerGetListV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCustomerGetListV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **eOrderBy** | **string** | Specify how you want the results to be sorted | 
- **iRowMax** | **int32** |  | 
- **iRowOffset** | **int32** |  | [default to 0]
- **acceptLanguage** | [**HeaderAcceptLanguage**](HeaderAcceptLanguage.md) |  | 
- **sFilter** | **string** |  | 
-
-### Return type
-
-[**CustomerGetListV1Response**](CustomerGetListV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -302,7 +160,7 @@ Name | Type | Description  | Notes
 
 > CustomerImportIntoEDMV1Response CustomerImportIntoEDMV1(ctx, pkiCustomerID).CustomerImportIntoEDMV1Request(customerImportIntoEDMV1Request).Execute()
 
-Import attachments into the Buyercontract
+Import attachments into the Customer
 
 
 

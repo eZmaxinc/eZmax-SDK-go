@@ -34,7 +34,9 @@ type LeadListElement struct {
 	// Whether the lead is active or not
 	BLeadIsactive bool `json:"bLeadIsactive"`
 	// The code of the Lead
-	SLeadCode string `json:"sLeadCode" validate:"regexp=^.{0,10}$"`
+	SLeadCode string `json:"sLeadCode" validate:"regexp=^.{0,25}$"`
+	// The contacts' name of the Lead
+	SLeadContacts *string `json:"sLeadContacts,omitempty"`
 }
 
 type _LeadListElement LeadListElement
@@ -231,6 +233,38 @@ func (o *LeadListElement) SetSLeadCode(v string) {
 	o.SLeadCode = v
 }
 
+// GetSLeadContacts returns the SLeadContacts field value if set, zero value otherwise.
+func (o *LeadListElement) GetSLeadContacts() string {
+	if o == nil || IsNil(o.SLeadContacts) {
+		var ret string
+		return ret
+	}
+	return *o.SLeadContacts
+}
+
+// GetSLeadContactsOk returns a tuple with the SLeadContacts field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *LeadListElement) GetSLeadContactsOk() (*string, bool) {
+	if o == nil || IsNil(o.SLeadContacts) {
+		return nil, false
+	}
+	return o.SLeadContacts, true
+}
+
+// HasSLeadContacts returns a boolean if a field has been set.
+func (o *LeadListElement) HasSLeadContacts() bool {
+	if o != nil && !IsNil(o.SLeadContacts) {
+		return true
+	}
+
+	return false
+}
+
+// SetSLeadContacts gets a reference to the given string and assigns it to the SLeadContacts field.
+func (o *LeadListElement) SetSLeadContacts(v string) {
+	o.SLeadContacts = &v
+}
+
 func (o LeadListElement) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -248,6 +282,9 @@ func (o LeadListElement) ToMap() (map[string]interface{}, error) {
 	toSerialize["dtLeadExpiration"] = o.DtLeadExpiration
 	toSerialize["bLeadIsactive"] = o.BLeadIsactive
 	toSerialize["sLeadCode"] = o.SLeadCode
+	if !IsNil(o.SLeadContacts) {
+		toSerialize["sLeadContacts"] = o.SLeadContacts
+	}
 	return toSerialize, nil
 }
 

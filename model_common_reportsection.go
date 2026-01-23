@@ -26,6 +26,8 @@ type CommonReportsection struct {
 	EReportsectionHorizontalalignment EnumHorizontalalignment `json:"eReportsectionHorizontalalignment"`
 	// The title of this Reportsection
 	SReportsectionTitle *string `json:"sReportsectionTitle,omitempty"`
+	// The name of tab in excel version
+	SReportsectionTabname *string `json:"sReportsectionTabname,omitempty"`
 }
 
 type _CommonReportsection CommonReportsection
@@ -129,6 +131,38 @@ func (o *CommonReportsection) SetSReportsectionTitle(v string) {
 	o.SReportsectionTitle = &v
 }
 
+// GetSReportsectionTabname returns the SReportsectionTabname field value if set, zero value otherwise.
+func (o *CommonReportsection) GetSReportsectionTabname() string {
+	if o == nil || IsNil(o.SReportsectionTabname) {
+		var ret string
+		return ret
+	}
+	return *o.SReportsectionTabname
+}
+
+// GetSReportsectionTabnameOk returns a tuple with the SReportsectionTabname field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CommonReportsection) GetSReportsectionTabnameOk() (*string, bool) {
+	if o == nil || IsNil(o.SReportsectionTabname) {
+		return nil, false
+	}
+	return o.SReportsectionTabname, true
+}
+
+// HasSReportsectionTabname returns a boolean if a field has been set.
+func (o *CommonReportsection) HasSReportsectionTabname() bool {
+	if o != nil && !IsNil(o.SReportsectionTabname) {
+		return true
+	}
+
+	return false
+}
+
+// SetSReportsectionTabname gets a reference to the given string and assigns it to the SReportsectionTabname field.
+func (o *CommonReportsection) SetSReportsectionTabname(v string) {
+	o.SReportsectionTabname = &v
+}
+
 func (o CommonReportsection) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -143,6 +177,9 @@ func (o CommonReportsection) ToMap() (map[string]interface{}, error) {
 	toSerialize["eReportsectionHorizontalalignment"] = o.EReportsectionHorizontalalignment
 	if !IsNil(o.SReportsectionTitle) {
 		toSerialize["sReportsectionTitle"] = o.SReportsectionTitle
+	}
+	if !IsNil(o.SReportsectionTabname) {
+		toSerialize["sReportsectionTabname"] = o.SReportsectionTabname
 	}
 	return toSerialize, nil
 }

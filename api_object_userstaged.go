@@ -387,6 +387,7 @@ func (a *ObjectUserstagedAPIService) UserstagedGetListV1Execute(r ApiUserstagedG
 		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowOffset", r.iRowOffset, "form", "")
 	} else {
 		var defaultValue int32 = 0
+		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowOffset", defaultValue, "form", "")
 		r.iRowOffset = &defaultValue
 	}
 	if r.sFilter != nil {

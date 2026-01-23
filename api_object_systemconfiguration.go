@@ -24,33 +24,33 @@ import (
 // ObjectSystemconfigurationAPIService ObjectSystemconfigurationAPI service
 type ObjectSystemconfigurationAPIService service
 
-type ApiSystemconfigurationEditObjectV1Request struct {
+type ApiSystemconfigurationEditObjectV2Request struct {
 	ctx context.Context
 	ApiService *ObjectSystemconfigurationAPIService
 	pkiSystemconfigurationID int32
-	systemconfigurationEditObjectV1Request *SystemconfigurationEditObjectV1Request
+	systemconfigurationEditObjectV2Request *SystemconfigurationEditObjectV2Request
 }
 
-func (r ApiSystemconfigurationEditObjectV1Request) SystemconfigurationEditObjectV1Request(systemconfigurationEditObjectV1Request SystemconfigurationEditObjectV1Request) ApiSystemconfigurationEditObjectV1Request {
-	r.systemconfigurationEditObjectV1Request = &systemconfigurationEditObjectV1Request
+func (r ApiSystemconfigurationEditObjectV2Request) SystemconfigurationEditObjectV2Request(systemconfigurationEditObjectV2Request SystemconfigurationEditObjectV2Request) ApiSystemconfigurationEditObjectV2Request {
+	r.systemconfigurationEditObjectV2Request = &systemconfigurationEditObjectV2Request
 	return r
 }
 
-func (r ApiSystemconfigurationEditObjectV1Request) Execute() (*SystemconfigurationEditObjectV1Response, *http.Response, error) {
-	return r.ApiService.SystemconfigurationEditObjectV1Execute(r)
+func (r ApiSystemconfigurationEditObjectV2Request) Execute() (*SystemconfigurationEditObjectV2Response, *http.Response, error) {
+	return r.ApiService.SystemconfigurationEditObjectV2Execute(r)
 }
 
 /*
-SystemconfigurationEditObjectV1 Edit an existing Systemconfiguration
+SystemconfigurationEditObjectV2 Edit an existing Systemconfiguration
 
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiSystemconfigurationID The unique ID of the Systemconfiguration
- @return ApiSystemconfigurationEditObjectV1Request
+ @return ApiSystemconfigurationEditObjectV2Request
 */
-func (a *ObjectSystemconfigurationAPIService) SystemconfigurationEditObjectV1(ctx context.Context, pkiSystemconfigurationID int32) ApiSystemconfigurationEditObjectV1Request {
-	return ApiSystemconfigurationEditObjectV1Request{
+func (a *ObjectSystemconfigurationAPIService) SystemconfigurationEditObjectV2(ctx context.Context, pkiSystemconfigurationID int32) ApiSystemconfigurationEditObjectV2Request {
+	return ApiSystemconfigurationEditObjectV2Request{
 		ApiService: a,
 		ctx: ctx,
 		pkiSystemconfigurationID: pkiSystemconfigurationID,
@@ -58,21 +58,21 @@ func (a *ObjectSystemconfigurationAPIService) SystemconfigurationEditObjectV1(ct
 }
 
 // Execute executes the request
-//  @return SystemconfigurationEditObjectV1Response
-func (a *ObjectSystemconfigurationAPIService) SystemconfigurationEditObjectV1Execute(r ApiSystemconfigurationEditObjectV1Request) (*SystemconfigurationEditObjectV1Response, *http.Response, error) {
+//  @return SystemconfigurationEditObjectV2Response
+func (a *ObjectSystemconfigurationAPIService) SystemconfigurationEditObjectV2Execute(r ApiSystemconfigurationEditObjectV2Request) (*SystemconfigurationEditObjectV2Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SystemconfigurationEditObjectV1Response
+		localVarReturnValue  *SystemconfigurationEditObjectV2Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectSystemconfigurationAPIService.SystemconfigurationEditObjectV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectSystemconfigurationAPIService.SystemconfigurationEditObjectV2")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/1/object/systemconfiguration/{pkiSystemconfigurationID}"
+	localVarPath := localBasePath + "/2/object/systemconfiguration/{pkiSystemconfigurationID}"
 	localVarPath = strings.Replace(localVarPath, "{"+"pkiSystemconfigurationID"+"}", url.PathEscape(parameterValueToString(r.pkiSystemconfigurationID, "pkiSystemconfigurationID")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -84,8 +84,8 @@ func (a *ObjectSystemconfigurationAPIService) SystemconfigurationEditObjectV1Exe
 	if r.pkiSystemconfigurationID > 1 {
 		return localVarReturnValue, nil, reportError("pkiSystemconfigurationID must be less than 1")
 	}
-	if r.systemconfigurationEditObjectV1Request == nil {
-		return localVarReturnValue, nil, reportError("systemconfigurationEditObjectV1Request is required and must be specified")
+	if r.systemconfigurationEditObjectV2Request == nil {
+		return localVarReturnValue, nil, reportError("systemconfigurationEditObjectV2Request is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -106,7 +106,7 @@ func (a *ObjectSystemconfigurationAPIService) SystemconfigurationEditObjectV1Exe
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.systemconfigurationEditObjectV1Request
+	localVarPostBody = r.systemconfigurationEditObjectV2Request
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

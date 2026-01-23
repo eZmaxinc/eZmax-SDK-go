@@ -97,6 +97,7 @@ func (a *ObjectPeriodAPIService) PeriodGetAutocompleteV2Execute(r ApiPeriodGetAu
 		parameterAddToHeaderOrQuery(localVarQueryParams, "eFilterActive", r.eFilterActive, "form", "")
 	} else {
 		var defaultValue string = "Active"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "eFilterActive", defaultValue, "form", "")
 		r.eFilterActive = &defaultValue
 	}
 	if r.sQuery != nil {

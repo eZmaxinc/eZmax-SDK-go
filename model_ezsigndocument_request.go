@@ -49,7 +49,7 @@ type EzsigndocumentRequest struct {
 	// If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsignformfieldgroups and assign them to the specified **fkiEzsignfoldersignerassociationID**  **Discard** removes the form from the document.  **Flatten** prints the form values in the document.
 	EEzsigndocumentForm *string `json:"eEzsigndocumentForm,omitempty"`
 	// The maximum date and time at which the Ezsigndocument can be signed.
-	DtEzsigndocumentDuedate string `json:"dtEzsigndocumentDuedate"`
+	DtEzsigndocumentDuedate *string `json:"dtEzsigndocumentDuedate,omitempty"`
 	// The name of the document that will be presented to Ezsignfoldersignerassociations
 	SEzsigndocumentName string `json:"sEzsigndocumentName"`
 	// This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format. 
@@ -62,14 +62,13 @@ type _EzsigndocumentRequest EzsigndocumentRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigndocumentRequest(fkiEzsignfolderID int32, fkiLanguageID int32, eEzsigndocumentSource string, dtEzsigndocumentDuedate string, sEzsigndocumentName string) *EzsigndocumentRequest {
+func NewEzsigndocumentRequest(fkiEzsignfolderID int32, fkiLanguageID int32, eEzsigndocumentSource string, sEzsigndocumentName string) *EzsigndocumentRequest {
 	this := EzsigndocumentRequest{}
 	this.FkiEzsignfolderID = fkiEzsignfolderID
 	this.FkiLanguageID = fkiLanguageID
 	this.EEzsigndocumentSource = eEzsigndocumentSource
 	var bEzsigndocumentForcerepair bool = true
 	this.BEzsigndocumentForcerepair = &bEzsigndocumentForcerepair
-	this.DtEzsigndocumentDuedate = dtEzsigndocumentDuedate
 	this.SEzsigndocumentName = sEzsigndocumentName
 	return &this
 }
@@ -476,28 +475,36 @@ func (o *EzsigndocumentRequest) SetEEzsigndocumentForm(v string) {
 	o.EEzsigndocumentForm = &v
 }
 
-// GetDtEzsigndocumentDuedate returns the DtEzsigndocumentDuedate field value
+// GetDtEzsigndocumentDuedate returns the DtEzsigndocumentDuedate field value if set, zero value otherwise.
 func (o *EzsigndocumentRequest) GetDtEzsigndocumentDuedate() string {
-	if o == nil {
+	if o == nil || IsNil(o.DtEzsigndocumentDuedate) {
 		var ret string
 		return ret
 	}
-
-	return o.DtEzsigndocumentDuedate
+	return *o.DtEzsigndocumentDuedate
 }
 
-// GetDtEzsigndocumentDuedateOk returns a tuple with the DtEzsigndocumentDuedate field value
+// GetDtEzsigndocumentDuedateOk returns a tuple with the DtEzsigndocumentDuedate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsigndocumentRequest) GetDtEzsigndocumentDuedateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DtEzsigndocumentDuedate) {
 		return nil, false
 	}
-	return &o.DtEzsigndocumentDuedate, true
+	return o.DtEzsigndocumentDuedate, true
 }
 
-// SetDtEzsigndocumentDuedate sets field value
+// HasDtEzsigndocumentDuedate returns a boolean if a field has been set.
+func (o *EzsigndocumentRequest) HasDtEzsigndocumentDuedate() bool {
+	if o != nil && !IsNil(o.DtEzsigndocumentDuedate) {
+		return true
+	}
+
+	return false
+}
+
+// SetDtEzsigndocumentDuedate gets a reference to the given string and assigns it to the DtEzsigndocumentDuedate field.
 func (o *EzsigndocumentRequest) SetDtEzsigndocumentDuedate(v string) {
-	o.DtEzsigndocumentDuedate = v
+	o.DtEzsigndocumentDuedate = &v
 }
 
 // GetSEzsigndocumentName returns the SEzsigndocumentName field value
@@ -599,7 +606,9 @@ func (o EzsigndocumentRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.EEzsigndocumentForm) {
 		toSerialize["eEzsigndocumentForm"] = o.EEzsigndocumentForm
 	}
-	toSerialize["dtEzsigndocumentDuedate"] = o.DtEzsigndocumentDuedate
+	if !IsNil(o.DtEzsigndocumentDuedate) {
+		toSerialize["dtEzsigndocumentDuedate"] = o.DtEzsigndocumentDuedate
+	}
 	toSerialize["sEzsigndocumentName"] = o.SEzsigndocumentName
 	if !IsNil(o.SEzsigndocumentExternalid) {
 		toSerialize["sEzsigndocumentExternalid"] = o.SEzsigndocumentExternalid
@@ -615,7 +624,6 @@ func (o *EzsigndocumentRequest) UnmarshalJSON(data []byte) (err error) {
 		"fkiEzsignfolderID",
 		"fkiLanguageID",
 		"eEzsigndocumentSource",
-		"dtEzsigndocumentDuedate",
 		"sEzsigndocumentName",
 	}
 

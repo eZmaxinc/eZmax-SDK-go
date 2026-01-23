@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **DtLeadExpiration** | **string** | The expiration of the Lead | 
 **BLeadIsactive** | **bool** | Whether the lead is active or not | 
 **SLeadCode** | **string** | The code of the Lead | 
+**SLeadContacts** | Pointer to **string** | The contacts&#39; name of the Lead | [optional] 
 
 ## Methods
 
@@ -170,6 +171,31 @@ and a boolean to check if the value has been set.
 
 SetSLeadCode sets SLeadCode field to given value.
 
+
+### GetSLeadContacts
+
+`func (o *LeadListElement) GetSLeadContacts() string`
+
+GetSLeadContacts returns the SLeadContacts field if non-nil, zero value otherwise.
+
+### GetSLeadContactsOk
+
+`func (o *LeadListElement) GetSLeadContactsOk() (*string, bool)`
+
+GetSLeadContactsOk returns a tuple with the SLeadContacts field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSLeadContacts
+
+`func (o *LeadListElement) SetSLeadContacts(v string)`
+
+SetSLeadContacts sets SLeadContacts field to given value.
+
+### HasSLeadContacts
+
+`func (o *LeadListElement) HasSLeadContacts() bool`
+
+HasSLeadContacts returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
