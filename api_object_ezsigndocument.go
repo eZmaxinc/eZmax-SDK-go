@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.3.0
+API version: 1.3.1
 Contact: support-api@ezmax.ca
 */
 
@@ -1697,6 +1697,8 @@ Using this endpoint, you can edit multiple Ezsignformfieldgroups at the same tim
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiEzsigndocumentID
  @return ApiEzsigndocumentEditEzsignformfieldgroupsV1Request
+
+Deprecated
 */
 func (a *ObjectEzsigndocumentAPIService) EzsigndocumentEditEzsignformfieldgroupsV1(ctx context.Context, pkiEzsigndocumentID int32) ApiEzsigndocumentEditEzsignformfieldgroupsV1Request {
 	return ApiEzsigndocumentEditEzsignformfieldgroupsV1Request{
@@ -1708,6 +1710,7 @@ func (a *ObjectEzsigndocumentAPIService) EzsigndocumentEditEzsignformfieldgroups
 
 // Execute executes the request
 //  @return EzsigndocumentEditEzsignformfieldgroupsV1Response
+// Deprecated
 func (a *ObjectEzsigndocumentAPIService) EzsigndocumentEditEzsignformfieldgroupsV1Execute(r ApiEzsigndocumentEditEzsignformfieldgroupsV1Request) (*EzsigndocumentEditEzsignformfieldgroupsV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
@@ -1849,8 +1852,6 @@ Using this endpoint, you can edit multiple Ezsignformfieldgroups at the same tim
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiEzsigndocumentID
  @return ApiEzsigndocumentEditEzsignformfieldgroupsV2Request
-
-Deprecated
 */
 func (a *ObjectEzsigndocumentAPIService) EzsigndocumentEditEzsignformfieldgroupsV2(ctx context.Context, pkiEzsigndocumentID int32) ApiEzsigndocumentEditEzsignformfieldgroupsV2Request {
 	return ApiEzsigndocumentEditEzsignformfieldgroupsV2Request{
@@ -1862,7 +1863,6 @@ func (a *ObjectEzsigndocumentAPIService) EzsigndocumentEditEzsignformfieldgroups
 
 // Execute executes the request
 //  @return EzsigndocumentEditEzsignformfieldgroupsV2Response
-// Deprecated
 func (a *ObjectEzsigndocumentAPIService) EzsigndocumentEditEzsignformfieldgroupsV2Execute(r ApiEzsigndocumentEditEzsignformfieldgroupsV2Request) (*EzsigndocumentEditEzsignformfieldgroupsV2Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut

@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **BSystemconfigurationEzsignpersonnal** | **bool** | Whether if we allow the creation of personal files in eZsign | 
 **BSystemconfigurationHascreditcardmerchant** | Pointer to **bool** | Whether there is a creditcard merchant configured or not | [optional] 
 **BSystemconfigurationIsdisposalactive** | Pointer to **bool** | Whether is Disposal processus is active or not | [optional] 
+**BSystemconfigurationAllowcomplexcreditcardsignature** | Pointer to **bool** | Whether is the system allows to have a complex creditcard signature | [optional] 
 **BSystemconfigurationSspr** | **bool** | Whether if we allow SSPR | 
 **DtSystemconfigurationReadonlyexpirationstart** | Pointer to **string** | The start date where the system will be in read only | [optional] 
 **DtSystemconfigurationReadonlyexpirationend** | Pointer to **string** | The end date where the system will be in read only | [optional] 
@@ -373,6 +374,31 @@ SetBSystemconfigurationIsdisposalactive sets BSystemconfigurationIsdisposalactiv
 `func (o *SystemconfigurationResponseCompound) HasBSystemconfigurationIsdisposalactive() bool`
 
 HasBSystemconfigurationIsdisposalactive returns a boolean if a field has been set.
+
+### GetBSystemconfigurationAllowcomplexcreditcardsignature
+
+`func (o *SystemconfigurationResponseCompound) GetBSystemconfigurationAllowcomplexcreditcardsignature() bool`
+
+GetBSystemconfigurationAllowcomplexcreditcardsignature returns the BSystemconfigurationAllowcomplexcreditcardsignature field if non-nil, zero value otherwise.
+
+### GetBSystemconfigurationAllowcomplexcreditcardsignatureOk
+
+`func (o *SystemconfigurationResponseCompound) GetBSystemconfigurationAllowcomplexcreditcardsignatureOk() (*bool, bool)`
+
+GetBSystemconfigurationAllowcomplexcreditcardsignatureOk returns a tuple with the BSystemconfigurationAllowcomplexcreditcardsignature field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBSystemconfigurationAllowcomplexcreditcardsignature
+
+`func (o *SystemconfigurationResponseCompound) SetBSystemconfigurationAllowcomplexcreditcardsignature(v bool)`
+
+SetBSystemconfigurationAllowcomplexcreditcardsignature sets BSystemconfigurationAllowcomplexcreditcardsignature field to given value.
+
+### HasBSystemconfigurationAllowcomplexcreditcardsignature
+
+`func (o *SystemconfigurationResponseCompound) HasBSystemconfigurationAllowcomplexcreditcardsignature() bool`
+
+HasBSystemconfigurationAllowcomplexcreditcardsignature returns a boolean if a field has been set.
 
 ### GetBSystemconfigurationSspr
 

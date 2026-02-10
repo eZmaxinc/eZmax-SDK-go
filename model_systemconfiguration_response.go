@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.3.0
+API version: 1.3.1
 Contact: support-api@ezmax.ca
 */
 
@@ -48,6 +48,8 @@ type SystemconfigurationResponse struct {
 	BSystemconfigurationHascreditcardmerchant *bool `json:"bSystemconfigurationHascreditcardmerchant,omitempty"`
 	// Whether is Disposal processus is active or not
 	BSystemconfigurationIsdisposalactive *bool `json:"bSystemconfigurationIsdisposalactive,omitempty"`
+	// Whether is the system allows to have a complex creditcard signature
+	BSystemconfigurationAllowcomplexcreditcardsignature *bool `json:"bSystemconfigurationAllowcomplexcreditcardsignature,omitempty"`
 	// Whether if we allow SSPR
 	BSystemconfigurationSspr bool `json:"bSystemconfigurationSspr"`
 	// The start date where the system will be in read only
@@ -499,6 +501,38 @@ func (o *SystemconfigurationResponse) SetBSystemconfigurationIsdisposalactive(v 
 	o.BSystemconfigurationIsdisposalactive = &v
 }
 
+// GetBSystemconfigurationAllowcomplexcreditcardsignature returns the BSystemconfigurationAllowcomplexcreditcardsignature field value if set, zero value otherwise.
+func (o *SystemconfigurationResponse) GetBSystemconfigurationAllowcomplexcreditcardsignature() bool {
+	if o == nil || IsNil(o.BSystemconfigurationAllowcomplexcreditcardsignature) {
+		var ret bool
+		return ret
+	}
+	return *o.BSystemconfigurationAllowcomplexcreditcardsignature
+}
+
+// GetBSystemconfigurationAllowcomplexcreditcardsignatureOk returns a tuple with the BSystemconfigurationAllowcomplexcreditcardsignature field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SystemconfigurationResponse) GetBSystemconfigurationAllowcomplexcreditcardsignatureOk() (*bool, bool) {
+	if o == nil || IsNil(o.BSystemconfigurationAllowcomplexcreditcardsignature) {
+		return nil, false
+	}
+	return o.BSystemconfigurationAllowcomplexcreditcardsignature, true
+}
+
+// HasBSystemconfigurationAllowcomplexcreditcardsignature returns a boolean if a field has been set.
+func (o *SystemconfigurationResponse) HasBSystemconfigurationAllowcomplexcreditcardsignature() bool {
+	if o != nil && !IsNil(o.BSystemconfigurationAllowcomplexcreditcardsignature) {
+		return true
+	}
+
+	return false
+}
+
+// SetBSystemconfigurationAllowcomplexcreditcardsignature gets a reference to the given bool and assigns it to the BSystemconfigurationAllowcomplexcreditcardsignature field.
+func (o *SystemconfigurationResponse) SetBSystemconfigurationAllowcomplexcreditcardsignature(v bool) {
+	o.BSystemconfigurationAllowcomplexcreditcardsignature = &v
+}
+
 // GetBSystemconfigurationSspr returns the BSystemconfigurationSspr field value
 func (o *SystemconfigurationResponse) GetBSystemconfigurationSspr() bool {
 	if o == nil {
@@ -687,6 +721,9 @@ func (o SystemconfigurationResponse) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.BSystemconfigurationIsdisposalactive) {
 		toSerialize["bSystemconfigurationIsdisposalactive"] = o.BSystemconfigurationIsdisposalactive
+	}
+	if !IsNil(o.BSystemconfigurationAllowcomplexcreditcardsignature) {
+		toSerialize["bSystemconfigurationAllowcomplexcreditcardsignature"] = o.BSystemconfigurationAllowcomplexcreditcardsignature
 	}
 	toSerialize["bSystemconfigurationSspr"] = o.BSystemconfigurationSspr
 	if !IsNil(o.DtSystemconfigurationReadonlyexpirationstart) {

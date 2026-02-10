@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.3.0
+API version: 1.3.1
 Contact: support-api@ezmax.ca
 */
 
@@ -46,6 +46,8 @@ The endpoint allows to create one or many elements at once.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiUserCreateObjectV1Request
+
+Deprecated
 */
 func (a *ObjectUserAPIService) UserCreateObjectV1(ctx context.Context) ApiUserCreateObjectV1Request {
 	return ApiUserCreateObjectV1Request{
@@ -56,6 +58,7 @@ func (a *ObjectUserAPIService) UserCreateObjectV1(ctx context.Context) ApiUserCr
 
 // Execute executes the request
 //  @return UserCreateObjectV1Response
+// Deprecated
 func (a *ObjectUserAPIService) UserCreateObjectV1Execute(r ApiUserCreateObjectV1Request) (*UserCreateObjectV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost

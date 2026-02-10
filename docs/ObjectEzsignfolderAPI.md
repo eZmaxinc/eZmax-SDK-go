@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 ## EzsignfolderBatchDownloadV1
 
-> *os.File EzsignfolderBatchDownloadV1(ctx, pkiEzsignfolderID).EzsignfolderBatchDownloadV1Request(ezsignfolderBatchDownloadV1Request).Execute()
+> *os.File EzsignfolderBatchDownloadV1(ctx, pkiEzsignfolderID).EzsignfolderBatchDownloadV1Request(ezsignfolderBatchDownloadV1Request).Accept(accept).Execute()
 
 Download multiples files from an Ezsignfolder
 
@@ -135,10 +135,11 @@ import (
 func main() {
 	pkiEzsignfolderID := int32(56) // int32 | 
 	ezsignfolderBatchDownloadV1Request := *openapiclient.NewEzsignfolderBatchDownloadV1Request([]int32{int32(97)}, []string{"AEDocumentType_example"}) // EzsignfolderBatchDownloadV1Request | 
+	accept := "accept_example" // string | Test csharp (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderBatchDownloadV1(context.Background(), pkiEzsignfolderID).EzsignfolderBatchDownloadV1Request(ezsignfolderBatchDownloadV1Request).Execute()
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderBatchDownloadV1(context.Background(), pkiEzsignfolderID).EzsignfolderBatchDownloadV1Request(ezsignfolderBatchDownloadV1Request).Accept(accept).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderBatchDownloadV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -165,6 +166,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **ezsignfolderBatchDownloadV1Request** | [**EzsignfolderBatchDownloadV1Request**](EzsignfolderBatchDownloadV1Request.md) |  | 
+ **accept** | **string** | Test csharp | 
 
 ### Return type
 

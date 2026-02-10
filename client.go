@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.3.0
+API version: 1.3.1
 Contact: support-api@ezmax.ca
 */
 
@@ -42,7 +42,7 @@ var (
 	queryDescape    = strings.NewReplacer( "%5B", "[", "%5D", "]" )
 )
 
-// APIClient manages communication with the eZmax API Definition (Full) API v1.3.0
+// APIClient manages communication with the eZmax API Definition (Full) API v1.3.1
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration
@@ -178,6 +178,8 @@ type APIClient struct {
 
 	ObjectEzsigntemplateAPI *ObjectEzsigntemplateAPIService
 
+	ObjectEzsigntemplateannotationAPI *ObjectEzsigntemplateannotationAPIService
+
 	ObjectEzsigntemplatedocumentAPI *ObjectEzsigntemplatedocumentAPIService
 
 	ObjectEzsigntemplatedocumentpagerecognitionAPI *ObjectEzsigntemplatedocumentpagerecognitionAPIService
@@ -185,6 +187,8 @@ type APIClient struct {
 	ObjectEzsigntemplateformfieldgroupAPI *ObjectEzsigntemplateformfieldgroupAPIService
 
 	ObjectEzsigntemplateglobalAPI *ObjectEzsigntemplateglobalAPIService
+
+	ObjectEzsigntemplateglobalannotationAPI *ObjectEzsigntemplateglobalannotationAPIService
 
 	ObjectEzsigntemplatepackageAPI *ObjectEzsigntemplatepackageAPIService
 
@@ -399,10 +403,12 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectEzsignsignergroupmembershipAPI = (*ObjectEzsignsignergroupmembershipAPIService)(&c.common)
 	c.ObjectEzsignsigningreasonAPI = (*ObjectEzsignsigningreasonAPIService)(&c.common)
 	c.ObjectEzsigntemplateAPI = (*ObjectEzsigntemplateAPIService)(&c.common)
+	c.ObjectEzsigntemplateannotationAPI = (*ObjectEzsigntemplateannotationAPIService)(&c.common)
 	c.ObjectEzsigntemplatedocumentAPI = (*ObjectEzsigntemplatedocumentAPIService)(&c.common)
 	c.ObjectEzsigntemplatedocumentpagerecognitionAPI = (*ObjectEzsigntemplatedocumentpagerecognitionAPIService)(&c.common)
 	c.ObjectEzsigntemplateformfieldgroupAPI = (*ObjectEzsigntemplateformfieldgroupAPIService)(&c.common)
 	c.ObjectEzsigntemplateglobalAPI = (*ObjectEzsigntemplateglobalAPIService)(&c.common)
+	c.ObjectEzsigntemplateglobalannotationAPI = (*ObjectEzsigntemplateglobalannotationAPIService)(&c.common)
 	c.ObjectEzsigntemplatepackageAPI = (*ObjectEzsigntemplatepackageAPIService)(&c.common)
 	c.ObjectEzsigntemplatepackagemembershipAPI = (*ObjectEzsigntemplatepackagemembershipAPIService)(&c.common)
 	c.ObjectEzsigntemplatepackagesignerAPI = (*ObjectEzsigntemplatepackagesignerAPIService)(&c.common)
