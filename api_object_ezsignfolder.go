@@ -182,17 +182,10 @@ type ApiEzsignfolderBatchDownloadV1Request struct {
 	ApiService *ObjectEzsignfolderAPIService
 	pkiEzsignfolderID int32
 	ezsignfolderBatchDownloadV1Request *EzsignfolderBatchDownloadV1Request
-	accept *string
 }
 
 func (r ApiEzsignfolderBatchDownloadV1Request) EzsignfolderBatchDownloadV1Request(ezsignfolderBatchDownloadV1Request EzsignfolderBatchDownloadV1Request) ApiEzsignfolderBatchDownloadV1Request {
 	r.ezsignfolderBatchDownloadV1Request = &ezsignfolderBatchDownloadV1Request
-	return r
-}
-
-// Test csharp
-func (r ApiEzsignfolderBatchDownloadV1Request) Accept(accept string) ApiEzsignfolderBatchDownloadV1Request {
-	r.accept = &accept
 	return r
 }
 
@@ -259,9 +252,6 @@ func (a *ObjectEzsignfolderAPIService) EzsignfolderBatchDownloadV1Execute(r ApiE
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.ezsignfolderBatchDownloadV1Request
