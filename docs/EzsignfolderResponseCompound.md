@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **TEzsignfolderNote** | Pointer to **string** | Note about the Ezsignfolder | [optional] 
 **BEzsignfolderIsdisposable** | Pointer to **bool** | If the Ezsigndocument can be disposed | [optional] 
 **EEzsignfolderSendreminderfrequency** | Pointer to [**FieldEEzsignfolderSendreminderfrequency**](FieldEEzsignfolderSendreminderfrequency.md) |  | [optional] 
-**IEzsignfolderSendreminderfirstdays** | Pointer to **int32** | The number of days before the the first reminder sending | [optional] 
+**IEzsignfolderSendreminderfirstdays** | Pointer to **int32** | The number of days before the first reminder sending | [optional] 
 **IEzsignfolderSendreminderotherdays** | Pointer to **int32** | The number of days after the first reminder sending | [optional] 
 **DtEzsignfolderDelayedsenddate** | Pointer to **string** | The date and time at which the Ezsignfolder will be sent in the future. | [optional] 
 **DtEzsignfolderDuedate** | Pointer to **string** | The maximum date and time at which the Ezsignfolder can be signed. | [optional] 

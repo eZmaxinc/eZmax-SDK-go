@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PkiRealestateboardID** | **int32** | The unique ID of the Activesession | 
+**PkiRealestateboardID** | **int32** | The unique ID of the Realestateboard | 
 **SProvinceNameX** | **string** | The name of the Province in the language of the requester | 
 **SRealestateboardNameX** | **string** | The name of the Realestateboard | 
 **BRealestateboardIsactive** | **bool** | Whether the Agenttype is active or not | 

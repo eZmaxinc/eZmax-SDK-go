@@ -723,6 +723,25 @@ Enum values that can be filtered in query parameter *sFilter*:
 |---|---|
 | eInscriptionStep | TemporaryNotAuthenticated<br>ImportedInscription<br>Inscription<br>ModifiedInscription<br>ContractEnded<br>ExpiredInscription<br>Out-market<br>ImportedNotauthenticated<br>NotAuthenticated<br>ModifiedNotauthenticated<br>Authenticated |
 
+Advanced filters that can be used in query parameter *sFilter*:
+
+| Variable |
+|---|
+| sBrokerNameInscriptor |
+| sBrokerNameSeller |
+| sContactFirstnameAgentInscriptor |
+| sContactLastnameAgentInscriptor |
+| sContactFirstnameAgentSeller |
+| sContactLastnameAgentSeller |        
+| sContactFirstnameBuyer |
+| sContactLastnameBuyer |
+| sContactFirstnameSeller |
+| sContactLastnameSeller | 
+| sContactFirstnameNotaryBuyer |
+| sContactLastnameNotaryBuyer | 
+| sContactFirstnameNotarySeller |
+| sContactLastnameNotarySeller |         
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiInscriptionGetListV1Request
 */

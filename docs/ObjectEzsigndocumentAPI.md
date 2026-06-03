@@ -6,7 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**EzsigndocumentApplyEzsigntemplateV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentApplyEzsigntemplateV1) | **Post** /1/object/ezsigndocument/{pkiEzsigndocumentID}/applyezsigntemplate | Apply an Ezsigntemplate to the Ezsigndocument
 [**EzsigndocumentApplyEzsigntemplateV2**](ObjectEzsigndocumentAPI.md#EzsigndocumentApplyEzsigntemplateV2) | **Post** /2/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplate | Apply an Ezsigntemplate to the Ezsigndocument
+[**EzsigndocumentApplyEzsigntemplateV3**](ObjectEzsigndocumentAPI.md#EzsigndocumentApplyEzsigntemplateV3) | **Post** /3/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplate | Apply an Ezsigntemplate to the Ezsigndocument
 [**EzsigndocumentApplyEzsigntemplateglobalV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentApplyEzsigntemplateglobalV1) | **Post** /1/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplateglobal | Apply an Ezsigntemplateglobal to the Ezsigndocument
+[**EzsigndocumentApplyEzsigntemplateglobalV2**](ObjectEzsigndocumentAPI.md#EzsigndocumentApplyEzsigntemplateglobalV2) | **Post** /2/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplateglobal | Apply an Ezsigntemplateglobal to the Ezsigndocument
 [**EzsigndocumentCreateEzsignelementsPositionedByWordV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentCreateEzsignelementsPositionedByWordV1) | **Post** /1/object/ezsigndocument/{pkiEzsigndocumentID}/createEzsignelementsPositionedByWord | Create multiple Ezsignsignatures/Ezsignformfieldgroups
 [**EzsigndocumentCreateEzsignelementsPositionedByWordV2**](ObjectEzsigndocumentAPI.md#EzsigndocumentCreateEzsignelementsPositionedByWordV2) | **Post** /2/object/ezsigndocument/{pkiEzsigndocumentID}/createEzsignelementsPositionedByWord | Create multiple Ezsignsignatures/Ezsignformfieldgroups
 [**EzsigndocumentCreateObjectV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentCreateObjectV1) | **Post** /1/object/ezsigndocument | Create a new Ezsigndocument
@@ -194,6 +196,78 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## EzsigndocumentApplyEzsigntemplateV3
+
+> EzsigndocumentApplyEzsigntemplateV3Response EzsigndocumentApplyEzsigntemplateV3(ctx, pkiEzsigndocumentID).EzsigndocumentApplyEzsigntemplateV3Request(ezsigndocumentApplyEzsigntemplateV3Request).Execute()
+
+Apply an Ezsigntemplate to the Ezsigndocument
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsigndocumentID := int32(56) // int32 | 
+	ezsigndocumentApplyEzsigntemplateV3Request := *openapiclient.NewEzsigndocumentApplyEzsigntemplateV3Request(int32(36), []string{"Buyer"}, []int32{int32(20)}, []string{"Name"}, []string{"John Doe"}) // EzsigndocumentApplyEzsigntemplateV3Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigndocumentAPI.EzsigndocumentApplyEzsigntemplateV3(context.Background(), pkiEzsigndocumentID).EzsigndocumentApplyEzsigntemplateV3Request(ezsigndocumentApplyEzsigntemplateV3Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentAPI.EzsigndocumentApplyEzsigntemplateV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigndocumentApplyEzsigntemplateV3`: EzsigndocumentApplyEzsigntemplateV3Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigndocumentAPI.EzsigndocumentApplyEzsigntemplateV3`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsigndocumentID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsigndocumentApplyEzsigntemplateV3Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **ezsigndocumentApplyEzsigntemplateV3Request** | [**EzsigndocumentApplyEzsigntemplateV3Request**](EzsigndocumentApplyEzsigntemplateV3Request.md) |  | 
+
+### Return type
+
+[**EzsigndocumentApplyEzsigntemplateV3Response**](EzsigndocumentApplyEzsigntemplateV3Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## EzsigndocumentApplyEzsigntemplateglobalV1
 
 > EzsigndocumentApplyEzsigntemplateglobalV1Response EzsigndocumentApplyEzsigntemplateglobalV1(ctx, pkiEzsigndocumentID).EzsigndocumentApplyEzsigntemplateglobalV1Request(ezsigndocumentApplyEzsigntemplateglobalV1Request).Execute()
@@ -251,6 +325,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsigndocumentApplyEzsigntemplateglobalV1Response**](EzsigndocumentApplyEzsigntemplateglobalV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsigndocumentApplyEzsigntemplateglobalV2
+
+> EzsigndocumentApplyEzsigntemplateglobalV2Response EzsigndocumentApplyEzsigntemplateglobalV2(ctx, pkiEzsigndocumentID).EzsigndocumentApplyEzsigntemplateglobalV2Request(ezsigndocumentApplyEzsigntemplateglobalV2Request).Execute()
+
+Apply an Ezsigntemplateglobal to the Ezsigndocument
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsigndocumentID := int32(56) // int32 | 
+	ezsigndocumentApplyEzsigntemplateglobalV2Request := *openapiclient.NewEzsigndocumentApplyEzsigntemplateglobalV2Request(int32(36), []string{"John"}, []int32{int32(20)}) // EzsigndocumentApplyEzsigntemplateglobalV2Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigndocumentAPI.EzsigndocumentApplyEzsigntemplateglobalV2(context.Background(), pkiEzsigndocumentID).EzsigndocumentApplyEzsigntemplateglobalV2Request(ezsigndocumentApplyEzsigntemplateglobalV2Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentAPI.EzsigndocumentApplyEzsigntemplateglobalV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigndocumentApplyEzsigntemplateglobalV2`: EzsigndocumentApplyEzsigntemplateglobalV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigndocumentAPI.EzsigndocumentApplyEzsigntemplateglobalV2`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsigndocumentID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsigndocumentApplyEzsigntemplateglobalV2Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **ezsigndocumentApplyEzsigntemplateglobalV2Request** | [**EzsigndocumentApplyEzsigntemplateglobalV2Request**](EzsigndocumentApplyEzsigntemplateglobalV2Request.md) |  | 
+
+### Return type
+
+[**EzsigndocumentApplyEzsigntemplateglobalV2Response**](EzsigndocumentApplyEzsigntemplateglobalV2Response.md)
 
 ### Authorization
 

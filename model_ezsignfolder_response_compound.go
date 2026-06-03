@@ -48,7 +48,7 @@ type EzsignfolderResponseCompound struct {
 	BEzsignfolderIsdisposable *bool `json:"bEzsignfolderIsdisposable,omitempty"`
 	// Deprecated
 	EEzsignfolderSendreminderfrequency *FieldEEzsignfolderSendreminderfrequency `json:"eEzsignfolderSendreminderfrequency,omitempty"`
-	// The number of days before the the first reminder sending
+	// The number of days before the first reminder sending
 	IEzsignfolderSendreminderfirstdays *int32 `json:"iEzsignfolderSendreminderfirstdays,omitempty"`
 	// The number of days after the first reminder sending
 	IEzsignfolderSendreminderotherdays *int32 `json:"iEzsignfolderSendreminderotherdays,omitempty"`

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **FkiBrokerID** | Pointer to **int32** | The unique ID of the Broker. | [optional] 
 **FkiAssistantID** | Pointer to **int32** | The unique ID of the Assistant. | [optional] 
 **FkiEmployeeID** | Pointer to **int32** | The unique ID of the Employee. | [optional] 
+**FkiEzmaxpartnerID** | Pointer to **int32** | The unique ID of the Ezmaxpartner | [optional] 
 **FkiCompanyIDDefault** | **int32** | The unique ID of the Company | 
 **SCompanyNameX** | **string** | The Name of the Company in the language of the requester | 
 **FkiDepartmentIDDefault** | **int32** | The unique ID of the Department | 
@@ -22,7 +23,7 @@ Name | Type | Description | Notes
 **SBillingentityinternalDescriptionX** | **string** | The description of the Billingentityinternal in the language of the requester | 
 **ObjPhoneHome** | Pointer to [**PhoneResponseCompound**](PhoneResponseCompound.md) |  | [optional] 
 **ObjPhoneSMS** | Pointer to [**PhoneResponseCompound**](PhoneResponseCompound.md) |  | [optional] 
-**FkiSecretquestionID** | Pointer to **int32** | The unique ID of the Secretquestion.  Valid values:  |Value|Description| |-|-| |1|The name of the hospital in which you were born| |2|The name of your grade school| |3|The last name of your favorite teacher| |4|Your favorite sports team| |5|Your favorite TV show| |6|Your favorite movie| |7|The name of the street on which you grew up| |8|The name of your first employer| |9|Your first car| |10|Your favorite food| |11|The name of your first pet| |12|Favorite musician/band| |13|What instrument you play| |14|Your father&#39;s middle name| |15|Your mother&#39;s maiden name| |16|Name of your eldest child| |17|Your spouse&#39;s middle name| |18|Favorite restaurant| |19|Childhood nickname| |20|Favorite vacation destination| |21|Your boat&#39;s name| |22|Date of Birth (YYYY-MM-DD)| |22|Secret Code| |22|Your reference code| | [optional] 
+**FkiSecretquestionID** | Pointer to **int32** | The unique ID of the Secretquestion.  Valid values:  |Value|Description| |-|-| |1|The name of the hospital in which you were born| |2|The name of your grade school| |3|The last name of your favorite teacher| |4|Your favorite sports team| |5|Your favorite TV show| |6|Your favorite movie| |7|The name of the street on which you grew up| |8|The name of your first employer| |9|Your first car| |10|Your favorite food| |11|The name of your first pet| |12|Favorite musician/band| |13|What instrument you play| |14|Your father&#39;s middle name| |15|Your mother&#39;s maiden name| |16|Name of your eldest child| |17|Your spouse&#39;s middle name| |18|Favorite restaurant| |19|Childhood nickname| |20|Favorite vacation destination| |21|Your boat&#39;s name| |22|Date of Birth (YYYY-MM-DD)| |23|Secret Code| |24|Your reference code| |25|What are the last 4 digits of your SIN| |26|What is your postal code| |27|What is your employee number| |28|What is your manager’s first name| |29|What is your file number| |30|What is your client/member number| |31|What is your license number| |32|What are the last 4 digits of your phone number| |33|What is your student number| | [optional] 
 **FkiModuleIDForm** | Pointer to **int32** | The unique ID of the Module | [optional] 
 **SModuleNameX** | Pointer to **string** | The Name of the Module in the language of the requester | [optional] 
 **EUserOrigin** | [**FieldEUserOrigin**](FieldEUserOrigin.md) |  | 
@@ -37,10 +38,12 @@ Name | Type | Description | Notes
 **DtUserPasswordchanged** | Pointer to **string** | The date at which the User&#39;s password was last changed | [optional] 
 **DtUserEzsignprepaidexpiration** | Pointer to **string** | The eZsign prepaid expiration date | [optional] 
 **BUserIsactive** | **bool** | Whether the User is active or not | 
+**BUserSuspended** | Pointer to **bool** | Whether the User is suspended or not | [optional] 
 **BUserValidatebyadministration** | Pointer to **bool** | Whether if the transactions in which the User is implicated must be validated by administrative personnel or not | [optional] 
 **BUserValidatebydirector** | Pointer to **bool** | Whether if the transactions in which the User is implicated must be validated by a director or not | [optional] 
 **BUserAttachmentautoverified** | Pointer to **bool** | Whether if Attachments uploaded by the User must be validated or not | [optional] 
 **BUserChangepassword** | **bool** | Whether if the User is forced to change its password | 
+**BUserEzsigntemplaterolegrouping** | Pointer to **bool** | Whether we group or not the Ezsigntemplate roles | [optional] 
 **ObjAudit** | [**CommonAudit**](CommonAudit.md) |  | 
 
 ## Methods
@@ -181,6 +184,31 @@ SetFkiEmployeeID sets FkiEmployeeID field to given value.
 `func (o *UserResponse) HasFkiEmployeeID() bool`
 
 HasFkiEmployeeID returns a boolean if a field has been set.
+
+### GetFkiEzmaxpartnerID
+
+`func (o *UserResponse) GetFkiEzmaxpartnerID() int32`
+
+GetFkiEzmaxpartnerID returns the FkiEzmaxpartnerID field if non-nil, zero value otherwise.
+
+### GetFkiEzmaxpartnerIDOk
+
+`func (o *UserResponse) GetFkiEzmaxpartnerIDOk() (*int32, bool)`
+
+GetFkiEzmaxpartnerIDOk returns a tuple with the FkiEzmaxpartnerID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiEzmaxpartnerID
+
+`func (o *UserResponse) SetFkiEzmaxpartnerID(v int32)`
+
+SetFkiEzmaxpartnerID sets FkiEzmaxpartnerID field to given value.
+
+### HasFkiEzmaxpartnerID
+
+`func (o *UserResponse) HasFkiEzmaxpartnerID() bool`
+
+HasFkiEzmaxpartnerID returns a boolean if a field has been set.
 
 ### GetFkiCompanyIDDefault
 
@@ -787,6 +815,31 @@ and a boolean to check if the value has been set.
 SetBUserIsactive sets BUserIsactive field to given value.
 
 
+### GetBUserSuspended
+
+`func (o *UserResponse) GetBUserSuspended() bool`
+
+GetBUserSuspended returns the BUserSuspended field if non-nil, zero value otherwise.
+
+### GetBUserSuspendedOk
+
+`func (o *UserResponse) GetBUserSuspendedOk() (*bool, bool)`
+
+GetBUserSuspendedOk returns a tuple with the BUserSuspended field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBUserSuspended
+
+`func (o *UserResponse) SetBUserSuspended(v bool)`
+
+SetBUserSuspended sets BUserSuspended field to given value.
+
+### HasBUserSuspended
+
+`func (o *UserResponse) HasBUserSuspended() bool`
+
+HasBUserSuspended returns a boolean if a field has been set.
+
 ### GetBUserValidatebyadministration
 
 `func (o *UserResponse) GetBUserValidatebyadministration() bool`
@@ -881,6 +934,31 @@ and a boolean to check if the value has been set.
 
 SetBUserChangepassword sets BUserChangepassword field to given value.
 
+
+### GetBUserEzsigntemplaterolegrouping
+
+`func (o *UserResponse) GetBUserEzsigntemplaterolegrouping() bool`
+
+GetBUserEzsigntemplaterolegrouping returns the BUserEzsigntemplaterolegrouping field if non-nil, zero value otherwise.
+
+### GetBUserEzsigntemplaterolegroupingOk
+
+`func (o *UserResponse) GetBUserEzsigntemplaterolegroupingOk() (*bool, bool)`
+
+GetBUserEzsigntemplaterolegroupingOk returns a tuple with the BUserEzsigntemplaterolegrouping field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBUserEzsigntemplaterolegrouping
+
+`func (o *UserResponse) SetBUserEzsigntemplaterolegrouping(v bool)`
+
+SetBUserEzsigntemplaterolegrouping sets BUserEzsigntemplaterolegrouping field to given value.
+
+### HasBUserEzsigntemplaterolegrouping
+
+`func (o *UserResponse) HasBUserEzsigntemplaterolegrouping() bool`
+
+HasBUserEzsigntemplaterolegrouping returns a boolean if a field has been set.
 
 ### GetObjAudit
 

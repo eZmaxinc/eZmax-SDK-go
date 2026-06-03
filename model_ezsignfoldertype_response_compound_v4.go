@@ -39,6 +39,9 @@ type EzsignfoldertypeResponseCompoundV4 struct {
 	FkiFontIDSignature *int32 `json:"fkiFontIDSignature,omitempty"`
 	// The unique ID of the Pdfalevel
 	FkiPdfalevelIDConvert *int32 `json:"fkiPdfalevelIDConvert,omitempty"`
+	EEzsignfoldertypeSignaturedatedisplay FieldEEzsignfoldertypeSignaturedatedisplay `json:"eEzsignfoldertypeSignaturedatedisplay"`
+	// The custom date format to use  You can use the codes below and they will be replaced at signature time. Text values like month and day names will be rendered in the proper language. Other text will be left as-is.  The codes examples below are based on the following datetime: Thursday, January 6, 2022 at 08:07:09 EST  For example, the format \"Signature date: {MM}/{DD}/{YYYY} {hh}:{mm}\" would become \"Signature date: 01/06/2022 08:07\"  **Year**  | Code | Example | | - | - | | {YYYY} | 2022 | | {YY} | 22 |  **Month**  | Code | Example | | - | - | | {MonthCapitalize} | Janvier | | {Month} | janvier | | {MM} | 01 | | {M} | 1 |  **Day**  | Code | Example | | - | - | | {DayCapitalize} | Jeudi | | {Day} | jeudi | | {DD} | 06 | | {D} | 6 |  **Hour**  | Code | Example | | - | - | | {hh} | 08 |  **Minute**  | Code | Example | | - | - | | {mm} | 07 |  **Second**  | Code | Example | | - | - | | {ss} | 09 |        **Timezone**  | Code | Example | | - | - | | {Z} | EST |       **Time**  | Code | Example | | - | - | | {Time} | 08:07:09 |   | {TimeZ} | 08:07:09 EST |     **Date**  | Code | Example | | - | - | | {Date} | 2022-01-06 |   | {DateText} | 1er Janvier 2022 |  **Full**  | Code | Example | | - | - | | {DateTime} | 2022-01-06 08:07:09 |   | {DateTimeZ} | 2022-01-06 08:07:09 EST | 
+	SEzsignfoldertypeSignaturedatecustomformat *string `json:"sEzsignfoldertypeSignaturedatecustomformat,omitempty"`
 	EEzsignfoldertypeDocumentdependency *FieldEEzsignfoldertypeDocumentdependency `json:"eEzsignfoldertypeDocumentdependency,omitempty"`
 	// The Description of the Branding in the language of the requester
 	SBrandingDescriptionX string `json:"sBrandingDescriptionX"`
@@ -58,7 +61,7 @@ type EzsignfoldertypeResponseCompoundV4 struct {
 	IEzsignfoldertypeFontsizeannotation *int32 `json:"iEzsignfoldertypeFontsizeannotation,omitempty"`
 	// Font size for form fields
 	IEzsignfoldertypeFontsizeformfield *int32 `json:"iEzsignfoldertypeFontsizeformfield,omitempty"`
-	// The number of days before the the first reminder sending
+	// The number of days before the first reminder sending
 	IEzsignfoldertypeSendreminderfirstdays *int32 `json:"iEzsignfoldertypeSendreminderfirstdays,omitempty"`
 	// The number of days after the first reminder sending
 	IEzsignfoldertypeSendreminderotherdays *int32 `json:"iEzsignfoldertypeSendreminderotherdays,omitempty"`
@@ -88,6 +91,14 @@ type EzsignfoldertypeResponseCompoundV4 struct {
 	BEzsignfoldertypeReassignuser *bool `json:"bEzsignfoldertypeReassignuser,omitempty"`
 	// Wheter if Reassignment of signatures of the groups to which the user belongs is authorized by a user to himself
 	BEzsignfoldertypeReassigngroup *bool `json:"bEzsignfoldertypeReassigngroup,omitempty"`
+	// Whether we send the merged documents in the email to external recipient
+	BEzsignfoldertypeSenddocumentmergetoemail *bool `json:"bEzsignfoldertypeSenddocumentmergetoemail,omitempty"`
+	// Whether we send the merged documents in the email to Ezsignsigner
+	BEzsignfoldertypeSenddocumentmergetoezsignsigner *bool `json:"bEzsignfoldertypeSenddocumentmergetoezsignsigner,omitempty"`
+	// Whether we send the merged documents in the email to user and Ezsignsigner who receive all documents.
+	BEzsignfoldertypeSenddocumentmergetoreceivealldocument *bool `json:"bEzsignfoldertypeSenddocumentmergetoreceivealldocument,omitempty"`
+	// Whether we send the merged documents in the email to User
+	BEzsignfoldertypeSenddocumentmergetouser *bool `json:"bEzsignfoldertypeSenddocumentmergetouser,omitempty"`
 	// Whether we send an email to Ezsignsigner  when document is completed
 	BEzsignfoldertypeSendsignedtoezsignsigner *bool `json:"bEzsignfoldertypeSendsignedtoezsignsigner,omitempty"`
 	// Whether we send an email to User who signed when document is completed
@@ -157,11 +168,12 @@ type _EzsignfoldertypeResponseCompoundV4 EzsignfoldertypeResponseCompoundV4
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfoldertypeResponseCompoundV4(pkiEzsignfoldertypeID int32, objEzsignfoldertypeName MultilingualEzsignfoldertypeName, fkiBrandingID int32, sBrandingDescriptionX string, eEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel, iEzsignfoldertypeArchivaldays int32, eEzsignfoldertypeDisposal FieldEEzsignfoldertypeDisposal, eEzsignfoldertypeCompletion FieldEEzsignfoldertypeCompletion, iEzsignfoldertypeDeadlinedays int32, bEzsignfoldertypeSendsignedtodocumentowner bool, bEzsignfoldertypeSendsignedtofolderowner bool, bEzsignfoldertypeSendsignedtocolleague bool, bEzsignfoldertypeSendsummarytodocumentowner bool, bEzsignfoldertypeSendsummarytofolderowner bool, bEzsignfoldertypeSendsummarytocolleague bool, bEzsignfoldertypeIsactive bool, aObjUserlogintype []UserlogintypeResponse, objAudit CommonAudit) *EzsignfoldertypeResponseCompoundV4 {
+func NewEzsignfoldertypeResponseCompoundV4(pkiEzsignfoldertypeID int32, objEzsignfoldertypeName MultilingualEzsignfoldertypeName, fkiBrandingID int32, eEzsignfoldertypeSignaturedatedisplay FieldEEzsignfoldertypeSignaturedatedisplay, sBrandingDescriptionX string, eEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel, iEzsignfoldertypeArchivaldays int32, eEzsignfoldertypeDisposal FieldEEzsignfoldertypeDisposal, eEzsignfoldertypeCompletion FieldEEzsignfoldertypeCompletion, iEzsignfoldertypeDeadlinedays int32, bEzsignfoldertypeSendsignedtodocumentowner bool, bEzsignfoldertypeSendsignedtofolderowner bool, bEzsignfoldertypeSendsignedtocolleague bool, bEzsignfoldertypeSendsummarytodocumentowner bool, bEzsignfoldertypeSendsummarytofolderowner bool, bEzsignfoldertypeSendsummarytocolleague bool, bEzsignfoldertypeIsactive bool, aObjUserlogintype []UserlogintypeResponse, objAudit CommonAudit) *EzsignfoldertypeResponseCompoundV4 {
 	this := EzsignfoldertypeResponseCompoundV4{}
 	this.PkiEzsignfoldertypeID = pkiEzsignfoldertypeID
 	this.ObjEzsignfoldertypeName = objEzsignfoldertypeName
 	this.FkiBrandingID = fkiBrandingID
+	this.EEzsignfoldertypeSignaturedatedisplay = eEzsignfoldertypeSignaturedatedisplay
 	this.SBrandingDescriptionX = sBrandingDescriptionX
 	this.EEzsignfoldertypePrivacylevel = eEzsignfoldertypePrivacylevel
 	var eEzsignfoldertypeDocumentmerge FieldEEzsignfoldertypeDocumentmerge = NO
@@ -454,6 +466,62 @@ func (o *EzsignfoldertypeResponseCompoundV4) HasFkiPdfalevelIDConvert() bool {
 // SetFkiPdfalevelIDConvert gets a reference to the given int32 and assigns it to the FkiPdfalevelIDConvert field.
 func (o *EzsignfoldertypeResponseCompoundV4) SetFkiPdfalevelIDConvert(v int32) {
 	o.FkiPdfalevelIDConvert = &v
+}
+
+// GetEEzsignfoldertypeSignaturedatedisplay returns the EEzsignfoldertypeSignaturedatedisplay field value
+func (o *EzsignfoldertypeResponseCompoundV4) GetEEzsignfoldertypeSignaturedatedisplay() FieldEEzsignfoldertypeSignaturedatedisplay {
+	if o == nil {
+		var ret FieldEEzsignfoldertypeSignaturedatedisplay
+		return ret
+	}
+
+	return o.EEzsignfoldertypeSignaturedatedisplay
+}
+
+// GetEEzsignfoldertypeSignaturedatedisplayOk returns a tuple with the EEzsignfoldertypeSignaturedatedisplay field value
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldertypeResponseCompoundV4) GetEEzsignfoldertypeSignaturedatedisplayOk() (*FieldEEzsignfoldertypeSignaturedatedisplay, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EEzsignfoldertypeSignaturedatedisplay, true
+}
+
+// SetEEzsignfoldertypeSignaturedatedisplay sets field value
+func (o *EzsignfoldertypeResponseCompoundV4) SetEEzsignfoldertypeSignaturedatedisplay(v FieldEEzsignfoldertypeSignaturedatedisplay) {
+	o.EEzsignfoldertypeSignaturedatedisplay = v
+}
+
+// GetSEzsignfoldertypeSignaturedatecustomformat returns the SEzsignfoldertypeSignaturedatecustomformat field value if set, zero value otherwise.
+func (o *EzsignfoldertypeResponseCompoundV4) GetSEzsignfoldertypeSignaturedatecustomformat() string {
+	if o == nil || IsNil(o.SEzsignfoldertypeSignaturedatecustomformat) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsignfoldertypeSignaturedatecustomformat
+}
+
+// GetSEzsignfoldertypeSignaturedatecustomformatOk returns a tuple with the SEzsignfoldertypeSignaturedatecustomformat field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldertypeResponseCompoundV4) GetSEzsignfoldertypeSignaturedatecustomformatOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsignfoldertypeSignaturedatecustomformat) {
+		return nil, false
+	}
+	return o.SEzsignfoldertypeSignaturedatecustomformat, true
+}
+
+// HasSEzsignfoldertypeSignaturedatecustomformat returns a boolean if a field has been set.
+func (o *EzsignfoldertypeResponseCompoundV4) HasSEzsignfoldertypeSignaturedatecustomformat() bool {
+	if o != nil && !IsNil(o.SEzsignfoldertypeSignaturedatecustomformat) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsignfoldertypeSignaturedatecustomformat gets a reference to the given string and assigns it to the SEzsignfoldertypeSignaturedatecustomformat field.
+func (o *EzsignfoldertypeResponseCompoundV4) SetSEzsignfoldertypeSignaturedatecustomformat(v string) {
+	o.SEzsignfoldertypeSignaturedatecustomformat = &v
 }
 
 // GetEEzsignfoldertypeDocumentdependency returns the EEzsignfoldertypeDocumentdependency field value if set, zero value otherwise.
@@ -1302,6 +1370,134 @@ func (o *EzsignfoldertypeResponseCompoundV4) HasBEzsignfoldertypeReassigngroup()
 // SetBEzsignfoldertypeReassigngroup gets a reference to the given bool and assigns it to the BEzsignfoldertypeReassigngroup field.
 func (o *EzsignfoldertypeResponseCompoundV4) SetBEzsignfoldertypeReassigngroup(v bool) {
 	o.BEzsignfoldertypeReassigngroup = &v
+}
+
+// GetBEzsignfoldertypeSenddocumentmergetoemail returns the BEzsignfoldertypeSenddocumentmergetoemail field value if set, zero value otherwise.
+func (o *EzsignfoldertypeResponseCompoundV4) GetBEzsignfoldertypeSenddocumentmergetoemail() bool {
+	if o == nil || IsNil(o.BEzsignfoldertypeSenddocumentmergetoemail) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignfoldertypeSenddocumentmergetoemail
+}
+
+// GetBEzsignfoldertypeSenddocumentmergetoemailOk returns a tuple with the BEzsignfoldertypeSenddocumentmergetoemail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldertypeResponseCompoundV4) GetBEzsignfoldertypeSenddocumentmergetoemailOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignfoldertypeSenddocumentmergetoemail) {
+		return nil, false
+	}
+	return o.BEzsignfoldertypeSenddocumentmergetoemail, true
+}
+
+// HasBEzsignfoldertypeSenddocumentmergetoemail returns a boolean if a field has been set.
+func (o *EzsignfoldertypeResponseCompoundV4) HasBEzsignfoldertypeSenddocumentmergetoemail() bool {
+	if o != nil && !IsNil(o.BEzsignfoldertypeSenddocumentmergetoemail) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignfoldertypeSenddocumentmergetoemail gets a reference to the given bool and assigns it to the BEzsignfoldertypeSenddocumentmergetoemail field.
+func (o *EzsignfoldertypeResponseCompoundV4) SetBEzsignfoldertypeSenddocumentmergetoemail(v bool) {
+	o.BEzsignfoldertypeSenddocumentmergetoemail = &v
+}
+
+// GetBEzsignfoldertypeSenddocumentmergetoezsignsigner returns the BEzsignfoldertypeSenddocumentmergetoezsignsigner field value if set, zero value otherwise.
+func (o *EzsignfoldertypeResponseCompoundV4) GetBEzsignfoldertypeSenddocumentmergetoezsignsigner() bool {
+	if o == nil || IsNil(o.BEzsignfoldertypeSenddocumentmergetoezsignsigner) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignfoldertypeSenddocumentmergetoezsignsigner
+}
+
+// GetBEzsignfoldertypeSenddocumentmergetoezsignsignerOk returns a tuple with the BEzsignfoldertypeSenddocumentmergetoezsignsigner field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldertypeResponseCompoundV4) GetBEzsignfoldertypeSenddocumentmergetoezsignsignerOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignfoldertypeSenddocumentmergetoezsignsigner) {
+		return nil, false
+	}
+	return o.BEzsignfoldertypeSenddocumentmergetoezsignsigner, true
+}
+
+// HasBEzsignfoldertypeSenddocumentmergetoezsignsigner returns a boolean if a field has been set.
+func (o *EzsignfoldertypeResponseCompoundV4) HasBEzsignfoldertypeSenddocumentmergetoezsignsigner() bool {
+	if o != nil && !IsNil(o.BEzsignfoldertypeSenddocumentmergetoezsignsigner) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignfoldertypeSenddocumentmergetoezsignsigner gets a reference to the given bool and assigns it to the BEzsignfoldertypeSenddocumentmergetoezsignsigner field.
+func (o *EzsignfoldertypeResponseCompoundV4) SetBEzsignfoldertypeSenddocumentmergetoezsignsigner(v bool) {
+	o.BEzsignfoldertypeSenddocumentmergetoezsignsigner = &v
+}
+
+// GetBEzsignfoldertypeSenddocumentmergetoreceivealldocument returns the BEzsignfoldertypeSenddocumentmergetoreceivealldocument field value if set, zero value otherwise.
+func (o *EzsignfoldertypeResponseCompoundV4) GetBEzsignfoldertypeSenddocumentmergetoreceivealldocument() bool {
+	if o == nil || IsNil(o.BEzsignfoldertypeSenddocumentmergetoreceivealldocument) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignfoldertypeSenddocumentmergetoreceivealldocument
+}
+
+// GetBEzsignfoldertypeSenddocumentmergetoreceivealldocumentOk returns a tuple with the BEzsignfoldertypeSenddocumentmergetoreceivealldocument field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldertypeResponseCompoundV4) GetBEzsignfoldertypeSenddocumentmergetoreceivealldocumentOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignfoldertypeSenddocumentmergetoreceivealldocument) {
+		return nil, false
+	}
+	return o.BEzsignfoldertypeSenddocumentmergetoreceivealldocument, true
+}
+
+// HasBEzsignfoldertypeSenddocumentmergetoreceivealldocument returns a boolean if a field has been set.
+func (o *EzsignfoldertypeResponseCompoundV4) HasBEzsignfoldertypeSenddocumentmergetoreceivealldocument() bool {
+	if o != nil && !IsNil(o.BEzsignfoldertypeSenddocumentmergetoreceivealldocument) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignfoldertypeSenddocumentmergetoreceivealldocument gets a reference to the given bool and assigns it to the BEzsignfoldertypeSenddocumentmergetoreceivealldocument field.
+func (o *EzsignfoldertypeResponseCompoundV4) SetBEzsignfoldertypeSenddocumentmergetoreceivealldocument(v bool) {
+	o.BEzsignfoldertypeSenddocumentmergetoreceivealldocument = &v
+}
+
+// GetBEzsignfoldertypeSenddocumentmergetouser returns the BEzsignfoldertypeSenddocumentmergetouser field value if set, zero value otherwise.
+func (o *EzsignfoldertypeResponseCompoundV4) GetBEzsignfoldertypeSenddocumentmergetouser() bool {
+	if o == nil || IsNil(o.BEzsignfoldertypeSenddocumentmergetouser) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignfoldertypeSenddocumentmergetouser
+}
+
+// GetBEzsignfoldertypeSenddocumentmergetouserOk returns a tuple with the BEzsignfoldertypeSenddocumentmergetouser field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldertypeResponseCompoundV4) GetBEzsignfoldertypeSenddocumentmergetouserOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignfoldertypeSenddocumentmergetouser) {
+		return nil, false
+	}
+	return o.BEzsignfoldertypeSenddocumentmergetouser, true
+}
+
+// HasBEzsignfoldertypeSenddocumentmergetouser returns a boolean if a field has been set.
+func (o *EzsignfoldertypeResponseCompoundV4) HasBEzsignfoldertypeSenddocumentmergetouser() bool {
+	if o != nil && !IsNil(o.BEzsignfoldertypeSenddocumentmergetouser) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignfoldertypeSenddocumentmergetouser gets a reference to the given bool and assigns it to the BEzsignfoldertypeSenddocumentmergetouser field.
+func (o *EzsignfoldertypeResponseCompoundV4) SetBEzsignfoldertypeSenddocumentmergetouser(v bool) {
+	o.BEzsignfoldertypeSenddocumentmergetouser = &v
 }
 
 // GetBEzsignfoldertypeSendsignedtoezsignsigner returns the BEzsignfoldertypeSendsignedtoezsignsigner field value if set, zero value otherwise.
@@ -2383,6 +2579,10 @@ func (o EzsignfoldertypeResponseCompoundV4) ToMap() (map[string]interface{}, err
 	if !IsNil(o.FkiPdfalevelIDConvert) {
 		toSerialize["fkiPdfalevelIDConvert"] = o.FkiPdfalevelIDConvert
 	}
+	toSerialize["eEzsignfoldertypeSignaturedatedisplay"] = o.EEzsignfoldertypeSignaturedatedisplay
+	if !IsNil(o.SEzsignfoldertypeSignaturedatecustomformat) {
+		toSerialize["sEzsignfoldertypeSignaturedatecustomformat"] = o.SEzsignfoldertypeSignaturedatecustomformat
+	}
 	if !IsNil(o.EEzsignfoldertypeDocumentdependency) {
 		toSerialize["eEzsignfoldertypeDocumentdependency"] = o.EEzsignfoldertypeDocumentdependency
 	}
@@ -2454,6 +2654,18 @@ func (o EzsignfoldertypeResponseCompoundV4) ToMap() (map[string]interface{}, err
 	}
 	if !IsNil(o.BEzsignfoldertypeReassigngroup) {
 		toSerialize["bEzsignfoldertypeReassigngroup"] = o.BEzsignfoldertypeReassigngroup
+	}
+	if !IsNil(o.BEzsignfoldertypeSenddocumentmergetoemail) {
+		toSerialize["bEzsignfoldertypeSenddocumentmergetoemail"] = o.BEzsignfoldertypeSenddocumentmergetoemail
+	}
+	if !IsNil(o.BEzsignfoldertypeSenddocumentmergetoezsignsigner) {
+		toSerialize["bEzsignfoldertypeSenddocumentmergetoezsignsigner"] = o.BEzsignfoldertypeSenddocumentmergetoezsignsigner
+	}
+	if !IsNil(o.BEzsignfoldertypeSenddocumentmergetoreceivealldocument) {
+		toSerialize["bEzsignfoldertypeSenddocumentmergetoreceivealldocument"] = o.BEzsignfoldertypeSenddocumentmergetoreceivealldocument
+	}
+	if !IsNil(o.BEzsignfoldertypeSenddocumentmergetouser) {
+		toSerialize["bEzsignfoldertypeSenddocumentmergetouser"] = o.BEzsignfoldertypeSenddocumentmergetouser
 	}
 	if !IsNil(o.BEzsignfoldertypeSendsignedtoezsignsigner) {
 		toSerialize["bEzsignfoldertypeSendsignedtoezsignsigner"] = o.BEzsignfoldertypeSendsignedtoezsignsigner
@@ -2553,6 +2765,7 @@ func (o *EzsignfoldertypeResponseCompoundV4) UnmarshalJSON(data []byte) (err err
 		"pkiEzsignfoldertypeID",
 		"objEzsignfoldertypeName",
 		"fkiBrandingID",
+		"eEzsignfoldertypeSignaturedatedisplay",
 		"sBrandingDescriptionX",
 		"eEzsignfoldertypePrivacylevel",
 		"iEzsignfoldertypeArchivaldays",

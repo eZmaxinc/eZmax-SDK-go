@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**EzsigntemplatedocumentCreateObjectV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentCreateObjectV1) | **Post** /1/object/ezsigntemplatedocument | Create a new Ezsigntemplatedocument
 [**EzsigntemplatedocumentDownloadV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentDownloadV1) | **Get** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/download | Retrieve an existing Ezsigntemplatedocument&#39;s original file
+[**EzsigntemplatedocumentEditEzsigntemplateannotationsV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentEditEzsigntemplateannotationsV1) | **Put** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/editEzsigntemplateannotations | Edit multiple Ezsigntemplateannotations
 [**EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1) | **Put** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/editEzsigntemplatedocumentpagerecognitions | Edit multiple Ezsigntemplatedocumentpagerecognitions
 [**EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1) | **Put** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/editEzsigntemplateformfieldgroups | Edit multiple Ezsigntemplateformfieldgroups
 [**EzsigntemplatedocumentEditEzsigntemplatesignaturesV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentEditEzsigntemplatesignaturesV1) | **Put** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/editEzsigntemplatesignatures | Edit multiple Ezsigntemplatesignatures
@@ -13,6 +14,7 @@ Method | HTTP request | Description
 [**EzsigntemplatedocumentEditObjectV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentEditObjectV1) | **Put** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID} | Edit an existing Ezsigntemplatedocument
 [**EzsigntemplatedocumentExtractTextV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentExtractTextV1) | **Post** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/extractText | Extract text from Ezsigntemplatedocument area
 [**EzsigntemplatedocumentFlattenV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentFlattenV1) | **Post** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/flatten | Flatten
+[**EzsigntemplatedocumentGetEzsigntemplateannotationsV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentGetEzsigntemplateannotationsV1) | **Get** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplateannotations | Retrieve an existing Ezsigntemplatedocument&#39;s Ezsigntemplateannotations
 [**EzsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1) | **Get** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplatedocumentpagerecognitions | Retrieve an existing Ezsigntemplatedocument&#39;s Ezsigntemplatedocumentpagerecognitions
 [**EzsigntemplatedocumentGetEzsigntemplatedocumentpagesV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentGetEzsigntemplatedocumentpagesV1) | **Get** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplatedocumentpages | Retrieve an existing Ezsigntemplatedocument&#39;s Ezsigntemplatedocumentpages
 [**EzsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1**](ObjectEzsigntemplatedocumentAPI.md#EzsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1) | **Get** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplateformfieldgroups | Retrieve an existing Ezsigntemplatedocument&#39;s Ezsigntemplateformfieldgroups
@@ -150,6 +152,78 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsigntemplatedocumentEditEzsigntemplateannotationsV1
+
+> EzsigntemplatedocumentEditEzsigntemplateannotationsV1Response EzsigntemplatedocumentEditEzsigntemplateannotationsV1(ctx, pkiEzsigntemplatedocumentID).EzsigntemplatedocumentEditEzsigntemplateannotationsV1Request(ezsigntemplatedocumentEditEzsigntemplateannotationsV1Request).Execute()
+
+Edit multiple Ezsigntemplateannotations
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsigntemplatedocumentID := int32(56) // int32 | 
+	ezsigntemplatedocumentEditEzsigntemplateannotationsV1Request := *openapiclient.NewEzsigntemplatedocumentEditEzsigntemplateannotationsV1Request([]openapiclient.EzsigntemplateannotationRequestCompound{*openapiclient.NewEzsigntemplateannotationRequestCompound(int32(133), openapiclient.Field-eEzsigntemplateannotationHorizontalalignment("Center"), openapiclient.Field-eEzsigntemplateannotationVerticalalignment("Bottom"), openapiclient.Field-eEzsigntemplateannotationType("Dropdown"), int32(17864), int32(23342), int32(51755), int32(58213), int32(1), "Name", "John Doe", "{\"Accepts\",\"Refuses\"}")}) // EzsigntemplatedocumentEditEzsigntemplateannotationsV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigntemplatedocumentAPI.EzsigntemplatedocumentEditEzsigntemplateannotationsV1(context.Background(), pkiEzsigntemplatedocumentID).EzsigntemplatedocumentEditEzsigntemplateannotationsV1Request(ezsigntemplatedocumentEditEzsigntemplateannotationsV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatedocumentAPI.EzsigntemplatedocumentEditEzsigntemplateannotationsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigntemplatedocumentEditEzsigntemplateannotationsV1`: EzsigntemplatedocumentEditEzsigntemplateannotationsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatedocumentAPI.EzsigntemplatedocumentEditEzsigntemplateannotationsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsigntemplatedocumentID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsigntemplatedocumentEditEzsigntemplateannotationsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **ezsigntemplatedocumentEditEzsigntemplateannotationsV1Request** | [**EzsigntemplatedocumentEditEzsigntemplateannotationsV1Request**](EzsigntemplatedocumentEditEzsigntemplateannotationsV1Request.md) |  | 
+
+### Return type
+
+[**EzsigntemplatedocumentEditEzsigntemplateannotationsV1Response**](EzsigntemplatedocumentEditEzsigntemplateannotationsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -654,6 +728,76 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsigntemplatedocumentGetEzsigntemplateannotationsV1
+
+> EzsigntemplatedocumentGetEzsigntemplateannotationsV1Response EzsigntemplatedocumentGetEzsigntemplateannotationsV1(ctx, pkiEzsigntemplatedocumentID).Execute()
+
+Retrieve an existing Ezsigntemplatedocument's Ezsigntemplateannotations
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsigntemplatedocumentID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigntemplatedocumentAPI.EzsigntemplatedocumentGetEzsigntemplateannotationsV1(context.Background(), pkiEzsigntemplatedocumentID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatedocumentAPI.EzsigntemplatedocumentGetEzsigntemplateannotationsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigntemplatedocumentGetEzsigntemplateannotationsV1`: EzsigntemplatedocumentGetEzsigntemplateannotationsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatedocumentAPI.EzsigntemplatedocumentGetEzsigntemplateannotationsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsigntemplatedocumentID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsigntemplatedocumentGetEzsigntemplateannotationsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**EzsigntemplatedocumentGetEzsigntemplateannotationsV1Response**](EzsigntemplatedocumentGetEzsigntemplateannotationsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

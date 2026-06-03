@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiCreditcardmerchantID** | **int32** | The unique ID of the Creditcardmerchant | 
-**FkiBankaccountID** | **int32** | The unique ID of the Bankaccount | 
+**FkiBankaccountID** | Pointer to **int32** | The unique ID of the Bankaccount | [optional] 
 **FkiLanguageID** | Pointer to **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | [optional] 
 **BCreditcardmerchantDenyvisa** | **bool** | Whether if visa are denied | 
 **BCreditcardmerchantDenymastercard** | **bool** | Whether if mastercard are denied | 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewCreditcardmerchantListElement
 
-`func NewCreditcardmerchantListElement(pkiCreditcardmerchantID int32, fkiBankaccountID int32, bCreditcardmerchantDenyvisa bool, bCreditcardmerchantDenymastercard bool, bCreditcardmerchantDenyamex bool, bCreditcardmerchantIsactive bool, sCreditcardmerchantDescription string, sCreditcardmerchantStoreid string, ) *CreditcardmerchantListElement`
+`func NewCreditcardmerchantListElement(pkiCreditcardmerchantID int32, bCreditcardmerchantDenyvisa bool, bCreditcardmerchantDenymastercard bool, bCreditcardmerchantDenyamex bool, bCreditcardmerchantIsactive bool, sCreditcardmerchantDescription string, sCreditcardmerchantStoreid string, ) *CreditcardmerchantListElement`
 
 NewCreditcardmerchantListElement instantiates a new CreditcardmerchantListElement object
 This constructor will assign default values to properties that have it defined,
@@ -72,6 +72,11 @@ and a boolean to check if the value has been set.
 
 SetFkiBankaccountID sets FkiBankaccountID field to given value.
 
+### HasFkiBankaccountID
+
+`func (o *CreditcardmerchantListElement) HasFkiBankaccountID() bool`
+
+HasFkiBankaccountID returns a boolean if a field has been set.
 
 ### GetFkiLanguageID
 

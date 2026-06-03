@@ -25,7 +25,7 @@ type CreditcardmerchantListElement struct {
 	// The unique ID of the Creditcardmerchant
 	PkiCreditcardmerchantID int32 `json:"pkiCreditcardmerchantID"`
 	// The unique ID of the Bankaccount
-	FkiBankaccountID int32 `json:"fkiBankaccountID"`
+	FkiBankaccountID *int32 `json:"fkiBankaccountID,omitempty"`
 	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
 	FkiLanguageID *int32 `json:"fkiLanguageID,omitempty"`
 	// Whether if visa are denied
@@ -48,10 +48,9 @@ type _CreditcardmerchantListElement CreditcardmerchantListElement
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreditcardmerchantListElement(pkiCreditcardmerchantID int32, fkiBankaccountID int32, bCreditcardmerchantDenyvisa bool, bCreditcardmerchantDenymastercard bool, bCreditcardmerchantDenyamex bool, bCreditcardmerchantIsactive bool, sCreditcardmerchantDescription string, sCreditcardmerchantStoreid string) *CreditcardmerchantListElement {
+func NewCreditcardmerchantListElement(pkiCreditcardmerchantID int32, bCreditcardmerchantDenyvisa bool, bCreditcardmerchantDenymastercard bool, bCreditcardmerchantDenyamex bool, bCreditcardmerchantIsactive bool, sCreditcardmerchantDescription string, sCreditcardmerchantStoreid string) *CreditcardmerchantListElement {
 	this := CreditcardmerchantListElement{}
 	this.PkiCreditcardmerchantID = pkiCreditcardmerchantID
-	this.FkiBankaccountID = fkiBankaccountID
 	this.BCreditcardmerchantDenyvisa = bCreditcardmerchantDenyvisa
 	this.BCreditcardmerchantDenymastercard = bCreditcardmerchantDenymastercard
 	this.BCreditcardmerchantDenyamex = bCreditcardmerchantDenyamex
@@ -93,28 +92,36 @@ func (o *CreditcardmerchantListElement) SetPkiCreditcardmerchantID(v int32) {
 	o.PkiCreditcardmerchantID = v
 }
 
-// GetFkiBankaccountID returns the FkiBankaccountID field value
+// GetFkiBankaccountID returns the FkiBankaccountID field value if set, zero value otherwise.
 func (o *CreditcardmerchantListElement) GetFkiBankaccountID() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.FkiBankaccountID) {
 		var ret int32
 		return ret
 	}
-
-	return o.FkiBankaccountID
+	return *o.FkiBankaccountID
 }
 
-// GetFkiBankaccountIDOk returns a tuple with the FkiBankaccountID field value
+// GetFkiBankaccountIDOk returns a tuple with the FkiBankaccountID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CreditcardmerchantListElement) GetFkiBankaccountIDOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FkiBankaccountID) {
 		return nil, false
 	}
-	return &o.FkiBankaccountID, true
+	return o.FkiBankaccountID, true
 }
 
-// SetFkiBankaccountID sets field value
+// HasFkiBankaccountID returns a boolean if a field has been set.
+func (o *CreditcardmerchantListElement) HasFkiBankaccountID() bool {
+	if o != nil && !IsNil(o.FkiBankaccountID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiBankaccountID gets a reference to the given int32 and assigns it to the FkiBankaccountID field.
 func (o *CreditcardmerchantListElement) SetFkiBankaccountID(v int32) {
-	o.FkiBankaccountID = v
+	o.FkiBankaccountID = &v
 }
 
 // GetFkiLanguageID returns the FkiLanguageID field value if set, zero value otherwise.
@@ -304,7 +311,9 @@ func (o CreditcardmerchantListElement) MarshalJSON() ([]byte, error) {
 func (o CreditcardmerchantListElement) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiCreditcardmerchantID"] = o.PkiCreditcardmerchantID
-	toSerialize["fkiBankaccountID"] = o.FkiBankaccountID
+	if !IsNil(o.FkiBankaccountID) {
+		toSerialize["fkiBankaccountID"] = o.FkiBankaccountID
+	}
 	if !IsNil(o.FkiLanguageID) {
 		toSerialize["fkiLanguageID"] = o.FkiLanguageID
 	}
@@ -323,7 +332,6 @@ func (o *CreditcardmerchantListElement) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"pkiCreditcardmerchantID",
-		"fkiBankaccountID",
 		"bCreditcardmerchantDenyvisa",
 		"bCreditcardmerchantDenymastercard",
 		"bCreditcardmerchantDenyamex",

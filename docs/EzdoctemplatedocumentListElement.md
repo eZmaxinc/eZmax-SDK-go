@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **FkiLanguageID** | **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
 **FkiEzsignfoldertypeID** | Pointer to **int32** | The unique ID of the Ezsignfoldertype. | [optional] 
 **FkiEzdoctemplatetypeID** | **int32** | The unique ID of the Ezdoctemplatetype | 
-**FkiEzdoctemplatefieldtypecategoryID** | **int32** | The unique ID of the Ezdoctemplatefieldtypecategory | 
+**FkiEzdoctemplatefieldtypecategoryID** | Pointer to **int32** | The unique ID of the Ezdoctemplatefieldtypecategory | [optional] 
 **SEzsignfoldertypeNameX** | Pointer to **string** | The name of the Ezsignfoldertype in the language of the requester | [optional] 
 **SEzdoctemplatetypeDescriptionX** | Pointer to **string** | The description of the Ezdoctemplatetype in the language of the requester | [optional] 
 **SEzdoctemplatefieldtypecategoryDescriptionX** | Pointer to **string** | The description of the Ezdoctemplatefieldtypecategory in the language of the requester | [optional] 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewEzdoctemplatedocumentListElement
 
-`func NewEzdoctemplatedocumentListElement(pkiEzdoctemplatedocumentID int32, fkiLanguageID int32, fkiEzdoctemplatetypeID int32, fkiEzdoctemplatefieldtypecategoryID int32, bEzdoctemplatedocumentIsactive bool, sEzdoctemplatedocumentNameX string, ) *EzdoctemplatedocumentListElement`
+`func NewEzdoctemplatedocumentListElement(pkiEzdoctemplatedocumentID int32, fkiLanguageID int32, fkiEzdoctemplatetypeID int32, bEzdoctemplatedocumentIsactive bool, sEzdoctemplatedocumentNameX string, ) *EzdoctemplatedocumentListElement`
 
 NewEzdoctemplatedocumentListElement instantiates a new EzdoctemplatedocumentListElement object
 This constructor will assign default values to properties that have it defined,
@@ -139,6 +139,11 @@ and a boolean to check if the value has been set.
 
 SetFkiEzdoctemplatefieldtypecategoryID sets FkiEzdoctemplatefieldtypecategoryID field to given value.
 
+### HasFkiEzdoctemplatefieldtypecategoryID
+
+`func (o *EzdoctemplatedocumentListElement) HasFkiEzdoctemplatefieldtypecategoryID() bool`
+
+HasFkiEzdoctemplatefieldtypecategoryID returns a boolean if a field has been set.
 
 ### GetSEzsignfoldertypeNameX
 

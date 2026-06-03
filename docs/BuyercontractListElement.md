@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **DBuyercontractMinimumprice** | **string** | The minimumprice of the Buyercontract | 
 **DBuyercontractMaximumprice** | **string** | The maximumprice of the Buyercontract | 
 **EBuyercontractType** | [**FieldEBuyercontractType**](FieldEBuyercontractType.md) |  | 
+**SBuyercontractContract** | Pointer to **string** | The number of the Buyercontract | [optional] 
 **DtBuyercontractDate** | **string** | The date of the Buyercontract | 
 **DtBuyercontractExpirationdate** | Pointer to **string** | The expirationdate of the Buyercontract | [optional] 
 **BBuyercontractIsactive** | **bool** | Whether the buyercontract is active or not | 
@@ -175,6 +176,31 @@ and a boolean to check if the value has been set.
 
 SetEBuyercontractType sets EBuyercontractType field to given value.
 
+
+### GetSBuyercontractContract
+
+`func (o *BuyercontractListElement) GetSBuyercontractContract() string`
+
+GetSBuyercontractContract returns the SBuyercontractContract field if non-nil, zero value otherwise.
+
+### GetSBuyercontractContractOk
+
+`func (o *BuyercontractListElement) GetSBuyercontractContractOk() (*string, bool)`
+
+GetSBuyercontractContractOk returns a tuple with the SBuyercontractContract field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSBuyercontractContract
+
+`func (o *BuyercontractListElement) SetSBuyercontractContract(v string)`
+
+SetSBuyercontractContract sets SBuyercontractContract field to given value.
+
+### HasSBuyercontractContract
+
+`func (o *BuyercontractListElement) HasSBuyercontractContract() bool`
+
+HasSBuyercontractContract returns a boolean if a field has been set.
 
 ### GetDtBuyercontractDate
 

@@ -21,6 +21,11 @@ Name | Type | Description | Notes
 **SAgentRealestateassociationlicense** | **string** | The realestateassociationlicense of the Agent | 
 **DtAgentHiredate** | Pointer to **string** | The hiredate of the Agent | [optional] 
 **DtAgentLeavedate** | Pointer to **string** | The leavedate of the Agent | [optional] 
+**DtAgentContractdate** | Pointer to **string** | The contract date of the Agent | [optional] 
+**DtAgentTransferdate** | Pointer to **string** | The transfer date of the Agent | [optional] 
+**DtAgentSenioritydate** | Pointer to **string** | The seniority date of the Agent | [optional] 
+**DtAgentSickleavestart** | Pointer to **string** | The sick leave start date of the Agent | [optional] 
+**DtAgentSickleaveend** | Pointer to **string** | The sick leave end date of the Agent | [optional] 
 **BAgentTranquillit** | **bool** | Whether if it&#39;s an tranquillit | 
 **BAgentResidentiallicense** | **bool** | Whether if it&#39;s an residentiallicense | 
 **BAgentCommerciallicense** | **bool** | Whether if it&#39;s an commerciallicense | 
@@ -38,7 +43,9 @@ Name | Type | Description | Notes
 **SAddressSuite** | Pointer to **string** | The Suite or appartment number | [optional] 
 **SAddressCity** | Pointer to **string** | The City name | [optional] 
 **SAddressZip** | Pointer to **string** | The Postal/Zip Code  The value must be entered without spaces | [optional] 
+**FkiProvinceID** | Pointer to **int32** | The unique ID of the Province.  Here are some common values (Complete list must be retrieved from API):  |Value|Description| |-|-| |1|(Canada) Alberta |2|(Canada) British Columbia| |3|(Canada) Manitoba| |3|(Canada) Manitoba| |4|(Canada) New Brunswick| |5|(Canada) Newfoundland| |6|(Canada) Northwest Territories| |7|(Canada) Nova Scotia| |8|(Canada) Nunavut| |9|(Canada) Ontario| |10|(Canada) Prince Edward Island| |11|(Canada) Quebec| |12|(Canada) Saskatchewan| |13|(Canada) Yukon| |14|(United-States) Alabama| |15|(United-States) Alaska| |16|(United-States) Arizona| |17|(United-States) Arkansas| |18|(United-States) California| |19|(United-States) Colorado| |20|(United-States) Connecticut| |21|(United-States) Delaware| |22|(United-States) District of Columbia| |23|(United-States) Florida| |24|(United-States) Georgia| |25|(United-States) Hawaii| |26|(United-States) Idaho| |27|(United-States) Illinois| |28|(United-States) Indiana| |29|(United-States) Iowa| |30|(United-States) Kansas| |31|(United-States) Kentucky| |32|(United-States) Louisiane| |33|(United-States) Maine| |34|(United-States) Maryland| |35|(United-States) Massachusetts| |36|(United-States) Michigan| |37|(United-States) Minnesota| |38|(United-States) Mississippi| |39|(United-States) Missouri| |40|(United-States) Montana| |41|(United-States) Nebraska| |42|(United-States) Nevada| |43|(United-States) New Hampshire| |44|(United-States) New Jersey| |45|(United-States) New Mexico| |46|(United-States) New York| |47|(United-States) North Carolina| |48|(United-States) North Dakota| |49|(United-States) Ohio| |50|(United-States) Oklahoma| |51|(United-States) Oregon| |52|(United-States) Pennsylvania| |53|(United-States) Rhode Island| |54|(United-States) South Carolina| |55|(United-States) South Dakota| |56|(United-States) Tennessee| |57|(United-States) Texas| |58|(United-States) Utah| |60|(United-States) Vermont| |59|(United-States) Virginia| |61|(United-States) Washington| |62|(United-States) West Virginia| |63|(United-States) Wisconsin| |64|(United-States) Wyoming| | [optional] 
 **SProvinceNameX** | Pointer to **string** | The name of the Province in the language of the requester | [optional] 
+**FkiCountryID** | Pointer to **int32** | The unique ID of the Country.  Here are some common values (Complete list must be retrieved from API):  |Value|Description| |-|-| |1|Canada| |2|United-States| | [optional] 
 **SCountryNameX** | Pointer to **string** | The name of the Country in the language of the requester | [optional] 
 
 ## Methods
@@ -425,6 +432,131 @@ SetDtAgentLeavedate sets DtAgentLeavedate field to given value.
 
 HasDtAgentLeavedate returns a boolean if a field has been set.
 
+### GetDtAgentContractdate
+
+`func (o *AgentListElement) GetDtAgentContractdate() string`
+
+GetDtAgentContractdate returns the DtAgentContractdate field if non-nil, zero value otherwise.
+
+### GetDtAgentContractdateOk
+
+`func (o *AgentListElement) GetDtAgentContractdateOk() (*string, bool)`
+
+GetDtAgentContractdateOk returns a tuple with the DtAgentContractdate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDtAgentContractdate
+
+`func (o *AgentListElement) SetDtAgentContractdate(v string)`
+
+SetDtAgentContractdate sets DtAgentContractdate field to given value.
+
+### HasDtAgentContractdate
+
+`func (o *AgentListElement) HasDtAgentContractdate() bool`
+
+HasDtAgentContractdate returns a boolean if a field has been set.
+
+### GetDtAgentTransferdate
+
+`func (o *AgentListElement) GetDtAgentTransferdate() string`
+
+GetDtAgentTransferdate returns the DtAgentTransferdate field if non-nil, zero value otherwise.
+
+### GetDtAgentTransferdateOk
+
+`func (o *AgentListElement) GetDtAgentTransferdateOk() (*string, bool)`
+
+GetDtAgentTransferdateOk returns a tuple with the DtAgentTransferdate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDtAgentTransferdate
+
+`func (o *AgentListElement) SetDtAgentTransferdate(v string)`
+
+SetDtAgentTransferdate sets DtAgentTransferdate field to given value.
+
+### HasDtAgentTransferdate
+
+`func (o *AgentListElement) HasDtAgentTransferdate() bool`
+
+HasDtAgentTransferdate returns a boolean if a field has been set.
+
+### GetDtAgentSenioritydate
+
+`func (o *AgentListElement) GetDtAgentSenioritydate() string`
+
+GetDtAgentSenioritydate returns the DtAgentSenioritydate field if non-nil, zero value otherwise.
+
+### GetDtAgentSenioritydateOk
+
+`func (o *AgentListElement) GetDtAgentSenioritydateOk() (*string, bool)`
+
+GetDtAgentSenioritydateOk returns a tuple with the DtAgentSenioritydate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDtAgentSenioritydate
+
+`func (o *AgentListElement) SetDtAgentSenioritydate(v string)`
+
+SetDtAgentSenioritydate sets DtAgentSenioritydate field to given value.
+
+### HasDtAgentSenioritydate
+
+`func (o *AgentListElement) HasDtAgentSenioritydate() bool`
+
+HasDtAgentSenioritydate returns a boolean if a field has been set.
+
+### GetDtAgentSickleavestart
+
+`func (o *AgentListElement) GetDtAgentSickleavestart() string`
+
+GetDtAgentSickleavestart returns the DtAgentSickleavestart field if non-nil, zero value otherwise.
+
+### GetDtAgentSickleavestartOk
+
+`func (o *AgentListElement) GetDtAgentSickleavestartOk() (*string, bool)`
+
+GetDtAgentSickleavestartOk returns a tuple with the DtAgentSickleavestart field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDtAgentSickleavestart
+
+`func (o *AgentListElement) SetDtAgentSickleavestart(v string)`
+
+SetDtAgentSickleavestart sets DtAgentSickleavestart field to given value.
+
+### HasDtAgentSickleavestart
+
+`func (o *AgentListElement) HasDtAgentSickleavestart() bool`
+
+HasDtAgentSickleavestart returns a boolean if a field has been set.
+
+### GetDtAgentSickleaveend
+
+`func (o *AgentListElement) GetDtAgentSickleaveend() string`
+
+GetDtAgentSickleaveend returns the DtAgentSickleaveend field if non-nil, zero value otherwise.
+
+### GetDtAgentSickleaveendOk
+
+`func (o *AgentListElement) GetDtAgentSickleaveendOk() (*string, bool)`
+
+GetDtAgentSickleaveendOk returns a tuple with the DtAgentSickleaveend field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDtAgentSickleaveend
+
+`func (o *AgentListElement) SetDtAgentSickleaveend(v string)`
+
+SetDtAgentSickleaveend sets DtAgentSickleaveend field to given value.
+
+### HasDtAgentSickleaveend
+
+`func (o *AgentListElement) HasDtAgentSickleaveend() bool`
+
+HasDtAgentSickleaveend returns a boolean if a field has been set.
+
 ### GetBAgentTranquillit
 
 `func (o *AgentListElement) GetBAgentTranquillit() bool`
@@ -810,6 +942,31 @@ SetSAddressZip sets SAddressZip field to given value.
 
 HasSAddressZip returns a boolean if a field has been set.
 
+### GetFkiProvinceID
+
+`func (o *AgentListElement) GetFkiProvinceID() int32`
+
+GetFkiProvinceID returns the FkiProvinceID field if non-nil, zero value otherwise.
+
+### GetFkiProvinceIDOk
+
+`func (o *AgentListElement) GetFkiProvinceIDOk() (*int32, bool)`
+
+GetFkiProvinceIDOk returns a tuple with the FkiProvinceID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiProvinceID
+
+`func (o *AgentListElement) SetFkiProvinceID(v int32)`
+
+SetFkiProvinceID sets FkiProvinceID field to given value.
+
+### HasFkiProvinceID
+
+`func (o *AgentListElement) HasFkiProvinceID() bool`
+
+HasFkiProvinceID returns a boolean if a field has been set.
+
 ### GetSProvinceNameX
 
 `func (o *AgentListElement) GetSProvinceNameX() string`
@@ -834,6 +991,31 @@ SetSProvinceNameX sets SProvinceNameX field to given value.
 `func (o *AgentListElement) HasSProvinceNameX() bool`
 
 HasSProvinceNameX returns a boolean if a field has been set.
+
+### GetFkiCountryID
+
+`func (o *AgentListElement) GetFkiCountryID() int32`
+
+GetFkiCountryID returns the FkiCountryID field if non-nil, zero value otherwise.
+
+### GetFkiCountryIDOk
+
+`func (o *AgentListElement) GetFkiCountryIDOk() (*int32, bool)`
+
+GetFkiCountryIDOk returns a tuple with the FkiCountryID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiCountryID
+
+`func (o *AgentListElement) SetFkiCountryID(v int32)`
+
+SetFkiCountryID sets FkiCountryID field to given value.
+
+### HasFkiCountryID
+
+`func (o *AgentListElement) HasFkiCountryID() bool`
+
+HasFkiCountryID returns a boolean if a field has been set.
 
 ### GetSCountryNameX
 

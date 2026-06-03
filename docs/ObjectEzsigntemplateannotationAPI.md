@@ -32,7 +32,7 @@ import (
 )
 
 func main() {
-	ezsigntemplateannotationCreateObjectV1Request := *openapiclient.NewEzsigntemplateannotationCreateObjectV1Request([]openapiclient.EzsigntemplateannotationRequestCompound{*openapiclient.NewEzsigntemplateannotationRequestCompound(int32(85), int32(216), openapiclient.Field-eEzsigntemplateannotationHorizontalalignment("Center"), openapiclient.Field-eEzsigntemplateannotationVerticalalignment("Bottom"), openapiclient.Field-eEzsigntemplateannotationType("Dropdown"), int32(17864), int32(23342), int32(51755), int32(58213), "Name", "John Doe", "{"Accepts","Refuses"}")}) // EzsigntemplateannotationCreateObjectV1Request | 
+	ezsigntemplateannotationCreateObjectV1Request := *openapiclient.NewEzsigntemplateannotationCreateObjectV1Request([]openapiclient.EzsigntemplateannotationRequestCompound{*openapiclient.NewEzsigntemplateannotationRequestCompound(int32(133), openapiclient.Field-eEzsigntemplateannotationHorizontalalignment("Center"), openapiclient.Field-eEzsigntemplateannotationVerticalalignment("Bottom"), openapiclient.Field-eEzsigntemplateannotationType("Dropdown"), int32(17864), int32(23342), int32(51755), int32(58213), int32(1), "Name", "John Doe", "{\"Accepts\",\"Refuses\"}")}) // EzsigntemplateannotationCreateObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -169,7 +169,7 @@ import (
 
 func main() {
 	pkiEzsigntemplateannotationID := int32(56) // int32 | The unique ID of the Ezsigntemplateannotation
-	ezsigntemplateannotationEditObjectV1Request := *openapiclient.NewEzsigntemplateannotationEditObjectV1Request(*openapiclient.NewEzsigntemplateannotationRequestCompound(int32(85), int32(216), openapiclient.Field-eEzsigntemplateannotationHorizontalalignment("Center"), openapiclient.Field-eEzsigntemplateannotationVerticalalignment("Bottom"), openapiclient.Field-eEzsigntemplateannotationType("Dropdown"), int32(17864), int32(23342), int32(51755), int32(58213), "Name", "John Doe", "{"Accepts","Refuses"}")) // EzsigntemplateannotationEditObjectV1Request | 
+	ezsigntemplateannotationEditObjectV1Request := *openapiclient.NewEzsigntemplateannotationEditObjectV1Request(*openapiclient.NewEzsigntemplateannotationRequestCompound(int32(133), openapiclient.Field-eEzsigntemplateannotationHorizontalalignment("Center"), openapiclient.Field-eEzsigntemplateannotationVerticalalignment("Bottom"), openapiclient.Field-eEzsigntemplateannotationType("Dropdown"), int32(17864), int32(23342), int32(51755), int32(58213), int32(1), "Name", "John Doe", "{\"Accepts\",\"Refuses\"}")) // EzsigntemplateannotationEditObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

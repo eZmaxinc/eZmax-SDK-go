@@ -20,7 +20,7 @@ import (
 // checks if the EzsigndocumentApplyEzsigntemplateglobalV1Response type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &EzsigndocumentApplyEzsigntemplateglobalV1Response{}
 
-// EzsigndocumentApplyEzsigntemplateglobalV1Response Response for POST /2/object/ezsigndocument/{pkiEzsigndocument}/applyEzsigntemplate
+// EzsigndocumentApplyEzsigntemplateglobalV1Response Response for POST /1/object/ezsigndocument/{pkiEzsigndocument}/applyEzsigntemplateglobal
 type EzsigndocumentApplyEzsigntemplateglobalV1Response struct {
 	ObjDebugPayload CommonResponseObjDebugPayload `json:"objDebugPayload"`
 	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`

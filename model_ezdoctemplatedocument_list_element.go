@@ -31,7 +31,7 @@ type EzdoctemplatedocumentListElement struct {
 	// The unique ID of the Ezdoctemplatetype
 	FkiEzdoctemplatetypeID int32 `json:"fkiEzdoctemplatetypeID"`
 	// The unique ID of the Ezdoctemplatefieldtypecategory
-	FkiEzdoctemplatefieldtypecategoryID int32 `json:"fkiEzdoctemplatefieldtypecategoryID"`
+	FkiEzdoctemplatefieldtypecategoryID *int32 `json:"fkiEzdoctemplatefieldtypecategoryID,omitempty"`
 	// The name of the Ezsignfoldertype in the language of the requester
 	SEzsignfoldertypeNameX *string `json:"sEzsignfoldertypeNameX,omitempty"`
 	// The description of the Ezdoctemplatetype in the language of the requester
@@ -51,12 +51,11 @@ type _EzdoctemplatedocumentListElement EzdoctemplatedocumentListElement
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzdoctemplatedocumentListElement(pkiEzdoctemplatedocumentID int32, fkiLanguageID int32, fkiEzdoctemplatetypeID int32, fkiEzdoctemplatefieldtypecategoryID int32, bEzdoctemplatedocumentIsactive bool, sEzdoctemplatedocumentNameX string) *EzdoctemplatedocumentListElement {
+func NewEzdoctemplatedocumentListElement(pkiEzdoctemplatedocumentID int32, fkiLanguageID int32, fkiEzdoctemplatetypeID int32, bEzdoctemplatedocumentIsactive bool, sEzdoctemplatedocumentNameX string) *EzdoctemplatedocumentListElement {
 	this := EzdoctemplatedocumentListElement{}
 	this.PkiEzdoctemplatedocumentID = pkiEzdoctemplatedocumentID
 	this.FkiLanguageID = fkiLanguageID
 	this.FkiEzdoctemplatetypeID = fkiEzdoctemplatetypeID
-	this.FkiEzdoctemplatefieldtypecategoryID = fkiEzdoctemplatefieldtypecategoryID
 	this.BEzdoctemplatedocumentIsactive = bEzdoctemplatedocumentIsactive
 	this.SEzdoctemplatedocumentNameX = sEzdoctemplatedocumentNameX
 	return &this
@@ -174,28 +173,36 @@ func (o *EzdoctemplatedocumentListElement) SetFkiEzdoctemplatetypeID(v int32) {
 	o.FkiEzdoctemplatetypeID = v
 }
 
-// GetFkiEzdoctemplatefieldtypecategoryID returns the FkiEzdoctemplatefieldtypecategoryID field value
+// GetFkiEzdoctemplatefieldtypecategoryID returns the FkiEzdoctemplatefieldtypecategoryID field value if set, zero value otherwise.
 func (o *EzdoctemplatedocumentListElement) GetFkiEzdoctemplatefieldtypecategoryID() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.FkiEzdoctemplatefieldtypecategoryID) {
 		var ret int32
 		return ret
 	}
-
-	return o.FkiEzdoctemplatefieldtypecategoryID
+	return *o.FkiEzdoctemplatefieldtypecategoryID
 }
 
-// GetFkiEzdoctemplatefieldtypecategoryIDOk returns a tuple with the FkiEzdoctemplatefieldtypecategoryID field value
+// GetFkiEzdoctemplatefieldtypecategoryIDOk returns a tuple with the FkiEzdoctemplatefieldtypecategoryID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzdoctemplatedocumentListElement) GetFkiEzdoctemplatefieldtypecategoryIDOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FkiEzdoctemplatefieldtypecategoryID) {
 		return nil, false
 	}
-	return &o.FkiEzdoctemplatefieldtypecategoryID, true
+	return o.FkiEzdoctemplatefieldtypecategoryID, true
 }
 
-// SetFkiEzdoctemplatefieldtypecategoryID sets field value
+// HasFkiEzdoctemplatefieldtypecategoryID returns a boolean if a field has been set.
+func (o *EzdoctemplatedocumentListElement) HasFkiEzdoctemplatefieldtypecategoryID() bool {
+	if o != nil && !IsNil(o.FkiEzdoctemplatefieldtypecategoryID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzdoctemplatefieldtypecategoryID gets a reference to the given int32 and assigns it to the FkiEzdoctemplatefieldtypecategoryID field.
 func (o *EzdoctemplatedocumentListElement) SetFkiEzdoctemplatefieldtypecategoryID(v int32) {
-	o.FkiEzdoctemplatefieldtypecategoryID = v
+	o.FkiEzdoctemplatefieldtypecategoryID = &v
 }
 
 // GetSEzsignfoldertypeNameX returns the SEzsignfoldertypeNameX field value if set, zero value otherwise.
@@ -390,7 +397,9 @@ func (o EzdoctemplatedocumentListElement) ToMap() (map[string]interface{}, error
 		toSerialize["fkiEzsignfoldertypeID"] = o.FkiEzsignfoldertypeID
 	}
 	toSerialize["fkiEzdoctemplatetypeID"] = o.FkiEzdoctemplatetypeID
-	toSerialize["fkiEzdoctemplatefieldtypecategoryID"] = o.FkiEzdoctemplatefieldtypecategoryID
+	if !IsNil(o.FkiEzdoctemplatefieldtypecategoryID) {
+		toSerialize["fkiEzdoctemplatefieldtypecategoryID"] = o.FkiEzdoctemplatefieldtypecategoryID
+	}
 	if !IsNil(o.SEzsignfoldertypeNameX) {
 		toSerialize["sEzsignfoldertypeNameX"] = o.SEzsignfoldertypeNameX
 	}
@@ -416,7 +425,6 @@ func (o *EzdoctemplatedocumentListElement) UnmarshalJSON(data []byte) (err error
 		"pkiEzdoctemplatedocumentID",
 		"fkiLanguageID",
 		"fkiEzdoctemplatetypeID",
-		"fkiEzdoctemplatefieldtypecategoryID",
 		"bEzdoctemplatedocumentIsactive",
 		"sEzdoctemplatedocumentNameX",
 	}

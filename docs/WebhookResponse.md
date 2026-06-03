@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PkiWebhookID** | **int32** | The unique ID of the Webhook | 
+**PkiWebhookID** | Pointer to **int32** | The unique ID of the Webhook | [optional] 
 **FkiAuthenticationexternalID** | Pointer to **int32** | The unique ID of the Authenticationexternal | [optional] 
 **SWebhookDescription** | **string** | The description of the Webhook | 
 **FkiEzsignfoldertypeID** | Pointer to **int32** | The unique ID of the Ezsignfoldertype. | [optional] 
@@ -20,13 +20,13 @@ Name | Type | Description | Notes
 **BWebhookIssigned** | **bool** | Whether the requests will be signed or not | 
 **BWebhookSkipsslvalidation** | **bool** | Wheter the server&#39;s SSL certificate should be validated or not. Not recommended to skip for production use | 
 **SAuthenticationexternalDescription** | Pointer to **string** | The description of the Authenticationexternal | [optional] 
-**ObjAudit** | [**CommonAudit**](CommonAudit.md) |  | 
+**ObjAudit** | Pointer to [**CommonAudit**](CommonAudit.md) |  | [optional] 
 
 ## Methods
 
 ### NewWebhookResponse
 
-`func NewWebhookResponse(pkiWebhookID int32, sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookIsactive bool, bWebhookIssigned bool, bWebhookSkipsslvalidation bool, objAudit CommonAudit, ) *WebhookResponse`
+`func NewWebhookResponse(sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookIsactive bool, bWebhookIssigned bool, bWebhookSkipsslvalidation bool, ) *WebhookResponse`
 
 NewWebhookResponse instantiates a new WebhookResponse object
 This constructor will assign default values to properties that have it defined,
@@ -60,6 +60,11 @@ and a boolean to check if the value has been set.
 
 SetPkiWebhookID sets PkiWebhookID field to given value.
 
+### HasPkiWebhookID
+
+`func (o *WebhookResponse) HasPkiWebhookID() bool`
+
+HasPkiWebhookID returns a boolean if a field has been set.
 
 ### GetFkiAuthenticationexternalID
 
@@ -420,6 +425,11 @@ and a boolean to check if the value has been set.
 
 SetObjAudit sets ObjAudit field to given value.
 
+### HasObjAudit
+
+`func (o *WebhookResponse) HasObjAudit() bool`
+
+HasObjAudit returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

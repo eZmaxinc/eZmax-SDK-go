@@ -42,8 +42,12 @@ type RejectedoffertopurchaseListElement struct {
 	SAddressCity *string `json:"sAddressCity,omitempty"`
 	// The Postal/Zip Code  The value must be entered without spaces
 	SAddressZip *string `json:"sAddressZip,omitempty"`
+	// The unique ID of the Province.  Here are some common values (Complete list must be retrieved from API):  |Value|Description| |-|-| |1|(Canada) Alberta |2|(Canada) British Columbia| |3|(Canada) Manitoba| |3|(Canada) Manitoba| |4|(Canada) New Brunswick| |5|(Canada) Newfoundland| |6|(Canada) Northwest Territories| |7|(Canada) Nova Scotia| |8|(Canada) Nunavut| |9|(Canada) Ontario| |10|(Canada) Prince Edward Island| |11|(Canada) Quebec| |12|(Canada) Saskatchewan| |13|(Canada) Yukon| |14|(United-States) Alabama| |15|(United-States) Alaska| |16|(United-States) Arizona| |17|(United-States) Arkansas| |18|(United-States) California| |19|(United-States) Colorado| |20|(United-States) Connecticut| |21|(United-States) Delaware| |22|(United-States) District of Columbia| |23|(United-States) Florida| |24|(United-States) Georgia| |25|(United-States) Hawaii| |26|(United-States) Idaho| |27|(United-States) Illinois| |28|(United-States) Indiana| |29|(United-States) Iowa| |30|(United-States) Kansas| |31|(United-States) Kentucky| |32|(United-States) Louisiane| |33|(United-States) Maine| |34|(United-States) Maryland| |35|(United-States) Massachusetts| |36|(United-States) Michigan| |37|(United-States) Minnesota| |38|(United-States) Mississippi| |39|(United-States) Missouri| |40|(United-States) Montana| |41|(United-States) Nebraska| |42|(United-States) Nevada| |43|(United-States) New Hampshire| |44|(United-States) New Jersey| |45|(United-States) New Mexico| |46|(United-States) New York| |47|(United-States) North Carolina| |48|(United-States) North Dakota| |49|(United-States) Ohio| |50|(United-States) Oklahoma| |51|(United-States) Oregon| |52|(United-States) Pennsylvania| |53|(United-States) Rhode Island| |54|(United-States) South Carolina| |55|(United-States) South Dakota| |56|(United-States) Tennessee| |57|(United-States) Texas| |58|(United-States) Utah| |60|(United-States) Vermont| |59|(United-States) Virginia| |61|(United-States) Washington| |62|(United-States) West Virginia| |63|(United-States) Wisconsin| |64|(United-States) Wyoming|
+	FkiProvinceID *int32 `json:"fkiProvinceID,omitempty"`
 	// The name of the Province in the language of the requester
 	SProvinceNameX *string `json:"sProvinceNameX,omitempty" validate:"regexp=^.{0,50}$"`
+	// The unique ID of the Country.  Here are some common values (Complete list must be retrieved from API):  |Value|Description| |-|-| |1|Canada| |2|United-States|
+	FkiCountryID *int32 `json:"fkiCountryID,omitempty"`
 	// The name of the Country in the language of the requester
 	SCountryNameX *string `json:"sCountryNameX,omitempty" validate:"regexp=^.{0,40}$"`
 	// Indicate if the Rejectedoffertopurchase is linked to an inscription
@@ -355,6 +359,38 @@ func (o *RejectedoffertopurchaseListElement) SetSAddressZip(v string) {
 	o.SAddressZip = &v
 }
 
+// GetFkiProvinceID returns the FkiProvinceID field value if set, zero value otherwise.
+func (o *RejectedoffertopurchaseListElement) GetFkiProvinceID() int32 {
+	if o == nil || IsNil(o.FkiProvinceID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiProvinceID
+}
+
+// GetFkiProvinceIDOk returns a tuple with the FkiProvinceID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RejectedoffertopurchaseListElement) GetFkiProvinceIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiProvinceID) {
+		return nil, false
+	}
+	return o.FkiProvinceID, true
+}
+
+// HasFkiProvinceID returns a boolean if a field has been set.
+func (o *RejectedoffertopurchaseListElement) HasFkiProvinceID() bool {
+	if o != nil && !IsNil(o.FkiProvinceID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiProvinceID gets a reference to the given int32 and assigns it to the FkiProvinceID field.
+func (o *RejectedoffertopurchaseListElement) SetFkiProvinceID(v int32) {
+	o.FkiProvinceID = &v
+}
+
 // GetSProvinceNameX returns the SProvinceNameX field value if set, zero value otherwise.
 func (o *RejectedoffertopurchaseListElement) GetSProvinceNameX() string {
 	if o == nil || IsNil(o.SProvinceNameX) {
@@ -385,6 +421,38 @@ func (o *RejectedoffertopurchaseListElement) HasSProvinceNameX() bool {
 // SetSProvinceNameX gets a reference to the given string and assigns it to the SProvinceNameX field.
 func (o *RejectedoffertopurchaseListElement) SetSProvinceNameX(v string) {
 	o.SProvinceNameX = &v
+}
+
+// GetFkiCountryID returns the FkiCountryID field value if set, zero value otherwise.
+func (o *RejectedoffertopurchaseListElement) GetFkiCountryID() int32 {
+	if o == nil || IsNil(o.FkiCountryID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiCountryID
+}
+
+// GetFkiCountryIDOk returns a tuple with the FkiCountryID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RejectedoffertopurchaseListElement) GetFkiCountryIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiCountryID) {
+		return nil, false
+	}
+	return o.FkiCountryID, true
+}
+
+// HasFkiCountryID returns a boolean if a field has been set.
+func (o *RejectedoffertopurchaseListElement) HasFkiCountryID() bool {
+	if o != nil && !IsNil(o.FkiCountryID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiCountryID gets a reference to the given int32 and assigns it to the FkiCountryID field.
+func (o *RejectedoffertopurchaseListElement) SetFkiCountryID(v int32) {
+	o.FkiCountryID = &v
 }
 
 // GetSCountryNameX returns the SCountryNameX field value if set, zero value otherwise.
@@ -473,8 +541,14 @@ func (o RejectedoffertopurchaseListElement) ToMap() (map[string]interface{}, err
 	if !IsNil(o.SAddressZip) {
 		toSerialize["sAddressZip"] = o.SAddressZip
 	}
+	if !IsNil(o.FkiProvinceID) {
+		toSerialize["fkiProvinceID"] = o.FkiProvinceID
+	}
 	if !IsNil(o.SProvinceNameX) {
 		toSerialize["sProvinceNameX"] = o.SProvinceNameX
+	}
+	if !IsNil(o.FkiCountryID) {
+		toSerialize["fkiCountryID"] = o.FkiCountryID
 	}
 	if !IsNil(o.SCountryNameX) {
 		toSerialize["sCountryNameX"] = o.SCountryNameX

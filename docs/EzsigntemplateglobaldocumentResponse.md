@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiEzsigntemplateglobaldocumentID** | **int32** | The unique ID of the Ezsigntemplateglobaldocument | 
 **SEzsigntemplateglobaldocumentName** | **string** | The name of the Ezsigntemplateglobaldocument. | 
+**EEzsigntemplateglobaldocumentAcceptationtype** | [**FieldEEzsigntemplateglobaldocumentAcceptationtype**](FieldEEzsigntemplateglobaldocumentAcceptationtype.md) |  | 
 **IEzsigntemplateglobaldocumentPagetotal** | **int32** | The number of pages in the Ezsigntemplateglobaldocument. | 
 **IEzsigntemplateglobaldocumentSignaturetotal** | **int32** | The number of total signatures in the Ezsigntemplateglobal. | 
 
@@ -13,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewEzsigntemplateglobaldocumentResponse
 
-`func NewEzsigntemplateglobaldocumentResponse(pkiEzsigntemplateglobaldocumentID int32, sEzsigntemplateglobaldocumentName string, iEzsigntemplateglobaldocumentPagetotal int32, iEzsigntemplateglobaldocumentSignaturetotal int32, ) *EzsigntemplateglobaldocumentResponse`
+`func NewEzsigntemplateglobaldocumentResponse(pkiEzsigntemplateglobaldocumentID int32, sEzsigntemplateglobaldocumentName string, eEzsigntemplateglobaldocumentAcceptationtype FieldEEzsigntemplateglobaldocumentAcceptationtype, iEzsigntemplateglobaldocumentPagetotal int32, iEzsigntemplateglobaldocumentSignaturetotal int32, ) *EzsigntemplateglobaldocumentResponse`
 
 NewEzsigntemplateglobaldocumentResponse instantiates a new EzsigntemplateglobaldocumentResponse object
 This constructor will assign default values to properties that have it defined,
@@ -66,6 +67,26 @@ and a boolean to check if the value has been set.
 `func (o *EzsigntemplateglobaldocumentResponse) SetSEzsigntemplateglobaldocumentName(v string)`
 
 SetSEzsigntemplateglobaldocumentName sets SEzsigntemplateglobaldocumentName field to given value.
+
+
+### GetEEzsigntemplateglobaldocumentAcceptationtype
+
+`func (o *EzsigntemplateglobaldocumentResponse) GetEEzsigntemplateglobaldocumentAcceptationtype() FieldEEzsigntemplateglobaldocumentAcceptationtype`
+
+GetEEzsigntemplateglobaldocumentAcceptationtype returns the EEzsigntemplateglobaldocumentAcceptationtype field if non-nil, zero value otherwise.
+
+### GetEEzsigntemplateglobaldocumentAcceptationtypeOk
+
+`func (o *EzsigntemplateglobaldocumentResponse) GetEEzsigntemplateglobaldocumentAcceptationtypeOk() (*FieldEEzsigntemplateglobaldocumentAcceptationtype, bool)`
+
+GetEEzsigntemplateglobaldocumentAcceptationtypeOk returns a tuple with the EEzsigntemplateglobaldocumentAcceptationtype field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsigntemplateglobaldocumentAcceptationtype
+
+`func (o *EzsigntemplateglobaldocumentResponse) SetEEzsigntemplateglobaldocumentAcceptationtype(v FieldEEzsigntemplateglobaldocumentAcceptationtype)`
+
+SetEEzsigntemplateglobaldocumentAcceptationtype sets EEzsigntemplateglobaldocumentAcceptationtype field to given value.
 
 
 ### GetIEzsigntemplateglobaldocumentPagetotal

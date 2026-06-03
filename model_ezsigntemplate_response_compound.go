@@ -52,6 +52,7 @@ type EzsigntemplateResponseCompound struct {
 	EEzsigntemplateType *FieldEEzsigntemplateType `json:"eEzsigntemplateType,omitempty"`
 	ObjEzsigntemplatedocument *EzsigntemplatedocumentResponse `json:"objEzsigntemplatedocument,omitempty"`
 	AObjEzsigntemplatesigner []EzsigntemplatesignerResponseCompound `json:"a_objEzsigntemplatesigner"`
+	AObjEzsigntemplateannotation []EzsigntemplateannotationResponseCompound `json:"a_objEzsigntemplateannotation,omitempty"`
 }
 
 type _EzsigntemplateResponseCompound EzsigntemplateResponseCompound
@@ -561,6 +562,38 @@ func (o *EzsigntemplateResponseCompound) SetAObjEzsigntemplatesigner(v []Ezsignt
 	o.AObjEzsigntemplatesigner = v
 }
 
+// GetAObjEzsigntemplateannotation returns the AObjEzsigntemplateannotation field value if set, zero value otherwise.
+func (o *EzsigntemplateResponseCompound) GetAObjEzsigntemplateannotation() []EzsigntemplateannotationResponseCompound {
+	if o == nil || IsNil(o.AObjEzsigntemplateannotation) {
+		var ret []EzsigntemplateannotationResponseCompound
+		return ret
+	}
+	return o.AObjEzsigntemplateannotation
+}
+
+// GetAObjEzsigntemplateannotationOk returns a tuple with the AObjEzsigntemplateannotation field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateResponseCompound) GetAObjEzsigntemplateannotationOk() ([]EzsigntemplateannotationResponseCompound, bool) {
+	if o == nil || IsNil(o.AObjEzsigntemplateannotation) {
+		return nil, false
+	}
+	return o.AObjEzsigntemplateannotation, true
+}
+
+// HasAObjEzsigntemplateannotation returns a boolean if a field has been set.
+func (o *EzsigntemplateResponseCompound) HasAObjEzsigntemplateannotation() bool {
+	if o != nil && !IsNil(o.AObjEzsigntemplateannotation) {
+		return true
+	}
+
+	return false
+}
+
+// SetAObjEzsigntemplateannotation gets a reference to the given []EzsigntemplateannotationResponseCompound and assigns it to the AObjEzsigntemplateannotation field.
+func (o *EzsigntemplateResponseCompound) SetAObjEzsigntemplateannotation(v []EzsigntemplateannotationResponseCompound) {
+	o.AObjEzsigntemplateannotation = v
+}
+
 func (o EzsigntemplateResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -606,6 +639,9 @@ func (o EzsigntemplateResponseCompound) ToMap() (map[string]interface{}, error) 
 		toSerialize["objEzsigntemplatedocument"] = o.ObjEzsigntemplatedocument
 	}
 	toSerialize["a_objEzsigntemplatesigner"] = o.AObjEzsigntemplatesigner
+	if !IsNil(o.AObjEzsigntemplateannotation) {
+		toSerialize["a_objEzsigntemplateannotation"] = o.AObjEzsigntemplateannotation
+	}
 	return toSerialize, nil
 }
 

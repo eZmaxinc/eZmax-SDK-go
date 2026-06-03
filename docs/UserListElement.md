@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **SUserLastname** | **string** | The last name of the user | 
 **SUserLoginname** | **string** | The login name of the User. | 
 **BUserIsactive** | **bool** | Whether the User is active or not | 
+**BUserSuspended** | Pointer to **bool** | Whether the User is suspended or not | [optional] 
 **EUserType** | [**FieldEUserType**](FieldEUserType.md) |  | 
 **EUserOrigin** | [**FieldEUserOrigin**](FieldEUserOrigin.md) |  | 
 **EUserEzsignaccess** | [**FieldEUserEzsignaccess**](FieldEUserEzsignaccess.md) |  | 
@@ -134,6 +135,31 @@ and a boolean to check if the value has been set.
 
 SetBUserIsactive sets BUserIsactive field to given value.
 
+
+### GetBUserSuspended
+
+`func (o *UserListElement) GetBUserSuspended() bool`
+
+GetBUserSuspended returns the BUserSuspended field if non-nil, zero value otherwise.
+
+### GetBUserSuspendedOk
+
+`func (o *UserListElement) GetBUserSuspendedOk() (*bool, bool)`
+
+GetBUserSuspendedOk returns a tuple with the BUserSuspended field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBUserSuspended
+
+`func (o *UserListElement) SetBUserSuspended(v bool)`
+
+SetBUserSuspended sets BUserSuspended field to given value.
+
+### HasBUserSuspended
+
+`func (o *UserListElement) HasBUserSuspended() bool`
+
+HasBUserSuspended returns a boolean if a field has been set.
 
 ### GetEUserType
 

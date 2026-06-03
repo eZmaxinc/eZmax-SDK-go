@@ -37,7 +37,7 @@ type EzsignfolderRequestCompoundV3 struct {
 	TEzsignfolderNote *string `json:"tEzsignfolderNote,omitempty"`
 	// A custom text message that will be added to the email sent.
 	TEzsignfolderMessage *string `json:"tEzsignfolderMessage,omitempty"`
-	// The number of days before the the first reminder sending
+	// The number of days before the first reminder sending
 	IEzsignfolderSendreminderfirstdays int32 `json:"iEzsignfolderSendreminderfirstdays"`
 	// The number of days after the first reminder sending
 	IEzsignfolderSendreminderotherdays int32 `json:"iEzsignfolderSendreminderotherdays"`

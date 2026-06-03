@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **EUserEzsignaccess** | [**FieldEUserEzsignaccess**](FieldEUserEzsignaccess.md) |  | 
 **EUserEzsignprepaid** | Pointer to [**FieldEUserEzsignprepaid**](FieldEUserEzsignprepaid.md) |  | [optional] 
 **BUserEzsigntrial** | Pointer to **bool** | Whether the User&#39;s eZsign subscription is a trial | [optional] 
+**BUserEzsigntemplaterolegrouping** | Pointer to **bool** | Whether we group or not the Ezsigntemplate roles | [optional] 
 **DtUserEzsignprepaidexpiration** | Pointer to **string** | The eZsign prepaid expiration date | [optional] 
 **DtUserNpsrequest** | Pointer to **string** | The date at which the NPS questionnaire will be show | [optional] 
 **APkiPermissionID** | **[]int32** | An array of permissions granted to the user or api key | 
@@ -36,6 +37,7 @@ Name | Type | Description | Notes
 **ObjUserCloned** | Pointer to [**ActivesessionResponseCompoundUser**](ActivesessionResponseCompoundUser.md) |  | [optional] 
 **ObjApikey** | Pointer to [**ActivesessionResponseCompoundApikey**](ActivesessionResponseCompoundApikey.md) |  | [optional] 
 **AEModuleInternalname** | **[]string** | An Array of Registered modules.  These are the modules that are Licensed to be used by the User or the API Key. | 
+**BActivesessionMaillinglistrequest** | Pointer to **bool** | If you need to ask which mailing lists this user wants to subscribe to | [optional] 
 
 ## Methods
 
@@ -621,6 +623,31 @@ SetBUserEzsigntrial sets BUserEzsigntrial field to given value.
 
 HasBUserEzsigntrial returns a boolean if a field has been set.
 
+### GetBUserEzsigntemplaterolegrouping
+
+`func (o *ActivesessionResponseCompound) GetBUserEzsigntemplaterolegrouping() bool`
+
+GetBUserEzsigntemplaterolegrouping returns the BUserEzsigntemplaterolegrouping field if non-nil, zero value otherwise.
+
+### GetBUserEzsigntemplaterolegroupingOk
+
+`func (o *ActivesessionResponseCompound) GetBUserEzsigntemplaterolegroupingOk() (*bool, bool)`
+
+GetBUserEzsigntemplaterolegroupingOk returns a tuple with the BUserEzsigntemplaterolegrouping field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBUserEzsigntemplaterolegrouping
+
+`func (o *ActivesessionResponseCompound) SetBUserEzsigntemplaterolegrouping(v bool)`
+
+SetBUserEzsigntemplaterolegrouping sets BUserEzsigntemplaterolegrouping field to given value.
+
+### HasBUserEzsigntemplaterolegrouping
+
+`func (o *ActivesessionResponseCompound) HasBUserEzsigntemplaterolegrouping() bool`
+
+HasBUserEzsigntemplaterolegrouping returns a boolean if a field has been set.
+
 ### GetDtUserEzsignprepaidexpiration
 
 `func (o *ActivesessionResponseCompound) GetDtUserEzsignprepaidexpiration() string`
@@ -780,6 +807,31 @@ and a boolean to check if the value has been set.
 
 SetAEModuleInternalname sets AEModuleInternalname field to given value.
 
+
+### GetBActivesessionMaillinglistrequest
+
+`func (o *ActivesessionResponseCompound) GetBActivesessionMaillinglistrequest() bool`
+
+GetBActivesessionMaillinglistrequest returns the BActivesessionMaillinglistrequest field if non-nil, zero value otherwise.
+
+### GetBActivesessionMaillinglistrequestOk
+
+`func (o *ActivesessionResponseCompound) GetBActivesessionMaillinglistrequestOk() (*bool, bool)`
+
+GetBActivesessionMaillinglistrequestOk returns a tuple with the BActivesessionMaillinglistrequest field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBActivesessionMaillinglistrequest
+
+`func (o *ActivesessionResponseCompound) SetBActivesessionMaillinglistrequest(v bool)`
+
+SetBActivesessionMaillinglistrequest sets BActivesessionMaillinglistrequest field to given value.
+
+### HasBActivesessionMaillinglistrequest
+
+`func (o *ActivesessionResponseCompound) HasBActivesessionMaillinglistrequest() bool`
+
+HasBActivesessionMaillinglistrequest returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

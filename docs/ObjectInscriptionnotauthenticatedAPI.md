@@ -4,13 +4,87 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1**](ObjectInscriptionnotauthenticatedAPI.md#InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1) | **Post** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/fillInscriptionnotauthenticatedcondition | Fills the Inscriptionnotauthenticatedcondition in the Inscriptionnotauthenticated
 [**InscriptionnotauthenticatedGetCommunicationCountV1**](ObjectInscriptionnotauthenticatedAPI.md#InscriptionnotauthenticatedGetCommunicationCountV1) | **Get** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getCommunicationCount | Retrieve Communication count
 [**InscriptionnotauthenticatedGetCommunicationListV1**](ObjectInscriptionnotauthenticatedAPI.md#InscriptionnotauthenticatedGetCommunicationListV1) | **Get** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getCommunicationList | Retrieve Communication list
 [**InscriptionnotauthenticatedGetCommunicationrecipientsV1**](ObjectInscriptionnotauthenticatedAPI.md#InscriptionnotauthenticatedGetCommunicationrecipientsV1) | **Get** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getCommunicationrecipients | Retrieve Inscriptionnotauthenticated&#39;s Communicationrecipient
 [**InscriptionnotauthenticatedGetCommunicationsendersV1**](ObjectInscriptionnotauthenticatedAPI.md#InscriptionnotauthenticatedGetCommunicationsendersV1) | **Get** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getCommunicationsenders | Retrieve Inscriptionnotauthenticated&#39;s Communicationsender
+[**InscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1**](ObjectInscriptionnotauthenticatedAPI.md#InscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1) | **Get** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getInscriptionnotauthenticatedconditions | Retrieve Inscriptionnotauthenticated conditions
 [**InscriptionnotauthenticatedGetListV1**](ObjectInscriptionnotauthenticatedAPI.md#InscriptionnotauthenticatedGetListV1) | **Get** /1/object/inscriptionnotauthenticated/getList | Retrieve Inscriptionnotauthenticated list
 [**InscriptionnotauthenticatedImportIntoEDMV1**](ObjectInscriptionnotauthenticatedAPI.md#InscriptionnotauthenticatedImportIntoEDMV1) | **Post** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/importIntoEDM | Import attachments into the Inscriptionnotauthenticated
 
+
+
+## InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1
+
+> InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Response InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1(ctx, pkiInscriptionnotauthenticatedID).InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Request(inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Request).Execute()
+
+Fills the Inscriptionnotauthenticatedcondition in the Inscriptionnotauthenticated
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiInscriptionnotauthenticatedID := int32(56) // int32 | 
+	inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Request := *openapiclient.NewInscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Request([]openapiclient.CustomInscriptionnotauthenticatedconditionRequest{*openapiclient.NewCustomInscriptionnotauthenticatedconditionRequest(int32(16), "2020-12-31")}) // InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectInscriptionnotauthenticatedAPI.InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1(context.Background(), pkiInscriptionnotauthenticatedID).InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Request(inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectInscriptionnotauthenticatedAPI.InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1`: InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectInscriptionnotauthenticatedAPI.InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiInscriptionnotauthenticatedID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Request** | [**InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Request**](InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Request.md) |  | 
+
+### Return type
+
+[**InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Response**](InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## InscriptionnotauthenticatedGetCommunicationCountV1
@@ -278,6 +352,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**InscriptionnotauthenticatedGetCommunicationsendersV1Response**](InscriptionnotauthenticatedGetCommunicationsendersV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## InscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1
+
+> InscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1Response InscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1(ctx, pkiInscriptionnotauthenticatedID).Execute()
+
+Retrieve Inscriptionnotauthenticated conditions
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiInscriptionnotauthenticatedID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectInscriptionnotauthenticatedAPI.InscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1(context.Background(), pkiInscriptionnotauthenticatedID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectInscriptionnotauthenticatedAPI.InscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1`: InscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectInscriptionnotauthenticatedAPI.InscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiInscriptionnotauthenticatedID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**InscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1Response**](InscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1Response.md)
 
 ### Authorization
 

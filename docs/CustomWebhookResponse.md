@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PkiWebhookID** | **int32** | The unique ID of the Webhook | 
+**PkiWebhookID** | Pointer to **int32** | The unique ID of the Webhook | [optional] 
 **FkiAuthenticationexternalID** | Pointer to **int32** | The unique ID of the Authenticationexternal | [optional] 
 **SWebhookDescription** | **string** | The description of the Webhook | 
 **FkiEzsignfoldertypeID** | Pointer to **int32** | The unique ID of the Ezsignfoldertype. | [optional] 
@@ -20,19 +20,20 @@ Name | Type | Description | Notes
 **BWebhookIssigned** | **bool** | Whether the requests will be signed or not | 
 **BWebhookSkipsslvalidation** | **bool** | Wheter the server&#39;s SSL certificate should be validated or not. Not recommended to skip for production use | 
 **SAuthenticationexternalDescription** | Pointer to **string** | The description of the Authenticationexternal | [optional] 
-**ObjAudit** | [**CommonAudit**](CommonAudit.md) |  | 
+**ObjAudit** | Pointer to [**CommonAudit**](CommonAudit.md) |  | [optional] 
 **SWebhookEvent** | Pointer to **string** | The concatenated string to describe the Webhook event | [optional] 
 **SWebhookAuthentificationexternalerror** | Pointer to **string** | Error message when token renewal failed or is not configured. Only if an Authenticationexternal is set. | [optional] 
 **AObjWebhookheader** | Pointer to [**[]WebhookheaderResponseCompound**](WebhookheaderResponseCompound.md) |  | [optional] 
 **PksCustomerCode** | **string** | The customer code assigned to your account | 
 **BWebhookTest** | **bool** | Wheter the webhook received is a manual test or a real event | 
 **EWebhookEmittype** | Pointer to **string** | Wheter the webhook received is a manual test or a real event | [optional] 
+**FkiEzmaxpartnerproductstagewebhookID** | Pointer to **int32** | The unique ID of the Ezmaxpartnerproductstagewebhook | [optional] 
 
 ## Methods
 
 ### NewCustomWebhookResponse
 
-`func NewCustomWebhookResponse(pkiWebhookID int32, sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookIsactive bool, bWebhookIssigned bool, bWebhookSkipsslvalidation bool, objAudit CommonAudit, pksCustomerCode string, bWebhookTest bool, ) *CustomWebhookResponse`
+`func NewCustomWebhookResponse(sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookIsactive bool, bWebhookIssigned bool, bWebhookSkipsslvalidation bool, pksCustomerCode string, bWebhookTest bool, ) *CustomWebhookResponse`
 
 NewCustomWebhookResponse instantiates a new CustomWebhookResponse object
 This constructor will assign default values to properties that have it defined,
@@ -66,6 +67,11 @@ and a boolean to check if the value has been set.
 
 SetPkiWebhookID sets PkiWebhookID field to given value.
 
+### HasPkiWebhookID
+
+`func (o *CustomWebhookResponse) HasPkiWebhookID() bool`
+
+HasPkiWebhookID returns a boolean if a field has been set.
 
 ### GetFkiAuthenticationexternalID
 
@@ -426,6 +432,11 @@ and a boolean to check if the value has been set.
 
 SetObjAudit sets ObjAudit field to given value.
 
+### HasObjAudit
+
+`func (o *CustomWebhookResponse) HasObjAudit() bool`
+
+HasObjAudit returns a boolean if a field has been set.
 
 ### GetSWebhookEvent
 
@@ -566,6 +577,31 @@ SetEWebhookEmittype sets EWebhookEmittype field to given value.
 `func (o *CustomWebhookResponse) HasEWebhookEmittype() bool`
 
 HasEWebhookEmittype returns a boolean if a field has been set.
+
+### GetFkiEzmaxpartnerproductstagewebhookID
+
+`func (o *CustomWebhookResponse) GetFkiEzmaxpartnerproductstagewebhookID() int32`
+
+GetFkiEzmaxpartnerproductstagewebhookID returns the FkiEzmaxpartnerproductstagewebhookID field if non-nil, zero value otherwise.
+
+### GetFkiEzmaxpartnerproductstagewebhookIDOk
+
+`func (o *CustomWebhookResponse) GetFkiEzmaxpartnerproductstagewebhookIDOk() (*int32, bool)`
+
+GetFkiEzmaxpartnerproductstagewebhookIDOk returns a tuple with the FkiEzmaxpartnerproductstagewebhookID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiEzmaxpartnerproductstagewebhookID
+
+`func (o *CustomWebhookResponse) SetFkiEzmaxpartnerproductstagewebhookID(v int32)`
+
+SetFkiEzmaxpartnerproductstagewebhookID sets FkiEzmaxpartnerproductstagewebhookID field to given value.
+
+### HasFkiEzmaxpartnerproductstagewebhookID
+
+`func (o *CustomWebhookResponse) HasFkiEzmaxpartnerproductstagewebhookID() bool`
+
+HasFkiEzmaxpartnerproductstagewebhookID returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

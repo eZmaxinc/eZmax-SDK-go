@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **EEzsigntemplateType** | Pointer to [**FieldEEzsigntemplateType**](FieldEEzsigntemplateType.md) |  | [optional] 
 **ObjEzsigntemplatedocument** | Pointer to [**EzsigntemplatedocumentResponse**](EzsigntemplatedocumentResponse.md) |  | [optional] 
 **AObjEzsigntemplatesigner** | [**[]EzsigntemplatesignerResponseCompound**](EzsigntemplatesignerResponseCompound.md) |  | 
+**AObjEzsigntemplateannotation** | Pointer to [**[]EzsigntemplateannotationResponseCompound**](EzsigntemplateannotationResponseCompound.md) |  | [optional] 
 
 ## Methods
 
@@ -503,6 +504,31 @@ and a boolean to check if the value has been set.
 
 SetAObjEzsigntemplatesigner sets AObjEzsigntemplatesigner field to given value.
 
+
+### GetAObjEzsigntemplateannotation
+
+`func (o *EzsigntemplateResponseCompoundV3) GetAObjEzsigntemplateannotation() []EzsigntemplateannotationResponseCompound`
+
+GetAObjEzsigntemplateannotation returns the AObjEzsigntemplateannotation field if non-nil, zero value otherwise.
+
+### GetAObjEzsigntemplateannotationOk
+
+`func (o *EzsigntemplateResponseCompoundV3) GetAObjEzsigntemplateannotationOk() (*[]EzsigntemplateannotationResponseCompound, bool)`
+
+GetAObjEzsigntemplateannotationOk returns a tuple with the AObjEzsigntemplateannotation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAObjEzsigntemplateannotation
+
+`func (o *EzsigntemplateResponseCompoundV3) SetAObjEzsigntemplateannotation(v []EzsigntemplateannotationResponseCompound)`
+
+SetAObjEzsigntemplateannotation sets AObjEzsigntemplateannotation field to given value.
+
+### HasAObjEzsigntemplateannotation
+
+`func (o *EzsigntemplateResponseCompoundV3) HasAObjEzsigntemplateannotation() bool`
+
+HasAObjEzsigntemplateannotation returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

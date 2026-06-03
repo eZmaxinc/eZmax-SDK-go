@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **SEzsigntemplateglobalDescription** | **string** | The description of the Ezsigntemplate | 
 **ObjEzsigntemplateglobaldocument** | Pointer to [**EzsigntemplateglobaldocumentResponse**](EzsigntemplateglobaldocumentResponse.md) |  | [optional] 
 **AObjEzsigntemplateglobalsigner** | [**[]EzsigntemplateglobalsignerResponseCompound**](EzsigntemplateglobalsignerResponseCompound.md) |  | 
+**AObjEzsigntemplateglobalannotation** | Pointer to [**[]EzsigntemplateglobalannotationResponseCompound**](EzsigntemplateglobalannotationResponseCompound.md) |  | [optional] 
 
 ## Methods
 
@@ -285,6 +286,31 @@ and a boolean to check if the value has been set.
 
 SetAObjEzsigntemplateglobalsigner sets AObjEzsigntemplateglobalsigner field to given value.
 
+
+### GetAObjEzsigntemplateglobalannotation
+
+`func (o *EzsigntemplateglobalResponseCompound) GetAObjEzsigntemplateglobalannotation() []EzsigntemplateglobalannotationResponseCompound`
+
+GetAObjEzsigntemplateglobalannotation returns the AObjEzsigntemplateglobalannotation field if non-nil, zero value otherwise.
+
+### GetAObjEzsigntemplateglobalannotationOk
+
+`func (o *EzsigntemplateglobalResponseCompound) GetAObjEzsigntemplateglobalannotationOk() (*[]EzsigntemplateglobalannotationResponseCompound, bool)`
+
+GetAObjEzsigntemplateglobalannotationOk returns a tuple with the AObjEzsigntemplateglobalannotation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAObjEzsigntemplateglobalannotation
+
+`func (o *EzsigntemplateglobalResponseCompound) SetAObjEzsigntemplateglobalannotation(v []EzsigntemplateglobalannotationResponseCompound)`
+
+SetAObjEzsigntemplateglobalannotation sets AObjEzsigntemplateglobalannotation field to given value.
+
+### HasAObjEzsigntemplateglobalannotation
+
+`func (o *EzsigntemplateglobalResponseCompound) HasAObjEzsigntemplateglobalannotation() bool`
+
+HasAObjEzsigntemplateglobalannotation returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

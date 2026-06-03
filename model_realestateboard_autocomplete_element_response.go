@@ -22,7 +22,7 @@ var _ MappedNullable = &RealestateboardAutocompleteElementResponse{}
 
 // RealestateboardAutocompleteElementResponse A Realestateboard AutocompleteElement Response
 type RealestateboardAutocompleteElementResponse struct {
-	// The unique ID of the Activesession
+	// The unique ID of the Realestateboard
 	PkiRealestateboardID int32 `json:"pkiRealestateboardID"`
 	// The name of the Province in the language of the requester
 	SProvinceNameX string `json:"sProvinceNameX" validate:"regexp=^.{0,50}$"`

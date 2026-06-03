@@ -32,6 +32,8 @@ type UserResponse struct {
 	FkiAssistantID *int32 `json:"fkiAssistantID,omitempty"`
 	// The unique ID of the Employee.
 	FkiEmployeeID *int32 `json:"fkiEmployeeID,omitempty"`
+	// The unique ID of the Ezmaxpartner
+	FkiEzmaxpartnerID *int32 `json:"fkiEzmaxpartnerID,omitempty"`
 	// The unique ID of the Company
 	FkiCompanyIDDefault int32 `json:"fkiCompanyIDDefault"`
 	// The Name of the Company in the language of the requester
@@ -55,7 +57,7 @@ type UserResponse struct {
 	SBillingentityinternalDescriptionX string `json:"sBillingentityinternalDescriptionX"`
 	ObjPhoneHome *PhoneResponseCompound `json:"objPhoneHome,omitempty"`
 	ObjPhoneSMS *PhoneResponseCompound `json:"objPhoneSMS,omitempty"`
-	// The unique ID of the Secretquestion.  Valid values:  |Value|Description| |-|-| |1|The name of the hospital in which you were born| |2|The name of your grade school| |3|The last name of your favorite teacher| |4|Your favorite sports team| |5|Your favorite TV show| |6|Your favorite movie| |7|The name of the street on which you grew up| |8|The name of your first employer| |9|Your first car| |10|Your favorite food| |11|The name of your first pet| |12|Favorite musician/band| |13|What instrument you play| |14|Your father's middle name| |15|Your mother's maiden name| |16|Name of your eldest child| |17|Your spouse's middle name| |18|Favorite restaurant| |19|Childhood nickname| |20|Favorite vacation destination| |21|Your boat's name| |22|Date of Birth (YYYY-MM-DD)| |22|Secret Code| |22|Your reference code|
+	// The unique ID of the Secretquestion.  Valid values:  |Value|Description| |-|-| |1|The name of the hospital in which you were born| |2|The name of your grade school| |3|The last name of your favorite teacher| |4|Your favorite sports team| |5|Your favorite TV show| |6|Your favorite movie| |7|The name of the street on which you grew up| |8|The name of your first employer| |9|Your first car| |10|Your favorite food| |11|The name of your first pet| |12|Favorite musician/band| |13|What instrument you play| |14|Your father's middle name| |15|Your mother's maiden name| |16|Name of your eldest child| |17|Your spouse's middle name| |18|Favorite restaurant| |19|Childhood nickname| |20|Favorite vacation destination| |21|Your boat's name| |22|Date of Birth (YYYY-MM-DD)| |23|Secret Code| |24|Your reference code| |25|What are the last 4 digits of your SIN| |26|What is your postal code| |27|What is your employee number| |28|What is your manager’s first name| |29|What is your file number| |30|What is your client/member number| |31|What is your license number| |32|What are the last 4 digits of your phone number| |33|What is your student number|
 	FkiSecretquestionID *int32 `json:"fkiSecretquestionID,omitempty"`
 	// The unique ID of the Module
 	FkiModuleIDForm *int32 `json:"fkiModuleIDForm,omitempty"`
@@ -81,6 +83,8 @@ type UserResponse struct {
 	DtUserEzsignprepaidexpiration *string `json:"dtUserEzsignprepaidexpiration,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// Whether the User is active or not
 	BUserIsactive bool `json:"bUserIsactive"`
+	// Whether the User is suspended or not
+	BUserSuspended *bool `json:"bUserSuspended,omitempty"`
 	// Whether if the transactions in which the User is implicated must be validated by administrative personnel or not
 	BUserValidatebyadministration *bool `json:"bUserValidatebyadministration,omitempty"`
 	// Whether if the transactions in which the User is implicated must be validated by a director or not
@@ -89,6 +93,8 @@ type UserResponse struct {
 	BUserAttachmentautoverified *bool `json:"bUserAttachmentautoverified,omitempty"`
 	// Whether if the User is forced to change its password
 	BUserChangepassword bool `json:"bUserChangepassword"`
+	// Whether we group or not the Ezsigntemplate roles
+	BUserEzsigntemplaterolegrouping *bool `json:"bUserEzsigntemplaterolegrouping,omitempty"`
 	ObjAudit CommonAudit `json:"objAudit"`
 }
 
@@ -283,6 +289,38 @@ func (o *UserResponse) HasFkiEmployeeID() bool {
 // SetFkiEmployeeID gets a reference to the given int32 and assigns it to the FkiEmployeeID field.
 func (o *UserResponse) SetFkiEmployeeID(v int32) {
 	o.FkiEmployeeID = &v
+}
+
+// GetFkiEzmaxpartnerID returns the FkiEzmaxpartnerID field value if set, zero value otherwise.
+func (o *UserResponse) GetFkiEzmaxpartnerID() int32 {
+	if o == nil || IsNil(o.FkiEzmaxpartnerID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEzmaxpartnerID
+}
+
+// GetFkiEzmaxpartnerIDOk returns a tuple with the FkiEzmaxpartnerID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UserResponse) GetFkiEzmaxpartnerIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEzmaxpartnerID) {
+		return nil, false
+	}
+	return o.FkiEzmaxpartnerID, true
+}
+
+// HasFkiEzmaxpartnerID returns a boolean if a field has been set.
+func (o *UserResponse) HasFkiEzmaxpartnerID() bool {
+	if o != nil && !IsNil(o.FkiEzmaxpartnerID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzmaxpartnerID gets a reference to the given int32 and assigns it to the FkiEzmaxpartnerID field.
+func (o *UserResponse) SetFkiEzmaxpartnerID(v int32) {
+	o.FkiEzmaxpartnerID = &v
 }
 
 // GetFkiCompanyIDDefault returns the FkiCompanyIDDefault field value
@@ -1029,6 +1067,38 @@ func (o *UserResponse) SetBUserIsactive(v bool) {
 	o.BUserIsactive = v
 }
 
+// GetBUserSuspended returns the BUserSuspended field value if set, zero value otherwise.
+func (o *UserResponse) GetBUserSuspended() bool {
+	if o == nil || IsNil(o.BUserSuspended) {
+		var ret bool
+		return ret
+	}
+	return *o.BUserSuspended
+}
+
+// GetBUserSuspendedOk returns a tuple with the BUserSuspended field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UserResponse) GetBUserSuspendedOk() (*bool, bool) {
+	if o == nil || IsNil(o.BUserSuspended) {
+		return nil, false
+	}
+	return o.BUserSuspended, true
+}
+
+// HasBUserSuspended returns a boolean if a field has been set.
+func (o *UserResponse) HasBUserSuspended() bool {
+	if o != nil && !IsNil(o.BUserSuspended) {
+		return true
+	}
+
+	return false
+}
+
+// SetBUserSuspended gets a reference to the given bool and assigns it to the BUserSuspended field.
+func (o *UserResponse) SetBUserSuspended(v bool) {
+	o.BUserSuspended = &v
+}
+
 // GetBUserValidatebyadministration returns the BUserValidatebyadministration field value if set, zero value otherwise.
 func (o *UserResponse) GetBUserValidatebyadministration() bool {
 	if o == nil || IsNil(o.BUserValidatebyadministration) {
@@ -1149,6 +1219,38 @@ func (o *UserResponse) SetBUserChangepassword(v bool) {
 	o.BUserChangepassword = v
 }
 
+// GetBUserEzsigntemplaterolegrouping returns the BUserEzsigntemplaterolegrouping field value if set, zero value otherwise.
+func (o *UserResponse) GetBUserEzsigntemplaterolegrouping() bool {
+	if o == nil || IsNil(o.BUserEzsigntemplaterolegrouping) {
+		var ret bool
+		return ret
+	}
+	return *o.BUserEzsigntemplaterolegrouping
+}
+
+// GetBUserEzsigntemplaterolegroupingOk returns a tuple with the BUserEzsigntemplaterolegrouping field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UserResponse) GetBUserEzsigntemplaterolegroupingOk() (*bool, bool) {
+	if o == nil || IsNil(o.BUserEzsigntemplaterolegrouping) {
+		return nil, false
+	}
+	return o.BUserEzsigntemplaterolegrouping, true
+}
+
+// HasBUserEzsigntemplaterolegrouping returns a boolean if a field has been set.
+func (o *UserResponse) HasBUserEzsigntemplaterolegrouping() bool {
+	if o != nil && !IsNil(o.BUserEzsigntemplaterolegrouping) {
+		return true
+	}
+
+	return false
+}
+
+// SetBUserEzsigntemplaterolegrouping gets a reference to the given bool and assigns it to the BUserEzsigntemplaterolegrouping field.
+func (o *UserResponse) SetBUserEzsigntemplaterolegrouping(v bool) {
+	o.BUserEzsigntemplaterolegrouping = &v
+}
+
 // GetObjAudit returns the ObjAudit field value
 func (o *UserResponse) GetObjAudit() CommonAudit {
 	if o == nil {
@@ -1196,6 +1298,9 @@ func (o UserResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.FkiEmployeeID) {
 		toSerialize["fkiEmployeeID"] = o.FkiEmployeeID
 	}
+	if !IsNil(o.FkiEzmaxpartnerID) {
+		toSerialize["fkiEzmaxpartnerID"] = o.FkiEzmaxpartnerID
+	}
 	toSerialize["fkiCompanyIDDefault"] = o.FkiCompanyIDDefault
 	toSerialize["sCompanyNameX"] = o.SCompanyNameX
 	toSerialize["fkiDepartmentIDDefault"] = o.FkiDepartmentIDDefault
@@ -1242,6 +1347,9 @@ func (o UserResponse) ToMap() (map[string]interface{}, error) {
 		toSerialize["dtUserEzsignprepaidexpiration"] = o.DtUserEzsignprepaidexpiration
 	}
 	toSerialize["bUserIsactive"] = o.BUserIsactive
+	if !IsNil(o.BUserSuspended) {
+		toSerialize["bUserSuspended"] = o.BUserSuspended
+	}
 	if !IsNil(o.BUserValidatebyadministration) {
 		toSerialize["bUserValidatebyadministration"] = o.BUserValidatebyadministration
 	}
@@ -1252,6 +1360,9 @@ func (o UserResponse) ToMap() (map[string]interface{}, error) {
 		toSerialize["bUserAttachmentautoverified"] = o.BUserAttachmentautoverified
 	}
 	toSerialize["bUserChangepassword"] = o.BUserChangepassword
+	if !IsNil(o.BUserEzsigntemplaterolegrouping) {
+		toSerialize["bUserEzsigntemplaterolegrouping"] = o.BUserEzsigntemplaterolegrouping
+	}
 	toSerialize["objAudit"] = o.ObjAudit
 	return toSerialize, nil
 }

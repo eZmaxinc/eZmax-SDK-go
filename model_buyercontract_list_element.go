@@ -34,6 +34,8 @@ type BuyercontractListElement struct {
 	// The maximumprice of the Buyercontract
 	DBuyercontractMaximumprice string `json:"dBuyercontractMaximumprice" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
 	EBuyercontractType FieldEBuyercontractType `json:"eBuyercontractType"`
+	// The number of the Buyercontract
+	SBuyercontractContract *string `json:"sBuyercontractContract,omitempty"`
 	// The date of the Buyercontract
 	DtBuyercontractDate string `json:"dtBuyercontractDate" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// The expirationdate of the Buyercontract
@@ -244,6 +246,38 @@ func (o *BuyercontractListElement) SetEBuyercontractType(v FieldEBuyercontractTy
 	o.EBuyercontractType = v
 }
 
+// GetSBuyercontractContract returns the SBuyercontractContract field value if set, zero value otherwise.
+func (o *BuyercontractListElement) GetSBuyercontractContract() string {
+	if o == nil || IsNil(o.SBuyercontractContract) {
+		var ret string
+		return ret
+	}
+	return *o.SBuyercontractContract
+}
+
+// GetSBuyercontractContractOk returns a tuple with the SBuyercontractContract field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BuyercontractListElement) GetSBuyercontractContractOk() (*string, bool) {
+	if o == nil || IsNil(o.SBuyercontractContract) {
+		return nil, false
+	}
+	return o.SBuyercontractContract, true
+}
+
+// HasSBuyercontractContract returns a boolean if a field has been set.
+func (o *BuyercontractListElement) HasSBuyercontractContract() bool {
+	if o != nil && !IsNil(o.SBuyercontractContract) {
+		return true
+	}
+
+	return false
+}
+
+// SetSBuyercontractContract gets a reference to the given string and assigns it to the SBuyercontractContract field.
+func (o *BuyercontractListElement) SetSBuyercontractContract(v string) {
+	o.SBuyercontractContract = &v
+}
+
 // GetDtBuyercontractDate returns the DtBuyercontractDate field value
 func (o *BuyercontractListElement) GetDtBuyercontractDate() string {
 	if o == nil {
@@ -389,6 +423,9 @@ func (o BuyercontractListElement) ToMap() (map[string]interface{}, error) {
 	toSerialize["dBuyercontractMinimumprice"] = o.DBuyercontractMinimumprice
 	toSerialize["dBuyercontractMaximumprice"] = o.DBuyercontractMaximumprice
 	toSerialize["eBuyercontractType"] = o.EBuyercontractType
+	if !IsNil(o.SBuyercontractContract) {
+		toSerialize["sBuyercontractContract"] = o.SBuyercontractContract
+	}
 	toSerialize["dtBuyercontractDate"] = o.DtBuyercontractDate
 	if !IsNil(o.DtBuyercontractExpirationdate) {
 		toSerialize["dtBuyercontractExpirationdate"] = o.DtBuyercontractExpirationdate

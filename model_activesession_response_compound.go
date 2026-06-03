@@ -62,6 +62,8 @@ type ActivesessionResponseCompound struct {
 	EUserEzsignprepaid *FieldEUserEzsignprepaid `json:"eUserEzsignprepaid,omitempty"`
 	// Whether the User's eZsign subscription is a trial
 	BUserEzsigntrial *bool `json:"bUserEzsigntrial,omitempty"`
+	// Whether we group or not the Ezsigntemplate roles
+	BUserEzsigntemplaterolegrouping *bool `json:"bUserEzsigntemplaterolegrouping,omitempty"`
 	// The eZsign prepaid expiration date
 	DtUserEzsignprepaidexpiration *string `json:"dtUserEzsignprepaidexpiration,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// The date at which the NPS questionnaire will be show
@@ -73,6 +75,8 @@ type ActivesessionResponseCompound struct {
 	ObjApikey *ActivesessionResponseCompoundApikey `json:"objApikey,omitempty"`
 	// An Array of Registered modules.  These are the modules that are Licensed to be used by the User or the API Key.
 	AEModuleInternalname []string `json:"a_eModuleInternalname"`
+	// If you need to ask which mailing lists this user wants to subscribe to
+	BActivesessionMaillinglistrequest *bool `json:"bActivesessionMaillinglistrequest,omitempty"`
 }
 
 type _ActivesessionResponseCompound ActivesessionResponseCompound
@@ -813,6 +817,38 @@ func (o *ActivesessionResponseCompound) SetBUserEzsigntrial(v bool) {
 	o.BUserEzsigntrial = &v
 }
 
+// GetBUserEzsigntemplaterolegrouping returns the BUserEzsigntemplaterolegrouping field value if set, zero value otherwise.
+func (o *ActivesessionResponseCompound) GetBUserEzsigntemplaterolegrouping() bool {
+	if o == nil || IsNil(o.BUserEzsigntemplaterolegrouping) {
+		var ret bool
+		return ret
+	}
+	return *o.BUserEzsigntemplaterolegrouping
+}
+
+// GetBUserEzsigntemplaterolegroupingOk returns a tuple with the BUserEzsigntemplaterolegrouping field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ActivesessionResponseCompound) GetBUserEzsigntemplaterolegroupingOk() (*bool, bool) {
+	if o == nil || IsNil(o.BUserEzsigntemplaterolegrouping) {
+		return nil, false
+	}
+	return o.BUserEzsigntemplaterolegrouping, true
+}
+
+// HasBUserEzsigntemplaterolegrouping returns a boolean if a field has been set.
+func (o *ActivesessionResponseCompound) HasBUserEzsigntemplaterolegrouping() bool {
+	if o != nil && !IsNil(o.BUserEzsigntemplaterolegrouping) {
+		return true
+	}
+
+	return false
+}
+
+// SetBUserEzsigntemplaterolegrouping gets a reference to the given bool and assigns it to the BUserEzsigntemplaterolegrouping field.
+func (o *ActivesessionResponseCompound) SetBUserEzsigntemplaterolegrouping(v bool) {
+	o.BUserEzsigntemplaterolegrouping = &v
+}
+
 // GetDtUserEzsignprepaidexpiration returns the DtUserEzsignprepaidexpiration field value if set, zero value otherwise.
 func (o *ActivesessionResponseCompound) GetDtUserEzsignprepaidexpiration() string {
 	if o == nil || IsNil(o.DtUserEzsignprepaidexpiration) {
@@ -1013,6 +1049,38 @@ func (o *ActivesessionResponseCompound) SetAEModuleInternalname(v []string) {
 	o.AEModuleInternalname = v
 }
 
+// GetBActivesessionMaillinglistrequest returns the BActivesessionMaillinglistrequest field value if set, zero value otherwise.
+func (o *ActivesessionResponseCompound) GetBActivesessionMaillinglistrequest() bool {
+	if o == nil || IsNil(o.BActivesessionMaillinglistrequest) {
+		var ret bool
+		return ret
+	}
+	return *o.BActivesessionMaillinglistrequest
+}
+
+// GetBActivesessionMaillinglistrequestOk returns a tuple with the BActivesessionMaillinglistrequest field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ActivesessionResponseCompound) GetBActivesessionMaillinglistrequestOk() (*bool, bool) {
+	if o == nil || IsNil(o.BActivesessionMaillinglistrequest) {
+		return nil, false
+	}
+	return o.BActivesessionMaillinglistrequest, true
+}
+
+// HasBActivesessionMaillinglistrequest returns a boolean if a field has been set.
+func (o *ActivesessionResponseCompound) HasBActivesessionMaillinglistrequest() bool {
+	if o != nil && !IsNil(o.BActivesessionMaillinglistrequest) {
+		return true
+	}
+
+	return false
+}
+
+// SetBActivesessionMaillinglistrequest gets a reference to the given bool and assigns it to the BActivesessionMaillinglistrequest field.
+func (o *ActivesessionResponseCompound) SetBActivesessionMaillinglistrequest(v bool) {
+	o.BActivesessionMaillinglistrequest = &v
+}
+
 func (o ActivesessionResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1074,6 +1142,9 @@ func (o ActivesessionResponseCompound) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.BUserEzsigntrial) {
 		toSerialize["bUserEzsigntrial"] = o.BUserEzsigntrial
 	}
+	if !IsNil(o.BUserEzsigntemplaterolegrouping) {
+		toSerialize["bUserEzsigntemplaterolegrouping"] = o.BUserEzsigntemplaterolegrouping
+	}
 	if !IsNil(o.DtUserEzsignprepaidexpiration) {
 		toSerialize["dtUserEzsignprepaidexpiration"] = o.DtUserEzsignprepaidexpiration
 	}
@@ -1089,6 +1160,9 @@ func (o ActivesessionResponseCompound) ToMap() (map[string]interface{}, error) {
 		toSerialize["objApikey"] = o.ObjApikey
 	}
 	toSerialize["a_eModuleInternalname"] = o.AEModuleInternalname
+	if !IsNil(o.BActivesessionMaillinglistrequest) {
+		toSerialize["bActivesessionMaillinglistrequest"] = o.BActivesessionMaillinglistrequest
+	}
 	return toSerialize, nil
 }
 

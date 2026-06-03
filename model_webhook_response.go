@@ -23,7 +23,7 @@ var _ MappedNullable = &WebhookResponse{}
 // WebhookResponse A webhook object
 type WebhookResponse struct {
 	// The unique ID of the Webhook
-	PkiWebhookID int32 `json:"pkiWebhookID"`
+	PkiWebhookID *int32 `json:"pkiWebhookID,omitempty"`
 	// The unique ID of the Authenticationexternal
 	FkiAuthenticationexternalID *int32 `json:"fkiAuthenticationexternalID,omitempty"`
 	// The description of the Webhook
@@ -51,7 +51,7 @@ type WebhookResponse struct {
 	BWebhookSkipsslvalidation bool `json:"bWebhookSkipsslvalidation"`
 	// The description of the Authenticationexternal
 	SAuthenticationexternalDescription *string `json:"sAuthenticationexternalDescription,omitempty" validate:"regexp=^.{0,50}$"`
-	ObjAudit CommonAudit `json:"objAudit"`
+	ObjAudit *CommonAudit `json:"objAudit,omitempty"`
 }
 
 type _WebhookResponse WebhookResponse
@@ -60,9 +60,8 @@ type _WebhookResponse WebhookResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWebhookResponse(pkiWebhookID int32, sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookIsactive bool, bWebhookIssigned bool, bWebhookSkipsslvalidation bool, objAudit CommonAudit) *WebhookResponse {
+func NewWebhookResponse(sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookIsactive bool, bWebhookIssigned bool, bWebhookSkipsslvalidation bool) *WebhookResponse {
 	this := WebhookResponse{}
-	this.PkiWebhookID = pkiWebhookID
 	this.SWebhookDescription = sWebhookDescription
 	this.EWebhookModule = eWebhookModule
 	this.SWebhookUrl = sWebhookUrl
@@ -70,7 +69,6 @@ func NewWebhookResponse(pkiWebhookID int32, sWebhookDescription string, eWebhook
 	this.BWebhookIsactive = bWebhookIsactive
 	this.BWebhookIssigned = bWebhookIssigned
 	this.BWebhookSkipsslvalidation = bWebhookSkipsslvalidation
-	this.ObjAudit = objAudit
 	return &this
 }
 
@@ -82,28 +80,36 @@ func NewWebhookResponseWithDefaults() *WebhookResponse {
 	return &this
 }
 
-// GetPkiWebhookID returns the PkiWebhookID field value
+// GetPkiWebhookID returns the PkiWebhookID field value if set, zero value otherwise.
 func (o *WebhookResponse) GetPkiWebhookID() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.PkiWebhookID) {
 		var ret int32
 		return ret
 	}
-
-	return o.PkiWebhookID
+	return *o.PkiWebhookID
 }
 
-// GetPkiWebhookIDOk returns a tuple with the PkiWebhookID field value
+// GetPkiWebhookIDOk returns a tuple with the PkiWebhookID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WebhookResponse) GetPkiWebhookIDOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PkiWebhookID) {
 		return nil, false
 	}
-	return &o.PkiWebhookID, true
+	return o.PkiWebhookID, true
 }
 
-// SetPkiWebhookID sets field value
+// HasPkiWebhookID returns a boolean if a field has been set.
+func (o *WebhookResponse) HasPkiWebhookID() bool {
+	if o != nil && !IsNil(o.PkiWebhookID) {
+		return true
+	}
+
+	return false
+}
+
+// SetPkiWebhookID gets a reference to the given int32 and assigns it to the PkiWebhookID field.
 func (o *WebhookResponse) SetPkiWebhookID(v int32) {
-	o.PkiWebhookID = v
+	o.PkiWebhookID = &v
 }
 
 // GetFkiAuthenticationexternalID returns the FkiAuthenticationexternalID field value if set, zero value otherwise.
@@ -530,28 +536,36 @@ func (o *WebhookResponse) SetSAuthenticationexternalDescription(v string) {
 	o.SAuthenticationexternalDescription = &v
 }
 
-// GetObjAudit returns the ObjAudit field value
+// GetObjAudit returns the ObjAudit field value if set, zero value otherwise.
 func (o *WebhookResponse) GetObjAudit() CommonAudit {
-	if o == nil {
+	if o == nil || IsNil(o.ObjAudit) {
 		var ret CommonAudit
 		return ret
 	}
-
-	return o.ObjAudit
+	return *o.ObjAudit
 }
 
-// GetObjAuditOk returns a tuple with the ObjAudit field value
+// GetObjAuditOk returns a tuple with the ObjAudit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *WebhookResponse) GetObjAuditOk() (*CommonAudit, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ObjAudit) {
 		return nil, false
 	}
-	return &o.ObjAudit, true
+	return o.ObjAudit, true
 }
 
-// SetObjAudit sets field value
+// HasObjAudit returns a boolean if a field has been set.
+func (o *WebhookResponse) HasObjAudit() bool {
+	if o != nil && !IsNil(o.ObjAudit) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjAudit gets a reference to the given CommonAudit and assigns it to the ObjAudit field.
 func (o *WebhookResponse) SetObjAudit(v CommonAudit) {
-	o.ObjAudit = v
+	o.ObjAudit = &v
 }
 
 func (o WebhookResponse) MarshalJSON() ([]byte, error) {
@@ -564,7 +578,9 @@ func (o WebhookResponse) MarshalJSON() ([]byte, error) {
 
 func (o WebhookResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["pkiWebhookID"] = o.PkiWebhookID
+	if !IsNil(o.PkiWebhookID) {
+		toSerialize["pkiWebhookID"] = o.PkiWebhookID
+	}
 	if !IsNil(o.FkiAuthenticationexternalID) {
 		toSerialize["fkiAuthenticationexternalID"] = o.FkiAuthenticationexternalID
 	}
@@ -596,7 +612,9 @@ func (o WebhookResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.SAuthenticationexternalDescription) {
 		toSerialize["sAuthenticationexternalDescription"] = o.SAuthenticationexternalDescription
 	}
-	toSerialize["objAudit"] = o.ObjAudit
+	if !IsNil(o.ObjAudit) {
+		toSerialize["objAudit"] = o.ObjAudit
+	}
 	return toSerialize, nil
 }
 
@@ -605,7 +623,6 @@ func (o *WebhookResponse) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"pkiWebhookID",
 		"sWebhookDescription",
 		"eWebhookModule",
 		"sWebhookUrl",
@@ -613,7 +630,6 @@ func (o *WebhookResponse) UnmarshalJSON(data []byte) (err error) {
 		"bWebhookIsactive",
 		"bWebhookIssigned",
 		"bWebhookSkipsslvalidation",
-		"objAudit",
 	}
 
 	allProperties := make(map[string]interface{})

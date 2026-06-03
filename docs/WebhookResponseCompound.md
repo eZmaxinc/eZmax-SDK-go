@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PkiWebhookID** | **int32** | The unique ID of the Webhook | 
+**PkiWebhookID** | Pointer to **int32** | The unique ID of the Webhook | [optional] 
 **FkiAuthenticationexternalID** | Pointer to **int32** | The unique ID of the Authenticationexternal | [optional] 
 **SWebhookDescription** | **string** | The description of the Webhook | 
 **FkiEzsignfoldertypeID** | Pointer to **int32** | The unique ID of the Ezsignfoldertype. | [optional] 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **BWebhookIssigned** | **bool** | Whether the requests will be signed or not | 
 **BWebhookSkipsslvalidation** | **bool** | Wheter the server&#39;s SSL certificate should be validated or not. Not recommended to skip for production use | 
 **SAuthenticationexternalDescription** | Pointer to **string** | The description of the Authenticationexternal | [optional] 
-**ObjAudit** | [**CommonAudit**](CommonAudit.md) |  | 
+**ObjAudit** | Pointer to [**CommonAudit**](CommonAudit.md) |  | [optional] 
 **SWebhookEvent** | Pointer to **string** | The concatenated string to describe the Webhook event | [optional] 
 **SWebhookAuthentificationexternalerror** | Pointer to **string** | Error message when token renewal failed or is not configured. Only if an Authenticationexternal is set. | [optional] 
 **AObjWebhookheader** | Pointer to [**[]WebhookheaderResponseCompound**](WebhookheaderResponseCompound.md) |  | [optional] 
@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 ### NewWebhookResponseCompound
 
-`func NewWebhookResponseCompound(pkiWebhookID int32, sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookIsactive bool, bWebhookIssigned bool, bWebhookSkipsslvalidation bool, objAudit CommonAudit, ) *WebhookResponseCompound`
+`func NewWebhookResponseCompound(sWebhookDescription string, eWebhookModule FieldEWebhookModule, sWebhookUrl string, sWebhookEmailfailed string, bWebhookIsactive bool, bWebhookIssigned bool, bWebhookSkipsslvalidation bool, ) *WebhookResponseCompound`
 
 NewWebhookResponseCompound instantiates a new WebhookResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -63,6 +63,11 @@ and a boolean to check if the value has been set.
 
 SetPkiWebhookID sets PkiWebhookID field to given value.
 
+### HasPkiWebhookID
+
+`func (o *WebhookResponseCompound) HasPkiWebhookID() bool`
+
+HasPkiWebhookID returns a boolean if a field has been set.
 
 ### GetFkiAuthenticationexternalID
 
@@ -423,6 +428,11 @@ and a boolean to check if the value has been set.
 
 SetObjAudit sets ObjAudit field to given value.
 
+### HasObjAudit
+
+`func (o *WebhookResponseCompound) HasObjAudit() bool`
+
+HasObjAudit returns a boolean if a field has been set.
 
 ### GetSWebhookEvent
 

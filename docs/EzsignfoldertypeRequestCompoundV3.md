@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **EEzsignfoldertypePrivacylevel** | [**FieldEEzsignfoldertypePrivacylevel**](FieldEEzsignfoldertypePrivacylevel.md) |  | 
 **IEzsignfoldertypeFontsizeannotation** | Pointer to **int32** | Font size for annotations | [optional] 
 **IEzsignfoldertypeFontsizeformfield** | Pointer to **int32** | Font size for form fields | [optional] 
-**IEzsignfoldertypeSendreminderfirstdays** | Pointer to **int32** | The number of days before the the first reminder sending | [optional] 
+**IEzsignfoldertypeSendreminderfirstdays** | Pointer to **int32** | The number of days before the first reminder sending | [optional] 
 **IEzsignfoldertypeSendreminderotherdays** | Pointer to **int32** | The number of days after the first reminder sending | [optional] 
 **IEzsignfoldertypeArchivaldays** | **int32** | The number of days before the archival of Ezsignfolders created using this Ezsignfoldertype | 
 **EEzsignfoldertypeDisposal** | [**FieldEEzsignfoldertypeDisposal**](FieldEEzsignfoldertypeDisposal.md) |  | 
@@ -43,6 +43,10 @@ Name | Type | Description | Notes
 **BEzsignfoldertypeReassignezsignsigner** | Pointer to **bool** | Wheter if Reassignment of signature is allowed by a signatory to another signatory or not | [optional] 
 **BEzsignfoldertypeReassignuser** | Pointer to **bool** | Wheter if Reassignment of signature is allowed by a user to a signatory or another user or not | [optional] 
 **BEzsignfoldertypeReassigngroup** | Pointer to **bool** | Wheter if Reassignment of signatures of the groups to which the user belongs is authorized by a user to himself | [optional] 
+**BEzsignfoldertypeSenddocumentmergetoemail** | Pointer to **bool** | Whether we send the merged documents in the email to external recipient | [optional] 
+**BEzsignfoldertypeSenddocumentmergetoezsignsigner** | Pointer to **bool** | Whether we send the merged documents in the email to Ezsignsigner | [optional] 
+**BEzsignfoldertypeSenddocumentmergetoreceivealldocument** | Pointer to **bool** | Whether we send the merged documents in the email to user and Ezsignsigner who receive all documents. | [optional] 
+**BEzsignfoldertypeSenddocumentmergetouser** | Pointer to **bool** | Whether we send the merged documents in the email to User | [optional] 
 **BEzsignfoldertypeSendsignedtoezsignsigner** | Pointer to **bool** | Whether we send an email to Ezsignsigner  when document is completed | [optional] 
 **BEzsignfoldertypeSendsignedtouser** | Pointer to **bool** | Whether we send an email to User who signed when document is completed | [optional] 
 **BEzsignfoldertypeSendattachmentezsignsigner** | Pointer to **bool** | Whether we send the Ezsigndocument in the email to Ezsignsigner | [optional] 
@@ -1026,6 +1030,106 @@ SetBEzsignfoldertypeReassigngroup sets BEzsignfoldertypeReassigngroup field to g
 `func (o *EzsignfoldertypeRequestCompoundV3) HasBEzsignfoldertypeReassigngroup() bool`
 
 HasBEzsignfoldertypeReassigngroup returns a boolean if a field has been set.
+
+### GetBEzsignfoldertypeSenddocumentmergetoemail
+
+`func (o *EzsignfoldertypeRequestCompoundV3) GetBEzsignfoldertypeSenddocumentmergetoemail() bool`
+
+GetBEzsignfoldertypeSenddocumentmergetoemail returns the BEzsignfoldertypeSenddocumentmergetoemail field if non-nil, zero value otherwise.
+
+### GetBEzsignfoldertypeSenddocumentmergetoemailOk
+
+`func (o *EzsignfoldertypeRequestCompoundV3) GetBEzsignfoldertypeSenddocumentmergetoemailOk() (*bool, bool)`
+
+GetBEzsignfoldertypeSenddocumentmergetoemailOk returns a tuple with the BEzsignfoldertypeSenddocumentmergetoemail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsignfoldertypeSenddocumentmergetoemail
+
+`func (o *EzsignfoldertypeRequestCompoundV3) SetBEzsignfoldertypeSenddocumentmergetoemail(v bool)`
+
+SetBEzsignfoldertypeSenddocumentmergetoemail sets BEzsignfoldertypeSenddocumentmergetoemail field to given value.
+
+### HasBEzsignfoldertypeSenddocumentmergetoemail
+
+`func (o *EzsignfoldertypeRequestCompoundV3) HasBEzsignfoldertypeSenddocumentmergetoemail() bool`
+
+HasBEzsignfoldertypeSenddocumentmergetoemail returns a boolean if a field has been set.
+
+### GetBEzsignfoldertypeSenddocumentmergetoezsignsigner
+
+`func (o *EzsignfoldertypeRequestCompoundV3) GetBEzsignfoldertypeSenddocumentmergetoezsignsigner() bool`
+
+GetBEzsignfoldertypeSenddocumentmergetoezsignsigner returns the BEzsignfoldertypeSenddocumentmergetoezsignsigner field if non-nil, zero value otherwise.
+
+### GetBEzsignfoldertypeSenddocumentmergetoezsignsignerOk
+
+`func (o *EzsignfoldertypeRequestCompoundV3) GetBEzsignfoldertypeSenddocumentmergetoezsignsignerOk() (*bool, bool)`
+
+GetBEzsignfoldertypeSenddocumentmergetoezsignsignerOk returns a tuple with the BEzsignfoldertypeSenddocumentmergetoezsignsigner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsignfoldertypeSenddocumentmergetoezsignsigner
+
+`func (o *EzsignfoldertypeRequestCompoundV3) SetBEzsignfoldertypeSenddocumentmergetoezsignsigner(v bool)`
+
+SetBEzsignfoldertypeSenddocumentmergetoezsignsigner sets BEzsignfoldertypeSenddocumentmergetoezsignsigner field to given value.
+
+### HasBEzsignfoldertypeSenddocumentmergetoezsignsigner
+
+`func (o *EzsignfoldertypeRequestCompoundV3) HasBEzsignfoldertypeSenddocumentmergetoezsignsigner() bool`
+
+HasBEzsignfoldertypeSenddocumentmergetoezsignsigner returns a boolean if a field has been set.
+
+### GetBEzsignfoldertypeSenddocumentmergetoreceivealldocument
+
+`func (o *EzsignfoldertypeRequestCompoundV3) GetBEzsignfoldertypeSenddocumentmergetoreceivealldocument() bool`
+
+GetBEzsignfoldertypeSenddocumentmergetoreceivealldocument returns the BEzsignfoldertypeSenddocumentmergetoreceivealldocument field if non-nil, zero value otherwise.
+
+### GetBEzsignfoldertypeSenddocumentmergetoreceivealldocumentOk
+
+`func (o *EzsignfoldertypeRequestCompoundV3) GetBEzsignfoldertypeSenddocumentmergetoreceivealldocumentOk() (*bool, bool)`
+
+GetBEzsignfoldertypeSenddocumentmergetoreceivealldocumentOk returns a tuple with the BEzsignfoldertypeSenddocumentmergetoreceivealldocument field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsignfoldertypeSenddocumentmergetoreceivealldocument
+
+`func (o *EzsignfoldertypeRequestCompoundV3) SetBEzsignfoldertypeSenddocumentmergetoreceivealldocument(v bool)`
+
+SetBEzsignfoldertypeSenddocumentmergetoreceivealldocument sets BEzsignfoldertypeSenddocumentmergetoreceivealldocument field to given value.
+
+### HasBEzsignfoldertypeSenddocumentmergetoreceivealldocument
+
+`func (o *EzsignfoldertypeRequestCompoundV3) HasBEzsignfoldertypeSenddocumentmergetoreceivealldocument() bool`
+
+HasBEzsignfoldertypeSenddocumentmergetoreceivealldocument returns a boolean if a field has been set.
+
+### GetBEzsignfoldertypeSenddocumentmergetouser
+
+`func (o *EzsignfoldertypeRequestCompoundV3) GetBEzsignfoldertypeSenddocumentmergetouser() bool`
+
+GetBEzsignfoldertypeSenddocumentmergetouser returns the BEzsignfoldertypeSenddocumentmergetouser field if non-nil, zero value otherwise.
+
+### GetBEzsignfoldertypeSenddocumentmergetouserOk
+
+`func (o *EzsignfoldertypeRequestCompoundV3) GetBEzsignfoldertypeSenddocumentmergetouserOk() (*bool, bool)`
+
+GetBEzsignfoldertypeSenddocumentmergetouserOk returns a tuple with the BEzsignfoldertypeSenddocumentmergetouser field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsignfoldertypeSenddocumentmergetouser
+
+`func (o *EzsignfoldertypeRequestCompoundV3) SetBEzsignfoldertypeSenddocumentmergetouser(v bool)`
+
+SetBEzsignfoldertypeSenddocumentmergetouser sets BEzsignfoldertypeSenddocumentmergetouser field to given value.
+
+### HasBEzsignfoldertypeSenddocumentmergetouser
+
+`func (o *EzsignfoldertypeRequestCompoundV3) HasBEzsignfoldertypeSenddocumentmergetouser() bool`
+
+HasBEzsignfoldertypeSenddocumentmergetouser returns a boolean if a field has been set.
 
 ### GetBEzsignfoldertypeSendsignedtoezsignsigner
 

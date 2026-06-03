@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **SEzsignfolderDescription** | **string** | The description of the Ezsignfolder | 
 **TEzsignfolderNote** | Pointer to **string** | Note about the Ezsignfolder | [optional] 
 **BEzsignfolderIsdisposable** | Pointer to **bool** | If the Ezsigndocument can be disposed | [optional] 
-**IEzsignfolderSendreminderfirstdays** | Pointer to **int32** | The number of days before the the first reminder sending | [optional] 
+**IEzsignfolderSendreminderfirstdays** | Pointer to **int32** | The number of days before the first reminder sending | [optional] 
 **IEzsignfolderSendreminderotherdays** | Pointer to **int32** | The number of days after the first reminder sending | [optional] 
 **DtEzsignfolderDelayedsenddate** | Pointer to **string** | The date and time at which the Ezsignfolder will be sent in the future. | [optional] 
 **DtEzsignfolderDuedate** | Pointer to **string** | The maximum date and time at which the Ezsignfolder can be signed. | [optional] 
@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **DtEzsignfolderScheduledarchive** | Pointer to **string** | The scheduled date and time at which the Ezsignfolder should be archived. | [optional] 
 **DtEzsignfolderScheduleddispose** | Pointer to **string** | The scheduled date at which the Ezsignfolder should be Disposed. | [optional] 
 **EEzsignfolderStep** | Pointer to [**FieldEEzsignfolderStep**](FieldEEzsignfolderStep.md) |  | [optional] 
+**IEzsignfolderStepcurrent** | Pointer to **int32** | The current step of the ezsignfolder when eEzsignfolderCompletion &#x3D; &#39;PerEzsignfolderStepSync&#39; | [optional] 
 **DtEzsignfolderClose** | Pointer to **string** | The date and time at which the Ezsignfolder was closed. Either by applying the last signature or by completing it prematurely. | [optional] 
 **DtEzsignfolderArchive** | Pointer to **string** | The date and time at which the Ezsignfolder was archived. | [optional] 
 **DtEzsignfolderDispose** | Pointer to **string** | The date and time at which the Ezsignfolder was disposed. | [optional] 
@@ -588,6 +589,31 @@ SetEEzsignfolderStep sets EEzsignfolderStep field to given value.
 `func (o *EzsignfolderResponseV3) HasEEzsignfolderStep() bool`
 
 HasEEzsignfolderStep returns a boolean if a field has been set.
+
+### GetIEzsignfolderStepcurrent
+
+`func (o *EzsignfolderResponseV3) GetIEzsignfolderStepcurrent() int32`
+
+GetIEzsignfolderStepcurrent returns the IEzsignfolderStepcurrent field if non-nil, zero value otherwise.
+
+### GetIEzsignfolderStepcurrentOk
+
+`func (o *EzsignfolderResponseV3) GetIEzsignfolderStepcurrentOk() (*int32, bool)`
+
+GetIEzsignfolderStepcurrentOk returns a tuple with the IEzsignfolderStepcurrent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIEzsignfolderStepcurrent
+
+`func (o *EzsignfolderResponseV3) SetIEzsignfolderStepcurrent(v int32)`
+
+SetIEzsignfolderStepcurrent sets IEzsignfolderStepcurrent field to given value.
+
+### HasIEzsignfolderStepcurrent
+
+`func (o *EzsignfolderResponseV3) HasIEzsignfolderStepcurrent() bool`
+
+HasIEzsignfolderStepcurrent returns a boolean if a field has been set.
 
 ### GetDtEzsignfolderClose
 

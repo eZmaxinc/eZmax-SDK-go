@@ -24,13 +24,13 @@ var _ MappedNullable = &CustomDiscussionconfigurationResponse{}
 type CustomDiscussionconfigurationResponse struct {
 	// If the added Discussionmembership will have access to the entire history or not
 	BDiscussionconfigurationCompletehistorywhenadded bool `json:"bDiscussionconfigurationCompletehistorywhenadded"`
-	// If the the creation of the Discussion is allowed or not
+	// If the creation of the Discussion is allowed or not
 	BDiscussionconfigurationCreateallowed bool `json:"bDiscussionconfigurationCreateallowed"`
-	// If the the destruction of the Discussion is allowed or not
+	// If the destruction of the Discussion is allowed or not
 	BDiscussionconfigurationDeleteallowed bool `json:"bDiscussionconfigurationDeleteallowed"`
-	// If the the destruction of the Discussionmessage is allowed or not
+	// If the destruction of the Discussionmessage is allowed or not
 	BDiscussionconfigurationDeletediscussionmessageallowed bool `json:"bDiscussionconfigurationDeletediscussionmessageallowed"`
-	// If the the creation of the Discussionmessage is allowed or not
+	// If the creation of the Discussionmessage is allowed or not
 	BDiscussionconfigurationEditdiscussionmessageallowed bool `json:"bDiscussionconfigurationEditdiscussionmessageallowed"`
 }
 

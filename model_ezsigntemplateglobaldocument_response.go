@@ -26,6 +26,7 @@ type EzsigntemplateglobaldocumentResponse struct {
 	PkiEzsigntemplateglobaldocumentID int32 `json:"pkiEzsigntemplateglobaldocumentID"`
 	// The name of the Ezsigntemplateglobaldocument.
 	SEzsigntemplateglobaldocumentName string `json:"sEzsigntemplateglobaldocumentName"`
+	EEzsigntemplateglobaldocumentAcceptationtype FieldEEzsigntemplateglobaldocumentAcceptationtype `json:"eEzsigntemplateglobaldocumentAcceptationtype"`
 	// The number of pages in the Ezsigntemplateglobaldocument.
 	IEzsigntemplateglobaldocumentPagetotal int32 `json:"iEzsigntemplateglobaldocumentPagetotal"`
 	// The number of total signatures in the Ezsigntemplateglobal.
@@ -38,10 +39,11 @@ type _EzsigntemplateglobaldocumentResponse EzsigntemplateglobaldocumentResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigntemplateglobaldocumentResponse(pkiEzsigntemplateglobaldocumentID int32, sEzsigntemplateglobaldocumentName string, iEzsigntemplateglobaldocumentPagetotal int32, iEzsigntemplateglobaldocumentSignaturetotal int32) *EzsigntemplateglobaldocumentResponse {
+func NewEzsigntemplateglobaldocumentResponse(pkiEzsigntemplateglobaldocumentID int32, sEzsigntemplateglobaldocumentName string, eEzsigntemplateglobaldocumentAcceptationtype FieldEEzsigntemplateglobaldocumentAcceptationtype, iEzsigntemplateglobaldocumentPagetotal int32, iEzsigntemplateglobaldocumentSignaturetotal int32) *EzsigntemplateglobaldocumentResponse {
 	this := EzsigntemplateglobaldocumentResponse{}
 	this.PkiEzsigntemplateglobaldocumentID = pkiEzsigntemplateglobaldocumentID
 	this.SEzsigntemplateglobaldocumentName = sEzsigntemplateglobaldocumentName
+	this.EEzsigntemplateglobaldocumentAcceptationtype = eEzsigntemplateglobaldocumentAcceptationtype
 	this.IEzsigntemplateglobaldocumentPagetotal = iEzsigntemplateglobaldocumentPagetotal
 	this.IEzsigntemplateglobaldocumentSignaturetotal = iEzsigntemplateglobaldocumentSignaturetotal
 	return &this
@@ -101,6 +103,30 @@ func (o *EzsigntemplateglobaldocumentResponse) GetSEzsigntemplateglobaldocumentN
 // SetSEzsigntemplateglobaldocumentName sets field value
 func (o *EzsigntemplateglobaldocumentResponse) SetSEzsigntemplateglobaldocumentName(v string) {
 	o.SEzsigntemplateglobaldocumentName = v
+}
+
+// GetEEzsigntemplateglobaldocumentAcceptationtype returns the EEzsigntemplateglobaldocumentAcceptationtype field value
+func (o *EzsigntemplateglobaldocumentResponse) GetEEzsigntemplateglobaldocumentAcceptationtype() FieldEEzsigntemplateglobaldocumentAcceptationtype {
+	if o == nil {
+		var ret FieldEEzsigntemplateglobaldocumentAcceptationtype
+		return ret
+	}
+
+	return o.EEzsigntemplateglobaldocumentAcceptationtype
+}
+
+// GetEEzsigntemplateglobaldocumentAcceptationtypeOk returns a tuple with the EEzsigntemplateglobaldocumentAcceptationtype field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateglobaldocumentResponse) GetEEzsigntemplateglobaldocumentAcceptationtypeOk() (*FieldEEzsigntemplateglobaldocumentAcceptationtype, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EEzsigntemplateglobaldocumentAcceptationtype, true
+}
+
+// SetEEzsigntemplateglobaldocumentAcceptationtype sets field value
+func (o *EzsigntemplateglobaldocumentResponse) SetEEzsigntemplateglobaldocumentAcceptationtype(v FieldEEzsigntemplateglobaldocumentAcceptationtype) {
+	o.EEzsigntemplateglobaldocumentAcceptationtype = v
 }
 
 // GetIEzsigntemplateglobaldocumentPagetotal returns the IEzsigntemplateglobaldocumentPagetotal field value
@@ -163,6 +189,7 @@ func (o EzsigntemplateglobaldocumentResponse) ToMap() (map[string]interface{}, e
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiEzsigntemplateglobaldocumentID"] = o.PkiEzsigntemplateglobaldocumentID
 	toSerialize["sEzsigntemplateglobaldocumentName"] = o.SEzsigntemplateglobaldocumentName
+	toSerialize["eEzsigntemplateglobaldocumentAcceptationtype"] = o.EEzsigntemplateglobaldocumentAcceptationtype
 	toSerialize["iEzsigntemplateglobaldocumentPagetotal"] = o.IEzsigntemplateglobaldocumentPagetotal
 	toSerialize["iEzsigntemplateglobaldocumentSignaturetotal"] = o.IEzsigntemplateglobaldocumentSignaturetotal
 	return toSerialize, nil
@@ -175,6 +202,7 @@ func (o *EzsigntemplateglobaldocumentResponse) UnmarshalJSON(data []byte) (err e
 	requiredProperties := []string{
 		"pkiEzsigntemplateglobaldocumentID",
 		"sEzsigntemplateglobaldocumentName",
+		"eEzsigntemplateglobaldocumentAcceptationtype",
 		"iEzsigntemplateglobaldocumentPagetotal",
 		"iEzsigntemplateglobaldocumentSignaturetotal",
 	}

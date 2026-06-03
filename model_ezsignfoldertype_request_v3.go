@@ -57,7 +57,7 @@ type EzsignfoldertypeRequestV3 struct {
 	IEzsignfoldertypeFontsizeannotation *int32 `json:"iEzsignfoldertypeFontsizeannotation,omitempty"`
 	// Font size for form fields
 	IEzsignfoldertypeFontsizeformfield *int32 `json:"iEzsignfoldertypeFontsizeformfield,omitempty"`
-	// The number of days before the the first reminder sending
+	// The number of days before the first reminder sending
 	IEzsignfoldertypeSendreminderfirstdays *int32 `json:"iEzsignfoldertypeSendreminderfirstdays,omitempty"`
 	// The number of days after the first reminder sending
 	IEzsignfoldertypeSendreminderotherdays *int32 `json:"iEzsignfoldertypeSendreminderotherdays,omitempty"`
@@ -87,6 +87,14 @@ type EzsignfoldertypeRequestV3 struct {
 	BEzsignfoldertypeReassignuser *bool `json:"bEzsignfoldertypeReassignuser,omitempty"`
 	// Wheter if Reassignment of signatures of the groups to which the user belongs is authorized by a user to himself
 	BEzsignfoldertypeReassigngroup *bool `json:"bEzsignfoldertypeReassigngroup,omitempty"`
+	// Whether we send the merged documents in the email to external recipient
+	BEzsignfoldertypeSenddocumentmergetoemail *bool `json:"bEzsignfoldertypeSenddocumentmergetoemail,omitempty"`
+	// Whether we send the merged documents in the email to Ezsignsigner
+	BEzsignfoldertypeSenddocumentmergetoezsignsigner *bool `json:"bEzsignfoldertypeSenddocumentmergetoezsignsigner,omitempty"`
+	// Whether we send the merged documents in the email to user and Ezsignsigner who receive all documents.
+	BEzsignfoldertypeSenddocumentmergetoreceivealldocument *bool `json:"bEzsignfoldertypeSenddocumentmergetoreceivealldocument,omitempty"`
+	// Whether we send the merged documents in the email to User
+	BEzsignfoldertypeSenddocumentmergetouser *bool `json:"bEzsignfoldertypeSenddocumentmergetouser,omitempty"`
 	// Whether we send an email to Ezsignsigner  when document is completed
 	BEzsignfoldertypeSendsignedtoezsignsigner *bool `json:"bEzsignfoldertypeSendsignedtoezsignsigner,omitempty"`
 	// Whether we send an email to User who signed when document is completed
@@ -1364,6 +1372,134 @@ func (o *EzsignfoldertypeRequestV3) SetBEzsignfoldertypeReassigngroup(v bool) {
 	o.BEzsignfoldertypeReassigngroup = &v
 }
 
+// GetBEzsignfoldertypeSenddocumentmergetoemail returns the BEzsignfoldertypeSenddocumentmergetoemail field value if set, zero value otherwise.
+func (o *EzsignfoldertypeRequestV3) GetBEzsignfoldertypeSenddocumentmergetoemail() bool {
+	if o == nil || IsNil(o.BEzsignfoldertypeSenddocumentmergetoemail) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignfoldertypeSenddocumentmergetoemail
+}
+
+// GetBEzsignfoldertypeSenddocumentmergetoemailOk returns a tuple with the BEzsignfoldertypeSenddocumentmergetoemail field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldertypeRequestV3) GetBEzsignfoldertypeSenddocumentmergetoemailOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignfoldertypeSenddocumentmergetoemail) {
+		return nil, false
+	}
+	return o.BEzsignfoldertypeSenddocumentmergetoemail, true
+}
+
+// HasBEzsignfoldertypeSenddocumentmergetoemail returns a boolean if a field has been set.
+func (o *EzsignfoldertypeRequestV3) HasBEzsignfoldertypeSenddocumentmergetoemail() bool {
+	if o != nil && !IsNil(o.BEzsignfoldertypeSenddocumentmergetoemail) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignfoldertypeSenddocumentmergetoemail gets a reference to the given bool and assigns it to the BEzsignfoldertypeSenddocumentmergetoemail field.
+func (o *EzsignfoldertypeRequestV3) SetBEzsignfoldertypeSenddocumentmergetoemail(v bool) {
+	o.BEzsignfoldertypeSenddocumentmergetoemail = &v
+}
+
+// GetBEzsignfoldertypeSenddocumentmergetoezsignsigner returns the BEzsignfoldertypeSenddocumentmergetoezsignsigner field value if set, zero value otherwise.
+func (o *EzsignfoldertypeRequestV3) GetBEzsignfoldertypeSenddocumentmergetoezsignsigner() bool {
+	if o == nil || IsNil(o.BEzsignfoldertypeSenddocumentmergetoezsignsigner) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignfoldertypeSenddocumentmergetoezsignsigner
+}
+
+// GetBEzsignfoldertypeSenddocumentmergetoezsignsignerOk returns a tuple with the BEzsignfoldertypeSenddocumentmergetoezsignsigner field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldertypeRequestV3) GetBEzsignfoldertypeSenddocumentmergetoezsignsignerOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignfoldertypeSenddocumentmergetoezsignsigner) {
+		return nil, false
+	}
+	return o.BEzsignfoldertypeSenddocumentmergetoezsignsigner, true
+}
+
+// HasBEzsignfoldertypeSenddocumentmergetoezsignsigner returns a boolean if a field has been set.
+func (o *EzsignfoldertypeRequestV3) HasBEzsignfoldertypeSenddocumentmergetoezsignsigner() bool {
+	if o != nil && !IsNil(o.BEzsignfoldertypeSenddocumentmergetoezsignsigner) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignfoldertypeSenddocumentmergetoezsignsigner gets a reference to the given bool and assigns it to the BEzsignfoldertypeSenddocumentmergetoezsignsigner field.
+func (o *EzsignfoldertypeRequestV3) SetBEzsignfoldertypeSenddocumentmergetoezsignsigner(v bool) {
+	o.BEzsignfoldertypeSenddocumentmergetoezsignsigner = &v
+}
+
+// GetBEzsignfoldertypeSenddocumentmergetoreceivealldocument returns the BEzsignfoldertypeSenddocumentmergetoreceivealldocument field value if set, zero value otherwise.
+func (o *EzsignfoldertypeRequestV3) GetBEzsignfoldertypeSenddocumentmergetoreceivealldocument() bool {
+	if o == nil || IsNil(o.BEzsignfoldertypeSenddocumentmergetoreceivealldocument) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignfoldertypeSenddocumentmergetoreceivealldocument
+}
+
+// GetBEzsignfoldertypeSenddocumentmergetoreceivealldocumentOk returns a tuple with the BEzsignfoldertypeSenddocumentmergetoreceivealldocument field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldertypeRequestV3) GetBEzsignfoldertypeSenddocumentmergetoreceivealldocumentOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignfoldertypeSenddocumentmergetoreceivealldocument) {
+		return nil, false
+	}
+	return o.BEzsignfoldertypeSenddocumentmergetoreceivealldocument, true
+}
+
+// HasBEzsignfoldertypeSenddocumentmergetoreceivealldocument returns a boolean if a field has been set.
+func (o *EzsignfoldertypeRequestV3) HasBEzsignfoldertypeSenddocumentmergetoreceivealldocument() bool {
+	if o != nil && !IsNil(o.BEzsignfoldertypeSenddocumentmergetoreceivealldocument) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignfoldertypeSenddocumentmergetoreceivealldocument gets a reference to the given bool and assigns it to the BEzsignfoldertypeSenddocumentmergetoreceivealldocument field.
+func (o *EzsignfoldertypeRequestV3) SetBEzsignfoldertypeSenddocumentmergetoreceivealldocument(v bool) {
+	o.BEzsignfoldertypeSenddocumentmergetoreceivealldocument = &v
+}
+
+// GetBEzsignfoldertypeSenddocumentmergetouser returns the BEzsignfoldertypeSenddocumentmergetouser field value if set, zero value otherwise.
+func (o *EzsignfoldertypeRequestV3) GetBEzsignfoldertypeSenddocumentmergetouser() bool {
+	if o == nil || IsNil(o.BEzsignfoldertypeSenddocumentmergetouser) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignfoldertypeSenddocumentmergetouser
+}
+
+// GetBEzsignfoldertypeSenddocumentmergetouserOk returns a tuple with the BEzsignfoldertypeSenddocumentmergetouser field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldertypeRequestV3) GetBEzsignfoldertypeSenddocumentmergetouserOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignfoldertypeSenddocumentmergetouser) {
+		return nil, false
+	}
+	return o.BEzsignfoldertypeSenddocumentmergetouser, true
+}
+
+// HasBEzsignfoldertypeSenddocumentmergetouser returns a boolean if a field has been set.
+func (o *EzsignfoldertypeRequestV3) HasBEzsignfoldertypeSenddocumentmergetouser() bool {
+	if o != nil && !IsNil(o.BEzsignfoldertypeSenddocumentmergetouser) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignfoldertypeSenddocumentmergetouser gets a reference to the given bool and assigns it to the BEzsignfoldertypeSenddocumentmergetouser field.
+func (o *EzsignfoldertypeRequestV3) SetBEzsignfoldertypeSenddocumentmergetouser(v bool) {
+	o.BEzsignfoldertypeSenddocumentmergetouser = &v
+}
+
 // GetBEzsignfoldertypeSendsignedtoezsignsigner returns the BEzsignfoldertypeSendsignedtoezsignsigner field value if set, zero value otherwise.
 func (o *EzsignfoldertypeRequestV3) GetBEzsignfoldertypeSendsignedtoezsignsigner() bool {
 	if o == nil || IsNil(o.BEzsignfoldertypeSendsignedtoezsignsigner) {
@@ -2282,6 +2418,18 @@ func (o EzsignfoldertypeRequestV3) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.BEzsignfoldertypeReassigngroup) {
 		toSerialize["bEzsignfoldertypeReassigngroup"] = o.BEzsignfoldertypeReassigngroup
+	}
+	if !IsNil(o.BEzsignfoldertypeSenddocumentmergetoemail) {
+		toSerialize["bEzsignfoldertypeSenddocumentmergetoemail"] = o.BEzsignfoldertypeSenddocumentmergetoemail
+	}
+	if !IsNil(o.BEzsignfoldertypeSenddocumentmergetoezsignsigner) {
+		toSerialize["bEzsignfoldertypeSenddocumentmergetoezsignsigner"] = o.BEzsignfoldertypeSenddocumentmergetoezsignsigner
+	}
+	if !IsNil(o.BEzsignfoldertypeSenddocumentmergetoreceivealldocument) {
+		toSerialize["bEzsignfoldertypeSenddocumentmergetoreceivealldocument"] = o.BEzsignfoldertypeSenddocumentmergetoreceivealldocument
+	}
+	if !IsNil(o.BEzsignfoldertypeSenddocumentmergetouser) {
+		toSerialize["bEzsignfoldertypeSenddocumentmergetouser"] = o.BEzsignfoldertypeSenddocumentmergetouser
 	}
 	if !IsNil(o.BEzsignfoldertypeSendsignedtoezsignsigner) {
 		toSerialize["bEzsignfoldertypeSendsignedtoezsignsigner"] = o.BEzsignfoldertypeSendsignedtoezsignsigner

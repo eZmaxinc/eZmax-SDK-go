@@ -32,6 +32,8 @@ type UserListElement struct {
 	SUserLoginname string "json:\"sUserLoginname\" validate:\"regexp=^(?:([\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$\""
 	// Whether the User is active or not
 	BUserIsactive bool `json:"bUserIsactive"`
+	// Whether the User is suspended or not
+	BUserSuspended *bool `json:"bUserSuspended,omitempty"`
 	EUserType FieldEUserType `json:"eUserType"`
 	EUserOrigin FieldEUserOrigin `json:"eUserOrigin"`
 	EUserEzsignaccess FieldEUserEzsignaccess `json:"eUserEzsignaccess"`
@@ -189,6 +191,38 @@ func (o *UserListElement) GetBUserIsactiveOk() (*bool, bool) {
 // SetBUserIsactive sets field value
 func (o *UserListElement) SetBUserIsactive(v bool) {
 	o.BUserIsactive = v
+}
+
+// GetBUserSuspended returns the BUserSuspended field value if set, zero value otherwise.
+func (o *UserListElement) GetBUserSuspended() bool {
+	if o == nil || IsNil(o.BUserSuspended) {
+		var ret bool
+		return ret
+	}
+	return *o.BUserSuspended
+}
+
+// GetBUserSuspendedOk returns a tuple with the BUserSuspended field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UserListElement) GetBUserSuspendedOk() (*bool, bool) {
+	if o == nil || IsNil(o.BUserSuspended) {
+		return nil, false
+	}
+	return o.BUserSuspended, true
+}
+
+// HasBUserSuspended returns a boolean if a field has been set.
+func (o *UserListElement) HasBUserSuspended() bool {
+	if o != nil && !IsNil(o.BUserSuspended) {
+		return true
+	}
+
+	return false
+}
+
+// SetBUserSuspended gets a reference to the given bool and assigns it to the BUserSuspended field.
+func (o *UserListElement) SetBUserSuspended(v bool) {
+	o.BUserSuspended = &v
 }
 
 // GetEUserType returns the EUserType field value
@@ -366,6 +400,9 @@ func (o UserListElement) ToMap() (map[string]interface{}, error) {
 	toSerialize["sUserLastname"] = o.SUserLastname
 	toSerialize["sUserLoginname"] = o.SUserLoginname
 	toSerialize["bUserIsactive"] = o.BUserIsactive
+	if !IsNil(o.BUserSuspended) {
+		toSerialize["bUserSuspended"] = o.BUserSuspended
+	}
 	toSerialize["eUserType"] = o.EUserType
 	toSerialize["eUserOrigin"] = o.EUserOrigin
 	toSerialize["eUserEzsignaccess"] = o.EUserEzsignaccess

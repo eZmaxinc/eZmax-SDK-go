@@ -8,20 +8,20 @@ Name | Type | Description | Notes
 **FkiLanguageID** | **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
 **FkiEzsignfoldertypeID** | Pointer to **int32** | The unique ID of the Ezsignfoldertype. | [optional] 
 **FkiEzdoctemplatetypeID** | **int32** | The unique ID of the Ezdoctemplatetype | 
-**FkiEzdoctemplatefieldtypecategoryID** | **int32** | The unique ID of the Ezdoctemplatefieldtypecategory | 
+**FkiEzdoctemplatefieldtypecategoryID** | Pointer to **int32** | The unique ID of the Ezdoctemplatefieldtypecategory | [optional] 
 **EEzdoctemplatedocumentPrivacylevel** | Pointer to [**FieldEEzdoctemplatedocumentPrivacylevel**](FieldEEzdoctemplatedocumentPrivacylevel.md) |  | [optional] 
 **BEzdoctemplatedocumentIsactive** | **bool** | Whether the ezdoctemplatedocument is active or not | 
 **ObjEzdoctemplatedocumentName** | [**MultilingualEzdoctemplatedocumentName**](MultilingualEzdoctemplatedocumentName.md) |  | 
 **SEzdoctemplatedocumentNameX** | Pointer to **string** | The name of the Ezdoctemplatedocument in the language of the requester | [optional] 
 **SEzsignfoldertypeNameX** | Pointer to **string** | The name of the Ezsignfoldertype in the language of the requester | [optional] 
-**SEzdoctemplatefieldtypecategoryDescriptionX** | **string** | The description of the Ezdoctemplatefieldtypecategory in the language of the requester | 
+**SEzdoctemplatefieldtypecategoryDescriptionX** | Pointer to **string** | The description of the Ezdoctemplatefieldtypecategory in the language of the requester | [optional] 
 **SEzdoctemplatetypeDescriptionX** | **string** | The description of the Ezdoctemplatetype in the language of the requester | 
 
 ## Methods
 
 ### NewEzdoctemplatedocumentResponse
 
-`func NewEzdoctemplatedocumentResponse(pkiEzdoctemplatedocumentID int32, fkiLanguageID int32, fkiEzdoctemplatetypeID int32, fkiEzdoctemplatefieldtypecategoryID int32, bEzdoctemplatedocumentIsactive bool, objEzdoctemplatedocumentName MultilingualEzdoctemplatedocumentName, sEzdoctemplatefieldtypecategoryDescriptionX string, sEzdoctemplatetypeDescriptionX string, ) *EzdoctemplatedocumentResponse`
+`func NewEzdoctemplatedocumentResponse(pkiEzdoctemplatedocumentID int32, fkiLanguageID int32, fkiEzdoctemplatetypeID int32, bEzdoctemplatedocumentIsactive bool, objEzdoctemplatedocumentName MultilingualEzdoctemplatedocumentName, sEzdoctemplatetypeDescriptionX string, ) *EzdoctemplatedocumentResponse`
 
 NewEzdoctemplatedocumentResponse instantiates a new EzdoctemplatedocumentResponse object
 This constructor will assign default values to properties that have it defined,
@@ -140,6 +140,11 @@ and a boolean to check if the value has been set.
 
 SetFkiEzdoctemplatefieldtypecategoryID sets FkiEzdoctemplatefieldtypecategoryID field to given value.
 
+### HasFkiEzdoctemplatefieldtypecategoryID
+
+`func (o *EzdoctemplatedocumentResponse) HasFkiEzdoctemplatefieldtypecategoryID() bool`
+
+HasFkiEzdoctemplatefieldtypecategoryID returns a boolean if a field has been set.
 
 ### GetEEzdoctemplatedocumentPrivacylevel
 
@@ -275,6 +280,11 @@ and a boolean to check if the value has been set.
 
 SetSEzdoctemplatefieldtypecategoryDescriptionX sets SEzdoctemplatefieldtypecategoryDescriptionX field to given value.
 
+### HasSEzdoctemplatefieldtypecategoryDescriptionX
+
+`func (o *EzdoctemplatedocumentResponse) HasSEzdoctemplatefieldtypecategoryDescriptionX() bool`
+
+HasSEzdoctemplatefieldtypecategoryDescriptionX returns a boolean if a field has been set.
 
 ### GetSEzdoctemplatetypeDescriptionX
 

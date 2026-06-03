@@ -46,6 +46,8 @@ The endpoint allows to create one or many elements at once.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiEzsignfoldertypeCreateObjectV3Request
+
+Deprecated
 */
 func (a *ObjectEzsignfoldertypeAPIService) EzsignfoldertypeCreateObjectV3(ctx context.Context) ApiEzsignfoldertypeCreateObjectV3Request {
 	return ApiEzsignfoldertypeCreateObjectV3Request{
@@ -56,6 +58,7 @@ func (a *ObjectEzsignfoldertypeAPIService) EzsignfoldertypeCreateObjectV3(ctx co
 
 // Execute executes the request
 //  @return EzsignfoldertypeCreateObjectV3Response
+// Deprecated
 func (a *ObjectEzsignfoldertypeAPIService) EzsignfoldertypeCreateObjectV3Execute(r ApiEzsignfoldertypeCreateObjectV3Request) (*EzsignfoldertypeCreateObjectV3Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
@@ -148,6 +151,130 @@ func (a *ObjectEzsignfoldertypeAPIService) EzsignfoldertypeCreateObjectV3Execute
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiEzsignfoldertypeCreateObjectV4Request struct {
+	ctx context.Context
+	ApiService *ObjectEzsignfoldertypeAPIService
+	ezsignfoldertypeCreateObjectV4Request *EzsignfoldertypeCreateObjectV4Request
+}
+
+func (r ApiEzsignfoldertypeCreateObjectV4Request) EzsignfoldertypeCreateObjectV4Request(ezsignfoldertypeCreateObjectV4Request EzsignfoldertypeCreateObjectV4Request) ApiEzsignfoldertypeCreateObjectV4Request {
+	r.ezsignfoldertypeCreateObjectV4Request = &ezsignfoldertypeCreateObjectV4Request
+	return r
+}
+
+func (r ApiEzsignfoldertypeCreateObjectV4Request) Execute() (*EzsignfoldertypeCreateObjectV4Response, *http.Response, error) {
+	return r.ApiService.EzsignfoldertypeCreateObjectV4Execute(r)
+}
+
+/*
+EzsignfoldertypeCreateObjectV4 Create a new Ezsignfoldertype
+
+The endpoint allows to create one or many elements at once.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiEzsignfoldertypeCreateObjectV4Request
+*/
+func (a *ObjectEzsignfoldertypeAPIService) EzsignfoldertypeCreateObjectV4(ctx context.Context) ApiEzsignfoldertypeCreateObjectV4Request {
+	return ApiEzsignfoldertypeCreateObjectV4Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return EzsignfoldertypeCreateObjectV4Response
+func (a *ObjectEzsignfoldertypeAPIService) EzsignfoldertypeCreateObjectV4Execute(r ApiEzsignfoldertypeCreateObjectV4Request) (*EzsignfoldertypeCreateObjectV4Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EzsignfoldertypeCreateObjectV4Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfoldertypeAPIService.EzsignfoldertypeCreateObjectV4")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/4/object/ezsignfoldertype"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.ezsignfoldertypeCreateObjectV4Request == nil {
+		return localVarReturnValue, nil, reportError("ezsignfoldertypeCreateObjectV4Request is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.ezsignfoldertypeCreateObjectV4Request
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiEzsignfoldertypeEditObjectV3Request struct {
 	ctx context.Context
 	ApiService *ObjectEzsignfoldertypeAPIService
@@ -172,6 +299,8 @@ EzsignfoldertypeEditObjectV3 Edit an existing Ezsignfoldertype
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiEzsignfoldertypeID
  @return ApiEzsignfoldertypeEditObjectV3Request
+
+Deprecated
 */
 func (a *ObjectEzsignfoldertypeAPIService) EzsignfoldertypeEditObjectV3(ctx context.Context, pkiEzsignfoldertypeID int32) ApiEzsignfoldertypeEditObjectV3Request {
 	return ApiEzsignfoldertypeEditObjectV3Request{
@@ -183,6 +312,7 @@ func (a *ObjectEzsignfoldertypeAPIService) EzsignfoldertypeEditObjectV3(ctx cont
 
 // Execute executes the request
 //  @return EzsignfoldertypeEditObjectV3Response
+// Deprecated
 func (a *ObjectEzsignfoldertypeAPIService) EzsignfoldertypeEditObjectV3Execute(r ApiEzsignfoldertypeEditObjectV3Request) (*EzsignfoldertypeEditObjectV3Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
@@ -231,6 +361,161 @@ func (a *ObjectEzsignfoldertypeAPIService) EzsignfoldertypeEditObjectV3Execute(r
 	}
 	// body params
 	localVarPostBody = r.ezsignfoldertypeEditObjectV3Request
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiEzsignfoldertypeEditObjectV4Request struct {
+	ctx context.Context
+	ApiService *ObjectEzsignfoldertypeAPIService
+	pkiEzsignfoldertypeID int32
+	ezsignfoldertypeEditObjectV4Request *EzsignfoldertypeEditObjectV4Request
+}
+
+func (r ApiEzsignfoldertypeEditObjectV4Request) EzsignfoldertypeEditObjectV4Request(ezsignfoldertypeEditObjectV4Request EzsignfoldertypeEditObjectV4Request) ApiEzsignfoldertypeEditObjectV4Request {
+	r.ezsignfoldertypeEditObjectV4Request = &ezsignfoldertypeEditObjectV4Request
+	return r
+}
+
+func (r ApiEzsignfoldertypeEditObjectV4Request) Execute() (*EzsignfoldertypeEditObjectV4Response, *http.Response, error) {
+	return r.ApiService.EzsignfoldertypeEditObjectV4Execute(r)
+}
+
+/*
+EzsignfoldertypeEditObjectV4 Edit an existing Ezsignfoldertype
+
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiEzsignfoldertypeID
+ @return ApiEzsignfoldertypeEditObjectV4Request
+*/
+func (a *ObjectEzsignfoldertypeAPIService) EzsignfoldertypeEditObjectV4(ctx context.Context, pkiEzsignfoldertypeID int32) ApiEzsignfoldertypeEditObjectV4Request {
+	return ApiEzsignfoldertypeEditObjectV4Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiEzsignfoldertypeID: pkiEzsignfoldertypeID,
+	}
+}
+
+// Execute executes the request
+//  @return EzsignfoldertypeEditObjectV4Response
+func (a *ObjectEzsignfoldertypeAPIService) EzsignfoldertypeEditObjectV4Execute(r ApiEzsignfoldertypeEditObjectV4Request) (*EzsignfoldertypeEditObjectV4Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EzsignfoldertypeEditObjectV4Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignfoldertypeAPIService.EzsignfoldertypeEditObjectV4")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/4/object/ezsignfoldertype/{pkiEzsignfoldertypeID}"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsignfoldertypeID"+"}", url.PathEscape(parameterValueToString(r.pkiEzsignfoldertypeID, "pkiEzsignfoldertypeID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiEzsignfoldertypeID < 0 {
+		return localVarReturnValue, nil, reportError("pkiEzsignfoldertypeID must be greater than 0")
+	}
+	if r.pkiEzsignfoldertypeID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiEzsignfoldertypeID must be less than 65535")
+	}
+	if r.ezsignfoldertypeEditObjectV4Request == nil {
+		return localVarReturnValue, nil, reportError("ezsignfoldertypeEditObjectV4Request is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.ezsignfoldertypeEditObjectV4Request
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BDiscussionconfigurationCompletehistorywhenadded** | **bool** | If the added Discussionmembership will have access to the entire history or not | 
-**BDiscussionconfigurationCreateallowed** | **bool** | If the the creation of the Discussion is allowed or not | 
-**BDiscussionconfigurationDeleteallowed** | **bool** | If the the destruction of the Discussion is allowed or not | 
-**BDiscussionconfigurationDeletediscussionmessageallowed** | **bool** | If the the destruction of the Discussionmessage is allowed or not | 
-**BDiscussionconfigurationEditdiscussionmessageallowed** | **bool** | If the the creation of the Discussionmessage is allowed or not | 
+**BDiscussionconfigurationCreateallowed** | **bool** | If the creation of the Discussion is allowed or not | 
+**BDiscussionconfigurationDeleteallowed** | **bool** | If the destruction of the Discussion is allowed or not | 
+**BDiscussionconfigurationDeletediscussionmessageallowed** | **bool** | If the destruction of the Discussionmessage is allowed or not | 
+**BDiscussionconfigurationEditdiscussionmessageallowed** | **bool** | If the creation of the Discussionmessage is allowed or not | 
 
 ## Methods
 

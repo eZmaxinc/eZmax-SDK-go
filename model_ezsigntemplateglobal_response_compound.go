@@ -42,6 +42,7 @@ type EzsigntemplateglobalResponseCompound struct {
 	SEzsigntemplateglobalDescription string `json:"sEzsigntemplateglobalDescription"`
 	ObjEzsigntemplateglobaldocument *EzsigntemplateglobaldocumentResponse `json:"objEzsigntemplateglobaldocument,omitempty"`
 	AObjEzsigntemplateglobalsigner []EzsigntemplateglobalsignerResponseCompound `json:"a_objEzsigntemplateglobalsigner"`
+	AObjEzsigntemplateglobalannotation []EzsigntemplateglobalannotationResponseCompound `json:"a_objEzsigntemplateglobalannotation,omitempty"`
 }
 
 type _EzsigntemplateglobalResponseCompound EzsigntemplateglobalResponseCompound
@@ -377,6 +378,38 @@ func (o *EzsigntemplateglobalResponseCompound) SetAObjEzsigntemplateglobalsigner
 	o.AObjEzsigntemplateglobalsigner = v
 }
 
+// GetAObjEzsigntemplateglobalannotation returns the AObjEzsigntemplateglobalannotation field value if set, zero value otherwise.
+func (o *EzsigntemplateglobalResponseCompound) GetAObjEzsigntemplateglobalannotation() []EzsigntemplateglobalannotationResponseCompound {
+	if o == nil || IsNil(o.AObjEzsigntemplateglobalannotation) {
+		var ret []EzsigntemplateglobalannotationResponseCompound
+		return ret
+	}
+	return o.AObjEzsigntemplateglobalannotation
+}
+
+// GetAObjEzsigntemplateglobalannotationOk returns a tuple with the AObjEzsigntemplateglobalannotation field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateglobalResponseCompound) GetAObjEzsigntemplateglobalannotationOk() ([]EzsigntemplateglobalannotationResponseCompound, bool) {
+	if o == nil || IsNil(o.AObjEzsigntemplateglobalannotation) {
+		return nil, false
+	}
+	return o.AObjEzsigntemplateglobalannotation, true
+}
+
+// HasAObjEzsigntemplateglobalannotation returns a boolean if a field has been set.
+func (o *EzsigntemplateglobalResponseCompound) HasAObjEzsigntemplateglobalannotation() bool {
+	if o != nil && !IsNil(o.AObjEzsigntemplateglobalannotation) {
+		return true
+	}
+
+	return false
+}
+
+// SetAObjEzsigntemplateglobalannotation gets a reference to the given []EzsigntemplateglobalannotationResponseCompound and assigns it to the AObjEzsigntemplateglobalannotation field.
+func (o *EzsigntemplateglobalResponseCompound) SetAObjEzsigntemplateglobalannotation(v []EzsigntemplateglobalannotationResponseCompound) {
+	o.AObjEzsigntemplateglobalannotation = v
+}
+
 func (o EzsigntemplateglobalResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -403,6 +436,9 @@ func (o EzsigntemplateglobalResponseCompound) ToMap() (map[string]interface{}, e
 		toSerialize["objEzsigntemplateglobaldocument"] = o.ObjEzsigntemplateglobaldocument
 	}
 	toSerialize["a_objEzsigntemplateglobalsigner"] = o.AObjEzsigntemplateglobalsigner
+	if !IsNil(o.AObjEzsigntemplateglobalannotation) {
+		toSerialize["a_objEzsigntemplateglobalannotation"] = o.AObjEzsigntemplateglobalannotation
+	}
 	return toSerialize, nil
 }
 

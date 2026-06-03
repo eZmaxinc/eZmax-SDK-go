@@ -56,6 +56,8 @@ type APIClient struct {
 
 	GlobalEzmaxcustomerAPI *GlobalEzmaxcustomerAPIService
 
+	ModuleEzmaxmaillinglistAPI *ModuleEzmaxmaillinglistAPIService
+
 	ModuleReportAPI *ModuleReportAPIService
 
 	ModuleUserAPI *ModuleUserAPIService
@@ -137,6 +139,10 @@ type APIClient struct {
 	ObjectEzmaxcustomeruserAPI *ObjectEzmaxcustomeruserAPIService
 
 	ObjectEzmaxinvoicingAPI *ObjectEzmaxinvoicingAPIService
+
+	ObjectEzmaxmaillinglistAPI *ObjectEzmaxmaillinglistAPIService
+
+	ObjectEzmaxpartnerAPI *ObjectEzmaxpartnerAPIService
 
 	ObjectEzmaxproductAPI *ObjectEzmaxproductAPIService
 
@@ -342,6 +348,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.GlobalCustomerAPI = (*GlobalCustomerAPIService)(&c.common)
 	c.GlobalEzmaxclientAPI = (*GlobalEzmaxclientAPIService)(&c.common)
 	c.GlobalEzmaxcustomerAPI = (*GlobalEzmaxcustomerAPIService)(&c.common)
+	c.ModuleEzmaxmaillinglistAPI = (*ModuleEzmaxmaillinglistAPIService)(&c.common)
 	c.ModuleReportAPI = (*ModuleReportAPIService)(&c.common)
 	c.ModuleUserAPI = (*ModuleUserAPIService)(&c.common)
 	c.ObjectActivesessionAPI = (*ObjectActivesessionAPIService)(&c.common)
@@ -383,6 +390,8 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectEzmaxcustomerAPI = (*ObjectEzmaxcustomerAPIService)(&c.common)
 	c.ObjectEzmaxcustomeruserAPI = (*ObjectEzmaxcustomeruserAPIService)(&c.common)
 	c.ObjectEzmaxinvoicingAPI = (*ObjectEzmaxinvoicingAPIService)(&c.common)
+	c.ObjectEzmaxmaillinglistAPI = (*ObjectEzmaxmaillinglistAPIService)(&c.common)
+	c.ObjectEzmaxpartnerAPI = (*ObjectEzmaxpartnerAPIService)(&c.common)
 	c.ObjectEzmaxproductAPI = (*ObjectEzmaxproductAPIService)(&c.common)
 	c.ObjectEzsignannotationAPI = (*ObjectEzsignannotationAPIService)(&c.common)
 	c.ObjectEzsignbulksendAPI = (*ObjectEzsignbulksendAPIService)(&c.common)

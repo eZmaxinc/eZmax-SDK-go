@@ -41,15 +41,7 @@ import (
 
 func main() {
 	pkiEzsignbulksendID := int32(56) // int32 | 
-	ezsignbulksendCreateEzsignbulksendtransmissionV2Request := *openapiclient.NewEzsignbulksendCreateEzsignbulksendtransmissionV2Request(int32(2), "Test eZsign Bulk Send Transmission #1", "2020-12-31 23:59:59", int32(30), int32(30), "Hi John,
-
-This is the document I need you to review.
-
-Could you sign it before Monday please.
-
-Best Regards.
-
-Mary", string(123)) // EzsignbulksendCreateEzsignbulksendtransmissionV2Request | 
+	ezsignbulksendCreateEzsignbulksendtransmissionV2Request := *openapiclient.NewEzsignbulksendCreateEzsignbulksendtransmissionV2Request(int32(2), "Test eZsign Bulk Send Transmission #1", "2020-12-31 23:59:59", int32(30), int32(30), "Hi John,  This is the document I need you to review.  Could you sign it before Monday please.  Best Regards.  Mary", string(123)) // EzsignbulksendCreateEzsignbulksendtransmissionV2Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

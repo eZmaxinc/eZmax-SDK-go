@@ -47,7 +47,7 @@ type EzsignfolderResponseV3 struct {
 	TEzsignfolderNote *string `json:"tEzsignfolderNote,omitempty"`
 	// If the Ezsigndocument can be disposed
 	BEzsignfolderIsdisposable *bool `json:"bEzsignfolderIsdisposable,omitempty"`
-	// The number of days before the the first reminder sending
+	// The number of days before the first reminder sending
 	IEzsignfolderSendreminderfirstdays *int32 `json:"iEzsignfolderSendreminderfirstdays,omitempty"`
 	// The number of days after the first reminder sending
 	IEzsignfolderSendreminderotherdays *int32 `json:"iEzsignfolderSendreminderotherdays,omitempty"`
@@ -62,6 +62,8 @@ type EzsignfolderResponseV3 struct {
 	// The scheduled date at which the Ezsignfolder should be Disposed.
 	DtEzsignfolderScheduleddispose *string `json:"dtEzsignfolderScheduleddispose,omitempty"`
 	EEzsignfolderStep *FieldEEzsignfolderStep `json:"eEzsignfolderStep,omitempty"`
+	// The current step of the ezsignfolder when eEzsignfolderCompletion = 'PerEzsignfolderStepSync'
+	IEzsignfolderStepcurrent *int32 `json:"iEzsignfolderStepcurrent,omitempty"`
 	// The date and time at which the Ezsignfolder was closed. Either by applying the last signature or by completing it prematurely.
 	DtEzsignfolderClose *string `json:"dtEzsignfolderClose,omitempty"`
 	// The date and time at which the Ezsignfolder was archived.
@@ -786,6 +788,38 @@ func (o *EzsignfolderResponseV3) SetEEzsignfolderStep(v FieldEEzsignfolderStep) 
 	o.EEzsignfolderStep = &v
 }
 
+// GetIEzsignfolderStepcurrent returns the IEzsignfolderStepcurrent field value if set, zero value otherwise.
+func (o *EzsignfolderResponseV3) GetIEzsignfolderStepcurrent() int32 {
+	if o == nil || IsNil(o.IEzsignfolderStepcurrent) {
+		var ret int32
+		return ret
+	}
+	return *o.IEzsignfolderStepcurrent
+}
+
+// GetIEzsignfolderStepcurrentOk returns a tuple with the IEzsignfolderStepcurrent field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderResponseV3) GetIEzsignfolderStepcurrentOk() (*int32, bool) {
+	if o == nil || IsNil(o.IEzsignfolderStepcurrent) {
+		return nil, false
+	}
+	return o.IEzsignfolderStepcurrent, true
+}
+
+// HasIEzsignfolderStepcurrent returns a boolean if a field has been set.
+func (o *EzsignfolderResponseV3) HasIEzsignfolderStepcurrent() bool {
+	if o != nil && !IsNil(o.IEzsignfolderStepcurrent) {
+		return true
+	}
+
+	return false
+}
+
+// SetIEzsignfolderStepcurrent gets a reference to the given int32 and assigns it to the IEzsignfolderStepcurrent field.
+func (o *EzsignfolderResponseV3) SetIEzsignfolderStepcurrent(v int32) {
+	o.IEzsignfolderStepcurrent = &v
+}
+
 // GetDtEzsignfolderClose returns the DtEzsignfolderClose field value if set, zero value otherwise.
 func (o *EzsignfolderResponseV3) GetDtEzsignfolderClose() string {
 	if o == nil || IsNil(o.DtEzsignfolderClose) {
@@ -1111,6 +1145,9 @@ func (o EzsignfolderResponseV3) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.EEzsignfolderStep) {
 		toSerialize["eEzsignfolderStep"] = o.EEzsignfolderStep
+	}
+	if !IsNil(o.IEzsignfolderStepcurrent) {
+		toSerialize["iEzsignfolderStepcurrent"] = o.IEzsignfolderStepcurrent
 	}
 	if !IsNil(o.DtEzsignfolderClose) {
 		toSerialize["dtEzsignfolderClose"] = o.DtEzsignfolderClose

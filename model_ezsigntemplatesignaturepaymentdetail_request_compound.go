@@ -29,7 +29,7 @@ type EzsigntemplatesignaturepaymentdetailRequestCompound struct {
 	// A description for the Ezsignsignaturepaymentdetail.
 	TEzsigntemplatesignaturepaymentdetailDescription string `json:"tEzsigntemplatesignaturepaymentdetailDescription"`
 	// The amount of the for the Ezsignsignaturepaymentdetail
-	DEzsigntemplatesignaturepaymentdetailAmount string `json:"dEzsigntemplatesignaturepaymentdetailAmount" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	DEzsigntemplatesignaturepaymentdetailAmount string `json:"dEzsigntemplatesignaturepaymentdetailAmount" validate:"regexp=^[\\\\d]{1,3}?\\\\.[\\\\d]{2}$"`
 	EEzsigntemplatesignaturepaymentdetailTaxable FieldEEzsigntemplatesignaturepaymentdetailTaxable `json:"eEzsigntemplatesignaturepaymentdetailTaxable"`
 }
 

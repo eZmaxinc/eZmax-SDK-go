@@ -5,7 +5,9 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**EzsignfoldertypeCreateObjectV3**](ObjectEzsignfoldertypeAPI.md#EzsignfoldertypeCreateObjectV3) | **Post** /3/object/ezsignfoldertype | Create a new Ezsignfoldertype
+[**EzsignfoldertypeCreateObjectV4**](ObjectEzsignfoldertypeAPI.md#EzsignfoldertypeCreateObjectV4) | **Post** /4/object/ezsignfoldertype | Create a new Ezsignfoldertype
 [**EzsignfoldertypeEditObjectV3**](ObjectEzsignfoldertypeAPI.md#EzsignfoldertypeEditObjectV3) | **Put** /3/object/ezsignfoldertype/{pkiEzsignfoldertypeID} | Edit an existing Ezsignfoldertype
+[**EzsignfoldertypeEditObjectV4**](ObjectEzsignfoldertypeAPI.md#EzsignfoldertypeEditObjectV4) | **Put** /4/object/ezsignfoldertype/{pkiEzsignfoldertypeID} | Edit an existing Ezsignfoldertype
 [**EzsignfoldertypeGetAutocompleteV2**](ObjectEzsignfoldertypeAPI.md#EzsignfoldertypeGetAutocompleteV2) | **Get** /2/object/ezsignfoldertype/getAutocomplete/{sSelector} | Retrieve Ezsignfoldertypes and IDs
 [**EzsignfoldertypeGetListV1**](ObjectEzsignfoldertypeAPI.md#EzsignfoldertypeGetListV1) | **Get** /1/object/ezsignfoldertype/getList | Retrieve Ezsignfoldertype list
 [**EzsignfoldertypeGetObjectV2**](ObjectEzsignfoldertypeAPI.md#EzsignfoldertypeGetObjectV2) | **Get** /2/object/ezsignfoldertype/{pkiEzsignfoldertypeID} | Retrieve an existing Ezsignfoldertype
@@ -79,6 +81,72 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## EzsignfoldertypeCreateObjectV4
+
+> EzsignfoldertypeCreateObjectV4Response EzsignfoldertypeCreateObjectV4(ctx).EzsignfoldertypeCreateObjectV4Request(ezsignfoldertypeCreateObjectV4Request).Execute()
+
+Create a new Ezsignfoldertype
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	ezsignfoldertypeCreateObjectV4Request := *openapiclient.NewEzsignfoldertypeCreateObjectV4Request([]openapiclient.EzsignfoldertypeRequestCompoundV4{*openapiclient.NewEzsignfoldertypeRequestCompoundV4(*openapiclient.NewMultilingualEzsignfoldertypeName(), int32(78), []int32{int32(2)}, openapiclient.Field-eEzsignfoldertypeSignaturedatedisplay("Default"), openapiclient.Field-eEzsignfoldertypePrivacylevel("User"), int32(30), openapiclient.Field-eEzsignfoldertypeDisposal("No"), openapiclient.Field-eEzsignfoldertypeCompletion("PerEzsigndocument"), int32(5), false, false, false, false, false, false, true)}) // EzsignfoldertypeCreateObjectV4Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfoldertypeAPI.EzsignfoldertypeCreateObjectV4(context.Background()).EzsignfoldertypeCreateObjectV4Request(ezsignfoldertypeCreateObjectV4Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldertypeAPI.EzsignfoldertypeCreateObjectV4``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfoldertypeCreateObjectV4`: EzsignfoldertypeCreateObjectV4Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfoldertypeAPI.EzsignfoldertypeCreateObjectV4`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsignfoldertypeCreateObjectV4Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ezsignfoldertypeCreateObjectV4Request** | [**EzsignfoldertypeCreateObjectV4Request**](EzsignfoldertypeCreateObjectV4Request.md) |  | 
+
+### Return type
+
+[**EzsignfoldertypeCreateObjectV4Response**](EzsignfoldertypeCreateObjectV4Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## EzsignfoldertypeEditObjectV3
 
 > EzsignfoldertypeEditObjectV3Response EzsignfoldertypeEditObjectV3(ctx, pkiEzsignfoldertypeID).EzsignfoldertypeEditObjectV3Request(ezsignfoldertypeEditObjectV3Request).Execute()
@@ -136,6 +204,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignfoldertypeEditObjectV3Response**](EzsignfoldertypeEditObjectV3Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsignfoldertypeEditObjectV4
+
+> EzsignfoldertypeEditObjectV4Response EzsignfoldertypeEditObjectV4(ctx, pkiEzsignfoldertypeID).EzsignfoldertypeEditObjectV4Request(ezsignfoldertypeEditObjectV4Request).Execute()
+
+Edit an existing Ezsignfoldertype
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsignfoldertypeID := int32(56) // int32 | 
+	ezsignfoldertypeEditObjectV4Request := *openapiclient.NewEzsignfoldertypeEditObjectV4Request(*openapiclient.NewEzsignfoldertypeRequestCompoundV4(*openapiclient.NewMultilingualEzsignfoldertypeName(), int32(78), []int32{int32(2)}, openapiclient.Field-eEzsignfoldertypeSignaturedatedisplay("Default"), openapiclient.Field-eEzsignfoldertypePrivacylevel("User"), int32(30), openapiclient.Field-eEzsignfoldertypeDisposal("No"), openapiclient.Field-eEzsignfoldertypeCompletion("PerEzsigndocument"), int32(5), false, false, false, false, false, false, true)) // EzsignfoldertypeEditObjectV4Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfoldertypeAPI.EzsignfoldertypeEditObjectV4(context.Background(), pkiEzsignfoldertypeID).EzsignfoldertypeEditObjectV4Request(ezsignfoldertypeEditObjectV4Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldertypeAPI.EzsignfoldertypeEditObjectV4``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfoldertypeEditObjectV4`: EzsignfoldertypeEditObjectV4Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfoldertypeAPI.EzsignfoldertypeEditObjectV4`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsignfoldertypeID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsignfoldertypeEditObjectV4Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **ezsignfoldertypeEditObjectV4Request** | [**EzsignfoldertypeEditObjectV4Request**](EzsignfoldertypeEditObjectV4Request.md) |  | 
+
+### Return type
+
+[**EzsignfoldertypeEditObjectV4Response**](EzsignfoldertypeEditObjectV4Response.md)
 
 ### Authorization
 

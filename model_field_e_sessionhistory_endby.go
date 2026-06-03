@@ -35,6 +35,7 @@ const (
 	BAD_USER_TYPE FieldESessionhistoryEndby = "BadUserType"
 	BAD_IP FieldESessionhistoryEndby = "BadIP"
 	FORCED_LOGOFF FieldESessionhistoryEndby = "ForcedLogoff"
+	SUSPENDED FieldESessionhistoryEndby = "Suspended"
 )
 
 // All allowed values of FieldESessionhistoryEndby enum
@@ -53,6 +54,7 @@ var AllowedFieldESessionhistoryEndbyEnumValues = []FieldESessionhistoryEndby{
 	"BadUserType",
 	"BadIP",
 	"ForcedLogoff",
+	"Suspended",
 }
 
 func (v *FieldESessionhistoryEndby) UnmarshalJSON(src []byte) error {

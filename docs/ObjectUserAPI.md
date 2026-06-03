@@ -13,12 +13,14 @@ Method | HTTP request | Description
 [**UserGetAutocompleteV2**](ObjectUserAPI.md#UserGetAutocompleteV2) | **Get** /2/object/user/getAutocomplete/{sSelector} | Retrieve Users and IDs
 [**UserGetColleaguesV2**](ObjectUserAPI.md#UserGetColleaguesV2) | **Get** /2/object/user/{pkiUserID}/getColleagues | Retrieve an existing User&#39;s Colleagues
 [**UserGetEffectivePermissionsV1**](ObjectUserAPI.md#UserGetEffectivePermissionsV1) | **Get** /1/object/user/{pkiUserID}/getEffectivePermissions | Retrieve an existing User&#39;s Effective Permissions
+[**UserGetEzmaxcustomeruserV1**](ObjectUserAPI.md#UserGetEzmaxcustomeruserV1) | **Get** /1/object/user/{pkiUserID}/getEzmaxcustomeruser | Returns the Ezmaxcustomeruser for the User
 [**UserGetListV1**](ObjectUserAPI.md#UserGetListV1) | **Get** /1/object/user/getList | Retrieve User list
 [**UserGetObjectV2**](ObjectUserAPI.md#UserGetObjectV2) | **Get** /2/object/user/{pkiUserID} | Retrieve an existing User
 [**UserGetPermissionsV1**](ObjectUserAPI.md#UserGetPermissionsV1) | **Get** /1/object/user/{pkiUserID}/getPermissions | Retrieve an existing User&#39;s Permissions
 [**UserGetSubnetsV1**](ObjectUserAPI.md#UserGetSubnetsV1) | **Get** /1/object/user/{pkiUserID}/getSubnets | Retrieve an existing User&#39;s Subnets
 [**UserGetUsergroupexternalsV1**](ObjectUserAPI.md#UserGetUsergroupexternalsV1) | **Get** /1/object/user/{pkiUserID}/getUsergroupexternals | Get User&#39;s Usergroupexternals
 [**UserGetUsergroupsV1**](ObjectUserAPI.md#UserGetUsergroupsV1) | **Get** /1/object/user/{pkiUserID}/getUsergroups | Get User&#39;s Usergroups
+[**UserImpersonateV1**](ObjectUserAPI.md#UserImpersonateV1) | **Post** /1/object/user/{pkiUserID}/impersonate | Impersonate the user
 [**UserSendPasswordResetV1**](ObjectUserAPI.md#UserSendPasswordResetV1) | **Post** /1/object/user/{pkiUserID}/sendPasswordReset | Send password reset
 
 
@@ -653,6 +655,76 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## UserGetEzmaxcustomeruserV1
+
+> UserGetEzmaxcustomeruserV1Response UserGetEzmaxcustomeruserV1(ctx, pkiUserID).Execute()
+
+Returns the Ezmaxcustomeruser for the User
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiUserID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUserAPI.UserGetEzmaxcustomeruserV1(context.Background(), pkiUserID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserGetEzmaxcustomeruserV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UserGetEzmaxcustomeruserV1`: UserGetEzmaxcustomeruserV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserGetEzmaxcustomeruserV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiUserID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUserGetEzmaxcustomeruserV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**UserGetEzmaxcustomeruserV1Response**](UserGetEzmaxcustomeruserV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## UserGetListV1
 
 > UserGetListV1Response UserGetListV1(ctx).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
@@ -1062,6 +1134,78 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UserImpersonateV1
+
+> UserImpersonateV1Response UserImpersonateV1(ctx, pkiUserID).UserImpersonateV1Request(userImpersonateV1Request).Execute()
+
+Impersonate the user
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiUserID := int32(56) // int32 | 
+	userImpersonateV1Request := *openapiclient.NewUserImpersonateV1Request(int32(70), int32(123)) // UserImpersonateV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectUserAPI.UserImpersonateV1(context.Background(), pkiUserID).UserImpersonateV1Request(userImpersonateV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserImpersonateV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UserImpersonateV1`: UserImpersonateV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectUserAPI.UserImpersonateV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiUserID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUserImpersonateV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **userImpersonateV1Request** | [**UserImpersonateV1Request**](UserImpersonateV1Request.md) |  | 
+
+### Return type
+
+[**UserImpersonateV1Response**](UserImpersonateV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

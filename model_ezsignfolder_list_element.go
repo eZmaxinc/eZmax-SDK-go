@@ -26,6 +26,19 @@ type EzsignfolderListElement struct {
 	PkiEzsignfolderID int32 `json:"pkiEzsignfolderID"`
 	// The unique ID of the Ezsignfoldertype.
 	FkiEzsignfoldertypeID int32 `json:"fkiEzsignfoldertypeID"`
+	// The unique ID of the Ezsignbulksend
+	FkiEzsignbulksendID *int32 `json:"fkiEzsignbulksendID,omitempty"`
+	// The description of the Ezsignbulksend
+	SEzsignbulksendDescription *string `json:"sEzsignbulksendDescription,omitempty"`
+	// The unique ID of the Ezsignbulksendtransmission
+	FkiEzsignbulksendtransmissionID *int32 `json:"fkiEzsignbulksendtransmissionID,omitempty"`
+	// The description of the Ezsignbulksendtransmission
+	SEzsignbulksendtransmissionDescription *string `json:"sEzsignbulksendtransmissionDescription,omitempty"`
+	// The unique ID of the Ezsigntemplatepublic
+	FkiEzsigntemplatepublicID *int32 `json:"fkiEzsigntemplatepublicID,omitempty"`
+	// The description of the Ezsigntemplatepublic
+	SEzsigntemplatepublicDescription *string `json:"sEzsigntemplatepublicDescription,omitempty" validate:"regexp=^.{0,80}$"`
+	EEzsignfolderSource FieldEEzsignfolderSource `json:"eEzsignfolderSource"`
 	EEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel `json:"eEzsignfoldertypePrivacylevel"`
 	// The name of the Ezsignfoldertype in the language of the requester
 	SEzsignfoldertypeNameX string `json:"sEzsignfoldertypeNameX"`
@@ -69,6 +82,8 @@ type EzsignfolderListElement struct {
 	DtEzsignfolderDispose *string `json:"dtEzsignfolderDispose,omitempty"`
 	// Whether the Ezsignfolder has an Ezsignsignatures that need to be signed or an Ezsignformfieldgroups that need to be filled by the current user
 	BEzsignfolderSigner *bool `json:"bEzsignfolderSigner,omitempty"`
+	// Whether the Ezsignfolder is my own or not
+	BEzsignfolderIsmyown *bool `json:"bEzsignfolderIsmyown,omitempty"`
 }
 
 type _EzsignfolderListElement EzsignfolderListElement
@@ -77,10 +92,11 @@ type _EzsignfolderListElement EzsignfolderListElement
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsignfolderListElement(pkiEzsignfolderID int32, fkiEzsignfoldertypeID int32, eEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX string, sEzsignfolderDescription string, eEzsignfolderStep FieldEEzsignfolderStep, eEzsignfolderCompletion FieldEEzsignfolderCompletion, dtCreatedDate string, iEzsigndocument int32, iEzsigndocumentEdm int32, iEzsignsignature int32, iEzsignsignatureSigned int32, iEzsignformfieldgroup int32, iEzsignformfieldgroupCompleted int32, dEzsignfolderCompletedpercentage string, dEzsignfolderFormcompletedpercentage string, dEzsignfolderSignaturecompletedpercentage string) *EzsignfolderListElement {
+func NewEzsignfolderListElement(pkiEzsignfolderID int32, fkiEzsignfoldertypeID int32, eEzsignfolderSource FieldEEzsignfolderSource, eEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX string, sEzsignfolderDescription string, eEzsignfolderStep FieldEEzsignfolderStep, eEzsignfolderCompletion FieldEEzsignfolderCompletion, dtCreatedDate string, iEzsigndocument int32, iEzsigndocumentEdm int32, iEzsignsignature int32, iEzsignsignatureSigned int32, iEzsignformfieldgroup int32, iEzsignformfieldgroupCompleted int32, dEzsignfolderCompletedpercentage string, dEzsignfolderFormcompletedpercentage string, dEzsignfolderSignaturecompletedpercentage string) *EzsignfolderListElement {
 	this := EzsignfolderListElement{}
 	this.PkiEzsignfolderID = pkiEzsignfolderID
 	this.FkiEzsignfoldertypeID = fkiEzsignfoldertypeID
+	this.EEzsignfolderSource = eEzsignfolderSource
 	this.EEzsignfoldertypePrivacylevel = eEzsignfoldertypePrivacylevel
 	this.SEzsignfoldertypeNameX = sEzsignfoldertypeNameX
 	this.SEzsignfolderDescription = sEzsignfolderDescription
@@ -153,6 +169,222 @@ func (o *EzsignfolderListElement) GetFkiEzsignfoldertypeIDOk() (*int32, bool) {
 // SetFkiEzsignfoldertypeID sets field value
 func (o *EzsignfolderListElement) SetFkiEzsignfoldertypeID(v int32) {
 	o.FkiEzsignfoldertypeID = v
+}
+
+// GetFkiEzsignbulksendID returns the FkiEzsignbulksendID field value if set, zero value otherwise.
+func (o *EzsignfolderListElement) GetFkiEzsignbulksendID() int32 {
+	if o == nil || IsNil(o.FkiEzsignbulksendID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEzsignbulksendID
+}
+
+// GetFkiEzsignbulksendIDOk returns a tuple with the FkiEzsignbulksendID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderListElement) GetFkiEzsignbulksendIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEzsignbulksendID) {
+		return nil, false
+	}
+	return o.FkiEzsignbulksendID, true
+}
+
+// HasFkiEzsignbulksendID returns a boolean if a field has been set.
+func (o *EzsignfolderListElement) HasFkiEzsignbulksendID() bool {
+	if o != nil && !IsNil(o.FkiEzsignbulksendID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzsignbulksendID gets a reference to the given int32 and assigns it to the FkiEzsignbulksendID field.
+func (o *EzsignfolderListElement) SetFkiEzsignbulksendID(v int32) {
+	o.FkiEzsignbulksendID = &v
+}
+
+// GetSEzsignbulksendDescription returns the SEzsignbulksendDescription field value if set, zero value otherwise.
+func (o *EzsignfolderListElement) GetSEzsignbulksendDescription() string {
+	if o == nil || IsNil(o.SEzsignbulksendDescription) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsignbulksendDescription
+}
+
+// GetSEzsignbulksendDescriptionOk returns a tuple with the SEzsignbulksendDescription field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderListElement) GetSEzsignbulksendDescriptionOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsignbulksendDescription) {
+		return nil, false
+	}
+	return o.SEzsignbulksendDescription, true
+}
+
+// HasSEzsignbulksendDescription returns a boolean if a field has been set.
+func (o *EzsignfolderListElement) HasSEzsignbulksendDescription() bool {
+	if o != nil && !IsNil(o.SEzsignbulksendDescription) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsignbulksendDescription gets a reference to the given string and assigns it to the SEzsignbulksendDescription field.
+func (o *EzsignfolderListElement) SetSEzsignbulksendDescription(v string) {
+	o.SEzsignbulksendDescription = &v
+}
+
+// GetFkiEzsignbulksendtransmissionID returns the FkiEzsignbulksendtransmissionID field value if set, zero value otherwise.
+func (o *EzsignfolderListElement) GetFkiEzsignbulksendtransmissionID() int32 {
+	if o == nil || IsNil(o.FkiEzsignbulksendtransmissionID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEzsignbulksendtransmissionID
+}
+
+// GetFkiEzsignbulksendtransmissionIDOk returns a tuple with the FkiEzsignbulksendtransmissionID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderListElement) GetFkiEzsignbulksendtransmissionIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEzsignbulksendtransmissionID) {
+		return nil, false
+	}
+	return o.FkiEzsignbulksendtransmissionID, true
+}
+
+// HasFkiEzsignbulksendtransmissionID returns a boolean if a field has been set.
+func (o *EzsignfolderListElement) HasFkiEzsignbulksendtransmissionID() bool {
+	if o != nil && !IsNil(o.FkiEzsignbulksendtransmissionID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzsignbulksendtransmissionID gets a reference to the given int32 and assigns it to the FkiEzsignbulksendtransmissionID field.
+func (o *EzsignfolderListElement) SetFkiEzsignbulksendtransmissionID(v int32) {
+	o.FkiEzsignbulksendtransmissionID = &v
+}
+
+// GetSEzsignbulksendtransmissionDescription returns the SEzsignbulksendtransmissionDescription field value if set, zero value otherwise.
+func (o *EzsignfolderListElement) GetSEzsignbulksendtransmissionDescription() string {
+	if o == nil || IsNil(o.SEzsignbulksendtransmissionDescription) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsignbulksendtransmissionDescription
+}
+
+// GetSEzsignbulksendtransmissionDescriptionOk returns a tuple with the SEzsignbulksendtransmissionDescription field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderListElement) GetSEzsignbulksendtransmissionDescriptionOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsignbulksendtransmissionDescription) {
+		return nil, false
+	}
+	return o.SEzsignbulksendtransmissionDescription, true
+}
+
+// HasSEzsignbulksendtransmissionDescription returns a boolean if a field has been set.
+func (o *EzsignfolderListElement) HasSEzsignbulksendtransmissionDescription() bool {
+	if o != nil && !IsNil(o.SEzsignbulksendtransmissionDescription) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsignbulksendtransmissionDescription gets a reference to the given string and assigns it to the SEzsignbulksendtransmissionDescription field.
+func (o *EzsignfolderListElement) SetSEzsignbulksendtransmissionDescription(v string) {
+	o.SEzsignbulksendtransmissionDescription = &v
+}
+
+// GetFkiEzsigntemplatepublicID returns the FkiEzsigntemplatepublicID field value if set, zero value otherwise.
+func (o *EzsignfolderListElement) GetFkiEzsigntemplatepublicID() int32 {
+	if o == nil || IsNil(o.FkiEzsigntemplatepublicID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEzsigntemplatepublicID
+}
+
+// GetFkiEzsigntemplatepublicIDOk returns a tuple with the FkiEzsigntemplatepublicID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderListElement) GetFkiEzsigntemplatepublicIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEzsigntemplatepublicID) {
+		return nil, false
+	}
+	return o.FkiEzsigntemplatepublicID, true
+}
+
+// HasFkiEzsigntemplatepublicID returns a boolean if a field has been set.
+func (o *EzsignfolderListElement) HasFkiEzsigntemplatepublicID() bool {
+	if o != nil && !IsNil(o.FkiEzsigntemplatepublicID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzsigntemplatepublicID gets a reference to the given int32 and assigns it to the FkiEzsigntemplatepublicID field.
+func (o *EzsignfolderListElement) SetFkiEzsigntemplatepublicID(v int32) {
+	o.FkiEzsigntemplatepublicID = &v
+}
+
+// GetSEzsigntemplatepublicDescription returns the SEzsigntemplatepublicDescription field value if set, zero value otherwise.
+func (o *EzsignfolderListElement) GetSEzsigntemplatepublicDescription() string {
+	if o == nil || IsNil(o.SEzsigntemplatepublicDescription) {
+		var ret string
+		return ret
+	}
+	return *o.SEzsigntemplatepublicDescription
+}
+
+// GetSEzsigntemplatepublicDescriptionOk returns a tuple with the SEzsigntemplatepublicDescription field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderListElement) GetSEzsigntemplatepublicDescriptionOk() (*string, bool) {
+	if o == nil || IsNil(o.SEzsigntemplatepublicDescription) {
+		return nil, false
+	}
+	return o.SEzsigntemplatepublicDescription, true
+}
+
+// HasSEzsigntemplatepublicDescription returns a boolean if a field has been set.
+func (o *EzsignfolderListElement) HasSEzsigntemplatepublicDescription() bool {
+	if o != nil && !IsNil(o.SEzsigntemplatepublicDescription) {
+		return true
+	}
+
+	return false
+}
+
+// SetSEzsigntemplatepublicDescription gets a reference to the given string and assigns it to the SEzsigntemplatepublicDescription field.
+func (o *EzsignfolderListElement) SetSEzsigntemplatepublicDescription(v string) {
+	o.SEzsigntemplatepublicDescription = &v
+}
+
+// GetEEzsignfolderSource returns the EEzsignfolderSource field value
+func (o *EzsignfolderListElement) GetEEzsignfolderSource() FieldEEzsignfolderSource {
+	if o == nil {
+		var ret FieldEEzsignfolderSource
+		return ret
+	}
+
+	return o.EEzsignfolderSource
+}
+
+// GetEEzsignfolderSourceOk returns a tuple with the EEzsignfolderSource field value
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderListElement) GetEEzsignfolderSourceOk() (*FieldEEzsignfolderSource, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EEzsignfolderSource, true
+}
+
+// SetEEzsignfolderSource sets field value
+func (o *EzsignfolderListElement) SetEEzsignfolderSource(v FieldEEzsignfolderSource) {
+	o.EEzsignfolderSource = v
 }
 
 // GetEEzsignfoldertypePrivacylevel returns the EEzsignfoldertypePrivacylevel field value
@@ -771,6 +1003,38 @@ func (o *EzsignfolderListElement) SetBEzsignfolderSigner(v bool) {
 	o.BEzsignfolderSigner = &v
 }
 
+// GetBEzsignfolderIsmyown returns the BEzsignfolderIsmyown field value if set, zero value otherwise.
+func (o *EzsignfolderListElement) GetBEzsignfolderIsmyown() bool {
+	if o == nil || IsNil(o.BEzsignfolderIsmyown) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsignfolderIsmyown
+}
+
+// GetBEzsignfolderIsmyownOk returns a tuple with the BEzsignfolderIsmyown field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderListElement) GetBEzsignfolderIsmyownOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsignfolderIsmyown) {
+		return nil, false
+	}
+	return o.BEzsignfolderIsmyown, true
+}
+
+// HasBEzsignfolderIsmyown returns a boolean if a field has been set.
+func (o *EzsignfolderListElement) HasBEzsignfolderIsmyown() bool {
+	if o != nil && !IsNil(o.BEzsignfolderIsmyown) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsignfolderIsmyown gets a reference to the given bool and assigns it to the BEzsignfolderIsmyown field.
+func (o *EzsignfolderListElement) SetBEzsignfolderIsmyown(v bool) {
+	o.BEzsignfolderIsmyown = &v
+}
+
 func (o EzsignfolderListElement) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -783,6 +1047,25 @@ func (o EzsignfolderListElement) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiEzsignfolderID"] = o.PkiEzsignfolderID
 	toSerialize["fkiEzsignfoldertypeID"] = o.FkiEzsignfoldertypeID
+	if !IsNil(o.FkiEzsignbulksendID) {
+		toSerialize["fkiEzsignbulksendID"] = o.FkiEzsignbulksendID
+	}
+	if !IsNil(o.SEzsignbulksendDescription) {
+		toSerialize["sEzsignbulksendDescription"] = o.SEzsignbulksendDescription
+	}
+	if !IsNil(o.FkiEzsignbulksendtransmissionID) {
+		toSerialize["fkiEzsignbulksendtransmissionID"] = o.FkiEzsignbulksendtransmissionID
+	}
+	if !IsNil(o.SEzsignbulksendtransmissionDescription) {
+		toSerialize["sEzsignbulksendtransmissionDescription"] = o.SEzsignbulksendtransmissionDescription
+	}
+	if !IsNil(o.FkiEzsigntemplatepublicID) {
+		toSerialize["fkiEzsigntemplatepublicID"] = o.FkiEzsigntemplatepublicID
+	}
+	if !IsNil(o.SEzsigntemplatepublicDescription) {
+		toSerialize["sEzsigntemplatepublicDescription"] = o.SEzsigntemplatepublicDescription
+	}
+	toSerialize["eEzsignfolderSource"] = o.EEzsignfolderSource
 	toSerialize["eEzsignfoldertypePrivacylevel"] = o.EEzsignfoldertypePrivacylevel
 	toSerialize["sEzsignfoldertypeNameX"] = o.SEzsignfoldertypeNameX
 	toSerialize["sEzsignfolderDescription"] = o.SEzsignfolderDescription
@@ -822,6 +1105,9 @@ func (o EzsignfolderListElement) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.BEzsignfolderSigner) {
 		toSerialize["bEzsignfolderSigner"] = o.BEzsignfolderSigner
 	}
+	if !IsNil(o.BEzsignfolderIsmyown) {
+		toSerialize["bEzsignfolderIsmyown"] = o.BEzsignfolderIsmyown
+	}
 	return toSerialize, nil
 }
 
@@ -832,6 +1118,7 @@ func (o *EzsignfolderListElement) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"pkiEzsignfolderID",
 		"fkiEzsignfoldertypeID",
+		"eEzsignfolderSource",
 		"eEzsignfoldertypePrivacylevel",
 		"sEzsignfoldertypeNameX",
 		"sEzsignfolderDescription",

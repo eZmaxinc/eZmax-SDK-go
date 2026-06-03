@@ -24,10 +24,9 @@ var _ MappedNullable = &EzsigntemplateglobalannotationResponse{}
 type EzsigntemplateglobalannotationResponse struct {
 	// The unique ID of the Ezsigntemplateglobalannotation
 	PkiEzsigntemplateglobalannotationID int32 `json:"pkiEzsigntemplateglobalannotationID"`
-	// The unique ID of the Ezsigntemplateglobaldocumentpage
-	FkiEzsigntemplateglobaldocumentpageID int32 `json:"fkiEzsigntemplateglobaldocumentpageID"`
 	// The unique ID of the Textstylestatic
-	FkiTextstylestaticID int32 `json:"fkiTextstylestaticID"`
+	FkiTextstylestaticID *int32 `json:"fkiTextstylestaticID,omitempty"`
+	ObjTextstylestatic *TextstylestaticRequestCompound `json:"objTextstylestatic,omitempty"`
 	EEzsigntemplateglobalannotationHorizontalalignment FieldEEzsigntemplateglobalannotationHorizontalalignment `json:"eEzsigntemplateglobalannotationHorizontalalignment"`
 	EEzsigntemplateglobalannotationVerticalalignment FieldEEzsigntemplateglobalannotationVerticalalignment `json:"eEzsigntemplateglobalannotationVerticalalignment"`
 	EEzsigntemplateglobalannotationType FieldEEzsigntemplateglobalannotationType `json:"eEzsigntemplateglobalannotationType"`
@@ -39,6 +38,8 @@ type EzsigntemplateglobalannotationResponse struct {
 	IEzsigntemplateglobalannotationWidth int32 `json:"iEzsigntemplateglobalannotationWidth"`
 	// The height of the Ezsigntemplateglobalannotation
 	IEzsigntemplateglobalannotationHeight int32 `json:"iEzsigntemplateglobalannotationHeight"`
+	// The page number in the Ezsigntemplateglobaldocument
+	IEzsigntemplateglobaldocumentpagePagenumber int32 `json:"iEzsigntemplateglobaldocumentpagePagenumber"`
 	// The description of the Ezsigntemplateglobalannotation
 	SEzsigntemplateglobalannotationDescription string `json:"sEzsigntemplateglobalannotationDescription" validate:"regexp=^.{0,80}$"`
 	// The defaulttext of the Ezsigntemplateglobalannotation
@@ -53,11 +54,9 @@ type _EzsigntemplateglobalannotationResponse EzsigntemplateglobalannotationRespo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzsigntemplateglobalannotationResponse(pkiEzsigntemplateglobalannotationID int32, fkiEzsigntemplateglobaldocumentpageID int32, fkiTextstylestaticID int32, eEzsigntemplateglobalannotationHorizontalalignment FieldEEzsigntemplateglobalannotationHorizontalalignment, eEzsigntemplateglobalannotationVerticalalignment FieldEEzsigntemplateglobalannotationVerticalalignment, eEzsigntemplateglobalannotationType FieldEEzsigntemplateglobalannotationType, iEzsigntemplateglobalannotationX int32, iEzsigntemplateglobalannotationY int32, iEzsigntemplateglobalannotationWidth int32, iEzsigntemplateglobalannotationHeight int32, sEzsigntemplateglobalannotationDescription string, sEzsigntemplateglobalannotationDefaulttext string, sEzsigntemplateglobalannotationDropdownvalues string) *EzsigntemplateglobalannotationResponse {
+func NewEzsigntemplateglobalannotationResponse(pkiEzsigntemplateglobalannotationID int32, eEzsigntemplateglobalannotationHorizontalalignment FieldEEzsigntemplateglobalannotationHorizontalalignment, eEzsigntemplateglobalannotationVerticalalignment FieldEEzsigntemplateglobalannotationVerticalalignment, eEzsigntemplateglobalannotationType FieldEEzsigntemplateglobalannotationType, iEzsigntemplateglobalannotationX int32, iEzsigntemplateglobalannotationY int32, iEzsigntemplateglobalannotationWidth int32, iEzsigntemplateglobalannotationHeight int32, iEzsigntemplateglobaldocumentpagePagenumber int32, sEzsigntemplateglobalannotationDescription string, sEzsigntemplateglobalannotationDefaulttext string, sEzsigntemplateglobalannotationDropdownvalues string) *EzsigntemplateglobalannotationResponse {
 	this := EzsigntemplateglobalannotationResponse{}
 	this.PkiEzsigntemplateglobalannotationID = pkiEzsigntemplateglobalannotationID
-	this.FkiEzsigntemplateglobaldocumentpageID = fkiEzsigntemplateglobaldocumentpageID
-	this.FkiTextstylestaticID = fkiTextstylestaticID
 	this.EEzsigntemplateglobalannotationHorizontalalignment = eEzsigntemplateglobalannotationHorizontalalignment
 	this.EEzsigntemplateglobalannotationVerticalalignment = eEzsigntemplateglobalannotationVerticalalignment
 	this.EEzsigntemplateglobalannotationType = eEzsigntemplateglobalannotationType
@@ -65,6 +64,7 @@ func NewEzsigntemplateglobalannotationResponse(pkiEzsigntemplateglobalannotation
 	this.IEzsigntemplateglobalannotationY = iEzsigntemplateglobalannotationY
 	this.IEzsigntemplateglobalannotationWidth = iEzsigntemplateglobalannotationWidth
 	this.IEzsigntemplateglobalannotationHeight = iEzsigntemplateglobalannotationHeight
+	this.IEzsigntemplateglobaldocumentpagePagenumber = iEzsigntemplateglobaldocumentpagePagenumber
 	this.SEzsigntemplateglobalannotationDescription = sEzsigntemplateglobalannotationDescription
 	this.SEzsigntemplateglobalannotationDefaulttext = sEzsigntemplateglobalannotationDefaulttext
 	this.SEzsigntemplateglobalannotationDropdownvalues = sEzsigntemplateglobalannotationDropdownvalues
@@ -103,52 +103,68 @@ func (o *EzsigntemplateglobalannotationResponse) SetPkiEzsigntemplateglobalannot
 	o.PkiEzsigntemplateglobalannotationID = v
 }
 
-// GetFkiEzsigntemplateglobaldocumentpageID returns the FkiEzsigntemplateglobaldocumentpageID field value
-func (o *EzsigntemplateglobalannotationResponse) GetFkiEzsigntemplateglobaldocumentpageID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.FkiEzsigntemplateglobaldocumentpageID
-}
-
-// GetFkiEzsigntemplateglobaldocumentpageIDOk returns a tuple with the FkiEzsigntemplateglobaldocumentpageID field value
-// and a boolean to check if the value has been set.
-func (o *EzsigntemplateglobalannotationResponse) GetFkiEzsigntemplateglobaldocumentpageIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FkiEzsigntemplateglobaldocumentpageID, true
-}
-
-// SetFkiEzsigntemplateglobaldocumentpageID sets field value
-func (o *EzsigntemplateglobalannotationResponse) SetFkiEzsigntemplateglobaldocumentpageID(v int32) {
-	o.FkiEzsigntemplateglobaldocumentpageID = v
-}
-
-// GetFkiTextstylestaticID returns the FkiTextstylestaticID field value
+// GetFkiTextstylestaticID returns the FkiTextstylestaticID field value if set, zero value otherwise.
 func (o *EzsigntemplateglobalannotationResponse) GetFkiTextstylestaticID() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.FkiTextstylestaticID) {
 		var ret int32
 		return ret
 	}
-
-	return o.FkiTextstylestaticID
+	return *o.FkiTextstylestaticID
 }
 
-// GetFkiTextstylestaticIDOk returns a tuple with the FkiTextstylestaticID field value
+// GetFkiTextstylestaticIDOk returns a tuple with the FkiTextstylestaticID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzsigntemplateglobalannotationResponse) GetFkiTextstylestaticIDOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FkiTextstylestaticID) {
 		return nil, false
 	}
-	return &o.FkiTextstylestaticID, true
+	return o.FkiTextstylestaticID, true
 }
 
-// SetFkiTextstylestaticID sets field value
+// HasFkiTextstylestaticID returns a boolean if a field has been set.
+func (o *EzsigntemplateglobalannotationResponse) HasFkiTextstylestaticID() bool {
+	if o != nil && !IsNil(o.FkiTextstylestaticID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiTextstylestaticID gets a reference to the given int32 and assigns it to the FkiTextstylestaticID field.
 func (o *EzsigntemplateglobalannotationResponse) SetFkiTextstylestaticID(v int32) {
-	o.FkiTextstylestaticID = v
+	o.FkiTextstylestaticID = &v
+}
+
+// GetObjTextstylestatic returns the ObjTextstylestatic field value if set, zero value otherwise.
+func (o *EzsigntemplateglobalannotationResponse) GetObjTextstylestatic() TextstylestaticRequestCompound {
+	if o == nil || IsNil(o.ObjTextstylestatic) {
+		var ret TextstylestaticRequestCompound
+		return ret
+	}
+	return *o.ObjTextstylestatic
+}
+
+// GetObjTextstylestaticOk returns a tuple with the ObjTextstylestatic field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateglobalannotationResponse) GetObjTextstylestaticOk() (*TextstylestaticRequestCompound, bool) {
+	if o == nil || IsNil(o.ObjTextstylestatic) {
+		return nil, false
+	}
+	return o.ObjTextstylestatic, true
+}
+
+// HasObjTextstylestatic returns a boolean if a field has been set.
+func (o *EzsigntemplateglobalannotationResponse) HasObjTextstylestatic() bool {
+	if o != nil && !IsNil(o.ObjTextstylestatic) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjTextstylestatic gets a reference to the given TextstylestaticRequestCompound and assigns it to the ObjTextstylestatic field.
+func (o *EzsigntemplateglobalannotationResponse) SetObjTextstylestatic(v TextstylestaticRequestCompound) {
+	o.ObjTextstylestatic = &v
 }
 
 // GetEEzsigntemplateglobalannotationHorizontalalignment returns the EEzsigntemplateglobalannotationHorizontalalignment field value
@@ -319,6 +335,30 @@ func (o *EzsigntemplateglobalannotationResponse) SetIEzsigntemplateglobalannotat
 	o.IEzsigntemplateglobalannotationHeight = v
 }
 
+// GetIEzsigntemplateglobaldocumentpagePagenumber returns the IEzsigntemplateglobaldocumentpagePagenumber field value
+func (o *EzsigntemplateglobalannotationResponse) GetIEzsigntemplateglobaldocumentpagePagenumber() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IEzsigntemplateglobaldocumentpagePagenumber
+}
+
+// GetIEzsigntemplateglobaldocumentpagePagenumberOk returns a tuple with the IEzsigntemplateglobaldocumentpagePagenumber field value
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplateglobalannotationResponse) GetIEzsigntemplateglobaldocumentpagePagenumberOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IEzsigntemplateglobaldocumentpagePagenumber, true
+}
+
+// SetIEzsigntemplateglobaldocumentpagePagenumber sets field value
+func (o *EzsigntemplateglobalannotationResponse) SetIEzsigntemplateglobaldocumentpagePagenumber(v int32) {
+	o.IEzsigntemplateglobaldocumentpagePagenumber = v
+}
+
 // GetSEzsigntemplateglobalannotationDescription returns the SEzsigntemplateglobalannotationDescription field value
 func (o *EzsigntemplateglobalannotationResponse) GetSEzsigntemplateglobalannotationDescription() string {
 	if o == nil {
@@ -402,8 +442,12 @@ func (o EzsigntemplateglobalannotationResponse) MarshalJSON() ([]byte, error) {
 func (o EzsigntemplateglobalannotationResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiEzsigntemplateglobalannotationID"] = o.PkiEzsigntemplateglobalannotationID
-	toSerialize["fkiEzsigntemplateglobaldocumentpageID"] = o.FkiEzsigntemplateglobaldocumentpageID
-	toSerialize["fkiTextstylestaticID"] = o.FkiTextstylestaticID
+	if !IsNil(o.FkiTextstylestaticID) {
+		toSerialize["fkiTextstylestaticID"] = o.FkiTextstylestaticID
+	}
+	if !IsNil(o.ObjTextstylestatic) {
+		toSerialize["objTextstylestatic"] = o.ObjTextstylestatic
+	}
 	toSerialize["eEzsigntemplateglobalannotationHorizontalalignment"] = o.EEzsigntemplateglobalannotationHorizontalalignment
 	toSerialize["eEzsigntemplateglobalannotationVerticalalignment"] = o.EEzsigntemplateglobalannotationVerticalalignment
 	toSerialize["eEzsigntemplateglobalannotationType"] = o.EEzsigntemplateglobalannotationType
@@ -411,6 +455,7 @@ func (o EzsigntemplateglobalannotationResponse) ToMap() (map[string]interface{},
 	toSerialize["iEzsigntemplateglobalannotationY"] = o.IEzsigntemplateglobalannotationY
 	toSerialize["iEzsigntemplateglobalannotationWidth"] = o.IEzsigntemplateglobalannotationWidth
 	toSerialize["iEzsigntemplateglobalannotationHeight"] = o.IEzsigntemplateglobalannotationHeight
+	toSerialize["iEzsigntemplateglobaldocumentpagePagenumber"] = o.IEzsigntemplateglobaldocumentpagePagenumber
 	toSerialize["sEzsigntemplateglobalannotationDescription"] = o.SEzsigntemplateglobalannotationDescription
 	toSerialize["sEzsigntemplateglobalannotationDefaulttext"] = o.SEzsigntemplateglobalannotationDefaulttext
 	toSerialize["sEzsigntemplateglobalannotationDropdownvalues"] = o.SEzsigntemplateglobalannotationDropdownvalues
@@ -423,8 +468,6 @@ func (o *EzsigntemplateglobalannotationResponse) UnmarshalJSON(data []byte) (err
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"pkiEzsigntemplateglobalannotationID",
-		"fkiEzsigntemplateglobaldocumentpageID",
-		"fkiTextstylestaticID",
 		"eEzsigntemplateglobalannotationHorizontalalignment",
 		"eEzsigntemplateglobalannotationVerticalalignment",
 		"eEzsigntemplateglobalannotationType",
@@ -432,6 +475,7 @@ func (o *EzsigntemplateglobalannotationResponse) UnmarshalJSON(data []byte) (err
 		"iEzsigntemplateglobalannotationY",
 		"iEzsigntemplateglobalannotationWidth",
 		"iEzsigntemplateglobalannotationHeight",
+		"iEzsigntemplateglobaldocumentpagePagenumber",
 		"sEzsigntemplateglobalannotationDescription",
 		"sEzsigntemplateglobalannotationDefaulttext",
 		"sEzsigntemplateglobalannotationDropdownvalues",

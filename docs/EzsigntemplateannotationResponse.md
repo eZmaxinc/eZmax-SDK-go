@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiEzsigntemplateannotationID** | **int32** | The unique ID of the Ezsigntemplateannotation | 
-**FkiEzsigntemplatedocumentpageID** | **int32** | The unique ID of the Ezsigntemplatedocumentpage | 
-**FkiTextstylestaticID** | **int32** | The unique ID of the Textstylestatic | 
+**FkiTextstylestaticID** | Pointer to **int32** | The unique ID of the Textstylestatic | [optional] 
+**ObjTextstylestatic** | Pointer to [**TextstylestaticRequestCompound**](TextstylestaticRequestCompound.md) |  | [optional] 
 **EEzsigntemplateannotationHorizontalalignment** | [**FieldEEzsigntemplateannotationHorizontalalignment**](FieldEEzsigntemplateannotationHorizontalalignment.md) |  | 
 **EEzsigntemplateannotationVerticalalignment** | [**FieldEEzsigntemplateannotationVerticalalignment**](FieldEEzsigntemplateannotationVerticalalignment.md) |  | 
 **EEzsigntemplateannotationType** | [**FieldEEzsigntemplateannotationType**](FieldEEzsigntemplateannotationType.md) |  | 
@@ -14,15 +14,16 @@ Name | Type | Description | Notes
 **IEzsigntemplateannotationY** | **int32** | The y of the Ezsigntemplateannotation | 
 **IEzsigntemplateannotationWidth** | **int32** | The width of the Ezsigntemplateannotation | 
 **IEzsigntemplateannotationHeight** | **int32** | The height of the Ezsigntemplateannotation | 
+**IEzsigntemplatedocumentpagePagenumber** | **int32** | The page number in the Ezsigntemplatedocument | 
 **SEzsigntemplateannotationDescription** | **string** | The description of the Ezsigntemplateannotation | 
 **SEzsigntemplateannotationDefaulttext** | **string** | The defaulttext of the Ezsigntemplateannotation | 
-**SEzsigntemplateannotationnDropdownvalues** | **string** | The ndropdownvalues of the Ezsigntemplateannotation | 
+**SEzsigntemplateannotationDropdownvalues** | **string** | The ndropdownvalues of the Ezsigntemplateannotation | 
 
 ## Methods
 
 ### NewEzsigntemplateannotationResponse
 
-`func NewEzsigntemplateannotationResponse(pkiEzsigntemplateannotationID int32, fkiEzsigntemplatedocumentpageID int32, fkiTextstylestaticID int32, eEzsigntemplateannotationHorizontalalignment FieldEEzsigntemplateannotationHorizontalalignment, eEzsigntemplateannotationVerticalalignment FieldEEzsigntemplateannotationVerticalalignment, eEzsigntemplateannotationType FieldEEzsigntemplateannotationType, iEzsigntemplateannotationX int32, iEzsigntemplateannotationY int32, iEzsigntemplateannotationWidth int32, iEzsigntemplateannotationHeight int32, sEzsigntemplateannotationDescription string, sEzsigntemplateannotationDefaulttext string, sEzsigntemplateannotationnDropdownvalues string, ) *EzsigntemplateannotationResponse`
+`func NewEzsigntemplateannotationResponse(pkiEzsigntemplateannotationID int32, eEzsigntemplateannotationHorizontalalignment FieldEEzsigntemplateannotationHorizontalalignment, eEzsigntemplateannotationVerticalalignment FieldEEzsigntemplateannotationVerticalalignment, eEzsigntemplateannotationType FieldEEzsigntemplateannotationType, iEzsigntemplateannotationX int32, iEzsigntemplateannotationY int32, iEzsigntemplateannotationWidth int32, iEzsigntemplateannotationHeight int32, iEzsigntemplatedocumentpagePagenumber int32, sEzsigntemplateannotationDescription string, sEzsigntemplateannotationDefaulttext string, sEzsigntemplateannotationDropdownvalues string, ) *EzsigntemplateannotationResponse`
 
 NewEzsigntemplateannotationResponse instantiates a new EzsigntemplateannotationResponse object
 This constructor will assign default values to properties that have it defined,
@@ -57,26 +58,6 @@ and a boolean to check if the value has been set.
 SetPkiEzsigntemplateannotationID sets PkiEzsigntemplateannotationID field to given value.
 
 
-### GetFkiEzsigntemplatedocumentpageID
-
-`func (o *EzsigntemplateannotationResponse) GetFkiEzsigntemplatedocumentpageID() int32`
-
-GetFkiEzsigntemplatedocumentpageID returns the FkiEzsigntemplatedocumentpageID field if non-nil, zero value otherwise.
-
-### GetFkiEzsigntemplatedocumentpageIDOk
-
-`func (o *EzsigntemplateannotationResponse) GetFkiEzsigntemplatedocumentpageIDOk() (*int32, bool)`
-
-GetFkiEzsigntemplatedocumentpageIDOk returns a tuple with the FkiEzsigntemplatedocumentpageID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFkiEzsigntemplatedocumentpageID
-
-`func (o *EzsigntemplateannotationResponse) SetFkiEzsigntemplatedocumentpageID(v int32)`
-
-SetFkiEzsigntemplatedocumentpageID sets FkiEzsigntemplatedocumentpageID field to given value.
-
-
 ### GetFkiTextstylestaticID
 
 `func (o *EzsigntemplateannotationResponse) GetFkiTextstylestaticID() int32`
@@ -96,6 +77,36 @@ and a boolean to check if the value has been set.
 
 SetFkiTextstylestaticID sets FkiTextstylestaticID field to given value.
 
+### HasFkiTextstylestaticID
+
+`func (o *EzsigntemplateannotationResponse) HasFkiTextstylestaticID() bool`
+
+HasFkiTextstylestaticID returns a boolean if a field has been set.
+
+### GetObjTextstylestatic
+
+`func (o *EzsigntemplateannotationResponse) GetObjTextstylestatic() TextstylestaticRequestCompound`
+
+GetObjTextstylestatic returns the ObjTextstylestatic field if non-nil, zero value otherwise.
+
+### GetObjTextstylestaticOk
+
+`func (o *EzsigntemplateannotationResponse) GetObjTextstylestaticOk() (*TextstylestaticRequestCompound, bool)`
+
+GetObjTextstylestaticOk returns a tuple with the ObjTextstylestatic field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjTextstylestatic
+
+`func (o *EzsigntemplateannotationResponse) SetObjTextstylestatic(v TextstylestaticRequestCompound)`
+
+SetObjTextstylestatic sets ObjTextstylestatic field to given value.
+
+### HasObjTextstylestatic
+
+`func (o *EzsigntemplateannotationResponse) HasObjTextstylestatic() bool`
+
+HasObjTextstylestatic returns a boolean if a field has been set.
 
 ### GetEEzsigntemplateannotationHorizontalalignment
 
@@ -237,6 +248,26 @@ and a boolean to check if the value has been set.
 SetIEzsigntemplateannotationHeight sets IEzsigntemplateannotationHeight field to given value.
 
 
+### GetIEzsigntemplatedocumentpagePagenumber
+
+`func (o *EzsigntemplateannotationResponse) GetIEzsigntemplatedocumentpagePagenumber() int32`
+
+GetIEzsigntemplatedocumentpagePagenumber returns the IEzsigntemplatedocumentpagePagenumber field if non-nil, zero value otherwise.
+
+### GetIEzsigntemplatedocumentpagePagenumberOk
+
+`func (o *EzsigntemplateannotationResponse) GetIEzsigntemplatedocumentpagePagenumberOk() (*int32, bool)`
+
+GetIEzsigntemplatedocumentpagePagenumberOk returns a tuple with the IEzsigntemplatedocumentpagePagenumber field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIEzsigntemplatedocumentpagePagenumber
+
+`func (o *EzsigntemplateannotationResponse) SetIEzsigntemplatedocumentpagePagenumber(v int32)`
+
+SetIEzsigntemplatedocumentpagePagenumber sets IEzsigntemplatedocumentpagePagenumber field to given value.
+
+
 ### GetSEzsigntemplateannotationDescription
 
 `func (o *EzsigntemplateannotationResponse) GetSEzsigntemplateannotationDescription() string`
@@ -277,24 +308,24 @@ and a boolean to check if the value has been set.
 SetSEzsigntemplateannotationDefaulttext sets SEzsigntemplateannotationDefaulttext field to given value.
 
 
-### GetSEzsigntemplateannotationnDropdownvalues
+### GetSEzsigntemplateannotationDropdownvalues
 
-`func (o *EzsigntemplateannotationResponse) GetSEzsigntemplateannotationnDropdownvalues() string`
+`func (o *EzsigntemplateannotationResponse) GetSEzsigntemplateannotationDropdownvalues() string`
 
-GetSEzsigntemplateannotationnDropdownvalues returns the SEzsigntemplateannotationnDropdownvalues field if non-nil, zero value otherwise.
+GetSEzsigntemplateannotationDropdownvalues returns the SEzsigntemplateannotationDropdownvalues field if non-nil, zero value otherwise.
 
-### GetSEzsigntemplateannotationnDropdownvaluesOk
+### GetSEzsigntemplateannotationDropdownvaluesOk
 
-`func (o *EzsigntemplateannotationResponse) GetSEzsigntemplateannotationnDropdownvaluesOk() (*string, bool)`
+`func (o *EzsigntemplateannotationResponse) GetSEzsigntemplateannotationDropdownvaluesOk() (*string, bool)`
 
-GetSEzsigntemplateannotationnDropdownvaluesOk returns a tuple with the SEzsigntemplateannotationnDropdownvalues field if it's non-nil, zero value otherwise
+GetSEzsigntemplateannotationDropdownvaluesOk returns a tuple with the SEzsigntemplateannotationDropdownvalues field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSEzsigntemplateannotationnDropdownvalues
+### SetSEzsigntemplateannotationDropdownvalues
 
-`func (o *EzsigntemplateannotationResponse) SetSEzsigntemplateannotationnDropdownvalues(v string)`
+`func (o *EzsigntemplateannotationResponse) SetSEzsigntemplateannotationDropdownvalues(v string)`
 
-SetSEzsigntemplateannotationnDropdownvalues sets SEzsigntemplateannotationnDropdownvalues field to given value.
+SetSEzsigntemplateannotationDropdownvalues sets SEzsigntemplateannotationDropdownvalues field to given value.
 
 
 

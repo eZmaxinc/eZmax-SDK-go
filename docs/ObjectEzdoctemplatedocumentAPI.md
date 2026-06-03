@@ -35,7 +35,7 @@ import (
 )
 
 func main() {
-	ezdoctemplatedocumentCreateObjectV1Request := *openapiclient.NewEzdoctemplatedocumentCreateObjectV1Request([]openapiclient.EzdoctemplatedocumentRequestCompound{*openapiclient.NewEzdoctemplatedocumentRequestCompound(int32(2), int32(7), int32(4), true, *openapiclient.NewMultilingualEzdoctemplatedocumentName())}) // EzdoctemplatedocumentCreateObjectV1Request | 
+	ezdoctemplatedocumentCreateObjectV1Request := *openapiclient.NewEzdoctemplatedocumentCreateObjectV1Request([]openapiclient.EzdoctemplatedocumentRequestCompound{*openapiclient.NewEzdoctemplatedocumentRequestCompound(int32(2), int32(7), true, *openapiclient.NewMultilingualEzdoctemplatedocumentName())}) // EzdoctemplatedocumentCreateObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -170,7 +170,7 @@ import (
 
 func main() {
 	pkiEzdoctemplatedocumentID := int32(56) // int32 | The unique ID of the Ezdoctemplatedocument
-	ezdoctemplatedocumentEditObjectV1Request := *openapiclient.NewEzdoctemplatedocumentEditObjectV1Request(*openapiclient.NewEzdoctemplatedocumentRequestCompound(int32(2), int32(7), int32(4), true, *openapiclient.NewMultilingualEzdoctemplatedocumentName())) // EzdoctemplatedocumentEditObjectV1Request | 
+	ezdoctemplatedocumentEditObjectV1Request := *openapiclient.NewEzdoctemplatedocumentEditObjectV1Request(*openapiclient.NewEzdoctemplatedocumentRequestCompound(int32(2), int32(7), true, *openapiclient.NewMultilingualEzdoctemplatedocumentName())) // EzdoctemplatedocumentEditObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

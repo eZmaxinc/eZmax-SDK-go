@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiEzsigntemplateglobalannotationID** | **int32** | The unique ID of the Ezsigntemplateglobalannotation | 
-**FkiEzsigntemplateglobaldocumentpageID** | **int32** | The unique ID of the Ezsigntemplateglobaldocumentpage | 
-**FkiTextstylestaticID** | **int32** | The unique ID of the Textstylestatic | 
+**FkiTextstylestaticID** | Pointer to **int32** | The unique ID of the Textstylestatic | [optional] 
+**ObjTextstylestatic** | Pointer to [**TextstylestaticRequestCompound**](TextstylestaticRequestCompound.md) |  | [optional] 
 **EEzsigntemplateglobalannotationHorizontalalignment** | [**FieldEEzsigntemplateglobalannotationHorizontalalignment**](FieldEEzsigntemplateglobalannotationHorizontalalignment.md) |  | 
 **EEzsigntemplateglobalannotationVerticalalignment** | [**FieldEEzsigntemplateglobalannotationVerticalalignment**](FieldEEzsigntemplateglobalannotationVerticalalignment.md) |  | 
 **EEzsigntemplateglobalannotationType** | [**FieldEEzsigntemplateglobalannotationType**](FieldEEzsigntemplateglobalannotationType.md) |  | 
@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **IEzsigntemplateglobalannotationY** | **int32** | The y of the Ezsigntemplateglobalannotation | 
 **IEzsigntemplateglobalannotationWidth** | **int32** | The width of the Ezsigntemplateglobalannotation | 
 **IEzsigntemplateglobalannotationHeight** | **int32** | The height of the Ezsigntemplateglobalannotation | 
+**IEzsigntemplateglobaldocumentpagePagenumber** | **int32** | The page number in the Ezsigntemplateglobaldocument | 
 **SEzsigntemplateglobalannotationDescription** | **string** | The description of the Ezsigntemplateglobalannotation | 
 **SEzsigntemplateglobalannotationDefaulttext** | **string** | The defaulttext of the Ezsigntemplateglobalannotation | 
 **SEzsigntemplateglobalannotationDropdownvalues** | **string** | The dropdownvalues of the Ezsigntemplateglobalannotation | 
@@ -22,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewEzsigntemplateglobalannotationResponseCompound
 
-`func NewEzsigntemplateglobalannotationResponseCompound(pkiEzsigntemplateglobalannotationID int32, fkiEzsigntemplateglobaldocumentpageID int32, fkiTextstylestaticID int32, eEzsigntemplateglobalannotationHorizontalalignment FieldEEzsigntemplateglobalannotationHorizontalalignment, eEzsigntemplateglobalannotationVerticalalignment FieldEEzsigntemplateglobalannotationVerticalalignment, eEzsigntemplateglobalannotationType FieldEEzsigntemplateglobalannotationType, iEzsigntemplateglobalannotationX int32, iEzsigntemplateglobalannotationY int32, iEzsigntemplateglobalannotationWidth int32, iEzsigntemplateglobalannotationHeight int32, sEzsigntemplateglobalannotationDescription string, sEzsigntemplateglobalannotationDefaulttext string, sEzsigntemplateglobalannotationDropdownvalues string, ) *EzsigntemplateglobalannotationResponseCompound`
+`func NewEzsigntemplateglobalannotationResponseCompound(pkiEzsigntemplateglobalannotationID int32, eEzsigntemplateglobalannotationHorizontalalignment FieldEEzsigntemplateglobalannotationHorizontalalignment, eEzsigntemplateglobalannotationVerticalalignment FieldEEzsigntemplateglobalannotationVerticalalignment, eEzsigntemplateglobalannotationType FieldEEzsigntemplateglobalannotationType, iEzsigntemplateglobalannotationX int32, iEzsigntemplateglobalannotationY int32, iEzsigntemplateglobalannotationWidth int32, iEzsigntemplateglobalannotationHeight int32, iEzsigntemplateglobaldocumentpagePagenumber int32, sEzsigntemplateglobalannotationDescription string, sEzsigntemplateglobalannotationDefaulttext string, sEzsigntemplateglobalannotationDropdownvalues string, ) *EzsigntemplateglobalannotationResponseCompound`
 
 NewEzsigntemplateglobalannotationResponseCompound instantiates a new EzsigntemplateglobalannotationResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -57,26 +58,6 @@ and a boolean to check if the value has been set.
 SetPkiEzsigntemplateglobalannotationID sets PkiEzsigntemplateglobalannotationID field to given value.
 
 
-### GetFkiEzsigntemplateglobaldocumentpageID
-
-`func (o *EzsigntemplateglobalannotationResponseCompound) GetFkiEzsigntemplateglobaldocumentpageID() int32`
-
-GetFkiEzsigntemplateglobaldocumentpageID returns the FkiEzsigntemplateglobaldocumentpageID field if non-nil, zero value otherwise.
-
-### GetFkiEzsigntemplateglobaldocumentpageIDOk
-
-`func (o *EzsigntemplateglobalannotationResponseCompound) GetFkiEzsigntemplateglobaldocumentpageIDOk() (*int32, bool)`
-
-GetFkiEzsigntemplateglobaldocumentpageIDOk returns a tuple with the FkiEzsigntemplateglobaldocumentpageID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFkiEzsigntemplateglobaldocumentpageID
-
-`func (o *EzsigntemplateglobalannotationResponseCompound) SetFkiEzsigntemplateglobaldocumentpageID(v int32)`
-
-SetFkiEzsigntemplateglobaldocumentpageID sets FkiEzsigntemplateglobaldocumentpageID field to given value.
-
-
 ### GetFkiTextstylestaticID
 
 `func (o *EzsigntemplateglobalannotationResponseCompound) GetFkiTextstylestaticID() int32`
@@ -96,6 +77,36 @@ and a boolean to check if the value has been set.
 
 SetFkiTextstylestaticID sets FkiTextstylestaticID field to given value.
 
+### HasFkiTextstylestaticID
+
+`func (o *EzsigntemplateglobalannotationResponseCompound) HasFkiTextstylestaticID() bool`
+
+HasFkiTextstylestaticID returns a boolean if a field has been set.
+
+### GetObjTextstylestatic
+
+`func (o *EzsigntemplateglobalannotationResponseCompound) GetObjTextstylestatic() TextstylestaticRequestCompound`
+
+GetObjTextstylestatic returns the ObjTextstylestatic field if non-nil, zero value otherwise.
+
+### GetObjTextstylestaticOk
+
+`func (o *EzsigntemplateglobalannotationResponseCompound) GetObjTextstylestaticOk() (*TextstylestaticRequestCompound, bool)`
+
+GetObjTextstylestaticOk returns a tuple with the ObjTextstylestatic field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjTextstylestatic
+
+`func (o *EzsigntemplateglobalannotationResponseCompound) SetObjTextstylestatic(v TextstylestaticRequestCompound)`
+
+SetObjTextstylestatic sets ObjTextstylestatic field to given value.
+
+### HasObjTextstylestatic
+
+`func (o *EzsigntemplateglobalannotationResponseCompound) HasObjTextstylestatic() bool`
+
+HasObjTextstylestatic returns a boolean if a field has been set.
 
 ### GetEEzsigntemplateglobalannotationHorizontalalignment
 
@@ -235,6 +246,26 @@ and a boolean to check if the value has been set.
 `func (o *EzsigntemplateglobalannotationResponseCompound) SetIEzsigntemplateglobalannotationHeight(v int32)`
 
 SetIEzsigntemplateglobalannotationHeight sets IEzsigntemplateglobalannotationHeight field to given value.
+
+
+### GetIEzsigntemplateglobaldocumentpagePagenumber
+
+`func (o *EzsigntemplateglobalannotationResponseCompound) GetIEzsigntemplateglobaldocumentpagePagenumber() int32`
+
+GetIEzsigntemplateglobaldocumentpagePagenumber returns the IEzsigntemplateglobaldocumentpagePagenumber field if non-nil, zero value otherwise.
+
+### GetIEzsigntemplateglobaldocumentpagePagenumberOk
+
+`func (o *EzsigntemplateglobalannotationResponseCompound) GetIEzsigntemplateglobaldocumentpagePagenumberOk() (*int32, bool)`
+
+GetIEzsigntemplateglobaldocumentpagePagenumberOk returns a tuple with the IEzsigntemplateglobaldocumentpagePagenumber field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIEzsigntemplateglobaldocumentpagePagenumber
+
+`func (o *EzsigntemplateglobalannotationResponseCompound) SetIEzsigntemplateglobaldocumentpagePagenumber(v int32)`
+
+SetIEzsigntemplateglobaldocumentpagePagenumber sets IEzsigntemplateglobaldocumentpagePagenumber field to given value.
 
 
 ### GetSEzsigntemplateglobalannotationDescription
