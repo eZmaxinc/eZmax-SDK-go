@@ -1965,10 +1965,7 @@ docs/ScimServiceProviderConfig.md
 docs/ScimServiceProviderConfigAPI.md
 docs/ScimServiceProviderConfigBulk.md
 docs/ScimServiceProviderConfigChangePassword.md
-docs/ScimServiceProviderConfigEtag.md
 docs/ScimServiceProviderConfigFilter.md
-docs/ScimServiceProviderConfigPatch.md
-docs/ScimServiceProviderConfigSort.md
 docs/ScimUser.md
 docs/ScimUserList.md
 docs/ScimUsersAPI.md
@@ -3964,10 +3961,7 @@ model_scim_group_member.go
 model_scim_service_provider_config.go
 model_scim_service_provider_config_bulk.go
 model_scim_service_provider_config_change_password.go
-model_scim_service_provider_config_etag.go
 model_scim_service_provider_config_filter.go
-model_scim_service_provider_config_patch.go
-model_scim_service_provider_config_sort.go
 model_scim_user.go
 model_scim_user_list.go
 model_secretquestion_autocomplete_element_response.go

@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiApikeyID** | **int32** | The unique ID of the Apikey | 
 **FkiUserID** | **int32** | The unique ID of the User | 
+**FkiEzmaxpartnerproductstageID** | Pointer to **int32** | The unique ID of the Ezmaxpartnerproductstage | [optional] 
 **ObjApikeyDescription** | [**MultilingualApikeyDescription**](MultilingualApikeyDescription.md) |  | 
 **ObjContactName** | [**CustomContactNameResponse**](CustomContactNameResponse.md) |  | 
 **SApikeyApikey** | Pointer to **string** | The Apikey for the API key.  This will be hidden if we are not creating or regenerating the Apikey. | [optional] 
@@ -72,6 +73,31 @@ and a boolean to check if the value has been set.
 
 SetFkiUserID sets FkiUserID field to given value.
 
+
+### GetFkiEzmaxpartnerproductstageID
+
+`func (o *ApikeyResponse) GetFkiEzmaxpartnerproductstageID() int32`
+
+GetFkiEzmaxpartnerproductstageID returns the FkiEzmaxpartnerproductstageID field if non-nil, zero value otherwise.
+
+### GetFkiEzmaxpartnerproductstageIDOk
+
+`func (o *ApikeyResponse) GetFkiEzmaxpartnerproductstageIDOk() (*int32, bool)`
+
+GetFkiEzmaxpartnerproductstageIDOk returns a tuple with the FkiEzmaxpartnerproductstageID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiEzmaxpartnerproductstageID
+
+`func (o *ApikeyResponse) SetFkiEzmaxpartnerproductstageID(v int32)`
+
+SetFkiEzmaxpartnerproductstageID sets FkiEzmaxpartnerproductstageID field to given value.
+
+### HasFkiEzmaxpartnerproductstageID
+
+`func (o *ApikeyResponse) HasFkiEzmaxpartnerproductstageID() bool`
+
+HasFkiEzmaxpartnerproductstageID returns a boolean if a field has been set.
 
 ### GetObjApikeyDescription
 

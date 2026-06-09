@@ -26,6 +26,8 @@ type ApikeyResponseCompound struct {
 	PkiApikeyID int32 `json:"pkiApikeyID"`
 	// The unique ID of the User
 	FkiUserID int32 `json:"fkiUserID"`
+	// The unique ID of the Ezmaxpartnerproductstage
+	FkiEzmaxpartnerproductstageID *int32 `json:"fkiEzmaxpartnerproductstageID,omitempty"`
 	ObjApikeyDescription MultilingualApikeyDescription `json:"objApikeyDescription"`
 	ObjContactName CustomContactNameResponse `json:"objContactName"`
 	// The Apikey for the API key.  This will be hidden if we are not creating or regenerating the Apikey.
@@ -110,6 +112,38 @@ func (o *ApikeyResponseCompound) GetFkiUserIDOk() (*int32, bool) {
 // SetFkiUserID sets field value
 func (o *ApikeyResponseCompound) SetFkiUserID(v int32) {
 	o.FkiUserID = v
+}
+
+// GetFkiEzmaxpartnerproductstageID returns the FkiEzmaxpartnerproductstageID field value if set, zero value otherwise.
+func (o *ApikeyResponseCompound) GetFkiEzmaxpartnerproductstageID() int32 {
+	if o == nil || IsNil(o.FkiEzmaxpartnerproductstageID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiEzmaxpartnerproductstageID
+}
+
+// GetFkiEzmaxpartnerproductstageIDOk returns a tuple with the FkiEzmaxpartnerproductstageID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ApikeyResponseCompound) GetFkiEzmaxpartnerproductstageIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiEzmaxpartnerproductstageID) {
+		return nil, false
+	}
+	return o.FkiEzmaxpartnerproductstageID, true
+}
+
+// HasFkiEzmaxpartnerproductstageID returns a boolean if a field has been set.
+func (o *ApikeyResponseCompound) HasFkiEzmaxpartnerproductstageID() bool {
+	if o != nil && !IsNil(o.FkiEzmaxpartnerproductstageID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiEzmaxpartnerproductstageID gets a reference to the given int32 and assigns it to the FkiEzmaxpartnerproductstageID field.
+func (o *ApikeyResponseCompound) SetFkiEzmaxpartnerproductstageID(v int32) {
+	o.FkiEzmaxpartnerproductstageID = &v
 }
 
 // GetObjApikeyDescription returns the ObjApikeyDescription field value
@@ -316,6 +350,9 @@ func (o ApikeyResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiApikeyID"] = o.PkiApikeyID
 	toSerialize["fkiUserID"] = o.FkiUserID
+	if !IsNil(o.FkiEzmaxpartnerproductstageID) {
+		toSerialize["fkiEzmaxpartnerproductstageID"] = o.FkiEzmaxpartnerproductstageID
+	}
 	toSerialize["objApikeyDescription"] = o.ObjApikeyDescription
 	toSerialize["objContactName"] = o.ObjContactName
 	if !IsNil(o.SApikeyApikey) {
