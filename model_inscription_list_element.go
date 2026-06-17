@@ -28,6 +28,10 @@ type InscriptionListElement struct {
 	PkiInscriptionnotauthenticatedID *int32 `json:"pkiInscriptionnotauthenticatedID,omitempty"`
 	// The unique ID of the Inscriptiontype
 	FkiInscriptiontypeID int32 `json:"fkiInscriptiontypeID"`
+	// The unique ID of the Buyercontract
+	FkiBuyercontractID *int32 `json:"fkiBuyercontractID,omitempty"`
+	// The number of the Buyercontract
+	SBuyercontractContract *string `json:"sBuyercontractContract,omitempty"`
 	// The name of the Inscriptiontype in the language of the requester
 	SInscriptiontypeNameX string `json:"sInscriptiontypeNameX" validate:"regexp=^.{0,30}$"`
 	EInscriptionStep FieldEInscriptionStep `json:"eInscriptionStep"`
@@ -35,6 +39,8 @@ type InscriptionListElement struct {
 	SInscriptionCivicend string `json:"sInscriptionCivicend" validate:"regexp=^.{0,6}$"`
 	// The mls of the Inscription
 	SInscriptionMLS *string `json:"sInscriptionMLS,omitempty" validate:"regexp=^.{0,20}$"`
+	// The sale contract number
+	SInscriptionContract *string `json:"sInscriptionContract,omitempty" validate:"regexp=^.{0,20}$"`
 	// The saleprice of the Inscription
 	DInscriptionSaleprice string `json:"dInscriptionSaleprice" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
 	// The rentprice of the Inscription
@@ -195,6 +201,70 @@ func (o *InscriptionListElement) SetFkiInscriptiontypeID(v int32) {
 	o.FkiInscriptiontypeID = v
 }
 
+// GetFkiBuyercontractID returns the FkiBuyercontractID field value if set, zero value otherwise.
+func (o *InscriptionListElement) GetFkiBuyercontractID() int32 {
+	if o == nil || IsNil(o.FkiBuyercontractID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiBuyercontractID
+}
+
+// GetFkiBuyercontractIDOk returns a tuple with the FkiBuyercontractID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *InscriptionListElement) GetFkiBuyercontractIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiBuyercontractID) {
+		return nil, false
+	}
+	return o.FkiBuyercontractID, true
+}
+
+// HasFkiBuyercontractID returns a boolean if a field has been set.
+func (o *InscriptionListElement) HasFkiBuyercontractID() bool {
+	if o != nil && !IsNil(o.FkiBuyercontractID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiBuyercontractID gets a reference to the given int32 and assigns it to the FkiBuyercontractID field.
+func (o *InscriptionListElement) SetFkiBuyercontractID(v int32) {
+	o.FkiBuyercontractID = &v
+}
+
+// GetSBuyercontractContract returns the SBuyercontractContract field value if set, zero value otherwise.
+func (o *InscriptionListElement) GetSBuyercontractContract() string {
+	if o == nil || IsNil(o.SBuyercontractContract) {
+		var ret string
+		return ret
+	}
+	return *o.SBuyercontractContract
+}
+
+// GetSBuyercontractContractOk returns a tuple with the SBuyercontractContract field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *InscriptionListElement) GetSBuyercontractContractOk() (*string, bool) {
+	if o == nil || IsNil(o.SBuyercontractContract) {
+		return nil, false
+	}
+	return o.SBuyercontractContract, true
+}
+
+// HasSBuyercontractContract returns a boolean if a field has been set.
+func (o *InscriptionListElement) HasSBuyercontractContract() bool {
+	if o != nil && !IsNil(o.SBuyercontractContract) {
+		return true
+	}
+
+	return false
+}
+
+// SetSBuyercontractContract gets a reference to the given string and assigns it to the SBuyercontractContract field.
+func (o *InscriptionListElement) SetSBuyercontractContract(v string) {
+	o.SBuyercontractContract = &v
+}
+
 // GetSInscriptiontypeNameX returns the SInscriptiontypeNameX field value
 func (o *InscriptionListElement) GetSInscriptiontypeNameX() string {
 	if o == nil {
@@ -297,6 +367,38 @@ func (o *InscriptionListElement) HasSInscriptionMLS() bool {
 // SetSInscriptionMLS gets a reference to the given string and assigns it to the SInscriptionMLS field.
 func (o *InscriptionListElement) SetSInscriptionMLS(v string) {
 	o.SInscriptionMLS = &v
+}
+
+// GetSInscriptionContract returns the SInscriptionContract field value if set, zero value otherwise.
+func (o *InscriptionListElement) GetSInscriptionContract() string {
+	if o == nil || IsNil(o.SInscriptionContract) {
+		var ret string
+		return ret
+	}
+	return *o.SInscriptionContract
+}
+
+// GetSInscriptionContractOk returns a tuple with the SInscriptionContract field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *InscriptionListElement) GetSInscriptionContractOk() (*string, bool) {
+	if o == nil || IsNil(o.SInscriptionContract) {
+		return nil, false
+	}
+	return o.SInscriptionContract, true
+}
+
+// HasSInscriptionContract returns a boolean if a field has been set.
+func (o *InscriptionListElement) HasSInscriptionContract() bool {
+	if o != nil && !IsNil(o.SInscriptionContract) {
+		return true
+	}
+
+	return false
+}
+
+// SetSInscriptionContract gets a reference to the given string and assigns it to the SInscriptionContract field.
+func (o *InscriptionListElement) SetSInscriptionContract(v string) {
+	o.SInscriptionContract = &v
 }
 
 // GetDInscriptionSaleprice returns the DInscriptionSaleprice field value
@@ -1034,11 +1136,20 @@ func (o InscriptionListElement) ToMap() (map[string]interface{}, error) {
 		toSerialize["pkiInscriptionnotauthenticatedID"] = o.PkiInscriptionnotauthenticatedID
 	}
 	toSerialize["fkiInscriptiontypeID"] = o.FkiInscriptiontypeID
+	if !IsNil(o.FkiBuyercontractID) {
+		toSerialize["fkiBuyercontractID"] = o.FkiBuyercontractID
+	}
+	if !IsNil(o.SBuyercontractContract) {
+		toSerialize["sBuyercontractContract"] = o.SBuyercontractContract
+	}
 	toSerialize["sInscriptiontypeNameX"] = o.SInscriptiontypeNameX
 	toSerialize["eInscriptionStep"] = o.EInscriptionStep
 	toSerialize["sInscriptionCivicend"] = o.SInscriptionCivicend
 	if !IsNil(o.SInscriptionMLS) {
 		toSerialize["sInscriptionMLS"] = o.SInscriptionMLS
+	}
+	if !IsNil(o.SInscriptionContract) {
+		toSerialize["sInscriptionContract"] = o.SInscriptionContract
 	}
 	toSerialize["dInscriptionSaleprice"] = o.DInscriptionSaleprice
 	toSerialize["dInscriptionRentprice"] = o.DInscriptionRentprice

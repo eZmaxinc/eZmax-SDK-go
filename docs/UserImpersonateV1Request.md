@@ -4,14 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FkiUserID** | **int32** | The unique ID of the User | 
 **IExpirationMinutes** | **int32** | The number of minute before key is no longer active | 
 
 ## Methods
 
 ### NewUserImpersonateV1Request
 
-`func NewUserImpersonateV1Request(fkiUserID int32, iExpirationMinutes int32, ) *UserImpersonateV1Request`
+`func NewUserImpersonateV1Request(iExpirationMinutes int32, ) *UserImpersonateV1Request`
 
 NewUserImpersonateV1Request instantiates a new UserImpersonateV1Request object
 This constructor will assign default values to properties that have it defined,
@@ -25,26 +24,6 @@ will change when the set of required properties is changed
 NewUserImpersonateV1RequestWithDefaults instantiates a new UserImpersonateV1Request object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetFkiUserID
-
-`func (o *UserImpersonateV1Request) GetFkiUserID() int32`
-
-GetFkiUserID returns the FkiUserID field if non-nil, zero value otherwise.
-
-### GetFkiUserIDOk
-
-`func (o *UserImpersonateV1Request) GetFkiUserIDOk() (*int32, bool)`
-
-GetFkiUserIDOk returns a tuple with the FkiUserID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFkiUserID
-
-`func (o *UserImpersonateV1Request) SetFkiUserID(v int32)`
-
-SetFkiUserID sets FkiUserID field to given value.
-
 
 ### GetIExpirationMinutes
 

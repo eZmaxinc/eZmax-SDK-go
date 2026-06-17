@@ -25,6 +25,7 @@ Method | HTTP request | Description
 [**EzsigndocumentEndPrematurelyV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentEndPrematurelyV1) | **Post** /1/object/ezsigndocument/{pkiEzsigndocumentID}/endPrematurely | End prematurely
 [**EzsigndocumentExtractTextV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentExtractTextV1) | **Post** /1/object/ezsigndocument/{pkiEzsigndocumentID}/extractText | Extract text from Ezsigndocument area
 [**EzsigndocumentFlattenV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentFlattenV1) | **Post** /1/object/ezsigndocument/{pkiEzsigndocumentID}/flatten | Flatten
+[**EzsigndocumentGetActionableElementsForSignerV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentGetActionableElementsForSignerV1) | **Get** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getActionableElementsForSigner | Retrieve actionable elements of a user for the Ezsigndocument
 [**EzsigndocumentGetActionableElementsV1**](ObjectEzsigndocumentAPI.md#EzsigndocumentGetActionableElementsV1) | **Get** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getActionableElements | Retrieve actionable elements for the Ezsigndocument
 [**EzsigndocumentGetActionableElementsV2**](ObjectEzsigndocumentAPI.md#EzsigndocumentGetActionableElementsV2) | **Get** /2/object/ezsigndocument/{pkiEzsigndocumentID}/getActionableElements | Retrieve actionable elements for the Ezsigndocument
 [**EzsigndocumentGetActionableElementsV3**](ObjectEzsigndocumentAPI.md#EzsigndocumentGetActionableElementsV3) | **Get** /3/object/ezsigndocument/{pkiEzsigndocumentID}/getActionableElements | Retrieve actionable elements for the Ezsigndocument
@@ -1537,6 +1538,82 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsigndocumentGetActionableElementsForSignerV1
+
+> EzsigndocumentGetActionableElementsForSignerV1Response EzsigndocumentGetActionableElementsForSignerV1(ctx, pkiEzsigndocumentID).ESignerType(eSignerType).FkiEzsignsignerID(fkiEzsignsignerID).FkiUserID(fkiUserID).Execute()
+
+Retrieve actionable elements of a user for the Ezsigndocument
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsigndocumentID := int32(56) // int32 | 
+	eSignerType := "eSignerType_example" // string | 
+	fkiEzsignsignerID := int32(56) // int32 |  (optional)
+	fkiUserID := int32(56) // int32 |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigndocumentAPI.EzsigndocumentGetActionableElementsForSignerV1(context.Background(), pkiEzsigndocumentID).ESignerType(eSignerType).FkiEzsignsignerID(fkiEzsignsignerID).FkiUserID(fkiUserID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigndocumentAPI.EzsigndocumentGetActionableElementsForSignerV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigndocumentGetActionableElementsForSignerV1`: EzsigndocumentGetActionableElementsForSignerV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigndocumentAPI.EzsigndocumentGetActionableElementsForSignerV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsigndocumentID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsigndocumentGetActionableElementsForSignerV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **eSignerType** | **string** |  | 
+ **fkiEzsignsignerID** | **int32** |  | 
+ **fkiUserID** | **int32** |  | 
+
+### Return type
+
+[**EzsigndocumentGetActionableElementsForSignerV1Response**](EzsigndocumentGetActionableElementsForSignerV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

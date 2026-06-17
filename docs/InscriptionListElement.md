@@ -7,10 +7,13 @@ Name | Type | Description | Notes
 **PkiInscriptionID** | **int32** | The unique ID of the Inscription. | 
 **PkiInscriptionnotauthenticatedID** | Pointer to **int32** | The unique ID of the Inscriptionnotauthenticated. | [optional] 
 **FkiInscriptiontypeID** | **int32** | The unique ID of the Inscriptiontype | 
+**FkiBuyercontractID** | Pointer to **int32** | The unique ID of the Buyercontract | [optional] 
+**SBuyercontractContract** | Pointer to **string** | The number of the Buyercontract | [optional] 
 **SInscriptiontypeNameX** | **string** | The name of the Inscriptiontype in the language of the requester | 
 **EInscriptionStep** | [**FieldEInscriptionStep**](FieldEInscriptionStep.md) |  | 
 **SInscriptionCivicend** | **string** | The civicend of the Inscription | 
 **SInscriptionMLS** | Pointer to **string** | The mls of the Inscription | [optional] 
+**SInscriptionContract** | Pointer to **string** | The sale contract number | [optional] 
 **DInscriptionSaleprice** | **string** | The saleprice of the Inscription | 
 **DInscriptionRentprice** | **string** | The rentprice of the Inscription | 
 **DtInscriptionDate** | Pointer to **string** | The date of the Inscription | [optional] 
@@ -120,6 +123,56 @@ and a boolean to check if the value has been set.
 SetFkiInscriptiontypeID sets FkiInscriptiontypeID field to given value.
 
 
+### GetFkiBuyercontractID
+
+`func (o *InscriptionListElement) GetFkiBuyercontractID() int32`
+
+GetFkiBuyercontractID returns the FkiBuyercontractID field if non-nil, zero value otherwise.
+
+### GetFkiBuyercontractIDOk
+
+`func (o *InscriptionListElement) GetFkiBuyercontractIDOk() (*int32, bool)`
+
+GetFkiBuyercontractIDOk returns a tuple with the FkiBuyercontractID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiBuyercontractID
+
+`func (o *InscriptionListElement) SetFkiBuyercontractID(v int32)`
+
+SetFkiBuyercontractID sets FkiBuyercontractID field to given value.
+
+### HasFkiBuyercontractID
+
+`func (o *InscriptionListElement) HasFkiBuyercontractID() bool`
+
+HasFkiBuyercontractID returns a boolean if a field has been set.
+
+### GetSBuyercontractContract
+
+`func (o *InscriptionListElement) GetSBuyercontractContract() string`
+
+GetSBuyercontractContract returns the SBuyercontractContract field if non-nil, zero value otherwise.
+
+### GetSBuyercontractContractOk
+
+`func (o *InscriptionListElement) GetSBuyercontractContractOk() (*string, bool)`
+
+GetSBuyercontractContractOk returns a tuple with the SBuyercontractContract field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSBuyercontractContract
+
+`func (o *InscriptionListElement) SetSBuyercontractContract(v string)`
+
+SetSBuyercontractContract sets SBuyercontractContract field to given value.
+
+### HasSBuyercontractContract
+
+`func (o *InscriptionListElement) HasSBuyercontractContract() bool`
+
+HasSBuyercontractContract returns a boolean if a field has been set.
+
 ### GetSInscriptiontypeNameX
 
 `func (o *InscriptionListElement) GetSInscriptiontypeNameX() string`
@@ -204,6 +257,31 @@ SetSInscriptionMLS sets SInscriptionMLS field to given value.
 `func (o *InscriptionListElement) HasSInscriptionMLS() bool`
 
 HasSInscriptionMLS returns a boolean if a field has been set.
+
+### GetSInscriptionContract
+
+`func (o *InscriptionListElement) GetSInscriptionContract() string`
+
+GetSInscriptionContract returns the SInscriptionContract field if non-nil, zero value otherwise.
+
+### GetSInscriptionContractOk
+
+`func (o *InscriptionListElement) GetSInscriptionContractOk() (*string, bool)`
+
+GetSInscriptionContractOk returns a tuple with the SInscriptionContract field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSInscriptionContract
+
+`func (o *InscriptionListElement) SetSInscriptionContract(v string)`
+
+SetSInscriptionContract sets SInscriptionContract field to given value.
+
+### HasSInscriptionContract
+
+`func (o *InscriptionListElement) HasSInscriptionContract() bool`
+
+HasSInscriptionContract returns a boolean if a field has been set.
 
 ### GetDInscriptionSaleprice
 

@@ -22,8 +22,6 @@ var _ MappedNullable = &UserImpersonateV1Request{}
 
 // UserImpersonateV1Request Request for POST /1/object/user/{pkiUserID}/impersonate
 type UserImpersonateV1Request struct {
-	// The unique ID of the User
-	FkiUserID int32 `json:"fkiUserID"`
 	// The number of minute before key is no longer active
 	IExpirationMinutes int32 `json:"iExpirationMinutes"`
 }
@@ -34,9 +32,8 @@ type _UserImpersonateV1Request UserImpersonateV1Request
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUserImpersonateV1Request(fkiUserID int32, iExpirationMinutes int32) *UserImpersonateV1Request {
+func NewUserImpersonateV1Request(iExpirationMinutes int32) *UserImpersonateV1Request {
 	this := UserImpersonateV1Request{}
-	this.FkiUserID = fkiUserID
 	this.IExpirationMinutes = iExpirationMinutes
 	return &this
 }
@@ -47,30 +44,6 @@ func NewUserImpersonateV1Request(fkiUserID int32, iExpirationMinutes int32) *Use
 func NewUserImpersonateV1RequestWithDefaults() *UserImpersonateV1Request {
 	this := UserImpersonateV1Request{}
 	return &this
-}
-
-// GetFkiUserID returns the FkiUserID field value
-func (o *UserImpersonateV1Request) GetFkiUserID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.FkiUserID
-}
-
-// GetFkiUserIDOk returns a tuple with the FkiUserID field value
-// and a boolean to check if the value has been set.
-func (o *UserImpersonateV1Request) GetFkiUserIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FkiUserID, true
-}
-
-// SetFkiUserID sets field value
-func (o *UserImpersonateV1Request) SetFkiUserID(v int32) {
-	o.FkiUserID = v
 }
 
 // GetIExpirationMinutes returns the IExpirationMinutes field value
@@ -107,7 +80,6 @@ func (o UserImpersonateV1Request) MarshalJSON() ([]byte, error) {
 
 func (o UserImpersonateV1Request) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["fkiUserID"] = o.FkiUserID
 	toSerialize["iExpirationMinutes"] = o.IExpirationMinutes
 	return toSerialize, nil
 }
@@ -117,7 +89,6 @@ func (o *UserImpersonateV1Request) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"fkiUserID",
 		"iExpirationMinutes",
 	}
 

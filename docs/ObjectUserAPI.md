@@ -1163,7 +1163,7 @@ import (
 
 func main() {
 	pkiUserID := int32(56) // int32 | 
-	userImpersonateV1Request := *openapiclient.NewUserImpersonateV1Request(int32(70), int32(123)) // UserImpersonateV1Request | 
+	userImpersonateV1Request := *openapiclient.NewUserImpersonateV1Request(int32(123)) // UserImpersonateV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
