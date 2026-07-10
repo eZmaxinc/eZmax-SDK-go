@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **FkiEzsignfoldertypeID** | Pointer to **int32** | The unique ID of the Ezsignfoldertype. | [optional] 
 **SEzsignfoldertypeNameX** | Pointer to **string** | The name of the Ezsignfoldertype in the language of the requester | [optional] 
 **EWebhookModule** | [**FieldEWebhookModule**](FieldEWebhookModule.md) |  | 
+**EWebhookEzmaxpartnerevent** | Pointer to [**FieldEWebhookEzmaxpartnerevent**](FieldEWebhookEzmaxpartnerevent.md) |  | [optional] 
 **EWebhookEzsignevent** | Pointer to [**FieldEWebhookEzsignevent**](FieldEWebhookEzsignevent.md) |  | [optional] 
 **EWebhookManagementevent** | Pointer to [**FieldEWebhookManagementevent**](FieldEWebhookManagementevent.md) |  | [optional] 
 **SWebhookUrl** | **string** | The URL of the Webhook callback | 
@@ -187,6 +188,31 @@ and a boolean to check if the value has been set.
 
 SetEWebhookModule sets EWebhookModule field to given value.
 
+
+### GetEWebhookEzmaxpartnerevent
+
+`func (o *CustomWebhookResponse) GetEWebhookEzmaxpartnerevent() FieldEWebhookEzmaxpartnerevent`
+
+GetEWebhookEzmaxpartnerevent returns the EWebhookEzmaxpartnerevent field if non-nil, zero value otherwise.
+
+### GetEWebhookEzmaxpartnereventOk
+
+`func (o *CustomWebhookResponse) GetEWebhookEzmaxpartnereventOk() (*FieldEWebhookEzmaxpartnerevent, bool)`
+
+GetEWebhookEzmaxpartnereventOk returns a tuple with the EWebhookEzmaxpartnerevent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEWebhookEzmaxpartnerevent
+
+`func (o *CustomWebhookResponse) SetEWebhookEzmaxpartnerevent(v FieldEWebhookEzmaxpartnerevent)`
+
+SetEWebhookEzmaxpartnerevent sets EWebhookEzmaxpartnerevent field to given value.
+
+### HasEWebhookEzmaxpartnerevent
+
+`func (o *CustomWebhookResponse) HasEWebhookEzmaxpartnerevent() bool`
+
+HasEWebhookEzmaxpartnerevent returns a boolean if a field has been set.
 
 ### GetEWebhookEzsignevent
 

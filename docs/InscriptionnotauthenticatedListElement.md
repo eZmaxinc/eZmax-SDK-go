@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **DtInscriptionnotauthenticatedTransactiondateReal** | Pointer to **string** | The transactiondatereal of the Inscriptionnotauthenticated | [optional] 
 **BInscriptionnotauthenticatedConditional** | Pointer to **bool** | Whether the inscriptionnotauthenticated is conditional | [optional] 
 **BInscriptionnotauthenticatedIsactive** | Pointer to **bool** | Whether the inscriptionnotauthenticated is active or not | [optional] 
+**BInscriptionnotauthenticatedDraft** | Pointer to **bool** | Whether the inscriptionnotauthenticated is a draft or not | [optional] 
 **SAddressCivic** | Pointer to **string** | The Civic number. | [optional] 
 **SAddressStreet** | Pointer to **string** | The Street Name | [optional] 
 **SAddressSuite** | Pointer to **string** | The Suite or appartment number | [optional] 
@@ -586,6 +587,31 @@ SetBInscriptionnotauthenticatedIsactive sets BInscriptionnotauthenticatedIsactiv
 `func (o *InscriptionnotauthenticatedListElement) HasBInscriptionnotauthenticatedIsactive() bool`
 
 HasBInscriptionnotauthenticatedIsactive returns a boolean if a field has been set.
+
+### GetBInscriptionnotauthenticatedDraft
+
+`func (o *InscriptionnotauthenticatedListElement) GetBInscriptionnotauthenticatedDraft() bool`
+
+GetBInscriptionnotauthenticatedDraft returns the BInscriptionnotauthenticatedDraft field if non-nil, zero value otherwise.
+
+### GetBInscriptionnotauthenticatedDraftOk
+
+`func (o *InscriptionnotauthenticatedListElement) GetBInscriptionnotauthenticatedDraftOk() (*bool, bool)`
+
+GetBInscriptionnotauthenticatedDraftOk returns a tuple with the BInscriptionnotauthenticatedDraft field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBInscriptionnotauthenticatedDraft
+
+`func (o *InscriptionnotauthenticatedListElement) SetBInscriptionnotauthenticatedDraft(v bool)`
+
+SetBInscriptionnotauthenticatedDraft sets BInscriptionnotauthenticatedDraft field to given value.
+
+### HasBInscriptionnotauthenticatedDraft
+
+`func (o *InscriptionnotauthenticatedListElement) HasBInscriptionnotauthenticatedDraft() bool`
+
+HasBInscriptionnotauthenticatedDraft returns a boolean if a field has been set.
 
 ### GetSAddressCivic
 

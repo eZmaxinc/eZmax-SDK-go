@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.3.1
+API version: 1.3.2
 Contact: support-api@ezmax.ca
 */
 
@@ -32,6 +32,7 @@ type EzmaxpartnerResponseCompound struct {
 	ObjEzmaxpartnerUrl MultilingualEzmaxpartnerUrl `json:"objEzmaxpartnerUrl"`
 	// Whether the Ezmaxpartner is active or not
 	BEzmaxpartnerIsactive *bool `json:"bEzmaxpartnerIsactive,omitempty"`
+	ObjEzmaxpartnerLogourl MultilingualEzmaxpartnerLogourl `json:"objEzmaxpartnerLogourl"`
 }
 
 type _EzmaxpartnerResponseCompound EzmaxpartnerResponseCompound
@@ -40,7 +41,7 @@ type _EzmaxpartnerResponseCompound EzmaxpartnerResponseCompound
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzmaxpartnerResponseCompound(eEzmaxpartnerCustomdevelopment FieldEEzmaxpartnerCustomdevelopment, objEzmaxpartnerAddress MultilingualEzmaxpartnerAddress, objEzmaxpartnerDescription MultilingualEzmaxpartnerDescription, objEzmaxpartnerEmailaddress MultilingualEzmaxpartnerEmailaddress, objEzmaxpartnerName MultilingualEzmaxpartnerName, objEzmaxpartnerPhoneE164 MultilingualEzmaxpartnerPhoneE164, objEzmaxpartnerShortdescription MultilingualEzmaxpartnerShortdescription, objEzmaxpartnerUrl MultilingualEzmaxpartnerUrl) *EzmaxpartnerResponseCompound {
+func NewEzmaxpartnerResponseCompound(eEzmaxpartnerCustomdevelopment FieldEEzmaxpartnerCustomdevelopment, objEzmaxpartnerAddress MultilingualEzmaxpartnerAddress, objEzmaxpartnerDescription MultilingualEzmaxpartnerDescription, objEzmaxpartnerEmailaddress MultilingualEzmaxpartnerEmailaddress, objEzmaxpartnerName MultilingualEzmaxpartnerName, objEzmaxpartnerPhoneE164 MultilingualEzmaxpartnerPhoneE164, objEzmaxpartnerShortdescription MultilingualEzmaxpartnerShortdescription, objEzmaxpartnerUrl MultilingualEzmaxpartnerUrl, objEzmaxpartnerLogourl MultilingualEzmaxpartnerLogourl) *EzmaxpartnerResponseCompound {
 	this := EzmaxpartnerResponseCompound{}
 	this.EEzmaxpartnerCustomdevelopment = eEzmaxpartnerCustomdevelopment
 	this.ObjEzmaxpartnerAddress = objEzmaxpartnerAddress
@@ -50,6 +51,7 @@ func NewEzmaxpartnerResponseCompound(eEzmaxpartnerCustomdevelopment FieldEEzmaxp
 	this.ObjEzmaxpartnerPhoneE164 = objEzmaxpartnerPhoneE164
 	this.ObjEzmaxpartnerShortdescription = objEzmaxpartnerShortdescription
 	this.ObjEzmaxpartnerUrl = objEzmaxpartnerUrl
+	this.ObjEzmaxpartnerLogourl = objEzmaxpartnerLogourl
 	return &this
 }
 
@@ -285,6 +287,30 @@ func (o *EzmaxpartnerResponseCompound) SetBEzmaxpartnerIsactive(v bool) {
 	o.BEzmaxpartnerIsactive = &v
 }
 
+// GetObjEzmaxpartnerLogourl returns the ObjEzmaxpartnerLogourl field value
+func (o *EzmaxpartnerResponseCompound) GetObjEzmaxpartnerLogourl() MultilingualEzmaxpartnerLogourl {
+	if o == nil {
+		var ret MultilingualEzmaxpartnerLogourl
+		return ret
+	}
+
+	return o.ObjEzmaxpartnerLogourl
+}
+
+// GetObjEzmaxpartnerLogourlOk returns a tuple with the ObjEzmaxpartnerLogourl field value
+// and a boolean to check if the value has been set.
+func (o *EzmaxpartnerResponseCompound) GetObjEzmaxpartnerLogourlOk() (*MultilingualEzmaxpartnerLogourl, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjEzmaxpartnerLogourl, true
+}
+
+// SetObjEzmaxpartnerLogourl sets field value
+func (o *EzmaxpartnerResponseCompound) SetObjEzmaxpartnerLogourl(v MultilingualEzmaxpartnerLogourl) {
+	o.ObjEzmaxpartnerLogourl = v
+}
+
 func (o EzmaxpartnerResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -306,6 +332,7 @@ func (o EzmaxpartnerResponseCompound) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.BEzmaxpartnerIsactive) {
 		toSerialize["bEzmaxpartnerIsactive"] = o.BEzmaxpartnerIsactive
 	}
+	toSerialize["objEzmaxpartnerLogourl"] = o.ObjEzmaxpartnerLogourl
 	return toSerialize, nil
 }
 
@@ -322,6 +349,7 @@ func (o *EzmaxpartnerResponseCompound) UnmarshalJSON(data []byte) (err error) {
 		"objEzmaxpartnerPhoneE164",
 		"objEzmaxpartnerShortdescription",
 		"objEzmaxpartnerUrl",
+		"objEzmaxpartnerLogourl",
 	}
 
 	allProperties := make(map[string]interface{})

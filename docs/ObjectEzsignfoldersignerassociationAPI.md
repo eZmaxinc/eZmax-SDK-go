@@ -8,12 +8,15 @@ Method | HTTP request | Description
 [**EzsignfoldersignerassociationCreateEmbeddedUrlV2**](ObjectEzsignfoldersignerassociationAPI.md#EzsignfoldersignerassociationCreateEmbeddedUrlV2) | **Post** /2/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/createEmbeddedUrl | Creates an Url to allow embedded signing
 [**EzsignfoldersignerassociationCreateObjectV1**](ObjectEzsignfoldersignerassociationAPI.md#EzsignfoldersignerassociationCreateObjectV1) | **Post** /1/object/ezsignfoldersignerassociation | Create a new Ezsignfoldersignerassociation
 [**EzsignfoldersignerassociationCreateObjectV2**](ObjectEzsignfoldersignerassociationAPI.md#EzsignfoldersignerassociationCreateObjectV2) | **Post** /2/object/ezsignfoldersignerassociation | Create a new Ezsignfoldersignerassociation
+[**EzsignfoldersignerassociationCreateObjectV3**](ObjectEzsignfoldersignerassociationAPI.md#EzsignfoldersignerassociationCreateObjectV3) | **Post** /3/object/ezsignfoldersignerassociation | Create a new Ezsignfoldersignerassociation
 [**EzsignfoldersignerassociationDeleteObjectV1**](ObjectEzsignfoldersignerassociationAPI.md#EzsignfoldersignerassociationDeleteObjectV1) | **Delete** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Delete an existing Ezsignfoldersignerassociation
 [**EzsignfoldersignerassociationEditObjectV1**](ObjectEzsignfoldersignerassociationAPI.md#EzsignfoldersignerassociationEditObjectV1) | **Put** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Edit an existing Ezsignfoldersignerassociation
+[**EzsignfoldersignerassociationEditObjectV2**](ObjectEzsignfoldersignerassociationAPI.md#EzsignfoldersignerassociationEditObjectV2) | **Put** /2/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Edit an existing Ezsignfoldersignerassociation
 [**EzsignfoldersignerassociationForceDisconnectV1**](ObjectEzsignfoldersignerassociationAPI.md#EzsignfoldersignerassociationForceDisconnectV1) | **Post** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/forceDisconnect | Disconnects the Ezsignfoldersignerassociation
 [**EzsignfoldersignerassociationGetInPersonLoginUrlV1**](ObjectEzsignfoldersignerassociationAPI.md#EzsignfoldersignerassociationGetInPersonLoginUrlV1) | **Get** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/getInPersonLoginUrl | Retrieve a Login Url to allow In-Person signing
 [**EzsignfoldersignerassociationGetObjectV1**](ObjectEzsignfoldersignerassociationAPI.md#EzsignfoldersignerassociationGetObjectV1) | **Get** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Retrieve an existing Ezsignfoldersignerassociation
 [**EzsignfoldersignerassociationGetObjectV2**](ObjectEzsignfoldersignerassociationAPI.md#EzsignfoldersignerassociationGetObjectV2) | **Get** /2/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Retrieve an existing Ezsignfoldersignerassociation
+[**EzsignfoldersignerassociationGetObjectV3**](ObjectEzsignfoldersignerassociationAPI.md#EzsignfoldersignerassociationGetObjectV3) | **Get** /3/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Retrieve an existing Ezsignfoldersignerassociation
 [**EzsignfoldersignerassociationPatchObjectV1**](ObjectEzsignfoldersignerassociationAPI.md#EzsignfoldersignerassociationPatchObjectV1) | **Patch** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Patch an existing Ezsignfoldersignerassociation
 [**EzsignfoldersignerassociationReassignV1**](ObjectEzsignfoldersignerassociationAPI.md#EzsignfoldersignerassociationReassignV1) | **Post** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/reassign | Reassign remaining unsigned signatures and forms
 
@@ -295,6 +298,72 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## EzsignfoldersignerassociationCreateObjectV3
+
+> EzsignfoldersignerassociationCreateObjectV3Response EzsignfoldersignerassociationCreateObjectV3(ctx).EzsignfoldersignerassociationCreateObjectV3Request(ezsignfoldersignerassociationCreateObjectV3Request).Execute()
+
+Create a new Ezsignfoldersignerassociation
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	ezsignfoldersignerassociationCreateObjectV3Request := *openapiclient.NewEzsignfoldersignerassociationCreateObjectV3Request([]openapiclient.EzsignfoldersignerassociationRequestCompoundV2{*openapiclient.NewEzsignfoldersignerassociationRequestCompoundV2(int32(33), openapiclient.Field-eEzsignfoldersignerassociationRole("CC"))}) // EzsignfoldersignerassociationCreateObjectV3Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfoldersignerassociationAPI.EzsignfoldersignerassociationCreateObjectV3(context.Background()).EzsignfoldersignerassociationCreateObjectV3Request(ezsignfoldersignerassociationCreateObjectV3Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldersignerassociationAPI.EzsignfoldersignerassociationCreateObjectV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfoldersignerassociationCreateObjectV3`: EzsignfoldersignerassociationCreateObjectV3Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfoldersignerassociationAPI.EzsignfoldersignerassociationCreateObjectV3`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsignfoldersignerassociationCreateObjectV3Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ezsignfoldersignerassociationCreateObjectV3Request** | [**EzsignfoldersignerassociationCreateObjectV3Request**](EzsignfoldersignerassociationCreateObjectV3Request.md) |  | 
+
+### Return type
+
+[**EzsignfoldersignerassociationCreateObjectV3Response**](EzsignfoldersignerassociationCreateObjectV3Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## EzsignfoldersignerassociationDeleteObjectV1
 
 > EzsignfoldersignerassociationDeleteObjectV1Response EzsignfoldersignerassociationDeleteObjectV1(ctx, pkiEzsignfoldersignerassociationID).Execute()
@@ -422,6 +491,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignfoldersignerassociationEditObjectV1Response**](EzsignfoldersignerassociationEditObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsignfoldersignerassociationEditObjectV2
+
+> EzsignfoldersignerassociationEditObjectV2Response EzsignfoldersignerassociationEditObjectV2(ctx, pkiEzsignfoldersignerassociationID).EzsignfoldersignerassociationEditObjectV2Request(ezsignfoldersignerassociationEditObjectV2Request).Execute()
+
+Edit an existing Ezsignfoldersignerassociation
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsignfoldersignerassociationID := int32(56) // int32 | 
+	ezsignfoldersignerassociationEditObjectV2Request := *openapiclient.NewEzsignfoldersignerassociationEditObjectV2Request(*openapiclient.NewEzsignfoldersignerassociationRequestCompoundV2(int32(33), openapiclient.Field-eEzsignfoldersignerassociationRole("CC"))) // EzsignfoldersignerassociationEditObjectV2Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfoldersignerassociationAPI.EzsignfoldersignerassociationEditObjectV2(context.Background(), pkiEzsignfoldersignerassociationID).EzsignfoldersignerassociationEditObjectV2Request(ezsignfoldersignerassociationEditObjectV2Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldersignerassociationAPI.EzsignfoldersignerassociationEditObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfoldersignerassociationEditObjectV2`: EzsignfoldersignerassociationEditObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfoldersignerassociationAPI.EzsignfoldersignerassociationEditObjectV2`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsignfoldersignerassociationID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsignfoldersignerassociationEditObjectV2Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **ezsignfoldersignerassociationEditObjectV2Request** | [**EzsignfoldersignerassociationEditObjectV2Request**](EzsignfoldersignerassociationEditObjectV2Request.md) |  | 
+
+### Return type
+
+[**EzsignfoldersignerassociationEditObjectV2Response**](EzsignfoldersignerassociationEditObjectV2Response.md)
 
 ### Authorization
 
@@ -704,6 +845,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignfoldersignerassociationGetObjectV2Response**](EzsignfoldersignerassociationGetObjectV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsignfoldersignerassociationGetObjectV3
+
+> EzsignfoldersignerassociationGetObjectV3Response EzsignfoldersignerassociationGetObjectV3(ctx, pkiEzsignfoldersignerassociationID).Execute()
+
+Retrieve an existing Ezsignfoldersignerassociation
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsignfoldersignerassociationID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfoldersignerassociationAPI.EzsignfoldersignerassociationGetObjectV3(context.Background(), pkiEzsignfoldersignerassociationID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfoldersignerassociationAPI.EzsignfoldersignerassociationGetObjectV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfoldersignerassociationGetObjectV3`: EzsignfoldersignerassociationGetObjectV3Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfoldersignerassociationAPI.EzsignfoldersignerassociationGetObjectV3`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsignfoldersignerassociationID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsignfoldersignerassociationGetObjectV3Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**EzsignfoldersignerassociationGetObjectV3Response**](EzsignfoldersignerassociationGetObjectV3Response.md)
 
 ### Authorization
 

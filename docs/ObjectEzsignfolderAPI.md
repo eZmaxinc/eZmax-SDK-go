@@ -29,6 +29,7 @@ Method | HTTP request | Description
 [**EzsignfolderGetEzsigndocumentsV1**](ObjectEzsignfolderAPI.md#EzsignfolderGetEzsigndocumentsV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsigndocuments | Retrieve an existing Ezsignfolder&#39;s Ezsigndocuments
 [**EzsignfolderGetEzsigndocumentsV2**](ObjectEzsignfolderAPI.md#EzsignfolderGetEzsigndocumentsV2) | **Get** /2/object/ezsignfolder/{pkiEzsignfolderID}/getEzsigndocuments | Retrieve an existing Ezsignfolder&#39;s Ezsigndocuments
 [**EzsignfolderGetEzsignfoldersignerassociationsV1**](ObjectEzsignfolderAPI.md#EzsignfolderGetEzsignfoldersignerassociationsV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignfoldersignerassociations | Retrieve an existing Ezsignfolder&#39;s Ezsignfoldersignerassociations
+[**EzsignfolderGetEzsignfoldersignerassociationsV2**](ObjectEzsignfolderAPI.md#EzsignfolderGetEzsignfoldersignerassociationsV2) | **Get** /2/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignfoldersignerassociations | Retrieve an existing Ezsignfolder&#39;s Ezsignfoldersignerassociations
 [**EzsignfolderGetEzsignformfieldgroupsV1**](ObjectEzsignfolderAPI.md#EzsignfolderGetEzsignformfieldgroupsV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignformfieldgroups | Retrieve an existing Ezsignfolder&#39;s Ezsignformfieldgroups
 [**EzsignfolderGetEzsignsignaturesAutomaticV1**](ObjectEzsignfolderAPI.md#EzsignfolderGetEzsignsignaturesAutomaticV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignsignaturesAutomatic | Retrieve an existing Ezsignfolder&#39;s automatic Ezsignsignatures
 [**EzsignfolderGetEzsignsignaturesV1**](ObjectEzsignfolderAPI.md#EzsignfolderGetEzsignsignaturesV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignsignatures | Retrieve an existing Ezsignfolder&#39;s Ezsignsignatures
@@ -1781,6 +1782,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignfolderGetEzsignfoldersignerassociationsV1Response**](EzsignfolderGetEzsignfoldersignerassociationsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsignfolderGetEzsignfoldersignerassociationsV2
+
+> EzsignfolderGetEzsignfoldersignerassociationsV2Response EzsignfolderGetEzsignfoldersignerassociationsV2(ctx, pkiEzsignfolderID).Execute()
+
+Retrieve an existing Ezsignfolder's Ezsignfoldersignerassociations
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsignfolderID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetEzsignfoldersignerassociationsV2(context.Background(), pkiEzsignfolderID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderGetEzsignfoldersignerassociationsV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignfolderGetEzsignfoldersignerassociationsV2`: EzsignfolderGetEzsignfoldersignerassociationsV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderGetEzsignfoldersignerassociationsV2`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsignfolderID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsignfolderGetEzsignfoldersignerassociationsV2Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**EzsignfolderGetEzsignfoldersignerassociationsV2Response**](EzsignfolderGetEzsignfoldersignerassociationsV2Response.md)
 
 ### Authorization
 

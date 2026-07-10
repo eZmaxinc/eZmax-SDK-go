@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**InscriptionnotauthenticatedGetCommunicationsendersV1**](ObjectInscriptionnotauthenticatedAPI.md#InscriptionnotauthenticatedGetCommunicationsendersV1) | **Get** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getCommunicationsenders | Retrieve Inscriptionnotauthenticated&#39;s Communicationsender
 [**InscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1**](ObjectInscriptionnotauthenticatedAPI.md#InscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1) | **Get** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getInscriptionnotauthenticatedconditions | Retrieve Inscriptionnotauthenticated conditions
 [**InscriptionnotauthenticatedGetListV1**](ObjectInscriptionnotauthenticatedAPI.md#InscriptionnotauthenticatedGetListV1) | **Get** /1/object/inscriptionnotauthenticated/getList | Retrieve Inscriptionnotauthenticated list
+[**InscriptionnotauthenticatedGetObjectV2**](ObjectInscriptionnotauthenticatedAPI.md#InscriptionnotauthenticatedGetObjectV2) | **Get** /2/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID} | Retrieve an existing Inscriptionnotauthenticated
 [**InscriptionnotauthenticatedImportIntoEDMV1**](ObjectInscriptionnotauthenticatedAPI.md#InscriptionnotauthenticatedImportIntoEDMV1) | **Post** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/importIntoEDM | Import attachments into the Inscriptionnotauthenticated
 
 
@@ -505,6 +506,76 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## InscriptionnotauthenticatedGetObjectV2
+
+> InscriptionnotauthenticatedGetObjectV2Response InscriptionnotauthenticatedGetObjectV2(ctx, pkiInscriptionnotauthenticatedID).Execute()
+
+Retrieve an existing Inscriptionnotauthenticated
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiInscriptionnotauthenticatedID := int32(56) // int32 | The unique ID of the Inscriptionnotauthenticated
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectInscriptionnotauthenticatedAPI.InscriptionnotauthenticatedGetObjectV2(context.Background(), pkiInscriptionnotauthenticatedID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectInscriptionnotauthenticatedAPI.InscriptionnotauthenticatedGetObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InscriptionnotauthenticatedGetObjectV2`: InscriptionnotauthenticatedGetObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectInscriptionnotauthenticatedAPI.InscriptionnotauthenticatedGetObjectV2`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiInscriptionnotauthenticatedID** | **int32** | The unique ID of the Inscriptionnotauthenticated | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInscriptionnotauthenticatedGetObjectV2Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**InscriptionnotauthenticatedGetObjectV2Response**](InscriptionnotauthenticatedGetObjectV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

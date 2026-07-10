@@ -9,7 +9,9 @@ Method | HTTP request | Description
 [**InscriptionGetCommunicationListV1**](ObjectInscriptionAPI.md#InscriptionGetCommunicationListV1) | **Get** /1/object/inscription/{pkiInscriptionID}/getCommunicationList | Retrieve Communication list
 [**InscriptionGetCommunicationrecipientsV1**](ObjectInscriptionAPI.md#InscriptionGetCommunicationrecipientsV1) | **Get** /1/object/inscription/{pkiInscriptionID}/getCommunicationrecipients | Retrieve Inscription&#39;s Communicationrecipient
 [**InscriptionGetCommunicationsendersV1**](ObjectInscriptionAPI.md#InscriptionGetCommunicationsendersV1) | **Get** /1/object/inscription/{pkiInscriptionID}/getCommunicationsenders | Retrieve Inscription&#39;s Communicationsender
+[**InscriptionGetInscriptionnotauthenticatedsV1**](ObjectInscriptionAPI.md#InscriptionGetInscriptionnotauthenticatedsV1) | **Get** /1/object/inscription/{pkiInscriptionID}/getInscriptionnotauthenticateds | Retrieve Inscriptionnotauthenticated list
 [**InscriptionGetListV1**](ObjectInscriptionAPI.md#InscriptionGetListV1) | **Get** /1/object/inscription/getList | Retrieve Inscription list
+[**InscriptionGetObjectV2**](ObjectInscriptionAPI.md#InscriptionGetObjectV2) | **Get** /2/object/inscription/{pkiInscriptionID} | Retrieve an existing Inscription
 [**InscriptionImportIntoEDMV1**](ObjectInscriptionAPI.md#InscriptionImportIntoEDMV1) | **Post** /1/object/inscription/{pkiInscriptionID}/importIntoEDM | Import attachments into the Inscription
 [**InscriptionPrepareFilesTransferV1**](ObjectInscriptionAPI.md#InscriptionPrepareFilesTransferV1) | **Post** /1/object/inscription/{pkiInscriptionID}/prepareFilesTransfer | Prepares file transfer into EDM
 
@@ -365,6 +367,74 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## InscriptionGetInscriptionnotauthenticatedsV1
+
+> InscriptionGetInscriptionnotauthenticatedsV1Response InscriptionGetInscriptionnotauthenticatedsV1(ctx, pkiInscriptionID).Execute()
+
+Retrieve Inscriptionnotauthenticated list
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiInscriptionID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectInscriptionAPI.InscriptionGetInscriptionnotauthenticatedsV1(context.Background(), pkiInscriptionID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectInscriptionAPI.InscriptionGetInscriptionnotauthenticatedsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InscriptionGetInscriptionnotauthenticatedsV1`: InscriptionGetInscriptionnotauthenticatedsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectInscriptionAPI.InscriptionGetInscriptionnotauthenticatedsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiInscriptionID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInscriptionGetInscriptionnotauthenticatedsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**InscriptionGetInscriptionnotauthenticatedsV1Response**](InscriptionGetInscriptionnotauthenticatedsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## InscriptionGetListV1
 
 > InscriptionGetListV1Response InscriptionGetListV1(ctx).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
@@ -433,6 +503,76 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## InscriptionGetObjectV2
+
+> InscriptionGetObjectV2Response InscriptionGetObjectV2(ctx, pkiInscriptionID).Execute()
+
+Retrieve an existing Inscription
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiInscriptionID := int32(56) // int32 | The unique ID of the Inscription
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectInscriptionAPI.InscriptionGetObjectV2(context.Background(), pkiInscriptionID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectInscriptionAPI.InscriptionGetObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InscriptionGetObjectV2`: InscriptionGetObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectInscriptionAPI.InscriptionGetObjectV2`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiInscriptionID** | **int32** | The unique ID of the Inscription | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInscriptionGetObjectV2Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**InscriptionGetObjectV2Response**](InscriptionGetObjectV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

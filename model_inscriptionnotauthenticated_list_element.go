@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.3.1
+API version: 1.3.2
 Contact: support-api@ezmax.ca
 */
 
@@ -67,6 +67,8 @@ type InscriptionnotauthenticatedListElement struct {
 	BInscriptionnotauthenticatedConditional *bool `json:"bInscriptionnotauthenticatedConditional,omitempty"`
 	// Whether the inscriptionnotauthenticated is active or not
 	BInscriptionnotauthenticatedIsactive *bool `json:"bInscriptionnotauthenticatedIsactive,omitempty"`
+	// Whether the inscriptionnotauthenticated is a draft or not
+	BInscriptionnotauthenticatedDraft *bool `json:"bInscriptionnotauthenticatedDraft,omitempty"`
 	// The Civic number.
 	SAddressCivic *string `json:"sAddressCivic,omitempty"`
 	// The Street Name
@@ -782,6 +784,38 @@ func (o *InscriptionnotauthenticatedListElement) SetBInscriptionnotauthenticated
 	o.BInscriptionnotauthenticatedIsactive = &v
 }
 
+// GetBInscriptionnotauthenticatedDraft returns the BInscriptionnotauthenticatedDraft field value if set, zero value otherwise.
+func (o *InscriptionnotauthenticatedListElement) GetBInscriptionnotauthenticatedDraft() bool {
+	if o == nil || IsNil(o.BInscriptionnotauthenticatedDraft) {
+		var ret bool
+		return ret
+	}
+	return *o.BInscriptionnotauthenticatedDraft
+}
+
+// GetBInscriptionnotauthenticatedDraftOk returns a tuple with the BInscriptionnotauthenticatedDraft field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *InscriptionnotauthenticatedListElement) GetBInscriptionnotauthenticatedDraftOk() (*bool, bool) {
+	if o == nil || IsNil(o.BInscriptionnotauthenticatedDraft) {
+		return nil, false
+	}
+	return o.BInscriptionnotauthenticatedDraft, true
+}
+
+// HasBInscriptionnotauthenticatedDraft returns a boolean if a field has been set.
+func (o *InscriptionnotauthenticatedListElement) HasBInscriptionnotauthenticatedDraft() bool {
+	if o != nil && !IsNil(o.BInscriptionnotauthenticatedDraft) {
+		return true
+	}
+
+	return false
+}
+
+// SetBInscriptionnotauthenticatedDraft gets a reference to the given bool and assigns it to the BInscriptionnotauthenticatedDraft field.
+func (o *InscriptionnotauthenticatedListElement) SetBInscriptionnotauthenticatedDraft(v bool) {
+	o.BInscriptionnotauthenticatedDraft = &v
+}
+
 // GetSAddressCivic returns the SAddressCivic field value if set, zero value otherwise.
 func (o *InscriptionnotauthenticatedListElement) GetSAddressCivic() string {
 	if o == nil || IsNil(o.SAddressCivic) {
@@ -1154,6 +1188,9 @@ func (o InscriptionnotauthenticatedListElement) ToMap() (map[string]interface{},
 	}
 	if !IsNil(o.BInscriptionnotauthenticatedIsactive) {
 		toSerialize["bInscriptionnotauthenticatedIsactive"] = o.BInscriptionnotauthenticatedIsactive
+	}
+	if !IsNil(o.BInscriptionnotauthenticatedDraft) {
+		toSerialize["bInscriptionnotauthenticatedDraft"] = o.BInscriptionnotauthenticatedDraft
 	}
 	if !IsNil(o.SAddressCivic) {
 		toSerialize["sAddressCivic"] = o.SAddressCivic

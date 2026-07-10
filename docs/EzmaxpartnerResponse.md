@@ -13,12 +13,13 @@ Name | Type | Description | Notes
 **ObjEzmaxpartnerShortdescription** | [**MultilingualEzmaxpartnerShortdescription**](MultilingualEzmaxpartnerShortdescription.md) |  | 
 **ObjEzmaxpartnerUrl** | [**MultilingualEzmaxpartnerUrl**](MultilingualEzmaxpartnerUrl.md) |  | 
 **BEzmaxpartnerIsactive** | Pointer to **bool** | Whether the Ezmaxpartner is active or not | [optional] 
+**ObjEzmaxpartnerLogourl** | [**MultilingualEzmaxpartnerLogourl**](MultilingualEzmaxpartnerLogourl.md) |  | 
 
 ## Methods
 
 ### NewEzmaxpartnerResponse
 
-`func NewEzmaxpartnerResponse(eEzmaxpartnerCustomdevelopment FieldEEzmaxpartnerCustomdevelopment, objEzmaxpartnerAddress MultilingualEzmaxpartnerAddress, objEzmaxpartnerDescription MultilingualEzmaxpartnerDescription, objEzmaxpartnerEmailaddress MultilingualEzmaxpartnerEmailaddress, objEzmaxpartnerName MultilingualEzmaxpartnerName, objEzmaxpartnerPhoneE164 MultilingualEzmaxpartnerPhoneE164, objEzmaxpartnerShortdescription MultilingualEzmaxpartnerShortdescription, objEzmaxpartnerUrl MultilingualEzmaxpartnerUrl, ) *EzmaxpartnerResponse`
+`func NewEzmaxpartnerResponse(eEzmaxpartnerCustomdevelopment FieldEEzmaxpartnerCustomdevelopment, objEzmaxpartnerAddress MultilingualEzmaxpartnerAddress, objEzmaxpartnerDescription MultilingualEzmaxpartnerDescription, objEzmaxpartnerEmailaddress MultilingualEzmaxpartnerEmailaddress, objEzmaxpartnerName MultilingualEzmaxpartnerName, objEzmaxpartnerPhoneE164 MultilingualEzmaxpartnerPhoneE164, objEzmaxpartnerShortdescription MultilingualEzmaxpartnerShortdescription, objEzmaxpartnerUrl MultilingualEzmaxpartnerUrl, objEzmaxpartnerLogourl MultilingualEzmaxpartnerLogourl, ) *EzmaxpartnerResponse`
 
 NewEzmaxpartnerResponse instantiates a new EzmaxpartnerResponse object
 This constructor will assign default values to properties that have it defined,
@@ -217,6 +218,26 @@ SetBEzmaxpartnerIsactive sets BEzmaxpartnerIsactive field to given value.
 `func (o *EzmaxpartnerResponse) HasBEzmaxpartnerIsactive() bool`
 
 HasBEzmaxpartnerIsactive returns a boolean if a field has been set.
+
+### GetObjEzmaxpartnerLogourl
+
+`func (o *EzmaxpartnerResponse) GetObjEzmaxpartnerLogourl() MultilingualEzmaxpartnerLogourl`
+
+GetObjEzmaxpartnerLogourl returns the ObjEzmaxpartnerLogourl field if non-nil, zero value otherwise.
+
+### GetObjEzmaxpartnerLogourlOk
+
+`func (o *EzmaxpartnerResponse) GetObjEzmaxpartnerLogourlOk() (*MultilingualEzmaxpartnerLogourl, bool)`
+
+GetObjEzmaxpartnerLogourlOk returns a tuple with the ObjEzmaxpartnerLogourl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjEzmaxpartnerLogourl
+
+`func (o *EzmaxpartnerResponse) SetObjEzmaxpartnerLogourl(v MultilingualEzmaxpartnerLogourl)`
+
+SetObjEzmaxpartnerLogourl sets ObjEzmaxpartnerLogourl field to given value.
+
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

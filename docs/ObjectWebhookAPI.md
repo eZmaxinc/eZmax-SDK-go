@@ -37,7 +37,7 @@ import (
 )
 
 func main() {
-	webhookCreateObjectV2Request := *openapiclient.NewWebhookCreateObjectV2Request([]openapiclient.WebhookRequestCompound{*openapiclient.NewWebhookRequestCompound("Import into our system", openapiclient.Field-eWebhookModule("Ezsign"), "https://www.example.com", "email@example.com", true, false)}) // WebhookCreateObjectV2Request | 
+	webhookCreateObjectV2Request := *openapiclient.NewWebhookCreateObjectV2Request([]openapiclient.WebhookRequestCompound{*openapiclient.NewWebhookRequestCompound("Import into our system", openapiclient.Field-eWebhookModule("Ezmaxpartner"), "https://www.example.com", "email@example.com", true, false)}) // WebhookCreateObjectV2Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -174,7 +174,7 @@ import (
 
 func main() {
 	pkiWebhookID := int32(56) // int32 | 
-	webhookEditObjectV1Request := *openapiclient.NewWebhookEditObjectV1Request(*openapiclient.NewWebhookRequestCompound("Import into our system", openapiclient.Field-eWebhookModule("Ezsign"), "https://www.example.com", "email@example.com", true, false)) // WebhookEditObjectV1Request | 
+	webhookEditObjectV1Request := *openapiclient.NewWebhookEditObjectV1Request(*openapiclient.NewWebhookRequestCompound("Import into our system", openapiclient.Field-eWebhookModule("Ezmaxpartner"), "https://www.example.com", "email@example.com", true, false)) // WebhookEditObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -531,7 +531,7 @@ import (
 )
 
 func main() {
-	webhookSendWebhookV1Request := *openapiclient.NewWebhookSendWebhookV1Request(openapiclient.Field-eWebhookModule("Ezsign")) // WebhookSendWebhookV1Request | 
+	webhookSendWebhookV1Request := *openapiclient.NewWebhookSendWebhookV1Request(openapiclient.Field-eWebhookModule("Ezmaxpartner")) // WebhookSendWebhookV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

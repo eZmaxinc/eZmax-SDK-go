@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.3.1
+API version: 1.3.2
 Contact: support-api@ezmax.ca
 */
 
@@ -21,12 +21,14 @@ type FieldEWebhookModule string
 
 // List of Field-eWebhookModule
 const (
+	EZMAXPARTNER FieldEWebhookModule = "Ezmaxpartner"
 	EZSIGN FieldEWebhookModule = "Ezsign"
 	MANAGEMENT FieldEWebhookModule = "Management"
 )
 
 // All allowed values of FieldEWebhookModule enum
 var AllowedFieldEWebhookModuleEnumValues = []FieldEWebhookModule{
+	"Ezmaxpartner",
 	"Ezsign",
 	"Management",
 }
