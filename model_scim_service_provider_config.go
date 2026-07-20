@@ -28,10 +28,10 @@ type ScimServiceProviderConfig struct {
 	ChangePassword ScimServiceProviderConfigChangePassword `json:"changePassword"`
 	// An HTTP-addressable URL pointing to the service provider's human-consumable help documentation
 	DocumentationUri string `json:"documentationUri"`
-	Etag ScimServiceProviderConfigChangePassword `json:"etag"`
+	Etag ScimServiceProviderConfigEtag `json:"etag"`
 	Filter ScimServiceProviderConfigFilter `json:"filter"`
-	Patch ScimServiceProviderConfigChangePassword `json:"patch"`
-	Sort ScimServiceProviderConfigChangePassword `json:"sort"`
+	Patch ScimServiceProviderConfigPatch `json:"patch"`
+	Sort ScimServiceProviderConfigSort `json:"sort"`
 }
 
 type _ScimServiceProviderConfig ScimServiceProviderConfig
@@ -40,7 +40,7 @@ type _ScimServiceProviderConfig ScimServiceProviderConfig
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewScimServiceProviderConfig(authenticationSchemes []ScimAuthenticationScheme, bulk ScimServiceProviderConfigBulk, changePassword ScimServiceProviderConfigChangePassword, documentationUri string, etag ScimServiceProviderConfigChangePassword, filter ScimServiceProviderConfigFilter, patch ScimServiceProviderConfigChangePassword, sort ScimServiceProviderConfigChangePassword) *ScimServiceProviderConfig {
+func NewScimServiceProviderConfig(authenticationSchemes []ScimAuthenticationScheme, bulk ScimServiceProviderConfigBulk, changePassword ScimServiceProviderConfigChangePassword, documentationUri string, etag ScimServiceProviderConfigEtag, filter ScimServiceProviderConfigFilter, patch ScimServiceProviderConfigPatch, sort ScimServiceProviderConfigSort) *ScimServiceProviderConfig {
 	this := ScimServiceProviderConfig{}
 	this.AuthenticationSchemes = authenticationSchemes
 	this.Bulk = bulk
@@ -158,9 +158,9 @@ func (o *ScimServiceProviderConfig) SetDocumentationUri(v string) {
 }
 
 // GetEtag returns the Etag field value
-func (o *ScimServiceProviderConfig) GetEtag() ScimServiceProviderConfigChangePassword {
+func (o *ScimServiceProviderConfig) GetEtag() ScimServiceProviderConfigEtag {
 	if o == nil {
-		var ret ScimServiceProviderConfigChangePassword
+		var ret ScimServiceProviderConfigEtag
 		return ret
 	}
 
@@ -169,7 +169,7 @@ func (o *ScimServiceProviderConfig) GetEtag() ScimServiceProviderConfigChangePas
 
 // GetEtagOk returns a tuple with the Etag field value
 // and a boolean to check if the value has been set.
-func (o *ScimServiceProviderConfig) GetEtagOk() (*ScimServiceProviderConfigChangePassword, bool) {
+func (o *ScimServiceProviderConfig) GetEtagOk() (*ScimServiceProviderConfigEtag, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -177,7 +177,7 @@ func (o *ScimServiceProviderConfig) GetEtagOk() (*ScimServiceProviderConfigChang
 }
 
 // SetEtag sets field value
-func (o *ScimServiceProviderConfig) SetEtag(v ScimServiceProviderConfigChangePassword) {
+func (o *ScimServiceProviderConfig) SetEtag(v ScimServiceProviderConfigEtag) {
 	o.Etag = v
 }
 
@@ -206,9 +206,9 @@ func (o *ScimServiceProviderConfig) SetFilter(v ScimServiceProviderConfigFilter)
 }
 
 // GetPatch returns the Patch field value
-func (o *ScimServiceProviderConfig) GetPatch() ScimServiceProviderConfigChangePassword {
+func (o *ScimServiceProviderConfig) GetPatch() ScimServiceProviderConfigPatch {
 	if o == nil {
-		var ret ScimServiceProviderConfigChangePassword
+		var ret ScimServiceProviderConfigPatch
 		return ret
 	}
 
@@ -217,7 +217,7 @@ func (o *ScimServiceProviderConfig) GetPatch() ScimServiceProviderConfigChangePa
 
 // GetPatchOk returns a tuple with the Patch field value
 // and a boolean to check if the value has been set.
-func (o *ScimServiceProviderConfig) GetPatchOk() (*ScimServiceProviderConfigChangePassword, bool) {
+func (o *ScimServiceProviderConfig) GetPatchOk() (*ScimServiceProviderConfigPatch, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -225,14 +225,14 @@ func (o *ScimServiceProviderConfig) GetPatchOk() (*ScimServiceProviderConfigChan
 }
 
 // SetPatch sets field value
-func (o *ScimServiceProviderConfig) SetPatch(v ScimServiceProviderConfigChangePassword) {
+func (o *ScimServiceProviderConfig) SetPatch(v ScimServiceProviderConfigPatch) {
 	o.Patch = v
 }
 
 // GetSort returns the Sort field value
-func (o *ScimServiceProviderConfig) GetSort() ScimServiceProviderConfigChangePassword {
+func (o *ScimServiceProviderConfig) GetSort() ScimServiceProviderConfigSort {
 	if o == nil {
-		var ret ScimServiceProviderConfigChangePassword
+		var ret ScimServiceProviderConfigSort
 		return ret
 	}
 
@@ -241,7 +241,7 @@ func (o *ScimServiceProviderConfig) GetSort() ScimServiceProviderConfigChangePas
 
 // GetSortOk returns a tuple with the Sort field value
 // and a boolean to check if the value has been set.
-func (o *ScimServiceProviderConfig) GetSortOk() (*ScimServiceProviderConfigChangePassword, bool) {
+func (o *ScimServiceProviderConfig) GetSortOk() (*ScimServiceProviderConfigSort, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -249,7 +249,7 @@ func (o *ScimServiceProviderConfig) GetSortOk() (*ScimServiceProviderConfigChang
 }
 
 // SetSort sets field value
-func (o *ScimServiceProviderConfig) SetSort(v ScimServiceProviderConfigChangePassword) {
+func (o *ScimServiceProviderConfig) SetSort(v ScimServiceProviderConfigSort) {
 	o.Sort = v
 }
 

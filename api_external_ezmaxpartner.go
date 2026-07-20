@@ -20,35 +20,35 @@ import (
 )
 
 
-// DocumentationEzmaxpartnerAPIService DocumentationEzmaxpartnerAPI service
-type DocumentationEzmaxpartnerAPIService service
+// ExternalEzmaxpartnerAPIService ExternalEzmaxpartnerAPI service
+type ExternalEzmaxpartnerAPIService service
 
-type ApiDocumentationSubscribeV1Request struct {
+type ApiExternalpartnerSubscribeV1Request struct {
 	ctx context.Context
-	ApiService *DocumentationEzmaxpartnerAPIService
+	ApiService *ExternalEzmaxpartnerAPIService
 	documentationSubscribeV1Request *DocumentationSubscribeV1Request
 }
 
 // 
-func (r ApiDocumentationSubscribeV1Request) DocumentationSubscribeV1Request(documentationSubscribeV1Request DocumentationSubscribeV1Request) ApiDocumentationSubscribeV1Request {
+func (r ApiExternalpartnerSubscribeV1Request) DocumentationSubscribeV1Request(documentationSubscribeV1Request DocumentationSubscribeV1Request) ApiExternalpartnerSubscribeV1Request {
 	r.documentationSubscribeV1Request = &documentationSubscribeV1Request
 	return r
 }
 
-func (r ApiDocumentationSubscribeV1Request) Execute() (*DocumentationSubscribeV1Response, *http.Response, error) {
-	return r.ApiService.DocumentationSubscribeV1Execute(r)
+func (r ApiExternalpartnerSubscribeV1Request) Execute() (*DocumentationSubscribeV1Response, *http.Response, error) {
+	return r.ApiService.ExternalpartnerSubscribeV1Execute(r)
 }
 
 /*
-DocumentationSubscribeV1 Subscribe to an Ezmaxparnerproductstage
+ExternalpartnerSubscribeV1 Subscribe to an Ezmaxparnerproductstage
 
 Subscribe to an Ezmaxparnerproductstage
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiDocumentationSubscribeV1Request
+ @return ApiExternalpartnerSubscribeV1Request
 */
-func (a *DocumentationEzmaxpartnerAPIService) DocumentationSubscribeV1(ctx context.Context) ApiDocumentationSubscribeV1Request {
-	return ApiDocumentationSubscribeV1Request{
+func (a *ExternalEzmaxpartnerAPIService) ExternalpartnerSubscribeV1(ctx context.Context) ApiExternalpartnerSubscribeV1Request {
+	return ApiExternalpartnerSubscribeV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -56,7 +56,7 @@ func (a *DocumentationEzmaxpartnerAPIService) DocumentationSubscribeV1(ctx conte
 
 // Execute executes the request
 //  @return DocumentationSubscribeV1Response
-func (a *DocumentationEzmaxpartnerAPIService) DocumentationSubscribeV1Execute(r ApiDocumentationSubscribeV1Request) (*DocumentationSubscribeV1Response, *http.Response, error) {
+func (a *ExternalEzmaxpartnerAPIService) ExternalpartnerSubscribeV1Execute(r ApiExternalpartnerSubscribeV1Request) (*DocumentationSubscribeV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -64,12 +64,12 @@ func (a *DocumentationEzmaxpartnerAPIService) DocumentationSubscribeV1Execute(r 
 		localVarReturnValue  *DocumentationSubscribeV1Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentationEzmaxpartnerAPIService.DocumentationSubscribeV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ExternalEzmaxpartnerAPIService.ExternalpartnerSubscribeV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/1/documentation/subscribe"
+	localVarPath := localBasePath + "/1/external/ezmaxpartner/subscribe"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

@@ -21,9 +21,9 @@ var _ MappedNullable = &MultilingualEzdoctemplatedocumentName{}
 // MultilingualEzdoctemplatedocumentName The name1 of the Ezdoctemplatedocument
 type MultilingualEzdoctemplatedocumentName struct {
 	// The name1 of the Ezdoctemplatedocument
-	SEzdoctemplatedocumentName1 *string `json:"sEzdoctemplatedocumentName1,omitempty" validate:"regexp=^.{0,50}$"`
+	SEzdoctemplatedocumentName1 *string `json:"sEzdoctemplatedocumentName1,omitempty" validate:"regexp=^.{0\\,50}$"`
 	// The name2 of the Ezdoctemplatedocument
-	SEzdoctemplatedocumentName2 *string `json:"sEzdoctemplatedocumentName2,omitempty" validate:"regexp=^.{0,50}$"`
+	SEzdoctemplatedocumentName2 *string `json:"sEzdoctemplatedocumentName2,omitempty" validate:"regexp=^.{0\\,50}$"`
 }
 
 // NewMultilingualEzdoctemplatedocumentName instantiates a new MultilingualEzdoctemplatedocumentName object

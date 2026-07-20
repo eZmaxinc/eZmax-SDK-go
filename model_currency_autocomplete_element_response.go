@@ -25,7 +25,7 @@ type CurrencyAutocompleteElementResponse struct {
 	// The unique ID of the Currency.
 	PkiCurrencyID int32 `json:"pkiCurrencyID"`
 	// The description of the Currency in the language of the requester
-	SCurrencyDescriptionX string `json:"sCurrencyDescriptionX" validate:"regexp=^.{1,20}$"`
+	SCurrencyDescriptionX string `json:"sCurrencyDescriptionX" validate:"regexp=^.{1\\,20}$"`
 	// Whether the Currency is active or not
 	BCurrencyIsactive bool `json:"bCurrencyIsactive"`
 }

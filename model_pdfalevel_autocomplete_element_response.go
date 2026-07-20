@@ -25,7 +25,7 @@ type PdfalevelAutocompleteElementResponse struct {
 	// The unique ID of the Pdfalevel
 	PkiPdfalevelID int32 `json:"pkiPdfalevelID"`
 	// The name of the Pdfalevel
-	SPdfalevelName string `json:"sPdfalevelName" validate:"regexp=^.{0,15}$"`
+	SPdfalevelName string `json:"sPdfalevelName" validate:"regexp=^.{0\\,15}$"`
 	// Whether the Pdfalevel is active or not
 	BPdfalevelIsactive bool `json:"bPdfalevelIsactive"`
 }

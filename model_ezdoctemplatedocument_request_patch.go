@@ -23,7 +23,7 @@ type EzdoctemplatedocumentRequestPatch struct {
 	// Indicates the format of the template.  This field is Required when sEzdoctemplatedocumentBase64 is set.
 	EEzdoctemplatedocumentFormat *string `json:"eEzdoctemplatedocumentFormat,omitempty"`
 	// List of field in Ezdoctemplatedocument
-	SEzdoctemplatedocumentFields *string `json:"sEzdoctemplatedocumentFields,omitempty" validate:"regexp=^.{0,}$"`
+	SEzdoctemplatedocumentFields *string `json:"sEzdoctemplatedocumentFields,omitempty" validate:"regexp=^.{0\\,}$"`
 	// The Base64 encoded binary content of the document.  This field is Required when eEzdoctemplatedocumentFormat is set.
 	SEzdoctemplatedocumentBase64 *string `json:"sEzdoctemplatedocumentBase64,omitempty"`
 }

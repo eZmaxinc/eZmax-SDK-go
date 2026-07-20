@@ -868,7 +868,8 @@ Advanced filters that can be used in query parameter *sFilter*:
 | sContactFirstnameNotaryBuyer |
 | sContactLastnameNotaryBuyer | 
 | sContactFirstnameNotarySeller |
-| sContactLastnameNotarySeller |         
+| sContactLastnameNotarySeller | 
+| sExternalbrokerName |
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiInscriptionGetListV1Request

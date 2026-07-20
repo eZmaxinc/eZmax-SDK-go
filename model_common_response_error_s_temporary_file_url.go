@@ -23,12 +23,12 @@ var _ MappedNullable = &CommonResponseErrorSTemporaryFileUrl{}
 // CommonResponseErrorSTemporaryFileUrl Generic Error Message
 type CommonResponseErrorSTemporaryFileUrl struct {
 	// The message giving details about the error
-	SErrorMessage string `json:"sErrorMessage" validate:"regexp=^.{0,500}$"`
+	SErrorMessage string `json:"sErrorMessage" validate:"regexp=^.{0\\,500}$"`
 	EErrorCode FieldEErrorCode `json:"eErrorCode"`
 	// More error message detail
 	ASErrorMessagedetail []string `json:"a_sErrorMessagedetail,omitempty"`
 	// The Temporary File Url of the document that was uploaded. That url can be reused instead of uploading the file again.
-	STemporaryFileUrl *string `json:"sTemporaryFileUrl,omitempty" validate:"regexp=^https:\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
+	STemporaryFileUrl *string `json:"sTemporaryFileUrl,omitempty" validate:"regexp=^https://[^\\s/$.?#].[^\\s]*$"`
 }
 
 type _CommonResponseErrorSTemporaryFileUrl CommonResponseErrorSTemporaryFileUrl

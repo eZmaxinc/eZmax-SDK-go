@@ -35,11 +35,11 @@ type EzsigntemplatepublicListElement struct {
 	// The unique ID of the Ezsigntemplatepackage
 	FkiEzsigntemplatepackageID *int32 `json:"fkiEzsigntemplatepackageID,omitempty"`
 	// The description of the Ezsigntemplatepublic
-	SEzsigntemplatepublicDescription string `json:"sEzsigntemplatepublicDescription" validate:"regexp=^.{0,80}$"`
+	SEzsigntemplatepublicDescription string `json:"sEzsigntemplatepublicDescription" validate:"regexp=^.{0\\,80}$"`
 	// Whether the ezsigntemplatepublic is active or not
 	BEzsigntemplatepublicIsactive bool `json:"bEzsigntemplatepublicIsactive"`
 	// The note of the Ezsigntemplatepublic
-	TEzsigntemplatepublicNote string `json:"tEzsigntemplatepublicNote" validate:"regexp=^.{0,65535}$"`
+	TEzsigntemplatepublicNote string `json:"tEzsigntemplatepublicNote" validate:"regexp=^.{0\\,65535}$"`
 	EEzsigntemplatepublicLimittype FieldEEzsigntemplatepublicLimittype `json:"eEzsigntemplatepublicLimittype"`
 	// The limit of the Ezsigntemplatepublic
 	IEzsigntemplatepublicLimit int32 `json:"iEzsigntemplatepublicLimit"`
@@ -52,7 +52,7 @@ type EzsigntemplatepublicListElement struct {
 	// The total number of Ezsigndocuments using the Ezsigntemplatepublic
 	IEzsigndocument int32 `json:"iEzsigndocument"`
 	// The Ezsigntemplate/Ezsigntemplatepackage description
-	SEzsigntemplatepublicEzsigntemplatedescription string `json:"sEzsigntemplatepublicEzsigntemplatedescription" validate:"regexp=^.{1,80}$"`
+	SEzsigntemplatepublicEzsigntemplatedescription string `json:"sEzsigntemplatepublicEzsigntemplatedescription" validate:"regexp=^.{1\\,80}$"`
 }
 
 type _EzsigntemplatepublicListElement EzsigntemplatepublicListElement

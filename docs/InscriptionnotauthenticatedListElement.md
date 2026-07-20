@@ -7,10 +7,15 @@ Name | Type | Description | Notes
 **PkiInscriptionID** | **int32** | The unique ID of the Inscription. | 
 **PkiInscriptionnotauthenticatedID** | Pointer to **int32** | The unique ID of the Inscriptionnotauthenticated. | [optional] 
 **FkiInscriptiontypeID** | **int32** | The unique ID of the Inscriptiontype | 
+**SInscriptiontypeNameX** | **string** | The name of the Inscriptiontype in the language of the requester | 
+**FkiInscriptionbuildingtypeID** | **int32** | The unique ID of the Inscriptionbuildingtype | 
+**SInscriptionbuildingtypeNameX** | **string** | The name of the Inscriptionbuildingtype in the language of the requester | 
+**FkiInscriptioncategoryID** | **int32** | The unique ID of the Inscriptioncategory | 
+**SInscriptioncategoryNameX** | **string** | The name of the Inscriptioncategory in the language of the requester | 
 **FkiBuyercontractID** | Pointer to **int32** | The unique ID of the Buyercontract | [optional] 
 **SBuyercontractContract** | Pointer to **string** | The number of the Buyercontract | [optional] 
-**SInscriptiontypeNameX** | **string** | The name of the Inscriptiontype in the language of the requester | 
 **EInscriptionStep** | [**FieldEInscriptionStep**](FieldEInscriptionStep.md) |  | 
+**EInscriptionType** | [**FieldEInscriptionType**](FieldEInscriptionType.md) |  | 
 **SInscriptionCivicend** | **string** | The civicend of the Inscription | 
 **SInscriptionMLS** | Pointer to **string** | The mls of the Inscription | [optional] 
 **SInscriptionContract** | Pointer to **string** | The sale contract number | [optional] 
@@ -38,12 +43,13 @@ Name | Type | Description | Notes
 **FkiCountryID** | Pointer to **int32** | The unique ID of the Country.  Here are some common values (Complete list must be retrieved from API):  |Value|Description| |-|-| |1|Canada| |2|United-States| | [optional] 
 **SCountryNameX** | Pointer to **string** | The name of the Country in the language of the requester | [optional] 
 **SInscriptionnotauthenticatedOffertopurchasenumber** | **string** | The Offer to purchase number | 
+**IInscriptionUnit** | **int32** | The unit of the Inscription | 
 
 ## Methods
 
 ### NewInscriptionnotauthenticatedListElement
 
-`func NewInscriptionnotauthenticatedListElement(pkiInscriptionID int32, fkiInscriptiontypeID int32, sInscriptiontypeNameX string, eInscriptionStep FieldEInscriptionStep, sInscriptionCivicend string, dInscriptionSaleprice string, dInscriptionRentprice string, bInscriptionIsactive bool, bInscriptionArchived bool, sInscriptionnotauthenticatedOffertopurchasenumber string, ) *InscriptionnotauthenticatedListElement`
+`func NewInscriptionnotauthenticatedListElement(pkiInscriptionID int32, fkiInscriptiontypeID int32, sInscriptiontypeNameX string, fkiInscriptionbuildingtypeID int32, sInscriptionbuildingtypeNameX string, fkiInscriptioncategoryID int32, sInscriptioncategoryNameX string, eInscriptionStep FieldEInscriptionStep, eInscriptionType FieldEInscriptionType, sInscriptionCivicend string, dInscriptionSaleprice string, dInscriptionRentprice string, bInscriptionIsactive bool, bInscriptionArchived bool, sInscriptionnotauthenticatedOffertopurchasenumber string, iInscriptionUnit int32, ) *InscriptionnotauthenticatedListElement`
 
 NewInscriptionnotauthenticatedListElement instantiates a new InscriptionnotauthenticatedListElement object
 This constructor will assign default values to properties that have it defined,
@@ -123,6 +129,106 @@ and a boolean to check if the value has been set.
 SetFkiInscriptiontypeID sets FkiInscriptiontypeID field to given value.
 
 
+### GetSInscriptiontypeNameX
+
+`func (o *InscriptionnotauthenticatedListElement) GetSInscriptiontypeNameX() string`
+
+GetSInscriptiontypeNameX returns the SInscriptiontypeNameX field if non-nil, zero value otherwise.
+
+### GetSInscriptiontypeNameXOk
+
+`func (o *InscriptionnotauthenticatedListElement) GetSInscriptiontypeNameXOk() (*string, bool)`
+
+GetSInscriptiontypeNameXOk returns a tuple with the SInscriptiontypeNameX field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSInscriptiontypeNameX
+
+`func (o *InscriptionnotauthenticatedListElement) SetSInscriptiontypeNameX(v string)`
+
+SetSInscriptiontypeNameX sets SInscriptiontypeNameX field to given value.
+
+
+### GetFkiInscriptionbuildingtypeID
+
+`func (o *InscriptionnotauthenticatedListElement) GetFkiInscriptionbuildingtypeID() int32`
+
+GetFkiInscriptionbuildingtypeID returns the FkiInscriptionbuildingtypeID field if non-nil, zero value otherwise.
+
+### GetFkiInscriptionbuildingtypeIDOk
+
+`func (o *InscriptionnotauthenticatedListElement) GetFkiInscriptionbuildingtypeIDOk() (*int32, bool)`
+
+GetFkiInscriptionbuildingtypeIDOk returns a tuple with the FkiInscriptionbuildingtypeID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiInscriptionbuildingtypeID
+
+`func (o *InscriptionnotauthenticatedListElement) SetFkiInscriptionbuildingtypeID(v int32)`
+
+SetFkiInscriptionbuildingtypeID sets FkiInscriptionbuildingtypeID field to given value.
+
+
+### GetSInscriptionbuildingtypeNameX
+
+`func (o *InscriptionnotauthenticatedListElement) GetSInscriptionbuildingtypeNameX() string`
+
+GetSInscriptionbuildingtypeNameX returns the SInscriptionbuildingtypeNameX field if non-nil, zero value otherwise.
+
+### GetSInscriptionbuildingtypeNameXOk
+
+`func (o *InscriptionnotauthenticatedListElement) GetSInscriptionbuildingtypeNameXOk() (*string, bool)`
+
+GetSInscriptionbuildingtypeNameXOk returns a tuple with the SInscriptionbuildingtypeNameX field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSInscriptionbuildingtypeNameX
+
+`func (o *InscriptionnotauthenticatedListElement) SetSInscriptionbuildingtypeNameX(v string)`
+
+SetSInscriptionbuildingtypeNameX sets SInscriptionbuildingtypeNameX field to given value.
+
+
+### GetFkiInscriptioncategoryID
+
+`func (o *InscriptionnotauthenticatedListElement) GetFkiInscriptioncategoryID() int32`
+
+GetFkiInscriptioncategoryID returns the FkiInscriptioncategoryID field if non-nil, zero value otherwise.
+
+### GetFkiInscriptioncategoryIDOk
+
+`func (o *InscriptionnotauthenticatedListElement) GetFkiInscriptioncategoryIDOk() (*int32, bool)`
+
+GetFkiInscriptioncategoryIDOk returns a tuple with the FkiInscriptioncategoryID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiInscriptioncategoryID
+
+`func (o *InscriptionnotauthenticatedListElement) SetFkiInscriptioncategoryID(v int32)`
+
+SetFkiInscriptioncategoryID sets FkiInscriptioncategoryID field to given value.
+
+
+### GetSInscriptioncategoryNameX
+
+`func (o *InscriptionnotauthenticatedListElement) GetSInscriptioncategoryNameX() string`
+
+GetSInscriptioncategoryNameX returns the SInscriptioncategoryNameX field if non-nil, zero value otherwise.
+
+### GetSInscriptioncategoryNameXOk
+
+`func (o *InscriptionnotauthenticatedListElement) GetSInscriptioncategoryNameXOk() (*string, bool)`
+
+GetSInscriptioncategoryNameXOk returns a tuple with the SInscriptioncategoryNameX field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSInscriptioncategoryNameX
+
+`func (o *InscriptionnotauthenticatedListElement) SetSInscriptioncategoryNameX(v string)`
+
+SetSInscriptioncategoryNameX sets SInscriptioncategoryNameX field to given value.
+
+
 ### GetFkiBuyercontractID
 
 `func (o *InscriptionnotauthenticatedListElement) GetFkiBuyercontractID() int32`
@@ -173,26 +279,6 @@ SetSBuyercontractContract sets SBuyercontractContract field to given value.
 
 HasSBuyercontractContract returns a boolean if a field has been set.
 
-### GetSInscriptiontypeNameX
-
-`func (o *InscriptionnotauthenticatedListElement) GetSInscriptiontypeNameX() string`
-
-GetSInscriptiontypeNameX returns the SInscriptiontypeNameX field if non-nil, zero value otherwise.
-
-### GetSInscriptiontypeNameXOk
-
-`func (o *InscriptionnotauthenticatedListElement) GetSInscriptiontypeNameXOk() (*string, bool)`
-
-GetSInscriptiontypeNameXOk returns a tuple with the SInscriptiontypeNameX field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSInscriptiontypeNameX
-
-`func (o *InscriptionnotauthenticatedListElement) SetSInscriptiontypeNameX(v string)`
-
-SetSInscriptiontypeNameX sets SInscriptiontypeNameX field to given value.
-
-
 ### GetEInscriptionStep
 
 `func (o *InscriptionnotauthenticatedListElement) GetEInscriptionStep() FieldEInscriptionStep`
@@ -211,6 +297,26 @@ and a boolean to check if the value has been set.
 `func (o *InscriptionnotauthenticatedListElement) SetEInscriptionStep(v FieldEInscriptionStep)`
 
 SetEInscriptionStep sets EInscriptionStep field to given value.
+
+
+### GetEInscriptionType
+
+`func (o *InscriptionnotauthenticatedListElement) GetEInscriptionType() FieldEInscriptionType`
+
+GetEInscriptionType returns the EInscriptionType field if non-nil, zero value otherwise.
+
+### GetEInscriptionTypeOk
+
+`func (o *InscriptionnotauthenticatedListElement) GetEInscriptionTypeOk() (*FieldEInscriptionType, bool)`
+
+GetEInscriptionTypeOk returns a tuple with the EInscriptionType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEInscriptionType
+
+`func (o *InscriptionnotauthenticatedListElement) SetEInscriptionType(v FieldEInscriptionType)`
+
+SetEInscriptionType sets EInscriptionType field to given value.
 
 
 ### GetSInscriptionCivicend
@@ -856,6 +962,26 @@ and a boolean to check if the value has been set.
 `func (o *InscriptionnotauthenticatedListElement) SetSInscriptionnotauthenticatedOffertopurchasenumber(v string)`
 
 SetSInscriptionnotauthenticatedOffertopurchasenumber sets SInscriptionnotauthenticatedOffertopurchasenumber field to given value.
+
+
+### GetIInscriptionUnit
+
+`func (o *InscriptionnotauthenticatedListElement) GetIInscriptionUnit() int32`
+
+GetIInscriptionUnit returns the IInscriptionUnit field if non-nil, zero value otherwise.
+
+### GetIInscriptionUnitOk
+
+`func (o *InscriptionnotauthenticatedListElement) GetIInscriptionUnitOk() (*int32, bool)`
+
+GetIInscriptionUnitOk returns a tuple with the IInscriptionUnit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIInscriptionUnit
+
+`func (o *InscriptionnotauthenticatedListElement) SetIInscriptionUnit(v int32)`
+
+SetIInscriptionUnit sets IInscriptionUnit field to given value.
 
 
 

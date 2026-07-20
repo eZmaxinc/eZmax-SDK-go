@@ -27,9 +27,9 @@ type CustomerAutocompleteElementResponse struct {
 	// The unique ID of the Department
 	FkiDepartmentID int32 `json:"fkiDepartmentID"`
 	// The name of the Customer
-	SCustomerName string `json:"sCustomerName" validate:"regexp=^.{0,50}$"`
+	SCustomerName string `json:"sCustomerName" validate:"regexp=^.{0\\,50}$"`
 	// The code of the Customer
-	SCustomerCode string `json:"sCustomerCode" validate:"regexp=^.{0,6}$"`
+	SCustomerCode string `json:"sCustomerCode" validate:"regexp=^.{0\\,6}$"`
 	// Whether the customer is active or not
 	BCustomerIsactive bool `json:"bCustomerIsactive"`
 }

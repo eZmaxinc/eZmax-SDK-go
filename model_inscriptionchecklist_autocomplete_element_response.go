@@ -25,7 +25,7 @@ type InscriptionchecklistAutocompleteElementResponse struct {
 	// The unique ID of the Inscriptionchecklist
 	PkiInscriptionchecklistID int32 `json:"pkiInscriptionchecklistID"`
 	// The name of the Inscriptionchecklistelement in the language of the requester
-	SInscriptionchecklistelementNameX string `json:"sInscriptionchecklistelementNameX" validate:"regexp=^.{0,55}$"`
+	SInscriptionchecklistelementNameX string `json:"sInscriptionchecklistelementNameX" validate:"regexp=^.{0\\,55}$"`
 	// Whether the Inscriptionchecklist is active or not
 	BInscriptionchecklistIsactive bool `json:"bInscriptionchecklistIsactive"`
 }

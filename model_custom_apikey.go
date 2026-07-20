@@ -23,9 +23,9 @@ var _ MappedNullable = &CustomApikey{}
 // CustomApikey A Custom Apikey Object
 type CustomApikey struct {
 	// The key of the Apikey
-	SApikeyKey string `json:"sApikeyKey" validate:"regexp=^.{1,200}$"`
+	SApikeyKey string `json:"sApikeyKey" validate:"regexp=^.{1\\,200}$"`
 	// The secret of the Apikey
-	SApikeySecret string `json:"sApikeySecret" validate:"regexp=^[0-9a-fA-F]{1,32}$"`
+	SApikeySecret string `json:"sApikeySecret" validate:"regexp=^[0-9a-fA-F]{1\\,32}$"`
 }
 
 type _CustomApikey CustomApikey

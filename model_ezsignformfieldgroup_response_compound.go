@@ -47,7 +47,7 @@ type EzsignformfieldgroupResponseCompound struct {
 	BEzsignformfieldgroupEncrypted *bool `json:"bEzsignformfieldgroupEncrypted,omitempty"`
 	EEzsignformfieldgroupTextvalidation *EnumTextvalidation `json:"eEzsignformfieldgroupTextvalidation,omitempty"`
 	// A regular expression to indicate what values are acceptable for the Ezsignformfieldgroup.  This can only be set if eEzsignformfieldgroupType is **Text** or **Textarea**
-	SEzsignformfieldgroupRegexp *string `json:"sEzsignformfieldgroupRegexp,omitempty" validate:"regexp=^\\\\^.*\\\\$$|^$"`
+	SEzsignformfieldgroupRegexp *string `json:"sEzsignformfieldgroupRegexp,omitempty" validate:"regexp=^\\^.*\\$$|^$"`
 	// Description of validation rule. Show by signatory.
 	SEzsignformfieldgroupTextvalidationcustommessage *string `json:"sEzsignformfieldgroupTextvalidationcustommessage,omitempty"`
 	// A tooltip that will be presented to Ezsignsigner about the Ezsignformfieldgroup

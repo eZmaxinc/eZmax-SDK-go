@@ -25,7 +25,7 @@ type AgenttypeAutocompleteElementResponse struct {
 	// The unique ID of the Agenttype
 	PkiAgenttypeID int32 `json:"pkiAgenttypeID"`
 	// The name of the Agenttype in the language of the requester
-	SAgenttypeNameX string `json:"sAgenttypeNameX" validate:"regexp=^.{0,35}$"`
+	SAgenttypeNameX string `json:"sAgenttypeNameX" validate:"regexp=^.{0\\,35}$"`
 	// Whether the Agenttype is active or not
 	BAgenttypeIsactive bool `json:"bAgenttypeIsactive"`
 }

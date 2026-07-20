@@ -25,7 +25,7 @@ type EzsignimportfolderResponseCompound struct {
 	// The unique ID of the Ezsignimportfolder
 	PkiEzsignimportfolderID int32 `json:"pkiEzsignimportfolderID"`
 	// The name of the Ezsignimportfolder
-	SEzsignimportfolderName string `json:"sEzsignimportfolderName" validate:"regexp=^.{0,150}$"`
+	SEzsignimportfolderName string `json:"sEzsignimportfolderName" validate:"regexp=^.{0\\,150}$"`
 	AObjEzsignimportdocument []CustomEzsignimportdocumentResponse `json:"a_objEzsignimportdocument,omitempty"`
 }
 

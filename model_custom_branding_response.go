@@ -25,7 +25,7 @@ type CustomBrandingResponse struct {
 	// The primary color. This is a RGB color converted into integer
 	IBrandingColor int32 `json:"iBrandingColor"`
 	// The url of the picture used as logo in the Branding
-	SBrandingLogointerfaceurl string `json:"sBrandingLogointerfaceurl" validate:"regexp=^(https|http):\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
+	SBrandingLogointerfaceurl string `json:"sBrandingLogointerfaceurl" validate:"regexp=^(https|http)://[^\\s/$.?#].[^\\s]*$"`
 }
 
 type _CustomBrandingResponse CustomBrandingResponse

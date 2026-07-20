@@ -24,7 +24,7 @@ var _ MappedNullable = &BillingentityexternalGenerateFederationTokenV1ResponseMP
 type BillingentityexternalGenerateFederationTokenV1ResponseMPayload struct {
 	ObjApikeyfederation CustomApikeyfederation `json:"objApikeyfederation"`
 	// The url of the server the Ezmaxcustomer is located
-	SEzmaxcustomercodeUrl string `json:"sEzmaxcustomercodeUrl" validate:"regexp=^https:\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
+	SEzmaxcustomercodeUrl string `json:"sEzmaxcustomercodeUrl" validate:"regexp=^https://[^\\s/$.?#].[^\\s]*$"`
 }
 
 type _BillingentityexternalGenerateFederationTokenV1ResponseMPayload BillingentityexternalGenerateFederationTokenV1ResponseMPayload

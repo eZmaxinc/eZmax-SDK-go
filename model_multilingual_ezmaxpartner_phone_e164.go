@@ -21,9 +21,9 @@ var _ MappedNullable = &MultilingualEzmaxpartnerPhoneE164{}
 // MultilingualEzmaxpartnerPhoneE164 Phone number of the Ezmaxpartner
 type MultilingualEzmaxpartnerPhoneE164 struct {
 	// A phone number in E.164 Format
-	SEzmaxpartnerPhoneE1641 *string `json:"sEzmaxpartnerPhoneE1641,omitempty" validate:"regexp=^\\\\+[1-9]\\\\d{1,14}$"`
+	SEzmaxpartnerPhoneE1641 *string `json:"sEzmaxpartnerPhoneE1641,omitempty" validate:"regexp=^\\+[1-9]\\d{1\\,14}$"`
 	// A phone number in E.164 Format
-	SEzmaxpartnerPhoneE1642 *string `json:"sEzmaxpartnerPhoneE1642,omitempty" validate:"regexp=^\\\\+[1-9]\\\\d{1,14}$"`
+	SEzmaxpartnerPhoneE1642 *string `json:"sEzmaxpartnerPhoneE1642,omitempty" validate:"regexp=^\\+[1-9]\\d{1\\,14}$"`
 }
 
 // NewMultilingualEzmaxpartnerPhoneE164 instantiates a new MultilingualEzmaxpartnerPhoneE164 object

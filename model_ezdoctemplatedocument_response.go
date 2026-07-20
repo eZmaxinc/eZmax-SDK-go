@@ -37,13 +37,13 @@ type EzdoctemplatedocumentResponse struct {
 	BEzdoctemplatedocumentIsactive bool `json:"bEzdoctemplatedocumentIsactive"`
 	ObjEzdoctemplatedocumentName MultilingualEzdoctemplatedocumentName `json:"objEzdoctemplatedocumentName"`
 	// The name of the Ezdoctemplatedocument in the language of the requester
-	SEzdoctemplatedocumentNameX *string `json:"sEzdoctemplatedocumentNameX,omitempty" validate:"regexp=^.{0,50}$"`
+	SEzdoctemplatedocumentNameX *string `json:"sEzdoctemplatedocumentNameX,omitempty" validate:"regexp=^.{0\\,50}$"`
 	// The name of the Ezsignfoldertype in the language of the requester
 	SEzsignfoldertypeNameX *string `json:"sEzsignfoldertypeNameX,omitempty"`
 	// The description of the Ezdoctemplatefieldtypecategory in the language of the requester
-	SEzdoctemplatefieldtypecategoryDescriptionX *string `json:"sEzdoctemplatefieldtypecategoryDescriptionX,omitempty" validate:"regexp=^.{0,55}$"`
+	SEzdoctemplatefieldtypecategoryDescriptionX *string `json:"sEzdoctemplatefieldtypecategoryDescriptionX,omitempty" validate:"regexp=^.{0\\,55}$"`
 	// The description of the Ezdoctemplatetype in the language of the requester
-	SEzdoctemplatetypeDescriptionX string `json:"sEzdoctemplatetypeDescriptionX" validate:"regexp=^.{0,50}$"`
+	SEzdoctemplatetypeDescriptionX string `json:"sEzdoctemplatetypeDescriptionX" validate:"regexp=^.{0\\,50}$"`
 }
 
 type _EzdoctemplatedocumentResponse EzdoctemplatedocumentResponse

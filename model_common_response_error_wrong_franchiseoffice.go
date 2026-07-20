@@ -23,7 +23,7 @@ var _ MappedNullable = &CommonResponseErrorWrongFranchiseoffice{}
 // CommonResponseErrorWrongFranchiseoffice Error Message when a Franchisebroker is not in this Franchiseoffice.
 type CommonResponseErrorWrongFranchiseoffice struct {
 	// The message giving details about the error
-	SErrorMessage string `json:"sErrorMessage" validate:"regexp=^.{0,500}$"`
+	SErrorMessage string `json:"sErrorMessage" validate:"regexp=^.{0\\,500}$"`
 	EErrorCode FieldEErrorCode `json:"eErrorCode"`
 	// More error message detail
 	ASErrorMessagedetail []string `json:"a_sErrorMessagedetail,omitempty"`

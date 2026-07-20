@@ -29,9 +29,9 @@ type CustomerResponse struct {
 	// The unique ID of the Customergroup
 	FkiCustomergroupID int32 `json:"fkiCustomergroupID"`
 	// The name of the Customer
-	SCustomerName string `json:"sCustomerName" validate:"regexp=^.{0,50}$"`
+	SCustomerName string `json:"sCustomerName" validate:"regexp=^.{0\\,50}$"`
 	// A note for the Customer
-	SCustomerNote *string `json:"sCustomerNote,omitempty" validate:"regexp=^.{0,25}$"`
+	SCustomerNote *string `json:"sCustomerNote,omitempty" validate:"regexp=^.{0\\,25}$"`
 	// The unique ID of the Contactinformations
 	FkiContactinformationsID int32 `json:"fkiContactinformationsID"`
 	// The unique ID of the Contactcontainer
@@ -79,11 +79,11 @@ type CustomerResponse struct {
 	// The unique ID of the User
 	EfkiUserID *int32 `json:"efkiUserID,omitempty"`
 	// The code of the Customer
-	EfksCustomerCode *string `json:"efksCustomerCode,omitempty" validate:"regexp=^.{0,6}$"`
+	EfksCustomerCode *string `json:"efksCustomerCode,omitempty" validate:"regexp=^.{0\\,6}$"`
 	// The code of the Customer
-	SCustomerCode string `json:"sCustomerCode" validate:"regexp=^.{0,6}$"`
+	SCustomerCode string `json:"sCustomerCode" validate:"regexp=^.{0\\,6}$"`
 	// The fulltimeequivalent of the Customer
-	DCustomerFulltimeequivalent string `json:"dCustomerFulltimeequivalent" validate:"regexp=^-{0,1}[\\\\d]{1,3}?\\\\.[\\\\d]{2}$"`
+	DCustomerFulltimeequivalent string `json:"dCustomerFulltimeequivalent" validate:"regexp=^-{0\\,1}[\\d]{1\\,3}?\\.[\\d]{2}$"`
 	// The photocopiercode of the Customer
 	ICustomerPhotocopiercode int32 `json:"iCustomerPhotocopiercode"`
 	// The longdistancecode of the Customer
@@ -93,7 +93,7 @@ type CustomerResponse struct {
 	// The timewindowend of the Customer
 	ICustomerTimewindowend int32 `json:"iCustomerTimewindowend"`
 	// The minimumchargeableinterests of the Customer
-	DCustomerMinimumchargeableinterests string `json:"dCustomerMinimumchargeableinterests" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	DCustomerMinimumchargeableinterests string `json:"dCustomerMinimumchargeableinterests" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	// The birthdate of the Customer
 	DtCustomerBirthdate string `json:"dtCustomerBirthdate" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// The transfer of the Customer
@@ -121,8 +121,8 @@ type CustomerResponse struct {
 	// Whether if it's an unsubscribeinfo
 	BCustomerUnsubscribeinfo bool `json:"bCustomerUnsubscribeinfo"`
 	// The comment of the Customer
-	TCustomerComment string `json:"tCustomerComment" validate:"regexp=^.{0,16777215}$"`
-	IMPORTID *string `json:"IMPORTID,omitempty" validate:"regexp=^.{0,15}$"`
+	TCustomerComment string `json:"tCustomerComment" validate:"regexp=^.{0\\,65535}$"`
+	IMPORTID *string `json:"IMPORTID,omitempty" validate:"regexp=^.{0\\,15}$"`
 }
 
 type _CustomerResponse CustomerResponse

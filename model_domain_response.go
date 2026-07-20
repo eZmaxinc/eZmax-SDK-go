@@ -25,7 +25,7 @@ type DomainResponse struct {
 	// The unique ID of the Domain
 	PkiDomainID int32 `json:"pkiDomainID"`
 	// The name of the Domain
-	SDomainName string `json:"sDomainName" validate:"regexp=^(?=.{4,75}$)([a-zA-Z0-9-]+\\\\.)+[a-zA-Z]{2,63}$"`
+	SDomainName string `json:"sDomainName" validate:"regexp=^(?=.{4\\,75}$)([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2\\,63}$"`
 	// Whether the DKIM is valid or not
 	BDomainValiddkim bool `json:"bDomainValiddkim"`
 	// Whether the mail from is valid or not

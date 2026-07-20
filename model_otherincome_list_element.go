@@ -27,16 +27,16 @@ type OtherincomeListElement struct {
 	// The unique ID of the Otherincometype
 	FkiOtherincometypeID int32 `json:"fkiOtherincometypeID"`
 	// The description of the Otherincometype in the language of the requester
-	SOtherincometypeDescriptionX string `json:"sOtherincometypeDescriptionX" validate:"regexp=^.{0,255}$"`
+	SOtherincometypeDescriptionX string `json:"sOtherincometypeDescriptionX" validate:"regexp=^.{0\\,255}$"`
 	// The description of the Otherincome
-	SOtherincomeDescription string `json:"sOtherincomeDescription" validate:"regexp=^(\\\\n|.){0,75}$"`
+	SOtherincomeDescription string `json:"sOtherincomeDescription" validate:"regexp=^(\\n|.){0\\,75}$"`
 	EOtherincomeRemunerationtype FieldEOtherincomeRemunerationtype `json:"eOtherincomeRemunerationtype"`
 	// The remuneration subtotal of the Otherincome
-	DOtherincomeRemunerationsubtotal string `json:"dOtherincomeRemunerationsubtotal" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	DOtherincomeRemunerationsubtotal string `json:"dOtherincomeRemunerationsubtotal" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	// The remuneration total taxes of the Otherincome
-	DOtherincomeRemunerationtaxes *string `json:"dOtherincomeRemunerationtaxes,omitempty" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	DOtherincomeRemunerationtaxes *string `json:"dOtherincomeRemunerationtaxes,omitempty" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	// The remuneration total of the Otherincome
-	DOtherincomeRemunerationtotal *string `json:"dOtherincomeRemunerationtotal,omitempty" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	DOtherincomeRemunerationtotal *string `json:"dOtherincomeRemunerationtotal,omitempty" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	// The paid of the Otherincome
 	DtOtherincomePaid string `json:"dtOtherincomePaid" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// Whether the otherincome is active or not

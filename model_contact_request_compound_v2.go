@@ -28,17 +28,17 @@ type ContactRequestCompoundV2 struct {
 	FkiLanguageID int32 `json:"fkiLanguageID"`
 	EContactType FieldEContactType `json:"eContactType"`
 	// The First name of the contact
-	SContactFirstname string `json:"sContactFirstname" validate:"regexp=^.{1,20}$"`
+	SContactFirstname string `json:"sContactFirstname" validate:"regexp=^.{1\\,20}$"`
 	// The Last name of the contact
-	SContactLastname string `json:"sContactLastname" validate:"regexp=^.{1,25}$"`
+	SContactLastname string `json:"sContactLastname" validate:"regexp=^.{1\\,25}$"`
 	// The Company name of the contact
 	SContactCompany *string `json:"sContactCompany,omitempty"`
 	// The Birth Date of the contact
 	DtContactBirthdate *string `json:"dtContactBirthdate,omitempty"`
 	// The occupation of the Contact
-	SContactOccupation *string `json:"sContactOccupation,omitempty" validate:"regexp=^.{0,50}$"`
+	SContactOccupation *string `json:"sContactOccupation,omitempty" validate:"regexp=^.{0\\,50}$"`
 	// The note of the Contact
-	TContactNote *string `json:"tContactNote,omitempty" validate:"regexp=^.{0,32000}$"`
+	TContactNote *string `json:"tContactNote,omitempty" validate:"regexp=^.{0\\,32000}$"`
 	// Whether the contact is active or not
 	BContactIsactive *bool `json:"bContactIsactive,omitempty"`
 	ObjContactinformations ContactinformationsRequestCompoundV2 `json:"objContactinformations"`

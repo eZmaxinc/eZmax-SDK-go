@@ -47,9 +47,9 @@ type EzsignfoldertypeRequestV3 struct {
 	EEzsignfoldertypeDocumentdependency *FieldEEzsignfoldertypeDocumentdependency `json:"eEzsignfoldertypeDocumentdependency,omitempty"`
 	EEzsignfoldertypeDocumentmerge *FieldEEzsignfoldertypeDocumentmerge `json:"eEzsignfoldertypeDocumentmerge,omitempty"`
 	// The email address.
-	SEmailAddressSigned *string "json:\"sEmailAddressSigned,omitempty\" validate:\"regexp=^[\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20}$\""
+	SEmailAddressSigned *string `json:"sEmailAddressSigned,omitempty" validate:"regexp=^[\\w.%+\\-!#$%&'*+/=?^\x60{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2\\,20}$"`
 	// The email address.
-	SEmailAddressSummary *string "json:\"sEmailAddressSummary,omitempty\" validate:\"regexp=^[\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20}$\""
+	SEmailAddressSummary *string `json:"sEmailAddressSummary,omitempty" validate:"regexp=^[\\w.%+\\-!#$%&'*+/=?^\x60{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2\\,20}$"`
 	EEzsignfoldertypePdfarequirement *FieldEEzsignfoldertypePdfarequirement `json:"eEzsignfoldertypePdfarequirement,omitempty"`
 	EEzsignfoldertypePdfanoncompliantaction *FieldEEzsignfoldertypePdfanoncompliantaction `json:"eEzsignfoldertypePdfanoncompliantaction,omitempty"`
 	EEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel `json:"eEzsignfoldertypePrivacylevel"`

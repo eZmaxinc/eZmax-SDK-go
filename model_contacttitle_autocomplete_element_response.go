@@ -25,7 +25,7 @@ type ContacttitleAutocompleteElementResponse struct {
 	// The unique ID of the Contacttitle.  Valid values:  |Value|Description| |-|-| |1|Ms.| |2|Mr.| |4|(Blank)| |5|Me (For Notaries)|
 	PkiContacttitleID int32 `json:"pkiContacttitleID"`
 	// The name of the Contacttitle in the language of the requester
-	SContacttitleNameX string `json:"sContacttitleNameX" validate:"regexp=^.{0,10}$"`
+	SContacttitleNameX string `json:"sContacttitleNameX" validate:"regexp=^.{0\\,10}$"`
 }
 
 type _ContacttitleAutocompleteElementResponse ContacttitleAutocompleteElementResponse

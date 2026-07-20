@@ -25,7 +25,7 @@ type InscriptiontypeAutocompleteElementResponse struct {
 	// The unique ID of the Inscriptiontype
 	PkiInscriptiontypeID int32 `json:"pkiInscriptiontypeID"`
 	// The name of the Inscriptiontype in the language of the requester
-	SInscriptiontypeNameX string `json:"sInscriptiontypeNameX" validate:"regexp=^.{0,30}$"`
+	SInscriptiontypeNameX string `json:"sInscriptiontypeNameX" validate:"regexp=^.{0\\,30}$"`
 }
 
 type _InscriptiontypeAutocompleteElementResponse InscriptiontypeAutocompleteElementResponse

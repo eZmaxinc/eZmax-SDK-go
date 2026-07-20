@@ -27,9 +27,9 @@ type AgentAutocompleteElementResponse struct {
 	// The unique ID of the Department
 	FkiDepartmentID int32 `json:"fkiDepartmentID"`
 	// The First name of the contact
-	SContactFirstname string `json:"sContactFirstname" validate:"regexp=^.{1,20}$"`
+	SContactFirstname string `json:"sContactFirstname" validate:"regexp=^.{1\\,20}$"`
 	// The Last name of the contact
-	SContactLastname string `json:"sContactLastname" validate:"regexp=^.{1,25}$"`
+	SContactLastname string `json:"sContactLastname" validate:"regexp=^.{1\\,25}$"`
 	// Whether the Agent is active or not
 	BAgentIsactive bool `json:"bAgentIsactive"`
 }

@@ -25,7 +25,7 @@ type CreditcardclientAutocompleteElementResponse struct {
 	// The unique ID of the Creditcardclient
 	PkiCreditcardclientID int32 `json:"pkiCreditcardclientID"`
 	// The description of the Creditcardclient
-	SCreditcardclientDescription string `json:"sCreditcardclientDescription" validate:"regexp=^.{0,50}$"`
+	SCreditcardclientDescription string `json:"sCreditcardclientDescription" validate:"regexp=^.{0\\,50}$"`
 }
 
 type _CreditcardclientAutocompleteElementResponse CreditcardclientAutocompleteElementResponse

@@ -29,7 +29,7 @@ type EzsignsignaturepaymentdetailResponse struct {
 	// A description for the Ezsignsignaturepaymentdetail.
 	TEzsignsignaturepaymentdetailDescription string `json:"tEzsignsignaturepaymentdetailDescription"`
 	// The amount of the for the Ezsignsignaturepaymentdetail
-	DEzsignsignaturepaymentdetailAmount string `json:"dEzsignsignaturepaymentdetailAmount" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	DEzsignsignaturepaymentdetailAmount string `json:"dEzsignsignaturepaymentdetailAmount" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	EEzsignsignaturepaymentdetailTaxable FieldEEzsignsignaturepaymentdetailTaxable `json:"eEzsignsignaturepaymentdetailTaxable"`
 }
 

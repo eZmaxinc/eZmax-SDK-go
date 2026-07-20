@@ -33,7 +33,7 @@ type EzsigntemplatepackagesignerResponse struct {
 	// The unique ID of the Usergroup
 	FkiUsergroupID *int32 `json:"fkiUsergroupID,omitempty"`
 	// The name of the Ezdoctemplatedocument in the language of the requester
-	SEzdoctemplatedocumentNameX *string `json:"sEzdoctemplatedocumentNameX,omitempty" validate:"regexp=^.{0,50}$"`
+	SEzdoctemplatedocumentNameX *string `json:"sEzdoctemplatedocumentNameX,omitempty" validate:"regexp=^.{0\\,50}$"`
 	// If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document.
 	BEzsigntemplatepackagesignerReceivecopy *bool `json:"bEzsigntemplatepackagesignerReceivecopy,omitempty"`
 	EEzsigntemplatepackagesignerMapping *FieldEEzsigntemplatepackagesignerMapping `json:"eEzsigntemplatepackagesignerMapping,omitempty"`
@@ -42,7 +42,7 @@ type EzsigntemplatepackagesignerResponse struct {
 	// The description of the User in the language of the requester
 	SUserName *string `json:"sUserName,omitempty"`
 	// The Name of the Usergroup in the language of the requester
-	SUsergroupNameX *string `json:"sUsergroupNameX,omitempty" validate:"regexp=^.{0,50}$"`
+	SUsergroupNameX *string `json:"sUsergroupNameX,omitempty" validate:"regexp=^.{0\\,50}$"`
 }
 
 type _EzsigntemplatepackagesignerResponse EzsigntemplatepackagesignerResponse

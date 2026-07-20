@@ -50,7 +50,7 @@ type APIClient struct {
 
 	// API Services
 
-	DocumentationEzmaxpartnerAPI *DocumentationEzmaxpartnerAPIService
+	ExternalEzmaxpartnerAPI *ExternalEzmaxpartnerAPIService
 
 	GlobalCustomerAPI *GlobalCustomerAPIService
 
@@ -347,7 +347,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.common.client = c
 
 	// API Services
-	c.DocumentationEzmaxpartnerAPI = (*DocumentationEzmaxpartnerAPIService)(&c.common)
+	c.ExternalEzmaxpartnerAPI = (*ExternalEzmaxpartnerAPIService)(&c.common)
 	c.GlobalCustomerAPI = (*GlobalCustomerAPIService)(&c.common)
 	c.GlobalEzmaxclientAPI = (*GlobalEzmaxclientAPIService)(&c.common)
 	c.GlobalEzmaxcustomerAPI = (*GlobalEzmaxcustomerAPIService)(&c.common)

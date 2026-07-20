@@ -11,12 +11,13 @@ Name | Type | Description | Notes
 **SEzmaxpartnerNameX** | **string** | The name of the Ezmaxpartner in the language of the requester | 
 **SEzmaxpartnerPhoneE164X** | **string** | A phone number in E.164 Format | 
 **SEzmaxpartnerUrlX** | **string** | The url of the Ezmaxpartner website in the language of the requester | 
+**ObjEzmaxpartnerLogourl** | [**MultilingualEzmaxpartnerLogourl**](MultilingualEzmaxpartnerLogourl.md) |  | 
 
 ## Methods
 
 ### NewCustomEzmaxpartnerListElement
 
-`func NewCustomEzmaxpartnerListElement(pkiEzmaxpartnerID int32, sEzmaxpartnerAddressX string, sEzmaxpartnerEmailaddressX string, sEzmaxpartnerShortdescriptionX string, sEzmaxpartnerNameX string, sEzmaxpartnerPhoneE164X string, sEzmaxpartnerUrlX string, ) *CustomEzmaxpartnerListElement`
+`func NewCustomEzmaxpartnerListElement(pkiEzmaxpartnerID int32, sEzmaxpartnerAddressX string, sEzmaxpartnerEmailaddressX string, sEzmaxpartnerShortdescriptionX string, sEzmaxpartnerNameX string, sEzmaxpartnerPhoneE164X string, sEzmaxpartnerUrlX string, objEzmaxpartnerLogourl MultilingualEzmaxpartnerLogourl, ) *CustomEzmaxpartnerListElement`
 
 NewCustomEzmaxpartnerListElement instantiates a new CustomEzmaxpartnerListElement object
 This constructor will assign default values to properties that have it defined,
@@ -169,6 +170,26 @@ and a boolean to check if the value has been set.
 `func (o *CustomEzmaxpartnerListElement) SetSEzmaxpartnerUrlX(v string)`
 
 SetSEzmaxpartnerUrlX sets SEzmaxpartnerUrlX field to given value.
+
+
+### GetObjEzmaxpartnerLogourl
+
+`func (o *CustomEzmaxpartnerListElement) GetObjEzmaxpartnerLogourl() MultilingualEzmaxpartnerLogourl`
+
+GetObjEzmaxpartnerLogourl returns the ObjEzmaxpartnerLogourl field if non-nil, zero value otherwise.
+
+### GetObjEzmaxpartnerLogourlOk
+
+`func (o *CustomEzmaxpartnerListElement) GetObjEzmaxpartnerLogourlOk() (*MultilingualEzmaxpartnerLogourl, bool)`
+
+GetObjEzmaxpartnerLogourlOk returns a tuple with the ObjEzmaxpartnerLogourl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjEzmaxpartnerLogourl
+
+`func (o *CustomEzmaxpartnerListElement) SetObjEzmaxpartnerLogourl(v MultilingualEzmaxpartnerLogourl)`
+
+SetObjEzmaxpartnerLogourl sets ObjEzmaxpartnerLogourl field to given value.
 
 
 

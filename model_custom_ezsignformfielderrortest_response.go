@@ -23,9 +23,9 @@ var _ MappedNullable = &CustomEzsignformfielderrortestResponse{}
 // CustomEzsignformfielderrortestResponse A Custom Ezsignformfielderrortest Object to contain the detail of the test error
 type CustomEzsignformfielderrortestResponse struct {
 	// The name of the test
-	SEzsignformfielderrortestName string `json:"sEzsignformfielderrortestName" validate:"regexp=^.{0,50}$"`
+	SEzsignformfielderrortestName string `json:"sEzsignformfielderrortestName" validate:"regexp=^.{0\\,50}$"`
 	// The detail why the test failed
-	SEzsignformfielderrortestDetail string `json:"sEzsignformfielderrortestDetail" validate:"regexp=^.{0,255}$"`
+	SEzsignformfielderrortestDetail string `json:"sEzsignformfielderrortestDetail" validate:"regexp=^.{0\\,255}$"`
 }
 
 type _CustomEzsignformfielderrortestResponse CustomEzsignformfielderrortestResponse

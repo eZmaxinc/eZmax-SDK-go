@@ -36,11 +36,11 @@ type EzsigntemplatesignerResponseCompound struct {
 	BEzsigntemplatesignerReceivecopy *bool `json:"bEzsigntemplatesignerReceivecopy,omitempty"`
 	EEzsigntemplatesignerMapping *FieldEEzsigntemplatesignerMapping `json:"eEzsigntemplatesignerMapping,omitempty"`
 	// The description of the Ezsigntemplatesigner
-	SEzsigntemplatesignerDescription string `json:"sEzsigntemplatesignerDescription" validate:"regexp=^.{1,50}$"`
+	SEzsigntemplatesignerDescription string `json:"sEzsigntemplatesignerDescription" validate:"regexp=^.{1\\,50}$"`
 	// The description of the User in the language of the requester
 	SUserName *string `json:"sUserName,omitempty"`
 	// The Name of the Usergroup in the language of the requester
-	SUsergroupNameX *string `json:"sUsergroupNameX,omitempty" validate:"regexp=^.{0,50}$"`
+	SUsergroupNameX *string `json:"sUsergroupNameX,omitempty" validate:"regexp=^.{0\\,50}$"`
 }
 
 type _EzsigntemplatesignerResponseCompound EzsigntemplatesignerResponseCompound

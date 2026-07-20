@@ -28,23 +28,32 @@ type InscriptionListElement struct {
 	PkiInscriptionnotauthenticatedID *int32 `json:"pkiInscriptionnotauthenticatedID,omitempty"`
 	// The unique ID of the Inscriptiontype
 	FkiInscriptiontypeID int32 `json:"fkiInscriptiontypeID"`
+	// The name of the Inscriptiontype in the language of the requester
+	SInscriptiontypeNameX string `json:"sInscriptiontypeNameX" validate:"regexp=^.{0\\,30}$"`
+	// The unique ID of the Inscriptionbuildingtype
+	FkiInscriptionbuildingtypeID int32 `json:"fkiInscriptionbuildingtypeID"`
+	// The name of the Inscriptionbuildingtype in the language of the requester
+	SInscriptionbuildingtypeNameX string `json:"sInscriptionbuildingtypeNameX" validate:"regexp=^.{0\\,20}$"`
+	// The unique ID of the Inscriptioncategory
+	FkiInscriptioncategoryID int32 `json:"fkiInscriptioncategoryID"`
+	// The name of the Inscriptioncategory in the language of the requester
+	SInscriptioncategoryNameX string `json:"sInscriptioncategoryNameX" validate:"regexp=^.{0\\,30}$"`
 	// The unique ID of the Buyercontract
 	FkiBuyercontractID *int32 `json:"fkiBuyercontractID,omitempty"`
 	// The number of the Buyercontract
 	SBuyercontractContract *string `json:"sBuyercontractContract,omitempty"`
-	// The name of the Inscriptiontype in the language of the requester
-	SInscriptiontypeNameX string `json:"sInscriptiontypeNameX" validate:"regexp=^.{0,30}$"`
 	EInscriptionStep FieldEInscriptionStep `json:"eInscriptionStep"`
+	EInscriptionType FieldEInscriptionType `json:"eInscriptionType"`
 	// The civicend of the Inscription
-	SInscriptionCivicend string `json:"sInscriptionCivicend" validate:"regexp=^.{0,6}$"`
+	SInscriptionCivicend string `json:"sInscriptionCivicend" validate:"regexp=^.{0\\,6}$"`
 	// The mls of the Inscription
-	SInscriptionMLS *string `json:"sInscriptionMLS,omitempty" validate:"regexp=^.{0,20}$"`
+	SInscriptionMLS *string `json:"sInscriptionMLS,omitempty" validate:"regexp=^.{0\\,20}$"`
 	// The sale contract number
-	SInscriptionContract *string `json:"sInscriptionContract,omitempty" validate:"regexp=^.{0,20}$"`
+	SInscriptionContract *string `json:"sInscriptionContract,omitempty" validate:"regexp=^.{0\\,20}$"`
 	// The saleprice of the Inscription
-	DInscriptionSaleprice string `json:"dInscriptionSaleprice" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	DInscriptionSaleprice string `json:"dInscriptionSaleprice" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	// The rentprice of the Inscription
-	DInscriptionRentprice string `json:"dInscriptionRentprice" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	DInscriptionRentprice string `json:"dInscriptionRentprice" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	// The date of the Inscription
 	DtInscriptionDate *string `json:"dtInscriptionDate,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// The expirationdate of the Inscription
@@ -80,13 +89,15 @@ type InscriptionListElement struct {
 	// The unique ID of the Province.  Here are some common values (Complete list must be retrieved from API):  |Value|Description| |-|-| |1|(Canada) Alberta |2|(Canada) British Columbia| |3|(Canada) Manitoba| |3|(Canada) Manitoba| |4|(Canada) New Brunswick| |5|(Canada) Newfoundland| |6|(Canada) Northwest Territories| |7|(Canada) Nova Scotia| |8|(Canada) Nunavut| |9|(Canada) Ontario| |10|(Canada) Prince Edward Island| |11|(Canada) Quebec| |12|(Canada) Saskatchewan| |13|(Canada) Yukon| |14|(United-States) Alabama| |15|(United-States) Alaska| |16|(United-States) Arizona| |17|(United-States) Arkansas| |18|(United-States) California| |19|(United-States) Colorado| |20|(United-States) Connecticut| |21|(United-States) Delaware| |22|(United-States) District of Columbia| |23|(United-States) Florida| |24|(United-States) Georgia| |25|(United-States) Hawaii| |26|(United-States) Idaho| |27|(United-States) Illinois| |28|(United-States) Indiana| |29|(United-States) Iowa| |30|(United-States) Kansas| |31|(United-States) Kentucky| |32|(United-States) Louisiane| |33|(United-States) Maine| |34|(United-States) Maryland| |35|(United-States) Massachusetts| |36|(United-States) Michigan| |37|(United-States) Minnesota| |38|(United-States) Mississippi| |39|(United-States) Missouri| |40|(United-States) Montana| |41|(United-States) Nebraska| |42|(United-States) Nevada| |43|(United-States) New Hampshire| |44|(United-States) New Jersey| |45|(United-States) New Mexico| |46|(United-States) New York| |47|(United-States) North Carolina| |48|(United-States) North Dakota| |49|(United-States) Ohio| |50|(United-States) Oklahoma| |51|(United-States) Oregon| |52|(United-States) Pennsylvania| |53|(United-States) Rhode Island| |54|(United-States) South Carolina| |55|(United-States) South Dakota| |56|(United-States) Tennessee| |57|(United-States) Texas| |58|(United-States) Utah| |60|(United-States) Vermont| |59|(United-States) Virginia| |61|(United-States) Washington| |62|(United-States) West Virginia| |63|(United-States) Wisconsin| |64|(United-States) Wyoming|
 	FkiProvinceID *int32 `json:"fkiProvinceID,omitempty"`
 	// The name of the Province in the language of the requester
-	SProvinceNameX *string `json:"sProvinceNameX,omitempty" validate:"regexp=^.{0,50}$"`
+	SProvinceNameX *string `json:"sProvinceNameX,omitempty" validate:"regexp=^.{0\\,50}$"`
 	// The unique ID of the Country.  Here are some common values (Complete list must be retrieved from API):  |Value|Description| |-|-| |1|Canada| |2|United-States|
 	FkiCountryID *int32 `json:"fkiCountryID,omitempty"`
 	// The name of the Country in the language of the requester
-	SCountryNameX *string `json:"sCountryNameX,omitempty" validate:"regexp=^.{0,40}$"`
+	SCountryNameX *string `json:"sCountryNameX,omitempty" validate:"regexp=^.{0\\,40}$"`
 	// The numbre of inscriptionnotauthenticated was canceled in this Inscription
 	IInscriptionnotauthenticatedCanceled int32 `json:"iInscriptionnotauthenticatedCanceled"`
+	// The unit of the Inscription
+	IInscriptionUnit int32 `json:"iInscriptionUnit"`
 	// Whether we are allowed to copy into the Inscription EDM
 	BAllowedCopyintoinscriptionedm bool `json:"bAllowedCopyintoinscriptionedm"`
 }
@@ -97,18 +108,24 @@ type _InscriptionListElement InscriptionListElement
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInscriptionListElement(pkiInscriptionID int32, fkiInscriptiontypeID int32, sInscriptiontypeNameX string, eInscriptionStep FieldEInscriptionStep, sInscriptionCivicend string, dInscriptionSaleprice string, dInscriptionRentprice string, bInscriptionIsactive bool, bInscriptionArchived bool, iInscriptionnotauthenticatedCanceled int32, bAllowedCopyintoinscriptionedm bool) *InscriptionListElement {
+func NewInscriptionListElement(pkiInscriptionID int32, fkiInscriptiontypeID int32, sInscriptiontypeNameX string, fkiInscriptionbuildingtypeID int32, sInscriptionbuildingtypeNameX string, fkiInscriptioncategoryID int32, sInscriptioncategoryNameX string, eInscriptionStep FieldEInscriptionStep, eInscriptionType FieldEInscriptionType, sInscriptionCivicend string, dInscriptionSaleprice string, dInscriptionRentprice string, bInscriptionIsactive bool, bInscriptionArchived bool, iInscriptionnotauthenticatedCanceled int32, iInscriptionUnit int32, bAllowedCopyintoinscriptionedm bool) *InscriptionListElement {
 	this := InscriptionListElement{}
 	this.PkiInscriptionID = pkiInscriptionID
 	this.FkiInscriptiontypeID = fkiInscriptiontypeID
 	this.SInscriptiontypeNameX = sInscriptiontypeNameX
+	this.FkiInscriptionbuildingtypeID = fkiInscriptionbuildingtypeID
+	this.SInscriptionbuildingtypeNameX = sInscriptionbuildingtypeNameX
+	this.FkiInscriptioncategoryID = fkiInscriptioncategoryID
+	this.SInscriptioncategoryNameX = sInscriptioncategoryNameX
 	this.EInscriptionStep = eInscriptionStep
+	this.EInscriptionType = eInscriptionType
 	this.SInscriptionCivicend = sInscriptionCivicend
 	this.DInscriptionSaleprice = dInscriptionSaleprice
 	this.DInscriptionRentprice = dInscriptionRentprice
 	this.BInscriptionIsactive = bInscriptionIsactive
 	this.BInscriptionArchived = bInscriptionArchived
 	this.IInscriptionnotauthenticatedCanceled = iInscriptionnotauthenticatedCanceled
+	this.IInscriptionUnit = iInscriptionUnit
 	this.BAllowedCopyintoinscriptionedm = bAllowedCopyintoinscriptionedm
 	return &this
 }
@@ -201,6 +218,126 @@ func (o *InscriptionListElement) SetFkiInscriptiontypeID(v int32) {
 	o.FkiInscriptiontypeID = v
 }
 
+// GetSInscriptiontypeNameX returns the SInscriptiontypeNameX field value
+func (o *InscriptionListElement) GetSInscriptiontypeNameX() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SInscriptiontypeNameX
+}
+
+// GetSInscriptiontypeNameXOk returns a tuple with the SInscriptiontypeNameX field value
+// and a boolean to check if the value has been set.
+func (o *InscriptionListElement) GetSInscriptiontypeNameXOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SInscriptiontypeNameX, true
+}
+
+// SetSInscriptiontypeNameX sets field value
+func (o *InscriptionListElement) SetSInscriptiontypeNameX(v string) {
+	o.SInscriptiontypeNameX = v
+}
+
+// GetFkiInscriptionbuildingtypeID returns the FkiInscriptionbuildingtypeID field value
+func (o *InscriptionListElement) GetFkiInscriptionbuildingtypeID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiInscriptionbuildingtypeID
+}
+
+// GetFkiInscriptionbuildingtypeIDOk returns a tuple with the FkiInscriptionbuildingtypeID field value
+// and a boolean to check if the value has been set.
+func (o *InscriptionListElement) GetFkiInscriptionbuildingtypeIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiInscriptionbuildingtypeID, true
+}
+
+// SetFkiInscriptionbuildingtypeID sets field value
+func (o *InscriptionListElement) SetFkiInscriptionbuildingtypeID(v int32) {
+	o.FkiInscriptionbuildingtypeID = v
+}
+
+// GetSInscriptionbuildingtypeNameX returns the SInscriptionbuildingtypeNameX field value
+func (o *InscriptionListElement) GetSInscriptionbuildingtypeNameX() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SInscriptionbuildingtypeNameX
+}
+
+// GetSInscriptionbuildingtypeNameXOk returns a tuple with the SInscriptionbuildingtypeNameX field value
+// and a boolean to check if the value has been set.
+func (o *InscriptionListElement) GetSInscriptionbuildingtypeNameXOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SInscriptionbuildingtypeNameX, true
+}
+
+// SetSInscriptionbuildingtypeNameX sets field value
+func (o *InscriptionListElement) SetSInscriptionbuildingtypeNameX(v string) {
+	o.SInscriptionbuildingtypeNameX = v
+}
+
+// GetFkiInscriptioncategoryID returns the FkiInscriptioncategoryID field value
+func (o *InscriptionListElement) GetFkiInscriptioncategoryID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiInscriptioncategoryID
+}
+
+// GetFkiInscriptioncategoryIDOk returns a tuple with the FkiInscriptioncategoryID field value
+// and a boolean to check if the value has been set.
+func (o *InscriptionListElement) GetFkiInscriptioncategoryIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiInscriptioncategoryID, true
+}
+
+// SetFkiInscriptioncategoryID sets field value
+func (o *InscriptionListElement) SetFkiInscriptioncategoryID(v int32) {
+	o.FkiInscriptioncategoryID = v
+}
+
+// GetSInscriptioncategoryNameX returns the SInscriptioncategoryNameX field value
+func (o *InscriptionListElement) GetSInscriptioncategoryNameX() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SInscriptioncategoryNameX
+}
+
+// GetSInscriptioncategoryNameXOk returns a tuple with the SInscriptioncategoryNameX field value
+// and a boolean to check if the value has been set.
+func (o *InscriptionListElement) GetSInscriptioncategoryNameXOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SInscriptioncategoryNameX, true
+}
+
+// SetSInscriptioncategoryNameX sets field value
+func (o *InscriptionListElement) SetSInscriptioncategoryNameX(v string) {
+	o.SInscriptioncategoryNameX = v
+}
+
 // GetFkiBuyercontractID returns the FkiBuyercontractID field value if set, zero value otherwise.
 func (o *InscriptionListElement) GetFkiBuyercontractID() int32 {
 	if o == nil || IsNil(o.FkiBuyercontractID) {
@@ -265,30 +402,6 @@ func (o *InscriptionListElement) SetSBuyercontractContract(v string) {
 	o.SBuyercontractContract = &v
 }
 
-// GetSInscriptiontypeNameX returns the SInscriptiontypeNameX field value
-func (o *InscriptionListElement) GetSInscriptiontypeNameX() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SInscriptiontypeNameX
-}
-
-// GetSInscriptiontypeNameXOk returns a tuple with the SInscriptiontypeNameX field value
-// and a boolean to check if the value has been set.
-func (o *InscriptionListElement) GetSInscriptiontypeNameXOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SInscriptiontypeNameX, true
-}
-
-// SetSInscriptiontypeNameX sets field value
-func (o *InscriptionListElement) SetSInscriptiontypeNameX(v string) {
-	o.SInscriptiontypeNameX = v
-}
-
 // GetEInscriptionStep returns the EInscriptionStep field value
 func (o *InscriptionListElement) GetEInscriptionStep() FieldEInscriptionStep {
 	if o == nil {
@@ -311,6 +424,30 @@ func (o *InscriptionListElement) GetEInscriptionStepOk() (*FieldEInscriptionStep
 // SetEInscriptionStep sets field value
 func (o *InscriptionListElement) SetEInscriptionStep(v FieldEInscriptionStep) {
 	o.EInscriptionStep = v
+}
+
+// GetEInscriptionType returns the EInscriptionType field value
+func (o *InscriptionListElement) GetEInscriptionType() FieldEInscriptionType {
+	if o == nil {
+		var ret FieldEInscriptionType
+		return ret
+	}
+
+	return o.EInscriptionType
+}
+
+// GetEInscriptionTypeOk returns a tuple with the EInscriptionType field value
+// and a boolean to check if the value has been set.
+func (o *InscriptionListElement) GetEInscriptionTypeOk() (*FieldEInscriptionType, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EInscriptionType, true
+}
+
+// SetEInscriptionType sets field value
+func (o *InscriptionListElement) SetEInscriptionType(v FieldEInscriptionType) {
+	o.EInscriptionType = v
 }
 
 // GetSInscriptionCivicend returns the SInscriptionCivicend field value
@@ -1097,6 +1234,30 @@ func (o *InscriptionListElement) SetIInscriptionnotauthenticatedCanceled(v int32
 	o.IInscriptionnotauthenticatedCanceled = v
 }
 
+// GetIInscriptionUnit returns the IInscriptionUnit field value
+func (o *InscriptionListElement) GetIInscriptionUnit() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IInscriptionUnit
+}
+
+// GetIInscriptionUnitOk returns a tuple with the IInscriptionUnit field value
+// and a boolean to check if the value has been set.
+func (o *InscriptionListElement) GetIInscriptionUnitOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IInscriptionUnit, true
+}
+
+// SetIInscriptionUnit sets field value
+func (o *InscriptionListElement) SetIInscriptionUnit(v int32) {
+	o.IInscriptionUnit = v
+}
+
 // GetBAllowedCopyintoinscriptionedm returns the BAllowedCopyintoinscriptionedm field value
 func (o *InscriptionListElement) GetBAllowedCopyintoinscriptionedm() bool {
 	if o == nil {
@@ -1136,14 +1297,19 @@ func (o InscriptionListElement) ToMap() (map[string]interface{}, error) {
 		toSerialize["pkiInscriptionnotauthenticatedID"] = o.PkiInscriptionnotauthenticatedID
 	}
 	toSerialize["fkiInscriptiontypeID"] = o.FkiInscriptiontypeID
+	toSerialize["sInscriptiontypeNameX"] = o.SInscriptiontypeNameX
+	toSerialize["fkiInscriptionbuildingtypeID"] = o.FkiInscriptionbuildingtypeID
+	toSerialize["sInscriptionbuildingtypeNameX"] = o.SInscriptionbuildingtypeNameX
+	toSerialize["fkiInscriptioncategoryID"] = o.FkiInscriptioncategoryID
+	toSerialize["sInscriptioncategoryNameX"] = o.SInscriptioncategoryNameX
 	if !IsNil(o.FkiBuyercontractID) {
 		toSerialize["fkiBuyercontractID"] = o.FkiBuyercontractID
 	}
 	if !IsNil(o.SBuyercontractContract) {
 		toSerialize["sBuyercontractContract"] = o.SBuyercontractContract
 	}
-	toSerialize["sInscriptiontypeNameX"] = o.SInscriptiontypeNameX
 	toSerialize["eInscriptionStep"] = o.EInscriptionStep
+	toSerialize["eInscriptionType"] = o.EInscriptionType
 	toSerialize["sInscriptionCivicend"] = o.SInscriptionCivicend
 	if !IsNil(o.SInscriptionMLS) {
 		toSerialize["sInscriptionMLS"] = o.SInscriptionMLS
@@ -1210,6 +1376,7 @@ func (o InscriptionListElement) ToMap() (map[string]interface{}, error) {
 		toSerialize["sCountryNameX"] = o.SCountryNameX
 	}
 	toSerialize["iInscriptionnotauthenticatedCanceled"] = o.IInscriptionnotauthenticatedCanceled
+	toSerialize["iInscriptionUnit"] = o.IInscriptionUnit
 	toSerialize["bAllowedCopyintoinscriptionedm"] = o.BAllowedCopyintoinscriptionedm
 	return toSerialize, nil
 }
@@ -1222,13 +1389,19 @@ func (o *InscriptionListElement) UnmarshalJSON(data []byte) (err error) {
 		"pkiInscriptionID",
 		"fkiInscriptiontypeID",
 		"sInscriptiontypeNameX",
+		"fkiInscriptionbuildingtypeID",
+		"sInscriptionbuildingtypeNameX",
+		"fkiInscriptioncategoryID",
+		"sInscriptioncategoryNameX",
 		"eInscriptionStep",
+		"eInscriptionType",
 		"sInscriptionCivicend",
 		"dInscriptionSaleprice",
 		"dInscriptionRentprice",
 		"bInscriptionIsactive",
 		"bInscriptionArchived",
 		"iInscriptionnotauthenticatedCanceled",
+		"iInscriptionUnit",
 		"bAllowedCopyintoinscriptionedm",
 	}
 

@@ -35,14 +35,14 @@ type EzdoctemplatedocumentListElement struct {
 	// The name of the Ezsignfoldertype in the language of the requester
 	SEzsignfoldertypeNameX *string `json:"sEzsignfoldertypeNameX,omitempty"`
 	// The description of the Ezdoctemplatetype in the language of the requester
-	SEzdoctemplatetypeDescriptionX *string `json:"sEzdoctemplatetypeDescriptionX,omitempty" validate:"regexp=^.{0,50}$"`
+	SEzdoctemplatetypeDescriptionX *string `json:"sEzdoctemplatetypeDescriptionX,omitempty" validate:"regexp=^.{0\\,50}$"`
 	// The description of the Ezdoctemplatefieldtypecategory in the language of the requester
-	SEzdoctemplatefieldtypecategoryDescriptionX *string `json:"sEzdoctemplatefieldtypecategoryDescriptionX,omitempty" validate:"regexp=^.{0,55}$"`
+	SEzdoctemplatefieldtypecategoryDescriptionX *string `json:"sEzdoctemplatefieldtypecategoryDescriptionX,omitempty" validate:"regexp=^.{0\\,55}$"`
 	EEzdoctemplatedocumentPrivacylevel *FieldEEzdoctemplatedocumentPrivacylevel `json:"eEzdoctemplatedocumentPrivacylevel,omitempty"`
 	// Whether the ezdoctemplatedocument is active or not
 	BEzdoctemplatedocumentIsactive bool `json:"bEzdoctemplatedocumentIsactive"`
 	// The name of the Ezdoctemplatedocument in the language of the requester
-	SEzdoctemplatedocumentNameX string `json:"sEzdoctemplatedocumentNameX" validate:"regexp=^.{0,50}$"`
+	SEzdoctemplatedocumentNameX string `json:"sEzdoctemplatedocumentNameX" validate:"regexp=^.{0\\,50}$"`
 }
 
 type _EzdoctemplatedocumentListElement EzdoctemplatedocumentListElement

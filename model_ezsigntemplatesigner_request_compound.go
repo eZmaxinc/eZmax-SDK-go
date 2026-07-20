@@ -36,7 +36,7 @@ type EzsigntemplatesignerRequestCompound struct {
 	BEzsigntemplatesignerReceivecopy *bool `json:"bEzsigntemplatesignerReceivecopy,omitempty"`
 	EEzsigntemplatesignerMapping *FieldEEzsigntemplatesignerMapping `json:"eEzsigntemplatesignerMapping,omitempty"`
 	// The description of the Ezsigntemplatesigner
-	SEzsigntemplatesignerDescription string `json:"sEzsigntemplatesignerDescription" validate:"regexp=^.{1,50}$"`
+	SEzsigntemplatesignerDescription string `json:"sEzsigntemplatesignerDescription" validate:"regexp=^.{1\\,50}$"`
 }
 
 type _EzsigntemplatesignerRequestCompound EzsigntemplatesignerRequestCompound

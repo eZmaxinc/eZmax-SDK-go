@@ -25,7 +25,7 @@ type AuthenticationexternalRequest struct {
 	// The unique ID of the Authenticationexternal
 	PkiAuthenticationexternalID *int32 `json:"pkiAuthenticationexternalID,omitempty"`
 	// The description of the Authenticationexternal
-	SAuthenticationexternalDescription string `json:"sAuthenticationexternalDescription" validate:"regexp=^.{0,50}$"`
+	SAuthenticationexternalDescription string `json:"sAuthenticationexternalDescription" validate:"regexp=^.{0\\,50}$"`
 	EAuthenticationexternalType FieldEAuthenticationexternalType `json:"eAuthenticationexternalType"`
 }
 

@@ -42,13 +42,13 @@ type EzsignfoldertypeResponseCompound struct {
 	// The description of the Ezsigntsarequirement in the language of the requester
 	SEzsigntsarequirementDescriptionX *string `json:"sEzsigntsarequirementDescriptionX,omitempty"`
 	// The email address.
-	SEmailAddressSigned *string "json:\"sEmailAddressSigned,omitempty\" validate:\"regexp=^[\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20}$\""
+	SEmailAddressSigned *string `json:"sEmailAddressSigned,omitempty" validate:"regexp=^[\\w.%+\\-!#$%&'*+/=?^\x60{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2\\,20}$"`
 	// The email address.
-	SEmailAddressSummary *string "json:\"sEmailAddressSummary,omitempty\" validate:\"regexp=^[\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20}$\""
+	SEmailAddressSummary *string `json:"sEmailAddressSummary,omitempty" validate:"regexp=^[\\w.%+\\-!#$%&'*+/=?^\x60{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2\\,20}$"`
 	// The Name of the Usergroup in the language of the requester
-	SUsergroupNameX *string `json:"sUsergroupNameX,omitempty" validate:"regexp=^.{0,50}$"`
+	SUsergroupNameX *string `json:"sUsergroupNameX,omitempty" validate:"regexp=^.{0\\,50}$"`
 	// The Name of the Usergroup in the language of the requester
-	SUsergroupNameXRestricted *string `json:"sUsergroupNameXRestricted,omitempty" validate:"regexp=^.{0,50}$"`
+	SUsergroupNameXRestricted *string `json:"sUsergroupNameXRestricted,omitempty" validate:"regexp=^.{0\\,50}$"`
 	EEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel `json:"eEzsignfoldertypePrivacylevel"`
 	EEzsignfoldertypeSendreminderfrequency *FieldEEzsignfoldertypeSendreminderfrequency `json:"eEzsignfoldertypeSendreminderfrequency,omitempty"`
 	// The number of days before the archival of Ezsignfolders created using this Ezsignfoldertype

@@ -23,13 +23,13 @@ var _ MappedNullable = &CustomUserNameResponse{}
 // CustomUserNameResponse A User name Object
 type CustomUserNameResponse struct {
 	// The name of the Contacttitle in the language of the requester
-	SContacttitleNameX *string `json:"sContacttitleNameX,omitempty" validate:"regexp=^.{0,10}$"`
+	SContacttitleNameX *string `json:"sContacttitleNameX,omitempty" validate:"regexp=^.{0\\,10}$"`
 	// The last name of the user
 	SUserLastname string `json:"sUserLastname"`
 	// The first name of the user
 	SUserFirstname string `json:"sUserFirstname"`
 	// The job title of the user
-	SUserJobtitle *string `json:"sUserJobtitle,omitempty" validate:"regexp=^.{0,50}$"`
+	SUserJobtitle *string `json:"sUserJobtitle,omitempty" validate:"regexp=^.{0\\,50}$"`
 }
 
 type _CustomUserNameResponse CustomUserNameResponse

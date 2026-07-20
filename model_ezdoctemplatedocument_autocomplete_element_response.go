@@ -25,7 +25,7 @@ type EzdoctemplatedocumentAutocompleteElementResponse struct {
 	// The unique ID of the Ezdoctemplatedocument
 	PkiEzdoctemplatedocumentID int32 `json:"pkiEzdoctemplatedocumentID"`
 	// The name of the Ezdoctemplatedocument in the language of the requester
-	SEzdoctemplatedocumentNameX string `json:"sEzdoctemplatedocumentNameX" validate:"regexp=^.{0,50}$"`
+	SEzdoctemplatedocumentNameX string `json:"sEzdoctemplatedocumentNameX" validate:"regexp=^.{0\\,50}$"`
 	// Whether the ezdoctemplatedocument is active or not
 	BEzdoctemplatedocumentIsactive bool `json:"bEzdoctemplatedocumentIsactive"`
 }

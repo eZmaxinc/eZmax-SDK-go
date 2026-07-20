@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **EWebhookModule** | [**FieldEWebhookModule**](FieldEWebhookModule.md) |  | 
 **EWebhookEzsignevent** | Pointer to [**FieldEWebhookEzsignevent**](FieldEWebhookEzsignevent.md) |  | [optional] 
 **EWebhookManagementevent** | Pointer to [**FieldEWebhookManagementevent**](FieldEWebhookManagementevent.md) |  | [optional] 
+**EWebhookRealestateevent** | Pointer to [**FieldEWebhookRealestateevent**](FieldEWebhookRealestateevent.md) |  | [optional] 
 **SWebhookUrl** | **string** | The URL of the Webhook callback | 
 **SWebhookEmailfailed** | **string** | The email that will receive the Webhook in case all attempts fail | 
 **BWebhookIsactive** | **bool** | Whether the Webhook is active or not | 
@@ -201,6 +202,31 @@ SetEWebhookManagementevent sets EWebhookManagementevent field to given value.
 `func (o *WebhookRequestCompound) HasEWebhookManagementevent() bool`
 
 HasEWebhookManagementevent returns a boolean if a field has been set.
+
+### GetEWebhookRealestateevent
+
+`func (o *WebhookRequestCompound) GetEWebhookRealestateevent() FieldEWebhookRealestateevent`
+
+GetEWebhookRealestateevent returns the EWebhookRealestateevent field if non-nil, zero value otherwise.
+
+### GetEWebhookRealestateeventOk
+
+`func (o *WebhookRequestCompound) GetEWebhookRealestateeventOk() (*FieldEWebhookRealestateevent, bool)`
+
+GetEWebhookRealestateeventOk returns a tuple with the EWebhookRealestateevent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEWebhookRealestateevent
+
+`func (o *WebhookRequestCompound) SetEWebhookRealestateevent(v FieldEWebhookRealestateevent)`
+
+SetEWebhookRealestateevent sets EWebhookRealestateevent field to given value.
+
+### HasEWebhookRealestateevent
+
+`func (o *WebhookRequestCompound) HasEWebhookRealestateevent() bool`
+
+HasEWebhookRealestateevent returns a boolean if a field has been set.
 
 ### GetSWebhookUrl
 

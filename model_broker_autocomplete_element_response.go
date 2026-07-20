@@ -27,7 +27,7 @@ type BrokerAutocompleteElementResponse struct {
 	// The unique ID of the Department
 	FkiDepartmentID int32 `json:"fkiDepartmentID"`
 	// The name of the Broker
-	SBrokerName string `json:"sBrokerName" validate:"regexp=^.{0,60}$"`
+	SBrokerName string `json:"sBrokerName" validate:"regexp=^.{0\\,60}$"`
 	// Whether the Broker is active or not
 	BBrokerIsactive bool `json:"bBrokerIsactive"`
 }

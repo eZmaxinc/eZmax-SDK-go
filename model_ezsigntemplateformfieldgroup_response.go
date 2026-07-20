@@ -46,7 +46,7 @@ type EzsigntemplateformfieldgroupResponse struct {
 	// Whether the Ezsigntemplateformfieldgroup is encrypted in the database or not. Encrypted values are not displayed on the Ezsigndocument. This can only be set if eEzsigntemplateformfieldgroupType is **Text** or **Textarea**
 	BEzsigntemplateformfieldgroupEncrypted *bool `json:"bEzsigntemplateformfieldgroupEncrypted,omitempty"`
 	// A regular expression to indicate what values are acceptable for the Ezsigntemplateformfieldgroup.  This can only be set if eEzsigntemplateformfieldgroupType is **Text** or **Textarea**
-	SEzsigntemplateformfieldgroupRegexp *string `json:"sEzsigntemplateformfieldgroupRegexp,omitempty" validate:"regexp=^\\\\^.*\\\\$$|^$"`
+	SEzsigntemplateformfieldgroupRegexp *string `json:"sEzsigntemplateformfieldgroupRegexp,omitempty" validate:"regexp=^\\^.*\\$$|^$"`
 	// Description of validation rule. Show by signatory.
 	SEzsigntemplateformfieldgroupTextvalidationcustommessage *string `json:"sEzsigntemplateformfieldgroupTextvalidationcustommessage,omitempty"`
 	EEzsigntemplateformfieldgroupTextvalidation *EnumTextvalidation `json:"eEzsigntemplateformfieldgroupTextvalidation,omitempty"`

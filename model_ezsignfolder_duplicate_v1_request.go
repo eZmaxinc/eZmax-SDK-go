@@ -23,7 +23,7 @@ var _ MappedNullable = &EzsignfolderDuplicateV1Request{}
 // EzsignfolderDuplicateV1Request 
 type EzsignfolderDuplicateV1Request struct {
 	// The description of the Ezsignfolder
-	SEzsignfolderDescription string `json:"sEzsignfolderDescription" validate:"regexp=^.{0,75}$"`
+	SEzsignfolderDescription string `json:"sEzsignfolderDescription" validate:"regexp=^.{0\\,75}$"`
 	AFkiEzsignfoldersignerassociationID []int32 `json:"a_fkiEzsignfoldersignerassociationID"`
 	AObjEzsigndocument []CustomEzsigndocumentDuplicateRequest `json:"a_objEzsigndocument"`
 	// Note about the Ezsignfolder

@@ -25,17 +25,18 @@ type CustomEzmaxpartnerListElement struct {
 	// The unique ID of the Ezmaxpartner
 	PkiEzmaxpartnerID int32 `json:"pkiEzmaxpartnerID"`
 	// The complete address in a single line
-	SEzmaxpartnerAddressX string `json:"sEzmaxpartnerAddressX" validate:"regexp=^.{1,200}$"`
+	SEzmaxpartnerAddressX string `json:"sEzmaxpartnerAddressX" validate:"regexp=^.{1\\,200}$"`
 	// The email address.
-	SEzmaxpartnerEmailaddressX string "json:\"sEzmaxpartnerEmailaddressX\" validate:\"regexp=^[\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20}$\""
+	SEzmaxpartnerEmailaddressX string `json:"sEzmaxpartnerEmailaddressX" validate:"regexp=^[\\w.%+\\-!#$%&'*+/=?^\x60{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2\\,20}$"`
 	// The short description of the Ezmaxpartner in the language of the requester
-	SEzmaxpartnerShortdescriptionX string `json:"sEzmaxpartnerShortdescriptionX" validate:"regexp=^.{0,256}$"`
+	SEzmaxpartnerShortdescriptionX string `json:"sEzmaxpartnerShortdescriptionX" validate:"regexp=^.{0\\,256}$"`
 	// The name of the Ezmaxpartner in the language of the requester
-	SEzmaxpartnerNameX string `json:"sEzmaxpartnerNameX" validate:"regexp=^.{0,50}$"`
+	SEzmaxpartnerNameX string `json:"sEzmaxpartnerNameX" validate:"regexp=^.{0\\,50}$"`
 	// A phone number in E.164 Format
-	SEzmaxpartnerPhoneE164X string `json:"sEzmaxpartnerPhoneE164X" validate:"regexp=^\\\\+[1-9]\\\\d{1,14}$"`
+	SEzmaxpartnerPhoneE164X string `json:"sEzmaxpartnerPhoneE164X" validate:"regexp=^\\+[1-9]\\d{1\\,14}$"`
 	// The url of the Ezmaxpartner website in the language of the requester
-	SEzmaxpartnerUrlX string `json:"sEzmaxpartnerUrlX" validate:"regexp=^(https|http):\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
+	SEzmaxpartnerUrlX string `json:"sEzmaxpartnerUrlX" validate:"regexp=^(https|http)://[^\\s/$.?#].[^\\s]*$"`
+	ObjEzmaxpartnerLogourl MultilingualEzmaxpartnerLogourl `json:"objEzmaxpartnerLogourl"`
 }
 
 type _CustomEzmaxpartnerListElement CustomEzmaxpartnerListElement
@@ -44,7 +45,7 @@ type _CustomEzmaxpartnerListElement CustomEzmaxpartnerListElement
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomEzmaxpartnerListElement(pkiEzmaxpartnerID int32, sEzmaxpartnerAddressX string, sEzmaxpartnerEmailaddressX string, sEzmaxpartnerShortdescriptionX string, sEzmaxpartnerNameX string, sEzmaxpartnerPhoneE164X string, sEzmaxpartnerUrlX string) *CustomEzmaxpartnerListElement {
+func NewCustomEzmaxpartnerListElement(pkiEzmaxpartnerID int32, sEzmaxpartnerAddressX string, sEzmaxpartnerEmailaddressX string, sEzmaxpartnerShortdescriptionX string, sEzmaxpartnerNameX string, sEzmaxpartnerPhoneE164X string, sEzmaxpartnerUrlX string, objEzmaxpartnerLogourl MultilingualEzmaxpartnerLogourl) *CustomEzmaxpartnerListElement {
 	this := CustomEzmaxpartnerListElement{}
 	this.PkiEzmaxpartnerID = pkiEzmaxpartnerID
 	this.SEzmaxpartnerAddressX = sEzmaxpartnerAddressX
@@ -53,6 +54,7 @@ func NewCustomEzmaxpartnerListElement(pkiEzmaxpartnerID int32, sEzmaxpartnerAddr
 	this.SEzmaxpartnerNameX = sEzmaxpartnerNameX
 	this.SEzmaxpartnerPhoneE164X = sEzmaxpartnerPhoneE164X
 	this.SEzmaxpartnerUrlX = sEzmaxpartnerUrlX
+	this.ObjEzmaxpartnerLogourl = objEzmaxpartnerLogourl
 	return &this
 }
 
@@ -232,6 +234,30 @@ func (o *CustomEzmaxpartnerListElement) SetSEzmaxpartnerUrlX(v string) {
 	o.SEzmaxpartnerUrlX = v
 }
 
+// GetObjEzmaxpartnerLogourl returns the ObjEzmaxpartnerLogourl field value
+func (o *CustomEzmaxpartnerListElement) GetObjEzmaxpartnerLogourl() MultilingualEzmaxpartnerLogourl {
+	if o == nil {
+		var ret MultilingualEzmaxpartnerLogourl
+		return ret
+	}
+
+	return o.ObjEzmaxpartnerLogourl
+}
+
+// GetObjEzmaxpartnerLogourlOk returns a tuple with the ObjEzmaxpartnerLogourl field value
+// and a boolean to check if the value has been set.
+func (o *CustomEzmaxpartnerListElement) GetObjEzmaxpartnerLogourlOk() (*MultilingualEzmaxpartnerLogourl, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjEzmaxpartnerLogourl, true
+}
+
+// SetObjEzmaxpartnerLogourl sets field value
+func (o *CustomEzmaxpartnerListElement) SetObjEzmaxpartnerLogourl(v MultilingualEzmaxpartnerLogourl) {
+	o.ObjEzmaxpartnerLogourl = v
+}
+
 func (o CustomEzmaxpartnerListElement) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -249,6 +275,7 @@ func (o CustomEzmaxpartnerListElement) ToMap() (map[string]interface{}, error) {
 	toSerialize["sEzmaxpartnerNameX"] = o.SEzmaxpartnerNameX
 	toSerialize["sEzmaxpartnerPhoneE164X"] = o.SEzmaxpartnerPhoneE164X
 	toSerialize["sEzmaxpartnerUrlX"] = o.SEzmaxpartnerUrlX
+	toSerialize["objEzmaxpartnerLogourl"] = o.ObjEzmaxpartnerLogourl
 	return toSerialize, nil
 }
 
@@ -264,6 +291,7 @@ func (o *CustomEzmaxpartnerListElement) UnmarshalJSON(data []byte) (err error) {
 		"sEzmaxpartnerNameX",
 		"sEzmaxpartnerPhoneE164X",
 		"sEzmaxpartnerUrlX",
+		"objEzmaxpartnerLogourl",
 	}
 
 	allProperties := make(map[string]interface{})

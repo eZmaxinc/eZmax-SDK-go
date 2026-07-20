@@ -46,7 +46,7 @@ type CustomEzsignformfieldgroupCreateEzsignelementsPositionedByWordRequest struc
 	// Whether the Ezsignformfieldgroup is encrypted in the database or not. Encrypted values are not displayed on the Ezsigndocument. This can only be set if eEzsignformfieldgroupType is **Text** or **Textarea**
 	BEzsignformfieldgroupEncrypted *bool `json:"bEzsignformfieldgroupEncrypted,omitempty"`
 	// A regular expression to indicate what values are acceptable for the Ezsignformfieldgroup.  This can only be set if eEzsignformfieldgroupType is **Text** or **Textarea**
-	SEzsignformfieldgroupRegexp *string `json:"sEzsignformfieldgroupRegexp,omitempty" validate:"regexp=^\\\\^.*\\\\$$|^$"`
+	SEzsignformfieldgroupRegexp *string `json:"sEzsignformfieldgroupRegexp,omitempty" validate:"regexp=^\\^.*\\$$|^$"`
 	// Description of validation rule. Show by signatory.
 	SEzsignformfieldgroupTextvalidationcustommessage *string `json:"sEzsignformfieldgroupTextvalidationcustommessage,omitempty"`
 	// A tooltip that will be presented to Ezsignsigner about the Ezsignformfieldgroup

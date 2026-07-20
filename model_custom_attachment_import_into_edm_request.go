@@ -29,13 +29,13 @@ type CustomAttachmentImportIntoEDMRequest struct {
 	// The unique ID of the Inscriptionchecklist
 	FkiInscriptionchecklistID *int32 `json:"fkiInscriptionchecklistID,omitempty"`
 	// The url of the file to import
-	SAttachmentUrl *string `json:"sAttachmentUrl,omitempty" validate:"regexp=^https:\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
+	SAttachmentUrl *string `json:"sAttachmentUrl,omitempty" validate:"regexp=^https://[^\\s/$.?#].[^\\s]*$"`
 	// The Base64 encoded binary content of the attachment.
 	SAttachmentBase64 *string `json:"sAttachmentBase64,omitempty"`
 	// The name of the Attachment
-	SAttachmentName string `json:"sAttachmentName" validate:"regexp=^.{0,75}$"`
+	SAttachmentName string `json:"sAttachmentName" validate:"regexp=^.{0\\,75}$"`
 	// The attachment category
-	SAttachmentCategory string `json:"sAttachmentCategory" validate:"regexp=^.{0,75}$"`
+	SAttachmentCategory string `json:"sAttachmentCategory" validate:"regexp=^.{0\\,75}$"`
 	EAttachmentPrivacy FieldEAttachmentPrivacy `json:"eAttachmentPrivacy"`
 	// The unique ID of the User
 	FkiUserIDSpecific *int32 `json:"fkiUserIDSpecific,omitempty"`

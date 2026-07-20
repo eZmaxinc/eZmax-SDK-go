@@ -23,7 +23,7 @@ var _ MappedNullable = &CustomEzmaxcustomerResponse{}
 // CustomEzmaxcustomerResponse A Ezmaxcustomer Object
 type CustomEzmaxcustomerResponse struct {
 	// The Ezmaxcustomer code
-	FksEzmaxcustomerCode string `json:"fksEzmaxcustomerCode" validate:"regexp=^[a-z\\\\d]{2,6}$"`
+	FksEzmaxcustomerCode string `json:"fksEzmaxcustomerCode" validate:"regexp=^[a-z\\d]{2\\,6}$"`
 	// The unique ID of the Systemconfigurationtype
 	FkiSystemconfigurationtypeID int32 `json:"fkiSystemconfigurationtypeID"`
 	ObjEzmaxcustomerCompany MultilingualEzmaxcustomerCompany `json:"objEzmaxcustomerCompany"`

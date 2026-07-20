@@ -21,9 +21,9 @@ var _ MappedNullable = &MultilingualSupplyDescription{}
 // MultilingualSupplyDescription The description1 of the Supply
 type MultilingualSupplyDescription struct {
 	// The description of the Supply in French
-	SSupplyDescription1 *string `json:"sSupplyDescription1,omitempty" validate:"regexp=^.{0,50}$"`
+	SSupplyDescription1 *string `json:"sSupplyDescription1,omitempty" validate:"regexp=^.{0\\,50}$"`
 	// The description of the Supply in English
-	SSupplyDescription2 *string `json:"sSupplyDescription2,omitempty" validate:"regexp=^.{0,50}$"`
+	SSupplyDescription2 *string `json:"sSupplyDescription2,omitempty" validate:"regexp=^.{0\\,50}$"`
 }
 
 // NewMultilingualSupplyDescription instantiates a new MultilingualSupplyDescription object

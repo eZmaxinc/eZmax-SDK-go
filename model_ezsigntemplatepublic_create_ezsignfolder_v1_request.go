@@ -23,9 +23,9 @@ var _ MappedNullable = &EzsigntemplatepublicCreateEzsignfolderV1Request{}
 // EzsigntemplatepublicCreateEzsignfolderV1Request Request for POST /1/object/ezsigntemplatepublic/createEzsignfolder
 type EzsigntemplatepublicCreateEzsignfolderV1Request struct {
 	// The Ezmaxcustomer code
-	PksEzmaxcustomerCode string `json:"pksEzmaxcustomerCode" validate:"regexp=^[a-z\\\\d]{2,6}$"`
+	PksEzmaxcustomerCode string `json:"pksEzmaxcustomerCode" validate:"regexp=^[a-z\\d]{2\\,6}$"`
 	// The referenceid of the Ezsigntemplatepublic
-	SEzsigntemplatepublicReferenceid string `json:"sEzsigntemplatepublicReferenceid" validate:"regexp=^.{0,36}$"`
+	SEzsigntemplatepublicReferenceid string `json:"sEzsigntemplatepublicReferenceid" validate:"regexp=^.{0\\,36}$"`
 	ASEzsigntemplatesignerDescription []string `json:"a_sEzsigntemplatesignerDescription"`
 	// 
 	AObjEzsignsigner []EzsignsignerRequestCompound `json:"a_objEzsignsigner"`

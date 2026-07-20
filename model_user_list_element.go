@@ -29,7 +29,7 @@ type UserListElement struct {
 	// The last name of the user
 	SUserLastname string `json:"sUserLastname"`
 	// The login name of the User.
-	SUserLoginname string "json:\"sUserLoginname\" validate:\"regexp=^(?:([\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$\""
+	SUserLoginname string `json:"sUserLoginname" validate:"regexp=^(?:([\\w.%+\\-!#$%&'*+/=?^\x60{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2\\,20})|([a-zA-Z0-9]){1\\,32})$"`
 	// Whether the User is active or not
 	BUserIsactive bool `json:"bUserIsactive"`
 	// Whether the User is suspended or not
@@ -40,9 +40,9 @@ type UserListElement struct {
 	// The eZsign prepaid expiration date
 	DtUserEzsignprepaidexpiration *string `json:"dtUserEzsignprepaidexpiration,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// The email address.
-	SEmailAddress string "json:\"sEmailAddress\" validate:\"regexp=^[\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20}$\""
+	SEmailAddress string `json:"sEmailAddress" validate:"regexp=^[\\w.%+\\-!#$%&'*+/=?^\x60{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2\\,20}$"`
 	// The job title of the user
-	SUserJobtitle *string `json:"sUserJobtitle,omitempty" validate:"regexp=^.{0,50}$"`
+	SUserJobtitle *string `json:"sUserJobtitle,omitempty" validate:"regexp=^.{0\\,50}$"`
 }
 
 type _UserListElement UserListElement

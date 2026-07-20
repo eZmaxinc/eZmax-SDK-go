@@ -21,9 +21,9 @@ var _ MappedNullable = &MultilingualEzmaxpartnerAddress{}
 // MultilingualEzmaxpartnerAddress Address of the Ezmaxpartner
 type MultilingualEzmaxpartnerAddress struct {
 	// The complete address in a single line
-	SEzmaxpartnerAddress1 *string `json:"sEzmaxpartnerAddress1,omitempty" validate:"regexp=^.{1,200}$"`
+	SEzmaxpartnerAddress1 *string `json:"sEzmaxpartnerAddress1,omitempty" validate:"regexp=^.{1\\,200}$"`
 	// The complete address in a single line
-	SEzmaxpartnerAddress2 *string `json:"sEzmaxpartnerAddress2,omitempty" validate:"regexp=^.{1,200}$"`
+	SEzmaxpartnerAddress2 *string `json:"sEzmaxpartnerAddress2,omitempty" validate:"regexp=^.{1\\,200}$"`
 }
 
 // NewMultilingualEzmaxpartnerAddress instantiates a new MultilingualEzmaxpartnerAddress object

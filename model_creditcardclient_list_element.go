@@ -33,7 +33,7 @@ type CreditcardclientListElement struct {
 	// Whether the Creditcardclient is legacy or not
 	BCreditcardclientLegacy bool `json:"bCreditcardclientLegacy"`
 	// The description of the Creditcardclient
-	SCreditcardclientDescription string `json:"sCreditcardclientDescription" validate:"regexp=^.{0,50}$"`
+	SCreditcardclientDescription string `json:"sCreditcardclientDescription" validate:"regexp=^.{0\\,50}$"`
 	// Whether if it's an allowedagencypayment
 	BCreditcardclientAllowedcompanypayment bool `json:"bCreditcardclientAllowedcompanypayment"`
 	// Whether if it's an allowedtranquillit

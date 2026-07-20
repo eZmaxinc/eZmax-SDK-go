@@ -21,9 +21,9 @@ var _ MappedNullable = &MultilingualPaymentgatewayDescription{}
 // MultilingualPaymentgatewayDescription Description of the Paymentgateway
 type MultilingualPaymentgatewayDescription struct {
 	// The description of the Paymentgateway in French
-	SPaymentgatewayDescription1 *string `json:"sPaymentgatewayDescription1,omitempty" validate:"regexp=^.{1,50}$"`
+	SPaymentgatewayDescription1 *string `json:"sPaymentgatewayDescription1,omitempty" validate:"regexp=^.{1\\,50}$"`
 	// The description of the Paymentgateway in English
-	SPaymentgatewayDescription2 *string `json:"sPaymentgatewayDescription2,omitempty" validate:"regexp=^.{1,50}$"`
+	SPaymentgatewayDescription2 *string `json:"sPaymentgatewayDescription2,omitempty" validate:"regexp=^.{1\\,50}$"`
 }
 
 // NewMultilingualPaymentgatewayDescription instantiates a new MultilingualPaymentgatewayDescription object

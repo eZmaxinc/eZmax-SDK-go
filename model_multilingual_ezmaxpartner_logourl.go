@@ -21,9 +21,9 @@ var _ MappedNullable = &MultilingualEzmaxpartnerLogourl{}
 // MultilingualEzmaxpartnerLogourl Logo url of the Ezmaxpartner
 type MultilingualEzmaxpartnerLogourl struct {
 	// The url of the french logo of the Ezmaxpartner
-	SEzmaxpartnerLogourl1 *string `json:"sEzmaxpartnerLogourl1,omitempty" validate:"regexp=^(https|http):\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
+	SEzmaxpartnerLogourl1 *string `json:"sEzmaxpartnerLogourl1,omitempty" validate:"regexp=^(https|http)://[^\\s/$.?#].[^\\s]*$"`
 	// The url of the english logo of the Ezmaxpartner
-	SEzmaxpartnerLogourl2 *string `json:"sEzmaxpartnerLogourl2,omitempty" validate:"regexp=^(https|http):\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
+	SEzmaxpartnerLogourl2 *string `json:"sEzmaxpartnerLogourl2,omitempty" validate:"regexp=^(https|http)://[^\\s/$.?#].[^\\s]*$"`
 }
 
 // NewMultilingualEzmaxpartnerLogourl instantiates a new MultilingualEzmaxpartnerLogourl object

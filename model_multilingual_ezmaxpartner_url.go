@@ -21,9 +21,9 @@ var _ MappedNullable = &MultilingualEzmaxpartnerUrl{}
 // MultilingualEzmaxpartnerUrl Short description of the Ezmaxpartner
 type MultilingualEzmaxpartnerUrl struct {
 	// The url of the Ezmaxpartner website in french
-	SEzmaxpartnerUrl1 *string `json:"sEzmaxpartnerUrl1,omitempty" validate:"regexp=^(https|http):\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
+	SEzmaxpartnerUrl1 *string `json:"sEzmaxpartnerUrl1,omitempty" validate:"regexp=^(https|http)://[^\\s/$.?#].[^\\s]*$"`
 	// The url of the Ezmaxpartner website in english
-	SEzmaxpartnerUrl2 *string `json:"sEzmaxpartnerUrl2,omitempty" validate:"regexp=^(https|http):\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
+	SEzmaxpartnerUrl2 *string `json:"sEzmaxpartnerUrl2,omitempty" validate:"regexp=^(https|http)://[^\\s/$.?#].[^\\s]*$"`
 }
 
 // NewMultilingualEzmaxpartnerUrl instantiates a new MultilingualEzmaxpartnerUrl object

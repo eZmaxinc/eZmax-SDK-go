@@ -28,9 +28,9 @@ type SignatureRequestCompound struct {
 	FkiFontID int32 `json:"fkiFontID"`
 	ESignaturePreference FieldESignaturePreference `json:"eSignaturePreference"`
 	// The svg of the Signature
-	TSignatureSvg *string `json:"tSignatureSvg,omitempty" validate:"regexp=^.{60,65535}$"`
+	TSignatureSvg *string `json:"tSignatureSvg,omitempty" validate:"regexp=^.{60\\,65535}$"`
 	// The svg of the Initials
-	TSignatureSvginitials *string `json:"tSignatureSvginitials,omitempty" validate:"regexp=^.{60,65535}$"`
+	TSignatureSvginitials *string `json:"tSignatureSvginitials,omitempty" validate:"regexp=^.{60\\,65535}$"`
 }
 
 type _SignatureRequestCompound SignatureRequestCompound

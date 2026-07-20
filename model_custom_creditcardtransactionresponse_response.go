@@ -23,11 +23,11 @@ var _ MappedNullable = &CustomCreditcardtransactionresponseResponse{}
 // CustomCreditcardtransactionresponseResponse A custom Creditcardtransactionresponse Object
 type CustomCreditcardtransactionresponseResponse struct {
 	// The ISO code
-	SCreditcardtransactionISOcode string `json:"sCreditcardtransactionISOcode" validate:"regexp=^.{1,2}$"`
+	SCreditcardtransactionISOcode string `json:"sCreditcardtransactionISOcode" validate:"regexp=^.{1\\,2}$"`
 	// The response code
-	SCreditcardtransactionResponsecode string `json:"sCreditcardtransactionResponsecode" validate:"regexp=^.{1,3}$"`
+	SCreditcardtransactionResponsecode string `json:"sCreditcardtransactionResponsecode" validate:"regexp=^.{1\\,3}$"`
 	// The terminal response message
-	SCreditcardtransactionResponseterminalmessage string `json:"sCreditcardtransactionResponseterminalmessage" validate:"regexp=^.{0,50}$"`
+	SCreditcardtransactionResponseterminalmessage string `json:"sCreditcardtransactionResponseterminalmessage" validate:"regexp=^.{0\\,50}$"`
 	ECreditcardtransactionAvsresult *FieldECreditcardtransactionAvsresult `json:"eCreditcardtransactionAvsresult,omitempty"`
 	ECreditcardtransactionCvdresult *FieldECreditcardtransactionCvdresult `json:"eCreditcardtransactionCvdresult,omitempty"`
 }

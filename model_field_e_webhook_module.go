@@ -24,6 +24,7 @@ const (
 	EZMAXPARTNER FieldEWebhookModule = "Ezmaxpartner"
 	EZSIGN FieldEWebhookModule = "Ezsign"
 	MANAGEMENT FieldEWebhookModule = "Management"
+	REALESTATE FieldEWebhookModule = "Realestate"
 )
 
 // All allowed values of FieldEWebhookModule enum
@@ -31,6 +32,7 @@ var AllowedFieldEWebhookModuleEnumValues = []FieldEWebhookModule{
 	"Ezmaxpartner",
 	"Ezsign",
 	"Management",
+	"Realestate",
 }
 
 func (v *FieldEWebhookModule) UnmarshalJSON(src []byte) error {

@@ -25,7 +25,7 @@ type AuthenticationexternalAutocompleteElementResponse struct {
 	// The unique ID of the Authenticationexternal
 	PkiAuthenticationexternalID int32 `json:"pkiAuthenticationexternalID"`
 	// The description of the Authenticationexternal
-	SAuthenticationexternalDescription string `json:"sAuthenticationexternalDescription" validate:"regexp=^.{0,50}$"`
+	SAuthenticationexternalDescription string `json:"sAuthenticationexternalDescription" validate:"regexp=^.{0\\,50}$"`
 	// Whether the Authenticationexternal is active or not
 	BAuthenticationexternalIsactive bool `json:"bAuthenticationexternalIsactive"`
 }

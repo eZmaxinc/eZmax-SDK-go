@@ -39,11 +39,11 @@ type CreditcardmerchantRequestCompound struct {
 	// Whether the creditcardmerchant is active or not
 	BCreditcardmerchantIsactive bool `json:"bCreditcardmerchantIsactive"`
 	// The apitoken of the Creditcardmerchant
-	SCreditcardmerchantApitoken *string `json:"sCreditcardmerchantApitoken,omitempty" validate:"regexp=^.{0,25}$"`
+	SCreditcardmerchantApitoken *string `json:"sCreditcardmerchantApitoken,omitempty" validate:"regexp=^.{0\\,25}$"`
 	// The description of the Creditcardmerchant
-	SCreditcardmerchantDescription string `json:"sCreditcardmerchantDescription" validate:"regexp=^.{0,25}$"`
+	SCreditcardmerchantDescription string `json:"sCreditcardmerchantDescription" validate:"regexp=^.{0\\,25}$"`
 	// The storeid of the Creditcardmerchant
-	SCreditcardmerchantStoreid string `json:"sCreditcardmerchantStoreid" validate:"regexp=^.{0,25}$"`
+	SCreditcardmerchantStoreid string `json:"sCreditcardmerchantStoreid" validate:"regexp=^.{0\\,25}$"`
 }
 
 type _CreditcardmerchantRequestCompound CreditcardmerchantRequestCompound

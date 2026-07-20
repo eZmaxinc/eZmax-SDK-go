@@ -25,7 +25,7 @@ type DomainAutocompleteElementResponse struct {
 	// The unique ID of the Domain
 	PkiDomainID int32 `json:"pkiDomainID"`
 	// The name of the Domain
-	SDomainName string `json:"sDomainName" validate:"regexp=^(?=.{4,75}$)([a-zA-Z0-9-]+\\\\.)+[a-zA-Z]{2,63}$"`
+	SDomainName string `json:"sDomainName" validate:"regexp=^(?=.{4\\,75}$)([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2\\,63}$"`
 	// Whether the Domain is active or not
 	BDomainIsactive bool `json:"bDomainIsactive"`
 }

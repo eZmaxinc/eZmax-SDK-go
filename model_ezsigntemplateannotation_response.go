@@ -41,11 +41,11 @@ type EzsigntemplateannotationResponse struct {
 	// The page number in the Ezsigntemplatedocument
 	IEzsigntemplatedocumentpagePagenumber int32 `json:"iEzsigntemplatedocumentpagePagenumber"`
 	// The description of the Ezsigntemplateannotation
-	SEzsigntemplateannotationDescription string `json:"sEzsigntemplateannotationDescription" validate:"regexp=^.{0,80}$"`
+	SEzsigntemplateannotationDescription string `json:"sEzsigntemplateannotationDescription" validate:"regexp=^.{0\\,80}$"`
 	// The defaulttext of the Ezsigntemplateannotation
-	SEzsigntemplateannotationDefaulttext string `json:"sEzsigntemplateannotationDefaulttext" validate:"regexp=^.{0,65535}$"`
+	SEzsigntemplateannotationDefaulttext string `json:"sEzsigntemplateannotationDefaulttext" validate:"regexp=^.{0\\,65535}$"`
 	// The ndropdownvalues of the Ezsigntemplateannotation
-	SEzsigntemplateannotationDropdownvalues string `json:"sEzsigntemplateannotationDropdownvalues" validate:"regexp=^.{0,65535}$"`
+	SEzsigntemplateannotationDropdownvalues string `json:"sEzsigntemplateannotationDropdownvalues" validate:"regexp=^.{0\\,65535}$"`
 }
 
 type _EzsigntemplateannotationResponse EzsigntemplateannotationResponse

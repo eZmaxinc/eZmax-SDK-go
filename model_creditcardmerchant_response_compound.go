@@ -33,7 +33,7 @@ type CreditcardmerchantResponseCompound struct {
 	// The unique ID of the Currency.
 	FkiCurrencyID int32 `json:"fkiCurrencyID"`
 	// The description of the Currency in the language of the requester
-	SCurrencyDescriptionX string `json:"sCurrencyDescriptionX" validate:"regexp=^.{1,20}$"`
+	SCurrencyDescriptionX string `json:"sCurrencyDescriptionX" validate:"regexp=^.{1\\,20}$"`
 	// The name of the bank
 	SBankaccountBankname *string `json:"sBankaccountBankname,omitempty"`
 	// Whether if visa are denied
@@ -45,9 +45,9 @@ type CreditcardmerchantResponseCompound struct {
 	// Whether the creditcardmerchant is active or not
 	BCreditcardmerchantIsactive bool `json:"bCreditcardmerchantIsactive"`
 	// The description of the Creditcardmerchant
-	SCreditcardmerchantDescription string `json:"sCreditcardmerchantDescription" validate:"regexp=^.{0,25}$"`
+	SCreditcardmerchantDescription string `json:"sCreditcardmerchantDescription" validate:"regexp=^.{0\\,25}$"`
 	// The storeid of the Creditcardmerchant
-	SCreditcardmerchantStoreid string `json:"sCreditcardmerchantStoreid" validate:"regexp=^.{0,25}$"`
+	SCreditcardmerchantStoreid string `json:"sCreditcardmerchantStoreid" validate:"regexp=^.{0\\,25}$"`
 }
 
 type _CreditcardmerchantResponseCompound CreditcardmerchantResponseCompound

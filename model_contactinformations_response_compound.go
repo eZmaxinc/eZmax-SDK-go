@@ -34,7 +34,7 @@ type ContactinformationsResponseCompound struct {
 	FkiWebsiteIDDefault *int32 `json:"fkiWebsiteIDDefault,omitempty"`
 	EContactinformationsType FieldEContactinformationsType `json:"eContactinformationsType"`
 	// The url of the Contactinformations
-	SContactinformationsUrl *string `json:"sContactinformationsUrl,omitempty" validate:"regexp=^.{0,255}$"`
+	SContactinformationsUrl *string `json:"sContactinformationsUrl,omitempty" validate:"regexp=^.{0\\,255}$"`
 	ObjAddressDefault *AddressResponseCompound `json:"objAddressDefault,omitempty"`
 	ObjPhoneDefault *PhoneResponseCompound `json:"objPhoneDefault,omitempty"`
 	ObjEmailDefault *EmailResponseCompound `json:"objEmailDefault,omitempty"`

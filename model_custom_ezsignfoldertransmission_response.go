@@ -25,7 +25,7 @@ type CustomEzsignfoldertransmissionResponse struct {
 	// The unique ID of the Ezsignfolder
 	PkiEzsignfolderID int32 `json:"pkiEzsignfolderID"`
 	// The description of the Ezsignfolder
-	SEzsignfolderDescription string `json:"sEzsignfolderDescription" validate:"regexp=^.{0,75}$"`
+	SEzsignfolderDescription string `json:"sEzsignfolderDescription" validate:"regexp=^.{0\\,75}$"`
 	EEzsignfolderStep FieldEEzsignfolderStep `json:"eEzsignfolderStep"`
 	// The number of total signatures that were requested in the Ezsignfolder
 	IEzsignfolderSignaturetotal int32 `json:"iEzsignfolderSignaturetotal"`

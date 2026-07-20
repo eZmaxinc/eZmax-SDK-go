@@ -24,7 +24,7 @@ var _ MappedNullable = &ActivesessionGenerateFederationTokenV1ResponseMPayload{}
 type ActivesessionGenerateFederationTokenV1ResponseMPayload struct {
 	ObjApikeyfederation CustomApikeyfederation `json:"objApikeyfederation"`
 	// The url of the server the Ezmaxcustomer is located
-	SEzmaxcustomercodeUrl string `json:"sEzmaxcustomercodeUrl" validate:"regexp=^https:\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
+	SEzmaxcustomercodeUrl string `json:"sEzmaxcustomercodeUrl" validate:"regexp=^https://[^\\s/$.?#].[^\\s]*$"`
 }
 
 type _ActivesessionGenerateFederationTokenV1ResponseMPayload ActivesessionGenerateFederationTokenV1ResponseMPayload

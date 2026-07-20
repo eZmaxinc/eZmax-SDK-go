@@ -25,13 +25,13 @@ type UserstagedListElement struct {
 	// The unique ID of the Userstaged
 	PkiUserstagedID int32 `json:"pkiUserstagedID"`
 	// The email address.
-	SEmailAddress string "json:\"sEmailAddress\" validate:\"regexp=^[\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20}$\""
+	SEmailAddress string `json:"sEmailAddress" validate:"regexp=^[\\w.%+\\-!#$%&'*+/=?^\x60{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2\\,20}$"`
 	// The firstname of the Userstaged
-	SUserstagedFirstname string `json:"sUserstagedFirstname" validate:"regexp=^.{0,20}$"`
+	SUserstagedFirstname string `json:"sUserstagedFirstname" validate:"regexp=^.{0\\,20}$"`
 	// The lastname of the Userstaged
-	SUserstagedLastname string `json:"sUserstagedLastname" validate:"regexp=^.{0,25}$"`
+	SUserstagedLastname string `json:"sUserstagedLastname" validate:"regexp=^.{0\\,25}$"`
 	// The externalid of the Userstaged
-	SUserstagedExternalid string `json:"sUserstagedExternalid" validate:"regexp=^.{1,60}$"`
+	SUserstagedExternalid string `json:"sUserstagedExternalid" validate:"regexp=^.{1\\,60}$"`
 }
 
 type _UserstagedListElement UserstagedListElement

@@ -25,9 +25,9 @@ type RealestateassociationAutocompleteElementResponse struct {
 	// The unique ID of the Realestateassociation
 	PkiRealestateassociationID int32 `json:"pkiRealestateassociationID"`
 	// The name of the Realestateassociation
-	SRealestateassociationNameX string `json:"sRealestateassociationNameX" validate:"regexp=^.{1,65}$"`
+	SRealestateassociationNameX string `json:"sRealestateassociationNameX" validate:"regexp=^.{1\\,65}$"`
 	// The Acronym of the Realestateassociation in the language of the requester
-	SRealestateassociationAcronymX string `json:"sRealestateassociationAcronymX" validate:"regexp=^.{1,6}$"`
+	SRealestateassociationAcronymX string `json:"sRealestateassociationAcronymX" validate:"regexp=^.{1\\,6}$"`
 	// Whether the Realestateassociation is active or not
 	BRealestateassociationIsactive bool `json:"bRealestateassociationIsactive"`
 }

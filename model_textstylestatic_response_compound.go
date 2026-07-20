@@ -27,7 +27,7 @@ type TextstylestaticResponseCompound struct {
 	// The unique ID of the Font
 	FkiFontID int32 `json:"fkiFontID"`
 	// The name of the Font
-	SFontName string `json:"sFontName" validate:"regexp=^.{0,50}$"`
+	SFontName string `json:"sFontName" validate:"regexp=^.{0\\,50}$"`
 	// Whether the Textstylestatic is Bold or not
 	BTextstylestaticBold bool `json:"bTextstylestaticBold"`
 	// Whether the Textstylestatic is Underline or not

@@ -27,11 +27,11 @@ type CreditcarddetailRequest struct {
 	// The expirationyear of the Creditcarddetail
 	ICreditcarddetailExpirationyear int32 `json:"iCreditcarddetailExpirationyear"`
 	// The civic of the Creditcarddetail
-	SCreditcarddetailCivic string `json:"sCreditcarddetailCivic" validate:"regexp=^[\\\\d]{1,8}$"`
+	SCreditcarddetailCivic string `json:"sCreditcarddetailCivic" validate:"regexp=^[\\d]{1\\,8}$"`
 	// The street of the Creditcarddetail
-	SCreditcarddetailStreet string `json:"sCreditcarddetailStreet" validate:"regexp=^.{1,19}$"`
+	SCreditcarddetailStreet string `json:"sCreditcarddetailStreet" validate:"regexp=^.{1\\,19}$"`
 	// The zip of the Creditcarddetail
-	SCreditcarddetailZip string `json:"sCreditcarddetailZip" validate:"regexp=^.{0,9}$"`
+	SCreditcarddetailZip string `json:"sCreditcarddetailZip" validate:"regexp=^.{0\\,9}$"`
 }
 
 type _CreditcarddetailRequest CreditcarddetailRequest

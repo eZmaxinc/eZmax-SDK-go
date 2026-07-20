@@ -25,7 +25,7 @@ type CustomEzsignimportdocumentResponse struct {
 	// The unique ID of the Ezsignimportdocument
 	PkiEzsignimportdocumentID int32 `json:"pkiEzsignimportdocumentID"`
 	// The name of the Ezsignimportdocument
-	SEzsignimportdocumentName string `json:"sEzsignimportdocumentName" validate:"regexp=^.{0,150}$"`
+	SEzsignimportdocumentName string `json:"sEzsignimportdocumentName" validate:"regexp=^.{0\\,150}$"`
 	// The unique ID of the Ezsigntemplateglobal
 	FkiEzsigntemplateglobalID *int32 `json:"fkiEzsigntemplateglobalID,omitempty"`
 	// The description of the Ezsigntemplate
@@ -33,7 +33,7 @@ type CustomEzsignimportdocumentResponse struct {
 	// The unique ID of the Ezsignfolder
 	FkiEzsignfolderID *int32 `json:"fkiEzsignfolderID,omitempty"`
 	// The description of the Ezsignfolder
-	SEzsignfolderDescription *string `json:"sEzsignfolderDescription,omitempty" validate:"regexp=^.{0,75}$"`
+	SEzsignfolderDescription *string `json:"sEzsignfolderDescription,omitempty" validate:"regexp=^.{0\\,75}$"`
 }
 
 type _CustomEzsignimportdocumentResponse CustomEzsignimportdocumentResponse

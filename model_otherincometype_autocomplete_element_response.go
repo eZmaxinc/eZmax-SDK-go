@@ -25,7 +25,7 @@ type OtherincometypeAutocompleteElementResponse struct {
 	// The unique ID of the Otherincometype
 	PkiOtherincometypeID int32 `json:"pkiOtherincometypeID"`
 	// The description of the Otherincometype in the language of the requester
-	SOtherincometypeDescriptionX string `json:"sOtherincometypeDescriptionX" validate:"regexp=^.{0,255}$"`
+	SOtherincometypeDescriptionX string `json:"sOtherincometypeDescriptionX" validate:"regexp=^.{0\\,255}$"`
 	// Whether the Otherincometype is active or not
 	BOtherincometypeIsactive bool `json:"bOtherincometypeIsactive"`
 }

@@ -23,7 +23,7 @@ var _ MappedNullable = &ActivesessionGenerateFederationTokenV1Request{}
 // ActivesessionGenerateFederationTokenV1Request Request for POST /1/object/activesession/generateFederationToken
 type ActivesessionGenerateFederationTokenV1Request struct {
 	// The Ezmaxcustomer code
-	FksEzmaxcustomerCode string `json:"fksEzmaxcustomerCode" validate:"regexp=^[a-z\\\\d]{2,6}$"`
+	FksEzmaxcustomerCode string `json:"fksEzmaxcustomerCode" validate:"regexp=^[a-z\\d]{2\\,6}$"`
 }
 
 type _ActivesessionGenerateFederationTokenV1Request ActivesessionGenerateFederationTokenV1Request

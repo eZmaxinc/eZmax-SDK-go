@@ -27,7 +27,7 @@ type PaymentgatewayResponseCompound struct {
 	// The unique ID of the Creditcardmerchant
 	FkiCreditcardmerchantID *int32 `json:"fkiCreditcardmerchantID,omitempty"`
 	// The description of the Creditcardmerchant
-	SCreditcardmerchantDescription *string `json:"sCreditcardmerchantDescription,omitempty" validate:"regexp=^.{0,25}$"`
+	SCreditcardmerchantDescription *string `json:"sCreditcardmerchantDescription,omitempty" validate:"regexp=^.{0\\,25}$"`
 	EPaymentgatewayProcessor FieldEPaymentgatewayProcessor `json:"ePaymentgatewayProcessor"`
 	ObjPaymentgatewayDescription MultilingualPaymentgatewayDescription `json:"objPaymentgatewayDescription"`
 	ObjCreditcardmerchant *CreditcardmerchantResponseCompound `json:"objCreditcardmerchant,omitempty"`

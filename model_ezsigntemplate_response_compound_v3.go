@@ -34,18 +34,18 @@ type EzsigntemplateResponseCompoundV3 struct {
 	// The unique ID of the Ezdoctemplatedocument
 	FkiEzdoctemplatedocumentID *int32 `json:"fkiEzdoctemplatedocumentID,omitempty"`
 	// The name of the Ezdoctemplatedocument in the language of the requester
-	SEzdoctemplatedocumentNameX *string `json:"sEzdoctemplatedocumentNameX,omitempty" validate:"regexp=^.{0,50}$"`
+	SEzdoctemplatedocumentNameX *string `json:"sEzdoctemplatedocumentNameX,omitempty" validate:"regexp=^.{0\\,50}$"`
 	// The Name of the Language in the language of the requester
 	SLanguageNameX string `json:"sLanguageNameX"`
 	// The description of the Ezsigntemplate
-	SEzsigntemplateDescription string `json:"sEzsigntemplateDescription" validate:"regexp=^.{0,80}$"`
+	SEzsigntemplateDescription string `json:"sEzsigntemplateDescription" validate:"regexp=^.{0\\,80}$"`
 	// The external description of the Ezsigntemplate
-	SEzsigntemplateExternaldescription *string `json:"sEzsigntemplateExternaldescription,omitempty" validate:"regexp=^.{0,75}$"`
+	SEzsigntemplateExternaldescription *string `json:"sEzsigntemplateExternaldescription,omitempty" validate:"regexp=^.{0\\,75}$"`
 	// The comment of the Ezsigntemplate
 	TEzsigntemplateComment *string `json:"tEzsigntemplateComment,omitempty"`
 	EEzsigntemplateRecognition *FieldEEzsigntemplateRecognition `json:"eEzsigntemplateRecognition,omitempty"`
 	// The filename regexp of the Ezsigntemplate.
-	SEzsigntemplateFilenameregexp *string `json:"sEzsigntemplateFilenameregexp,omitempty" validate:"regexp=^.{1,50}$"`
+	SEzsigntemplateFilenameregexp *string `json:"sEzsigntemplateFilenameregexp,omitempty" validate:"regexp=^.{1\\,50}$"`
 	// Whether the Ezsigntemplate can be accessed by admin users only (eUserType=Normal)
 	BEzsigntemplateAdminonly bool `json:"bEzsigntemplateAdminonly"`
 	// The name of the Ezsignfoldertype in the language of the requester

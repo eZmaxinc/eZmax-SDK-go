@@ -36,6 +36,8 @@ type EzsigntemplatesignatureRequestCompound struct {
 	BEzsigntemplatesignatureHandwritten *bool `json:"bEzsigntemplatesignatureHandwritten,omitempty"`
 	// Whether the Ezsigntemplatesignature must include a reason or not when eEzsigntemplatesignatureType = Signature.
 	BEzsigntemplatesignatureReason *bool `json:"bEzsigntemplatesignatureReason,omitempty"`
+	// Whether we can enter a custom amount while signing an Ezsigntemplatesignature 'Creditcard' or not
+	BEzsigntemplatesignatureCreditcardcustomamount *bool `json:"bEzsigntemplatesignatureCreditcardcustomamount,omitempty"`
 	EEzsigntemplatesignaturePositioning *FieldEEzsigntemplatesignaturePositioning `json:"eEzsigntemplatesignaturePositioning,omitempty"`
 	// The page number in the Ezsigntemplatedocument
 	IEzsigntemplatedocumentpagePagenumber int32 `json:"iEzsigntemplatedocumentpagePagenumber"`
@@ -69,22 +71,22 @@ type EzsigntemplatesignatureRequestCompound struct {
 	// The default value for the Ezsigntemplatesignature  You can use the codes below and they will be replaced at signature time.    | Code | Description | Example | | ------------------------- | ------------ | ------------ | | {sUserFirstname} | The first name of the contact | John | | {sUserLastname} | The last name of the contact | Doe | | {sUserJobtitle} | The job title | Sales Representative | | {sCompany} | Company name | eZmax Solutions Inc. | | {sEmailAddress} | The email address | email@example.com | | {sPhoneE164} | A phone number in E.164 Format | +15149901516 | | {sPhoneE164Cell} | A phone number in E.164 Format | +15149901516 |
 	SEzsigntemplatesignatureDefaultvalue *string `json:"sEzsigntemplatesignatureDefaultvalue,omitempty"`
 	// A regular expression to indicate what values are acceptable for the Ezsigntemplatesignature.  This can only be set if eEzsigntemplatesignatureType is **Text** or **Textarea**
-	SEzsigntemplatesignatureRegexp *string `json:"sEzsigntemplatesignatureRegexp,omitempty" validate:"regexp=^\\\\^.*\\\\$$|^$"`
+	SEzsigntemplatesignatureRegexp *string `json:"sEzsigntemplatesignatureRegexp,omitempty" validate:"regexp=^\\^.*\\$$|^$"`
 	EEzsigntemplatesignatureTextvalidation *EnumTextvalidation `json:"eEzsigntemplatesignatureTextvalidation,omitempty"`
 	// Description of validation rule. Show by signatory.
 	SEzsigntemplatesignatureTextvalidationcustommessage *string `json:"sEzsigntemplatesignatureTextvalidationcustommessage,omitempty"`
 	EEzsigntemplatesignatureDependencyrequirement *FieldEEzsigntemplatesignatureDependencyrequirement `json:"eEzsigntemplatesignatureDependencyrequirement,omitempty"`
 	// The string pattern to search for the positioning. **This is not a regexp**  This will be required if **eEzsigntemplatesignaturePositioning** is set to **PerCoordinates**
-	SEzsigntemplatesignaturePositioningpattern *string `json:"sEzsigntemplatesignaturePositioningpattern,omitempty" validate:"regexp=^.{0,30}$"`
+	SEzsigntemplatesignaturePositioningpattern *string `json:"sEzsigntemplatesignaturePositioningpattern,omitempty" validate:"regexp=^.{0\\,30}$"`
 	// The offset X  This will be required if **eEzsigntemplatesignaturePositioning** is set to **PerCoordinates**
 	IEzsigntemplatesignaturePositioningoffsetx *int32 `json:"iEzsigntemplatesignaturePositioningoffsetx,omitempty"`
 	// The offset Y  This will be required if **eEzsigntemplatesignaturePositioning** is set to **PerCoordinates**
 	IEzsigntemplatesignaturePositioningoffsety *int32 `json:"iEzsigntemplatesignaturePositioningoffsety,omitempty"`
 	EEzsigntemplatesignaturePositioningoccurence *FieldEEzsigntemplatesignaturePositioningoccurence `json:"eEzsigntemplatesignaturePositioningoccurence,omitempty"`
 	// The description of the Creditcard signature
-	SEzsigntemplatesignatureCreditcardamountdescription *string `json:"sEzsigntemplatesignatureCreditcardamountdescription,omitempty" validate:"regexp=^.{1,50}$"`
+	SEzsigntemplatesignatureCreditcardamountdescription *string `json:"sEzsigntemplatesignatureCreditcardamountdescription,omitempty" validate:"regexp=^.{1\\,50}$"`
 	// The amount of the Creditcard signature
-	DEzsigntemplatesignatureCreditcardamount *string `json:"dEzsigntemplatesignatureCreditcardamount,omitempty" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	DEzsigntemplatesignatureCreditcardamount *string `json:"dEzsigntemplatesignatureCreditcardamount,omitempty" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	// Whether the Ezsigntemplatesignature has a custom date format or not. (Only possible when eEzsigntemplatesignatureType is **Name** or **Handwritten**)
 	BEzsigntemplatesignatureCustomdate *bool `json:"bEzsigntemplatesignatureCustomdate,omitempty"`
 	// An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsigntemplatesignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.
@@ -323,6 +325,38 @@ func (o *EzsigntemplatesignatureRequestCompound) HasBEzsigntemplatesignatureReas
 // SetBEzsigntemplatesignatureReason gets a reference to the given bool and assigns it to the BEzsigntemplatesignatureReason field.
 func (o *EzsigntemplatesignatureRequestCompound) SetBEzsigntemplatesignatureReason(v bool) {
 	o.BEzsigntemplatesignatureReason = &v
+}
+
+// GetBEzsigntemplatesignatureCreditcardcustomamount returns the BEzsigntemplatesignatureCreditcardcustomamount field value if set, zero value otherwise.
+func (o *EzsigntemplatesignatureRequestCompound) GetBEzsigntemplatesignatureCreditcardcustomamount() bool {
+	if o == nil || IsNil(o.BEzsigntemplatesignatureCreditcardcustomamount) {
+		var ret bool
+		return ret
+	}
+	return *o.BEzsigntemplatesignatureCreditcardcustomamount
+}
+
+// GetBEzsigntemplatesignatureCreditcardcustomamountOk returns a tuple with the BEzsigntemplatesignatureCreditcardcustomamount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsigntemplatesignatureRequestCompound) GetBEzsigntemplatesignatureCreditcardcustomamountOk() (*bool, bool) {
+	if o == nil || IsNil(o.BEzsigntemplatesignatureCreditcardcustomamount) {
+		return nil, false
+	}
+	return o.BEzsigntemplatesignatureCreditcardcustomamount, true
+}
+
+// HasBEzsigntemplatesignatureCreditcardcustomamount returns a boolean if a field has been set.
+func (o *EzsigntemplatesignatureRequestCompound) HasBEzsigntemplatesignatureCreditcardcustomamount() bool {
+	if o != nil && !IsNil(o.BEzsigntemplatesignatureCreditcardcustomamount) {
+		return true
+	}
+
+	return false
+}
+
+// SetBEzsigntemplatesignatureCreditcardcustomamount gets a reference to the given bool and assigns it to the BEzsigntemplatesignatureCreditcardcustomamount field.
+func (o *EzsigntemplatesignatureRequestCompound) SetBEzsigntemplatesignatureCreditcardcustomamount(v bool) {
+	o.BEzsigntemplatesignatureCreditcardcustomamount = &v
 }
 
 // GetEEzsigntemplatesignaturePositioning returns the EEzsigntemplatesignaturePositioning field value if set, zero value otherwise.
@@ -1415,6 +1449,9 @@ func (o EzsigntemplatesignatureRequestCompound) ToMap() (map[string]interface{},
 	}
 	if !IsNil(o.BEzsigntemplatesignatureReason) {
 		toSerialize["bEzsigntemplatesignatureReason"] = o.BEzsigntemplatesignatureReason
+	}
+	if !IsNil(o.BEzsigntemplatesignatureCreditcardcustomamount) {
+		toSerialize["bEzsigntemplatesignatureCreditcardcustomamount"] = o.BEzsigntemplatesignatureCreditcardcustomamount
 	}
 	if !IsNil(o.EEzsigntemplatesignaturePositioning) {
 		toSerialize["eEzsigntemplatesignaturePositioning"] = o.EEzsigntemplatesignaturePositioning

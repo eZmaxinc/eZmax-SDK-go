@@ -37,7 +37,7 @@ type InscriptionnotauthenticatedResponseCompound struct {
 	// The unique ID of the Financialinstitution
 	FkiFinancialinstitutionID int32 `json:"fkiFinancialinstitutionID"`
 	// The name of the Financialinstitution in the language of the requester
-	SFinancialinstitutionNameX *string `json:"sFinancialinstitutionNameX,omitempty" validate:"regexp=^.{0,50}$"`
+	SFinancialinstitutionNameX *string `json:"sFinancialinstitutionNameX,omitempty" validate:"regexp=^.{0\\,50}$"`
 	// The unique ID of the Buyercontract
 	FkiBuyercontractID int32 `json:"fkiBuyercontractID"`
 	// The number of the Buyercontract
@@ -45,7 +45,7 @@ type InscriptionnotauthenticatedResponseCompound struct {
 	// The unique ID of the Mortgagesupplier
 	FkiMortgagesupplierID int32 `json:"fkiMortgagesupplierID"`
 	// The name of the Mortagesupplier in the language of the requester
-	SMortgagesupplierNameX *string `json:"sMortgagesupplierNameX,omitempty" validate:"regexp=^.{0,25}$"`
+	SMortgagesupplierNameX *string `json:"sMortgagesupplierNameX,omitempty" validate:"regexp=^.{0\\,25}$"`
 	// The unique ID of the Taxassignment.  Valid values:  |Value|Description| |-|-| |1|No tax| |2|GST| |3|HST (ON)| |4|HST (NB)| |5|HST (NS)| |6|HST (NL)| |7|HST (PE)| |8|GST + QST (QC)| |9|GST + QST (QC) Non-Recoverable| |10|GST + PST (BC)| |11|GST + PST (SK)| |12|GST + RST (MB)| |13|GST + PST (BC) Non-Recoverable| |14|GST + PST (SK) Non-Recoverable| |15|GST + RST (MB) Non-Recoverable|
 	FkiTaxassignmentID int32 `json:"fkiTaxassignmentID"`
 	// The description of the Taxassignment  in the language of the requester
@@ -58,23 +58,23 @@ type InscriptionnotauthenticatedResponseCompound struct {
 	DtInscriptionnotauthenticatedDepositdate string `json:"dtInscriptionnotauthenticatedDepositdate" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	EInscriptionnotauthenticatedType FieldEInscriptionnotauthenticatedType `json:"eInscriptionnotauthenticatedType"`
 	// The mortgageloan of the Inscriptionnotauthenticated
-	DInscriptionnotauthenticatedMortgageloan string `json:"dInscriptionnotauthenticatedMortgageloan" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	DInscriptionnotauthenticatedMortgageloan string `json:"dInscriptionnotauthenticatedMortgageloan" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	EtInscriptionnotauthenticatedMortgagetype FieldEtInscriptionnotauthenticatedMortgagetype `json:"etInscriptionnotauthenticatedMortgagetype"`
 	// The transactionprice of the Inscriptionnotauthenticated
-	DInscriptionnotauthenticatedTransactionprice string `json:"dInscriptionnotauthenticatedTransactionprice" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	DInscriptionnotauthenticatedTransactionprice string `json:"dInscriptionnotauthenticatedTransactionprice" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	EInscriptionnotauthenticatedRemunerationtype FieldEInscriptionnotauthenticatedRemunerationtype `json:"eInscriptionnotauthenticatedRemunerationtype"`
 	// The remuneration of the Inscriptionnotauthenticated
-	DInscriptionnotauthenticatedRemuneration string `json:"dInscriptionnotauthenticatedRemuneration" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	DInscriptionnotauthenticatedRemuneration string `json:"dInscriptionnotauthenticatedRemuneration" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	// The remunerationsubtotal of the Inscriptionnotauthenticated
-	DInscriptionnotauthenticatedRemunerationsubtotal string `json:"dInscriptionnotauthenticatedRemunerationsubtotal" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	DInscriptionnotauthenticatedRemunerationsubtotal string `json:"dInscriptionnotauthenticatedRemunerationsubtotal" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	// The remunerationtotal of the Inscriptionnotauthenticated
-	DInscriptionnotauthenticatedRemunerationtotal string `json:"dInscriptionnotauthenticatedRemunerationtotal" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	DInscriptionnotauthenticatedRemunerationtotal string `json:"dInscriptionnotauthenticatedRemunerationtotal" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	// The cancellationdate of the Inscriptionnotauthenticated
 	DtInscriptionnotauthenticatedCancellationdate string `json:"dtInscriptionnotauthenticatedCancellationdate" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// The possessiondate of the Inscriptionnotauthenticated
 	DtInscriptionnotauthenticatedPossessiondate string `json:"dtInscriptionnotauthenticatedPossessiondate" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$"`
 	// The Offer to purchase number
-	SInscriptionnotauthenticatedOffertopurchasenumber string `json:"sInscriptionnotauthenticatedOffertopurchasenumber" validate:"regexp=^.{0,15}$"`
+	SInscriptionnotauthenticatedOffertopurchasenumber string `json:"sInscriptionnotauthenticatedOffertopurchasenumber" validate:"regexp=^.{0\\,15}$"`
 	// The notaryscheduledate of the Inscriptionnotauthenticated
 	DtInscriptionnotauthenticatedNotaryscheduledate string `json:"dtInscriptionnotauthenticatedNotaryscheduledate" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// The financingscheduledate of the Inscriptionnotauthenticated
@@ -86,7 +86,7 @@ type InscriptionnotauthenticatedResponseCompound struct {
 	// Whether if it's an homeowner
 	BInscriptionnotauthenticatedHomeowner bool `json:"bInscriptionnotauthenticatedHomeowner"`
 	// The conditions of the Inscriptionnotauthenticated
-	TInscriptionnotauthenticatedConditions string `json:"tInscriptionnotauthenticatedConditions" validate:"regexp=^.{0,16777215}$"`
+	TInscriptionnotauthenticatedConditions string `json:"tInscriptionnotauthenticatedConditions" validate:"regexp=^.{0\\,65535}$"`
 	// The conditiondeadlinedate of the Inscriptionnotauthenticated
 	DtInscriptionnotauthenticatedConditiondeadlinedate string `json:"dtInscriptionnotauthenticatedConditiondeadlinedate" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// The order of the Inscriptionnotauthenticated
@@ -95,9 +95,9 @@ type InscriptionnotauthenticatedResponseCompound struct {
 	BInscriptionnotauthenticatedIsactive bool `json:"bInscriptionnotauthenticatedIsactive"`
 	EInscriptionnotauthenticatedResidenceType FieldEInscriptionnotauthenticatedResidenceType `json:"eInscriptionnotauthenticatedResidenceType"`
 	// The checklistnote of the Inscriptionnotauthenticated
-	TInscriptionnotauthenticatedChecklistnote string `json:"tInscriptionnotauthenticatedChecklistnote" validate:"regexp=^.{0,16777215}$"`
+	TInscriptionnotauthenticatedChecklistnote string `json:"tInscriptionnotauthenticatedChecklistnote" validate:"regexp=^.{0\\,65535}$"`
 	// The selleronlyretribution of the Inscriptionnotauthenticated
-	DInscriptionnotauthenticatedSelleronlyretribution string `json:"dInscriptionnotauthenticatedSelleronlyretribution" validate:"regexp=^-{0,1}[\\\\d]{1,3}?\\\\.[\\\\d]{3}$"`
+	DInscriptionnotauthenticatedSelleronlyretribution string `json:"dInscriptionnotauthenticatedSelleronlyretribution" validate:"regexp=^-{0\\,1}[\\d]{1\\,3}?\\.[\\d]{3}$"`
 	// Whether the inscriptionnotauthenticated is a draft or not
 	BInscriptionnotauthenticatedDraft bool `json:"bInscriptionnotauthenticatedDraft"`
 }

@@ -27,7 +27,7 @@ type EzdoctemplatefieldtypecategoryAutocompleteElementResponse struct {
 	// The unique ID of the Ezdoctemplatetype
 	FkiEzdoctemplatetypeID int32 `json:"fkiEzdoctemplatetypeID"`
 	// The description of the Ezdoctemplatefieldtypecategory in the language of the requester
-	SEzdoctemplatefieldtypecategoryDescriptionX string `json:"sEzdoctemplatefieldtypecategoryDescriptionX" validate:"regexp=^.{0,55}$"`
+	SEzdoctemplatefieldtypecategoryDescriptionX string `json:"sEzdoctemplatefieldtypecategoryDescriptionX" validate:"regexp=^.{0\\,55}$"`
 	// Whether the Ezdoctemplatefieldtypecategory is active or not
 	BEzdoctemplatefieldtypecategoryIsactive bool `json:"bEzdoctemplatefieldtypecategoryIsactive"`
 }

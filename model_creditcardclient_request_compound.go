@@ -25,11 +25,11 @@ type CreditcardclientRequestCompound struct {
 	// The unique ID of the Creditcardclient
 	PkiCreditcardclientID *int32 `json:"pkiCreditcardclientID,omitempty"`
 	// The creditcard token identifier
-	FksCreditcardtokenID *string `json:"fksCreditcardtokenID,omitempty" validate:"regexp=^\\\\{?[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\\\\}?$"`
+	FksCreditcardtokenID *string `json:"fksCreditcardtokenID,omitempty" validate:"regexp=^\\{?[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\\}?$"`
 	// Whether if it's the creditcardclient is the default one
 	BCreditcardclientrelationIsdefault bool `json:"bCreditcardclientrelationIsdefault"`
 	// The description of the Creditcardclient
-	SCreditcardclientDescription string `json:"sCreditcardclientDescription" validate:"regexp=^.{0,50}$"`
+	SCreditcardclientDescription string `json:"sCreditcardclientDescription" validate:"regexp=^.{0\\,50}$"`
 	// Whether if it's an allowedagencypayment
 	BCreditcardclientAllowedcompanypayment bool `json:"bCreditcardclientAllowedcompanypayment"`
 	// Whether if it's an allowedroyallepageprotection
@@ -38,7 +38,7 @@ type CreditcardclientRequestCompound struct {
 	BCreditcardclientAllowedtranquillit bool `json:"bCreditcardclientAllowedtranquillit"`
 	ObjCreditcarddetail CreditcarddetailRequest `json:"objCreditcarddetail"`
 	// The creditcard card CVV
-	SCreditcardclientCVV string `json:"sCreditcardclientCVV" validate:"regexp=^[0-9]{3,4}$"`
+	SCreditcardclientCVV string `json:"sCreditcardclientCVV" validate:"regexp=^[0-9]{3\\,4}$"`
 }
 
 type _CreditcardclientRequestCompound CreditcardclientRequestCompound

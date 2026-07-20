@@ -23,9 +23,9 @@ var _ MappedNullable = &CustomApikeyfederation{}
 // CustomApikeyfederation A Custom Apikeyfederation Object
 type CustomApikeyfederation struct {
 	// The key of the Apikeyfederation
-	SApikeyfederationKey string `json:"sApikeyfederationKey" validate:"regexp=^.{1,200}$"`
+	SApikeyfederationKey string `json:"sApikeyfederationKey" validate:"regexp=^.{1\\,200}$"`
 	// The secret of the Apikeyfederation
-	SApikeyfederationSecret string `json:"sApikeyfederationSecret" validate:"regexp=^[0-9a-fA-F]{1,32}$"`
+	SApikeyfederationSecret string `json:"sApikeyfederationSecret" validate:"regexp=^[0-9a-fA-F]{1\\,32}$"`
 }
 
 type _CustomApikeyfederation CustomApikeyfederation

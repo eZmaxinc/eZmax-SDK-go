@@ -27,14 +27,14 @@ type LeadListElement struct {
 	// The unique ID of the Leadsource
 	FkiLeadsourceID int32 `json:"fkiLeadsourceID"`
 	// The name of the Leadsource in the language of the requester
-	SLeadsourceNameX string `json:"sLeadsourceNameX" validate:"regexp=^.{0,25}$"`
+	SLeadsourceNameX string `json:"sLeadsourceNameX" validate:"regexp=^.{0\\,25}$"`
 	ELeadStatus FieldELeadStatus `json:"eLeadStatus"`
 	// The expiration of the Lead
 	DtLeadExpiration string `json:"dtLeadExpiration" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// Whether the lead is active or not
 	BLeadIsactive bool `json:"bLeadIsactive"`
 	// The code of the Lead
-	SLeadCode string `json:"sLeadCode" validate:"regexp=^.{0,25}$"`
+	SLeadCode string `json:"sLeadCode" validate:"regexp=^.{0\\,25}$"`
 	// The contacts' name of the Lead
 	SLeadContacts *string `json:"sLeadContacts,omitempty"`
 }

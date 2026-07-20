@@ -27,7 +27,7 @@ type WebhookListElement struct {
 	// The description of the Webhook
 	SWebhookDescription string `json:"sWebhookDescription"`
 	// The URL of the Webhook callback
-	SWebhookUrl string `json:"sWebhookUrl" validate:"regexp=^(https|http):\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
+	SWebhookUrl string `json:"sWebhookUrl" validate:"regexp=^(https|http)://[^\\s/$.?#].[^\\s]*$"`
 	// The concatenated string to describe the Webhook event
 	SWebhookEvent string `json:"sWebhookEvent"`
 	// The email that will receive the Webhook in case all attempts fail
@@ -35,6 +35,7 @@ type WebhookListElement struct {
 	EWebhookModule FieldEWebhookModule `json:"eWebhookModule"`
 	EWebhookEzsignevent *FieldEWebhookEzsignevent `json:"eWebhookEzsignevent,omitempty"`
 	EWebhookManagementevent *FieldEWebhookManagementevent `json:"eWebhookManagementevent,omitempty"`
+	EWebhookRealestateevent *FieldEWebhookRealestateevent `json:"eWebhookRealestateevent,omitempty"`
 	// Whether the Webhook is active or not
 	BWebhookIsactive bool `json:"bWebhookIsactive"`
 	// Whether the requests will be signed or not
@@ -276,6 +277,38 @@ func (o *WebhookListElement) SetEWebhookManagementevent(v FieldEWebhookManagemen
 	o.EWebhookManagementevent = &v
 }
 
+// GetEWebhookRealestateevent returns the EWebhookRealestateevent field value if set, zero value otherwise.
+func (o *WebhookListElement) GetEWebhookRealestateevent() FieldEWebhookRealestateevent {
+	if o == nil || IsNil(o.EWebhookRealestateevent) {
+		var ret FieldEWebhookRealestateevent
+		return ret
+	}
+	return *o.EWebhookRealestateevent
+}
+
+// GetEWebhookRealestateeventOk returns a tuple with the EWebhookRealestateevent field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WebhookListElement) GetEWebhookRealestateeventOk() (*FieldEWebhookRealestateevent, bool) {
+	if o == nil || IsNil(o.EWebhookRealestateevent) {
+		return nil, false
+	}
+	return o.EWebhookRealestateevent, true
+}
+
+// HasEWebhookRealestateevent returns a boolean if a field has been set.
+func (o *WebhookListElement) HasEWebhookRealestateevent() bool {
+	if o != nil && !IsNil(o.EWebhookRealestateevent) {
+		return true
+	}
+
+	return false
+}
+
+// SetEWebhookRealestateevent gets a reference to the given FieldEWebhookRealestateevent and assigns it to the EWebhookRealestateevent field.
+func (o *WebhookListElement) SetEWebhookRealestateevent(v FieldEWebhookRealestateevent) {
+	o.EWebhookRealestateevent = &v
+}
+
 // GetBWebhookIsactive returns the BWebhookIsactive field value
 func (o *WebhookListElement) GetBWebhookIsactive() bool {
 	if o == nil {
@@ -345,6 +378,9 @@ func (o WebhookListElement) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.EWebhookManagementevent) {
 		toSerialize["eWebhookManagementevent"] = o.EWebhookManagementevent
+	}
+	if !IsNil(o.EWebhookRealestateevent) {
+		toSerialize["eWebhookRealestateevent"] = o.EWebhookRealestateevent
 	}
 	toSerialize["bWebhookIsactive"] = o.BWebhookIsactive
 	toSerialize["bWebhookIssigned"] = o.BWebhookIssigned

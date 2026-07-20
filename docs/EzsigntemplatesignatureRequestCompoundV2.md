@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **FkiPaymentgatewayID** | Pointer to **int32** | The unique ID of the Paymentgateway | [optional] 
 **BEzsigntemplatesignatureHandwritten** | Pointer to **bool** | Whether the Ezsigntemplatesignature must be handwritten or not when eEzsigntemplatesignatureType &#x3D; Signature. | [optional] 
 **BEzsigntemplatesignatureReason** | Pointer to **bool** | Whether the Ezsigntemplatesignature must include a reason or not when eEzsigntemplatesignatureType &#x3D; Signature. | [optional] 
+**BEzsigntemplatesignatureCreditcardcustomamount** | Pointer to **bool** | Whether we can enter a custom amount while signing an Ezsigntemplatesignature &#39;Creditcard&#39; or not | [optional] 
 **EEzsigntemplatesignaturePositioning** | Pointer to [**FieldEEzsigntemplatesignaturePositioning**](FieldEEzsigntemplatesignaturePositioning.md) |  | [optional] 
 **IEzsigntemplatedocumentpagePagenumber** | **int32** | The page number in the Ezsigntemplatedocument | 
 **IEzsigntemplatesignatureX** | Pointer to **int32** | The X coordinate (Horizontal) where to put the Ezsigntemplatesignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplatesignature 2 inches from the left border of the page, you would use \&quot;200\&quot; for the X coordinate. | [optional] 
@@ -229,6 +230,31 @@ SetBEzsigntemplatesignatureReason sets BEzsigntemplatesignatureReason field to g
 `func (o *EzsigntemplatesignatureRequestCompoundV2) HasBEzsigntemplatesignatureReason() bool`
 
 HasBEzsigntemplatesignatureReason returns a boolean if a field has been set.
+
+### GetBEzsigntemplatesignatureCreditcardcustomamount
+
+`func (o *EzsigntemplatesignatureRequestCompoundV2) GetBEzsigntemplatesignatureCreditcardcustomamount() bool`
+
+GetBEzsigntemplatesignatureCreditcardcustomamount returns the BEzsigntemplatesignatureCreditcardcustomamount field if non-nil, zero value otherwise.
+
+### GetBEzsigntemplatesignatureCreditcardcustomamountOk
+
+`func (o *EzsigntemplatesignatureRequestCompoundV2) GetBEzsigntemplatesignatureCreditcardcustomamountOk() (*bool, bool)`
+
+GetBEzsigntemplatesignatureCreditcardcustomamountOk returns a tuple with the BEzsigntemplatesignatureCreditcardcustomamount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBEzsigntemplatesignatureCreditcardcustomamount
+
+`func (o *EzsigntemplatesignatureRequestCompoundV2) SetBEzsigntemplatesignatureCreditcardcustomamount(v bool)`
+
+SetBEzsigntemplatesignatureCreditcardcustomamount sets BEzsigntemplatesignatureCreditcardcustomamount field to given value.
+
+### HasBEzsigntemplatesignatureCreditcardcustomamount
+
+`func (o *EzsigntemplatesignatureRequestCompoundV2) HasBEzsigntemplatesignatureCreditcardcustomamount() bool`
+
+HasBEzsigntemplatesignatureCreditcardcustomamount returns a boolean if a field has been set.
 
 ### GetEEzsigntemplatesignaturePositioning
 

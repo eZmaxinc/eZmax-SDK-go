@@ -21,7 +21,7 @@ var _ MappedNullable = &EzsigntemplatepublicCreateEzsignfolderV1ResponseMPayload
 // EzsigntemplatepublicCreateEzsignfolderV1ResponseMPayload Payload for POST /1/object/ezsigntemplatepublic/createEzsignfolder
 type EzsigntemplatepublicCreateEzsignfolderV1ResponseMPayload struct {
 	// The url to sign the Ezsignfolder created by the Ezsigntemplatepublic. Only used when fkiUserLogintypeID is **No validation** or **Sms only**
-	SEzsigntemplatepublicSigningurl *string `json:"sEzsigntemplatepublicSigningurl,omitempty" validate:"regexp=^https:\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
+	SEzsigntemplatepublicSigningurl *string `json:"sEzsigntemplatepublicSigningurl,omitempty" validate:"regexp=^https://[^\\s/$.?#].[^\\s]*$"`
 }
 
 // NewEzsigntemplatepublicCreateEzsignfolderV1ResponseMPayload instantiates a new EzsigntemplatepublicCreateEzsignfolderV1ResponseMPayload object

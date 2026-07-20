@@ -21,9 +21,9 @@ var _ MappedNullable = &MultilingualEzmaxpartnerEmailaddress{}
 // MultilingualEzmaxpartnerEmailaddress Email of the Ezmaxpartner
 type MultilingualEzmaxpartnerEmailaddress struct {
 	// The email address.
-	SEzmaxpartnerEmailaddress1 *string "json:\"sEzmaxpartnerEmailaddress1,omitempty\" validate:\"regexp=^[\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20}$\""
+	SEzmaxpartnerEmailaddress1 *string `json:"sEzmaxpartnerEmailaddress1,omitempty" validate:"regexp=^[\\w.%+\\-!#$%&'*+/=?^\x60{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2\\,20}$"`
 	// The email address.
-	SEzmaxpartnerEmailaddress2 *string "json:\"sEzmaxpartnerEmailaddress2,omitempty\" validate:\"regexp=^[\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20}$\""
+	SEzmaxpartnerEmailaddress2 *string `json:"sEzmaxpartnerEmailaddress2,omitempty" validate:"regexp=^[\\w.%+\\-!#$%&'*+/=?^\x60{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2\\,20}$"`
 }
 
 // NewMultilingualEzmaxpartnerEmailaddress instantiates a new MultilingualEzmaxpartnerEmailaddress object

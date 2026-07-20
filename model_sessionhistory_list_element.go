@@ -34,13 +34,13 @@ type SessionhistoryListElement struct {
 	DtSessionhistoryLasthit string `json:"dtSessionhistoryLasthit" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$"`
 	ESessionhistoryEndby FieldESessionhistoryEndby `json:"eSessionhistoryEndby"`
 	// The description of the Computer
-	SComputerDescription *string `json:"sComputerDescription,omitempty" validate:"regexp=^.{0,50}$"`
+	SComputerDescription *string `json:"sComputerDescription,omitempty" validate:"regexp=^.{0\\,50}$"`
 	// The duration of the session
-	SSessionhistoryDuration string `json:"sSessionhistoryDuration" validate:"regexp=^(0[0-9]{1}|\\\\d{2,}):([0-5][0-9]):([0-5][0-9])$"`
+	SSessionhistoryDuration string `json:"sSessionhistoryDuration" validate:"regexp=^(0[0-9]{1}|\\d{2\\,}):([0-5][0-9]):([0-5][0-9])$"`
 	// Represent an IP address.
 	SSessionhistoryIP string `json:"sSessionhistoryIP"`
 	// The login name of the User.
-	SUserLoginname *string "json:\"sUserLoginname,omitempty\" validate:\"regexp=^(?:([\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$\""
+	SUserLoginname *string `json:"sUserLoginname,omitempty" validate:"regexp=^(?:([\\w.%+\\-!#$%&'*+/=?^\x60{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2\\,20})|([a-zA-Z0-9]){1\\,32})$"`
 }
 
 type _SessionhistoryListElement SessionhistoryListElement

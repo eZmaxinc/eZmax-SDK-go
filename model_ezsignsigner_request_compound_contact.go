@@ -23,19 +23,19 @@ var _ MappedNullable = &EzsignsignerRequestCompoundContact{}
 // EzsignsignerRequestCompoundContact A Ezsignsigner->Contact Object and children to create a complete structure
 type EzsignsignerRequestCompoundContact struct {
 	// The First name of the contact
-	SContactFirstname string `json:"sContactFirstname" validate:"regexp=^.{1,20}$"`
+	SContactFirstname string `json:"sContactFirstname" validate:"regexp=^.{1\\,20}$"`
 	// The Last name of the contact
-	SContactLastname string `json:"sContactLastname" validate:"regexp=^.{1,25}$"`
+	SContactLastname string `json:"sContactLastname" validate:"regexp=^.{1\\,25}$"`
 	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
 	FkiLanguageID int32 `json:"fkiLanguageID"`
 	// The email address.
-	SEmailAddress *string "json:\"sEmailAddress,omitempty\" validate:\"regexp=^[\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20}$\""
+	SEmailAddress *string `json:"sEmailAddress,omitempty" validate:"regexp=^[\\w.%+\\-!#$%&'*+/=?^\x60{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2\\,20}$"`
 	// A phone number in E.164 Format
-	SPhoneE164 *string `json:"sPhoneE164,omitempty" validate:"regexp=^\\\\+[1-9]\\\\d{1,14}$"`
+	SPhoneE164 *string `json:"sPhoneE164,omitempty" validate:"regexp=^\\+[1-9]\\d{1\\,14}$"`
 	// The extension of the phone number.  The extension is the \"123\" section in this sample phone number: (514) 990-1516 x123.  It can also be used with international phone numbers
 	SPhoneExtension *string `json:"sPhoneExtension,omitempty"`
 	// A phone number in E.164 Format
-	SPhoneE164Cell *string `json:"sPhoneE164Cell,omitempty" validate:"regexp=^\\\\+[1-9]\\\\d{1,14}$"`
+	SPhoneE164Cell *string `json:"sPhoneE164Cell,omitempty" validate:"regexp=^\\+[1-9]\\d{1\\,14}$"`
 	// Deprecated
 	SPhoneNumber *string `json:"sPhoneNumber,omitempty"`
 	// Deprecated

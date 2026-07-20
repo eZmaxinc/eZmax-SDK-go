@@ -35,54 +35,54 @@ type InscriptionResponseCompound struct {
 	// The unique ID of the Realestateboard
 	FkiRealestateboardID int32 `json:"fkiRealestateboardID"`
 	// The name of the Realestateboard
-	SRealestateboardNameX *string `json:"sRealestateboardNameX,omitempty" validate:"regexp=^.{1,65}$"`
+	SRealestateboardNameX *string `json:"sRealestateboardNameX,omitempty" validate:"regexp=^.{1\\,65}$"`
 	// The unique ID of the Address
 	FkiAddressID int32 `json:"fkiAddressID"`
 	// The complete address in a single line
-	SAddress *string `json:"sAddress,omitempty" validate:"regexp=^.{1,200}$"`
+	SAddress *string `json:"sAddress,omitempty" validate:"regexp=^.{1\\,200}$"`
 	// The unique ID of the Inscriptionbuildingtype
 	FkiInscriptionbuildingtypeID int32 `json:"fkiInscriptionbuildingtypeID"`
 	// The name of the Inscriptionbuildingtype in the language of the requester
-	SInscriptionbuildingtypeNameX *string `json:"sInscriptionbuildingtypeNameX,omitempty" validate:"regexp=^.{0,20}$"`
+	SInscriptionbuildingtypeNameX *string `json:"sInscriptionbuildingtypeNameX,omitempty" validate:"regexp=^.{0\\,20}$"`
 	// The unique ID of the Inscriptiontype
 	FkiInscriptiontypeID int32 `json:"fkiInscriptiontypeID"`
 	// The name of the Inscriptiontype in the language of the requester
-	SInscriptiontypeNameX *string `json:"sInscriptiontypeNameX,omitempty" validate:"regexp=^.{0,30}$"`
+	SInscriptiontypeNameX *string `json:"sInscriptiontypeNameX,omitempty" validate:"regexp=^.{0\\,30}$"`
 	// The unique ID of the Inscriptioncategory
 	FkiInscriptioncategoryID int32 `json:"fkiInscriptioncategoryID"`
 	// The name of the Inscriptioncategory in the language of the requester
-	SInscriptioncategoryNameX *string `json:"sInscriptioncategoryNameX,omitempty" validate:"regexp=^.{0,30}$"`
+	SInscriptioncategoryNameX *string `json:"sInscriptioncategoryNameX,omitempty" validate:"regexp=^.{0\\,30}$"`
 	EInscriptionStep FieldEInscriptionStep `json:"eInscriptionStep"`
 	EInscriptionResidenceType FieldEInscriptionResidenceType `json:"eInscriptionResidenceType"`
 	// The civicend of the Inscription
-	SInscriptionCivicend string `json:"sInscriptionCivicend" validate:"regexp=^.{0,6}$"`
+	SInscriptionCivicend string `json:"sInscriptionCivicend" validate:"regexp=^.{0\\,6}$"`
 	// The mls of the Inscription
-	SInscriptionMLS string `json:"sInscriptionMLS" validate:"regexp=^.{0,20}$"`
+	SInscriptionMLS string `json:"sInscriptionMLS" validate:"regexp=^.{0\\,20}$"`
 	// The sale contract number
-	SInscriptionContract string `json:"sInscriptionContract" validate:"regexp=^.{0,20}$"`
+	SInscriptionContract string `json:"sInscriptionContract" validate:"regexp=^.{0\\,20}$"`
 	// The sellerdeclaration of the Inscription
 	IInscriptionSellerdeclaration int32 `json:"iInscriptionSellerdeclaration"`
 	EInscriptionType FieldEInscriptionType `json:"eInscriptionType"`
 	// The initialsaleprice of the Inscription
-	DInscriptionInitialsaleprice string `json:"dInscriptionInitialsaleprice" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	DInscriptionInitialsaleprice string `json:"dInscriptionInitialsaleprice" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	// The saleprice of the Inscription
-	DInscriptionSaleprice string `json:"dInscriptionSaleprice" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	DInscriptionSaleprice string `json:"dInscriptionSaleprice" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	// The rentprice of the Inscription
-	DInscriptionRentprice string `json:"dInscriptionRentprice" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	DInscriptionRentprice string `json:"dInscriptionRentprice" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	EInscriptionRemunerationtype FieldEInscriptionRemunerationtype `json:"eInscriptionRemunerationtype"`
 	EInscriptionRemunerationinscriptorsellertype FieldEInscriptionRemunerationinscriptorsellertype `json:"eInscriptionRemunerationinscriptorsellertype"`
 	EInscriptionRemunerationreferencetype FieldEInscriptionRemunerationreferencetype `json:"eInscriptionRemunerationreferencetype"`
 	EInscriptionRemunerationtotaltype FieldEInscriptionRemunerationtotaltype `json:"eInscriptionRemunerationtotaltype"`
 	// The remuneration of the Inscription
-	DInscriptionRemuneration string `json:"dInscriptionRemuneration" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	DInscriptionRemuneration string `json:"dInscriptionRemuneration" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	// The remunerationinscriptorseller of the Inscription
-	DInscriptionRemunerationinscriptorseller string `json:"dInscriptionRemunerationinscriptorseller" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	DInscriptionRemunerationinscriptorseller string `json:"dInscriptionRemunerationinscriptorseller" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	// The remunerationreference of the Inscription
-	DInscriptionRemunerationreference string `json:"dInscriptionRemunerationreference" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	DInscriptionRemunerationreference string `json:"dInscriptionRemunerationreference" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	// The remunerationtotal of the Inscription
-	DInscriptionRemunerationtotal string `json:"dInscriptionRemunerationtotal" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	DInscriptionRemunerationtotal string `json:"dInscriptionRemunerationtotal" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	// The mortgagesold of the Inscription
-	DInscriptionMortgagesold string `json:"dInscriptionMortgagesold" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	DInscriptionMortgagesold string `json:"dInscriptionMortgagesold" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	// The date of the Inscription
 	DtInscriptionDate string `json:"dtInscriptionDate" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// The cancellationdate of the Inscription
@@ -96,7 +96,7 @@ type InscriptionResponseCompound struct {
 	// The notaryentereddate of the Inscription
 	DtInscriptionNotaryentereddate string `json:"dtInscriptionNotaryentereddate" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// The cadastre of the Inscription
-	TInscriptionCadastre string `json:"tInscriptionCadastre" validate:"regexp=^.{0,16777215}$"`
+	TInscriptionCadastre string `json:"tInscriptionCadastre" validate:"regexp=^.{0\\,65535}$"`
 	// Whether if it's an reference
 	BInscriptionReference bool `json:"bInscriptionReference"`
 	// Whether the inscription can be acces by an inspector
@@ -104,7 +104,7 @@ type InscriptionResponseCompound struct {
 	// Whether the inscription is active or not
 	BInscriptionIsactive bool `json:"bInscriptionIsactive"`
 	// The checklistnote of the Inscription
-	TInscriptionChecklistnote string `json:"tInscriptionChecklistnote" validate:"regexp=^.{0,16777215}$"`
+	TInscriptionChecklistnote string `json:"tInscriptionChecklistnote" validate:"regexp=^.{0\\,65535}$"`
 	// Whether if it's an new
 	BInscriptionNew bool `json:"bInscriptionNew"`
 	// Whether if it's an homeowner

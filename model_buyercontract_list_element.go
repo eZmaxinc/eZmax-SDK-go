@@ -27,12 +27,12 @@ type BuyercontractListElement struct {
 	// The unique ID of the Inscriptiontype
 	FkiInscriptiontypeID int32 `json:"fkiInscriptiontypeID"`
 	// The name of the Inscriptiontype in the language of the requester
-	SInscriptiontypeNameX string `json:"sInscriptiontypeNameX" validate:"regexp=^.{0,30}$"`
+	SInscriptiontypeNameX string `json:"sInscriptiontypeNameX" validate:"regexp=^.{0\\,30}$"`
 	EBuyercontractStep FieldEBuyercontractStep `json:"eBuyercontractStep"`
 	// The minimumprice of the Buyercontract
-	DBuyercontractMinimumprice string `json:"dBuyercontractMinimumprice" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	DBuyercontractMinimumprice string `json:"dBuyercontractMinimumprice" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	// The maximumprice of the Buyercontract
-	DBuyercontractMaximumprice string `json:"dBuyercontractMaximumprice" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	DBuyercontractMaximumprice string `json:"dBuyercontractMaximumprice" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	EBuyercontractType FieldEBuyercontractType `json:"eBuyercontractType"`
 	// The number of the Buyercontract
 	SBuyercontractContract *string `json:"sBuyercontractContract,omitempty"`

@@ -31,11 +31,11 @@ type EzsigntemplatepackageResponse struct {
 	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
 	FkiLanguageID int32 `json:"fkiLanguageID"`
 	// The name of the Ezdoctemplatedocument in the language of the requester
-	SEzdoctemplatedocumentNameX *string `json:"sEzdoctemplatedocumentNameX,omitempty" validate:"regexp=^.{0,50}$"`
+	SEzdoctemplatedocumentNameX *string `json:"sEzdoctemplatedocumentNameX,omitempty" validate:"regexp=^.{0\\,50}$"`
 	// The Name of the Language in the language of the requester
 	SLanguageNameX string `json:"sLanguageNameX"`
 	// The description of the Ezsigntemplatepackage
-	SEzsigntemplatepackageDescription string `json:"sEzsigntemplatepackageDescription" validate:"regexp=^.{0,80}$"`
+	SEzsigntemplatepackageDescription string `json:"sEzsigntemplatepackageDescription" validate:"regexp=^.{0\\,80}$"`
 	// Whether the Ezsigntemplatepackage can be accessed by admin users only (eUserType=Normal)
 	BEzsigntemplatepackageAdminonly bool `json:"bEzsigntemplatepackageAdminonly"`
 	// Whether the Ezsignbulksend was automatically modified and needs a manual validation

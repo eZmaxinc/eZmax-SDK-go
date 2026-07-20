@@ -26,7 +26,7 @@ type UsergroupResponse struct {
 	PkiUsergroupID int32 `json:"pkiUsergroupID"`
 	ObjUsergroupName MultilingualUsergroupName `json:"objUsergroupName"`
 	// The Name of the Usergroup in the language of the requester
-	SUsergroupNameX *string `json:"sUsergroupNameX,omitempty" validate:"regexp=^.{0,50}$"`
+	SUsergroupNameX *string `json:"sUsergroupNameX,omitempty" validate:"regexp=^.{0\\,50}$"`
 	ObjEmail *EmailRequest `json:"objEmail,omitempty"`
 }
 

@@ -25,7 +25,7 @@ type EzsignimportfolderListElement struct {
 	// The unique ID of the Ezsignimportfolder
 	PkiEzsignimportfolderID int32 `json:"pkiEzsignimportfolderID"`
 	// The name of the Ezsignimportfolder
-	SEzsignimportfolderName string `json:"sEzsignimportfolderName" validate:"regexp=^.{0,150}$"`
+	SEzsignimportfolderName string `json:"sEzsignimportfolderName" validate:"regexp=^.{0\\,150}$"`
 	// The date and time at which the object was created
 	DtCreatedDate *string `json:"dtCreatedDate,omitempty"`
 	// The date and time at which the object was last modified

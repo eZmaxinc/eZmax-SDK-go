@@ -25,7 +25,7 @@ type BrokertypeAutocompleteElementResponse struct {
 	// The unique ID of the Brokertype
 	PkiBrokertypeID int32 `json:"pkiBrokertypeID"`
 	// The name of the Brokertype in the language of the requester
-	SBrokertypeNameX string `json:"sBrokertypeNameX" validate:"regexp=^.{0,30}$"`
+	SBrokertypeNameX string `json:"sBrokertypeNameX" validate:"regexp=^.{0\\,30}$"`
 	// Whether the Brokertype is active or not
 	BBrokertypeIsactive bool `json:"bBrokertypeIsactive"`
 }

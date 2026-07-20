@@ -37,13 +37,13 @@ type EzsigntemplatepublicResponse struct {
 	// The unique ID of the Ezsigntemplatepackage
 	FkiEzsigntemplatepackageID *int32 `json:"fkiEzsigntemplatepackageID,omitempty"`
 	// The description of the Ezsigntemplatepublic
-	SEzsigntemplatepublicDescription string `json:"sEzsigntemplatepublicDescription" validate:"regexp=^.{0,80}$"`
+	SEzsigntemplatepublicDescription string `json:"sEzsigntemplatepublicDescription" validate:"regexp=^.{0\\,80}$"`
 	// The referenceid of the Ezsigntemplatepublic
-	SEzsigntemplatepublicReferenceid string `json:"sEzsigntemplatepublicReferenceid" validate:"regexp=^.{0,36}$"`
+	SEzsigntemplatepublicReferenceid string `json:"sEzsigntemplatepublicReferenceid" validate:"regexp=^.{0\\,36}$"`
 	// Whether the ezsigntemplatepublic is active or not
 	BEzsigntemplatepublicIsactive bool `json:"bEzsigntemplatepublicIsactive"`
 	// The note of the Ezsigntemplatepublic
-	TEzsigntemplatepublicNote string `json:"tEzsigntemplatepublicNote" validate:"regexp=^.{0,65535}$"`
+	TEzsigntemplatepublicNote string `json:"tEzsigntemplatepublicNote" validate:"regexp=^.{0\\,65535}$"`
 	EEzsigntemplatepublicLimittype FieldEEzsigntemplatepublicLimittype `json:"eEzsigntemplatepublicLimittype"`
 	// The limit of the Ezsigntemplatepublic
 	IEzsigntemplatepublicLimit int32 `json:"iEzsigntemplatepublicLimit"`
@@ -52,9 +52,9 @@ type EzsigntemplatepublicResponse struct {
 	// The limitexceededsince of the Ezsigntemplatepublic
 	DtEzsigntemplatepublicLimitexceededsince string `json:"dtEzsigntemplatepublicLimitexceededsince" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$"`
 	// The url of the Ezsigntemplatepublic  You can add these value as query parameters to prefill the corresponding role  |Parameter|Description| |-|-| |sEzsigntemplatesignerDescription|The role to fill| |sContactFirstname|The contact firstname| |sContactLastname|The contact lastname| |sEmailAddress|The contact email| |sPhoneE164|The contact phone number| |sPhoneE164Cell|The contact cell phone number|
-	SEzsigntemplatepublicUrl string `json:"sEzsigntemplatepublicUrl" validate:"regexp=^https:\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
+	SEzsigntemplatepublicUrl string `json:"sEzsigntemplatepublicUrl" validate:"regexp=^https://[^\\s/$.?#].[^\\s]*$"`
 	// The Ezsigntemplate/Ezsigntemplatepackage description
-	SEzsigntemplatepublicEzsigntemplatedescription string `json:"sEzsigntemplatepublicEzsigntemplatedescription" validate:"regexp=^.{1,80}$"`
+	SEzsigntemplatepublicEzsigntemplatedescription string `json:"sEzsigntemplatepublicEzsigntemplatedescription" validate:"regexp=^.{1\\,80}$"`
 	ObjAudit *CommonAudit `json:"objAudit,omitempty"`
 }
 

@@ -39,7 +39,7 @@ type EzsigntemplatedocumentpagerecognitionRequest struct {
 	// The height of the Ezsigntemplatedocumentpagerecognition
 	IEzsigntemplatedocumentpagerecognitionHeight *int32 `json:"iEzsigntemplatedocumentpagerecognitionHeight,omitempty"`
 	// The text of the Ezsigntemplatedocumentpagerecognition
-	TEzsigntemplatedocumentpagerecognitionText string `json:"tEzsigntemplatedocumentpagerecognitionText" validate:"regexp=^[.\\\\D\\\\d]{0,65535}$"`
+	TEzsigntemplatedocumentpagerecognitionText string `json:"tEzsigntemplatedocumentpagerecognitionText" validate:"regexp=^[.\\D\\d]{0\\,65535}$"`
 }
 
 type _EzsigntemplatedocumentpagerecognitionRequest EzsigntemplatedocumentpagerecognitionRequest

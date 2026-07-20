@@ -37,13 +37,13 @@ type EzsignfolderListElement struct {
 	// The unique ID of the Ezsigntemplatepublic
 	FkiEzsigntemplatepublicID *int32 `json:"fkiEzsigntemplatepublicID,omitempty"`
 	// The description of the Ezsigntemplatepublic
-	SEzsigntemplatepublicDescription *string `json:"sEzsigntemplatepublicDescription,omitempty" validate:"regexp=^.{0,80}$"`
+	SEzsigntemplatepublicDescription *string `json:"sEzsigntemplatepublicDescription,omitempty" validate:"regexp=^.{0\\,80}$"`
 	EEzsignfolderSource FieldEEzsignfolderSource `json:"eEzsignfolderSource"`
 	EEzsignfoldertypePrivacylevel FieldEEzsignfoldertypePrivacylevel `json:"eEzsignfoldertypePrivacylevel"`
 	// The name of the Ezsignfoldertype in the language of the requester
 	SEzsignfoldertypeNameX string `json:"sEzsignfoldertypeNameX"`
 	// The description of the Ezsignfolder
-	SEzsignfolderDescription string `json:"sEzsignfolderDescription" validate:"regexp=^.{0,75}$"`
+	SEzsignfolderDescription string `json:"sEzsignfolderDescription" validate:"regexp=^.{0\\,75}$"`
 	EEzsignfolderStep FieldEEzsignfolderStep `json:"eEzsignfolderStep"`
 	EEzsignfolderCompletion FieldEEzsignfolderCompletion `json:"eEzsignfolderCompletion"`
 	// The date and time at which the object was created
@@ -69,11 +69,11 @@ type EzsignfolderListElement struct {
 	// Whether the Ezsignform/Ezsignsignatures has dependencies or not
 	BEzsignformHasdependencies *bool `json:"bEzsignformHasdependencies,omitempty"`
 	// Percentage of Ezsignform/Ezsignsignatures has completed
-	DEzsignfolderCompletedpercentage string `json:"dEzsignfolderCompletedpercentage" validate:"regexp=^-{0,1}[\\\\d]{1,3}?\\\\.[\\\\d]{2}$"`
+	DEzsignfolderCompletedpercentage string `json:"dEzsignfolderCompletedpercentage" validate:"regexp=^-{0\\,1}[\\d]{1\\,3}?\\.[\\d]{2}$"`
 	// Percentage of Ezsignform has completed
-	DEzsignfolderFormcompletedpercentage string `json:"dEzsignfolderFormcompletedpercentage" validate:"regexp=^-{0,1}[\\\\d]{1,3}?\\\\.[\\\\d]{2}$"`
+	DEzsignfolderFormcompletedpercentage string `json:"dEzsignfolderFormcompletedpercentage" validate:"regexp=^-{0\\,1}[\\d]{1\\,3}?\\.[\\d]{2}$"`
 	// Percentage of Ezsignsignatures has signed
-	DEzsignfolderSignaturecompletedpercentage string `json:"dEzsignfolderSignaturecompletedpercentage" validate:"regexp=^-{0,1}[\\\\d]{1,3}?\\\\.[\\\\d]{2}$"`
+	DEzsignfolderSignaturecompletedpercentage string `json:"dEzsignfolderSignaturecompletedpercentage" validate:"regexp=^-{0\\,1}[\\d]{1\\,3}?\\.[\\d]{2}$"`
 	// The date and time at which the Ezsignfolder was closed. Either by applying the last signature or by completing it prematurely.
 	DtEzsignfolderClose *string `json:"dtEzsignfolderClose,omitempty"`
 	// The date and time at which the Ezsignfolder was archived.

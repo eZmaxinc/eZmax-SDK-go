@@ -26,7 +26,7 @@ type DiscussionChatV1Request struct {
 	FkiDiscussionID *int32 `json:"fkiDiscussionID,omitempty"`
 	EDiscussionRobot FieldEDiscussionRobot `json:"eDiscussionRobot"`
 	// The Message of the Discussion
-	TDiscussionMessage string `json:"tDiscussionMessage" validate:"regexp=^[\\\\s\\\\S]{0,65535}$"`
+	TDiscussionMessage string `json:"tDiscussionMessage" validate:"regexp=^[\\s\\S]{0\\,65535}$"`
 }
 
 type _DiscussionChatV1Request DiscussionChatV1Request

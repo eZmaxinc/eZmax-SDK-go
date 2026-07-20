@@ -25,7 +25,7 @@ type CreditcardmerchantAutocompleteElementResponse struct {
 	// The unique ID of the Creditcardmerchant
 	PkiCreditcardmerchantID int32 `json:"pkiCreditcardmerchantID"`
 	// The description of the Creditcardmerchant
-	SCreditcardmerchantDescription string `json:"sCreditcardmerchantDescription" validate:"regexp=^.{0,25}$"`
+	SCreditcardmerchantDescription string `json:"sCreditcardmerchantDescription" validate:"regexp=^.{0\\,25}$"`
 	// Whether the creditcardmerchant is active or not
 	BCreditcardmerchantIsactive bool `json:"bCreditcardmerchantIsactive"`
 }

@@ -31,7 +31,7 @@ type EzsigntemplatepackageRequestCompound struct {
 	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
 	FkiLanguageID int32 `json:"fkiLanguageID"`
 	// The description of the Ezsigntemplatepackage
-	SEzsigntemplatepackageDescription string `json:"sEzsigntemplatepackageDescription" validate:"regexp=^.{0,80}$"`
+	SEzsigntemplatepackageDescription string `json:"sEzsigntemplatepackageDescription" validate:"regexp=^.{0\\,80}$"`
 	// Whether the Ezsigntemplatepackage can be accessed by admin users only (eUserType=Normal)
 	BEzsigntemplatepackageAdminonly bool `json:"bEzsigntemplatepackageAdminonly"`
 	// Whether the Ezsigntemplatepackage is active or not

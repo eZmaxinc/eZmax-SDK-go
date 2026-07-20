@@ -31,14 +31,14 @@ type EzsigntemplateRequestCompoundV3 struct {
 	// The unique ID of the Ezdoctemplatedocument
 	FkiEzdoctemplatedocumentID *int32 `json:"fkiEzdoctemplatedocumentID,omitempty"`
 	// The description of the Ezsigntemplate
-	SEzsigntemplateDescription string `json:"sEzsigntemplateDescription" validate:"regexp=^.{0,80}$"`
+	SEzsigntemplateDescription string `json:"sEzsigntemplateDescription" validate:"regexp=^.{0\\,80}$"`
 	// The external description of the Ezsigntemplate
-	SEzsigntemplateExternaldescription *string `json:"sEzsigntemplateExternaldescription,omitempty" validate:"regexp=^.{0,75}$"`
+	SEzsigntemplateExternaldescription *string `json:"sEzsigntemplateExternaldescription,omitempty" validate:"regexp=^.{0\\,75}$"`
 	// The comment of the Ezsigntemplate
 	TEzsigntemplateComment *string `json:"tEzsigntemplateComment,omitempty"`
 	EEzsigntemplateRecognition *FieldEEzsigntemplateRecognition `json:"eEzsigntemplateRecognition,omitempty"`
 	// The filename regexp of the Ezsigntemplate.
-	SEzsigntemplateFilenameregexp *string `json:"sEzsigntemplateFilenameregexp,omitempty" validate:"regexp=^.{1,50}$"`
+	SEzsigntemplateFilenameregexp *string `json:"sEzsigntemplateFilenameregexp,omitempty" validate:"regexp=^.{1\\,50}$"`
 	// Whether the Ezsigntemplate can be accessed by admin users only (eUserType=Normal)
 	BEzsigntemplateAdminonly bool `json:"bEzsigntemplateAdminonly"`
 	EEzsigntemplateType FieldEEzsigntemplateType `json:"eEzsigntemplateType"`

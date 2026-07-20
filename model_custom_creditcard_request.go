@@ -23,9 +23,9 @@ var _ MappedNullable = &CustomCreditcardRequest{}
 // CustomCreditcardRequest A Custom Creditcard Object
 type CustomCreditcardRequest struct {
 	// The creditcard token identifier
-	FksCreditcardtokenID string `json:"fksCreditcardtokenID" validate:"regexp=^\\\\{?[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\\\\}?$"`
+	FksCreditcardtokenID string `json:"fksCreditcardtokenID" validate:"regexp=^\\{?[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\\}?$"`
 	// The creditcard card CVV
-	SCreditcardCVV string `json:"sCreditcardCVV" validate:"regexp=^[\\\\d]{3,4}$"`
+	SCreditcardCVV string `json:"sCreditcardCVV" validate:"regexp=^[\\d]{3\\,4}$"`
 	ObjCreditcarddetail CreditcarddetailRequest `json:"objCreditcarddetail"`
 }
 

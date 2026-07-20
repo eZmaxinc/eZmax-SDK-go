@@ -25,12 +25,12 @@ type AuthenticationexternalResponseCompound struct {
 	// The unique ID of the Authenticationexternal
 	PkiAuthenticationexternalID int32 `json:"pkiAuthenticationexternalID"`
 	// The description of the Authenticationexternal
-	SAuthenticationexternalDescription string `json:"sAuthenticationexternalDescription" validate:"regexp=^.{0,50}$"`
+	SAuthenticationexternalDescription string `json:"sAuthenticationexternalDescription" validate:"regexp=^.{0\\,50}$"`
 	EAuthenticationexternalType FieldEAuthenticationexternalType `json:"eAuthenticationexternalType"`
 	// Whether the Authenticationexternal has been connected or not
 	BAuthenticationexternalConnected *bool `json:"bAuthenticationexternalConnected,omitempty"`
 	// The url to authorize the Authenticationexternal
-	SAuthenticationexternalAuthorizationurl *string `json:"sAuthenticationexternalAuthorizationurl,omitempty" validate:"regexp=^https:\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
+	SAuthenticationexternalAuthorizationurl *string `json:"sAuthenticationexternalAuthorizationurl,omitempty" validate:"regexp=^https://[^\\s/$.?#].[^\\s]*$"`
 	ObjAudit CommonAudit `json:"objAudit"`
 }
 

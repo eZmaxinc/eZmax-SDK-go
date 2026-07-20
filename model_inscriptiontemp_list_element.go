@@ -26,9 +26,9 @@ type InscriptiontempListElement struct {
 	PkiInscriptiontempID int32 `json:"pkiInscriptiontempID"`
 	EInscriptiontempStatus FieldEInscriptiontempStatus `json:"eInscriptiontempStatus"`
 	// The mls of the Inscriptiontemp
-	SInscriptiontempMLS *string `json:"sInscriptiontempMLS,omitempty" validate:"regexp=^.{0,20}$"`
+	SInscriptiontempMLS *string `json:"sInscriptiontempMLS,omitempty" validate:"regexp=^.{0\\,20}$"`
 	// The description of the Inscriptiontemp
-	SInscriptiontempDescription string `json:"sInscriptiontempDescription" validate:"regexp=^.{0,80}$"`
+	SInscriptiontempDescription string `json:"sInscriptiontempDescription" validate:"regexp=^.{0\\,80}$"`
 	// Whether the inscriptiontemp is active or not
 	BInscriptiontempIsactive bool `json:"bInscriptiontempIsactive"`
 	// The date and time at which the object was created

@@ -25,6 +25,7 @@ type WebhookSendWebhookV1Request struct {
 	EWebhookModule FieldEWebhookModule `json:"eWebhookModule"`
 	EWebhookEzsignevent *CustomEWebhookEzsignevent `json:"eWebhookEzsignevent,omitempty"`
 	EWebhookManagementevent *FieldEWebhookManagementevent `json:"eWebhookManagementevent,omitempty"`
+	EWebhookRealestateevent *FieldEWebhookRealestateevent `json:"eWebhookRealestateevent,omitempty"`
 	// The unique ID of the Ezsignfolder
 	FkiEzsignfolderID *int32 `json:"fkiEzsignfolderID,omitempty"`
 	// The unique ID of the Ezsigndocument
@@ -143,6 +144,38 @@ func (o *WebhookSendWebhookV1Request) HasEWebhookManagementevent() bool {
 // SetEWebhookManagementevent gets a reference to the given FieldEWebhookManagementevent and assigns it to the EWebhookManagementevent field.
 func (o *WebhookSendWebhookV1Request) SetEWebhookManagementevent(v FieldEWebhookManagementevent) {
 	o.EWebhookManagementevent = &v
+}
+
+// GetEWebhookRealestateevent returns the EWebhookRealestateevent field value if set, zero value otherwise.
+func (o *WebhookSendWebhookV1Request) GetEWebhookRealestateevent() FieldEWebhookRealestateevent {
+	if o == nil || IsNil(o.EWebhookRealestateevent) {
+		var ret FieldEWebhookRealestateevent
+		return ret
+	}
+	return *o.EWebhookRealestateevent
+}
+
+// GetEWebhookRealestateeventOk returns a tuple with the EWebhookRealestateevent field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WebhookSendWebhookV1Request) GetEWebhookRealestateeventOk() (*FieldEWebhookRealestateevent, bool) {
+	if o == nil || IsNil(o.EWebhookRealestateevent) {
+		return nil, false
+	}
+	return o.EWebhookRealestateevent, true
+}
+
+// HasEWebhookRealestateevent returns a boolean if a field has been set.
+func (o *WebhookSendWebhookV1Request) HasEWebhookRealestateevent() bool {
+	if o != nil && !IsNil(o.EWebhookRealestateevent) {
+		return true
+	}
+
+	return false
+}
+
+// SetEWebhookRealestateevent gets a reference to the given FieldEWebhookRealestateevent and assigns it to the EWebhookRealestateevent field.
+func (o *WebhookSendWebhookV1Request) SetEWebhookRealestateevent(v FieldEWebhookRealestateevent) {
+	o.EWebhookRealestateevent = &v
 }
 
 // GetFkiEzsignfolderID returns the FkiEzsignfolderID field value if set, zero value otherwise.
@@ -321,6 +354,9 @@ func (o WebhookSendWebhookV1Request) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.EWebhookManagementevent) {
 		toSerialize["eWebhookManagementevent"] = o.EWebhookManagementevent
+	}
+	if !IsNil(o.EWebhookRealestateevent) {
+		toSerialize["eWebhookRealestateevent"] = o.EWebhookRealestateevent
 	}
 	if !IsNil(o.FkiEzsignfolderID) {
 		toSerialize["fkiEzsignfolderID"] = o.FkiEzsignfolderID

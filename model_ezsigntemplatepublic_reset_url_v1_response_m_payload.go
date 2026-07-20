@@ -23,7 +23,7 @@ var _ MappedNullable = &EzsigntemplatepublicResetUrlV1ResponseMPayload{}
 // EzsigntemplatepublicResetUrlV1ResponseMPayload Payload for POST /1/object/ezsigntemplatepublic/{pkiEzsigntemplatepublicID}/resetUrl
 type EzsigntemplatepublicResetUrlV1ResponseMPayload struct {
 	// The url of the Ezsigntemplatepublic  You can add these value as query parameters to prefill the corresponding role  |Parameter|Description| |-|-| |sEzsigntemplatesignerDescription|The role to fill| |sContactFirstname|The contact firstname| |sContactLastname|The contact lastname| |sEmailAddress|The contact email| |sPhoneE164|The contact phone number| |sPhoneE164Cell|The contact cell phone number|
-	SEzsigntemplatepublicUrl string `json:"sEzsigntemplatepublicUrl" validate:"regexp=^https:\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
+	SEzsigntemplatepublicUrl string `json:"sEzsigntemplatepublicUrl" validate:"regexp=^https://[^\\s/$.?#].[^\\s]*$"`
 }
 
 type _EzsigntemplatepublicResetUrlV1ResponseMPayload EzsigntemplatepublicResetUrlV1ResponseMPayload

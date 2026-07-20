@@ -21,7 +21,7 @@ var _ MappedNullable = &CustomEzmaxpartnerproductSubscribe{}
 // CustomEzmaxpartnerproductSubscribe Request for POST /1/webhookdocumentation/subscribe
 type CustomEzmaxpartnerproductSubscribe struct {
 	// The Ezmaxcustomer code
-	PksEzmaxcustomerCode *string `json:"pksEzmaxcustomerCode,omitempty" validate:"regexp=^[a-z\\\\d]{2,6}$"`
+	PksEzmaxcustomerCode *string `json:"pksEzmaxcustomerCode,omitempty" validate:"regexp=^[a-z\\d]{2\\,6}$"`
 	// The environment type Description
 	SInfrastructureenvironmenttypeDescription *string `json:"sInfrastructureenvironmenttypeDescription,omitempty"`
 	// The Name of the Company in French
@@ -37,21 +37,21 @@ type CustomEzmaxpartnerproductSubscribe struct {
 	// The unique ID of the Ezmaxpartner
 	FkiEzmaxpartnerID *int32 `json:"fkiEzmaxpartnerID,omitempty"`
 	// The name of the Ezmaxpartner in french
-	SEzmaxpartnerName1 *string `json:"sEzmaxpartnerName1,omitempty" validate:"regexp=^.{0,50}$"`
+	SEzmaxpartnerName1 *string `json:"sEzmaxpartnerName1,omitempty" validate:"regexp=^.{0\\,50}$"`
 	// The name of the Ezmaxpartner in english
-	SEzmaxpartnerName2 *string `json:"sEzmaxpartnerName2,omitempty" validate:"regexp=^.{0,50}$"`
+	SEzmaxpartnerName2 *string `json:"sEzmaxpartnerName2,omitempty" validate:"regexp=^.{0\\,50}$"`
 	// The unique ID of the Ezmaxpartnerproduct
 	FkiEzmaxpartnerproductID *int32 `json:"fkiEzmaxpartnerproductID,omitempty"`
 	// The name1 of the Ezmaxpartnerproduct
-	SEzmaxpartnerproductName1 *string `json:"sEzmaxpartnerproductName1,omitempty" validate:"regexp=^.{0,35}$"`
+	SEzmaxpartnerproductName1 *string `json:"sEzmaxpartnerproductName1,omitempty" validate:"regexp=^.{0\\,35}$"`
 	// The name2 of the Ezmaxpartnerproduct
-	SEzmaxpartnerproductName2 *string `json:"sEzmaxpartnerproductName2,omitempty" validate:"regexp=^.{0,35}$"`
+	SEzmaxpartnerproductName2 *string `json:"sEzmaxpartnerproductName2,omitempty" validate:"regexp=^.{0\\,35}$"`
 	// The unique ID of the Ezmaxpartnerproductstage
 	FkiEzmaxpartnerproductstageID *int32 `json:"fkiEzmaxpartnerproductstageID,omitempty"`
 	// The code of the sEzmaxpartnerproductstage
-	SEzmaxpartnerproductstageCode *string `json:"sEzmaxpartnerproductstageCode,omitempty" validate:"regexp=^.{0,15}$"`
+	SEzmaxpartnerproductstageCode *string `json:"sEzmaxpartnerproductstageCode,omitempty" validate:"regexp=^.{0\\,15}$"`
 	// The login name of the User.
-	SUserLoginName *string "json:\"sUserLoginName,omitempty\" validate:\"regexp=^(?:([\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$\""
+	SUserLoginName *string `json:"sUserLoginName,omitempty" validate:"regexp=^(?:([\\w.%+\\-!#$%&'*+/=?^\x60{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2\\,20})|([a-zA-Z0-9]){1\\,32})$"`
 	// The first name of the user
 	SUserFirstName *string `json:"sUserFirstName,omitempty"`
 	// The last name of the user

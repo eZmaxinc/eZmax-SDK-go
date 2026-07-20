@@ -3,7 +3,7 @@
 .travis.yml
 README.md
 api/openapi.yaml
-api_documentation_ezmaxpartner.go
+api_external_ezmaxpartner.go
 api_global_customer.go
 api_global_ezmaxclient.go
 api_global_ezmaxcustomer.go
@@ -562,7 +562,6 @@ docs/DiscussionmessageRequestCompound.md
 docs/DiscussionmessageRequestPatch.md
 docs/DiscussionmessageResponse.md
 docs/DiscussionmessageResponseCompound.md
-docs/DocumentationEzmaxpartnerAPI.md
 docs/DocumentationSubscribeV1Request.md
 docs/DocumentationSubscribeV1Response.md
 docs/DomainAutocompleteElementResponse.md
@@ -611,6 +610,7 @@ docs/EnumHorizontalalignment.md
 docs/EnumReportdataType.md
 docs/EnumTextvalidation.md
 docs/EnumVerticalalignment.md
+docs/ExternalEzmaxpartnerAPI.md
 docs/ExternalbrokerImportIntoEDMV1Request.md
 docs/ExternalbrokerImportIntoEDMV1Response.md
 docs/ExternalbrokerImportIntoEDMV1ResponseMPayload.md
@@ -1452,6 +1452,7 @@ docs/FieldEActivesessionOrigin.md
 docs/FieldEActivesessionRealestateinprogress.md
 docs/FieldEActivesessionUsertype.md
 docs/FieldEActivesessionWeekdaystart.md
+docs/FieldEAgentSchedule.md
 docs/FieldEAttachmentDocumenttype.md
 docs/FieldEAttachmentPrivacy.md
 docs/FieldEAttachmentType.md
@@ -1593,6 +1594,7 @@ docs/FieldEWebhookEzmaxpartnerevent.md
 docs/FieldEWebhookEzsignevent.md
 docs/FieldEWebhookManagementevent.md
 docs/FieldEWebhookModule.md
+docs/FieldEWebhookRealestateevent.md
 docs/FieldEtInscriptionnotauthenticatedMortgagetype.md
 docs/FieldPksEzmaxclientOs.md
 docs/FontAutocompleteElementResponse.md
@@ -2010,7 +2012,10 @@ docs/ScimServiceProviderConfig.md
 docs/ScimServiceProviderConfigAPI.md
 docs/ScimServiceProviderConfigBulk.md
 docs/ScimServiceProviderConfigChangePassword.md
+docs/ScimServiceProviderConfigEtag.md
 docs/ScimServiceProviderConfigFilter.md
+docs/ScimServiceProviderConfigPatch.md
+docs/ScimServiceProviderConfigSort.md
 docs/ScimUser.md
 docs/ScimUserList.md
 docs/ScimUsersAPI.md
@@ -2295,6 +2300,10 @@ docs/WebhookGetListV1ResponseMPayload.md
 docs/WebhookGetObjectV2Response.md
 docs/WebhookGetObjectV2ResponseMPayload.md
 docs/WebhookListElement.md
+docs/WebhookRealestateInscriptionCreated.md
+docs/WebhookRealestateInscriptionModified.md
+docs/WebhookRealestateInscriptionnotauthenticatedCreated.md
+docs/WebhookRealestateInscriptionnotauthenticatedModified.md
 docs/WebhookRegenerateApikeyV1Request.md
 docs/WebhookRegenerateApikeyV1Response.md
 docs/WebhookRegenerateApikeyV1ResponseMPayload.md
@@ -3631,6 +3640,7 @@ model_field_e_activesession_origin.go
 model_field_e_activesession_realestateinprogress.go
 model_field_e_activesession_usertype.go
 model_field_e_activesession_weekdaystart.go
+model_field_e_agent_schedule.go
 model_field_e_attachment_documenttype.go
 model_field_e_attachment_privacy.go
 model_field_e_attachment_type.go
@@ -3772,6 +3782,7 @@ model_field_e_webhook_ezmaxpartnerevent.go
 model_field_e_webhook_ezsignevent.go
 model_field_e_webhook_managementevent.go
 model_field_e_webhook_module.go
+model_field_e_webhook_realestateevent.go
 model_field_et_inscriptionnotauthenticated_mortgagetype.go
 model_field_pks_ezmaxclient_os.go
 model_font_autocomplete_element_response.go
@@ -4051,7 +4062,10 @@ model_scim_group_member.go
 model_scim_service_provider_config.go
 model_scim_service_provider_config_bulk.go
 model_scim_service_provider_config_change_password.go
+model_scim_service_provider_config_etag.go
 model_scim_service_provider_config_filter.go
+model_scim_service_provider_config_patch.go
+model_scim_service_provider_config_sort.go
 model_scim_user.go
 model_scim_user_list.go
 model_secretquestion_autocomplete_element_response.go
@@ -4335,6 +4349,10 @@ model_webhook_get_list_v1_response_m_payload.go
 model_webhook_get_object_v2_response.go
 model_webhook_get_object_v2_response_m_payload.go
 model_webhook_list_element.go
+model_webhook_realestate_inscription_created.go
+model_webhook_realestate_inscription_modified.go
+model_webhook_realestate_inscriptionnotauthenticated_created.go
+model_webhook_realestate_inscriptionnotauthenticated_modified.go
 model_webhook_regenerate_apikey_v1_request.go
 model_webhook_regenerate_apikey_v1_response.go
 model_webhook_regenerate_apikey_v1_response_m_payload.go

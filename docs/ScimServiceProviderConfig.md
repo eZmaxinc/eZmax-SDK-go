@@ -8,16 +8,16 @@ Name | Type | Description | Notes
 **Bulk** | [**ScimServiceProviderConfigBulk**](ScimServiceProviderConfigBulk.md) |  | 
 **ChangePassword** | [**ScimServiceProviderConfigChangePassword**](ScimServiceProviderConfigChangePassword.md) |  | 
 **DocumentationUri** | **string** | An HTTP-addressable URL pointing to the service provider&#39;s human-consumable help documentation | 
-**Etag** | [**ScimServiceProviderConfigChangePassword**](ScimServiceProviderConfigChangePassword.md) |  | 
+**Etag** | [**ScimServiceProviderConfigEtag**](ScimServiceProviderConfigEtag.md) |  | 
 **Filter** | [**ScimServiceProviderConfigFilter**](ScimServiceProviderConfigFilter.md) |  | 
-**Patch** | [**ScimServiceProviderConfigChangePassword**](ScimServiceProviderConfigChangePassword.md) |  | 
-**Sort** | [**ScimServiceProviderConfigChangePassword**](ScimServiceProviderConfigChangePassword.md) |  | 
+**Patch** | [**ScimServiceProviderConfigPatch**](ScimServiceProviderConfigPatch.md) |  | 
+**Sort** | [**ScimServiceProviderConfigSort**](ScimServiceProviderConfigSort.md) |  | 
 
 ## Methods
 
 ### NewScimServiceProviderConfig
 
-`func NewScimServiceProviderConfig(authenticationSchemes []ScimAuthenticationScheme, bulk ScimServiceProviderConfigBulk, changePassword ScimServiceProviderConfigChangePassword, documentationUri string, etag ScimServiceProviderConfigChangePassword, filter ScimServiceProviderConfigFilter, patch ScimServiceProviderConfigChangePassword, sort ScimServiceProviderConfigChangePassword, ) *ScimServiceProviderConfig`
+`func NewScimServiceProviderConfig(authenticationSchemes []ScimAuthenticationScheme, bulk ScimServiceProviderConfigBulk, changePassword ScimServiceProviderConfigChangePassword, documentationUri string, etag ScimServiceProviderConfigEtag, filter ScimServiceProviderConfigFilter, patch ScimServiceProviderConfigPatch, sort ScimServiceProviderConfigSort, ) *ScimServiceProviderConfig`
 
 NewScimServiceProviderConfig instantiates a new ScimServiceProviderConfig object
 This constructor will assign default values to properties that have it defined,
@@ -114,20 +114,20 @@ SetDocumentationUri sets DocumentationUri field to given value.
 
 ### GetEtag
 
-`func (o *ScimServiceProviderConfig) GetEtag() ScimServiceProviderConfigChangePassword`
+`func (o *ScimServiceProviderConfig) GetEtag() ScimServiceProviderConfigEtag`
 
 GetEtag returns the Etag field if non-nil, zero value otherwise.
 
 ### GetEtagOk
 
-`func (o *ScimServiceProviderConfig) GetEtagOk() (*ScimServiceProviderConfigChangePassword, bool)`
+`func (o *ScimServiceProviderConfig) GetEtagOk() (*ScimServiceProviderConfigEtag, bool)`
 
 GetEtagOk returns a tuple with the Etag field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEtag
 
-`func (o *ScimServiceProviderConfig) SetEtag(v ScimServiceProviderConfigChangePassword)`
+`func (o *ScimServiceProviderConfig) SetEtag(v ScimServiceProviderConfigEtag)`
 
 SetEtag sets Etag field to given value.
 
@@ -154,40 +154,40 @@ SetFilter sets Filter field to given value.
 
 ### GetPatch
 
-`func (o *ScimServiceProviderConfig) GetPatch() ScimServiceProviderConfigChangePassword`
+`func (o *ScimServiceProviderConfig) GetPatch() ScimServiceProviderConfigPatch`
 
 GetPatch returns the Patch field if non-nil, zero value otherwise.
 
 ### GetPatchOk
 
-`func (o *ScimServiceProviderConfig) GetPatchOk() (*ScimServiceProviderConfigChangePassword, bool)`
+`func (o *ScimServiceProviderConfig) GetPatchOk() (*ScimServiceProviderConfigPatch, bool)`
 
 GetPatchOk returns a tuple with the Patch field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPatch
 
-`func (o *ScimServiceProviderConfig) SetPatch(v ScimServiceProviderConfigChangePassword)`
+`func (o *ScimServiceProviderConfig) SetPatch(v ScimServiceProviderConfigPatch)`
 
 SetPatch sets Patch field to given value.
 
 
 ### GetSort
 
-`func (o *ScimServiceProviderConfig) GetSort() ScimServiceProviderConfigChangePassword`
+`func (o *ScimServiceProviderConfig) GetSort() ScimServiceProviderConfigSort`
 
 GetSort returns the Sort field if non-nil, zero value otherwise.
 
 ### GetSortOk
 
-`func (o *ScimServiceProviderConfig) GetSortOk() (*ScimServiceProviderConfigChangePassword, bool)`
+`func (o *ScimServiceProviderConfig) GetSortOk() (*ScimServiceProviderConfigSort, bool)`
 
 GetSortOk returns a tuple with the Sort field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSort
 
-`func (o *ScimServiceProviderConfig) SetSort(v ScimServiceProviderConfigChangePassword)`
+`func (o *ScimServiceProviderConfig) SetSort(v ScimServiceProviderConfigSort)`
 
 SetSort sets Sort field to given value.
 

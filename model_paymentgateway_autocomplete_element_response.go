@@ -25,7 +25,7 @@ type PaymentgatewayAutocompleteElementResponse struct {
 	// The unique ID of the Paymentgateway
 	PkiPaymentgatewayID int32 `json:"pkiPaymentgatewayID"`
 	// The description of the Paymentgateway in the language of the requester
-	SPaymentgatewayDescriptionX string `json:"sPaymentgatewayDescriptionX" validate:"regexp=^.{1,50}$"`
+	SPaymentgatewayDescriptionX string `json:"sPaymentgatewayDescriptionX" validate:"regexp=^.{1\\,50}$"`
 	// Whether the Paymentgateway is active or not
 	BPaymentgatewayIsactive bool `json:"bPaymentgatewayIsactive"`
 }

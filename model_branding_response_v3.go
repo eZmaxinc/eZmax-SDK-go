@@ -27,16 +27,16 @@ type BrandingResponseV3 struct {
 	// The unique ID of the Domain
 	FkiDomainID *int32 `json:"fkiDomainID,omitempty"`
 	// The name of the Domain
-	SDomainName *string `json:"sDomainName,omitempty" validate:"regexp=^(?=.{4,75}$)([a-zA-Z0-9-]+\\\\.)+[a-zA-Z]{2,63}$"`
+	SDomainName *string `json:"sDomainName,omitempty" validate:"regexp=^(?=.{4\\,75}$)([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2\\,63}$"`
 	// The unique ID of the Email
 	FkiEmailID *int32 `json:"fkiEmailID,omitempty"`
 	ObjBrandingDescription MultilingualBrandingDescription `json:"objBrandingDescription"`
 	// The Description of the Branding in the language of the requester
 	SBrandingDescriptionX string `json:"sBrandingDescriptionX"`
 	// The name of the Branding  This value will only be set if you wish to overwrite the default name. If you want to keep the default name, leave this property empty
-	SBrandingName *string `json:"sBrandingName,omitempty" validate:"regexp=^.{0,55}$"`
+	SBrandingName *string `json:"sBrandingName,omitempty" validate:"regexp=^.{0\\,55}$"`
 	// The email address.
-	SEmailAddress *string "json:\"sEmailAddress,omitempty\" validate:\"regexp=^[\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20}$\""
+	SEmailAddress *string `json:"sEmailAddress,omitempty" validate:"regexp=^[\\w.%+\\-!#$%&'*+/=?^\x60{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2\\,20}$"`
 	EBrandingLogo FieldEBrandingLogo `json:"eBrandingLogo"`
 	EBrandingAlignlogo FieldEBrandingAlignlogo `json:"eBrandingAlignlogo"`
 	// The primary color. This is a RGB color converted into integer

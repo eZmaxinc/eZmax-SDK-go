@@ -34,9 +34,9 @@ type BrandingRequestV2 struct {
 	// The primary color. This is a RGB color converted into integer
 	IBrandingColor int32 `json:"iBrandingColor"`
 	// The name of the Branding  This value will only be set if you wish to overwrite the default name. If you want to keep the default name, leave this property empty
-	SBrandingName *string `json:"sBrandingName,omitempty" validate:"regexp=^.{0,55}$"`
+	SBrandingName *string `json:"sBrandingName,omitempty" validate:"regexp=^.{0\\,55}$"`
 	// The email address.
-	SEmailAddress *string "json:\"sEmailAddress,omitempty\" validate:\"regexp=^[\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20}$\""
+	SEmailAddress *string `json:"sEmailAddress,omitempty" validate:"regexp=^[\\w.%+\\-!#$%&'*+/=?^\x60{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2\\,20}$"`
 	// Whether the Branding is active or not
 	BBrandingIsactive bool `json:"bBrandingIsactive"`
 }

@@ -25,7 +25,7 @@ type LeadsourceAutocompleteElementResponse struct {
 	// The unique ID of the Leadsource
 	PkiLeadsourceID int32 `json:"pkiLeadsourceID"`
 	// The name of the Leadsource in the language of the requester
-	SLeadsourceNameX string `json:"sLeadsourceNameX" validate:"regexp=^.{0,25}$"`
+	SLeadsourceNameX string `json:"sLeadsourceNameX" validate:"regexp=^.{0\\,25}$"`
 	// Whether the Leadsource is active or not
 	BLeadsourceIsactive bool `json:"bLeadsourceIsactive"`
 }

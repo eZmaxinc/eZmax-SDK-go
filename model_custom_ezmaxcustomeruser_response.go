@@ -30,9 +30,9 @@ type CustomEzmaxcustomeruserResponse struct {
 	ObjEmail *EmailResponseCompound `json:"objEmail,omitempty"`
 	ObjPhone *PhoneResponseCompound `json:"objPhone,omitempty"`
 	// The First name of the Ezmaxcustomeruser
-	SEzmaxcustomeruserFirstname string `json:"sEzmaxcustomeruserFirstname" validate:"regexp=^.{1,20}$"`
+	SEzmaxcustomeruserFirstname string `json:"sEzmaxcustomeruserFirstname" validate:"regexp=^.{1\\,20}$"`
 	// The First name of the Ezmaxcustomeruser
-	SEzmaxcustomeruserLastname string `json:"sEzmaxcustomeruserLastname" validate:"regexp=^.{1,20}$"`
+	SEzmaxcustomeruserLastname string `json:"sEzmaxcustomeruserLastname" validate:"regexp=^.{1\\,20}$"`
 }
 
 type _CustomEzmaxcustomeruserResponse CustomEzmaxcustomeruserResponse

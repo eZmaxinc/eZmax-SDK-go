@@ -27,7 +27,7 @@ type EzsignsignatureSignV1Request struct {
 	// The unique ID of the Font
 	FkiFontID *int32 `json:"fkiFontID,omitempty"`
 	// The amount of the Creditcard signature
-	DEzsignsignatureCreditcardamount *string `json:"dEzsignsignatureCreditcardamount,omitempty" validate:"regexp=^[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	DEzsignsignatureCreditcardamount *string `json:"dEzsignsignatureCreditcardamount,omitempty" validate:"regexp=^[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	// The value required for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **City**, **FieldText** or **FieldTextarea**
 	SValue *string `json:"sValue,omitempty"`
 	// Whether the attachment are accepted or refused.  This can only be set if eEzsignsignatureType is **AttachmentsConfirmation**
@@ -35,7 +35,7 @@ type EzsignsignatureSignV1Request struct {
 	// The reason of refused.  This can only be set if eEzsignsignatureType is **AttachmentsConfirmation**
 	SAttachmentsRefusalReason *string `json:"sAttachmentsRefusalReason,omitempty"`
 	// The SVG of the signature.  This can only be set if eEzsignsignatureType is **Signature**_/_**Initials** and **bIsAutomatic** is false
-	SSvg *string `json:"sSvg,omitempty" validate:"regexp=^.{0,65535}$"`
+	SSvg *string `json:"sSvg,omitempty" validate:"regexp=^.{0\\,65535}$"`
 	AObjFile []CommonFile `json:"a_objFile,omitempty"`
 	ObjCreditcard *CustomCreditcardRequest `json:"objCreditcard,omitempty"`
 	// Indicates if the Ezsignsignature was part of an automatic process or not.  This can only be true if eEzsignsignatureType is **Acknowledgement**, **City**, **Signature**, **Initials** or **Stamp**. 

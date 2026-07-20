@@ -37,9 +37,9 @@ type CreditcardmerchantListElement struct {
 	// Whether the creditcardmerchant is active or not
 	BCreditcardmerchantIsactive bool `json:"bCreditcardmerchantIsactive"`
 	// The description of the Creditcardmerchant
-	SCreditcardmerchantDescription string `json:"sCreditcardmerchantDescription" validate:"regexp=^.{0,25}$"`
+	SCreditcardmerchantDescription string `json:"sCreditcardmerchantDescription" validate:"regexp=^.{0\\,25}$"`
 	// The storeid of the Creditcardmerchant
-	SCreditcardmerchantStoreid string `json:"sCreditcardmerchantStoreid" validate:"regexp=^.{0,25}$"`
+	SCreditcardmerchantStoreid string `json:"sCreditcardmerchantStoreid" validate:"regexp=^.{0\\,25}$"`
 }
 
 type _CreditcardmerchantListElement CreditcardmerchantListElement

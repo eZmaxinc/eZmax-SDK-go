@@ -27,7 +27,7 @@ type InscriptionnotauthenticatedconditionResponse struct {
 	// The unique ID of the Inscriptionnotauthenticatedconditiontype
 	FkiInscriptionnotauthenticatedconditiontypeID int32 `json:"fkiInscriptionnotauthenticatedconditiontypeID"`
 	// The name of the Inscriptionnotauthenticatedconditiontype in the language of the requester
-	SInscriptionnotauthenticatedconditiontypeNameX string `json:"sInscriptionnotauthenticatedconditiontypeNameX" validate:"regexp=^.{1,100}$"`
+	SInscriptionnotauthenticatedconditiontypeNameX string `json:"sInscriptionnotauthenticatedconditiontypeNameX" validate:"regexp=^.{1\\,100}$"`
 	// The unique ID of the Inscriptionnotauthenticated.
 	FkiInscriptionnotauthenticatedID int32 `json:"fkiInscriptionnotauthenticatedID"`
 	// Can access attachment when we clone a user
@@ -37,7 +37,7 @@ type InscriptionnotauthenticatedconditionResponse struct {
 	// The date the Inscriptionnotauthenticatedcondition is due
 	DtInscriptionnotauthenticatedconditionDue *string `json:"dtInscriptionnotauthenticatedconditionDue,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// The comment of the Inscriptionnotauthenticatedcondition
-	TInscriptionnotauthenticatedconditionComment string `json:"tInscriptionnotauthenticatedconditionComment" validate:"regexp=^.{0,65535}$"`
+	TInscriptionnotauthenticatedconditionComment string `json:"tInscriptionnotauthenticatedconditionComment" validate:"regexp=^.{0\\,65535}$"`
 }
 
 type _InscriptionnotauthenticatedconditionResponse InscriptionnotauthenticatedconditionResponse

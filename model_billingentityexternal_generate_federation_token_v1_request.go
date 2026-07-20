@@ -23,7 +23,7 @@ var _ MappedNullable = &BillingentityexternalGenerateFederationTokenV1Request{}
 // BillingentityexternalGenerateFederationTokenV1Request Request for POST /1/object/billingentityexternal/{pkiBillingentityexternalID}/generateFederationToken
 type BillingentityexternalGenerateFederationTokenV1Request struct {
 	// The Ezmaxcustomer code
-	FksEzmaxcustomerCode string `json:"fksEzmaxcustomerCode" validate:"regexp=^[a-z\\\\d]{2,6}$"`
+	FksEzmaxcustomerCode string `json:"fksEzmaxcustomerCode" validate:"regexp=^[a-z\\d]{2\\,6}$"`
 }
 
 type _BillingentityexternalGenerateFederationTokenV1Request BillingentityexternalGenerateFederationTokenV1Request

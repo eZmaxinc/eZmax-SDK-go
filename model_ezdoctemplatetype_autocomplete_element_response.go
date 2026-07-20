@@ -25,7 +25,7 @@ type EzdoctemplatetypeAutocompleteElementResponse struct {
 	// The unique ID of the Ezdoctemplatetype
 	PkiEzdoctemplatetypeID int32 `json:"pkiEzdoctemplatetypeID"`
 	// The description of the Ezdoctemplatetype in the language of the requester
-	SEzdoctemplatetypeDescriptionX string `json:"sEzdoctemplatetypeDescriptionX" validate:"regexp=^.{0,50}$"`
+	SEzdoctemplatetypeDescriptionX string `json:"sEzdoctemplatetypeDescriptionX" validate:"regexp=^.{0\\,50}$"`
 	// Whether the Ezdoctemplatetype is active or not
 	BEzdoctemplatetypeIsactive bool `json:"bEzdoctemplatetypeIsactive"`
 }

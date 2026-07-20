@@ -25,9 +25,9 @@ type EzmaxmaillinglistListElement struct {
 	// The unique ID of the Ezmaxmaillinglist
 	PkiEzmaxmaillinglistID int32 `json:"pkiEzmaxmaillinglistID"`
 	// The name of the Ezmaxmaillinglist in the language of the requester
-	SEzmaxmaillinglistNameX string `json:"sEzmaxmaillinglistNameX" validate:"regexp=^.{0,50}$"`
+	SEzmaxmaillinglistNameX string `json:"sEzmaxmaillinglistNameX" validate:"regexp=^.{0\\,50}$"`
 	// The description of the Ezmaxmaillinglist in the language of the requester
-	SEzmaxmaillinglistDescriptionX string `json:"sEzmaxmaillinglistDescriptionX" validate:"regexp=^.{0,255}$"`
+	SEzmaxmaillinglistDescriptionX string `json:"sEzmaxmaillinglistDescriptionX" validate:"regexp=^.{0\\,255}$"`
 	// Whether the user subscribed to this Ezmaxmaillinglistor not
 	BEzmaxmaillinglistSubscribed bool `json:"bEzmaxmaillinglistSubscribed"`
 }

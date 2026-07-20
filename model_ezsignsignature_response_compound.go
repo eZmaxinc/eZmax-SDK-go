@@ -35,15 +35,15 @@ type EzsignsignatureResponseCompound struct {
 	// The unique ID of the Paymentgateway
 	FkiPaymentgatewayID *int32 `json:"fkiPaymentgatewayID,omitempty"`
 	// The description of the Currency in the language of the requester
-	SCurrencyDescriptionX *string `json:"sCurrencyDescriptionX,omitempty" validate:"regexp=^.{1,20}$"`
+	SCurrencyDescriptionX *string `json:"sCurrencyDescriptionX,omitempty" validate:"regexp=^.{1\\,20}$"`
 	// The amount of the Creditcard signature
-	DEzsignsignatureCreditcardamount *string `json:"dEzsignsignatureCreditcardamount,omitempty" validate:"regexp=^[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	DEzsignsignatureCreditcardamount *string `json:"dEzsignsignatureCreditcardamount,omitempty" validate:"regexp=^[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	// The description of the Creditcard signature
-	SEzsignsignatureCreditcardamountdescription *string `json:"sEzsignsignatureCreditcardamountdescription,omitempty" validate:"regexp=^.{1,50}$"`
+	SEzsignsignatureCreditcardamountdescription *string `json:"sEzsignsignatureCreditcardamountdescription,omitempty" validate:"regexp=^.{1\\,50}$"`
 	// Whether we can enter a custom amount while signing an Ezsignsignature 'Creditcard' or not
 	BEzsignsignatureCreditcardcustomamount *bool `json:"bEzsignsignatureCreditcardcustomamount,omitempty"`
 	// The description of the Ezsignsigningreason in the language of the requester
-	SEzsignsigningreasonDescriptionX *string `json:"sEzsignsigningreasonDescriptionX,omitempty" validate:"regexp=^.{0,50}$"`
+	SEzsignsigningreasonDescriptionX *string `json:"sEzsignsigningreasonDescriptionX,omitempty" validate:"regexp=^.{0\\,50}$"`
 	// The page number in the Ezsigndocument
 	IEzsignpagePagenumber int32 `json:"iEzsignpagePagenumber"`
 	// The X coordinate (Horizontal) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 2 inches from the left border of the page, you would use \"200\" for the X coordinate.
@@ -94,7 +94,7 @@ type EzsignsignatureResponseCompound struct {
 	// The default value for the Ezsignsignature  You can use the codes below and they will be replaced at signature time.    | Code | Description | Example | | ------------------------- | ------------ | ------------ | | {sUserFirstname} | The first name of the contact | John | | {sUserLastname} | The last name of the contact | Doe | | {sUserJobtitle} | The job title | Sales Representative | | {sCompany} | Company name | eZmax Solutions Inc. | | {sEmailAddress} | The email address | email@example.com | | {sPhoneE164} | A phone number in E.164 Format | +15149901516 | | {sPhoneE164Cell} | A phone number in E.164 Format | +15149901516 |
 	SEzsignsignatureDefaultvalue *string `json:"sEzsignsignatureDefaultvalue,omitempty"`
 	// A regular expression to indicate what values are acceptable for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** and eEzsignsignatureTextvalidation is **Custom**
-	SEzsignsignatureRegexp *string `json:"sEzsignsignatureRegexp,omitempty" validate:"regexp=^\\\\^.*\\\\$$|^$"`
+	SEzsignsignatureRegexp *string `json:"sEzsignsignatureRegexp,omitempty" validate:"regexp=^\\^.*\\$$|^$"`
 	ObjContactName CustomContactNameResponse `json:"objContactName"`
 	ObjContactNameDelegation *CustomContactNameResponse `json:"objContactNameDelegation,omitempty"`
 	ObjSignature *SignatureResponseCompound `json:"objSignature,omitempty"`

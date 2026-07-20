@@ -31,10 +31,10 @@ type SupplyResponse struct {
 	// The unique ID of the Variableexpense
 	FkiVariableexpenseID int32 `json:"fkiVariableexpenseID"`
 	// The code of the Supply
-	SSupplyCode string `json:"sSupplyCode" validate:"regexp=^.{0,5}$"`
+	SSupplyCode string `json:"sSupplyCode" validate:"regexp=^.{0\\,5}$"`
 	ObjSupplyDescription MultilingualSupplyDescription `json:"objSupplyDescription"`
 	// The unit price of the Supply
-	DSupplyUnitprice string `json:"dSupplyUnitprice" validate:"regexp=^-{0,1}[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	DSupplyUnitprice string `json:"dSupplyUnitprice" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	// Whether the supply is active or not
 	BSupplyIsactive bool `json:"bSupplyIsactive"`
 	// Whether if the price is variable
@@ -44,7 +44,7 @@ type SupplyResponse struct {
 	// The Description for the Glaccountcontainer in the language of the requester
 	SGlaccountcontainerLongdescriptionX *string `json:"sGlaccountcontainerLongdescriptionX,omitempty"`
 	// The description of the Variableexpense in the language of the requester
-	SVariableexpenseDescriptionX *string `json:"sVariableexpenseDescriptionX,omitempty" validate:"regexp=^.{0,40}$"`
+	SVariableexpenseDescriptionX *string `json:"sVariableexpenseDescriptionX,omitempty" validate:"regexp=^.{0\\,40}$"`
 }
 
 type _SupplyResponse SupplyResponse

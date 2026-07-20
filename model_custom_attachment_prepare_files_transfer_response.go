@@ -23,7 +23,7 @@ var _ MappedNullable = &CustomAttachmentPrepareFilesTransferResponse{}
 // CustomAttachmentPrepareFilesTransferResponse A AttachmentPrepareFilesTransfer object
 type CustomAttachmentPrepareFilesTransferResponse struct {
 	// The name of the Attachment
-	SAttachmentName string `json:"sAttachmentName" validate:"regexp=^.{0,75}$"`
+	SAttachmentName string `json:"sAttachmentName" validate:"regexp=^.{0\\,75}$"`
 	// The MD5 of the Attachment
 	SAttachmentMD5 string `json:"sAttachmentMD5" validate:"regexp=^.{32}$"`
 	// Returns the action required for the attachment

@@ -25,7 +25,7 @@ type SupplyAutocompleteElementResponse struct {
 	// The unique ID of the Supply
 	PkiSupplyID int32 `json:"pkiSupplyID"`
 	// The description of the Supply in the language of the requester
-	SSupplyDescriptionX string `json:"sSupplyDescriptionX" validate:"regexp=^.{0,50}$"`
+	SSupplyDescriptionX string `json:"sSupplyDescriptionX" validate:"regexp=^.{0\\,50}$"`
 	// Whether the supply is active or not
 	BSupplyIsactive bool `json:"bSupplyIsactive"`
 }

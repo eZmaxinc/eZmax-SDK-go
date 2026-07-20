@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **DtAgentSenioritydate** | Pointer to **string** | The seniority date of the Agent | [optional] 
 **DtAgentSickleavestart** | Pointer to **string** | The sick leave start date of the Agent | [optional] 
 **DtAgentSickleaveend** | Pointer to **string** | The sick leave end date of the Agent | [optional] 
+**EAgentSchedule** | [**FieldEAgentSchedule**](FieldEAgentSchedule.md) |  | 
 **BAgentTranquillit** | **bool** | Whether if it&#39;s an tranquillit | 
 **BAgentResidentiallicense** | **bool** | Whether if it&#39;s an residentiallicense | 
 **BAgentCommerciallicense** | **bool** | Whether if it&#39;s an commerciallicense | 
@@ -52,7 +53,7 @@ Name | Type | Description | Notes
 
 ### NewAgentListElement
 
-`func NewAgentListElement(pkiAgentID int32, fkiAgenttypeID int32, sAgenttypeNameX string, fkiDepartmentID int32, sDepartmentNameX string, fkiLanguageID int32, sLanguageNameX string, sAgentCode string, iAgentPhotocopiercode int32, iAgentLongdistancecode int32, iAgentBannernumber int32, sAgentRealestateassociationlicense string, bAgentTranquillit bool, bAgentResidentiallicense bool, bAgentCommerciallicense bool, bAgentMortgagelicense bool, bAgentPaidbyofficetranquillit bool, bAgentIsactive bool, sContactFirstname string, sContactLastname string, ) *AgentListElement`
+`func NewAgentListElement(pkiAgentID int32, fkiAgenttypeID int32, sAgenttypeNameX string, fkiDepartmentID int32, sDepartmentNameX string, fkiLanguageID int32, sLanguageNameX string, sAgentCode string, iAgentPhotocopiercode int32, iAgentLongdistancecode int32, iAgentBannernumber int32, sAgentRealestateassociationlicense string, eAgentSchedule FieldEAgentSchedule, bAgentTranquillit bool, bAgentResidentiallicense bool, bAgentCommerciallicense bool, bAgentMortgagelicense bool, bAgentPaidbyofficetranquillit bool, bAgentIsactive bool, sContactFirstname string, sContactLastname string, ) *AgentListElement`
 
 NewAgentListElement instantiates a new AgentListElement object
 This constructor will assign default values to properties that have it defined,
@@ -556,6 +557,26 @@ SetDtAgentSickleaveend sets DtAgentSickleaveend field to given value.
 `func (o *AgentListElement) HasDtAgentSickleaveend() bool`
 
 HasDtAgentSickleaveend returns a boolean if a field has been set.
+
+### GetEAgentSchedule
+
+`func (o *AgentListElement) GetEAgentSchedule() FieldEAgentSchedule`
+
+GetEAgentSchedule returns the EAgentSchedule field if non-nil, zero value otherwise.
+
+### GetEAgentScheduleOk
+
+`func (o *AgentListElement) GetEAgentScheduleOk() (*FieldEAgentSchedule, bool)`
+
+GetEAgentScheduleOk returns a tuple with the EAgentSchedule field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEAgentSchedule
+
+`func (o *AgentListElement) SetEAgentSchedule(v FieldEAgentSchedule)`
+
+SetEAgentSchedule sets EAgentSchedule field to given value.
+
 
 ### GetBAgentTranquillit
 

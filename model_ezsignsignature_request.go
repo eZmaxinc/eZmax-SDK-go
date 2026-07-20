@@ -71,12 +71,12 @@ type EzsignsignatureRequest struct {
 	// Description of validation rule. Show by signatory.
 	SEzsignsignatureTextvalidationcustommessage *string `json:"sEzsignsignatureTextvalidationcustommessage,omitempty"`
 	// A regular expression to indicate what values are acceptable for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** and eEzsignsignatureTextvalidation is **Custom**
-	SEzsignsignatureRegexp *string `json:"sEzsignsignatureRegexp,omitempty" validate:"regexp=^\\\\^.*\\\\$$|^$"`
+	SEzsignsignatureRegexp *string `json:"sEzsignsignatureRegexp,omitempty" validate:"regexp=^\\^.*\\$$|^$"`
 	EEzsignsignatureDependencyrequirement *FieldEEzsignsignatureDependencyrequirement `json:"eEzsignsignatureDependencyrequirement,omitempty"`
 	// The description of the Creditcard signature
-	SEzsignsignatureCreditcardamountdescription *string `json:"sEzsignsignatureCreditcardamountdescription,omitempty" validate:"regexp=^.{1,50}$"`
+	SEzsignsignatureCreditcardamountdescription *string `json:"sEzsignsignatureCreditcardamountdescription,omitempty" validate:"regexp=^.{1\\,50}$"`
 	// The amount of the Creditcard signature
-	DEzsignsignatureCreditcardamount *string `json:"dEzsignsignatureCreditcardamount,omitempty" validate:"regexp=^[\\\\d]{1,9}?\\\\.[\\\\d]{2}$"`
+	DEzsignsignatureCreditcardamount *string `json:"dEzsignsignatureCreditcardamount,omitempty" validate:"regexp=^[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	// Whether we can enter a custom amount while signing an Ezsignsignature 'Creditcard' or not
 	BEzsignsignatureCreditcardcustomamount *bool `json:"bEzsignsignatureCreditcardcustomamount,omitempty"`
 }

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **EWebhookModule** | [**FieldEWebhookModule**](FieldEWebhookModule.md) |  | 
 **EWebhookEzsignevent** | Pointer to [**CustomEWebhookEzsignevent**](CustomEWebhookEzsignevent.md) |  | [optional] 
 **EWebhookManagementevent** | Pointer to [**FieldEWebhookManagementevent**](FieldEWebhookManagementevent.md) |  | [optional] 
+**EWebhookRealestateevent** | Pointer to [**FieldEWebhookRealestateevent**](FieldEWebhookRealestateevent.md) |  | [optional] 
 **FkiEzsignfolderID** | Pointer to **int32** | The unique ID of the Ezsignfolder | [optional] 
 **FkiEzsigndocumentID** | Pointer to **int32** | The unique ID of the Ezsigndocument | [optional] 
 **FkiEzsignsignerID** | Pointer to **int32** | The unique ID of the Ezsignsigner | [optional] 
@@ -101,6 +102,31 @@ SetEWebhookManagementevent sets EWebhookManagementevent field to given value.
 `func (o *WebhookSendWebhookV1Request) HasEWebhookManagementevent() bool`
 
 HasEWebhookManagementevent returns a boolean if a field has been set.
+
+### GetEWebhookRealestateevent
+
+`func (o *WebhookSendWebhookV1Request) GetEWebhookRealestateevent() FieldEWebhookRealestateevent`
+
+GetEWebhookRealestateevent returns the EWebhookRealestateevent field if non-nil, zero value otherwise.
+
+### GetEWebhookRealestateeventOk
+
+`func (o *WebhookSendWebhookV1Request) GetEWebhookRealestateeventOk() (*FieldEWebhookRealestateevent, bool)`
+
+GetEWebhookRealestateeventOk returns a tuple with the EWebhookRealestateevent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEWebhookRealestateevent
+
+`func (o *WebhookSendWebhookV1Request) SetEWebhookRealestateevent(v FieldEWebhookRealestateevent)`
+
+SetEWebhookRealestateevent sets EWebhookRealestateevent field to given value.
+
+### HasEWebhookRealestateevent
+
+`func (o *WebhookSendWebhookV1Request) HasEWebhookRealestateevent() bool`
+
+HasEWebhookRealestateevent returns a boolean if a field has been set.
 
 ### GetFkiEzsignfolderID
 

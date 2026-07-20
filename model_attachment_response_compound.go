@@ -118,7 +118,7 @@ type AttachmentResponseCompound struct {
 	FkiEzsigndocumentIDReference *int32 `json:"fkiEzsigndocumentIDReference,omitempty"`
 	EAttachmentDocumenttype FieldEAttachmentDocumenttype `json:"eAttachmentDocumenttype"`
 	// The name of the Attachment
-	SAttachmentName string `json:"sAttachmentName" validate:"regexp=^.{0,75}$"`
+	SAttachmentName string `json:"sAttachmentName" validate:"regexp=^.{0\\,75}$"`
 	EAttachmentPrivacy FieldEAttachmentPrivacy `json:"eAttachmentPrivacy"`
 	// The unique ID of the User
 	FkiUserIDSpecific *int32 `json:"fkiUserIDSpecific,omitempty"`
@@ -135,7 +135,7 @@ type AttachmentResponseCompound struct {
 	BAttachmentValid bool `json:"bAttachmentValid"`
 	EAttachmentVerified FieldEAttachmentVerified `json:"eAttachmentVerified"`
 	// The rejectioncomment of the Attachment
-	TAttachmentRejectioncomment *string `json:"tAttachmentRejectioncomment,omitempty" validate:"regexp=^.{0,65535}$"`
+	TAttachmentRejectioncomment *string `json:"tAttachmentRejectioncomment,omitempty" validate:"regexp=^.{0\\,65535}$"`
 	// The unique ID of the User
 	FkiUserIDOwner *int32 `json:"fkiUserIDOwner,omitempty"`
 	ObjAudit *CommonAudit `json:"objAudit,omitempty"`

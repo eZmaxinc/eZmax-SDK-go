@@ -25,7 +25,7 @@ type PaymentmethodAutocompleteElementResponse struct {
 	// The unique ID of the Paymentmethod
 	PkiPaymentmethodID int32 `json:"pkiPaymentmethodID"`
 	// The description of the Paymentmethod in the language of the requester
-	SPaymentmethodDescriptionX string `json:"sPaymentmethodDescriptionX" validate:"regexp=^.{0,50}$"`
+	SPaymentmethodDescriptionX string `json:"sPaymentmethodDescriptionX" validate:"regexp=^.{0\\,50}$"`
 	// Whether the Paymentmethod is active or not
 	BPaymentmethodIsactive bool `json:"bPaymentmethodIsactive"`
 }

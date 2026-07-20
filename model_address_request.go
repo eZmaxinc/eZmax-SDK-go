@@ -41,9 +41,9 @@ type AddressRequest struct {
 	// The Postal/Zip Code  The value must be entered without spaces
 	SAddressZip string `json:"sAddressZip"`
 	// The Longitude of the Address
-	FAddressLongitude *string `json:"fAddressLongitude,omitempty" validate:"regexp=^(-?)(180(\\\\.0{1,15})?|((1[0-7]\\\\d)|(\\\\d{1,2}))(\\\\.\\\\d{1,15})?)$"`
+	FAddressLongitude *string `json:"fAddressLongitude,omitempty" validate:"regexp=^(-?)(180(\\.0{1\\,15})?|((1[0-7]\\d)|(\\d{1\\,2}))(\\.\\d{1\\,15})?)$"`
 	// The Latitude of the Address
-	FAddressLatitude *string `json:"fAddressLatitude,omitempty" validate:"regexp=^(-?)(90(\\\\.0{1,15})?|([1-8]?\\\\d(\\\\.\\\\d{1,15})?))$"`
+	FAddressLatitude *string `json:"fAddressLatitude,omitempty" validate:"regexp=^(-?)(90(\\.0{1\\,15})?|([1-8]?\\d(\\.\\d{1\\,15})?))$"`
 }
 
 type _AddressRequest AddressRequest

@@ -71,9 +71,9 @@ type UserResponseCompound struct {
 	// The last name of the user
 	SUserLastname string `json:"sUserLastname"`
 	// The login name of the User.
-	SUserLoginname string "json:\"sUserLoginname\" validate:\"regexp=^(?:([\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$\""
+	SUserLoginname string `json:"sUserLoginname" validate:"regexp=^(?:([\\w.%+\\-!#$%&'*+/=?^\x60{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2\\,20})|([a-zA-Z0-9]){1\\,32})$"`
 	// The job title of the user
-	SUserJobtitle *string `json:"sUserJobtitle,omitempty" validate:"regexp=^.{0,50}$"`
+	SUserJobtitle *string `json:"sUserJobtitle,omitempty" validate:"regexp=^.{0\\,50}$"`
 	EUserEzsignaccess FieldEUserEzsignaccess `json:"eUserEzsignaccess"`
 	// The last logon date of the User
 	DtUserLastlogondate *string `json:"dtUserLastlogondate,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$"`

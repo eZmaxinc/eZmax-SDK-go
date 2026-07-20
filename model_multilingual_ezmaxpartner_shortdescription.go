@@ -21,9 +21,9 @@ var _ MappedNullable = &MultilingualEzmaxpartnerShortdescription{}
 // MultilingualEzmaxpartnerShortdescription Short description of the Ezmaxpartner
 type MultilingualEzmaxpartnerShortdescription struct {
 	// The short description of the Ezmaxpartner in french
-	SEzmaxpartnerShortdescription1 *string `json:"sEzmaxpartnerShortdescription1,omitempty" validate:"regexp=^.{0,256}$"`
+	SEzmaxpartnerShortdescription1 *string `json:"sEzmaxpartnerShortdescription1,omitempty" validate:"regexp=^.{0\\,256}$"`
 	// The short description of the Ezmaxpartner in english
-	SEzmaxpartnerShortdescription2 *string `json:"sEzmaxpartnerShortdescription2,omitempty" validate:"regexp=^.{0,256}$"`
+	SEzmaxpartnerShortdescription2 *string `json:"sEzmaxpartnerShortdescription2,omitempty" validate:"regexp=^.{0\\,256}$"`
 }
 
 // NewMultilingualEzmaxpartnerShortdescription instantiates a new MultilingualEzmaxpartnerShortdescription object

@@ -21,9 +21,9 @@ var _ MappedNullable = &MultilingualBillingentityinternalDescription{}
 // MultilingualBillingentityinternalDescription The description of the Billingentityinternal
 type MultilingualBillingentityinternalDescription struct {
 	// The description of the Billingentityinternal in French
-	SBillingentityinternalDescription1 *string `json:"sBillingentityinternalDescription1,omitempty" validate:"regexp=^.{0,70}$"`
+	SBillingentityinternalDescription1 *string `json:"sBillingentityinternalDescription1,omitempty" validate:"regexp=^.{0\\,70}$"`
 	// The description of the Billingentityinternal in English
-	SBillingentityinternalDescription2 *string `json:"sBillingentityinternalDescription2,omitempty" validate:"regexp=^.{0,70}$"`
+	SBillingentityinternalDescription2 *string `json:"sBillingentityinternalDescription2,omitempty" validate:"regexp=^.{0\\,70}$"`
 }
 
 // NewMultilingualBillingentityinternalDescription instantiates a new MultilingualBillingentityinternalDescription object

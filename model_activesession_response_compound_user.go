@@ -27,13 +27,13 @@ type ActivesessionResponseCompoundUser struct {
 	// The unique ID of the Timezone
 	FkiTimezoneID int32 `json:"fkiTimezoneID"`
 	// The url of the picture used as avatar
-	SAvatarUrl *string `json:"sAvatarUrl,omitempty" validate:"regexp=^(https|http):\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
+	SAvatarUrl *string `json:"sAvatarUrl,omitempty" validate:"regexp=^(https|http)://[^\\s/$.?#].[^\\s]*$"`
 	// The first name of the user
 	SUserFirstname string `json:"sUserFirstname"`
 	// The last name of the user
 	SUserLastname string `json:"sUserLastname"`
 	// The email address.
-	SEmailAddress *string "json:\"sEmailAddress,omitempty\" validate:\"regexp=^[\\\\w.%+\\\\-!#$%&'*+\\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,20}$\""
+	SEmailAddress *string `json:"sEmailAddress,omitempty" validate:"regexp=^[\\w.%+\\-!#$%&'*+/=?^\x60{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2\\,20}$"`
 	// Whether if I want to automatically add myself during the creation of Ezsignfolder of which I am the owner
 	BUserAddmeinezsignfolder bool `json:"bUserAddmeinezsignfolder"`
 	EUserEzsignsendreminderfrequency FieldEUserEzsignsendreminderfrequency `json:"eUserEzsignsendreminderfrequency"`

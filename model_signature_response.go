@@ -27,9 +27,9 @@ type SignatureResponse struct {
 	// The unique ID of the Font
 	FkiFontID *int32 `json:"fkiFontID,omitempty"`
 	// The URL of the SVG file for the Signature
-	SSignatureUrl *string `json:"sSignatureUrl,omitempty" validate:"regexp=^(https|http):\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
+	SSignatureUrl *string `json:"sSignatureUrl,omitempty" validate:"regexp=^(https|http)://[^\\s/$.?#].[^\\s]*$"`
 	// The URL of the SVG file for the Initials
-	SSignatureUrlinitials *string `json:"sSignatureUrlinitials,omitempty" validate:"regexp=^(https|http):\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
+	SSignatureUrlinitials *string `json:"sSignatureUrlinitials,omitempty" validate:"regexp=^(https|http)://[^\\s/$.?#].[^\\s]*$"`
 }
 
 type _SignatureResponse SignatureResponse

@@ -33,8 +33,9 @@ type WebhookRequestCompound struct {
 	EWebhookModule FieldEWebhookModule `json:"eWebhookModule"`
 	EWebhookEzsignevent *FieldEWebhookEzsignevent `json:"eWebhookEzsignevent,omitempty"`
 	EWebhookManagementevent *FieldEWebhookManagementevent `json:"eWebhookManagementevent,omitempty"`
+	EWebhookRealestateevent *FieldEWebhookRealestateevent `json:"eWebhookRealestateevent,omitempty"`
 	// The URL of the Webhook callback
-	SWebhookUrl string `json:"sWebhookUrl" validate:"regexp=^(https|http):\\/\\/[^\\\\s\\/$.?#].[^\\\\s]*$"`
+	SWebhookUrl string `json:"sWebhookUrl" validate:"regexp=^(https|http)://[^\\s/$.?#].[^\\s]*$"`
 	// The email that will receive the Webhook in case all attempts fail
 	SWebhookEmailfailed string `json:"sWebhookEmailfailed"`
 	// Whether the Webhook is active or not
@@ -279,6 +280,38 @@ func (o *WebhookRequestCompound) SetEWebhookManagementevent(v FieldEWebhookManag
 	o.EWebhookManagementevent = &v
 }
 
+// GetEWebhookRealestateevent returns the EWebhookRealestateevent field value if set, zero value otherwise.
+func (o *WebhookRequestCompound) GetEWebhookRealestateevent() FieldEWebhookRealestateevent {
+	if o == nil || IsNil(o.EWebhookRealestateevent) {
+		var ret FieldEWebhookRealestateevent
+		return ret
+	}
+	return *o.EWebhookRealestateevent
+}
+
+// GetEWebhookRealestateeventOk returns a tuple with the EWebhookRealestateevent field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WebhookRequestCompound) GetEWebhookRealestateeventOk() (*FieldEWebhookRealestateevent, bool) {
+	if o == nil || IsNil(o.EWebhookRealestateevent) {
+		return nil, false
+	}
+	return o.EWebhookRealestateevent, true
+}
+
+// HasEWebhookRealestateevent returns a boolean if a field has been set.
+func (o *WebhookRequestCompound) HasEWebhookRealestateevent() bool {
+	if o != nil && !IsNil(o.EWebhookRealestateevent) {
+		return true
+	}
+
+	return false
+}
+
+// SetEWebhookRealestateevent gets a reference to the given FieldEWebhookRealestateevent and assigns it to the EWebhookRealestateevent field.
+func (o *WebhookRequestCompound) SetEWebhookRealestateevent(v FieldEWebhookRealestateevent) {
+	o.EWebhookRealestateevent = &v
+}
+
 // GetSWebhookUrl returns the SWebhookUrl field value
 func (o *WebhookRequestCompound) GetSWebhookUrl() string {
 	if o == nil {
@@ -465,6 +498,9 @@ func (o WebhookRequestCompound) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.EWebhookManagementevent) {
 		toSerialize["eWebhookManagementevent"] = o.EWebhookManagementevent
+	}
+	if !IsNil(o.EWebhookRealestateevent) {
+		toSerialize["eWebhookRealestateevent"] = o.EWebhookRealestateevent
 	}
 	toSerialize["sWebhookUrl"] = o.SWebhookUrl
 	toSerialize["sWebhookEmailfailed"] = o.SWebhookEmailfailed
