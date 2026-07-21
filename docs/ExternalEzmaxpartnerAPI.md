@@ -4,13 +4,13 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ExternalpartnerSubscribeV1**](ExternalEzmaxpartnerAPI.md#ExternalpartnerSubscribeV1) | **Post** /1/external/ezmaxpartner/subscribe | Subscribe to an Ezmaxparnerproductstage
+[**EzmaxpartnerSubscribeV1**](ExternalEzmaxpartnerAPI.md#EzmaxpartnerSubscribeV1) | **Post** /1/external/ezmaxpartner/subscribe | Subscribe to an Ezmaxparnerproductstage
 
 
 
-## ExternalpartnerSubscribeV1
+## EzmaxpartnerSubscribeV1
 
-> DocumentationSubscribeV1Response ExternalpartnerSubscribeV1(ctx).DocumentationSubscribeV1Request(documentationSubscribeV1Request).Execute()
+> EzmaxpartnerSubscribeV1Response EzmaxpartnerSubscribeV1(ctx).EzmaxpartnerSubscribeV1Request(ezmaxpartnerSubscribeV1Request).Execute()
 
 Subscribe to an Ezmaxparnerproductstage
 
@@ -29,17 +29,17 @@ import (
 )
 
 func main() {
-	documentationSubscribeV1Request := *openapiclient.NewDocumentationSubscribeV1Request() // DocumentationSubscribeV1Request | 
+	ezmaxpartnerSubscribeV1Request := *openapiclient.NewEzmaxpartnerSubscribeV1Request() // EzmaxpartnerSubscribeV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ExternalEzmaxpartnerAPI.ExternalpartnerSubscribeV1(context.Background()).DocumentationSubscribeV1Request(documentationSubscribeV1Request).Execute()
+	resp, r, err := apiClient.ExternalEzmaxpartnerAPI.EzmaxpartnerSubscribeV1(context.Background()).EzmaxpartnerSubscribeV1Request(ezmaxpartnerSubscribeV1Request).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ExternalEzmaxpartnerAPI.ExternalpartnerSubscribeV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ExternalEzmaxpartnerAPI.EzmaxpartnerSubscribeV1``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ExternalpartnerSubscribeV1`: DocumentationSubscribeV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ExternalEzmaxpartnerAPI.ExternalpartnerSubscribeV1`: %v\n", resp)
+	// response from `EzmaxpartnerSubscribeV1`: EzmaxpartnerSubscribeV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ExternalEzmaxpartnerAPI.EzmaxpartnerSubscribeV1`: %v\n", resp)
 }
 ```
 
@@ -49,16 +49,16 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiExternalpartnerSubscribeV1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiEzmaxpartnerSubscribeV1Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentationSubscribeV1Request** | [**DocumentationSubscribeV1Request**](DocumentationSubscribeV1Request.md) |  | 
+ **ezmaxpartnerSubscribeV1Request** | [**EzmaxpartnerSubscribeV1Request**](EzmaxpartnerSubscribeV1Request.md) |  | 
 
 ### Return type
 
-[**DocumentationSubscribeV1Response**](DocumentationSubscribeV1Response.md)
+[**EzmaxpartnerSubscribeV1Response**](EzmaxpartnerSubscribeV1Response.md)
 
 ### Authorization
 

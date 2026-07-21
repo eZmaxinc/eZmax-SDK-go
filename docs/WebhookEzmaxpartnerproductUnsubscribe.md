@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **ObjWebhook** | [**CustomWebhookResponse**](CustomWebhookResponse.md) |  | 
 **AObjAttempt** | [**[]AttemptResponseCompound**](AttemptResponseCompound.md) | An array containing details of previous attempts that were made to deliver the message. The array is empty if it&#39;s the first attempt. | 
 **ObjEzmaxpartnerproduct** | [**CustomEzmaxpartnerproductSubscribe**](CustomEzmaxpartnerproductSubscribe.md) |  | 
+**SExternalID** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -86,6 +87,31 @@ and a boolean to check if the value has been set.
 
 SetObjEzmaxpartnerproduct sets ObjEzmaxpartnerproduct field to given value.
 
+
+### GetSExternalID
+
+`func (o *WebhookEzmaxpartnerproductUnsubscribe) GetSExternalID() string`
+
+GetSExternalID returns the SExternalID field if non-nil, zero value otherwise.
+
+### GetSExternalIDOk
+
+`func (o *WebhookEzmaxpartnerproductUnsubscribe) GetSExternalIDOk() (*string, bool)`
+
+GetSExternalIDOk returns a tuple with the SExternalID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSExternalID
+
+`func (o *WebhookEzmaxpartnerproductUnsubscribe) SetSExternalID(v string)`
+
+SetSExternalID sets SExternalID field to given value.
+
+### HasSExternalID
+
+`func (o *WebhookEzmaxpartnerproductUnsubscribe) HasSExternalID() bool`
+
+HasSExternalID returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

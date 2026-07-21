@@ -26,6 +26,7 @@ type WebhookEzmaxpartnerproductUnsubscribe struct {
 	// An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.
 	AObjAttempt []AttemptResponseCompound `json:"a_objAttempt"`
 	ObjEzmaxpartnerproduct CustomEzmaxpartnerproductSubscribe `json:"objEzmaxpartnerproduct"`
+	SExternalID *string `json:"sExternalID,omitempty"`
 }
 
 type _WebhookEzmaxpartnerproductUnsubscribe WebhookEzmaxpartnerproductUnsubscribe
@@ -122,6 +123,38 @@ func (o *WebhookEzmaxpartnerproductUnsubscribe) SetObjEzmaxpartnerproduct(v Cust
 	o.ObjEzmaxpartnerproduct = v
 }
 
+// GetSExternalID returns the SExternalID field value if set, zero value otherwise.
+func (o *WebhookEzmaxpartnerproductUnsubscribe) GetSExternalID() string {
+	if o == nil || IsNil(o.SExternalID) {
+		var ret string
+		return ret
+	}
+	return *o.SExternalID
+}
+
+// GetSExternalIDOk returns a tuple with the SExternalID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WebhookEzmaxpartnerproductUnsubscribe) GetSExternalIDOk() (*string, bool) {
+	if o == nil || IsNil(o.SExternalID) {
+		return nil, false
+	}
+	return o.SExternalID, true
+}
+
+// HasSExternalID returns a boolean if a field has been set.
+func (o *WebhookEzmaxpartnerproductUnsubscribe) HasSExternalID() bool {
+	if o != nil && !IsNil(o.SExternalID) {
+		return true
+	}
+
+	return false
+}
+
+// SetSExternalID gets a reference to the given string and assigns it to the SExternalID field.
+func (o *WebhookEzmaxpartnerproductUnsubscribe) SetSExternalID(v string) {
+	o.SExternalID = &v
+}
+
 func (o WebhookEzmaxpartnerproductUnsubscribe) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -135,6 +168,9 @@ func (o WebhookEzmaxpartnerproductUnsubscribe) ToMap() (map[string]interface{}, 
 	toSerialize["objWebhook"] = o.ObjWebhook
 	toSerialize["a_objAttempt"] = o.AObjAttempt
 	toSerialize["objEzmaxpartnerproduct"] = o.ObjEzmaxpartnerproduct
+	if !IsNil(o.SExternalID) {
+		toSerialize["sExternalID"] = o.SExternalID
+	}
 	return toSerialize, nil
 }
 

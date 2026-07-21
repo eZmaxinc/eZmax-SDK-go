@@ -17,37 +17,37 @@ import (
 	"fmt"
 )
 
-// checks if the DocumentationSubscribeV1Response type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &DocumentationSubscribeV1Response{}
+// checks if the EzmaxpartnerSubscribeV1Response type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &EzmaxpartnerSubscribeV1Response{}
 
-// DocumentationSubscribeV1Response Request for POST /1/module/ezmaxmaillinglist/subscribe
-type DocumentationSubscribeV1Response struct {
+// EzmaxpartnerSubscribeV1Response Request for POST /1/module/ezmaxmaillinglist/subscribe
+type EzmaxpartnerSubscribeV1Response struct {
 	// 
 	SExternalID string `json:"sExternalID"`
 }
 
-type _DocumentationSubscribeV1Response DocumentationSubscribeV1Response
+type _EzmaxpartnerSubscribeV1Response EzmaxpartnerSubscribeV1Response
 
-// NewDocumentationSubscribeV1Response instantiates a new DocumentationSubscribeV1Response object
+// NewEzmaxpartnerSubscribeV1Response instantiates a new EzmaxpartnerSubscribeV1Response object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDocumentationSubscribeV1Response(sExternalID string) *DocumentationSubscribeV1Response {
-	this := DocumentationSubscribeV1Response{}
+func NewEzmaxpartnerSubscribeV1Response(sExternalID string) *EzmaxpartnerSubscribeV1Response {
+	this := EzmaxpartnerSubscribeV1Response{}
 	this.SExternalID = sExternalID
 	return &this
 }
 
-// NewDocumentationSubscribeV1ResponseWithDefaults instantiates a new DocumentationSubscribeV1Response object
+// NewEzmaxpartnerSubscribeV1ResponseWithDefaults instantiates a new EzmaxpartnerSubscribeV1Response object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewDocumentationSubscribeV1ResponseWithDefaults() *DocumentationSubscribeV1Response {
-	this := DocumentationSubscribeV1Response{}
+func NewEzmaxpartnerSubscribeV1ResponseWithDefaults() *EzmaxpartnerSubscribeV1Response {
+	this := EzmaxpartnerSubscribeV1Response{}
 	return &this
 }
 
 // GetSExternalID returns the SExternalID field value
-func (o *DocumentationSubscribeV1Response) GetSExternalID() string {
+func (o *EzmaxpartnerSubscribeV1Response) GetSExternalID() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -58,7 +58,7 @@ func (o *DocumentationSubscribeV1Response) GetSExternalID() string {
 
 // GetSExternalIDOk returns a tuple with the SExternalID field value
 // and a boolean to check if the value has been set.
-func (o *DocumentationSubscribeV1Response) GetSExternalIDOk() (*string, bool) {
+func (o *EzmaxpartnerSubscribeV1Response) GetSExternalIDOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -66,11 +66,11 @@ func (o *DocumentationSubscribeV1Response) GetSExternalIDOk() (*string, bool) {
 }
 
 // SetSExternalID sets field value
-func (o *DocumentationSubscribeV1Response) SetSExternalID(v string) {
+func (o *EzmaxpartnerSubscribeV1Response) SetSExternalID(v string) {
 	o.SExternalID = v
 }
 
-func (o DocumentationSubscribeV1Response) MarshalJSON() ([]byte, error) {
+func (o EzmaxpartnerSubscribeV1Response) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -78,13 +78,13 @@ func (o DocumentationSubscribeV1Response) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o DocumentationSubscribeV1Response) ToMap() (map[string]interface{}, error) {
+func (o EzmaxpartnerSubscribeV1Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["sExternalID"] = o.SExternalID
 	return toSerialize, nil
 }
 
-func (o *DocumentationSubscribeV1Response) UnmarshalJSON(data []byte) (err error) {
+func (o *EzmaxpartnerSubscribeV1Response) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -106,53 +106,53 @@ func (o *DocumentationSubscribeV1Response) UnmarshalJSON(data []byte) (err error
 		}
 	}
 
-	varDocumentationSubscribeV1Response := _DocumentationSubscribeV1Response{}
+	varEzmaxpartnerSubscribeV1Response := _EzmaxpartnerSubscribeV1Response{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varDocumentationSubscribeV1Response)
+	err = decoder.Decode(&varEzmaxpartnerSubscribeV1Response)
 
 	if err != nil {
 		return err
 	}
 
-	*o = DocumentationSubscribeV1Response(varDocumentationSubscribeV1Response)
+	*o = EzmaxpartnerSubscribeV1Response(varEzmaxpartnerSubscribeV1Response)
 
 	return err
 }
 
-type NullableDocumentationSubscribeV1Response struct {
-	value *DocumentationSubscribeV1Response
+type NullableEzmaxpartnerSubscribeV1Response struct {
+	value *EzmaxpartnerSubscribeV1Response
 	isSet bool
 }
 
-func (v NullableDocumentationSubscribeV1Response) Get() *DocumentationSubscribeV1Response {
+func (v NullableEzmaxpartnerSubscribeV1Response) Get() *EzmaxpartnerSubscribeV1Response {
 	return v.value
 }
 
-func (v *NullableDocumentationSubscribeV1Response) Set(val *DocumentationSubscribeV1Response) {
+func (v *NullableEzmaxpartnerSubscribeV1Response) Set(val *EzmaxpartnerSubscribeV1Response) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableDocumentationSubscribeV1Response) IsSet() bool {
+func (v NullableEzmaxpartnerSubscribeV1Response) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableDocumentationSubscribeV1Response) Unset() {
+func (v *NullableEzmaxpartnerSubscribeV1Response) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableDocumentationSubscribeV1Response(val *DocumentationSubscribeV1Response) *NullableDocumentationSubscribeV1Response {
-	return &NullableDocumentationSubscribeV1Response{value: val, isSet: true}
+func NewNullableEzmaxpartnerSubscribeV1Response(val *EzmaxpartnerSubscribeV1Response) *NullableEzmaxpartnerSubscribeV1Response {
+	return &NullableEzmaxpartnerSubscribeV1Response{value: val, isSet: true}
 }
 
-func (v NullableDocumentationSubscribeV1Response) MarshalJSON() ([]byte, error) {
+func (v NullableEzmaxpartnerSubscribeV1Response) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableDocumentationSubscribeV1Response) UnmarshalJSON(src []byte) error {
+func (v *NullableEzmaxpartnerSubscribeV1Response) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

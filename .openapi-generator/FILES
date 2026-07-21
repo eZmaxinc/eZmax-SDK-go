@@ -562,8 +562,6 @@ docs/DiscussionmessageRequestCompound.md
 docs/DiscussionmessageRequestPatch.md
 docs/DiscussionmessageResponse.md
 docs/DiscussionmessageResponseCompound.md
-docs/DocumentationSubscribeV1Request.md
-docs/DocumentationSubscribeV1Response.md
 docs/DomainAutocompleteElementResponse.md
 docs/DomainCreateObjectV1Request.md
 docs/DomainCreateObjectV1Response.md
@@ -684,6 +682,8 @@ docs/EzmaxpartnerGetObjectV2Response.md
 docs/EzmaxpartnerGetObjectV2ResponseMPayload.md
 docs/EzmaxpartnerResponse.md
 docs/EzmaxpartnerResponseCompound.md
+docs/EzmaxpartnerSubscribeV1Request.md
+docs/EzmaxpartnerSubscribeV1Response.md
 docs/EzmaxproductAutocompleteElementResponse.md
 docs/EzmaxproductGetAutocompleteV2Response.md
 docs/EzmaxproductGetAutocompleteV2ResponseMPayload.md
@@ -2751,8 +2751,6 @@ model_discussionmessage_request_compound.go
 model_discussionmessage_request_patch.go
 model_discussionmessage_response.go
 model_discussionmessage_response_compound.go
-model_documentation_subscribe_v1_request.go
-model_documentation_subscribe_v1_response.go
 model_domain_autocomplete_element_response.go
 model_domain_create_object_v1_request.go
 model_domain_create_object_v1_response.go
@@ -2872,6 +2870,8 @@ model_ezmaxpartner_get_object_v2_response.go
 model_ezmaxpartner_get_object_v2_response_m_payload.go
 model_ezmaxpartner_response.go
 model_ezmaxpartner_response_compound.go
+model_ezmaxpartner_subscribe_v1_request.go
+model_ezmaxpartner_subscribe_v1_response.go
 model_ezmaxproduct_autocomplete_element_response.go
 model_ezmaxproduct_get_autocomplete_v2_response.go
 model_ezmaxproduct_get_autocomplete_v2_response_m_payload.go

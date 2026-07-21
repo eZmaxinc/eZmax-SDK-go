@@ -23,48 +23,48 @@ import (
 // ExternalEzmaxpartnerAPIService ExternalEzmaxpartnerAPI service
 type ExternalEzmaxpartnerAPIService service
 
-type ApiExternalpartnerSubscribeV1Request struct {
+type ApiEzmaxpartnerSubscribeV1Request struct {
 	ctx context.Context
 	ApiService *ExternalEzmaxpartnerAPIService
-	documentationSubscribeV1Request *DocumentationSubscribeV1Request
+	ezmaxpartnerSubscribeV1Request *EzmaxpartnerSubscribeV1Request
 }
 
 // 
-func (r ApiExternalpartnerSubscribeV1Request) DocumentationSubscribeV1Request(documentationSubscribeV1Request DocumentationSubscribeV1Request) ApiExternalpartnerSubscribeV1Request {
-	r.documentationSubscribeV1Request = &documentationSubscribeV1Request
+func (r ApiEzmaxpartnerSubscribeV1Request) EzmaxpartnerSubscribeV1Request(ezmaxpartnerSubscribeV1Request EzmaxpartnerSubscribeV1Request) ApiEzmaxpartnerSubscribeV1Request {
+	r.ezmaxpartnerSubscribeV1Request = &ezmaxpartnerSubscribeV1Request
 	return r
 }
 
-func (r ApiExternalpartnerSubscribeV1Request) Execute() (*DocumentationSubscribeV1Response, *http.Response, error) {
-	return r.ApiService.ExternalpartnerSubscribeV1Execute(r)
+func (r ApiEzmaxpartnerSubscribeV1Request) Execute() (*EzmaxpartnerSubscribeV1Response, *http.Response, error) {
+	return r.ApiService.EzmaxpartnerSubscribeV1Execute(r)
 }
 
 /*
-ExternalpartnerSubscribeV1 Subscribe to an Ezmaxparnerproductstage
+EzmaxpartnerSubscribeV1 Subscribe to an Ezmaxparnerproductstage
 
 Subscribe to an Ezmaxparnerproductstage
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiExternalpartnerSubscribeV1Request
+ @return ApiEzmaxpartnerSubscribeV1Request
 */
-func (a *ExternalEzmaxpartnerAPIService) ExternalpartnerSubscribeV1(ctx context.Context) ApiExternalpartnerSubscribeV1Request {
-	return ApiExternalpartnerSubscribeV1Request{
+func (a *ExternalEzmaxpartnerAPIService) EzmaxpartnerSubscribeV1(ctx context.Context) ApiEzmaxpartnerSubscribeV1Request {
+	return ApiEzmaxpartnerSubscribeV1Request{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return DocumentationSubscribeV1Response
-func (a *ExternalEzmaxpartnerAPIService) ExternalpartnerSubscribeV1Execute(r ApiExternalpartnerSubscribeV1Request) (*DocumentationSubscribeV1Response, *http.Response, error) {
+//  @return EzmaxpartnerSubscribeV1Response
+func (a *ExternalEzmaxpartnerAPIService) EzmaxpartnerSubscribeV1Execute(r ApiEzmaxpartnerSubscribeV1Request) (*EzmaxpartnerSubscribeV1Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DocumentationSubscribeV1Response
+		localVarReturnValue  *EzmaxpartnerSubscribeV1Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ExternalEzmaxpartnerAPIService.ExternalpartnerSubscribeV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ExternalEzmaxpartnerAPIService.EzmaxpartnerSubscribeV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -74,8 +74,8 @@ func (a *ExternalEzmaxpartnerAPIService) ExternalpartnerSubscribeV1Execute(r Api
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.documentationSubscribeV1Request == nil {
-		return localVarReturnValue, nil, reportError("documentationSubscribeV1Request is required and must be specified")
+	if r.ezmaxpartnerSubscribeV1Request == nil {
+		return localVarReturnValue, nil, reportError("ezmaxpartnerSubscribeV1Request is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -96,7 +96,7 @@ func (a *ExternalEzmaxpartnerAPIService) ExternalpartnerSubscribeV1Execute(r Api
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.documentationSubscribeV1Request
+	localVarPostBody = r.ezmaxpartnerSubscribeV1Request
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
