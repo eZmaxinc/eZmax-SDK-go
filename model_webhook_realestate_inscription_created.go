@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.3.2
+API version: 1.3.3
 Contact: support-api@ezmax.ca
 */
 
@@ -25,7 +25,7 @@ type WebhookRealestateInscriptionCreated struct {
 	ObjWebhook CustomWebhookResponse `json:"objWebhook"`
 	// An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.
 	AObjAttempt []AttemptResponseCompound `json:"a_objAttempt"`
-	ObjEzmaxpartnerproduct InscriptionResponse `json:"objEzmaxpartnerproduct"`
+	ObjInscription InscriptionResponse `json:"objInscription"`
 }
 
 type _WebhookRealestateInscriptionCreated WebhookRealestateInscriptionCreated
@@ -34,11 +34,11 @@ type _WebhookRealestateInscriptionCreated WebhookRealestateInscriptionCreated
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWebhookRealestateInscriptionCreated(objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound, objEzmaxpartnerproduct InscriptionResponse) *WebhookRealestateInscriptionCreated {
+func NewWebhookRealestateInscriptionCreated(objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound, objInscription InscriptionResponse) *WebhookRealestateInscriptionCreated {
 	this := WebhookRealestateInscriptionCreated{}
 	this.ObjWebhook = objWebhook
 	this.AObjAttempt = aObjAttempt
-	this.ObjEzmaxpartnerproduct = objEzmaxpartnerproduct
+	this.ObjInscription = objInscription
 	return &this
 }
 
@@ -98,28 +98,28 @@ func (o *WebhookRealestateInscriptionCreated) SetAObjAttempt(v []AttemptResponse
 	o.AObjAttempt = v
 }
 
-// GetObjEzmaxpartnerproduct returns the ObjEzmaxpartnerproduct field value
-func (o *WebhookRealestateInscriptionCreated) GetObjEzmaxpartnerproduct() InscriptionResponse {
+// GetObjInscription returns the ObjInscription field value
+func (o *WebhookRealestateInscriptionCreated) GetObjInscription() InscriptionResponse {
 	if o == nil {
 		var ret InscriptionResponse
 		return ret
 	}
 
-	return o.ObjEzmaxpartnerproduct
+	return o.ObjInscription
 }
 
-// GetObjEzmaxpartnerproductOk returns a tuple with the ObjEzmaxpartnerproduct field value
+// GetObjInscriptionOk returns a tuple with the ObjInscription field value
 // and a boolean to check if the value has been set.
-func (o *WebhookRealestateInscriptionCreated) GetObjEzmaxpartnerproductOk() (*InscriptionResponse, bool) {
+func (o *WebhookRealestateInscriptionCreated) GetObjInscriptionOk() (*InscriptionResponse, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.ObjEzmaxpartnerproduct, true
+	return &o.ObjInscription, true
 }
 
-// SetObjEzmaxpartnerproduct sets field value
-func (o *WebhookRealestateInscriptionCreated) SetObjEzmaxpartnerproduct(v InscriptionResponse) {
-	o.ObjEzmaxpartnerproduct = v
+// SetObjInscription sets field value
+func (o *WebhookRealestateInscriptionCreated) SetObjInscription(v InscriptionResponse) {
+	o.ObjInscription = v
 }
 
 func (o WebhookRealestateInscriptionCreated) MarshalJSON() ([]byte, error) {
@@ -134,7 +134,7 @@ func (o WebhookRealestateInscriptionCreated) ToMap() (map[string]interface{}, er
 	toSerialize := map[string]interface{}{}
 	toSerialize["objWebhook"] = o.ObjWebhook
 	toSerialize["a_objAttempt"] = o.AObjAttempt
-	toSerialize["objEzmaxpartnerproduct"] = o.ObjEzmaxpartnerproduct
+	toSerialize["objInscription"] = o.ObjInscription
 	return toSerialize, nil
 }
 
@@ -145,7 +145,7 @@ func (o *WebhookRealestateInscriptionCreated) UnmarshalJSON(data []byte) (err er
 	requiredProperties := []string{
 		"objWebhook",
 		"a_objAttempt",
-		"objEzmaxpartnerproduct",
+		"objInscription",
 	}
 
 	allProperties := make(map[string]interface{})

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AObjInscriptionnotauthenticatedcondition** | [**[]CustomInscriptionnotauthenticatedconditionRequest**](CustomInscriptionnotauthenticatedconditionRequest.md) |  | 
-**DtInscriptionnotauthenticatedTransactiondateReal** | Pointer to **string** | The transactiondatereal of the Inscriptionnotauthenticated | [optional] 
+**DtInscriptionnotauthenticatedTransactiondateReal** | Pointer to **string** | The real transactiondate of the Inscriptionnotauthenticated | [optional] 
 
 ## Methods
 

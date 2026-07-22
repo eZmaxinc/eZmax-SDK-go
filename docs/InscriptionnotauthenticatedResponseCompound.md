@@ -5,52 +5,50 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiInscriptionnotauthenticatedID** | **int32** | The unique ID of the Inscriptionnotauthenticated. | 
-**FkiCompanyID** | **int32** | The unique ID of the Company | 
-**SCompanyNameX** | Pointer to **string** | The Name of the Company in the language of the requester | [optional] 
 **FkiInscriptionID** | **int32** | The unique ID of the Inscription. | 
-**FkiDepartmentID** | **int32** | The unique ID of the Department | 
+**FkiDepartmentID** | Pointer to **int32** | The unique ID of the Department | [optional] 
 **SDepartmentNameX** | Pointer to **string** | The Name of the Department in the language of the requester | [optional] 
-**FkiFinancialinstitutionID** | **int32** | The unique ID of the Financialinstitution | 
+**FkiFinancialinstitutionID** | Pointer to **int32** | The unique ID of the Financialinstitution | [optional] 
 **SFinancialinstitutionNameX** | Pointer to **string** | The name of the Financialinstitution in the language of the requester | [optional] 
-**FkiBuyercontractID** | **int32** | The unique ID of the Buyercontract | 
+**FkiBuyercontractID** | Pointer to **int32** | The unique ID of the Buyercontract | [optional] 
 **SBuyercontractContract** | Pointer to **string** | The number of the Buyercontract | [optional] 
-**FkiMortgagesupplierID** | **int32** | The unique ID of the Mortgagesupplier | 
+**FkiMortgagesupplierID** | Pointer to **int32** | The unique ID of the Mortgagesupplier | [optional] 
 **SMortgagesupplierNameX** | Pointer to **string** | The name of the Mortagesupplier in the language of the requester | [optional] 
 **FkiTaxassignmentID** | **int32** | The unique ID of the Taxassignment.  Valid values:  |Value|Description| |-|-| |1|No tax| |2|GST| |3|HST (ON)| |4|HST (NB)| |5|HST (NS)| |6|HST (NL)| |7|HST (PE)| |8|GST + QST (QC)| |9|GST + QST (QC) Non-Recoverable| |10|GST + PST (BC)| |11|GST + PST (SK)| |12|GST + RST (MB)| |13|GST + PST (BC) Non-Recoverable| |14|GST + PST (SK) Non-Recoverable| |15|GST + RST (MB) Non-Recoverable| | 
 **STaxassignmentDescriptionX** | Pointer to **string** | The description of the Taxassignment  in the language of the requester | [optional] 
-**DtInscriptionnotauthenticatedTransactiondate** | **string** | The transactiondate of the Inscriptionnotauthenticated | 
-**DtInscriptionnotauthenticatedTransactiondateReal** | **string** | The transactiondatereal of the Inscriptionnotauthenticated | 
-**DtInscriptionnotauthenticatedDepositdate** | **string** | The depositdate of the Inscriptionnotauthenticated | 
+**DtInscriptionnotauthenticatedTransactiondate** | Pointer to **string** | The transaction date of the Inscriptionnotauthenticated | [optional] 
+**DtInscriptionnotauthenticatedTransactiondateReal** | Pointer to **string** | The real transactiondate of the Inscriptionnotauthenticated | [optional] 
+**DtInscriptionnotauthenticatedDepositdate** | Pointer to **string** | The deposit date of the Inscriptionnotauthenticated | [optional] 
 **EInscriptionnotauthenticatedType** | [**FieldEInscriptionnotauthenticatedType**](FieldEInscriptionnotauthenticatedType.md) |  | 
-**DInscriptionnotauthenticatedMortgageloan** | **string** | The mortgageloan of the Inscriptionnotauthenticated | 
+**DInscriptionnotauthenticatedMortgageloan** | **string** | The amount of the mortgage loan of the Inscriptionnotauthenticated | 
 **EtInscriptionnotauthenticatedMortgagetype** | [**FieldEtInscriptionnotauthenticatedMortgagetype**](FieldEtInscriptionnotauthenticatedMortgagetype.md) |  | 
-**DInscriptionnotauthenticatedTransactionprice** | **string** | The transactionprice of the Inscriptionnotauthenticated | 
+**DInscriptionnotauthenticatedTransactionprice** | **string** | The transaction price of the Inscriptionnotauthenticated | 
 **EInscriptionnotauthenticatedRemunerationtype** | [**FieldEInscriptionnotauthenticatedRemunerationtype**](FieldEInscriptionnotauthenticatedRemunerationtype.md) |  | 
-**DInscriptionnotauthenticatedRemuneration** | **string** | The remuneration of the Inscriptionnotauthenticated | 
-**DInscriptionnotauthenticatedRemunerationsubtotal** | **string** | The remunerationsubtotal of the Inscriptionnotauthenticated | 
-**DInscriptionnotauthenticatedRemunerationtotal** | **string** | The remunerationtotal of the Inscriptionnotauthenticated | 
-**DtInscriptionnotauthenticatedCancellationdate** | **string** | The cancellationdate of the Inscriptionnotauthenticated | 
-**DtInscriptionnotauthenticatedPossessiondate** | **string** | The possessiondate of the Inscriptionnotauthenticated | 
-**SInscriptionnotauthenticatedOffertopurchasenumber** | **string** | The Offer to purchase number | 
-**DtInscriptionnotauthenticatedNotaryscheduledate** | **string** | The notaryscheduledate of the Inscriptionnotauthenticated | 
-**DtInscriptionnotauthenticatedFinancingscheduledate** | **string** | The financingscheduledate of the Inscriptionnotauthenticated | 
+**DInscriptionnotauthenticatedRemuneration** | **string** | The amount for the remuneration of the Inscriptionnotauthenticated | 
+**DInscriptionnotauthenticatedRemunerationsubtotal** | **string** | The subtotal for the remuneration of the Inscriptionnotauthenticated | 
+**DInscriptionnotauthenticatedRemunerationtotal** | **string** | The total for the remuneration of the Inscriptionnotauthenticated | 
+**DtInscriptionnotauthenticatedCancellationdate** | Pointer to **string** | The cancellation date of the Inscriptionnotauthenticated | [optional] 
+**DtInscriptionnotauthenticatedPossessiondate** | Pointer to **string** | The possession date of the Inscriptionnotauthenticated | [optional] 
+**SInscriptionnotauthenticatedOffertopurchasenumber** | **string** | The offer to purchase number of the Inscriptionnotauthenticated | 
+**DtInscriptionnotauthenticatedNotaryscheduledate** | Pointer to **string** | The notary schedule date of the Inscriptionnotauthenticated | [optional] 
+**DtInscriptionnotauthenticatedFinancingscheduledate** | Pointer to **string** | The financing schedule date of the Inscriptionnotauthenticated | [optional] 
 **BInscriptionnotauthenticatedConditional** | **bool** | Whether the inscriptionnotauthenticated is conditional | 
-**BInscriptionnotauthenticatedMortgageisreferenced** | **bool** | Whether if it&#39;s an mortgageisreferenced | 
-**BInscriptionnotauthenticatedHomeowner** | **bool** | Whether if it&#39;s an homeowner | 
+**BInscriptionnotauthenticatedMortgageisreferenced** | **bool** | Whether if the mortgage is referenced | 
+**BInscriptionnotauthenticatedHomeowner** | **bool** | Whether if it&#39;s an home owner | 
 **TInscriptionnotauthenticatedConditions** | **string** | The conditions of the Inscriptionnotauthenticated | 
-**DtInscriptionnotauthenticatedConditiondeadlinedate** | **string** | The conditiondeadlinedate of the Inscriptionnotauthenticated | 
+**DtInscriptionnotauthenticatedConditiondeadlinedate** | Pointer to **string** | The condition deadline date of the Inscriptionnotauthenticated | [optional] 
 **IInscriptionnotauthenticatedOrder** | **int32** | The order of the Inscriptionnotauthenticated | 
 **BInscriptionnotauthenticatedIsactive** | **bool** | Whether the inscriptionnotauthenticated is active or not | 
 **EInscriptionnotauthenticatedResidenceType** | [**FieldEInscriptionnotauthenticatedResidenceType**](FieldEInscriptionnotauthenticatedResidenceType.md) |  | 
-**TInscriptionnotauthenticatedChecklistnote** | **string** | The checklistnote of the Inscriptionnotauthenticated | 
-**DInscriptionnotauthenticatedSelleronlyretribution** | **string** | The selleronlyretribution of the Inscriptionnotauthenticated | 
-**BInscriptionnotauthenticatedDraft** | **bool** | Whether the inscriptionnotauthenticated is a draft or not | 
+**TInscriptionnotauthenticatedChecklistnote** | **string** | The checklist note of the Inscriptionnotauthenticated | 
+**DInscriptionnotauthenticatedSelleronlyretribution** | **string** | The amount retribution for the seller only of the Inscriptionnotauthenticated | 
+**BInscriptionnotauthenticatedDraft** | **bool** | Whether the Inscriptionnotauthenticated is a draft or not | 
 
 ## Methods
 
 ### NewInscriptionnotauthenticatedResponseCompound
 
-`func NewInscriptionnotauthenticatedResponseCompound(pkiInscriptionnotauthenticatedID int32, fkiCompanyID int32, fkiInscriptionID int32, fkiDepartmentID int32, fkiFinancialinstitutionID int32, fkiBuyercontractID int32, fkiMortgagesupplierID int32, fkiTaxassignmentID int32, dtInscriptionnotauthenticatedTransactiondate string, dtInscriptionnotauthenticatedTransactiondateReal string, dtInscriptionnotauthenticatedDepositdate string, eInscriptionnotauthenticatedType FieldEInscriptionnotauthenticatedType, dInscriptionnotauthenticatedMortgageloan string, etInscriptionnotauthenticatedMortgagetype FieldEtInscriptionnotauthenticatedMortgagetype, dInscriptionnotauthenticatedTransactionprice string, eInscriptionnotauthenticatedRemunerationtype FieldEInscriptionnotauthenticatedRemunerationtype, dInscriptionnotauthenticatedRemuneration string, dInscriptionnotauthenticatedRemunerationsubtotal string, dInscriptionnotauthenticatedRemunerationtotal string, dtInscriptionnotauthenticatedCancellationdate string, dtInscriptionnotauthenticatedPossessiondate string, sInscriptionnotauthenticatedOffertopurchasenumber string, dtInscriptionnotauthenticatedNotaryscheduledate string, dtInscriptionnotauthenticatedFinancingscheduledate string, bInscriptionnotauthenticatedConditional bool, bInscriptionnotauthenticatedMortgageisreferenced bool, bInscriptionnotauthenticatedHomeowner bool, tInscriptionnotauthenticatedConditions string, dtInscriptionnotauthenticatedConditiondeadlinedate string, iInscriptionnotauthenticatedOrder int32, bInscriptionnotauthenticatedIsactive bool, eInscriptionnotauthenticatedResidenceType FieldEInscriptionnotauthenticatedResidenceType, tInscriptionnotauthenticatedChecklistnote string, dInscriptionnotauthenticatedSelleronlyretribution string, bInscriptionnotauthenticatedDraft bool, ) *InscriptionnotauthenticatedResponseCompound`
+`func NewInscriptionnotauthenticatedResponseCompound(pkiInscriptionnotauthenticatedID int32, fkiInscriptionID int32, fkiTaxassignmentID int32, eInscriptionnotauthenticatedType FieldEInscriptionnotauthenticatedType, dInscriptionnotauthenticatedMortgageloan string, etInscriptionnotauthenticatedMortgagetype FieldEtInscriptionnotauthenticatedMortgagetype, dInscriptionnotauthenticatedTransactionprice string, eInscriptionnotauthenticatedRemunerationtype FieldEInscriptionnotauthenticatedRemunerationtype, dInscriptionnotauthenticatedRemuneration string, dInscriptionnotauthenticatedRemunerationsubtotal string, dInscriptionnotauthenticatedRemunerationtotal string, sInscriptionnotauthenticatedOffertopurchasenumber string, bInscriptionnotauthenticatedConditional bool, bInscriptionnotauthenticatedMortgageisreferenced bool, bInscriptionnotauthenticatedHomeowner bool, tInscriptionnotauthenticatedConditions string, iInscriptionnotauthenticatedOrder int32, bInscriptionnotauthenticatedIsactive bool, eInscriptionnotauthenticatedResidenceType FieldEInscriptionnotauthenticatedResidenceType, tInscriptionnotauthenticatedChecklistnote string, dInscriptionnotauthenticatedSelleronlyretribution string, bInscriptionnotauthenticatedDraft bool, ) *InscriptionnotauthenticatedResponseCompound`
 
 NewInscriptionnotauthenticatedResponseCompound instantiates a new InscriptionnotauthenticatedResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -84,51 +82,6 @@ and a boolean to check if the value has been set.
 
 SetPkiInscriptionnotauthenticatedID sets PkiInscriptionnotauthenticatedID field to given value.
 
-
-### GetFkiCompanyID
-
-`func (o *InscriptionnotauthenticatedResponseCompound) GetFkiCompanyID() int32`
-
-GetFkiCompanyID returns the FkiCompanyID field if non-nil, zero value otherwise.
-
-### GetFkiCompanyIDOk
-
-`func (o *InscriptionnotauthenticatedResponseCompound) GetFkiCompanyIDOk() (*int32, bool)`
-
-GetFkiCompanyIDOk returns a tuple with the FkiCompanyID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFkiCompanyID
-
-`func (o *InscriptionnotauthenticatedResponseCompound) SetFkiCompanyID(v int32)`
-
-SetFkiCompanyID sets FkiCompanyID field to given value.
-
-
-### GetSCompanyNameX
-
-`func (o *InscriptionnotauthenticatedResponseCompound) GetSCompanyNameX() string`
-
-GetSCompanyNameX returns the SCompanyNameX field if non-nil, zero value otherwise.
-
-### GetSCompanyNameXOk
-
-`func (o *InscriptionnotauthenticatedResponseCompound) GetSCompanyNameXOk() (*string, bool)`
-
-GetSCompanyNameXOk returns a tuple with the SCompanyNameX field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSCompanyNameX
-
-`func (o *InscriptionnotauthenticatedResponseCompound) SetSCompanyNameX(v string)`
-
-SetSCompanyNameX sets SCompanyNameX field to given value.
-
-### HasSCompanyNameX
-
-`func (o *InscriptionnotauthenticatedResponseCompound) HasSCompanyNameX() bool`
-
-HasSCompanyNameX returns a boolean if a field has been set.
 
 ### GetFkiInscriptionID
 
@@ -169,6 +122,11 @@ and a boolean to check if the value has been set.
 
 SetFkiDepartmentID sets FkiDepartmentID field to given value.
 
+### HasFkiDepartmentID
+
+`func (o *InscriptionnotauthenticatedResponseCompound) HasFkiDepartmentID() bool`
+
+HasFkiDepartmentID returns a boolean if a field has been set.
 
 ### GetSDepartmentNameX
 
@@ -214,6 +172,11 @@ and a boolean to check if the value has been set.
 
 SetFkiFinancialinstitutionID sets FkiFinancialinstitutionID field to given value.
 
+### HasFkiFinancialinstitutionID
+
+`func (o *InscriptionnotauthenticatedResponseCompound) HasFkiFinancialinstitutionID() bool`
+
+HasFkiFinancialinstitutionID returns a boolean if a field has been set.
 
 ### GetSFinancialinstitutionNameX
 
@@ -259,6 +222,11 @@ and a boolean to check if the value has been set.
 
 SetFkiBuyercontractID sets FkiBuyercontractID field to given value.
 
+### HasFkiBuyercontractID
+
+`func (o *InscriptionnotauthenticatedResponseCompound) HasFkiBuyercontractID() bool`
+
+HasFkiBuyercontractID returns a boolean if a field has been set.
 
 ### GetSBuyercontractContract
 
@@ -304,6 +272,11 @@ and a boolean to check if the value has been set.
 
 SetFkiMortgagesupplierID sets FkiMortgagesupplierID field to given value.
 
+### HasFkiMortgagesupplierID
+
+`func (o *InscriptionnotauthenticatedResponseCompound) HasFkiMortgagesupplierID() bool`
+
+HasFkiMortgagesupplierID returns a boolean if a field has been set.
 
 ### GetSMortgagesupplierNameX
 
@@ -394,6 +367,11 @@ and a boolean to check if the value has been set.
 
 SetDtInscriptionnotauthenticatedTransactiondate sets DtInscriptionnotauthenticatedTransactiondate field to given value.
 
+### HasDtInscriptionnotauthenticatedTransactiondate
+
+`func (o *InscriptionnotauthenticatedResponseCompound) HasDtInscriptionnotauthenticatedTransactiondate() bool`
+
+HasDtInscriptionnotauthenticatedTransactiondate returns a boolean if a field has been set.
 
 ### GetDtInscriptionnotauthenticatedTransactiondateReal
 
@@ -414,6 +392,11 @@ and a boolean to check if the value has been set.
 
 SetDtInscriptionnotauthenticatedTransactiondateReal sets DtInscriptionnotauthenticatedTransactiondateReal field to given value.
 
+### HasDtInscriptionnotauthenticatedTransactiondateReal
+
+`func (o *InscriptionnotauthenticatedResponseCompound) HasDtInscriptionnotauthenticatedTransactiondateReal() bool`
+
+HasDtInscriptionnotauthenticatedTransactiondateReal returns a boolean if a field has been set.
 
 ### GetDtInscriptionnotauthenticatedDepositdate
 
@@ -434,6 +417,11 @@ and a boolean to check if the value has been set.
 
 SetDtInscriptionnotauthenticatedDepositdate sets DtInscriptionnotauthenticatedDepositdate field to given value.
 
+### HasDtInscriptionnotauthenticatedDepositdate
+
+`func (o *InscriptionnotauthenticatedResponseCompound) HasDtInscriptionnotauthenticatedDepositdate() bool`
+
+HasDtInscriptionnotauthenticatedDepositdate returns a boolean if a field has been set.
 
 ### GetEInscriptionnotauthenticatedType
 
@@ -614,6 +602,11 @@ and a boolean to check if the value has been set.
 
 SetDtInscriptionnotauthenticatedCancellationdate sets DtInscriptionnotauthenticatedCancellationdate field to given value.
 
+### HasDtInscriptionnotauthenticatedCancellationdate
+
+`func (o *InscriptionnotauthenticatedResponseCompound) HasDtInscriptionnotauthenticatedCancellationdate() bool`
+
+HasDtInscriptionnotauthenticatedCancellationdate returns a boolean if a field has been set.
 
 ### GetDtInscriptionnotauthenticatedPossessiondate
 
@@ -634,6 +627,11 @@ and a boolean to check if the value has been set.
 
 SetDtInscriptionnotauthenticatedPossessiondate sets DtInscriptionnotauthenticatedPossessiondate field to given value.
 
+### HasDtInscriptionnotauthenticatedPossessiondate
+
+`func (o *InscriptionnotauthenticatedResponseCompound) HasDtInscriptionnotauthenticatedPossessiondate() bool`
+
+HasDtInscriptionnotauthenticatedPossessiondate returns a boolean if a field has been set.
 
 ### GetSInscriptionnotauthenticatedOffertopurchasenumber
 
@@ -674,6 +672,11 @@ and a boolean to check if the value has been set.
 
 SetDtInscriptionnotauthenticatedNotaryscheduledate sets DtInscriptionnotauthenticatedNotaryscheduledate field to given value.
 
+### HasDtInscriptionnotauthenticatedNotaryscheduledate
+
+`func (o *InscriptionnotauthenticatedResponseCompound) HasDtInscriptionnotauthenticatedNotaryscheduledate() bool`
+
+HasDtInscriptionnotauthenticatedNotaryscheduledate returns a boolean if a field has been set.
 
 ### GetDtInscriptionnotauthenticatedFinancingscheduledate
 
@@ -694,6 +697,11 @@ and a boolean to check if the value has been set.
 
 SetDtInscriptionnotauthenticatedFinancingscheduledate sets DtInscriptionnotauthenticatedFinancingscheduledate field to given value.
 
+### HasDtInscriptionnotauthenticatedFinancingscheduledate
+
+`func (o *InscriptionnotauthenticatedResponseCompound) HasDtInscriptionnotauthenticatedFinancingscheduledate() bool`
+
+HasDtInscriptionnotauthenticatedFinancingscheduledate returns a boolean if a field has been set.
 
 ### GetBInscriptionnotauthenticatedConditional
 
@@ -794,6 +802,11 @@ and a boolean to check if the value has been set.
 
 SetDtInscriptionnotauthenticatedConditiondeadlinedate sets DtInscriptionnotauthenticatedConditiondeadlinedate field to given value.
 
+### HasDtInscriptionnotauthenticatedConditiondeadlinedate
+
+`func (o *InscriptionnotauthenticatedResponseCompound) HasDtInscriptionnotauthenticatedConditiondeadlinedate() bool`
+
+HasDtInscriptionnotauthenticatedConditiondeadlinedate returns a boolean if a field has been set.
 
 ### GetIInscriptionnotauthenticatedOrder
 

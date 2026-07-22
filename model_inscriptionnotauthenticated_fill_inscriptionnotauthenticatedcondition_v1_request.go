@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.3.2
+API version: 1.3.3
 Contact: support-api@ezmax.ca
 */
 
@@ -23,7 +23,7 @@ var _ MappedNullable = &InscriptionnotauthenticatedFillInscriptionnotauthenticat
 // InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Request Request for POST /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/fillInscriptionnotauthenticatedcondition
 type InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Request struct {
 	AObjInscriptionnotauthenticatedcondition []CustomInscriptionnotauthenticatedconditionRequest `json:"a_objInscriptionnotauthenticatedcondition"`
-	// The transactiondatereal of the Inscriptionnotauthenticated
+	// The real transactiondate of the Inscriptionnotauthenticated
 	DtInscriptionnotauthenticatedTransactiondateReal *string `json:"dtInscriptionnotauthenticatedTransactiondateReal,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 }
 

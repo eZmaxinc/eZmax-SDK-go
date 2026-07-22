@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.3.2
+API version: 1.3.3
 Contact: support-api@ezmax.ca
 */
 
@@ -24,12 +24,8 @@ var _ MappedNullable = &InscriptionResponse{}
 type InscriptionResponse struct {
 	// The unique ID of the Inscription.
 	PkiInscriptionID int32 `json:"pkiInscriptionID"`
-	// The unique ID of the Company
-	FkiCompanyID int32 `json:"fkiCompanyID"`
-	// The Name of the Company in the language of the requester
-	SCompanyNameX *string `json:"sCompanyNameX,omitempty"`
 	// The unique ID of the Department
-	FkiDepartmentID int32 `json:"fkiDepartmentID"`
+	FkiDepartmentID *int32 `json:"fkiDepartmentID,omitempty"`
 	// The Name of the Department in the language of the requester
 	SDepartmentNameX *string `json:"sDepartmentNameX,omitempty"`
 	// The unique ID of the Realestateboard
@@ -38,8 +34,7 @@ type InscriptionResponse struct {
 	SRealestateboardNameX *string `json:"sRealestateboardNameX,omitempty" validate:"regexp=^.{1\\,65}$"`
 	// The unique ID of the Address
 	FkiAddressID int32 `json:"fkiAddressID"`
-	// The complete address in a single line
-	SAddress *string `json:"sAddress,omitempty" validate:"regexp=^.{1\\,200}$"`
+	ObjAddress *AddressResponseCompound `json:"objAddress,omitempty"`
 	// The unique ID of the Inscriptionbuildingtype
 	FkiInscriptionbuildingtypeID int32 `json:"fkiInscriptionbuildingtypeID"`
 	// The name of the Inscriptionbuildingtype in the language of the requester
@@ -54,47 +49,47 @@ type InscriptionResponse struct {
 	SInscriptioncategoryNameX *string `json:"sInscriptioncategoryNameX,omitempty" validate:"regexp=^.{0\\,30}$"`
 	EInscriptionStep FieldEInscriptionStep `json:"eInscriptionStep"`
 	EInscriptionResidenceType FieldEInscriptionResidenceType `json:"eInscriptionResidenceType"`
-	// The civicend of the Inscription
+	// The address civic end of the Inscription
 	SInscriptionCivicend string `json:"sInscriptionCivicend" validate:"regexp=^.{0\\,6}$"`
 	// The mls of the Inscription
-	SInscriptionMLS string `json:"sInscriptionMLS" validate:"regexp=^.{0\\,20}$"`
+	SInscriptionMLS *string `json:"sInscriptionMLS,omitempty" validate:"regexp=^.{0\\,20}$"`
 	// The sale contract number
 	SInscriptionContract string `json:"sInscriptionContract" validate:"regexp=^.{0\\,20}$"`
-	// The sellerdeclaration of the Inscription
+	// The seller declaration number of the Inscription
 	IInscriptionSellerdeclaration int32 `json:"iInscriptionSellerdeclaration"`
 	EInscriptionType FieldEInscriptionType `json:"eInscriptionType"`
-	// The initialsaleprice of the Inscription
+	// The initial sale price of the Inscription
 	DInscriptionInitialsaleprice string `json:"dInscriptionInitialsaleprice" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	// The saleprice of the Inscription
 	DInscriptionSaleprice string `json:"dInscriptionSaleprice" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
-	// The rentprice of the Inscription
+	// The rent price of the Inscription
 	DInscriptionRentprice string `json:"dInscriptionRentprice" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	EInscriptionRemunerationtype FieldEInscriptionRemunerationtype `json:"eInscriptionRemunerationtype"`
 	EInscriptionRemunerationinscriptorsellertype FieldEInscriptionRemunerationinscriptorsellertype `json:"eInscriptionRemunerationinscriptorsellertype"`
 	EInscriptionRemunerationreferencetype FieldEInscriptionRemunerationreferencetype `json:"eInscriptionRemunerationreferencetype"`
 	EInscriptionRemunerationtotaltype FieldEInscriptionRemunerationtotaltype `json:"eInscriptionRemunerationtotaltype"`
-	// The remuneration of the Inscription
+	// The remuneration amount of the Inscription
 	DInscriptionRemuneration string `json:"dInscriptionRemuneration" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
-	// The remunerationinscriptorseller of the Inscription
+	// The remuneration amount for the inscriptor or seller of the Inscription
 	DInscriptionRemunerationinscriptorseller string `json:"dInscriptionRemunerationinscriptorseller" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
-	// The remunerationreference of the Inscription
+	// The remuneration amount for the reference of the Inscription
 	DInscriptionRemunerationreference string `json:"dInscriptionRemunerationreference" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
-	// The remunerationtotal of the Inscription
+	// The remuneration amount total of the Inscription
 	DInscriptionRemunerationtotal string `json:"dInscriptionRemunerationtotal" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
-	// The mortgagesold of the Inscription
+	// The balande for the mortgage of the Inscription
 	DInscriptionMortgagesold string `json:"dInscriptionMortgagesold" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	// The date of the Inscription
-	DtInscriptionDate string `json:"dtInscriptionDate" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
-	// The cancellationdate of the Inscription
-	DtInscriptionCancellationdate string `json:"dtInscriptionCancellationdate" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
-	// The initialexpirationdate of the Inscription
-	DtInscriptionInitialexpirationdate string `json:"dtInscriptionInitialexpirationdate" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
-	// The expirationdate of the Inscription
-	DtInscriptionExpirationdate string `json:"dtInscriptionExpirationdate" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
-	// The notarydate of the Inscription
-	DtInscriptionNotarydate string `json:"dtInscriptionNotarydate" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
-	// The notaryentereddate of the Inscription
-	DtInscriptionNotaryentereddate string `json:"dtInscriptionNotaryentereddate" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
+	DtInscriptionDate *string `json:"dtInscriptionDate,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
+	// The cancellation date of the Inscription
+	DtInscriptionCancellationdate *string `json:"dtInscriptionCancellationdate,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
+	// The initial expiration date of the Inscription
+	DtInscriptionInitialexpirationdate *string `json:"dtInscriptionInitialexpirationdate,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
+	// The expiration date of the Inscription
+	DtInscriptionExpirationdate *string `json:"dtInscriptionExpirationdate,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
+	// The notary date of the Inscription
+	DtInscriptionNotarydate *string `json:"dtInscriptionNotarydate,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
+	// The notary entered date of the Inscription
+	DtInscriptionNotaryentereddate *string `json:"dtInscriptionNotaryentereddate,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// The cadastre of the Inscription
 	TInscriptionCadastre string `json:"tInscriptionCadastre" validate:"regexp=^.{0\\,65535}$"`
 	// Whether if it's an reference
@@ -103,7 +98,7 @@ type InscriptionResponse struct {
 	BInscriptionInspection bool `json:"bInscriptionInspection"`
 	// Whether the inscription is active or not
 	BInscriptionIsactive bool `json:"bInscriptionIsactive"`
-	// The checklistnote of the Inscription
+	// The checklist note of the Inscription
 	TInscriptionChecklistnote string `json:"tInscriptionChecklistnote" validate:"regexp=^.{0\\,65535}$"`
 	// Whether if it's an new
 	BInscriptionNew bool `json:"bInscriptionNew"`
@@ -115,16 +110,17 @@ type InscriptionResponse struct {
 	BInscriptionLitigation bool `json:"bInscriptionLitigation"`
 	// Whether if it's an repossession
 	BInscriptionRepossession bool `json:"bInscriptionRepossession"`
-	// Whether if it's an issolicitation
+	// Whether if it's a solicitation
 	BInscriptionIssolicitation bool `json:"bInscriptionIssolicitation"`
-	// Whether if it's an salebyowner
+	// Whether if it's a sale by the owner
 	BInscriptionSalebyowner bool `json:"bInscriptionSalebyowner"`
-	// Whether if it's an soldwithoutlegalwarranty
+	// Whether if it's sold without the legal warranty
 	BInscriptionSoldwithoutlegalwarranty bool `json:"bInscriptionSoldwithoutlegalwarranty"`
-	// The constructionyear of the Inscription
+	// The construction year of the Inscription
 	IInscriptionConstructionyear int32 `json:"iInscriptionConstructionyear"`
-	// The unit of the Inscription
+	// The number of unit for the Inscription
 	IInscriptionUnit int32 `json:"iInscriptionUnit"`
+	ObjAudit *CommonAudit `json:"objAudit,omitempty"`
 }
 
 type _InscriptionResponse InscriptionResponse
@@ -133,11 +129,9 @@ type _InscriptionResponse InscriptionResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInscriptionResponse(pkiInscriptionID int32, fkiCompanyID int32, fkiDepartmentID int32, fkiRealestateboardID int32, fkiAddressID int32, fkiInscriptionbuildingtypeID int32, fkiInscriptiontypeID int32, fkiInscriptioncategoryID int32, eInscriptionStep FieldEInscriptionStep, eInscriptionResidenceType FieldEInscriptionResidenceType, sInscriptionCivicend string, sInscriptionMLS string, sInscriptionContract string, iInscriptionSellerdeclaration int32, eInscriptionType FieldEInscriptionType, dInscriptionInitialsaleprice string, dInscriptionSaleprice string, dInscriptionRentprice string, eInscriptionRemunerationtype FieldEInscriptionRemunerationtype, eInscriptionRemunerationinscriptorsellertype FieldEInscriptionRemunerationinscriptorsellertype, eInscriptionRemunerationreferencetype FieldEInscriptionRemunerationreferencetype, eInscriptionRemunerationtotaltype FieldEInscriptionRemunerationtotaltype, dInscriptionRemuneration string, dInscriptionRemunerationinscriptorseller string, dInscriptionRemunerationreference string, dInscriptionRemunerationtotal string, dInscriptionMortgagesold string, dtInscriptionDate string, dtInscriptionCancellationdate string, dtInscriptionInitialexpirationdate string, dtInscriptionExpirationdate string, dtInscriptionNotarydate string, dtInscriptionNotaryentereddate string, tInscriptionCadastre string, bInscriptionReference bool, bInscriptionInspection bool, bInscriptionIsactive bool, tInscriptionChecklistnote string, bInscriptionNew bool, bInscriptionHomeowner bool, bInscriptionArchived bool, bInscriptionLitigation bool, bInscriptionRepossession bool, bInscriptionIssolicitation bool, bInscriptionSalebyowner bool, bInscriptionSoldwithoutlegalwarranty bool, iInscriptionConstructionyear int32, iInscriptionUnit int32) *InscriptionResponse {
+func NewInscriptionResponse(pkiInscriptionID int32, fkiRealestateboardID int32, fkiAddressID int32, fkiInscriptionbuildingtypeID int32, fkiInscriptiontypeID int32, fkiInscriptioncategoryID int32, eInscriptionStep FieldEInscriptionStep, eInscriptionResidenceType FieldEInscriptionResidenceType, sInscriptionCivicend string, sInscriptionContract string, iInscriptionSellerdeclaration int32, eInscriptionType FieldEInscriptionType, dInscriptionInitialsaleprice string, dInscriptionSaleprice string, dInscriptionRentprice string, eInscriptionRemunerationtype FieldEInscriptionRemunerationtype, eInscriptionRemunerationinscriptorsellertype FieldEInscriptionRemunerationinscriptorsellertype, eInscriptionRemunerationreferencetype FieldEInscriptionRemunerationreferencetype, eInscriptionRemunerationtotaltype FieldEInscriptionRemunerationtotaltype, dInscriptionRemuneration string, dInscriptionRemunerationinscriptorseller string, dInscriptionRemunerationreference string, dInscriptionRemunerationtotal string, dInscriptionMortgagesold string, tInscriptionCadastre string, bInscriptionReference bool, bInscriptionInspection bool, bInscriptionIsactive bool, tInscriptionChecklistnote string, bInscriptionNew bool, bInscriptionHomeowner bool, bInscriptionArchived bool, bInscriptionLitigation bool, bInscriptionRepossession bool, bInscriptionIssolicitation bool, bInscriptionSalebyowner bool, bInscriptionSoldwithoutlegalwarranty bool, iInscriptionConstructionyear int32, iInscriptionUnit int32) *InscriptionResponse {
 	this := InscriptionResponse{}
 	this.PkiInscriptionID = pkiInscriptionID
-	this.FkiCompanyID = fkiCompanyID
-	this.FkiDepartmentID = fkiDepartmentID
 	this.FkiRealestateboardID = fkiRealestateboardID
 	this.FkiAddressID = fkiAddressID
 	this.FkiInscriptionbuildingtypeID = fkiInscriptionbuildingtypeID
@@ -146,7 +140,6 @@ func NewInscriptionResponse(pkiInscriptionID int32, fkiCompanyID int32, fkiDepar
 	this.EInscriptionStep = eInscriptionStep
 	this.EInscriptionResidenceType = eInscriptionResidenceType
 	this.SInscriptionCivicend = sInscriptionCivicend
-	this.SInscriptionMLS = sInscriptionMLS
 	this.SInscriptionContract = sInscriptionContract
 	this.IInscriptionSellerdeclaration = iInscriptionSellerdeclaration
 	this.EInscriptionType = eInscriptionType
@@ -162,12 +155,6 @@ func NewInscriptionResponse(pkiInscriptionID int32, fkiCompanyID int32, fkiDepar
 	this.DInscriptionRemunerationreference = dInscriptionRemunerationreference
 	this.DInscriptionRemunerationtotal = dInscriptionRemunerationtotal
 	this.DInscriptionMortgagesold = dInscriptionMortgagesold
-	this.DtInscriptionDate = dtInscriptionDate
-	this.DtInscriptionCancellationdate = dtInscriptionCancellationdate
-	this.DtInscriptionInitialexpirationdate = dtInscriptionInitialexpirationdate
-	this.DtInscriptionExpirationdate = dtInscriptionExpirationdate
-	this.DtInscriptionNotarydate = dtInscriptionNotarydate
-	this.DtInscriptionNotaryentereddate = dtInscriptionNotaryentereddate
 	this.TInscriptionCadastre = tInscriptionCadastre
 	this.BInscriptionReference = bInscriptionReference
 	this.BInscriptionInspection = bInscriptionInspection
@@ -218,84 +205,36 @@ func (o *InscriptionResponse) SetPkiInscriptionID(v int32) {
 	o.PkiInscriptionID = v
 }
 
-// GetFkiCompanyID returns the FkiCompanyID field value
-func (o *InscriptionResponse) GetFkiCompanyID() int32 {
-	if o == nil {
+// GetFkiDepartmentID returns the FkiDepartmentID field value if set, zero value otherwise.
+func (o *InscriptionResponse) GetFkiDepartmentID() int32 {
+	if o == nil || IsNil(o.FkiDepartmentID) {
 		var ret int32
 		return ret
 	}
-
-	return o.FkiCompanyID
+	return *o.FkiDepartmentID
 }
 
-// GetFkiCompanyIDOk returns a tuple with the FkiCompanyID field value
+// GetFkiDepartmentIDOk returns a tuple with the FkiDepartmentID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InscriptionResponse) GetFkiCompanyIDOk() (*int32, bool) {
-	if o == nil {
+func (o *InscriptionResponse) GetFkiDepartmentIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiDepartmentID) {
 		return nil, false
 	}
-	return &o.FkiCompanyID, true
+	return o.FkiDepartmentID, true
 }
 
-// SetFkiCompanyID sets field value
-func (o *InscriptionResponse) SetFkiCompanyID(v int32) {
-	o.FkiCompanyID = v
-}
-
-// GetSCompanyNameX returns the SCompanyNameX field value if set, zero value otherwise.
-func (o *InscriptionResponse) GetSCompanyNameX() string {
-	if o == nil || IsNil(o.SCompanyNameX) {
-		var ret string
-		return ret
-	}
-	return *o.SCompanyNameX
-}
-
-// GetSCompanyNameXOk returns a tuple with the SCompanyNameX field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *InscriptionResponse) GetSCompanyNameXOk() (*string, bool) {
-	if o == nil || IsNil(o.SCompanyNameX) {
-		return nil, false
-	}
-	return o.SCompanyNameX, true
-}
-
-// HasSCompanyNameX returns a boolean if a field has been set.
-func (o *InscriptionResponse) HasSCompanyNameX() bool {
-	if o != nil && !IsNil(o.SCompanyNameX) {
+// HasFkiDepartmentID returns a boolean if a field has been set.
+func (o *InscriptionResponse) HasFkiDepartmentID() bool {
+	if o != nil && !IsNil(o.FkiDepartmentID) {
 		return true
 	}
 
 	return false
 }
 
-// SetSCompanyNameX gets a reference to the given string and assigns it to the SCompanyNameX field.
-func (o *InscriptionResponse) SetSCompanyNameX(v string) {
-	o.SCompanyNameX = &v
-}
-
-// GetFkiDepartmentID returns the FkiDepartmentID field value
-func (o *InscriptionResponse) GetFkiDepartmentID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.FkiDepartmentID
-}
-
-// GetFkiDepartmentIDOk returns a tuple with the FkiDepartmentID field value
-// and a boolean to check if the value has been set.
-func (o *InscriptionResponse) GetFkiDepartmentIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FkiDepartmentID, true
-}
-
-// SetFkiDepartmentID sets field value
+// SetFkiDepartmentID gets a reference to the given int32 and assigns it to the FkiDepartmentID field.
 func (o *InscriptionResponse) SetFkiDepartmentID(v int32) {
-	o.FkiDepartmentID = v
+	o.FkiDepartmentID = &v
 }
 
 // GetSDepartmentNameX returns the SDepartmentNameX field value if set, zero value otherwise.
@@ -410,36 +349,36 @@ func (o *InscriptionResponse) SetFkiAddressID(v int32) {
 	o.FkiAddressID = v
 }
 
-// GetSAddress returns the SAddress field value if set, zero value otherwise.
-func (o *InscriptionResponse) GetSAddress() string {
-	if o == nil || IsNil(o.SAddress) {
-		var ret string
+// GetObjAddress returns the ObjAddress field value if set, zero value otherwise.
+func (o *InscriptionResponse) GetObjAddress() AddressResponseCompound {
+	if o == nil || IsNil(o.ObjAddress) {
+		var ret AddressResponseCompound
 		return ret
 	}
-	return *o.SAddress
+	return *o.ObjAddress
 }
 
-// GetSAddressOk returns a tuple with the SAddress field value if set, nil otherwise
+// GetObjAddressOk returns a tuple with the ObjAddress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InscriptionResponse) GetSAddressOk() (*string, bool) {
-	if o == nil || IsNil(o.SAddress) {
+func (o *InscriptionResponse) GetObjAddressOk() (*AddressResponseCompound, bool) {
+	if o == nil || IsNil(o.ObjAddress) {
 		return nil, false
 	}
-	return o.SAddress, true
+	return o.ObjAddress, true
 }
 
-// HasSAddress returns a boolean if a field has been set.
-func (o *InscriptionResponse) HasSAddress() bool {
-	if o != nil && !IsNil(o.SAddress) {
+// HasObjAddress returns a boolean if a field has been set.
+func (o *InscriptionResponse) HasObjAddress() bool {
+	if o != nil && !IsNil(o.ObjAddress) {
 		return true
 	}
 
 	return false
 }
 
-// SetSAddress gets a reference to the given string and assigns it to the SAddress field.
-func (o *InscriptionResponse) SetSAddress(v string) {
-	o.SAddress = &v
+// SetObjAddress gets a reference to the given AddressResponseCompound and assigns it to the ObjAddress field.
+func (o *InscriptionResponse) SetObjAddress(v AddressResponseCompound) {
+	o.ObjAddress = &v
 }
 
 // GetFkiInscriptionbuildingtypeID returns the FkiInscriptionbuildingtypeID field value
@@ -682,28 +621,36 @@ func (o *InscriptionResponse) SetSInscriptionCivicend(v string) {
 	o.SInscriptionCivicend = v
 }
 
-// GetSInscriptionMLS returns the SInscriptionMLS field value
+// GetSInscriptionMLS returns the SInscriptionMLS field value if set, zero value otherwise.
 func (o *InscriptionResponse) GetSInscriptionMLS() string {
-	if o == nil {
+	if o == nil || IsNil(o.SInscriptionMLS) {
 		var ret string
 		return ret
 	}
-
-	return o.SInscriptionMLS
+	return *o.SInscriptionMLS
 }
 
-// GetSInscriptionMLSOk returns a tuple with the SInscriptionMLS field value
+// GetSInscriptionMLSOk returns a tuple with the SInscriptionMLS field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InscriptionResponse) GetSInscriptionMLSOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SInscriptionMLS) {
 		return nil, false
 	}
-	return &o.SInscriptionMLS, true
+	return o.SInscriptionMLS, true
 }
 
-// SetSInscriptionMLS sets field value
+// HasSInscriptionMLS returns a boolean if a field has been set.
+func (o *InscriptionResponse) HasSInscriptionMLS() bool {
+	if o != nil && !IsNil(o.SInscriptionMLS) {
+		return true
+	}
+
+	return false
+}
+
+// SetSInscriptionMLS gets a reference to the given string and assigns it to the SInscriptionMLS field.
 func (o *InscriptionResponse) SetSInscriptionMLS(v string) {
-	o.SInscriptionMLS = v
+	o.SInscriptionMLS = &v
 }
 
 // GetSInscriptionContract returns the SInscriptionContract field value
@@ -1066,148 +1013,196 @@ func (o *InscriptionResponse) SetDInscriptionMortgagesold(v string) {
 	o.DInscriptionMortgagesold = v
 }
 
-// GetDtInscriptionDate returns the DtInscriptionDate field value
+// GetDtInscriptionDate returns the DtInscriptionDate field value if set, zero value otherwise.
 func (o *InscriptionResponse) GetDtInscriptionDate() string {
-	if o == nil {
+	if o == nil || IsNil(o.DtInscriptionDate) {
 		var ret string
 		return ret
 	}
-
-	return o.DtInscriptionDate
+	return *o.DtInscriptionDate
 }
 
-// GetDtInscriptionDateOk returns a tuple with the DtInscriptionDate field value
+// GetDtInscriptionDateOk returns a tuple with the DtInscriptionDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InscriptionResponse) GetDtInscriptionDateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DtInscriptionDate) {
 		return nil, false
 	}
-	return &o.DtInscriptionDate, true
+	return o.DtInscriptionDate, true
 }
 
-// SetDtInscriptionDate sets field value
+// HasDtInscriptionDate returns a boolean if a field has been set.
+func (o *InscriptionResponse) HasDtInscriptionDate() bool {
+	if o != nil && !IsNil(o.DtInscriptionDate) {
+		return true
+	}
+
+	return false
+}
+
+// SetDtInscriptionDate gets a reference to the given string and assigns it to the DtInscriptionDate field.
 func (o *InscriptionResponse) SetDtInscriptionDate(v string) {
-	o.DtInscriptionDate = v
+	o.DtInscriptionDate = &v
 }
 
-// GetDtInscriptionCancellationdate returns the DtInscriptionCancellationdate field value
+// GetDtInscriptionCancellationdate returns the DtInscriptionCancellationdate field value if set, zero value otherwise.
 func (o *InscriptionResponse) GetDtInscriptionCancellationdate() string {
-	if o == nil {
+	if o == nil || IsNil(o.DtInscriptionCancellationdate) {
 		var ret string
 		return ret
 	}
-
-	return o.DtInscriptionCancellationdate
+	return *o.DtInscriptionCancellationdate
 }
 
-// GetDtInscriptionCancellationdateOk returns a tuple with the DtInscriptionCancellationdate field value
+// GetDtInscriptionCancellationdateOk returns a tuple with the DtInscriptionCancellationdate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InscriptionResponse) GetDtInscriptionCancellationdateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DtInscriptionCancellationdate) {
 		return nil, false
 	}
-	return &o.DtInscriptionCancellationdate, true
+	return o.DtInscriptionCancellationdate, true
 }
 
-// SetDtInscriptionCancellationdate sets field value
+// HasDtInscriptionCancellationdate returns a boolean if a field has been set.
+func (o *InscriptionResponse) HasDtInscriptionCancellationdate() bool {
+	if o != nil && !IsNil(o.DtInscriptionCancellationdate) {
+		return true
+	}
+
+	return false
+}
+
+// SetDtInscriptionCancellationdate gets a reference to the given string and assigns it to the DtInscriptionCancellationdate field.
 func (o *InscriptionResponse) SetDtInscriptionCancellationdate(v string) {
-	o.DtInscriptionCancellationdate = v
+	o.DtInscriptionCancellationdate = &v
 }
 
-// GetDtInscriptionInitialexpirationdate returns the DtInscriptionInitialexpirationdate field value
+// GetDtInscriptionInitialexpirationdate returns the DtInscriptionInitialexpirationdate field value if set, zero value otherwise.
 func (o *InscriptionResponse) GetDtInscriptionInitialexpirationdate() string {
-	if o == nil {
+	if o == nil || IsNil(o.DtInscriptionInitialexpirationdate) {
 		var ret string
 		return ret
 	}
-
-	return o.DtInscriptionInitialexpirationdate
+	return *o.DtInscriptionInitialexpirationdate
 }
 
-// GetDtInscriptionInitialexpirationdateOk returns a tuple with the DtInscriptionInitialexpirationdate field value
+// GetDtInscriptionInitialexpirationdateOk returns a tuple with the DtInscriptionInitialexpirationdate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InscriptionResponse) GetDtInscriptionInitialexpirationdateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DtInscriptionInitialexpirationdate) {
 		return nil, false
 	}
-	return &o.DtInscriptionInitialexpirationdate, true
+	return o.DtInscriptionInitialexpirationdate, true
 }
 
-// SetDtInscriptionInitialexpirationdate sets field value
+// HasDtInscriptionInitialexpirationdate returns a boolean if a field has been set.
+func (o *InscriptionResponse) HasDtInscriptionInitialexpirationdate() bool {
+	if o != nil && !IsNil(o.DtInscriptionInitialexpirationdate) {
+		return true
+	}
+
+	return false
+}
+
+// SetDtInscriptionInitialexpirationdate gets a reference to the given string and assigns it to the DtInscriptionInitialexpirationdate field.
 func (o *InscriptionResponse) SetDtInscriptionInitialexpirationdate(v string) {
-	o.DtInscriptionInitialexpirationdate = v
+	o.DtInscriptionInitialexpirationdate = &v
 }
 
-// GetDtInscriptionExpirationdate returns the DtInscriptionExpirationdate field value
+// GetDtInscriptionExpirationdate returns the DtInscriptionExpirationdate field value if set, zero value otherwise.
 func (o *InscriptionResponse) GetDtInscriptionExpirationdate() string {
-	if o == nil {
+	if o == nil || IsNil(o.DtInscriptionExpirationdate) {
 		var ret string
 		return ret
 	}
-
-	return o.DtInscriptionExpirationdate
+	return *o.DtInscriptionExpirationdate
 }
 
-// GetDtInscriptionExpirationdateOk returns a tuple with the DtInscriptionExpirationdate field value
+// GetDtInscriptionExpirationdateOk returns a tuple with the DtInscriptionExpirationdate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InscriptionResponse) GetDtInscriptionExpirationdateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DtInscriptionExpirationdate) {
 		return nil, false
 	}
-	return &o.DtInscriptionExpirationdate, true
+	return o.DtInscriptionExpirationdate, true
 }
 
-// SetDtInscriptionExpirationdate sets field value
+// HasDtInscriptionExpirationdate returns a boolean if a field has been set.
+func (o *InscriptionResponse) HasDtInscriptionExpirationdate() bool {
+	if o != nil && !IsNil(o.DtInscriptionExpirationdate) {
+		return true
+	}
+
+	return false
+}
+
+// SetDtInscriptionExpirationdate gets a reference to the given string and assigns it to the DtInscriptionExpirationdate field.
 func (o *InscriptionResponse) SetDtInscriptionExpirationdate(v string) {
-	o.DtInscriptionExpirationdate = v
+	o.DtInscriptionExpirationdate = &v
 }
 
-// GetDtInscriptionNotarydate returns the DtInscriptionNotarydate field value
+// GetDtInscriptionNotarydate returns the DtInscriptionNotarydate field value if set, zero value otherwise.
 func (o *InscriptionResponse) GetDtInscriptionNotarydate() string {
-	if o == nil {
+	if o == nil || IsNil(o.DtInscriptionNotarydate) {
 		var ret string
 		return ret
 	}
-
-	return o.DtInscriptionNotarydate
+	return *o.DtInscriptionNotarydate
 }
 
-// GetDtInscriptionNotarydateOk returns a tuple with the DtInscriptionNotarydate field value
+// GetDtInscriptionNotarydateOk returns a tuple with the DtInscriptionNotarydate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InscriptionResponse) GetDtInscriptionNotarydateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DtInscriptionNotarydate) {
 		return nil, false
 	}
-	return &o.DtInscriptionNotarydate, true
+	return o.DtInscriptionNotarydate, true
 }
 
-// SetDtInscriptionNotarydate sets field value
+// HasDtInscriptionNotarydate returns a boolean if a field has been set.
+func (o *InscriptionResponse) HasDtInscriptionNotarydate() bool {
+	if o != nil && !IsNil(o.DtInscriptionNotarydate) {
+		return true
+	}
+
+	return false
+}
+
+// SetDtInscriptionNotarydate gets a reference to the given string and assigns it to the DtInscriptionNotarydate field.
 func (o *InscriptionResponse) SetDtInscriptionNotarydate(v string) {
-	o.DtInscriptionNotarydate = v
+	o.DtInscriptionNotarydate = &v
 }
 
-// GetDtInscriptionNotaryentereddate returns the DtInscriptionNotaryentereddate field value
+// GetDtInscriptionNotaryentereddate returns the DtInscriptionNotaryentereddate field value if set, zero value otherwise.
 func (o *InscriptionResponse) GetDtInscriptionNotaryentereddate() string {
-	if o == nil {
+	if o == nil || IsNil(o.DtInscriptionNotaryentereddate) {
 		var ret string
 		return ret
 	}
-
-	return o.DtInscriptionNotaryentereddate
+	return *o.DtInscriptionNotaryentereddate
 }
 
-// GetDtInscriptionNotaryentereddateOk returns a tuple with the DtInscriptionNotaryentereddate field value
+// GetDtInscriptionNotaryentereddateOk returns a tuple with the DtInscriptionNotaryentereddate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InscriptionResponse) GetDtInscriptionNotaryentereddateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DtInscriptionNotaryentereddate) {
 		return nil, false
 	}
-	return &o.DtInscriptionNotaryentereddate, true
+	return o.DtInscriptionNotaryentereddate, true
 }
 
-// SetDtInscriptionNotaryentereddate sets field value
+// HasDtInscriptionNotaryentereddate returns a boolean if a field has been set.
+func (o *InscriptionResponse) HasDtInscriptionNotaryentereddate() bool {
+	if o != nil && !IsNil(o.DtInscriptionNotaryentereddate) {
+		return true
+	}
+
+	return false
+}
+
+// SetDtInscriptionNotaryentereddate gets a reference to the given string and assigns it to the DtInscriptionNotaryentereddate field.
 func (o *InscriptionResponse) SetDtInscriptionNotaryentereddate(v string) {
-	o.DtInscriptionNotaryentereddate = v
+	o.DtInscriptionNotaryentereddate = &v
 }
 
 // GetTInscriptionCadastre returns the TInscriptionCadastre field value
@@ -1570,6 +1565,38 @@ func (o *InscriptionResponse) SetIInscriptionUnit(v int32) {
 	o.IInscriptionUnit = v
 }
 
+// GetObjAudit returns the ObjAudit field value if set, zero value otherwise.
+func (o *InscriptionResponse) GetObjAudit() CommonAudit {
+	if o == nil || IsNil(o.ObjAudit) {
+		var ret CommonAudit
+		return ret
+	}
+	return *o.ObjAudit
+}
+
+// GetObjAuditOk returns a tuple with the ObjAudit field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *InscriptionResponse) GetObjAuditOk() (*CommonAudit, bool) {
+	if o == nil || IsNil(o.ObjAudit) {
+		return nil, false
+	}
+	return o.ObjAudit, true
+}
+
+// HasObjAudit returns a boolean if a field has been set.
+func (o *InscriptionResponse) HasObjAudit() bool {
+	if o != nil && !IsNil(o.ObjAudit) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjAudit gets a reference to the given CommonAudit and assigns it to the ObjAudit field.
+func (o *InscriptionResponse) SetObjAudit(v CommonAudit) {
+	o.ObjAudit = &v
+}
+
 func (o InscriptionResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1581,11 +1608,9 @@ func (o InscriptionResponse) MarshalJSON() ([]byte, error) {
 func (o InscriptionResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiInscriptionID"] = o.PkiInscriptionID
-	toSerialize["fkiCompanyID"] = o.FkiCompanyID
-	if !IsNil(o.SCompanyNameX) {
-		toSerialize["sCompanyNameX"] = o.SCompanyNameX
+	if !IsNil(o.FkiDepartmentID) {
+		toSerialize["fkiDepartmentID"] = o.FkiDepartmentID
 	}
-	toSerialize["fkiDepartmentID"] = o.FkiDepartmentID
 	if !IsNil(o.SDepartmentNameX) {
 		toSerialize["sDepartmentNameX"] = o.SDepartmentNameX
 	}
@@ -1594,8 +1619,8 @@ func (o InscriptionResponse) ToMap() (map[string]interface{}, error) {
 		toSerialize["sRealestateboardNameX"] = o.SRealestateboardNameX
 	}
 	toSerialize["fkiAddressID"] = o.FkiAddressID
-	if !IsNil(o.SAddress) {
-		toSerialize["sAddress"] = o.SAddress
+	if !IsNil(o.ObjAddress) {
+		toSerialize["objAddress"] = o.ObjAddress
 	}
 	toSerialize["fkiInscriptionbuildingtypeID"] = o.FkiInscriptionbuildingtypeID
 	if !IsNil(o.SInscriptionbuildingtypeNameX) {
@@ -1612,7 +1637,9 @@ func (o InscriptionResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["eInscriptionStep"] = o.EInscriptionStep
 	toSerialize["eInscriptionResidenceType"] = o.EInscriptionResidenceType
 	toSerialize["sInscriptionCivicend"] = o.SInscriptionCivicend
-	toSerialize["sInscriptionMLS"] = o.SInscriptionMLS
+	if !IsNil(o.SInscriptionMLS) {
+		toSerialize["sInscriptionMLS"] = o.SInscriptionMLS
+	}
 	toSerialize["sInscriptionContract"] = o.SInscriptionContract
 	toSerialize["iInscriptionSellerdeclaration"] = o.IInscriptionSellerdeclaration
 	toSerialize["eInscriptionType"] = o.EInscriptionType
@@ -1628,12 +1655,24 @@ func (o InscriptionResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["dInscriptionRemunerationreference"] = o.DInscriptionRemunerationreference
 	toSerialize["dInscriptionRemunerationtotal"] = o.DInscriptionRemunerationtotal
 	toSerialize["dInscriptionMortgagesold"] = o.DInscriptionMortgagesold
-	toSerialize["dtInscriptionDate"] = o.DtInscriptionDate
-	toSerialize["dtInscriptionCancellationdate"] = o.DtInscriptionCancellationdate
-	toSerialize["dtInscriptionInitialexpirationdate"] = o.DtInscriptionInitialexpirationdate
-	toSerialize["dtInscriptionExpirationdate"] = o.DtInscriptionExpirationdate
-	toSerialize["dtInscriptionNotarydate"] = o.DtInscriptionNotarydate
-	toSerialize["dtInscriptionNotaryentereddate"] = o.DtInscriptionNotaryentereddate
+	if !IsNil(o.DtInscriptionDate) {
+		toSerialize["dtInscriptionDate"] = o.DtInscriptionDate
+	}
+	if !IsNil(o.DtInscriptionCancellationdate) {
+		toSerialize["dtInscriptionCancellationdate"] = o.DtInscriptionCancellationdate
+	}
+	if !IsNil(o.DtInscriptionInitialexpirationdate) {
+		toSerialize["dtInscriptionInitialexpirationdate"] = o.DtInscriptionInitialexpirationdate
+	}
+	if !IsNil(o.DtInscriptionExpirationdate) {
+		toSerialize["dtInscriptionExpirationdate"] = o.DtInscriptionExpirationdate
+	}
+	if !IsNil(o.DtInscriptionNotarydate) {
+		toSerialize["dtInscriptionNotarydate"] = o.DtInscriptionNotarydate
+	}
+	if !IsNil(o.DtInscriptionNotaryentereddate) {
+		toSerialize["dtInscriptionNotaryentereddate"] = o.DtInscriptionNotaryentereddate
+	}
 	toSerialize["tInscriptionCadastre"] = o.TInscriptionCadastre
 	toSerialize["bInscriptionReference"] = o.BInscriptionReference
 	toSerialize["bInscriptionInspection"] = o.BInscriptionInspection
@@ -1649,6 +1688,9 @@ func (o InscriptionResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["bInscriptionSoldwithoutlegalwarranty"] = o.BInscriptionSoldwithoutlegalwarranty
 	toSerialize["iInscriptionConstructionyear"] = o.IInscriptionConstructionyear
 	toSerialize["iInscriptionUnit"] = o.IInscriptionUnit
+	if !IsNil(o.ObjAudit) {
+		toSerialize["objAudit"] = o.ObjAudit
+	}
 	return toSerialize, nil
 }
 
@@ -1658,8 +1700,6 @@ func (o *InscriptionResponse) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"pkiInscriptionID",
-		"fkiCompanyID",
-		"fkiDepartmentID",
 		"fkiRealestateboardID",
 		"fkiAddressID",
 		"fkiInscriptionbuildingtypeID",
@@ -1668,7 +1708,6 @@ func (o *InscriptionResponse) UnmarshalJSON(data []byte) (err error) {
 		"eInscriptionStep",
 		"eInscriptionResidenceType",
 		"sInscriptionCivicend",
-		"sInscriptionMLS",
 		"sInscriptionContract",
 		"iInscriptionSellerdeclaration",
 		"eInscriptionType",
@@ -1684,12 +1723,6 @@ func (o *InscriptionResponse) UnmarshalJSON(data []byte) (err error) {
 		"dInscriptionRemunerationreference",
 		"dInscriptionRemunerationtotal",
 		"dInscriptionMortgagesold",
-		"dtInscriptionDate",
-		"dtInscriptionCancellationdate",
-		"dtInscriptionInitialexpirationdate",
-		"dtInscriptionExpirationdate",
-		"dtInscriptionNotarydate",
-		"dtInscriptionNotaryentereddate",
 		"tInscriptionCadastre",
 		"bInscriptionReference",
 		"bInscriptionInspection",

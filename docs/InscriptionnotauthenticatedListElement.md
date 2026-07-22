@@ -16,23 +16,23 @@ Name | Type | Description | Notes
 **SBuyercontractContract** | Pointer to **string** | The number of the Buyercontract | [optional] 
 **EInscriptionStep** | [**FieldEInscriptionStep**](FieldEInscriptionStep.md) |  | 
 **EInscriptionType** | [**FieldEInscriptionType**](FieldEInscriptionType.md) |  | 
-**SInscriptionCivicend** | **string** | The civicend of the Inscription | 
+**SInscriptionCivicend** | **string** | The address civic end of the Inscription | 
 **SInscriptionMLS** | Pointer to **string** | The mls of the Inscription | [optional] 
 **SInscriptionContract** | Pointer to **string** | The sale contract number | [optional] 
 **DInscriptionSaleprice** | **string** | The saleprice of the Inscription | 
-**DInscriptionRentprice** | **string** | The rentprice of the Inscription | 
+**DInscriptionRentprice** | **string** | The rent price of the Inscription | 
 **DtInscriptionDate** | Pointer to **string** | The date of the Inscription | [optional] 
-**DtInscriptionExpirationdate** | Pointer to **string** | The expirationdate of the Inscription | [optional] 
-**DtInscriptionNotarydate** | Pointer to **string** | The notarydate of the Inscription | [optional] 
+**DtInscriptionExpirationdate** | Pointer to **string** | The expiration date of the Inscription | [optional] 
+**DtInscriptionNotarydate** | Pointer to **string** | The notary date of the Inscription | [optional] 
 **BInscriptionInspection** | Pointer to **bool** | Whether the inscription can be acces by an inspector | [optional] 
 **BInscriptionIsactive** | **bool** | Whether the inscription is active or not | 
 **BInscriptionArchived** | **bool** | Whether the inscription is archived or not | 
-**DtInscriptionnotauthenticatedNotaryscheduledate** | Pointer to **string** | The notaryscheduledate of the Inscriptionnotauthenticated | [optional] 
-**DtInscriptionnotauthenticatedTransactiondate** | Pointer to **string** | The transactiondate of the Inscriptionnotauthenticated | [optional] 
-**DtInscriptionnotauthenticatedTransactiondateReal** | Pointer to **string** | The transactiondatereal of the Inscriptionnotauthenticated | [optional] 
+**DtInscriptionnotauthenticatedNotaryscheduledate** | Pointer to **string** | The notary schedule date of the Inscriptionnotauthenticated | [optional] 
+**DtInscriptionnotauthenticatedTransactiondate** | Pointer to **string** | The transaction date of the Inscriptionnotauthenticated | [optional] 
+**DtInscriptionnotauthenticatedTransactiondateReal** | Pointer to **string** | The real transactiondate of the Inscriptionnotauthenticated | [optional] 
 **BInscriptionnotauthenticatedConditional** | Pointer to **bool** | Whether the inscriptionnotauthenticated is conditional | [optional] 
 **BInscriptionnotauthenticatedIsactive** | Pointer to **bool** | Whether the inscriptionnotauthenticated is active or not | [optional] 
-**BInscriptionnotauthenticatedDraft** | Pointer to **bool** | Whether the inscriptionnotauthenticated is a draft or not | [optional] 
+**BInscriptionnotauthenticatedDraft** | Pointer to **bool** | Whether the Inscriptionnotauthenticated is a draft or not | [optional] 
 **SAddressCivic** | Pointer to **string** | The Civic number. | [optional] 
 **SAddressStreet** | Pointer to **string** | The Street Name | [optional] 
 **SAddressSuite** | Pointer to **string** | The Suite or appartment number | [optional] 
@@ -42,8 +42,8 @@ Name | Type | Description | Notes
 **SProvinceNameX** | Pointer to **string** | The name of the Province in the language of the requester | [optional] 
 **FkiCountryID** | Pointer to **int32** | The unique ID of the Country.  Here are some common values (Complete list must be retrieved from API):  |Value|Description| |-|-| |1|Canada| |2|United-States| | [optional] 
 **SCountryNameX** | Pointer to **string** | The name of the Country in the language of the requester | [optional] 
-**SInscriptionnotauthenticatedOffertopurchasenumber** | **string** | The Offer to purchase number | 
-**IInscriptionUnit** | **int32** | The unit of the Inscription | 
+**SInscriptionnotauthenticatedOffertopurchasenumber** | **string** | The offer to purchase number of the Inscriptionnotauthenticated | 
+**IInscriptionUnit** | **int32** | The number of unit for the Inscription | 
 
 ## Methods
 

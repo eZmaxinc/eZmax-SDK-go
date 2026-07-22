@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.3.2
+API version: 1.3.3
 Contact: support-api@ezmax.ca
 */
 
@@ -42,7 +42,7 @@ var (
 	queryDescape    = strings.NewReplacer( "%5B", "[", "%5D", "]" )
 )
 
-// APIClient manages communication with the eZmax API Definition (Full) API v1.3.2
+// APIClient manages communication with the eZmax API Definition (Full) API v1.3.3
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration

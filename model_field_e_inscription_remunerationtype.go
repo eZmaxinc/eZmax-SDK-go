@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.3.2
+API version: 1.3.3
 Contact: support-api@ezmax.ca
 */
 
@@ -16,7 +16,7 @@ import (
 	"fmt"
 )
 
-// FieldEInscriptionRemunerationtype The remunerationtype of the Inscription
+// FieldEInscriptionRemunerationtype The type of remuneration of the Inscription
 type FieldEInscriptionRemunerationtype string
 
 // List of Field-eInscriptionRemunerationtype

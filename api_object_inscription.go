@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.3.2
+API version: 1.3.3
 Contact: support-api@ezmax.ca
 */
 
@@ -685,7 +685,7 @@ func (r ApiInscriptionGetInscriptionnotauthenticatedsV1Request) Execute() (*Insc
 }
 
 /*
-InscriptionGetInscriptionnotauthenticatedsV1 Retrieve Inscriptionnotauthenticated list
+InscriptionGetInscriptionnotauthenticatedsV1 Retrieve Inscription's Inscriptionnotauthenticated
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiInscriptionID

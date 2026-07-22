@@ -5,14 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiInscriptionID** | **int32** | The unique ID of the Inscription. | 
-**FkiCompanyID** | **int32** | The unique ID of the Company | 
-**SCompanyNameX** | Pointer to **string** | The Name of the Company in the language of the requester | [optional] 
-**FkiDepartmentID** | **int32** | The unique ID of the Department | 
+**FkiDepartmentID** | Pointer to **int32** | The unique ID of the Department | [optional] 
 **SDepartmentNameX** | Pointer to **string** | The Name of the Department in the language of the requester | [optional] 
 **FkiRealestateboardID** | **int32** | The unique ID of the Realestateboard | 
 **SRealestateboardNameX** | Pointer to **string** | The name of the Realestateboard | [optional] 
 **FkiAddressID** | **int32** | The unique ID of the Address | 
-**SAddress** | Pointer to **string** | The complete address in a single line | [optional] 
+**ObjAddress** | Pointer to [**AddressResponseCompound**](AddressResponseCompound.md) |  | [optional] 
 **FkiInscriptionbuildingtypeID** | **int32** | The unique ID of the Inscriptionbuildingtype | 
 **SInscriptionbuildingtypeNameX** | Pointer to **string** | The name of the Inscriptionbuildingtype in the language of the requester | [optional] 
 **FkiInscriptiontypeID** | **int32** | The unique ID of the Inscriptiontype | 
@@ -21,50 +19,51 @@ Name | Type | Description | Notes
 **SInscriptioncategoryNameX** | Pointer to **string** | The name of the Inscriptioncategory in the language of the requester | [optional] 
 **EInscriptionStep** | [**FieldEInscriptionStep**](FieldEInscriptionStep.md) |  | 
 **EInscriptionResidenceType** | [**FieldEInscriptionResidenceType**](FieldEInscriptionResidenceType.md) |  | 
-**SInscriptionCivicend** | **string** | The civicend of the Inscription | 
-**SInscriptionMLS** | **string** | The mls of the Inscription | 
+**SInscriptionCivicend** | **string** | The address civic end of the Inscription | 
+**SInscriptionMLS** | Pointer to **string** | The mls of the Inscription | [optional] 
 **SInscriptionContract** | **string** | The sale contract number | 
-**IInscriptionSellerdeclaration** | **int32** | The sellerdeclaration of the Inscription | 
+**IInscriptionSellerdeclaration** | **int32** | The seller declaration number of the Inscription | 
 **EInscriptionType** | [**FieldEInscriptionType**](FieldEInscriptionType.md) |  | 
-**DInscriptionInitialsaleprice** | **string** | The initialsaleprice of the Inscription | 
+**DInscriptionInitialsaleprice** | **string** | The initial sale price of the Inscription | 
 **DInscriptionSaleprice** | **string** | The saleprice of the Inscription | 
-**DInscriptionRentprice** | **string** | The rentprice of the Inscription | 
+**DInscriptionRentprice** | **string** | The rent price of the Inscription | 
 **EInscriptionRemunerationtype** | [**FieldEInscriptionRemunerationtype**](FieldEInscriptionRemunerationtype.md) |  | 
 **EInscriptionRemunerationinscriptorsellertype** | [**FieldEInscriptionRemunerationinscriptorsellertype**](FieldEInscriptionRemunerationinscriptorsellertype.md) |  | 
 **EInscriptionRemunerationreferencetype** | [**FieldEInscriptionRemunerationreferencetype**](FieldEInscriptionRemunerationreferencetype.md) |  | 
 **EInscriptionRemunerationtotaltype** | [**FieldEInscriptionRemunerationtotaltype**](FieldEInscriptionRemunerationtotaltype.md) |  | 
-**DInscriptionRemuneration** | **string** | The remuneration of the Inscription | 
-**DInscriptionRemunerationinscriptorseller** | **string** | The remunerationinscriptorseller of the Inscription | 
-**DInscriptionRemunerationreference** | **string** | The remunerationreference of the Inscription | 
-**DInscriptionRemunerationtotal** | **string** | The remunerationtotal of the Inscription | 
-**DInscriptionMortgagesold** | **string** | The mortgagesold of the Inscription | 
-**DtInscriptionDate** | **string** | The date of the Inscription | 
-**DtInscriptionCancellationdate** | **string** | The cancellationdate of the Inscription | 
-**DtInscriptionInitialexpirationdate** | **string** | The initialexpirationdate of the Inscription | 
-**DtInscriptionExpirationdate** | **string** | The expirationdate of the Inscription | 
-**DtInscriptionNotarydate** | **string** | The notarydate of the Inscription | 
-**DtInscriptionNotaryentereddate** | **string** | The notaryentereddate of the Inscription | 
+**DInscriptionRemuneration** | **string** | The remuneration amount of the Inscription | 
+**DInscriptionRemunerationinscriptorseller** | **string** | The remuneration amount for the inscriptor or seller of the Inscription | 
+**DInscriptionRemunerationreference** | **string** | The remuneration amount for the reference of the Inscription | 
+**DInscriptionRemunerationtotal** | **string** | The remuneration amount total of the Inscription | 
+**DInscriptionMortgagesold** | **string** | The balande for the mortgage of the Inscription | 
+**DtInscriptionDate** | Pointer to **string** | The date of the Inscription | [optional] 
+**DtInscriptionCancellationdate** | Pointer to **string** | The cancellation date of the Inscription | [optional] 
+**DtInscriptionInitialexpirationdate** | Pointer to **string** | The initial expiration date of the Inscription | [optional] 
+**DtInscriptionExpirationdate** | Pointer to **string** | The expiration date of the Inscription | [optional] 
+**DtInscriptionNotarydate** | Pointer to **string** | The notary date of the Inscription | [optional] 
+**DtInscriptionNotaryentereddate** | Pointer to **string** | The notary entered date of the Inscription | [optional] 
 **TInscriptionCadastre** | **string** | The cadastre of the Inscription | 
 **BInscriptionReference** | **bool** | Whether if it&#39;s an reference | 
 **BInscriptionInspection** | **bool** | Whether the inscription can be acces by an inspector | 
 **BInscriptionIsactive** | **bool** | Whether the inscription is active or not | 
-**TInscriptionChecklistnote** | **string** | The checklistnote of the Inscription | 
+**TInscriptionChecklistnote** | **string** | The checklist note of the Inscription | 
 **BInscriptionNew** | **bool** | Whether if it&#39;s an new | 
 **BInscriptionHomeowner** | **bool** | Whether if it&#39;s an homeowner | 
 **BInscriptionArchived** | **bool** | Whether the inscription is archived or not | 
 **BInscriptionLitigation** | **bool** | Whether if it&#39;s an litigation | 
 **BInscriptionRepossession** | **bool** | Whether if it&#39;s an repossession | 
-**BInscriptionIssolicitation** | **bool** | Whether if it&#39;s an issolicitation | 
-**BInscriptionSalebyowner** | **bool** | Whether if it&#39;s an salebyowner | 
-**BInscriptionSoldwithoutlegalwarranty** | **bool** | Whether if it&#39;s an soldwithoutlegalwarranty | 
-**IInscriptionConstructionyear** | **int32** | The constructionyear of the Inscription | 
-**IInscriptionUnit** | **int32** | The unit of the Inscription | 
+**BInscriptionIssolicitation** | **bool** | Whether if it&#39;s a solicitation | 
+**BInscriptionSalebyowner** | **bool** | Whether if it&#39;s a sale by the owner | 
+**BInscriptionSoldwithoutlegalwarranty** | **bool** | Whether if it&#39;s sold without the legal warranty | 
+**IInscriptionConstructionyear** | **int32** | The construction year of the Inscription | 
+**IInscriptionUnit** | **int32** | The number of unit for the Inscription | 
+**ObjAudit** | Pointer to [**CommonAudit**](CommonAudit.md) |  | [optional] 
 
 ## Methods
 
 ### NewInscriptionResponseCompound
 
-`func NewInscriptionResponseCompound(pkiInscriptionID int32, fkiCompanyID int32, fkiDepartmentID int32, fkiRealestateboardID int32, fkiAddressID int32, fkiInscriptionbuildingtypeID int32, fkiInscriptiontypeID int32, fkiInscriptioncategoryID int32, eInscriptionStep FieldEInscriptionStep, eInscriptionResidenceType FieldEInscriptionResidenceType, sInscriptionCivicend string, sInscriptionMLS string, sInscriptionContract string, iInscriptionSellerdeclaration int32, eInscriptionType FieldEInscriptionType, dInscriptionInitialsaleprice string, dInscriptionSaleprice string, dInscriptionRentprice string, eInscriptionRemunerationtype FieldEInscriptionRemunerationtype, eInscriptionRemunerationinscriptorsellertype FieldEInscriptionRemunerationinscriptorsellertype, eInscriptionRemunerationreferencetype FieldEInscriptionRemunerationreferencetype, eInscriptionRemunerationtotaltype FieldEInscriptionRemunerationtotaltype, dInscriptionRemuneration string, dInscriptionRemunerationinscriptorseller string, dInscriptionRemunerationreference string, dInscriptionRemunerationtotal string, dInscriptionMortgagesold string, dtInscriptionDate string, dtInscriptionCancellationdate string, dtInscriptionInitialexpirationdate string, dtInscriptionExpirationdate string, dtInscriptionNotarydate string, dtInscriptionNotaryentereddate string, tInscriptionCadastre string, bInscriptionReference bool, bInscriptionInspection bool, bInscriptionIsactive bool, tInscriptionChecklistnote string, bInscriptionNew bool, bInscriptionHomeowner bool, bInscriptionArchived bool, bInscriptionLitigation bool, bInscriptionRepossession bool, bInscriptionIssolicitation bool, bInscriptionSalebyowner bool, bInscriptionSoldwithoutlegalwarranty bool, iInscriptionConstructionyear int32, iInscriptionUnit int32, ) *InscriptionResponseCompound`
+`func NewInscriptionResponseCompound(pkiInscriptionID int32, fkiRealestateboardID int32, fkiAddressID int32, fkiInscriptionbuildingtypeID int32, fkiInscriptiontypeID int32, fkiInscriptioncategoryID int32, eInscriptionStep FieldEInscriptionStep, eInscriptionResidenceType FieldEInscriptionResidenceType, sInscriptionCivicend string, sInscriptionContract string, iInscriptionSellerdeclaration int32, eInscriptionType FieldEInscriptionType, dInscriptionInitialsaleprice string, dInscriptionSaleprice string, dInscriptionRentprice string, eInscriptionRemunerationtype FieldEInscriptionRemunerationtype, eInscriptionRemunerationinscriptorsellertype FieldEInscriptionRemunerationinscriptorsellertype, eInscriptionRemunerationreferencetype FieldEInscriptionRemunerationreferencetype, eInscriptionRemunerationtotaltype FieldEInscriptionRemunerationtotaltype, dInscriptionRemuneration string, dInscriptionRemunerationinscriptorseller string, dInscriptionRemunerationreference string, dInscriptionRemunerationtotal string, dInscriptionMortgagesold string, tInscriptionCadastre string, bInscriptionReference bool, bInscriptionInspection bool, bInscriptionIsactive bool, tInscriptionChecklistnote string, bInscriptionNew bool, bInscriptionHomeowner bool, bInscriptionArchived bool, bInscriptionLitigation bool, bInscriptionRepossession bool, bInscriptionIssolicitation bool, bInscriptionSalebyowner bool, bInscriptionSoldwithoutlegalwarranty bool, iInscriptionConstructionyear int32, iInscriptionUnit int32, ) *InscriptionResponseCompound`
 
 NewInscriptionResponseCompound instantiates a new InscriptionResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -99,51 +98,6 @@ and a boolean to check if the value has been set.
 SetPkiInscriptionID sets PkiInscriptionID field to given value.
 
 
-### GetFkiCompanyID
-
-`func (o *InscriptionResponseCompound) GetFkiCompanyID() int32`
-
-GetFkiCompanyID returns the FkiCompanyID field if non-nil, zero value otherwise.
-
-### GetFkiCompanyIDOk
-
-`func (o *InscriptionResponseCompound) GetFkiCompanyIDOk() (*int32, bool)`
-
-GetFkiCompanyIDOk returns a tuple with the FkiCompanyID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFkiCompanyID
-
-`func (o *InscriptionResponseCompound) SetFkiCompanyID(v int32)`
-
-SetFkiCompanyID sets FkiCompanyID field to given value.
-
-
-### GetSCompanyNameX
-
-`func (o *InscriptionResponseCompound) GetSCompanyNameX() string`
-
-GetSCompanyNameX returns the SCompanyNameX field if non-nil, zero value otherwise.
-
-### GetSCompanyNameXOk
-
-`func (o *InscriptionResponseCompound) GetSCompanyNameXOk() (*string, bool)`
-
-GetSCompanyNameXOk returns a tuple with the SCompanyNameX field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSCompanyNameX
-
-`func (o *InscriptionResponseCompound) SetSCompanyNameX(v string)`
-
-SetSCompanyNameX sets SCompanyNameX field to given value.
-
-### HasSCompanyNameX
-
-`func (o *InscriptionResponseCompound) HasSCompanyNameX() bool`
-
-HasSCompanyNameX returns a boolean if a field has been set.
-
 ### GetFkiDepartmentID
 
 `func (o *InscriptionResponseCompound) GetFkiDepartmentID() int32`
@@ -163,6 +117,11 @@ and a boolean to check if the value has been set.
 
 SetFkiDepartmentID sets FkiDepartmentID field to given value.
 
+### HasFkiDepartmentID
+
+`func (o *InscriptionResponseCompound) HasFkiDepartmentID() bool`
+
+HasFkiDepartmentID returns a boolean if a field has been set.
 
 ### GetSDepartmentNameX
 
@@ -254,30 +213,30 @@ and a boolean to check if the value has been set.
 SetFkiAddressID sets FkiAddressID field to given value.
 
 
-### GetSAddress
+### GetObjAddress
 
-`func (o *InscriptionResponseCompound) GetSAddress() string`
+`func (o *InscriptionResponseCompound) GetObjAddress() AddressResponseCompound`
 
-GetSAddress returns the SAddress field if non-nil, zero value otherwise.
+GetObjAddress returns the ObjAddress field if non-nil, zero value otherwise.
 
-### GetSAddressOk
+### GetObjAddressOk
 
-`func (o *InscriptionResponseCompound) GetSAddressOk() (*string, bool)`
+`func (o *InscriptionResponseCompound) GetObjAddressOk() (*AddressResponseCompound, bool)`
 
-GetSAddressOk returns a tuple with the SAddress field if it's non-nil, zero value otherwise
+GetObjAddressOk returns a tuple with the ObjAddress field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSAddress
+### SetObjAddress
 
-`func (o *InscriptionResponseCompound) SetSAddress(v string)`
+`func (o *InscriptionResponseCompound) SetObjAddress(v AddressResponseCompound)`
 
-SetSAddress sets SAddress field to given value.
+SetObjAddress sets ObjAddress field to given value.
 
-### HasSAddress
+### HasObjAddress
 
-`func (o *InscriptionResponseCompound) HasSAddress() bool`
+`func (o *InscriptionResponseCompound) HasObjAddress() bool`
 
-HasSAddress returns a boolean if a field has been set.
+HasObjAddress returns a boolean if a field has been set.
 
 ### GetFkiInscriptionbuildingtypeID
 
@@ -493,6 +452,11 @@ and a boolean to check if the value has been set.
 
 SetSInscriptionMLS sets SInscriptionMLS field to given value.
 
+### HasSInscriptionMLS
+
+`func (o *InscriptionResponseCompound) HasSInscriptionMLS() bool`
+
+HasSInscriptionMLS returns a boolean if a field has been set.
 
 ### GetSInscriptionContract
 
@@ -813,6 +777,11 @@ and a boolean to check if the value has been set.
 
 SetDtInscriptionDate sets DtInscriptionDate field to given value.
 
+### HasDtInscriptionDate
+
+`func (o *InscriptionResponseCompound) HasDtInscriptionDate() bool`
+
+HasDtInscriptionDate returns a boolean if a field has been set.
 
 ### GetDtInscriptionCancellationdate
 
@@ -833,6 +802,11 @@ and a boolean to check if the value has been set.
 
 SetDtInscriptionCancellationdate sets DtInscriptionCancellationdate field to given value.
 
+### HasDtInscriptionCancellationdate
+
+`func (o *InscriptionResponseCompound) HasDtInscriptionCancellationdate() bool`
+
+HasDtInscriptionCancellationdate returns a boolean if a field has been set.
 
 ### GetDtInscriptionInitialexpirationdate
 
@@ -853,6 +827,11 @@ and a boolean to check if the value has been set.
 
 SetDtInscriptionInitialexpirationdate sets DtInscriptionInitialexpirationdate field to given value.
 
+### HasDtInscriptionInitialexpirationdate
+
+`func (o *InscriptionResponseCompound) HasDtInscriptionInitialexpirationdate() bool`
+
+HasDtInscriptionInitialexpirationdate returns a boolean if a field has been set.
 
 ### GetDtInscriptionExpirationdate
 
@@ -873,6 +852,11 @@ and a boolean to check if the value has been set.
 
 SetDtInscriptionExpirationdate sets DtInscriptionExpirationdate field to given value.
 
+### HasDtInscriptionExpirationdate
+
+`func (o *InscriptionResponseCompound) HasDtInscriptionExpirationdate() bool`
+
+HasDtInscriptionExpirationdate returns a boolean if a field has been set.
 
 ### GetDtInscriptionNotarydate
 
@@ -893,6 +877,11 @@ and a boolean to check if the value has been set.
 
 SetDtInscriptionNotarydate sets DtInscriptionNotarydate field to given value.
 
+### HasDtInscriptionNotarydate
+
+`func (o *InscriptionResponseCompound) HasDtInscriptionNotarydate() bool`
+
+HasDtInscriptionNotarydate returns a boolean if a field has been set.
 
 ### GetDtInscriptionNotaryentereddate
 
@@ -913,6 +902,11 @@ and a boolean to check if the value has been set.
 
 SetDtInscriptionNotaryentereddate sets DtInscriptionNotaryentereddate field to given value.
 
+### HasDtInscriptionNotaryentereddate
+
+`func (o *InscriptionResponseCompound) HasDtInscriptionNotaryentereddate() bool`
+
+HasDtInscriptionNotaryentereddate returns a boolean if a field has been set.
 
 ### GetTInscriptionCadastre
 
@@ -1213,6 +1207,31 @@ and a boolean to check if the value has been set.
 
 SetIInscriptionUnit sets IInscriptionUnit field to given value.
 
+
+### GetObjAudit
+
+`func (o *InscriptionResponseCompound) GetObjAudit() CommonAudit`
+
+GetObjAudit returns the ObjAudit field if non-nil, zero value otherwise.
+
+### GetObjAuditOk
+
+`func (o *InscriptionResponseCompound) GetObjAuditOk() (*CommonAudit, bool)`
+
+GetObjAuditOk returns a tuple with the ObjAudit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjAudit
+
+`func (o *InscriptionResponseCompound) SetObjAudit(v CommonAudit)`
+
+SetObjAudit sets ObjAudit field to given value.
+
+### HasObjAudit
+
+`func (o *InscriptionResponseCompound) HasObjAudit() bool`
+
+HasObjAudit returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

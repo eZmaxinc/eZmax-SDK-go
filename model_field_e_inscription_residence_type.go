@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.3.2
+API version: 1.3.3
 Contact: support-api@ezmax.ca
 */
 
@@ -16,7 +16,7 @@ import (
 	"fmt"
 )
 
-// FieldEInscriptionResidenceType The residencetype of the Inscription
+// FieldEInscriptionResidenceType The residence type of the Inscription
 type FieldEInscriptionResidenceType string
 
 // List of Field-eInscriptionResidenceType

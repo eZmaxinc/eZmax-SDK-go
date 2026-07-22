@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.3.2
+API version: 1.3.3
 Contact: support-api@ezmax.ca
 */
 
@@ -24,8 +24,7 @@ var _ MappedNullable = &InscriptionGetInscriptionnotauthenticatedsV1Response{}
 type InscriptionGetInscriptionnotauthenticatedsV1Response struct {
 	ObjDebugPayload CommonResponseObjDebugPayload `json:"objDebugPayload"`
 	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`
-	// Response for GET /1/object/inscription/{pkiInscriptionID}/getInscriptionnotauthenticateds
-	MPayload map[string]interface{} `json:"mPayload"`
+	MPayload InscriptionGetInscriptionnotauthenticatedsV1ResponseMPayload `json:"mPayload"`
 }
 
 type _InscriptionGetInscriptionnotauthenticatedsV1Response InscriptionGetInscriptionnotauthenticatedsV1Response
@@ -34,7 +33,7 @@ type _InscriptionGetInscriptionnotauthenticatedsV1Response InscriptionGetInscrip
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInscriptionGetInscriptionnotauthenticatedsV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload map[string]interface{}) *InscriptionGetInscriptionnotauthenticatedsV1Response {
+func NewInscriptionGetInscriptionnotauthenticatedsV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload InscriptionGetInscriptionnotauthenticatedsV1ResponseMPayload) *InscriptionGetInscriptionnotauthenticatedsV1Response {
 	this := InscriptionGetInscriptionnotauthenticatedsV1Response{}
 	this.ObjDebugPayload = objDebugPayload
 	this.MPayload = mPayload
@@ -106,9 +105,9 @@ func (o *InscriptionGetInscriptionnotauthenticatedsV1Response) SetObjDebug(v Com
 }
 
 // GetMPayload returns the MPayload field value
-func (o *InscriptionGetInscriptionnotauthenticatedsV1Response) GetMPayload() map[string]interface{} {
+func (o *InscriptionGetInscriptionnotauthenticatedsV1Response) GetMPayload() InscriptionGetInscriptionnotauthenticatedsV1ResponseMPayload {
 	if o == nil {
-		var ret map[string]interface{}
+		var ret InscriptionGetInscriptionnotauthenticatedsV1ResponseMPayload
 		return ret
 	}
 
@@ -117,15 +116,15 @@ func (o *InscriptionGetInscriptionnotauthenticatedsV1Response) GetMPayload() map
 
 // GetMPayloadOk returns a tuple with the MPayload field value
 // and a boolean to check if the value has been set.
-func (o *InscriptionGetInscriptionnotauthenticatedsV1Response) GetMPayloadOk() (map[string]interface{}, bool) {
+func (o *InscriptionGetInscriptionnotauthenticatedsV1Response) GetMPayloadOk() (*InscriptionGetInscriptionnotauthenticatedsV1ResponseMPayload, bool) {
 	if o == nil {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
-	return o.MPayload, true
+	return &o.MPayload, true
 }
 
 // SetMPayload sets field value
-func (o *InscriptionGetInscriptionnotauthenticatedsV1Response) SetMPayload(v map[string]interface{}) {
+func (o *InscriptionGetInscriptionnotauthenticatedsV1Response) SetMPayload(v InscriptionGetInscriptionnotauthenticatedsV1ResponseMPayload) {
 	o.MPayload = v
 }
 

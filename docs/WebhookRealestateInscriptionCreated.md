@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ObjWebhook** | [**CustomWebhookResponse**](CustomWebhookResponse.md) |  | 
 **AObjAttempt** | [**[]AttemptResponseCompound**](AttemptResponseCompound.md) | An array containing details of previous attempts that were made to deliver the message. The array is empty if it&#39;s the first attempt. | 
-**ObjEzmaxpartnerproduct** | [**InscriptionResponse**](InscriptionResponse.md) |  | 
+**ObjInscription** | [**InscriptionResponse**](InscriptionResponse.md) |  | 
 
 ## Methods
 
 ### NewWebhookRealestateInscriptionCreated
 
-`func NewWebhookRealestateInscriptionCreated(objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound, objEzmaxpartnerproduct InscriptionResponse, ) *WebhookRealestateInscriptionCreated`
+`func NewWebhookRealestateInscriptionCreated(objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound, objInscription InscriptionResponse, ) *WebhookRealestateInscriptionCreated`
 
 NewWebhookRealestateInscriptionCreated instantiates a new WebhookRealestateInscriptionCreated object
 This constructor will assign default values to properties that have it defined,
@@ -67,24 +67,24 @@ and a boolean to check if the value has been set.
 SetAObjAttempt sets AObjAttempt field to given value.
 
 
-### GetObjEzmaxpartnerproduct
+### GetObjInscription
 
-`func (o *WebhookRealestateInscriptionCreated) GetObjEzmaxpartnerproduct() InscriptionResponse`
+`func (o *WebhookRealestateInscriptionCreated) GetObjInscription() InscriptionResponse`
 
-GetObjEzmaxpartnerproduct returns the ObjEzmaxpartnerproduct field if non-nil, zero value otherwise.
+GetObjInscription returns the ObjInscription field if non-nil, zero value otherwise.
 
-### GetObjEzmaxpartnerproductOk
+### GetObjInscriptionOk
 
-`func (o *WebhookRealestateInscriptionCreated) GetObjEzmaxpartnerproductOk() (*InscriptionResponse, bool)`
+`func (o *WebhookRealestateInscriptionCreated) GetObjInscriptionOk() (*InscriptionResponse, bool)`
 
-GetObjEzmaxpartnerproductOk returns a tuple with the ObjEzmaxpartnerproduct field if it's non-nil, zero value otherwise
+GetObjInscriptionOk returns a tuple with the ObjInscription field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetObjEzmaxpartnerproduct
+### SetObjInscription
 
-`func (o *WebhookRealestateInscriptionCreated) SetObjEzmaxpartnerproduct(v InscriptionResponse)`
+`func (o *WebhookRealestateInscriptionCreated) SetObjInscription(v InscriptionResponse)`
 
-SetObjEzmaxpartnerproduct sets ObjEzmaxpartnerproduct field to given value.
+SetObjInscription sets ObjInscription field to given value.
 
 
 

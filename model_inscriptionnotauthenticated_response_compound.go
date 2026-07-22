@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.3.2
+API version: 1.3.3
 Contact: support-api@ezmax.ca
 */
 
@@ -24,81 +24,77 @@ var _ MappedNullable = &InscriptionnotauthenticatedResponseCompound{}
 type InscriptionnotauthenticatedResponseCompound struct {
 	// The unique ID of the Inscriptionnotauthenticated.
 	PkiInscriptionnotauthenticatedID int32 `json:"pkiInscriptionnotauthenticatedID"`
-	// The unique ID of the Company
-	FkiCompanyID int32 `json:"fkiCompanyID"`
-	// The Name of the Company in the language of the requester
-	SCompanyNameX *string `json:"sCompanyNameX,omitempty"`
 	// The unique ID of the Inscription.
 	FkiInscriptionID int32 `json:"fkiInscriptionID"`
 	// The unique ID of the Department
-	FkiDepartmentID int32 `json:"fkiDepartmentID"`
+	FkiDepartmentID *int32 `json:"fkiDepartmentID,omitempty"`
 	// The Name of the Department in the language of the requester
 	SDepartmentNameX *string `json:"sDepartmentNameX,omitempty"`
 	// The unique ID of the Financialinstitution
-	FkiFinancialinstitutionID int32 `json:"fkiFinancialinstitutionID"`
+	FkiFinancialinstitutionID *int32 `json:"fkiFinancialinstitutionID,omitempty"`
 	// The name of the Financialinstitution in the language of the requester
 	SFinancialinstitutionNameX *string `json:"sFinancialinstitutionNameX,omitempty" validate:"regexp=^.{0\\,50}$"`
 	// The unique ID of the Buyercontract
-	FkiBuyercontractID int32 `json:"fkiBuyercontractID"`
+	FkiBuyercontractID *int32 `json:"fkiBuyercontractID,omitempty"`
 	// The number of the Buyercontract
 	SBuyercontractContract *string `json:"sBuyercontractContract,omitempty"`
 	// The unique ID of the Mortgagesupplier
-	FkiMortgagesupplierID int32 `json:"fkiMortgagesupplierID"`
+	FkiMortgagesupplierID *int32 `json:"fkiMortgagesupplierID,omitempty"`
 	// The name of the Mortagesupplier in the language of the requester
 	SMortgagesupplierNameX *string `json:"sMortgagesupplierNameX,omitempty" validate:"regexp=^.{0\\,25}$"`
 	// The unique ID of the Taxassignment.  Valid values:  |Value|Description| |-|-| |1|No tax| |2|GST| |3|HST (ON)| |4|HST (NB)| |5|HST (NS)| |6|HST (NL)| |7|HST (PE)| |8|GST + QST (QC)| |9|GST + QST (QC) Non-Recoverable| |10|GST + PST (BC)| |11|GST + PST (SK)| |12|GST + RST (MB)| |13|GST + PST (BC) Non-Recoverable| |14|GST + PST (SK) Non-Recoverable| |15|GST + RST (MB) Non-Recoverable|
 	FkiTaxassignmentID int32 `json:"fkiTaxassignmentID"`
 	// The description of the Taxassignment  in the language of the requester
 	STaxassignmentDescriptionX *string `json:"sTaxassignmentDescriptionX,omitempty"`
-	// The transactiondate of the Inscriptionnotauthenticated
-	DtInscriptionnotauthenticatedTransactiondate string `json:"dtInscriptionnotauthenticatedTransactiondate" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
-	// The transactiondatereal of the Inscriptionnotauthenticated
-	DtInscriptionnotauthenticatedTransactiondateReal string `json:"dtInscriptionnotauthenticatedTransactiondateReal" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
-	// The depositdate of the Inscriptionnotauthenticated
-	DtInscriptionnotauthenticatedDepositdate string `json:"dtInscriptionnotauthenticatedDepositdate" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
+	// The transaction date of the Inscriptionnotauthenticated
+	DtInscriptionnotauthenticatedTransactiondate *string `json:"dtInscriptionnotauthenticatedTransactiondate,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
+	// The real transactiondate of the Inscriptionnotauthenticated
+	DtInscriptionnotauthenticatedTransactiondateReal *string `json:"dtInscriptionnotauthenticatedTransactiondateReal,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
+	// The deposit date of the Inscriptionnotauthenticated
+	DtInscriptionnotauthenticatedDepositdate *string `json:"dtInscriptionnotauthenticatedDepositdate,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	EInscriptionnotauthenticatedType FieldEInscriptionnotauthenticatedType `json:"eInscriptionnotauthenticatedType"`
-	// The mortgageloan of the Inscriptionnotauthenticated
+	// The amount of the mortgage loan of the Inscriptionnotauthenticated
 	DInscriptionnotauthenticatedMortgageloan string `json:"dInscriptionnotauthenticatedMortgageloan" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	EtInscriptionnotauthenticatedMortgagetype FieldEtInscriptionnotauthenticatedMortgagetype `json:"etInscriptionnotauthenticatedMortgagetype"`
-	// The transactionprice of the Inscriptionnotauthenticated
+	// The transaction price of the Inscriptionnotauthenticated
 	DInscriptionnotauthenticatedTransactionprice string `json:"dInscriptionnotauthenticatedTransactionprice" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	EInscriptionnotauthenticatedRemunerationtype FieldEInscriptionnotauthenticatedRemunerationtype `json:"eInscriptionnotauthenticatedRemunerationtype"`
-	// The remuneration of the Inscriptionnotauthenticated
+	// The amount for the remuneration of the Inscriptionnotauthenticated
 	DInscriptionnotauthenticatedRemuneration string `json:"dInscriptionnotauthenticatedRemuneration" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
-	// The remunerationsubtotal of the Inscriptionnotauthenticated
+	// The subtotal for the remuneration of the Inscriptionnotauthenticated
 	DInscriptionnotauthenticatedRemunerationsubtotal string `json:"dInscriptionnotauthenticatedRemunerationsubtotal" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
-	// The remunerationtotal of the Inscriptionnotauthenticated
+	// The total for the remuneration of the Inscriptionnotauthenticated
 	DInscriptionnotauthenticatedRemunerationtotal string `json:"dInscriptionnotauthenticatedRemunerationtotal" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
-	// The cancellationdate of the Inscriptionnotauthenticated
-	DtInscriptionnotauthenticatedCancellationdate string `json:"dtInscriptionnotauthenticatedCancellationdate" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
-	// The possessiondate of the Inscriptionnotauthenticated
-	DtInscriptionnotauthenticatedPossessiondate string `json:"dtInscriptionnotauthenticatedPossessiondate" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$"`
-	// The Offer to purchase number
+	// The cancellation date of the Inscriptionnotauthenticated
+	DtInscriptionnotauthenticatedCancellationdate *string `json:"dtInscriptionnotauthenticatedCancellationdate,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
+	// The possession date of the Inscriptionnotauthenticated
+	DtInscriptionnotauthenticatedPossessiondate *string `json:"dtInscriptionnotauthenticatedPossessiondate,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$"`
+	// The offer to purchase number of the Inscriptionnotauthenticated
 	SInscriptionnotauthenticatedOffertopurchasenumber string `json:"sInscriptionnotauthenticatedOffertopurchasenumber" validate:"regexp=^.{0\\,15}$"`
-	// The notaryscheduledate of the Inscriptionnotauthenticated
-	DtInscriptionnotauthenticatedNotaryscheduledate string `json:"dtInscriptionnotauthenticatedNotaryscheduledate" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
-	// The financingscheduledate of the Inscriptionnotauthenticated
-	DtInscriptionnotauthenticatedFinancingscheduledate string `json:"dtInscriptionnotauthenticatedFinancingscheduledate" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
+	// The notary schedule date of the Inscriptionnotauthenticated
+	DtInscriptionnotauthenticatedNotaryscheduledate *string `json:"dtInscriptionnotauthenticatedNotaryscheduledate,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
+	// The financing schedule date of the Inscriptionnotauthenticated
+	DtInscriptionnotauthenticatedFinancingscheduledate *string `json:"dtInscriptionnotauthenticatedFinancingscheduledate,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// Whether the inscriptionnotauthenticated is conditional
 	BInscriptionnotauthenticatedConditional bool `json:"bInscriptionnotauthenticatedConditional"`
-	// Whether if it's an mortgageisreferenced
+	// Whether if the mortgage is referenced
 	BInscriptionnotauthenticatedMortgageisreferenced bool `json:"bInscriptionnotauthenticatedMortgageisreferenced"`
-	// Whether if it's an homeowner
+	// Whether if it's an home owner
 	BInscriptionnotauthenticatedHomeowner bool `json:"bInscriptionnotauthenticatedHomeowner"`
 	// The conditions of the Inscriptionnotauthenticated
 	TInscriptionnotauthenticatedConditions string `json:"tInscriptionnotauthenticatedConditions" validate:"regexp=^.{0\\,65535}$"`
-	// The conditiondeadlinedate of the Inscriptionnotauthenticated
-	DtInscriptionnotauthenticatedConditiondeadlinedate string `json:"dtInscriptionnotauthenticatedConditiondeadlinedate" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
+	// The condition deadline date of the Inscriptionnotauthenticated
+	DtInscriptionnotauthenticatedConditiondeadlinedate *string `json:"dtInscriptionnotauthenticatedConditiondeadlinedate,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// The order of the Inscriptionnotauthenticated
 	IInscriptionnotauthenticatedOrder int32 `json:"iInscriptionnotauthenticatedOrder"`
 	// Whether the inscriptionnotauthenticated is active or not
 	BInscriptionnotauthenticatedIsactive bool `json:"bInscriptionnotauthenticatedIsactive"`
 	EInscriptionnotauthenticatedResidenceType FieldEInscriptionnotauthenticatedResidenceType `json:"eInscriptionnotauthenticatedResidenceType"`
-	// The checklistnote of the Inscriptionnotauthenticated
+	// The checklist note of the Inscriptionnotauthenticated
 	TInscriptionnotauthenticatedChecklistnote string `json:"tInscriptionnotauthenticatedChecklistnote" validate:"regexp=^.{0\\,65535}$"`
-	// The selleronlyretribution of the Inscriptionnotauthenticated
+	// The amount retribution for the seller only of the Inscriptionnotauthenticated
 	DInscriptionnotauthenticatedSelleronlyretribution string `json:"dInscriptionnotauthenticatedSelleronlyretribution" validate:"regexp=^-{0\\,1}[\\d]{1\\,3}?\\.[\\d]{3}$"`
-	// Whether the inscriptionnotauthenticated is a draft or not
+	// Whether the Inscriptionnotauthenticated is a draft or not
 	BInscriptionnotauthenticatedDraft bool `json:"bInscriptionnotauthenticatedDraft"`
 }
 
@@ -108,19 +104,11 @@ type _InscriptionnotauthenticatedResponseCompound InscriptionnotauthenticatedRes
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInscriptionnotauthenticatedResponseCompound(pkiInscriptionnotauthenticatedID int32, fkiCompanyID int32, fkiInscriptionID int32, fkiDepartmentID int32, fkiFinancialinstitutionID int32, fkiBuyercontractID int32, fkiMortgagesupplierID int32, fkiTaxassignmentID int32, dtInscriptionnotauthenticatedTransactiondate string, dtInscriptionnotauthenticatedTransactiondateReal string, dtInscriptionnotauthenticatedDepositdate string, eInscriptionnotauthenticatedType FieldEInscriptionnotauthenticatedType, dInscriptionnotauthenticatedMortgageloan string, etInscriptionnotauthenticatedMortgagetype FieldEtInscriptionnotauthenticatedMortgagetype, dInscriptionnotauthenticatedTransactionprice string, eInscriptionnotauthenticatedRemunerationtype FieldEInscriptionnotauthenticatedRemunerationtype, dInscriptionnotauthenticatedRemuneration string, dInscriptionnotauthenticatedRemunerationsubtotal string, dInscriptionnotauthenticatedRemunerationtotal string, dtInscriptionnotauthenticatedCancellationdate string, dtInscriptionnotauthenticatedPossessiondate string, sInscriptionnotauthenticatedOffertopurchasenumber string, dtInscriptionnotauthenticatedNotaryscheduledate string, dtInscriptionnotauthenticatedFinancingscheduledate string, bInscriptionnotauthenticatedConditional bool, bInscriptionnotauthenticatedMortgageisreferenced bool, bInscriptionnotauthenticatedHomeowner bool, tInscriptionnotauthenticatedConditions string, dtInscriptionnotauthenticatedConditiondeadlinedate string, iInscriptionnotauthenticatedOrder int32, bInscriptionnotauthenticatedIsactive bool, eInscriptionnotauthenticatedResidenceType FieldEInscriptionnotauthenticatedResidenceType, tInscriptionnotauthenticatedChecklistnote string, dInscriptionnotauthenticatedSelleronlyretribution string, bInscriptionnotauthenticatedDraft bool) *InscriptionnotauthenticatedResponseCompound {
+func NewInscriptionnotauthenticatedResponseCompound(pkiInscriptionnotauthenticatedID int32, fkiInscriptionID int32, fkiTaxassignmentID int32, eInscriptionnotauthenticatedType FieldEInscriptionnotauthenticatedType, dInscriptionnotauthenticatedMortgageloan string, etInscriptionnotauthenticatedMortgagetype FieldEtInscriptionnotauthenticatedMortgagetype, dInscriptionnotauthenticatedTransactionprice string, eInscriptionnotauthenticatedRemunerationtype FieldEInscriptionnotauthenticatedRemunerationtype, dInscriptionnotauthenticatedRemuneration string, dInscriptionnotauthenticatedRemunerationsubtotal string, dInscriptionnotauthenticatedRemunerationtotal string, sInscriptionnotauthenticatedOffertopurchasenumber string, bInscriptionnotauthenticatedConditional bool, bInscriptionnotauthenticatedMortgageisreferenced bool, bInscriptionnotauthenticatedHomeowner bool, tInscriptionnotauthenticatedConditions string, iInscriptionnotauthenticatedOrder int32, bInscriptionnotauthenticatedIsactive bool, eInscriptionnotauthenticatedResidenceType FieldEInscriptionnotauthenticatedResidenceType, tInscriptionnotauthenticatedChecklistnote string, dInscriptionnotauthenticatedSelleronlyretribution string, bInscriptionnotauthenticatedDraft bool) *InscriptionnotauthenticatedResponseCompound {
 	this := InscriptionnotauthenticatedResponseCompound{}
 	this.PkiInscriptionnotauthenticatedID = pkiInscriptionnotauthenticatedID
-	this.FkiCompanyID = fkiCompanyID
 	this.FkiInscriptionID = fkiInscriptionID
-	this.FkiDepartmentID = fkiDepartmentID
-	this.FkiFinancialinstitutionID = fkiFinancialinstitutionID
-	this.FkiBuyercontractID = fkiBuyercontractID
-	this.FkiMortgagesupplierID = fkiMortgagesupplierID
 	this.FkiTaxassignmentID = fkiTaxassignmentID
-	this.DtInscriptionnotauthenticatedTransactiondate = dtInscriptionnotauthenticatedTransactiondate
-	this.DtInscriptionnotauthenticatedTransactiondateReal = dtInscriptionnotauthenticatedTransactiondateReal
-	this.DtInscriptionnotauthenticatedDepositdate = dtInscriptionnotauthenticatedDepositdate
 	this.EInscriptionnotauthenticatedType = eInscriptionnotauthenticatedType
 	this.DInscriptionnotauthenticatedMortgageloan = dInscriptionnotauthenticatedMortgageloan
 	this.EtInscriptionnotauthenticatedMortgagetype = etInscriptionnotauthenticatedMortgagetype
@@ -129,16 +117,11 @@ func NewInscriptionnotauthenticatedResponseCompound(pkiInscriptionnotauthenticat
 	this.DInscriptionnotauthenticatedRemuneration = dInscriptionnotauthenticatedRemuneration
 	this.DInscriptionnotauthenticatedRemunerationsubtotal = dInscriptionnotauthenticatedRemunerationsubtotal
 	this.DInscriptionnotauthenticatedRemunerationtotal = dInscriptionnotauthenticatedRemunerationtotal
-	this.DtInscriptionnotauthenticatedCancellationdate = dtInscriptionnotauthenticatedCancellationdate
-	this.DtInscriptionnotauthenticatedPossessiondate = dtInscriptionnotauthenticatedPossessiondate
 	this.SInscriptionnotauthenticatedOffertopurchasenumber = sInscriptionnotauthenticatedOffertopurchasenumber
-	this.DtInscriptionnotauthenticatedNotaryscheduledate = dtInscriptionnotauthenticatedNotaryscheduledate
-	this.DtInscriptionnotauthenticatedFinancingscheduledate = dtInscriptionnotauthenticatedFinancingscheduledate
 	this.BInscriptionnotauthenticatedConditional = bInscriptionnotauthenticatedConditional
 	this.BInscriptionnotauthenticatedMortgageisreferenced = bInscriptionnotauthenticatedMortgageisreferenced
 	this.BInscriptionnotauthenticatedHomeowner = bInscriptionnotauthenticatedHomeowner
 	this.TInscriptionnotauthenticatedConditions = tInscriptionnotauthenticatedConditions
-	this.DtInscriptionnotauthenticatedConditiondeadlinedate = dtInscriptionnotauthenticatedConditiondeadlinedate
 	this.IInscriptionnotauthenticatedOrder = iInscriptionnotauthenticatedOrder
 	this.BInscriptionnotauthenticatedIsactive = bInscriptionnotauthenticatedIsactive
 	this.EInscriptionnotauthenticatedResidenceType = eInscriptionnotauthenticatedResidenceType
@@ -180,62 +163,6 @@ func (o *InscriptionnotauthenticatedResponseCompound) SetPkiInscriptionnotauthen
 	o.PkiInscriptionnotauthenticatedID = v
 }
 
-// GetFkiCompanyID returns the FkiCompanyID field value
-func (o *InscriptionnotauthenticatedResponseCompound) GetFkiCompanyID() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.FkiCompanyID
-}
-
-// GetFkiCompanyIDOk returns a tuple with the FkiCompanyID field value
-// and a boolean to check if the value has been set.
-func (o *InscriptionnotauthenticatedResponseCompound) GetFkiCompanyIDOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FkiCompanyID, true
-}
-
-// SetFkiCompanyID sets field value
-func (o *InscriptionnotauthenticatedResponseCompound) SetFkiCompanyID(v int32) {
-	o.FkiCompanyID = v
-}
-
-// GetSCompanyNameX returns the SCompanyNameX field value if set, zero value otherwise.
-func (o *InscriptionnotauthenticatedResponseCompound) GetSCompanyNameX() string {
-	if o == nil || IsNil(o.SCompanyNameX) {
-		var ret string
-		return ret
-	}
-	return *o.SCompanyNameX
-}
-
-// GetSCompanyNameXOk returns a tuple with the SCompanyNameX field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *InscriptionnotauthenticatedResponseCompound) GetSCompanyNameXOk() (*string, bool) {
-	if o == nil || IsNil(o.SCompanyNameX) {
-		return nil, false
-	}
-	return o.SCompanyNameX, true
-}
-
-// HasSCompanyNameX returns a boolean if a field has been set.
-func (o *InscriptionnotauthenticatedResponseCompound) HasSCompanyNameX() bool {
-	if o != nil && !IsNil(o.SCompanyNameX) {
-		return true
-	}
-
-	return false
-}
-
-// SetSCompanyNameX gets a reference to the given string and assigns it to the SCompanyNameX field.
-func (o *InscriptionnotauthenticatedResponseCompound) SetSCompanyNameX(v string) {
-	o.SCompanyNameX = &v
-}
-
 // GetFkiInscriptionID returns the FkiInscriptionID field value
 func (o *InscriptionnotauthenticatedResponseCompound) GetFkiInscriptionID() int32 {
 	if o == nil {
@@ -260,28 +187,36 @@ func (o *InscriptionnotauthenticatedResponseCompound) SetFkiInscriptionID(v int3
 	o.FkiInscriptionID = v
 }
 
-// GetFkiDepartmentID returns the FkiDepartmentID field value
+// GetFkiDepartmentID returns the FkiDepartmentID field value if set, zero value otherwise.
 func (o *InscriptionnotauthenticatedResponseCompound) GetFkiDepartmentID() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.FkiDepartmentID) {
 		var ret int32
 		return ret
 	}
-
-	return o.FkiDepartmentID
+	return *o.FkiDepartmentID
 }
 
-// GetFkiDepartmentIDOk returns a tuple with the FkiDepartmentID field value
+// GetFkiDepartmentIDOk returns a tuple with the FkiDepartmentID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InscriptionnotauthenticatedResponseCompound) GetFkiDepartmentIDOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FkiDepartmentID) {
 		return nil, false
 	}
-	return &o.FkiDepartmentID, true
+	return o.FkiDepartmentID, true
 }
 
-// SetFkiDepartmentID sets field value
+// HasFkiDepartmentID returns a boolean if a field has been set.
+func (o *InscriptionnotauthenticatedResponseCompound) HasFkiDepartmentID() bool {
+	if o != nil && !IsNil(o.FkiDepartmentID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiDepartmentID gets a reference to the given int32 and assigns it to the FkiDepartmentID field.
 func (o *InscriptionnotauthenticatedResponseCompound) SetFkiDepartmentID(v int32) {
-	o.FkiDepartmentID = v
+	o.FkiDepartmentID = &v
 }
 
 // GetSDepartmentNameX returns the SDepartmentNameX field value if set, zero value otherwise.
@@ -316,28 +251,36 @@ func (o *InscriptionnotauthenticatedResponseCompound) SetSDepartmentNameX(v stri
 	o.SDepartmentNameX = &v
 }
 
-// GetFkiFinancialinstitutionID returns the FkiFinancialinstitutionID field value
+// GetFkiFinancialinstitutionID returns the FkiFinancialinstitutionID field value if set, zero value otherwise.
 func (o *InscriptionnotauthenticatedResponseCompound) GetFkiFinancialinstitutionID() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.FkiFinancialinstitutionID) {
 		var ret int32
 		return ret
 	}
-
-	return o.FkiFinancialinstitutionID
+	return *o.FkiFinancialinstitutionID
 }
 
-// GetFkiFinancialinstitutionIDOk returns a tuple with the FkiFinancialinstitutionID field value
+// GetFkiFinancialinstitutionIDOk returns a tuple with the FkiFinancialinstitutionID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InscriptionnotauthenticatedResponseCompound) GetFkiFinancialinstitutionIDOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FkiFinancialinstitutionID) {
 		return nil, false
 	}
-	return &o.FkiFinancialinstitutionID, true
+	return o.FkiFinancialinstitutionID, true
 }
 
-// SetFkiFinancialinstitutionID sets field value
+// HasFkiFinancialinstitutionID returns a boolean if a field has been set.
+func (o *InscriptionnotauthenticatedResponseCompound) HasFkiFinancialinstitutionID() bool {
+	if o != nil && !IsNil(o.FkiFinancialinstitutionID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiFinancialinstitutionID gets a reference to the given int32 and assigns it to the FkiFinancialinstitutionID field.
 func (o *InscriptionnotauthenticatedResponseCompound) SetFkiFinancialinstitutionID(v int32) {
-	o.FkiFinancialinstitutionID = v
+	o.FkiFinancialinstitutionID = &v
 }
 
 // GetSFinancialinstitutionNameX returns the SFinancialinstitutionNameX field value if set, zero value otherwise.
@@ -372,28 +315,36 @@ func (o *InscriptionnotauthenticatedResponseCompound) SetSFinancialinstitutionNa
 	o.SFinancialinstitutionNameX = &v
 }
 
-// GetFkiBuyercontractID returns the FkiBuyercontractID field value
+// GetFkiBuyercontractID returns the FkiBuyercontractID field value if set, zero value otherwise.
 func (o *InscriptionnotauthenticatedResponseCompound) GetFkiBuyercontractID() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.FkiBuyercontractID) {
 		var ret int32
 		return ret
 	}
-
-	return o.FkiBuyercontractID
+	return *o.FkiBuyercontractID
 }
 
-// GetFkiBuyercontractIDOk returns a tuple with the FkiBuyercontractID field value
+// GetFkiBuyercontractIDOk returns a tuple with the FkiBuyercontractID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InscriptionnotauthenticatedResponseCompound) GetFkiBuyercontractIDOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FkiBuyercontractID) {
 		return nil, false
 	}
-	return &o.FkiBuyercontractID, true
+	return o.FkiBuyercontractID, true
 }
 
-// SetFkiBuyercontractID sets field value
+// HasFkiBuyercontractID returns a boolean if a field has been set.
+func (o *InscriptionnotauthenticatedResponseCompound) HasFkiBuyercontractID() bool {
+	if o != nil && !IsNil(o.FkiBuyercontractID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiBuyercontractID gets a reference to the given int32 and assigns it to the FkiBuyercontractID field.
 func (o *InscriptionnotauthenticatedResponseCompound) SetFkiBuyercontractID(v int32) {
-	o.FkiBuyercontractID = v
+	o.FkiBuyercontractID = &v
 }
 
 // GetSBuyercontractContract returns the SBuyercontractContract field value if set, zero value otherwise.
@@ -428,28 +379,36 @@ func (o *InscriptionnotauthenticatedResponseCompound) SetSBuyercontractContract(
 	o.SBuyercontractContract = &v
 }
 
-// GetFkiMortgagesupplierID returns the FkiMortgagesupplierID field value
+// GetFkiMortgagesupplierID returns the FkiMortgagesupplierID field value if set, zero value otherwise.
 func (o *InscriptionnotauthenticatedResponseCompound) GetFkiMortgagesupplierID() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.FkiMortgagesupplierID) {
 		var ret int32
 		return ret
 	}
-
-	return o.FkiMortgagesupplierID
+	return *o.FkiMortgagesupplierID
 }
 
-// GetFkiMortgagesupplierIDOk returns a tuple with the FkiMortgagesupplierID field value
+// GetFkiMortgagesupplierIDOk returns a tuple with the FkiMortgagesupplierID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InscriptionnotauthenticatedResponseCompound) GetFkiMortgagesupplierIDOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FkiMortgagesupplierID) {
 		return nil, false
 	}
-	return &o.FkiMortgagesupplierID, true
+	return o.FkiMortgagesupplierID, true
 }
 
-// SetFkiMortgagesupplierID sets field value
+// HasFkiMortgagesupplierID returns a boolean if a field has been set.
+func (o *InscriptionnotauthenticatedResponseCompound) HasFkiMortgagesupplierID() bool {
+	if o != nil && !IsNil(o.FkiMortgagesupplierID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiMortgagesupplierID gets a reference to the given int32 and assigns it to the FkiMortgagesupplierID field.
 func (o *InscriptionnotauthenticatedResponseCompound) SetFkiMortgagesupplierID(v int32) {
-	o.FkiMortgagesupplierID = v
+	o.FkiMortgagesupplierID = &v
 }
 
 // GetSMortgagesupplierNameX returns the SMortgagesupplierNameX field value if set, zero value otherwise.
@@ -540,76 +499,100 @@ func (o *InscriptionnotauthenticatedResponseCompound) SetSTaxassignmentDescripti
 	o.STaxassignmentDescriptionX = &v
 }
 
-// GetDtInscriptionnotauthenticatedTransactiondate returns the DtInscriptionnotauthenticatedTransactiondate field value
+// GetDtInscriptionnotauthenticatedTransactiondate returns the DtInscriptionnotauthenticatedTransactiondate field value if set, zero value otherwise.
 func (o *InscriptionnotauthenticatedResponseCompound) GetDtInscriptionnotauthenticatedTransactiondate() string {
-	if o == nil {
+	if o == nil || IsNil(o.DtInscriptionnotauthenticatedTransactiondate) {
 		var ret string
 		return ret
 	}
-
-	return o.DtInscriptionnotauthenticatedTransactiondate
+	return *o.DtInscriptionnotauthenticatedTransactiondate
 }
 
-// GetDtInscriptionnotauthenticatedTransactiondateOk returns a tuple with the DtInscriptionnotauthenticatedTransactiondate field value
+// GetDtInscriptionnotauthenticatedTransactiondateOk returns a tuple with the DtInscriptionnotauthenticatedTransactiondate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InscriptionnotauthenticatedResponseCompound) GetDtInscriptionnotauthenticatedTransactiondateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DtInscriptionnotauthenticatedTransactiondate) {
 		return nil, false
 	}
-	return &o.DtInscriptionnotauthenticatedTransactiondate, true
+	return o.DtInscriptionnotauthenticatedTransactiondate, true
 }
 
-// SetDtInscriptionnotauthenticatedTransactiondate sets field value
+// HasDtInscriptionnotauthenticatedTransactiondate returns a boolean if a field has been set.
+func (o *InscriptionnotauthenticatedResponseCompound) HasDtInscriptionnotauthenticatedTransactiondate() bool {
+	if o != nil && !IsNil(o.DtInscriptionnotauthenticatedTransactiondate) {
+		return true
+	}
+
+	return false
+}
+
+// SetDtInscriptionnotauthenticatedTransactiondate gets a reference to the given string and assigns it to the DtInscriptionnotauthenticatedTransactiondate field.
 func (o *InscriptionnotauthenticatedResponseCompound) SetDtInscriptionnotauthenticatedTransactiondate(v string) {
-	o.DtInscriptionnotauthenticatedTransactiondate = v
+	o.DtInscriptionnotauthenticatedTransactiondate = &v
 }
 
-// GetDtInscriptionnotauthenticatedTransactiondateReal returns the DtInscriptionnotauthenticatedTransactiondateReal field value
+// GetDtInscriptionnotauthenticatedTransactiondateReal returns the DtInscriptionnotauthenticatedTransactiondateReal field value if set, zero value otherwise.
 func (o *InscriptionnotauthenticatedResponseCompound) GetDtInscriptionnotauthenticatedTransactiondateReal() string {
-	if o == nil {
+	if o == nil || IsNil(o.DtInscriptionnotauthenticatedTransactiondateReal) {
 		var ret string
 		return ret
 	}
-
-	return o.DtInscriptionnotauthenticatedTransactiondateReal
+	return *o.DtInscriptionnotauthenticatedTransactiondateReal
 }
 
-// GetDtInscriptionnotauthenticatedTransactiondateRealOk returns a tuple with the DtInscriptionnotauthenticatedTransactiondateReal field value
+// GetDtInscriptionnotauthenticatedTransactiondateRealOk returns a tuple with the DtInscriptionnotauthenticatedTransactiondateReal field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InscriptionnotauthenticatedResponseCompound) GetDtInscriptionnotauthenticatedTransactiondateRealOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DtInscriptionnotauthenticatedTransactiondateReal) {
 		return nil, false
 	}
-	return &o.DtInscriptionnotauthenticatedTransactiondateReal, true
+	return o.DtInscriptionnotauthenticatedTransactiondateReal, true
 }
 
-// SetDtInscriptionnotauthenticatedTransactiondateReal sets field value
+// HasDtInscriptionnotauthenticatedTransactiondateReal returns a boolean if a field has been set.
+func (o *InscriptionnotauthenticatedResponseCompound) HasDtInscriptionnotauthenticatedTransactiondateReal() bool {
+	if o != nil && !IsNil(o.DtInscriptionnotauthenticatedTransactiondateReal) {
+		return true
+	}
+
+	return false
+}
+
+// SetDtInscriptionnotauthenticatedTransactiondateReal gets a reference to the given string and assigns it to the DtInscriptionnotauthenticatedTransactiondateReal field.
 func (o *InscriptionnotauthenticatedResponseCompound) SetDtInscriptionnotauthenticatedTransactiondateReal(v string) {
-	o.DtInscriptionnotauthenticatedTransactiondateReal = v
+	o.DtInscriptionnotauthenticatedTransactiondateReal = &v
 }
 
-// GetDtInscriptionnotauthenticatedDepositdate returns the DtInscriptionnotauthenticatedDepositdate field value
+// GetDtInscriptionnotauthenticatedDepositdate returns the DtInscriptionnotauthenticatedDepositdate field value if set, zero value otherwise.
 func (o *InscriptionnotauthenticatedResponseCompound) GetDtInscriptionnotauthenticatedDepositdate() string {
-	if o == nil {
+	if o == nil || IsNil(o.DtInscriptionnotauthenticatedDepositdate) {
 		var ret string
 		return ret
 	}
-
-	return o.DtInscriptionnotauthenticatedDepositdate
+	return *o.DtInscriptionnotauthenticatedDepositdate
 }
 
-// GetDtInscriptionnotauthenticatedDepositdateOk returns a tuple with the DtInscriptionnotauthenticatedDepositdate field value
+// GetDtInscriptionnotauthenticatedDepositdateOk returns a tuple with the DtInscriptionnotauthenticatedDepositdate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InscriptionnotauthenticatedResponseCompound) GetDtInscriptionnotauthenticatedDepositdateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DtInscriptionnotauthenticatedDepositdate) {
 		return nil, false
 	}
-	return &o.DtInscriptionnotauthenticatedDepositdate, true
+	return o.DtInscriptionnotauthenticatedDepositdate, true
 }
 
-// SetDtInscriptionnotauthenticatedDepositdate sets field value
+// HasDtInscriptionnotauthenticatedDepositdate returns a boolean if a field has been set.
+func (o *InscriptionnotauthenticatedResponseCompound) HasDtInscriptionnotauthenticatedDepositdate() bool {
+	if o != nil && !IsNil(o.DtInscriptionnotauthenticatedDepositdate) {
+		return true
+	}
+
+	return false
+}
+
+// SetDtInscriptionnotauthenticatedDepositdate gets a reference to the given string and assigns it to the DtInscriptionnotauthenticatedDepositdate field.
 func (o *InscriptionnotauthenticatedResponseCompound) SetDtInscriptionnotauthenticatedDepositdate(v string) {
-	o.DtInscriptionnotauthenticatedDepositdate = v
+	o.DtInscriptionnotauthenticatedDepositdate = &v
 }
 
 // GetEInscriptionnotauthenticatedType returns the EInscriptionnotauthenticatedType field value
@@ -804,52 +787,68 @@ func (o *InscriptionnotauthenticatedResponseCompound) SetDInscriptionnotauthenti
 	o.DInscriptionnotauthenticatedRemunerationtotal = v
 }
 
-// GetDtInscriptionnotauthenticatedCancellationdate returns the DtInscriptionnotauthenticatedCancellationdate field value
+// GetDtInscriptionnotauthenticatedCancellationdate returns the DtInscriptionnotauthenticatedCancellationdate field value if set, zero value otherwise.
 func (o *InscriptionnotauthenticatedResponseCompound) GetDtInscriptionnotauthenticatedCancellationdate() string {
-	if o == nil {
+	if o == nil || IsNil(o.DtInscriptionnotauthenticatedCancellationdate) {
 		var ret string
 		return ret
 	}
-
-	return o.DtInscriptionnotauthenticatedCancellationdate
+	return *o.DtInscriptionnotauthenticatedCancellationdate
 }
 
-// GetDtInscriptionnotauthenticatedCancellationdateOk returns a tuple with the DtInscriptionnotauthenticatedCancellationdate field value
+// GetDtInscriptionnotauthenticatedCancellationdateOk returns a tuple with the DtInscriptionnotauthenticatedCancellationdate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InscriptionnotauthenticatedResponseCompound) GetDtInscriptionnotauthenticatedCancellationdateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DtInscriptionnotauthenticatedCancellationdate) {
 		return nil, false
 	}
-	return &o.DtInscriptionnotauthenticatedCancellationdate, true
+	return o.DtInscriptionnotauthenticatedCancellationdate, true
 }
 
-// SetDtInscriptionnotauthenticatedCancellationdate sets field value
+// HasDtInscriptionnotauthenticatedCancellationdate returns a boolean if a field has been set.
+func (o *InscriptionnotauthenticatedResponseCompound) HasDtInscriptionnotauthenticatedCancellationdate() bool {
+	if o != nil && !IsNil(o.DtInscriptionnotauthenticatedCancellationdate) {
+		return true
+	}
+
+	return false
+}
+
+// SetDtInscriptionnotauthenticatedCancellationdate gets a reference to the given string and assigns it to the DtInscriptionnotauthenticatedCancellationdate field.
 func (o *InscriptionnotauthenticatedResponseCompound) SetDtInscriptionnotauthenticatedCancellationdate(v string) {
-	o.DtInscriptionnotauthenticatedCancellationdate = v
+	o.DtInscriptionnotauthenticatedCancellationdate = &v
 }
 
-// GetDtInscriptionnotauthenticatedPossessiondate returns the DtInscriptionnotauthenticatedPossessiondate field value
+// GetDtInscriptionnotauthenticatedPossessiondate returns the DtInscriptionnotauthenticatedPossessiondate field value if set, zero value otherwise.
 func (o *InscriptionnotauthenticatedResponseCompound) GetDtInscriptionnotauthenticatedPossessiondate() string {
-	if o == nil {
+	if o == nil || IsNil(o.DtInscriptionnotauthenticatedPossessiondate) {
 		var ret string
 		return ret
 	}
-
-	return o.DtInscriptionnotauthenticatedPossessiondate
+	return *o.DtInscriptionnotauthenticatedPossessiondate
 }
 
-// GetDtInscriptionnotauthenticatedPossessiondateOk returns a tuple with the DtInscriptionnotauthenticatedPossessiondate field value
+// GetDtInscriptionnotauthenticatedPossessiondateOk returns a tuple with the DtInscriptionnotauthenticatedPossessiondate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InscriptionnotauthenticatedResponseCompound) GetDtInscriptionnotauthenticatedPossessiondateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DtInscriptionnotauthenticatedPossessiondate) {
 		return nil, false
 	}
-	return &o.DtInscriptionnotauthenticatedPossessiondate, true
+	return o.DtInscriptionnotauthenticatedPossessiondate, true
 }
 
-// SetDtInscriptionnotauthenticatedPossessiondate sets field value
+// HasDtInscriptionnotauthenticatedPossessiondate returns a boolean if a field has been set.
+func (o *InscriptionnotauthenticatedResponseCompound) HasDtInscriptionnotauthenticatedPossessiondate() bool {
+	if o != nil && !IsNil(o.DtInscriptionnotauthenticatedPossessiondate) {
+		return true
+	}
+
+	return false
+}
+
+// SetDtInscriptionnotauthenticatedPossessiondate gets a reference to the given string and assigns it to the DtInscriptionnotauthenticatedPossessiondate field.
 func (o *InscriptionnotauthenticatedResponseCompound) SetDtInscriptionnotauthenticatedPossessiondate(v string) {
-	o.DtInscriptionnotauthenticatedPossessiondate = v
+	o.DtInscriptionnotauthenticatedPossessiondate = &v
 }
 
 // GetSInscriptionnotauthenticatedOffertopurchasenumber returns the SInscriptionnotauthenticatedOffertopurchasenumber field value
@@ -876,52 +875,68 @@ func (o *InscriptionnotauthenticatedResponseCompound) SetSInscriptionnotauthenti
 	o.SInscriptionnotauthenticatedOffertopurchasenumber = v
 }
 
-// GetDtInscriptionnotauthenticatedNotaryscheduledate returns the DtInscriptionnotauthenticatedNotaryscheduledate field value
+// GetDtInscriptionnotauthenticatedNotaryscheduledate returns the DtInscriptionnotauthenticatedNotaryscheduledate field value if set, zero value otherwise.
 func (o *InscriptionnotauthenticatedResponseCompound) GetDtInscriptionnotauthenticatedNotaryscheduledate() string {
-	if o == nil {
+	if o == nil || IsNil(o.DtInscriptionnotauthenticatedNotaryscheduledate) {
 		var ret string
 		return ret
 	}
-
-	return o.DtInscriptionnotauthenticatedNotaryscheduledate
+	return *o.DtInscriptionnotauthenticatedNotaryscheduledate
 }
 
-// GetDtInscriptionnotauthenticatedNotaryscheduledateOk returns a tuple with the DtInscriptionnotauthenticatedNotaryscheduledate field value
+// GetDtInscriptionnotauthenticatedNotaryscheduledateOk returns a tuple with the DtInscriptionnotauthenticatedNotaryscheduledate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InscriptionnotauthenticatedResponseCompound) GetDtInscriptionnotauthenticatedNotaryscheduledateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DtInscriptionnotauthenticatedNotaryscheduledate) {
 		return nil, false
 	}
-	return &o.DtInscriptionnotauthenticatedNotaryscheduledate, true
+	return o.DtInscriptionnotauthenticatedNotaryscheduledate, true
 }
 
-// SetDtInscriptionnotauthenticatedNotaryscheduledate sets field value
+// HasDtInscriptionnotauthenticatedNotaryscheduledate returns a boolean if a field has been set.
+func (o *InscriptionnotauthenticatedResponseCompound) HasDtInscriptionnotauthenticatedNotaryscheduledate() bool {
+	if o != nil && !IsNil(o.DtInscriptionnotauthenticatedNotaryscheduledate) {
+		return true
+	}
+
+	return false
+}
+
+// SetDtInscriptionnotauthenticatedNotaryscheduledate gets a reference to the given string and assigns it to the DtInscriptionnotauthenticatedNotaryscheduledate field.
 func (o *InscriptionnotauthenticatedResponseCompound) SetDtInscriptionnotauthenticatedNotaryscheduledate(v string) {
-	o.DtInscriptionnotauthenticatedNotaryscheduledate = v
+	o.DtInscriptionnotauthenticatedNotaryscheduledate = &v
 }
 
-// GetDtInscriptionnotauthenticatedFinancingscheduledate returns the DtInscriptionnotauthenticatedFinancingscheduledate field value
+// GetDtInscriptionnotauthenticatedFinancingscheduledate returns the DtInscriptionnotauthenticatedFinancingscheduledate field value if set, zero value otherwise.
 func (o *InscriptionnotauthenticatedResponseCompound) GetDtInscriptionnotauthenticatedFinancingscheduledate() string {
-	if o == nil {
+	if o == nil || IsNil(o.DtInscriptionnotauthenticatedFinancingscheduledate) {
 		var ret string
 		return ret
 	}
-
-	return o.DtInscriptionnotauthenticatedFinancingscheduledate
+	return *o.DtInscriptionnotauthenticatedFinancingscheduledate
 }
 
-// GetDtInscriptionnotauthenticatedFinancingscheduledateOk returns a tuple with the DtInscriptionnotauthenticatedFinancingscheduledate field value
+// GetDtInscriptionnotauthenticatedFinancingscheduledateOk returns a tuple with the DtInscriptionnotauthenticatedFinancingscheduledate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InscriptionnotauthenticatedResponseCompound) GetDtInscriptionnotauthenticatedFinancingscheduledateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DtInscriptionnotauthenticatedFinancingscheduledate) {
 		return nil, false
 	}
-	return &o.DtInscriptionnotauthenticatedFinancingscheduledate, true
+	return o.DtInscriptionnotauthenticatedFinancingscheduledate, true
 }
 
-// SetDtInscriptionnotauthenticatedFinancingscheduledate sets field value
+// HasDtInscriptionnotauthenticatedFinancingscheduledate returns a boolean if a field has been set.
+func (o *InscriptionnotauthenticatedResponseCompound) HasDtInscriptionnotauthenticatedFinancingscheduledate() bool {
+	if o != nil && !IsNil(o.DtInscriptionnotauthenticatedFinancingscheduledate) {
+		return true
+	}
+
+	return false
+}
+
+// SetDtInscriptionnotauthenticatedFinancingscheduledate gets a reference to the given string and assigns it to the DtInscriptionnotauthenticatedFinancingscheduledate field.
 func (o *InscriptionnotauthenticatedResponseCompound) SetDtInscriptionnotauthenticatedFinancingscheduledate(v string) {
-	o.DtInscriptionnotauthenticatedFinancingscheduledate = v
+	o.DtInscriptionnotauthenticatedFinancingscheduledate = &v
 }
 
 // GetBInscriptionnotauthenticatedConditional returns the BInscriptionnotauthenticatedConditional field value
@@ -1020,28 +1035,36 @@ func (o *InscriptionnotauthenticatedResponseCompound) SetTInscriptionnotauthenti
 	o.TInscriptionnotauthenticatedConditions = v
 }
 
-// GetDtInscriptionnotauthenticatedConditiondeadlinedate returns the DtInscriptionnotauthenticatedConditiondeadlinedate field value
+// GetDtInscriptionnotauthenticatedConditiondeadlinedate returns the DtInscriptionnotauthenticatedConditiondeadlinedate field value if set, zero value otherwise.
 func (o *InscriptionnotauthenticatedResponseCompound) GetDtInscriptionnotauthenticatedConditiondeadlinedate() string {
-	if o == nil {
+	if o == nil || IsNil(o.DtInscriptionnotauthenticatedConditiondeadlinedate) {
 		var ret string
 		return ret
 	}
-
-	return o.DtInscriptionnotauthenticatedConditiondeadlinedate
+	return *o.DtInscriptionnotauthenticatedConditiondeadlinedate
 }
 
-// GetDtInscriptionnotauthenticatedConditiondeadlinedateOk returns a tuple with the DtInscriptionnotauthenticatedConditiondeadlinedate field value
+// GetDtInscriptionnotauthenticatedConditiondeadlinedateOk returns a tuple with the DtInscriptionnotauthenticatedConditiondeadlinedate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InscriptionnotauthenticatedResponseCompound) GetDtInscriptionnotauthenticatedConditiondeadlinedateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DtInscriptionnotauthenticatedConditiondeadlinedate) {
 		return nil, false
 	}
-	return &o.DtInscriptionnotauthenticatedConditiondeadlinedate, true
+	return o.DtInscriptionnotauthenticatedConditiondeadlinedate, true
 }
 
-// SetDtInscriptionnotauthenticatedConditiondeadlinedate sets field value
+// HasDtInscriptionnotauthenticatedConditiondeadlinedate returns a boolean if a field has been set.
+func (o *InscriptionnotauthenticatedResponseCompound) HasDtInscriptionnotauthenticatedConditiondeadlinedate() bool {
+	if o != nil && !IsNil(o.DtInscriptionnotauthenticatedConditiondeadlinedate) {
+		return true
+	}
+
+	return false
+}
+
+// SetDtInscriptionnotauthenticatedConditiondeadlinedate gets a reference to the given string and assigns it to the DtInscriptionnotauthenticatedConditiondeadlinedate field.
 func (o *InscriptionnotauthenticatedResponseCompound) SetDtInscriptionnotauthenticatedConditiondeadlinedate(v string) {
-	o.DtInscriptionnotauthenticatedConditiondeadlinedate = v
+	o.DtInscriptionnotauthenticatedConditiondeadlinedate = &v
 }
 
 // GetIInscriptionnotauthenticatedOrder returns the IInscriptionnotauthenticatedOrder field value
@@ -1199,24 +1222,28 @@ func (o InscriptionnotauthenticatedResponseCompound) MarshalJSON() ([]byte, erro
 func (o InscriptionnotauthenticatedResponseCompound) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiInscriptionnotauthenticatedID"] = o.PkiInscriptionnotauthenticatedID
-	toSerialize["fkiCompanyID"] = o.FkiCompanyID
-	if !IsNil(o.SCompanyNameX) {
-		toSerialize["sCompanyNameX"] = o.SCompanyNameX
-	}
 	toSerialize["fkiInscriptionID"] = o.FkiInscriptionID
-	toSerialize["fkiDepartmentID"] = o.FkiDepartmentID
+	if !IsNil(o.FkiDepartmentID) {
+		toSerialize["fkiDepartmentID"] = o.FkiDepartmentID
+	}
 	if !IsNil(o.SDepartmentNameX) {
 		toSerialize["sDepartmentNameX"] = o.SDepartmentNameX
 	}
-	toSerialize["fkiFinancialinstitutionID"] = o.FkiFinancialinstitutionID
+	if !IsNil(o.FkiFinancialinstitutionID) {
+		toSerialize["fkiFinancialinstitutionID"] = o.FkiFinancialinstitutionID
+	}
 	if !IsNil(o.SFinancialinstitutionNameX) {
 		toSerialize["sFinancialinstitutionNameX"] = o.SFinancialinstitutionNameX
 	}
-	toSerialize["fkiBuyercontractID"] = o.FkiBuyercontractID
+	if !IsNil(o.FkiBuyercontractID) {
+		toSerialize["fkiBuyercontractID"] = o.FkiBuyercontractID
+	}
 	if !IsNil(o.SBuyercontractContract) {
 		toSerialize["sBuyercontractContract"] = o.SBuyercontractContract
 	}
-	toSerialize["fkiMortgagesupplierID"] = o.FkiMortgagesupplierID
+	if !IsNil(o.FkiMortgagesupplierID) {
+		toSerialize["fkiMortgagesupplierID"] = o.FkiMortgagesupplierID
+	}
 	if !IsNil(o.SMortgagesupplierNameX) {
 		toSerialize["sMortgagesupplierNameX"] = o.SMortgagesupplierNameX
 	}
@@ -1224,9 +1251,15 @@ func (o InscriptionnotauthenticatedResponseCompound) ToMap() (map[string]interfa
 	if !IsNil(o.STaxassignmentDescriptionX) {
 		toSerialize["sTaxassignmentDescriptionX"] = o.STaxassignmentDescriptionX
 	}
-	toSerialize["dtInscriptionnotauthenticatedTransactiondate"] = o.DtInscriptionnotauthenticatedTransactiondate
-	toSerialize["dtInscriptionnotauthenticatedTransactiondateReal"] = o.DtInscriptionnotauthenticatedTransactiondateReal
-	toSerialize["dtInscriptionnotauthenticatedDepositdate"] = o.DtInscriptionnotauthenticatedDepositdate
+	if !IsNil(o.DtInscriptionnotauthenticatedTransactiondate) {
+		toSerialize["dtInscriptionnotauthenticatedTransactiondate"] = o.DtInscriptionnotauthenticatedTransactiondate
+	}
+	if !IsNil(o.DtInscriptionnotauthenticatedTransactiondateReal) {
+		toSerialize["dtInscriptionnotauthenticatedTransactiondateReal"] = o.DtInscriptionnotauthenticatedTransactiondateReal
+	}
+	if !IsNil(o.DtInscriptionnotauthenticatedDepositdate) {
+		toSerialize["dtInscriptionnotauthenticatedDepositdate"] = o.DtInscriptionnotauthenticatedDepositdate
+	}
 	toSerialize["eInscriptionnotauthenticatedType"] = o.EInscriptionnotauthenticatedType
 	toSerialize["dInscriptionnotauthenticatedMortgageloan"] = o.DInscriptionnotauthenticatedMortgageloan
 	toSerialize["etInscriptionnotauthenticatedMortgagetype"] = o.EtInscriptionnotauthenticatedMortgagetype
@@ -1235,16 +1268,26 @@ func (o InscriptionnotauthenticatedResponseCompound) ToMap() (map[string]interfa
 	toSerialize["dInscriptionnotauthenticatedRemuneration"] = o.DInscriptionnotauthenticatedRemuneration
 	toSerialize["dInscriptionnotauthenticatedRemunerationsubtotal"] = o.DInscriptionnotauthenticatedRemunerationsubtotal
 	toSerialize["dInscriptionnotauthenticatedRemunerationtotal"] = o.DInscriptionnotauthenticatedRemunerationtotal
-	toSerialize["dtInscriptionnotauthenticatedCancellationdate"] = o.DtInscriptionnotauthenticatedCancellationdate
-	toSerialize["dtInscriptionnotauthenticatedPossessiondate"] = o.DtInscriptionnotauthenticatedPossessiondate
+	if !IsNil(o.DtInscriptionnotauthenticatedCancellationdate) {
+		toSerialize["dtInscriptionnotauthenticatedCancellationdate"] = o.DtInscriptionnotauthenticatedCancellationdate
+	}
+	if !IsNil(o.DtInscriptionnotauthenticatedPossessiondate) {
+		toSerialize["dtInscriptionnotauthenticatedPossessiondate"] = o.DtInscriptionnotauthenticatedPossessiondate
+	}
 	toSerialize["sInscriptionnotauthenticatedOffertopurchasenumber"] = o.SInscriptionnotauthenticatedOffertopurchasenumber
-	toSerialize["dtInscriptionnotauthenticatedNotaryscheduledate"] = o.DtInscriptionnotauthenticatedNotaryscheduledate
-	toSerialize["dtInscriptionnotauthenticatedFinancingscheduledate"] = o.DtInscriptionnotauthenticatedFinancingscheduledate
+	if !IsNil(o.DtInscriptionnotauthenticatedNotaryscheduledate) {
+		toSerialize["dtInscriptionnotauthenticatedNotaryscheduledate"] = o.DtInscriptionnotauthenticatedNotaryscheduledate
+	}
+	if !IsNil(o.DtInscriptionnotauthenticatedFinancingscheduledate) {
+		toSerialize["dtInscriptionnotauthenticatedFinancingscheduledate"] = o.DtInscriptionnotauthenticatedFinancingscheduledate
+	}
 	toSerialize["bInscriptionnotauthenticatedConditional"] = o.BInscriptionnotauthenticatedConditional
 	toSerialize["bInscriptionnotauthenticatedMortgageisreferenced"] = o.BInscriptionnotauthenticatedMortgageisreferenced
 	toSerialize["bInscriptionnotauthenticatedHomeowner"] = o.BInscriptionnotauthenticatedHomeowner
 	toSerialize["tInscriptionnotauthenticatedConditions"] = o.TInscriptionnotauthenticatedConditions
-	toSerialize["dtInscriptionnotauthenticatedConditiondeadlinedate"] = o.DtInscriptionnotauthenticatedConditiondeadlinedate
+	if !IsNil(o.DtInscriptionnotauthenticatedConditiondeadlinedate) {
+		toSerialize["dtInscriptionnotauthenticatedConditiondeadlinedate"] = o.DtInscriptionnotauthenticatedConditiondeadlinedate
+	}
 	toSerialize["iInscriptionnotauthenticatedOrder"] = o.IInscriptionnotauthenticatedOrder
 	toSerialize["bInscriptionnotauthenticatedIsactive"] = o.BInscriptionnotauthenticatedIsactive
 	toSerialize["eInscriptionnotauthenticatedResidenceType"] = o.EInscriptionnotauthenticatedResidenceType
@@ -1260,16 +1303,8 @@ func (o *InscriptionnotauthenticatedResponseCompound) UnmarshalJSON(data []byte)
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"pkiInscriptionnotauthenticatedID",
-		"fkiCompanyID",
 		"fkiInscriptionID",
-		"fkiDepartmentID",
-		"fkiFinancialinstitutionID",
-		"fkiBuyercontractID",
-		"fkiMortgagesupplierID",
 		"fkiTaxassignmentID",
-		"dtInscriptionnotauthenticatedTransactiondate",
-		"dtInscriptionnotauthenticatedTransactiondateReal",
-		"dtInscriptionnotauthenticatedDepositdate",
 		"eInscriptionnotauthenticatedType",
 		"dInscriptionnotauthenticatedMortgageloan",
 		"etInscriptionnotauthenticatedMortgagetype",
@@ -1278,16 +1313,11 @@ func (o *InscriptionnotauthenticatedResponseCompound) UnmarshalJSON(data []byte)
 		"dInscriptionnotauthenticatedRemuneration",
 		"dInscriptionnotauthenticatedRemunerationsubtotal",
 		"dInscriptionnotauthenticatedRemunerationtotal",
-		"dtInscriptionnotauthenticatedCancellationdate",
-		"dtInscriptionnotauthenticatedPossessiondate",
 		"sInscriptionnotauthenticatedOffertopurchasenumber",
-		"dtInscriptionnotauthenticatedNotaryscheduledate",
-		"dtInscriptionnotauthenticatedFinancingscheduledate",
 		"bInscriptionnotauthenticatedConditional",
 		"bInscriptionnotauthenticatedMortgageisreferenced",
 		"bInscriptionnotauthenticatedHomeowner",
 		"tInscriptionnotauthenticatedConditions",
-		"dtInscriptionnotauthenticatedConditiondeadlinedate",
 		"iInscriptionnotauthenticatedOrder",
 		"bInscriptionnotauthenticatedIsactive",
 		"eInscriptionnotauthenticatedResidenceType",

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**InscriptionGetCommunicationListV1**](ObjectInscriptionAPI.md#InscriptionGetCommunicationListV1) | **Get** /1/object/inscription/{pkiInscriptionID}/getCommunicationList | Retrieve Communication list
 [**InscriptionGetCommunicationrecipientsV1**](ObjectInscriptionAPI.md#InscriptionGetCommunicationrecipientsV1) | **Get** /1/object/inscription/{pkiInscriptionID}/getCommunicationrecipients | Retrieve Inscription&#39;s Communicationrecipient
 [**InscriptionGetCommunicationsendersV1**](ObjectInscriptionAPI.md#InscriptionGetCommunicationsendersV1) | **Get** /1/object/inscription/{pkiInscriptionID}/getCommunicationsenders | Retrieve Inscription&#39;s Communicationsender
-[**InscriptionGetInscriptionnotauthenticatedsV1**](ObjectInscriptionAPI.md#InscriptionGetInscriptionnotauthenticatedsV1) | **Get** /1/object/inscription/{pkiInscriptionID}/getInscriptionnotauthenticateds | Retrieve Inscriptionnotauthenticated list
+[**InscriptionGetInscriptionnotauthenticatedsV1**](ObjectInscriptionAPI.md#InscriptionGetInscriptionnotauthenticatedsV1) | **Get** /1/object/inscription/{pkiInscriptionID}/getInscriptionnotauthenticateds | Retrieve Inscription&#39;s Inscriptionnotauthenticated
 [**InscriptionGetListV1**](ObjectInscriptionAPI.md#InscriptionGetListV1) | **Get** /1/object/inscription/getList | Retrieve Inscription list
 [**InscriptionGetObjectV2**](ObjectInscriptionAPI.md#InscriptionGetObjectV2) | **Get** /2/object/inscription/{pkiInscriptionID} | Retrieve an existing Inscription
 [**InscriptionImportIntoEDMV1**](ObjectInscriptionAPI.md#InscriptionImportIntoEDMV1) | **Post** /1/object/inscription/{pkiInscriptionID}/importIntoEDM | Import attachments into the Inscription
@@ -371,7 +371,7 @@ Name | Type | Description  | Notes
 
 > InscriptionGetInscriptionnotauthenticatedsV1Response InscriptionGetInscriptionnotauthenticatedsV1(ctx, pkiInscriptionID).Execute()
 
-Retrieve Inscriptionnotauthenticated list
+Retrieve Inscription's Inscriptionnotauthenticated
 
 ### Example
 

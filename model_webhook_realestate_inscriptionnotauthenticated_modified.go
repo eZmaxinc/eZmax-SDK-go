@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.3.2
+API version: 1.3.3
 Contact: support-api@ezmax.ca
 */
 
@@ -25,7 +25,7 @@ type WebhookRealestateInscriptionnotauthenticatedModified struct {
 	ObjWebhook CustomWebhookResponse `json:"objWebhook"`
 	// An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.
 	AObjAttempt []AttemptResponseCompound `json:"a_objAttempt"`
-	ObjEzmaxpartnerproduct InscriptionnotauthenticatedResponse `json:"objEzmaxpartnerproduct"`
+	ObjInscriptionnotauthenticated InscriptionnotauthenticatedResponse `json:"objInscriptionnotauthenticated"`
 }
 
 type _WebhookRealestateInscriptionnotauthenticatedModified WebhookRealestateInscriptionnotauthenticatedModified
@@ -34,11 +34,11 @@ type _WebhookRealestateInscriptionnotauthenticatedModified WebhookRealestateInsc
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWebhookRealestateInscriptionnotauthenticatedModified(objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound, objEzmaxpartnerproduct InscriptionnotauthenticatedResponse) *WebhookRealestateInscriptionnotauthenticatedModified {
+func NewWebhookRealestateInscriptionnotauthenticatedModified(objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound, objInscriptionnotauthenticated InscriptionnotauthenticatedResponse) *WebhookRealestateInscriptionnotauthenticatedModified {
 	this := WebhookRealestateInscriptionnotauthenticatedModified{}
 	this.ObjWebhook = objWebhook
 	this.AObjAttempt = aObjAttempt
-	this.ObjEzmaxpartnerproduct = objEzmaxpartnerproduct
+	this.ObjInscriptionnotauthenticated = objInscriptionnotauthenticated
 	return &this
 }
 
@@ -98,28 +98,28 @@ func (o *WebhookRealestateInscriptionnotauthenticatedModified) SetAObjAttempt(v 
 	o.AObjAttempt = v
 }
 
-// GetObjEzmaxpartnerproduct returns the ObjEzmaxpartnerproduct field value
-func (o *WebhookRealestateInscriptionnotauthenticatedModified) GetObjEzmaxpartnerproduct() InscriptionnotauthenticatedResponse {
+// GetObjInscriptionnotauthenticated returns the ObjInscriptionnotauthenticated field value
+func (o *WebhookRealestateInscriptionnotauthenticatedModified) GetObjInscriptionnotauthenticated() InscriptionnotauthenticatedResponse {
 	if o == nil {
 		var ret InscriptionnotauthenticatedResponse
 		return ret
 	}
 
-	return o.ObjEzmaxpartnerproduct
+	return o.ObjInscriptionnotauthenticated
 }
 
-// GetObjEzmaxpartnerproductOk returns a tuple with the ObjEzmaxpartnerproduct field value
+// GetObjInscriptionnotauthenticatedOk returns a tuple with the ObjInscriptionnotauthenticated field value
 // and a boolean to check if the value has been set.
-func (o *WebhookRealestateInscriptionnotauthenticatedModified) GetObjEzmaxpartnerproductOk() (*InscriptionnotauthenticatedResponse, bool) {
+func (o *WebhookRealestateInscriptionnotauthenticatedModified) GetObjInscriptionnotauthenticatedOk() (*InscriptionnotauthenticatedResponse, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.ObjEzmaxpartnerproduct, true
+	return &o.ObjInscriptionnotauthenticated, true
 }
 
-// SetObjEzmaxpartnerproduct sets field value
-func (o *WebhookRealestateInscriptionnotauthenticatedModified) SetObjEzmaxpartnerproduct(v InscriptionnotauthenticatedResponse) {
-	o.ObjEzmaxpartnerproduct = v
+// SetObjInscriptionnotauthenticated sets field value
+func (o *WebhookRealestateInscriptionnotauthenticatedModified) SetObjInscriptionnotauthenticated(v InscriptionnotauthenticatedResponse) {
+	o.ObjInscriptionnotauthenticated = v
 }
 
 func (o WebhookRealestateInscriptionnotauthenticatedModified) MarshalJSON() ([]byte, error) {
@@ -134,7 +134,7 @@ func (o WebhookRealestateInscriptionnotauthenticatedModified) ToMap() (map[strin
 	toSerialize := map[string]interface{}{}
 	toSerialize["objWebhook"] = o.ObjWebhook
 	toSerialize["a_objAttempt"] = o.AObjAttempt
-	toSerialize["objEzmaxpartnerproduct"] = o.ObjEzmaxpartnerproduct
+	toSerialize["objInscriptionnotauthenticated"] = o.ObjInscriptionnotauthenticated
 	return toSerialize, nil
 }
 
@@ -145,7 +145,7 @@ func (o *WebhookRealestateInscriptionnotauthenticatedModified) UnmarshalJSON(dat
 	requiredProperties := []string{
 		"objWebhook",
 		"a_objAttempt",
-		"objEzmaxpartnerproduct",
+		"objInscriptionnotauthenticated",
 	}
 
 	allProperties := make(map[string]interface{})

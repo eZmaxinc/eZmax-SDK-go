@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ObjWebhook** | [**CustomWebhookResponse**](CustomWebhookResponse.md) |  | 
 **AObjAttempt** | [**[]AttemptResponseCompound**](AttemptResponseCompound.md) | An array containing details of previous attempts that were made to deliver the message. The array is empty if it&#39;s the first attempt. | 
-**ObjEzmaxpartnerproduct** | [**InscriptionnotauthenticatedResponse**](InscriptionnotauthenticatedResponse.md) |  | 
+**ObjInscriptionnotauthenticated** | [**InscriptionnotauthenticatedResponse**](InscriptionnotauthenticatedResponse.md) |  | 
 
 ## Methods
 
 ### NewWebhookRealestateInscriptionnotauthenticatedCreated
 
-`func NewWebhookRealestateInscriptionnotauthenticatedCreated(objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound, objEzmaxpartnerproduct InscriptionnotauthenticatedResponse, ) *WebhookRealestateInscriptionnotauthenticatedCreated`
+`func NewWebhookRealestateInscriptionnotauthenticatedCreated(objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound, objInscriptionnotauthenticated InscriptionnotauthenticatedResponse, ) *WebhookRealestateInscriptionnotauthenticatedCreated`
 
 NewWebhookRealestateInscriptionnotauthenticatedCreated instantiates a new WebhookRealestateInscriptionnotauthenticatedCreated object
 This constructor will assign default values to properties that have it defined,
@@ -67,24 +67,24 @@ and a boolean to check if the value has been set.
 SetAObjAttempt sets AObjAttempt field to given value.
 
 
-### GetObjEzmaxpartnerproduct
+### GetObjInscriptionnotauthenticated
 
-`func (o *WebhookRealestateInscriptionnotauthenticatedCreated) GetObjEzmaxpartnerproduct() InscriptionnotauthenticatedResponse`
+`func (o *WebhookRealestateInscriptionnotauthenticatedCreated) GetObjInscriptionnotauthenticated() InscriptionnotauthenticatedResponse`
 
-GetObjEzmaxpartnerproduct returns the ObjEzmaxpartnerproduct field if non-nil, zero value otherwise.
+GetObjInscriptionnotauthenticated returns the ObjInscriptionnotauthenticated field if non-nil, zero value otherwise.
 
-### GetObjEzmaxpartnerproductOk
+### GetObjInscriptionnotauthenticatedOk
 
-`func (o *WebhookRealestateInscriptionnotauthenticatedCreated) GetObjEzmaxpartnerproductOk() (*InscriptionnotauthenticatedResponse, bool)`
+`func (o *WebhookRealestateInscriptionnotauthenticatedCreated) GetObjInscriptionnotauthenticatedOk() (*InscriptionnotauthenticatedResponse, bool)`
 
-GetObjEzmaxpartnerproductOk returns a tuple with the ObjEzmaxpartnerproduct field if it's non-nil, zero value otherwise
+GetObjInscriptionnotauthenticatedOk returns a tuple with the ObjInscriptionnotauthenticated field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetObjEzmaxpartnerproduct
+### SetObjInscriptionnotauthenticated
 
-`func (o *WebhookRealestateInscriptionnotauthenticatedCreated) SetObjEzmaxpartnerproduct(v InscriptionnotauthenticatedResponse)`
+`func (o *WebhookRealestateInscriptionnotauthenticatedCreated) SetObjInscriptionnotauthenticated(v InscriptionnotauthenticatedResponse)`
 
-SetObjEzmaxpartnerproduct sets ObjEzmaxpartnerproduct field to given value.
+SetObjInscriptionnotauthenticated sets ObjInscriptionnotauthenticated field to given value.
 
 
 

@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ObjDebugPayload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
 **ObjDebug** | Pointer to [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
-**MPayload** | **map[string]interface{}** | Response for GET /1/object/inscription/{pkiInscriptionID}/getInscriptionnotauthenticateds | 
+**MPayload** | [**InscriptionGetInscriptionnotauthenticatedsV1ResponseMPayload**](InscriptionGetInscriptionnotauthenticatedsV1ResponseMPayload.md) |  | 
 
 ## Methods
 
 ### NewInscriptionGetInscriptionnotauthenticatedsV1Response
 
-`func NewInscriptionGetInscriptionnotauthenticatedsV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload map[string]interface{}, ) *InscriptionGetInscriptionnotauthenticatedsV1Response`
+`func NewInscriptionGetInscriptionnotauthenticatedsV1Response(objDebugPayload CommonResponseObjDebugPayload, mPayload InscriptionGetInscriptionnotauthenticatedsV1ResponseMPayload, ) *InscriptionGetInscriptionnotauthenticatedsV1Response`
 
 NewInscriptionGetInscriptionnotauthenticatedsV1Response instantiates a new InscriptionGetInscriptionnotauthenticatedsV1Response object
 This constructor will assign default values to properties that have it defined,
@@ -74,20 +74,20 @@ HasObjDebug returns a boolean if a field has been set.
 
 ### GetMPayload
 
-`func (o *InscriptionGetInscriptionnotauthenticatedsV1Response) GetMPayload() map[string]interface{}`
+`func (o *InscriptionGetInscriptionnotauthenticatedsV1Response) GetMPayload() InscriptionGetInscriptionnotauthenticatedsV1ResponseMPayload`
 
 GetMPayload returns the MPayload field if non-nil, zero value otherwise.
 
 ### GetMPayloadOk
 
-`func (o *InscriptionGetInscriptionnotauthenticatedsV1Response) GetMPayloadOk() (*map[string]interface{}, bool)`
+`func (o *InscriptionGetInscriptionnotauthenticatedsV1Response) GetMPayloadOk() (*InscriptionGetInscriptionnotauthenticatedsV1ResponseMPayload, bool)`
 
 GetMPayloadOk returns a tuple with the MPayload field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMPayload
 
-`func (o *InscriptionGetInscriptionnotauthenticatedsV1Response) SetMPayload(v map[string]interface{})`
+`func (o *InscriptionGetInscriptionnotauthenticatedsV1Response) SetMPayload(v InscriptionGetInscriptionnotauthenticatedsV1ResponseMPayload)`
 
 SetMPayload sets MPayload field to given value.
 

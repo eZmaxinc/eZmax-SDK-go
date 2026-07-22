@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.3.2
+API version: 1.3.3
 Contact: support-api@ezmax.ca
 */
 
@@ -44,7 +44,7 @@ type InscriptionListElement struct {
 	SBuyercontractContract *string `json:"sBuyercontractContract,omitempty"`
 	EInscriptionStep FieldEInscriptionStep `json:"eInscriptionStep"`
 	EInscriptionType FieldEInscriptionType `json:"eInscriptionType"`
-	// The civicend of the Inscription
+	// The address civic end of the Inscription
 	SInscriptionCivicend string `json:"sInscriptionCivicend" validate:"regexp=^.{0\\,6}$"`
 	// The mls of the Inscription
 	SInscriptionMLS *string `json:"sInscriptionMLS,omitempty" validate:"regexp=^.{0\\,20}$"`
@@ -52,13 +52,13 @@ type InscriptionListElement struct {
 	SInscriptionContract *string `json:"sInscriptionContract,omitempty" validate:"regexp=^.{0\\,20}$"`
 	// The saleprice of the Inscription
 	DInscriptionSaleprice string `json:"dInscriptionSaleprice" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
-	// The rentprice of the Inscription
+	// The rent price of the Inscription
 	DInscriptionRentprice string `json:"dInscriptionRentprice" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	// The date of the Inscription
 	DtInscriptionDate *string `json:"dtInscriptionDate,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
-	// The expirationdate of the Inscription
+	// The expiration date of the Inscription
 	DtInscriptionExpirationdate *string `json:"dtInscriptionExpirationdate,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
-	// The notarydate of the Inscription
+	// The notary date of the Inscription
 	DtInscriptionNotarydate *string `json:"dtInscriptionNotarydate,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// Whether the inscription is active or not
 	BInscriptionIsactive bool `json:"bInscriptionIsactive"`
@@ -66,11 +66,11 @@ type InscriptionListElement struct {
 	BInscriptionArchived bool `json:"bInscriptionArchived"`
 	// Whether the inscription can be acces by an inspector
 	BInscriptionInspection *bool `json:"bInscriptionInspection,omitempty"`
-	// The notaryscheduledate of the Inscriptionnotauthenticated
+	// The notary schedule date of the Inscriptionnotauthenticated
 	DtInscriptionnotauthenticatedNotaryscheduledate *string `json:"dtInscriptionnotauthenticatedNotaryscheduledate,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
-	// The transactiondate of the Inscriptionnotauthenticated
+	// The transaction date of the Inscriptionnotauthenticated
 	DtInscriptionnotauthenticatedTransactiondate *string `json:"dtInscriptionnotauthenticatedTransactiondate,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
-	// The transactiondatereal of the Inscriptionnotauthenticated
+	// The real transactiondate of the Inscriptionnotauthenticated
 	DtInscriptionnotauthenticatedTransactiondateReal *string `json:"dtInscriptionnotauthenticatedTransactiondateReal,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// Whether the inscriptionnotauthenticated is conditional
 	BInscriptionnotauthenticatedConditional *bool `json:"bInscriptionnotauthenticatedConditional,omitempty"`
@@ -96,7 +96,7 @@ type InscriptionListElement struct {
 	SCountryNameX *string `json:"sCountryNameX,omitempty" validate:"regexp=^.{0\\,40}$"`
 	// The numbre of inscriptionnotauthenticated was canceled in this Inscription
 	IInscriptionnotauthenticatedCanceled int32 `json:"iInscriptionnotauthenticatedCanceled"`
-	// The unit of the Inscription
+	// The number of unit for the Inscription
 	IInscriptionUnit int32 `json:"iInscriptionUnit"`
 	// Whether we are allowed to copy into the Inscription EDM
 	BAllowedCopyintoinscriptionedm bool `json:"bAllowedCopyintoinscriptionedm"`
