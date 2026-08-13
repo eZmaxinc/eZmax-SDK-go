@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.3.3
+API version: 1.3.4
 Contact: support-api@ezmax.ca
 */
 
@@ -16,7 +16,7 @@ import (
 	"fmt"
 )
 
-// FieldEEzsignfoldersignerassociationRole The type of the EzsignfoldersignerassociationRole.  1. **CC** receive a copy of all documents. 2. **Signer** sign document. 3. **SignerAndCC** sign document and receive a copy of all documents.
+// FieldEEzsignfoldersignerassociationRole The role of the Ezsignfoldersignerassociation.  1. **CC** receive a copy of all documents. 2. **Signer** sign document. 3. **SignerAndCC** sign document and receive a copy of all documents.
 type FieldEEzsignfoldersignerassociationRole string
 
 // List of Field-eEzsignfoldersignerassociationRole

@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **SEzsignformfieldgroupTextvalidationcustommessage** | Pointer to **string** | Description of validation rule. Show by signatory. | [optional] 
 **TEzsignformfieldgroupTooltip** | Pointer to **string** | A tooltip that will be presented to Ezsignsigner about the Ezsignformfieldgroup | [optional] 
 **EEzsignformfieldgroupTooltipposition** | Pointer to [**FieldEEzsignformfieldgroupTooltipposition**](FieldEEzsignformfieldgroupTooltipposition.md) |  | [optional] 
+**DtEzsignformfieldgroupCompleted** | Pointer to **string** | The date the Ezsignformfieldgroup was completed. | [optional] 
 **AObjEzsignformfield** | [**[]EzsignformfieldResponseCompound**](EzsignformfieldResponseCompound.md) |  | 
 **AObjDropdownElement** | Pointer to [**[]CustomDropdownElementResponseCompound**](CustomDropdownElementResponseCompound.md) |  | [optional] 
 **AObjEzsignformfieldgroupsigner** | [**[]EzsignformfieldgroupsignerResponseCompound**](EzsignformfieldgroupsignerResponseCompound.md) |  | 
@@ -428,6 +429,31 @@ SetEEzsignformfieldgroupTooltipposition sets EEzsignformfieldgroupTooltippositio
 `func (o *EzsignformfieldgroupResponseCompound) HasEEzsignformfieldgroupTooltipposition() bool`
 
 HasEEzsignformfieldgroupTooltipposition returns a boolean if a field has been set.
+
+### GetDtEzsignformfieldgroupCompleted
+
+`func (o *EzsignformfieldgroupResponseCompound) GetDtEzsignformfieldgroupCompleted() string`
+
+GetDtEzsignformfieldgroupCompleted returns the DtEzsignformfieldgroupCompleted field if non-nil, zero value otherwise.
+
+### GetDtEzsignformfieldgroupCompletedOk
+
+`func (o *EzsignformfieldgroupResponseCompound) GetDtEzsignformfieldgroupCompletedOk() (*string, bool)`
+
+GetDtEzsignformfieldgroupCompletedOk returns a tuple with the DtEzsignformfieldgroupCompleted field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDtEzsignformfieldgroupCompleted
+
+`func (o *EzsignformfieldgroupResponseCompound) SetDtEzsignformfieldgroupCompleted(v string)`
+
+SetDtEzsignformfieldgroupCompleted sets DtEzsignformfieldgroupCompleted field to given value.
+
+### HasDtEzsignformfieldgroupCompleted
+
+`func (o *EzsignformfieldgroupResponseCompound) HasDtEzsignformfieldgroupCompleted() bool`
+
+HasDtEzsignformfieldgroupCompleted returns a boolean if a field has been set.
 
 ### GetAObjEzsignformfield
 

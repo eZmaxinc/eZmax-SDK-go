@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.3.3
+API version: 1.3.4
 Contact: support-api@ezmax.ca
 */
 
@@ -20,6 +20,7 @@ var _ MappedNullable = &EzsignfoldersignerassociationRequestPatch{}
 
 // EzsignfoldersignerassociationRequestPatch An Ezsignfoldersignerassociation Object
 type EzsignfoldersignerassociationRequestPatch struct {
+	EEzsignfoldersignerassociationRole *FieldEEzsignfoldersignerassociationRole `json:"eEzsignfoldersignerassociationRole,omitempty"`
 	// A custom text message that will be added to the email sent.
 	TEzsignfoldersignerassociationMessage *string `json:"tEzsignfoldersignerassociationMessage,omitempty"`
 }
@@ -39,6 +40,38 @@ func NewEzsignfoldersignerassociationRequestPatch() *Ezsignfoldersignerassociati
 func NewEzsignfoldersignerassociationRequestPatchWithDefaults() *EzsignfoldersignerassociationRequestPatch {
 	this := EzsignfoldersignerassociationRequestPatch{}
 	return &this
+}
+
+// GetEEzsignfoldersignerassociationRole returns the EEzsignfoldersignerassociationRole field value if set, zero value otherwise.
+func (o *EzsignfoldersignerassociationRequestPatch) GetEEzsignfoldersignerassociationRole() FieldEEzsignfoldersignerassociationRole {
+	if o == nil || IsNil(o.EEzsignfoldersignerassociationRole) {
+		var ret FieldEEzsignfoldersignerassociationRole
+		return ret
+	}
+	return *o.EEzsignfoldersignerassociationRole
+}
+
+// GetEEzsignfoldersignerassociationRoleOk returns a tuple with the EEzsignfoldersignerassociationRole field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfoldersignerassociationRequestPatch) GetEEzsignfoldersignerassociationRoleOk() (*FieldEEzsignfoldersignerassociationRole, bool) {
+	if o == nil || IsNil(o.EEzsignfoldersignerassociationRole) {
+		return nil, false
+	}
+	return o.EEzsignfoldersignerassociationRole, true
+}
+
+// HasEEzsignfoldersignerassociationRole returns a boolean if a field has been set.
+func (o *EzsignfoldersignerassociationRequestPatch) HasEEzsignfoldersignerassociationRole() bool {
+	if o != nil && !IsNil(o.EEzsignfoldersignerassociationRole) {
+		return true
+	}
+
+	return false
+}
+
+// SetEEzsignfoldersignerassociationRole gets a reference to the given FieldEEzsignfoldersignerassociationRole and assigns it to the EEzsignfoldersignerassociationRole field.
+func (o *EzsignfoldersignerassociationRequestPatch) SetEEzsignfoldersignerassociationRole(v FieldEEzsignfoldersignerassociationRole) {
+	o.EEzsignfoldersignerassociationRole = &v
 }
 
 // GetTEzsignfoldersignerassociationMessage returns the TEzsignfoldersignerassociationMessage field value if set, zero value otherwise.
@@ -83,6 +116,9 @@ func (o EzsignfoldersignerassociationRequestPatch) MarshalJSON() ([]byte, error)
 
 func (o EzsignfoldersignerassociationRequestPatch) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.EEzsignfoldersignerassociationRole) {
+		toSerialize["eEzsignfoldersignerassociationRole"] = o.EEzsignfoldersignerassociationRole
+	}
 	if !IsNil(o.TEzsignfoldersignerassociationMessage) {
 		toSerialize["tEzsignfoldersignerassociationMessage"] = o.TEzsignfoldersignerassociationMessage
 	}

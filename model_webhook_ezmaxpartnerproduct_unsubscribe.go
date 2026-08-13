@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.3.3
+API version: 1.3.4
 Contact: support-api@ezmax.ca
 */
 
@@ -26,7 +26,7 @@ type WebhookEzmaxpartnerproductUnsubscribe struct {
 	// An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.
 	AObjAttempt []AttemptResponseCompound `json:"a_objAttempt"`
 	ObjEzmaxpartnerproduct CustomEzmaxpartnerproductSubscribe `json:"objEzmaxpartnerproduct"`
-	SExternalID *string `json:"sExternalID,omitempty"`
+	SExternalID *string `json:"sExternalID,omitempty" validate:"regexp=^.{0\\,128}$"`
 }
 
 type _WebhookEzmaxpartnerproductUnsubscribe WebhookEzmaxpartnerproductUnsubscribe

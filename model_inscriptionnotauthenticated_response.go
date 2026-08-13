@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.3.3
+API version: 1.3.4
 Contact: support-api@ezmax.ca
 */
 
@@ -91,7 +91,7 @@ type InscriptionnotauthenticatedResponse struct {
 	BInscriptionnotauthenticatedIsactive bool `json:"bInscriptionnotauthenticatedIsactive"`
 	EInscriptionnotauthenticatedResidenceType FieldEInscriptionnotauthenticatedResidenceType `json:"eInscriptionnotauthenticatedResidenceType"`
 	// The checklist note of the Inscriptionnotauthenticated
-	TInscriptionnotauthenticatedChecklistnote string `json:"tInscriptionnotauthenticatedChecklistnote" validate:"regexp=^.{0\\,65535}$"`
+	TInscriptionnotauthenticatedChecklistnote string `json:"tInscriptionnotauthenticatedChecklistnote" validate:"regexp=^[\\s\\S]{0\\,65535}$"`
 	// The amount retribution for the seller only of the Inscriptionnotauthenticated
 	DInscriptionnotauthenticatedSelleronlyretribution string `json:"dInscriptionnotauthenticatedSelleronlyretribution" validate:"regexp=^-{0\\,1}[\\d]{1\\,3}?\\.[\\d]{3}$"`
 	// Whether the Inscriptionnotauthenticated is a draft or not

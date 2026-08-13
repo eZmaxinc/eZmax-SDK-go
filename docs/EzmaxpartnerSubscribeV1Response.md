@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SExternalID** | **string** |  | 
+**SExternalID** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewEzmaxpartnerSubscribeV1Response
 
-`func NewEzmaxpartnerSubscribeV1Response(sExternalID string, ) *EzmaxpartnerSubscribeV1Response`
+`func NewEzmaxpartnerSubscribeV1Response() *EzmaxpartnerSubscribeV1Response`
 
 NewEzmaxpartnerSubscribeV1Response instantiates a new EzmaxpartnerSubscribeV1Response object
 This constructor will assign default values to properties that have it defined,
@@ -44,6 +44,11 @@ and a boolean to check if the value has been set.
 
 SetSExternalID sets SExternalID field to given value.
 
+### HasSExternalID
+
+`func (o *EzmaxpartnerSubscribeV1Response) HasSExternalID() bool`
+
+HasSExternalID returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

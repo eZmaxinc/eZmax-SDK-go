@@ -5,8 +5,10 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**EzsignbulksendsignermappingCreateObjectV1**](ObjectEzsignbulksendsignermappingAPI.md#EzsignbulksendsignermappingCreateObjectV1) | **Post** /1/object/ezsignbulksendsignermapping | Create a new Ezsignbulksendsignermapping
+[**EzsignbulksendsignermappingCreateObjectV2**](ObjectEzsignbulksendsignermappingAPI.md#EzsignbulksendsignermappingCreateObjectV2) | **Post** /2/object/ezsignbulksendsignermapping | Create a new Ezsignbulksendsignermapping
 [**EzsignbulksendsignermappingDeleteObjectV1**](ObjectEzsignbulksendsignermappingAPI.md#EzsignbulksendsignermappingDeleteObjectV1) | **Delete** /1/object/ezsignbulksendsignermapping/{pkiEzsignbulksendsignermappingID} | Delete an existing Ezsignbulksendsignermapping
 [**EzsignbulksendsignermappingGetObjectV2**](ObjectEzsignbulksendsignermappingAPI.md#EzsignbulksendsignermappingGetObjectV2) | **Get** /2/object/ezsignbulksendsignermapping/{pkiEzsignbulksendsignermappingID} | Retrieve an existing Ezsignbulksendsignermapping
+[**EzsignbulksendsignermappingGetObjectV3**](ObjectEzsignbulksendsignermappingAPI.md#EzsignbulksendsignermappingGetObjectV3) | **Get** /3/object/ezsignbulksendsignermapping/{pkiEzsignbulksendsignermappingID} | Retrieve an existing Ezsignbulksendsignermapping
 
 
 
@@ -61,6 +63,72 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignbulksendsignermappingCreateObjectV1Response**](EzsignbulksendsignermappingCreateObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsignbulksendsignermappingCreateObjectV2
+
+> EzsignbulksendsignermappingCreateObjectV2Response EzsignbulksendsignermappingCreateObjectV2(ctx).EzsignbulksendsignermappingCreateObjectV2Request(ezsignbulksendsignermappingCreateObjectV2Request).Execute()
+
+Create a new Ezsignbulksendsignermapping
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	ezsignbulksendsignermappingCreateObjectV2Request := *openapiclient.NewEzsignbulksendsignermappingCreateObjectV2Request([]openapiclient.EzsignbulksendsignermappingRequestCompoundV2{*openapiclient.NewEzsignbulksendsignermappingRequestCompoundV2(int32(8), "Supervisor")}) // EzsignbulksendsignermappingCreateObjectV2Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignbulksendsignermappingAPI.EzsignbulksendsignermappingCreateObjectV2(context.Background()).EzsignbulksendsignermappingCreateObjectV2Request(ezsignbulksendsignermappingCreateObjectV2Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendsignermappingAPI.EzsignbulksendsignermappingCreateObjectV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignbulksendsignermappingCreateObjectV2`: EzsignbulksendsignermappingCreateObjectV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendsignermappingAPI.EzsignbulksendsignermappingCreateObjectV2`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsignbulksendsignermappingCreateObjectV2Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ezsignbulksendsignermappingCreateObjectV2Request** | [**EzsignbulksendsignermappingCreateObjectV2Request**](EzsignbulksendsignermappingCreateObjectV2Request.md) |  | 
+
+### Return type
+
+[**EzsignbulksendsignermappingCreateObjectV2Response**](EzsignbulksendsignermappingCreateObjectV2Response.md)
 
 ### Authorization
 
@@ -201,6 +269,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignbulksendsignermappingGetObjectV2Response**](EzsignbulksendsignermappingGetObjectV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsignbulksendsignermappingGetObjectV3
+
+> EzsignbulksendsignermappingGetObjectV3Response EzsignbulksendsignermappingGetObjectV3(ctx, pkiEzsignbulksendsignermappingID).Execute()
+
+Retrieve an existing Ezsignbulksendsignermapping
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsignbulksendsignermappingID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignbulksendsignermappingAPI.EzsignbulksendsignermappingGetObjectV3(context.Background(), pkiEzsignbulksendsignermappingID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendsignermappingAPI.EzsignbulksendsignermappingGetObjectV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignbulksendsignermappingGetObjectV3`: EzsignbulksendsignermappingGetObjectV3Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendsignermappingAPI.EzsignbulksendsignermappingGetObjectV3`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsignbulksendsignermappingID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsignbulksendsignermappingGetObjectV3Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**EzsignbulksendsignermappingGetObjectV3Response**](EzsignbulksendsignermappingGetObjectV3Response.md)
 
 ### Authorization
 

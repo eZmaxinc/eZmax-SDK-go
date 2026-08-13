@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.3.3
+API version: 1.3.4
 Contact: support-api@ezmax.ca
 */
 
@@ -13,6 +13,8 @@ package eZmaxApi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the CustomEzmaxpartnerproductSubscribe type satisfies the MappedNullable interface at compile time
@@ -21,56 +23,78 @@ var _ MappedNullable = &CustomEzmaxpartnerproductSubscribe{}
 // CustomEzmaxpartnerproductSubscribe Request for POST /1/webhookdocumentation/subscribe
 type CustomEzmaxpartnerproductSubscribe struct {
 	// The Ezmaxcustomer code
-	PksEzmaxcustomerCode *string `json:"pksEzmaxcustomerCode,omitempty" validate:"regexp=^[a-z\\d]{2\\,6}$"`
+	PksEzmaxcustomerCode string `json:"pksEzmaxcustomerCode" validate:"regexp=^[a-z\\d]{2\\,6}$"`
 	// The environment type Description
-	SInfrastructureenvironmenttypeDescription *string `json:"sInfrastructureenvironmenttypeDescription,omitempty"`
+	SInfrastructureenvironmenttypeDescription string `json:"sInfrastructureenvironmenttypeDescription"`
 	// The Name of the Company in French
-	SCompanyName1 *string `json:"sCompanyName1,omitempty"`
+	SCompanyName1 string `json:"sCompanyName1"`
 	// The Name of the Company in English
-	SCompanyName2 *string `json:"sCompanyName2,omitempty"`
+	SCompanyName2 string `json:"sCompanyName2"`
 	// The unique ID of the Systemconfigurationtype
-	FkiSystemconfigurationtypeID *int32 `json:"fkiSystemconfigurationtypeID,omitempty"`
+	FkiSystemconfigurationtypeID int32 `json:"fkiSystemconfigurationtypeID"`
 	// The description of the Systemconfigurationtype in the language of the requester
-	SSystemconfigurationtypeDescription1 *string `json:"sSystemconfigurationtypeDescription1,omitempty"`
+	SSystemconfigurationtypeDescription1 string `json:"sSystemconfigurationtypeDescription1"`
 	// The description of the Systemconfigurationtype in the language of the requester
-	SSystemconfigurationtypeDescription2 *string `json:"sSystemconfigurationtypeDescription2,omitempty"`
+	SSystemconfigurationtypeDescription2 string `json:"sSystemconfigurationtypeDescription2"`
 	// The unique ID of the Ezmaxpartner
-	FkiEzmaxpartnerID *int32 `json:"fkiEzmaxpartnerID,omitempty"`
+	FkiEzmaxpartnerID int32 `json:"fkiEzmaxpartnerID"`
 	// The name of the Ezmaxpartner in french
-	SEzmaxpartnerName1 *string `json:"sEzmaxpartnerName1,omitempty" validate:"regexp=^.{0\\,50}$"`
+	SEzmaxpartnerName1 string `json:"sEzmaxpartnerName1" validate:"regexp=^.{0\\,50}$"`
 	// The name of the Ezmaxpartner in english
-	SEzmaxpartnerName2 *string `json:"sEzmaxpartnerName2,omitempty" validate:"regexp=^.{0\\,50}$"`
+	SEzmaxpartnerName2 string `json:"sEzmaxpartnerName2" validate:"regexp=^.{0\\,50}$"`
 	// The unique ID of the Ezmaxpartnerproduct
-	FkiEzmaxpartnerproductID *int32 `json:"fkiEzmaxpartnerproductID,omitempty"`
+	FkiEzmaxpartnerproductID int32 `json:"fkiEzmaxpartnerproductID"`
 	// The name1 of the Ezmaxpartnerproduct
-	SEzmaxpartnerproductName1 *string `json:"sEzmaxpartnerproductName1,omitempty" validate:"regexp=^.{0\\,35}$"`
+	SEzmaxpartnerproductName1 string `json:"sEzmaxpartnerproductName1" validate:"regexp=^.{0\\,35}$"`
 	// The name2 of the Ezmaxpartnerproduct
-	SEzmaxpartnerproductName2 *string `json:"sEzmaxpartnerproductName2,omitempty" validate:"regexp=^.{0\\,35}$"`
+	SEzmaxpartnerproductName2 string `json:"sEzmaxpartnerproductName2" validate:"regexp=^.{0\\,35}$"`
 	// The unique ID of the Ezmaxpartnerproductstage
-	FkiEzmaxpartnerproductstageID *int32 `json:"fkiEzmaxpartnerproductstageID,omitempty"`
+	FkiEzmaxpartnerproductstageID int32 `json:"fkiEzmaxpartnerproductstageID"`
 	// The code of the sEzmaxpartnerproductstage
-	SEzmaxpartnerproductstageCode *string `json:"sEzmaxpartnerproductstageCode,omitempty" validate:"regexp=^.{0\\,15}$"`
+	SEzmaxpartnerproductstageCode string `json:"sEzmaxpartnerproductstageCode" validate:"regexp=^.{0\\,15}$"`
 	// The login name of the User.
-	SUserLoginName *string `json:"sUserLoginName,omitempty" validate:"regexp=^(?:([\\w.%+\\-!#$%&'*+/=?^\x60{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2\\,20})|([a-zA-Z0-9]){1\\,32})$"`
+	SUserLoginName string `json:"sUserLoginName" validate:"regexp=^(?:([\\w.%+\\-!#$%&'*+/=?^\x60{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2\\,20})|([a-zA-Z0-9]){1\\,32})$"`
 	// The first name of the user
-	SUserFirstName *string `json:"sUserFirstName,omitempty"`
+	SUserFirstName string `json:"sUserFirstName"`
 	// The last name of the user
-	SUserLastName *string `json:"sUserLastName,omitempty"`
+	SUserLastName string `json:"sUserLastName"`
 	// The unique ID of the User
-	FkiUserID *int32 `json:"fkiUserID,omitempty"`
+	FkiUserID int32 `json:"fkiUserID"`
 	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
-	FkiLanguageID *int32 `json:"fkiLanguageID,omitempty"`
+	FkiLanguageID int32 `json:"fkiLanguageID"`
 	ObjAddress *AddressRequestCompound `json:"objAddress,omitempty"`
 	Objphone *PhoneRequestCompoundV2 `json:"objphone,omitempty"`
 	ObjEmail *EmailRequestCompound `json:"objEmail,omitempty"`
 }
 
+type _CustomEzmaxpartnerproductSubscribe CustomEzmaxpartnerproductSubscribe
+
 // NewCustomEzmaxpartnerproductSubscribe instantiates a new CustomEzmaxpartnerproductSubscribe object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomEzmaxpartnerproductSubscribe() *CustomEzmaxpartnerproductSubscribe {
+func NewCustomEzmaxpartnerproductSubscribe(pksEzmaxcustomerCode string, sInfrastructureenvironmenttypeDescription string, sCompanyName1 string, sCompanyName2 string, fkiSystemconfigurationtypeID int32, sSystemconfigurationtypeDescription1 string, sSystemconfigurationtypeDescription2 string, fkiEzmaxpartnerID int32, sEzmaxpartnerName1 string, sEzmaxpartnerName2 string, fkiEzmaxpartnerproductID int32, sEzmaxpartnerproductName1 string, sEzmaxpartnerproductName2 string, fkiEzmaxpartnerproductstageID int32, sEzmaxpartnerproductstageCode string, sUserLoginName string, sUserFirstName string, sUserLastName string, fkiUserID int32, fkiLanguageID int32) *CustomEzmaxpartnerproductSubscribe {
 	this := CustomEzmaxpartnerproductSubscribe{}
+	this.PksEzmaxcustomerCode = pksEzmaxcustomerCode
+	this.SInfrastructureenvironmenttypeDescription = sInfrastructureenvironmenttypeDescription
+	this.SCompanyName1 = sCompanyName1
+	this.SCompanyName2 = sCompanyName2
+	this.FkiSystemconfigurationtypeID = fkiSystemconfigurationtypeID
+	this.SSystemconfigurationtypeDescription1 = sSystemconfigurationtypeDescription1
+	this.SSystemconfigurationtypeDescription2 = sSystemconfigurationtypeDescription2
+	this.FkiEzmaxpartnerID = fkiEzmaxpartnerID
+	this.SEzmaxpartnerName1 = sEzmaxpartnerName1
+	this.SEzmaxpartnerName2 = sEzmaxpartnerName2
+	this.FkiEzmaxpartnerproductID = fkiEzmaxpartnerproductID
+	this.SEzmaxpartnerproductName1 = sEzmaxpartnerproductName1
+	this.SEzmaxpartnerproductName2 = sEzmaxpartnerproductName2
+	this.FkiEzmaxpartnerproductstageID = fkiEzmaxpartnerproductstageID
+	this.SEzmaxpartnerproductstageCode = sEzmaxpartnerproductstageCode
+	this.SUserLoginName = sUserLoginName
+	this.SUserFirstName = sUserFirstName
+	this.SUserLastName = sUserLastName
+	this.FkiUserID = fkiUserID
+	this.FkiLanguageID = fkiLanguageID
 	return &this
 }
 
@@ -82,644 +106,484 @@ func NewCustomEzmaxpartnerproductSubscribeWithDefaults() *CustomEzmaxpartnerprod
 	return &this
 }
 
-// GetPksEzmaxcustomerCode returns the PksEzmaxcustomerCode field value if set, zero value otherwise.
+// GetPksEzmaxcustomerCode returns the PksEzmaxcustomerCode field value
 func (o *CustomEzmaxpartnerproductSubscribe) GetPksEzmaxcustomerCode() string {
-	if o == nil || IsNil(o.PksEzmaxcustomerCode) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.PksEzmaxcustomerCode
+
+	return o.PksEzmaxcustomerCode
 }
 
-// GetPksEzmaxcustomerCodeOk returns a tuple with the PksEzmaxcustomerCode field value if set, nil otherwise
+// GetPksEzmaxcustomerCodeOk returns a tuple with the PksEzmaxcustomerCode field value
 // and a boolean to check if the value has been set.
 func (o *CustomEzmaxpartnerproductSubscribe) GetPksEzmaxcustomerCodeOk() (*string, bool) {
-	if o == nil || IsNil(o.PksEzmaxcustomerCode) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PksEzmaxcustomerCode, true
+	return &o.PksEzmaxcustomerCode, true
 }
 
-// HasPksEzmaxcustomerCode returns a boolean if a field has been set.
-func (o *CustomEzmaxpartnerproductSubscribe) HasPksEzmaxcustomerCode() bool {
-	if o != nil && !IsNil(o.PksEzmaxcustomerCode) {
-		return true
-	}
-
-	return false
-}
-
-// SetPksEzmaxcustomerCode gets a reference to the given string and assigns it to the PksEzmaxcustomerCode field.
+// SetPksEzmaxcustomerCode sets field value
 func (o *CustomEzmaxpartnerproductSubscribe) SetPksEzmaxcustomerCode(v string) {
-	o.PksEzmaxcustomerCode = &v
+	o.PksEzmaxcustomerCode = v
 }
 
-// GetSInfrastructureenvironmenttypeDescription returns the SInfrastructureenvironmenttypeDescription field value if set, zero value otherwise.
+// GetSInfrastructureenvironmenttypeDescription returns the SInfrastructureenvironmenttypeDescription field value
 func (o *CustomEzmaxpartnerproductSubscribe) GetSInfrastructureenvironmenttypeDescription() string {
-	if o == nil || IsNil(o.SInfrastructureenvironmenttypeDescription) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SInfrastructureenvironmenttypeDescription
+
+	return o.SInfrastructureenvironmenttypeDescription
 }
 
-// GetSInfrastructureenvironmenttypeDescriptionOk returns a tuple with the SInfrastructureenvironmenttypeDescription field value if set, nil otherwise
+// GetSInfrastructureenvironmenttypeDescriptionOk returns a tuple with the SInfrastructureenvironmenttypeDescription field value
 // and a boolean to check if the value has been set.
 func (o *CustomEzmaxpartnerproductSubscribe) GetSInfrastructureenvironmenttypeDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.SInfrastructureenvironmenttypeDescription) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SInfrastructureenvironmenttypeDescription, true
+	return &o.SInfrastructureenvironmenttypeDescription, true
 }
 
-// HasSInfrastructureenvironmenttypeDescription returns a boolean if a field has been set.
-func (o *CustomEzmaxpartnerproductSubscribe) HasSInfrastructureenvironmenttypeDescription() bool {
-	if o != nil && !IsNil(o.SInfrastructureenvironmenttypeDescription) {
-		return true
-	}
-
-	return false
-}
-
-// SetSInfrastructureenvironmenttypeDescription gets a reference to the given string and assigns it to the SInfrastructureenvironmenttypeDescription field.
+// SetSInfrastructureenvironmenttypeDescription sets field value
 func (o *CustomEzmaxpartnerproductSubscribe) SetSInfrastructureenvironmenttypeDescription(v string) {
-	o.SInfrastructureenvironmenttypeDescription = &v
+	o.SInfrastructureenvironmenttypeDescription = v
 }
 
-// GetSCompanyName1 returns the SCompanyName1 field value if set, zero value otherwise.
+// GetSCompanyName1 returns the SCompanyName1 field value
 func (o *CustomEzmaxpartnerproductSubscribe) GetSCompanyName1() string {
-	if o == nil || IsNil(o.SCompanyName1) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SCompanyName1
+
+	return o.SCompanyName1
 }
 
-// GetSCompanyName1Ok returns a tuple with the SCompanyName1 field value if set, nil otherwise
+// GetSCompanyName1Ok returns a tuple with the SCompanyName1 field value
 // and a boolean to check if the value has been set.
 func (o *CustomEzmaxpartnerproductSubscribe) GetSCompanyName1Ok() (*string, bool) {
-	if o == nil || IsNil(o.SCompanyName1) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SCompanyName1, true
+	return &o.SCompanyName1, true
 }
 
-// HasSCompanyName1 returns a boolean if a field has been set.
-func (o *CustomEzmaxpartnerproductSubscribe) HasSCompanyName1() bool {
-	if o != nil && !IsNil(o.SCompanyName1) {
-		return true
-	}
-
-	return false
-}
-
-// SetSCompanyName1 gets a reference to the given string and assigns it to the SCompanyName1 field.
+// SetSCompanyName1 sets field value
 func (o *CustomEzmaxpartnerproductSubscribe) SetSCompanyName1(v string) {
-	o.SCompanyName1 = &v
+	o.SCompanyName1 = v
 }
 
-// GetSCompanyName2 returns the SCompanyName2 field value if set, zero value otherwise.
+// GetSCompanyName2 returns the SCompanyName2 field value
 func (o *CustomEzmaxpartnerproductSubscribe) GetSCompanyName2() string {
-	if o == nil || IsNil(o.SCompanyName2) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SCompanyName2
+
+	return o.SCompanyName2
 }
 
-// GetSCompanyName2Ok returns a tuple with the SCompanyName2 field value if set, nil otherwise
+// GetSCompanyName2Ok returns a tuple with the SCompanyName2 field value
 // and a boolean to check if the value has been set.
 func (o *CustomEzmaxpartnerproductSubscribe) GetSCompanyName2Ok() (*string, bool) {
-	if o == nil || IsNil(o.SCompanyName2) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SCompanyName2, true
+	return &o.SCompanyName2, true
 }
 
-// HasSCompanyName2 returns a boolean if a field has been set.
-func (o *CustomEzmaxpartnerproductSubscribe) HasSCompanyName2() bool {
-	if o != nil && !IsNil(o.SCompanyName2) {
-		return true
-	}
-
-	return false
-}
-
-// SetSCompanyName2 gets a reference to the given string and assigns it to the SCompanyName2 field.
+// SetSCompanyName2 sets field value
 func (o *CustomEzmaxpartnerproductSubscribe) SetSCompanyName2(v string) {
-	o.SCompanyName2 = &v
+	o.SCompanyName2 = v
 }
 
-// GetFkiSystemconfigurationtypeID returns the FkiSystemconfigurationtypeID field value if set, zero value otherwise.
+// GetFkiSystemconfigurationtypeID returns the FkiSystemconfigurationtypeID field value
 func (o *CustomEzmaxpartnerproductSubscribe) GetFkiSystemconfigurationtypeID() int32 {
-	if o == nil || IsNil(o.FkiSystemconfigurationtypeID) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.FkiSystemconfigurationtypeID
+
+	return o.FkiSystemconfigurationtypeID
 }
 
-// GetFkiSystemconfigurationtypeIDOk returns a tuple with the FkiSystemconfigurationtypeID field value if set, nil otherwise
+// GetFkiSystemconfigurationtypeIDOk returns a tuple with the FkiSystemconfigurationtypeID field value
 // and a boolean to check if the value has been set.
 func (o *CustomEzmaxpartnerproductSubscribe) GetFkiSystemconfigurationtypeIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.FkiSystemconfigurationtypeID) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FkiSystemconfigurationtypeID, true
+	return &o.FkiSystemconfigurationtypeID, true
 }
 
-// HasFkiSystemconfigurationtypeID returns a boolean if a field has been set.
-func (o *CustomEzmaxpartnerproductSubscribe) HasFkiSystemconfigurationtypeID() bool {
-	if o != nil && !IsNil(o.FkiSystemconfigurationtypeID) {
-		return true
-	}
-
-	return false
-}
-
-// SetFkiSystemconfigurationtypeID gets a reference to the given int32 and assigns it to the FkiSystemconfigurationtypeID field.
+// SetFkiSystemconfigurationtypeID sets field value
 func (o *CustomEzmaxpartnerproductSubscribe) SetFkiSystemconfigurationtypeID(v int32) {
-	o.FkiSystemconfigurationtypeID = &v
+	o.FkiSystemconfigurationtypeID = v
 }
 
-// GetSSystemconfigurationtypeDescription1 returns the SSystemconfigurationtypeDescription1 field value if set, zero value otherwise.
+// GetSSystemconfigurationtypeDescription1 returns the SSystemconfigurationtypeDescription1 field value
 func (o *CustomEzmaxpartnerproductSubscribe) GetSSystemconfigurationtypeDescription1() string {
-	if o == nil || IsNil(o.SSystemconfigurationtypeDescription1) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SSystemconfigurationtypeDescription1
+
+	return o.SSystemconfigurationtypeDescription1
 }
 
-// GetSSystemconfigurationtypeDescription1Ok returns a tuple with the SSystemconfigurationtypeDescription1 field value if set, nil otherwise
+// GetSSystemconfigurationtypeDescription1Ok returns a tuple with the SSystemconfigurationtypeDescription1 field value
 // and a boolean to check if the value has been set.
 func (o *CustomEzmaxpartnerproductSubscribe) GetSSystemconfigurationtypeDescription1Ok() (*string, bool) {
-	if o == nil || IsNil(o.SSystemconfigurationtypeDescription1) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SSystemconfigurationtypeDescription1, true
+	return &o.SSystemconfigurationtypeDescription1, true
 }
 
-// HasSSystemconfigurationtypeDescription1 returns a boolean if a field has been set.
-func (o *CustomEzmaxpartnerproductSubscribe) HasSSystemconfigurationtypeDescription1() bool {
-	if o != nil && !IsNil(o.SSystemconfigurationtypeDescription1) {
-		return true
-	}
-
-	return false
-}
-
-// SetSSystemconfigurationtypeDescription1 gets a reference to the given string and assigns it to the SSystemconfigurationtypeDescription1 field.
+// SetSSystemconfigurationtypeDescription1 sets field value
 func (o *CustomEzmaxpartnerproductSubscribe) SetSSystemconfigurationtypeDescription1(v string) {
-	o.SSystemconfigurationtypeDescription1 = &v
+	o.SSystemconfigurationtypeDescription1 = v
 }
 
-// GetSSystemconfigurationtypeDescription2 returns the SSystemconfigurationtypeDescription2 field value if set, zero value otherwise.
+// GetSSystemconfigurationtypeDescription2 returns the SSystemconfigurationtypeDescription2 field value
 func (o *CustomEzmaxpartnerproductSubscribe) GetSSystemconfigurationtypeDescription2() string {
-	if o == nil || IsNil(o.SSystemconfigurationtypeDescription2) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SSystemconfigurationtypeDescription2
+
+	return o.SSystemconfigurationtypeDescription2
 }
 
-// GetSSystemconfigurationtypeDescription2Ok returns a tuple with the SSystemconfigurationtypeDescription2 field value if set, nil otherwise
+// GetSSystemconfigurationtypeDescription2Ok returns a tuple with the SSystemconfigurationtypeDescription2 field value
 // and a boolean to check if the value has been set.
 func (o *CustomEzmaxpartnerproductSubscribe) GetSSystemconfigurationtypeDescription2Ok() (*string, bool) {
-	if o == nil || IsNil(o.SSystemconfigurationtypeDescription2) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SSystemconfigurationtypeDescription2, true
+	return &o.SSystemconfigurationtypeDescription2, true
 }
 
-// HasSSystemconfigurationtypeDescription2 returns a boolean if a field has been set.
-func (o *CustomEzmaxpartnerproductSubscribe) HasSSystemconfigurationtypeDescription2() bool {
-	if o != nil && !IsNil(o.SSystemconfigurationtypeDescription2) {
-		return true
-	}
-
-	return false
-}
-
-// SetSSystemconfigurationtypeDescription2 gets a reference to the given string and assigns it to the SSystemconfigurationtypeDescription2 field.
+// SetSSystemconfigurationtypeDescription2 sets field value
 func (o *CustomEzmaxpartnerproductSubscribe) SetSSystemconfigurationtypeDescription2(v string) {
-	o.SSystemconfigurationtypeDescription2 = &v
+	o.SSystemconfigurationtypeDescription2 = v
 }
 
-// GetFkiEzmaxpartnerID returns the FkiEzmaxpartnerID field value if set, zero value otherwise.
+// GetFkiEzmaxpartnerID returns the FkiEzmaxpartnerID field value
 func (o *CustomEzmaxpartnerproductSubscribe) GetFkiEzmaxpartnerID() int32 {
-	if o == nil || IsNil(o.FkiEzmaxpartnerID) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.FkiEzmaxpartnerID
+
+	return o.FkiEzmaxpartnerID
 }
 
-// GetFkiEzmaxpartnerIDOk returns a tuple with the FkiEzmaxpartnerID field value if set, nil otherwise
+// GetFkiEzmaxpartnerIDOk returns a tuple with the FkiEzmaxpartnerID field value
 // and a boolean to check if the value has been set.
 func (o *CustomEzmaxpartnerproductSubscribe) GetFkiEzmaxpartnerIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.FkiEzmaxpartnerID) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FkiEzmaxpartnerID, true
+	return &o.FkiEzmaxpartnerID, true
 }
 
-// HasFkiEzmaxpartnerID returns a boolean if a field has been set.
-func (o *CustomEzmaxpartnerproductSubscribe) HasFkiEzmaxpartnerID() bool {
-	if o != nil && !IsNil(o.FkiEzmaxpartnerID) {
-		return true
-	}
-
-	return false
-}
-
-// SetFkiEzmaxpartnerID gets a reference to the given int32 and assigns it to the FkiEzmaxpartnerID field.
+// SetFkiEzmaxpartnerID sets field value
 func (o *CustomEzmaxpartnerproductSubscribe) SetFkiEzmaxpartnerID(v int32) {
-	o.FkiEzmaxpartnerID = &v
+	o.FkiEzmaxpartnerID = v
 }
 
-// GetSEzmaxpartnerName1 returns the SEzmaxpartnerName1 field value if set, zero value otherwise.
+// GetSEzmaxpartnerName1 returns the SEzmaxpartnerName1 field value
 func (o *CustomEzmaxpartnerproductSubscribe) GetSEzmaxpartnerName1() string {
-	if o == nil || IsNil(o.SEzmaxpartnerName1) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SEzmaxpartnerName1
+
+	return o.SEzmaxpartnerName1
 }
 
-// GetSEzmaxpartnerName1Ok returns a tuple with the SEzmaxpartnerName1 field value if set, nil otherwise
+// GetSEzmaxpartnerName1Ok returns a tuple with the SEzmaxpartnerName1 field value
 // and a boolean to check if the value has been set.
 func (o *CustomEzmaxpartnerproductSubscribe) GetSEzmaxpartnerName1Ok() (*string, bool) {
-	if o == nil || IsNil(o.SEzmaxpartnerName1) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SEzmaxpartnerName1, true
+	return &o.SEzmaxpartnerName1, true
 }
 
-// HasSEzmaxpartnerName1 returns a boolean if a field has been set.
-func (o *CustomEzmaxpartnerproductSubscribe) HasSEzmaxpartnerName1() bool {
-	if o != nil && !IsNil(o.SEzmaxpartnerName1) {
-		return true
-	}
-
-	return false
-}
-
-// SetSEzmaxpartnerName1 gets a reference to the given string and assigns it to the SEzmaxpartnerName1 field.
+// SetSEzmaxpartnerName1 sets field value
 func (o *CustomEzmaxpartnerproductSubscribe) SetSEzmaxpartnerName1(v string) {
-	o.SEzmaxpartnerName1 = &v
+	o.SEzmaxpartnerName1 = v
 }
 
-// GetSEzmaxpartnerName2 returns the SEzmaxpartnerName2 field value if set, zero value otherwise.
+// GetSEzmaxpartnerName2 returns the SEzmaxpartnerName2 field value
 func (o *CustomEzmaxpartnerproductSubscribe) GetSEzmaxpartnerName2() string {
-	if o == nil || IsNil(o.SEzmaxpartnerName2) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SEzmaxpartnerName2
+
+	return o.SEzmaxpartnerName2
 }
 
-// GetSEzmaxpartnerName2Ok returns a tuple with the SEzmaxpartnerName2 field value if set, nil otherwise
+// GetSEzmaxpartnerName2Ok returns a tuple with the SEzmaxpartnerName2 field value
 // and a boolean to check if the value has been set.
 func (o *CustomEzmaxpartnerproductSubscribe) GetSEzmaxpartnerName2Ok() (*string, bool) {
-	if o == nil || IsNil(o.SEzmaxpartnerName2) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SEzmaxpartnerName2, true
+	return &o.SEzmaxpartnerName2, true
 }
 
-// HasSEzmaxpartnerName2 returns a boolean if a field has been set.
-func (o *CustomEzmaxpartnerproductSubscribe) HasSEzmaxpartnerName2() bool {
-	if o != nil && !IsNil(o.SEzmaxpartnerName2) {
-		return true
-	}
-
-	return false
-}
-
-// SetSEzmaxpartnerName2 gets a reference to the given string and assigns it to the SEzmaxpartnerName2 field.
+// SetSEzmaxpartnerName2 sets field value
 func (o *CustomEzmaxpartnerproductSubscribe) SetSEzmaxpartnerName2(v string) {
-	o.SEzmaxpartnerName2 = &v
+	o.SEzmaxpartnerName2 = v
 }
 
-// GetFkiEzmaxpartnerproductID returns the FkiEzmaxpartnerproductID field value if set, zero value otherwise.
+// GetFkiEzmaxpartnerproductID returns the FkiEzmaxpartnerproductID field value
 func (o *CustomEzmaxpartnerproductSubscribe) GetFkiEzmaxpartnerproductID() int32 {
-	if o == nil || IsNil(o.FkiEzmaxpartnerproductID) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.FkiEzmaxpartnerproductID
+
+	return o.FkiEzmaxpartnerproductID
 }
 
-// GetFkiEzmaxpartnerproductIDOk returns a tuple with the FkiEzmaxpartnerproductID field value if set, nil otherwise
+// GetFkiEzmaxpartnerproductIDOk returns a tuple with the FkiEzmaxpartnerproductID field value
 // and a boolean to check if the value has been set.
 func (o *CustomEzmaxpartnerproductSubscribe) GetFkiEzmaxpartnerproductIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.FkiEzmaxpartnerproductID) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FkiEzmaxpartnerproductID, true
+	return &o.FkiEzmaxpartnerproductID, true
 }
 
-// HasFkiEzmaxpartnerproductID returns a boolean if a field has been set.
-func (o *CustomEzmaxpartnerproductSubscribe) HasFkiEzmaxpartnerproductID() bool {
-	if o != nil && !IsNil(o.FkiEzmaxpartnerproductID) {
-		return true
-	}
-
-	return false
-}
-
-// SetFkiEzmaxpartnerproductID gets a reference to the given int32 and assigns it to the FkiEzmaxpartnerproductID field.
+// SetFkiEzmaxpartnerproductID sets field value
 func (o *CustomEzmaxpartnerproductSubscribe) SetFkiEzmaxpartnerproductID(v int32) {
-	o.FkiEzmaxpartnerproductID = &v
+	o.FkiEzmaxpartnerproductID = v
 }
 
-// GetSEzmaxpartnerproductName1 returns the SEzmaxpartnerproductName1 field value if set, zero value otherwise.
+// GetSEzmaxpartnerproductName1 returns the SEzmaxpartnerproductName1 field value
 func (o *CustomEzmaxpartnerproductSubscribe) GetSEzmaxpartnerproductName1() string {
-	if o == nil || IsNil(o.SEzmaxpartnerproductName1) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SEzmaxpartnerproductName1
+
+	return o.SEzmaxpartnerproductName1
 }
 
-// GetSEzmaxpartnerproductName1Ok returns a tuple with the SEzmaxpartnerproductName1 field value if set, nil otherwise
+// GetSEzmaxpartnerproductName1Ok returns a tuple with the SEzmaxpartnerproductName1 field value
 // and a boolean to check if the value has been set.
 func (o *CustomEzmaxpartnerproductSubscribe) GetSEzmaxpartnerproductName1Ok() (*string, bool) {
-	if o == nil || IsNil(o.SEzmaxpartnerproductName1) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SEzmaxpartnerproductName1, true
+	return &o.SEzmaxpartnerproductName1, true
 }
 
-// HasSEzmaxpartnerproductName1 returns a boolean if a field has been set.
-func (o *CustomEzmaxpartnerproductSubscribe) HasSEzmaxpartnerproductName1() bool {
-	if o != nil && !IsNil(o.SEzmaxpartnerproductName1) {
-		return true
-	}
-
-	return false
-}
-
-// SetSEzmaxpartnerproductName1 gets a reference to the given string and assigns it to the SEzmaxpartnerproductName1 field.
+// SetSEzmaxpartnerproductName1 sets field value
 func (o *CustomEzmaxpartnerproductSubscribe) SetSEzmaxpartnerproductName1(v string) {
-	o.SEzmaxpartnerproductName1 = &v
+	o.SEzmaxpartnerproductName1 = v
 }
 
-// GetSEzmaxpartnerproductName2 returns the SEzmaxpartnerproductName2 field value if set, zero value otherwise.
+// GetSEzmaxpartnerproductName2 returns the SEzmaxpartnerproductName2 field value
 func (o *CustomEzmaxpartnerproductSubscribe) GetSEzmaxpartnerproductName2() string {
-	if o == nil || IsNil(o.SEzmaxpartnerproductName2) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SEzmaxpartnerproductName2
+
+	return o.SEzmaxpartnerproductName2
 }
 
-// GetSEzmaxpartnerproductName2Ok returns a tuple with the SEzmaxpartnerproductName2 field value if set, nil otherwise
+// GetSEzmaxpartnerproductName2Ok returns a tuple with the SEzmaxpartnerproductName2 field value
 // and a boolean to check if the value has been set.
 func (o *CustomEzmaxpartnerproductSubscribe) GetSEzmaxpartnerproductName2Ok() (*string, bool) {
-	if o == nil || IsNil(o.SEzmaxpartnerproductName2) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SEzmaxpartnerproductName2, true
+	return &o.SEzmaxpartnerproductName2, true
 }
 
-// HasSEzmaxpartnerproductName2 returns a boolean if a field has been set.
-func (o *CustomEzmaxpartnerproductSubscribe) HasSEzmaxpartnerproductName2() bool {
-	if o != nil && !IsNil(o.SEzmaxpartnerproductName2) {
-		return true
-	}
-
-	return false
-}
-
-// SetSEzmaxpartnerproductName2 gets a reference to the given string and assigns it to the SEzmaxpartnerproductName2 field.
+// SetSEzmaxpartnerproductName2 sets field value
 func (o *CustomEzmaxpartnerproductSubscribe) SetSEzmaxpartnerproductName2(v string) {
-	o.SEzmaxpartnerproductName2 = &v
+	o.SEzmaxpartnerproductName2 = v
 }
 
-// GetFkiEzmaxpartnerproductstageID returns the FkiEzmaxpartnerproductstageID field value if set, zero value otherwise.
+// GetFkiEzmaxpartnerproductstageID returns the FkiEzmaxpartnerproductstageID field value
 func (o *CustomEzmaxpartnerproductSubscribe) GetFkiEzmaxpartnerproductstageID() int32 {
-	if o == nil || IsNil(o.FkiEzmaxpartnerproductstageID) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.FkiEzmaxpartnerproductstageID
+
+	return o.FkiEzmaxpartnerproductstageID
 }
 
-// GetFkiEzmaxpartnerproductstageIDOk returns a tuple with the FkiEzmaxpartnerproductstageID field value if set, nil otherwise
+// GetFkiEzmaxpartnerproductstageIDOk returns a tuple with the FkiEzmaxpartnerproductstageID field value
 // and a boolean to check if the value has been set.
 func (o *CustomEzmaxpartnerproductSubscribe) GetFkiEzmaxpartnerproductstageIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.FkiEzmaxpartnerproductstageID) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FkiEzmaxpartnerproductstageID, true
+	return &o.FkiEzmaxpartnerproductstageID, true
 }
 
-// HasFkiEzmaxpartnerproductstageID returns a boolean if a field has been set.
-func (o *CustomEzmaxpartnerproductSubscribe) HasFkiEzmaxpartnerproductstageID() bool {
-	if o != nil && !IsNil(o.FkiEzmaxpartnerproductstageID) {
-		return true
-	}
-
-	return false
-}
-
-// SetFkiEzmaxpartnerproductstageID gets a reference to the given int32 and assigns it to the FkiEzmaxpartnerproductstageID field.
+// SetFkiEzmaxpartnerproductstageID sets field value
 func (o *CustomEzmaxpartnerproductSubscribe) SetFkiEzmaxpartnerproductstageID(v int32) {
-	o.FkiEzmaxpartnerproductstageID = &v
+	o.FkiEzmaxpartnerproductstageID = v
 }
 
-// GetSEzmaxpartnerproductstageCode returns the SEzmaxpartnerproductstageCode field value if set, zero value otherwise.
+// GetSEzmaxpartnerproductstageCode returns the SEzmaxpartnerproductstageCode field value
 func (o *CustomEzmaxpartnerproductSubscribe) GetSEzmaxpartnerproductstageCode() string {
-	if o == nil || IsNil(o.SEzmaxpartnerproductstageCode) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SEzmaxpartnerproductstageCode
+
+	return o.SEzmaxpartnerproductstageCode
 }
 
-// GetSEzmaxpartnerproductstageCodeOk returns a tuple with the SEzmaxpartnerproductstageCode field value if set, nil otherwise
+// GetSEzmaxpartnerproductstageCodeOk returns a tuple with the SEzmaxpartnerproductstageCode field value
 // and a boolean to check if the value has been set.
 func (o *CustomEzmaxpartnerproductSubscribe) GetSEzmaxpartnerproductstageCodeOk() (*string, bool) {
-	if o == nil || IsNil(o.SEzmaxpartnerproductstageCode) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SEzmaxpartnerproductstageCode, true
+	return &o.SEzmaxpartnerproductstageCode, true
 }
 
-// HasSEzmaxpartnerproductstageCode returns a boolean if a field has been set.
-func (o *CustomEzmaxpartnerproductSubscribe) HasSEzmaxpartnerproductstageCode() bool {
-	if o != nil && !IsNil(o.SEzmaxpartnerproductstageCode) {
-		return true
-	}
-
-	return false
-}
-
-// SetSEzmaxpartnerproductstageCode gets a reference to the given string and assigns it to the SEzmaxpartnerproductstageCode field.
+// SetSEzmaxpartnerproductstageCode sets field value
 func (o *CustomEzmaxpartnerproductSubscribe) SetSEzmaxpartnerproductstageCode(v string) {
-	o.SEzmaxpartnerproductstageCode = &v
+	o.SEzmaxpartnerproductstageCode = v
 }
 
-// GetSUserLoginName returns the SUserLoginName field value if set, zero value otherwise.
+// GetSUserLoginName returns the SUserLoginName field value
 func (o *CustomEzmaxpartnerproductSubscribe) GetSUserLoginName() string {
-	if o == nil || IsNil(o.SUserLoginName) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SUserLoginName
+
+	return o.SUserLoginName
 }
 
-// GetSUserLoginNameOk returns a tuple with the SUserLoginName field value if set, nil otherwise
+// GetSUserLoginNameOk returns a tuple with the SUserLoginName field value
 // and a boolean to check if the value has been set.
 func (o *CustomEzmaxpartnerproductSubscribe) GetSUserLoginNameOk() (*string, bool) {
-	if o == nil || IsNil(o.SUserLoginName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SUserLoginName, true
+	return &o.SUserLoginName, true
 }
 
-// HasSUserLoginName returns a boolean if a field has been set.
-func (o *CustomEzmaxpartnerproductSubscribe) HasSUserLoginName() bool {
-	if o != nil && !IsNil(o.SUserLoginName) {
-		return true
-	}
-
-	return false
-}
-
-// SetSUserLoginName gets a reference to the given string and assigns it to the SUserLoginName field.
+// SetSUserLoginName sets field value
 func (o *CustomEzmaxpartnerproductSubscribe) SetSUserLoginName(v string) {
-	o.SUserLoginName = &v
+	o.SUserLoginName = v
 }
 
-// GetSUserFirstName returns the SUserFirstName field value if set, zero value otherwise.
+// GetSUserFirstName returns the SUserFirstName field value
 func (o *CustomEzmaxpartnerproductSubscribe) GetSUserFirstName() string {
-	if o == nil || IsNil(o.SUserFirstName) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SUserFirstName
+
+	return o.SUserFirstName
 }
 
-// GetSUserFirstNameOk returns a tuple with the SUserFirstName field value if set, nil otherwise
+// GetSUserFirstNameOk returns a tuple with the SUserFirstName field value
 // and a boolean to check if the value has been set.
 func (o *CustomEzmaxpartnerproductSubscribe) GetSUserFirstNameOk() (*string, bool) {
-	if o == nil || IsNil(o.SUserFirstName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SUserFirstName, true
+	return &o.SUserFirstName, true
 }
 
-// HasSUserFirstName returns a boolean if a field has been set.
-func (o *CustomEzmaxpartnerproductSubscribe) HasSUserFirstName() bool {
-	if o != nil && !IsNil(o.SUserFirstName) {
-		return true
-	}
-
-	return false
-}
-
-// SetSUserFirstName gets a reference to the given string and assigns it to the SUserFirstName field.
+// SetSUserFirstName sets field value
 func (o *CustomEzmaxpartnerproductSubscribe) SetSUserFirstName(v string) {
-	o.SUserFirstName = &v
+	o.SUserFirstName = v
 }
 
-// GetSUserLastName returns the SUserLastName field value if set, zero value otherwise.
+// GetSUserLastName returns the SUserLastName field value
 func (o *CustomEzmaxpartnerproductSubscribe) GetSUserLastName() string {
-	if o == nil || IsNil(o.SUserLastName) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SUserLastName
+
+	return o.SUserLastName
 }
 
-// GetSUserLastNameOk returns a tuple with the SUserLastName field value if set, nil otherwise
+// GetSUserLastNameOk returns a tuple with the SUserLastName field value
 // and a boolean to check if the value has been set.
 func (o *CustomEzmaxpartnerproductSubscribe) GetSUserLastNameOk() (*string, bool) {
-	if o == nil || IsNil(o.SUserLastName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SUserLastName, true
+	return &o.SUserLastName, true
 }
 
-// HasSUserLastName returns a boolean if a field has been set.
-func (o *CustomEzmaxpartnerproductSubscribe) HasSUserLastName() bool {
-	if o != nil && !IsNil(o.SUserLastName) {
-		return true
-	}
-
-	return false
-}
-
-// SetSUserLastName gets a reference to the given string and assigns it to the SUserLastName field.
+// SetSUserLastName sets field value
 func (o *CustomEzmaxpartnerproductSubscribe) SetSUserLastName(v string) {
-	o.SUserLastName = &v
+	o.SUserLastName = v
 }
 
-// GetFkiUserID returns the FkiUserID field value if set, zero value otherwise.
+// GetFkiUserID returns the FkiUserID field value
 func (o *CustomEzmaxpartnerproductSubscribe) GetFkiUserID() int32 {
-	if o == nil || IsNil(o.FkiUserID) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.FkiUserID
+
+	return o.FkiUserID
 }
 
-// GetFkiUserIDOk returns a tuple with the FkiUserID field value if set, nil otherwise
+// GetFkiUserIDOk returns a tuple with the FkiUserID field value
 // and a boolean to check if the value has been set.
 func (o *CustomEzmaxpartnerproductSubscribe) GetFkiUserIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.FkiUserID) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FkiUserID, true
+	return &o.FkiUserID, true
 }
 
-// HasFkiUserID returns a boolean if a field has been set.
-func (o *CustomEzmaxpartnerproductSubscribe) HasFkiUserID() bool {
-	if o != nil && !IsNil(o.FkiUserID) {
-		return true
-	}
-
-	return false
-}
-
-// SetFkiUserID gets a reference to the given int32 and assigns it to the FkiUserID field.
+// SetFkiUserID sets field value
 func (o *CustomEzmaxpartnerproductSubscribe) SetFkiUserID(v int32) {
-	o.FkiUserID = &v
+	o.FkiUserID = v
 }
 
-// GetFkiLanguageID returns the FkiLanguageID field value if set, zero value otherwise.
+// GetFkiLanguageID returns the FkiLanguageID field value
 func (o *CustomEzmaxpartnerproductSubscribe) GetFkiLanguageID() int32 {
-	if o == nil || IsNil(o.FkiLanguageID) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.FkiLanguageID
+
+	return o.FkiLanguageID
 }
 
-// GetFkiLanguageIDOk returns a tuple with the FkiLanguageID field value if set, nil otherwise
+// GetFkiLanguageIDOk returns a tuple with the FkiLanguageID field value
 // and a boolean to check if the value has been set.
 func (o *CustomEzmaxpartnerproductSubscribe) GetFkiLanguageIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.FkiLanguageID) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FkiLanguageID, true
+	return &o.FkiLanguageID, true
 }
 
-// HasFkiLanguageID returns a boolean if a field has been set.
-func (o *CustomEzmaxpartnerproductSubscribe) HasFkiLanguageID() bool {
-	if o != nil && !IsNil(o.FkiLanguageID) {
-		return true
-	}
-
-	return false
-}
-
-// SetFkiLanguageID gets a reference to the given int32 and assigns it to the FkiLanguageID field.
+// SetFkiLanguageID sets field value
 func (o *CustomEzmaxpartnerproductSubscribe) SetFkiLanguageID(v int32) {
-	o.FkiLanguageID = &v
+	o.FkiLanguageID = v
 }
 
 // GetObjAddress returns the ObjAddress field value if set, zero value otherwise.
@@ -828,66 +692,26 @@ func (o CustomEzmaxpartnerproductSubscribe) MarshalJSON() ([]byte, error) {
 
 func (o CustomEzmaxpartnerproductSubscribe) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.PksEzmaxcustomerCode) {
-		toSerialize["pksEzmaxcustomerCode"] = o.PksEzmaxcustomerCode
-	}
-	if !IsNil(o.SInfrastructureenvironmenttypeDescription) {
-		toSerialize["sInfrastructureenvironmenttypeDescription"] = o.SInfrastructureenvironmenttypeDescription
-	}
-	if !IsNil(o.SCompanyName1) {
-		toSerialize["sCompanyName1"] = o.SCompanyName1
-	}
-	if !IsNil(o.SCompanyName2) {
-		toSerialize["sCompanyName2"] = o.SCompanyName2
-	}
-	if !IsNil(o.FkiSystemconfigurationtypeID) {
-		toSerialize["fkiSystemconfigurationtypeID"] = o.FkiSystemconfigurationtypeID
-	}
-	if !IsNil(o.SSystemconfigurationtypeDescription1) {
-		toSerialize["sSystemconfigurationtypeDescription1"] = o.SSystemconfigurationtypeDescription1
-	}
-	if !IsNil(o.SSystemconfigurationtypeDescription2) {
-		toSerialize["sSystemconfigurationtypeDescription2"] = o.SSystemconfigurationtypeDescription2
-	}
-	if !IsNil(o.FkiEzmaxpartnerID) {
-		toSerialize["fkiEzmaxpartnerID"] = o.FkiEzmaxpartnerID
-	}
-	if !IsNil(o.SEzmaxpartnerName1) {
-		toSerialize["sEzmaxpartnerName1"] = o.SEzmaxpartnerName1
-	}
-	if !IsNil(o.SEzmaxpartnerName2) {
-		toSerialize["sEzmaxpartnerName2"] = o.SEzmaxpartnerName2
-	}
-	if !IsNil(o.FkiEzmaxpartnerproductID) {
-		toSerialize["fkiEzmaxpartnerproductID"] = o.FkiEzmaxpartnerproductID
-	}
-	if !IsNil(o.SEzmaxpartnerproductName1) {
-		toSerialize["sEzmaxpartnerproductName1"] = o.SEzmaxpartnerproductName1
-	}
-	if !IsNil(o.SEzmaxpartnerproductName2) {
-		toSerialize["sEzmaxpartnerproductName2"] = o.SEzmaxpartnerproductName2
-	}
-	if !IsNil(o.FkiEzmaxpartnerproductstageID) {
-		toSerialize["fkiEzmaxpartnerproductstageID"] = o.FkiEzmaxpartnerproductstageID
-	}
-	if !IsNil(o.SEzmaxpartnerproductstageCode) {
-		toSerialize["sEzmaxpartnerproductstageCode"] = o.SEzmaxpartnerproductstageCode
-	}
-	if !IsNil(o.SUserLoginName) {
-		toSerialize["sUserLoginName"] = o.SUserLoginName
-	}
-	if !IsNil(o.SUserFirstName) {
-		toSerialize["sUserFirstName"] = o.SUserFirstName
-	}
-	if !IsNil(o.SUserLastName) {
-		toSerialize["sUserLastName"] = o.SUserLastName
-	}
-	if !IsNil(o.FkiUserID) {
-		toSerialize["fkiUserID"] = o.FkiUserID
-	}
-	if !IsNil(o.FkiLanguageID) {
-		toSerialize["fkiLanguageID"] = o.FkiLanguageID
-	}
+	toSerialize["pksEzmaxcustomerCode"] = o.PksEzmaxcustomerCode
+	toSerialize["sInfrastructureenvironmenttypeDescription"] = o.SInfrastructureenvironmenttypeDescription
+	toSerialize["sCompanyName1"] = o.SCompanyName1
+	toSerialize["sCompanyName2"] = o.SCompanyName2
+	toSerialize["fkiSystemconfigurationtypeID"] = o.FkiSystemconfigurationtypeID
+	toSerialize["sSystemconfigurationtypeDescription1"] = o.SSystemconfigurationtypeDescription1
+	toSerialize["sSystemconfigurationtypeDescription2"] = o.SSystemconfigurationtypeDescription2
+	toSerialize["fkiEzmaxpartnerID"] = o.FkiEzmaxpartnerID
+	toSerialize["sEzmaxpartnerName1"] = o.SEzmaxpartnerName1
+	toSerialize["sEzmaxpartnerName2"] = o.SEzmaxpartnerName2
+	toSerialize["fkiEzmaxpartnerproductID"] = o.FkiEzmaxpartnerproductID
+	toSerialize["sEzmaxpartnerproductName1"] = o.SEzmaxpartnerproductName1
+	toSerialize["sEzmaxpartnerproductName2"] = o.SEzmaxpartnerproductName2
+	toSerialize["fkiEzmaxpartnerproductstageID"] = o.FkiEzmaxpartnerproductstageID
+	toSerialize["sEzmaxpartnerproductstageCode"] = o.SEzmaxpartnerproductstageCode
+	toSerialize["sUserLoginName"] = o.SUserLoginName
+	toSerialize["sUserFirstName"] = o.SUserFirstName
+	toSerialize["sUserLastName"] = o.SUserLastName
+	toSerialize["fkiUserID"] = o.FkiUserID
+	toSerialize["fkiLanguageID"] = o.FkiLanguageID
 	if !IsNil(o.ObjAddress) {
 		toSerialize["objAddress"] = o.ObjAddress
 	}
@@ -898,6 +722,62 @@ func (o CustomEzmaxpartnerproductSubscribe) ToMap() (map[string]interface{}, err
 		toSerialize["objEmail"] = o.ObjEmail
 	}
 	return toSerialize, nil
+}
+
+func (o *CustomEzmaxpartnerproductSubscribe) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"pksEzmaxcustomerCode",
+		"sInfrastructureenvironmenttypeDescription",
+		"sCompanyName1",
+		"sCompanyName2",
+		"fkiSystemconfigurationtypeID",
+		"sSystemconfigurationtypeDescription1",
+		"sSystemconfigurationtypeDescription2",
+		"fkiEzmaxpartnerID",
+		"sEzmaxpartnerName1",
+		"sEzmaxpartnerName2",
+		"fkiEzmaxpartnerproductID",
+		"sEzmaxpartnerproductName1",
+		"sEzmaxpartnerproductName2",
+		"fkiEzmaxpartnerproductstageID",
+		"sEzmaxpartnerproductstageCode",
+		"sUserLoginName",
+		"sUserFirstName",
+		"sUserLastName",
+		"fkiUserID",
+		"fkiLanguageID",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varCustomEzmaxpartnerproductSubscribe := _CustomEzmaxpartnerproductSubscribe{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varCustomEzmaxpartnerproductSubscribe)
+
+	if err != nil {
+		return err
+	}
+
+	*o = CustomEzmaxpartnerproductSubscribe(varCustomEzmaxpartnerproductSubscribe)
+
+	return err
 }
 
 type NullableCustomEzmaxpartnerproductSubscribe struct {

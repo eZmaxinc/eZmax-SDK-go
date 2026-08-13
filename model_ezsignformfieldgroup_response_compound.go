@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.3.3
+API version: 1.3.4
 Contact: support-api@ezmax.ca
 */
 
@@ -53,6 +53,8 @@ type EzsignformfieldgroupResponseCompound struct {
 	// A tooltip that will be presented to Ezsignsigner about the Ezsignformfieldgroup
 	TEzsignformfieldgroupTooltip *string `json:"tEzsignformfieldgroupTooltip,omitempty"`
 	EEzsignformfieldgroupTooltipposition *FieldEEzsignformfieldgroupTooltipposition `json:"eEzsignformfieldgroupTooltipposition,omitempty"`
+	// The date the Ezsignformfieldgroup was completed.
+	DtEzsignformfieldgroupCompleted *string `json:"dtEzsignformfieldgroupCompleted,omitempty"`
 	AObjEzsignformfield []EzsignformfieldResponseCompound `json:"a_objEzsignformfield"`
 	AObjDropdownElement []CustomDropdownElementResponseCompound `json:"a_objDropdownElement,omitempty"`
 	AObjEzsignformfieldgroupsigner []EzsignformfieldgroupsignerResponseCompound `json:"a_objEzsignformfieldgroupsigner"`
@@ -570,6 +572,38 @@ func (o *EzsignformfieldgroupResponseCompound) SetEEzsignformfieldgroupTooltippo
 	o.EEzsignformfieldgroupTooltipposition = &v
 }
 
+// GetDtEzsignformfieldgroupCompleted returns the DtEzsignformfieldgroupCompleted field value if set, zero value otherwise.
+func (o *EzsignformfieldgroupResponseCompound) GetDtEzsignformfieldgroupCompleted() string {
+	if o == nil || IsNil(o.DtEzsignformfieldgroupCompleted) {
+		var ret string
+		return ret
+	}
+	return *o.DtEzsignformfieldgroupCompleted
+}
+
+// GetDtEzsignformfieldgroupCompletedOk returns a tuple with the DtEzsignformfieldgroupCompleted field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignformfieldgroupResponseCompound) GetDtEzsignformfieldgroupCompletedOk() (*string, bool) {
+	if o == nil || IsNil(o.DtEzsignformfieldgroupCompleted) {
+		return nil, false
+	}
+	return o.DtEzsignformfieldgroupCompleted, true
+}
+
+// HasDtEzsignformfieldgroupCompleted returns a boolean if a field has been set.
+func (o *EzsignformfieldgroupResponseCompound) HasDtEzsignformfieldgroupCompleted() bool {
+	if o != nil && !IsNil(o.DtEzsignformfieldgroupCompleted) {
+		return true
+	}
+
+	return false
+}
+
+// SetDtEzsignformfieldgroupCompleted gets a reference to the given string and assigns it to the DtEzsignformfieldgroupCompleted field.
+func (o *EzsignformfieldgroupResponseCompound) SetDtEzsignformfieldgroupCompleted(v string) {
+	o.DtEzsignformfieldgroupCompleted = &v
+}
+
 // GetAObjEzsignformfield returns the AObjEzsignformfield field value
 func (o *EzsignformfieldgroupResponseCompound) GetAObjEzsignformfield() []EzsignformfieldResponseCompound {
 	if o == nil {
@@ -694,6 +728,9 @@ func (o EzsignformfieldgroupResponseCompound) ToMap() (map[string]interface{}, e
 	}
 	if !IsNil(o.EEzsignformfieldgroupTooltipposition) {
 		toSerialize["eEzsignformfieldgroupTooltipposition"] = o.EEzsignformfieldgroupTooltipposition
+	}
+	if !IsNil(o.DtEzsignformfieldgroupCompleted) {
+		toSerialize["dtEzsignformfieldgroupCompleted"] = o.DtEzsignformfieldgroupCompleted
 	}
 	toSerialize["a_objEzsignformfield"] = o.AObjEzsignformfield
 	if !IsNil(o.AObjDropdownElement) {

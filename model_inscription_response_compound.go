@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.3.3
+API version: 1.3.4
 Contact: support-api@ezmax.ca
 */
 
@@ -91,7 +91,7 @@ type InscriptionResponseCompound struct {
 	// The notary entered date of the Inscription
 	DtInscriptionNotaryentereddate *string `json:"dtInscriptionNotaryentereddate,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// The cadastre of the Inscription
-	TInscriptionCadastre string `json:"tInscriptionCadastre" validate:"regexp=^.{0\\,65535}$"`
+	TInscriptionCadastre string `json:"tInscriptionCadastre" validate:"regexp=^(\\n|.){0\\,65535}$"`
 	// Whether if it's an reference
 	BInscriptionReference bool `json:"bInscriptionReference"`
 	// Whether the inscription can be acces by an inspector
@@ -99,7 +99,7 @@ type InscriptionResponseCompound struct {
 	// Whether the inscription is active or not
 	BInscriptionIsactive bool `json:"bInscriptionIsactive"`
 	// The checklist note of the Inscription
-	TInscriptionChecklistnote string `json:"tInscriptionChecklistnote" validate:"regexp=^.{0\\,65535}$"`
+	TInscriptionChecklistnote string `json:"tInscriptionChecklistnote" validate:"regexp=^[\\s\\S]{0\\,65535}$"`
 	// Whether if it's an new
 	BInscriptionNew bool `json:"bInscriptionNew"`
 	// Whether if it's an homeowner

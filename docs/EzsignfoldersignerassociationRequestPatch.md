@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**EEzsignfoldersignerassociationRole** | Pointer to [**FieldEEzsignfoldersignerassociationRole**](FieldEEzsignfoldersignerassociationRole.md) |  | [optional] 
 **TEzsignfoldersignerassociationMessage** | Pointer to **string** | A custom text message that will be added to the email sent. | [optional] 
 
 ## Methods
@@ -24,6 +25,31 @@ will change when the set of required properties is changed
 NewEzsignfoldersignerassociationRequestPatchWithDefaults instantiates a new EzsignfoldersignerassociationRequestPatch object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetEEzsignfoldersignerassociationRole
+
+`func (o *EzsignfoldersignerassociationRequestPatch) GetEEzsignfoldersignerassociationRole() FieldEEzsignfoldersignerassociationRole`
+
+GetEEzsignfoldersignerassociationRole returns the EEzsignfoldersignerassociationRole field if non-nil, zero value otherwise.
+
+### GetEEzsignfoldersignerassociationRoleOk
+
+`func (o *EzsignfoldersignerassociationRequestPatch) GetEEzsignfoldersignerassociationRoleOk() (*FieldEEzsignfoldersignerassociationRole, bool)`
+
+GetEEzsignfoldersignerassociationRoleOk returns a tuple with the EEzsignfoldersignerassociationRole field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEEzsignfoldersignerassociationRole
+
+`func (o *EzsignfoldersignerassociationRequestPatch) SetEEzsignfoldersignerassociationRole(v FieldEEzsignfoldersignerassociationRole)`
+
+SetEEzsignfoldersignerassociationRole sets EEzsignfoldersignerassociationRole field to given value.
+
+### HasEEzsignfoldersignerassociationRole
+
+`func (o *EzsignfoldersignerassociationRequestPatch) HasEEzsignfoldersignerassociationRole() bool`
+
+HasEEzsignfoldersignerassociationRole returns a boolean if a field has been set.
 
 ### GetTEzsignfoldersignerassociationMessage
 

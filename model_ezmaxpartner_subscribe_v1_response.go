@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.3.3
+API version: 1.3.4
 Contact: support-api@ezmax.ca
 */
 
@@ -13,8 +13,6 @@ package eZmaxApi
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the EzmaxpartnerSubscribeV1Response type satisfies the MappedNullable interface at compile time
@@ -22,19 +20,15 @@ var _ MappedNullable = &EzmaxpartnerSubscribeV1Response{}
 
 // EzmaxpartnerSubscribeV1Response Request for POST /1/module/ezmaxmaillinglist/subscribe
 type EzmaxpartnerSubscribeV1Response struct {
-	// 
-	SExternalID string `json:"sExternalID"`
+	SExternalID *string `json:"sExternalID,omitempty"`
 }
-
-type _EzmaxpartnerSubscribeV1Response EzmaxpartnerSubscribeV1Response
 
 // NewEzmaxpartnerSubscribeV1Response instantiates a new EzmaxpartnerSubscribeV1Response object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEzmaxpartnerSubscribeV1Response(sExternalID string) *EzmaxpartnerSubscribeV1Response {
+func NewEzmaxpartnerSubscribeV1Response() *EzmaxpartnerSubscribeV1Response {
 	this := EzmaxpartnerSubscribeV1Response{}
-	this.SExternalID = sExternalID
 	return &this
 }
 
@@ -46,28 +40,36 @@ func NewEzmaxpartnerSubscribeV1ResponseWithDefaults() *EzmaxpartnerSubscribeV1Re
 	return &this
 }
 
-// GetSExternalID returns the SExternalID field value
+// GetSExternalID returns the SExternalID field value if set, zero value otherwise.
 func (o *EzmaxpartnerSubscribeV1Response) GetSExternalID() string {
-	if o == nil {
+	if o == nil || IsNil(o.SExternalID) {
 		var ret string
 		return ret
 	}
-
-	return o.SExternalID
+	return *o.SExternalID
 }
 
-// GetSExternalIDOk returns a tuple with the SExternalID field value
+// GetSExternalIDOk returns a tuple with the SExternalID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *EzmaxpartnerSubscribeV1Response) GetSExternalIDOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SExternalID) {
 		return nil, false
 	}
-	return &o.SExternalID, true
+	return o.SExternalID, true
 }
 
-// SetSExternalID sets field value
+// HasSExternalID returns a boolean if a field has been set.
+func (o *EzmaxpartnerSubscribeV1Response) HasSExternalID() bool {
+	if o != nil && !IsNil(o.SExternalID) {
+		return true
+	}
+
+	return false
+}
+
+// SetSExternalID gets a reference to the given string and assigns it to the SExternalID field.
 func (o *EzmaxpartnerSubscribeV1Response) SetSExternalID(v string) {
-	o.SExternalID = v
+	o.SExternalID = &v
 }
 
 func (o EzmaxpartnerSubscribeV1Response) MarshalJSON() ([]byte, error) {
@@ -80,45 +82,10 @@ func (o EzmaxpartnerSubscribeV1Response) MarshalJSON() ([]byte, error) {
 
 func (o EzmaxpartnerSubscribeV1Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["sExternalID"] = o.SExternalID
+	if !IsNil(o.SExternalID) {
+		toSerialize["sExternalID"] = o.SExternalID
+	}
 	return toSerialize, nil
-}
-
-func (o *EzmaxpartnerSubscribeV1Response) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"sExternalID",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varEzmaxpartnerSubscribeV1Response := _EzmaxpartnerSubscribeV1Response{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varEzmaxpartnerSubscribeV1Response)
-
-	if err != nil {
-		return err
-	}
-
-	*o = EzmaxpartnerSubscribeV1Response(varEzmaxpartnerSubscribeV1Response)
-
-	return err
 }
 
 type NullableEzmaxpartnerSubscribeV1Response struct {

@@ -4,26 +4,26 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PksEzmaxcustomerCode** | Pointer to **string** | The Ezmaxcustomer code | [optional] 
-**SInfrastructureenvironmenttypeDescription** | Pointer to **string** | The environment type Description | [optional] 
-**SCompanyName1** | Pointer to **string** | The Name of the Company in French | [optional] 
-**SCompanyName2** | Pointer to **string** | The Name of the Company in English | [optional] 
-**FkiSystemconfigurationtypeID** | Pointer to **int32** | The unique ID of the Systemconfigurationtype | [optional] 
-**SSystemconfigurationtypeDescription1** | Pointer to **string** | The description of the Systemconfigurationtype in the language of the requester | [optional] 
-**SSystemconfigurationtypeDescription2** | Pointer to **string** | The description of the Systemconfigurationtype in the language of the requester | [optional] 
-**FkiEzmaxpartnerID** | Pointer to **int32** | The unique ID of the Ezmaxpartner | [optional] 
-**SEzmaxpartnerName1** | Pointer to **string** | The name of the Ezmaxpartner in french | [optional] 
-**SEzmaxpartnerName2** | Pointer to **string** | The name of the Ezmaxpartner in english | [optional] 
-**FkiEzmaxpartnerproductID** | Pointer to **int32** | The unique ID of the Ezmaxpartnerproduct | [optional] 
-**SEzmaxpartnerproductName1** | Pointer to **string** | The name1 of the Ezmaxpartnerproduct | [optional] 
-**SEzmaxpartnerproductName2** | Pointer to **string** | The name2 of the Ezmaxpartnerproduct | [optional] 
-**FkiEzmaxpartnerproductstageID** | Pointer to **int32** | The unique ID of the Ezmaxpartnerproductstage | [optional] 
-**SEzmaxpartnerproductstageCode** | Pointer to **string** | The code of the sEzmaxpartnerproductstage | [optional] 
-**SUserLoginName** | Pointer to **string** | The login name of the User. | [optional] 
-**SUserFirstName** | Pointer to **string** | The first name of the user | [optional] 
-**SUserLastName** | Pointer to **string** | The last name of the user | [optional] 
-**FkiUserID** | Pointer to **int32** | The unique ID of the User | [optional] 
-**FkiLanguageID** | Pointer to **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | [optional] 
+**PksEzmaxcustomerCode** | **string** | The Ezmaxcustomer code | 
+**SInfrastructureenvironmenttypeDescription** | **string** | The environment type Description | 
+**SCompanyName1** | **string** | The Name of the Company in French | 
+**SCompanyName2** | **string** | The Name of the Company in English | 
+**FkiSystemconfigurationtypeID** | **int32** | The unique ID of the Systemconfigurationtype | 
+**SSystemconfigurationtypeDescription1** | **string** | The description of the Systemconfigurationtype in the language of the requester | 
+**SSystemconfigurationtypeDescription2** | **string** | The description of the Systemconfigurationtype in the language of the requester | 
+**FkiEzmaxpartnerID** | **int32** | The unique ID of the Ezmaxpartner | 
+**SEzmaxpartnerName1** | **string** | The name of the Ezmaxpartner in french | 
+**SEzmaxpartnerName2** | **string** | The name of the Ezmaxpartner in english | 
+**FkiEzmaxpartnerproductID** | **int32** | The unique ID of the Ezmaxpartnerproduct | 
+**SEzmaxpartnerproductName1** | **string** | The name1 of the Ezmaxpartnerproduct | 
+**SEzmaxpartnerproductName2** | **string** | The name2 of the Ezmaxpartnerproduct | 
+**FkiEzmaxpartnerproductstageID** | **int32** | The unique ID of the Ezmaxpartnerproductstage | 
+**SEzmaxpartnerproductstageCode** | **string** | The code of the sEzmaxpartnerproductstage | 
+**SUserLoginName** | **string** | The login name of the User. | 
+**SUserFirstName** | **string** | The first name of the user | 
+**SUserLastName** | **string** | The last name of the user | 
+**FkiUserID** | **int32** | The unique ID of the User | 
+**FkiLanguageID** | **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
 **ObjAddress** | Pointer to [**AddressRequestCompound**](AddressRequestCompound.md) |  | [optional] 
 **Objphone** | Pointer to [**PhoneRequestCompoundV2**](PhoneRequestCompoundV2.md) |  | [optional] 
 **ObjEmail** | Pointer to [**EmailRequestCompound**](EmailRequestCompound.md) |  | [optional] 
@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 
 ### NewCustomEzmaxpartnerproductSubscribe
 
-`func NewCustomEzmaxpartnerproductSubscribe() *CustomEzmaxpartnerproductSubscribe`
+`func NewCustomEzmaxpartnerproductSubscribe(pksEzmaxcustomerCode string, sInfrastructureenvironmenttypeDescription string, sCompanyName1 string, sCompanyName2 string, fkiSystemconfigurationtypeID int32, sSystemconfigurationtypeDescription1 string, sSystemconfigurationtypeDescription2 string, fkiEzmaxpartnerID int32, sEzmaxpartnerName1 string, sEzmaxpartnerName2 string, fkiEzmaxpartnerproductID int32, sEzmaxpartnerproductName1 string, sEzmaxpartnerproductName2 string, fkiEzmaxpartnerproductstageID int32, sEzmaxpartnerproductstageCode string, sUserLoginName string, sUserFirstName string, sUserLastName string, fkiUserID int32, fkiLanguageID int32, ) *CustomEzmaxpartnerproductSubscribe`
 
 NewCustomEzmaxpartnerproductSubscribe instantiates a new CustomEzmaxpartnerproductSubscribe object
 This constructor will assign default values to properties that have it defined,
@@ -66,11 +66,6 @@ and a boolean to check if the value has been set.
 
 SetPksEzmaxcustomerCode sets PksEzmaxcustomerCode field to given value.
 
-### HasPksEzmaxcustomerCode
-
-`func (o *CustomEzmaxpartnerproductSubscribe) HasPksEzmaxcustomerCode() bool`
-
-HasPksEzmaxcustomerCode returns a boolean if a field has been set.
 
 ### GetSInfrastructureenvironmenttypeDescription
 
@@ -91,11 +86,6 @@ and a boolean to check if the value has been set.
 
 SetSInfrastructureenvironmenttypeDescription sets SInfrastructureenvironmenttypeDescription field to given value.
 
-### HasSInfrastructureenvironmenttypeDescription
-
-`func (o *CustomEzmaxpartnerproductSubscribe) HasSInfrastructureenvironmenttypeDescription() bool`
-
-HasSInfrastructureenvironmenttypeDescription returns a boolean if a field has been set.
 
 ### GetSCompanyName1
 
@@ -116,11 +106,6 @@ and a boolean to check if the value has been set.
 
 SetSCompanyName1 sets SCompanyName1 field to given value.
 
-### HasSCompanyName1
-
-`func (o *CustomEzmaxpartnerproductSubscribe) HasSCompanyName1() bool`
-
-HasSCompanyName1 returns a boolean if a field has been set.
 
 ### GetSCompanyName2
 
@@ -141,11 +126,6 @@ and a boolean to check if the value has been set.
 
 SetSCompanyName2 sets SCompanyName2 field to given value.
 
-### HasSCompanyName2
-
-`func (o *CustomEzmaxpartnerproductSubscribe) HasSCompanyName2() bool`
-
-HasSCompanyName2 returns a boolean if a field has been set.
 
 ### GetFkiSystemconfigurationtypeID
 
@@ -166,11 +146,6 @@ and a boolean to check if the value has been set.
 
 SetFkiSystemconfigurationtypeID sets FkiSystemconfigurationtypeID field to given value.
 
-### HasFkiSystemconfigurationtypeID
-
-`func (o *CustomEzmaxpartnerproductSubscribe) HasFkiSystemconfigurationtypeID() bool`
-
-HasFkiSystemconfigurationtypeID returns a boolean if a field has been set.
 
 ### GetSSystemconfigurationtypeDescription1
 
@@ -191,11 +166,6 @@ and a boolean to check if the value has been set.
 
 SetSSystemconfigurationtypeDescription1 sets SSystemconfigurationtypeDescription1 field to given value.
 
-### HasSSystemconfigurationtypeDescription1
-
-`func (o *CustomEzmaxpartnerproductSubscribe) HasSSystemconfigurationtypeDescription1() bool`
-
-HasSSystemconfigurationtypeDescription1 returns a boolean if a field has been set.
 
 ### GetSSystemconfigurationtypeDescription2
 
@@ -216,11 +186,6 @@ and a boolean to check if the value has been set.
 
 SetSSystemconfigurationtypeDescription2 sets SSystemconfigurationtypeDescription2 field to given value.
 
-### HasSSystemconfigurationtypeDescription2
-
-`func (o *CustomEzmaxpartnerproductSubscribe) HasSSystemconfigurationtypeDescription2() bool`
-
-HasSSystemconfigurationtypeDescription2 returns a boolean if a field has been set.
 
 ### GetFkiEzmaxpartnerID
 
@@ -241,11 +206,6 @@ and a boolean to check if the value has been set.
 
 SetFkiEzmaxpartnerID sets FkiEzmaxpartnerID field to given value.
 
-### HasFkiEzmaxpartnerID
-
-`func (o *CustomEzmaxpartnerproductSubscribe) HasFkiEzmaxpartnerID() bool`
-
-HasFkiEzmaxpartnerID returns a boolean if a field has been set.
 
 ### GetSEzmaxpartnerName1
 
@@ -266,11 +226,6 @@ and a boolean to check if the value has been set.
 
 SetSEzmaxpartnerName1 sets SEzmaxpartnerName1 field to given value.
 
-### HasSEzmaxpartnerName1
-
-`func (o *CustomEzmaxpartnerproductSubscribe) HasSEzmaxpartnerName1() bool`
-
-HasSEzmaxpartnerName1 returns a boolean if a field has been set.
 
 ### GetSEzmaxpartnerName2
 
@@ -291,11 +246,6 @@ and a boolean to check if the value has been set.
 
 SetSEzmaxpartnerName2 sets SEzmaxpartnerName2 field to given value.
 
-### HasSEzmaxpartnerName2
-
-`func (o *CustomEzmaxpartnerproductSubscribe) HasSEzmaxpartnerName2() bool`
-
-HasSEzmaxpartnerName2 returns a boolean if a field has been set.
 
 ### GetFkiEzmaxpartnerproductID
 
@@ -316,11 +266,6 @@ and a boolean to check if the value has been set.
 
 SetFkiEzmaxpartnerproductID sets FkiEzmaxpartnerproductID field to given value.
 
-### HasFkiEzmaxpartnerproductID
-
-`func (o *CustomEzmaxpartnerproductSubscribe) HasFkiEzmaxpartnerproductID() bool`
-
-HasFkiEzmaxpartnerproductID returns a boolean if a field has been set.
 
 ### GetSEzmaxpartnerproductName1
 
@@ -341,11 +286,6 @@ and a boolean to check if the value has been set.
 
 SetSEzmaxpartnerproductName1 sets SEzmaxpartnerproductName1 field to given value.
 
-### HasSEzmaxpartnerproductName1
-
-`func (o *CustomEzmaxpartnerproductSubscribe) HasSEzmaxpartnerproductName1() bool`
-
-HasSEzmaxpartnerproductName1 returns a boolean if a field has been set.
 
 ### GetSEzmaxpartnerproductName2
 
@@ -366,11 +306,6 @@ and a boolean to check if the value has been set.
 
 SetSEzmaxpartnerproductName2 sets SEzmaxpartnerproductName2 field to given value.
 
-### HasSEzmaxpartnerproductName2
-
-`func (o *CustomEzmaxpartnerproductSubscribe) HasSEzmaxpartnerproductName2() bool`
-
-HasSEzmaxpartnerproductName2 returns a boolean if a field has been set.
 
 ### GetFkiEzmaxpartnerproductstageID
 
@@ -391,11 +326,6 @@ and a boolean to check if the value has been set.
 
 SetFkiEzmaxpartnerproductstageID sets FkiEzmaxpartnerproductstageID field to given value.
 
-### HasFkiEzmaxpartnerproductstageID
-
-`func (o *CustomEzmaxpartnerproductSubscribe) HasFkiEzmaxpartnerproductstageID() bool`
-
-HasFkiEzmaxpartnerproductstageID returns a boolean if a field has been set.
 
 ### GetSEzmaxpartnerproductstageCode
 
@@ -416,11 +346,6 @@ and a boolean to check if the value has been set.
 
 SetSEzmaxpartnerproductstageCode sets SEzmaxpartnerproductstageCode field to given value.
 
-### HasSEzmaxpartnerproductstageCode
-
-`func (o *CustomEzmaxpartnerproductSubscribe) HasSEzmaxpartnerproductstageCode() bool`
-
-HasSEzmaxpartnerproductstageCode returns a boolean if a field has been set.
 
 ### GetSUserLoginName
 
@@ -441,11 +366,6 @@ and a boolean to check if the value has been set.
 
 SetSUserLoginName sets SUserLoginName field to given value.
 
-### HasSUserLoginName
-
-`func (o *CustomEzmaxpartnerproductSubscribe) HasSUserLoginName() bool`
-
-HasSUserLoginName returns a boolean if a field has been set.
 
 ### GetSUserFirstName
 
@@ -466,11 +386,6 @@ and a boolean to check if the value has been set.
 
 SetSUserFirstName sets SUserFirstName field to given value.
 
-### HasSUserFirstName
-
-`func (o *CustomEzmaxpartnerproductSubscribe) HasSUserFirstName() bool`
-
-HasSUserFirstName returns a boolean if a field has been set.
 
 ### GetSUserLastName
 
@@ -491,11 +406,6 @@ and a boolean to check if the value has been set.
 
 SetSUserLastName sets SUserLastName field to given value.
 
-### HasSUserLastName
-
-`func (o *CustomEzmaxpartnerproductSubscribe) HasSUserLastName() bool`
-
-HasSUserLastName returns a boolean if a field has been set.
 
 ### GetFkiUserID
 
@@ -516,11 +426,6 @@ and a boolean to check if the value has been set.
 
 SetFkiUserID sets FkiUserID field to given value.
 
-### HasFkiUserID
-
-`func (o *CustomEzmaxpartnerproductSubscribe) HasFkiUserID() bool`
-
-HasFkiUserID returns a boolean if a field has been set.
 
 ### GetFkiLanguageID
 
@@ -541,11 +446,6 @@ and a boolean to check if the value has been set.
 
 SetFkiLanguageID sets FkiLanguageID field to given value.
 
-### HasFkiLanguageID
-
-`func (o *CustomEzmaxpartnerproductSubscribe) HasFkiLanguageID() bool`
-
-HasFkiLanguageID returns a boolean if a field has been set.
 
 ### GetObjAddress
 

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**EzsigntemplatepackagemembershipCreateObjectV1**](ObjectEzsigntemplatepackagemembershipAPI.md#EzsigntemplatepackagemembershipCreateObjectV1) | **Post** /1/object/ezsigntemplatepackagemembership | Create a new Ezsigntemplatepackagemembership
 [**EzsigntemplatepackagemembershipDeleteObjectV1**](ObjectEzsigntemplatepackagemembershipAPI.md#EzsigntemplatepackagemembershipDeleteObjectV1) | **Delete** /1/object/ezsigntemplatepackagemembership/{pkiEzsigntemplatepackagemembershipID} | Delete an existing Ezsigntemplatepackagemembership
 [**EzsigntemplatepackagemembershipGetObjectV2**](ObjectEzsigntemplatepackagemembershipAPI.md#EzsigntemplatepackagemembershipGetObjectV2) | **Get** /2/object/ezsigntemplatepackagemembership/{pkiEzsigntemplatepackagemembershipID} | Retrieve an existing Ezsigntemplatepackagemembership
+[**EzsigntemplatepackagemembershipGetObjectV3**](ObjectEzsigntemplatepackagemembershipAPI.md#EzsigntemplatepackagemembershipGetObjectV3) | **Get** /3/object/ezsigntemplatepackagemembership/{pkiEzsigntemplatepackagemembershipID} | Retrieve an existing Ezsigntemplatepackagemembership
 
 
 
@@ -201,6 +202,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsigntemplatepackagemembershipGetObjectV2Response**](EzsigntemplatepackagemembershipGetObjectV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsigntemplatepackagemembershipGetObjectV3
+
+> EzsigntemplatepackagemembershipGetObjectV3Response EzsigntemplatepackagemembershipGetObjectV3(ctx, pkiEzsigntemplatepackagemembershipID).Execute()
+
+Retrieve an existing Ezsigntemplatepackagemembership
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsigntemplatepackagemembershipID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigntemplatepackagemembershipAPI.EzsigntemplatepackagemembershipGetObjectV3(context.Background(), pkiEzsigntemplatepackagemembershipID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatepackagemembershipAPI.EzsigntemplatepackagemembershipGetObjectV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigntemplatepackagemembershipGetObjectV3`: EzsigntemplatepackagemembershipGetObjectV3Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatepackagemembershipAPI.EzsigntemplatepackagemembershipGetObjectV3`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsigntemplatepackagemembershipID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsigntemplatepackagemembershipGetObjectV3Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**EzsigntemplatepackagemembershipGetObjectV3Response**](EzsigntemplatepackagemembershipGetObjectV3Response.md)
 
 ### Authorization
 

@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.3.3
+API version: 1.3.4
 Contact: support-api@ezmax.ca
 */
 
@@ -28,6 +28,8 @@ type EzsignfolderDuplicateV1Request struct {
 	AObjEzsigndocument []CustomEzsigndocumentDuplicateRequest `json:"a_objEzsigndocument"`
 	// Note about the Ezsignfolder
 	TEzsignfolderNote *string `json:"tEzsignfolderNote,omitempty"`
+	// Whether we keep the entered values or not in the Ezsignform
+	BKeepenteredvalues *bool `json:"bKeepenteredvalues,omitempty"`
 }
 
 type _EzsignfolderDuplicateV1Request EzsignfolderDuplicateV1Request
@@ -41,6 +43,8 @@ func NewEzsignfolderDuplicateV1Request(sEzsignfolderDescription string, aFkiEzsi
 	this.SEzsignfolderDescription = sEzsignfolderDescription
 	this.AFkiEzsignfoldersignerassociationID = aFkiEzsignfoldersignerassociationID
 	this.AObjEzsigndocument = aObjEzsigndocument
+	var bKeepenteredvalues bool = true
+	this.BKeepenteredvalues = &bKeepenteredvalues
 	return &this
 }
 
@@ -49,6 +53,8 @@ func NewEzsignfolderDuplicateV1Request(sEzsignfolderDescription string, aFkiEzsi
 // but it doesn't guarantee that properties required by API are set
 func NewEzsignfolderDuplicateV1RequestWithDefaults() *EzsignfolderDuplicateV1Request {
 	this := EzsignfolderDuplicateV1Request{}
+	var bKeepenteredvalues bool = true
+	this.BKeepenteredvalues = &bKeepenteredvalues
 	return &this
 }
 
@@ -156,6 +162,38 @@ func (o *EzsignfolderDuplicateV1Request) SetTEzsignfolderNote(v string) {
 	o.TEzsignfolderNote = &v
 }
 
+// GetBKeepenteredvalues returns the BKeepenteredvalues field value if set, zero value otherwise.
+func (o *EzsignfolderDuplicateV1Request) GetBKeepenteredvalues() bool {
+	if o == nil || IsNil(o.BKeepenteredvalues) {
+		var ret bool
+		return ret
+	}
+	return *o.BKeepenteredvalues
+}
+
+// GetBKeepenteredvaluesOk returns a tuple with the BKeepenteredvalues field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignfolderDuplicateV1Request) GetBKeepenteredvaluesOk() (*bool, bool) {
+	if o == nil || IsNil(o.BKeepenteredvalues) {
+		return nil, false
+	}
+	return o.BKeepenteredvalues, true
+}
+
+// HasBKeepenteredvalues returns a boolean if a field has been set.
+func (o *EzsignfolderDuplicateV1Request) HasBKeepenteredvalues() bool {
+	if o != nil && !IsNil(o.BKeepenteredvalues) {
+		return true
+	}
+
+	return false
+}
+
+// SetBKeepenteredvalues gets a reference to the given bool and assigns it to the BKeepenteredvalues field.
+func (o *EzsignfolderDuplicateV1Request) SetBKeepenteredvalues(v bool) {
+	o.BKeepenteredvalues = &v
+}
+
 func (o EzsignfolderDuplicateV1Request) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -171,6 +209,9 @@ func (o EzsignfolderDuplicateV1Request) ToMap() (map[string]interface{}, error) 
 	toSerialize["a_objEzsigndocument"] = o.AObjEzsigndocument
 	if !IsNil(o.TEzsignfolderNote) {
 		toSerialize["tEzsignfolderNote"] = o.TEzsignfolderNote
+	}
+	if !IsNil(o.BKeepenteredvalues) {
+		toSerialize["bKeepenteredvalues"] = o.BKeepenteredvalues
 	}
 	return toSerialize, nil
 }

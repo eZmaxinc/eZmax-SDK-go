@@ -7,10 +7,12 @@ Method | HTTP request | Description
 [**EzsigntemplatepackageCreateObjectV1**](ObjectEzsigntemplatepackageAPI.md#EzsigntemplatepackageCreateObjectV1) | **Post** /1/object/ezsigntemplatepackage | Create a new Ezsigntemplatepackage
 [**EzsigntemplatepackageDeleteObjectV1**](ObjectEzsigntemplatepackageAPI.md#EzsigntemplatepackageDeleteObjectV1) | **Delete** /1/object/ezsigntemplatepackage/{pkiEzsigntemplatepackageID} | Delete an existing Ezsigntemplatepackage
 [**EzsigntemplatepackageEditEzsigntemplatepackagesignersV1**](ObjectEzsigntemplatepackageAPI.md#EzsigntemplatepackageEditEzsigntemplatepackagesignersV1) | **Put** /1/object/ezsigntemplatepackage/{pkiEzsigntemplatepackageID}/editEzsigntemplatepackagesigners | Edit multiple Ezsigntemplatepackagesigners
+[**EzsigntemplatepackageEditEzsigntemplatepackagesignersV2**](ObjectEzsigntemplatepackageAPI.md#EzsigntemplatepackageEditEzsigntemplatepackagesignersV2) | **Put** /2/object/ezsigntemplatepackage/{pkiEzsigntemplatepackageID}/editEzsigntemplatepackagesigners | Edit multiple Ezsigntemplatepackagesigners
 [**EzsigntemplatepackageEditObjectV1**](ObjectEzsigntemplatepackageAPI.md#EzsigntemplatepackageEditObjectV1) | **Put** /1/object/ezsigntemplatepackage/{pkiEzsigntemplatepackageID} | Edit an existing Ezsigntemplatepackage
 [**EzsigntemplatepackageGetAutocompleteV2**](ObjectEzsigntemplatepackageAPI.md#EzsigntemplatepackageGetAutocompleteV2) | **Get** /2/object/ezsigntemplatepackage/getAutocomplete/{sSelector} | Retrieve Ezsigntemplatepackages and IDs
 [**EzsigntemplatepackageGetListV1**](ObjectEzsigntemplatepackageAPI.md#EzsigntemplatepackageGetListV1) | **Get** /1/object/ezsigntemplatepackage/getList | Retrieve Ezsigntemplatepackage list
 [**EzsigntemplatepackageGetObjectV2**](ObjectEzsigntemplatepackageAPI.md#EzsigntemplatepackageGetObjectV2) | **Get** /2/object/ezsigntemplatepackage/{pkiEzsigntemplatepackageID} | Retrieve an existing Ezsigntemplatepackage
+[**EzsigntemplatepackageGetObjectV3**](ObjectEzsigntemplatepackageAPI.md#EzsigntemplatepackageGetObjectV3) | **Get** /3/object/ezsigntemplatepackage/{pkiEzsigntemplatepackageID} | Retrieve an existing Ezsigntemplatepackage
 
 
 
@@ -207,6 +209,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Response**](EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsigntemplatepackageEditEzsigntemplatepackagesignersV2
+
+> EzsigntemplatepackageEditEzsigntemplatepackagesignersV2Response EzsigntemplatepackageEditEzsigntemplatepackagesignersV2(ctx, pkiEzsigntemplatepackageID).EzsigntemplatepackageEditEzsigntemplatepackagesignersV2Request(ezsigntemplatepackageEditEzsigntemplatepackagesignersV2Request).Execute()
+
+Edit multiple Ezsigntemplatepackagesigners
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsigntemplatepackageID := int32(56) // int32 | 
+	ezsigntemplatepackageEditEzsigntemplatepackagesignersV2Request := *openapiclient.NewEzsigntemplatepackageEditEzsigntemplatepackagesignersV2Request([]openapiclient.EzsigntemplatepackagesignerRequestCompoundV2{*openapiclient.NewEzsigntemplatepackagesignerRequestCompoundV2(int32(99), "Customer")}) // EzsigntemplatepackageEditEzsigntemplatepackagesignersV2Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigntemplatepackageAPI.EzsigntemplatepackageEditEzsigntemplatepackagesignersV2(context.Background(), pkiEzsigntemplatepackageID).EzsigntemplatepackageEditEzsigntemplatepackagesignersV2Request(ezsigntemplatepackageEditEzsigntemplatepackagesignersV2Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatepackageAPI.EzsigntemplatepackageEditEzsigntemplatepackagesignersV2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigntemplatepackageEditEzsigntemplatepackagesignersV2`: EzsigntemplatepackageEditEzsigntemplatepackagesignersV2Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatepackageAPI.EzsigntemplatepackageEditEzsigntemplatepackagesignersV2`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsigntemplatepackageID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsigntemplatepackageEditEzsigntemplatepackagesignersV2Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **ezsigntemplatepackageEditEzsigntemplatepackagesignersV2Request** | [**EzsigntemplatepackageEditEzsigntemplatepackagesignersV2Request**](EzsigntemplatepackageEditEzsigntemplatepackagesignersV2Request.md) |  | 
+
+### Return type
+
+[**EzsigntemplatepackageEditEzsigntemplatepackagesignersV2Response**](EzsigntemplatepackageEditEzsigntemplatepackagesignersV2Response.md)
 
 ### Authorization
 
@@ -501,6 +575,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsigntemplatepackageGetObjectV2Response**](EzsigntemplatepackageGetObjectV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsigntemplatepackageGetObjectV3
+
+> EzsigntemplatepackageGetObjectV3Response EzsigntemplatepackageGetObjectV3(ctx, pkiEzsigntemplatepackageID).Execute()
+
+Retrieve an existing Ezsigntemplatepackage
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsigntemplatepackageID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigntemplatepackageAPI.EzsigntemplatepackageGetObjectV3(context.Background(), pkiEzsigntemplatepackageID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplatepackageAPI.EzsigntemplatepackageGetObjectV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigntemplatepackageGetObjectV3`: EzsigntemplatepackageGetObjectV3Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplatepackageAPI.EzsigntemplatepackageGetObjectV3`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsigntemplatepackageID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsigntemplatepackageGetObjectV3Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**EzsigntemplatepackageGetObjectV3Response**](EzsigntemplatepackageGetObjectV3Response.md)
 
 ### Authorization
 

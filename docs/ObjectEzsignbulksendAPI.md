@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**EzsignbulksendGetListV1**](ObjectEzsignbulksendAPI.md#EzsignbulksendGetListV1) | **Get** /1/object/ezsignbulksend/getList | Retrieve Ezsignbulksend list
 [**EzsignbulksendGetObjectV2**](ObjectEzsignbulksendAPI.md#EzsignbulksendGetObjectV2) | **Get** /2/object/ezsignbulksend/{pkiEzsignbulksendID} | Retrieve an existing Ezsignbulksend
 [**EzsignbulksendGetObjectV3**](ObjectEzsignbulksendAPI.md#EzsignbulksendGetObjectV3) | **Get** /3/object/ezsignbulksend/{pkiEzsignbulksendID} | Retrieve an existing Ezsignbulksend
+[**EzsignbulksendGetObjectV4**](ObjectEzsignbulksendAPI.md#EzsignbulksendGetObjectV4) | **Get** /4/object/ezsignbulksend/{pkiEzsignbulksendID} | Retrieve an existing Ezsignbulksend
 [**EzsignbulksendReorderV1**](ObjectEzsignbulksendAPI.md#EzsignbulksendReorderV1) | **Post** /1/object/ezsignbulksend/{pkiEzsignbulksendID}/reorder | Reorder Ezsignbulksenddocumentmappings in the Ezsignbulksend
 
 
@@ -922,6 +923,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignbulksendGetObjectV3Response**](EzsignbulksendGetObjectV3Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsignbulksendGetObjectV4
+
+> EzsignbulksendGetObjectV4Response EzsignbulksendGetObjectV4(ctx, pkiEzsignbulksendID).Execute()
+
+Retrieve an existing Ezsignbulksend
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsignbulksendID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignbulksendAPI.EzsignbulksendGetObjectV4(context.Background(), pkiEzsignbulksendID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksendAPI.EzsignbulksendGetObjectV4``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignbulksendGetObjectV4`: EzsignbulksendGetObjectV4Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksendAPI.EzsignbulksendGetObjectV4`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsignbulksendID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsignbulksendGetObjectV4Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**EzsignbulksendGetObjectV4Response**](EzsignbulksendGetObjectV4Response.md)
 
 ### Authorization
 

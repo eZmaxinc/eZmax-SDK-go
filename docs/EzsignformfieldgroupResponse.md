@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **SEzsignformfieldgroupTextvalidationcustommessage** | Pointer to **string** | Description of validation rule. Show by signatory. | [optional] 
 **TEzsignformfieldgroupTooltip** | Pointer to **string** | A tooltip that will be presented to Ezsignsigner about the Ezsignformfieldgroup | [optional] 
 **EEzsignformfieldgroupTooltipposition** | Pointer to [**FieldEEzsignformfieldgroupTooltipposition**](FieldEEzsignformfieldgroupTooltipposition.md) |  | [optional] 
+**DtEzsignformfieldgroupCompleted** | Pointer to **string** | The date the Ezsignformfieldgroup was completed. | [optional] 
 
 ## Methods
 
@@ -425,6 +426,31 @@ SetEEzsignformfieldgroupTooltipposition sets EEzsignformfieldgroupTooltippositio
 `func (o *EzsignformfieldgroupResponse) HasEEzsignformfieldgroupTooltipposition() bool`
 
 HasEEzsignformfieldgroupTooltipposition returns a boolean if a field has been set.
+
+### GetDtEzsignformfieldgroupCompleted
+
+`func (o *EzsignformfieldgroupResponse) GetDtEzsignformfieldgroupCompleted() string`
+
+GetDtEzsignformfieldgroupCompleted returns the DtEzsignformfieldgroupCompleted field if non-nil, zero value otherwise.
+
+### GetDtEzsignformfieldgroupCompletedOk
+
+`func (o *EzsignformfieldgroupResponse) GetDtEzsignformfieldgroupCompletedOk() (*string, bool)`
+
+GetDtEzsignformfieldgroupCompletedOk returns a tuple with the DtEzsignformfieldgroupCompleted field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDtEzsignformfieldgroupCompleted
+
+`func (o *EzsignformfieldgroupResponse) SetDtEzsignformfieldgroupCompleted(v string)`
+
+SetDtEzsignformfieldgroupCompleted sets DtEzsignformfieldgroupCompleted field to given value.
+
+### HasDtEzsignformfieldgroupCompleted
+
+`func (o *EzsignformfieldgroupResponse) HasDtEzsignformfieldgroupCompleted() bool`
+
+HasDtEzsignformfieldgroupCompleted returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

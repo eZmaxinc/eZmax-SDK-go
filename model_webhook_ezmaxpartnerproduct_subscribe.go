@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.3.3
+API version: 1.3.4
 Contact: support-api@ezmax.ca
 */
 
@@ -26,9 +26,9 @@ type WebhookEzmaxpartnerproductSubscribe struct {
 	// An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.
 	AObjAttempt []AttemptResponseCompound `json:"a_objAttempt"`
 	ObjEzmaxpartnerproduct CustomEzmaxpartnerproductSubscribe `json:"objEzmaxpartnerproduct"`
-	SExternalID *string `json:"sExternalID,omitempty"`
-	SApikeyApikey *string `json:"sApikeyApikey,omitempty"`
-	SApikeySecret *string `json:"sApikeySecret,omitempty"`
+	SExternalID *string `json:"sExternalID,omitempty" validate:"regexp=^.{0\\,128}$"`
+	SApikeyApikey string `json:"sApikeyApikey"`
+	SApikeySecret string `json:"sApikeySecret"`
 }
 
 type _WebhookEzmaxpartnerproductSubscribe WebhookEzmaxpartnerproductSubscribe
@@ -37,11 +37,13 @@ type _WebhookEzmaxpartnerproductSubscribe WebhookEzmaxpartnerproductSubscribe
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWebhookEzmaxpartnerproductSubscribe(objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound, objEzmaxpartnerproduct CustomEzmaxpartnerproductSubscribe) *WebhookEzmaxpartnerproductSubscribe {
+func NewWebhookEzmaxpartnerproductSubscribe(objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound, objEzmaxpartnerproduct CustomEzmaxpartnerproductSubscribe, sApikeyApikey string, sApikeySecret string) *WebhookEzmaxpartnerproductSubscribe {
 	this := WebhookEzmaxpartnerproductSubscribe{}
 	this.ObjWebhook = objWebhook
 	this.AObjAttempt = aObjAttempt
 	this.ObjEzmaxpartnerproduct = objEzmaxpartnerproduct
+	this.SApikeyApikey = sApikeyApikey
+	this.SApikeySecret = sApikeySecret
 	return &this
 }
 
@@ -157,68 +159,52 @@ func (o *WebhookEzmaxpartnerproductSubscribe) SetSExternalID(v string) {
 	o.SExternalID = &v
 }
 
-// GetSApikeyApikey returns the SApikeyApikey field value if set, zero value otherwise.
+// GetSApikeyApikey returns the SApikeyApikey field value
 func (o *WebhookEzmaxpartnerproductSubscribe) GetSApikeyApikey() string {
-	if o == nil || IsNil(o.SApikeyApikey) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SApikeyApikey
+
+	return o.SApikeyApikey
 }
 
-// GetSApikeyApikeyOk returns a tuple with the SApikeyApikey field value if set, nil otherwise
+// GetSApikeyApikeyOk returns a tuple with the SApikeyApikey field value
 // and a boolean to check if the value has been set.
 func (o *WebhookEzmaxpartnerproductSubscribe) GetSApikeyApikeyOk() (*string, bool) {
-	if o == nil || IsNil(o.SApikeyApikey) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SApikeyApikey, true
+	return &o.SApikeyApikey, true
 }
 
-// HasSApikeyApikey returns a boolean if a field has been set.
-func (o *WebhookEzmaxpartnerproductSubscribe) HasSApikeyApikey() bool {
-	if o != nil && !IsNil(o.SApikeyApikey) {
-		return true
-	}
-
-	return false
-}
-
-// SetSApikeyApikey gets a reference to the given string and assigns it to the SApikeyApikey field.
+// SetSApikeyApikey sets field value
 func (o *WebhookEzmaxpartnerproductSubscribe) SetSApikeyApikey(v string) {
-	o.SApikeyApikey = &v
+	o.SApikeyApikey = v
 }
 
-// GetSApikeySecret returns the SApikeySecret field value if set, zero value otherwise.
+// GetSApikeySecret returns the SApikeySecret field value
 func (o *WebhookEzmaxpartnerproductSubscribe) GetSApikeySecret() string {
-	if o == nil || IsNil(o.SApikeySecret) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SApikeySecret
+
+	return o.SApikeySecret
 }
 
-// GetSApikeySecretOk returns a tuple with the SApikeySecret field value if set, nil otherwise
+// GetSApikeySecretOk returns a tuple with the SApikeySecret field value
 // and a boolean to check if the value has been set.
 func (o *WebhookEzmaxpartnerproductSubscribe) GetSApikeySecretOk() (*string, bool) {
-	if o == nil || IsNil(o.SApikeySecret) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SApikeySecret, true
+	return &o.SApikeySecret, true
 }
 
-// HasSApikeySecret returns a boolean if a field has been set.
-func (o *WebhookEzmaxpartnerproductSubscribe) HasSApikeySecret() bool {
-	if o != nil && !IsNil(o.SApikeySecret) {
-		return true
-	}
-
-	return false
-}
-
-// SetSApikeySecret gets a reference to the given string and assigns it to the SApikeySecret field.
+// SetSApikeySecret sets field value
 func (o *WebhookEzmaxpartnerproductSubscribe) SetSApikeySecret(v string) {
-	o.SApikeySecret = &v
+	o.SApikeySecret = v
 }
 
 func (o WebhookEzmaxpartnerproductSubscribe) MarshalJSON() ([]byte, error) {
@@ -237,12 +223,8 @@ func (o WebhookEzmaxpartnerproductSubscribe) ToMap() (map[string]interface{}, er
 	if !IsNil(o.SExternalID) {
 		toSerialize["sExternalID"] = o.SExternalID
 	}
-	if !IsNil(o.SApikeyApikey) {
-		toSerialize["sApikeyApikey"] = o.SApikeyApikey
-	}
-	if !IsNil(o.SApikeySecret) {
-		toSerialize["sApikeySecret"] = o.SApikeySecret
-	}
+	toSerialize["sApikeyApikey"] = o.SApikeyApikey
+	toSerialize["sApikeySecret"] = o.SApikeySecret
 	return toSerialize, nil
 }
 
@@ -254,6 +236,8 @@ func (o *WebhookEzmaxpartnerproductSubscribe) UnmarshalJSON(data []byte) (err er
 		"objWebhook",
 		"a_objAttempt",
 		"objEzmaxpartnerproduct",
+		"sApikeyApikey",
+		"sApikeySecret",
 	}
 
 	allProperties := make(map[string]interface{})

@@ -8,14 +8,14 @@ Name | Type | Description | Notes
 **AObjAttempt** | [**[]AttemptResponseCompound**](AttemptResponseCompound.md) | An array containing details of previous attempts that were made to deliver the message. The array is empty if it&#39;s the first attempt. | 
 **ObjEzmaxpartnerproduct** | [**CustomEzmaxpartnerproductSubscribe**](CustomEzmaxpartnerproductSubscribe.md) |  | 
 **SExternalID** | Pointer to **string** |  | [optional] 
-**SApikeyApikey** | Pointer to **string** |  | [optional] 
-**SApikeySecret** | Pointer to **string** |  | [optional] 
+**SApikeyApikey** | **string** |  | 
+**SApikeySecret** | **string** |  | 
 
 ## Methods
 
 ### NewWebhookEzmaxpartnerproductSubscribe
 
-`func NewWebhookEzmaxpartnerproductSubscribe(objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound, objEzmaxpartnerproduct CustomEzmaxpartnerproductSubscribe, ) *WebhookEzmaxpartnerproductSubscribe`
+`func NewWebhookEzmaxpartnerproductSubscribe(objWebhook CustomWebhookResponse, aObjAttempt []AttemptResponseCompound, objEzmaxpartnerproduct CustomEzmaxpartnerproductSubscribe, sApikeyApikey string, sApikeySecret string, ) *WebhookEzmaxpartnerproductSubscribe`
 
 NewWebhookEzmaxpartnerproductSubscribe instantiates a new WebhookEzmaxpartnerproductSubscribe object
 This constructor will assign default values to properties that have it defined,
@@ -134,11 +134,6 @@ and a boolean to check if the value has been set.
 
 SetSApikeyApikey sets SApikeyApikey field to given value.
 
-### HasSApikeyApikey
-
-`func (o *WebhookEzmaxpartnerproductSubscribe) HasSApikeyApikey() bool`
-
-HasSApikeyApikey returns a boolean if a field has been set.
 
 ### GetSApikeySecret
 
@@ -159,11 +154,6 @@ and a boolean to check if the value has been set.
 
 SetSApikeySecret sets SApikeySecret field to given value.
 
-### HasSApikeySecret
-
-`func (o *WebhookEzmaxpartnerproductSubscribe) HasSApikeySecret() bool`
-
-HasSApikeySecret returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

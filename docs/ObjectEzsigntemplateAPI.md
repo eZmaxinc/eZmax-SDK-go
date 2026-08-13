@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**EzsigntemplateGetAutocompleteV2**](ObjectEzsigntemplateAPI.md#EzsigntemplateGetAutocompleteV2) | **Get** /2/object/ezsigntemplate/getAutocomplete/{sSelector} | Retrieve Ezsigntemplates and IDs
 [**EzsigntemplateGetListV1**](ObjectEzsigntemplateAPI.md#EzsigntemplateGetListV1) | **Get** /1/object/ezsigntemplate/getList | Retrieve Ezsigntemplate list
 [**EzsigntemplateGetObjectV3**](ObjectEzsigntemplateAPI.md#EzsigntemplateGetObjectV3) | **Get** /3/object/ezsigntemplate/{pkiEzsigntemplateID} | Retrieve an existing Ezsigntemplate
+[**EzsigntemplateGetObjectV4**](ObjectEzsigntemplateAPI.md#EzsigntemplateGetObjectV4) | **Get** /4/object/ezsigntemplate/{pkiEzsigntemplateID} | Retrieve an existing Ezsigntemplate
 
 
 
@@ -501,6 +502,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsigntemplateGetObjectV3Response**](EzsigntemplateGetObjectV3Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsigntemplateGetObjectV4
+
+> EzsigntemplateGetObjectV4Response EzsigntemplateGetObjectV4(ctx, pkiEzsigntemplateID).Execute()
+
+Retrieve an existing Ezsigntemplate
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsigntemplateID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsigntemplateAPI.EzsigntemplateGetObjectV4(context.Background(), pkiEzsigntemplateID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsigntemplateAPI.EzsigntemplateGetObjectV4``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsigntemplateGetObjectV4`: EzsigntemplateGetObjectV4Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsigntemplateAPI.EzsigntemplateGetObjectV4`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsigntemplateID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsigntemplateGetObjectV4Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**EzsigntemplateGetObjectV4Response**](EzsigntemplateGetObjectV4Response.md)
 
 ### Authorization
 

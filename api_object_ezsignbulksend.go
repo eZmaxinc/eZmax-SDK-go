@@ -3,7 +3,7 @@ eZmax API Definition (Full)
 
 This API expose all the functionnalities for the eZmax and eZsign applications.
 
-API version: 1.3.3
+API version: 1.3.4
 Contact: support-api@ezmax.ca
 */
 
@@ -1812,6 +1812,8 @@ EzsignbulksendGetObjectV3 Retrieve an existing Ezsignbulksend
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiEzsignbulksendID
  @return ApiEzsignbulksendGetObjectV3Request
+
+Deprecated
 */
 func (a *ObjectEzsignbulksendAPIService) EzsignbulksendGetObjectV3(ctx context.Context, pkiEzsignbulksendID int32) ApiEzsignbulksendGetObjectV3Request {
 	return ApiEzsignbulksendGetObjectV3Request{
@@ -1823,6 +1825,7 @@ func (a *ObjectEzsignbulksendAPIService) EzsignbulksendGetObjectV3(ctx context.C
 
 // Execute executes the request
 //  @return EzsignbulksendGetObjectV3Response
+// Deprecated
 func (a *ObjectEzsignbulksendAPIService) EzsignbulksendGetObjectV3Execute(r ApiEzsignbulksendGetObjectV3Request) (*EzsignbulksendGetObjectV3Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -1837,6 +1840,136 @@ func (a *ObjectEzsignbulksendAPIService) EzsignbulksendGetObjectV3Execute(r ApiE
 	}
 
 	localVarPath := localBasePath + "/3/object/ezsignbulksend/{pkiEzsignbulksendID}"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsignbulksendID"+"}", url.PathEscape(parameterValueToString(r.pkiEzsignbulksendID, "pkiEzsignbulksendID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiEzsignbulksendID < 0 {
+		return localVarReturnValue, nil, reportError("pkiEzsignbulksendID must be greater than 0")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiEzsignbulksendGetObjectV4Request struct {
+	ctx context.Context
+	ApiService *ObjectEzsignbulksendAPIService
+	pkiEzsignbulksendID int32
+}
+
+func (r ApiEzsignbulksendGetObjectV4Request) Execute() (*EzsignbulksendGetObjectV4Response, *http.Response, error) {
+	return r.ApiService.EzsignbulksendGetObjectV4Execute(r)
+}
+
+/*
+EzsignbulksendGetObjectV4 Retrieve an existing Ezsignbulksend
+
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiEzsignbulksendID
+ @return ApiEzsignbulksendGetObjectV4Request
+*/
+func (a *ObjectEzsignbulksendAPIService) EzsignbulksendGetObjectV4(ctx context.Context, pkiEzsignbulksendID int32) ApiEzsignbulksendGetObjectV4Request {
+	return ApiEzsignbulksendGetObjectV4Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiEzsignbulksendID: pkiEzsignbulksendID,
+	}
+}
+
+// Execute executes the request
+//  @return EzsignbulksendGetObjectV4Response
+func (a *ObjectEzsignbulksendAPIService) EzsignbulksendGetObjectV4Execute(r ApiEzsignbulksendGetObjectV4Request) (*EzsignbulksendGetObjectV4Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EzsignbulksendGetObjectV4Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEzsignbulksendAPIService.EzsignbulksendGetObjectV4")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/4/object/ezsignbulksend/{pkiEzsignbulksendID}"
 	localVarPath = strings.Replace(localVarPath, "{"+"pkiEzsignbulksendID"+"}", url.PathEscape(parameterValueToString(r.pkiEzsignbulksendID, "pkiEzsignbulksendID")), -1)
 
 	localVarHeaderParams := make(map[string]string)

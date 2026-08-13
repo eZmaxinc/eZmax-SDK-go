@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**EzsignbulksenddocumentmappingCreateObjectV1**](ObjectEzsignbulksenddocumentmappingAPI.md#EzsignbulksenddocumentmappingCreateObjectV1) | **Post** /1/object/ezsignbulksenddocumentmapping | Create a new Ezsignbulksenddocumentmapping
 [**EzsignbulksenddocumentmappingDeleteObjectV1**](ObjectEzsignbulksenddocumentmappingAPI.md#EzsignbulksenddocumentmappingDeleteObjectV1) | **Delete** /1/object/ezsignbulksenddocumentmapping/{pkiEzsignbulksenddocumentmappingID} | Delete an existing Ezsignbulksenddocumentmapping
 [**EzsignbulksenddocumentmappingGetObjectV2**](ObjectEzsignbulksenddocumentmappingAPI.md#EzsignbulksenddocumentmappingGetObjectV2) | **Get** /2/object/ezsignbulksenddocumentmapping/{pkiEzsignbulksenddocumentmappingID} | Retrieve an existing Ezsignbulksenddocumentmapping
+[**EzsignbulksenddocumentmappingGetObjectV3**](ObjectEzsignbulksenddocumentmappingAPI.md#EzsignbulksenddocumentmappingGetObjectV3) | **Get** /3/object/ezsignbulksenddocumentmapping/{pkiEzsignbulksenddocumentmappingID} | Retrieve an existing Ezsignbulksenddocumentmapping
 
 
 
@@ -201,6 +202,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignbulksenddocumentmappingGetObjectV2Response**](EzsignbulksenddocumentmappingGetObjectV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EzsignbulksenddocumentmappingGetObjectV3
+
+> EzsignbulksenddocumentmappingGetObjectV3Response EzsignbulksenddocumentmappingGetObjectV3(ctx, pkiEzsignbulksenddocumentmappingID).Execute()
+
+Retrieve an existing Ezsignbulksenddocumentmapping
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEzsignbulksenddocumentmappingID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEzsignbulksenddocumentmappingAPI.EzsignbulksenddocumentmappingGetObjectV3(context.Background(), pkiEzsignbulksenddocumentmappingID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignbulksenddocumentmappingAPI.EzsignbulksenddocumentmappingGetObjectV3``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EzsignbulksenddocumentmappingGetObjectV3`: EzsignbulksenddocumentmappingGetObjectV3Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignbulksenddocumentmappingAPI.EzsignbulksenddocumentmappingGetObjectV3`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEzsignbulksenddocumentmappingID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEzsignbulksenddocumentmappingGetObjectV3Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**EzsignbulksenddocumentmappingGetObjectV3Response**](EzsignbulksenddocumentmappingGetObjectV3Response.md)
 
 ### Authorization
 
