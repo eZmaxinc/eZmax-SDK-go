@@ -52,9 +52,11 @@ type AgentListElement struct {
 	IAgentBannernumber int32 `json:"iAgentBannernumber"`
 	// The realestateassociationlicense of the Agent
 	SAgentRealestateassociationlicense string `json:"sAgentRealestateassociationlicense" validate:"regexp=^.{0\\,15}$"`
-	// The hiredate of the Agent
+	// The expiration date of permit of the Agent
+	DtAgentPermitexpiration *string `json:"dtAgentPermitexpiration,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
+	// The hire date of the Agent
 	DtAgentHiredate *string `json:"dtAgentHiredate,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
-	// The leavedate of the Agent
+	// The leave date of the Agent
 	DtAgentLeavedate *string `json:"dtAgentLeavedate,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// The contract date of the Agent
 	DtAgentContractdate *string `json:"dtAgentContractdate,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
@@ -533,6 +535,38 @@ func (o *AgentListElement) GetSAgentRealestateassociationlicenseOk() (*string, b
 // SetSAgentRealestateassociationlicense sets field value
 func (o *AgentListElement) SetSAgentRealestateassociationlicense(v string) {
 	o.SAgentRealestateassociationlicense = v
+}
+
+// GetDtAgentPermitexpiration returns the DtAgentPermitexpiration field value if set, zero value otherwise.
+func (o *AgentListElement) GetDtAgentPermitexpiration() string {
+	if o == nil || IsNil(o.DtAgentPermitexpiration) {
+		var ret string
+		return ret
+	}
+	return *o.DtAgentPermitexpiration
+}
+
+// GetDtAgentPermitexpirationOk returns a tuple with the DtAgentPermitexpiration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AgentListElement) GetDtAgentPermitexpirationOk() (*string, bool) {
+	if o == nil || IsNil(o.DtAgentPermitexpiration) {
+		return nil, false
+	}
+	return o.DtAgentPermitexpiration, true
+}
+
+// HasDtAgentPermitexpiration returns a boolean if a field has been set.
+func (o *AgentListElement) HasDtAgentPermitexpiration() bool {
+	if o != nil && !IsNil(o.DtAgentPermitexpiration) {
+		return true
+	}
+
+	return false
+}
+
+// SetDtAgentPermitexpiration gets a reference to the given string and assigns it to the DtAgentPermitexpiration field.
+func (o *AgentListElement) SetDtAgentPermitexpiration(v string) {
+	o.DtAgentPermitexpiration = &v
 }
 
 // GetDtAgentHiredate returns the DtAgentHiredate field value if set, zero value otherwise.
@@ -1422,6 +1456,9 @@ func (o AgentListElement) ToMap() (map[string]interface{}, error) {
 	toSerialize["iAgentLongdistancecode"] = o.IAgentLongdistancecode
 	toSerialize["iAgentBannernumber"] = o.IAgentBannernumber
 	toSerialize["sAgentRealestateassociationlicense"] = o.SAgentRealestateassociationlicense
+	if !IsNil(o.DtAgentPermitexpiration) {
+		toSerialize["dtAgentPermitexpiration"] = o.DtAgentPermitexpiration
+	}
 	if !IsNil(o.DtAgentHiredate) {
 		toSerialize["dtAgentHiredate"] = o.DtAgentHiredate
 	}

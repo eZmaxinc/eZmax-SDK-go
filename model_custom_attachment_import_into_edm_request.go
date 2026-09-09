@@ -33,14 +33,14 @@ type CustomAttachmentImportIntoEDMRequest struct {
 	// The Base64 encoded binary content of the attachment.
 	SAttachmentBase64 *string `json:"sAttachmentBase64,omitempty"`
 	// The name of the Attachment
-	SAttachmentName string `json:"sAttachmentName" validate:"regexp=^.{0\\,75}$"`
+	SAttachmentName string `json:"sAttachmentName" validate:"regexp=^(?!\\.{1\\,2}$)(?!.*[ .]$)(?!(?:CON|PRN|AUX|NUL|COM(?:[1-9]|[¹²³])|LPT(?:[1-9]|[¹²³]))(?:\\.|$))[^\\x00-\\x1F<>:\"/\\\\\\\\|?*]{1\\,75}$"`
 	// The attachment category
-	SAttachmentCategory string `json:"sAttachmentCategory" validate:"regexp=^.{0\\,75}$"`
+	SAttachmentCategory string `json:"sAttachmentCategory" validate:"regexp=^(?!\\.{1\\,2}$)(?!.*[ .]$)(?!(?:CON|PRN|AUX|NUL|COM(?:[1-9]|[¹²³])|LPT(?:[1-9]|[¹²³]))(?:\\.|$))[^\\x00-\\x1F<>:\"/\\\\\\\\|?*]{0\\,75}$"`
 	EAttachmentPrivacy FieldEAttachmentPrivacy `json:"eAttachmentPrivacy"`
 	// The unique ID of the User
 	FkiUserIDSpecific *int32 `json:"fkiUserIDSpecific,omitempty"`
 	// The MD5 of the Attachment
-	SAttachmentMD5 *string `json:"sAttachmentMD5,omitempty" validate:"regexp=^.{32}$"`
+	SAttachmentMD5 *string `json:"sAttachmentMD5,omitempty" validate:"regexp=^[a-f0-9]{32}$"`
 	// Whether we force an overwrite of an existing file
 	BAttachmentForceoverwrite *bool `json:"bAttachmentForceoverwrite,omitempty"`
 	// Whether we force a restore of a deleted file

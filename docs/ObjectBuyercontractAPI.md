@@ -4,6 +4,8 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**BuyercontractBatchDownloadV1**](ObjectBuyercontractAPI.md#BuyercontractBatchDownloadV1) | **Post** /1/object/buyercontract/{pkiBuyercontractID}/batchDownload | Download multiples attachments from a Buyercontract
+[**BuyercontractGetAttachmentsV1**](ObjectBuyercontractAPI.md#BuyercontractGetAttachmentsV1) | **Get** /1/object/buyercontract/{pkiBuyercontractID}/getAttachments | Retrieve Buyercontract&#39;s attachments
 [**BuyercontractGetCommunicationCountV1**](ObjectBuyercontractAPI.md#BuyercontractGetCommunicationCountV1) | **Get** /1/object/buyercontract/{pkiBuyercontractID}/getCommunicationCount | Retrieve Communication count
 [**BuyercontractGetCommunicationListV1**](ObjectBuyercontractAPI.md#BuyercontractGetCommunicationListV1) | **Get** /1/object/buyercontract/{pkiBuyercontractID}/getCommunicationList | Retrieve Communication list
 [**BuyercontractGetCommunicationrecipientsV1**](ObjectBuyercontractAPI.md#BuyercontractGetCommunicationrecipientsV1) | **Get** /1/object/buyercontract/{pkiBuyercontractID}/getCommunicationrecipients | Retrieve Buyercontract&#39;s Communicationrecipient
@@ -11,6 +13,144 @@ Method | HTTP request | Description
 [**BuyercontractGetListV1**](ObjectBuyercontractAPI.md#BuyercontractGetListV1) | **Get** /1/object/buyercontract/getList | Retrieve Buyercontract list
 [**BuyercontractImportIntoEDMV1**](ObjectBuyercontractAPI.md#BuyercontractImportIntoEDMV1) | **Post** /1/object/buyercontract/{pkiBuyercontractID}/importIntoEDM | Import attachments into the Buyercontract
 
+
+
+## BuyercontractBatchDownloadV1
+
+> *os.File BuyercontractBatchDownloadV1(ctx, pkiBuyercontractID).BuyercontractBatchDownloadV1Request(buyercontractBatchDownloadV1Request).Execute()
+
+Download multiples attachments from a Buyercontract
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiBuyercontractID := int32(56) // int32 | 
+	buyercontractBatchDownloadV1Request := *openapiclient.NewBuyercontractBatchDownloadV1Request([]int32{int32(1)}) // BuyercontractBatchDownloadV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectBuyercontractAPI.BuyercontractBatchDownloadV1(context.Background(), pkiBuyercontractID).BuyercontractBatchDownloadV1Request(buyercontractBatchDownloadV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBuyercontractAPI.BuyercontractBatchDownloadV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BuyercontractBatchDownloadV1`: *os.File
+	fmt.Fprintf(os.Stdout, "Response from `ObjectBuyercontractAPI.BuyercontractBatchDownloadV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiBuyercontractID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBuyercontractBatchDownloadV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **buyercontractBatchDownloadV1Request** | [**BuyercontractBatchDownloadV1Request**](BuyercontractBatchDownloadV1Request.md) |  | 
+
+### Return type
+
+[***os.File**](*os.File.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/zip, text/xml, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BuyercontractGetAttachmentsV1
+
+> BuyercontractGetAttachmentsV1Response BuyercontractGetAttachmentsV1(ctx, pkiBuyercontractID).Execute()
+
+Retrieve Buyercontract's attachments
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiBuyercontractID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectBuyercontractAPI.BuyercontractGetAttachmentsV1(context.Background(), pkiBuyercontractID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBuyercontractAPI.BuyercontractGetAttachmentsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BuyercontractGetAttachmentsV1`: BuyercontractGetAttachmentsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectBuyercontractAPI.BuyercontractGetAttachmentsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiBuyercontractID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBuyercontractGetAttachmentsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**BuyercontractGetAttachmentsV1Response**](BuyercontractGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## BuyercontractGetCommunicationCountV1

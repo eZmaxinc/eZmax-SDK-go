@@ -19,8 +19,9 @@ Name | Type | Description | Notes
 **IAgentLongdistancecode** | **int32** | The longdistancecode of the Agent | 
 **IAgentBannernumber** | **int32** | The bannernumber of the Agent | 
 **SAgentRealestateassociationlicense** | **string** | The realestateassociationlicense of the Agent | 
-**DtAgentHiredate** | Pointer to **string** | The hiredate of the Agent | [optional] 
-**DtAgentLeavedate** | Pointer to **string** | The leavedate of the Agent | [optional] 
+**DtAgentPermitexpiration** | Pointer to **string** | The expiration date of permit of the Agent | [optional] 
+**DtAgentHiredate** | Pointer to **string** | The hire date of the Agent | [optional] 
+**DtAgentLeavedate** | Pointer to **string** | The leave date of the Agent | [optional] 
 **DtAgentContractdate** | Pointer to **string** | The contract date of the Agent | [optional] 
 **DtAgentTransferdate** | Pointer to **string** | The transfer date of the Agent | [optional] 
 **DtAgentSenioritydate** | Pointer to **string** | The seniority date of the Agent | [optional] 
@@ -382,6 +383,31 @@ and a boolean to check if the value has been set.
 
 SetSAgentRealestateassociationlicense sets SAgentRealestateassociationlicense field to given value.
 
+
+### GetDtAgentPermitexpiration
+
+`func (o *AgentListElement) GetDtAgentPermitexpiration() string`
+
+GetDtAgentPermitexpiration returns the DtAgentPermitexpiration field if non-nil, zero value otherwise.
+
+### GetDtAgentPermitexpirationOk
+
+`func (o *AgentListElement) GetDtAgentPermitexpirationOk() (*string, bool)`
+
+GetDtAgentPermitexpirationOk returns a tuple with the DtAgentPermitexpiration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDtAgentPermitexpiration
+
+`func (o *AgentListElement) SetDtAgentPermitexpiration(v string)`
+
+SetDtAgentPermitexpiration sets DtAgentPermitexpiration field to given value.
+
+### HasDtAgentPermitexpiration
+
+`func (o *AgentListElement) HasDtAgentPermitexpiration() bool`
+
+HasDtAgentPermitexpiration returns a boolean if a field has been set.
 
 ### GetDtAgentHiredate
 

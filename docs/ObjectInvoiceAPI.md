@@ -4,6 +4,7 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**InvoiceBatchDownloadV1**](ObjectInvoiceAPI.md#InvoiceBatchDownloadV1) | **Post** /1/object/invoice/{pkiInvoiceID}/batchDownload | Download multiples attachments from an Invoice
 [**InvoiceGetAttachmentsV1**](ObjectInvoiceAPI.md#InvoiceGetAttachmentsV1) | **Get** /1/object/invoice/{pkiInvoiceID}/getAttachments | Retrieve Invoice&#39;s Attachments
 [**InvoiceGetCommunicationCountV1**](ObjectInvoiceAPI.md#InvoiceGetCommunicationCountV1) | **Get** /1/object/invoice/{pkiInvoiceID}/getCommunicationCount | Retrieve Communication count
 [**InvoiceGetCommunicationListV1**](ObjectInvoiceAPI.md#InvoiceGetCommunicationListV1) | **Get** /1/object/invoice/{pkiInvoiceID}/getCommunicationList | Retrieve Communication list
@@ -11,6 +12,76 @@ Method | HTTP request | Description
 [**InvoiceGetCommunicationsendersV1**](ObjectInvoiceAPI.md#InvoiceGetCommunicationsendersV1) | **Get** /1/object/invoice/{pkiInvoiceID}/getCommunicationsenders | Retrieve Invoice&#39;s Communicationsender
 [**InvoiceImportIntoEDMV1**](ObjectInvoiceAPI.md#InvoiceImportIntoEDMV1) | **Post** /1/object/invoice/{pkiInvoiceID}/importIntoEDM | Import attachments into the Invoice
 
+
+
+## InvoiceBatchDownloadV1
+
+> *os.File InvoiceBatchDownloadV1(ctx, pkiInvoiceID).InvoiceBatchDownloadV1Request(invoiceBatchDownloadV1Request).Execute()
+
+Download multiples attachments from an Invoice
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiInvoiceID := int32(56) // int32 | 
+	invoiceBatchDownloadV1Request := *openapiclient.NewInvoiceBatchDownloadV1Request([]int32{int32(1)}) // InvoiceBatchDownloadV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectInvoiceAPI.InvoiceBatchDownloadV1(context.Background(), pkiInvoiceID).InvoiceBatchDownloadV1Request(invoiceBatchDownloadV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectInvoiceAPI.InvoiceBatchDownloadV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InvoiceBatchDownloadV1`: *os.File
+	fmt.Fprintf(os.Stdout, "Response from `ObjectInvoiceAPI.InvoiceBatchDownloadV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiInvoiceID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInvoiceBatchDownloadV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **invoiceBatchDownloadV1Request** | [**InvoiceBatchDownloadV1Request**](InvoiceBatchDownloadV1Request.md) |  | 
+
+### Return type
+
+[***os.File**](*os.File.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/zip, text/xml, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## InvoiceGetAttachmentsV1

@@ -4,6 +4,8 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**OtherincomeBatchDownloadV1**](ObjectOtherincomeAPI.md#OtherincomeBatchDownloadV1) | **Post** /1/object/otherincome/{pkiOtherincomeID}/batchDownload | Download multiples attachments from a Otherincome
+[**OtherincomeGetAttachmentsV1**](ObjectOtherincomeAPI.md#OtherincomeGetAttachmentsV1) | **Get** /1/object/otherincome/{pkiOtherincomeID}/getAttachments | Retrieve Otherincome&#39;s attachments
 [**OtherincomeGetCommunicationCountV1**](ObjectOtherincomeAPI.md#OtherincomeGetCommunicationCountV1) | **Get** /1/object/otherincome/{pkiOtherincomeID}/getCommunicationCount | Retrieve Communication count
 [**OtherincomeGetCommunicationListV1**](ObjectOtherincomeAPI.md#OtherincomeGetCommunicationListV1) | **Get** /1/object/otherincome/{pkiOtherincomeID}/getCommunicationList | Retrieve Communication list
 [**OtherincomeGetCommunicationrecipientsV1**](ObjectOtherincomeAPI.md#OtherincomeGetCommunicationrecipientsV1) | **Get** /1/object/otherincome/{pkiOtherincomeID}/getCommunicationrecipients | Retrieve Otherincome&#39;s Communicationrecipient
@@ -11,6 +13,144 @@ Method | HTTP request | Description
 [**OtherincomeGetListV1**](ObjectOtherincomeAPI.md#OtherincomeGetListV1) | **Get** /1/object/otherincome/getList | Retrieve Otherincome list
 [**OtherincomeImportIntoEDMV1**](ObjectOtherincomeAPI.md#OtherincomeImportIntoEDMV1) | **Post** /1/object/otherincome/{pkiOtherincomeID}/importIntoEDM | Import attachments into the Otherincome
 
+
+
+## OtherincomeBatchDownloadV1
+
+> *os.File OtherincomeBatchDownloadV1(ctx, pkiOtherincomeID).OtherincomeBatchDownloadV1Request(otherincomeBatchDownloadV1Request).Execute()
+
+Download multiples attachments from a Otherincome
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiOtherincomeID := int32(56) // int32 | 
+	otherincomeBatchDownloadV1Request := *openapiclient.NewOtherincomeBatchDownloadV1Request([]int32{int32(1)}) // OtherincomeBatchDownloadV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectOtherincomeAPI.OtherincomeBatchDownloadV1(context.Background(), pkiOtherincomeID).OtherincomeBatchDownloadV1Request(otherincomeBatchDownloadV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectOtherincomeAPI.OtherincomeBatchDownloadV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `OtherincomeBatchDownloadV1`: *os.File
+	fmt.Fprintf(os.Stdout, "Response from `ObjectOtherincomeAPI.OtherincomeBatchDownloadV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiOtherincomeID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiOtherincomeBatchDownloadV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **otherincomeBatchDownloadV1Request** | [**OtherincomeBatchDownloadV1Request**](OtherincomeBatchDownloadV1Request.md) |  | 
+
+### Return type
+
+[***os.File**](*os.File.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/zip, text/xml, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## OtherincomeGetAttachmentsV1
+
+> OtherincomeGetAttachmentsV1Response OtherincomeGetAttachmentsV1(ctx, pkiOtherincomeID).Execute()
+
+Retrieve Otherincome's attachments
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiOtherincomeID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectOtherincomeAPI.OtherincomeGetAttachmentsV1(context.Background(), pkiOtherincomeID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectOtherincomeAPI.OtherincomeGetAttachmentsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `OtherincomeGetAttachmentsV1`: OtherincomeGetAttachmentsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectOtherincomeAPI.OtherincomeGetAttachmentsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiOtherincomeID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiOtherincomeGetAttachmentsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**OtherincomeGetAttachmentsV1Response**](OtherincomeGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## OtherincomeGetCommunicationCountV1

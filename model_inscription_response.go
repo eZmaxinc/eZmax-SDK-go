@@ -91,7 +91,7 @@ type InscriptionResponse struct {
 	// The notary entered date of the Inscription
 	DtInscriptionNotaryentereddate *string `json:"dtInscriptionNotaryentereddate,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// The cadastre of the Inscription
-	TInscriptionCadastre string `json:"tInscriptionCadastre" validate:"regexp=^(\\n|.){0\\,65535}$"`
+	TInscriptionCadastre string `json:"tInscriptionCadastre" validate:"regexp=^[\\s\\S]{0\\,65535}$"`
 	// Whether if it's an reference
 	BInscriptionReference bool `json:"bInscriptionReference"`
 	// Whether the inscription can be acces by an inspector

@@ -20,7 +20,7 @@ import (
 // checks if the ElectronicfundstransferGetCommunicationsendersV1Response type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ElectronicfundstransferGetCommunicationsendersV1Response{}
 
-// ElectronicfundstransferGetCommunicationsendersV1Response Response for GET /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationrecipients
+// ElectronicfundstransferGetCommunicationsendersV1Response Response for GET /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationsenders
 type ElectronicfundstransferGetCommunicationsendersV1Response struct {
 	ObjDebugPayload CommonResponseObjDebugPayload `json:"objDebugPayload"`
 	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`

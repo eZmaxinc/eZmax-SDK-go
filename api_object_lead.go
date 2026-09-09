@@ -18,11 +18,285 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"os"
 )
 
 
 // ObjectLeadAPIService ObjectLeadAPI service
 type ObjectLeadAPIService service
+
+type ApiLeadBatchDownloadV1Request struct {
+	ctx context.Context
+	ApiService *ObjectLeadAPIService
+	pkiLeadID int32
+	leadBatchDownloadV1Request *LeadBatchDownloadV1Request
+}
+
+func (r ApiLeadBatchDownloadV1Request) LeadBatchDownloadV1Request(leadBatchDownloadV1Request LeadBatchDownloadV1Request) ApiLeadBatchDownloadV1Request {
+	r.leadBatchDownloadV1Request = &leadBatchDownloadV1Request
+	return r
+}
+
+func (r ApiLeadBatchDownloadV1Request) Execute() (*os.File, *http.Response, error) {
+	return r.ApiService.LeadBatchDownloadV1Execute(r)
+}
+
+/*
+LeadBatchDownloadV1 Download multiples attachments from a Lead
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiLeadID
+ @return ApiLeadBatchDownloadV1Request
+*/
+func (a *ObjectLeadAPIService) LeadBatchDownloadV1(ctx context.Context, pkiLeadID int32) ApiLeadBatchDownloadV1Request {
+	return ApiLeadBatchDownloadV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiLeadID: pkiLeadID,
+	}
+}
+
+// Execute executes the request
+//  @return *os.File
+func (a *ObjectLeadAPIService) LeadBatchDownloadV1Execute(r ApiLeadBatchDownloadV1Request) (*os.File, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *os.File
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectLeadAPIService.LeadBatchDownloadV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/lead/{pkiLeadID}/batchDownload"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiLeadID"+"}", url.PathEscape(parameterValueToString(r.pkiLeadID, "pkiLeadID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiLeadID < 0 {
+		return localVarReturnValue, nil, reportError("pkiLeadID must be greater than 0")
+	}
+	if r.pkiLeadID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiLeadID must be less than 65535")
+	}
+	if r.leadBatchDownloadV1Request == nil {
+		return localVarReturnValue, nil, reportError("leadBatchDownloadV1Request is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/zip", "text/xml", "application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.leadBatchDownloadV1Request
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiLeadGetAttachmentsV1Request struct {
+	ctx context.Context
+	ApiService *ObjectLeadAPIService
+	pkiLeadID int32
+}
+
+func (r ApiLeadGetAttachmentsV1Request) Execute() (*LeadGetAttachmentsV1Response, *http.Response, error) {
+	return r.ApiService.LeadGetAttachmentsV1Execute(r)
+}
+
+/*
+LeadGetAttachmentsV1 Retrieve Lead's attachments
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiLeadID
+ @return ApiLeadGetAttachmentsV1Request
+*/
+func (a *ObjectLeadAPIService) LeadGetAttachmentsV1(ctx context.Context, pkiLeadID int32) ApiLeadGetAttachmentsV1Request {
+	return ApiLeadGetAttachmentsV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiLeadID: pkiLeadID,
+	}
+}
+
+// Execute executes the request
+//  @return LeadGetAttachmentsV1Response
+func (a *ObjectLeadAPIService) LeadGetAttachmentsV1Execute(r ApiLeadGetAttachmentsV1Request) (*LeadGetAttachmentsV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *LeadGetAttachmentsV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectLeadAPIService.LeadGetAttachmentsV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/lead/{pkiLeadID}/getAttachments"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiLeadID"+"}", url.PathEscape(parameterValueToString(r.pkiLeadID, "pkiLeadID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiLeadID < 0 {
+		return localVarReturnValue, nil, reportError("pkiLeadID must be greater than 0")
+	}
+	if r.pkiLeadID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiLeadID must be less than 65535")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
 
 type ApiLeadGetListV1Request struct {
 	ctx context.Context

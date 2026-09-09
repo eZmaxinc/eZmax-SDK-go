@@ -4,6 +4,7 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**InscriptionBatchDownloadV1**](ObjectInscriptionAPI.md#InscriptionBatchDownloadV1) | **Post** /1/object/inscription/{pkiInscriptionID}/batchDownload | Download multiples attachments from an Inscription
 [**InscriptionGetAttachmentsV1**](ObjectInscriptionAPI.md#InscriptionGetAttachmentsV1) | **Get** /1/object/inscription/{pkiInscriptionID}/getAttachments | Retrieve Inscription&#39;s Attachments
 [**InscriptionGetCommunicationCountV1**](ObjectInscriptionAPI.md#InscriptionGetCommunicationCountV1) | **Get** /1/object/inscription/{pkiInscriptionID}/getCommunicationCount | Retrieve Communication count
 [**InscriptionGetCommunicationListV1**](ObjectInscriptionAPI.md#InscriptionGetCommunicationListV1) | **Get** /1/object/inscription/{pkiInscriptionID}/getCommunicationList | Retrieve Communication list
@@ -15,6 +16,76 @@ Method | HTTP request | Description
 [**InscriptionImportIntoEDMV1**](ObjectInscriptionAPI.md#InscriptionImportIntoEDMV1) | **Post** /1/object/inscription/{pkiInscriptionID}/importIntoEDM | Import attachments into the Inscription
 [**InscriptionPrepareFilesTransferV1**](ObjectInscriptionAPI.md#InscriptionPrepareFilesTransferV1) | **Post** /1/object/inscription/{pkiInscriptionID}/prepareFilesTransfer | Prepares file transfer into EDM
 
+
+
+## InscriptionBatchDownloadV1
+
+> *os.File InscriptionBatchDownloadV1(ctx, pkiInscriptionID).InscriptionBatchDownloadV1Request(inscriptionBatchDownloadV1Request).Execute()
+
+Download multiples attachments from an Inscription
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiInscriptionID := int32(56) // int32 | 
+	inscriptionBatchDownloadV1Request := *openapiclient.NewInscriptionBatchDownloadV1Request([]int32{int32(1)}) // InscriptionBatchDownloadV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectInscriptionAPI.InscriptionBatchDownloadV1(context.Background(), pkiInscriptionID).InscriptionBatchDownloadV1Request(inscriptionBatchDownloadV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectInscriptionAPI.InscriptionBatchDownloadV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InscriptionBatchDownloadV1`: *os.File
+	fmt.Fprintf(os.Stdout, "Response from `ObjectInscriptionAPI.InscriptionBatchDownloadV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiInscriptionID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInscriptionBatchDownloadV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **inscriptionBatchDownloadV1Request** | [**InscriptionBatchDownloadV1Request**](InscriptionBatchDownloadV1Request.md) |  | 
+
+### Return type
+
+[***os.File**](*os.File.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/zip, text/xml, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## InscriptionGetAttachmentsV1

@@ -4,10 +4,150 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**BrokerBatchDownloadV1**](ObjectBrokerAPI.md#BrokerBatchDownloadV1) | **Post** /1/object/broker/{pkiBrokerID}/batchDownload | Download multiples attachments from a Broker
+[**BrokerGetAttachmentsV1**](ObjectBrokerAPI.md#BrokerGetAttachmentsV1) | **Get** /1/object/broker/{pkiBrokerID}/getAttachments | Retrieve Broker&#39;s attachments
 [**BrokerGetAutocompleteV2**](ObjectBrokerAPI.md#BrokerGetAutocompleteV2) | **Get** /2/object/broker/getAutocomplete/{sSelector} | Retrieve Brokers and IDs
 [**BrokerGetListV1**](ObjectBrokerAPI.md#BrokerGetListV1) | **Get** /1/object/broker/getList | Retrieve Broker list
 [**BrokerImportIntoEDMV1**](ObjectBrokerAPI.md#BrokerImportIntoEDMV1) | **Post** /1/object/broker/{pkiBrokerID}/importIntoEDM | Import attachments into the Broker
 
+
+
+## BrokerBatchDownloadV1
+
+> *os.File BrokerBatchDownloadV1(ctx, pkiBrokerID).BrokerBatchDownloadV1Request(brokerBatchDownloadV1Request).Execute()
+
+Download multiples attachments from a Broker
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiBrokerID := int32(56) // int32 | 
+	brokerBatchDownloadV1Request := *openapiclient.NewBrokerBatchDownloadV1Request([]int32{int32(1)}) // BrokerBatchDownloadV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectBrokerAPI.BrokerBatchDownloadV1(context.Background(), pkiBrokerID).BrokerBatchDownloadV1Request(brokerBatchDownloadV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBrokerAPI.BrokerBatchDownloadV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BrokerBatchDownloadV1`: *os.File
+	fmt.Fprintf(os.Stdout, "Response from `ObjectBrokerAPI.BrokerBatchDownloadV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiBrokerID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBrokerBatchDownloadV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **brokerBatchDownloadV1Request** | [**BrokerBatchDownloadV1Request**](BrokerBatchDownloadV1Request.md) |  | 
+
+### Return type
+
+[***os.File**](*os.File.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/zip, text/xml, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BrokerGetAttachmentsV1
+
+> BrokerGetAttachmentsV1Response BrokerGetAttachmentsV1(ctx, pkiBrokerID).Execute()
+
+Retrieve Broker's attachments
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiBrokerID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectBrokerAPI.BrokerGetAttachmentsV1(context.Background(), pkiBrokerID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBrokerAPI.BrokerGetAttachmentsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BrokerGetAttachmentsV1`: BrokerGetAttachmentsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectBrokerAPI.BrokerGetAttachmentsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiBrokerID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBrokerGetAttachmentsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**BrokerGetAttachmentsV1Response**](BrokerGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## BrokerGetAutocompleteV2

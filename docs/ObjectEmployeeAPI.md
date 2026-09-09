@@ -4,9 +4,149 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**EmployeeBatchDownloadV1**](ObjectEmployeeAPI.md#EmployeeBatchDownloadV1) | **Post** /1/object/employee/{pkiEmployeeID}/batchDownload | Download multiples attachments from a Employee
+[**EmployeeGetAttachmentsV1**](ObjectEmployeeAPI.md#EmployeeGetAttachmentsV1) | **Get** /1/object/employee/{pkiEmployeeID}/getAttachments | Retrieve Employee&#39;s attachments
 [**EmployeeGetListV1**](ObjectEmployeeAPI.md#EmployeeGetListV1) | **Get** /1/object/employee/getList | Retrieve Employee list
 [**EmployeeImportIntoEDMV1**](ObjectEmployeeAPI.md#EmployeeImportIntoEDMV1) | **Post** /1/object/employee/{pkiEmployeeID}/importIntoEDM | Import attachments into the Employee
 
+
+
+## EmployeeBatchDownloadV1
+
+> *os.File EmployeeBatchDownloadV1(ctx, pkiEmployeeID).EmployeeBatchDownloadV1Request(employeeBatchDownloadV1Request).Execute()
+
+Download multiples attachments from a Employee
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEmployeeID := int32(56) // int32 | 
+	employeeBatchDownloadV1Request := *openapiclient.NewEmployeeBatchDownloadV1Request([]int32{int32(1)}) // EmployeeBatchDownloadV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEmployeeAPI.EmployeeBatchDownloadV1(context.Background(), pkiEmployeeID).EmployeeBatchDownloadV1Request(employeeBatchDownloadV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEmployeeAPI.EmployeeBatchDownloadV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EmployeeBatchDownloadV1`: *os.File
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEmployeeAPI.EmployeeBatchDownloadV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEmployeeID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEmployeeBatchDownloadV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **employeeBatchDownloadV1Request** | [**EmployeeBatchDownloadV1Request**](EmployeeBatchDownloadV1Request.md) |  | 
+
+### Return type
+
+[***os.File**](*os.File.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/zip, text/xml, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EmployeeGetAttachmentsV1
+
+> EmployeeGetAttachmentsV1Response EmployeeGetAttachmentsV1(ctx, pkiEmployeeID).Execute()
+
+Retrieve Employee's attachments
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEmployeeID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEmployeeAPI.EmployeeGetAttachmentsV1(context.Background(), pkiEmployeeID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEmployeeAPI.EmployeeGetAttachmentsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EmployeeGetAttachmentsV1`: EmployeeGetAttachmentsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEmployeeAPI.EmployeeGetAttachmentsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEmployeeID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEmployeeGetAttachmentsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**EmployeeGetAttachmentsV1Response**](EmployeeGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## EmployeeGetListV1

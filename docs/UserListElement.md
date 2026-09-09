@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiUserID** | **int32** | The unique ID of the User | 
+**FkiAgentID** | Pointer to **int32** | The unique ID of the Agent. | [optional] 
+**FkiBrokerID** | Pointer to **int32** | The unique ID of the Broker. | [optional] 
 **SUserFirstname** | **string** | The first name of the user | 
 **SUserLastname** | **string** | The last name of the user | 
 **SUserLoginname** | **string** | The login name of the User. | 
@@ -55,6 +57,56 @@ and a boolean to check if the value has been set.
 
 SetPkiUserID sets PkiUserID field to given value.
 
+
+### GetFkiAgentID
+
+`func (o *UserListElement) GetFkiAgentID() int32`
+
+GetFkiAgentID returns the FkiAgentID field if non-nil, zero value otherwise.
+
+### GetFkiAgentIDOk
+
+`func (o *UserListElement) GetFkiAgentIDOk() (*int32, bool)`
+
+GetFkiAgentIDOk returns a tuple with the FkiAgentID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiAgentID
+
+`func (o *UserListElement) SetFkiAgentID(v int32)`
+
+SetFkiAgentID sets FkiAgentID field to given value.
+
+### HasFkiAgentID
+
+`func (o *UserListElement) HasFkiAgentID() bool`
+
+HasFkiAgentID returns a boolean if a field has been set.
+
+### GetFkiBrokerID
+
+`func (o *UserListElement) GetFkiBrokerID() int32`
+
+GetFkiBrokerID returns the FkiBrokerID field if non-nil, zero value otherwise.
+
+### GetFkiBrokerIDOk
+
+`func (o *UserListElement) GetFkiBrokerIDOk() (*int32, bool)`
+
+GetFkiBrokerIDOk returns a tuple with the FkiBrokerID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiBrokerID
+
+`func (o *UserListElement) SetFkiBrokerID(v int32)`
+
+SetFkiBrokerID sets FkiBrokerID field to given value.
+
+### HasFkiBrokerID
+
+`func (o *UserListElement) HasFkiBrokerID() bool`
+
+HasFkiBrokerID returns a boolean if a field has been set.
 
 ### GetSUserFirstname
 

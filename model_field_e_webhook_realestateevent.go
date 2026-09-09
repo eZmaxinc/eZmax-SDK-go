@@ -21,6 +21,8 @@ type FieldEWebhookRealestateevent string
 
 // List of Field-eWebhookRealestateevent
 const (
+	BUYERCONTRACT_CREATED FieldEWebhookRealestateevent = "BuyercontractCreated"
+	BUYERCONTRACT_MODIFIED FieldEWebhookRealestateevent = "BuyercontractModified"
 	INSCRIPTION_CREATED FieldEWebhookRealestateevent = "InscriptionCreated"
 	INSCRIPTION_MODIFIED FieldEWebhookRealestateevent = "InscriptionModified"
 	INSCRIPTIONNOTAUTHENTICATED_CREATED FieldEWebhookRealestateevent = "InscriptionnotauthenticatedCreated"
@@ -29,6 +31,8 @@ const (
 
 // All allowed values of FieldEWebhookRealestateevent enum
 var AllowedFieldEWebhookRealestateeventEnumValues = []FieldEWebhookRealestateevent{
+	"BuyercontractCreated",
+	"BuyercontractModified",
 	"InscriptionCreated",
 	"InscriptionModified",
 	"InscriptionnotauthenticatedCreated",

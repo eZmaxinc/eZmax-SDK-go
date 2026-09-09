@@ -66,6 +66,8 @@ type APIClient struct {
 
 	ObjectActivesessionAPI *ObjectActivesessionAPIService
 
+	ObjectAdjustmentAPI *ObjectAdjustmentAPIService
+
 	ObjectAgentAPI *ObjectAgentAPIService
 
 	ObjectAgenttypeAPI *ObjectAgenttypeAPIService
@@ -92,6 +94,8 @@ type APIClient struct {
 
 	ObjectClonehistoryAPI *ObjectClonehistoryAPIService
 
+	ObjectCommissionadvanceAPI *ObjectCommissionadvanceAPIService
+
 	ObjectCommunicationAPI *ObjectCommunicationAPIService
 
 	ObjectCompanyAPI *ObjectCompanyAPIService
@@ -113,6 +117,12 @@ type APIClient struct {
 	ObjectCustomerAPI *ObjectCustomerAPIService
 
 	ObjectDepartmentAPI *ObjectDepartmentAPIService
+
+	ObjectDepositAPI *ObjectDepositAPIService
+
+	ObjectDeposittransitchequeAPI *ObjectDeposittransitchequeAPIService
+
+	ObjectDisclosureAPI *ObjectDisclosureAPIService
 
 	ObjectDiscussionAPI *ObjectDiscussionAPIService
 
@@ -216,6 +226,8 @@ type APIClient struct {
 
 	ObjectEzsignuserAPI *ObjectEzsignuserAPIService
 
+	ObjectFolderAPI *ObjectFolderAPIService
+
 	ObjectFontAPI *ObjectFontAPIService
 
 	ObjectFranchisebrokerAPI *ObjectFranchisebrokerAPIService
@@ -252,9 +264,13 @@ type APIClient struct {
 
 	ObjectModulegroupAPI *ObjectModulegroupAPIService
 
+	ObjectNotaryAPI *ObjectNotaryAPIService
+
 	ObjectNotificationsectionAPI *ObjectNotificationsectionAPIService
 
 	ObjectNotificationtestAPI *ObjectNotificationtestAPIService
+
+	ObjectOfficetaxreportAPI *ObjectOfficetaxreportAPIService
 
 	ObjectOtherincomeAPI *ObjectOtherincomeAPIService
 
@@ -263,6 +279,8 @@ type APIClient struct {
 	ObjectPaymentgatewayAPI *ObjectPaymentgatewayAPIService
 
 	ObjectPaymentmethodAPI *ObjectPaymentmethodAPIService
+
+	ObjectPaymentpreparationAPI *ObjectPaymentpreparationAPIService
 
 	ObjectPaymenttermAPI *ObjectPaymenttermAPIService
 
@@ -276,11 +294,17 @@ type APIClient struct {
 
 	ObjectProvinceAPI *ObjectProvinceAPIService
 
+	ObjectPurchaseAPI *ObjectPurchaseAPIService
+
 	ObjectRealestateassociationAPI *ObjectRealestateassociationAPIService
 
 	ObjectRealestateboardAPI *ObjectRealestateboardAPIService
 
+	ObjectReconciliationAPI *ObjectReconciliationAPIService
+
 	ObjectRejectedoffertopurchaseAPI *ObjectRejectedoffertopurchaseAPIService
+
+	ObjectSalaryAPI *ObjectSalaryAPIService
 
 	ObjectSecretquestionAPI *ObjectSecretquestionAPIService
 
@@ -355,6 +379,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ModuleReportAPI = (*ModuleReportAPIService)(&c.common)
 	c.ModuleUserAPI = (*ModuleUserAPIService)(&c.common)
 	c.ObjectActivesessionAPI = (*ObjectActivesessionAPIService)(&c.common)
+	c.ObjectAdjustmentAPI = (*ObjectAdjustmentAPIService)(&c.common)
 	c.ObjectAgentAPI = (*ObjectAgentAPIService)(&c.common)
 	c.ObjectAgenttypeAPI = (*ObjectAgenttypeAPIService)(&c.common)
 	c.ObjectApikeyAPI = (*ObjectApikeyAPIService)(&c.common)
@@ -368,6 +393,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectBrokertypeAPI = (*ObjectBrokertypeAPIService)(&c.common)
 	c.ObjectBuyercontractAPI = (*ObjectBuyercontractAPIService)(&c.common)
 	c.ObjectClonehistoryAPI = (*ObjectClonehistoryAPIService)(&c.common)
+	c.ObjectCommissionadvanceAPI = (*ObjectCommissionadvanceAPIService)(&c.common)
 	c.ObjectCommunicationAPI = (*ObjectCommunicationAPIService)(&c.common)
 	c.ObjectCompanyAPI = (*ObjectCompanyAPIService)(&c.common)
 	c.ObjectContacttitleAPI = (*ObjectContacttitleAPIService)(&c.common)
@@ -379,6 +405,9 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectCurrencyAPI = (*ObjectCurrencyAPIService)(&c.common)
 	c.ObjectCustomerAPI = (*ObjectCustomerAPIService)(&c.common)
 	c.ObjectDepartmentAPI = (*ObjectDepartmentAPIService)(&c.common)
+	c.ObjectDepositAPI = (*ObjectDepositAPIService)(&c.common)
+	c.ObjectDeposittransitchequeAPI = (*ObjectDeposittransitchequeAPIService)(&c.common)
+	c.ObjectDisclosureAPI = (*ObjectDisclosureAPIService)(&c.common)
 	c.ObjectDiscussionAPI = (*ObjectDiscussionAPIService)(&c.common)
 	c.ObjectDiscussionmembershipAPI = (*ObjectDiscussionmembershipAPIService)(&c.common)
 	c.ObjectDiscussionmessageAPI = (*ObjectDiscussionmessageAPIService)(&c.common)
@@ -430,6 +459,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectEzsigntemplatesignerAPI = (*ObjectEzsigntemplatesignerAPIService)(&c.common)
 	c.ObjectEzsigntsarequirementAPI = (*ObjectEzsigntsarequirementAPIService)(&c.common)
 	c.ObjectEzsignuserAPI = (*ObjectEzsignuserAPIService)(&c.common)
+	c.ObjectFolderAPI = (*ObjectFolderAPIService)(&c.common)
 	c.ObjectFontAPI = (*ObjectFontAPIService)(&c.common)
 	c.ObjectFranchisebrokerAPI = (*ObjectFranchisebrokerAPIService)(&c.common)
 	c.ObjectFranchiseofficeAPI = (*ObjectFranchiseofficeAPIService)(&c.common)
@@ -448,21 +478,27 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectLeadsourceAPI = (*ObjectLeadsourceAPIService)(&c.common)
 	c.ObjectModuleAPI = (*ObjectModuleAPIService)(&c.common)
 	c.ObjectModulegroupAPI = (*ObjectModulegroupAPIService)(&c.common)
+	c.ObjectNotaryAPI = (*ObjectNotaryAPIService)(&c.common)
 	c.ObjectNotificationsectionAPI = (*ObjectNotificationsectionAPIService)(&c.common)
 	c.ObjectNotificationtestAPI = (*ObjectNotificationtestAPIService)(&c.common)
+	c.ObjectOfficetaxreportAPI = (*ObjectOfficetaxreportAPIService)(&c.common)
 	c.ObjectOtherincomeAPI = (*ObjectOtherincomeAPIService)(&c.common)
 	c.ObjectOtherincometypeAPI = (*ObjectOtherincometypeAPIService)(&c.common)
 	c.ObjectPaymentgatewayAPI = (*ObjectPaymentgatewayAPIService)(&c.common)
 	c.ObjectPaymentmethodAPI = (*ObjectPaymentmethodAPIService)(&c.common)
+	c.ObjectPaymentpreparationAPI = (*ObjectPaymentpreparationAPIService)(&c.common)
 	c.ObjectPaymenttermAPI = (*ObjectPaymenttermAPIService)(&c.common)
 	c.ObjectPdfalevelAPI = (*ObjectPdfalevelAPIService)(&c.common)
 	c.ObjectPeriodAPI = (*ObjectPeriodAPIService)(&c.common)
 	c.ObjectPermissionAPI = (*ObjectPermissionAPIService)(&c.common)
 	c.ObjectPhonetypeAPI = (*ObjectPhonetypeAPIService)(&c.common)
 	c.ObjectProvinceAPI = (*ObjectProvinceAPIService)(&c.common)
+	c.ObjectPurchaseAPI = (*ObjectPurchaseAPIService)(&c.common)
 	c.ObjectRealestateassociationAPI = (*ObjectRealestateassociationAPIService)(&c.common)
 	c.ObjectRealestateboardAPI = (*ObjectRealestateboardAPIService)(&c.common)
+	c.ObjectReconciliationAPI = (*ObjectReconciliationAPIService)(&c.common)
 	c.ObjectRejectedoffertopurchaseAPI = (*ObjectRejectedoffertopurchaseAPIService)(&c.common)
+	c.ObjectSalaryAPI = (*ObjectSalaryAPIService)(&c.common)
 	c.ObjectSecretquestionAPI = (*ObjectSecretquestionAPIService)(&c.common)
 	c.ObjectSessionhistoryAPI = (*ObjectSessionhistoryAPIService)(&c.common)
 	c.ObjectSignatureAPI = (*ObjectSignatureAPIService)(&c.common)

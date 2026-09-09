@@ -4,6 +4,8 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**InscriptiontempBatchDownloadV1**](ObjectInscriptiontempAPI.md#InscriptiontempBatchDownloadV1) | **Post** /1/object/inscriptiontemp/{pkiInscriptiontempID}/batchDownload | Download multiples attachments from a Inscriptiontemp
+[**InscriptiontempGetAttachmentsV1**](ObjectInscriptiontempAPI.md#InscriptiontempGetAttachmentsV1) | **Get** /1/object/inscriptiontemp/{pkiInscriptiontempID}/getAttachments | Retrieve Inscriptiontemp&#39;s attachments
 [**InscriptiontempGetCommunicationCountV1**](ObjectInscriptiontempAPI.md#InscriptiontempGetCommunicationCountV1) | **Get** /1/object/inscriptiontemp/{pkiInscriptiontempID}/getCommunicationCount | Retrieve Communication count
 [**InscriptiontempGetCommunicationListV1**](ObjectInscriptiontempAPI.md#InscriptiontempGetCommunicationListV1) | **Get** /1/object/inscriptiontemp/{pkiInscriptiontempID}/getCommunicationList | Retrieve Communication list
 [**InscriptiontempGetCommunicationrecipientsV1**](ObjectInscriptiontempAPI.md#InscriptiontempGetCommunicationrecipientsV1) | **Get** /1/object/inscriptiontemp/{pkiInscriptiontempID}/getCommunicationrecipients | Retrieve Inscriptiontemp&#39;s Communicationrecipient
@@ -11,6 +13,144 @@ Method | HTTP request | Description
 [**InscriptiontempGetListV1**](ObjectInscriptiontempAPI.md#InscriptiontempGetListV1) | **Get** /1/object/inscriptiontemp/getList | Retrieve Inscriptiontemp list
 [**InscriptiontempImportIntoEDMV1**](ObjectInscriptiontempAPI.md#InscriptiontempImportIntoEDMV1) | **Post** /1/object/inscriptiontemp/{pkiInscriptiontempID}/importIntoEDM | Import attachments into the Inscriptiontemp
 
+
+
+## InscriptiontempBatchDownloadV1
+
+> *os.File InscriptiontempBatchDownloadV1(ctx, pkiInscriptiontempID).InscriptiontempBatchDownloadV1Request(inscriptiontempBatchDownloadV1Request).Execute()
+
+Download multiples attachments from a Inscriptiontemp
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiInscriptiontempID := int32(56) // int32 | 
+	inscriptiontempBatchDownloadV1Request := *openapiclient.NewInscriptiontempBatchDownloadV1Request([]int32{int32(1)}) // InscriptiontempBatchDownloadV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectInscriptiontempAPI.InscriptiontempBatchDownloadV1(context.Background(), pkiInscriptiontempID).InscriptiontempBatchDownloadV1Request(inscriptiontempBatchDownloadV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectInscriptiontempAPI.InscriptiontempBatchDownloadV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InscriptiontempBatchDownloadV1`: *os.File
+	fmt.Fprintf(os.Stdout, "Response from `ObjectInscriptiontempAPI.InscriptiontempBatchDownloadV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiInscriptiontempID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInscriptiontempBatchDownloadV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **inscriptiontempBatchDownloadV1Request** | [**InscriptiontempBatchDownloadV1Request**](InscriptiontempBatchDownloadV1Request.md) |  | 
+
+### Return type
+
+[***os.File**](*os.File.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/zip, text/xml, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## InscriptiontempGetAttachmentsV1
+
+> InscriptiontempGetAttachmentsV1Response InscriptiontempGetAttachmentsV1(ctx, pkiInscriptiontempID).Execute()
+
+Retrieve Inscriptiontemp's attachments
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiInscriptiontempID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectInscriptiontempAPI.InscriptiontempGetAttachmentsV1(context.Background(), pkiInscriptiontempID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectInscriptiontempAPI.InscriptiontempGetAttachmentsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InscriptiontempGetAttachmentsV1`: InscriptiontempGetAttachmentsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectInscriptiontempAPI.InscriptiontempGetAttachmentsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiInscriptiontempID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInscriptiontempGetAttachmentsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**InscriptiontempGetAttachmentsV1Response**](InscriptiontempGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## InscriptiontempGetCommunicationCountV1

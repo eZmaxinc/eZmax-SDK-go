@@ -8,12 +8,12 @@ Name | Type | Description | Notes
 **FkiInscriptiontypeID** | **int32** | The unique ID of the Inscriptiontype | 
 **SInscriptiontypeNameX** | **string** | The name of the Inscriptiontype in the language of the requester | 
 **EBuyercontractStep** | [**FieldEBuyercontractStep**](FieldEBuyercontractStep.md) |  | 
-**DBuyercontractMinimumprice** | **string** | The minimumprice of the Buyercontract | 
-**DBuyercontractMaximumprice** | **string** | The maximumprice of the Buyercontract | 
+**DBuyercontractMinimumprice** | **string** | The minimum price of the Buyercontract | 
+**DBuyercontractMaximumprice** | **string** | The maximum price of the Buyercontract | 
 **EBuyercontractType** | [**FieldEBuyercontractType**](FieldEBuyercontractType.md) |  | 
 **SBuyercontractContract** | Pointer to **string** | The number of the Buyercontract | [optional] 
 **DtBuyercontractDate** | **string** | The date of the Buyercontract | 
-**DtBuyercontractExpirationdate** | Pointer to **string** | The expirationdate of the Buyercontract | [optional] 
+**DtBuyercontractExpirationdate** | Pointer to **string** | The expiration date of the Buyercontract | [optional] 
 **BBuyercontractIsactive** | **bool** | Whether the buyercontract is active or not | 
 **SBuyercontractBrokers** | **string** | The brokers&#39; name of the Buyercontract | 
 **SBuyercontractBuyers** | **string** | The buyers&#39; name of the Buyercontract | 

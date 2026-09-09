@@ -18,11 +18,279 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"os"
 )
 
 
 // ObjectEmployeeAPIService ObjectEmployeeAPI service
 type ObjectEmployeeAPIService service
+
+type ApiEmployeeBatchDownloadV1Request struct {
+	ctx context.Context
+	ApiService *ObjectEmployeeAPIService
+	pkiEmployeeID int32
+	employeeBatchDownloadV1Request *EmployeeBatchDownloadV1Request
+}
+
+func (r ApiEmployeeBatchDownloadV1Request) EmployeeBatchDownloadV1Request(employeeBatchDownloadV1Request EmployeeBatchDownloadV1Request) ApiEmployeeBatchDownloadV1Request {
+	r.employeeBatchDownloadV1Request = &employeeBatchDownloadV1Request
+	return r
+}
+
+func (r ApiEmployeeBatchDownloadV1Request) Execute() (*os.File, *http.Response, error) {
+	return r.ApiService.EmployeeBatchDownloadV1Execute(r)
+}
+
+/*
+EmployeeBatchDownloadV1 Download multiples attachments from a Employee
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiEmployeeID
+ @return ApiEmployeeBatchDownloadV1Request
+*/
+func (a *ObjectEmployeeAPIService) EmployeeBatchDownloadV1(ctx context.Context, pkiEmployeeID int32) ApiEmployeeBatchDownloadV1Request {
+	return ApiEmployeeBatchDownloadV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiEmployeeID: pkiEmployeeID,
+	}
+}
+
+// Execute executes the request
+//  @return *os.File
+func (a *ObjectEmployeeAPIService) EmployeeBatchDownloadV1Execute(r ApiEmployeeBatchDownloadV1Request) (*os.File, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *os.File
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEmployeeAPIService.EmployeeBatchDownloadV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/employee/{pkiEmployeeID}/batchDownload"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiEmployeeID"+"}", url.PathEscape(parameterValueToString(r.pkiEmployeeID, "pkiEmployeeID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiEmployeeID < 0 {
+		return localVarReturnValue, nil, reportError("pkiEmployeeID must be greater than 0")
+	}
+	if r.employeeBatchDownloadV1Request == nil {
+		return localVarReturnValue, nil, reportError("employeeBatchDownloadV1Request is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/zip", "text/xml", "application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.employeeBatchDownloadV1Request
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiEmployeeGetAttachmentsV1Request struct {
+	ctx context.Context
+	ApiService *ObjectEmployeeAPIService
+	pkiEmployeeID int32
+}
+
+func (r ApiEmployeeGetAttachmentsV1Request) Execute() (*EmployeeGetAttachmentsV1Response, *http.Response, error) {
+	return r.ApiService.EmployeeGetAttachmentsV1Execute(r)
+}
+
+/*
+EmployeeGetAttachmentsV1 Retrieve Employee's attachments
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiEmployeeID
+ @return ApiEmployeeGetAttachmentsV1Request
+*/
+func (a *ObjectEmployeeAPIService) EmployeeGetAttachmentsV1(ctx context.Context, pkiEmployeeID int32) ApiEmployeeGetAttachmentsV1Request {
+	return ApiEmployeeGetAttachmentsV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiEmployeeID: pkiEmployeeID,
+	}
+}
+
+// Execute executes the request
+//  @return EmployeeGetAttachmentsV1Response
+func (a *ObjectEmployeeAPIService) EmployeeGetAttachmentsV1Execute(r ApiEmployeeGetAttachmentsV1Request) (*EmployeeGetAttachmentsV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EmployeeGetAttachmentsV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectEmployeeAPIService.EmployeeGetAttachmentsV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/employee/{pkiEmployeeID}/getAttachments"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiEmployeeID"+"}", url.PathEscape(parameterValueToString(r.pkiEmployeeID, "pkiEmployeeID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiEmployeeID < 0 {
+		return localVarReturnValue, nil, reportError("pkiEmployeeID must be greater than 0")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
 
 type ApiEmployeeGetListV1Request struct {
 	ctx context.Context

@@ -22,6 +22,7 @@ type FieldEEzsignfoldersignerassociationRole string
 // List of Field-eEzsignfoldersignerassociationRole
 const (
 	CC FieldEEzsignfoldersignerassociationRole = "CC"
+	CC_DELETED FieldEEzsignfoldersignerassociationRole = "CCDeleted"
 	SIGNER FieldEEzsignfoldersignerassociationRole = "Signer"
 	SIGNER_AND_CC FieldEEzsignfoldersignerassociationRole = "SignerAndCC"
 )
@@ -29,6 +30,7 @@ const (
 // All allowed values of FieldEEzsignfoldersignerassociationRole enum
 var AllowedFieldEEzsignfoldersignerassociationRoleEnumValues = []FieldEEzsignfoldersignerassociationRole{
 	"CC",
+	"CCDeleted",
 	"Signer",
 	"SignerAndCC",
 }

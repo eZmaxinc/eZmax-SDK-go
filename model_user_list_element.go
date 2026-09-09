@@ -24,6 +24,10 @@ var _ MappedNullable = &UserListElement{}
 type UserListElement struct {
 	// The unique ID of the User
 	PkiUserID int32 `json:"pkiUserID"`
+	// The unique ID of the Agent.
+	FkiAgentID *int32 `json:"fkiAgentID,omitempty"`
+	// The unique ID of the Broker.
+	FkiBrokerID *int32 `json:"fkiBrokerID,omitempty"`
 	// The first name of the user
 	SUserFirstname string `json:"sUserFirstname"`
 	// The last name of the user
@@ -95,6 +99,70 @@ func (o *UserListElement) GetPkiUserIDOk() (*int32, bool) {
 // SetPkiUserID sets field value
 func (o *UserListElement) SetPkiUserID(v int32) {
 	o.PkiUserID = v
+}
+
+// GetFkiAgentID returns the FkiAgentID field value if set, zero value otherwise.
+func (o *UserListElement) GetFkiAgentID() int32 {
+	if o == nil || IsNil(o.FkiAgentID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiAgentID
+}
+
+// GetFkiAgentIDOk returns a tuple with the FkiAgentID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UserListElement) GetFkiAgentIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiAgentID) {
+		return nil, false
+	}
+	return o.FkiAgentID, true
+}
+
+// HasFkiAgentID returns a boolean if a field has been set.
+func (o *UserListElement) HasFkiAgentID() bool {
+	if o != nil && !IsNil(o.FkiAgentID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiAgentID gets a reference to the given int32 and assigns it to the FkiAgentID field.
+func (o *UserListElement) SetFkiAgentID(v int32) {
+	o.FkiAgentID = &v
+}
+
+// GetFkiBrokerID returns the FkiBrokerID field value if set, zero value otherwise.
+func (o *UserListElement) GetFkiBrokerID() int32 {
+	if o == nil || IsNil(o.FkiBrokerID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiBrokerID
+}
+
+// GetFkiBrokerIDOk returns a tuple with the FkiBrokerID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UserListElement) GetFkiBrokerIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiBrokerID) {
+		return nil, false
+	}
+	return o.FkiBrokerID, true
+}
+
+// HasFkiBrokerID returns a boolean if a field has been set.
+func (o *UserListElement) HasFkiBrokerID() bool {
+	if o != nil && !IsNil(o.FkiBrokerID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiBrokerID gets a reference to the given int32 and assigns it to the FkiBrokerID field.
+func (o *UserListElement) SetFkiBrokerID(v int32) {
+	o.FkiBrokerID = &v
 }
 
 // GetSUserFirstname returns the SUserFirstname field value
@@ -396,6 +464,12 @@ func (o UserListElement) MarshalJSON() ([]byte, error) {
 func (o UserListElement) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiUserID"] = o.PkiUserID
+	if !IsNil(o.FkiAgentID) {
+		toSerialize["fkiAgentID"] = o.FkiAgentID
+	}
+	if !IsNil(o.FkiBrokerID) {
+		toSerialize["fkiBrokerID"] = o.FkiBrokerID
+	}
 	toSerialize["sUserFirstname"] = o.SUserFirstname
 	toSerialize["sUserLastname"] = o.SUserLastname
 	toSerialize["sUserLoginname"] = o.SUserLoginname

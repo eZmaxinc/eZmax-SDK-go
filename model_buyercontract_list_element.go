@@ -29,16 +29,16 @@ type BuyercontractListElement struct {
 	// The name of the Inscriptiontype in the language of the requester
 	SInscriptiontypeNameX string `json:"sInscriptiontypeNameX" validate:"regexp=^.{0\\,30}$"`
 	EBuyercontractStep FieldEBuyercontractStep `json:"eBuyercontractStep"`
-	// The minimumprice of the Buyercontract
+	// The minimum price of the Buyercontract
 	DBuyercontractMinimumprice string `json:"dBuyercontractMinimumprice" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
-	// The maximumprice of the Buyercontract
+	// The maximum price of the Buyercontract
 	DBuyercontractMaximumprice string `json:"dBuyercontractMaximumprice" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	EBuyercontractType FieldEBuyercontractType `json:"eBuyercontractType"`
 	// The number of the Buyercontract
 	SBuyercontractContract *string `json:"sBuyercontractContract,omitempty"`
 	// The date of the Buyercontract
 	DtBuyercontractDate string `json:"dtBuyercontractDate" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
-	// The expirationdate of the Buyercontract
+	// The expiration date of the Buyercontract
 	DtBuyercontractExpirationdate *string `json:"dtBuyercontractExpirationdate,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// Whether the buyercontract is active or not
 	BBuyercontractIsactive bool `json:"bBuyercontractIsactive"`

@@ -4,12 +4,152 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ElectronicfundstransferBatchDownloadV1**](ObjectElectronicfundstransferAPI.md#ElectronicfundstransferBatchDownloadV1) | **Post** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/batchDownload | Download multiples attachments from an Electronicfundstransfer
+[**ElectronicfundstransferGetAttachmentsV1**](ObjectElectronicfundstransferAPI.md#ElectronicfundstransferGetAttachmentsV1) | **Get** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getAttachments | Retrieve Electronicfundstransfer&#39;s attachments
 [**ElectronicfundstransferGetCommunicationCountV1**](ObjectElectronicfundstransferAPI.md#ElectronicfundstransferGetCommunicationCountV1) | **Get** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationCount | Retrieve Communication count
 [**ElectronicfundstransferGetCommunicationListV1**](ObjectElectronicfundstransferAPI.md#ElectronicfundstransferGetCommunicationListV1) | **Get** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationList | Retrieve Communication list
 [**ElectronicfundstransferGetCommunicationrecipientsV1**](ObjectElectronicfundstransferAPI.md#ElectronicfundstransferGetCommunicationrecipientsV1) | **Get** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationrecipients | Retrieve Electronicfundstransfer&#39;s Communicationrecipient
 [**ElectronicfundstransferGetCommunicationsendersV1**](ObjectElectronicfundstransferAPI.md#ElectronicfundstransferGetCommunicationsendersV1) | **Get** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationsenders | Retrieve Electronicfundstransfer&#39;s Communicationsender
 [**ElectronicfundstransferImportIntoEDMV1**](ObjectElectronicfundstransferAPI.md#ElectronicfundstransferImportIntoEDMV1) | **Post** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/importIntoEDM | Import attachments into the Electronicfundstransfer
 
+
+
+## ElectronicfundstransferBatchDownloadV1
+
+> *os.File ElectronicfundstransferBatchDownloadV1(ctx, pkiElectronicfundstransferID).ElectronicfundstransferBatchDownloadV1Request(electronicfundstransferBatchDownloadV1Request).Execute()
+
+Download multiples attachments from an Electronicfundstransfer
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiElectronicfundstransferID := int32(56) // int32 | 
+	electronicfundstransferBatchDownloadV1Request := *openapiclient.NewElectronicfundstransferBatchDownloadV1Request([]int32{int32(1)}) // ElectronicfundstransferBatchDownloadV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectElectronicfundstransferAPI.ElectronicfundstransferBatchDownloadV1(context.Background(), pkiElectronicfundstransferID).ElectronicfundstransferBatchDownloadV1Request(electronicfundstransferBatchDownloadV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectElectronicfundstransferAPI.ElectronicfundstransferBatchDownloadV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ElectronicfundstransferBatchDownloadV1`: *os.File
+	fmt.Fprintf(os.Stdout, "Response from `ObjectElectronicfundstransferAPI.ElectronicfundstransferBatchDownloadV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiElectronicfundstransferID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiElectronicfundstransferBatchDownloadV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **electronicfundstransferBatchDownloadV1Request** | [**ElectronicfundstransferBatchDownloadV1Request**](ElectronicfundstransferBatchDownloadV1Request.md) |  | 
+
+### Return type
+
+[***os.File**](*os.File.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/zip, text/xml, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ElectronicfundstransferGetAttachmentsV1
+
+> ElectronicfundstransferGetAttachmentsV1Response ElectronicfundstransferGetAttachmentsV1(ctx, pkiElectronicfundstransferID).Execute()
+
+Retrieve Electronicfundstransfer's attachments
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiElectronicfundstransferID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectElectronicfundstransferAPI.ElectronicfundstransferGetAttachmentsV1(context.Background(), pkiElectronicfundstransferID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectElectronicfundstransferAPI.ElectronicfundstransferGetAttachmentsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ElectronicfundstransferGetAttachmentsV1`: ElectronicfundstransferGetAttachmentsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectElectronicfundstransferAPI.ElectronicfundstransferGetAttachmentsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiElectronicfundstransferID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiElectronicfundstransferGetAttachmentsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**ElectronicfundstransferGetAttachmentsV1Response**](ElectronicfundstransferGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## ElectronicfundstransferGetCommunicationCountV1

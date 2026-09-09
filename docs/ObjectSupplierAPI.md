@@ -4,9 +4,149 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**SupplierBatchDownloadV1**](ObjectSupplierAPI.md#SupplierBatchDownloadV1) | **Post** /1/object/supplier/{pkiSupplierID}/batchDownload | Download multiples attachments from a Supplier
+[**SupplierGetAttachmentsV1**](ObjectSupplierAPI.md#SupplierGetAttachmentsV1) | **Get** /1/object/supplier/{pkiSupplierID}/getAttachments | Retrieve Supplier&#39;s attachments
 [**SupplierGetListV1**](ObjectSupplierAPI.md#SupplierGetListV1) | **Get** /1/object/supplier/getList | Retrieve Supplier list
 [**SupplierImportIntoEDMV1**](ObjectSupplierAPI.md#SupplierImportIntoEDMV1) | **Post** /1/object/supplier/{pkiSupplierID}/importIntoEDM | Import attachments into the Supplier
 
+
+
+## SupplierBatchDownloadV1
+
+> *os.File SupplierBatchDownloadV1(ctx, pkiSupplierID).SupplierBatchDownloadV1Request(supplierBatchDownloadV1Request).Execute()
+
+Download multiples attachments from a Supplier
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiSupplierID := int32(56) // int32 | 
+	supplierBatchDownloadV1Request := *openapiclient.NewSupplierBatchDownloadV1Request([]int32{int32(1)}) // SupplierBatchDownloadV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectSupplierAPI.SupplierBatchDownloadV1(context.Background(), pkiSupplierID).SupplierBatchDownloadV1Request(supplierBatchDownloadV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSupplierAPI.SupplierBatchDownloadV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SupplierBatchDownloadV1`: *os.File
+	fmt.Fprintf(os.Stdout, "Response from `ObjectSupplierAPI.SupplierBatchDownloadV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiSupplierID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSupplierBatchDownloadV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **supplierBatchDownloadV1Request** | [**SupplierBatchDownloadV1Request**](SupplierBatchDownloadV1Request.md) |  | 
+
+### Return type
+
+[***os.File**](*os.File.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/zip, text/xml, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SupplierGetAttachmentsV1
+
+> SupplierGetAttachmentsV1Response SupplierGetAttachmentsV1(ctx, pkiSupplierID).Execute()
+
+Retrieve Supplier's attachments
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiSupplierID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectSupplierAPI.SupplierGetAttachmentsV1(context.Background(), pkiSupplierID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSupplierAPI.SupplierGetAttachmentsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SupplierGetAttachmentsV1`: SupplierGetAttachmentsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectSupplierAPI.SupplierGetAttachmentsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiSupplierID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSupplierGetAttachmentsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**SupplierGetAttachmentsV1Response**](SupplierGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## SupplierGetListV1

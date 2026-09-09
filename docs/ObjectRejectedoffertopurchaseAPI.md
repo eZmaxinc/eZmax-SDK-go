@@ -4,6 +4,8 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**RejectedoffertopurchaseBatchDownloadV1**](ObjectRejectedoffertopurchaseAPI.md#RejectedoffertopurchaseBatchDownloadV1) | **Post** /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/batchDownload | Download multiples attachments from a Rejectedoffertopurchase
+[**RejectedoffertopurchaseGetAttachmentsV1**](ObjectRejectedoffertopurchaseAPI.md#RejectedoffertopurchaseGetAttachmentsV1) | **Get** /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getAttachments | Retrieve Rejectedoffertopurchase&#39;s attachments
 [**RejectedoffertopurchaseGetCommunicationCountV1**](ObjectRejectedoffertopurchaseAPI.md#RejectedoffertopurchaseGetCommunicationCountV1) | **Get** /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getCommunicationCount | Retrieve Communication count
 [**RejectedoffertopurchaseGetCommunicationListV1**](ObjectRejectedoffertopurchaseAPI.md#RejectedoffertopurchaseGetCommunicationListV1) | **Get** /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getCommunicationList | Retrieve Communication list
 [**RejectedoffertopurchaseGetCommunicationrecipientsV1**](ObjectRejectedoffertopurchaseAPI.md#RejectedoffertopurchaseGetCommunicationrecipientsV1) | **Get** /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getCommunicationrecipients | Retrieve Rejectedoffertopurchase&#39;s Communicationrecipient
@@ -11,6 +13,144 @@ Method | HTTP request | Description
 [**RejectedoffertopurchaseGetListV1**](ObjectRejectedoffertopurchaseAPI.md#RejectedoffertopurchaseGetListV1) | **Get** /1/object/rejectedoffertopurchase/getList | Retrieve Rejectedoffertopurchase list
 [**RejectedoffertopurchaseImportIntoEDMV1**](ObjectRejectedoffertopurchaseAPI.md#RejectedoffertopurchaseImportIntoEDMV1) | **Post** /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/importIntoEDM | Import attachments into the Rejectedoffertopurchase
 
+
+
+## RejectedoffertopurchaseBatchDownloadV1
+
+> *os.File RejectedoffertopurchaseBatchDownloadV1(ctx, pkiRejectedoffertopurchaseID).RejectedoffertopurchaseBatchDownloadV1Request(rejectedoffertopurchaseBatchDownloadV1Request).Execute()
+
+Download multiples attachments from a Rejectedoffertopurchase
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiRejectedoffertopurchaseID := int32(56) // int32 | 
+	rejectedoffertopurchaseBatchDownloadV1Request := *openapiclient.NewRejectedoffertopurchaseBatchDownloadV1Request([]int32{int32(1)}) // RejectedoffertopurchaseBatchDownloadV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectRejectedoffertopurchaseAPI.RejectedoffertopurchaseBatchDownloadV1(context.Background(), pkiRejectedoffertopurchaseID).RejectedoffertopurchaseBatchDownloadV1Request(rejectedoffertopurchaseBatchDownloadV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectRejectedoffertopurchaseAPI.RejectedoffertopurchaseBatchDownloadV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `RejectedoffertopurchaseBatchDownloadV1`: *os.File
+	fmt.Fprintf(os.Stdout, "Response from `ObjectRejectedoffertopurchaseAPI.RejectedoffertopurchaseBatchDownloadV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiRejectedoffertopurchaseID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRejectedoffertopurchaseBatchDownloadV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **rejectedoffertopurchaseBatchDownloadV1Request** | [**RejectedoffertopurchaseBatchDownloadV1Request**](RejectedoffertopurchaseBatchDownloadV1Request.md) |  | 
+
+### Return type
+
+[***os.File**](*os.File.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/zip, text/xml, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RejectedoffertopurchaseGetAttachmentsV1
+
+> RejectedoffertopurchaseGetAttachmentsV1Response RejectedoffertopurchaseGetAttachmentsV1(ctx, pkiRejectedoffertopurchaseID).Execute()
+
+Retrieve Rejectedoffertopurchase's attachments
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiRejectedoffertopurchaseID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectRejectedoffertopurchaseAPI.RejectedoffertopurchaseGetAttachmentsV1(context.Background(), pkiRejectedoffertopurchaseID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectRejectedoffertopurchaseAPI.RejectedoffertopurchaseGetAttachmentsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `RejectedoffertopurchaseGetAttachmentsV1`: RejectedoffertopurchaseGetAttachmentsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectRejectedoffertopurchaseAPI.RejectedoffertopurchaseGetAttachmentsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiRejectedoffertopurchaseID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRejectedoffertopurchaseGetAttachmentsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**RejectedoffertopurchaseGetAttachmentsV1Response**](RejectedoffertopurchaseGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## RejectedoffertopurchaseGetCommunicationCountV1

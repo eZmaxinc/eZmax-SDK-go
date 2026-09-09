@@ -118,7 +118,7 @@ type CustomAttachmentResponse struct {
 	FkiEzsigndocumentIDReference *int32 `json:"fkiEzsigndocumentIDReference,omitempty"`
 	EAttachmentDocumenttype FieldEAttachmentDocumenttype `json:"eAttachmentDocumenttype"`
 	// The name of the Attachment
-	SAttachmentName string `json:"sAttachmentName" validate:"regexp=^.{0\\,75}$"`
+	SAttachmentName string `json:"sAttachmentName" validate:"regexp=^(?!\\.{1\\,2}$)(?!.*[ .]$)(?!(?:CON|PRN|AUX|NUL|COM(?:[1-9]|[¹²³])|LPT(?:[1-9]|[¹²³]))(?:\\.|$))[^\\x00-\\x1F<>:\"/\\\\\\\\|?*]{1\\,75}$"`
 	EAttachmentPrivacy FieldEAttachmentPrivacy `json:"eAttachmentPrivacy"`
 	// The unique ID of the User
 	FkiUserIDSpecific *int32 `json:"fkiUserIDSpecific,omitempty"`
@@ -128,7 +128,7 @@ type CustomAttachmentResponse struct {
 	// The edmmoduleflag of the Attachment
 	IAttachmentEDMmoduleflag *int32 `json:"iAttachmentEDMmoduleflag,omitempty"`
 	// The MD5 of the Attachment
-	SAttachmentMD5 string `json:"sAttachmentMD5" validate:"regexp=^.{32}$"`
+	SAttachmentMD5 string `json:"sAttachmentMD5" validate:"regexp=^[a-f0-9]{32}$"`
 	// Whether if it's deleted
 	BAttachmentDeleted bool `json:"bAttachmentDeleted"`
 	// Whether if it's valid

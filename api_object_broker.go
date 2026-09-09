@@ -18,11 +18,279 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"os"
 )
 
 
 // ObjectBrokerAPIService ObjectBrokerAPI service
 type ObjectBrokerAPIService service
+
+type ApiBrokerBatchDownloadV1Request struct {
+	ctx context.Context
+	ApiService *ObjectBrokerAPIService
+	pkiBrokerID int32
+	brokerBatchDownloadV1Request *BrokerBatchDownloadV1Request
+}
+
+func (r ApiBrokerBatchDownloadV1Request) BrokerBatchDownloadV1Request(brokerBatchDownloadV1Request BrokerBatchDownloadV1Request) ApiBrokerBatchDownloadV1Request {
+	r.brokerBatchDownloadV1Request = &brokerBatchDownloadV1Request
+	return r
+}
+
+func (r ApiBrokerBatchDownloadV1Request) Execute() (*os.File, *http.Response, error) {
+	return r.ApiService.BrokerBatchDownloadV1Execute(r)
+}
+
+/*
+BrokerBatchDownloadV1 Download multiples attachments from a Broker
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiBrokerID
+ @return ApiBrokerBatchDownloadV1Request
+*/
+func (a *ObjectBrokerAPIService) BrokerBatchDownloadV1(ctx context.Context, pkiBrokerID int32) ApiBrokerBatchDownloadV1Request {
+	return ApiBrokerBatchDownloadV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiBrokerID: pkiBrokerID,
+	}
+}
+
+// Execute executes the request
+//  @return *os.File
+func (a *ObjectBrokerAPIService) BrokerBatchDownloadV1Execute(r ApiBrokerBatchDownloadV1Request) (*os.File, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *os.File
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectBrokerAPIService.BrokerBatchDownloadV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/broker/{pkiBrokerID}/batchDownload"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiBrokerID"+"}", url.PathEscape(parameterValueToString(r.pkiBrokerID, "pkiBrokerID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiBrokerID < 0 {
+		return localVarReturnValue, nil, reportError("pkiBrokerID must be greater than 0")
+	}
+	if r.brokerBatchDownloadV1Request == nil {
+		return localVarReturnValue, nil, reportError("brokerBatchDownloadV1Request is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/zip", "text/xml", "application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.brokerBatchDownloadV1Request
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiBrokerGetAttachmentsV1Request struct {
+	ctx context.Context
+	ApiService *ObjectBrokerAPIService
+	pkiBrokerID int32
+}
+
+func (r ApiBrokerGetAttachmentsV1Request) Execute() (*BrokerGetAttachmentsV1Response, *http.Response, error) {
+	return r.ApiService.BrokerGetAttachmentsV1Execute(r)
+}
+
+/*
+BrokerGetAttachmentsV1 Retrieve Broker's attachments
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiBrokerID
+ @return ApiBrokerGetAttachmentsV1Request
+*/
+func (a *ObjectBrokerAPIService) BrokerGetAttachmentsV1(ctx context.Context, pkiBrokerID int32) ApiBrokerGetAttachmentsV1Request {
+	return ApiBrokerGetAttachmentsV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiBrokerID: pkiBrokerID,
+	}
+}
+
+// Execute executes the request
+//  @return BrokerGetAttachmentsV1Response
+func (a *ObjectBrokerAPIService) BrokerGetAttachmentsV1Execute(r ApiBrokerGetAttachmentsV1Request) (*BrokerGetAttachmentsV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BrokerGetAttachmentsV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectBrokerAPIService.BrokerGetAttachmentsV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/broker/{pkiBrokerID}/getAttachments"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiBrokerID"+"}", url.PathEscape(parameterValueToString(r.pkiBrokerID, "pkiBrokerID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiBrokerID < 0 {
+		return localVarReturnValue, nil, reportError("pkiBrokerID must be greater than 0")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
 
 type ApiBrokerGetAutocompleteV2Request struct {
 	ctx context.Context

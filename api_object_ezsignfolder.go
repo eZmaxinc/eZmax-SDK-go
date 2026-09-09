@@ -5928,7 +5928,7 @@ Using this endpoint, you can unsend the Ezsignfolder and make it modifiable agai
 
 Signatories will receive an email informing them the signature process was aborted and they might receive a new invitation to sign.
 
-⚠️ Warning: Any signature previously made by signatories on "Non-completed" Ezsigndocuments will be lost.
+âš ï¸ Warning: Any signature previously made by signatories on "Non-completed" Ezsigndocuments will be lost.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiEzsignfolderID

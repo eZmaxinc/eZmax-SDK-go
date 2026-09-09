@@ -4,10 +4,150 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**AgentBatchDownloadV1**](ObjectAgentAPI.md#AgentBatchDownloadV1) | **Post** /1/object/agent/{pkiAgentID}/batchDownload | Download multiples attachments from a Agent
+[**AgentGetAttachmentsV1**](ObjectAgentAPI.md#AgentGetAttachmentsV1) | **Get** /1/object/agent/{pkiAgentID}/getAttachments | Retrieve Agent&#39;s attachments
 [**AgentGetAutocompleteV2**](ObjectAgentAPI.md#AgentGetAutocompleteV2) | **Get** /2/object/agent/getAutocomplete/{sSelector} | Retrieve Agents and IDs
 [**AgentGetListV1**](ObjectAgentAPI.md#AgentGetListV1) | **Get** /1/object/agent/getList | Retrieve Agent list
 [**AgentImportIntoEDMV1**](ObjectAgentAPI.md#AgentImportIntoEDMV1) | **Post** /1/object/agent/{pkiAgentID}/importIntoEDM | Import attachments into the Agent
 
+
+
+## AgentBatchDownloadV1
+
+> *os.File AgentBatchDownloadV1(ctx, pkiAgentID).AgentBatchDownloadV1Request(agentBatchDownloadV1Request).Execute()
+
+Download multiples attachments from a Agent
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiAgentID := int32(56) // int32 | 
+	agentBatchDownloadV1Request := *openapiclient.NewAgentBatchDownloadV1Request([]int32{int32(1)}) // AgentBatchDownloadV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectAgentAPI.AgentBatchDownloadV1(context.Background(), pkiAgentID).AgentBatchDownloadV1Request(agentBatchDownloadV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectAgentAPI.AgentBatchDownloadV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AgentBatchDownloadV1`: *os.File
+	fmt.Fprintf(os.Stdout, "Response from `ObjectAgentAPI.AgentBatchDownloadV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiAgentID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAgentBatchDownloadV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **agentBatchDownloadV1Request** | [**AgentBatchDownloadV1Request**](AgentBatchDownloadV1Request.md) |  | 
+
+### Return type
+
+[***os.File**](*os.File.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/zip, text/xml, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## AgentGetAttachmentsV1
+
+> AgentGetAttachmentsV1Response AgentGetAttachmentsV1(ctx, pkiAgentID).Execute()
+
+Retrieve Agent's attachments
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiAgentID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectAgentAPI.AgentGetAttachmentsV1(context.Background(), pkiAgentID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectAgentAPI.AgentGetAttachmentsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AgentGetAttachmentsV1`: AgentGetAttachmentsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectAgentAPI.AgentGetAttachmentsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiAgentID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAgentGetAttachmentsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**AgentGetAttachmentsV1Response**](AgentGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## AgentGetAutocompleteV2

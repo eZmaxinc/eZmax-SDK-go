@@ -4,9 +4,149 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**LeadBatchDownloadV1**](ObjectLeadAPI.md#LeadBatchDownloadV1) | **Post** /1/object/lead/{pkiLeadID}/batchDownload | Download multiples attachments from a Lead
+[**LeadGetAttachmentsV1**](ObjectLeadAPI.md#LeadGetAttachmentsV1) | **Get** /1/object/lead/{pkiLeadID}/getAttachments | Retrieve Lead&#39;s attachments
 [**LeadGetListV1**](ObjectLeadAPI.md#LeadGetListV1) | **Get** /1/object/lead/getList | Retrieve Lead list
 [**LeadImportIntoEDMV1**](ObjectLeadAPI.md#LeadImportIntoEDMV1) | **Post** /1/object/lead/{pkiLeadID}/importIntoEDM | Import attachments into the Lead
 
+
+
+## LeadBatchDownloadV1
+
+> *os.File LeadBatchDownloadV1(ctx, pkiLeadID).LeadBatchDownloadV1Request(leadBatchDownloadV1Request).Execute()
+
+Download multiples attachments from a Lead
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiLeadID := int32(56) // int32 | 
+	leadBatchDownloadV1Request := *openapiclient.NewLeadBatchDownloadV1Request([]int32{int32(1)}) // LeadBatchDownloadV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectLeadAPI.LeadBatchDownloadV1(context.Background(), pkiLeadID).LeadBatchDownloadV1Request(leadBatchDownloadV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectLeadAPI.LeadBatchDownloadV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `LeadBatchDownloadV1`: *os.File
+	fmt.Fprintf(os.Stdout, "Response from `ObjectLeadAPI.LeadBatchDownloadV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiLeadID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiLeadBatchDownloadV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **leadBatchDownloadV1Request** | [**LeadBatchDownloadV1Request**](LeadBatchDownloadV1Request.md) |  | 
+
+### Return type
+
+[***os.File**](*os.File.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/zip, text/xml, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## LeadGetAttachmentsV1
+
+> LeadGetAttachmentsV1Response LeadGetAttachmentsV1(ctx, pkiLeadID).Execute()
+
+Retrieve Lead's attachments
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiLeadID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectLeadAPI.LeadGetAttachmentsV1(context.Background(), pkiLeadID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectLeadAPI.LeadGetAttachmentsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `LeadGetAttachmentsV1`: LeadGetAttachmentsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectLeadAPI.LeadGetAttachmentsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiLeadID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiLeadGetAttachmentsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**LeadGetAttachmentsV1Response**](LeadGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## LeadGetListV1
