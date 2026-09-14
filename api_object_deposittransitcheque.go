@@ -320,6 +320,530 @@ func (a *ObjectDeposittransitchequeAPIService) DeposittransitchequeGetAttachment
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiDeposittransitchequeGetCommunicationCountV1Request struct {
+	ctx context.Context
+	ApiService *ObjectDeposittransitchequeAPIService
+	pkiDeposittransitchequeID int32
+}
+
+func (r ApiDeposittransitchequeGetCommunicationCountV1Request) Execute() (*DeposittransitchequeGetCommunicationCountV1Response, *http.Response, error) {
+	return r.ApiService.DeposittransitchequeGetCommunicationCountV1Execute(r)
+}
+
+/*
+DeposittransitchequeGetCommunicationCountV1 Retrieve Communication count
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiDeposittransitchequeID
+ @return ApiDeposittransitchequeGetCommunicationCountV1Request
+*/
+func (a *ObjectDeposittransitchequeAPIService) DeposittransitchequeGetCommunicationCountV1(ctx context.Context, pkiDeposittransitchequeID int32) ApiDeposittransitchequeGetCommunicationCountV1Request {
+	return ApiDeposittransitchequeGetCommunicationCountV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiDeposittransitchequeID: pkiDeposittransitchequeID,
+	}
+}
+
+// Execute executes the request
+//  @return DeposittransitchequeGetCommunicationCountV1Response
+func (a *ObjectDeposittransitchequeAPIService) DeposittransitchequeGetCommunicationCountV1Execute(r ApiDeposittransitchequeGetCommunicationCountV1Request) (*DeposittransitchequeGetCommunicationCountV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *DeposittransitchequeGetCommunicationCountV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectDeposittransitchequeAPIService.DeposittransitchequeGetCommunicationCountV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/deposittransitcheque/{pkiDeposittransitchequeID}/getCommunicationCount"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiDeposittransitchequeID"+"}", url.PathEscape(parameterValueToString(r.pkiDeposittransitchequeID, "pkiDeposittransitchequeID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiDeposittransitchequeID < 0 {
+		return localVarReturnValue, nil, reportError("pkiDeposittransitchequeID must be greater than 0")
+	}
+	if r.pkiDeposittransitchequeID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiDeposittransitchequeID must be less than 65535")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiDeposittransitchequeGetCommunicationListV1Request struct {
+	ctx context.Context
+	ApiService *ObjectDeposittransitchequeAPIService
+	pkiDeposittransitchequeID int32
+}
+
+func (r ApiDeposittransitchequeGetCommunicationListV1Request) Execute() (*DeposittransitchequeGetCommunicationListV1Response, *http.Response, error) {
+	return r.ApiService.DeposittransitchequeGetCommunicationListV1Execute(r)
+}
+
+/*
+DeposittransitchequeGetCommunicationListV1 Retrieve Communication list
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiDeposittransitchequeID
+ @return ApiDeposittransitchequeGetCommunicationListV1Request
+*/
+func (a *ObjectDeposittransitchequeAPIService) DeposittransitchequeGetCommunicationListV1(ctx context.Context, pkiDeposittransitchequeID int32) ApiDeposittransitchequeGetCommunicationListV1Request {
+	return ApiDeposittransitchequeGetCommunicationListV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiDeposittransitchequeID: pkiDeposittransitchequeID,
+	}
+}
+
+// Execute executes the request
+//  @return DeposittransitchequeGetCommunicationListV1Response
+func (a *ObjectDeposittransitchequeAPIService) DeposittransitchequeGetCommunicationListV1Execute(r ApiDeposittransitchequeGetCommunicationListV1Request) (*DeposittransitchequeGetCommunicationListV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *DeposittransitchequeGetCommunicationListV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectDeposittransitchequeAPIService.DeposittransitchequeGetCommunicationListV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/deposittransitcheque/{pkiDeposittransitchequeID}/getCommunicationList"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiDeposittransitchequeID"+"}", url.PathEscape(parameterValueToString(r.pkiDeposittransitchequeID, "pkiDeposittransitchequeID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiDeposittransitchequeID < 0 {
+		return localVarReturnValue, nil, reportError("pkiDeposittransitchequeID must be greater than 0")
+	}
+	if r.pkiDeposittransitchequeID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiDeposittransitchequeID must be less than 65535")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiDeposittransitchequeGetCommunicationrecipientsV1Request struct {
+	ctx context.Context
+	ApiService *ObjectDeposittransitchequeAPIService
+	pkiDeposittransitchequeID int32
+}
+
+func (r ApiDeposittransitchequeGetCommunicationrecipientsV1Request) Execute() (*DeposittransitchequeGetCommunicationrecipientsV1Response, *http.Response, error) {
+	return r.ApiService.DeposittransitchequeGetCommunicationrecipientsV1Execute(r)
+}
+
+/*
+DeposittransitchequeGetCommunicationrecipientsV1 Retrieve Communication recipients
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiDeposittransitchequeID
+ @return ApiDeposittransitchequeGetCommunicationrecipientsV1Request
+*/
+func (a *ObjectDeposittransitchequeAPIService) DeposittransitchequeGetCommunicationrecipientsV1(ctx context.Context, pkiDeposittransitchequeID int32) ApiDeposittransitchequeGetCommunicationrecipientsV1Request {
+	return ApiDeposittransitchequeGetCommunicationrecipientsV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiDeposittransitchequeID: pkiDeposittransitchequeID,
+	}
+}
+
+// Execute executes the request
+//  @return DeposittransitchequeGetCommunicationrecipientsV1Response
+func (a *ObjectDeposittransitchequeAPIService) DeposittransitchequeGetCommunicationrecipientsV1Execute(r ApiDeposittransitchequeGetCommunicationrecipientsV1Request) (*DeposittransitchequeGetCommunicationrecipientsV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *DeposittransitchequeGetCommunicationrecipientsV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectDeposittransitchequeAPIService.DeposittransitchequeGetCommunicationrecipientsV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/deposittransitcheque/{pkiDeposittransitchequeID}/getCommunicationrecipients"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiDeposittransitchequeID"+"}", url.PathEscape(parameterValueToString(r.pkiDeposittransitchequeID, "pkiDeposittransitchequeID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiDeposittransitchequeID < 0 {
+		return localVarReturnValue, nil, reportError("pkiDeposittransitchequeID must be greater than 0")
+	}
+	if r.pkiDeposittransitchequeID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiDeposittransitchequeID must be less than 65535")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiDeposittransitchequeGetCommunicationsendersV1Request struct {
+	ctx context.Context
+	ApiService *ObjectDeposittransitchequeAPIService
+	pkiDeposittransitchequeID int32
+}
+
+func (r ApiDeposittransitchequeGetCommunicationsendersV1Request) Execute() (*DeposittransitchequeGetCommunicationsendersV1Response, *http.Response, error) {
+	return r.ApiService.DeposittransitchequeGetCommunicationsendersV1Execute(r)
+}
+
+/*
+DeposittransitchequeGetCommunicationsendersV1 Retrieve Communication senders
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiDeposittransitchequeID
+ @return ApiDeposittransitchequeGetCommunicationsendersV1Request
+*/
+func (a *ObjectDeposittransitchequeAPIService) DeposittransitchequeGetCommunicationsendersV1(ctx context.Context, pkiDeposittransitchequeID int32) ApiDeposittransitchequeGetCommunicationsendersV1Request {
+	return ApiDeposittransitchequeGetCommunicationsendersV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiDeposittransitchequeID: pkiDeposittransitchequeID,
+	}
+}
+
+// Execute executes the request
+//  @return DeposittransitchequeGetCommunicationsendersV1Response
+func (a *ObjectDeposittransitchequeAPIService) DeposittransitchequeGetCommunicationsendersV1Execute(r ApiDeposittransitchequeGetCommunicationsendersV1Request) (*DeposittransitchequeGetCommunicationsendersV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *DeposittransitchequeGetCommunicationsendersV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectDeposittransitchequeAPIService.DeposittransitchequeGetCommunicationsendersV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/deposittransitcheque/{pkiDeposittransitchequeID}/getCommunicationsenders"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiDeposittransitchequeID"+"}", url.PathEscape(parameterValueToString(r.pkiDeposittransitchequeID, "pkiDeposittransitchequeID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiDeposittransitchequeID < 0 {
+		return localVarReturnValue, nil, reportError("pkiDeposittransitchequeID must be greater than 0")
+	}
+	if r.pkiDeposittransitchequeID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiDeposittransitchequeID must be less than 65535")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiDeposittransitchequeImportIntoEDMV1Request struct {
 	ctx context.Context
 	ApiService *ObjectDeposittransitchequeAPIService

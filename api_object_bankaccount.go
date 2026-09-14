@@ -470,6 +470,530 @@ func (a *ObjectBankaccountAPIService) BankaccountGetAutocompleteV2Execute(r ApiB
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiBankaccountGetCommunicationCountV1Request struct {
+	ctx context.Context
+	ApiService *ObjectBankaccountAPIService
+	pkiBankaccountID int32
+}
+
+func (r ApiBankaccountGetCommunicationCountV1Request) Execute() (*BankaccountGetCommunicationCountV1Response, *http.Response, error) {
+	return r.ApiService.BankaccountGetCommunicationCountV1Execute(r)
+}
+
+/*
+BankaccountGetCommunicationCountV1 Retrieve Communication count
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiBankaccountID
+ @return ApiBankaccountGetCommunicationCountV1Request
+*/
+func (a *ObjectBankaccountAPIService) BankaccountGetCommunicationCountV1(ctx context.Context, pkiBankaccountID int32) ApiBankaccountGetCommunicationCountV1Request {
+	return ApiBankaccountGetCommunicationCountV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiBankaccountID: pkiBankaccountID,
+	}
+}
+
+// Execute executes the request
+//  @return BankaccountGetCommunicationCountV1Response
+func (a *ObjectBankaccountAPIService) BankaccountGetCommunicationCountV1Execute(r ApiBankaccountGetCommunicationCountV1Request) (*BankaccountGetCommunicationCountV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BankaccountGetCommunicationCountV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectBankaccountAPIService.BankaccountGetCommunicationCountV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/bankaccount/{pkiBankaccountID}/getCommunicationCount"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiBankaccountID"+"}", url.PathEscape(parameterValueToString(r.pkiBankaccountID, "pkiBankaccountID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiBankaccountID < 0 {
+		return localVarReturnValue, nil, reportError("pkiBankaccountID must be greater than 0")
+	}
+	if r.pkiBankaccountID > 255 {
+		return localVarReturnValue, nil, reportError("pkiBankaccountID must be less than 255")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiBankaccountGetCommunicationListV1Request struct {
+	ctx context.Context
+	ApiService *ObjectBankaccountAPIService
+	pkiBankaccountID int32
+}
+
+func (r ApiBankaccountGetCommunicationListV1Request) Execute() (*BankaccountGetCommunicationListV1Response, *http.Response, error) {
+	return r.ApiService.BankaccountGetCommunicationListV1Execute(r)
+}
+
+/*
+BankaccountGetCommunicationListV1 Retrieve Communication list
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiBankaccountID
+ @return ApiBankaccountGetCommunicationListV1Request
+*/
+func (a *ObjectBankaccountAPIService) BankaccountGetCommunicationListV1(ctx context.Context, pkiBankaccountID int32) ApiBankaccountGetCommunicationListV1Request {
+	return ApiBankaccountGetCommunicationListV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiBankaccountID: pkiBankaccountID,
+	}
+}
+
+// Execute executes the request
+//  @return BankaccountGetCommunicationListV1Response
+func (a *ObjectBankaccountAPIService) BankaccountGetCommunicationListV1Execute(r ApiBankaccountGetCommunicationListV1Request) (*BankaccountGetCommunicationListV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BankaccountGetCommunicationListV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectBankaccountAPIService.BankaccountGetCommunicationListV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/bankaccount/{pkiBankaccountID}/getCommunicationList"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiBankaccountID"+"}", url.PathEscape(parameterValueToString(r.pkiBankaccountID, "pkiBankaccountID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiBankaccountID < 0 {
+		return localVarReturnValue, nil, reportError("pkiBankaccountID must be greater than 0")
+	}
+	if r.pkiBankaccountID > 255 {
+		return localVarReturnValue, nil, reportError("pkiBankaccountID must be less than 255")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiBankaccountGetCommunicationrecipientsV1Request struct {
+	ctx context.Context
+	ApiService *ObjectBankaccountAPIService
+	pkiBankaccountID int32
+}
+
+func (r ApiBankaccountGetCommunicationrecipientsV1Request) Execute() (*BankaccountGetCommunicationrecipientsV1Response, *http.Response, error) {
+	return r.ApiService.BankaccountGetCommunicationrecipientsV1Execute(r)
+}
+
+/*
+BankaccountGetCommunicationrecipientsV1 Retrieve Communication recipients
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiBankaccountID
+ @return ApiBankaccountGetCommunicationrecipientsV1Request
+*/
+func (a *ObjectBankaccountAPIService) BankaccountGetCommunicationrecipientsV1(ctx context.Context, pkiBankaccountID int32) ApiBankaccountGetCommunicationrecipientsV1Request {
+	return ApiBankaccountGetCommunicationrecipientsV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiBankaccountID: pkiBankaccountID,
+	}
+}
+
+// Execute executes the request
+//  @return BankaccountGetCommunicationrecipientsV1Response
+func (a *ObjectBankaccountAPIService) BankaccountGetCommunicationrecipientsV1Execute(r ApiBankaccountGetCommunicationrecipientsV1Request) (*BankaccountGetCommunicationrecipientsV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BankaccountGetCommunicationrecipientsV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectBankaccountAPIService.BankaccountGetCommunicationrecipientsV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/bankaccount/{pkiBankaccountID}/getCommunicationrecipients"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiBankaccountID"+"}", url.PathEscape(parameterValueToString(r.pkiBankaccountID, "pkiBankaccountID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiBankaccountID < 0 {
+		return localVarReturnValue, nil, reportError("pkiBankaccountID must be greater than 0")
+	}
+	if r.pkiBankaccountID > 255 {
+		return localVarReturnValue, nil, reportError("pkiBankaccountID must be less than 255")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiBankaccountGetCommunicationsendersV1Request struct {
+	ctx context.Context
+	ApiService *ObjectBankaccountAPIService
+	pkiBankaccountID int32
+}
+
+func (r ApiBankaccountGetCommunicationsendersV1Request) Execute() (*BankaccountGetCommunicationsendersV1Response, *http.Response, error) {
+	return r.ApiService.BankaccountGetCommunicationsendersV1Execute(r)
+}
+
+/*
+BankaccountGetCommunicationsendersV1 Retrieve Communication senders
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiBankaccountID
+ @return ApiBankaccountGetCommunicationsendersV1Request
+*/
+func (a *ObjectBankaccountAPIService) BankaccountGetCommunicationsendersV1(ctx context.Context, pkiBankaccountID int32) ApiBankaccountGetCommunicationsendersV1Request {
+	return ApiBankaccountGetCommunicationsendersV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiBankaccountID: pkiBankaccountID,
+	}
+}
+
+// Execute executes the request
+//  @return BankaccountGetCommunicationsendersV1Response
+func (a *ObjectBankaccountAPIService) BankaccountGetCommunicationsendersV1Execute(r ApiBankaccountGetCommunicationsendersV1Request) (*BankaccountGetCommunicationsendersV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BankaccountGetCommunicationsendersV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectBankaccountAPIService.BankaccountGetCommunicationsendersV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/bankaccount/{pkiBankaccountID}/getCommunicationsenders"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiBankaccountID"+"}", url.PathEscape(parameterValueToString(r.pkiBankaccountID, "pkiBankaccountID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiBankaccountID < 0 {
+		return localVarReturnValue, nil, reportError("pkiBankaccountID must be greater than 0")
+	}
+	if r.pkiBankaccountID > 255 {
+		return localVarReturnValue, nil, reportError("pkiBankaccountID must be less than 255")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiBankaccountImportIntoEDMV1Request struct {
 	ctx context.Context
 	ApiService *ObjectBankaccountAPIService

@@ -7,6 +7,10 @@ Method | HTTP request | Description
 [**BrokerBatchDownloadV1**](ObjectBrokerAPI.md#BrokerBatchDownloadV1) | **Post** /1/object/broker/{pkiBrokerID}/batchDownload | Download multiples attachments from a Broker
 [**BrokerGetAttachmentsV1**](ObjectBrokerAPI.md#BrokerGetAttachmentsV1) | **Get** /1/object/broker/{pkiBrokerID}/getAttachments | Retrieve Broker&#39;s attachments
 [**BrokerGetAutocompleteV2**](ObjectBrokerAPI.md#BrokerGetAutocompleteV2) | **Get** /2/object/broker/getAutocomplete/{sSelector} | Retrieve Brokers and IDs
+[**BrokerGetCommunicationCountV1**](ObjectBrokerAPI.md#BrokerGetCommunicationCountV1) | **Get** /1/object/broker/{pkiBrokerID}/getCommunicationCount | Retrieve Communication count
+[**BrokerGetCommunicationListV1**](ObjectBrokerAPI.md#BrokerGetCommunicationListV1) | **Get** /1/object/broker/{pkiBrokerID}/getCommunicationList | Retrieve Communication list
+[**BrokerGetCommunicationrecipientsV1**](ObjectBrokerAPI.md#BrokerGetCommunicationrecipientsV1) | **Get** /1/object/broker/{pkiBrokerID}/getCommunicationrecipients | Retrieve Communication recipients
+[**BrokerGetCommunicationsendersV1**](ObjectBrokerAPI.md#BrokerGetCommunicationsendersV1) | **Get** /1/object/broker/{pkiBrokerID}/getCommunicationsenders | Retrieve Communication senders
 [**BrokerGetListV1**](ObjectBrokerAPI.md#BrokerGetListV1) | **Get** /1/object/broker/getList | Retrieve Broker list
 [**BrokerImportIntoEDMV1**](ObjectBrokerAPI.md#BrokerImportIntoEDMV1) | **Post** /1/object/broker/{pkiBrokerID}/importIntoEDM | Import attachments into the Broker
 
@@ -211,6 +215,278 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**BrokerGetAutocompleteV2Response**](BrokerGetAutocompleteV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BrokerGetCommunicationCountV1
+
+> BrokerGetCommunicationCountV1Response BrokerGetCommunicationCountV1(ctx, pkiBrokerID).Execute()
+
+Retrieve Communication count
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiBrokerID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectBrokerAPI.BrokerGetCommunicationCountV1(context.Background(), pkiBrokerID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBrokerAPI.BrokerGetCommunicationCountV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BrokerGetCommunicationCountV1`: BrokerGetCommunicationCountV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectBrokerAPI.BrokerGetCommunicationCountV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiBrokerID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBrokerGetCommunicationCountV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**BrokerGetCommunicationCountV1Response**](BrokerGetCommunicationCountV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BrokerGetCommunicationListV1
+
+> BrokerGetCommunicationListV1Response BrokerGetCommunicationListV1(ctx, pkiBrokerID).Execute()
+
+Retrieve Communication list
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiBrokerID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectBrokerAPI.BrokerGetCommunicationListV1(context.Background(), pkiBrokerID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBrokerAPI.BrokerGetCommunicationListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BrokerGetCommunicationListV1`: BrokerGetCommunicationListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectBrokerAPI.BrokerGetCommunicationListV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiBrokerID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBrokerGetCommunicationListV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**BrokerGetCommunicationListV1Response**](BrokerGetCommunicationListV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BrokerGetCommunicationrecipientsV1
+
+> BrokerGetCommunicationrecipientsV1Response BrokerGetCommunicationrecipientsV1(ctx, pkiBrokerID).Execute()
+
+Retrieve Communication recipients
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiBrokerID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectBrokerAPI.BrokerGetCommunicationrecipientsV1(context.Background(), pkiBrokerID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBrokerAPI.BrokerGetCommunicationrecipientsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BrokerGetCommunicationrecipientsV1`: BrokerGetCommunicationrecipientsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectBrokerAPI.BrokerGetCommunicationrecipientsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiBrokerID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBrokerGetCommunicationrecipientsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**BrokerGetCommunicationrecipientsV1Response**](BrokerGetCommunicationrecipientsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BrokerGetCommunicationsendersV1
+
+> BrokerGetCommunicationsendersV1Response BrokerGetCommunicationsendersV1(ctx, pkiBrokerID).Execute()
+
+Retrieve Communication senders
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiBrokerID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectBrokerAPI.BrokerGetCommunicationsendersV1(context.Background(), pkiBrokerID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBrokerAPI.BrokerGetCommunicationsendersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BrokerGetCommunicationsendersV1`: BrokerGetCommunicationsendersV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectBrokerAPI.BrokerGetCommunicationsendersV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiBrokerID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBrokerGetCommunicationsendersV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**BrokerGetCommunicationsendersV1Response**](BrokerGetCommunicationsendersV1Response.md)
 
 ### Authorization
 

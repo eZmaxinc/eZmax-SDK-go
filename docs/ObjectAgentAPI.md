@@ -7,6 +7,10 @@ Method | HTTP request | Description
 [**AgentBatchDownloadV1**](ObjectAgentAPI.md#AgentBatchDownloadV1) | **Post** /1/object/agent/{pkiAgentID}/batchDownload | Download multiples attachments from a Agent
 [**AgentGetAttachmentsV1**](ObjectAgentAPI.md#AgentGetAttachmentsV1) | **Get** /1/object/agent/{pkiAgentID}/getAttachments | Retrieve Agent&#39;s attachments
 [**AgentGetAutocompleteV2**](ObjectAgentAPI.md#AgentGetAutocompleteV2) | **Get** /2/object/agent/getAutocomplete/{sSelector} | Retrieve Agents and IDs
+[**AgentGetCommunicationCountV1**](ObjectAgentAPI.md#AgentGetCommunicationCountV1) | **Get** /1/object/agent/{pkiAgentID}/getCommunicationCount | Retrieve Communication count
+[**AgentGetCommunicationListV1**](ObjectAgentAPI.md#AgentGetCommunicationListV1) | **Get** /1/object/agent/{pkiAgentID}/getCommunicationList | Retrieve Communication list
+[**AgentGetCommunicationrecipientsV1**](ObjectAgentAPI.md#AgentGetCommunicationrecipientsV1) | **Get** /1/object/agent/{pkiAgentID}/getCommunicationrecipients | Retrieve Communication recipients
+[**AgentGetCommunicationsendersV1**](ObjectAgentAPI.md#AgentGetCommunicationsendersV1) | **Get** /1/object/agent/{pkiAgentID}/getCommunicationsenders | Retrieve Communication senders
 [**AgentGetListV1**](ObjectAgentAPI.md#AgentGetListV1) | **Get** /1/object/agent/getList | Retrieve Agent list
 [**AgentImportIntoEDMV1**](ObjectAgentAPI.md#AgentImportIntoEDMV1) | **Post** /1/object/agent/{pkiAgentID}/importIntoEDM | Import attachments into the Agent
 
@@ -211,6 +215,278 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AgentGetAutocompleteV2Response**](AgentGetAutocompleteV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## AgentGetCommunicationCountV1
+
+> AgentGetCommunicationCountV1Response AgentGetCommunicationCountV1(ctx, pkiAgentID).Execute()
+
+Retrieve Communication count
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiAgentID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectAgentAPI.AgentGetCommunicationCountV1(context.Background(), pkiAgentID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectAgentAPI.AgentGetCommunicationCountV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AgentGetCommunicationCountV1`: AgentGetCommunicationCountV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectAgentAPI.AgentGetCommunicationCountV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiAgentID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAgentGetCommunicationCountV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**AgentGetCommunicationCountV1Response**](AgentGetCommunicationCountV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## AgentGetCommunicationListV1
+
+> AgentGetCommunicationListV1Response AgentGetCommunicationListV1(ctx, pkiAgentID).Execute()
+
+Retrieve Communication list
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiAgentID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectAgentAPI.AgentGetCommunicationListV1(context.Background(), pkiAgentID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectAgentAPI.AgentGetCommunicationListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AgentGetCommunicationListV1`: AgentGetCommunicationListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectAgentAPI.AgentGetCommunicationListV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiAgentID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAgentGetCommunicationListV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**AgentGetCommunicationListV1Response**](AgentGetCommunicationListV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## AgentGetCommunicationrecipientsV1
+
+> AgentGetCommunicationrecipientsV1Response AgentGetCommunicationrecipientsV1(ctx, pkiAgentID).Execute()
+
+Retrieve Communication recipients
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiAgentID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectAgentAPI.AgentGetCommunicationrecipientsV1(context.Background(), pkiAgentID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectAgentAPI.AgentGetCommunicationrecipientsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AgentGetCommunicationrecipientsV1`: AgentGetCommunicationrecipientsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectAgentAPI.AgentGetCommunicationrecipientsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiAgentID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAgentGetCommunicationrecipientsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**AgentGetCommunicationrecipientsV1Response**](AgentGetCommunicationrecipientsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## AgentGetCommunicationsendersV1
+
+> AgentGetCommunicationsendersV1Response AgentGetCommunicationsendersV1(ctx, pkiAgentID).Execute()
+
+Retrieve Communication senders
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiAgentID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectAgentAPI.AgentGetCommunicationsendersV1(context.Background(), pkiAgentID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectAgentAPI.AgentGetCommunicationsendersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AgentGetCommunicationsendersV1`: AgentGetCommunicationsendersV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectAgentAPI.AgentGetCommunicationsendersV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiAgentID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAgentGetCommunicationsendersV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**AgentGetCommunicationsendersV1Response**](AgentGetCommunicationsendersV1Response.md)
 
 ### Authorization
 

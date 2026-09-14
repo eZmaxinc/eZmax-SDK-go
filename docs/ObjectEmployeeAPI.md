@@ -6,6 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**EmployeeBatchDownloadV1**](ObjectEmployeeAPI.md#EmployeeBatchDownloadV1) | **Post** /1/object/employee/{pkiEmployeeID}/batchDownload | Download multiples attachments from a Employee
 [**EmployeeGetAttachmentsV1**](ObjectEmployeeAPI.md#EmployeeGetAttachmentsV1) | **Get** /1/object/employee/{pkiEmployeeID}/getAttachments | Retrieve Employee&#39;s attachments
+[**EmployeeGetCommunicationCountV1**](ObjectEmployeeAPI.md#EmployeeGetCommunicationCountV1) | **Get** /1/object/employee/{pkiEmployeeID}/getCommunicationCount | Retrieve Communication count
+[**EmployeeGetCommunicationListV1**](ObjectEmployeeAPI.md#EmployeeGetCommunicationListV1) | **Get** /1/object/employee/{pkiEmployeeID}/getCommunicationList | Retrieve Communication list
+[**EmployeeGetCommunicationrecipientsV1**](ObjectEmployeeAPI.md#EmployeeGetCommunicationrecipientsV1) | **Get** /1/object/employee/{pkiEmployeeID}/getCommunicationrecipients | Retrieve Communication recipients
+[**EmployeeGetCommunicationsendersV1**](ObjectEmployeeAPI.md#EmployeeGetCommunicationsendersV1) | **Get** /1/object/employee/{pkiEmployeeID}/getCommunicationsenders | Retrieve Communication senders
 [**EmployeeGetListV1**](ObjectEmployeeAPI.md#EmployeeGetListV1) | **Get** /1/object/employee/getList | Retrieve Employee list
 [**EmployeeImportIntoEDMV1**](ObjectEmployeeAPI.md#EmployeeImportIntoEDMV1) | **Post** /1/object/employee/{pkiEmployeeID}/importIntoEDM | Import attachments into the Employee
 
@@ -134,6 +138,278 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmployeeGetAttachmentsV1Response**](EmployeeGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EmployeeGetCommunicationCountV1
+
+> EmployeeGetCommunicationCountV1Response EmployeeGetCommunicationCountV1(ctx, pkiEmployeeID).Execute()
+
+Retrieve Communication count
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEmployeeID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEmployeeAPI.EmployeeGetCommunicationCountV1(context.Background(), pkiEmployeeID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEmployeeAPI.EmployeeGetCommunicationCountV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EmployeeGetCommunicationCountV1`: EmployeeGetCommunicationCountV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEmployeeAPI.EmployeeGetCommunicationCountV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEmployeeID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEmployeeGetCommunicationCountV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**EmployeeGetCommunicationCountV1Response**](EmployeeGetCommunicationCountV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EmployeeGetCommunicationListV1
+
+> EmployeeGetCommunicationListV1Response EmployeeGetCommunicationListV1(ctx, pkiEmployeeID).Execute()
+
+Retrieve Communication list
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEmployeeID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEmployeeAPI.EmployeeGetCommunicationListV1(context.Background(), pkiEmployeeID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEmployeeAPI.EmployeeGetCommunicationListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EmployeeGetCommunicationListV1`: EmployeeGetCommunicationListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEmployeeAPI.EmployeeGetCommunicationListV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEmployeeID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEmployeeGetCommunicationListV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**EmployeeGetCommunicationListV1Response**](EmployeeGetCommunicationListV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EmployeeGetCommunicationrecipientsV1
+
+> EmployeeGetCommunicationrecipientsV1Response EmployeeGetCommunicationrecipientsV1(ctx, pkiEmployeeID).Execute()
+
+Retrieve Communication recipients
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEmployeeID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEmployeeAPI.EmployeeGetCommunicationrecipientsV1(context.Background(), pkiEmployeeID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEmployeeAPI.EmployeeGetCommunicationrecipientsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EmployeeGetCommunicationrecipientsV1`: EmployeeGetCommunicationrecipientsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEmployeeAPI.EmployeeGetCommunicationrecipientsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEmployeeID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEmployeeGetCommunicationrecipientsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**EmployeeGetCommunicationrecipientsV1Response**](EmployeeGetCommunicationrecipientsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EmployeeGetCommunicationsendersV1
+
+> EmployeeGetCommunicationsendersV1Response EmployeeGetCommunicationsendersV1(ctx, pkiEmployeeID).Execute()
+
+Retrieve Communication senders
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiEmployeeID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectEmployeeAPI.EmployeeGetCommunicationsendersV1(context.Background(), pkiEmployeeID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEmployeeAPI.EmployeeGetCommunicationsendersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EmployeeGetCommunicationsendersV1`: EmployeeGetCommunicationsendersV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectEmployeeAPI.EmployeeGetCommunicationsendersV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiEmployeeID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEmployeeGetCommunicationsendersV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**EmployeeGetCommunicationsendersV1Response**](EmployeeGetCommunicationsendersV1Response.md)
 
 ### Authorization
 

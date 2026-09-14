@@ -6,6 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CommissionadvanceBatchDownloadV1**](ObjectCommissionadvanceAPI.md#CommissionadvanceBatchDownloadV1) | **Post** /1/object/commissionadvance/{pkiCommissionadvanceID}/batchDownload | Download multiples attachments from a Commission advance
 [**CommissionadvanceGetAttachmentsV1**](ObjectCommissionadvanceAPI.md#CommissionadvanceGetAttachmentsV1) | **Get** /1/object/commissionadvance/{pkiCommissionadvanceID}/getAttachments | Retrieve Commissionadvance&#39;s attachments
+[**CommissionadvanceGetCommunicationCountV1**](ObjectCommissionadvanceAPI.md#CommissionadvanceGetCommunicationCountV1) | **Get** /1/object/commissionadvance/{pkiCommissionadvanceID}/getCommunicationCount | Retrieve Communication count
+[**CommissionadvanceGetCommunicationListV1**](ObjectCommissionadvanceAPI.md#CommissionadvanceGetCommunicationListV1) | **Get** /1/object/commissionadvance/{pkiCommissionadvanceID}/getCommunicationList | Retrieve Communication list
+[**CommissionadvanceGetCommunicationrecipientsV1**](ObjectCommissionadvanceAPI.md#CommissionadvanceGetCommunicationrecipientsV1) | **Get** /1/object/commissionadvance/{pkiCommissionadvanceID}/getCommunicationrecipients | Retrieve Communication recipients
+[**CommissionadvanceGetCommunicationsendersV1**](ObjectCommissionadvanceAPI.md#CommissionadvanceGetCommunicationsendersV1) | **Get** /1/object/commissionadvance/{pkiCommissionadvanceID}/getCommunicationsenders | Retrieve Communication senders
 [**CommissionadvanceImportIntoEDMV1**](ObjectCommissionadvanceAPI.md#CommissionadvanceImportIntoEDMV1) | **Post** /1/object/commissionadvance/{pkiCommissionadvanceID}/importIntoEDM | Import attachments into the Commissionadvance
 
 
@@ -133,6 +137,278 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CommissionadvanceGetAttachmentsV1Response**](CommissionadvanceGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CommissionadvanceGetCommunicationCountV1
+
+> CommissionadvanceGetCommunicationCountV1Response CommissionadvanceGetCommunicationCountV1(ctx, pkiCommissionadvanceID).Execute()
+
+Retrieve Communication count
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiCommissionadvanceID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectCommissionadvanceAPI.CommissionadvanceGetCommunicationCountV1(context.Background(), pkiCommissionadvanceID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectCommissionadvanceAPI.CommissionadvanceGetCommunicationCountV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CommissionadvanceGetCommunicationCountV1`: CommissionadvanceGetCommunicationCountV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectCommissionadvanceAPI.CommissionadvanceGetCommunicationCountV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiCommissionadvanceID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCommissionadvanceGetCommunicationCountV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**CommissionadvanceGetCommunicationCountV1Response**](CommissionadvanceGetCommunicationCountV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CommissionadvanceGetCommunicationListV1
+
+> CommissionadvanceGetCommunicationListV1Response CommissionadvanceGetCommunicationListV1(ctx, pkiCommissionadvanceID).Execute()
+
+Retrieve Communication list
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiCommissionadvanceID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectCommissionadvanceAPI.CommissionadvanceGetCommunicationListV1(context.Background(), pkiCommissionadvanceID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectCommissionadvanceAPI.CommissionadvanceGetCommunicationListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CommissionadvanceGetCommunicationListV1`: CommissionadvanceGetCommunicationListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectCommissionadvanceAPI.CommissionadvanceGetCommunicationListV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiCommissionadvanceID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCommissionadvanceGetCommunicationListV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**CommissionadvanceGetCommunicationListV1Response**](CommissionadvanceGetCommunicationListV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CommissionadvanceGetCommunicationrecipientsV1
+
+> CommissionadvanceGetCommunicationrecipientsV1Response CommissionadvanceGetCommunicationrecipientsV1(ctx, pkiCommissionadvanceID).Execute()
+
+Retrieve Communication recipients
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiCommissionadvanceID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectCommissionadvanceAPI.CommissionadvanceGetCommunicationrecipientsV1(context.Background(), pkiCommissionadvanceID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectCommissionadvanceAPI.CommissionadvanceGetCommunicationrecipientsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CommissionadvanceGetCommunicationrecipientsV1`: CommissionadvanceGetCommunicationrecipientsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectCommissionadvanceAPI.CommissionadvanceGetCommunicationrecipientsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiCommissionadvanceID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCommissionadvanceGetCommunicationrecipientsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**CommissionadvanceGetCommunicationrecipientsV1Response**](CommissionadvanceGetCommunicationrecipientsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CommissionadvanceGetCommunicationsendersV1
+
+> CommissionadvanceGetCommunicationsendersV1Response CommissionadvanceGetCommunicationsendersV1(ctx, pkiCommissionadvanceID).Execute()
+
+Retrieve Communication senders
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiCommissionadvanceID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectCommissionadvanceAPI.CommissionadvanceGetCommunicationsendersV1(context.Background(), pkiCommissionadvanceID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectCommissionadvanceAPI.CommissionadvanceGetCommunicationsendersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CommissionadvanceGetCommunicationsendersV1`: CommissionadvanceGetCommunicationsendersV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectCommissionadvanceAPI.CommissionadvanceGetCommunicationsendersV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiCommissionadvanceID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCommissionadvanceGetCommunicationsendersV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**CommissionadvanceGetCommunicationsendersV1Response**](CommissionadvanceGetCommunicationsendersV1Response.md)
 
 ### Authorization
 

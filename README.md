@@ -93,6 +93,10 @@ Class | Method | HTTP request | Description
 *ObjectAgentAPI* | [**AgentBatchDownloadV1**](docs/ObjectAgentAPI.md#agentbatchdownloadv1) | **Post** /1/object/agent/{pkiAgentID}/batchDownload | Download multiples attachments from a Agent
 *ObjectAgentAPI* | [**AgentGetAttachmentsV1**](docs/ObjectAgentAPI.md#agentgetattachmentsv1) | **Get** /1/object/agent/{pkiAgentID}/getAttachments | Retrieve Agent&#39;s attachments
 *ObjectAgentAPI* | [**AgentGetAutocompleteV2**](docs/ObjectAgentAPI.md#agentgetautocompletev2) | **Get** /2/object/agent/getAutocomplete/{sSelector} | Retrieve Agents and IDs
+*ObjectAgentAPI* | [**AgentGetCommunicationCountV1**](docs/ObjectAgentAPI.md#agentgetcommunicationcountv1) | **Get** /1/object/agent/{pkiAgentID}/getCommunicationCount | Retrieve Communication count
+*ObjectAgentAPI* | [**AgentGetCommunicationListV1**](docs/ObjectAgentAPI.md#agentgetcommunicationlistv1) | **Get** /1/object/agent/{pkiAgentID}/getCommunicationList | Retrieve Communication list
+*ObjectAgentAPI* | [**AgentGetCommunicationrecipientsV1**](docs/ObjectAgentAPI.md#agentgetcommunicationrecipientsv1) | **Get** /1/object/agent/{pkiAgentID}/getCommunicationrecipients | Retrieve Communication recipients
+*ObjectAgentAPI* | [**AgentGetCommunicationsendersV1**](docs/ObjectAgentAPI.md#agentgetcommunicationsendersv1) | **Get** /1/object/agent/{pkiAgentID}/getCommunicationsenders | Retrieve Communication senders
 *ObjectAgentAPI* | [**AgentGetListV1**](docs/ObjectAgentAPI.md#agentgetlistv1) | **Get** /1/object/agent/getList | Retrieve Agent list
 *ObjectAgentAPI* | [**AgentImportIntoEDMV1**](docs/ObjectAgentAPI.md#agentimportintoedmv1) | **Post** /1/object/agent/{pkiAgentID}/importIntoEDM | Import attachments into the Agent
 *ObjectAgenttypeAPI* | [**AgenttypeGetAutocompleteV2**](docs/ObjectAgenttypeAPI.md#agenttypegetautocompletev2) | **Get** /2/object/agenttype/getAutocomplete/{sSelector} | Retrieve Agenttypes and IDs
@@ -106,9 +110,12 @@ Class | Method | HTTP request | Description
 *ObjectApikeyAPI* | [**ApikeyGetPermissionsV1**](docs/ObjectApikeyAPI.md#apikeygetpermissionsv1) | **Get** /1/object/apikey/{pkiApikeyID}/getPermissions | Retrieve an existing Apikey&#39;s Permissions
 *ObjectApikeyAPI* | [**ApikeyGetSubnetsV1**](docs/ObjectApikeyAPI.md#apikeygetsubnetsv1) | **Get** /1/object/apikey/{pkiApikeyID}/getSubnets | Retrieve an existing Apikey&#39;s subnets
 *ObjectApikeyAPI* | [**ApikeyRegenerateV1**](docs/ObjectApikeyAPI.md#apikeyregeneratev1) | **Post** /1/object/apikey/{pkiApikeyID}/regenerate | Regenerate the Apikey
+*ObjectAttachmentAPI* | [**AttachmentDeleteV1**](docs/ObjectAttachmentAPI.md#attachmentdeletev1) | **Post** /1/object/attachment/{pkiAttachmentID}/delete | Delete an existing attachment
 *ObjectAttachmentAPI* | [**AttachmentDownloadV1**](docs/ObjectAttachmentAPI.md#attachmentdownloadv1) | **Get** /1/object/attachment/{pkiAttachmentID}/download | Retrieve the content
 *ObjectAttachmentAPI* | [**AttachmentGetAttachmentlogsV1**](docs/ObjectAttachmentAPI.md#attachmentgetattachmentlogsv1) | **Get** /1/object/attachment/{pkiAttachmentID}/getAttachmentlogs | Retrieve the Attachmentlogs
-*ObjectAttachmentAPI* | [**AttachmentRenameV1**](docs/ObjectAttachmentAPI.md#attachmentrenamev1) | **Post** /1/object/attachment/{pkiAttachmentID}/rename | Rename an Attachment
+*ObjectAttachmentAPI* | [**AttachmentRenameV1**](docs/ObjectAttachmentAPI.md#attachmentrenamev1) | **Post** /1/object/attachment/{pkiAttachmentID}/rename | Rename an attachment
+*ObjectAttachmentAPI* | [**AttachmentRestoreV1**](docs/ObjectAttachmentAPI.md#attachmentrestorev1) | **Post** /1/object/attachment/{pkiAttachmentID}/restore | Restore a deleted attachment
+*ObjectAttachmentAPI* | [**AttachmentValidateV1**](docs/ObjectAttachmentAPI.md#attachmentvalidatev1) | **Patch** /1/object/attachment/{pkiAttachmentID}/validate | Validate an existing attachment
 *ObjectAuthenticationexternalAPI* | [**AuthenticationexternalCreateObjectV1**](docs/ObjectAuthenticationexternalAPI.md#authenticationexternalcreateobjectv1) | **Post** /1/object/authenticationexternal | Create a new Authenticationexternal
 *ObjectAuthenticationexternalAPI* | [**AuthenticationexternalDeleteObjectV1**](docs/ObjectAuthenticationexternalAPI.md#authenticationexternaldeleteobjectv1) | **Delete** /1/object/authenticationexternal/{pkiAuthenticationexternalID} | Delete an existing Authenticationexternal
 *ObjectAuthenticationexternalAPI* | [**AuthenticationexternalEditObjectV1**](docs/ObjectAuthenticationexternalAPI.md#authenticationexternaleditobjectv1) | **Put** /1/object/authenticationexternal/{pkiAuthenticationexternalID} | Edit an existing Authenticationexternal
@@ -119,6 +126,10 @@ Class | Method | HTTP request | Description
 *ObjectBankaccountAPI* | [**BankaccountBatchDownloadV1**](docs/ObjectBankaccountAPI.md#bankaccountbatchdownloadv1) | **Post** /1/object/bankaccount/{pkiBankaccountID}/batchDownload | Download multiples attachments from a Bankaccount
 *ObjectBankaccountAPI* | [**BankaccountGetAttachmentsV1**](docs/ObjectBankaccountAPI.md#bankaccountgetattachmentsv1) | **Get** /1/object/bankaccount/{pkiBankaccountID}/getAttachments | Retrieve Bankaccount&#39;s attachments
 *ObjectBankaccountAPI* | [**BankaccountGetAutocompleteV2**](docs/ObjectBankaccountAPI.md#bankaccountgetautocompletev2) | **Get** /2/object/bankaccount/getAutocomplete/{sSelector} | Retrieve Bankaccounts and IDs
+*ObjectBankaccountAPI* | [**BankaccountGetCommunicationCountV1**](docs/ObjectBankaccountAPI.md#bankaccountgetcommunicationcountv1) | **Get** /1/object/bankaccount/{pkiBankaccountID}/getCommunicationCount | Retrieve Communication count
+*ObjectBankaccountAPI* | [**BankaccountGetCommunicationListV1**](docs/ObjectBankaccountAPI.md#bankaccountgetcommunicationlistv1) | **Get** /1/object/bankaccount/{pkiBankaccountID}/getCommunicationList | Retrieve Communication list
+*ObjectBankaccountAPI* | [**BankaccountGetCommunicationrecipientsV1**](docs/ObjectBankaccountAPI.md#bankaccountgetcommunicationrecipientsv1) | **Get** /1/object/bankaccount/{pkiBankaccountID}/getCommunicationrecipients | Retrieve Communication recipients
+*ObjectBankaccountAPI* | [**BankaccountGetCommunicationsendersV1**](docs/ObjectBankaccountAPI.md#bankaccountgetcommunicationsendersv1) | **Get** /1/object/bankaccount/{pkiBankaccountID}/getCommunicationsenders | Retrieve Communication senders
 *ObjectBankaccountAPI* | [**BankaccountImportIntoEDMV1**](docs/ObjectBankaccountAPI.md#bankaccountimportintoedmv1) | **Post** /1/object/bankaccount/{pkiBankaccountID}/importIntoEDM | Import attachments into the Bankaccount
 *ObjectBillingentityexternalAPI* | [**BillingentityexternalGenerateFederationTokenV1**](docs/ObjectBillingentityexternalAPI.md#billingentityexternalgeneratefederationtokenv1) | **Post** /1/object/billingentityexternal/{pkiBillingentityexternalID}/generateFederationToken | Generate a federation token
 *ObjectBillingentityexternalAPI* | [**BillingentityexternalGetAutocompleteV2**](docs/ObjectBillingentityexternalAPI.md#billingentityexternalgetautocompletev2) | **Get** /2/object/billingentityexternal/getAutocomplete/{sSelector} | Retrieve Billingentityexternals and IDs
@@ -135,6 +146,10 @@ Class | Method | HTTP request | Description
 *ObjectBrokerAPI* | [**BrokerBatchDownloadV1**](docs/ObjectBrokerAPI.md#brokerbatchdownloadv1) | **Post** /1/object/broker/{pkiBrokerID}/batchDownload | Download multiples attachments from a Broker
 *ObjectBrokerAPI* | [**BrokerGetAttachmentsV1**](docs/ObjectBrokerAPI.md#brokergetattachmentsv1) | **Get** /1/object/broker/{pkiBrokerID}/getAttachments | Retrieve Broker&#39;s attachments
 *ObjectBrokerAPI* | [**BrokerGetAutocompleteV2**](docs/ObjectBrokerAPI.md#brokergetautocompletev2) | **Get** /2/object/broker/getAutocomplete/{sSelector} | Retrieve Brokers and IDs
+*ObjectBrokerAPI* | [**BrokerGetCommunicationCountV1**](docs/ObjectBrokerAPI.md#brokergetcommunicationcountv1) | **Get** /1/object/broker/{pkiBrokerID}/getCommunicationCount | Retrieve Communication count
+*ObjectBrokerAPI* | [**BrokerGetCommunicationListV1**](docs/ObjectBrokerAPI.md#brokergetcommunicationlistv1) | **Get** /1/object/broker/{pkiBrokerID}/getCommunicationList | Retrieve Communication list
+*ObjectBrokerAPI* | [**BrokerGetCommunicationrecipientsV1**](docs/ObjectBrokerAPI.md#brokergetcommunicationrecipientsv1) | **Get** /1/object/broker/{pkiBrokerID}/getCommunicationrecipients | Retrieve Communication recipients
+*ObjectBrokerAPI* | [**BrokerGetCommunicationsendersV1**](docs/ObjectBrokerAPI.md#brokergetcommunicationsendersv1) | **Get** /1/object/broker/{pkiBrokerID}/getCommunicationsenders | Retrieve Communication senders
 *ObjectBrokerAPI* | [**BrokerGetListV1**](docs/ObjectBrokerAPI.md#brokergetlistv1) | **Get** /1/object/broker/getList | Retrieve Broker list
 *ObjectBrokerAPI* | [**BrokerImportIntoEDMV1**](docs/ObjectBrokerAPI.md#brokerimportintoedmv1) | **Post** /1/object/broker/{pkiBrokerID}/importIntoEDM | Import attachments into the Broker
 *ObjectBrokertypeAPI* | [**BrokertypeGetAutocompleteV2**](docs/ObjectBrokertypeAPI.md#brokertypegetautocompletev2) | **Get** /2/object/brokertype/getAutocomplete/{sSelector} | Retrieve Brokertypes and IDs
@@ -149,6 +164,10 @@ Class | Method | HTTP request | Description
 *ObjectClonehistoryAPI* | [**ClonehistoryGetListV1**](docs/ObjectClonehistoryAPI.md#clonehistorygetlistv1) | **Get** /1/object/clonehistory/getList | Retrieve Clonehistory list
 *ObjectCommissionadvanceAPI* | [**CommissionadvanceBatchDownloadV1**](docs/ObjectCommissionadvanceAPI.md#commissionadvancebatchdownloadv1) | **Post** /1/object/commissionadvance/{pkiCommissionadvanceID}/batchDownload | Download multiples attachments from a Commission advance
 *ObjectCommissionadvanceAPI* | [**CommissionadvanceGetAttachmentsV1**](docs/ObjectCommissionadvanceAPI.md#commissionadvancegetattachmentsv1) | **Get** /1/object/commissionadvance/{pkiCommissionadvanceID}/getAttachments | Retrieve Commissionadvance&#39;s attachments
+*ObjectCommissionadvanceAPI* | [**CommissionadvanceGetCommunicationCountV1**](docs/ObjectCommissionadvanceAPI.md#commissionadvancegetcommunicationcountv1) | **Get** /1/object/commissionadvance/{pkiCommissionadvanceID}/getCommunicationCount | Retrieve Communication count
+*ObjectCommissionadvanceAPI* | [**CommissionadvanceGetCommunicationListV1**](docs/ObjectCommissionadvanceAPI.md#commissionadvancegetcommunicationlistv1) | **Get** /1/object/commissionadvance/{pkiCommissionadvanceID}/getCommunicationList | Retrieve Communication list
+*ObjectCommissionadvanceAPI* | [**CommissionadvanceGetCommunicationrecipientsV1**](docs/ObjectCommissionadvanceAPI.md#commissionadvancegetcommunicationrecipientsv1) | **Get** /1/object/commissionadvance/{pkiCommissionadvanceID}/getCommunicationrecipients | Retrieve Communication recipients
+*ObjectCommissionadvanceAPI* | [**CommissionadvanceGetCommunicationsendersV1**](docs/ObjectCommissionadvanceAPI.md#commissionadvancegetcommunicationsendersv1) | **Get** /1/object/commissionadvance/{pkiCommissionadvanceID}/getCommunicationsenders | Retrieve Communication senders
 *ObjectCommissionadvanceAPI* | [**CommissionadvanceImportIntoEDMV1**](docs/ObjectCommissionadvanceAPI.md#commissionadvanceimportintoedmv1) | **Post** /1/object/commissionadvance/{pkiCommissionadvanceID}/importIntoEDM | Import attachments into the Commissionadvance
 *ObjectCommunicationAPI* | [**CommunicationGetCommunicationBodyV1**](docs/ObjectCommunicationAPI.md#communicationgetcommunicationbodyv1) | **Get** /1/object/communication/{pkiCommunicationID}/getCommunicationBody | Retrieve the communication body
 *ObjectCommunicationAPI* | [**CommunicationSendV1**](docs/ObjectCommunicationAPI.md#communicationsendv1) | **Post** /1/object/communication/send | Send a new Communication
@@ -174,17 +193,33 @@ Class | Method | HTTP request | Description
 *ObjectCustomerAPI* | [**CustomerBatchDownloadV1**](docs/ObjectCustomerAPI.md#customerbatchdownloadv1) | **Post** /1/object/customer/{pkiCustomerID}/batchDownload | Download multiples attachments from a Customer
 *ObjectCustomerAPI* | [**CustomerGetAttachmentsV1**](docs/ObjectCustomerAPI.md#customergetattachmentsv1) | **Get** /1/object/customer/{pkiCustomerID}/getAttachments | Retrieve Customer&#39;s attachments
 *ObjectCustomerAPI* | [**CustomerGetAutocompleteV2**](docs/ObjectCustomerAPI.md#customergetautocompletev2) | **Get** /2/object/customer/getAutocomplete/{sSelector} | Retrieve Customers and IDs
+*ObjectCustomerAPI* | [**CustomerGetCommunicationCountV1**](docs/ObjectCustomerAPI.md#customergetcommunicationcountv1) | **Get** /1/object/customer/{pkiCustomerID}/getCommunicationCount | Retrieve Communication count
+*ObjectCustomerAPI* | [**CustomerGetCommunicationListV1**](docs/ObjectCustomerAPI.md#customergetcommunicationlistv1) | **Get** /1/object/customer/{pkiCustomerID}/getCommunicationList | Retrieve Communication list
+*ObjectCustomerAPI* | [**CustomerGetCommunicationrecipientsV1**](docs/ObjectCustomerAPI.md#customergetcommunicationrecipientsv1) | **Get** /1/object/customer/{pkiCustomerID}/getCommunicationrecipients | Retrieve Communication recipients
+*ObjectCustomerAPI* | [**CustomerGetCommunicationsendersV1**](docs/ObjectCustomerAPI.md#customergetcommunicationsendersv1) | **Get** /1/object/customer/{pkiCustomerID}/getCommunicationsenders | Retrieve Communication senders
 *ObjectCustomerAPI* | [**CustomerGetObjectV2**](docs/ObjectCustomerAPI.md#customergetobjectv2) | **Get** /2/object/customer/{pkiCustomerID} | Retrieve an existing Customer
 *ObjectCustomerAPI* | [**CustomerImportIntoEDMV1**](docs/ObjectCustomerAPI.md#customerimportintoedmv1) | **Post** /1/object/customer/{pkiCustomerID}/importIntoEDM | Import attachments into the Customer
 *ObjectDepartmentAPI* | [**DepartmentGetAutocompleteV2**](docs/ObjectDepartmentAPI.md#departmentgetautocompletev2) | **Get** /2/object/department/getAutocomplete/{sSelector} | Retrieve Departments and IDs
 *ObjectDepositAPI* | [**DepositBatchDownloadV1**](docs/ObjectDepositAPI.md#depositbatchdownloadv1) | **Post** /1/object/deposit/{pkiDepositID}/batchDownload | Download multiples attachments from a Deposit
 *ObjectDepositAPI* | [**DepositGetAttachmentsV1**](docs/ObjectDepositAPI.md#depositgetattachmentsv1) | **Get** /1/object/deposit/{pkiDepositID}/getAttachments | Retrieve Deposit&#39;s attachments
+*ObjectDepositAPI* | [**DepositGetCommunicationCountV1**](docs/ObjectDepositAPI.md#depositgetcommunicationcountv1) | **Get** /1/object/deposit/{pkiDepositID}/getCommunicationCount | Retrieve Communication count
+*ObjectDepositAPI* | [**DepositGetCommunicationListV1**](docs/ObjectDepositAPI.md#depositgetcommunicationlistv1) | **Get** /1/object/deposit/{pkiDepositID}/getCommunicationList | Retrieve Communication list
+*ObjectDepositAPI* | [**DepositGetCommunicationrecipientsV1**](docs/ObjectDepositAPI.md#depositgetcommunicationrecipientsv1) | **Get** /1/object/deposit/{pkiDepositID}/getCommunicationrecipients | Retrieve Communication recipients
+*ObjectDepositAPI* | [**DepositGetCommunicationsendersV1**](docs/ObjectDepositAPI.md#depositgetcommunicationsendersv1) | **Get** /1/object/deposit/{pkiDepositID}/getCommunicationsenders | Retrieve Communication senders
 *ObjectDepositAPI* | [**DepositImportIntoEDMV1**](docs/ObjectDepositAPI.md#depositimportintoedmv1) | **Post** /1/object/deposit/{pkiDepositID}/importIntoEDM | Import attachments into the Deposit
 *ObjectDeposittransitchequeAPI* | [**DeposittransitchequeBatchDownloadV1**](docs/ObjectDeposittransitchequeAPI.md#deposittransitchequebatchdownloadv1) | **Post** /1/object/deposittransitcheque/{pkiDeposittransitchequeID}/batchDownload | Download multiples attachments from a Deposittransitcheque
 *ObjectDeposittransitchequeAPI* | [**DeposittransitchequeGetAttachmentsV1**](docs/ObjectDeposittransitchequeAPI.md#deposittransitchequegetattachmentsv1) | **Get** /1/object/deposittransitcheque/{pkiDeposittransitchequeID}/getAttachments | Retrieve Deposittransitcheque&#39;s attachments
+*ObjectDeposittransitchequeAPI* | [**DeposittransitchequeGetCommunicationCountV1**](docs/ObjectDeposittransitchequeAPI.md#deposittransitchequegetcommunicationcountv1) | **Get** /1/object/deposittransitcheque/{pkiDeposittransitchequeID}/getCommunicationCount | Retrieve Communication count
+*ObjectDeposittransitchequeAPI* | [**DeposittransitchequeGetCommunicationListV1**](docs/ObjectDeposittransitchequeAPI.md#deposittransitchequegetcommunicationlistv1) | **Get** /1/object/deposittransitcheque/{pkiDeposittransitchequeID}/getCommunicationList | Retrieve Communication list
+*ObjectDeposittransitchequeAPI* | [**DeposittransitchequeGetCommunicationrecipientsV1**](docs/ObjectDeposittransitchequeAPI.md#deposittransitchequegetcommunicationrecipientsv1) | **Get** /1/object/deposittransitcheque/{pkiDeposittransitchequeID}/getCommunicationrecipients | Retrieve Communication recipients
+*ObjectDeposittransitchequeAPI* | [**DeposittransitchequeGetCommunicationsendersV1**](docs/ObjectDeposittransitchequeAPI.md#deposittransitchequegetcommunicationsendersv1) | **Get** /1/object/deposittransitcheque/{pkiDeposittransitchequeID}/getCommunicationsenders | Retrieve Communication senders
 *ObjectDeposittransitchequeAPI* | [**DeposittransitchequeImportIntoEDMV1**](docs/ObjectDeposittransitchequeAPI.md#deposittransitchequeimportintoedmv1) | **Post** /1/object/deposittransitcheque/{pkiDeposittransitchequeID}/importIntoEDM | Import attachments into the Deposittransitcheque
 *ObjectDisclosureAPI* | [**DisclosureBatchDownloadV1**](docs/ObjectDisclosureAPI.md#disclosurebatchdownloadv1) | **Post** /1/object/disclosure/{pkiDisclosureID}/batchDownload | Download multiples attachments from a Disclosure
 *ObjectDisclosureAPI* | [**DisclosureGetAttachmentsV1**](docs/ObjectDisclosureAPI.md#disclosuregetattachmentsv1) | **Get** /1/object/disclosure/{pkiDisclosureID}/getAttachments | Retrieve Disclosure&#39;s attachments
+*ObjectDisclosureAPI* | [**DisclosureGetCommunicationCountV1**](docs/ObjectDisclosureAPI.md#disclosuregetcommunicationcountv1) | **Get** /1/object/disclosure/{pkiDisclosureID}/getCommunicationCount | Retrieve Communication count
+*ObjectDisclosureAPI* | [**DisclosureGetCommunicationListV1**](docs/ObjectDisclosureAPI.md#disclosuregetcommunicationlistv1) | **Get** /1/object/disclosure/{pkiDisclosureID}/getCommunicationList | Retrieve Communication list
+*ObjectDisclosureAPI* | [**DisclosureGetCommunicationrecipientsV1**](docs/ObjectDisclosureAPI.md#disclosuregetcommunicationrecipientsv1) | **Get** /1/object/disclosure/{pkiDisclosureID}/getCommunicationrecipients | Retrieve Communication recipients
+*ObjectDisclosureAPI* | [**DisclosureGetCommunicationsendersV1**](docs/ObjectDisclosureAPI.md#disclosuregetcommunicationsendersv1) | **Get** /1/object/disclosure/{pkiDisclosureID}/getCommunicationsenders | Retrieve Communication senders
 *ObjectDisclosureAPI* | [**DisclosureImportIntoEDMV1**](docs/ObjectDisclosureAPI.md#disclosureimportintoedmv1) | **Post** /1/object/disclosure/{pkiDisclosureID}/importIntoEDM | Import attachments into the Disclosure
 *ObjectDiscussionAPI* | [**DiscussionChatV1**](docs/ObjectDiscussionAPI.md#discussionchatv1) | **Post** /1/object/discussion/chat | Have a Discussion with the AI Chatbot
 *ObjectDiscussionAPI* | [**DiscussionCreateObjectV1**](docs/ObjectDiscussionAPI.md#discussioncreateobjectv1) | **Post** /1/object/discussion | Create a new Discussion
@@ -212,10 +247,18 @@ Class | Method | HTTP request | Description
 *ObjectEmailtypeAPI* | [**EmailtypeGetAutocompleteV2**](docs/ObjectEmailtypeAPI.md#emailtypegetautocompletev2) | **Get** /2/object/emailtype/getAutocomplete/{sSelector} | Retrieve Emailtypes and IDs
 *ObjectEmployeeAPI* | [**EmployeeBatchDownloadV1**](docs/ObjectEmployeeAPI.md#employeebatchdownloadv1) | **Post** /1/object/employee/{pkiEmployeeID}/batchDownload | Download multiples attachments from a Employee
 *ObjectEmployeeAPI* | [**EmployeeGetAttachmentsV1**](docs/ObjectEmployeeAPI.md#employeegetattachmentsv1) | **Get** /1/object/employee/{pkiEmployeeID}/getAttachments | Retrieve Employee&#39;s attachments
+*ObjectEmployeeAPI* | [**EmployeeGetCommunicationCountV1**](docs/ObjectEmployeeAPI.md#employeegetcommunicationcountv1) | **Get** /1/object/employee/{pkiEmployeeID}/getCommunicationCount | Retrieve Communication count
+*ObjectEmployeeAPI* | [**EmployeeGetCommunicationListV1**](docs/ObjectEmployeeAPI.md#employeegetcommunicationlistv1) | **Get** /1/object/employee/{pkiEmployeeID}/getCommunicationList | Retrieve Communication list
+*ObjectEmployeeAPI* | [**EmployeeGetCommunicationrecipientsV1**](docs/ObjectEmployeeAPI.md#employeegetcommunicationrecipientsv1) | **Get** /1/object/employee/{pkiEmployeeID}/getCommunicationrecipients | Retrieve Communication recipients
+*ObjectEmployeeAPI* | [**EmployeeGetCommunicationsendersV1**](docs/ObjectEmployeeAPI.md#employeegetcommunicationsendersv1) | **Get** /1/object/employee/{pkiEmployeeID}/getCommunicationsenders | Retrieve Communication senders
 *ObjectEmployeeAPI* | [**EmployeeGetListV1**](docs/ObjectEmployeeAPI.md#employeegetlistv1) | **Get** /1/object/employee/getList | Retrieve Employee list
 *ObjectEmployeeAPI* | [**EmployeeImportIntoEDMV1**](docs/ObjectEmployeeAPI.md#employeeimportintoedmv1) | **Post** /1/object/employee/{pkiEmployeeID}/importIntoEDM | Import attachments into the Employee
 *ObjectExternalbrokerAPI* | [**ExternalbrokerBatchDownloadV1**](docs/ObjectExternalbrokerAPI.md#externalbrokerbatchdownloadv1) | **Post** /1/object/externalbroker/{pkiExternalbrokerID}/batchDownload | Download multiples attachments from an Externalbroker
 *ObjectExternalbrokerAPI* | [**ExternalbrokerGetAttachmentsV1**](docs/ObjectExternalbrokerAPI.md#externalbrokergetattachmentsv1) | **Get** /1/object/externalbroker/{pkiExternalbrokerID}/getAttachments | Retrieve Externalbroker&#39;s attachments
+*ObjectExternalbrokerAPI* | [**ExternalbrokerGetCommunicationCountV1**](docs/ObjectExternalbrokerAPI.md#externalbrokergetcommunicationcountv1) | **Get** /1/object/externalbroker/{pkiExternalbrokerID}/getCommunicationCount | Retrieve Communication count
+*ObjectExternalbrokerAPI* | [**ExternalbrokerGetCommunicationListV1**](docs/ObjectExternalbrokerAPI.md#externalbrokergetcommunicationlistv1) | **Get** /1/object/externalbroker/{pkiExternalbrokerID}/getCommunicationList | Retrieve Communication list
+*ObjectExternalbrokerAPI* | [**ExternalbrokerGetCommunicationrecipientsV1**](docs/ObjectExternalbrokerAPI.md#externalbrokergetcommunicationrecipientsv1) | **Get** /1/object/externalbroker/{pkiExternalbrokerID}/getCommunicationrecipients | Retrieve Communication recipients
+*ObjectExternalbrokerAPI* | [**ExternalbrokerGetCommunicationsendersV1**](docs/ObjectExternalbrokerAPI.md#externalbrokergetcommunicationsendersv1) | **Get** /1/object/externalbroker/{pkiExternalbrokerID}/getCommunicationsenders | Retrieve Communication senders
 *ObjectExternalbrokerAPI* | [**ExternalbrokerImportIntoEDMV1**](docs/ObjectExternalbrokerAPI.md#externalbrokerimportintoedmv1) | **Post** /1/object/externalbroker/{pkiExternalbrokerID}/importIntoEDM | Import attachments into the Externalbroker
 *ObjectEzdoctemplatedocumentAPI* | [**EzdoctemplatedocumentCreateObjectV1**](docs/ObjectEzdoctemplatedocumentAPI.md#ezdoctemplatedocumentcreateobjectv1) | **Post** /1/object/ezdoctemplatedocument | Create a new Ezdoctemplatedocument
 *ObjectEzdoctemplatedocumentAPI* | [**EzdoctemplatedocumentDownloadV1**](docs/ObjectEzdoctemplatedocumentAPI.md#ezdoctemplatedocumentdownloadv1) | **Get** /1/object/ezdoctemplatedocument/{pkiEzdoctemplatedocumentID}/download | Retrieve the content
@@ -770,6 +813,14 @@ Class | Method | HTTP request | Description
  - [AgentGetAttachmentsV1ResponseMPayload](docs/AgentGetAttachmentsV1ResponseMPayload.md)
  - [AgentGetAutocompleteV2Response](docs/AgentGetAutocompleteV2Response.md)
  - [AgentGetAutocompleteV2ResponseMPayload](docs/AgentGetAutocompleteV2ResponseMPayload.md)
+ - [AgentGetCommunicationCountV1Response](docs/AgentGetCommunicationCountV1Response.md)
+ - [AgentGetCommunicationCountV1ResponseMPayload](docs/AgentGetCommunicationCountV1ResponseMPayload.md)
+ - [AgentGetCommunicationListV1Response](docs/AgentGetCommunicationListV1Response.md)
+ - [AgentGetCommunicationListV1ResponseMPayload](docs/AgentGetCommunicationListV1ResponseMPayload.md)
+ - [AgentGetCommunicationrecipientsV1Response](docs/AgentGetCommunicationrecipientsV1Response.md)
+ - [AgentGetCommunicationrecipientsV1ResponseMPayload](docs/AgentGetCommunicationrecipientsV1ResponseMPayload.md)
+ - [AgentGetCommunicationsendersV1Response](docs/AgentGetCommunicationsendersV1Response.md)
+ - [AgentGetCommunicationsendersV1ResponseMPayload](docs/AgentGetCommunicationsendersV1ResponseMPayload.md)
  - [AgentGetListV1Response](docs/AgentGetListV1Response.md)
  - [AgentGetListV1ResponseMPayload](docs/AgentGetListV1ResponseMPayload.md)
  - [AgentImportIntoEDMV1Request](docs/AgentImportIntoEDMV1Request.md)
@@ -808,6 +859,8 @@ Class | Method | HTTP request | Description
  - [ApikeyRequestCompound](docs/ApikeyRequestCompound.md)
  - [ApikeyResponse](docs/ApikeyResponse.md)
  - [ApikeyResponseCompound](docs/ApikeyResponseCompound.md)
+ - [AttachmentDeleteV1Response](docs/AttachmentDeleteV1Response.md)
+ - [AttachmentDeleteV1ResponseMPayload](docs/AttachmentDeleteV1ResponseMPayload.md)
  - [AttachmentGetAttachmentlogsV1Response](docs/AttachmentGetAttachmentlogsV1Response.md)
  - [AttachmentGetAttachmentlogsV1ResponseMPayload](docs/AttachmentGetAttachmentlogsV1ResponseMPayload.md)
  - [AttachmentRenameV1Request](docs/AttachmentRenameV1Request.md)
@@ -815,6 +868,12 @@ Class | Method | HTTP request | Description
  - [AttachmentRenameV1ResponseMPayload](docs/AttachmentRenameV1ResponseMPayload.md)
  - [AttachmentResponse](docs/AttachmentResponse.md)
  - [AttachmentResponseCompound](docs/AttachmentResponseCompound.md)
+ - [AttachmentRestoreV1Request](docs/AttachmentRestoreV1Request.md)
+ - [AttachmentRestoreV1Response](docs/AttachmentRestoreV1Response.md)
+ - [AttachmentRestoreV1ResponseMPayload](docs/AttachmentRestoreV1ResponseMPayload.md)
+ - [AttachmentValidateV1Request](docs/AttachmentValidateV1Request.md)
+ - [AttachmentValidateV1Response](docs/AttachmentValidateV1Response.md)
+ - [AttachmentValidateV1ResponseMPayload](docs/AttachmentValidateV1ResponseMPayload.md)
  - [AttachmentlogResponse](docs/AttachmentlogResponse.md)
  - [AttachmentlogResponseCompound](docs/AttachmentlogResponseCompound.md)
  - [AttemptResponse](docs/AttemptResponse.md)
@@ -844,6 +903,14 @@ Class | Method | HTTP request | Description
  - [BankaccountGetAttachmentsV1ResponseMPayload](docs/BankaccountGetAttachmentsV1ResponseMPayload.md)
  - [BankaccountGetAutocompleteV2Response](docs/BankaccountGetAutocompleteV2Response.md)
  - [BankaccountGetAutocompleteV2ResponseMPayload](docs/BankaccountGetAutocompleteV2ResponseMPayload.md)
+ - [BankaccountGetCommunicationCountV1Response](docs/BankaccountGetCommunicationCountV1Response.md)
+ - [BankaccountGetCommunicationCountV1ResponseMPayload](docs/BankaccountGetCommunicationCountV1ResponseMPayload.md)
+ - [BankaccountGetCommunicationListV1Response](docs/BankaccountGetCommunicationListV1Response.md)
+ - [BankaccountGetCommunicationListV1ResponseMPayload](docs/BankaccountGetCommunicationListV1ResponseMPayload.md)
+ - [BankaccountGetCommunicationrecipientsV1Response](docs/BankaccountGetCommunicationrecipientsV1Response.md)
+ - [BankaccountGetCommunicationrecipientsV1ResponseMPayload](docs/BankaccountGetCommunicationrecipientsV1ResponseMPayload.md)
+ - [BankaccountGetCommunicationsendersV1Response](docs/BankaccountGetCommunicationsendersV1Response.md)
+ - [BankaccountGetCommunicationsendersV1ResponseMPayload](docs/BankaccountGetCommunicationsendersV1ResponseMPayload.md)
  - [BankaccountImportIntoEDMV1Request](docs/BankaccountImportIntoEDMV1Request.md)
  - [BankaccountImportIntoEDMV1Response](docs/BankaccountImportIntoEDMV1Response.md)
  - [BankaccountImportIntoEDMV1ResponseMPayload](docs/BankaccountImportIntoEDMV1ResponseMPayload.md)
@@ -897,6 +964,14 @@ Class | Method | HTTP request | Description
  - [BrokerGetAttachmentsV1ResponseMPayload](docs/BrokerGetAttachmentsV1ResponseMPayload.md)
  - [BrokerGetAutocompleteV2Response](docs/BrokerGetAutocompleteV2Response.md)
  - [BrokerGetAutocompleteV2ResponseMPayload](docs/BrokerGetAutocompleteV2ResponseMPayload.md)
+ - [BrokerGetCommunicationCountV1Response](docs/BrokerGetCommunicationCountV1Response.md)
+ - [BrokerGetCommunicationCountV1ResponseMPayload](docs/BrokerGetCommunicationCountV1ResponseMPayload.md)
+ - [BrokerGetCommunicationListV1Response](docs/BrokerGetCommunicationListV1Response.md)
+ - [BrokerGetCommunicationListV1ResponseMPayload](docs/BrokerGetCommunicationListV1ResponseMPayload.md)
+ - [BrokerGetCommunicationrecipientsV1Response](docs/BrokerGetCommunicationrecipientsV1Response.md)
+ - [BrokerGetCommunicationrecipientsV1ResponseMPayload](docs/BrokerGetCommunicationrecipientsV1ResponseMPayload.md)
+ - [BrokerGetCommunicationsendersV1Response](docs/BrokerGetCommunicationsendersV1Response.md)
+ - [BrokerGetCommunicationsendersV1ResponseMPayload](docs/BrokerGetCommunicationsendersV1ResponseMPayload.md)
  - [BrokerGetListV1Response](docs/BrokerGetListV1Response.md)
  - [BrokerGetListV1ResponseMPayload](docs/BrokerGetListV1ResponseMPayload.md)
  - [BrokerImportIntoEDMV1Request](docs/BrokerImportIntoEDMV1Request.md)
@@ -934,6 +1009,14 @@ Class | Method | HTTP request | Description
  - [CommissionadvanceBatchDownloadV1Request](docs/CommissionadvanceBatchDownloadV1Request.md)
  - [CommissionadvanceGetAttachmentsV1Response](docs/CommissionadvanceGetAttachmentsV1Response.md)
  - [CommissionadvanceGetAttachmentsV1ResponseMPayload](docs/CommissionadvanceGetAttachmentsV1ResponseMPayload.md)
+ - [CommissionadvanceGetCommunicationCountV1Response](docs/CommissionadvanceGetCommunicationCountV1Response.md)
+ - [CommissionadvanceGetCommunicationCountV1ResponseMPayload](docs/CommissionadvanceGetCommunicationCountV1ResponseMPayload.md)
+ - [CommissionadvanceGetCommunicationListV1Response](docs/CommissionadvanceGetCommunicationListV1Response.md)
+ - [CommissionadvanceGetCommunicationListV1ResponseMPayload](docs/CommissionadvanceGetCommunicationListV1ResponseMPayload.md)
+ - [CommissionadvanceGetCommunicationrecipientsV1Response](docs/CommissionadvanceGetCommunicationrecipientsV1Response.md)
+ - [CommissionadvanceGetCommunicationrecipientsV1ResponseMPayload](docs/CommissionadvanceGetCommunicationrecipientsV1ResponseMPayload.md)
+ - [CommissionadvanceGetCommunicationsendersV1Response](docs/CommissionadvanceGetCommunicationsendersV1Response.md)
+ - [CommissionadvanceGetCommunicationsendersV1ResponseMPayload](docs/CommissionadvanceGetCommunicationsendersV1ResponseMPayload.md)
  - [CommissionadvanceImportIntoEDMV1Request](docs/CommissionadvanceImportIntoEDMV1Request.md)
  - [CommissionadvanceImportIntoEDMV1Response](docs/CommissionadvanceImportIntoEDMV1Response.md)
  - [CommissionadvanceImportIntoEDMV1ResponseMPayload](docs/CommissionadvanceImportIntoEDMV1ResponseMPayload.md)
@@ -1145,6 +1228,14 @@ Class | Method | HTTP request | Description
  - [CustomerGetAttachmentsV1ResponseMPayload](docs/CustomerGetAttachmentsV1ResponseMPayload.md)
  - [CustomerGetAutocompleteV2Response](docs/CustomerGetAutocompleteV2Response.md)
  - [CustomerGetAutocompleteV2ResponseMPayload](docs/CustomerGetAutocompleteV2ResponseMPayload.md)
+ - [CustomerGetCommunicationCountV1Response](docs/CustomerGetCommunicationCountV1Response.md)
+ - [CustomerGetCommunicationCountV1ResponseMPayload](docs/CustomerGetCommunicationCountV1ResponseMPayload.md)
+ - [CustomerGetCommunicationListV1Response](docs/CustomerGetCommunicationListV1Response.md)
+ - [CustomerGetCommunicationListV1ResponseMPayload](docs/CustomerGetCommunicationListV1ResponseMPayload.md)
+ - [CustomerGetCommunicationrecipientsV1Response](docs/CustomerGetCommunicationrecipientsV1Response.md)
+ - [CustomerGetCommunicationrecipientsV1ResponseMPayload](docs/CustomerGetCommunicationrecipientsV1ResponseMPayload.md)
+ - [CustomerGetCommunicationsendersV1Response](docs/CustomerGetCommunicationsendersV1Response.md)
+ - [CustomerGetCommunicationsendersV1ResponseMPayload](docs/CustomerGetCommunicationsendersV1ResponseMPayload.md)
  - [CustomerGetObjectV2Response](docs/CustomerGetObjectV2Response.md)
  - [CustomerGetObjectV2ResponseMPayload](docs/CustomerGetObjectV2ResponseMPayload.md)
  - [CustomerImportIntoEDMV1Request](docs/CustomerImportIntoEDMV1Request.md)
@@ -1158,18 +1249,42 @@ Class | Method | HTTP request | Description
  - [DepositBatchDownloadV1Request](docs/DepositBatchDownloadV1Request.md)
  - [DepositGetAttachmentsV1Response](docs/DepositGetAttachmentsV1Response.md)
  - [DepositGetAttachmentsV1ResponseMPayload](docs/DepositGetAttachmentsV1ResponseMPayload.md)
+ - [DepositGetCommunicationCountV1Response](docs/DepositGetCommunicationCountV1Response.md)
+ - [DepositGetCommunicationCountV1ResponseMPayload](docs/DepositGetCommunicationCountV1ResponseMPayload.md)
+ - [DepositGetCommunicationListV1Response](docs/DepositGetCommunicationListV1Response.md)
+ - [DepositGetCommunicationListV1ResponseMPayload](docs/DepositGetCommunicationListV1ResponseMPayload.md)
+ - [DepositGetCommunicationrecipientsV1Response](docs/DepositGetCommunicationrecipientsV1Response.md)
+ - [DepositGetCommunicationrecipientsV1ResponseMPayload](docs/DepositGetCommunicationrecipientsV1ResponseMPayload.md)
+ - [DepositGetCommunicationsendersV1Response](docs/DepositGetCommunicationsendersV1Response.md)
+ - [DepositGetCommunicationsendersV1ResponseMPayload](docs/DepositGetCommunicationsendersV1ResponseMPayload.md)
  - [DepositImportIntoEDMV1Request](docs/DepositImportIntoEDMV1Request.md)
  - [DepositImportIntoEDMV1Response](docs/DepositImportIntoEDMV1Response.md)
  - [DepositImportIntoEDMV1ResponseMPayload](docs/DepositImportIntoEDMV1ResponseMPayload.md)
  - [DeposittransitchequeBatchDownloadV1Request](docs/DeposittransitchequeBatchDownloadV1Request.md)
  - [DeposittransitchequeGetAttachmentsV1Response](docs/DeposittransitchequeGetAttachmentsV1Response.md)
  - [DeposittransitchequeGetAttachmentsV1ResponseMPayload](docs/DeposittransitchequeGetAttachmentsV1ResponseMPayload.md)
+ - [DeposittransitchequeGetCommunicationCountV1Response](docs/DeposittransitchequeGetCommunicationCountV1Response.md)
+ - [DeposittransitchequeGetCommunicationCountV1ResponseMPayload](docs/DeposittransitchequeGetCommunicationCountV1ResponseMPayload.md)
+ - [DeposittransitchequeGetCommunicationListV1Response](docs/DeposittransitchequeGetCommunicationListV1Response.md)
+ - [DeposittransitchequeGetCommunicationListV1ResponseMPayload](docs/DeposittransitchequeGetCommunicationListV1ResponseMPayload.md)
+ - [DeposittransitchequeGetCommunicationrecipientsV1Response](docs/DeposittransitchequeGetCommunicationrecipientsV1Response.md)
+ - [DeposittransitchequeGetCommunicationrecipientsV1ResponseMPayload](docs/DeposittransitchequeGetCommunicationrecipientsV1ResponseMPayload.md)
+ - [DeposittransitchequeGetCommunicationsendersV1Response](docs/DeposittransitchequeGetCommunicationsendersV1Response.md)
+ - [DeposittransitchequeGetCommunicationsendersV1ResponseMPayload](docs/DeposittransitchequeGetCommunicationsendersV1ResponseMPayload.md)
  - [DeposittransitchequeImportIntoEDMV1Request](docs/DeposittransitchequeImportIntoEDMV1Request.md)
  - [DeposittransitchequeImportIntoEDMV1Response](docs/DeposittransitchequeImportIntoEDMV1Response.md)
  - [DeposittransitchequeImportIntoEDMV1ResponseMPayload](docs/DeposittransitchequeImportIntoEDMV1ResponseMPayload.md)
  - [DisclosureBatchDownloadV1Request](docs/DisclosureBatchDownloadV1Request.md)
  - [DisclosureGetAttachmentsV1Response](docs/DisclosureGetAttachmentsV1Response.md)
  - [DisclosureGetAttachmentsV1ResponseMPayload](docs/DisclosureGetAttachmentsV1ResponseMPayload.md)
+ - [DisclosureGetCommunicationCountV1Response](docs/DisclosureGetCommunicationCountV1Response.md)
+ - [DisclosureGetCommunicationCountV1ResponseMPayload](docs/DisclosureGetCommunicationCountV1ResponseMPayload.md)
+ - [DisclosureGetCommunicationListV1Response](docs/DisclosureGetCommunicationListV1Response.md)
+ - [DisclosureGetCommunicationListV1ResponseMPayload](docs/DisclosureGetCommunicationListV1ResponseMPayload.md)
+ - [DisclosureGetCommunicationrecipientsV1Response](docs/DisclosureGetCommunicationrecipientsV1Response.md)
+ - [DisclosureGetCommunicationrecipientsV1ResponseMPayload](docs/DisclosureGetCommunicationrecipientsV1ResponseMPayload.md)
+ - [DisclosureGetCommunicationsendersV1Response](docs/DisclosureGetCommunicationsendersV1Response.md)
+ - [DisclosureGetCommunicationsendersV1ResponseMPayload](docs/DisclosureGetCommunicationsendersV1ResponseMPayload.md)
  - [DisclosureImportIntoEDMV1Request](docs/DisclosureImportIntoEDMV1Request.md)
  - [DisclosureImportIntoEDMV1Response](docs/DisclosureImportIntoEDMV1Response.md)
  - [DisclosureImportIntoEDMV1ResponseMPayload](docs/DisclosureImportIntoEDMV1ResponseMPayload.md)
@@ -1249,6 +1364,14 @@ Class | Method | HTTP request | Description
  - [EmployeeBatchDownloadV1Request](docs/EmployeeBatchDownloadV1Request.md)
  - [EmployeeGetAttachmentsV1Response](docs/EmployeeGetAttachmentsV1Response.md)
  - [EmployeeGetAttachmentsV1ResponseMPayload](docs/EmployeeGetAttachmentsV1ResponseMPayload.md)
+ - [EmployeeGetCommunicationCountV1Response](docs/EmployeeGetCommunicationCountV1Response.md)
+ - [EmployeeGetCommunicationCountV1ResponseMPayload](docs/EmployeeGetCommunicationCountV1ResponseMPayload.md)
+ - [EmployeeGetCommunicationListV1Response](docs/EmployeeGetCommunicationListV1Response.md)
+ - [EmployeeGetCommunicationListV1ResponseMPayload](docs/EmployeeGetCommunicationListV1ResponseMPayload.md)
+ - [EmployeeGetCommunicationrecipientsV1Response](docs/EmployeeGetCommunicationrecipientsV1Response.md)
+ - [EmployeeGetCommunicationrecipientsV1ResponseMPayload](docs/EmployeeGetCommunicationrecipientsV1ResponseMPayload.md)
+ - [EmployeeGetCommunicationsendersV1Response](docs/EmployeeGetCommunicationsendersV1Response.md)
+ - [EmployeeGetCommunicationsendersV1ResponseMPayload](docs/EmployeeGetCommunicationsendersV1ResponseMPayload.md)
  - [EmployeeGetListV1Response](docs/EmployeeGetListV1Response.md)
  - [EmployeeGetListV1ResponseMPayload](docs/EmployeeGetListV1ResponseMPayload.md)
  - [EmployeeImportIntoEDMV1Request](docs/EmployeeImportIntoEDMV1Request.md)
@@ -1264,6 +1387,14 @@ Class | Method | HTTP request | Description
  - [ExternalbrokerBatchDownloadV1Request](docs/ExternalbrokerBatchDownloadV1Request.md)
  - [ExternalbrokerGetAttachmentsV1Response](docs/ExternalbrokerGetAttachmentsV1Response.md)
  - [ExternalbrokerGetAttachmentsV1ResponseMPayload](docs/ExternalbrokerGetAttachmentsV1ResponseMPayload.md)
+ - [ExternalbrokerGetCommunicationCountV1Response](docs/ExternalbrokerGetCommunicationCountV1Response.md)
+ - [ExternalbrokerGetCommunicationCountV1ResponseMPayload](docs/ExternalbrokerGetCommunicationCountV1ResponseMPayload.md)
+ - [ExternalbrokerGetCommunicationListV1Response](docs/ExternalbrokerGetCommunicationListV1Response.md)
+ - [ExternalbrokerGetCommunicationListV1ResponseMPayload](docs/ExternalbrokerGetCommunicationListV1ResponseMPayload.md)
+ - [ExternalbrokerGetCommunicationrecipientsV1Response](docs/ExternalbrokerGetCommunicationrecipientsV1Response.md)
+ - [ExternalbrokerGetCommunicationrecipientsV1ResponseMPayload](docs/ExternalbrokerGetCommunicationrecipientsV1ResponseMPayload.md)
+ - [ExternalbrokerGetCommunicationsendersV1Response](docs/ExternalbrokerGetCommunicationsendersV1Response.md)
+ - [ExternalbrokerGetCommunicationsendersV1ResponseMPayload](docs/ExternalbrokerGetCommunicationsendersV1ResponseMPayload.md)
  - [ExternalbrokerImportIntoEDMV1Request](docs/ExternalbrokerImportIntoEDMV1Request.md)
  - [ExternalbrokerImportIntoEDMV1Response](docs/ExternalbrokerImportIntoEDMV1Response.md)
  - [ExternalbrokerImportIntoEDMV1ResponseMPayload](docs/ExternalbrokerImportIntoEDMV1ResponseMPayload.md)

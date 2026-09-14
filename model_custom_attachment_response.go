@@ -119,6 +119,8 @@ type CustomAttachmentResponse struct {
 	EAttachmentDocumenttype FieldEAttachmentDocumenttype `json:"eAttachmentDocumenttype"`
 	// The name of the Attachment
 	SAttachmentName string `json:"sAttachmentName" validate:"regexp=^(?!\\.{1\\,2}$)(?!.*[ .]$)(?!(?:CON|PRN|AUX|NUL|COM(?:[1-9]|[¹²³])|LPT(?:[1-9]|[¹²³]))(?:\\.|$))[^\\x00-\\x1F<>:\"/\\\\\\\\|?*]{1\\,75}$"`
+	// The attachment category
+	SAttachmentCategory string `json:"sAttachmentCategory" validate:"regexp=^(?!\\.{1\\,2}$)(?!.*[ .]$)(?!(?:CON|PRN|AUX|NUL|COM(?:[1-9]|[¹²³])|LPT(?:[1-9]|[¹²³]))(?:\\.|$))[^\\x00-\\x1F<>:\"/\\\\\\\\|?*]{0\\,75}$"`
 	EAttachmentPrivacy FieldEAttachmentPrivacy `json:"eAttachmentPrivacy"`
 	// The unique ID of the User
 	FkiUserIDSpecific *int32 `json:"fkiUserIDSpecific,omitempty"`
@@ -151,11 +153,12 @@ type _CustomAttachmentResponse CustomAttachmentResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomAttachmentResponse(pkiAttachmentID int32, eAttachmentDocumenttype FieldEAttachmentDocumenttype, sAttachmentName string, eAttachmentPrivacy FieldEAttachmentPrivacy, eAttachmentType FieldEAttachmentType, iAttachmentSize int32, sAttachmentMD5 string, bAttachmentDeleted bool, bAttachmentValid bool, eAttachmentVerified FieldEAttachmentVerified) *CustomAttachmentResponse {
+func NewCustomAttachmentResponse(pkiAttachmentID int32, eAttachmentDocumenttype FieldEAttachmentDocumenttype, sAttachmentName string, sAttachmentCategory string, eAttachmentPrivacy FieldEAttachmentPrivacy, eAttachmentType FieldEAttachmentType, iAttachmentSize int32, sAttachmentMD5 string, bAttachmentDeleted bool, bAttachmentValid bool, eAttachmentVerified FieldEAttachmentVerified) *CustomAttachmentResponse {
 	this := CustomAttachmentResponse{}
 	this.PkiAttachmentID = pkiAttachmentID
 	this.EAttachmentDocumenttype = eAttachmentDocumenttype
 	this.SAttachmentName = sAttachmentName
+	this.SAttachmentCategory = sAttachmentCategory
 	this.EAttachmentPrivacy = eAttachmentPrivacy
 	this.EAttachmentType = eAttachmentType
 	this.IAttachmentSize = iAttachmentSize
@@ -1718,6 +1721,30 @@ func (o *CustomAttachmentResponse) SetSAttachmentName(v string) {
 	o.SAttachmentName = v
 }
 
+// GetSAttachmentCategory returns the SAttachmentCategory field value
+func (o *CustomAttachmentResponse) GetSAttachmentCategory() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SAttachmentCategory
+}
+
+// GetSAttachmentCategoryOk returns a tuple with the SAttachmentCategory field value
+// and a boolean to check if the value has been set.
+func (o *CustomAttachmentResponse) GetSAttachmentCategoryOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SAttachmentCategory, true
+}
+
+// SetSAttachmentCategory sets field value
+func (o *CustomAttachmentResponse) SetSAttachmentCategory(v string) {
+	o.SAttachmentCategory = v
+}
+
 // GetEAttachmentPrivacy returns the EAttachmentPrivacy field value
 func (o *CustomAttachmentResponse) GetEAttachmentPrivacy() FieldEAttachmentPrivacy {
 	if o == nil {
@@ -2325,6 +2352,7 @@ func (o CustomAttachmentResponse) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["eAttachmentDocumenttype"] = o.EAttachmentDocumenttype
 	toSerialize["sAttachmentName"] = o.SAttachmentName
+	toSerialize["sAttachmentCategory"] = o.SAttachmentCategory
 	toSerialize["eAttachmentPrivacy"] = o.EAttachmentPrivacy
 	if !IsNil(o.FkiUserIDSpecific) {
 		toSerialize["fkiUserIDSpecific"] = o.FkiUserIDSpecific
@@ -2370,6 +2398,7 @@ func (o *CustomAttachmentResponse) UnmarshalJSON(data []byte) (err error) {
 		"pkiAttachmentID",
 		"eAttachmentDocumenttype",
 		"sAttachmentName",
+		"sAttachmentCategory",
 		"eAttachmentPrivacy",
 		"eAttachmentType",
 		"iAttachmentSize",

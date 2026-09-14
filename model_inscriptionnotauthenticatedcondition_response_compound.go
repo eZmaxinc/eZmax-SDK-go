@@ -37,7 +37,7 @@ type InscriptionnotauthenticatedconditionResponseCompound struct {
 	// The date the Inscriptionnotauthenticatedcondition is due
 	DtInscriptionnotauthenticatedconditionDue *string `json:"dtInscriptionnotauthenticatedconditionDue,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// The comment of the Inscriptionnotauthenticatedcondition
-	TInscriptionnotauthenticatedconditionComment string `json:"tInscriptionnotauthenticatedconditionComment" validate:"regexp=^.{0\\,65535}$"`
+	TInscriptionnotauthenticatedconditionComment string `json:"tInscriptionnotauthenticatedconditionComment" validate:"regexp=^[\\s\\S]{0\\,65535}$"`
 }
 
 type _InscriptionnotauthenticatedconditionResponseCompound InscriptionnotauthenticatedconditionResponseCompound

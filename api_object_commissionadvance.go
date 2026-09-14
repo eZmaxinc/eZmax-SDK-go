@@ -320,6 +320,530 @@ func (a *ObjectCommissionadvanceAPIService) CommissionadvanceGetAttachmentsV1Exe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiCommissionadvanceGetCommunicationCountV1Request struct {
+	ctx context.Context
+	ApiService *ObjectCommissionadvanceAPIService
+	pkiCommissionadvanceID int32
+}
+
+func (r ApiCommissionadvanceGetCommunicationCountV1Request) Execute() (*CommissionadvanceGetCommunicationCountV1Response, *http.Response, error) {
+	return r.ApiService.CommissionadvanceGetCommunicationCountV1Execute(r)
+}
+
+/*
+CommissionadvanceGetCommunicationCountV1 Retrieve Communication count
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiCommissionadvanceID
+ @return ApiCommissionadvanceGetCommunicationCountV1Request
+*/
+func (a *ObjectCommissionadvanceAPIService) CommissionadvanceGetCommunicationCountV1(ctx context.Context, pkiCommissionadvanceID int32) ApiCommissionadvanceGetCommunicationCountV1Request {
+	return ApiCommissionadvanceGetCommunicationCountV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiCommissionadvanceID: pkiCommissionadvanceID,
+	}
+}
+
+// Execute executes the request
+//  @return CommissionadvanceGetCommunicationCountV1Response
+func (a *ObjectCommissionadvanceAPIService) CommissionadvanceGetCommunicationCountV1Execute(r ApiCommissionadvanceGetCommunicationCountV1Request) (*CommissionadvanceGetCommunicationCountV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CommissionadvanceGetCommunicationCountV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectCommissionadvanceAPIService.CommissionadvanceGetCommunicationCountV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/commissionadvance/{pkiCommissionadvanceID}/getCommunicationCount"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiCommissionadvanceID"+"}", url.PathEscape(parameterValueToString(r.pkiCommissionadvanceID, "pkiCommissionadvanceID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiCommissionadvanceID < 0 {
+		return localVarReturnValue, nil, reportError("pkiCommissionadvanceID must be greater than 0")
+	}
+	if r.pkiCommissionadvanceID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiCommissionadvanceID must be less than 65535")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiCommissionadvanceGetCommunicationListV1Request struct {
+	ctx context.Context
+	ApiService *ObjectCommissionadvanceAPIService
+	pkiCommissionadvanceID int32
+}
+
+func (r ApiCommissionadvanceGetCommunicationListV1Request) Execute() (*CommissionadvanceGetCommunicationListV1Response, *http.Response, error) {
+	return r.ApiService.CommissionadvanceGetCommunicationListV1Execute(r)
+}
+
+/*
+CommissionadvanceGetCommunicationListV1 Retrieve Communication list
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiCommissionadvanceID
+ @return ApiCommissionadvanceGetCommunicationListV1Request
+*/
+func (a *ObjectCommissionadvanceAPIService) CommissionadvanceGetCommunicationListV1(ctx context.Context, pkiCommissionadvanceID int32) ApiCommissionadvanceGetCommunicationListV1Request {
+	return ApiCommissionadvanceGetCommunicationListV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiCommissionadvanceID: pkiCommissionadvanceID,
+	}
+}
+
+// Execute executes the request
+//  @return CommissionadvanceGetCommunicationListV1Response
+func (a *ObjectCommissionadvanceAPIService) CommissionadvanceGetCommunicationListV1Execute(r ApiCommissionadvanceGetCommunicationListV1Request) (*CommissionadvanceGetCommunicationListV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CommissionadvanceGetCommunicationListV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectCommissionadvanceAPIService.CommissionadvanceGetCommunicationListV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/commissionadvance/{pkiCommissionadvanceID}/getCommunicationList"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiCommissionadvanceID"+"}", url.PathEscape(parameterValueToString(r.pkiCommissionadvanceID, "pkiCommissionadvanceID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiCommissionadvanceID < 0 {
+		return localVarReturnValue, nil, reportError("pkiCommissionadvanceID must be greater than 0")
+	}
+	if r.pkiCommissionadvanceID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiCommissionadvanceID must be less than 65535")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiCommissionadvanceGetCommunicationrecipientsV1Request struct {
+	ctx context.Context
+	ApiService *ObjectCommissionadvanceAPIService
+	pkiCommissionadvanceID int32
+}
+
+func (r ApiCommissionadvanceGetCommunicationrecipientsV1Request) Execute() (*CommissionadvanceGetCommunicationrecipientsV1Response, *http.Response, error) {
+	return r.ApiService.CommissionadvanceGetCommunicationrecipientsV1Execute(r)
+}
+
+/*
+CommissionadvanceGetCommunicationrecipientsV1 Retrieve Communication recipients
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiCommissionadvanceID
+ @return ApiCommissionadvanceGetCommunicationrecipientsV1Request
+*/
+func (a *ObjectCommissionadvanceAPIService) CommissionadvanceGetCommunicationrecipientsV1(ctx context.Context, pkiCommissionadvanceID int32) ApiCommissionadvanceGetCommunicationrecipientsV1Request {
+	return ApiCommissionadvanceGetCommunicationrecipientsV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiCommissionadvanceID: pkiCommissionadvanceID,
+	}
+}
+
+// Execute executes the request
+//  @return CommissionadvanceGetCommunicationrecipientsV1Response
+func (a *ObjectCommissionadvanceAPIService) CommissionadvanceGetCommunicationrecipientsV1Execute(r ApiCommissionadvanceGetCommunicationrecipientsV1Request) (*CommissionadvanceGetCommunicationrecipientsV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CommissionadvanceGetCommunicationrecipientsV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectCommissionadvanceAPIService.CommissionadvanceGetCommunicationrecipientsV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/commissionadvance/{pkiCommissionadvanceID}/getCommunicationrecipients"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiCommissionadvanceID"+"}", url.PathEscape(parameterValueToString(r.pkiCommissionadvanceID, "pkiCommissionadvanceID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiCommissionadvanceID < 0 {
+		return localVarReturnValue, nil, reportError("pkiCommissionadvanceID must be greater than 0")
+	}
+	if r.pkiCommissionadvanceID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiCommissionadvanceID must be less than 65535")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiCommissionadvanceGetCommunicationsendersV1Request struct {
+	ctx context.Context
+	ApiService *ObjectCommissionadvanceAPIService
+	pkiCommissionadvanceID int32
+}
+
+func (r ApiCommissionadvanceGetCommunicationsendersV1Request) Execute() (*CommissionadvanceGetCommunicationsendersV1Response, *http.Response, error) {
+	return r.ApiService.CommissionadvanceGetCommunicationsendersV1Execute(r)
+}
+
+/*
+CommissionadvanceGetCommunicationsendersV1 Retrieve Communication senders
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiCommissionadvanceID
+ @return ApiCommissionadvanceGetCommunicationsendersV1Request
+*/
+func (a *ObjectCommissionadvanceAPIService) CommissionadvanceGetCommunicationsendersV1(ctx context.Context, pkiCommissionadvanceID int32) ApiCommissionadvanceGetCommunicationsendersV1Request {
+	return ApiCommissionadvanceGetCommunicationsendersV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiCommissionadvanceID: pkiCommissionadvanceID,
+	}
+}
+
+// Execute executes the request
+//  @return CommissionadvanceGetCommunicationsendersV1Response
+func (a *ObjectCommissionadvanceAPIService) CommissionadvanceGetCommunicationsendersV1Execute(r ApiCommissionadvanceGetCommunicationsendersV1Request) (*CommissionadvanceGetCommunicationsendersV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CommissionadvanceGetCommunicationsendersV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectCommissionadvanceAPIService.CommissionadvanceGetCommunicationsendersV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/commissionadvance/{pkiCommissionadvanceID}/getCommunicationsenders"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiCommissionadvanceID"+"}", url.PathEscape(parameterValueToString(r.pkiCommissionadvanceID, "pkiCommissionadvanceID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiCommissionadvanceID < 0 {
+		return localVarReturnValue, nil, reportError("pkiCommissionadvanceID must be greater than 0")
+	}
+	if r.pkiCommissionadvanceID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiCommissionadvanceID must be less than 65535")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiCommissionadvanceImportIntoEDMV1Request struct {
 	ctx context.Context
 	ApiService *ObjectCommissionadvanceAPIService

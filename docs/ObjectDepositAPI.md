@@ -6,6 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**DepositBatchDownloadV1**](ObjectDepositAPI.md#DepositBatchDownloadV1) | **Post** /1/object/deposit/{pkiDepositID}/batchDownload | Download multiples attachments from a Deposit
 [**DepositGetAttachmentsV1**](ObjectDepositAPI.md#DepositGetAttachmentsV1) | **Get** /1/object/deposit/{pkiDepositID}/getAttachments | Retrieve Deposit&#39;s attachments
+[**DepositGetCommunicationCountV1**](ObjectDepositAPI.md#DepositGetCommunicationCountV1) | **Get** /1/object/deposit/{pkiDepositID}/getCommunicationCount | Retrieve Communication count
+[**DepositGetCommunicationListV1**](ObjectDepositAPI.md#DepositGetCommunicationListV1) | **Get** /1/object/deposit/{pkiDepositID}/getCommunicationList | Retrieve Communication list
+[**DepositGetCommunicationrecipientsV1**](ObjectDepositAPI.md#DepositGetCommunicationrecipientsV1) | **Get** /1/object/deposit/{pkiDepositID}/getCommunicationrecipients | Retrieve Communication recipients
+[**DepositGetCommunicationsendersV1**](ObjectDepositAPI.md#DepositGetCommunicationsendersV1) | **Get** /1/object/deposit/{pkiDepositID}/getCommunicationsenders | Retrieve Communication senders
 [**DepositImportIntoEDMV1**](ObjectDepositAPI.md#DepositImportIntoEDMV1) | **Post** /1/object/deposit/{pkiDepositID}/importIntoEDM | Import attachments into the Deposit
 
 
@@ -133,6 +137,278 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DepositGetAttachmentsV1Response**](DepositGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DepositGetCommunicationCountV1
+
+> DepositGetCommunicationCountV1Response DepositGetCommunicationCountV1(ctx, pkiDepositID).Execute()
+
+Retrieve Communication count
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiDepositID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectDepositAPI.DepositGetCommunicationCountV1(context.Background(), pkiDepositID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectDepositAPI.DepositGetCommunicationCountV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DepositGetCommunicationCountV1`: DepositGetCommunicationCountV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectDepositAPI.DepositGetCommunicationCountV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiDepositID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDepositGetCommunicationCountV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**DepositGetCommunicationCountV1Response**](DepositGetCommunicationCountV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DepositGetCommunicationListV1
+
+> DepositGetCommunicationListV1Response DepositGetCommunicationListV1(ctx, pkiDepositID).Execute()
+
+Retrieve Communication list
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiDepositID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectDepositAPI.DepositGetCommunicationListV1(context.Background(), pkiDepositID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectDepositAPI.DepositGetCommunicationListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DepositGetCommunicationListV1`: DepositGetCommunicationListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectDepositAPI.DepositGetCommunicationListV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiDepositID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDepositGetCommunicationListV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**DepositGetCommunicationListV1Response**](DepositGetCommunicationListV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DepositGetCommunicationrecipientsV1
+
+> DepositGetCommunicationrecipientsV1Response DepositGetCommunicationrecipientsV1(ctx, pkiDepositID).Execute()
+
+Retrieve Communication recipients
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiDepositID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectDepositAPI.DepositGetCommunicationrecipientsV1(context.Background(), pkiDepositID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectDepositAPI.DepositGetCommunicationrecipientsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DepositGetCommunicationrecipientsV1`: DepositGetCommunicationrecipientsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectDepositAPI.DepositGetCommunicationrecipientsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiDepositID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDepositGetCommunicationrecipientsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**DepositGetCommunicationrecipientsV1Response**](DepositGetCommunicationrecipientsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DepositGetCommunicationsendersV1
+
+> DepositGetCommunicationsendersV1Response DepositGetCommunicationsendersV1(ctx, pkiDepositID).Execute()
+
+Retrieve Communication senders
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiDepositID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectDepositAPI.DepositGetCommunicationsendersV1(context.Background(), pkiDepositID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectDepositAPI.DepositGetCommunicationsendersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DepositGetCommunicationsendersV1`: DepositGetCommunicationsendersV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectDepositAPI.DepositGetCommunicationsendersV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiDepositID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDepositGetCommunicationsendersV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**DepositGetCommunicationsendersV1Response**](DepositGetCommunicationsendersV1Response.md)
 
 ### Authorization
 

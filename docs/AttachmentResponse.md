@@ -53,6 +53,7 @@ Name | Type | Description | Notes
 **FkiEzsigndocumentIDReference** | Pointer to **int32** | The unique ID of the Ezsigndocument | [optional] 
 **EAttachmentDocumenttype** | [**FieldEAttachmentDocumenttype**](FieldEAttachmentDocumenttype.md) |  | 
 **SAttachmentName** | **string** | The name of the Attachment | 
+**SAttachmentCategory** | **string** | The attachment category | 
 **EAttachmentPrivacy** | [**FieldEAttachmentPrivacy**](FieldEAttachmentPrivacy.md) |  | 
 **FkiUserIDSpecific** | Pointer to **int32** | The unique ID of the User | [optional] 
 **EAttachmentType** | [**FieldEAttachmentType**](FieldEAttachmentType.md) |  | 
@@ -70,7 +71,7 @@ Name | Type | Description | Notes
 
 ### NewAttachmentResponse
 
-`func NewAttachmentResponse(pkiAttachmentID int32, eAttachmentDocumenttype FieldEAttachmentDocumenttype, sAttachmentName string, eAttachmentPrivacy FieldEAttachmentPrivacy, eAttachmentType FieldEAttachmentType, iAttachmentSize int32, sAttachmentMD5 string, bAttachmentDeleted bool, bAttachmentValid bool, eAttachmentVerified FieldEAttachmentVerified, ) *AttachmentResponse`
+`func NewAttachmentResponse(pkiAttachmentID int32, eAttachmentDocumenttype FieldEAttachmentDocumenttype, sAttachmentName string, sAttachmentCategory string, eAttachmentPrivacy FieldEAttachmentPrivacy, eAttachmentType FieldEAttachmentType, iAttachmentSize int32, sAttachmentMD5 string, bAttachmentDeleted bool, bAttachmentValid bool, eAttachmentVerified FieldEAttachmentVerified, ) *AttachmentResponse`
 
 NewAttachmentResponse instantiates a new AttachmentResponse object
 This constructor will assign default values to properties that have it defined,
@@ -1293,6 +1294,26 @@ and a boolean to check if the value has been set.
 `func (o *AttachmentResponse) SetSAttachmentName(v string)`
 
 SetSAttachmentName sets SAttachmentName field to given value.
+
+
+### GetSAttachmentCategory
+
+`func (o *AttachmentResponse) GetSAttachmentCategory() string`
+
+GetSAttachmentCategory returns the SAttachmentCategory field if non-nil, zero value otherwise.
+
+### GetSAttachmentCategoryOk
+
+`func (o *AttachmentResponse) GetSAttachmentCategoryOk() (*string, bool)`
+
+GetSAttachmentCategoryOk returns a tuple with the SAttachmentCategory field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSAttachmentCategory
+
+`func (o *AttachmentResponse) SetSAttachmentCategory(v string)`
+
+SetSAttachmentCategory sets SAttachmentCategory field to given value.
 
 
 ### GetEAttachmentPrivacy

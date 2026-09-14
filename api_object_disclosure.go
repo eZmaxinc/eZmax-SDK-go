@@ -320,6 +320,530 @@ func (a *ObjectDisclosureAPIService) DisclosureGetAttachmentsV1Execute(r ApiDisc
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiDisclosureGetCommunicationCountV1Request struct {
+	ctx context.Context
+	ApiService *ObjectDisclosureAPIService
+	pkiDisclosureID int32
+}
+
+func (r ApiDisclosureGetCommunicationCountV1Request) Execute() (*DisclosureGetCommunicationCountV1Response, *http.Response, error) {
+	return r.ApiService.DisclosureGetCommunicationCountV1Execute(r)
+}
+
+/*
+DisclosureGetCommunicationCountV1 Retrieve Communication count
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiDisclosureID
+ @return ApiDisclosureGetCommunicationCountV1Request
+*/
+func (a *ObjectDisclosureAPIService) DisclosureGetCommunicationCountV1(ctx context.Context, pkiDisclosureID int32) ApiDisclosureGetCommunicationCountV1Request {
+	return ApiDisclosureGetCommunicationCountV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiDisclosureID: pkiDisclosureID,
+	}
+}
+
+// Execute executes the request
+//  @return DisclosureGetCommunicationCountV1Response
+func (a *ObjectDisclosureAPIService) DisclosureGetCommunicationCountV1Execute(r ApiDisclosureGetCommunicationCountV1Request) (*DisclosureGetCommunicationCountV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *DisclosureGetCommunicationCountV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectDisclosureAPIService.DisclosureGetCommunicationCountV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/disclosure/{pkiDisclosureID}/getCommunicationCount"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiDisclosureID"+"}", url.PathEscape(parameterValueToString(r.pkiDisclosureID, "pkiDisclosureID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiDisclosureID < 0 {
+		return localVarReturnValue, nil, reportError("pkiDisclosureID must be greater than 0")
+	}
+	if r.pkiDisclosureID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiDisclosureID must be less than 65535")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiDisclosureGetCommunicationListV1Request struct {
+	ctx context.Context
+	ApiService *ObjectDisclosureAPIService
+	pkiDisclosureID int32
+}
+
+func (r ApiDisclosureGetCommunicationListV1Request) Execute() (*DisclosureGetCommunicationListV1Response, *http.Response, error) {
+	return r.ApiService.DisclosureGetCommunicationListV1Execute(r)
+}
+
+/*
+DisclosureGetCommunicationListV1 Retrieve Communication list
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiDisclosureID
+ @return ApiDisclosureGetCommunicationListV1Request
+*/
+func (a *ObjectDisclosureAPIService) DisclosureGetCommunicationListV1(ctx context.Context, pkiDisclosureID int32) ApiDisclosureGetCommunicationListV1Request {
+	return ApiDisclosureGetCommunicationListV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiDisclosureID: pkiDisclosureID,
+	}
+}
+
+// Execute executes the request
+//  @return DisclosureGetCommunicationListV1Response
+func (a *ObjectDisclosureAPIService) DisclosureGetCommunicationListV1Execute(r ApiDisclosureGetCommunicationListV1Request) (*DisclosureGetCommunicationListV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *DisclosureGetCommunicationListV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectDisclosureAPIService.DisclosureGetCommunicationListV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/disclosure/{pkiDisclosureID}/getCommunicationList"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiDisclosureID"+"}", url.PathEscape(parameterValueToString(r.pkiDisclosureID, "pkiDisclosureID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiDisclosureID < 0 {
+		return localVarReturnValue, nil, reportError("pkiDisclosureID must be greater than 0")
+	}
+	if r.pkiDisclosureID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiDisclosureID must be less than 65535")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiDisclosureGetCommunicationrecipientsV1Request struct {
+	ctx context.Context
+	ApiService *ObjectDisclosureAPIService
+	pkiDisclosureID int32
+}
+
+func (r ApiDisclosureGetCommunicationrecipientsV1Request) Execute() (*DisclosureGetCommunicationrecipientsV1Response, *http.Response, error) {
+	return r.ApiService.DisclosureGetCommunicationrecipientsV1Execute(r)
+}
+
+/*
+DisclosureGetCommunicationrecipientsV1 Retrieve Communication recipients
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiDisclosureID
+ @return ApiDisclosureGetCommunicationrecipientsV1Request
+*/
+func (a *ObjectDisclosureAPIService) DisclosureGetCommunicationrecipientsV1(ctx context.Context, pkiDisclosureID int32) ApiDisclosureGetCommunicationrecipientsV1Request {
+	return ApiDisclosureGetCommunicationrecipientsV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiDisclosureID: pkiDisclosureID,
+	}
+}
+
+// Execute executes the request
+//  @return DisclosureGetCommunicationrecipientsV1Response
+func (a *ObjectDisclosureAPIService) DisclosureGetCommunicationrecipientsV1Execute(r ApiDisclosureGetCommunicationrecipientsV1Request) (*DisclosureGetCommunicationrecipientsV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *DisclosureGetCommunicationrecipientsV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectDisclosureAPIService.DisclosureGetCommunicationrecipientsV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/disclosure/{pkiDisclosureID}/getCommunicationrecipients"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiDisclosureID"+"}", url.PathEscape(parameterValueToString(r.pkiDisclosureID, "pkiDisclosureID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiDisclosureID < 0 {
+		return localVarReturnValue, nil, reportError("pkiDisclosureID must be greater than 0")
+	}
+	if r.pkiDisclosureID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiDisclosureID must be less than 65535")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiDisclosureGetCommunicationsendersV1Request struct {
+	ctx context.Context
+	ApiService *ObjectDisclosureAPIService
+	pkiDisclosureID int32
+}
+
+func (r ApiDisclosureGetCommunicationsendersV1Request) Execute() (*DisclosureGetCommunicationsendersV1Response, *http.Response, error) {
+	return r.ApiService.DisclosureGetCommunicationsendersV1Execute(r)
+}
+
+/*
+DisclosureGetCommunicationsendersV1 Retrieve Communication senders
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiDisclosureID
+ @return ApiDisclosureGetCommunicationsendersV1Request
+*/
+func (a *ObjectDisclosureAPIService) DisclosureGetCommunicationsendersV1(ctx context.Context, pkiDisclosureID int32) ApiDisclosureGetCommunicationsendersV1Request {
+	return ApiDisclosureGetCommunicationsendersV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiDisclosureID: pkiDisclosureID,
+	}
+}
+
+// Execute executes the request
+//  @return DisclosureGetCommunicationsendersV1Response
+func (a *ObjectDisclosureAPIService) DisclosureGetCommunicationsendersV1Execute(r ApiDisclosureGetCommunicationsendersV1Request) (*DisclosureGetCommunicationsendersV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *DisclosureGetCommunicationsendersV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectDisclosureAPIService.DisclosureGetCommunicationsendersV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/disclosure/{pkiDisclosureID}/getCommunicationsenders"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiDisclosureID"+"}", url.PathEscape(parameterValueToString(r.pkiDisclosureID, "pkiDisclosureID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiDisclosureID < 0 {
+		return localVarReturnValue, nil, reportError("pkiDisclosureID must be greater than 0")
+	}
+	if r.pkiDisclosureID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiDisclosureID must be less than 65535")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiDisclosureImportIntoEDMV1Request struct {
 	ctx context.Context
 	ApiService *ObjectDisclosureAPIService
