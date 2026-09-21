@@ -20,7 +20,7 @@ import (
 // checks if the AttachmentValidateV1Response type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &AttachmentValidateV1Response{}
 
-// AttachmentValidateV1Response Response for PATCH /1/object/attachment/{pkiAttachmentID}/validate
+// AttachmentValidateV1Response Response for POST /1/object/attachment/{pkiAttachmentID}/validate
 type AttachmentValidateV1Response struct {
 	ObjDebugPayload CommonResponseObjDebugPayload `json:"objDebugPayload"`
 	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`

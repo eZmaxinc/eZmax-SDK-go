@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**SalaryBatchDownloadV1**](ObjectSalaryAPI.md#SalaryBatchDownloadV1) | **Post** /1/object/salary/{pkiSalaryID}/batchDownload | Download multiples attachments from a Reconciliation
 [**SalaryGetAttachmentsV1**](ObjectSalaryAPI.md#SalaryGetAttachmentsV1) | **Get** /1/object/salary/{pkiSalaryID}/getAttachments | Retrieve Salary&#39;s attachments
+[**SalaryGetListV1**](ObjectSalaryAPI.md#SalaryGetListV1) | **Get** /1/object/salary/getList | Retrieve Salary list
 [**SalaryImportIntoEDMV1**](ObjectSalaryAPI.md#SalaryImportIntoEDMV1) | **Post** /1/object/salary/{pkiSalaryID}/importIntoEDM | Import attachments into the Salary
 
 
@@ -142,6 +143,80 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SalaryGetListV1
+
+> SalaryGetListV1Response SalaryGetListV1(ctx).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
+
+Retrieve Salary list
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
+	iRowMax := int32(56) // int32 |  (optional)
+	iRowOffset := int32(56) // int32 |  (optional) (default to 0)
+	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
+	sFilter := "sFilter_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectSalaryAPI.SalaryGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSalaryAPI.SalaryGetListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SalaryGetListV1`: SalaryGetListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectSalaryAPI.SalaryGetListV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSalaryGetListV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **eOrderBy** | **string** | Specify how you want the results to be sorted | 
+ **iRowMax** | **int32** |  | 
+ **iRowOffset** | **int32** |  | [default to 0]
+ **acceptLanguage** | [**HeaderAcceptLanguage**](HeaderAcceptLanguage.md) |  | 
+ **sFilter** | **string** |  | 
+
+### Return type
+
+[**SalaryGetListV1Response**](SalaryGetListV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

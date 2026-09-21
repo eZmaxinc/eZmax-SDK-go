@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FkiAttachmentID** | **int32** | The unique ID of the Attachment. | 
 **FkiUserID** | **int32** | The unique ID of the User | 
+**ObjUser** | [**CustomUserNameResponse**](CustomUserNameResponse.md) |  | 
 **DtAttachmentlogDatetime** | **string** | The created date | 
 **EAttachmentlogType** | [**FieldEAttachmentlogType**](FieldEAttachmentlogType.md) |  | 
 **SAttachmentlogDetail** | Pointer to **string** | The additionnal detail | [optional] 
@@ -14,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewAttachmentlogResponse
 
-`func NewAttachmentlogResponse(fkiAttachmentID int32, fkiUserID int32, dtAttachmentlogDatetime string, eAttachmentlogType FieldEAttachmentlogType, ) *AttachmentlogResponse`
+`func NewAttachmentlogResponse(fkiAttachmentID int32, fkiUserID int32, objUser CustomUserNameResponse, dtAttachmentlogDatetime string, eAttachmentlogType FieldEAttachmentlogType, ) *AttachmentlogResponse`
 
 NewAttachmentlogResponse instantiates a new AttachmentlogResponse object
 This constructor will assign default values to properties that have it defined,
@@ -67,6 +68,26 @@ and a boolean to check if the value has been set.
 `func (o *AttachmentlogResponse) SetFkiUserID(v int32)`
 
 SetFkiUserID sets FkiUserID field to given value.
+
+
+### GetObjUser
+
+`func (o *AttachmentlogResponse) GetObjUser() CustomUserNameResponse`
+
+GetObjUser returns the ObjUser field if non-nil, zero value otherwise.
+
+### GetObjUserOk
+
+`func (o *AttachmentlogResponse) GetObjUserOk() (*CustomUserNameResponse, bool)`
+
+GetObjUserOk returns a tuple with the ObjUser field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjUser
+
+`func (o *AttachmentlogResponse) SetObjUser(v CustomUserNameResponse)`
+
+SetObjUser sets ObjUser field to given value.
 
 
 ### GetDtAttachmentlogDatetime

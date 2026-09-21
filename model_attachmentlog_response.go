@@ -26,6 +26,7 @@ type AttachmentlogResponse struct {
 	FkiAttachmentID int32 `json:"fkiAttachmentID"`
 	// The unique ID of the User
 	FkiUserID int32 `json:"fkiUserID"`
+	ObjUser CustomUserNameResponse `json:"objUser"`
 	// The created date
 	DtAttachmentlogDatetime string `json:"dtAttachmentlogDatetime" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$"`
 	EAttachmentlogType FieldEAttachmentlogType `json:"eAttachmentlogType"`
@@ -39,10 +40,11 @@ type _AttachmentlogResponse AttachmentlogResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAttachmentlogResponse(fkiAttachmentID int32, fkiUserID int32, dtAttachmentlogDatetime string, eAttachmentlogType FieldEAttachmentlogType) *AttachmentlogResponse {
+func NewAttachmentlogResponse(fkiAttachmentID int32, fkiUserID int32, objUser CustomUserNameResponse, dtAttachmentlogDatetime string, eAttachmentlogType FieldEAttachmentlogType) *AttachmentlogResponse {
 	this := AttachmentlogResponse{}
 	this.FkiAttachmentID = fkiAttachmentID
 	this.FkiUserID = fkiUserID
+	this.ObjUser = objUser
 	this.DtAttachmentlogDatetime = dtAttachmentlogDatetime
 	this.EAttachmentlogType = eAttachmentlogType
 	return &this
@@ -102,6 +104,30 @@ func (o *AttachmentlogResponse) GetFkiUserIDOk() (*int32, bool) {
 // SetFkiUserID sets field value
 func (o *AttachmentlogResponse) SetFkiUserID(v int32) {
 	o.FkiUserID = v
+}
+
+// GetObjUser returns the ObjUser field value
+func (o *AttachmentlogResponse) GetObjUser() CustomUserNameResponse {
+	if o == nil {
+		var ret CustomUserNameResponse
+		return ret
+	}
+
+	return o.ObjUser
+}
+
+// GetObjUserOk returns a tuple with the ObjUser field value
+// and a boolean to check if the value has been set.
+func (o *AttachmentlogResponse) GetObjUserOk() (*CustomUserNameResponse, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjUser, true
+}
+
+// SetObjUser sets field value
+func (o *AttachmentlogResponse) SetObjUser(v CustomUserNameResponse) {
+	o.ObjUser = v
 }
 
 // GetDtAttachmentlogDatetime returns the DtAttachmentlogDatetime field value
@@ -196,6 +222,7 @@ func (o AttachmentlogResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["fkiAttachmentID"] = o.FkiAttachmentID
 	toSerialize["fkiUserID"] = o.FkiUserID
+	toSerialize["objUser"] = o.ObjUser
 	toSerialize["dtAttachmentlogDatetime"] = o.DtAttachmentlogDatetime
 	toSerialize["eAttachmentlogType"] = o.EAttachmentlogType
 	if !IsNil(o.SAttachmentlogDetail) {
@@ -211,6 +238,7 @@ func (o *AttachmentlogResponse) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"fkiAttachmentID",
 		"fkiUserID",
+		"objUser",
 		"dtAttachmentlogDatetime",
 		"eAttachmentlogType",
 	}

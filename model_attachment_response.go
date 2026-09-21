@@ -104,8 +104,10 @@ type AttachmentResponse struct {
 	FkiTranqcontractID *int32 `json:"fkiTranqcontractID,omitempty"`
 	// The unique ID of the Template
 	FkiTemplateID *int32 `json:"fkiTemplateID,omitempty"`
-	// The unique ID of the Inscriptionchecklist
-	FkiInscriptionchecklistID *int32 `json:"fkiInscriptionchecklistID,omitempty"`
+	// The unique ID of the Documenttypechecklist
+	FkiDocumenttypechecklistID *int32 `json:"fkiDocumenttypechecklistID,omitempty"`
+	// The name of the Documenttype in the language of the requester
+	SDocumenttypeNameX *string `json:"sDocumenttypeNameX,omitempty" validate:"regexp=^.{0\\,55}$"`
 	// The unique ID of the Folder
 	FkiFolderID *int32 `json:"fkiFolderID,omitempty"`
 	// The unique ID of the Rejectedoffertopurchase
@@ -1477,36 +1479,68 @@ func (o *AttachmentResponse) SetFkiTemplateID(v int32) {
 	o.FkiTemplateID = &v
 }
 
-// GetFkiInscriptionchecklistID returns the FkiInscriptionchecklistID field value if set, zero value otherwise.
-func (o *AttachmentResponse) GetFkiInscriptionchecklistID() int32 {
-	if o == nil || IsNil(o.FkiInscriptionchecklistID) {
+// GetFkiDocumenttypechecklistID returns the FkiDocumenttypechecklistID field value if set, zero value otherwise.
+func (o *AttachmentResponse) GetFkiDocumenttypechecklistID() int32 {
+	if o == nil || IsNil(o.FkiDocumenttypechecklistID) {
 		var ret int32
 		return ret
 	}
-	return *o.FkiInscriptionchecklistID
+	return *o.FkiDocumenttypechecklistID
 }
 
-// GetFkiInscriptionchecklistIDOk returns a tuple with the FkiInscriptionchecklistID field value if set, nil otherwise
+// GetFkiDocumenttypechecklistIDOk returns a tuple with the FkiDocumenttypechecklistID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AttachmentResponse) GetFkiInscriptionchecklistIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.FkiInscriptionchecklistID) {
+func (o *AttachmentResponse) GetFkiDocumenttypechecklistIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiDocumenttypechecklistID) {
 		return nil, false
 	}
-	return o.FkiInscriptionchecklistID, true
+	return o.FkiDocumenttypechecklistID, true
 }
 
-// HasFkiInscriptionchecklistID returns a boolean if a field has been set.
-func (o *AttachmentResponse) HasFkiInscriptionchecklistID() bool {
-	if o != nil && !IsNil(o.FkiInscriptionchecklistID) {
+// HasFkiDocumenttypechecklistID returns a boolean if a field has been set.
+func (o *AttachmentResponse) HasFkiDocumenttypechecklistID() bool {
+	if o != nil && !IsNil(o.FkiDocumenttypechecklistID) {
 		return true
 	}
 
 	return false
 }
 
-// SetFkiInscriptionchecklistID gets a reference to the given int32 and assigns it to the FkiInscriptionchecklistID field.
-func (o *AttachmentResponse) SetFkiInscriptionchecklistID(v int32) {
-	o.FkiInscriptionchecklistID = &v
+// SetFkiDocumenttypechecklistID gets a reference to the given int32 and assigns it to the FkiDocumenttypechecklistID field.
+func (o *AttachmentResponse) SetFkiDocumenttypechecklistID(v int32) {
+	o.FkiDocumenttypechecklistID = &v
+}
+
+// GetSDocumenttypeNameX returns the SDocumenttypeNameX field value if set, zero value otherwise.
+func (o *AttachmentResponse) GetSDocumenttypeNameX() string {
+	if o == nil || IsNil(o.SDocumenttypeNameX) {
+		var ret string
+		return ret
+	}
+	return *o.SDocumenttypeNameX
+}
+
+// GetSDocumenttypeNameXOk returns a tuple with the SDocumenttypeNameX field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponse) GetSDocumenttypeNameXOk() (*string, bool) {
+	if o == nil || IsNil(o.SDocumenttypeNameX) {
+		return nil, false
+	}
+	return o.SDocumenttypeNameX, true
+}
+
+// HasSDocumenttypeNameX returns a boolean if a field has been set.
+func (o *AttachmentResponse) HasSDocumenttypeNameX() bool {
+	if o != nil && !IsNil(o.SDocumenttypeNameX) {
+		return true
+	}
+
+	return false
+}
+
+// SetSDocumenttypeNameX gets a reference to the given string and assigns it to the SDocumenttypeNameX field.
+func (o *AttachmentResponse) SetSDocumenttypeNameX(v string) {
+	o.SDocumenttypeNameX = &v
 }
 
 // GetFkiFolderID returns the FkiFolderID field value if set, zero value otherwise.
@@ -2200,8 +2234,11 @@ func (o AttachmentResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.FkiTemplateID) {
 		toSerialize["fkiTemplateID"] = o.FkiTemplateID
 	}
-	if !IsNil(o.FkiInscriptionchecklistID) {
-		toSerialize["fkiInscriptionchecklistID"] = o.FkiInscriptionchecklistID
+	if !IsNil(o.FkiDocumenttypechecklistID) {
+		toSerialize["fkiDocumenttypechecklistID"] = o.FkiDocumenttypechecklistID
+	}
+	if !IsNil(o.SDocumenttypeNameX) {
+		toSerialize["sDocumenttypeNameX"] = o.SDocumenttypeNameX
 	}
 	if !IsNil(o.FkiFolderID) {
 		toSerialize["fkiFolderID"] = o.FkiFolderID

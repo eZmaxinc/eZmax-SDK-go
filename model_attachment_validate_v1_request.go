@@ -20,9 +20,19 @@ import (
 // checks if the AttachmentValidateV1Request type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &AttachmentValidateV1Request{}
 
-// AttachmentValidateV1Request Request for PATCH /1/object/attachment/{pkiAttachmentID}/validate
+// AttachmentValidateV1Request Request for POST /1/object/attachment/{pkiAttachmentID}/validate
 type AttachmentValidateV1Request struct {
+	// The unique ID of the Attachmentrejectreason
+	FkiAttachmentrejectreasonID *int32 `json:"fkiAttachmentrejectreasonID,omitempty"`
 	EAttachmentVerified FieldEAttachmentVerified `json:"eAttachmentVerified"`
+	// The rejectioncomment of the Attachment
+	TAttachmentRejectioncomment *string `json:"tAttachmentRejectioncomment,omitempty" validate:"regexp=^.{0\\,65535}$"`
+	// A list of email addresses to send a rejection notification to.
+	ASNotificationEmailAddress []string `json:"a_sNotificationEmailAddress,omitempty"`
+	// The email body to send to the notification recipients.
+	TNotificationMessage *string `json:"tNotificationMessage,omitempty" validate:"regexp=^[\\s\\S]{0\\,65535}$"`
+	// Should a copy of the attachment be included in the email.
+	BNotificationIncludeAttachment *bool `json:"bNotificationIncludeAttachment,omitempty"`
 }
 
 type _AttachmentValidateV1Request AttachmentValidateV1Request
@@ -43,6 +53,38 @@ func NewAttachmentValidateV1Request(eAttachmentVerified FieldEAttachmentVerified
 func NewAttachmentValidateV1RequestWithDefaults() *AttachmentValidateV1Request {
 	this := AttachmentValidateV1Request{}
 	return &this
+}
+
+// GetFkiAttachmentrejectreasonID returns the FkiAttachmentrejectreasonID field value if set, zero value otherwise.
+func (o *AttachmentValidateV1Request) GetFkiAttachmentrejectreasonID() int32 {
+	if o == nil || IsNil(o.FkiAttachmentrejectreasonID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiAttachmentrejectreasonID
+}
+
+// GetFkiAttachmentrejectreasonIDOk returns a tuple with the FkiAttachmentrejectreasonID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentValidateV1Request) GetFkiAttachmentrejectreasonIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiAttachmentrejectreasonID) {
+		return nil, false
+	}
+	return o.FkiAttachmentrejectreasonID, true
+}
+
+// HasFkiAttachmentrejectreasonID returns a boolean if a field has been set.
+func (o *AttachmentValidateV1Request) HasFkiAttachmentrejectreasonID() bool {
+	if o != nil && !IsNil(o.FkiAttachmentrejectreasonID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiAttachmentrejectreasonID gets a reference to the given int32 and assigns it to the FkiAttachmentrejectreasonID field.
+func (o *AttachmentValidateV1Request) SetFkiAttachmentrejectreasonID(v int32) {
+	o.FkiAttachmentrejectreasonID = &v
 }
 
 // GetEAttachmentVerified returns the EAttachmentVerified field value
@@ -69,6 +111,134 @@ func (o *AttachmentValidateV1Request) SetEAttachmentVerified(v FieldEAttachmentV
 	o.EAttachmentVerified = v
 }
 
+// GetTAttachmentRejectioncomment returns the TAttachmentRejectioncomment field value if set, zero value otherwise.
+func (o *AttachmentValidateV1Request) GetTAttachmentRejectioncomment() string {
+	if o == nil || IsNil(o.TAttachmentRejectioncomment) {
+		var ret string
+		return ret
+	}
+	return *o.TAttachmentRejectioncomment
+}
+
+// GetTAttachmentRejectioncommentOk returns a tuple with the TAttachmentRejectioncomment field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentValidateV1Request) GetTAttachmentRejectioncommentOk() (*string, bool) {
+	if o == nil || IsNil(o.TAttachmentRejectioncomment) {
+		return nil, false
+	}
+	return o.TAttachmentRejectioncomment, true
+}
+
+// HasTAttachmentRejectioncomment returns a boolean if a field has been set.
+func (o *AttachmentValidateV1Request) HasTAttachmentRejectioncomment() bool {
+	if o != nil && !IsNil(o.TAttachmentRejectioncomment) {
+		return true
+	}
+
+	return false
+}
+
+// SetTAttachmentRejectioncomment gets a reference to the given string and assigns it to the TAttachmentRejectioncomment field.
+func (o *AttachmentValidateV1Request) SetTAttachmentRejectioncomment(v string) {
+	o.TAttachmentRejectioncomment = &v
+}
+
+// GetASNotificationEmailAddress returns the ASNotificationEmailAddress field value if set, zero value otherwise.
+func (o *AttachmentValidateV1Request) GetASNotificationEmailAddress() []string {
+	if o == nil || IsNil(o.ASNotificationEmailAddress) {
+		var ret []string
+		return ret
+	}
+	return o.ASNotificationEmailAddress
+}
+
+// GetASNotificationEmailAddressOk returns a tuple with the ASNotificationEmailAddress field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentValidateV1Request) GetASNotificationEmailAddressOk() ([]string, bool) {
+	if o == nil || IsNil(o.ASNotificationEmailAddress) {
+		return nil, false
+	}
+	return o.ASNotificationEmailAddress, true
+}
+
+// HasASNotificationEmailAddress returns a boolean if a field has been set.
+func (o *AttachmentValidateV1Request) HasASNotificationEmailAddress() bool {
+	if o != nil && !IsNil(o.ASNotificationEmailAddress) {
+		return true
+	}
+
+	return false
+}
+
+// SetASNotificationEmailAddress gets a reference to the given []string and assigns it to the ASNotificationEmailAddress field.
+func (o *AttachmentValidateV1Request) SetASNotificationEmailAddress(v []string) {
+	o.ASNotificationEmailAddress = v
+}
+
+// GetTNotificationMessage returns the TNotificationMessage field value if set, zero value otherwise.
+func (o *AttachmentValidateV1Request) GetTNotificationMessage() string {
+	if o == nil || IsNil(o.TNotificationMessage) {
+		var ret string
+		return ret
+	}
+	return *o.TNotificationMessage
+}
+
+// GetTNotificationMessageOk returns a tuple with the TNotificationMessage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentValidateV1Request) GetTNotificationMessageOk() (*string, bool) {
+	if o == nil || IsNil(o.TNotificationMessage) {
+		return nil, false
+	}
+	return o.TNotificationMessage, true
+}
+
+// HasTNotificationMessage returns a boolean if a field has been set.
+func (o *AttachmentValidateV1Request) HasTNotificationMessage() bool {
+	if o != nil && !IsNil(o.TNotificationMessage) {
+		return true
+	}
+
+	return false
+}
+
+// SetTNotificationMessage gets a reference to the given string and assigns it to the TNotificationMessage field.
+func (o *AttachmentValidateV1Request) SetTNotificationMessage(v string) {
+	o.TNotificationMessage = &v
+}
+
+// GetBNotificationIncludeAttachment returns the BNotificationIncludeAttachment field value if set, zero value otherwise.
+func (o *AttachmentValidateV1Request) GetBNotificationIncludeAttachment() bool {
+	if o == nil || IsNil(o.BNotificationIncludeAttachment) {
+		var ret bool
+		return ret
+	}
+	return *o.BNotificationIncludeAttachment
+}
+
+// GetBNotificationIncludeAttachmentOk returns a tuple with the BNotificationIncludeAttachment field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentValidateV1Request) GetBNotificationIncludeAttachmentOk() (*bool, bool) {
+	if o == nil || IsNil(o.BNotificationIncludeAttachment) {
+		return nil, false
+	}
+	return o.BNotificationIncludeAttachment, true
+}
+
+// HasBNotificationIncludeAttachment returns a boolean if a field has been set.
+func (o *AttachmentValidateV1Request) HasBNotificationIncludeAttachment() bool {
+	if o != nil && !IsNil(o.BNotificationIncludeAttachment) {
+		return true
+	}
+
+	return false
+}
+
+// SetBNotificationIncludeAttachment gets a reference to the given bool and assigns it to the BNotificationIncludeAttachment field.
+func (o *AttachmentValidateV1Request) SetBNotificationIncludeAttachment(v bool) {
+	o.BNotificationIncludeAttachment = &v
+}
+
 func (o AttachmentValidateV1Request) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -79,7 +249,22 @@ func (o AttachmentValidateV1Request) MarshalJSON() ([]byte, error) {
 
 func (o AttachmentValidateV1Request) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.FkiAttachmentrejectreasonID) {
+		toSerialize["fkiAttachmentrejectreasonID"] = o.FkiAttachmentrejectreasonID
+	}
 	toSerialize["eAttachmentVerified"] = o.EAttachmentVerified
+	if !IsNil(o.TAttachmentRejectioncomment) {
+		toSerialize["tAttachmentRejectioncomment"] = o.TAttachmentRejectioncomment
+	}
+	if !IsNil(o.ASNotificationEmailAddress) {
+		toSerialize["a_sNotificationEmailAddress"] = o.ASNotificationEmailAddress
+	}
+	if !IsNil(o.TNotificationMessage) {
+		toSerialize["tNotificationMessage"] = o.TNotificationMessage
+	}
+	if !IsNil(o.BNotificationIncludeAttachment) {
+		toSerialize["bNotificationIncludeAttachment"] = o.BNotificationIncludeAttachment
+	}
 	return toSerialize, nil
 }
 

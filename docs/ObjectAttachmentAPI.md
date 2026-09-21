@@ -5,11 +5,13 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AttachmentDeleteV1**](ObjectAttachmentAPI.md#AttachmentDeleteV1) | **Post** /1/object/attachment/{pkiAttachmentID}/delete | Delete an existing attachment
+[**AttachmentDocumentTypeV1**](ObjectAttachmentAPI.md#AttachmentDocumentTypeV1) | **Post** /1/object/attachment/{pkiAttachmentID}/documentType | Change attachment document type
 [**AttachmentDownloadV1**](ObjectAttachmentAPI.md#AttachmentDownloadV1) | **Get** /1/object/attachment/{pkiAttachmentID}/download | Retrieve the content
 [**AttachmentGetAttachmentlogsV1**](ObjectAttachmentAPI.md#AttachmentGetAttachmentlogsV1) | **Get** /1/object/attachment/{pkiAttachmentID}/getAttachmentlogs | Retrieve the Attachmentlogs
+[**AttachmentPrivacyV1**](ObjectAttachmentAPI.md#AttachmentPrivacyV1) | **Post** /1/object/attachment/{pkiAttachmentID}/privacy | Change the attachment privacy
 [**AttachmentRenameV1**](ObjectAttachmentAPI.md#AttachmentRenameV1) | **Post** /1/object/attachment/{pkiAttachmentID}/rename | Rename an attachment
 [**AttachmentRestoreV1**](ObjectAttachmentAPI.md#AttachmentRestoreV1) | **Post** /1/object/attachment/{pkiAttachmentID}/restore | Restore a deleted attachment
-[**AttachmentValidateV1**](ObjectAttachmentAPI.md#AttachmentValidateV1) | **Patch** /1/object/attachment/{pkiAttachmentID}/validate | Validate an existing attachment
+[**AttachmentValidateV1**](ObjectAttachmentAPI.md#AttachmentValidateV1) | **Post** /1/object/attachment/{pkiAttachmentID}/validate | Validate an existing attachment
 
 
 
@@ -70,6 +72,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AttachmentDeleteV1Response**](AttachmentDeleteV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## AttachmentDocumentTypeV1
+
+> AttachmentDocumentTypeV1Response AttachmentDocumentTypeV1(ctx, pkiAttachmentID).AttachmentDocumentTypeV1Request(attachmentDocumentTypeV1Request).Execute()
+
+Change attachment document type
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiAttachmentID := int32(56) // int32 | 
+	attachmentDocumentTypeV1Request := *openapiclient.NewAttachmentDocumentTypeV1Request(NullableInt32(191)) // AttachmentDocumentTypeV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectAttachmentAPI.AttachmentDocumentTypeV1(context.Background(), pkiAttachmentID).AttachmentDocumentTypeV1Request(attachmentDocumentTypeV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectAttachmentAPI.AttachmentDocumentTypeV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AttachmentDocumentTypeV1`: AttachmentDocumentTypeV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectAttachmentAPI.AttachmentDocumentTypeV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiAttachmentID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAttachmentDocumentTypeV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **attachmentDocumentTypeV1Request** | [**AttachmentDocumentTypeV1Request**](AttachmentDocumentTypeV1Request.md) |  | 
+
+### Return type
+
+[**AttachmentDocumentTypeV1Response**](AttachmentDocumentTypeV1Response.md)
 
 ### Authorization
 
@@ -216,6 +290,78 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## AttachmentPrivacyV1
+
+> AttachmentPrivacyV1Response AttachmentPrivacyV1(ctx, pkiAttachmentID).AttachmentPrivacyV1Request(attachmentPrivacyV1Request).Execute()
+
+Change the attachment privacy
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiAttachmentID := int32(56) // int32 | 
+	attachmentPrivacyV1Request := *openapiclient.NewAttachmentPrivacyV1Request(openapiclient.Field-eAttachmentPrivacy("All")) // AttachmentPrivacyV1Request | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectAttachmentAPI.AttachmentPrivacyV1(context.Background(), pkiAttachmentID).AttachmentPrivacyV1Request(attachmentPrivacyV1Request).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectAttachmentAPI.AttachmentPrivacyV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AttachmentPrivacyV1`: AttachmentPrivacyV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectAttachmentAPI.AttachmentPrivacyV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiAttachmentID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAttachmentPrivacyV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **attachmentPrivacyV1Request** | [**AttachmentPrivacyV1Request**](AttachmentPrivacyV1Request.md) |  | 
+
+### Return type
+
+[**AttachmentPrivacyV1Response**](AttachmentPrivacyV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

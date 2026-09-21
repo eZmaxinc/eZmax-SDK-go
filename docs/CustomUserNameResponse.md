@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **SContacttitleNameX** | Pointer to **string** | The name of the Contacttitle in the language of the requester | [optional] 
 **SUserLastname** | **string** | The last name of the user | 
 **SUserFirstname** | **string** | The first name of the user | 
+**SUserLoginname** | Pointer to **string** | The login name of the User. | [optional] 
 **SUserJobtitle** | Pointer to **string** | The job title of the user | [optional] 
 
 ## Methods
@@ -92,6 +93,31 @@ and a boolean to check if the value has been set.
 
 SetSUserFirstname sets SUserFirstname field to given value.
 
+
+### GetSUserLoginname
+
+`func (o *CustomUserNameResponse) GetSUserLoginname() string`
+
+GetSUserLoginname returns the SUserLoginname field if non-nil, zero value otherwise.
+
+### GetSUserLoginnameOk
+
+`func (o *CustomUserNameResponse) GetSUserLoginnameOk() (*string, bool)`
+
+GetSUserLoginnameOk returns a tuple with the SUserLoginname field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSUserLoginname
+
+`func (o *CustomUserNameResponse) SetSUserLoginname(v string)`
+
+SetSUserLoginname sets SUserLoginname field to given value.
+
+### HasSUserLoginname
+
+`func (o *CustomUserNameResponse) HasSUserLoginname() bool`
+
+HasSUserLoginname returns a boolean if a field has been set.
 
 ### GetSUserJobtitle
 

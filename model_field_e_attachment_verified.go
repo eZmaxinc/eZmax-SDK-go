@@ -24,6 +24,7 @@ const (
 	NO FieldEAttachmentVerified = "No"
 	YES FieldEAttachmentVerified = "Yes"
 	REJECTED FieldEAttachmentVerified = "Rejected"
+	PENDING FieldEAttachmentVerified = "Pending"
 )
 
 // All allowed values of FieldEAttachmentVerified enum
@@ -31,6 +32,7 @@ var AllowedFieldEAttachmentVerifiedEnumValues = []FieldEAttachmentVerified{
 	"No",
 	"Yes",
 	"Rejected",
+	"Pending",
 }
 
 func (v *FieldEAttachmentVerified) UnmarshalJSON(src []byte) error {

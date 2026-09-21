@@ -45,7 +45,8 @@ Name | Type | Description | Notes
 **FkiSupplierID** | Pointer to **int32** | The unique ID of the Supplier. | [optional] 
 **FkiTranqcontractID** | Pointer to **int32** | The unique ID of the Tranqcontract | [optional] 
 **FkiTemplateID** | Pointer to **int32** | The unique ID of the Template | [optional] 
-**FkiInscriptionchecklistID** | Pointer to **int32** | The unique ID of the Inscriptionchecklist | [optional] 
+**FkiDocumenttypechecklistID** | Pointer to **int32** | The unique ID of the Documenttypechecklist | [optional] 
+**SDocumenttypeNameX** | Pointer to **string** | The name of the Documenttype in the language of the requester | [optional] 
 **FkiFolderID** | Pointer to **int32** | The unique ID of the Folder | [optional] 
 **FkiRejectedoffertopurchaseID** | Pointer to **int32** | The unique ID of the Rejectedoffertopurchase | [optional] 
 **FkiDisclosureID** | Pointer to **int32** | The unique ID of the Disclosure | [optional] 
@@ -1110,30 +1111,55 @@ SetFkiTemplateID sets FkiTemplateID field to given value.
 
 HasFkiTemplateID returns a boolean if a field has been set.
 
-### GetFkiInscriptionchecklistID
+### GetFkiDocumenttypechecklistID
 
-`func (o *CustomAttachmentResponse) GetFkiInscriptionchecklistID() int32`
+`func (o *CustomAttachmentResponse) GetFkiDocumenttypechecklistID() int32`
 
-GetFkiInscriptionchecklistID returns the FkiInscriptionchecklistID field if non-nil, zero value otherwise.
+GetFkiDocumenttypechecklistID returns the FkiDocumenttypechecklistID field if non-nil, zero value otherwise.
 
-### GetFkiInscriptionchecklistIDOk
+### GetFkiDocumenttypechecklistIDOk
 
-`func (o *CustomAttachmentResponse) GetFkiInscriptionchecklistIDOk() (*int32, bool)`
+`func (o *CustomAttachmentResponse) GetFkiDocumenttypechecklistIDOk() (*int32, bool)`
 
-GetFkiInscriptionchecklistIDOk returns a tuple with the FkiInscriptionchecklistID field if it's non-nil, zero value otherwise
+GetFkiDocumenttypechecklistIDOk returns a tuple with the FkiDocumenttypechecklistID field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFkiInscriptionchecklistID
+### SetFkiDocumenttypechecklistID
 
-`func (o *CustomAttachmentResponse) SetFkiInscriptionchecklistID(v int32)`
+`func (o *CustomAttachmentResponse) SetFkiDocumenttypechecklistID(v int32)`
 
-SetFkiInscriptionchecklistID sets FkiInscriptionchecklistID field to given value.
+SetFkiDocumenttypechecklistID sets FkiDocumenttypechecklistID field to given value.
 
-### HasFkiInscriptionchecklistID
+### HasFkiDocumenttypechecklistID
 
-`func (o *CustomAttachmentResponse) HasFkiInscriptionchecklistID() bool`
+`func (o *CustomAttachmentResponse) HasFkiDocumenttypechecklistID() bool`
 
-HasFkiInscriptionchecklistID returns a boolean if a field has been set.
+HasFkiDocumenttypechecklistID returns a boolean if a field has been set.
+
+### GetSDocumenttypeNameX
+
+`func (o *CustomAttachmentResponse) GetSDocumenttypeNameX() string`
+
+GetSDocumenttypeNameX returns the SDocumenttypeNameX field if non-nil, zero value otherwise.
+
+### GetSDocumenttypeNameXOk
+
+`func (o *CustomAttachmentResponse) GetSDocumenttypeNameXOk() (*string, bool)`
+
+GetSDocumenttypeNameXOk returns a tuple with the SDocumenttypeNameX field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSDocumenttypeNameX
+
+`func (o *CustomAttachmentResponse) SetSDocumenttypeNameX(v string)`
+
+SetSDocumenttypeNameX sets SDocumenttypeNameX field to given value.
+
+### HasSDocumenttypeNameX
+
+`func (o *CustomAttachmentResponse) HasSDocumenttypeNameX() bool`
+
+HasSDocumenttypeNameX returns a boolean if a field has been set.
 
 ### GetFkiFolderID
 

@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**BankaccountGetCommunicationListV1**](ObjectBankaccountAPI.md#BankaccountGetCommunicationListV1) | **Get** /1/object/bankaccount/{pkiBankaccountID}/getCommunicationList | Retrieve Communication list
 [**BankaccountGetCommunicationrecipientsV1**](ObjectBankaccountAPI.md#BankaccountGetCommunicationrecipientsV1) | **Get** /1/object/bankaccount/{pkiBankaccountID}/getCommunicationrecipients | Retrieve Communication recipients
 [**BankaccountGetCommunicationsendersV1**](ObjectBankaccountAPI.md#BankaccountGetCommunicationsendersV1) | **Get** /1/object/bankaccount/{pkiBankaccountID}/getCommunicationsenders | Retrieve Communication senders
+[**BankaccountGetListV1**](ObjectBankaccountAPI.md#BankaccountGetListV1) | **Get** /1/object/bankaccount/getList | Retrieve Bankaccount list
 [**BankaccountImportIntoEDMV1**](ObjectBankaccountAPI.md#BankaccountImportIntoEDMV1) | **Post** /1/object/bankaccount/{pkiBankaccountID}/importIntoEDM | Import attachments into the Bankaccount
 
 
@@ -495,6 +496,80 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BankaccountGetListV1
+
+> BankaccountGetListV1Response BankaccountGetListV1(ctx).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
+
+Retrieve Bankaccount list
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
+	iRowMax := int32(56) // int32 |  (optional)
+	iRowOffset := int32(56) // int32 |  (optional) (default to 0)
+	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
+	sFilter := "sFilter_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectBankaccountAPI.BankaccountGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBankaccountAPI.BankaccountGetListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BankaccountGetListV1`: BankaccountGetListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectBankaccountAPI.BankaccountGetListV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBankaccountGetListV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **eOrderBy** | **string** | Specify how you want the results to be sorted | 
+ **iRowMax** | **int32** |  | 
+ **iRowOffset** | **int32** |  | [default to 0]
+ **acceptLanguage** | [**HeaderAcceptLanguage**](HeaderAcceptLanguage.md) |  | 
+ **sFilter** | **string** |  | 
+
+### Return type
+
+[**BankaccountGetListV1Response**](BankaccountGetListV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

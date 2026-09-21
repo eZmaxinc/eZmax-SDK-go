@@ -20,7 +20,7 @@ import (
 // checks if the AttachmentValidateV1ResponseMPayload type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &AttachmentValidateV1ResponseMPayload{}
 
-// AttachmentValidateV1ResponseMPayload Response for PATCH /1/object/attachment/{pkiAttachmentID}/validate
+// AttachmentValidateV1ResponseMPayload Response for POST /1/object/attachment/{pkiAttachmentID}/validate
 type AttachmentValidateV1ResponseMPayload struct {
 	// The unique ID of the Attachment.
 	PkiAttachmentID int32 `json:"pkiAttachmentID"`

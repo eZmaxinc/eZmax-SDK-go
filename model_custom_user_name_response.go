@@ -28,6 +28,8 @@ type CustomUserNameResponse struct {
 	SUserLastname string `json:"sUserLastname"`
 	// The first name of the user
 	SUserFirstname string `json:"sUserFirstname"`
+	// The login name of the User.
+	SUserLoginname *string `json:"sUserLoginname,omitempty" validate:"regexp=^(?:([\\w.%+\\-!#$%&'*+/=?^\x60{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2\\,20})|([a-zA-Z0-9]){1\\,32})$"`
 	// The job title of the user
 	SUserJobtitle *string `json:"sUserJobtitle,omitempty" validate:"regexp=^.{0\\,50}$"`
 }
@@ -133,6 +135,38 @@ func (o *CustomUserNameResponse) SetSUserFirstname(v string) {
 	o.SUserFirstname = v
 }
 
+// GetSUserLoginname returns the SUserLoginname field value if set, zero value otherwise.
+func (o *CustomUserNameResponse) GetSUserLoginname() string {
+	if o == nil || IsNil(o.SUserLoginname) {
+		var ret string
+		return ret
+	}
+	return *o.SUserLoginname
+}
+
+// GetSUserLoginnameOk returns a tuple with the SUserLoginname field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CustomUserNameResponse) GetSUserLoginnameOk() (*string, bool) {
+	if o == nil || IsNil(o.SUserLoginname) {
+		return nil, false
+	}
+	return o.SUserLoginname, true
+}
+
+// HasSUserLoginname returns a boolean if a field has been set.
+func (o *CustomUserNameResponse) HasSUserLoginname() bool {
+	if o != nil && !IsNil(o.SUserLoginname) {
+		return true
+	}
+
+	return false
+}
+
+// SetSUserLoginname gets a reference to the given string and assigns it to the SUserLoginname field.
+func (o *CustomUserNameResponse) SetSUserLoginname(v string) {
+	o.SUserLoginname = &v
+}
+
 // GetSUserJobtitle returns the SUserJobtitle field value if set, zero value otherwise.
 func (o *CustomUserNameResponse) GetSUserJobtitle() string {
 	if o == nil || IsNil(o.SUserJobtitle) {
@@ -180,6 +214,9 @@ func (o CustomUserNameResponse) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["sUserLastname"] = o.SUserLastname
 	toSerialize["sUserFirstname"] = o.SUserFirstname
+	if !IsNil(o.SUserLoginname) {
+		toSerialize["sUserLoginname"] = o.SUserLoginname
+	}
 	if !IsNil(o.SUserJobtitle) {
 		toSerialize["sUserJobtitle"] = o.SUserJobtitle
 	}

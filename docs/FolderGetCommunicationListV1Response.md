@@ -1,0 +1,98 @@
+# FolderGetCommunicationListV1Response
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**ObjDebugPayload** | [**CommonResponseObjDebugPayloadGetList**](CommonResponseObjDebugPayloadGetList.md) |  | 
+**ObjDebug** | Pointer to [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
+**MPayload** | [**FolderGetCommunicationListV1ResponseMPayload**](FolderGetCommunicationListV1ResponseMPayload.md) |  | 
+
+## Methods
+
+### NewFolderGetCommunicationListV1Response
+
+`func NewFolderGetCommunicationListV1Response(objDebugPayload CommonResponseObjDebugPayloadGetList, mPayload FolderGetCommunicationListV1ResponseMPayload, ) *FolderGetCommunicationListV1Response`
+
+NewFolderGetCommunicationListV1Response instantiates a new FolderGetCommunicationListV1Response object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewFolderGetCommunicationListV1ResponseWithDefaults
+
+`func NewFolderGetCommunicationListV1ResponseWithDefaults() *FolderGetCommunicationListV1Response`
+
+NewFolderGetCommunicationListV1ResponseWithDefaults instantiates a new FolderGetCommunicationListV1Response object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetObjDebugPayload
+
+`func (o *FolderGetCommunicationListV1Response) GetObjDebugPayload() CommonResponseObjDebugPayloadGetList`
+
+GetObjDebugPayload returns the ObjDebugPayload field if non-nil, zero value otherwise.
+
+### GetObjDebugPayloadOk
+
+`func (o *FolderGetCommunicationListV1Response) GetObjDebugPayloadOk() (*CommonResponseObjDebugPayloadGetList, bool)`
+
+GetObjDebugPayloadOk returns a tuple with the ObjDebugPayload field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjDebugPayload
+
+`func (o *FolderGetCommunicationListV1Response) SetObjDebugPayload(v CommonResponseObjDebugPayloadGetList)`
+
+SetObjDebugPayload sets ObjDebugPayload field to given value.
+
+
+### GetObjDebug
+
+`func (o *FolderGetCommunicationListV1Response) GetObjDebug() CommonResponseObjDebug`
+
+GetObjDebug returns the ObjDebug field if non-nil, zero value otherwise.
+
+### GetObjDebugOk
+
+`func (o *FolderGetCommunicationListV1Response) GetObjDebugOk() (*CommonResponseObjDebug, bool)`
+
+GetObjDebugOk returns a tuple with the ObjDebug field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjDebug
+
+`func (o *FolderGetCommunicationListV1Response) SetObjDebug(v CommonResponseObjDebug)`
+
+SetObjDebug sets ObjDebug field to given value.
+
+### HasObjDebug
+
+`func (o *FolderGetCommunicationListV1Response) HasObjDebug() bool`
+
+HasObjDebug returns a boolean if a field has been set.
+
+### GetMPayload
+
+`func (o *FolderGetCommunicationListV1Response) GetMPayload() FolderGetCommunicationListV1ResponseMPayload`
+
+GetMPayload returns the MPayload field if non-nil, zero value otherwise.
+
+### GetMPayloadOk
+
+`func (o *FolderGetCommunicationListV1Response) GetMPayloadOk() (*FolderGetCommunicationListV1ResponseMPayload, bool)`
+
+GetMPayloadOk returns a tuple with the MPayload field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMPayload
+
+`func (o *FolderGetCommunicationListV1Response) SetMPayload(v FolderGetCommunicationListV1ResponseMPayload)`
+
+SetMPayload sets MPayload field to given value.
+
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

@@ -320,6 +320,703 @@ func (a *ObjectOfficetaxreportAPIService) OfficetaxreportGetAttachmentsV1Execute
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiOfficetaxreportGetCommunicationCountV1Request struct {
+	ctx context.Context
+	ApiService *ObjectOfficetaxreportAPIService
+	pkiOfficetaxreportID int32
+}
+
+func (r ApiOfficetaxreportGetCommunicationCountV1Request) Execute() (*OfficetaxreportGetCommunicationCountV1Response, *http.Response, error) {
+	return r.ApiService.OfficetaxreportGetCommunicationCountV1Execute(r)
+}
+
+/*
+OfficetaxreportGetCommunicationCountV1 Retrieve Communication count
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiOfficetaxreportID
+ @return ApiOfficetaxreportGetCommunicationCountV1Request
+*/
+func (a *ObjectOfficetaxreportAPIService) OfficetaxreportGetCommunicationCountV1(ctx context.Context, pkiOfficetaxreportID int32) ApiOfficetaxreportGetCommunicationCountV1Request {
+	return ApiOfficetaxreportGetCommunicationCountV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiOfficetaxreportID: pkiOfficetaxreportID,
+	}
+}
+
+// Execute executes the request
+//  @return OfficetaxreportGetCommunicationCountV1Response
+func (a *ObjectOfficetaxreportAPIService) OfficetaxreportGetCommunicationCountV1Execute(r ApiOfficetaxreportGetCommunicationCountV1Request) (*OfficetaxreportGetCommunicationCountV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *OfficetaxreportGetCommunicationCountV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectOfficetaxreportAPIService.OfficetaxreportGetCommunicationCountV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/officetaxreport/{pkiOfficetaxreportID}/getCommunicationCount"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiOfficetaxreportID"+"}", url.PathEscape(parameterValueToString(r.pkiOfficetaxreportID, "pkiOfficetaxreportID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiOfficetaxreportID < 0 {
+		return localVarReturnValue, nil, reportError("pkiOfficetaxreportID must be greater than 0")
+	}
+	if r.pkiOfficetaxreportID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiOfficetaxreportID must be less than 65535")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiOfficetaxreportGetCommunicationListV1Request struct {
+	ctx context.Context
+	ApiService *ObjectOfficetaxreportAPIService
+	pkiOfficetaxreportID int32
+}
+
+func (r ApiOfficetaxreportGetCommunicationListV1Request) Execute() (*OfficetaxreportGetCommunicationListV1Response, *http.Response, error) {
+	return r.ApiService.OfficetaxreportGetCommunicationListV1Execute(r)
+}
+
+/*
+OfficetaxreportGetCommunicationListV1 Retrieve Communication list
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiOfficetaxreportID
+ @return ApiOfficetaxreportGetCommunicationListV1Request
+*/
+func (a *ObjectOfficetaxreportAPIService) OfficetaxreportGetCommunicationListV1(ctx context.Context, pkiOfficetaxreportID int32) ApiOfficetaxreportGetCommunicationListV1Request {
+	return ApiOfficetaxreportGetCommunicationListV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiOfficetaxreportID: pkiOfficetaxreportID,
+	}
+}
+
+// Execute executes the request
+//  @return OfficetaxreportGetCommunicationListV1Response
+func (a *ObjectOfficetaxreportAPIService) OfficetaxreportGetCommunicationListV1Execute(r ApiOfficetaxreportGetCommunicationListV1Request) (*OfficetaxreportGetCommunicationListV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *OfficetaxreportGetCommunicationListV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectOfficetaxreportAPIService.OfficetaxreportGetCommunicationListV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/officetaxreport/{pkiOfficetaxreportID}/getCommunicationList"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiOfficetaxreportID"+"}", url.PathEscape(parameterValueToString(r.pkiOfficetaxreportID, "pkiOfficetaxreportID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiOfficetaxreportID < 0 {
+		return localVarReturnValue, nil, reportError("pkiOfficetaxreportID must be greater than 0")
+	}
+	if r.pkiOfficetaxreportID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiOfficetaxreportID must be less than 65535")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiOfficetaxreportGetCommunicationrecipientsV1Request struct {
+	ctx context.Context
+	ApiService *ObjectOfficetaxreportAPIService
+	pkiOfficetaxreportID int32
+}
+
+func (r ApiOfficetaxreportGetCommunicationrecipientsV1Request) Execute() (*OfficetaxreportGetCommunicationrecipientsV1Response, *http.Response, error) {
+	return r.ApiService.OfficetaxreportGetCommunicationrecipientsV1Execute(r)
+}
+
+/*
+OfficetaxreportGetCommunicationrecipientsV1 Retrieve Communication recipients
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiOfficetaxreportID
+ @return ApiOfficetaxreportGetCommunicationrecipientsV1Request
+*/
+func (a *ObjectOfficetaxreportAPIService) OfficetaxreportGetCommunicationrecipientsV1(ctx context.Context, pkiOfficetaxreportID int32) ApiOfficetaxreportGetCommunicationrecipientsV1Request {
+	return ApiOfficetaxreportGetCommunicationrecipientsV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiOfficetaxreportID: pkiOfficetaxreportID,
+	}
+}
+
+// Execute executes the request
+//  @return OfficetaxreportGetCommunicationrecipientsV1Response
+func (a *ObjectOfficetaxreportAPIService) OfficetaxreportGetCommunicationrecipientsV1Execute(r ApiOfficetaxreportGetCommunicationrecipientsV1Request) (*OfficetaxreportGetCommunicationrecipientsV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *OfficetaxreportGetCommunicationrecipientsV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectOfficetaxreportAPIService.OfficetaxreportGetCommunicationrecipientsV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/officetaxreport/{pkiOfficetaxreportID}/getCommunicationrecipients"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiOfficetaxreportID"+"}", url.PathEscape(parameterValueToString(r.pkiOfficetaxreportID, "pkiOfficetaxreportID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiOfficetaxreportID < 0 {
+		return localVarReturnValue, nil, reportError("pkiOfficetaxreportID must be greater than 0")
+	}
+	if r.pkiOfficetaxreportID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiOfficetaxreportID must be less than 65535")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiOfficetaxreportGetCommunicationsendersV1Request struct {
+	ctx context.Context
+	ApiService *ObjectOfficetaxreportAPIService
+	pkiOfficetaxreportID int32
+}
+
+func (r ApiOfficetaxreportGetCommunicationsendersV1Request) Execute() (*OfficetaxreportGetCommunicationsendersV1Response, *http.Response, error) {
+	return r.ApiService.OfficetaxreportGetCommunicationsendersV1Execute(r)
+}
+
+/*
+OfficetaxreportGetCommunicationsendersV1 Retrieve Communication senders
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiOfficetaxreportID
+ @return ApiOfficetaxreportGetCommunicationsendersV1Request
+*/
+func (a *ObjectOfficetaxreportAPIService) OfficetaxreportGetCommunicationsendersV1(ctx context.Context, pkiOfficetaxreportID int32) ApiOfficetaxreportGetCommunicationsendersV1Request {
+	return ApiOfficetaxreportGetCommunicationsendersV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiOfficetaxreportID: pkiOfficetaxreportID,
+	}
+}
+
+// Execute executes the request
+//  @return OfficetaxreportGetCommunicationsendersV1Response
+func (a *ObjectOfficetaxreportAPIService) OfficetaxreportGetCommunicationsendersV1Execute(r ApiOfficetaxreportGetCommunicationsendersV1Request) (*OfficetaxreportGetCommunicationsendersV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *OfficetaxreportGetCommunicationsendersV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectOfficetaxreportAPIService.OfficetaxreportGetCommunicationsendersV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/officetaxreport/{pkiOfficetaxreportID}/getCommunicationsenders"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiOfficetaxreportID"+"}", url.PathEscape(parameterValueToString(r.pkiOfficetaxreportID, "pkiOfficetaxreportID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiOfficetaxreportID < 0 {
+		return localVarReturnValue, nil, reportError("pkiOfficetaxreportID must be greater than 0")
+	}
+	if r.pkiOfficetaxreportID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiOfficetaxreportID must be less than 65535")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiOfficetaxreportGetListV1Request struct {
+	ctx context.Context
+	ApiService *ObjectOfficetaxreportAPIService
+	eOrderBy *string
+	iRowMax *int32
+	iRowOffset *int32
+	acceptLanguage *HeaderAcceptLanguage
+	sFilter *string
+}
+
+// Specify how you want the results to be sorted
+func (r ApiOfficetaxreportGetListV1Request) EOrderBy(eOrderBy string) ApiOfficetaxreportGetListV1Request {
+	r.eOrderBy = &eOrderBy
+	return r
+}
+
+func (r ApiOfficetaxreportGetListV1Request) IRowMax(iRowMax int32) ApiOfficetaxreportGetListV1Request {
+	r.iRowMax = &iRowMax
+	return r
+}
+
+func (r ApiOfficetaxreportGetListV1Request) IRowOffset(iRowOffset int32) ApiOfficetaxreportGetListV1Request {
+	r.iRowOffset = &iRowOffset
+	return r
+}
+
+func (r ApiOfficetaxreportGetListV1Request) AcceptLanguage(acceptLanguage HeaderAcceptLanguage) ApiOfficetaxreportGetListV1Request {
+	r.acceptLanguage = &acceptLanguage
+	return r
+}
+
+func (r ApiOfficetaxreportGetListV1Request) SFilter(sFilter string) ApiOfficetaxreportGetListV1Request {
+	r.sFilter = &sFilter
+	return r
+}
+
+func (r ApiOfficetaxreportGetListV1Request) Execute() (*OfficetaxreportGetListV1Response, *http.Response, error) {
+	return r.ApiService.OfficetaxreportGetListV1Execute(r)
+}
+
+/*
+OfficetaxreportGetListV1 Retrieve Officetaxreport list
+
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiOfficetaxreportGetListV1Request
+*/
+func (a *ObjectOfficetaxreportAPIService) OfficetaxreportGetListV1(ctx context.Context) ApiOfficetaxreportGetListV1Request {
+	return ApiOfficetaxreportGetListV1Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return OfficetaxreportGetListV1Response
+func (a *ObjectOfficetaxreportAPIService) OfficetaxreportGetListV1Execute(r ApiOfficetaxreportGetListV1Request) (*OfficetaxreportGetListV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *OfficetaxreportGetListV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectOfficetaxreportAPIService.OfficetaxreportGetListV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/officetaxreport/getList"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.eOrderBy != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "eOrderBy", r.eOrderBy, "form", "")
+	}
+	if r.iRowMax != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowMax", r.iRowMax, "form", "")
+	}
+	if r.iRowOffset != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowOffset", r.iRowOffset, "form", "")
+	} else {
+		var defaultValue int32 = 0
+		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowOffset", defaultValue, "form", "")
+		r.iRowOffset = &defaultValue
+	}
+	if r.sFilter != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sFilter", r.sFilter, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.acceptLanguage != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept-Language", r.acceptLanguage, "simple", "")
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiOfficetaxreportImportIntoEDMV1Request struct {
 	ctx context.Context
 	ApiService *ObjectOfficetaxreportAPIService

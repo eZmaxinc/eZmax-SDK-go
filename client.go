@@ -76,6 +76,8 @@ type APIClient struct {
 
 	ObjectAttachmentAPI *ObjectAttachmentAPIService
 
+	ObjectAttachmentrejectreasonAPI *ObjectAttachmentrejectreasonAPIService
+
 	ObjectAuthenticationexternalAPI *ObjectAuthenticationexternalAPIService
 
 	ObjectBankaccountAPI *ObjectBankaccountAPIService
@@ -384,6 +386,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectAgenttypeAPI = (*ObjectAgenttypeAPIService)(&c.common)
 	c.ObjectApikeyAPI = (*ObjectApikeyAPIService)(&c.common)
 	c.ObjectAttachmentAPI = (*ObjectAttachmentAPIService)(&c.common)
+	c.ObjectAttachmentrejectreasonAPI = (*ObjectAttachmentrejectreasonAPIService)(&c.common)
 	c.ObjectAuthenticationexternalAPI = (*ObjectAuthenticationexternalAPIService)(&c.common)
 	c.ObjectBankaccountAPI = (*ObjectBankaccountAPIService)(&c.common)
 	c.ObjectBillingentityexternalAPI = (*ObjectBillingentityexternalAPIService)(&c.common)

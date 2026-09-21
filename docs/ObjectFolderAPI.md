@@ -6,6 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**FolderBatchDownloadV1**](ObjectFolderAPI.md#FolderBatchDownloadV1) | **Post** /1/object/folder/{pkiFolderID}/batchDownload | Download multiples attachments from an Folder
 [**FolderGetAttachmentsV1**](ObjectFolderAPI.md#FolderGetAttachmentsV1) | **Get** /1/object/folder/{pkiFolderID}/getAttachments | Retrieve Folder&#39;s attachments
+[**FolderGetCommunicationCountV1**](ObjectFolderAPI.md#FolderGetCommunicationCountV1) | **Get** /1/object/folder/{pkiFolderID}/getCommunicationCount | Retrieve Communication count
+[**FolderGetCommunicationListV1**](ObjectFolderAPI.md#FolderGetCommunicationListV1) | **Get** /1/object/folder/{pkiFolderID}/getCommunicationList | Retrieve Communication list
+[**FolderGetCommunicationrecipientsV1**](ObjectFolderAPI.md#FolderGetCommunicationrecipientsV1) | **Get** /1/object/folder/{pkiFolderID}/getCommunicationrecipients | Retrieve Communication recipients
+[**FolderGetCommunicationsendersV1**](ObjectFolderAPI.md#FolderGetCommunicationsendersV1) | **Get** /1/object/folder/{pkiFolderID}/getCommunicationsenders | Retrieve Communication senders
 [**FolderImportIntoEDMV1**](ObjectFolderAPI.md#FolderImportIntoEDMV1) | **Post** /1/object/folder/{pkiFolderID}/importIntoEDM | Import attachments into the Folder
 
 
@@ -133,6 +137,278 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**FolderGetAttachmentsV1Response**](FolderGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## FolderGetCommunicationCountV1
+
+> FolderGetCommunicationCountV1Response FolderGetCommunicationCountV1(ctx, pkiFolderID).Execute()
+
+Retrieve Communication count
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiFolderID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectFolderAPI.FolderGetCommunicationCountV1(context.Background(), pkiFolderID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectFolderAPI.FolderGetCommunicationCountV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `FolderGetCommunicationCountV1`: FolderGetCommunicationCountV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectFolderAPI.FolderGetCommunicationCountV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiFolderID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiFolderGetCommunicationCountV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**FolderGetCommunicationCountV1Response**](FolderGetCommunicationCountV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## FolderGetCommunicationListV1
+
+> FolderGetCommunicationListV1Response FolderGetCommunicationListV1(ctx, pkiFolderID).Execute()
+
+Retrieve Communication list
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiFolderID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectFolderAPI.FolderGetCommunicationListV1(context.Background(), pkiFolderID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectFolderAPI.FolderGetCommunicationListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `FolderGetCommunicationListV1`: FolderGetCommunicationListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectFolderAPI.FolderGetCommunicationListV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiFolderID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiFolderGetCommunicationListV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**FolderGetCommunicationListV1Response**](FolderGetCommunicationListV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## FolderGetCommunicationrecipientsV1
+
+> FolderGetCommunicationrecipientsV1Response FolderGetCommunicationrecipientsV1(ctx, pkiFolderID).Execute()
+
+Retrieve Communication recipients
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiFolderID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectFolderAPI.FolderGetCommunicationrecipientsV1(context.Background(), pkiFolderID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectFolderAPI.FolderGetCommunicationrecipientsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `FolderGetCommunicationrecipientsV1`: FolderGetCommunicationrecipientsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectFolderAPI.FolderGetCommunicationrecipientsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiFolderID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiFolderGetCommunicationrecipientsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**FolderGetCommunicationrecipientsV1Response**](FolderGetCommunicationrecipientsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## FolderGetCommunicationsendersV1
+
+> FolderGetCommunicationsendersV1Response FolderGetCommunicationsendersV1(ctx, pkiFolderID).Execute()
+
+Retrieve Communication senders
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiFolderID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectFolderAPI.FolderGetCommunicationsendersV1(context.Background(), pkiFolderID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectFolderAPI.FolderGetCommunicationsendersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `FolderGetCommunicationsendersV1`: FolderGetCommunicationsendersV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectFolderAPI.FolderGetCommunicationsendersV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiFolderID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiFolderGetCommunicationsendersV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**FolderGetCommunicationsendersV1Response**](FolderGetCommunicationsendersV1Response.md)
 
 ### Authorization
 
