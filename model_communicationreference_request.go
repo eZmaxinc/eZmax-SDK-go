@@ -28,6 +28,8 @@ type CommunicationreferenceRequest struct {
 	FkiEzsignfolderID *int32 `json:"fkiEzsignfolderID,omitempty"`
 	// The unique ID of the Inscription.
 	FkiInscriptionID *int32 `json:"fkiInscriptionID,omitempty"`
+	// The unique ID of the Inscriptionnotauthenticated.
+	FkiInscriptionnotauthenticatedID *int32 `json:"fkiInscriptionnotauthenticatedID,omitempty"`
 	// The unique ID of the Inscriptiontemp
 	FkiInscriptiontempID *int32 `json:"fkiInscriptiontempID,omitempty"`
 	// The unique ID of the Invoice.
@@ -183,6 +185,38 @@ func (o *CommunicationreferenceRequest) HasFkiInscriptionID() bool {
 // SetFkiInscriptionID gets a reference to the given int32 and assigns it to the FkiInscriptionID field.
 func (o *CommunicationreferenceRequest) SetFkiInscriptionID(v int32) {
 	o.FkiInscriptionID = &v
+}
+
+// GetFkiInscriptionnotauthenticatedID returns the FkiInscriptionnotauthenticatedID field value if set, zero value otherwise.
+func (o *CommunicationreferenceRequest) GetFkiInscriptionnotauthenticatedID() int32 {
+	if o == nil || IsNil(o.FkiInscriptionnotauthenticatedID) {
+		var ret int32
+		return ret
+	}
+	return *o.FkiInscriptionnotauthenticatedID
+}
+
+// GetFkiInscriptionnotauthenticatedIDOk returns a tuple with the FkiInscriptionnotauthenticatedID field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CommunicationreferenceRequest) GetFkiInscriptionnotauthenticatedIDOk() (*int32, bool) {
+	if o == nil || IsNil(o.FkiInscriptionnotauthenticatedID) {
+		return nil, false
+	}
+	return o.FkiInscriptionnotauthenticatedID, true
+}
+
+// HasFkiInscriptionnotauthenticatedID returns a boolean if a field has been set.
+func (o *CommunicationreferenceRequest) HasFkiInscriptionnotauthenticatedID() bool {
+	if o != nil && !IsNil(o.FkiInscriptionnotauthenticatedID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiInscriptionnotauthenticatedID gets a reference to the given int32 and assigns it to the FkiInscriptionnotauthenticatedID field.
+func (o *CommunicationreferenceRequest) SetFkiInscriptionnotauthenticatedID(v int32) {
+	o.FkiInscriptionnotauthenticatedID = &v
 }
 
 // GetFkiInscriptiontempID returns the FkiInscriptiontempID field value if set, zero value otherwise.
@@ -366,6 +400,9 @@ func (o CommunicationreferenceRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.FkiInscriptionID) {
 		toSerialize["fkiInscriptionID"] = o.FkiInscriptionID
+	}
+	if !IsNil(o.FkiInscriptionnotauthenticatedID) {
+		toSerialize["fkiInscriptionnotauthenticatedID"] = o.FkiInscriptionnotauthenticatedID
 	}
 	if !IsNil(o.FkiInscriptiontempID) {
 		toSerialize["fkiInscriptiontempID"] = o.FkiInscriptiontempID

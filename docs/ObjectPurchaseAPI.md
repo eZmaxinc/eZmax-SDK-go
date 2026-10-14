@@ -6,6 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**PurchaseBatchDownloadV1**](ObjectPurchaseAPI.md#PurchaseBatchDownloadV1) | **Post** /1/object/purchase/{pkiPurchaseID}/batchDownload | Download multiples attachments from a Purchase
 [**PurchaseGetAttachmentsV1**](ObjectPurchaseAPI.md#PurchaseGetAttachmentsV1) | **Get** /1/object/purchase/{pkiPurchaseID}/getAttachments | Retrieve Purchase&#39;s attachments
+[**PurchaseGetCommunicationCountV1**](ObjectPurchaseAPI.md#PurchaseGetCommunicationCountV1) | **Get** /1/object/purchase/{pkiPurchaseID}/getCommunicationCount | Retrieve Communication count
+[**PurchaseGetCommunicationListV1**](ObjectPurchaseAPI.md#PurchaseGetCommunicationListV1) | **Get** /1/object/purchase/{pkiPurchaseID}/getCommunicationList | Retrieve Communication list
+[**PurchaseGetCommunicationrecipientsV1**](ObjectPurchaseAPI.md#PurchaseGetCommunicationrecipientsV1) | **Get** /1/object/purchase/{pkiPurchaseID}/getCommunicationrecipients | Retrieve Communication recipients
+[**PurchaseGetCommunicationsendersV1**](ObjectPurchaseAPI.md#PurchaseGetCommunicationsendersV1) | **Get** /1/object/purchase/{pkiPurchaseID}/getCommunicationsenders | Retrieve Communication senders
 [**PurchaseGetListV1**](ObjectPurchaseAPI.md#PurchaseGetListV1) | **Get** /1/object/purchase/getList | Retrieve Purchase list
 [**PurchaseImportIntoEDMV1**](ObjectPurchaseAPI.md#PurchaseImportIntoEDMV1) | **Post** /1/object/purchase/{pkiPurchaseID}/importIntoEDM | Import attachments into the Purchase
 
@@ -134,6 +138,278 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PurchaseGetAttachmentsV1Response**](PurchaseGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PurchaseGetCommunicationCountV1
+
+> PurchaseGetCommunicationCountV1Response PurchaseGetCommunicationCountV1(ctx, pkiPurchaseID).Execute()
+
+Retrieve Communication count
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiPurchaseID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectPurchaseAPI.PurchaseGetCommunicationCountV1(context.Background(), pkiPurchaseID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectPurchaseAPI.PurchaseGetCommunicationCountV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PurchaseGetCommunicationCountV1`: PurchaseGetCommunicationCountV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectPurchaseAPI.PurchaseGetCommunicationCountV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiPurchaseID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPurchaseGetCommunicationCountV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**PurchaseGetCommunicationCountV1Response**](PurchaseGetCommunicationCountV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PurchaseGetCommunicationListV1
+
+> PurchaseGetCommunicationListV1Response PurchaseGetCommunicationListV1(ctx, pkiPurchaseID).Execute()
+
+Retrieve Communication list
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiPurchaseID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectPurchaseAPI.PurchaseGetCommunicationListV1(context.Background(), pkiPurchaseID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectPurchaseAPI.PurchaseGetCommunicationListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PurchaseGetCommunicationListV1`: PurchaseGetCommunicationListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectPurchaseAPI.PurchaseGetCommunicationListV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiPurchaseID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPurchaseGetCommunicationListV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**PurchaseGetCommunicationListV1Response**](PurchaseGetCommunicationListV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PurchaseGetCommunicationrecipientsV1
+
+> PurchaseGetCommunicationrecipientsV1Response PurchaseGetCommunicationrecipientsV1(ctx, pkiPurchaseID).Execute()
+
+Retrieve Communication recipients
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiPurchaseID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectPurchaseAPI.PurchaseGetCommunicationrecipientsV1(context.Background(), pkiPurchaseID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectPurchaseAPI.PurchaseGetCommunicationrecipientsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PurchaseGetCommunicationrecipientsV1`: PurchaseGetCommunicationrecipientsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectPurchaseAPI.PurchaseGetCommunicationrecipientsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiPurchaseID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPurchaseGetCommunicationrecipientsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**PurchaseGetCommunicationrecipientsV1Response**](PurchaseGetCommunicationrecipientsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PurchaseGetCommunicationsendersV1
+
+> PurchaseGetCommunicationsendersV1Response PurchaseGetCommunicationsendersV1(ctx, pkiPurchaseID).Execute()
+
+Retrieve Communication senders
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiPurchaseID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectPurchaseAPI.PurchaseGetCommunicationsendersV1(context.Background(), pkiPurchaseID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectPurchaseAPI.PurchaseGetCommunicationsendersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PurchaseGetCommunicationsendersV1`: PurchaseGetCommunicationsendersV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectPurchaseAPI.PurchaseGetCommunicationsendersV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiPurchaseID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPurchaseGetCommunicationsendersV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**PurchaseGetCommunicationsendersV1Response**](PurchaseGetCommunicationsendersV1Response.md)
 
 ### Authorization
 

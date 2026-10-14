@@ -864,6 +864,7 @@ type ApiUserGetAutocompleteV2Request struct {
 	ApiService *ObjectUserAPIService
 	sSelector string
 	eFilterActive *string
+	fkiAttachmentID *string
 	sQuery *string
 	acceptLanguage *HeaderAcceptLanguage
 }
@@ -871,6 +872,12 @@ type ApiUserGetAutocompleteV2Request struct {
 // Specify which results we want to display.
 func (r ApiUserGetAutocompleteV2Request) EFilterActive(eFilterActive string) ApiUserGetAutocompleteV2Request {
 	r.eFilterActive = &eFilterActive
+	return r
+}
+
+// Specify for which fkiAttachmentID we want to find users for. Only used when sSelector is AttachmentSpecificUser.
+func (r ApiUserGetAutocompleteV2Request) FkiAttachmentID(fkiAttachmentID string) ApiUserGetAutocompleteV2Request {
+	r.fkiAttachmentID = &fkiAttachmentID
 	return r
 }
 
@@ -934,6 +941,9 @@ func (a *ObjectUserAPIService) UserGetAutocompleteV2Execute(r ApiUserGetAutocomp
 		var defaultValue string = "Active"
 		parameterAddToHeaderOrQuery(localVarQueryParams, "eFilterActive", defaultValue, "form", "")
 		r.eFilterActive = &defaultValue
+	}
+	if r.fkiAttachmentID != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "fkiAttachmentID", r.fkiAttachmentID, "form", "")
 	}
 	if r.sQuery != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sQuery", r.sQuery, "form", "")

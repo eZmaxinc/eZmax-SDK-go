@@ -22,7 +22,7 @@ var _ MappedNullable = &InvoiceImportIntoEDMV1ResponseMPayload{}
 
 // InvoiceImportIntoEDMV1ResponseMPayload Payload for POST /1/object/invoice/{pkiInvoiceID}/importIntoEDM
 type InvoiceImportIntoEDMV1ResponseMPayload struct {
-	APkiAttachmentID []int32 `json:"a_pkiAttachmentID"`
+	AObjAttachment []CustomAttachmentImportIntoEDMResponse `json:"a_objAttachment"`
 }
 
 type _InvoiceImportIntoEDMV1ResponseMPayload InvoiceImportIntoEDMV1ResponseMPayload
@@ -31,9 +31,9 @@ type _InvoiceImportIntoEDMV1ResponseMPayload InvoiceImportIntoEDMV1ResponseMPayl
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInvoiceImportIntoEDMV1ResponseMPayload(aPkiAttachmentID []int32) *InvoiceImportIntoEDMV1ResponseMPayload {
+func NewInvoiceImportIntoEDMV1ResponseMPayload(aObjAttachment []CustomAttachmentImportIntoEDMResponse) *InvoiceImportIntoEDMV1ResponseMPayload {
 	this := InvoiceImportIntoEDMV1ResponseMPayload{}
-	this.APkiAttachmentID = aPkiAttachmentID
+	this.AObjAttachment = aObjAttachment
 	return &this
 }
 
@@ -45,28 +45,28 @@ func NewInvoiceImportIntoEDMV1ResponseMPayloadWithDefaults() *InvoiceImportIntoE
 	return &this
 }
 
-// GetAPkiAttachmentID returns the APkiAttachmentID field value
-func (o *InvoiceImportIntoEDMV1ResponseMPayload) GetAPkiAttachmentID() []int32 {
+// GetAObjAttachment returns the AObjAttachment field value
+func (o *InvoiceImportIntoEDMV1ResponseMPayload) GetAObjAttachment() []CustomAttachmentImportIntoEDMResponse {
 	if o == nil {
-		var ret []int32
+		var ret []CustomAttachmentImportIntoEDMResponse
 		return ret
 	}
 
-	return o.APkiAttachmentID
+	return o.AObjAttachment
 }
 
-// GetAPkiAttachmentIDOk returns a tuple with the APkiAttachmentID field value
+// GetAObjAttachmentOk returns a tuple with the AObjAttachment field value
 // and a boolean to check if the value has been set.
-func (o *InvoiceImportIntoEDMV1ResponseMPayload) GetAPkiAttachmentIDOk() ([]int32, bool) {
+func (o *InvoiceImportIntoEDMV1ResponseMPayload) GetAObjAttachmentOk() ([]CustomAttachmentImportIntoEDMResponse, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.APkiAttachmentID, true
+	return o.AObjAttachment, true
 }
 
-// SetAPkiAttachmentID sets field value
-func (o *InvoiceImportIntoEDMV1ResponseMPayload) SetAPkiAttachmentID(v []int32) {
-	o.APkiAttachmentID = v
+// SetAObjAttachment sets field value
+func (o *InvoiceImportIntoEDMV1ResponseMPayload) SetAObjAttachment(v []CustomAttachmentImportIntoEDMResponse) {
+	o.AObjAttachment = v
 }
 
 func (o InvoiceImportIntoEDMV1ResponseMPayload) MarshalJSON() ([]byte, error) {
@@ -79,7 +79,7 @@ func (o InvoiceImportIntoEDMV1ResponseMPayload) MarshalJSON() ([]byte, error) {
 
 func (o InvoiceImportIntoEDMV1ResponseMPayload) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["a_pkiAttachmentID"] = o.APkiAttachmentID
+	toSerialize["a_objAttachment"] = o.AObjAttachment
 	return toSerialize, nil
 }
 
@@ -88,7 +88,7 @@ func (o *InvoiceImportIntoEDMV1ResponseMPayload) UnmarshalJSON(data []byte) (err
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"a_pkiAttachmentID",
+		"a_objAttachment",
 	}
 
 	allProperties := make(map[string]interface{})

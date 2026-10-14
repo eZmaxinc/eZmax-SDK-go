@@ -205,8 +205,8 @@ func (a *ObjectUsergroupAPIService) UsergroupEditObjectV1Execute(r ApiUsergroupE
 	if r.pkiUsergroupID < 0 {
 		return localVarReturnValue, nil, reportError("pkiUsergroupID must be greater than 0")
 	}
-	if r.pkiUsergroupID > 255 {
-		return localVarReturnValue, nil, reportError("pkiUsergroupID must be less than 255")
+	if r.pkiUsergroupID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiUsergroupID must be less than 65535")
 	}
 	if r.usergroupEditObjectV1Request == nil {
 		return localVarReturnValue, nil, reportError("usergroupEditObjectV1Request is required and must be specified")
@@ -360,8 +360,8 @@ func (a *ObjectUsergroupAPIService) UsergroupEditPermissionsV1Execute(r ApiUserg
 	if r.pkiUsergroupID < 0 {
 		return localVarReturnValue, nil, reportError("pkiUsergroupID must be greater than 0")
 	}
-	if r.pkiUsergroupID > 255 {
-		return localVarReturnValue, nil, reportError("pkiUsergroupID must be less than 255")
+	if r.pkiUsergroupID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiUsergroupID must be less than 65535")
 	}
 	if r.usergroupEditPermissionsV1Request == nil {
 		return localVarReturnValue, nil, reportError("usergroupEditPermissionsV1Request is required and must be specified")
@@ -515,8 +515,8 @@ func (a *ObjectUsergroupAPIService) UsergroupEditUsergroupdelegationsV1Execute(r
 	if r.pkiUsergroupID < 0 {
 		return localVarReturnValue, nil, reportError("pkiUsergroupID must be greater than 0")
 	}
-	if r.pkiUsergroupID > 255 {
-		return localVarReturnValue, nil, reportError("pkiUsergroupID must be less than 255")
+	if r.pkiUsergroupID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiUsergroupID must be less than 65535")
 	}
 	if r.usergroupEditUsergroupdelegationsV1Request == nil {
 		return localVarReturnValue, nil, reportError("usergroupEditUsergroupdelegationsV1Request is required and must be specified")
@@ -670,8 +670,8 @@ func (a *ObjectUsergroupAPIService) UsergroupEditUsergroupmembershipsV1Execute(r
 	if r.pkiUsergroupID < 0 {
 		return localVarReturnValue, nil, reportError("pkiUsergroupID must be greater than 0")
 	}
-	if r.pkiUsergroupID > 255 {
-		return localVarReturnValue, nil, reportError("pkiUsergroupID must be less than 255")
+	if r.pkiUsergroupID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiUsergroupID must be less than 65535")
 	}
 	if r.usergroupEditUsergroupmembershipsV1Request == nil {
 		return localVarReturnValue, nil, reportError("usergroupEditUsergroupmembershipsV1Request is required and must be specified")
@@ -1142,8 +1142,8 @@ func (a *ObjectUsergroupAPIService) UsergroupGetObjectV2Execute(r ApiUsergroupGe
 	if r.pkiUsergroupID < 0 {
 		return localVarReturnValue, nil, reportError("pkiUsergroupID must be greater than 0")
 	}
-	if r.pkiUsergroupID > 255 {
-		return localVarReturnValue, nil, reportError("pkiUsergroupID must be less than 255")
+	if r.pkiUsergroupID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiUsergroupID must be less than 65535")
 	}
 
 	// to determine the Content-Type header
@@ -1273,8 +1273,8 @@ func (a *ObjectUsergroupAPIService) UsergroupGetPermissionsV1Execute(r ApiUsergr
 	if r.pkiUsergroupID < 0 {
 		return localVarReturnValue, nil, reportError("pkiUsergroupID must be greater than 0")
 	}
-	if r.pkiUsergroupID > 255 {
-		return localVarReturnValue, nil, reportError("pkiUsergroupID must be less than 255")
+	if r.pkiUsergroupID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiUsergroupID must be less than 65535")
 	}
 
 	// to determine the Content-Type header
@@ -1404,8 +1404,8 @@ func (a *ObjectUsergroupAPIService) UsergroupGetUsergroupdelegationsV1Execute(r 
 	if r.pkiUsergroupID < 0 {
 		return localVarReturnValue, nil, reportError("pkiUsergroupID must be greater than 0")
 	}
-	if r.pkiUsergroupID > 255 {
-		return localVarReturnValue, nil, reportError("pkiUsergroupID must be less than 255")
+	if r.pkiUsergroupID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiUsergroupID must be less than 65535")
 	}
 
 	// to determine the Content-Type header
@@ -1535,8 +1535,8 @@ func (a *ObjectUsergroupAPIService) UsergroupGetUsergroupmembershipsV1Execute(r 
 	if r.pkiUsergroupID < 0 {
 		return localVarReturnValue, nil, reportError("pkiUsergroupID must be greater than 0")
 	}
-	if r.pkiUsergroupID > 255 {
-		return localVarReturnValue, nil, reportError("pkiUsergroupID must be less than 255")
+	if r.pkiUsergroupID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiUsergroupID must be less than 65535")
 	}
 
 	// to determine the Content-Type header

@@ -27,7 +27,7 @@ type CustomerResponse struct {
 	// The unique ID of the Company
 	FkiCompanyID int32 `json:"fkiCompanyID"`
 	// The unique ID of the Customergroup
-	FkiCustomergroupID int32 `json:"fkiCustomergroupID"`
+	FkiCustomergroupID *int32 `json:"fkiCustomergroupID,omitempty"`
 	// The name of the Customer
 	SCustomerName string `json:"sCustomerName" validate:"regexp=^.{0\\,50}$"`
 	// A note for the Customer
@@ -37,7 +37,7 @@ type CustomerResponse struct {
 	// The unique ID of the Contactcontainer
 	FkiContactcontainerID int32 `json:"fkiContactcontainerID"`
 	// The unique ID of the Image
-	FkiImageID int32 `json:"fkiImageID"`
+	FkiImageID *int32 `json:"fkiImageID,omitempty"`
 	// The unique ID of the Glaccountcontainer
 	FkiGlaccountcontainerID int32 `json:"fkiGlaccountcontainerID"`
 	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
@@ -47,9 +47,9 @@ type CustomerResponse struct {
 	// The unique ID of the Paymentmethod
 	FkiPaymentmethodID int32 `json:"fkiPaymentmethodID"`
 	// The unique ID of the Electronicfundstransferbankaccount
-	FkiElectronicfundstransferbankaccountID int32 `json:"fkiElectronicfundstransferbankaccountID"`
+	FkiElectronicfundstransferbankaccountID *int32 `json:"fkiElectronicfundstransferbankaccountID,omitempty"`
 	// The unique ID of the Electronicfundstransferbankaccount
-	FkiElectronicfundstransferbankaccountIDDirectdebit int32 `json:"fkiElectronicfundstransferbankaccountIDDirectdebit"`
+	FkiElectronicfundstransferbankaccountIDDirectdebit *int32 `json:"fkiElectronicfundstransferbankaccountIDDirectdebit,omitempty"`
 	// The unique ID of the Sendingmethod
 	FkiSendingmethodID int32 `json:"fkiSendingmethodID"`
 	// The unique ID of the Taxassignment.  Valid values:  |Value|Description| |-|-| |1|No tax| |2|GST| |3|HST (ON)| |4|HST (NB)| |5|HST (NS)| |6|HST (NL)| |7|HST (PE)| |8|GST + QST (QC)| |9|GST + QST (QC) Non-Recoverable| |10|GST + PST (BC)| |11|GST + PST (SK)| |12|GST + RST (MB)| |13|GST + PST (BC) Non-Recoverable| |14|GST + PST (SK) Non-Recoverable| |15|GST + RST (MB) Non-Recoverable|
@@ -57,25 +57,25 @@ type CustomerResponse struct {
 	// The unique ID of the Attendancestatus
 	FkiAttendancestatusID int32 `json:"fkiAttendancestatusID"`
 	// The unique ID of the Agent.
-	FkiAgentIDVariableexpensechargeto int32 `json:"fkiAgentIDVariableexpensechargeto"`
+	FkiAgentIDVariableexpensechargeto *int32 `json:"fkiAgentIDVariableexpensechargeto,omitempty"`
 	// The unique ID of the Broker.
-	FkiBrokerIDVariableexpensechargeto int32 `json:"fkiBrokerIDVariableexpensechargeto"`
+	FkiBrokerIDVariableexpensechargeto *int32 `json:"fkiBrokerIDVariableexpensechargeto,omitempty"`
 	// The unique ID of the Customer.
-	FkiCustomerIDVariableexpensechargeto int32 `json:"fkiCustomerIDVariableexpensechargeto"`
+	FkiCustomerIDVariableexpensechargeto *int32 `json:"fkiCustomerIDVariableexpensechargeto,omitempty"`
 	// The unique ID of the Glaccountcontainer
-	FkiGlaccountcontainerIDVariableexpensechargeto int32 `json:"fkiGlaccountcontainerIDVariableexpensechargeto"`
+	FkiGlaccountcontainerIDVariableexpensechargeto *int32 `json:"fkiGlaccountcontainerIDVariableexpensechargeto,omitempty"`
 	// The unique ID of the Agent.
-	FkiAgentIDSupplychargechargeto int32 `json:"fkiAgentIDSupplychargechargeto"`
+	FkiAgentIDSupplychargechargeto *int32 `json:"fkiAgentIDSupplychargechargeto,omitempty"`
 	// The unique ID of the Broker.
-	FkiBrokerIDSupplychargechargeto int32 `json:"fkiBrokerIDSupplychargechargeto"`
+	FkiBrokerIDSupplychargechargeto *int32 `json:"fkiBrokerIDSupplychargechargeto,omitempty"`
 	// The unique ID of the Customer.
-	FkiCustomerIDSupplychargechargeto int32 `json:"fkiCustomerIDSupplychargechargeto"`
+	FkiCustomerIDSupplychargechargeto *int32 `json:"fkiCustomerIDSupplychargechargeto,omitempty"`
 	// The unique ID of the Glaccountcontainer
-	FkiGlaccountcontainerIDSupplychargechargeto int32 `json:"fkiGlaccountcontainerIDSupplychargechargeto"`
+	FkiGlaccountcontainerIDSupplychargechargeto *int32 `json:"fkiGlaccountcontainerIDSupplychargechargeto,omitempty"`
 	// The unique ID of the Invoicealternatelogo
-	FkiInvoicealternatelogoID int32 `json:"fkiInvoicealternatelogoID"`
+	FkiInvoicealternatelogoID *int32 `json:"fkiInvoicealternatelogoID,omitempty"`
 	// The unique ID of the Synchronizationlinkserver
-	FkiSynchronizationlinkserverID int32 `json:"fkiSynchronizationlinkserverID"`
+	FkiSynchronizationlinkserverID *int32 `json:"fkiSynchronizationlinkserverID,omitempty"`
 	// The unique ID of the User
 	EfkiUserID *int32 `json:"efkiUserID,omitempty"`
 	// The code of the Customer
@@ -83,7 +83,7 @@ type CustomerResponse struct {
 	// The code of the Customer
 	SCustomerCode string `json:"sCustomerCode" validate:"regexp=^.{0\\,6}$"`
 	// The fulltimeequivalent of the Customer
-	DCustomerFulltimeequivalent string `json:"dCustomerFulltimeequivalent" validate:"regexp=^-{0\\,1}[\\d]{1\\,3}?\\.[\\d]{2}$"`
+	DCustomerFulltimeequivalent *string `json:"dCustomerFulltimeequivalent,omitempty" validate:"regexp=^-{0\\,1}[\\d]{1\\,3}?\\.[\\d]{2}$"`
 	// The photocopiercode of the Customer
 	ICustomerPhotocopiercode int32 `json:"iCustomerPhotocopiercode"`
 	// The longdistancecode of the Customer
@@ -95,13 +95,13 @@ type CustomerResponse struct {
 	// The minimumchargeableinterests of the Customer
 	DCustomerMinimumchargeableinterests string `json:"dCustomerMinimumchargeableinterests" validate:"regexp=^-{0\\,1}[\\d]{1\\,9}?\\.[\\d]{2}$"`
 	// The birthdate of the Customer
-	DtCustomerBirthdate string `json:"dtCustomerBirthdate" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
+	DtCustomerBirthdate *string `json:"dtCustomerBirthdate,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`
 	// The transfer of the Customer
 	DtCustomerTransfer string `json:"dtCustomerTransfer" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$"`
 	// The transferappointment of the Customer
 	DtCustomerTransferappointment string `json:"dtCustomerTransferappointment" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$"`
 	// The transfersurvey of the Customer
-	DtCustomerTransfersurvey string `json:"dtCustomerTransfersurvey" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$"`
+	DtCustomerTransfersurvey *string `json:"dtCustomerTransfersurvey,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$"`
 	// Whether the customer is active or not
 	BCustomerIsactive bool `json:"bCustomerIsactive"`
 	// Whether if it's an variableexpensefinanced
@@ -131,45 +131,28 @@ type _CustomerResponse CustomerResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomerResponse(pkiCustomerID int32, fkiCompanyID int32, fkiCustomergroupID int32, sCustomerName string, fkiContactinformationsID int32, fkiContactcontainerID int32, fkiImageID int32, fkiGlaccountcontainerID int32, fkiLanguageID int32, fkiDepartmentID int32, fkiPaymentmethodID int32, fkiElectronicfundstransferbankaccountID int32, fkiElectronicfundstransferbankaccountIDDirectdebit int32, fkiSendingmethodID int32, fkiTaxassignmentID int32, fkiAttendancestatusID int32, fkiAgentIDVariableexpensechargeto int32, fkiBrokerIDVariableexpensechargeto int32, fkiCustomerIDVariableexpensechargeto int32, fkiGlaccountcontainerIDVariableexpensechargeto int32, fkiAgentIDSupplychargechargeto int32, fkiBrokerIDSupplychargechargeto int32, fkiCustomerIDSupplychargechargeto int32, fkiGlaccountcontainerIDSupplychargechargeto int32, fkiInvoicealternatelogoID int32, fkiSynchronizationlinkserverID int32, sCustomerCode string, dCustomerFulltimeequivalent string, iCustomerPhotocopiercode int32, iCustomerLongdistancecode int32, iCustomerTimewindowstart int32, iCustomerTimewindowend int32, dCustomerMinimumchargeableinterests string, dtCustomerBirthdate string, dtCustomerTransfer string, dtCustomerTransferappointment string, dtCustomerTransfersurvey string, bCustomerIsactive bool, bCustomerVariableexpensefinanced bool, bCustomerVariableexpensefinancedtaxes bool, bCustomerSupplychargefinanced bool, bCustomerSupplychargefinancedtaxes bool, bCustomerAttendance bool, eCustomerType FieldECustomerType, eCustomerMarketingcorrespondence FieldECustomerMarketingcorrespondence, bCustomerBlackcopycarbon bool, bCustomerUnsubscribeinfo bool, tCustomerComment string) *CustomerResponse {
+func NewCustomerResponse(pkiCustomerID int32, fkiCompanyID int32, sCustomerName string, fkiContactinformationsID int32, fkiContactcontainerID int32, fkiGlaccountcontainerID int32, fkiLanguageID int32, fkiDepartmentID int32, fkiPaymentmethodID int32, fkiSendingmethodID int32, fkiTaxassignmentID int32, fkiAttendancestatusID int32, sCustomerCode string, iCustomerPhotocopiercode int32, iCustomerLongdistancecode int32, iCustomerTimewindowstart int32, iCustomerTimewindowend int32, dCustomerMinimumchargeableinterests string, dtCustomerTransfer string, dtCustomerTransferappointment string, bCustomerIsactive bool, bCustomerVariableexpensefinanced bool, bCustomerVariableexpensefinancedtaxes bool, bCustomerSupplychargefinanced bool, bCustomerSupplychargefinancedtaxes bool, bCustomerAttendance bool, eCustomerType FieldECustomerType, eCustomerMarketingcorrespondence FieldECustomerMarketingcorrespondence, bCustomerBlackcopycarbon bool, bCustomerUnsubscribeinfo bool, tCustomerComment string) *CustomerResponse {
 	this := CustomerResponse{}
 	this.PkiCustomerID = pkiCustomerID
 	this.FkiCompanyID = fkiCompanyID
-	this.FkiCustomergroupID = fkiCustomergroupID
 	this.SCustomerName = sCustomerName
 	this.FkiContactinformationsID = fkiContactinformationsID
 	this.FkiContactcontainerID = fkiContactcontainerID
-	this.FkiImageID = fkiImageID
 	this.FkiGlaccountcontainerID = fkiGlaccountcontainerID
 	this.FkiLanguageID = fkiLanguageID
 	this.FkiDepartmentID = fkiDepartmentID
 	this.FkiPaymentmethodID = fkiPaymentmethodID
-	this.FkiElectronicfundstransferbankaccountID = fkiElectronicfundstransferbankaccountID
-	this.FkiElectronicfundstransferbankaccountIDDirectdebit = fkiElectronicfundstransferbankaccountIDDirectdebit
 	this.FkiSendingmethodID = fkiSendingmethodID
 	this.FkiTaxassignmentID = fkiTaxassignmentID
 	this.FkiAttendancestatusID = fkiAttendancestatusID
-	this.FkiAgentIDVariableexpensechargeto = fkiAgentIDVariableexpensechargeto
-	this.FkiBrokerIDVariableexpensechargeto = fkiBrokerIDVariableexpensechargeto
-	this.FkiCustomerIDVariableexpensechargeto = fkiCustomerIDVariableexpensechargeto
-	this.FkiGlaccountcontainerIDVariableexpensechargeto = fkiGlaccountcontainerIDVariableexpensechargeto
-	this.FkiAgentIDSupplychargechargeto = fkiAgentIDSupplychargechargeto
-	this.FkiBrokerIDSupplychargechargeto = fkiBrokerIDSupplychargechargeto
-	this.FkiCustomerIDSupplychargechargeto = fkiCustomerIDSupplychargechargeto
-	this.FkiGlaccountcontainerIDSupplychargechargeto = fkiGlaccountcontainerIDSupplychargechargeto
-	this.FkiInvoicealternatelogoID = fkiInvoicealternatelogoID
-	this.FkiSynchronizationlinkserverID = fkiSynchronizationlinkserverID
 	this.SCustomerCode = sCustomerCode
-	this.DCustomerFulltimeequivalent = dCustomerFulltimeequivalent
 	this.ICustomerPhotocopiercode = iCustomerPhotocopiercode
 	this.ICustomerLongdistancecode = iCustomerLongdistancecode
 	this.ICustomerTimewindowstart = iCustomerTimewindowstart
 	this.ICustomerTimewindowend = iCustomerTimewindowend
 	this.DCustomerMinimumchargeableinterests = dCustomerMinimumchargeableinterests
-	this.DtCustomerBirthdate = dtCustomerBirthdate
 	this.DtCustomerTransfer = dtCustomerTransfer
 	this.DtCustomerTransferappointment = dtCustomerTransferappointment
-	this.DtCustomerTransfersurvey = dtCustomerTransfersurvey
 	this.BCustomerIsactive = bCustomerIsactive
 	this.BCustomerVariableexpensefinanced = bCustomerVariableexpensefinanced
 	this.BCustomerVariableexpensefinancedtaxes = bCustomerVariableexpensefinancedtaxes
@@ -240,28 +223,36 @@ func (o *CustomerResponse) SetFkiCompanyID(v int32) {
 	o.FkiCompanyID = v
 }
 
-// GetFkiCustomergroupID returns the FkiCustomergroupID field value
+// GetFkiCustomergroupID returns the FkiCustomergroupID field value if set, zero value otherwise.
 func (o *CustomerResponse) GetFkiCustomergroupID() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.FkiCustomergroupID) {
 		var ret int32
 		return ret
 	}
-
-	return o.FkiCustomergroupID
+	return *o.FkiCustomergroupID
 }
 
-// GetFkiCustomergroupIDOk returns a tuple with the FkiCustomergroupID field value
+// GetFkiCustomergroupIDOk returns a tuple with the FkiCustomergroupID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CustomerResponse) GetFkiCustomergroupIDOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FkiCustomergroupID) {
 		return nil, false
 	}
-	return &o.FkiCustomergroupID, true
+	return o.FkiCustomergroupID, true
 }
 
-// SetFkiCustomergroupID sets field value
+// HasFkiCustomergroupID returns a boolean if a field has been set.
+func (o *CustomerResponse) HasFkiCustomergroupID() bool {
+	if o != nil && !IsNil(o.FkiCustomergroupID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiCustomergroupID gets a reference to the given int32 and assigns it to the FkiCustomergroupID field.
 func (o *CustomerResponse) SetFkiCustomergroupID(v int32) {
-	o.FkiCustomergroupID = v
+	o.FkiCustomergroupID = &v
 }
 
 // GetSCustomerName returns the SCustomerName field value
@@ -368,28 +359,36 @@ func (o *CustomerResponse) SetFkiContactcontainerID(v int32) {
 	o.FkiContactcontainerID = v
 }
 
-// GetFkiImageID returns the FkiImageID field value
+// GetFkiImageID returns the FkiImageID field value if set, zero value otherwise.
 func (o *CustomerResponse) GetFkiImageID() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.FkiImageID) {
 		var ret int32
 		return ret
 	}
-
-	return o.FkiImageID
+	return *o.FkiImageID
 }
 
-// GetFkiImageIDOk returns a tuple with the FkiImageID field value
+// GetFkiImageIDOk returns a tuple with the FkiImageID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CustomerResponse) GetFkiImageIDOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FkiImageID) {
 		return nil, false
 	}
-	return &o.FkiImageID, true
+	return o.FkiImageID, true
 }
 
-// SetFkiImageID sets field value
+// HasFkiImageID returns a boolean if a field has been set.
+func (o *CustomerResponse) HasFkiImageID() bool {
+	if o != nil && !IsNil(o.FkiImageID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiImageID gets a reference to the given int32 and assigns it to the FkiImageID field.
 func (o *CustomerResponse) SetFkiImageID(v int32) {
-	o.FkiImageID = v
+	o.FkiImageID = &v
 }
 
 // GetFkiGlaccountcontainerID returns the FkiGlaccountcontainerID field value
@@ -488,52 +487,68 @@ func (o *CustomerResponse) SetFkiPaymentmethodID(v int32) {
 	o.FkiPaymentmethodID = v
 }
 
-// GetFkiElectronicfundstransferbankaccountID returns the FkiElectronicfundstransferbankaccountID field value
+// GetFkiElectronicfundstransferbankaccountID returns the FkiElectronicfundstransferbankaccountID field value if set, zero value otherwise.
 func (o *CustomerResponse) GetFkiElectronicfundstransferbankaccountID() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.FkiElectronicfundstransferbankaccountID) {
 		var ret int32
 		return ret
 	}
-
-	return o.FkiElectronicfundstransferbankaccountID
+	return *o.FkiElectronicfundstransferbankaccountID
 }
 
-// GetFkiElectronicfundstransferbankaccountIDOk returns a tuple with the FkiElectronicfundstransferbankaccountID field value
+// GetFkiElectronicfundstransferbankaccountIDOk returns a tuple with the FkiElectronicfundstransferbankaccountID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CustomerResponse) GetFkiElectronicfundstransferbankaccountIDOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FkiElectronicfundstransferbankaccountID) {
 		return nil, false
 	}
-	return &o.FkiElectronicfundstransferbankaccountID, true
+	return o.FkiElectronicfundstransferbankaccountID, true
 }
 
-// SetFkiElectronicfundstransferbankaccountID sets field value
+// HasFkiElectronicfundstransferbankaccountID returns a boolean if a field has been set.
+func (o *CustomerResponse) HasFkiElectronicfundstransferbankaccountID() bool {
+	if o != nil && !IsNil(o.FkiElectronicfundstransferbankaccountID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiElectronicfundstransferbankaccountID gets a reference to the given int32 and assigns it to the FkiElectronicfundstransferbankaccountID field.
 func (o *CustomerResponse) SetFkiElectronicfundstransferbankaccountID(v int32) {
-	o.FkiElectronicfundstransferbankaccountID = v
+	o.FkiElectronicfundstransferbankaccountID = &v
 }
 
-// GetFkiElectronicfundstransferbankaccountIDDirectdebit returns the FkiElectronicfundstransferbankaccountIDDirectdebit field value
+// GetFkiElectronicfundstransferbankaccountIDDirectdebit returns the FkiElectronicfundstransferbankaccountIDDirectdebit field value if set, zero value otherwise.
 func (o *CustomerResponse) GetFkiElectronicfundstransferbankaccountIDDirectdebit() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.FkiElectronicfundstransferbankaccountIDDirectdebit) {
 		var ret int32
 		return ret
 	}
-
-	return o.FkiElectronicfundstransferbankaccountIDDirectdebit
+	return *o.FkiElectronicfundstransferbankaccountIDDirectdebit
 }
 
-// GetFkiElectronicfundstransferbankaccountIDDirectdebitOk returns a tuple with the FkiElectronicfundstransferbankaccountIDDirectdebit field value
+// GetFkiElectronicfundstransferbankaccountIDDirectdebitOk returns a tuple with the FkiElectronicfundstransferbankaccountIDDirectdebit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CustomerResponse) GetFkiElectronicfundstransferbankaccountIDDirectdebitOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FkiElectronicfundstransferbankaccountIDDirectdebit) {
 		return nil, false
 	}
-	return &o.FkiElectronicfundstransferbankaccountIDDirectdebit, true
+	return o.FkiElectronicfundstransferbankaccountIDDirectdebit, true
 }
 
-// SetFkiElectronicfundstransferbankaccountIDDirectdebit sets field value
+// HasFkiElectronicfundstransferbankaccountIDDirectdebit returns a boolean if a field has been set.
+func (o *CustomerResponse) HasFkiElectronicfundstransferbankaccountIDDirectdebit() bool {
+	if o != nil && !IsNil(o.FkiElectronicfundstransferbankaccountIDDirectdebit) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiElectronicfundstransferbankaccountIDDirectdebit gets a reference to the given int32 and assigns it to the FkiElectronicfundstransferbankaccountIDDirectdebit field.
 func (o *CustomerResponse) SetFkiElectronicfundstransferbankaccountIDDirectdebit(v int32) {
-	o.FkiElectronicfundstransferbankaccountIDDirectdebit = v
+	o.FkiElectronicfundstransferbankaccountIDDirectdebit = &v
 }
 
 // GetFkiSendingmethodID returns the FkiSendingmethodID field value
@@ -608,244 +623,324 @@ func (o *CustomerResponse) SetFkiAttendancestatusID(v int32) {
 	o.FkiAttendancestatusID = v
 }
 
-// GetFkiAgentIDVariableexpensechargeto returns the FkiAgentIDVariableexpensechargeto field value
+// GetFkiAgentIDVariableexpensechargeto returns the FkiAgentIDVariableexpensechargeto field value if set, zero value otherwise.
 func (o *CustomerResponse) GetFkiAgentIDVariableexpensechargeto() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.FkiAgentIDVariableexpensechargeto) {
 		var ret int32
 		return ret
 	}
-
-	return o.FkiAgentIDVariableexpensechargeto
+	return *o.FkiAgentIDVariableexpensechargeto
 }
 
-// GetFkiAgentIDVariableexpensechargetoOk returns a tuple with the FkiAgentIDVariableexpensechargeto field value
+// GetFkiAgentIDVariableexpensechargetoOk returns a tuple with the FkiAgentIDVariableexpensechargeto field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CustomerResponse) GetFkiAgentIDVariableexpensechargetoOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FkiAgentIDVariableexpensechargeto) {
 		return nil, false
 	}
-	return &o.FkiAgentIDVariableexpensechargeto, true
+	return o.FkiAgentIDVariableexpensechargeto, true
 }
 
-// SetFkiAgentIDVariableexpensechargeto sets field value
+// HasFkiAgentIDVariableexpensechargeto returns a boolean if a field has been set.
+func (o *CustomerResponse) HasFkiAgentIDVariableexpensechargeto() bool {
+	if o != nil && !IsNil(o.FkiAgentIDVariableexpensechargeto) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiAgentIDVariableexpensechargeto gets a reference to the given int32 and assigns it to the FkiAgentIDVariableexpensechargeto field.
 func (o *CustomerResponse) SetFkiAgentIDVariableexpensechargeto(v int32) {
-	o.FkiAgentIDVariableexpensechargeto = v
+	o.FkiAgentIDVariableexpensechargeto = &v
 }
 
-// GetFkiBrokerIDVariableexpensechargeto returns the FkiBrokerIDVariableexpensechargeto field value
+// GetFkiBrokerIDVariableexpensechargeto returns the FkiBrokerIDVariableexpensechargeto field value if set, zero value otherwise.
 func (o *CustomerResponse) GetFkiBrokerIDVariableexpensechargeto() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.FkiBrokerIDVariableexpensechargeto) {
 		var ret int32
 		return ret
 	}
-
-	return o.FkiBrokerIDVariableexpensechargeto
+	return *o.FkiBrokerIDVariableexpensechargeto
 }
 
-// GetFkiBrokerIDVariableexpensechargetoOk returns a tuple with the FkiBrokerIDVariableexpensechargeto field value
+// GetFkiBrokerIDVariableexpensechargetoOk returns a tuple with the FkiBrokerIDVariableexpensechargeto field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CustomerResponse) GetFkiBrokerIDVariableexpensechargetoOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FkiBrokerIDVariableexpensechargeto) {
 		return nil, false
 	}
-	return &o.FkiBrokerIDVariableexpensechargeto, true
+	return o.FkiBrokerIDVariableexpensechargeto, true
 }
 
-// SetFkiBrokerIDVariableexpensechargeto sets field value
+// HasFkiBrokerIDVariableexpensechargeto returns a boolean if a field has been set.
+func (o *CustomerResponse) HasFkiBrokerIDVariableexpensechargeto() bool {
+	if o != nil && !IsNil(o.FkiBrokerIDVariableexpensechargeto) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiBrokerIDVariableexpensechargeto gets a reference to the given int32 and assigns it to the FkiBrokerIDVariableexpensechargeto field.
 func (o *CustomerResponse) SetFkiBrokerIDVariableexpensechargeto(v int32) {
-	o.FkiBrokerIDVariableexpensechargeto = v
+	o.FkiBrokerIDVariableexpensechargeto = &v
 }
 
-// GetFkiCustomerIDVariableexpensechargeto returns the FkiCustomerIDVariableexpensechargeto field value
+// GetFkiCustomerIDVariableexpensechargeto returns the FkiCustomerIDVariableexpensechargeto field value if set, zero value otherwise.
 func (o *CustomerResponse) GetFkiCustomerIDVariableexpensechargeto() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.FkiCustomerIDVariableexpensechargeto) {
 		var ret int32
 		return ret
 	}
-
-	return o.FkiCustomerIDVariableexpensechargeto
+	return *o.FkiCustomerIDVariableexpensechargeto
 }
 
-// GetFkiCustomerIDVariableexpensechargetoOk returns a tuple with the FkiCustomerIDVariableexpensechargeto field value
+// GetFkiCustomerIDVariableexpensechargetoOk returns a tuple with the FkiCustomerIDVariableexpensechargeto field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CustomerResponse) GetFkiCustomerIDVariableexpensechargetoOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FkiCustomerIDVariableexpensechargeto) {
 		return nil, false
 	}
-	return &o.FkiCustomerIDVariableexpensechargeto, true
+	return o.FkiCustomerIDVariableexpensechargeto, true
 }
 
-// SetFkiCustomerIDVariableexpensechargeto sets field value
+// HasFkiCustomerIDVariableexpensechargeto returns a boolean if a field has been set.
+func (o *CustomerResponse) HasFkiCustomerIDVariableexpensechargeto() bool {
+	if o != nil && !IsNil(o.FkiCustomerIDVariableexpensechargeto) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiCustomerIDVariableexpensechargeto gets a reference to the given int32 and assigns it to the FkiCustomerIDVariableexpensechargeto field.
 func (o *CustomerResponse) SetFkiCustomerIDVariableexpensechargeto(v int32) {
-	o.FkiCustomerIDVariableexpensechargeto = v
+	o.FkiCustomerIDVariableexpensechargeto = &v
 }
 
-// GetFkiGlaccountcontainerIDVariableexpensechargeto returns the FkiGlaccountcontainerIDVariableexpensechargeto field value
+// GetFkiGlaccountcontainerIDVariableexpensechargeto returns the FkiGlaccountcontainerIDVariableexpensechargeto field value if set, zero value otherwise.
 func (o *CustomerResponse) GetFkiGlaccountcontainerIDVariableexpensechargeto() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.FkiGlaccountcontainerIDVariableexpensechargeto) {
 		var ret int32
 		return ret
 	}
-
-	return o.FkiGlaccountcontainerIDVariableexpensechargeto
+	return *o.FkiGlaccountcontainerIDVariableexpensechargeto
 }
 
-// GetFkiGlaccountcontainerIDVariableexpensechargetoOk returns a tuple with the FkiGlaccountcontainerIDVariableexpensechargeto field value
+// GetFkiGlaccountcontainerIDVariableexpensechargetoOk returns a tuple with the FkiGlaccountcontainerIDVariableexpensechargeto field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CustomerResponse) GetFkiGlaccountcontainerIDVariableexpensechargetoOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FkiGlaccountcontainerIDVariableexpensechargeto) {
 		return nil, false
 	}
-	return &o.FkiGlaccountcontainerIDVariableexpensechargeto, true
+	return o.FkiGlaccountcontainerIDVariableexpensechargeto, true
 }
 
-// SetFkiGlaccountcontainerIDVariableexpensechargeto sets field value
+// HasFkiGlaccountcontainerIDVariableexpensechargeto returns a boolean if a field has been set.
+func (o *CustomerResponse) HasFkiGlaccountcontainerIDVariableexpensechargeto() bool {
+	if o != nil && !IsNil(o.FkiGlaccountcontainerIDVariableexpensechargeto) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiGlaccountcontainerIDVariableexpensechargeto gets a reference to the given int32 and assigns it to the FkiGlaccountcontainerIDVariableexpensechargeto field.
 func (o *CustomerResponse) SetFkiGlaccountcontainerIDVariableexpensechargeto(v int32) {
-	o.FkiGlaccountcontainerIDVariableexpensechargeto = v
+	o.FkiGlaccountcontainerIDVariableexpensechargeto = &v
 }
 
-// GetFkiAgentIDSupplychargechargeto returns the FkiAgentIDSupplychargechargeto field value
+// GetFkiAgentIDSupplychargechargeto returns the FkiAgentIDSupplychargechargeto field value if set, zero value otherwise.
 func (o *CustomerResponse) GetFkiAgentIDSupplychargechargeto() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.FkiAgentIDSupplychargechargeto) {
 		var ret int32
 		return ret
 	}
-
-	return o.FkiAgentIDSupplychargechargeto
+	return *o.FkiAgentIDSupplychargechargeto
 }
 
-// GetFkiAgentIDSupplychargechargetoOk returns a tuple with the FkiAgentIDSupplychargechargeto field value
+// GetFkiAgentIDSupplychargechargetoOk returns a tuple with the FkiAgentIDSupplychargechargeto field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CustomerResponse) GetFkiAgentIDSupplychargechargetoOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FkiAgentIDSupplychargechargeto) {
 		return nil, false
 	}
-	return &o.FkiAgentIDSupplychargechargeto, true
+	return o.FkiAgentIDSupplychargechargeto, true
 }
 
-// SetFkiAgentIDSupplychargechargeto sets field value
+// HasFkiAgentIDSupplychargechargeto returns a boolean if a field has been set.
+func (o *CustomerResponse) HasFkiAgentIDSupplychargechargeto() bool {
+	if o != nil && !IsNil(o.FkiAgentIDSupplychargechargeto) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiAgentIDSupplychargechargeto gets a reference to the given int32 and assigns it to the FkiAgentIDSupplychargechargeto field.
 func (o *CustomerResponse) SetFkiAgentIDSupplychargechargeto(v int32) {
-	o.FkiAgentIDSupplychargechargeto = v
+	o.FkiAgentIDSupplychargechargeto = &v
 }
 
-// GetFkiBrokerIDSupplychargechargeto returns the FkiBrokerIDSupplychargechargeto field value
+// GetFkiBrokerIDSupplychargechargeto returns the FkiBrokerIDSupplychargechargeto field value if set, zero value otherwise.
 func (o *CustomerResponse) GetFkiBrokerIDSupplychargechargeto() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.FkiBrokerIDSupplychargechargeto) {
 		var ret int32
 		return ret
 	}
-
-	return o.FkiBrokerIDSupplychargechargeto
+	return *o.FkiBrokerIDSupplychargechargeto
 }
 
-// GetFkiBrokerIDSupplychargechargetoOk returns a tuple with the FkiBrokerIDSupplychargechargeto field value
+// GetFkiBrokerIDSupplychargechargetoOk returns a tuple with the FkiBrokerIDSupplychargechargeto field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CustomerResponse) GetFkiBrokerIDSupplychargechargetoOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FkiBrokerIDSupplychargechargeto) {
 		return nil, false
 	}
-	return &o.FkiBrokerIDSupplychargechargeto, true
+	return o.FkiBrokerIDSupplychargechargeto, true
 }
 
-// SetFkiBrokerIDSupplychargechargeto sets field value
+// HasFkiBrokerIDSupplychargechargeto returns a boolean if a field has been set.
+func (o *CustomerResponse) HasFkiBrokerIDSupplychargechargeto() bool {
+	if o != nil && !IsNil(o.FkiBrokerIDSupplychargechargeto) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiBrokerIDSupplychargechargeto gets a reference to the given int32 and assigns it to the FkiBrokerIDSupplychargechargeto field.
 func (o *CustomerResponse) SetFkiBrokerIDSupplychargechargeto(v int32) {
-	o.FkiBrokerIDSupplychargechargeto = v
+	o.FkiBrokerIDSupplychargechargeto = &v
 }
 
-// GetFkiCustomerIDSupplychargechargeto returns the FkiCustomerIDSupplychargechargeto field value
+// GetFkiCustomerIDSupplychargechargeto returns the FkiCustomerIDSupplychargechargeto field value if set, zero value otherwise.
 func (o *CustomerResponse) GetFkiCustomerIDSupplychargechargeto() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.FkiCustomerIDSupplychargechargeto) {
 		var ret int32
 		return ret
 	}
-
-	return o.FkiCustomerIDSupplychargechargeto
+	return *o.FkiCustomerIDSupplychargechargeto
 }
 
-// GetFkiCustomerIDSupplychargechargetoOk returns a tuple with the FkiCustomerIDSupplychargechargeto field value
+// GetFkiCustomerIDSupplychargechargetoOk returns a tuple with the FkiCustomerIDSupplychargechargeto field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CustomerResponse) GetFkiCustomerIDSupplychargechargetoOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FkiCustomerIDSupplychargechargeto) {
 		return nil, false
 	}
-	return &o.FkiCustomerIDSupplychargechargeto, true
+	return o.FkiCustomerIDSupplychargechargeto, true
 }
 
-// SetFkiCustomerIDSupplychargechargeto sets field value
+// HasFkiCustomerIDSupplychargechargeto returns a boolean if a field has been set.
+func (o *CustomerResponse) HasFkiCustomerIDSupplychargechargeto() bool {
+	if o != nil && !IsNil(o.FkiCustomerIDSupplychargechargeto) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiCustomerIDSupplychargechargeto gets a reference to the given int32 and assigns it to the FkiCustomerIDSupplychargechargeto field.
 func (o *CustomerResponse) SetFkiCustomerIDSupplychargechargeto(v int32) {
-	o.FkiCustomerIDSupplychargechargeto = v
+	o.FkiCustomerIDSupplychargechargeto = &v
 }
 
-// GetFkiGlaccountcontainerIDSupplychargechargeto returns the FkiGlaccountcontainerIDSupplychargechargeto field value
+// GetFkiGlaccountcontainerIDSupplychargechargeto returns the FkiGlaccountcontainerIDSupplychargechargeto field value if set, zero value otherwise.
 func (o *CustomerResponse) GetFkiGlaccountcontainerIDSupplychargechargeto() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.FkiGlaccountcontainerIDSupplychargechargeto) {
 		var ret int32
 		return ret
 	}
-
-	return o.FkiGlaccountcontainerIDSupplychargechargeto
+	return *o.FkiGlaccountcontainerIDSupplychargechargeto
 }
 
-// GetFkiGlaccountcontainerIDSupplychargechargetoOk returns a tuple with the FkiGlaccountcontainerIDSupplychargechargeto field value
+// GetFkiGlaccountcontainerIDSupplychargechargetoOk returns a tuple with the FkiGlaccountcontainerIDSupplychargechargeto field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CustomerResponse) GetFkiGlaccountcontainerIDSupplychargechargetoOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FkiGlaccountcontainerIDSupplychargechargeto) {
 		return nil, false
 	}
-	return &o.FkiGlaccountcontainerIDSupplychargechargeto, true
+	return o.FkiGlaccountcontainerIDSupplychargechargeto, true
 }
 
-// SetFkiGlaccountcontainerIDSupplychargechargeto sets field value
+// HasFkiGlaccountcontainerIDSupplychargechargeto returns a boolean if a field has been set.
+func (o *CustomerResponse) HasFkiGlaccountcontainerIDSupplychargechargeto() bool {
+	if o != nil && !IsNil(o.FkiGlaccountcontainerIDSupplychargechargeto) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiGlaccountcontainerIDSupplychargechargeto gets a reference to the given int32 and assigns it to the FkiGlaccountcontainerIDSupplychargechargeto field.
 func (o *CustomerResponse) SetFkiGlaccountcontainerIDSupplychargechargeto(v int32) {
-	o.FkiGlaccountcontainerIDSupplychargechargeto = v
+	o.FkiGlaccountcontainerIDSupplychargechargeto = &v
 }
 
-// GetFkiInvoicealternatelogoID returns the FkiInvoicealternatelogoID field value
+// GetFkiInvoicealternatelogoID returns the FkiInvoicealternatelogoID field value if set, zero value otherwise.
 func (o *CustomerResponse) GetFkiInvoicealternatelogoID() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.FkiInvoicealternatelogoID) {
 		var ret int32
 		return ret
 	}
-
-	return o.FkiInvoicealternatelogoID
+	return *o.FkiInvoicealternatelogoID
 }
 
-// GetFkiInvoicealternatelogoIDOk returns a tuple with the FkiInvoicealternatelogoID field value
+// GetFkiInvoicealternatelogoIDOk returns a tuple with the FkiInvoicealternatelogoID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CustomerResponse) GetFkiInvoicealternatelogoIDOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FkiInvoicealternatelogoID) {
 		return nil, false
 	}
-	return &o.FkiInvoicealternatelogoID, true
+	return o.FkiInvoicealternatelogoID, true
 }
 
-// SetFkiInvoicealternatelogoID sets field value
+// HasFkiInvoicealternatelogoID returns a boolean if a field has been set.
+func (o *CustomerResponse) HasFkiInvoicealternatelogoID() bool {
+	if o != nil && !IsNil(o.FkiInvoicealternatelogoID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiInvoicealternatelogoID gets a reference to the given int32 and assigns it to the FkiInvoicealternatelogoID field.
 func (o *CustomerResponse) SetFkiInvoicealternatelogoID(v int32) {
-	o.FkiInvoicealternatelogoID = v
+	o.FkiInvoicealternatelogoID = &v
 }
 
-// GetFkiSynchronizationlinkserverID returns the FkiSynchronizationlinkserverID field value
+// GetFkiSynchronizationlinkserverID returns the FkiSynchronizationlinkserverID field value if set, zero value otherwise.
 func (o *CustomerResponse) GetFkiSynchronizationlinkserverID() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.FkiSynchronizationlinkserverID) {
 		var ret int32
 		return ret
 	}
-
-	return o.FkiSynchronizationlinkserverID
+	return *o.FkiSynchronizationlinkserverID
 }
 
-// GetFkiSynchronizationlinkserverIDOk returns a tuple with the FkiSynchronizationlinkserverID field value
+// GetFkiSynchronizationlinkserverIDOk returns a tuple with the FkiSynchronizationlinkserverID field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CustomerResponse) GetFkiSynchronizationlinkserverIDOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FkiSynchronizationlinkserverID) {
 		return nil, false
 	}
-	return &o.FkiSynchronizationlinkserverID, true
+	return o.FkiSynchronizationlinkserverID, true
 }
 
-// SetFkiSynchronizationlinkserverID sets field value
+// HasFkiSynchronizationlinkserverID returns a boolean if a field has been set.
+func (o *CustomerResponse) HasFkiSynchronizationlinkserverID() bool {
+	if o != nil && !IsNil(o.FkiSynchronizationlinkserverID) {
+		return true
+	}
+
+	return false
+}
+
+// SetFkiSynchronizationlinkserverID gets a reference to the given int32 and assigns it to the FkiSynchronizationlinkserverID field.
 func (o *CustomerResponse) SetFkiSynchronizationlinkserverID(v int32) {
-	o.FkiSynchronizationlinkserverID = v
+	o.FkiSynchronizationlinkserverID = &v
 }
 
 // GetEfkiUserID returns the EfkiUserID field value if set, zero value otherwise.
@@ -936,28 +1031,36 @@ func (o *CustomerResponse) SetSCustomerCode(v string) {
 	o.SCustomerCode = v
 }
 
-// GetDCustomerFulltimeequivalent returns the DCustomerFulltimeequivalent field value
+// GetDCustomerFulltimeequivalent returns the DCustomerFulltimeequivalent field value if set, zero value otherwise.
 func (o *CustomerResponse) GetDCustomerFulltimeequivalent() string {
-	if o == nil {
+	if o == nil || IsNil(o.DCustomerFulltimeequivalent) {
 		var ret string
 		return ret
 	}
-
-	return o.DCustomerFulltimeequivalent
+	return *o.DCustomerFulltimeequivalent
 }
 
-// GetDCustomerFulltimeequivalentOk returns a tuple with the DCustomerFulltimeequivalent field value
+// GetDCustomerFulltimeequivalentOk returns a tuple with the DCustomerFulltimeequivalent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CustomerResponse) GetDCustomerFulltimeequivalentOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DCustomerFulltimeequivalent) {
 		return nil, false
 	}
-	return &o.DCustomerFulltimeequivalent, true
+	return o.DCustomerFulltimeequivalent, true
 }
 
-// SetDCustomerFulltimeequivalent sets field value
+// HasDCustomerFulltimeequivalent returns a boolean if a field has been set.
+func (o *CustomerResponse) HasDCustomerFulltimeequivalent() bool {
+	if o != nil && !IsNil(o.DCustomerFulltimeequivalent) {
+		return true
+	}
+
+	return false
+}
+
+// SetDCustomerFulltimeequivalent gets a reference to the given string and assigns it to the DCustomerFulltimeequivalent field.
 func (o *CustomerResponse) SetDCustomerFulltimeequivalent(v string) {
-	o.DCustomerFulltimeequivalent = v
+	o.DCustomerFulltimeequivalent = &v
 }
 
 // GetICustomerPhotocopiercode returns the ICustomerPhotocopiercode field value
@@ -1080,28 +1183,36 @@ func (o *CustomerResponse) SetDCustomerMinimumchargeableinterests(v string) {
 	o.DCustomerMinimumchargeableinterests = v
 }
 
-// GetDtCustomerBirthdate returns the DtCustomerBirthdate field value
+// GetDtCustomerBirthdate returns the DtCustomerBirthdate field value if set, zero value otherwise.
 func (o *CustomerResponse) GetDtCustomerBirthdate() string {
-	if o == nil {
+	if o == nil || IsNil(o.DtCustomerBirthdate) {
 		var ret string
 		return ret
 	}
-
-	return o.DtCustomerBirthdate
+	return *o.DtCustomerBirthdate
 }
 
-// GetDtCustomerBirthdateOk returns a tuple with the DtCustomerBirthdate field value
+// GetDtCustomerBirthdateOk returns a tuple with the DtCustomerBirthdate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CustomerResponse) GetDtCustomerBirthdateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DtCustomerBirthdate) {
 		return nil, false
 	}
-	return &o.DtCustomerBirthdate, true
+	return o.DtCustomerBirthdate, true
 }
 
-// SetDtCustomerBirthdate sets field value
+// HasDtCustomerBirthdate returns a boolean if a field has been set.
+func (o *CustomerResponse) HasDtCustomerBirthdate() bool {
+	if o != nil && !IsNil(o.DtCustomerBirthdate) {
+		return true
+	}
+
+	return false
+}
+
+// SetDtCustomerBirthdate gets a reference to the given string and assigns it to the DtCustomerBirthdate field.
 func (o *CustomerResponse) SetDtCustomerBirthdate(v string) {
-	o.DtCustomerBirthdate = v
+	o.DtCustomerBirthdate = &v
 }
 
 // GetDtCustomerTransfer returns the DtCustomerTransfer field value
@@ -1152,28 +1263,36 @@ func (o *CustomerResponse) SetDtCustomerTransferappointment(v string) {
 	o.DtCustomerTransferappointment = v
 }
 
-// GetDtCustomerTransfersurvey returns the DtCustomerTransfersurvey field value
+// GetDtCustomerTransfersurvey returns the DtCustomerTransfersurvey field value if set, zero value otherwise.
 func (o *CustomerResponse) GetDtCustomerTransfersurvey() string {
-	if o == nil {
+	if o == nil || IsNil(o.DtCustomerTransfersurvey) {
 		var ret string
 		return ret
 	}
-
-	return o.DtCustomerTransfersurvey
+	return *o.DtCustomerTransfersurvey
 }
 
-// GetDtCustomerTransfersurveyOk returns a tuple with the DtCustomerTransfersurvey field value
+// GetDtCustomerTransfersurveyOk returns a tuple with the DtCustomerTransfersurvey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CustomerResponse) GetDtCustomerTransfersurveyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DtCustomerTransfersurvey) {
 		return nil, false
 	}
-	return &o.DtCustomerTransfersurvey, true
+	return o.DtCustomerTransfersurvey, true
 }
 
-// SetDtCustomerTransfersurvey sets field value
+// HasDtCustomerTransfersurvey returns a boolean if a field has been set.
+func (o *CustomerResponse) HasDtCustomerTransfersurvey() bool {
+	if o != nil && !IsNil(o.DtCustomerTransfersurvey) {
+		return true
+	}
+
+	return false
+}
+
+// SetDtCustomerTransfersurvey gets a reference to the given string and assigns it to the DtCustomerTransfersurvey field.
 func (o *CustomerResponse) SetDtCustomerTransfersurvey(v string) {
-	o.DtCustomerTransfersurvey = v
+	o.DtCustomerTransfersurvey = &v
 }
 
 // GetBCustomerIsactive returns the BCustomerIsactive field value
@@ -1484,33 +1603,61 @@ func (o CustomerResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiCustomerID"] = o.PkiCustomerID
 	toSerialize["fkiCompanyID"] = o.FkiCompanyID
-	toSerialize["fkiCustomergroupID"] = o.FkiCustomergroupID
+	if !IsNil(o.FkiCustomergroupID) {
+		toSerialize["fkiCustomergroupID"] = o.FkiCustomergroupID
+	}
 	toSerialize["sCustomerName"] = o.SCustomerName
 	if !IsNil(o.SCustomerNote) {
 		toSerialize["sCustomerNote"] = o.SCustomerNote
 	}
 	toSerialize["fkiContactinformationsID"] = o.FkiContactinformationsID
 	toSerialize["fkiContactcontainerID"] = o.FkiContactcontainerID
-	toSerialize["fkiImageID"] = o.FkiImageID
+	if !IsNil(o.FkiImageID) {
+		toSerialize["fkiImageID"] = o.FkiImageID
+	}
 	toSerialize["fkiGlaccountcontainerID"] = o.FkiGlaccountcontainerID
 	toSerialize["fkiLanguageID"] = o.FkiLanguageID
 	toSerialize["fkiDepartmentID"] = o.FkiDepartmentID
 	toSerialize["fkiPaymentmethodID"] = o.FkiPaymentmethodID
-	toSerialize["fkiElectronicfundstransferbankaccountID"] = o.FkiElectronicfundstransferbankaccountID
-	toSerialize["fkiElectronicfundstransferbankaccountIDDirectdebit"] = o.FkiElectronicfundstransferbankaccountIDDirectdebit
+	if !IsNil(o.FkiElectronicfundstransferbankaccountID) {
+		toSerialize["fkiElectronicfundstransferbankaccountID"] = o.FkiElectronicfundstransferbankaccountID
+	}
+	if !IsNil(o.FkiElectronicfundstransferbankaccountIDDirectdebit) {
+		toSerialize["fkiElectronicfundstransferbankaccountIDDirectdebit"] = o.FkiElectronicfundstransferbankaccountIDDirectdebit
+	}
 	toSerialize["fkiSendingmethodID"] = o.FkiSendingmethodID
 	toSerialize["fkiTaxassignmentID"] = o.FkiTaxassignmentID
 	toSerialize["fkiAttendancestatusID"] = o.FkiAttendancestatusID
-	toSerialize["fkiAgentIDVariableexpensechargeto"] = o.FkiAgentIDVariableexpensechargeto
-	toSerialize["fkiBrokerIDVariableexpensechargeto"] = o.FkiBrokerIDVariableexpensechargeto
-	toSerialize["fkiCustomerIDVariableexpensechargeto"] = o.FkiCustomerIDVariableexpensechargeto
-	toSerialize["fkiGlaccountcontainerIDVariableexpensechargeto"] = o.FkiGlaccountcontainerIDVariableexpensechargeto
-	toSerialize["fkiAgentIDSupplychargechargeto"] = o.FkiAgentIDSupplychargechargeto
-	toSerialize["fkiBrokerIDSupplychargechargeto"] = o.FkiBrokerIDSupplychargechargeto
-	toSerialize["fkiCustomerIDSupplychargechargeto"] = o.FkiCustomerIDSupplychargechargeto
-	toSerialize["fkiGlaccountcontainerIDSupplychargechargeto"] = o.FkiGlaccountcontainerIDSupplychargechargeto
-	toSerialize["fkiInvoicealternatelogoID"] = o.FkiInvoicealternatelogoID
-	toSerialize["fkiSynchronizationlinkserverID"] = o.FkiSynchronizationlinkserverID
+	if !IsNil(o.FkiAgentIDVariableexpensechargeto) {
+		toSerialize["fkiAgentIDVariableexpensechargeto"] = o.FkiAgentIDVariableexpensechargeto
+	}
+	if !IsNil(o.FkiBrokerIDVariableexpensechargeto) {
+		toSerialize["fkiBrokerIDVariableexpensechargeto"] = o.FkiBrokerIDVariableexpensechargeto
+	}
+	if !IsNil(o.FkiCustomerIDVariableexpensechargeto) {
+		toSerialize["fkiCustomerIDVariableexpensechargeto"] = o.FkiCustomerIDVariableexpensechargeto
+	}
+	if !IsNil(o.FkiGlaccountcontainerIDVariableexpensechargeto) {
+		toSerialize["fkiGlaccountcontainerIDVariableexpensechargeto"] = o.FkiGlaccountcontainerIDVariableexpensechargeto
+	}
+	if !IsNil(o.FkiAgentIDSupplychargechargeto) {
+		toSerialize["fkiAgentIDSupplychargechargeto"] = o.FkiAgentIDSupplychargechargeto
+	}
+	if !IsNil(o.FkiBrokerIDSupplychargechargeto) {
+		toSerialize["fkiBrokerIDSupplychargechargeto"] = o.FkiBrokerIDSupplychargechargeto
+	}
+	if !IsNil(o.FkiCustomerIDSupplychargechargeto) {
+		toSerialize["fkiCustomerIDSupplychargechargeto"] = o.FkiCustomerIDSupplychargechargeto
+	}
+	if !IsNil(o.FkiGlaccountcontainerIDSupplychargechargeto) {
+		toSerialize["fkiGlaccountcontainerIDSupplychargechargeto"] = o.FkiGlaccountcontainerIDSupplychargechargeto
+	}
+	if !IsNil(o.FkiInvoicealternatelogoID) {
+		toSerialize["fkiInvoicealternatelogoID"] = o.FkiInvoicealternatelogoID
+	}
+	if !IsNil(o.FkiSynchronizationlinkserverID) {
+		toSerialize["fkiSynchronizationlinkserverID"] = o.FkiSynchronizationlinkserverID
+	}
 	if !IsNil(o.EfkiUserID) {
 		toSerialize["efkiUserID"] = o.EfkiUserID
 	}
@@ -1518,16 +1665,22 @@ func (o CustomerResponse) ToMap() (map[string]interface{}, error) {
 		toSerialize["efksCustomerCode"] = o.EfksCustomerCode
 	}
 	toSerialize["sCustomerCode"] = o.SCustomerCode
-	toSerialize["dCustomerFulltimeequivalent"] = o.DCustomerFulltimeequivalent
+	if !IsNil(o.DCustomerFulltimeequivalent) {
+		toSerialize["dCustomerFulltimeequivalent"] = o.DCustomerFulltimeequivalent
+	}
 	toSerialize["iCustomerPhotocopiercode"] = o.ICustomerPhotocopiercode
 	toSerialize["iCustomerLongdistancecode"] = o.ICustomerLongdistancecode
 	toSerialize["iCustomerTimewindowstart"] = o.ICustomerTimewindowstart
 	toSerialize["iCustomerTimewindowend"] = o.ICustomerTimewindowend
 	toSerialize["dCustomerMinimumchargeableinterests"] = o.DCustomerMinimumchargeableinterests
-	toSerialize["dtCustomerBirthdate"] = o.DtCustomerBirthdate
+	if !IsNil(o.DtCustomerBirthdate) {
+		toSerialize["dtCustomerBirthdate"] = o.DtCustomerBirthdate
+	}
 	toSerialize["dtCustomerTransfer"] = o.DtCustomerTransfer
 	toSerialize["dtCustomerTransferappointment"] = o.DtCustomerTransferappointment
-	toSerialize["dtCustomerTransfersurvey"] = o.DtCustomerTransfersurvey
+	if !IsNil(o.DtCustomerTransfersurvey) {
+		toSerialize["dtCustomerTransfersurvey"] = o.DtCustomerTransfersurvey
+	}
 	toSerialize["bCustomerIsactive"] = o.BCustomerIsactive
 	toSerialize["bCustomerVariableexpensefinanced"] = o.BCustomerVariableexpensefinanced
 	toSerialize["bCustomerVariableexpensefinancedtaxes"] = o.BCustomerVariableexpensefinancedtaxes
@@ -1552,41 +1705,24 @@ func (o *CustomerResponse) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"pkiCustomerID",
 		"fkiCompanyID",
-		"fkiCustomergroupID",
 		"sCustomerName",
 		"fkiContactinformationsID",
 		"fkiContactcontainerID",
-		"fkiImageID",
 		"fkiGlaccountcontainerID",
 		"fkiLanguageID",
 		"fkiDepartmentID",
 		"fkiPaymentmethodID",
-		"fkiElectronicfundstransferbankaccountID",
-		"fkiElectronicfundstransferbankaccountIDDirectdebit",
 		"fkiSendingmethodID",
 		"fkiTaxassignmentID",
 		"fkiAttendancestatusID",
-		"fkiAgentIDVariableexpensechargeto",
-		"fkiBrokerIDVariableexpensechargeto",
-		"fkiCustomerIDVariableexpensechargeto",
-		"fkiGlaccountcontainerIDVariableexpensechargeto",
-		"fkiAgentIDSupplychargechargeto",
-		"fkiBrokerIDSupplychargechargeto",
-		"fkiCustomerIDSupplychargechargeto",
-		"fkiGlaccountcontainerIDSupplychargechargeto",
-		"fkiInvoicealternatelogoID",
-		"fkiSynchronizationlinkserverID",
 		"sCustomerCode",
-		"dCustomerFulltimeequivalent",
 		"iCustomerPhotocopiercode",
 		"iCustomerLongdistancecode",
 		"iCustomerTimewindowstart",
 		"iCustomerTimewindowend",
 		"dCustomerMinimumchargeableinterests",
-		"dtCustomerBirthdate",
 		"dtCustomerTransfer",
 		"dtCustomerTransferappointment",
-		"dtCustomerTransfersurvey",
 		"bCustomerIsactive",
 		"bCustomerVariableexpensefinanced",
 		"bCustomerVariableexpensefinancedtaxes",

@@ -6,6 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**SupplierBatchDownloadV1**](ObjectSupplierAPI.md#SupplierBatchDownloadV1) | **Post** /1/object/supplier/{pkiSupplierID}/batchDownload | Download multiples attachments from a Supplier
 [**SupplierGetAttachmentsV1**](ObjectSupplierAPI.md#SupplierGetAttachmentsV1) | **Get** /1/object/supplier/{pkiSupplierID}/getAttachments | Retrieve Supplier&#39;s attachments
+[**SupplierGetCommunicationCountV1**](ObjectSupplierAPI.md#SupplierGetCommunicationCountV1) | **Get** /1/object/supplier/{pkiSupplierID}/getCommunicationCount | Retrieve Communication count
+[**SupplierGetCommunicationListV1**](ObjectSupplierAPI.md#SupplierGetCommunicationListV1) | **Get** /1/object/supplier/{pkiSupplierID}/getCommunicationList | Retrieve Communication list
+[**SupplierGetCommunicationrecipientsV1**](ObjectSupplierAPI.md#SupplierGetCommunicationrecipientsV1) | **Get** /1/object/supplier/{pkiSupplierID}/getCommunicationrecipients | Retrieve Communication recipients
+[**SupplierGetCommunicationsendersV1**](ObjectSupplierAPI.md#SupplierGetCommunicationsendersV1) | **Get** /1/object/supplier/{pkiSupplierID}/getCommunicationsenders | Retrieve Communication senders
 [**SupplierGetListV1**](ObjectSupplierAPI.md#SupplierGetListV1) | **Get** /1/object/supplier/getList | Retrieve Supplier list
 [**SupplierImportIntoEDMV1**](ObjectSupplierAPI.md#SupplierImportIntoEDMV1) | **Post** /1/object/supplier/{pkiSupplierID}/importIntoEDM | Import attachments into the Supplier
 
@@ -134,6 +138,278 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SupplierGetAttachmentsV1Response**](SupplierGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SupplierGetCommunicationCountV1
+
+> SupplierGetCommunicationCountV1Response SupplierGetCommunicationCountV1(ctx, pkiSupplierID).Execute()
+
+Retrieve Communication count
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiSupplierID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectSupplierAPI.SupplierGetCommunicationCountV1(context.Background(), pkiSupplierID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSupplierAPI.SupplierGetCommunicationCountV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SupplierGetCommunicationCountV1`: SupplierGetCommunicationCountV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectSupplierAPI.SupplierGetCommunicationCountV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiSupplierID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSupplierGetCommunicationCountV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**SupplierGetCommunicationCountV1Response**](SupplierGetCommunicationCountV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SupplierGetCommunicationListV1
+
+> SupplierGetCommunicationListV1Response SupplierGetCommunicationListV1(ctx, pkiSupplierID).Execute()
+
+Retrieve Communication list
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiSupplierID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectSupplierAPI.SupplierGetCommunicationListV1(context.Background(), pkiSupplierID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSupplierAPI.SupplierGetCommunicationListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SupplierGetCommunicationListV1`: SupplierGetCommunicationListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectSupplierAPI.SupplierGetCommunicationListV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiSupplierID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSupplierGetCommunicationListV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**SupplierGetCommunicationListV1Response**](SupplierGetCommunicationListV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SupplierGetCommunicationrecipientsV1
+
+> SupplierGetCommunicationrecipientsV1Response SupplierGetCommunicationrecipientsV1(ctx, pkiSupplierID).Execute()
+
+Retrieve Communication recipients
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiSupplierID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectSupplierAPI.SupplierGetCommunicationrecipientsV1(context.Background(), pkiSupplierID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSupplierAPI.SupplierGetCommunicationrecipientsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SupplierGetCommunicationrecipientsV1`: SupplierGetCommunicationrecipientsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectSupplierAPI.SupplierGetCommunicationrecipientsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiSupplierID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSupplierGetCommunicationrecipientsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**SupplierGetCommunicationrecipientsV1Response**](SupplierGetCommunicationrecipientsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SupplierGetCommunicationsendersV1
+
+> SupplierGetCommunicationsendersV1Response SupplierGetCommunicationsendersV1(ctx, pkiSupplierID).Execute()
+
+Retrieve Communication senders
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiSupplierID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectSupplierAPI.SupplierGetCommunicationsendersV1(context.Background(), pkiSupplierID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSupplierAPI.SupplierGetCommunicationsendersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SupplierGetCommunicationsendersV1`: SupplierGetCommunicationsendersV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectSupplierAPI.SupplierGetCommunicationsendersV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiSupplierID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSupplierGetCommunicationsendersV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**SupplierGetCommunicationsendersV1Response**](SupplierGetCommunicationsendersV1Response.md)
 
 ### Authorization
 

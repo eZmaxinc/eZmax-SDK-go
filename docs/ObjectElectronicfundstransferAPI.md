@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**ElectronicfundstransferGetCommunicationListV1**](ObjectElectronicfundstransferAPI.md#ElectronicfundstransferGetCommunicationListV1) | **Get** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationList | Retrieve Communication list
 [**ElectronicfundstransferGetCommunicationrecipientsV1**](ObjectElectronicfundstransferAPI.md#ElectronicfundstransferGetCommunicationrecipientsV1) | **Get** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationrecipients | Retrieve Electronicfundstransfer&#39;s Communicationrecipient
 [**ElectronicfundstransferGetCommunicationsendersV1**](ObjectElectronicfundstransferAPI.md#ElectronicfundstransferGetCommunicationsendersV1) | **Get** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationsenders | Retrieve Electronicfundstransfer&#39;s Communicationsender
+[**ElectronicfundstransferGetListV1**](ObjectElectronicfundstransferAPI.md#ElectronicfundstransferGetListV1) | **Get** /1/object/electronicfundstransfer/getList | Retrieve Electronicfundstransfer list
 [**ElectronicfundstransferImportIntoEDMV1**](ObjectElectronicfundstransferAPI.md#ElectronicfundstransferImportIntoEDMV1) | **Post** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/importIntoEDM | Import attachments into the Electronicfundstransfer
 
 
@@ -426,6 +427,80 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ElectronicfundstransferGetListV1
+
+> ElectronicfundstransferGetListV1Response ElectronicfundstransferGetListV1(ctx).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
+
+Retrieve Electronicfundstransfer list
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	eOrderBy := "eOrderBy_example" // string | Specify how you want the results to be sorted (optional)
+	iRowMax := int32(56) // int32 |  (optional)
+	iRowOffset := int32(56) // int32 |  (optional) (default to 0)
+	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
+	sFilter := "sFilter_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectElectronicfundstransferAPI.ElectronicfundstransferGetListV1(context.Background()).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectElectronicfundstransferAPI.ElectronicfundstransferGetListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ElectronicfundstransferGetListV1`: ElectronicfundstransferGetListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectElectronicfundstransferAPI.ElectronicfundstransferGetListV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiElectronicfundstransferGetListV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **eOrderBy** | **string** | Specify how you want the results to be sorted | 
+ **iRowMax** | **int32** |  | 
+ **iRowOffset** | **int32** |  | [default to 0]
+ **acceptLanguage** | [**HeaderAcceptLanguage**](HeaderAcceptLanguage.md) |  | 
+ **sFilter** | **string** |  | 
+
+### Return type
+
+[**ElectronicfundstransferGetListV1Response**](ElectronicfundstransferGetListV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

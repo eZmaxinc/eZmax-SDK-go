@@ -443,7 +443,7 @@ Name | Type | Description  | Notes
 
 ## UserGetAutocompleteV2
 
-> UserGetAutocompleteV2Response UserGetAutocompleteV2(ctx, sSelector).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
+> UserGetAutocompleteV2Response UserGetAutocompleteV2(ctx, sSelector).EFilterActive(eFilterActive).FkiAttachmentID(fkiAttachmentID).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
 
 Retrieve Users and IDs
 
@@ -464,12 +464,13 @@ import (
 func main() {
 	sSelector := "sSelector_example" // string | The type of Users to return
 	eFilterActive := "eFilterActive_example" // string | Specify which results we want to display. (optional) (default to "Active")
+	fkiAttachmentID := "fkiAttachmentID_example" // string | Specify for which fkiAttachmentID we want to find users for. Only used when sSelector is AttachmentSpecificUser. (optional)
 	sQuery := "sQuery_example" // string | Allow to filter the returned results (optional)
 	acceptLanguage := openapiclient.Header-Accept-Language("*") // HeaderAcceptLanguage |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectUserAPI.UserGetAutocompleteV2(context.Background(), sSelector).EFilterActive(eFilterActive).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
+	resp, r, err := apiClient.ObjectUserAPI.UserGetAutocompleteV2(context.Background(), sSelector).EFilterActive(eFilterActive).FkiAttachmentID(fkiAttachmentID).SQuery(sQuery).AcceptLanguage(acceptLanguage).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectUserAPI.UserGetAutocompleteV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -496,6 +497,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **eFilterActive** | **string** | Specify which results we want to display. | [default to &quot;Active&quot;]
+ **fkiAttachmentID** | **string** | Specify for which fkiAttachmentID we want to find users for. Only used when sSelector is AttachmentSpecificUser. | 
  **sQuery** | **string** | Allow to filter the returned results | 
  **acceptLanguage** | [**HeaderAcceptLanguage**](HeaderAcceptLanguage.md) |  | 
 

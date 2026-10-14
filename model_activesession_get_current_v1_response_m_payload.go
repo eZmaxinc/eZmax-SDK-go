@@ -27,8 +27,12 @@ type ActivesessionGetCurrentV1ResponseMPayload struct {
 	EActivesessionWeekdaystart FieldEActivesessionWeekdaystart `json:"eActivesessionWeekdaystart"`
 	// The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|
 	FkiLanguageID int32 `json:"fkiLanguageID"`
+	// The unique ID of the Company
+	FkiCompanyID int32 `json:"fkiCompanyID"`
 	// The Name of the Company in the language of the requester
 	SCompanyNameX string `json:"sCompanyNameX"`
+	// The unique ID of the Department
+	FkiDepartmentID int32 `json:"fkiDepartmentID"`
 	// The Name of the Department in the language of the requester
 	SDepartmentNameX string `json:"sDepartmentNameX"`
 	// Whether the active session is in debug or not
@@ -85,13 +89,15 @@ type _ActivesessionGetCurrentV1ResponseMPayload ActivesessionGetCurrentV1Respons
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewActivesessionGetCurrentV1ResponseMPayload(eActivesessionUsertype FieldEActivesessionUsertype, eActivesessionOrigin FieldEActivesessionOrigin, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, bActivesessionDebug bool, bActivesessionIssuperadmin bool, eActivesessionEzsignaccess FieldEActivesessionEzsignaccess, pksCustomerCode string, fkiSystemconfigurationtypeID int32, eUserEzsignaccess FieldEUserEzsignaccess, aPkiPermissionID []int32, objUserReal ActivesessionResponseCompoundUser, aEModuleInternalname []string) *ActivesessionGetCurrentV1ResponseMPayload {
+func NewActivesessionGetCurrentV1ResponseMPayload(eActivesessionUsertype FieldEActivesessionUsertype, eActivesessionOrigin FieldEActivesessionOrigin, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, fkiCompanyID int32, sCompanyNameX string, fkiDepartmentID int32, sDepartmentNameX string, bActivesessionDebug bool, bActivesessionIssuperadmin bool, eActivesessionEzsignaccess FieldEActivesessionEzsignaccess, pksCustomerCode string, fkiSystemconfigurationtypeID int32, eUserEzsignaccess FieldEUserEzsignaccess, aPkiPermissionID []int32, objUserReal ActivesessionResponseCompoundUser, aEModuleInternalname []string) *ActivesessionGetCurrentV1ResponseMPayload {
 	this := ActivesessionGetCurrentV1ResponseMPayload{}
 	this.EActivesessionUsertype = eActivesessionUsertype
 	this.EActivesessionOrigin = eActivesessionOrigin
 	this.EActivesessionWeekdaystart = eActivesessionWeekdaystart
 	this.FkiLanguageID = fkiLanguageID
+	this.FkiCompanyID = fkiCompanyID
 	this.SCompanyNameX = sCompanyNameX
+	this.FkiDepartmentID = fkiDepartmentID
 	this.SDepartmentNameX = sDepartmentNameX
 	this.BActivesessionDebug = bActivesessionDebug
 	this.BActivesessionIssuperadmin = bActivesessionIssuperadmin
@@ -209,6 +215,30 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) SetFkiLanguageID(v int32) {
 	o.FkiLanguageID = v
 }
 
+// GetFkiCompanyID returns the FkiCompanyID field value
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetFkiCompanyID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiCompanyID
+}
+
+// GetFkiCompanyIDOk returns a tuple with the FkiCompanyID field value
+// and a boolean to check if the value has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetFkiCompanyIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiCompanyID, true
+}
+
+// SetFkiCompanyID sets field value
+func (o *ActivesessionGetCurrentV1ResponseMPayload) SetFkiCompanyID(v int32) {
+	o.FkiCompanyID = v
+}
+
 // GetSCompanyNameX returns the SCompanyNameX field value
 func (o *ActivesessionGetCurrentV1ResponseMPayload) GetSCompanyNameX() string {
 	if o == nil {
@@ -231,6 +261,30 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) GetSCompanyNameXOk() (*strin
 // SetSCompanyNameX sets field value
 func (o *ActivesessionGetCurrentV1ResponseMPayload) SetSCompanyNameX(v string) {
 	o.SCompanyNameX = v
+}
+
+// GetFkiDepartmentID returns the FkiDepartmentID field value
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetFkiDepartmentID() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.FkiDepartmentID
+}
+
+// GetFkiDepartmentIDOk returns a tuple with the FkiDepartmentID field value
+// and a boolean to check if the value has been set.
+func (o *ActivesessionGetCurrentV1ResponseMPayload) GetFkiDepartmentIDOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FkiDepartmentID, true
+}
+
+// SetFkiDepartmentID sets field value
+func (o *ActivesessionGetCurrentV1ResponseMPayload) SetFkiDepartmentID(v int32) {
+	o.FkiDepartmentID = v
 }
 
 // GetSDepartmentNameX returns the SDepartmentNameX field value
@@ -1095,7 +1149,9 @@ func (o ActivesessionGetCurrentV1ResponseMPayload) ToMap() (map[string]interface
 	toSerialize["eActivesessionOrigin"] = o.EActivesessionOrigin
 	toSerialize["eActivesessionWeekdaystart"] = o.EActivesessionWeekdaystart
 	toSerialize["fkiLanguageID"] = o.FkiLanguageID
+	toSerialize["fkiCompanyID"] = o.FkiCompanyID
 	toSerialize["sCompanyNameX"] = o.SCompanyNameX
+	toSerialize["fkiDepartmentID"] = o.FkiDepartmentID
 	toSerialize["sDepartmentNameX"] = o.SDepartmentNameX
 	toSerialize["bActivesessionDebug"] = o.BActivesessionDebug
 	toSerialize["bActivesessionIssuperadmin"] = o.BActivesessionIssuperadmin
@@ -1175,7 +1231,9 @@ func (o *ActivesessionGetCurrentV1ResponseMPayload) UnmarshalJSON(data []byte) (
 		"eActivesessionOrigin",
 		"eActivesessionWeekdaystart",
 		"fkiLanguageID",
+		"fkiCompanyID",
 		"sCompanyNameX",
+		"fkiDepartmentID",
 		"sDepartmentNameX",
 		"bActivesessionDebug",
 		"bActivesessionIssuperadmin",

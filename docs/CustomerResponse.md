@@ -6,44 +6,44 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiCustomerID** | **int32** | The unique ID of the Customer. | 
 **FkiCompanyID** | **int32** | The unique ID of the Company | 
-**FkiCustomergroupID** | **int32** | The unique ID of the Customergroup | 
+**FkiCustomergroupID** | Pointer to **int32** | The unique ID of the Customergroup | [optional] 
 **SCustomerName** | **string** | The name of the Customer | 
 **SCustomerNote** | Pointer to **string** | A note for the Customer | [optional] 
 **FkiContactinformationsID** | **int32** | The unique ID of the Contactinformations | 
 **FkiContactcontainerID** | **int32** | The unique ID of the Contactcontainer | 
-**FkiImageID** | **int32** | The unique ID of the Image | 
+**FkiImageID** | Pointer to **int32** | The unique ID of the Image | [optional] 
 **FkiGlaccountcontainerID** | **int32** | The unique ID of the Glaccountcontainer | 
 **FkiLanguageID** | **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
 **FkiDepartmentID** | **int32** | The unique ID of the Department | 
 **FkiPaymentmethodID** | **int32** | The unique ID of the Paymentmethod | 
-**FkiElectronicfundstransferbankaccountID** | **int32** | The unique ID of the Electronicfundstransferbankaccount | 
-**FkiElectronicfundstransferbankaccountIDDirectdebit** | **int32** | The unique ID of the Electronicfundstransferbankaccount | 
+**FkiElectronicfundstransferbankaccountID** | Pointer to **int32** | The unique ID of the Electronicfundstransferbankaccount | [optional] 
+**FkiElectronicfundstransferbankaccountIDDirectdebit** | Pointer to **int32** | The unique ID of the Electronicfundstransferbankaccount | [optional] 
 **FkiSendingmethodID** | **int32** | The unique ID of the Sendingmethod | 
 **FkiTaxassignmentID** | **int32** | The unique ID of the Taxassignment.  Valid values:  |Value|Description| |-|-| |1|No tax| |2|GST| |3|HST (ON)| |4|HST (NB)| |5|HST (NS)| |6|HST (NL)| |7|HST (PE)| |8|GST + QST (QC)| |9|GST + QST (QC) Non-Recoverable| |10|GST + PST (BC)| |11|GST + PST (SK)| |12|GST + RST (MB)| |13|GST + PST (BC) Non-Recoverable| |14|GST + PST (SK) Non-Recoverable| |15|GST + RST (MB) Non-Recoverable| | 
 **FkiAttendancestatusID** | **int32** | The unique ID of the Attendancestatus | 
-**FkiAgentIDVariableexpensechargeto** | **int32** | The unique ID of the Agent. | 
-**FkiBrokerIDVariableexpensechargeto** | **int32** | The unique ID of the Broker. | 
-**FkiCustomerIDVariableexpensechargeto** | **int32** | The unique ID of the Customer. | 
-**FkiGlaccountcontainerIDVariableexpensechargeto** | **int32** | The unique ID of the Glaccountcontainer | 
-**FkiAgentIDSupplychargechargeto** | **int32** | The unique ID of the Agent. | 
-**FkiBrokerIDSupplychargechargeto** | **int32** | The unique ID of the Broker. | 
-**FkiCustomerIDSupplychargechargeto** | **int32** | The unique ID of the Customer. | 
-**FkiGlaccountcontainerIDSupplychargechargeto** | **int32** | The unique ID of the Glaccountcontainer | 
-**FkiInvoicealternatelogoID** | **int32** | The unique ID of the Invoicealternatelogo | 
-**FkiSynchronizationlinkserverID** | **int32** | The unique ID of the Synchronizationlinkserver | 
+**FkiAgentIDVariableexpensechargeto** | Pointer to **int32** | The unique ID of the Agent. | [optional] 
+**FkiBrokerIDVariableexpensechargeto** | Pointer to **int32** | The unique ID of the Broker. | [optional] 
+**FkiCustomerIDVariableexpensechargeto** | Pointer to **int32** | The unique ID of the Customer. | [optional] 
+**FkiGlaccountcontainerIDVariableexpensechargeto** | Pointer to **int32** | The unique ID of the Glaccountcontainer | [optional] 
+**FkiAgentIDSupplychargechargeto** | Pointer to **int32** | The unique ID of the Agent. | [optional] 
+**FkiBrokerIDSupplychargechargeto** | Pointer to **int32** | The unique ID of the Broker. | [optional] 
+**FkiCustomerIDSupplychargechargeto** | Pointer to **int32** | The unique ID of the Customer. | [optional] 
+**FkiGlaccountcontainerIDSupplychargechargeto** | Pointer to **int32** | The unique ID of the Glaccountcontainer | [optional] 
+**FkiInvoicealternatelogoID** | Pointer to **int32** | The unique ID of the Invoicealternatelogo | [optional] 
+**FkiSynchronizationlinkserverID** | Pointer to **int32** | The unique ID of the Synchronizationlinkserver | [optional] 
 **EfkiUserID** | Pointer to **int32** | The unique ID of the User | [optional] 
 **EfksCustomerCode** | Pointer to **string** | The code of the Customer | [optional] 
 **SCustomerCode** | **string** | The code of the Customer | 
-**DCustomerFulltimeequivalent** | **string** | The fulltimeequivalent of the Customer | 
+**DCustomerFulltimeequivalent** | Pointer to **string** | The fulltimeequivalent of the Customer | [optional] 
 **ICustomerPhotocopiercode** | **int32** | The photocopiercode of the Customer | 
 **ICustomerLongdistancecode** | **int32** | The longdistancecode of the Customer | 
 **ICustomerTimewindowstart** | **int32** | The timewindowstart of the Customer | 
 **ICustomerTimewindowend** | **int32** | The timewindowend of the Customer | 
 **DCustomerMinimumchargeableinterests** | **string** | The minimumchargeableinterests of the Customer | 
-**DtCustomerBirthdate** | **string** | The birthdate of the Customer | 
+**DtCustomerBirthdate** | Pointer to **string** | The birthdate of the Customer | [optional] 
 **DtCustomerTransfer** | **string** | The transfer of the Customer | 
 **DtCustomerTransferappointment** | **string** | The transferappointment of the Customer | 
-**DtCustomerTransfersurvey** | **string** | The transfersurvey of the Customer | 
+**DtCustomerTransfersurvey** | Pointer to **string** | The transfersurvey of the Customer | [optional] 
 **BCustomerIsactive** | **bool** | Whether the customer is active or not | 
 **BCustomerVariableexpensefinanced** | **bool** | Whether if it&#39;s an variableexpensefinanced | 
 **BCustomerVariableexpensefinancedtaxes** | **bool** | Whether if it&#39;s an variableexpensefinancedtaxes | 
@@ -61,7 +61,7 @@ Name | Type | Description | Notes
 
 ### NewCustomerResponse
 
-`func NewCustomerResponse(pkiCustomerID int32, fkiCompanyID int32, fkiCustomergroupID int32, sCustomerName string, fkiContactinformationsID int32, fkiContactcontainerID int32, fkiImageID int32, fkiGlaccountcontainerID int32, fkiLanguageID int32, fkiDepartmentID int32, fkiPaymentmethodID int32, fkiElectronicfundstransferbankaccountID int32, fkiElectronicfundstransferbankaccountIDDirectdebit int32, fkiSendingmethodID int32, fkiTaxassignmentID int32, fkiAttendancestatusID int32, fkiAgentIDVariableexpensechargeto int32, fkiBrokerIDVariableexpensechargeto int32, fkiCustomerIDVariableexpensechargeto int32, fkiGlaccountcontainerIDVariableexpensechargeto int32, fkiAgentIDSupplychargechargeto int32, fkiBrokerIDSupplychargechargeto int32, fkiCustomerIDSupplychargechargeto int32, fkiGlaccountcontainerIDSupplychargechargeto int32, fkiInvoicealternatelogoID int32, fkiSynchronizationlinkserverID int32, sCustomerCode string, dCustomerFulltimeequivalent string, iCustomerPhotocopiercode int32, iCustomerLongdistancecode int32, iCustomerTimewindowstart int32, iCustomerTimewindowend int32, dCustomerMinimumchargeableinterests string, dtCustomerBirthdate string, dtCustomerTransfer string, dtCustomerTransferappointment string, dtCustomerTransfersurvey string, bCustomerIsactive bool, bCustomerVariableexpensefinanced bool, bCustomerVariableexpensefinancedtaxes bool, bCustomerSupplychargefinanced bool, bCustomerSupplychargefinancedtaxes bool, bCustomerAttendance bool, eCustomerType FieldECustomerType, eCustomerMarketingcorrespondence FieldECustomerMarketingcorrespondence, bCustomerBlackcopycarbon bool, bCustomerUnsubscribeinfo bool, tCustomerComment string, ) *CustomerResponse`
+`func NewCustomerResponse(pkiCustomerID int32, fkiCompanyID int32, sCustomerName string, fkiContactinformationsID int32, fkiContactcontainerID int32, fkiGlaccountcontainerID int32, fkiLanguageID int32, fkiDepartmentID int32, fkiPaymentmethodID int32, fkiSendingmethodID int32, fkiTaxassignmentID int32, fkiAttendancestatusID int32, sCustomerCode string, iCustomerPhotocopiercode int32, iCustomerLongdistancecode int32, iCustomerTimewindowstart int32, iCustomerTimewindowend int32, dCustomerMinimumchargeableinterests string, dtCustomerTransfer string, dtCustomerTransferappointment string, bCustomerIsactive bool, bCustomerVariableexpensefinanced bool, bCustomerVariableexpensefinancedtaxes bool, bCustomerSupplychargefinanced bool, bCustomerSupplychargefinancedtaxes bool, bCustomerAttendance bool, eCustomerType FieldECustomerType, eCustomerMarketingcorrespondence FieldECustomerMarketingcorrespondence, bCustomerBlackcopycarbon bool, bCustomerUnsubscribeinfo bool, tCustomerComment string, ) *CustomerResponse`
 
 NewCustomerResponse instantiates a new CustomerResponse object
 This constructor will assign default values to properties that have it defined,
@@ -135,6 +135,11 @@ and a boolean to check if the value has been set.
 
 SetFkiCustomergroupID sets FkiCustomergroupID field to given value.
 
+### HasFkiCustomergroupID
+
+`func (o *CustomerResponse) HasFkiCustomergroupID() bool`
+
+HasFkiCustomergroupID returns a boolean if a field has been set.
 
 ### GetSCustomerName
 
@@ -240,6 +245,11 @@ and a boolean to check if the value has been set.
 
 SetFkiImageID sets FkiImageID field to given value.
 
+### HasFkiImageID
+
+`func (o *CustomerResponse) HasFkiImageID() bool`
+
+HasFkiImageID returns a boolean if a field has been set.
 
 ### GetFkiGlaccountcontainerID
 
@@ -340,6 +350,11 @@ and a boolean to check if the value has been set.
 
 SetFkiElectronicfundstransferbankaccountID sets FkiElectronicfundstransferbankaccountID field to given value.
 
+### HasFkiElectronicfundstransferbankaccountID
+
+`func (o *CustomerResponse) HasFkiElectronicfundstransferbankaccountID() bool`
+
+HasFkiElectronicfundstransferbankaccountID returns a boolean if a field has been set.
 
 ### GetFkiElectronicfundstransferbankaccountIDDirectdebit
 
@@ -360,6 +375,11 @@ and a boolean to check if the value has been set.
 
 SetFkiElectronicfundstransferbankaccountIDDirectdebit sets FkiElectronicfundstransferbankaccountIDDirectdebit field to given value.
 
+### HasFkiElectronicfundstransferbankaccountIDDirectdebit
+
+`func (o *CustomerResponse) HasFkiElectronicfundstransferbankaccountIDDirectdebit() bool`
+
+HasFkiElectronicfundstransferbankaccountIDDirectdebit returns a boolean if a field has been set.
 
 ### GetFkiSendingmethodID
 
@@ -440,6 +460,11 @@ and a boolean to check if the value has been set.
 
 SetFkiAgentIDVariableexpensechargeto sets FkiAgentIDVariableexpensechargeto field to given value.
 
+### HasFkiAgentIDVariableexpensechargeto
+
+`func (o *CustomerResponse) HasFkiAgentIDVariableexpensechargeto() bool`
+
+HasFkiAgentIDVariableexpensechargeto returns a boolean if a field has been set.
 
 ### GetFkiBrokerIDVariableexpensechargeto
 
@@ -460,6 +485,11 @@ and a boolean to check if the value has been set.
 
 SetFkiBrokerIDVariableexpensechargeto sets FkiBrokerIDVariableexpensechargeto field to given value.
 
+### HasFkiBrokerIDVariableexpensechargeto
+
+`func (o *CustomerResponse) HasFkiBrokerIDVariableexpensechargeto() bool`
+
+HasFkiBrokerIDVariableexpensechargeto returns a boolean if a field has been set.
 
 ### GetFkiCustomerIDVariableexpensechargeto
 
@@ -480,6 +510,11 @@ and a boolean to check if the value has been set.
 
 SetFkiCustomerIDVariableexpensechargeto sets FkiCustomerIDVariableexpensechargeto field to given value.
 
+### HasFkiCustomerIDVariableexpensechargeto
+
+`func (o *CustomerResponse) HasFkiCustomerIDVariableexpensechargeto() bool`
+
+HasFkiCustomerIDVariableexpensechargeto returns a boolean if a field has been set.
 
 ### GetFkiGlaccountcontainerIDVariableexpensechargeto
 
@@ -500,6 +535,11 @@ and a boolean to check if the value has been set.
 
 SetFkiGlaccountcontainerIDVariableexpensechargeto sets FkiGlaccountcontainerIDVariableexpensechargeto field to given value.
 
+### HasFkiGlaccountcontainerIDVariableexpensechargeto
+
+`func (o *CustomerResponse) HasFkiGlaccountcontainerIDVariableexpensechargeto() bool`
+
+HasFkiGlaccountcontainerIDVariableexpensechargeto returns a boolean if a field has been set.
 
 ### GetFkiAgentIDSupplychargechargeto
 
@@ -520,6 +560,11 @@ and a boolean to check if the value has been set.
 
 SetFkiAgentIDSupplychargechargeto sets FkiAgentIDSupplychargechargeto field to given value.
 
+### HasFkiAgentIDSupplychargechargeto
+
+`func (o *CustomerResponse) HasFkiAgentIDSupplychargechargeto() bool`
+
+HasFkiAgentIDSupplychargechargeto returns a boolean if a field has been set.
 
 ### GetFkiBrokerIDSupplychargechargeto
 
@@ -540,6 +585,11 @@ and a boolean to check if the value has been set.
 
 SetFkiBrokerIDSupplychargechargeto sets FkiBrokerIDSupplychargechargeto field to given value.
 
+### HasFkiBrokerIDSupplychargechargeto
+
+`func (o *CustomerResponse) HasFkiBrokerIDSupplychargechargeto() bool`
+
+HasFkiBrokerIDSupplychargechargeto returns a boolean if a field has been set.
 
 ### GetFkiCustomerIDSupplychargechargeto
 
@@ -560,6 +610,11 @@ and a boolean to check if the value has been set.
 
 SetFkiCustomerIDSupplychargechargeto sets FkiCustomerIDSupplychargechargeto field to given value.
 
+### HasFkiCustomerIDSupplychargechargeto
+
+`func (o *CustomerResponse) HasFkiCustomerIDSupplychargechargeto() bool`
+
+HasFkiCustomerIDSupplychargechargeto returns a boolean if a field has been set.
 
 ### GetFkiGlaccountcontainerIDSupplychargechargeto
 
@@ -580,6 +635,11 @@ and a boolean to check if the value has been set.
 
 SetFkiGlaccountcontainerIDSupplychargechargeto sets FkiGlaccountcontainerIDSupplychargechargeto field to given value.
 
+### HasFkiGlaccountcontainerIDSupplychargechargeto
+
+`func (o *CustomerResponse) HasFkiGlaccountcontainerIDSupplychargechargeto() bool`
+
+HasFkiGlaccountcontainerIDSupplychargechargeto returns a boolean if a field has been set.
 
 ### GetFkiInvoicealternatelogoID
 
@@ -600,6 +660,11 @@ and a boolean to check if the value has been set.
 
 SetFkiInvoicealternatelogoID sets FkiInvoicealternatelogoID field to given value.
 
+### HasFkiInvoicealternatelogoID
+
+`func (o *CustomerResponse) HasFkiInvoicealternatelogoID() bool`
+
+HasFkiInvoicealternatelogoID returns a boolean if a field has been set.
 
 ### GetFkiSynchronizationlinkserverID
 
@@ -620,6 +685,11 @@ and a boolean to check if the value has been set.
 
 SetFkiSynchronizationlinkserverID sets FkiSynchronizationlinkserverID field to given value.
 
+### HasFkiSynchronizationlinkserverID
+
+`func (o *CustomerResponse) HasFkiSynchronizationlinkserverID() bool`
+
+HasFkiSynchronizationlinkserverID returns a boolean if a field has been set.
 
 ### GetEfkiUserID
 
@@ -710,6 +780,11 @@ and a boolean to check if the value has been set.
 
 SetDCustomerFulltimeequivalent sets DCustomerFulltimeequivalent field to given value.
 
+### HasDCustomerFulltimeequivalent
+
+`func (o *CustomerResponse) HasDCustomerFulltimeequivalent() bool`
+
+HasDCustomerFulltimeequivalent returns a boolean if a field has been set.
 
 ### GetICustomerPhotocopiercode
 
@@ -830,6 +905,11 @@ and a boolean to check if the value has been set.
 
 SetDtCustomerBirthdate sets DtCustomerBirthdate field to given value.
 
+### HasDtCustomerBirthdate
+
+`func (o *CustomerResponse) HasDtCustomerBirthdate() bool`
+
+HasDtCustomerBirthdate returns a boolean if a field has been set.
 
 ### GetDtCustomerTransfer
 
@@ -890,6 +970,11 @@ and a boolean to check if the value has been set.
 
 SetDtCustomerTransfersurvey sets DtCustomerTransfersurvey field to given value.
 
+### HasDtCustomerTransfersurvey
+
+`func (o *CustomerResponse) HasDtCustomerTransfersurvey() bool`
+
+HasDtCustomerTransfersurvey returns a boolean if a field has been set.
 
 ### GetBCustomerIsactive
 

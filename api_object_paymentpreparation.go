@@ -320,6 +320,530 @@ func (a *ObjectPaymentpreparationAPIService) PaymentpreparationGetAttachmentsV1E
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiPaymentpreparationGetCommunicationCountV1Request struct {
+	ctx context.Context
+	ApiService *ObjectPaymentpreparationAPIService
+	pkiPaymentpreparationID int32
+}
+
+func (r ApiPaymentpreparationGetCommunicationCountV1Request) Execute() (*PaymentpreparationGetCommunicationCountV1Response, *http.Response, error) {
+	return r.ApiService.PaymentpreparationGetCommunicationCountV1Execute(r)
+}
+
+/*
+PaymentpreparationGetCommunicationCountV1 Retrieve Communication count
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiPaymentpreparationID
+ @return ApiPaymentpreparationGetCommunicationCountV1Request
+*/
+func (a *ObjectPaymentpreparationAPIService) PaymentpreparationGetCommunicationCountV1(ctx context.Context, pkiPaymentpreparationID int32) ApiPaymentpreparationGetCommunicationCountV1Request {
+	return ApiPaymentpreparationGetCommunicationCountV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiPaymentpreparationID: pkiPaymentpreparationID,
+	}
+}
+
+// Execute executes the request
+//  @return PaymentpreparationGetCommunicationCountV1Response
+func (a *ObjectPaymentpreparationAPIService) PaymentpreparationGetCommunicationCountV1Execute(r ApiPaymentpreparationGetCommunicationCountV1Request) (*PaymentpreparationGetCommunicationCountV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PaymentpreparationGetCommunicationCountV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectPaymentpreparationAPIService.PaymentpreparationGetCommunicationCountV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/paymentpreparation/{pkiPaymentpreparationID}/getCommunicationCount"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiPaymentpreparationID"+"}", url.PathEscape(parameterValueToString(r.pkiPaymentpreparationID, "pkiPaymentpreparationID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiPaymentpreparationID < 0 {
+		return localVarReturnValue, nil, reportError("pkiPaymentpreparationID must be greater than 0")
+	}
+	if r.pkiPaymentpreparationID > 16777215 {
+		return localVarReturnValue, nil, reportError("pkiPaymentpreparationID must be less than 16777215")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPaymentpreparationGetCommunicationListV1Request struct {
+	ctx context.Context
+	ApiService *ObjectPaymentpreparationAPIService
+	pkiPaymentpreparationID int32
+}
+
+func (r ApiPaymentpreparationGetCommunicationListV1Request) Execute() (*PaymentpreparationGetCommunicationListV1Response, *http.Response, error) {
+	return r.ApiService.PaymentpreparationGetCommunicationListV1Execute(r)
+}
+
+/*
+PaymentpreparationGetCommunicationListV1 Retrieve Communication list
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiPaymentpreparationID
+ @return ApiPaymentpreparationGetCommunicationListV1Request
+*/
+func (a *ObjectPaymentpreparationAPIService) PaymentpreparationGetCommunicationListV1(ctx context.Context, pkiPaymentpreparationID int32) ApiPaymentpreparationGetCommunicationListV1Request {
+	return ApiPaymentpreparationGetCommunicationListV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiPaymentpreparationID: pkiPaymentpreparationID,
+	}
+}
+
+// Execute executes the request
+//  @return PaymentpreparationGetCommunicationListV1Response
+func (a *ObjectPaymentpreparationAPIService) PaymentpreparationGetCommunicationListV1Execute(r ApiPaymentpreparationGetCommunicationListV1Request) (*PaymentpreparationGetCommunicationListV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PaymentpreparationGetCommunicationListV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectPaymentpreparationAPIService.PaymentpreparationGetCommunicationListV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/paymentpreparation/{pkiPaymentpreparationID}/getCommunicationList"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiPaymentpreparationID"+"}", url.PathEscape(parameterValueToString(r.pkiPaymentpreparationID, "pkiPaymentpreparationID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiPaymentpreparationID < 0 {
+		return localVarReturnValue, nil, reportError("pkiPaymentpreparationID must be greater than 0")
+	}
+	if r.pkiPaymentpreparationID > 16777215 {
+		return localVarReturnValue, nil, reportError("pkiPaymentpreparationID must be less than 16777215")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPaymentpreparationGetCommunicationrecipientsV1Request struct {
+	ctx context.Context
+	ApiService *ObjectPaymentpreparationAPIService
+	pkiPaymentpreparationID int32
+}
+
+func (r ApiPaymentpreparationGetCommunicationrecipientsV1Request) Execute() (*PaymentpreparationGetCommunicationrecipientsV1Response, *http.Response, error) {
+	return r.ApiService.PaymentpreparationGetCommunicationrecipientsV1Execute(r)
+}
+
+/*
+PaymentpreparationGetCommunicationrecipientsV1 Retrieve Communication recipients
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiPaymentpreparationID
+ @return ApiPaymentpreparationGetCommunicationrecipientsV1Request
+*/
+func (a *ObjectPaymentpreparationAPIService) PaymentpreparationGetCommunicationrecipientsV1(ctx context.Context, pkiPaymentpreparationID int32) ApiPaymentpreparationGetCommunicationrecipientsV1Request {
+	return ApiPaymentpreparationGetCommunicationrecipientsV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiPaymentpreparationID: pkiPaymentpreparationID,
+	}
+}
+
+// Execute executes the request
+//  @return PaymentpreparationGetCommunicationrecipientsV1Response
+func (a *ObjectPaymentpreparationAPIService) PaymentpreparationGetCommunicationrecipientsV1Execute(r ApiPaymentpreparationGetCommunicationrecipientsV1Request) (*PaymentpreparationGetCommunicationrecipientsV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PaymentpreparationGetCommunicationrecipientsV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectPaymentpreparationAPIService.PaymentpreparationGetCommunicationrecipientsV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/paymentpreparation/{pkiPaymentpreparationID}/getCommunicationrecipients"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiPaymentpreparationID"+"}", url.PathEscape(parameterValueToString(r.pkiPaymentpreparationID, "pkiPaymentpreparationID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiPaymentpreparationID < 0 {
+		return localVarReturnValue, nil, reportError("pkiPaymentpreparationID must be greater than 0")
+	}
+	if r.pkiPaymentpreparationID > 16777215 {
+		return localVarReturnValue, nil, reportError("pkiPaymentpreparationID must be less than 16777215")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPaymentpreparationGetCommunicationsendersV1Request struct {
+	ctx context.Context
+	ApiService *ObjectPaymentpreparationAPIService
+	pkiPaymentpreparationID int32
+}
+
+func (r ApiPaymentpreparationGetCommunicationsendersV1Request) Execute() (*PaymentpreparationGetCommunicationsendersV1Response, *http.Response, error) {
+	return r.ApiService.PaymentpreparationGetCommunicationsendersV1Execute(r)
+}
+
+/*
+PaymentpreparationGetCommunicationsendersV1 Retrieve Communication senders
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiPaymentpreparationID
+ @return ApiPaymentpreparationGetCommunicationsendersV1Request
+*/
+func (a *ObjectPaymentpreparationAPIService) PaymentpreparationGetCommunicationsendersV1(ctx context.Context, pkiPaymentpreparationID int32) ApiPaymentpreparationGetCommunicationsendersV1Request {
+	return ApiPaymentpreparationGetCommunicationsendersV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiPaymentpreparationID: pkiPaymentpreparationID,
+	}
+}
+
+// Execute executes the request
+//  @return PaymentpreparationGetCommunicationsendersV1Response
+func (a *ObjectPaymentpreparationAPIService) PaymentpreparationGetCommunicationsendersV1Execute(r ApiPaymentpreparationGetCommunicationsendersV1Request) (*PaymentpreparationGetCommunicationsendersV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PaymentpreparationGetCommunicationsendersV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectPaymentpreparationAPIService.PaymentpreparationGetCommunicationsendersV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/paymentpreparation/{pkiPaymentpreparationID}/getCommunicationsenders"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiPaymentpreparationID"+"}", url.PathEscape(parameterValueToString(r.pkiPaymentpreparationID, "pkiPaymentpreparationID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiPaymentpreparationID < 0 {
+		return localVarReturnValue, nil, reportError("pkiPaymentpreparationID must be greater than 0")
+	}
+	if r.pkiPaymentpreparationID > 16777215 {
+		return localVarReturnValue, nil, reportError("pkiPaymentpreparationID must be less than 16777215")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiPaymentpreparationImportIntoEDMV1Request struct {
 	ctx context.Context
 	ApiService *ObjectPaymentpreparationAPIService

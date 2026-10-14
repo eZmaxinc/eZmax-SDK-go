@@ -57,6 +57,7 @@ Name | Type | Description | Notes
 **SAttachmentCategory** | **string** | The attachment category | 
 **EAttachmentPrivacy** | [**FieldEAttachmentPrivacy**](FieldEAttachmentPrivacy.md) |  | 
 **FkiUserIDSpecific** | Pointer to **int32** | The unique ID of the User | [optional] 
+**ObjUserSpecific** | Pointer to [**CustomUserNameResponse**](CustomUserNameResponse.md) |  | [optional] 
 **EAttachmentType** | [**FieldEAttachmentType**](FieldEAttachmentType.md) |  | 
 **IAttachmentSize** | **int32** | The size of the Attachment | 
 **IAttachmentEDMmoduleflag** | Pointer to **int32** | The edmmoduleflag of the Attachment | [optional] 
@@ -1386,6 +1387,31 @@ SetFkiUserIDSpecific sets FkiUserIDSpecific field to given value.
 `func (o *AttachmentResponse) HasFkiUserIDSpecific() bool`
 
 HasFkiUserIDSpecific returns a boolean if a field has been set.
+
+### GetObjUserSpecific
+
+`func (o *AttachmentResponse) GetObjUserSpecific() CustomUserNameResponse`
+
+GetObjUserSpecific returns the ObjUserSpecific field if non-nil, zero value otherwise.
+
+### GetObjUserSpecificOk
+
+`func (o *AttachmentResponse) GetObjUserSpecificOk() (*CustomUserNameResponse, bool)`
+
+GetObjUserSpecificOk returns a tuple with the ObjUserSpecific field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjUserSpecific
+
+`func (o *AttachmentResponse) SetObjUserSpecific(v CustomUserNameResponse)`
+
+SetObjUserSpecific sets ObjUserSpecific field to given value.
+
+### HasObjUserSpecific
+
+`func (o *AttachmentResponse) HasObjUserSpecific() bool`
+
+HasObjUserSpecific returns a boolean if a field has been set.
 
 ### GetEAttachmentType
 

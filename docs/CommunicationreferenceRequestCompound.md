@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **FkiBuyercontractID** | Pointer to **int32** | The unique ID of the Buyercontract | [optional] 
 **FkiEzsignfolderID** | Pointer to **int32** | The unique ID of the Ezsignfolder | [optional] 
 **FkiInscriptionID** | Pointer to **int32** | The unique ID of the Inscription. | [optional] 
+**FkiInscriptionnotauthenticatedID** | Pointer to **int32** | The unique ID of the Inscriptionnotauthenticated. | [optional] 
 **FkiInscriptiontempID** | Pointer to **int32** | The unique ID of the Inscriptiontemp | [optional] 
 **FkiInvoiceID** | Pointer to **int32** | The unique ID of the Invoice. | [optional] 
 **FkiOtherincomeID** | Pointer to **int32** | The unique ID of the Otherincome | [optional] 
@@ -132,6 +133,31 @@ SetFkiInscriptionID sets FkiInscriptionID field to given value.
 `func (o *CommunicationreferenceRequestCompound) HasFkiInscriptionID() bool`
 
 HasFkiInscriptionID returns a boolean if a field has been set.
+
+### GetFkiInscriptionnotauthenticatedID
+
+`func (o *CommunicationreferenceRequestCompound) GetFkiInscriptionnotauthenticatedID() int32`
+
+GetFkiInscriptionnotauthenticatedID returns the FkiInscriptionnotauthenticatedID field if non-nil, zero value otherwise.
+
+### GetFkiInscriptionnotauthenticatedIDOk
+
+`func (o *CommunicationreferenceRequestCompound) GetFkiInscriptionnotauthenticatedIDOk() (*int32, bool)`
+
+GetFkiInscriptionnotauthenticatedIDOk returns a tuple with the FkiInscriptionnotauthenticatedID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiInscriptionnotauthenticatedID
+
+`func (o *CommunicationreferenceRequestCompound) SetFkiInscriptionnotauthenticatedID(v int32)`
+
+SetFkiInscriptionnotauthenticatedID sets FkiInscriptionnotauthenticatedID field to given value.
+
+### HasFkiInscriptionnotauthenticatedID
+
+`func (o *CommunicationreferenceRequestCompound) HasFkiInscriptionnotauthenticatedID() bool`
+
+HasFkiInscriptionnotauthenticatedID returns a boolean if a field has been set.
 
 ### GetFkiInscriptiontempID
 

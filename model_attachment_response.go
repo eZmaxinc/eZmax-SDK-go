@@ -126,6 +126,7 @@ type AttachmentResponse struct {
 	EAttachmentPrivacy FieldEAttachmentPrivacy `json:"eAttachmentPrivacy"`
 	// The unique ID of the User
 	FkiUserIDSpecific *int32 `json:"fkiUserIDSpecific,omitempty"`
+	ObjUserSpecific *CustomUserNameResponse `json:"objUserSpecific,omitempty"`
 	EAttachmentType FieldEAttachmentType `json:"eAttachmentType"`
 	// The size of the Attachment
 	IAttachmentSize int32 `json:"iAttachmentSize"`
@@ -1831,6 +1832,38 @@ func (o *AttachmentResponse) SetFkiUserIDSpecific(v int32) {
 	o.FkiUserIDSpecific = &v
 }
 
+// GetObjUserSpecific returns the ObjUserSpecific field value if set, zero value otherwise.
+func (o *AttachmentResponse) GetObjUserSpecific() CustomUserNameResponse {
+	if o == nil || IsNil(o.ObjUserSpecific) {
+		var ret CustomUserNameResponse
+		return ret
+	}
+	return *o.ObjUserSpecific
+}
+
+// GetObjUserSpecificOk returns a tuple with the ObjUserSpecific field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AttachmentResponse) GetObjUserSpecificOk() (*CustomUserNameResponse, bool) {
+	if o == nil || IsNil(o.ObjUserSpecific) {
+		return nil, false
+	}
+	return o.ObjUserSpecific, true
+}
+
+// HasObjUserSpecific returns a boolean if a field has been set.
+func (o *AttachmentResponse) HasObjUserSpecific() bool {
+	if o != nil && !IsNil(o.ObjUserSpecific) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjUserSpecific gets a reference to the given CustomUserNameResponse and assigns it to the ObjUserSpecific field.
+func (o *AttachmentResponse) SetObjUserSpecific(v CustomUserNameResponse) {
+	o.ObjUserSpecific = &v
+}
+
 // GetEAttachmentType returns the EAttachmentType field value
 func (o *AttachmentResponse) GetEAttachmentType() FieldEAttachmentType {
 	if o == nil {
@@ -2261,6 +2294,9 @@ func (o AttachmentResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["eAttachmentPrivacy"] = o.EAttachmentPrivacy
 	if !IsNil(o.FkiUserIDSpecific) {
 		toSerialize["fkiUserIDSpecific"] = o.FkiUserIDSpecific
+	}
+	if !IsNil(o.ObjUserSpecific) {
+		toSerialize["objUserSpecific"] = o.ObjUserSpecific
 	}
 	toSerialize["eAttachmentType"] = o.EAttachmentType
 	toSerialize["iAttachmentSize"] = o.IAttachmentSize

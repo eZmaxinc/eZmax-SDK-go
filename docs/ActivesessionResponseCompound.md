@@ -8,7 +8,9 @@ Name | Type | Description | Notes
 **EActivesessionOrigin** | [**FieldEActivesessionOrigin**](FieldEActivesessionOrigin.md) |  | 
 **EActivesessionWeekdaystart** | [**FieldEActivesessionWeekdaystart**](FieldEActivesessionWeekdaystart.md) |  | 
 **FkiLanguageID** | **int32** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
+**FkiCompanyID** | **int32** | The unique ID of the Company | 
 **SCompanyNameX** | **string** | The Name of the Company in the language of the requester | 
+**FkiDepartmentID** | **int32** | The unique ID of the Department | 
 **SDepartmentNameX** | **string** | The Name of the Department in the language of the requester | 
 **BActivesessionDebug** | **bool** | Whether the active session is in debug or not | 
 **BActivesessionIssuperadmin** | **bool** | Whether the active session is superadmin or not | 
@@ -43,7 +45,7 @@ Name | Type | Description | Notes
 
 ### NewActivesessionResponseCompound
 
-`func NewActivesessionResponseCompound(eActivesessionUsertype FieldEActivesessionUsertype, eActivesessionOrigin FieldEActivesessionOrigin, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, sCompanyNameX string, sDepartmentNameX string, bActivesessionDebug bool, bActivesessionIssuperadmin bool, eActivesessionEzsignaccess FieldEActivesessionEzsignaccess, pksCustomerCode string, fkiSystemconfigurationtypeID int32, eUserEzsignaccess FieldEUserEzsignaccess, aPkiPermissionID []int32, objUserReal ActivesessionResponseCompoundUser, aEModuleInternalname []string, ) *ActivesessionResponseCompound`
+`func NewActivesessionResponseCompound(eActivesessionUsertype FieldEActivesessionUsertype, eActivesessionOrigin FieldEActivesessionOrigin, eActivesessionWeekdaystart FieldEActivesessionWeekdaystart, fkiLanguageID int32, fkiCompanyID int32, sCompanyNameX string, fkiDepartmentID int32, sDepartmentNameX string, bActivesessionDebug bool, bActivesessionIssuperadmin bool, eActivesessionEzsignaccess FieldEActivesessionEzsignaccess, pksCustomerCode string, fkiSystemconfigurationtypeID int32, eUserEzsignaccess FieldEUserEzsignaccess, aPkiPermissionID []int32, objUserReal ActivesessionResponseCompoundUser, aEModuleInternalname []string, ) *ActivesessionResponseCompound`
 
 NewActivesessionResponseCompound instantiates a new ActivesessionResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -138,6 +140,26 @@ and a boolean to check if the value has been set.
 SetFkiLanguageID sets FkiLanguageID field to given value.
 
 
+### GetFkiCompanyID
+
+`func (o *ActivesessionResponseCompound) GetFkiCompanyID() int32`
+
+GetFkiCompanyID returns the FkiCompanyID field if non-nil, zero value otherwise.
+
+### GetFkiCompanyIDOk
+
+`func (o *ActivesessionResponseCompound) GetFkiCompanyIDOk() (*int32, bool)`
+
+GetFkiCompanyIDOk returns a tuple with the FkiCompanyID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiCompanyID
+
+`func (o *ActivesessionResponseCompound) SetFkiCompanyID(v int32)`
+
+SetFkiCompanyID sets FkiCompanyID field to given value.
+
+
 ### GetSCompanyNameX
 
 `func (o *ActivesessionResponseCompound) GetSCompanyNameX() string`
@@ -156,6 +178,26 @@ and a boolean to check if the value has been set.
 `func (o *ActivesessionResponseCompound) SetSCompanyNameX(v string)`
 
 SetSCompanyNameX sets SCompanyNameX field to given value.
+
+
+### GetFkiDepartmentID
+
+`func (o *ActivesessionResponseCompound) GetFkiDepartmentID() int32`
+
+GetFkiDepartmentID returns the FkiDepartmentID field if non-nil, zero value otherwise.
+
+### GetFkiDepartmentIDOk
+
+`func (o *ActivesessionResponseCompound) GetFkiDepartmentIDOk() (*int32, bool)`
+
+GetFkiDepartmentIDOk returns a tuple with the FkiDepartmentID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFkiDepartmentID
+
+`func (o *ActivesessionResponseCompound) SetFkiDepartmentID(v int32)`
+
+SetFkiDepartmentID sets FkiDepartmentID field to given value.
 
 
 ### GetSDepartmentNameX

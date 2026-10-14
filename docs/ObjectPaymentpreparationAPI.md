@@ -6,6 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**PaymentpreparationBatchDownloadV1**](ObjectPaymentpreparationAPI.md#PaymentpreparationBatchDownloadV1) | **Post** /1/object/paymentpreparation/{pkiPaymentpreparationID}/batchDownload | Download multiples attachments from an Paymentpreparation
 [**PaymentpreparationGetAttachmentsV1**](ObjectPaymentpreparationAPI.md#PaymentpreparationGetAttachmentsV1) | **Get** /1/object/paymentpreparation/{pkiPaymentpreparationID}/getAttachments | Retrieve Paymentpreparation&#39;s attachments
+[**PaymentpreparationGetCommunicationCountV1**](ObjectPaymentpreparationAPI.md#PaymentpreparationGetCommunicationCountV1) | **Get** /1/object/paymentpreparation/{pkiPaymentpreparationID}/getCommunicationCount | Retrieve Communication count
+[**PaymentpreparationGetCommunicationListV1**](ObjectPaymentpreparationAPI.md#PaymentpreparationGetCommunicationListV1) | **Get** /1/object/paymentpreparation/{pkiPaymentpreparationID}/getCommunicationList | Retrieve Communication list
+[**PaymentpreparationGetCommunicationrecipientsV1**](ObjectPaymentpreparationAPI.md#PaymentpreparationGetCommunicationrecipientsV1) | **Get** /1/object/paymentpreparation/{pkiPaymentpreparationID}/getCommunicationrecipients | Retrieve Communication recipients
+[**PaymentpreparationGetCommunicationsendersV1**](ObjectPaymentpreparationAPI.md#PaymentpreparationGetCommunicationsendersV1) | **Get** /1/object/paymentpreparation/{pkiPaymentpreparationID}/getCommunicationsenders | Retrieve Communication senders
 [**PaymentpreparationImportIntoEDMV1**](ObjectPaymentpreparationAPI.md#PaymentpreparationImportIntoEDMV1) | **Post** /1/object/paymentpreparation/{pkiPaymentpreparationID}/importIntoEDM | Import attachments into the Paymentpreparation
 
 
@@ -133,6 +137,278 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PaymentpreparationGetAttachmentsV1Response**](PaymentpreparationGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PaymentpreparationGetCommunicationCountV1
+
+> PaymentpreparationGetCommunicationCountV1Response PaymentpreparationGetCommunicationCountV1(ctx, pkiPaymentpreparationID).Execute()
+
+Retrieve Communication count
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiPaymentpreparationID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectPaymentpreparationAPI.PaymentpreparationGetCommunicationCountV1(context.Background(), pkiPaymentpreparationID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectPaymentpreparationAPI.PaymentpreparationGetCommunicationCountV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PaymentpreparationGetCommunicationCountV1`: PaymentpreparationGetCommunicationCountV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectPaymentpreparationAPI.PaymentpreparationGetCommunicationCountV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiPaymentpreparationID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPaymentpreparationGetCommunicationCountV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**PaymentpreparationGetCommunicationCountV1Response**](PaymentpreparationGetCommunicationCountV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PaymentpreparationGetCommunicationListV1
+
+> PaymentpreparationGetCommunicationListV1Response PaymentpreparationGetCommunicationListV1(ctx, pkiPaymentpreparationID).Execute()
+
+Retrieve Communication list
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiPaymentpreparationID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectPaymentpreparationAPI.PaymentpreparationGetCommunicationListV1(context.Background(), pkiPaymentpreparationID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectPaymentpreparationAPI.PaymentpreparationGetCommunicationListV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PaymentpreparationGetCommunicationListV1`: PaymentpreparationGetCommunicationListV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectPaymentpreparationAPI.PaymentpreparationGetCommunicationListV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiPaymentpreparationID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPaymentpreparationGetCommunicationListV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**PaymentpreparationGetCommunicationListV1Response**](PaymentpreparationGetCommunicationListV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PaymentpreparationGetCommunicationrecipientsV1
+
+> PaymentpreparationGetCommunicationrecipientsV1Response PaymentpreparationGetCommunicationrecipientsV1(ctx, pkiPaymentpreparationID).Execute()
+
+Retrieve Communication recipients
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiPaymentpreparationID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectPaymentpreparationAPI.PaymentpreparationGetCommunicationrecipientsV1(context.Background(), pkiPaymentpreparationID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectPaymentpreparationAPI.PaymentpreparationGetCommunicationrecipientsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PaymentpreparationGetCommunicationrecipientsV1`: PaymentpreparationGetCommunicationrecipientsV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectPaymentpreparationAPI.PaymentpreparationGetCommunicationrecipientsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiPaymentpreparationID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPaymentpreparationGetCommunicationrecipientsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**PaymentpreparationGetCommunicationrecipientsV1Response**](PaymentpreparationGetCommunicationrecipientsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PaymentpreparationGetCommunicationsendersV1
+
+> PaymentpreparationGetCommunicationsendersV1Response PaymentpreparationGetCommunicationsendersV1(ctx, pkiPaymentpreparationID).Execute()
+
+Retrieve Communication senders
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiPaymentpreparationID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectPaymentpreparationAPI.PaymentpreparationGetCommunicationsendersV1(context.Background(), pkiPaymentpreparationID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectPaymentpreparationAPI.PaymentpreparationGetCommunicationsendersV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PaymentpreparationGetCommunicationsendersV1`: PaymentpreparationGetCommunicationsendersV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectPaymentpreparationAPI.PaymentpreparationGetCommunicationsendersV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiPaymentpreparationID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPaymentpreparationGetCommunicationsendersV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**PaymentpreparationGetCommunicationsendersV1Response**](PaymentpreparationGetCommunicationsendersV1Response.md)
 
 ### Authorization
 

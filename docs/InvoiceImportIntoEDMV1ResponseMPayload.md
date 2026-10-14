@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**APkiAttachmentID** | **[]int32** |  | 
+**AObjAttachment** | [**[]CustomAttachmentImportIntoEDMResponse**](CustomAttachmentImportIntoEDMResponse.md) |  | 
 
 ## Methods
 
 ### NewInvoiceImportIntoEDMV1ResponseMPayload
 
-`func NewInvoiceImportIntoEDMV1ResponseMPayload(aPkiAttachmentID []int32, ) *InvoiceImportIntoEDMV1ResponseMPayload`
+`func NewInvoiceImportIntoEDMV1ResponseMPayload(aObjAttachment []CustomAttachmentImportIntoEDMResponse, ) *InvoiceImportIntoEDMV1ResponseMPayload`
 
 NewInvoiceImportIntoEDMV1ResponseMPayload instantiates a new InvoiceImportIntoEDMV1ResponseMPayload object
 This constructor will assign default values to properties that have it defined,
@@ -25,24 +25,24 @@ NewInvoiceImportIntoEDMV1ResponseMPayloadWithDefaults instantiates a new Invoice
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetAPkiAttachmentID
+### GetAObjAttachment
 
-`func (o *InvoiceImportIntoEDMV1ResponseMPayload) GetAPkiAttachmentID() []int32`
+`func (o *InvoiceImportIntoEDMV1ResponseMPayload) GetAObjAttachment() []CustomAttachmentImportIntoEDMResponse`
 
-GetAPkiAttachmentID returns the APkiAttachmentID field if non-nil, zero value otherwise.
+GetAObjAttachment returns the AObjAttachment field if non-nil, zero value otherwise.
 
-### GetAPkiAttachmentIDOk
+### GetAObjAttachmentOk
 
-`func (o *InvoiceImportIntoEDMV1ResponseMPayload) GetAPkiAttachmentIDOk() (*[]int32, bool)`
+`func (o *InvoiceImportIntoEDMV1ResponseMPayload) GetAObjAttachmentOk() (*[]CustomAttachmentImportIntoEDMResponse, bool)`
 
-GetAPkiAttachmentIDOk returns a tuple with the APkiAttachmentID field if it's non-nil, zero value otherwise
+GetAObjAttachmentOk returns a tuple with the AObjAttachment field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAPkiAttachmentID
+### SetAObjAttachment
 
-`func (o *InvoiceImportIntoEDMV1ResponseMPayload) SetAPkiAttachmentID(v []int32)`
+`func (o *InvoiceImportIntoEDMV1ResponseMPayload) SetAObjAttachment(v []CustomAttachmentImportIntoEDMResponse)`
 
-SetAPkiAttachmentID sets APkiAttachmentID field to given value.
+SetAObjAttachment sets AObjAttachment field to given value.
 
 
 
