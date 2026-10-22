@@ -134,6 +134,10 @@ type APIClient struct {
 
 	ObjectDiscussionmessageAPI *ObjectDiscussionmessageAPIService
 
+	ObjectDocumenttypeAPI *ObjectDocumenttypeAPIService
+
+	ObjectDocumenttypechecklistAPI *ObjectDocumenttypechecklistAPIService
+
 	ObjectDomainAPI *ObjectDomainAPIService
 
 	ObjectElectronicfundstransferAPI *ObjectElectronicfundstransferAPIService
@@ -419,6 +423,8 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectDiscussionAPI = (*ObjectDiscussionAPIService)(&c.common)
 	c.ObjectDiscussionmembershipAPI = (*ObjectDiscussionmembershipAPIService)(&c.common)
 	c.ObjectDiscussionmessageAPI = (*ObjectDiscussionmessageAPIService)(&c.common)
+	c.ObjectDocumenttypeAPI = (*ObjectDocumenttypeAPIService)(&c.common)
+	c.ObjectDocumenttypechecklistAPI = (*ObjectDocumenttypechecklistAPIService)(&c.common)
 	c.ObjectDomainAPI = (*ObjectDomainAPIService)(&c.common)
 	c.ObjectElectronicfundstransferAPI = (*ObjectElectronicfundstransferAPIService)(&c.common)
 	c.ObjectElectronicfundstransfertransactionAPI = (*ObjectElectronicfundstransfertransactionAPIService)(&c.common)
