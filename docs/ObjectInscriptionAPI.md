@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**InscriptionGetObjectV2**](ObjectInscriptionAPI.md#InscriptionGetObjectV2) | **Get** /2/object/inscription/{pkiInscriptionID} | Retrieve an existing Inscription
 [**InscriptionImportIntoEDMV1**](ObjectInscriptionAPI.md#InscriptionImportIntoEDMV1) | **Post** /1/object/inscription/{pkiInscriptionID}/importIntoEDM | Import attachments into the Inscription
 [**InscriptionPrepareFilesTransferV1**](ObjectInscriptionAPI.md#InscriptionPrepareFilesTransferV1) | **Post** /1/object/inscription/{pkiInscriptionID}/prepareFilesTransfer | Prepares file transfer into EDM
+[**InscriptionSynchronizationDocumenttypeV1**](ObjectInscriptionAPI.md#InscriptionSynchronizationDocumenttypeV1) | **Post** /1/object/inscription/{pkiInscriptionID}/synchronizationDocumenttype | Synchronization of the Documenttype in the Inscription
 
 
 
@@ -779,6 +780,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**InscriptionPrepareFilesTransferV1Response**](InscriptionPrepareFilesTransferV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## InscriptionSynchronizationDocumenttypeV1
+
+> InscriptionSynchronizationDocumenttypeV1Response InscriptionSynchronizationDocumenttypeV1(ctx, pkiInscriptionID).Body(body).Execute()
+
+Synchronization of the Documenttype in the Inscription
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiInscriptionID := int32(56) // int32 | 
+	body := map[string]interface{}{ ... } // map[string]interface{} | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectInscriptionAPI.InscriptionSynchronizationDocumenttypeV1(context.Background(), pkiInscriptionID).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectInscriptionAPI.InscriptionSynchronizationDocumenttypeV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InscriptionSynchronizationDocumenttypeV1`: InscriptionSynchronizationDocumenttypeV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectInscriptionAPI.InscriptionSynchronizationDocumenttypeV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiInscriptionID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInscriptionSynchronizationDocumenttypeV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **body** | **map[string]interface{}** |  | 
+
+### Return type
+
+[**InscriptionSynchronizationDocumenttypeV1Response**](InscriptionSynchronizationDocumenttypeV1Response.md)
 
 ### Authorization
 

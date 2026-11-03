@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EWebhookModule** | [**FieldEWebhookModule**](FieldEWebhookModule.md) |  | 
 **EWebhookEzsignevent** | Pointer to [**CustomEWebhookEzsignevent**](CustomEWebhookEzsignevent.md) |  | [optional] 
+**EWebhookEzmaxpartnerevent** | Pointer to [**FieldEWebhookEzmaxpartnerevent**](FieldEWebhookEzmaxpartnerevent.md) |  | [optional] 
 **EWebhookManagementevent** | Pointer to [**FieldEWebhookManagementevent**](FieldEWebhookManagementevent.md) |  | [optional] 
 **EWebhookRealestateevent** | Pointer to [**FieldEWebhookRealestateevent**](FieldEWebhookRealestateevent.md) |  | [optional] 
 **FkiEzsignfolderID** | Pointer to **int32** | The unique ID of the Ezsignfolder | [optional] 
@@ -77,6 +78,31 @@ SetEWebhookEzsignevent sets EWebhookEzsignevent field to given value.
 `func (o *WebhookSendWebhookV1Request) HasEWebhookEzsignevent() bool`
 
 HasEWebhookEzsignevent returns a boolean if a field has been set.
+
+### GetEWebhookEzmaxpartnerevent
+
+`func (o *WebhookSendWebhookV1Request) GetEWebhookEzmaxpartnerevent() FieldEWebhookEzmaxpartnerevent`
+
+GetEWebhookEzmaxpartnerevent returns the EWebhookEzmaxpartnerevent field if non-nil, zero value otherwise.
+
+### GetEWebhookEzmaxpartnereventOk
+
+`func (o *WebhookSendWebhookV1Request) GetEWebhookEzmaxpartnereventOk() (*FieldEWebhookEzmaxpartnerevent, bool)`
+
+GetEWebhookEzmaxpartnereventOk returns a tuple with the EWebhookEzmaxpartnerevent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEWebhookEzmaxpartnerevent
+
+`func (o *WebhookSendWebhookV1Request) SetEWebhookEzmaxpartnerevent(v FieldEWebhookEzmaxpartnerevent)`
+
+SetEWebhookEzmaxpartnerevent sets EWebhookEzmaxpartnerevent field to given value.
+
+### HasEWebhookEzmaxpartnerevent
+
+`func (o *WebhookSendWebhookV1Request) HasEWebhookEzmaxpartnerevent() bool`
+
+HasEWebhookEzmaxpartnerevent returns a boolean if a field has been set.
 
 ### GetEWebhookManagementevent
 

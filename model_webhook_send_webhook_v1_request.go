@@ -24,6 +24,7 @@ var _ MappedNullable = &WebhookSendWebhookV1Request{}
 type WebhookSendWebhookV1Request struct {
 	EWebhookModule FieldEWebhookModule `json:"eWebhookModule"`
 	EWebhookEzsignevent *CustomEWebhookEzsignevent `json:"eWebhookEzsignevent,omitempty"`
+	EWebhookEzmaxpartnerevent *FieldEWebhookEzmaxpartnerevent `json:"eWebhookEzmaxpartnerevent,omitempty"`
 	EWebhookManagementevent *FieldEWebhookManagementevent `json:"eWebhookManagementevent,omitempty"`
 	EWebhookRealestateevent *FieldEWebhookRealestateevent `json:"eWebhookRealestateevent,omitempty"`
 	// The unique ID of the Ezsignfolder
@@ -112,6 +113,38 @@ func (o *WebhookSendWebhookV1Request) HasEWebhookEzsignevent() bool {
 // SetEWebhookEzsignevent gets a reference to the given CustomEWebhookEzsignevent and assigns it to the EWebhookEzsignevent field.
 func (o *WebhookSendWebhookV1Request) SetEWebhookEzsignevent(v CustomEWebhookEzsignevent) {
 	o.EWebhookEzsignevent = &v
+}
+
+// GetEWebhookEzmaxpartnerevent returns the EWebhookEzmaxpartnerevent field value if set, zero value otherwise.
+func (o *WebhookSendWebhookV1Request) GetEWebhookEzmaxpartnerevent() FieldEWebhookEzmaxpartnerevent {
+	if o == nil || IsNil(o.EWebhookEzmaxpartnerevent) {
+		var ret FieldEWebhookEzmaxpartnerevent
+		return ret
+	}
+	return *o.EWebhookEzmaxpartnerevent
+}
+
+// GetEWebhookEzmaxpartnereventOk returns a tuple with the EWebhookEzmaxpartnerevent field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WebhookSendWebhookV1Request) GetEWebhookEzmaxpartnereventOk() (*FieldEWebhookEzmaxpartnerevent, bool) {
+	if o == nil || IsNil(o.EWebhookEzmaxpartnerevent) {
+		return nil, false
+	}
+	return o.EWebhookEzmaxpartnerevent, true
+}
+
+// HasEWebhookEzmaxpartnerevent returns a boolean if a field has been set.
+func (o *WebhookSendWebhookV1Request) HasEWebhookEzmaxpartnerevent() bool {
+	if o != nil && !IsNil(o.EWebhookEzmaxpartnerevent) {
+		return true
+	}
+
+	return false
+}
+
+// SetEWebhookEzmaxpartnerevent gets a reference to the given FieldEWebhookEzmaxpartnerevent and assigns it to the EWebhookEzmaxpartnerevent field.
+func (o *WebhookSendWebhookV1Request) SetEWebhookEzmaxpartnerevent(v FieldEWebhookEzmaxpartnerevent) {
+	o.EWebhookEzmaxpartnerevent = &v
 }
 
 // GetEWebhookManagementevent returns the EWebhookManagementevent field value if set, zero value otherwise.
@@ -351,6 +384,9 @@ func (o WebhookSendWebhookV1Request) ToMap() (map[string]interface{}, error) {
 	toSerialize["eWebhookModule"] = o.EWebhookModule
 	if !IsNil(o.EWebhookEzsignevent) {
 		toSerialize["eWebhookEzsignevent"] = o.EWebhookEzsignevent
+	}
+	if !IsNil(o.EWebhookEzmaxpartnerevent) {
+		toSerialize["eWebhookEzmaxpartnerevent"] = o.EWebhookEzmaxpartnerevent
 	}
 	if !IsNil(o.EWebhookManagementevent) {
 		toSerialize["eWebhookManagementevent"] = o.EWebhookManagementevent

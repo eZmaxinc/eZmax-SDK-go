@@ -187,169 +187,6 @@ func (a *ObjectAttachmentAPIService) AttachmentDeleteV1Execute(r ApiAttachmentDe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiAttachmentDocumentTypeV1Request struct {
-	ctx context.Context
-	ApiService *ObjectAttachmentAPIService
-	pkiAttachmentID int32
-	attachmentDocumentTypeV1Request *AttachmentDocumentTypeV1Request
-}
-
-func (r ApiAttachmentDocumentTypeV1Request) AttachmentDocumentTypeV1Request(attachmentDocumentTypeV1Request AttachmentDocumentTypeV1Request) ApiAttachmentDocumentTypeV1Request {
-	r.attachmentDocumentTypeV1Request = &attachmentDocumentTypeV1Request
-	return r
-}
-
-func (r ApiAttachmentDocumentTypeV1Request) Execute() (*AttachmentDocumentTypeV1Response, *http.Response, error) {
-	return r.ApiService.AttachmentDocumentTypeV1Execute(r)
-}
-
-/*
-AttachmentDocumentTypeV1 Change attachment document type
-
-The endpoint allows to change the checklist document type for an attachment.
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pkiAttachmentID
- @return ApiAttachmentDocumentTypeV1Request
-*/
-func (a *ObjectAttachmentAPIService) AttachmentDocumentTypeV1(ctx context.Context, pkiAttachmentID int32) ApiAttachmentDocumentTypeV1Request {
-	return ApiAttachmentDocumentTypeV1Request{
-		ApiService: a,
-		ctx: ctx,
-		pkiAttachmentID: pkiAttachmentID,
-	}
-}
-
-// Execute executes the request
-//  @return AttachmentDocumentTypeV1Response
-func (a *ObjectAttachmentAPIService) AttachmentDocumentTypeV1Execute(r ApiAttachmentDocumentTypeV1Request) (*AttachmentDocumentTypeV1Response, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AttachmentDocumentTypeV1Response
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectAttachmentAPIService.AttachmentDocumentTypeV1")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/1/object/attachment/{pkiAttachmentID}/documentType"
-	localVarPath = strings.Replace(localVarPath, "{"+"pkiAttachmentID"+"}", url.PathEscape(parameterValueToString(r.pkiAttachmentID, "pkiAttachmentID")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.pkiAttachmentID < 0 {
-		return localVarReturnValue, nil, reportError("pkiAttachmentID must be greater than 0")
-	}
-	if r.attachmentDocumentTypeV1Request == nil {
-		return localVarReturnValue, nil, reportError("attachmentDocumentTypeV1Request is required and must be specified")
-	}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.attachmentDocumentTypeV1Request
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Authorization"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v CommonResponseError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v CommonResponseError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 422 {
-			var v CommonResponseError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
 type ApiAttachmentDownloadV1Request struct {
 	ctx context.Context
 	ApiService *ObjectAttachmentAPIService
@@ -589,169 +426,6 @@ func (a *ObjectAttachmentAPIService) AttachmentGetAttachmentlogsV1Execute(r ApiA
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v CommonResponseError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiAttachmentPrivacyV1Request struct {
-	ctx context.Context
-	ApiService *ObjectAttachmentAPIService
-	pkiAttachmentID int32
-	attachmentPrivacyV1Request *AttachmentPrivacyV1Request
-}
-
-func (r ApiAttachmentPrivacyV1Request) AttachmentPrivacyV1Request(attachmentPrivacyV1Request AttachmentPrivacyV1Request) ApiAttachmentPrivacyV1Request {
-	r.attachmentPrivacyV1Request = &attachmentPrivacyV1Request
-	return r
-}
-
-func (r ApiAttachmentPrivacyV1Request) Execute() (*AttachmentPrivacyV1Response, *http.Response, error) {
-	return r.ApiService.AttachmentPrivacyV1Execute(r)
-}
-
-/*
-AttachmentPrivacyV1 Change the attachment privacy
-
-The endpoint allows to change an attachment's access privacy.
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pkiAttachmentID
- @return ApiAttachmentPrivacyV1Request
-*/
-func (a *ObjectAttachmentAPIService) AttachmentPrivacyV1(ctx context.Context, pkiAttachmentID int32) ApiAttachmentPrivacyV1Request {
-	return ApiAttachmentPrivacyV1Request{
-		ApiService: a,
-		ctx: ctx,
-		pkiAttachmentID: pkiAttachmentID,
-	}
-}
-
-// Execute executes the request
-//  @return AttachmentPrivacyV1Response
-func (a *ObjectAttachmentAPIService) AttachmentPrivacyV1Execute(r ApiAttachmentPrivacyV1Request) (*AttachmentPrivacyV1Response, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AttachmentPrivacyV1Response
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectAttachmentAPIService.AttachmentPrivacyV1")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/1/object/attachment/{pkiAttachmentID}/privacy"
-	localVarPath = strings.Replace(localVarPath, "{"+"pkiAttachmentID"+"}", url.PathEscape(parameterValueToString(r.pkiAttachmentID, "pkiAttachmentID")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.pkiAttachmentID < 0 {
-		return localVarReturnValue, nil, reportError("pkiAttachmentID must be greater than 0")
-	}
-	if r.attachmentPrivacyV1Request == nil {
-		return localVarReturnValue, nil, reportError("attachmentPrivacyV1Request is required and must be specified")
-	}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.attachmentPrivacyV1Request
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Authorization"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v CommonResponseError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v CommonResponseError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 422 {
 			var v CommonResponseError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -1089,6 +763,332 @@ func (a *ObjectAttachmentAPIService) AttachmentRestoreV1Execute(r ApiAttachmentR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiAttachmentSetDocumentTypeV1Request struct {
+	ctx context.Context
+	ApiService *ObjectAttachmentAPIService
+	pkiAttachmentID int32
+	attachmentSetDocumentTypeV1Request *AttachmentSetDocumentTypeV1Request
+}
+
+func (r ApiAttachmentSetDocumentTypeV1Request) AttachmentSetDocumentTypeV1Request(attachmentSetDocumentTypeV1Request AttachmentSetDocumentTypeV1Request) ApiAttachmentSetDocumentTypeV1Request {
+	r.attachmentSetDocumentTypeV1Request = &attachmentSetDocumentTypeV1Request
+	return r
+}
+
+func (r ApiAttachmentSetDocumentTypeV1Request) Execute() (*AttachmentSetDocumentTypeV1Response, *http.Response, error) {
+	return r.ApiService.AttachmentSetDocumentTypeV1Execute(r)
+}
+
+/*
+AttachmentSetDocumentTypeV1 Change attachment document type
+
+The endpoint allows to change the checklist document type for an attachment.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiAttachmentID
+ @return ApiAttachmentSetDocumentTypeV1Request
+*/
+func (a *ObjectAttachmentAPIService) AttachmentSetDocumentTypeV1(ctx context.Context, pkiAttachmentID int32) ApiAttachmentSetDocumentTypeV1Request {
+	return ApiAttachmentSetDocumentTypeV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiAttachmentID: pkiAttachmentID,
+	}
+}
+
+// Execute executes the request
+//  @return AttachmentSetDocumentTypeV1Response
+func (a *ObjectAttachmentAPIService) AttachmentSetDocumentTypeV1Execute(r ApiAttachmentSetDocumentTypeV1Request) (*AttachmentSetDocumentTypeV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AttachmentSetDocumentTypeV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectAttachmentAPIService.AttachmentSetDocumentTypeV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/attachment/{pkiAttachmentID}/setDocumentType"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiAttachmentID"+"}", url.PathEscape(parameterValueToString(r.pkiAttachmentID, "pkiAttachmentID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiAttachmentID < 0 {
+		return localVarReturnValue, nil, reportError("pkiAttachmentID must be greater than 0")
+	}
+	if r.attachmentSetDocumentTypeV1Request == nil {
+		return localVarReturnValue, nil, reportError("attachmentSetDocumentTypeV1Request is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.attachmentSetDocumentTypeV1Request
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiAttachmentSetPrivacyV1Request struct {
+	ctx context.Context
+	ApiService *ObjectAttachmentAPIService
+	pkiAttachmentID int32
+	attachmentSetPrivacyV1Request *AttachmentSetPrivacyV1Request
+}
+
+func (r ApiAttachmentSetPrivacyV1Request) AttachmentSetPrivacyV1Request(attachmentSetPrivacyV1Request AttachmentSetPrivacyV1Request) ApiAttachmentSetPrivacyV1Request {
+	r.attachmentSetPrivacyV1Request = &attachmentSetPrivacyV1Request
+	return r
+}
+
+func (r ApiAttachmentSetPrivacyV1Request) Execute() (*AttachmentSetPrivacyV1Response, *http.Response, error) {
+	return r.ApiService.AttachmentSetPrivacyV1Execute(r)
+}
+
+/*
+AttachmentSetPrivacyV1 Change the attachment privacy
+
+The endpoint allows to change an attachment's access privacy.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiAttachmentID
+ @return ApiAttachmentSetPrivacyV1Request
+*/
+func (a *ObjectAttachmentAPIService) AttachmentSetPrivacyV1(ctx context.Context, pkiAttachmentID int32) ApiAttachmentSetPrivacyV1Request {
+	return ApiAttachmentSetPrivacyV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiAttachmentID: pkiAttachmentID,
+	}
+}
+
+// Execute executes the request
+//  @return AttachmentSetPrivacyV1Response
+func (a *ObjectAttachmentAPIService) AttachmentSetPrivacyV1Execute(r ApiAttachmentSetPrivacyV1Request) (*AttachmentSetPrivacyV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AttachmentSetPrivacyV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectAttachmentAPIService.AttachmentSetPrivacyV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/attachment/{pkiAttachmentID}/setPrivacy"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiAttachmentID"+"}", url.PathEscape(parameterValueToString(r.pkiAttachmentID, "pkiAttachmentID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiAttachmentID < 0 {
+		return localVarReturnValue, nil, reportError("pkiAttachmentID must be greater than 0")
+	}
+	if r.attachmentSetPrivacyV1Request == nil {
+		return localVarReturnValue, nil, reportError("attachmentSetPrivacyV1Request is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.attachmentSetPrivacyV1Request
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
 			var v CommonResponseError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

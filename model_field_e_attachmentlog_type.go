@@ -40,6 +40,7 @@ const (
 	IMPORTED_FROM_PROSPECTS FieldEAttachmentlogType = "ImportedFromProspects"
 	MOVE FieldEAttachmentlogType = "Move"
 	OPEN_FROM_EMAIL FieldEAttachmentlogType = "OpenFromEmail"
+	PENDING FieldEAttachmentlogType = "Pending"
 	PURGED FieldEAttachmentlogType = "Purged"
 	REJECT FieldEAttachmentlogType = "Reject"
 	RENAME FieldEAttachmentlogType = "Rename"
@@ -73,6 +74,7 @@ var AllowedFieldEAttachmentlogTypeEnumValues = []FieldEAttachmentlogType{
 	"ImportedFromProspects",
 	"Move",
 	"OpenFromEmail",
+	"Pending",
 	"Purged",
 	"Reject",
 	"Rename",

@@ -26,6 +26,7 @@ type InscriptionnotauthenticatedResponseCompound struct {
 	PkiInscriptionnotauthenticatedID int32 `json:"pkiInscriptionnotauthenticatedID"`
 	// The unique ID of the Inscription.
 	FkiInscriptionID int32 `json:"fkiInscriptionID"`
+	ObjInscription CustomInscription `json:"objInscription"`
 	// The unique ID of the Department
 	FkiDepartmentID *int32 `json:"fkiDepartmentID,omitempty"`
 	// The Name of the Department in the language of the requester
@@ -104,10 +105,11 @@ type _InscriptionnotauthenticatedResponseCompound InscriptionnotauthenticatedRes
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInscriptionnotauthenticatedResponseCompound(pkiInscriptionnotauthenticatedID int32, fkiInscriptionID int32, fkiTaxassignmentID int32, eInscriptionnotauthenticatedType FieldEInscriptionnotauthenticatedType, dInscriptionnotauthenticatedMortgageloan string, etInscriptionnotauthenticatedMortgagetype FieldEtInscriptionnotauthenticatedMortgagetype, dInscriptionnotauthenticatedTransactionprice string, eInscriptionnotauthenticatedRemunerationtype FieldEInscriptionnotauthenticatedRemunerationtype, dInscriptionnotauthenticatedRemuneration string, dInscriptionnotauthenticatedRemunerationsubtotal string, dInscriptionnotauthenticatedRemunerationtotal string, sInscriptionnotauthenticatedOffertopurchasenumber string, bInscriptionnotauthenticatedConditional bool, bInscriptionnotauthenticatedMortgageisreferenced bool, bInscriptionnotauthenticatedHomeowner bool, tInscriptionnotauthenticatedConditions string, iInscriptionnotauthenticatedOrder int32, bInscriptionnotauthenticatedIsactive bool, eInscriptionnotauthenticatedResidenceType FieldEInscriptionnotauthenticatedResidenceType, tInscriptionnotauthenticatedChecklistnote string, dInscriptionnotauthenticatedSelleronlyretribution string, bInscriptionnotauthenticatedDraft bool) *InscriptionnotauthenticatedResponseCompound {
+func NewInscriptionnotauthenticatedResponseCompound(pkiInscriptionnotauthenticatedID int32, fkiInscriptionID int32, objInscription CustomInscription, fkiTaxassignmentID int32, eInscriptionnotauthenticatedType FieldEInscriptionnotauthenticatedType, dInscriptionnotauthenticatedMortgageloan string, etInscriptionnotauthenticatedMortgagetype FieldEtInscriptionnotauthenticatedMortgagetype, dInscriptionnotauthenticatedTransactionprice string, eInscriptionnotauthenticatedRemunerationtype FieldEInscriptionnotauthenticatedRemunerationtype, dInscriptionnotauthenticatedRemuneration string, dInscriptionnotauthenticatedRemunerationsubtotal string, dInscriptionnotauthenticatedRemunerationtotal string, sInscriptionnotauthenticatedOffertopurchasenumber string, bInscriptionnotauthenticatedConditional bool, bInscriptionnotauthenticatedMortgageisreferenced bool, bInscriptionnotauthenticatedHomeowner bool, tInscriptionnotauthenticatedConditions string, iInscriptionnotauthenticatedOrder int32, bInscriptionnotauthenticatedIsactive bool, eInscriptionnotauthenticatedResidenceType FieldEInscriptionnotauthenticatedResidenceType, tInscriptionnotauthenticatedChecklistnote string, dInscriptionnotauthenticatedSelleronlyretribution string, bInscriptionnotauthenticatedDraft bool) *InscriptionnotauthenticatedResponseCompound {
 	this := InscriptionnotauthenticatedResponseCompound{}
 	this.PkiInscriptionnotauthenticatedID = pkiInscriptionnotauthenticatedID
 	this.FkiInscriptionID = fkiInscriptionID
+	this.ObjInscription = objInscription
 	this.FkiTaxassignmentID = fkiTaxassignmentID
 	this.EInscriptionnotauthenticatedType = eInscriptionnotauthenticatedType
 	this.DInscriptionnotauthenticatedMortgageloan = dInscriptionnotauthenticatedMortgageloan
@@ -185,6 +187,30 @@ func (o *InscriptionnotauthenticatedResponseCompound) GetFkiInscriptionIDOk() (*
 // SetFkiInscriptionID sets field value
 func (o *InscriptionnotauthenticatedResponseCompound) SetFkiInscriptionID(v int32) {
 	o.FkiInscriptionID = v
+}
+
+// GetObjInscription returns the ObjInscription field value
+func (o *InscriptionnotauthenticatedResponseCompound) GetObjInscription() CustomInscription {
+	if o == nil {
+		var ret CustomInscription
+		return ret
+	}
+
+	return o.ObjInscription
+}
+
+// GetObjInscriptionOk returns a tuple with the ObjInscription field value
+// and a boolean to check if the value has been set.
+func (o *InscriptionnotauthenticatedResponseCompound) GetObjInscriptionOk() (*CustomInscription, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjInscription, true
+}
+
+// SetObjInscription sets field value
+func (o *InscriptionnotauthenticatedResponseCompound) SetObjInscription(v CustomInscription) {
+	o.ObjInscription = v
 }
 
 // GetFkiDepartmentID returns the FkiDepartmentID field value if set, zero value otherwise.
@@ -1223,6 +1249,7 @@ func (o InscriptionnotauthenticatedResponseCompound) ToMap() (map[string]interfa
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiInscriptionnotauthenticatedID"] = o.PkiInscriptionnotauthenticatedID
 	toSerialize["fkiInscriptionID"] = o.FkiInscriptionID
+	toSerialize["objInscription"] = o.ObjInscription
 	if !IsNil(o.FkiDepartmentID) {
 		toSerialize["fkiDepartmentID"] = o.FkiDepartmentID
 	}
@@ -1304,6 +1331,7 @@ func (o *InscriptionnotauthenticatedResponseCompound) UnmarshalJSON(data []byte)
 	requiredProperties := []string{
 		"pkiInscriptionnotauthenticatedID",
 		"fkiInscriptionID",
+		"objInscription",
 		"fkiTaxassignmentID",
 		"eInscriptionnotauthenticatedType",
 		"dInscriptionnotauthenticatedMortgageloan",

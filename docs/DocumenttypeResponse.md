@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiDocumenttypeID** | **int32** | The unique ID of the Documenttype | 
 **ObjDocumenttypeName** | [**MultilingualDocumenttypeName**](MultilingualDocumenttypeName.md) |  | 
+**EDocumenttypeStep** | [**ComputedEDocumenttypeStep**](ComputedEDocumenttypeStep.md) |  | 
 **SDocumenttypeDefaultfilename** | **string** | The defaultfilename of the Documenttype | 
 **BDocumenttypeShowagent** | **bool** | Whether if it&#39;s an showagent | 
 **BDocumenttypeIsactive** | **bool** | Whether the documenttype is active or not | 
@@ -27,12 +28,13 @@ Name | Type | Description | Notes
 **EDocumenttypeSaledisplaybyrole** | Pointer to [**FieldEDocumenttypeSaledisplaybyrole**](FieldEDocumenttypeSaledisplaybyrole.md) |  | [optional] 
 **EDocumenttypeTransactiontype** | Pointer to [**FieldEDocumenttypeTransactiontype**](FieldEDocumenttypeTransactiontype.md) |  | [optional] 
 **EDocumenttypeRepossession** | Pointer to [**FieldEDocumenttypeRepossession**](FieldEDocumenttypeRepossession.md) |  | [optional] 
+**AFkiInscriptiontypeID** | **[]int32** |  | 
 
 ## Methods
 
 ### NewDocumenttypeResponse
 
-`func NewDocumenttypeResponse(pkiDocumenttypeID int32, objDocumenttypeName MultilingualDocumenttypeName, sDocumenttypeDefaultfilename string, bDocumenttypeShowagent bool, bDocumenttypeIsactive bool, bDocumenttypeIsrequired bool, ) *DocumenttypeResponse`
+`func NewDocumenttypeResponse(pkiDocumenttypeID int32, objDocumenttypeName MultilingualDocumenttypeName, eDocumenttypeStep ComputedEDocumenttypeStep, sDocumenttypeDefaultfilename string, bDocumenttypeShowagent bool, bDocumenttypeIsactive bool, bDocumenttypeIsrequired bool, aFkiInscriptiontypeID []int32, ) *DocumenttypeResponse`
 
 NewDocumenttypeResponse instantiates a new DocumenttypeResponse object
 This constructor will assign default values to properties that have it defined,
@@ -85,6 +87,26 @@ and a boolean to check if the value has been set.
 `func (o *DocumenttypeResponse) SetObjDocumenttypeName(v MultilingualDocumenttypeName)`
 
 SetObjDocumenttypeName sets ObjDocumenttypeName field to given value.
+
+
+### GetEDocumenttypeStep
+
+`func (o *DocumenttypeResponse) GetEDocumenttypeStep() ComputedEDocumenttypeStep`
+
+GetEDocumenttypeStep returns the EDocumenttypeStep field if non-nil, zero value otherwise.
+
+### GetEDocumenttypeStepOk
+
+`func (o *DocumenttypeResponse) GetEDocumenttypeStepOk() (*ComputedEDocumenttypeStep, bool)`
+
+GetEDocumenttypeStepOk returns a tuple with the EDocumenttypeStep field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEDocumenttypeStep
+
+`func (o *DocumenttypeResponse) SetEDocumenttypeStep(v ComputedEDocumenttypeStep)`
+
+SetEDocumenttypeStep sets EDocumenttypeStep field to given value.
 
 
 ### GetSDocumenttypeDefaultfilename
@@ -591,6 +613,26 @@ SetEDocumenttypeRepossession sets EDocumenttypeRepossession field to given value
 `func (o *DocumenttypeResponse) HasEDocumenttypeRepossession() bool`
 
 HasEDocumenttypeRepossession returns a boolean if a field has been set.
+
+### GetAFkiInscriptiontypeID
+
+`func (o *DocumenttypeResponse) GetAFkiInscriptiontypeID() []int32`
+
+GetAFkiInscriptiontypeID returns the AFkiInscriptiontypeID field if non-nil, zero value otherwise.
+
+### GetAFkiInscriptiontypeIDOk
+
+`func (o *DocumenttypeResponse) GetAFkiInscriptiontypeIDOk() (*[]int32, bool)`
+
+GetAFkiInscriptiontypeIDOk returns a tuple with the AFkiInscriptiontypeID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAFkiInscriptiontypeID
+
+`func (o *DocumenttypeResponse) SetAFkiInscriptiontypeID(v []int32)`
+
+SetAFkiInscriptiontypeID sets AFkiInscriptiontypeID field to given value.
+
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

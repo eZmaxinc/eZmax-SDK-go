@@ -24,130 +24,6 @@ import (
 // ObjectDocumenttypechecklistAPIService ObjectDocumenttypechecklistAPI service
 type ObjectDocumenttypechecklistAPIService service
 
-type ApiDocumenttypechecklistCreateObjectV1Request struct {
-	ctx context.Context
-	ApiService *ObjectDocumenttypechecklistAPIService
-	documenttypechecklistCreateObjectV1Request *DocumenttypechecklistCreateObjectV1Request
-}
-
-func (r ApiDocumenttypechecklistCreateObjectV1Request) DocumenttypechecklistCreateObjectV1Request(documenttypechecklistCreateObjectV1Request DocumenttypechecklistCreateObjectV1Request) ApiDocumenttypechecklistCreateObjectV1Request {
-	r.documenttypechecklistCreateObjectV1Request = &documenttypechecklistCreateObjectV1Request
-	return r
-}
-
-func (r ApiDocumenttypechecklistCreateObjectV1Request) Execute() (*DocumenttypechecklistCreateObjectV1Response, *http.Response, error) {
-	return r.ApiService.DocumenttypechecklistCreateObjectV1Execute(r)
-}
-
-/*
-DocumenttypechecklistCreateObjectV1 Create a new Documenttypechecklist
-
-The endpoint allows to create one or many elements at once.
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiDocumenttypechecklistCreateObjectV1Request
-*/
-func (a *ObjectDocumenttypechecklistAPIService) DocumenttypechecklistCreateObjectV1(ctx context.Context) ApiDocumenttypechecklistCreateObjectV1Request {
-	return ApiDocumenttypechecklistCreateObjectV1Request{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return DocumenttypechecklistCreateObjectV1Response
-func (a *ObjectDocumenttypechecklistAPIService) DocumenttypechecklistCreateObjectV1Execute(r ApiDocumenttypechecklistCreateObjectV1Request) (*DocumenttypechecklistCreateObjectV1Response, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DocumenttypechecklistCreateObjectV1Response
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectDocumenttypechecklistAPIService.DocumenttypechecklistCreateObjectV1")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/1/object/documenttypechecklist"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.documenttypechecklistCreateObjectV1Request == nil {
-		return localVarReturnValue, nil, reportError("documenttypechecklistCreateObjectV1Request is required and must be specified")
-	}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.documenttypechecklistCreateObjectV1Request
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Authorization"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
 type ApiDocumenttypechecklistDeleteObjectV1Request struct {
 	ctx context.Context
 	ApiService *ObjectDocumenttypechecklistAPIService
@@ -281,33 +157,33 @@ func (a *ObjectDocumenttypechecklistAPIService) DocumenttypechecklistDeleteObjec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDocumenttypechecklistEditObjectV1Request struct {
+type ApiDocumenttypechecklistPatchObjectV1Request struct {
 	ctx context.Context
 	ApiService *ObjectDocumenttypechecklistAPIService
 	pkiDocumenttypechecklistID int32
-	documenttypechecklistEditObjectV1Request *DocumenttypechecklistEditObjectV1Request
+	documenttypechecklistPatchObjectV1Request *DocumenttypechecklistPatchObjectV1Request
 }
 
-func (r ApiDocumenttypechecklistEditObjectV1Request) DocumenttypechecklistEditObjectV1Request(documenttypechecklistEditObjectV1Request DocumenttypechecklistEditObjectV1Request) ApiDocumenttypechecklistEditObjectV1Request {
-	r.documenttypechecklistEditObjectV1Request = &documenttypechecklistEditObjectV1Request
+func (r ApiDocumenttypechecklistPatchObjectV1Request) DocumenttypechecklistPatchObjectV1Request(documenttypechecklistPatchObjectV1Request DocumenttypechecklistPatchObjectV1Request) ApiDocumenttypechecklistPatchObjectV1Request {
+	r.documenttypechecklistPatchObjectV1Request = &documenttypechecklistPatchObjectV1Request
 	return r
 }
 
-func (r ApiDocumenttypechecklistEditObjectV1Request) Execute() (*DocumenttypechecklistEditObjectV1Response, *http.Response, error) {
-	return r.ApiService.DocumenttypechecklistEditObjectV1Execute(r)
+func (r ApiDocumenttypechecklistPatchObjectV1Request) Execute() (*DocumenttypechecklistPatchObjectV1Response, *http.Response, error) {
+	return r.ApiService.DocumenttypechecklistPatchObjectV1Execute(r)
 }
 
 /*
-DocumenttypechecklistEditObjectV1 Edit an existing Documenttypechecklist
+DocumenttypechecklistPatchObjectV1 Patch an existing Documenttypechecklist
 
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiDocumenttypechecklistID The unique ID of the Documenttypechecklist
- @return ApiDocumenttypechecklistEditObjectV1Request
+ @return ApiDocumenttypechecklistPatchObjectV1Request
 */
-func (a *ObjectDocumenttypechecklistAPIService) DocumenttypechecklistEditObjectV1(ctx context.Context, pkiDocumenttypechecklistID int32) ApiDocumenttypechecklistEditObjectV1Request {
-	return ApiDocumenttypechecklistEditObjectV1Request{
+func (a *ObjectDocumenttypechecklistAPIService) DocumenttypechecklistPatchObjectV1(ctx context.Context, pkiDocumenttypechecklistID int32) ApiDocumenttypechecklistPatchObjectV1Request {
+	return ApiDocumenttypechecklistPatchObjectV1Request{
 		ApiService: a,
 		ctx: ctx,
 		pkiDocumenttypechecklistID: pkiDocumenttypechecklistID,
@@ -315,16 +191,16 @@ func (a *ObjectDocumenttypechecklistAPIService) DocumenttypechecklistEditObjectV
 }
 
 // Execute executes the request
-//  @return DocumenttypechecklistEditObjectV1Response
-func (a *ObjectDocumenttypechecklistAPIService) DocumenttypechecklistEditObjectV1Execute(r ApiDocumenttypechecklistEditObjectV1Request) (*DocumenttypechecklistEditObjectV1Response, *http.Response, error) {
+//  @return DocumenttypechecklistPatchObjectV1Response
+func (a *ObjectDocumenttypechecklistAPIService) DocumenttypechecklistPatchObjectV1Execute(r ApiDocumenttypechecklistPatchObjectV1Request) (*DocumenttypechecklistPatchObjectV1Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
+		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *DocumenttypechecklistEditObjectV1Response
+		localVarReturnValue  *DocumenttypechecklistPatchObjectV1Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectDocumenttypechecklistAPIService.DocumenttypechecklistEditObjectV1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectDocumenttypechecklistAPIService.DocumenttypechecklistPatchObjectV1")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -341,8 +217,8 @@ func (a *ObjectDocumenttypechecklistAPIService) DocumenttypechecklistEditObjectV
 	if r.pkiDocumenttypechecklistID > 16777215 {
 		return localVarReturnValue, nil, reportError("pkiDocumenttypechecklistID must be less than 16777215")
 	}
-	if r.documenttypechecklistEditObjectV1Request == nil {
-		return localVarReturnValue, nil, reportError("documenttypechecklistEditObjectV1Request is required and must be specified")
+	if r.documenttypechecklistPatchObjectV1Request == nil {
+		return localVarReturnValue, nil, reportError("documenttypechecklistPatchObjectV1Request is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -363,7 +239,7 @@ func (a *ObjectDocumenttypechecklistAPIService) DocumenttypechecklistEditObjectV
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.documenttypechecklistEditObjectV1Request
+	localVarPostBody = r.documenttypechecklistPatchObjectV1Request
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -412,316 +288,6 @@ func (a *ObjectDocumenttypechecklistAPIService) DocumenttypechecklistEditObjectV
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v CommonResponseError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiDocumenttypechecklistGetListV1Request struct {
-	ctx context.Context
-	ApiService *ObjectDocumenttypechecklistAPIService
-	eOrderBy *string
-	iRowMax *int32
-	iRowOffset *int32
-	acceptLanguage *HeaderAcceptLanguage
-	sFilter *string
-}
-
-// Specify how you want the results to be sorted
-func (r ApiDocumenttypechecklistGetListV1Request) EOrderBy(eOrderBy string) ApiDocumenttypechecklistGetListV1Request {
-	r.eOrderBy = &eOrderBy
-	return r
-}
-
-func (r ApiDocumenttypechecklistGetListV1Request) IRowMax(iRowMax int32) ApiDocumenttypechecklistGetListV1Request {
-	r.iRowMax = &iRowMax
-	return r
-}
-
-func (r ApiDocumenttypechecklistGetListV1Request) IRowOffset(iRowOffset int32) ApiDocumenttypechecklistGetListV1Request {
-	r.iRowOffset = &iRowOffset
-	return r
-}
-
-func (r ApiDocumenttypechecklistGetListV1Request) AcceptLanguage(acceptLanguage HeaderAcceptLanguage) ApiDocumenttypechecklistGetListV1Request {
-	r.acceptLanguage = &acceptLanguage
-	return r
-}
-
-func (r ApiDocumenttypechecklistGetListV1Request) SFilter(sFilter string) ApiDocumenttypechecklistGetListV1Request {
-	r.sFilter = &sFilter
-	return r
-}
-
-func (r ApiDocumenttypechecklistGetListV1Request) Execute() (*DocumenttypechecklistGetListV1Response, *http.Response, error) {
-	return r.ApiService.DocumenttypechecklistGetListV1Execute(r)
-}
-
-/*
-DocumenttypechecklistGetListV1 Retrieve Documenttypechecklist list
-
-Enum values that can be filtered in query parameter *sFilter*:
-
-| Variable | Valid values |
-|---|---|
-| eDocumenttypechecklistStatus | Not required<br>Required<br>Filed<br>Justified |
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiDocumenttypechecklistGetListV1Request
-*/
-func (a *ObjectDocumenttypechecklistAPIService) DocumenttypechecklistGetListV1(ctx context.Context) ApiDocumenttypechecklistGetListV1Request {
-	return ApiDocumenttypechecklistGetListV1Request{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return DocumenttypechecklistGetListV1Response
-func (a *ObjectDocumenttypechecklistAPIService) DocumenttypechecklistGetListV1Execute(r ApiDocumenttypechecklistGetListV1Request) (*DocumenttypechecklistGetListV1Response, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DocumenttypechecklistGetListV1Response
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectDocumenttypechecklistAPIService.DocumenttypechecklistGetListV1")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/1/object/documenttypechecklist/getList"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	if r.eOrderBy != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "eOrderBy", r.eOrderBy, "form", "")
-	}
-	if r.iRowMax != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowMax", r.iRowMax, "form", "")
-	}
-	if r.iRowOffset != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowOffset", r.iRowOffset, "form", "")
-	} else {
-		var defaultValue int32 = 0
-		parameterAddToHeaderOrQuery(localVarQueryParams, "iRowOffset", defaultValue, "form", "")
-		r.iRowOffset = &defaultValue
-	}
-	if r.sFilter != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "sFilter", r.sFilter, "form", "")
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.acceptLanguage != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept-Language", r.acceptLanguage, "simple", "")
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Authorization"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 406 {
-			var v CommonResponseError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiDocumenttypechecklistGetObjectV2Request struct {
-	ctx context.Context
-	ApiService *ObjectDocumenttypechecklistAPIService
-	pkiDocumenttypechecklistID int32
-}
-
-func (r ApiDocumenttypechecklistGetObjectV2Request) Execute() (*DocumenttypechecklistGetObjectV2Response, *http.Response, error) {
-	return r.ApiService.DocumenttypechecklistGetObjectV2Execute(r)
-}
-
-/*
-DocumenttypechecklistGetObjectV2 Retrieve an existing Documenttypechecklist
-
-
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pkiDocumenttypechecklistID The unique ID of the Documenttypechecklist
- @return ApiDocumenttypechecklistGetObjectV2Request
-*/
-func (a *ObjectDocumenttypechecklistAPIService) DocumenttypechecklistGetObjectV2(ctx context.Context, pkiDocumenttypechecklistID int32) ApiDocumenttypechecklistGetObjectV2Request {
-	return ApiDocumenttypechecklistGetObjectV2Request{
-		ApiService: a,
-		ctx: ctx,
-		pkiDocumenttypechecklistID: pkiDocumenttypechecklistID,
-	}
-}
-
-// Execute executes the request
-//  @return DocumenttypechecklistGetObjectV2Response
-func (a *ObjectDocumenttypechecklistAPIService) DocumenttypechecklistGetObjectV2Execute(r ApiDocumenttypechecklistGetObjectV2Request) (*DocumenttypechecklistGetObjectV2Response, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DocumenttypechecklistGetObjectV2Response
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectDocumenttypechecklistAPIService.DocumenttypechecklistGetObjectV2")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/2/object/documenttypechecklist/{pkiDocumenttypechecklistID}"
-	localVarPath = strings.Replace(localVarPath, "{"+"pkiDocumenttypechecklistID"+"}", url.PathEscape(parameterValueToString(r.pkiDocumenttypechecklistID, "pkiDocumenttypechecklistID")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.pkiDocumenttypechecklistID < 0 {
-		return localVarReturnValue, nil, reportError("pkiDocumenttypechecklistID must be greater than 0")
-	}
-	if r.pkiDocumenttypechecklistID > 16777215 {
-		return localVarReturnValue, nil, reportError("pkiDocumenttypechecklistID must be less than 16777215")
-	}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Authorization"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
 			var v CommonResponseError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

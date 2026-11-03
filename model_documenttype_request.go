@@ -25,6 +25,7 @@ type DocumenttypeRequest struct {
 	// The unique ID of the Documenttype
 	PkiDocumenttypeID *int32 `json:"pkiDocumenttypeID,omitempty"`
 	ObjDocumenttypeName MultilingualDocumenttypeName `json:"objDocumenttypeName"`
+	EDocumenttypeStep ComputedEDocumenttypeStep `json:"eDocumenttypeStep"`
 	// The defaultfilename of the Documenttype
 	SDocumenttypeDefaultfilename string `json:"sDocumenttypeDefaultfilename" validate:"regexp=^.{0\\,50}$"`
 	// Whether if it's an showagent
@@ -53,13 +54,14 @@ type DocumenttypeRequest struct {
 	BDocumenttypeCommercialfunding bool `json:"bDocumenttypeCommercialfunding"`
 	// Whether if it's an canafe
 	BDocumenttypeCanafe bool `json:"bDocumenttypeCanafe"`
-	EDocumenttypeEzcom FieldEDocumenttypeEzcom `json:"eDocumenttypeEzcom"`
+	EDocumenttypeEzcom *FieldEDocumenttypeEzcom `json:"eDocumenttypeEzcom,omitempty"`
 	EDocumenttypePrivacydefault FieldEDocumenttypePrivacydefault `json:"eDocumenttypePrivacydefault"`
 	EDocumenttypeStatusdefault FieldEDocumenttypeStatusdefault `json:"eDocumenttypeStatusdefault"`
 	EDocumenttypeSalebyowner FieldEDocumenttypeSalebyowner `json:"eDocumenttypeSalebyowner"`
 	EDocumenttypeSaledisplaybyrole FieldEDocumenttypeSaledisplaybyrole `json:"eDocumenttypeSaledisplaybyrole"`
 	EDocumenttypeTransactiontype FieldEDocumenttypeTransactiontype `json:"eDocumenttypeTransactiontype"`
 	EDocumenttypeRepossession FieldEDocumenttypeRepossession `json:"eDocumenttypeRepossession"`
+	AFkiInscriptiontypeID []int32 `json:"a_fkiInscriptiontypeID"`
 }
 
 type _DocumenttypeRequest DocumenttypeRequest
@@ -68,9 +70,10 @@ type _DocumenttypeRequest DocumenttypeRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDocumenttypeRequest(objDocumenttypeName MultilingualDocumenttypeName, sDocumenttypeDefaultfilename string, bDocumenttypeShowagent bool, bDocumenttypeIsactive bool, bDocumenttypeIsrequired bool, bDocumenttypeSale bool, bDocumenttypeRental bool, bDocumenttypeReference bool, bDocumenttypeMortgagereference bool, bDocumenttypeEvaluation bool, bDocumenttypeConsultation bool, bDocumenttypeOtherservices bool, bDocumenttypeForeclosedsale bool, bDocumenttypeCommercialfunding bool, bDocumenttypeCanafe bool, eDocumenttypeEzcom FieldEDocumenttypeEzcom, eDocumenttypePrivacydefault FieldEDocumenttypePrivacydefault, eDocumenttypeStatusdefault FieldEDocumenttypeStatusdefault, eDocumenttypeSalebyowner FieldEDocumenttypeSalebyowner, eDocumenttypeSaledisplaybyrole FieldEDocumenttypeSaledisplaybyrole, eDocumenttypeTransactiontype FieldEDocumenttypeTransactiontype, eDocumenttypeRepossession FieldEDocumenttypeRepossession) *DocumenttypeRequest {
+func NewDocumenttypeRequest(objDocumenttypeName MultilingualDocumenttypeName, eDocumenttypeStep ComputedEDocumenttypeStep, sDocumenttypeDefaultfilename string, bDocumenttypeShowagent bool, bDocumenttypeIsactive bool, bDocumenttypeIsrequired bool, bDocumenttypeSale bool, bDocumenttypeRental bool, bDocumenttypeReference bool, bDocumenttypeMortgagereference bool, bDocumenttypeEvaluation bool, bDocumenttypeConsultation bool, bDocumenttypeOtherservices bool, bDocumenttypeForeclosedsale bool, bDocumenttypeCommercialfunding bool, bDocumenttypeCanafe bool, eDocumenttypePrivacydefault FieldEDocumenttypePrivacydefault, eDocumenttypeStatusdefault FieldEDocumenttypeStatusdefault, eDocumenttypeSalebyowner FieldEDocumenttypeSalebyowner, eDocumenttypeSaledisplaybyrole FieldEDocumenttypeSaledisplaybyrole, eDocumenttypeTransactiontype FieldEDocumenttypeTransactiontype, eDocumenttypeRepossession FieldEDocumenttypeRepossession, aFkiInscriptiontypeID []int32) *DocumenttypeRequest {
 	this := DocumenttypeRequest{}
 	this.ObjDocumenttypeName = objDocumenttypeName
+	this.EDocumenttypeStep = eDocumenttypeStep
 	this.SDocumenttypeDefaultfilename = sDocumenttypeDefaultfilename
 	this.BDocumenttypeShowagent = bDocumenttypeShowagent
 	this.BDocumenttypeIsactive = bDocumenttypeIsactive
@@ -85,13 +88,13 @@ func NewDocumenttypeRequest(objDocumenttypeName MultilingualDocumenttypeName, sD
 	this.BDocumenttypeForeclosedsale = bDocumenttypeForeclosedsale
 	this.BDocumenttypeCommercialfunding = bDocumenttypeCommercialfunding
 	this.BDocumenttypeCanafe = bDocumenttypeCanafe
-	this.EDocumenttypeEzcom = eDocumenttypeEzcom
 	this.EDocumenttypePrivacydefault = eDocumenttypePrivacydefault
 	this.EDocumenttypeStatusdefault = eDocumenttypeStatusdefault
 	this.EDocumenttypeSalebyowner = eDocumenttypeSalebyowner
 	this.EDocumenttypeSaledisplaybyrole = eDocumenttypeSaledisplaybyrole
 	this.EDocumenttypeTransactiontype = eDocumenttypeTransactiontype
 	this.EDocumenttypeRepossession = eDocumenttypeRepossession
+	this.AFkiInscriptiontypeID = aFkiInscriptiontypeID
 	return &this
 }
 
@@ -157,6 +160,30 @@ func (o *DocumenttypeRequest) GetObjDocumenttypeNameOk() (*MultilingualDocumentt
 // SetObjDocumenttypeName sets field value
 func (o *DocumenttypeRequest) SetObjDocumenttypeName(v MultilingualDocumenttypeName) {
 	o.ObjDocumenttypeName = v
+}
+
+// GetEDocumenttypeStep returns the EDocumenttypeStep field value
+func (o *DocumenttypeRequest) GetEDocumenttypeStep() ComputedEDocumenttypeStep {
+	if o == nil {
+		var ret ComputedEDocumenttypeStep
+		return ret
+	}
+
+	return o.EDocumenttypeStep
+}
+
+// GetEDocumenttypeStepOk returns a tuple with the EDocumenttypeStep field value
+// and a boolean to check if the value has been set.
+func (o *DocumenttypeRequest) GetEDocumenttypeStepOk() (*ComputedEDocumenttypeStep, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EDocumenttypeStep, true
+}
+
+// SetEDocumenttypeStep sets field value
+func (o *DocumenttypeRequest) SetEDocumenttypeStep(v ComputedEDocumenttypeStep) {
+	o.EDocumenttypeStep = v
 }
 
 // GetSDocumenttypeDefaultfilename returns the SDocumenttypeDefaultfilename field value
@@ -495,28 +522,36 @@ func (o *DocumenttypeRequest) SetBDocumenttypeCanafe(v bool) {
 	o.BDocumenttypeCanafe = v
 }
 
-// GetEDocumenttypeEzcom returns the EDocumenttypeEzcom field value
+// GetEDocumenttypeEzcom returns the EDocumenttypeEzcom field value if set, zero value otherwise.
 func (o *DocumenttypeRequest) GetEDocumenttypeEzcom() FieldEDocumenttypeEzcom {
-	if o == nil {
+	if o == nil || IsNil(o.EDocumenttypeEzcom) {
 		var ret FieldEDocumenttypeEzcom
 		return ret
 	}
-
-	return o.EDocumenttypeEzcom
+	return *o.EDocumenttypeEzcom
 }
 
-// GetEDocumenttypeEzcomOk returns a tuple with the EDocumenttypeEzcom field value
+// GetEDocumenttypeEzcomOk returns a tuple with the EDocumenttypeEzcom field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DocumenttypeRequest) GetEDocumenttypeEzcomOk() (*FieldEDocumenttypeEzcom, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.EDocumenttypeEzcom) {
 		return nil, false
 	}
-	return &o.EDocumenttypeEzcom, true
+	return o.EDocumenttypeEzcom, true
 }
 
-// SetEDocumenttypeEzcom sets field value
+// HasEDocumenttypeEzcom returns a boolean if a field has been set.
+func (o *DocumenttypeRequest) HasEDocumenttypeEzcom() bool {
+	if o != nil && !IsNil(o.EDocumenttypeEzcom) {
+		return true
+	}
+
+	return false
+}
+
+// SetEDocumenttypeEzcom gets a reference to the given FieldEDocumenttypeEzcom and assigns it to the EDocumenttypeEzcom field.
 func (o *DocumenttypeRequest) SetEDocumenttypeEzcom(v FieldEDocumenttypeEzcom) {
-	o.EDocumenttypeEzcom = v
+	o.EDocumenttypeEzcom = &v
 }
 
 // GetEDocumenttypePrivacydefault returns the EDocumenttypePrivacydefault field value
@@ -663,6 +698,30 @@ func (o *DocumenttypeRequest) SetEDocumenttypeRepossession(v FieldEDocumenttypeR
 	o.EDocumenttypeRepossession = v
 }
 
+// GetAFkiInscriptiontypeID returns the AFkiInscriptiontypeID field value
+func (o *DocumenttypeRequest) GetAFkiInscriptiontypeID() []int32 {
+	if o == nil {
+		var ret []int32
+		return ret
+	}
+
+	return o.AFkiInscriptiontypeID
+}
+
+// GetAFkiInscriptiontypeIDOk returns a tuple with the AFkiInscriptiontypeID field value
+// and a boolean to check if the value has been set.
+func (o *DocumenttypeRequest) GetAFkiInscriptiontypeIDOk() ([]int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AFkiInscriptiontypeID, true
+}
+
+// SetAFkiInscriptiontypeID sets field value
+func (o *DocumenttypeRequest) SetAFkiInscriptiontypeID(v []int32) {
+	o.AFkiInscriptiontypeID = v
+}
+
 func (o DocumenttypeRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -677,6 +736,7 @@ func (o DocumenttypeRequest) ToMap() (map[string]interface{}, error) {
 		toSerialize["pkiDocumenttypeID"] = o.PkiDocumenttypeID
 	}
 	toSerialize["objDocumenttypeName"] = o.ObjDocumenttypeName
+	toSerialize["eDocumenttypeStep"] = o.EDocumenttypeStep
 	toSerialize["sDocumenttypeDefaultfilename"] = o.SDocumenttypeDefaultfilename
 	toSerialize["bDocumenttypeShowagent"] = o.BDocumenttypeShowagent
 	toSerialize["bDocumenttypeIsactive"] = o.BDocumenttypeIsactive
@@ -691,13 +751,16 @@ func (o DocumenttypeRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize["bDocumenttypeForeclosedsale"] = o.BDocumenttypeForeclosedsale
 	toSerialize["bDocumenttypeCommercialfunding"] = o.BDocumenttypeCommercialfunding
 	toSerialize["bDocumenttypeCanafe"] = o.BDocumenttypeCanafe
-	toSerialize["eDocumenttypeEzcom"] = o.EDocumenttypeEzcom
+	if !IsNil(o.EDocumenttypeEzcom) {
+		toSerialize["eDocumenttypeEzcom"] = o.EDocumenttypeEzcom
+	}
 	toSerialize["eDocumenttypePrivacydefault"] = o.EDocumenttypePrivacydefault
 	toSerialize["eDocumenttypeStatusdefault"] = o.EDocumenttypeStatusdefault
 	toSerialize["eDocumenttypeSalebyowner"] = o.EDocumenttypeSalebyowner
 	toSerialize["eDocumenttypeSaledisplaybyrole"] = o.EDocumenttypeSaledisplaybyrole
 	toSerialize["eDocumenttypeTransactiontype"] = o.EDocumenttypeTransactiontype
 	toSerialize["eDocumenttypeRepossession"] = o.EDocumenttypeRepossession
+	toSerialize["a_fkiInscriptiontypeID"] = o.AFkiInscriptiontypeID
 	return toSerialize, nil
 }
 
@@ -707,6 +770,7 @@ func (o *DocumenttypeRequest) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"objDocumenttypeName",
+		"eDocumenttypeStep",
 		"sDocumenttypeDefaultfilename",
 		"bDocumenttypeShowagent",
 		"bDocumenttypeIsactive",
@@ -721,13 +785,13 @@ func (o *DocumenttypeRequest) UnmarshalJSON(data []byte) (err error) {
 		"bDocumenttypeForeclosedsale",
 		"bDocumenttypeCommercialfunding",
 		"bDocumenttypeCanafe",
-		"eDocumenttypeEzcom",
 		"eDocumenttypePrivacydefault",
 		"eDocumenttypeStatusdefault",
 		"eDocumenttypeSalebyowner",
 		"eDocumenttypeSaledisplaybyrole",
 		"eDocumenttypeTransactiontype",
 		"eDocumenttypeRepossession",
+		"a_fkiInscriptiontypeID",
 	}
 
 	allProperties := make(map[string]interface{})

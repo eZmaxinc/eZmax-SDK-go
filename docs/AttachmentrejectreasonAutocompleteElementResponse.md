@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiAttachmentrejectreasonID** | **int32** | The unique ID of the Attachmentrejectreason | 
-**SAttachmentrejectreasonnameX** | **string** | The name of the Attachmentrejectreason in the language of the requester | 
+**SAttachmentrejectreasonNameX** | **string** | The name of the Attachmentrejectreason in the language of the requester | 
 **BAttachmentrejectreasonIsactive** | **bool** | Whether the Attachmentrejectreason is active or not | 
 
 ## Methods
 
 ### NewAttachmentrejectreasonAutocompleteElementResponse
 
-`func NewAttachmentrejectreasonAutocompleteElementResponse(pkiAttachmentrejectreasonID int32, sAttachmentrejectreasonnameX string, bAttachmentrejectreasonIsactive bool, ) *AttachmentrejectreasonAutocompleteElementResponse`
+`func NewAttachmentrejectreasonAutocompleteElementResponse(pkiAttachmentrejectreasonID int32, sAttachmentrejectreasonNameX string, bAttachmentrejectreasonIsactive bool, ) *AttachmentrejectreasonAutocompleteElementResponse`
 
 NewAttachmentrejectreasonAutocompleteElementResponse instantiates a new AttachmentrejectreasonAutocompleteElementResponse object
 This constructor will assign default values to properties that have it defined,
@@ -47,24 +47,24 @@ and a boolean to check if the value has been set.
 SetPkiAttachmentrejectreasonID sets PkiAttachmentrejectreasonID field to given value.
 
 
-### GetSAttachmentrejectreasonnameX
+### GetSAttachmentrejectreasonNameX
 
-`func (o *AttachmentrejectreasonAutocompleteElementResponse) GetSAttachmentrejectreasonnameX() string`
+`func (o *AttachmentrejectreasonAutocompleteElementResponse) GetSAttachmentrejectreasonNameX() string`
 
-GetSAttachmentrejectreasonnameX returns the SAttachmentrejectreasonnameX field if non-nil, zero value otherwise.
+GetSAttachmentrejectreasonNameX returns the SAttachmentrejectreasonNameX field if non-nil, zero value otherwise.
 
-### GetSAttachmentrejectreasonnameXOk
+### GetSAttachmentrejectreasonNameXOk
 
-`func (o *AttachmentrejectreasonAutocompleteElementResponse) GetSAttachmentrejectreasonnameXOk() (*string, bool)`
+`func (o *AttachmentrejectreasonAutocompleteElementResponse) GetSAttachmentrejectreasonNameXOk() (*string, bool)`
 
-GetSAttachmentrejectreasonnameXOk returns a tuple with the SAttachmentrejectreasonnameX field if it's non-nil, zero value otherwise
+GetSAttachmentrejectreasonNameXOk returns a tuple with the SAttachmentrejectreasonNameX field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSAttachmentrejectreasonnameX
+### SetSAttachmentrejectreasonNameX
 
-`func (o *AttachmentrejectreasonAutocompleteElementResponse) SetSAttachmentrejectreasonnameX(v string)`
+`func (o *AttachmentrejectreasonAutocompleteElementResponse) SetSAttachmentrejectreasonNameX(v string)`
 
-SetSAttachmentrejectreasonnameX sets SAttachmentrejectreasonnameX field to given value.
+SetSAttachmentrejectreasonNameX sets SAttachmentrejectreasonNameX field to given value.
 
 
 ### GetBAttachmentrejectreasonIsactive

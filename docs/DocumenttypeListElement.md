@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **BDocumenttypeForeclosedsale** | **bool** | Whether if it&#39;s an foreclosedsale | 
 **BDocumenttypeCommercialfunding** | **bool** | Whether if it&#39;s an commercialfunding | 
 **BDocumenttypeCanafe** | **bool** | Whether if it&#39;s an canafe | 
-**EDocumenttypeEzcom** | [**FieldEDocumenttypeEzcom**](FieldEDocumenttypeEzcom.md) |  | 
+**EDocumenttypeEzcom** | Pointer to [**FieldEDocumenttypeEzcom**](FieldEDocumenttypeEzcom.md) |  | [optional] 
 **EDocumenttypePrivacydefault** | [**FieldEDocumenttypePrivacydefault**](FieldEDocumenttypePrivacydefault.md) |  | 
 **EDocumenttypeStatusdefault** | [**FieldEDocumenttypeStatusdefault**](FieldEDocumenttypeStatusdefault.md) |  | 
 **EDocumenttypeSalebyowner** | [**FieldEDocumenttypeSalebyowner**](FieldEDocumenttypeSalebyowner.md) |  | 
@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 
 ### NewDocumenttypeListElement
 
-`func NewDocumenttypeListElement(pkiDocumenttypeID int32, sDocumenttypeNameX string, sDocumenttypeDefaultfilename string, bDocumenttypeShowagent bool, bDocumenttypeIsactive bool, bDocumenttypeIsrequired bool, bDocumenttypeSale bool, bDocumenttypeRental bool, bDocumenttypeReference bool, bDocumenttypeMortgagereference bool, bDocumenttypeEvaluation bool, bDocumenttypeConsultation bool, bDocumenttypeOtherservices bool, bDocumenttypeForeclosedsale bool, bDocumenttypeCommercialfunding bool, bDocumenttypeCanafe bool, eDocumenttypeEzcom FieldEDocumenttypeEzcom, eDocumenttypePrivacydefault FieldEDocumenttypePrivacydefault, eDocumenttypeStatusdefault FieldEDocumenttypeStatusdefault, eDocumenttypeSalebyowner FieldEDocumenttypeSalebyowner, eDocumenttypeSaledisplaybyrole FieldEDocumenttypeSaledisplaybyrole, eDocumenttypeTransactiontype FieldEDocumenttypeTransactiontype, eDocumenttypeRepossession FieldEDocumenttypeRepossession, ) *DocumenttypeListElement`
+`func NewDocumenttypeListElement(pkiDocumenttypeID int32, sDocumenttypeNameX string, sDocumenttypeDefaultfilename string, bDocumenttypeShowagent bool, bDocumenttypeIsactive bool, bDocumenttypeIsrequired bool, bDocumenttypeSale bool, bDocumenttypeRental bool, bDocumenttypeReference bool, bDocumenttypeMortgagereference bool, bDocumenttypeEvaluation bool, bDocumenttypeConsultation bool, bDocumenttypeOtherservices bool, bDocumenttypeForeclosedsale bool, bDocumenttypeCommercialfunding bool, bDocumenttypeCanafe bool, eDocumenttypePrivacydefault FieldEDocumenttypePrivacydefault, eDocumenttypeStatusdefault FieldEDocumenttypeStatusdefault, eDocumenttypeSalebyowner FieldEDocumenttypeSalebyowner, eDocumenttypeSaledisplaybyrole FieldEDocumenttypeSaledisplaybyrole, eDocumenttypeTransactiontype FieldEDocumenttypeTransactiontype, eDocumenttypeRepossession FieldEDocumenttypeRepossession, ) *DocumenttypeListElement`
 
 NewDocumenttypeListElement instantiates a new DocumenttypeListElement object
 This constructor will assign default values to properties that have it defined,
@@ -386,6 +386,11 @@ and a boolean to check if the value has been set.
 
 SetEDocumenttypeEzcom sets EDocumenttypeEzcom field to given value.
 
+### HasEDocumenttypeEzcom
+
+`func (o *DocumenttypeListElement) HasEDocumenttypeEzcom() bool`
+
+HasEDocumenttypeEzcom returns a boolean if a field has been set.
 
 ### GetEDocumenttypePrivacydefault
 

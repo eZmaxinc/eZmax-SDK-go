@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiInscriptionnotauthenticatedID** | **int32** | The unique ID of the Inscriptionnotauthenticated. | 
 **FkiInscriptionID** | **int32** | The unique ID of the Inscription. | 
+**ObjInscription** | [**CustomInscription**](CustomInscription.md) |  | 
 **FkiDepartmentID** | Pointer to **int32** | The unique ID of the Department | [optional] 
 **SDepartmentNameX** | Pointer to **string** | The Name of the Department in the language of the requester | [optional] 
 **FkiFinancialinstitutionID** | Pointer to **int32** | The unique ID of the Financialinstitution | [optional] 
@@ -48,7 +49,7 @@ Name | Type | Description | Notes
 
 ### NewInscriptionnotauthenticatedResponse
 
-`func NewInscriptionnotauthenticatedResponse(pkiInscriptionnotauthenticatedID int32, fkiInscriptionID int32, fkiTaxassignmentID int32, eInscriptionnotauthenticatedType FieldEInscriptionnotauthenticatedType, dInscriptionnotauthenticatedMortgageloan string, etInscriptionnotauthenticatedMortgagetype FieldEtInscriptionnotauthenticatedMortgagetype, dInscriptionnotauthenticatedTransactionprice string, eInscriptionnotauthenticatedRemunerationtype FieldEInscriptionnotauthenticatedRemunerationtype, dInscriptionnotauthenticatedRemuneration string, dInscriptionnotauthenticatedRemunerationsubtotal string, dInscriptionnotauthenticatedRemunerationtotal string, sInscriptionnotauthenticatedOffertopurchasenumber string, bInscriptionnotauthenticatedConditional bool, bInscriptionnotauthenticatedMortgageisreferenced bool, bInscriptionnotauthenticatedHomeowner bool, tInscriptionnotauthenticatedConditions string, iInscriptionnotauthenticatedOrder int32, bInscriptionnotauthenticatedIsactive bool, eInscriptionnotauthenticatedResidenceType FieldEInscriptionnotauthenticatedResidenceType, tInscriptionnotauthenticatedChecklistnote string, dInscriptionnotauthenticatedSelleronlyretribution string, bInscriptionnotauthenticatedDraft bool, ) *InscriptionnotauthenticatedResponse`
+`func NewInscriptionnotauthenticatedResponse(pkiInscriptionnotauthenticatedID int32, fkiInscriptionID int32, objInscription CustomInscription, fkiTaxassignmentID int32, eInscriptionnotauthenticatedType FieldEInscriptionnotauthenticatedType, dInscriptionnotauthenticatedMortgageloan string, etInscriptionnotauthenticatedMortgagetype FieldEtInscriptionnotauthenticatedMortgagetype, dInscriptionnotauthenticatedTransactionprice string, eInscriptionnotauthenticatedRemunerationtype FieldEInscriptionnotauthenticatedRemunerationtype, dInscriptionnotauthenticatedRemuneration string, dInscriptionnotauthenticatedRemunerationsubtotal string, dInscriptionnotauthenticatedRemunerationtotal string, sInscriptionnotauthenticatedOffertopurchasenumber string, bInscriptionnotauthenticatedConditional bool, bInscriptionnotauthenticatedMortgageisreferenced bool, bInscriptionnotauthenticatedHomeowner bool, tInscriptionnotauthenticatedConditions string, iInscriptionnotauthenticatedOrder int32, bInscriptionnotauthenticatedIsactive bool, eInscriptionnotauthenticatedResidenceType FieldEInscriptionnotauthenticatedResidenceType, tInscriptionnotauthenticatedChecklistnote string, dInscriptionnotauthenticatedSelleronlyretribution string, bInscriptionnotauthenticatedDraft bool, ) *InscriptionnotauthenticatedResponse`
 
 NewInscriptionnotauthenticatedResponse instantiates a new InscriptionnotauthenticatedResponse object
 This constructor will assign default values to properties that have it defined,
@@ -101,6 +102,26 @@ and a boolean to check if the value has been set.
 `func (o *InscriptionnotauthenticatedResponse) SetFkiInscriptionID(v int32)`
 
 SetFkiInscriptionID sets FkiInscriptionID field to given value.
+
+
+### GetObjInscription
+
+`func (o *InscriptionnotauthenticatedResponse) GetObjInscription() CustomInscription`
+
+GetObjInscription returns the ObjInscription field if non-nil, zero value otherwise.
+
+### GetObjInscriptionOk
+
+`func (o *InscriptionnotauthenticatedResponse) GetObjInscriptionOk() (*CustomInscription, bool)`
+
+GetObjInscriptionOk returns a tuple with the ObjInscription field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjInscription
+
+`func (o *InscriptionnotauthenticatedResponse) SetObjInscription(v CustomInscription)`
+
+SetObjInscription sets ObjInscription field to given value.
 
 
 ### GetFkiDepartmentID

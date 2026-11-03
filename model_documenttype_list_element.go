@@ -54,7 +54,7 @@ type DocumenttypeListElement struct {
 	BDocumenttypeCommercialfunding bool `json:"bDocumenttypeCommercialfunding"`
 	// Whether if it's an canafe
 	BDocumenttypeCanafe bool `json:"bDocumenttypeCanafe"`
-	EDocumenttypeEzcom FieldEDocumenttypeEzcom `json:"eDocumenttypeEzcom"`
+	EDocumenttypeEzcom *FieldEDocumenttypeEzcom `json:"eDocumenttypeEzcom,omitempty"`
 	EDocumenttypePrivacydefault FieldEDocumenttypePrivacydefault `json:"eDocumenttypePrivacydefault"`
 	EDocumenttypeStatusdefault FieldEDocumenttypeStatusdefault `json:"eDocumenttypeStatusdefault"`
 	EDocumenttypeSalebyowner FieldEDocumenttypeSalebyowner `json:"eDocumenttypeSalebyowner"`
@@ -69,7 +69,7 @@ type _DocumenttypeListElement DocumenttypeListElement
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDocumenttypeListElement(pkiDocumenttypeID int32, sDocumenttypeNameX string, sDocumenttypeDefaultfilename string, bDocumenttypeShowagent bool, bDocumenttypeIsactive bool, bDocumenttypeIsrequired bool, bDocumenttypeSale bool, bDocumenttypeRental bool, bDocumenttypeReference bool, bDocumenttypeMortgagereference bool, bDocumenttypeEvaluation bool, bDocumenttypeConsultation bool, bDocumenttypeOtherservices bool, bDocumenttypeForeclosedsale bool, bDocumenttypeCommercialfunding bool, bDocumenttypeCanafe bool, eDocumenttypeEzcom FieldEDocumenttypeEzcom, eDocumenttypePrivacydefault FieldEDocumenttypePrivacydefault, eDocumenttypeStatusdefault FieldEDocumenttypeStatusdefault, eDocumenttypeSalebyowner FieldEDocumenttypeSalebyowner, eDocumenttypeSaledisplaybyrole FieldEDocumenttypeSaledisplaybyrole, eDocumenttypeTransactiontype FieldEDocumenttypeTransactiontype, eDocumenttypeRepossession FieldEDocumenttypeRepossession) *DocumenttypeListElement {
+func NewDocumenttypeListElement(pkiDocumenttypeID int32, sDocumenttypeNameX string, sDocumenttypeDefaultfilename string, bDocumenttypeShowagent bool, bDocumenttypeIsactive bool, bDocumenttypeIsrequired bool, bDocumenttypeSale bool, bDocumenttypeRental bool, bDocumenttypeReference bool, bDocumenttypeMortgagereference bool, bDocumenttypeEvaluation bool, bDocumenttypeConsultation bool, bDocumenttypeOtherservices bool, bDocumenttypeForeclosedsale bool, bDocumenttypeCommercialfunding bool, bDocumenttypeCanafe bool, eDocumenttypePrivacydefault FieldEDocumenttypePrivacydefault, eDocumenttypeStatusdefault FieldEDocumenttypeStatusdefault, eDocumenttypeSalebyowner FieldEDocumenttypeSalebyowner, eDocumenttypeSaledisplaybyrole FieldEDocumenttypeSaledisplaybyrole, eDocumenttypeTransactiontype FieldEDocumenttypeTransactiontype, eDocumenttypeRepossession FieldEDocumenttypeRepossession) *DocumenttypeListElement {
 	this := DocumenttypeListElement{}
 	this.PkiDocumenttypeID = pkiDocumenttypeID
 	this.SDocumenttypeNameX = sDocumenttypeNameX
@@ -87,7 +87,6 @@ func NewDocumenttypeListElement(pkiDocumenttypeID int32, sDocumenttypeNameX stri
 	this.BDocumenttypeForeclosedsale = bDocumenttypeForeclosedsale
 	this.BDocumenttypeCommercialfunding = bDocumenttypeCommercialfunding
 	this.BDocumenttypeCanafe = bDocumenttypeCanafe
-	this.EDocumenttypeEzcom = eDocumenttypeEzcom
 	this.EDocumenttypePrivacydefault = eDocumenttypePrivacydefault
 	this.EDocumenttypeStatusdefault = eDocumenttypeStatusdefault
 	this.EDocumenttypeSalebyowner = eDocumenttypeSalebyowner
@@ -489,28 +488,36 @@ func (o *DocumenttypeListElement) SetBDocumenttypeCanafe(v bool) {
 	o.BDocumenttypeCanafe = v
 }
 
-// GetEDocumenttypeEzcom returns the EDocumenttypeEzcom field value
+// GetEDocumenttypeEzcom returns the EDocumenttypeEzcom field value if set, zero value otherwise.
 func (o *DocumenttypeListElement) GetEDocumenttypeEzcom() FieldEDocumenttypeEzcom {
-	if o == nil {
+	if o == nil || IsNil(o.EDocumenttypeEzcom) {
 		var ret FieldEDocumenttypeEzcom
 		return ret
 	}
-
-	return o.EDocumenttypeEzcom
+	return *o.EDocumenttypeEzcom
 }
 
-// GetEDocumenttypeEzcomOk returns a tuple with the EDocumenttypeEzcom field value
+// GetEDocumenttypeEzcomOk returns a tuple with the EDocumenttypeEzcom field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DocumenttypeListElement) GetEDocumenttypeEzcomOk() (*FieldEDocumenttypeEzcom, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.EDocumenttypeEzcom) {
 		return nil, false
 	}
-	return &o.EDocumenttypeEzcom, true
+	return o.EDocumenttypeEzcom, true
 }
 
-// SetEDocumenttypeEzcom sets field value
+// HasEDocumenttypeEzcom returns a boolean if a field has been set.
+func (o *DocumenttypeListElement) HasEDocumenttypeEzcom() bool {
+	if o != nil && !IsNil(o.EDocumenttypeEzcom) {
+		return true
+	}
+
+	return false
+}
+
+// SetEDocumenttypeEzcom gets a reference to the given FieldEDocumenttypeEzcom and assigns it to the EDocumenttypeEzcom field.
 func (o *DocumenttypeListElement) SetEDocumenttypeEzcom(v FieldEDocumenttypeEzcom) {
-	o.EDocumenttypeEzcom = v
+	o.EDocumenttypeEzcom = &v
 }
 
 // GetEDocumenttypePrivacydefault returns the EDocumenttypePrivacydefault field value
@@ -683,7 +690,9 @@ func (o DocumenttypeListElement) ToMap() (map[string]interface{}, error) {
 	toSerialize["bDocumenttypeForeclosedsale"] = o.BDocumenttypeForeclosedsale
 	toSerialize["bDocumenttypeCommercialfunding"] = o.BDocumenttypeCommercialfunding
 	toSerialize["bDocumenttypeCanafe"] = o.BDocumenttypeCanafe
-	toSerialize["eDocumenttypeEzcom"] = o.EDocumenttypeEzcom
+	if !IsNil(o.EDocumenttypeEzcom) {
+		toSerialize["eDocumenttypeEzcom"] = o.EDocumenttypeEzcom
+	}
 	toSerialize["eDocumenttypePrivacydefault"] = o.EDocumenttypePrivacydefault
 	toSerialize["eDocumenttypeStatusdefault"] = o.EDocumenttypeStatusdefault
 	toSerialize["eDocumenttypeSalebyowner"] = o.EDocumenttypeSalebyowner
@@ -714,7 +723,6 @@ func (o *DocumenttypeListElement) UnmarshalJSON(data []byte) (err error) {
 		"bDocumenttypeForeclosedsale",
 		"bDocumenttypeCommercialfunding",
 		"bDocumenttypeCanafe",
-		"eDocumenttypeEzcom",
 		"eDocumenttypePrivacydefault",
 		"eDocumenttypeStatusdefault",
 		"eDocumenttypeSalebyowner",

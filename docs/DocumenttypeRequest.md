@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiDocumenttypeID** | Pointer to **int32** | The unique ID of the Documenttype | [optional] 
 **ObjDocumenttypeName** | [**MultilingualDocumenttypeName**](MultilingualDocumenttypeName.md) |  | 
+**EDocumenttypeStep** | [**ComputedEDocumenttypeStep**](ComputedEDocumenttypeStep.md) |  | 
 **SDocumenttypeDefaultfilename** | **string** | The defaultfilename of the Documenttype | 
 **BDocumenttypeShowagent** | **bool** | Whether if it&#39;s an showagent | 
 **BDocumenttypeIsactive** | **bool** | Whether the documenttype is active or not | 
@@ -20,19 +21,20 @@ Name | Type | Description | Notes
 **BDocumenttypeForeclosedsale** | **bool** | Whether if it&#39;s an foreclosedsale | 
 **BDocumenttypeCommercialfunding** | **bool** | Whether if it&#39;s an commercialfunding | 
 **BDocumenttypeCanafe** | **bool** | Whether if it&#39;s an canafe | 
-**EDocumenttypeEzcom** | [**FieldEDocumenttypeEzcom**](FieldEDocumenttypeEzcom.md) |  | 
+**EDocumenttypeEzcom** | Pointer to [**FieldEDocumenttypeEzcom**](FieldEDocumenttypeEzcom.md) |  | [optional] 
 **EDocumenttypePrivacydefault** | [**FieldEDocumenttypePrivacydefault**](FieldEDocumenttypePrivacydefault.md) |  | 
 **EDocumenttypeStatusdefault** | [**FieldEDocumenttypeStatusdefault**](FieldEDocumenttypeStatusdefault.md) |  | 
 **EDocumenttypeSalebyowner** | [**FieldEDocumenttypeSalebyowner**](FieldEDocumenttypeSalebyowner.md) |  | 
 **EDocumenttypeSaledisplaybyrole** | [**FieldEDocumenttypeSaledisplaybyrole**](FieldEDocumenttypeSaledisplaybyrole.md) |  | 
 **EDocumenttypeTransactiontype** | [**FieldEDocumenttypeTransactiontype**](FieldEDocumenttypeTransactiontype.md) |  | 
 **EDocumenttypeRepossession** | [**FieldEDocumenttypeRepossession**](FieldEDocumenttypeRepossession.md) |  | 
+**AFkiInscriptiontypeID** | **[]int32** |  | 
 
 ## Methods
 
 ### NewDocumenttypeRequest
 
-`func NewDocumenttypeRequest(objDocumenttypeName MultilingualDocumenttypeName, sDocumenttypeDefaultfilename string, bDocumenttypeShowagent bool, bDocumenttypeIsactive bool, bDocumenttypeIsrequired bool, bDocumenttypeSale bool, bDocumenttypeRental bool, bDocumenttypeReference bool, bDocumenttypeMortgagereference bool, bDocumenttypeEvaluation bool, bDocumenttypeConsultation bool, bDocumenttypeOtherservices bool, bDocumenttypeForeclosedsale bool, bDocumenttypeCommercialfunding bool, bDocumenttypeCanafe bool, eDocumenttypeEzcom FieldEDocumenttypeEzcom, eDocumenttypePrivacydefault FieldEDocumenttypePrivacydefault, eDocumenttypeStatusdefault FieldEDocumenttypeStatusdefault, eDocumenttypeSalebyowner FieldEDocumenttypeSalebyowner, eDocumenttypeSaledisplaybyrole FieldEDocumenttypeSaledisplaybyrole, eDocumenttypeTransactiontype FieldEDocumenttypeTransactiontype, eDocumenttypeRepossession FieldEDocumenttypeRepossession, ) *DocumenttypeRequest`
+`func NewDocumenttypeRequest(objDocumenttypeName MultilingualDocumenttypeName, eDocumenttypeStep ComputedEDocumenttypeStep, sDocumenttypeDefaultfilename string, bDocumenttypeShowagent bool, bDocumenttypeIsactive bool, bDocumenttypeIsrequired bool, bDocumenttypeSale bool, bDocumenttypeRental bool, bDocumenttypeReference bool, bDocumenttypeMortgagereference bool, bDocumenttypeEvaluation bool, bDocumenttypeConsultation bool, bDocumenttypeOtherservices bool, bDocumenttypeForeclosedsale bool, bDocumenttypeCommercialfunding bool, bDocumenttypeCanafe bool, eDocumenttypePrivacydefault FieldEDocumenttypePrivacydefault, eDocumenttypeStatusdefault FieldEDocumenttypeStatusdefault, eDocumenttypeSalebyowner FieldEDocumenttypeSalebyowner, eDocumenttypeSaledisplaybyrole FieldEDocumenttypeSaledisplaybyrole, eDocumenttypeTransactiontype FieldEDocumenttypeTransactiontype, eDocumenttypeRepossession FieldEDocumenttypeRepossession, aFkiInscriptiontypeID []int32, ) *DocumenttypeRequest`
 
 NewDocumenttypeRequest instantiates a new DocumenttypeRequest object
 This constructor will assign default values to properties that have it defined,
@@ -90,6 +92,26 @@ and a boolean to check if the value has been set.
 `func (o *DocumenttypeRequest) SetObjDocumenttypeName(v MultilingualDocumenttypeName)`
 
 SetObjDocumenttypeName sets ObjDocumenttypeName field to given value.
+
+
+### GetEDocumenttypeStep
+
+`func (o *DocumenttypeRequest) GetEDocumenttypeStep() ComputedEDocumenttypeStep`
+
+GetEDocumenttypeStep returns the EDocumenttypeStep field if non-nil, zero value otherwise.
+
+### GetEDocumenttypeStepOk
+
+`func (o *DocumenttypeRequest) GetEDocumenttypeStepOk() (*ComputedEDocumenttypeStep, bool)`
+
+GetEDocumenttypeStepOk returns a tuple with the EDocumenttypeStep field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEDocumenttypeStep
+
+`func (o *DocumenttypeRequest) SetEDocumenttypeStep(v ComputedEDocumenttypeStep)`
+
+SetEDocumenttypeStep sets EDocumenttypeStep field to given value.
 
 
 ### GetSDocumenttypeDefaultfilename
@@ -391,6 +413,11 @@ and a boolean to check if the value has been set.
 
 SetEDocumenttypeEzcom sets EDocumenttypeEzcom field to given value.
 
+### HasEDocumenttypeEzcom
+
+`func (o *DocumenttypeRequest) HasEDocumenttypeEzcom() bool`
+
+HasEDocumenttypeEzcom returns a boolean if a field has been set.
 
 ### GetEDocumenttypePrivacydefault
 
@@ -510,6 +537,26 @@ and a boolean to check if the value has been set.
 `func (o *DocumenttypeRequest) SetEDocumenttypeRepossession(v FieldEDocumenttypeRepossession)`
 
 SetEDocumenttypeRepossession sets EDocumenttypeRepossession field to given value.
+
+
+### GetAFkiInscriptiontypeID
+
+`func (o *DocumenttypeRequest) GetAFkiInscriptiontypeID() []int32`
+
+GetAFkiInscriptiontypeID returns the AFkiInscriptiontypeID field if non-nil, zero value otherwise.
+
+### GetAFkiInscriptiontypeIDOk
+
+`func (o *DocumenttypeRequest) GetAFkiInscriptiontypeIDOk() (*[]int32, bool)`
+
+GetAFkiInscriptiontypeIDOk returns a tuple with the AFkiInscriptiontypeID field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAFkiInscriptiontypeID
+
+`func (o *DocumenttypeRequest) SetAFkiInscriptiontypeID(v []int32)`
+
+SetAFkiInscriptiontypeID sets AFkiInscriptiontypeID field to given value.
 
 
 

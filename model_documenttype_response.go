@@ -25,6 +25,7 @@ type DocumenttypeResponse struct {
 	// The unique ID of the Documenttype
 	PkiDocumenttypeID int32 `json:"pkiDocumenttypeID"`
 	ObjDocumenttypeName MultilingualDocumenttypeName `json:"objDocumenttypeName"`
+	EDocumenttypeStep ComputedEDocumenttypeStep `json:"eDocumenttypeStep"`
 	// The defaultfilename of the Documenttype
 	SDocumenttypeDefaultfilename string `json:"sDocumenttypeDefaultfilename" validate:"regexp=^.{0\\,50}$"`
 	// Whether if it's an showagent
@@ -60,6 +61,7 @@ type DocumenttypeResponse struct {
 	EDocumenttypeSaledisplaybyrole *FieldEDocumenttypeSaledisplaybyrole `json:"eDocumenttypeSaledisplaybyrole,omitempty"`
 	EDocumenttypeTransactiontype *FieldEDocumenttypeTransactiontype `json:"eDocumenttypeTransactiontype,omitempty"`
 	EDocumenttypeRepossession *FieldEDocumenttypeRepossession `json:"eDocumenttypeRepossession,omitempty"`
+	AFkiInscriptiontypeID []int32 `json:"a_fkiInscriptiontypeID"`
 }
 
 type _DocumenttypeResponse DocumenttypeResponse
@@ -68,14 +70,16 @@ type _DocumenttypeResponse DocumenttypeResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDocumenttypeResponse(pkiDocumenttypeID int32, objDocumenttypeName MultilingualDocumenttypeName, sDocumenttypeDefaultfilename string, bDocumenttypeShowagent bool, bDocumenttypeIsactive bool, bDocumenttypeIsrequired bool) *DocumenttypeResponse {
+func NewDocumenttypeResponse(pkiDocumenttypeID int32, objDocumenttypeName MultilingualDocumenttypeName, eDocumenttypeStep ComputedEDocumenttypeStep, sDocumenttypeDefaultfilename string, bDocumenttypeShowagent bool, bDocumenttypeIsactive bool, bDocumenttypeIsrequired bool, aFkiInscriptiontypeID []int32) *DocumenttypeResponse {
 	this := DocumenttypeResponse{}
 	this.PkiDocumenttypeID = pkiDocumenttypeID
 	this.ObjDocumenttypeName = objDocumenttypeName
+	this.EDocumenttypeStep = eDocumenttypeStep
 	this.SDocumenttypeDefaultfilename = sDocumenttypeDefaultfilename
 	this.BDocumenttypeShowagent = bDocumenttypeShowagent
 	this.BDocumenttypeIsactive = bDocumenttypeIsactive
 	this.BDocumenttypeIsrequired = bDocumenttypeIsrequired
+	this.AFkiInscriptiontypeID = aFkiInscriptiontypeID
 	return &this
 }
 
@@ -133,6 +137,30 @@ func (o *DocumenttypeResponse) GetObjDocumenttypeNameOk() (*MultilingualDocument
 // SetObjDocumenttypeName sets field value
 func (o *DocumenttypeResponse) SetObjDocumenttypeName(v MultilingualDocumenttypeName) {
 	o.ObjDocumenttypeName = v
+}
+
+// GetEDocumenttypeStep returns the EDocumenttypeStep field value
+func (o *DocumenttypeResponse) GetEDocumenttypeStep() ComputedEDocumenttypeStep {
+	if o == nil {
+		var ret ComputedEDocumenttypeStep
+		return ret
+	}
+
+	return o.EDocumenttypeStep
+}
+
+// GetEDocumenttypeStepOk returns a tuple with the EDocumenttypeStep field value
+// and a boolean to check if the value has been set.
+func (o *DocumenttypeResponse) GetEDocumenttypeStepOk() (*ComputedEDocumenttypeStep, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EDocumenttypeStep, true
+}
+
+// SetEDocumenttypeStep sets field value
+func (o *DocumenttypeResponse) SetEDocumenttypeStep(v ComputedEDocumenttypeStep) {
+	o.EDocumenttypeStep = v
 }
 
 // GetSDocumenttypeDefaultfilename returns the SDocumenttypeDefaultfilename field value
@@ -775,6 +803,30 @@ func (o *DocumenttypeResponse) SetEDocumenttypeRepossession(v FieldEDocumenttype
 	o.EDocumenttypeRepossession = &v
 }
 
+// GetAFkiInscriptiontypeID returns the AFkiInscriptiontypeID field value
+func (o *DocumenttypeResponse) GetAFkiInscriptiontypeID() []int32 {
+	if o == nil {
+		var ret []int32
+		return ret
+	}
+
+	return o.AFkiInscriptiontypeID
+}
+
+// GetAFkiInscriptiontypeIDOk returns a tuple with the AFkiInscriptiontypeID field value
+// and a boolean to check if the value has been set.
+func (o *DocumenttypeResponse) GetAFkiInscriptiontypeIDOk() ([]int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AFkiInscriptiontypeID, true
+}
+
+// SetAFkiInscriptiontypeID sets field value
+func (o *DocumenttypeResponse) SetAFkiInscriptiontypeID(v []int32) {
+	o.AFkiInscriptiontypeID = v
+}
+
 func (o DocumenttypeResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -787,6 +839,7 @@ func (o DocumenttypeResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiDocumenttypeID"] = o.PkiDocumenttypeID
 	toSerialize["objDocumenttypeName"] = o.ObjDocumenttypeName
+	toSerialize["eDocumenttypeStep"] = o.EDocumenttypeStep
 	toSerialize["sDocumenttypeDefaultfilename"] = o.SDocumenttypeDefaultfilename
 	toSerialize["bDocumenttypeShowagent"] = o.BDocumenttypeShowagent
 	toSerialize["bDocumenttypeIsactive"] = o.BDocumenttypeIsactive
@@ -842,6 +895,7 @@ func (o DocumenttypeResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.EDocumenttypeRepossession) {
 		toSerialize["eDocumenttypeRepossession"] = o.EDocumenttypeRepossession
 	}
+	toSerialize["a_fkiInscriptiontypeID"] = o.AFkiInscriptiontypeID
 	return toSerialize, nil
 }
 
@@ -852,10 +906,12 @@ func (o *DocumenttypeResponse) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"pkiDocumenttypeID",
 		"objDocumenttypeName",
+		"eDocumenttypeStep",
 		"sDocumenttypeDefaultfilename",
 		"bDocumenttypeShowagent",
 		"bDocumenttypeIsactive",
 		"bDocumenttypeIsrequired",
+		"a_fkiInscriptiontypeID",
 	}
 
 	allProperties := make(map[string]interface{})

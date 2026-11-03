@@ -25,7 +25,7 @@ type AttachmentrejectreasonAutocompleteElementResponse struct {
 	// The unique ID of the Attachmentrejectreason
 	PkiAttachmentrejectreasonID int32 `json:"pkiAttachmentrejectreasonID"`
 	// The name of the Attachmentrejectreason in the language of the requester
-	SAttachmentrejectreasonnameX string `json:"sAttachmentrejectreasonnameX" validate:"regexp=^.{0\\,75}$"`
+	SAttachmentrejectreasonNameX string `json:"sAttachmentrejectreasonNameX" validate:"regexp=^.{0\\,75}$"`
 	// Whether the Attachmentrejectreason is active or not
 	BAttachmentrejectreasonIsactive bool `json:"bAttachmentrejectreasonIsactive"`
 }
@@ -36,10 +36,10 @@ type _AttachmentrejectreasonAutocompleteElementResponse AttachmentrejectreasonAu
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAttachmentrejectreasonAutocompleteElementResponse(pkiAttachmentrejectreasonID int32, sAttachmentrejectreasonnameX string, bAttachmentrejectreasonIsactive bool) *AttachmentrejectreasonAutocompleteElementResponse {
+func NewAttachmentrejectreasonAutocompleteElementResponse(pkiAttachmentrejectreasonID int32, sAttachmentrejectreasonNameX string, bAttachmentrejectreasonIsactive bool) *AttachmentrejectreasonAutocompleteElementResponse {
 	this := AttachmentrejectreasonAutocompleteElementResponse{}
 	this.PkiAttachmentrejectreasonID = pkiAttachmentrejectreasonID
-	this.SAttachmentrejectreasonnameX = sAttachmentrejectreasonnameX
+	this.SAttachmentrejectreasonNameX = sAttachmentrejectreasonNameX
 	this.BAttachmentrejectreasonIsactive = bAttachmentrejectreasonIsactive
 	return &this
 }
@@ -76,28 +76,28 @@ func (o *AttachmentrejectreasonAutocompleteElementResponse) SetPkiAttachmentreje
 	o.PkiAttachmentrejectreasonID = v
 }
 
-// GetSAttachmentrejectreasonnameX returns the SAttachmentrejectreasonnameX field value
-func (o *AttachmentrejectreasonAutocompleteElementResponse) GetSAttachmentrejectreasonnameX() string {
+// GetSAttachmentrejectreasonNameX returns the SAttachmentrejectreasonNameX field value
+func (o *AttachmentrejectreasonAutocompleteElementResponse) GetSAttachmentrejectreasonNameX() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.SAttachmentrejectreasonnameX
+	return o.SAttachmentrejectreasonNameX
 }
 
-// GetSAttachmentrejectreasonnameXOk returns a tuple with the SAttachmentrejectreasonnameX field value
+// GetSAttachmentrejectreasonNameXOk returns a tuple with the SAttachmentrejectreasonNameX field value
 // and a boolean to check if the value has been set.
-func (o *AttachmentrejectreasonAutocompleteElementResponse) GetSAttachmentrejectreasonnameXOk() (*string, bool) {
+func (o *AttachmentrejectreasonAutocompleteElementResponse) GetSAttachmentrejectreasonNameXOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.SAttachmentrejectreasonnameX, true
+	return &o.SAttachmentrejectreasonNameX, true
 }
 
-// SetSAttachmentrejectreasonnameX sets field value
-func (o *AttachmentrejectreasonAutocompleteElementResponse) SetSAttachmentrejectreasonnameX(v string) {
-	o.SAttachmentrejectreasonnameX = v
+// SetSAttachmentrejectreasonNameX sets field value
+func (o *AttachmentrejectreasonAutocompleteElementResponse) SetSAttachmentrejectreasonNameX(v string) {
+	o.SAttachmentrejectreasonNameX = v
 }
 
 // GetBAttachmentrejectreasonIsactive returns the BAttachmentrejectreasonIsactive field value
@@ -135,7 +135,7 @@ func (o AttachmentrejectreasonAutocompleteElementResponse) MarshalJSON() ([]byte
 func (o AttachmentrejectreasonAutocompleteElementResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["pkiAttachmentrejectreasonID"] = o.PkiAttachmentrejectreasonID
-	toSerialize["sAttachmentrejectreasonnameX"] = o.SAttachmentrejectreasonnameX
+	toSerialize["sAttachmentrejectreasonNameX"] = o.SAttachmentrejectreasonNameX
 	toSerialize["bAttachmentrejectreasonIsactive"] = o.BAttachmentrejectreasonIsactive
 	return toSerialize, nil
 }
@@ -146,7 +146,7 @@ func (o *AttachmentrejectreasonAutocompleteElementResponse) UnmarshalJSON(data [
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"pkiAttachmentrejectreasonID",
-		"sAttachmentrejectreasonnameX",
+		"sAttachmentrejectreasonNameX",
 		"bAttachmentrejectreasonIsactive",
 	}
 
