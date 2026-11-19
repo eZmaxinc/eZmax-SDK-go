@@ -110,6 +110,7 @@ type EzsignsignatureResponseCompound struct {
 	AObjEzsignelementdependency []EzsignelementdependencyResponseCompound `json:"a_objEzsignelementdependency,omitempty"`
 	ObjTimezone *CustomTimezoneWithCodeResponse `json:"objTimezone,omitempty"`
 	AObjEzsignsignaturepaymentdetail []EzsignsignaturepaymentdetailResponseCompound `json:"a_objEzsignsignaturepaymentdetail,omitempty"`
+	ObjCreditcardmerchant *CustomCreditcardmerchantResponse `json:"objCreditcardmerchant,omitempty"`
 }
 
 type _EzsignsignatureResponseCompound EzsignsignatureResponseCompound
@@ -1732,6 +1733,38 @@ func (o *EzsignsignatureResponseCompound) SetAObjEzsignsignaturepaymentdetail(v 
 	o.AObjEzsignsignaturepaymentdetail = v
 }
 
+// GetObjCreditcardmerchant returns the ObjCreditcardmerchant field value if set, zero value otherwise.
+func (o *EzsignsignatureResponseCompound) GetObjCreditcardmerchant() CustomCreditcardmerchantResponse {
+	if o == nil || IsNil(o.ObjCreditcardmerchant) {
+		var ret CustomCreditcardmerchantResponse
+		return ret
+	}
+	return *o.ObjCreditcardmerchant
+}
+
+// GetObjCreditcardmerchantOk returns a tuple with the ObjCreditcardmerchant field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EzsignsignatureResponseCompound) GetObjCreditcardmerchantOk() (*CustomCreditcardmerchantResponse, bool) {
+	if o == nil || IsNil(o.ObjCreditcardmerchant) {
+		return nil, false
+	}
+	return o.ObjCreditcardmerchant, true
+}
+
+// HasObjCreditcardmerchant returns a boolean if a field has been set.
+func (o *EzsignsignatureResponseCompound) HasObjCreditcardmerchant() bool {
+	if o != nil && !IsNil(o.ObjCreditcardmerchant) {
+		return true
+	}
+
+	return false
+}
+
+// SetObjCreditcardmerchant gets a reference to the given CustomCreditcardmerchantResponse and assigns it to the ObjCreditcardmerchant field.
+func (o *EzsignsignatureResponseCompound) SetObjCreditcardmerchant(v CustomCreditcardmerchantResponse) {
+	o.ObjCreditcardmerchant = &v
+}
+
 func (o EzsignsignatureResponseCompound) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1879,6 +1912,9 @@ func (o EzsignsignatureResponseCompound) ToMap() (map[string]interface{}, error)
 	}
 	if !IsNil(o.AObjEzsignsignaturepaymentdetail) {
 		toSerialize["a_objEzsignsignaturepaymentdetail"] = o.AObjEzsignsignaturepaymentdetail
+	}
+	if !IsNil(o.ObjCreditcardmerchant) {
+		toSerialize["objCreditcardmerchant"] = o.ObjCreditcardmerchant
 	}
 	return toSerialize, nil
 }

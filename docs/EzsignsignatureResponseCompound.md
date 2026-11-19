@@ -56,6 +56,7 @@ Name | Type | Description | Notes
 **AObjEzsignelementdependency** | Pointer to [**[]EzsignelementdependencyResponseCompound**](EzsignelementdependencyResponseCompound.md) |  | [optional] 
 **ObjTimezone** | Pointer to [**CustomTimezoneWithCodeResponse**](CustomTimezoneWithCodeResponse.md) |  | [optional] 
 **AObjEzsignsignaturepaymentdetail** | Pointer to [**[]EzsignsignaturepaymentdetailResponseCompound**](EzsignsignaturepaymentdetailResponseCompound.md) |  | [optional] 
+**ObjCreditcardmerchant** | Pointer to [**CustomCreditcardmerchantResponse**](CustomCreditcardmerchantResponse.md) |  | [optional] 
 
 ## Methods
 
@@ -1330,6 +1331,31 @@ SetAObjEzsignsignaturepaymentdetail sets AObjEzsignsignaturepaymentdetail field 
 `func (o *EzsignsignatureResponseCompound) HasAObjEzsignsignaturepaymentdetail() bool`
 
 HasAObjEzsignsignaturepaymentdetail returns a boolean if a field has been set.
+
+### GetObjCreditcardmerchant
+
+`func (o *EzsignsignatureResponseCompound) GetObjCreditcardmerchant() CustomCreditcardmerchantResponse`
+
+GetObjCreditcardmerchant returns the ObjCreditcardmerchant field if non-nil, zero value otherwise.
+
+### GetObjCreditcardmerchantOk
+
+`func (o *EzsignsignatureResponseCompound) GetObjCreditcardmerchantOk() (*CustomCreditcardmerchantResponse, bool)`
+
+GetObjCreditcardmerchantOk returns a tuple with the ObjCreditcardmerchant field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjCreditcardmerchant
+
+`func (o *EzsignsignatureResponseCompound) SetObjCreditcardmerchant(v CustomCreditcardmerchantResponse)`
+
+SetObjCreditcardmerchant sets ObjCreditcardmerchant field to given value.
+
+### HasObjCreditcardmerchant
+
+`func (o *EzsignsignatureResponseCompound) HasObjCreditcardmerchant() bool`
+
+HasObjCreditcardmerchant returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -121,6 +121,27 @@ func NewConfiguration() *Configuration {
 				},
 			},
 			{
+				URL: "https://{sInfrastructureenvironmenttypeDescription}.payment.{sInfrastructureregionCode}.ezmax.com/rest",
+				Description: "",
+				Variables: map[string]ServerVariable{
+					"sInfrastructureenvironmenttypeDescription": ServerVariable{
+						Description: "The environment on on which to call the API. Should always be \"prod\" unless instructed otherwise by support.",
+						DefaultValue: "prod",
+						EnumValues: []string{
+							"prod",
+							"dev",
+						},
+					},
+					"sInfrastructureregionCode": ServerVariable{
+						Description: "The region where your services are hosted.",
+						DefaultValue: "ca-central-1",
+						EnumValues: []string{
+							"ca-central-1",
+						},
+					},
+				},
+			},
+			{
 				URL: "https://{sInfrastructureenvironmenttypeDescription}.api.global.ezmax.com",
 				Description: "The server endpoint where to send your global API requests.",
 				Variables: map[string]ServerVariable{
@@ -157,6 +178,10 @@ func NewConfiguration() *Configuration {
 						},
 					},
 				},
+			},
+			{
+				URL: "https://www.example.com",
+				Description: "This is an example of an external server.",
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
