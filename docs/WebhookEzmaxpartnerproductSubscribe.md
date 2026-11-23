@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **AObjAttempt** | [**[]AttemptResponseCompound**](AttemptResponseCompound.md) | An array containing details of previous attempts that were made to deliver the message. The array is empty if it&#39;s the first attempt. | 
 **ObjEzmaxpartnerproduct** | [**CustomEzmaxpartnerproductSubscribe**](CustomEzmaxpartnerproductSubscribe.md) |  | 
 **SExternalID** | Pointer to **string** |  | [optional] 
-**SApikeyApikey** | **string** |  | 
-**SApikeySecret** | **string** |  | 
+**SApikeyApikey** | **string** | The Apikey for the API key.  This will be hidden if we are not creating or regenerating the Apikey. | 
+**SApikeySecret** | **string** | The secret of the Apikey | 
 
 ## Methods
 

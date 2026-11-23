@@ -27,8 +27,10 @@ type WebhookEzmaxpartnerproductSubscribe struct {
 	AObjAttempt []AttemptResponseCompound `json:"a_objAttempt"`
 	ObjEzmaxpartnerproduct CustomEzmaxpartnerproductSubscribe `json:"objEzmaxpartnerproduct"`
 	SExternalID *string `json:"sExternalID,omitempty" validate:"regexp=^.{0\\,128}$"`
+	// The Apikey for the API key.  This will be hidden if we are not creating or regenerating the Apikey.
 	SApikeyApikey string `json:"sApikeyApikey"`
-	SApikeySecret string `json:"sApikeySecret"`
+	// The secret of the Apikey
+	SApikeySecret string `json:"sApikeySecret" validate:"regexp=^[0-9a-fA-F]{1\\,32}$"`
 }
 
 type _WebhookEzmaxpartnerproductSubscribe WebhookEzmaxpartnerproductSubscribe

@@ -32,8 +32,8 @@ type ApikeyResponseCompound struct {
 	ObjContactName CustomContactNameResponse `json:"objContactName"`
 	// The Apikey for the API key.  This will be hidden if we are not creating or regenerating the Apikey.
 	SApikeyApikey *string `json:"sApikeyApikey,omitempty"`
-	// The Secret for the API key.  This will be hidden if we are not creating or regenerating the Apikey.
-	SApikeySecret *string `json:"sApikeySecret,omitempty"`
+	// The secret of the Apikey
+	SApikeySecret *string `json:"sApikeySecret,omitempty" validate:"regexp=^[0-9a-fA-F]{1\\,32}$"`
 	// Whether the apikey is active or not
 	BApikeyIsactive bool `json:"bApikeyIsactive"`
 	// Whether the apikey is signed or not

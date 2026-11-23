@@ -166,6 +166,8 @@ type APIClient struct {
 
 	ObjectEzmaxpartnerAPI *ObjectEzmaxpartnerAPIService
 
+	ObjectEzmaxpartnerproductstageAPI *ObjectEzmaxpartnerproductstageAPIService
+
 	ObjectEzmaxproductAPI *ObjectEzmaxproductAPIService
 
 	ObjectEzsignannotationAPI *ObjectEzsignannotationAPIService
@@ -439,6 +441,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ObjectEzmaxinvoicingAPI = (*ObjectEzmaxinvoicingAPIService)(&c.common)
 	c.ObjectEzmaxmaillinglistAPI = (*ObjectEzmaxmaillinglistAPIService)(&c.common)
 	c.ObjectEzmaxpartnerAPI = (*ObjectEzmaxpartnerAPIService)(&c.common)
+	c.ObjectEzmaxpartnerproductstageAPI = (*ObjectEzmaxpartnerproductstageAPIService)(&c.common)
 	c.ObjectEzmaxproductAPI = (*ObjectEzmaxproductAPIService)(&c.common)
 	c.ObjectEzsignannotationAPI = (*ObjectEzsignannotationAPIService)(&c.common)
 	c.ObjectEzsignbulksendAPI = (*ObjectEzsignbulksendAPIService)(&c.common)

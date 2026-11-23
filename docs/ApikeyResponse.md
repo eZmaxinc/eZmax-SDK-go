@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **ObjApikeyDescription** | [**MultilingualApikeyDescription**](MultilingualApikeyDescription.md) |  | 
 **ObjContactName** | [**CustomContactNameResponse**](CustomContactNameResponse.md) |  | 
 **SApikeyApikey** | Pointer to **string** | The Apikey for the API key.  This will be hidden if we are not creating or regenerating the Apikey. | [optional] 
-**SApikeySecret** | Pointer to **string** | The Secret for the API key.  This will be hidden if we are not creating or regenerating the Apikey. | [optional] 
+**SApikeySecret** | Pointer to **string** | The secret of the Apikey | [optional] 
 **BApikeyIsactive** | **bool** | Whether the apikey is active or not | 
 **BApikeyIssigned** | Pointer to **bool** | Whether the apikey is signed or not | [optional] 
 **ObjAudit** | [**CommonAudit**](CommonAudit.md) |  | 
