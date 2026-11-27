@@ -118,6 +118,8 @@ Get the list of Inscriptionchecklist to be used in a dropdown or autocomplete co
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param sSelector The type of Inscriptionchecklist to return
  @return ApiInscriptionchecklistGetAutocompleteV3Request
+
+Deprecated
 */
 func (a *ObjectInscriptionchecklistAPIService) InscriptionchecklistGetAutocompleteV3(ctx context.Context, sSelector string) ApiInscriptionchecklistGetAutocompleteV3Request {
 	return ApiInscriptionchecklistGetAutocompleteV3Request{
@@ -129,6 +131,7 @@ func (a *ObjectInscriptionchecklistAPIService) InscriptionchecklistGetAutocomple
 
 // Execute executes the request
 //  @return InscriptionchecklistGetAutocompleteV3Response
+// Deprecated
 func (a *ObjectInscriptionchecklistAPIService) InscriptionchecklistGetAutocompleteV3Execute(r ApiInscriptionchecklistGetAutocompleteV3Request) (*InscriptionchecklistGetAutocompleteV3Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet

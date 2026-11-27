@@ -9,7 +9,6 @@ Method | HTTP request | Description
 [**AttachmentGetAttachmentlogsV1**](ObjectAttachmentAPI.md#AttachmentGetAttachmentlogsV1) | **Get** /1/object/attachment/{pkiAttachmentID}/getAttachmentlogs | Retrieve the Attachmentlogs
 [**AttachmentRenameV1**](ObjectAttachmentAPI.md#AttachmentRenameV1) | **Post** /1/object/attachment/{pkiAttachmentID}/rename | Rename an attachment
 [**AttachmentRestoreV1**](ObjectAttachmentAPI.md#AttachmentRestoreV1) | **Post** /1/object/attachment/{pkiAttachmentID}/restore | Restore a deleted attachment
-[**AttachmentSetDocumentTypeV1**](ObjectAttachmentAPI.md#AttachmentSetDocumentTypeV1) | **Post** /1/object/attachment/{pkiAttachmentID}/setDocumentType | Change attachment document type
 [**AttachmentSetPrivacyV1**](ObjectAttachmentAPI.md#AttachmentSetPrivacyV1) | **Post** /1/object/attachment/{pkiAttachmentID}/setPrivacy | Change the attachment privacy
 [**AttachmentValidateV1**](ObjectAttachmentAPI.md#AttachmentValidateV1) | **Post** /1/object/attachment/{pkiAttachmentID}/validate | Validate an existing attachment
 
@@ -354,78 +353,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AttachmentRestoreV1Response**](AttachmentRestoreV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## AttachmentSetDocumentTypeV1
-
-> AttachmentSetDocumentTypeV1Response AttachmentSetDocumentTypeV1(ctx, pkiAttachmentID).AttachmentSetDocumentTypeV1Request(attachmentSetDocumentTypeV1Request).Execute()
-
-Change attachment document type
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiAttachmentID := int32(56) // int32 | 
-	attachmentSetDocumentTypeV1Request := *openapiclient.NewAttachmentSetDocumentTypeV1Request(NullableInt32(191)) // AttachmentSetDocumentTypeV1Request | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectAttachmentAPI.AttachmentSetDocumentTypeV1(context.Background(), pkiAttachmentID).AttachmentSetDocumentTypeV1Request(attachmentSetDocumentTypeV1Request).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectAttachmentAPI.AttachmentSetDocumentTypeV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `AttachmentSetDocumentTypeV1`: AttachmentSetDocumentTypeV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectAttachmentAPI.AttachmentSetDocumentTypeV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiAttachmentID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiAttachmentSetDocumentTypeV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **attachmentSetDocumentTypeV1Request** | [**AttachmentSetDocumentTypeV1Request**](AttachmentSetDocumentTypeV1Request.md) |  | 
-
-### Return type
-
-[**AttachmentSetDocumentTypeV1Response**](AttachmentSetDocumentTypeV1Response.md)
 
 ### Authorization
 
