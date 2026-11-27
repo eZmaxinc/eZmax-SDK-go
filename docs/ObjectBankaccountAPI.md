@@ -11,10 +11,8 @@ Method | HTTP request | Description
 [**BankaccountGetCommunicationListV1**](ObjectBankaccountAPI.md#BankaccountGetCommunicationListV1) | **Get** /1/object/bankaccount/{pkiBankaccountID}/getCommunicationList | Retrieve Communication list
 [**BankaccountGetCommunicationrecipientsV1**](ObjectBankaccountAPI.md#BankaccountGetCommunicationrecipientsV1) | **Get** /1/object/bankaccount/{pkiBankaccountID}/getCommunicationrecipients | Retrieve Communication recipients
 [**BankaccountGetCommunicationsendersV1**](ObjectBankaccountAPI.md#BankaccountGetCommunicationsendersV1) | **Get** /1/object/bankaccount/{pkiBankaccountID}/getCommunicationsenders | Retrieve Communication senders
-[**BankaccountGetDocumenttypechecklistV1**](ObjectBankaccountAPI.md#BankaccountGetDocumenttypechecklistV1) | **Get** /1/object/bankaccount/{pkiBankaccountID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**BankaccountGetListV1**](ObjectBankaccountAPI.md#BankaccountGetListV1) | **Get** /1/object/bankaccount/getList | Retrieve Bankaccount list
 [**BankaccountImportIntoEDMV1**](ObjectBankaccountAPI.md#BankaccountImportIntoEDMV1) | **Post** /1/object/bankaccount/{pkiBankaccountID}/importIntoEDM | Import attachments into the Bankaccount
-[**BankaccountSyncDocumenttypechecklistV1**](ObjectBankaccountAPI.md#BankaccountSyncDocumenttypechecklistV1) | **Post** /1/object/bankaccount/{pkiBankaccountID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 
@@ -504,74 +502,6 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## BankaccountGetDocumenttypechecklistV1
-
-> BankaccountGetDocumenttypechecklistV1Response BankaccountGetDocumenttypechecklistV1(ctx, pkiBankaccountID).Execute()
-
-Retrieve Document type checklist
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiBankaccountID := int32(56) // int32 | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectBankaccountAPI.BankaccountGetDocumenttypechecklistV1(context.Background(), pkiBankaccountID).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBankaccountAPI.BankaccountGetDocumenttypechecklistV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `BankaccountGetDocumenttypechecklistV1`: BankaccountGetDocumenttypechecklistV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectBankaccountAPI.BankaccountGetDocumenttypechecklistV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiBankaccountID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiBankaccountGetDocumenttypechecklistV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**BankaccountGetDocumenttypechecklistV1Response**](BankaccountGetDocumenttypechecklistV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## BankaccountGetListV1
 
 > BankaccountGetListV1Response BankaccountGetListV1(ctx).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
@@ -701,76 +631,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**BankaccountImportIntoEDMV1Response**](BankaccountImportIntoEDMV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## BankaccountSyncDocumenttypechecklistV1
-
-> BankaccountSyncDocumenttypechecklistV1Response BankaccountSyncDocumenttypechecklistV1(ctx, pkiBankaccountID).Body(body).Execute()
-
-Synchronize Document type checklist
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiBankaccountID := int32(56) // int32 | 
-	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectBankaccountAPI.BankaccountSyncDocumenttypechecklistV1(context.Background(), pkiBankaccountID).Body(body).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBankaccountAPI.BankaccountSyncDocumenttypechecklistV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `BankaccountSyncDocumenttypechecklistV1`: BankaccountSyncDocumenttypechecklistV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectBankaccountAPI.BankaccountSyncDocumenttypechecklistV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiBankaccountID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiBankaccountSyncDocumenttypechecklistV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **body** | **map[string]interface{}** |  | 
-
-### Return type
-
-[**BankaccountSyncDocumenttypechecklistV1Response**](BankaccountSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

@@ -10,10 +10,8 @@ Method | HTTP request | Description
 [**PurchaseGetCommunicationListV1**](ObjectPurchaseAPI.md#PurchaseGetCommunicationListV1) | **Get** /1/object/purchase/{pkiPurchaseID}/getCommunicationList | Retrieve Communication list
 [**PurchaseGetCommunicationrecipientsV1**](ObjectPurchaseAPI.md#PurchaseGetCommunicationrecipientsV1) | **Get** /1/object/purchase/{pkiPurchaseID}/getCommunicationrecipients | Retrieve Communication recipients
 [**PurchaseGetCommunicationsendersV1**](ObjectPurchaseAPI.md#PurchaseGetCommunicationsendersV1) | **Get** /1/object/purchase/{pkiPurchaseID}/getCommunicationsenders | Retrieve Communication senders
-[**PurchaseGetDocumenttypechecklistV1**](ObjectPurchaseAPI.md#PurchaseGetDocumenttypechecklistV1) | **Get** /1/object/purchase/{pkiPurchaseID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**PurchaseGetListV1**](ObjectPurchaseAPI.md#PurchaseGetListV1) | **Get** /1/object/purchase/getList | Retrieve Purchase list
 [**PurchaseImportIntoEDMV1**](ObjectPurchaseAPI.md#PurchaseImportIntoEDMV1) | **Post** /1/object/purchase/{pkiPurchaseID}/importIntoEDM | Import attachments into the Purchase
-[**PurchaseSyncDocumenttypechecklistV1**](ObjectPurchaseAPI.md#PurchaseSyncDocumenttypechecklistV1) | **Post** /1/object/purchase/{pkiPurchaseID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 
@@ -427,74 +425,6 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## PurchaseGetDocumenttypechecklistV1
-
-> PurchaseGetDocumenttypechecklistV1Response PurchaseGetDocumenttypechecklistV1(ctx, pkiPurchaseID).Execute()
-
-Retrieve Document type checklist
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiPurchaseID := int32(56) // int32 | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectPurchaseAPI.PurchaseGetDocumenttypechecklistV1(context.Background(), pkiPurchaseID).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectPurchaseAPI.PurchaseGetDocumenttypechecklistV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PurchaseGetDocumenttypechecklistV1`: PurchaseGetDocumenttypechecklistV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectPurchaseAPI.PurchaseGetDocumenttypechecklistV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiPurchaseID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiPurchaseGetDocumenttypechecklistV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**PurchaseGetDocumenttypechecklistV1Response**](PurchaseGetDocumenttypechecklistV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## PurchaseGetListV1
 
 > PurchaseGetListV1Response PurchaseGetListV1(ctx).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
@@ -624,76 +554,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PurchaseImportIntoEDMV1Response**](PurchaseImportIntoEDMV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## PurchaseSyncDocumenttypechecklistV1
-
-> PurchaseSyncDocumenttypechecklistV1Response PurchaseSyncDocumenttypechecklistV1(ctx, pkiPurchaseID).Body(body).Execute()
-
-Synchronize Document type checklist
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiPurchaseID := int32(56) // int32 | 
-	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectPurchaseAPI.PurchaseSyncDocumenttypechecklistV1(context.Background(), pkiPurchaseID).Body(body).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectPurchaseAPI.PurchaseSyncDocumenttypechecklistV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PurchaseSyncDocumenttypechecklistV1`: PurchaseSyncDocumenttypechecklistV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectPurchaseAPI.PurchaseSyncDocumenttypechecklistV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiPurchaseID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiPurchaseSyncDocumenttypechecklistV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **body** | **map[string]interface{}** |  | 
-
-### Return type
-
-[**PurchaseSyncDocumenttypechecklistV1Response**](PurchaseSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

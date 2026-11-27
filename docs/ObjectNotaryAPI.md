@@ -10,10 +10,8 @@ Method | HTTP request | Description
 [**NotaryGetCommunicationListV1**](ObjectNotaryAPI.md#NotaryGetCommunicationListV1) | **Get** /1/object/notary/{pkiNotaryID}/getCommunicationList | Retrieve Communication list
 [**NotaryGetCommunicationrecipientsV1**](ObjectNotaryAPI.md#NotaryGetCommunicationrecipientsV1) | **Get** /1/object/notary/{pkiNotaryID}/getCommunicationrecipients | Retrieve Communication recipients
 [**NotaryGetCommunicationsendersV1**](ObjectNotaryAPI.md#NotaryGetCommunicationsendersV1) | **Get** /1/object/notary/{pkiNotaryID}/getCommunicationsenders | Retrieve Communication senders
-[**NotaryGetDocumenttypechecklistV1**](ObjectNotaryAPI.md#NotaryGetDocumenttypechecklistV1) | **Get** /1/object/notary/{pkiNotaryID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**NotaryGetListV1**](ObjectNotaryAPI.md#NotaryGetListV1) | **Get** /1/object/notary/getList | Retrieve Notary list
 [**NotaryImportIntoEDMV1**](ObjectNotaryAPI.md#NotaryImportIntoEDMV1) | **Post** /1/object/notary/{pkiNotaryID}/importIntoEDM | Import attachments into the Notary
-[**NotarySyncDocumenttypechecklistV1**](ObjectNotaryAPI.md#NotarySyncDocumenttypechecklistV1) | **Post** /1/object/notary/{pkiNotaryID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 
@@ -427,74 +425,6 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## NotaryGetDocumenttypechecklistV1
-
-> NotaryGetDocumenttypechecklistV1Response NotaryGetDocumenttypechecklistV1(ctx, pkiNotaryID).Execute()
-
-Retrieve Document type checklist
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiNotaryID := int32(56) // int32 | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectNotaryAPI.NotaryGetDocumenttypechecklistV1(context.Background(), pkiNotaryID).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectNotaryAPI.NotaryGetDocumenttypechecklistV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `NotaryGetDocumenttypechecklistV1`: NotaryGetDocumenttypechecklistV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectNotaryAPI.NotaryGetDocumenttypechecklistV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiNotaryID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiNotaryGetDocumenttypechecklistV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**NotaryGetDocumenttypechecklistV1Response**](NotaryGetDocumenttypechecklistV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## NotaryGetListV1
 
 > NotaryGetListV1Response NotaryGetListV1(ctx).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
@@ -624,76 +554,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**NotaryImportIntoEDMV1Response**](NotaryImportIntoEDMV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## NotarySyncDocumenttypechecklistV1
-
-> NotarySyncDocumenttypechecklistV1Response NotarySyncDocumenttypechecklistV1(ctx, pkiNotaryID).Body(body).Execute()
-
-Synchronize Document type checklist
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiNotaryID := int32(56) // int32 | 
-	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectNotaryAPI.NotarySyncDocumenttypechecklistV1(context.Background(), pkiNotaryID).Body(body).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectNotaryAPI.NotarySyncDocumenttypechecklistV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `NotarySyncDocumenttypechecklistV1`: NotarySyncDocumenttypechecklistV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectNotaryAPI.NotarySyncDocumenttypechecklistV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiNotaryID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiNotarySyncDocumenttypechecklistV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **body** | **map[string]interface{}** |  | 
-
-### Return type
-
-[**NotarySyncDocumenttypechecklistV1Response**](NotarySyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

@@ -10,9 +10,7 @@ Method | HTTP request | Description
 [**PaymentpreparationGetCommunicationListV1**](ObjectPaymentpreparationAPI.md#PaymentpreparationGetCommunicationListV1) | **Get** /1/object/paymentpreparation/{pkiPaymentpreparationID}/getCommunicationList | Retrieve Communication list
 [**PaymentpreparationGetCommunicationrecipientsV1**](ObjectPaymentpreparationAPI.md#PaymentpreparationGetCommunicationrecipientsV1) | **Get** /1/object/paymentpreparation/{pkiPaymentpreparationID}/getCommunicationrecipients | Retrieve Communication recipients
 [**PaymentpreparationGetCommunicationsendersV1**](ObjectPaymentpreparationAPI.md#PaymentpreparationGetCommunicationsendersV1) | **Get** /1/object/paymentpreparation/{pkiPaymentpreparationID}/getCommunicationsenders | Retrieve Communication senders
-[**PaymentpreparationGetDocumenttypechecklistV1**](ObjectPaymentpreparationAPI.md#PaymentpreparationGetDocumenttypechecklistV1) | **Get** /1/object/paymentpreparation/{pkiPaymentpreparationID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**PaymentpreparationImportIntoEDMV1**](ObjectPaymentpreparationAPI.md#PaymentpreparationImportIntoEDMV1) | **Post** /1/object/paymentpreparation/{pkiPaymentpreparationID}/importIntoEDM | Import attachments into the Paymentpreparation
-[**PaymentpreparationSyncDocumenttypechecklistV1**](ObjectPaymentpreparationAPI.md#PaymentpreparationSyncDocumenttypechecklistV1) | **Post** /1/object/paymentpreparation/{pkiPaymentpreparationID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 
@@ -426,74 +424,6 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## PaymentpreparationGetDocumenttypechecklistV1
-
-> PaymentpreparationGetDocumenttypechecklistV1Response PaymentpreparationGetDocumenttypechecklistV1(ctx, pkiPaymentpreparationID).Execute()
-
-Retrieve Document type checklist
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiPaymentpreparationID := int32(56) // int32 | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectPaymentpreparationAPI.PaymentpreparationGetDocumenttypechecklistV1(context.Background(), pkiPaymentpreparationID).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectPaymentpreparationAPI.PaymentpreparationGetDocumenttypechecklistV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PaymentpreparationGetDocumenttypechecklistV1`: PaymentpreparationGetDocumenttypechecklistV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectPaymentpreparationAPI.PaymentpreparationGetDocumenttypechecklistV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiPaymentpreparationID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiPaymentpreparationGetDocumenttypechecklistV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**PaymentpreparationGetDocumenttypechecklistV1Response**](PaymentpreparationGetDocumenttypechecklistV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## PaymentpreparationImportIntoEDMV1
 
 > PaymentpreparationImportIntoEDMV1Response PaymentpreparationImportIntoEDMV1(ctx, pkiPaymentpreparationID).PaymentpreparationImportIntoEDMV1Request(paymentpreparationImportIntoEDMV1Request).Execute()
@@ -549,76 +479,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PaymentpreparationImportIntoEDMV1Response**](PaymentpreparationImportIntoEDMV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## PaymentpreparationSyncDocumenttypechecklistV1
-
-> PaymentpreparationSyncDocumenttypechecklistV1Response PaymentpreparationSyncDocumenttypechecklistV1(ctx, pkiPaymentpreparationID).Body(body).Execute()
-
-Synchronize Document type checklist
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiPaymentpreparationID := int32(56) // int32 | 
-	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectPaymentpreparationAPI.PaymentpreparationSyncDocumenttypechecklistV1(context.Background(), pkiPaymentpreparationID).Body(body).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectPaymentpreparationAPI.PaymentpreparationSyncDocumenttypechecklistV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PaymentpreparationSyncDocumenttypechecklistV1`: PaymentpreparationSyncDocumenttypechecklistV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectPaymentpreparationAPI.PaymentpreparationSyncDocumenttypechecklistV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiPaymentpreparationID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiPaymentpreparationSyncDocumenttypechecklistV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **body** | **map[string]interface{}** |  | 
-
-### Return type
-
-[**PaymentpreparationSyncDocumenttypechecklistV1Response**](PaymentpreparationSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

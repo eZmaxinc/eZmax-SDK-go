@@ -10,10 +10,8 @@ Method | HTTP request | Description
 [**SalaryGetCommunicationListV1**](ObjectSalaryAPI.md#SalaryGetCommunicationListV1) | **Get** /1/object/salary/{pkiSalaryID}/getCommunicationList | Retrieve Communication list
 [**SalaryGetCommunicationrecipientsV1**](ObjectSalaryAPI.md#SalaryGetCommunicationrecipientsV1) | **Get** /1/object/salary/{pkiSalaryID}/getCommunicationrecipients | Retrieve Communication recipients
 [**SalaryGetCommunicationsendersV1**](ObjectSalaryAPI.md#SalaryGetCommunicationsendersV1) | **Get** /1/object/salary/{pkiSalaryID}/getCommunicationsenders | Retrieve Communication senders
-[**SalaryGetDocumenttypechecklistV1**](ObjectSalaryAPI.md#SalaryGetDocumenttypechecklistV1) | **Get** /1/object/salary/{pkiSalaryID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**SalaryGetListV1**](ObjectSalaryAPI.md#SalaryGetListV1) | **Get** /1/object/salary/getList | Retrieve Salary list
 [**SalaryImportIntoEDMV1**](ObjectSalaryAPI.md#SalaryImportIntoEDMV1) | **Post** /1/object/salary/{pkiSalaryID}/importIntoEDM | Import attachments into the Salary
-[**SalarySyncDocumenttypechecklistV1**](ObjectSalaryAPI.md#SalarySyncDocumenttypechecklistV1) | **Post** /1/object/salary/{pkiSalaryID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 
@@ -427,74 +425,6 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## SalaryGetDocumenttypechecklistV1
-
-> SalaryGetDocumenttypechecklistV1Response SalaryGetDocumenttypechecklistV1(ctx, pkiSalaryID).Execute()
-
-Retrieve Document type checklist
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiSalaryID := int32(56) // int32 | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectSalaryAPI.SalaryGetDocumenttypechecklistV1(context.Background(), pkiSalaryID).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSalaryAPI.SalaryGetDocumenttypechecklistV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SalaryGetDocumenttypechecklistV1`: SalaryGetDocumenttypechecklistV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectSalaryAPI.SalaryGetDocumenttypechecklistV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiSalaryID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiSalaryGetDocumenttypechecklistV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**SalaryGetDocumenttypechecklistV1Response**](SalaryGetDocumenttypechecklistV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## SalaryGetListV1
 
 > SalaryGetListV1Response SalaryGetListV1(ctx).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
@@ -624,76 +554,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SalaryImportIntoEDMV1Response**](SalaryImportIntoEDMV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## SalarySyncDocumenttypechecklistV1
-
-> SalarySyncDocumenttypechecklistV1Response SalarySyncDocumenttypechecklistV1(ctx, pkiSalaryID).Body(body).Execute()
-
-Synchronize Document type checklist
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiSalaryID := int32(56) // int32 | 
-	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectSalaryAPI.SalarySyncDocumenttypechecklistV1(context.Background(), pkiSalaryID).Body(body).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSalaryAPI.SalarySyncDocumenttypechecklistV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SalarySyncDocumenttypechecklistV1`: SalarySyncDocumenttypechecklistV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectSalaryAPI.SalarySyncDocumenttypechecklistV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiSalaryID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiSalarySyncDocumenttypechecklistV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **body** | **map[string]interface{}** |  | 
-
-### Return type
-
-[**SalarySyncDocumenttypechecklistV1Response**](SalarySyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

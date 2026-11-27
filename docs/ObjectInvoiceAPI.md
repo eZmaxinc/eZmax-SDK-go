@@ -10,10 +10,8 @@ Method | HTTP request | Description
 [**InvoiceGetCommunicationListV1**](ObjectInvoiceAPI.md#InvoiceGetCommunicationListV1) | **Get** /1/object/invoice/{pkiInvoiceID}/getCommunicationList | Retrieve Communication list
 [**InvoiceGetCommunicationrecipientsV1**](ObjectInvoiceAPI.md#InvoiceGetCommunicationrecipientsV1) | **Get** /1/object/invoice/{pkiInvoiceID}/getCommunicationrecipients | Retrieve Invoice&#39;s Communicationrecipient
 [**InvoiceGetCommunicationsendersV1**](ObjectInvoiceAPI.md#InvoiceGetCommunicationsendersV1) | **Get** /1/object/invoice/{pkiInvoiceID}/getCommunicationsenders | Retrieve Invoice&#39;s Communicationsender
-[**InvoiceGetDocumenttypechecklistV1**](ObjectInvoiceAPI.md#InvoiceGetDocumenttypechecklistV1) | **Get** /1/object/invoice/{pkiInvoiceID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**InvoiceGetListV1**](ObjectInvoiceAPI.md#InvoiceGetListV1) | **Get** /1/object/invoice/getList | Retrieve Invoice list
 [**InvoiceImportIntoEDMV1**](ObjectInvoiceAPI.md#InvoiceImportIntoEDMV1) | **Post** /1/object/invoice/{pkiInvoiceID}/importIntoEDM | Import attachments into the Invoice
-[**InvoiceSyncDocumenttypechecklistV1**](ObjectInvoiceAPI.md#InvoiceSyncDocumenttypechecklistV1) | **Post** /1/object/invoice/{pkiInvoiceID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 
@@ -437,74 +435,6 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## InvoiceGetDocumenttypechecklistV1
-
-> InvoiceGetDocumenttypechecklistV1Response InvoiceGetDocumenttypechecklistV1(ctx, pkiInvoiceID).Execute()
-
-Retrieve Document type checklist
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiInvoiceID := int32(56) // int32 | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectInvoiceAPI.InvoiceGetDocumenttypechecklistV1(context.Background(), pkiInvoiceID).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectInvoiceAPI.InvoiceGetDocumenttypechecklistV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `InvoiceGetDocumenttypechecklistV1`: InvoiceGetDocumenttypechecklistV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectInvoiceAPI.InvoiceGetDocumenttypechecklistV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiInvoiceID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiInvoiceGetDocumenttypechecklistV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**InvoiceGetDocumenttypechecklistV1Response**](InvoiceGetDocumenttypechecklistV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## InvoiceGetListV1
 
 > InvoiceGetListV1Response InvoiceGetListV1(ctx).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
@@ -636,76 +566,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**InvoiceImportIntoEDMV1Response**](InvoiceImportIntoEDMV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## InvoiceSyncDocumenttypechecklistV1
-
-> InvoiceSyncDocumenttypechecklistV1Response InvoiceSyncDocumenttypechecklistV1(ctx, pkiInvoiceID).Body(body).Execute()
-
-Synchronize Document type checklist
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiInvoiceID := int32(56) // int32 | 
-	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectInvoiceAPI.InvoiceSyncDocumenttypechecklistV1(context.Background(), pkiInvoiceID).Body(body).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectInvoiceAPI.InvoiceSyncDocumenttypechecklistV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `InvoiceSyncDocumenttypechecklistV1`: InvoiceSyncDocumenttypechecklistV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectInvoiceAPI.InvoiceSyncDocumenttypechecklistV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiInvoiceID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiInvoiceSyncDocumenttypechecklistV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **body** | **map[string]interface{}** |  | 
-
-### Return type
-
-[**InvoiceSyncDocumenttypechecklistV1Response**](InvoiceSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

@@ -10,10 +10,8 @@ Method | HTTP request | Description
 [**DisclosureGetCommunicationListV1**](ObjectDisclosureAPI.md#DisclosureGetCommunicationListV1) | **Get** /1/object/disclosure/{pkiDisclosureID}/getCommunicationList | Retrieve Communication list
 [**DisclosureGetCommunicationrecipientsV1**](ObjectDisclosureAPI.md#DisclosureGetCommunicationrecipientsV1) | **Get** /1/object/disclosure/{pkiDisclosureID}/getCommunicationrecipients | Retrieve Communication recipients
 [**DisclosureGetCommunicationsendersV1**](ObjectDisclosureAPI.md#DisclosureGetCommunicationsendersV1) | **Get** /1/object/disclosure/{pkiDisclosureID}/getCommunicationsenders | Retrieve Communication senders
-[**DisclosureGetDocumenttypechecklistV1**](ObjectDisclosureAPI.md#DisclosureGetDocumenttypechecklistV1) | **Get** /1/object/disclosure/{pkiDisclosureID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**DisclosureGetListV1**](ObjectDisclosureAPI.md#DisclosureGetListV1) | **Get** /1/object/disclosure/getList | Retrieve Disclosure list
 [**DisclosureImportIntoEDMV1**](ObjectDisclosureAPI.md#DisclosureImportIntoEDMV1) | **Post** /1/object/disclosure/{pkiDisclosureID}/importIntoEDM | Import attachments into the Disclosure
-[**DisclosureSyncDocumenttypechecklistV1**](ObjectDisclosureAPI.md#DisclosureSyncDocumenttypechecklistV1) | **Post** /1/object/disclosure/{pkiDisclosureID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 
@@ -427,74 +425,6 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## DisclosureGetDocumenttypechecklistV1
-
-> DisclosureGetDocumenttypechecklistV1Response DisclosureGetDocumenttypechecklistV1(ctx, pkiDisclosureID).Execute()
-
-Retrieve Document type checklist
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiDisclosureID := int32(56) // int32 | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectDisclosureAPI.DisclosureGetDocumenttypechecklistV1(context.Background(), pkiDisclosureID).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectDisclosureAPI.DisclosureGetDocumenttypechecklistV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `DisclosureGetDocumenttypechecklistV1`: DisclosureGetDocumenttypechecklistV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectDisclosureAPI.DisclosureGetDocumenttypechecklistV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiDisclosureID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiDisclosureGetDocumenttypechecklistV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**DisclosureGetDocumenttypechecklistV1Response**](DisclosureGetDocumenttypechecklistV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## DisclosureGetListV1
 
 > DisclosureGetListV1Response DisclosureGetListV1(ctx).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
@@ -624,76 +554,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DisclosureImportIntoEDMV1Response**](DisclosureImportIntoEDMV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## DisclosureSyncDocumenttypechecklistV1
-
-> DisclosureSyncDocumenttypechecklistV1Response DisclosureSyncDocumenttypechecklistV1(ctx, pkiDisclosureID).Body(body).Execute()
-
-Synchronize Document type checklist
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiDisclosureID := int32(56) // int32 | 
-	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectDisclosureAPI.DisclosureSyncDocumenttypechecklistV1(context.Background(), pkiDisclosureID).Body(body).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectDisclosureAPI.DisclosureSyncDocumenttypechecklistV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `DisclosureSyncDocumenttypechecklistV1`: DisclosureSyncDocumenttypechecklistV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectDisclosureAPI.DisclosureSyncDocumenttypechecklistV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiDisclosureID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiDisclosureSyncDocumenttypechecklistV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **body** | **map[string]interface{}** |  | 
-
-### Return type
-
-[**DisclosureSyncDocumenttypechecklistV1Response**](DisclosureSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

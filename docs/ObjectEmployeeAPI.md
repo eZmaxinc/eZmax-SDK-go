@@ -10,10 +10,8 @@ Method | HTTP request | Description
 [**EmployeeGetCommunicationListV1**](ObjectEmployeeAPI.md#EmployeeGetCommunicationListV1) | **Get** /1/object/employee/{pkiEmployeeID}/getCommunicationList | Retrieve Communication list
 [**EmployeeGetCommunicationrecipientsV1**](ObjectEmployeeAPI.md#EmployeeGetCommunicationrecipientsV1) | **Get** /1/object/employee/{pkiEmployeeID}/getCommunicationrecipients | Retrieve Communication recipients
 [**EmployeeGetCommunicationsendersV1**](ObjectEmployeeAPI.md#EmployeeGetCommunicationsendersV1) | **Get** /1/object/employee/{pkiEmployeeID}/getCommunicationsenders | Retrieve Communication senders
-[**EmployeeGetDocumenttypechecklistV1**](ObjectEmployeeAPI.md#EmployeeGetDocumenttypechecklistV1) | **Get** /1/object/employee/{pkiEmployeeID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**EmployeeGetListV1**](ObjectEmployeeAPI.md#EmployeeGetListV1) | **Get** /1/object/employee/getList | Retrieve Employee list
 [**EmployeeImportIntoEDMV1**](ObjectEmployeeAPI.md#EmployeeImportIntoEDMV1) | **Post** /1/object/employee/{pkiEmployeeID}/importIntoEDM | Import attachments into the Employee
-[**EmployeeSyncDocumenttypechecklistV1**](ObjectEmployeeAPI.md#EmployeeSyncDocumenttypechecklistV1) | **Post** /1/object/employee/{pkiEmployeeID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 
@@ -427,74 +425,6 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## EmployeeGetDocumenttypechecklistV1
-
-> EmployeeGetDocumenttypechecklistV1Response EmployeeGetDocumenttypechecklistV1(ctx, pkiEmployeeID).Execute()
-
-Retrieve Document type checklist
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiEmployeeID := int32(56) // int32 | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectEmployeeAPI.EmployeeGetDocumenttypechecklistV1(context.Background(), pkiEmployeeID).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEmployeeAPI.EmployeeGetDocumenttypechecklistV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `EmployeeGetDocumenttypechecklistV1`: EmployeeGetDocumenttypechecklistV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectEmployeeAPI.EmployeeGetDocumenttypechecklistV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiEmployeeID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiEmployeeGetDocumenttypechecklistV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**EmployeeGetDocumenttypechecklistV1Response**](EmployeeGetDocumenttypechecklistV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## EmployeeGetListV1
 
 > EmployeeGetListV1Response EmployeeGetListV1(ctx).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
@@ -626,76 +556,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmployeeImportIntoEDMV1Response**](EmployeeImportIntoEDMV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## EmployeeSyncDocumenttypechecklistV1
-
-> EmployeeSyncDocumenttypechecklistV1Response EmployeeSyncDocumenttypechecklistV1(ctx, pkiEmployeeID).Body(body).Execute()
-
-Synchronize Document type checklist
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiEmployeeID := int32(56) // int32 | 
-	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectEmployeeAPI.EmployeeSyncDocumenttypechecklistV1(context.Background(), pkiEmployeeID).Body(body).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEmployeeAPI.EmployeeSyncDocumenttypechecklistV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `EmployeeSyncDocumenttypechecklistV1`: EmployeeSyncDocumenttypechecklistV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectEmployeeAPI.EmployeeSyncDocumenttypechecklistV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiEmployeeID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiEmployeeSyncDocumenttypechecklistV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **body** | **map[string]interface{}** |  | 
-
-### Return type
-
-[**EmployeeSyncDocumenttypechecklistV1Response**](EmployeeSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

@@ -10,9 +10,7 @@ Method | HTTP request | Description
 [**FolderGetCommunicationListV1**](ObjectFolderAPI.md#FolderGetCommunicationListV1) | **Get** /1/object/folder/{pkiFolderID}/getCommunicationList | Retrieve Communication list
 [**FolderGetCommunicationrecipientsV1**](ObjectFolderAPI.md#FolderGetCommunicationrecipientsV1) | **Get** /1/object/folder/{pkiFolderID}/getCommunicationrecipients | Retrieve Communication recipients
 [**FolderGetCommunicationsendersV1**](ObjectFolderAPI.md#FolderGetCommunicationsendersV1) | **Get** /1/object/folder/{pkiFolderID}/getCommunicationsenders | Retrieve Communication senders
-[**FolderGetDocumenttypechecklistV1**](ObjectFolderAPI.md#FolderGetDocumenttypechecklistV1) | **Get** /1/object/folder/{pkiFolderID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**FolderImportIntoEDMV1**](ObjectFolderAPI.md#FolderImportIntoEDMV1) | **Post** /1/object/folder/{pkiFolderID}/importIntoEDM | Import attachments into the Folder
-[**FolderSyncDocumenttypechecklistV1**](ObjectFolderAPI.md#FolderSyncDocumenttypechecklistV1) | **Post** /1/object/folder/{pkiFolderID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 
@@ -426,74 +424,6 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## FolderGetDocumenttypechecklistV1
-
-> FolderGetDocumenttypechecklistV1Response FolderGetDocumenttypechecklistV1(ctx, pkiFolderID).Execute()
-
-Retrieve Document type checklist
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiFolderID := int32(56) // int32 | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectFolderAPI.FolderGetDocumenttypechecklistV1(context.Background(), pkiFolderID).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectFolderAPI.FolderGetDocumenttypechecklistV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `FolderGetDocumenttypechecklistV1`: FolderGetDocumenttypechecklistV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectFolderAPI.FolderGetDocumenttypechecklistV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiFolderID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiFolderGetDocumenttypechecklistV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**FolderGetDocumenttypechecklistV1Response**](FolderGetDocumenttypechecklistV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## FolderImportIntoEDMV1
 
 > FolderImportIntoEDMV1Response FolderImportIntoEDMV1(ctx, pkiFolderID).FolderImportIntoEDMV1Request(folderImportIntoEDMV1Request).Execute()
@@ -549,76 +479,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**FolderImportIntoEDMV1Response**](FolderImportIntoEDMV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## FolderSyncDocumenttypechecklistV1
-
-> FolderSyncDocumenttypechecklistV1Response FolderSyncDocumenttypechecklistV1(ctx, pkiFolderID).Body(body).Execute()
-
-Synchronize Document type checklist
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiFolderID := int32(56) // int32 | 
-	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectFolderAPI.FolderSyncDocumenttypechecklistV1(context.Background(), pkiFolderID).Body(body).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectFolderAPI.FolderSyncDocumenttypechecklistV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `FolderSyncDocumenttypechecklistV1`: FolderSyncDocumenttypechecklistV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectFolderAPI.FolderSyncDocumenttypechecklistV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiFolderID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiFolderSyncDocumenttypechecklistV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **body** | **map[string]interface{}** |  | 
-
-### Return type
-
-[**FolderSyncDocumenttypechecklistV1Response**](FolderSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

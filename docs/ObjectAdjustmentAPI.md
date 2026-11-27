@@ -10,10 +10,8 @@ Method | HTTP request | Description
 [**AdjustmentGetCommunicationListV1**](ObjectAdjustmentAPI.md#AdjustmentGetCommunicationListV1) | **Get** /1/object/adjustment/{pkiAdjustmentID}/getCommunicationList | Retrieve Communication list
 [**AdjustmentGetCommunicationrecipientsV1**](ObjectAdjustmentAPI.md#AdjustmentGetCommunicationrecipientsV1) | **Get** /1/object/adjustment/{pkiAdjustmentID}/getCommunicationrecipients | Retrieve Communication recipients
 [**AdjustmentGetCommunicationsendersV1**](ObjectAdjustmentAPI.md#AdjustmentGetCommunicationsendersV1) | **Get** /1/object/adjustment/{pkiAdjustmentID}/getCommunicationsenders | Retrieve Communication senders
-[**AdjustmentGetDocumenttypechecklistV1**](ObjectAdjustmentAPI.md#AdjustmentGetDocumenttypechecklistV1) | **Get** /1/object/adjustment/{pkiAdjustmentID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**AdjustmentGetListV1**](ObjectAdjustmentAPI.md#AdjustmentGetListV1) | **Get** /1/object/adjustment/getList | Retrieve Adjustment list
 [**AdjustmentImportIntoEDMV1**](ObjectAdjustmentAPI.md#AdjustmentImportIntoEDMV1) | **Post** /1/object/adjustment/{pkiAdjustmentID}/importIntoEDM | Import attachments into the Adjustment
-[**AdjustmentSyncDocumenttypechecklistV1**](ObjectAdjustmentAPI.md#AdjustmentSyncDocumenttypechecklistV1) | **Post** /1/object/adjustment/{pkiAdjustmentID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 
@@ -427,74 +425,6 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## AdjustmentGetDocumenttypechecklistV1
-
-> AdjustmentGetDocumenttypechecklistV1Response AdjustmentGetDocumenttypechecklistV1(ctx, pkiAdjustmentID).Execute()
-
-Retrieve Document type checklist
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiAdjustmentID := int32(56) // int32 | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectAdjustmentAPI.AdjustmentGetDocumenttypechecklistV1(context.Background(), pkiAdjustmentID).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectAdjustmentAPI.AdjustmentGetDocumenttypechecklistV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `AdjustmentGetDocumenttypechecklistV1`: AdjustmentGetDocumenttypechecklistV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectAdjustmentAPI.AdjustmentGetDocumenttypechecklistV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiAdjustmentID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiAdjustmentGetDocumenttypechecklistV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**AdjustmentGetDocumenttypechecklistV1Response**](AdjustmentGetDocumenttypechecklistV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## AdjustmentGetListV1
 
 > AdjustmentGetListV1Response AdjustmentGetListV1(ctx).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
@@ -624,76 +554,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AdjustmentImportIntoEDMV1Response**](AdjustmentImportIntoEDMV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## AdjustmentSyncDocumenttypechecklistV1
-
-> AdjustmentSyncDocumenttypechecklistV1Response AdjustmentSyncDocumenttypechecklistV1(ctx, pkiAdjustmentID).Body(body).Execute()
-
-Synchronize Document type checklist
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiAdjustmentID := int32(56) // int32 | 
-	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectAdjustmentAPI.AdjustmentSyncDocumenttypechecklistV1(context.Background(), pkiAdjustmentID).Body(body).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectAdjustmentAPI.AdjustmentSyncDocumenttypechecklistV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `AdjustmentSyncDocumenttypechecklistV1`: AdjustmentSyncDocumenttypechecklistV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectAdjustmentAPI.AdjustmentSyncDocumenttypechecklistV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiAdjustmentID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiAdjustmentSyncDocumenttypechecklistV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **body** | **map[string]interface{}** |  | 
-
-### Return type
-
-[**AdjustmentSyncDocumenttypechecklistV1Response**](AdjustmentSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

@@ -10,13 +10,11 @@ Method | HTTP request | Description
 [**InscriptionGetCommunicationListV1**](ObjectInscriptionAPI.md#InscriptionGetCommunicationListV1) | **Get** /1/object/inscription/{pkiInscriptionID}/getCommunicationList | Retrieve Communication list
 [**InscriptionGetCommunicationrecipientsV1**](ObjectInscriptionAPI.md#InscriptionGetCommunicationrecipientsV1) | **Get** /1/object/inscription/{pkiInscriptionID}/getCommunicationrecipients | Retrieve Inscription&#39;s Communicationrecipient
 [**InscriptionGetCommunicationsendersV1**](ObjectInscriptionAPI.md#InscriptionGetCommunicationsendersV1) | **Get** /1/object/inscription/{pkiInscriptionID}/getCommunicationsenders | Retrieve Inscription&#39;s Communicationsender
-[**InscriptionGetDocumenttypechecklistV1**](ObjectInscriptionAPI.md#InscriptionGetDocumenttypechecklistV1) | **Get** /1/object/inscription/{pkiInscriptionID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**InscriptionGetInscriptionnotauthenticatedsV1**](ObjectInscriptionAPI.md#InscriptionGetInscriptionnotauthenticatedsV1) | **Get** /1/object/inscription/{pkiInscriptionID}/getInscriptionnotauthenticateds | Retrieve Inscription&#39;s Inscriptionnotauthenticated
 [**InscriptionGetListV1**](ObjectInscriptionAPI.md#InscriptionGetListV1) | **Get** /1/object/inscription/getList | Retrieve Inscription list
 [**InscriptionGetObjectV2**](ObjectInscriptionAPI.md#InscriptionGetObjectV2) | **Get** /2/object/inscription/{pkiInscriptionID} | Retrieve an existing Inscription
 [**InscriptionImportIntoEDMV1**](ObjectInscriptionAPI.md#InscriptionImportIntoEDMV1) | **Post** /1/object/inscription/{pkiInscriptionID}/importIntoEDM | Import attachments into the Inscription
 [**InscriptionPrepareFilesTransferV1**](ObjectInscriptionAPI.md#InscriptionPrepareFilesTransferV1) | **Post** /1/object/inscription/{pkiInscriptionID}/prepareFilesTransfer | Prepares file transfer into EDM
-[**InscriptionSyncDocumenttypechecklistV1**](ObjectInscriptionAPI.md#InscriptionSyncDocumenttypechecklistV1) | **Post** /1/object/inscription/{pkiInscriptionID}/syncDocumenttypechecklist | Synchronize Document type checklist
 [**InscriptionSynchronizationDocumenttypeV1**](ObjectInscriptionAPI.md#InscriptionSynchronizationDocumenttypeV1) | **Post** /1/object/inscription/{pkiInscriptionID}/synchronizationDocumenttype | Synchronization of the Documenttype in the Inscription
 
 
@@ -441,74 +439,6 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## InscriptionGetDocumenttypechecklistV1
-
-> InscriptionGetDocumenttypechecklistV1Response InscriptionGetDocumenttypechecklistV1(ctx, pkiInscriptionID).Execute()
-
-Retrieve Document type checklist
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiInscriptionID := int32(56) // int32 | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectInscriptionAPI.InscriptionGetDocumenttypechecklistV1(context.Background(), pkiInscriptionID).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectInscriptionAPI.InscriptionGetDocumenttypechecklistV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `InscriptionGetDocumenttypechecklistV1`: InscriptionGetDocumenttypechecklistV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectInscriptionAPI.InscriptionGetDocumenttypechecklistV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiInscriptionID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiInscriptionGetDocumenttypechecklistV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**InscriptionGetDocumenttypechecklistV1Response**](InscriptionGetDocumenttypechecklistV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## InscriptionGetInscriptionnotauthenticatedsV1
 
 > InscriptionGetInscriptionnotauthenticatedsV1Response InscriptionGetInscriptionnotauthenticatedsV1(ctx, pkiInscriptionID).Execute()
@@ -850,76 +780,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**InscriptionPrepareFilesTransferV1Response**](InscriptionPrepareFilesTransferV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## InscriptionSyncDocumenttypechecklistV1
-
-> InscriptionSyncDocumenttypechecklistV1Response InscriptionSyncDocumenttypechecklistV1(ctx, pkiInscriptionID).Body(body).Execute()
-
-Synchronize Document type checklist
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiInscriptionID := int32(56) // int32 | 
-	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectInscriptionAPI.InscriptionSyncDocumenttypechecklistV1(context.Background(), pkiInscriptionID).Body(body).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectInscriptionAPI.InscriptionSyncDocumenttypechecklistV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `InscriptionSyncDocumenttypechecklistV1`: InscriptionSyncDocumenttypechecklistV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectInscriptionAPI.InscriptionSyncDocumenttypechecklistV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiInscriptionID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiInscriptionSyncDocumenttypechecklistV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **body** | **map[string]interface{}** |  | 
-
-### Return type
-
-[**InscriptionSyncDocumenttypechecklistV1Response**](InscriptionSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

@@ -8,9 +8,7 @@ Method | HTTP request | Description
 [**TranqcontractGetCommunicationListV1**](ObjectTranqcontractAPI.md#TranqcontractGetCommunicationListV1) | **Get** /1/object/tranqcontract/{pkiTranqcontractID}/getCommunicationList | Retrieve Communication list
 [**TranqcontractGetCommunicationrecipientsV1**](ObjectTranqcontractAPI.md#TranqcontractGetCommunicationrecipientsV1) | **Get** /1/object/tranqcontract/{pkiTranqcontractID}/getCommunicationrecipients | Retrieve Tranqcontract&#39;s Communicationrecipient
 [**TranqcontractGetCommunicationsendersV1**](ObjectTranqcontractAPI.md#TranqcontractGetCommunicationsendersV1) | **Get** /1/object/tranqcontract/{pkiTranqcontractID}/getCommunicationsenders | Retrieve Tranqcontract&#39;s Communicationsender
-[**TranqcontractGetDocumenttypechecklistV1**](ObjectTranqcontractAPI.md#TranqcontractGetDocumenttypechecklistV1) | **Get** /1/object/tranqcontract/{pkiTranqcontractID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**TranqcontractImportIntoEDMV1**](ObjectTranqcontractAPI.md#TranqcontractImportIntoEDMV1) | **Post** /1/object/tranqcontract/{pkiTranqcontractID}/importIntoEDM | Import attachments into the Tranqcontract
-[**TranqcontractSyncDocumenttypechecklistV1**](ObjectTranqcontractAPI.md#TranqcontractSyncDocumenttypechecklistV1) | **Post** /1/object/tranqcontract/{pkiTranqcontractID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 
@@ -294,74 +292,6 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## TranqcontractGetDocumenttypechecklistV1
-
-> TranqcontractGetDocumenttypechecklistV1Response TranqcontractGetDocumenttypechecklistV1(ctx, pkiTranqcontractID).Execute()
-
-Retrieve Document type checklist
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiTranqcontractID := int32(56) // int32 | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectTranqcontractAPI.TranqcontractGetDocumenttypechecklistV1(context.Background(), pkiTranqcontractID).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectTranqcontractAPI.TranqcontractGetDocumenttypechecklistV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `TranqcontractGetDocumenttypechecklistV1`: TranqcontractGetDocumenttypechecklistV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectTranqcontractAPI.TranqcontractGetDocumenttypechecklistV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiTranqcontractID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiTranqcontractGetDocumenttypechecklistV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**TranqcontractGetDocumenttypechecklistV1Response**](TranqcontractGetDocumenttypechecklistV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## TranqcontractImportIntoEDMV1
 
 > TranqcontractImportIntoEDMV1Response TranqcontractImportIntoEDMV1(ctx, pkiTranqcontractID).TranqcontractImportIntoEDMV1Request(tranqcontractImportIntoEDMV1Request).Execute()
@@ -419,76 +349,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TranqcontractImportIntoEDMV1Response**](TranqcontractImportIntoEDMV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## TranqcontractSyncDocumenttypechecklistV1
-
-> TranqcontractSyncDocumenttypechecklistV1Response TranqcontractSyncDocumenttypechecklistV1(ctx, pkiTranqcontractID).Body(body).Execute()
-
-Synchronize Document type checklist
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiTranqcontractID := int32(56) // int32 | 
-	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectTranqcontractAPI.TranqcontractSyncDocumenttypechecklistV1(context.Background(), pkiTranqcontractID).Body(body).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectTranqcontractAPI.TranqcontractSyncDocumenttypechecklistV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `TranqcontractSyncDocumenttypechecklistV1`: TranqcontractSyncDocumenttypechecklistV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectTranqcontractAPI.TranqcontractSyncDocumenttypechecklistV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiTranqcontractID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiTranqcontractSyncDocumenttypechecklistV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **body** | **map[string]interface{}** |  | 
-
-### Return type
-
-[**TranqcontractSyncDocumenttypechecklistV1Response**](TranqcontractSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

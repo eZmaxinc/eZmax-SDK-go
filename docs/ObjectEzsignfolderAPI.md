@@ -25,7 +25,6 @@ Method | HTTP request | Description
 [**EzsignfolderGetCommunicationListV1**](ObjectEzsignfolderAPI.md#EzsignfolderGetCommunicationListV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getCommunicationList | Retrieve Communication list
 [**EzsignfolderGetCommunicationrecipientsV1**](ObjectEzsignfolderAPI.md#EzsignfolderGetCommunicationrecipientsV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getCommunicationrecipients | Retrieve Ezsignfolder&#39;s Communicationrecipient
 [**EzsignfolderGetCommunicationsendersV1**](ObjectEzsignfolderAPI.md#EzsignfolderGetCommunicationsendersV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getCommunicationsenders | Retrieve Ezsignfolder&#39;s Communicationsender
-[**EzsignfolderGetDocumenttypechecklistV1**](ObjectEzsignfolderAPI.md#EzsignfolderGetDocumenttypechecklistV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**EzsignfolderGetEzsignannotationsV1**](ObjectEzsignfolderAPI.md#EzsignfolderGetEzsignannotationsV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignannotations | Retrieve an existing Ezsignfolder&#39;s Ezsignannotations
 [**EzsignfolderGetEzsigndocumentsV1**](ObjectEzsignfolderAPI.md#EzsignfolderGetEzsigndocumentsV1) | **Get** /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsigndocuments | Retrieve an existing Ezsignfolder&#39;s Ezsigndocuments
 [**EzsignfolderGetEzsigndocumentsV2**](ObjectEzsignfolderAPI.md#EzsignfolderGetEzsigndocumentsV2) | **Get** /2/object/ezsignfolder/{pkiEzsignfolderID}/getEzsigndocuments | Retrieve an existing Ezsignfolder&#39;s Ezsigndocuments
@@ -46,7 +45,6 @@ Method | HTTP request | Description
 [**EzsignfolderReorderV2**](ObjectEzsignfolderAPI.md#EzsignfolderReorderV2) | **Post** /2/object/ezsignfolder/{pkiEzsignfolderID}/reorder | Reorder Ezsigndocuments in the Ezsignfolder
 [**EzsignfolderSendV1**](ObjectEzsignfolderAPI.md#EzsignfolderSendV1) | **Post** /1/object/ezsignfolder/{pkiEzsignfolderID}/send | Send the Ezsignfolder to the signatories for signature
 [**EzsignfolderSendV3**](ObjectEzsignfolderAPI.md#EzsignfolderSendV3) | **Post** /3/object/ezsignfolder/{pkiEzsignfolderID}/send | Send the Ezsignfolder to the signatories for signature
-[**EzsignfolderSyncDocumenttypechecklistV1**](ObjectEzsignfolderAPI.md#EzsignfolderSyncDocumenttypechecklistV1) | **Post** /1/object/ezsignfolder/{pkiEzsignfolderID}/syncDocumenttypechecklist | Synchronize Document type checklist
 [**EzsignfolderUnsendV1**](ObjectEzsignfolderAPI.md#EzsignfolderUnsendV1) | **Post** /1/object/ezsignfolder/{pkiEzsignfolderID}/unsend | Unsend the Ezsignfolder
 
 
@@ -1519,74 +1517,6 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## EzsignfolderGetDocumenttypechecklistV1
-
-> EzsignfolderGetDocumenttypechecklistV1Response EzsignfolderGetDocumenttypechecklistV1(ctx, pkiEzsignfolderID).Execute()
-
-Retrieve Document type checklist
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiEzsignfolderID := int32(56) // int32 | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderGetDocumenttypechecklistV1(context.Background(), pkiEzsignfolderID).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderGetDocumenttypechecklistV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `EzsignfolderGetDocumenttypechecklistV1`: EzsignfolderGetDocumenttypechecklistV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderGetDocumenttypechecklistV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiEzsignfolderID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiEzsignfolderGetDocumenttypechecklistV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**EzsignfolderGetDocumenttypechecklistV1Response**](EzsignfolderGetDocumenttypechecklistV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## EzsignfolderGetEzsignannotationsV1
 
 > EzsignfolderGetEzsignannotationsV1Response EzsignfolderGetEzsignannotationsV1(ctx, pkiEzsignfolderID).Execute()
@@ -2986,76 +2916,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignfolderSendV3Response**](EzsignfolderSendV3Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## EzsignfolderSyncDocumenttypechecklistV1
-
-> EzsignfolderSyncDocumenttypechecklistV1Response EzsignfolderSyncDocumenttypechecklistV1(ctx, pkiEzsignfolderID).Body(body).Execute()
-
-Synchronize Document type checklist
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiEzsignfolderID := int32(56) // int32 | 
-	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectEzsignfolderAPI.EzsignfolderSyncDocumenttypechecklistV1(context.Background(), pkiEzsignfolderID).Body(body).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectEzsignfolderAPI.EzsignfolderSyncDocumenttypechecklistV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `EzsignfolderSyncDocumenttypechecklistV1`: EzsignfolderSyncDocumenttypechecklistV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectEzsignfolderAPI.EzsignfolderSyncDocumenttypechecklistV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiEzsignfolderID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiEzsignfolderSyncDocumenttypechecklistV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **body** | **map[string]interface{}** |  | 
-
-### Return type
-
-[**EzsignfolderSyncDocumenttypechecklistV1Response**](EzsignfolderSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

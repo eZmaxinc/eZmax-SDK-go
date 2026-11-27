@@ -10,10 +10,8 @@ Method | HTTP request | Description
 [**LeadGetCommunicationListV1**](ObjectLeadAPI.md#LeadGetCommunicationListV1) | **Get** /1/object/lead/{pkiLeadID}/getCommunicationList | Retrieve Communication list
 [**LeadGetCommunicationrecipientsV1**](ObjectLeadAPI.md#LeadGetCommunicationrecipientsV1) | **Get** /1/object/lead/{pkiLeadID}/getCommunicationrecipients | Retrieve Communication recipients
 [**LeadGetCommunicationsendersV1**](ObjectLeadAPI.md#LeadGetCommunicationsendersV1) | **Get** /1/object/lead/{pkiLeadID}/getCommunicationsenders | Retrieve Communication senders
-[**LeadGetDocumenttypechecklistV1**](ObjectLeadAPI.md#LeadGetDocumenttypechecklistV1) | **Get** /1/object/lead/{pkiLeadID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**LeadGetListV1**](ObjectLeadAPI.md#LeadGetListV1) | **Get** /1/object/lead/getList | Retrieve Lead list
 [**LeadImportIntoEDMV1**](ObjectLeadAPI.md#LeadImportIntoEDMV1) | **Post** /1/object/lead/{pkiLeadID}/importIntoEDM | Import attachments into the Lead
-[**LeadSyncDocumenttypechecklistV1**](ObjectLeadAPI.md#LeadSyncDocumenttypechecklistV1) | **Post** /1/object/lead/{pkiLeadID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 
@@ -427,74 +425,6 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## LeadGetDocumenttypechecklistV1
-
-> LeadGetDocumenttypechecklistV1Response LeadGetDocumenttypechecklistV1(ctx, pkiLeadID).Execute()
-
-Retrieve Document type checklist
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiLeadID := int32(56) // int32 | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectLeadAPI.LeadGetDocumenttypechecklistV1(context.Background(), pkiLeadID).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectLeadAPI.LeadGetDocumenttypechecklistV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `LeadGetDocumenttypechecklistV1`: LeadGetDocumenttypechecklistV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectLeadAPI.LeadGetDocumenttypechecklistV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiLeadID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiLeadGetDocumenttypechecklistV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**LeadGetDocumenttypechecklistV1Response**](LeadGetDocumenttypechecklistV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## LeadGetListV1
 
 > LeadGetListV1Response LeadGetListV1(ctx).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
@@ -626,76 +556,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**LeadImportIntoEDMV1Response**](LeadImportIntoEDMV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## LeadSyncDocumenttypechecklistV1
-
-> LeadSyncDocumenttypechecklistV1Response LeadSyncDocumenttypechecklistV1(ctx, pkiLeadID).Body(body).Execute()
-
-Synchronize Document type checklist
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiLeadID := int32(56) // int32 | 
-	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectLeadAPI.LeadSyncDocumenttypechecklistV1(context.Background(), pkiLeadID).Body(body).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectLeadAPI.LeadSyncDocumenttypechecklistV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `LeadSyncDocumenttypechecklistV1`: LeadSyncDocumenttypechecklistV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectLeadAPI.LeadSyncDocumenttypechecklistV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiLeadID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiLeadSyncDocumenttypechecklistV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **body** | **map[string]interface{}** |  | 
-
-### Return type
-
-[**LeadSyncDocumenttypechecklistV1Response**](LeadSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

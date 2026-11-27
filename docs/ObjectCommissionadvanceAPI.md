@@ -10,9 +10,7 @@ Method | HTTP request | Description
 [**CommissionadvanceGetCommunicationListV1**](ObjectCommissionadvanceAPI.md#CommissionadvanceGetCommunicationListV1) | **Get** /1/object/commissionadvance/{pkiCommissionadvanceID}/getCommunicationList | Retrieve Communication list
 [**CommissionadvanceGetCommunicationrecipientsV1**](ObjectCommissionadvanceAPI.md#CommissionadvanceGetCommunicationrecipientsV1) | **Get** /1/object/commissionadvance/{pkiCommissionadvanceID}/getCommunicationrecipients | Retrieve Communication recipients
 [**CommissionadvanceGetCommunicationsendersV1**](ObjectCommissionadvanceAPI.md#CommissionadvanceGetCommunicationsendersV1) | **Get** /1/object/commissionadvance/{pkiCommissionadvanceID}/getCommunicationsenders | Retrieve Communication senders
-[**CommissionadvanceGetDocumenttypechecklistV1**](ObjectCommissionadvanceAPI.md#CommissionadvanceGetDocumenttypechecklistV1) | **Get** /1/object/commissionadvance/{pkiCommissionadvanceID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**CommissionadvanceImportIntoEDMV1**](ObjectCommissionadvanceAPI.md#CommissionadvanceImportIntoEDMV1) | **Post** /1/object/commissionadvance/{pkiCommissionadvanceID}/importIntoEDM | Import attachments into the Commissionadvance
-[**CommissionadvanceSyncDocumenttypechecklistV1**](ObjectCommissionadvanceAPI.md#CommissionadvanceSyncDocumenttypechecklistV1) | **Post** /1/object/commissionadvance/{pkiCommissionadvanceID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 
@@ -426,74 +424,6 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## CommissionadvanceGetDocumenttypechecklistV1
-
-> CommissionadvanceGetDocumenttypechecklistV1Response CommissionadvanceGetDocumenttypechecklistV1(ctx, pkiCommissionadvanceID).Execute()
-
-Retrieve Document type checklist
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiCommissionadvanceID := int32(56) // int32 | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectCommissionadvanceAPI.CommissionadvanceGetDocumenttypechecklistV1(context.Background(), pkiCommissionadvanceID).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectCommissionadvanceAPI.CommissionadvanceGetDocumenttypechecklistV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CommissionadvanceGetDocumenttypechecklistV1`: CommissionadvanceGetDocumenttypechecklistV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectCommissionadvanceAPI.CommissionadvanceGetDocumenttypechecklistV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiCommissionadvanceID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCommissionadvanceGetDocumenttypechecklistV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**CommissionadvanceGetDocumenttypechecklistV1Response**](CommissionadvanceGetDocumenttypechecklistV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## CommissionadvanceImportIntoEDMV1
 
 > CommissionadvanceImportIntoEDMV1Response CommissionadvanceImportIntoEDMV1(ctx, pkiCommissionadvanceID).CommissionadvanceImportIntoEDMV1Request(commissionadvanceImportIntoEDMV1Request).Execute()
@@ -549,76 +479,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CommissionadvanceImportIntoEDMV1Response**](CommissionadvanceImportIntoEDMV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## CommissionadvanceSyncDocumenttypechecklistV1
-
-> CommissionadvanceSyncDocumenttypechecklistV1Response CommissionadvanceSyncDocumenttypechecklistV1(ctx, pkiCommissionadvanceID).Body(body).Execute()
-
-Synchronize Document type checklist
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
-)
-
-func main() {
-	pkiCommissionadvanceID := int32(56) // int32 | 
-	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ObjectCommissionadvanceAPI.CommissionadvanceSyncDocumenttypechecklistV1(context.Background(), pkiCommissionadvanceID).Body(body).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ObjectCommissionadvanceAPI.CommissionadvanceSyncDocumenttypechecklistV1``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CommissionadvanceSyncDocumenttypechecklistV1`: CommissionadvanceSyncDocumenttypechecklistV1Response
-	fmt.Fprintf(os.Stdout, "Response from `ObjectCommissionadvanceAPI.CommissionadvanceSyncDocumenttypechecklistV1`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pkiCommissionadvanceID** | **int32** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCommissionadvanceSyncDocumenttypechecklistV1Request struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **body** | **map[string]interface{}** |  | 
-
-### Return type
-
-[**CommissionadvanceSyncDocumenttypechecklistV1Response**](CommissionadvanceSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 
