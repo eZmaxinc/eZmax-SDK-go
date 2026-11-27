@@ -10,8 +10,10 @@ Method | HTTP request | Description
 [**RejectedoffertopurchaseGetCommunicationListV1**](ObjectRejectedoffertopurchaseAPI.md#RejectedoffertopurchaseGetCommunicationListV1) | **Get** /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getCommunicationList | Retrieve Communication list
 [**RejectedoffertopurchaseGetCommunicationrecipientsV1**](ObjectRejectedoffertopurchaseAPI.md#RejectedoffertopurchaseGetCommunicationrecipientsV1) | **Get** /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getCommunicationrecipients | Retrieve Rejectedoffertopurchase&#39;s Communicationrecipient
 [**RejectedoffertopurchaseGetCommunicationsendersV1**](ObjectRejectedoffertopurchaseAPI.md#RejectedoffertopurchaseGetCommunicationsendersV1) | **Get** /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getCommunicationsenders | Retrieve Rejectedoffertopurchase&#39;s Communicationsender
+[**RejectedoffertopurchaseGetDocumenttypechecklistV1**](ObjectRejectedoffertopurchaseAPI.md#RejectedoffertopurchaseGetDocumenttypechecklistV1) | **Get** /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**RejectedoffertopurchaseGetListV1**](ObjectRejectedoffertopurchaseAPI.md#RejectedoffertopurchaseGetListV1) | **Get** /1/object/rejectedoffertopurchase/getList | Retrieve Rejectedoffertopurchase list
 [**RejectedoffertopurchaseImportIntoEDMV1**](ObjectRejectedoffertopurchaseAPI.md#RejectedoffertopurchaseImportIntoEDMV1) | **Post** /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/importIntoEDM | Import attachments into the Rejectedoffertopurchase
+[**RejectedoffertopurchaseSyncDocumenttypechecklistV1**](ObjectRejectedoffertopurchaseAPI.md#RejectedoffertopurchaseSyncDocumenttypechecklistV1) | **Post** /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 
@@ -433,6 +435,74 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## RejectedoffertopurchaseGetDocumenttypechecklistV1
+
+> RejectedoffertopurchaseGetDocumenttypechecklistV1Response RejectedoffertopurchaseGetDocumenttypechecklistV1(ctx, pkiRejectedoffertopurchaseID).Execute()
+
+Retrieve Document type checklist
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiRejectedoffertopurchaseID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectRejectedoffertopurchaseAPI.RejectedoffertopurchaseGetDocumenttypechecklistV1(context.Background(), pkiRejectedoffertopurchaseID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectRejectedoffertopurchaseAPI.RejectedoffertopurchaseGetDocumenttypechecklistV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `RejectedoffertopurchaseGetDocumenttypechecklistV1`: RejectedoffertopurchaseGetDocumenttypechecklistV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectRejectedoffertopurchaseAPI.RejectedoffertopurchaseGetDocumenttypechecklistV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiRejectedoffertopurchaseID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRejectedoffertopurchaseGetDocumenttypechecklistV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**RejectedoffertopurchaseGetDocumenttypechecklistV1Response**](RejectedoffertopurchaseGetDocumenttypechecklistV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## RejectedoffertopurchaseGetListV1
 
 > RejectedoffertopurchaseGetListV1Response RejectedoffertopurchaseGetListV1(ctx).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
@@ -564,6 +634,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**RejectedoffertopurchaseImportIntoEDMV1Response**](RejectedoffertopurchaseImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RejectedoffertopurchaseSyncDocumenttypechecklistV1
+
+> RejectedoffertopurchaseSyncDocumenttypechecklistV1Response RejectedoffertopurchaseSyncDocumenttypechecklistV1(ctx, pkiRejectedoffertopurchaseID).Body(body).Execute()
+
+Synchronize Document type checklist
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiRejectedoffertopurchaseID := int32(56) // int32 | 
+	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectRejectedoffertopurchaseAPI.RejectedoffertopurchaseSyncDocumenttypechecklistV1(context.Background(), pkiRejectedoffertopurchaseID).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectRejectedoffertopurchaseAPI.RejectedoffertopurchaseSyncDocumenttypechecklistV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `RejectedoffertopurchaseSyncDocumenttypechecklistV1`: RejectedoffertopurchaseSyncDocumenttypechecklistV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectRejectedoffertopurchaseAPI.RejectedoffertopurchaseSyncDocumenttypechecklistV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiRejectedoffertopurchaseID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRejectedoffertopurchaseSyncDocumenttypechecklistV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **body** | **map[string]interface{}** |  | 
+
+### Return type
+
+[**RejectedoffertopurchaseSyncDocumenttypechecklistV1Response**](RejectedoffertopurchaseSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

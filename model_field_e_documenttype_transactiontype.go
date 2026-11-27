@@ -16,7 +16,7 @@ import (
 	"fmt"
 )
 
-// FieldEDocumenttypeTransactiontype The transactiontype of the Documenttype
+// FieldEDocumenttypeTransactiontype The transaction type for which the document is applicable
 type FieldEDocumenttypeTransactiontype string
 
 // List of Field-eDocumenttypeTransactiontype

@@ -16,7 +16,7 @@ import (
 	"fmt"
 )
 
-// FieldEDocumenttypeRepossession The repossession of the Documenttype
+// FieldEDocumenttypeRepossession Whether the document type applies to repossession transactions
 type FieldEDocumenttypeRepossession string
 
 // List of Field-eDocumenttypeRepossession

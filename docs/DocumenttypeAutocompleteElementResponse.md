@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PkiDocumenttypeID** | **int32** | The unique ID of the Documenttype | 
-**SDocumenttypeNameX** | **string** | The name of the Documenttype in the language of the requester | 
+**SDocumenttypeNameX** | **string** | The name of the document type in the requester&#39;s language | 
 **BDocumenttypeIsactive** | **bool** | Whether the documenttype is active or not | 
 
 ## Methods

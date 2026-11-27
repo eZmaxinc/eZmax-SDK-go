@@ -16,7 +16,7 @@ import (
 	"fmt"
 )
 
-// FieldEAttachmentVerified The verified of the Attachment
+// FieldEAttachmentVerified The verification status of the Attachment
 type FieldEAttachmentVerified string
 
 // List of Field-eAttachmentVerified

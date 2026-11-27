@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SDocumenttypeName1** | Pointer to **string** | The name1 of the Documenttype | [optional] 
-**SDocumenttypeName2** | Pointer to **string** | The name2 of the Documenttype | [optional] 
+**SDocumenttypeName1** | Pointer to **string** | The name of the document type in French | [optional] 
+**SDocumenttypeName2** | Pointer to **string** | The name of the document type in English | [optional] 
 
 ## Methods
 

@@ -7,20 +7,19 @@ Name | Type | Description | Notes
 **PkiDocumenttypeID** | **int32** | The unique ID of the Documenttype | 
 **ObjDocumenttypeName** | [**MultilingualDocumenttypeName**](MultilingualDocumenttypeName.md) |  | 
 **EDocumenttypeStep** | [**ComputedEDocumenttypeStep**](ComputedEDocumenttypeStep.md) |  | 
-**SDocumenttypeDefaultfilename** | **string** | The defaultfilename of the Documenttype | 
-**BDocumenttypeShowagent** | **bool** | Whether if it&#39;s an showagent | 
+**SDocumenttypeDefaultfilename** | **string** | The default filename for the document type | 
+**BDocumenttypeShowagent** | **bool** | Whether the document type should be shown to the agent | 
 **BDocumenttypeIsactive** | **bool** | Whether the documenttype is active or not | 
-**BDocumenttypeIsrequired** | **bool** | Whether if it&#39;s an isrequired | 
-**BDocumenttypeSale** | Pointer to **bool** | Whether if it&#39;s an sale | [optional] 
-**BDocumenttypeRental** | Pointer to **bool** | Whether if it&#39;s an rental | [optional] 
-**BDocumenttypeReference** | Pointer to **bool** | Whether if it&#39;s an reference | [optional] 
-**BDocumenttypeMortgagereference** | Pointer to **bool** | Whether if it&#39;s an mortgagereference | [optional] 
-**BDocumenttypeEvaluation** | Pointer to **bool** | Whether if it&#39;s an evaluation | [optional] 
-**BDocumenttypeConsultation** | Pointer to **bool** | Whether if it&#39;s an consultation | [optional] 
-**BDocumenttypeOtherservices** | Pointer to **bool** | Whether if it&#39;s an otherservices | [optional] 
-**BDocumenttypeForeclosedsale** | Pointer to **bool** | Whether if it&#39;s an foreclosedsale | [optional] 
-**BDocumenttypeCommercialfunding** | Pointer to **bool** | Whether if it&#39;s an commercialfunding | [optional] 
-**BDocumenttypeCanafe** | Pointer to **bool** | Whether if it&#39;s an canafe | [optional] 
+**BDocumenttypeSale** | Pointer to **bool** | Whether the document type applies to sale transactions | [optional] 
+**BDocumenttypeRental** | Pointer to **bool** | Whether the document type applies to rental transactions | [optional] 
+**BDocumenttypeReference** | Pointer to **bool** | Whether the document type is a reference document | [optional] 
+**BDocumenttypeMortgagereference** | Pointer to **bool** | Whether the document type is a mortgage reference | [optional] 
+**BDocumenttypeEvaluation** | Pointer to **bool** | Whether the document type applies to evaluation transactions | [optional] 
+**BDocumenttypeConsultation** | Pointer to **bool** | Whether the document type applies to consultation transactions | [optional] 
+**BDocumenttypeOtherservices** | Pointer to **bool** | Whether the document type applies to other services | [optional] 
+**BDocumenttypeForeclosedsale** | Pointer to **bool** | Whether the document type applies to foreclosed sale transactions | [optional] 
+**BDocumenttypeCommercialfunding** | Pointer to **bool** | Whether the document type applies to commercial funding transactions | [optional] 
+**BDocumenttypeCanafe** | Pointer to **bool** | Whether the document type applies to Canafe transactions | [optional] 
 **EDocumenttypeEzcom** | Pointer to [**FieldEDocumenttypeEzcom**](FieldEDocumenttypeEzcom.md) |  | [optional] 
 **EDocumenttypePrivacydefault** | Pointer to [**FieldEDocumenttypePrivacydefault**](FieldEDocumenttypePrivacydefault.md) |  | [optional] 
 **EDocumenttypeStatusdefault** | Pointer to [**FieldEDocumenttypeStatusdefault**](FieldEDocumenttypeStatusdefault.md) |  | [optional] 
@@ -34,7 +33,7 @@ Name | Type | Description | Notes
 
 ### NewDocumenttypeResponseCompound
 
-`func NewDocumenttypeResponseCompound(pkiDocumenttypeID int32, objDocumenttypeName MultilingualDocumenttypeName, eDocumenttypeStep ComputedEDocumenttypeStep, sDocumenttypeDefaultfilename string, bDocumenttypeShowagent bool, bDocumenttypeIsactive bool, bDocumenttypeIsrequired bool, aFkiInscriptiontypeID []int32, ) *DocumenttypeResponseCompound`
+`func NewDocumenttypeResponseCompound(pkiDocumenttypeID int32, objDocumenttypeName MultilingualDocumenttypeName, eDocumenttypeStep ComputedEDocumenttypeStep, sDocumenttypeDefaultfilename string, bDocumenttypeShowagent bool, bDocumenttypeIsactive bool, aFkiInscriptiontypeID []int32, ) *DocumenttypeResponseCompound`
 
 NewDocumenttypeResponseCompound instantiates a new DocumenttypeResponseCompound object
 This constructor will assign default values to properties that have it defined,
@@ -167,26 +166,6 @@ and a boolean to check if the value has been set.
 `func (o *DocumenttypeResponseCompound) SetBDocumenttypeIsactive(v bool)`
 
 SetBDocumenttypeIsactive sets BDocumenttypeIsactive field to given value.
-
-
-### GetBDocumenttypeIsrequired
-
-`func (o *DocumenttypeResponseCompound) GetBDocumenttypeIsrequired() bool`
-
-GetBDocumenttypeIsrequired returns the BDocumenttypeIsrequired field if non-nil, zero value otherwise.
-
-### GetBDocumenttypeIsrequiredOk
-
-`func (o *DocumenttypeResponseCompound) GetBDocumenttypeIsrequiredOk() (*bool, bool)`
-
-GetBDocumenttypeIsrequiredOk returns a tuple with the BDocumenttypeIsrequired field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBDocumenttypeIsrequired
-
-`func (o *DocumenttypeResponseCompound) SetBDocumenttypeIsrequired(v bool)`
-
-SetBDocumenttypeIsrequired sets BDocumenttypeIsrequired field to given value.
 
 
 ### GetBDocumenttypeSale

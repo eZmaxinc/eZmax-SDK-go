@@ -10,8 +10,10 @@ Method | HTTP request | Description
 [**DepositGetCommunicationListV1**](ObjectDepositAPI.md#DepositGetCommunicationListV1) | **Get** /1/object/deposit/{pkiDepositID}/getCommunicationList | Retrieve Communication list
 [**DepositGetCommunicationrecipientsV1**](ObjectDepositAPI.md#DepositGetCommunicationrecipientsV1) | **Get** /1/object/deposit/{pkiDepositID}/getCommunicationrecipients | Retrieve Communication recipients
 [**DepositGetCommunicationsendersV1**](ObjectDepositAPI.md#DepositGetCommunicationsendersV1) | **Get** /1/object/deposit/{pkiDepositID}/getCommunicationsenders | Retrieve Communication senders
+[**DepositGetDocumenttypechecklistV1**](ObjectDepositAPI.md#DepositGetDocumenttypechecklistV1) | **Get** /1/object/deposit/{pkiDepositID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**DepositGetListV1**](ObjectDepositAPI.md#DepositGetListV1) | **Get** /1/object/deposit/getList | Retrieve Deposit list
 [**DepositImportIntoEDMV1**](ObjectDepositAPI.md#DepositImportIntoEDMV1) | **Post** /1/object/deposit/{pkiDepositID}/importIntoEDM | Import attachments into the Deposit
+[**DepositSyncDocumenttypechecklistV1**](ObjectDepositAPI.md#DepositSyncDocumenttypechecklistV1) | **Post** /1/object/deposit/{pkiDepositID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 
@@ -425,6 +427,74 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## DepositGetDocumenttypechecklistV1
+
+> DepositGetDocumenttypechecklistV1Response DepositGetDocumenttypechecklistV1(ctx, pkiDepositID).Execute()
+
+Retrieve Document type checklist
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiDepositID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectDepositAPI.DepositGetDocumenttypechecklistV1(context.Background(), pkiDepositID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectDepositAPI.DepositGetDocumenttypechecklistV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DepositGetDocumenttypechecklistV1`: DepositGetDocumenttypechecklistV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectDepositAPI.DepositGetDocumenttypechecklistV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiDepositID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDepositGetDocumenttypechecklistV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**DepositGetDocumenttypechecklistV1Response**](DepositGetDocumenttypechecklistV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## DepositGetListV1
 
 > DepositGetListV1Response DepositGetListV1(ctx).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
@@ -554,6 +624,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DepositImportIntoEDMV1Response**](DepositImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DepositSyncDocumenttypechecklistV1
+
+> DepositSyncDocumenttypechecklistV1Response DepositSyncDocumenttypechecklistV1(ctx, pkiDepositID).Body(body).Execute()
+
+Synchronize Document type checklist
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiDepositID := int32(56) // int32 | 
+	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectDepositAPI.DepositSyncDocumenttypechecklistV1(context.Background(), pkiDepositID).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectDepositAPI.DepositSyncDocumenttypechecklistV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DepositSyncDocumenttypechecklistV1`: DepositSyncDocumenttypechecklistV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectDepositAPI.DepositSyncDocumenttypechecklistV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiDepositID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDepositSyncDocumenttypechecklistV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **body** | **map[string]interface{}** |  | 
+
+### Return type
+
+[**DepositSyncDocumenttypechecklistV1Response**](DepositSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

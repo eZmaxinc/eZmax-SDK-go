@@ -33,7 +33,7 @@ import (
 )
 
 func main() {
-	documenttypeCreateObjectV1Request := *openapiclient.NewDocumenttypeCreateObjectV1Request([]openapiclient.DocumenttypeRequestCompound{*openapiclient.NewDocumenttypeRequestCompound(*openapiclient.NewMultilingualDocumenttypeName(), openapiclient.Computed-eDocumenttypeStep("Agentbroker"), "invoice.pdf", true, true, true, true, true, true, true, true, true, true, true, true, true, openapiclient.Field-eDocumenttypePrivacydefault("Administration"), openapiclient.Field-eDocumenttypeStatusdefault("Not required"), openapiclient.Field-eDocumenttypeSalebyowner("All"), openapiclient.Field-eDocumenttypeSaledisplaybyrole("InscriptorSeller"), openapiclient.Field-eDocumenttypeTransactiontype("All"), openapiclient.Field-eDocumenttypeRepossession("All"), []int32{int32(51)})}) // DocumenttypeCreateObjectV1Request | 
+	documenttypeCreateObjectV1Request := *openapiclient.NewDocumenttypeCreateObjectV1Request([]openapiclient.DocumenttypeRequestCompound{*openapiclient.NewDocumenttypeRequestCompound(*openapiclient.NewMultilingualDocumenttypeName(), openapiclient.Computed-eDocumenttypeStep("Agentbroker"), "invoice.pdf", true, true, true, true, true, true, true, true, true, true, true, true, openapiclient.Field-eDocumenttypePrivacydefault("Administration"), openapiclient.Field-eDocumenttypeStatusdefault("Not required"), openapiclient.Field-eDocumenttypeSalebyowner("All"), openapiclient.Field-eDocumenttypeSaledisplaybyrole("InscriptorSeller"), openapiclient.Field-eDocumenttypeTransactiontype("All"), openapiclient.Field-eDocumenttypeRepossession("All"), []int32{int32(51)})}) // DocumenttypeCreateObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -100,7 +100,7 @@ import (
 
 func main() {
 	pkiDocumenttypeID := int32(56) // int32 | The unique ID of the Documenttype
-	documenttypeEditObjectV1Request := *openapiclient.NewDocumenttypeEditObjectV1Request(*openapiclient.NewDocumenttypeRequestCompound(*openapiclient.NewMultilingualDocumenttypeName(), openapiclient.Computed-eDocumenttypeStep("Agentbroker"), "invoice.pdf", true, true, true, true, true, true, true, true, true, true, true, true, true, openapiclient.Field-eDocumenttypePrivacydefault("Administration"), openapiclient.Field-eDocumenttypeStatusdefault("Not required"), openapiclient.Field-eDocumenttypeSalebyowner("All"), openapiclient.Field-eDocumenttypeSaledisplaybyrole("InscriptorSeller"), openapiclient.Field-eDocumenttypeTransactiontype("All"), openapiclient.Field-eDocumenttypeRepossession("All"), []int32{int32(51)})) // DocumenttypeEditObjectV1Request | 
+	documenttypeEditObjectV1Request := *openapiclient.NewDocumenttypeEditObjectV1Request(*openapiclient.NewDocumenttypeRequestCompound(*openapiclient.NewMultilingualDocumenttypeName(), openapiclient.Computed-eDocumenttypeStep("Agentbroker"), "invoice.pdf", true, true, true, true, true, true, true, true, true, true, true, true, openapiclient.Field-eDocumenttypePrivacydefault("Administration"), openapiclient.Field-eDocumenttypeStatusdefault("Not required"), openapiclient.Field-eDocumenttypeSalebyowner("All"), openapiclient.Field-eDocumenttypeSaledisplaybyrole("InscriptorSeller"), openapiclient.Field-eDocumenttypeTransactiontype("All"), openapiclient.Field-eDocumenttypeRepossession("All"), []int32{int32(51)})) // DocumenttypeEditObjectV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

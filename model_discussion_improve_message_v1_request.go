@@ -22,9 +22,6 @@ var _ MappedNullable = &DiscussionImproveMessageV1Request{}
 
 // DiscussionImproveMessageV1Request Request for POST /1/object/discussion/improveMessage
 type DiscussionImproveMessageV1Request struct {
-	// The unique ID of the Discussion
-	FkiDiscussionID *int32 `json:"fkiDiscussionID,omitempty"`
-	EDiscussionRobot FieldEDiscussionRobot `json:"eDiscussionRobot"`
 	// The Message of the Discussion
 	TDiscussionMessage string `json:"tDiscussionMessage" validate:"regexp=^[\\s\\S]{0\\,65535}$"`
 }
@@ -35,9 +32,8 @@ type _DiscussionImproveMessageV1Request DiscussionImproveMessageV1Request
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDiscussionImproveMessageV1Request(eDiscussionRobot FieldEDiscussionRobot, tDiscussionMessage string) *DiscussionImproveMessageV1Request {
+func NewDiscussionImproveMessageV1Request(tDiscussionMessage string) *DiscussionImproveMessageV1Request {
 	this := DiscussionImproveMessageV1Request{}
-	this.EDiscussionRobot = eDiscussionRobot
 	this.TDiscussionMessage = tDiscussionMessage
 	return &this
 }
@@ -48,62 +44,6 @@ func NewDiscussionImproveMessageV1Request(eDiscussionRobot FieldEDiscussionRobot
 func NewDiscussionImproveMessageV1RequestWithDefaults() *DiscussionImproveMessageV1Request {
 	this := DiscussionImproveMessageV1Request{}
 	return &this
-}
-
-// GetFkiDiscussionID returns the FkiDiscussionID field value if set, zero value otherwise.
-func (o *DiscussionImproveMessageV1Request) GetFkiDiscussionID() int32 {
-	if o == nil || IsNil(o.FkiDiscussionID) {
-		var ret int32
-		return ret
-	}
-	return *o.FkiDiscussionID
-}
-
-// GetFkiDiscussionIDOk returns a tuple with the FkiDiscussionID field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DiscussionImproveMessageV1Request) GetFkiDiscussionIDOk() (*int32, bool) {
-	if o == nil || IsNil(o.FkiDiscussionID) {
-		return nil, false
-	}
-	return o.FkiDiscussionID, true
-}
-
-// HasFkiDiscussionID returns a boolean if a field has been set.
-func (o *DiscussionImproveMessageV1Request) HasFkiDiscussionID() bool {
-	if o != nil && !IsNil(o.FkiDiscussionID) {
-		return true
-	}
-
-	return false
-}
-
-// SetFkiDiscussionID gets a reference to the given int32 and assigns it to the FkiDiscussionID field.
-func (o *DiscussionImproveMessageV1Request) SetFkiDiscussionID(v int32) {
-	o.FkiDiscussionID = &v
-}
-
-// GetEDiscussionRobot returns the EDiscussionRobot field value
-func (o *DiscussionImproveMessageV1Request) GetEDiscussionRobot() FieldEDiscussionRobot {
-	if o == nil {
-		var ret FieldEDiscussionRobot
-		return ret
-	}
-
-	return o.EDiscussionRobot
-}
-
-// GetEDiscussionRobotOk returns a tuple with the EDiscussionRobot field value
-// and a boolean to check if the value has been set.
-func (o *DiscussionImproveMessageV1Request) GetEDiscussionRobotOk() (*FieldEDiscussionRobot, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.EDiscussionRobot, true
-}
-
-// SetEDiscussionRobot sets field value
-func (o *DiscussionImproveMessageV1Request) SetEDiscussionRobot(v FieldEDiscussionRobot) {
-	o.EDiscussionRobot = v
 }
 
 // GetTDiscussionMessage returns the TDiscussionMessage field value
@@ -140,10 +80,6 @@ func (o DiscussionImproveMessageV1Request) MarshalJSON() ([]byte, error) {
 
 func (o DiscussionImproveMessageV1Request) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.FkiDiscussionID) {
-		toSerialize["fkiDiscussionID"] = o.FkiDiscussionID
-	}
-	toSerialize["eDiscussionRobot"] = o.EDiscussionRobot
 	toSerialize["tDiscussionMessage"] = o.TDiscussionMessage
 	return toSerialize, nil
 }
@@ -153,7 +89,6 @@ func (o *DiscussionImproveMessageV1Request) UnmarshalJSON(data []byte) (err erro
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"eDiscussionRobot",
 		"tDiscussionMessage",
 	}
 

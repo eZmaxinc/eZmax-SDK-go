@@ -16,7 +16,7 @@ import (
 	"fmt"
 )
 
-// FieldEDocumenttypePrivacydefault The privacydefault of the Documenttype
+// FieldEDocumenttypePrivacydefault The default privacy setting for the document type
 type FieldEDocumenttypePrivacydefault string
 
 // List of Field-eDocumenttypePrivacydefault

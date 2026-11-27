@@ -10,8 +10,10 @@ Method | HTTP request | Description
 [**SupplierGetCommunicationListV1**](ObjectSupplierAPI.md#SupplierGetCommunicationListV1) | **Get** /1/object/supplier/{pkiSupplierID}/getCommunicationList | Retrieve Communication list
 [**SupplierGetCommunicationrecipientsV1**](ObjectSupplierAPI.md#SupplierGetCommunicationrecipientsV1) | **Get** /1/object/supplier/{pkiSupplierID}/getCommunicationrecipients | Retrieve Communication recipients
 [**SupplierGetCommunicationsendersV1**](ObjectSupplierAPI.md#SupplierGetCommunicationsendersV1) | **Get** /1/object/supplier/{pkiSupplierID}/getCommunicationsenders | Retrieve Communication senders
+[**SupplierGetDocumenttypechecklistV1**](ObjectSupplierAPI.md#SupplierGetDocumenttypechecklistV1) | **Get** /1/object/supplier/{pkiSupplierID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**SupplierGetListV1**](ObjectSupplierAPI.md#SupplierGetListV1) | **Get** /1/object/supplier/getList | Retrieve Supplier list
 [**SupplierImportIntoEDMV1**](ObjectSupplierAPI.md#SupplierImportIntoEDMV1) | **Post** /1/object/supplier/{pkiSupplierID}/importIntoEDM | Import attachments into the Supplier
+[**SupplierSyncDocumenttypechecklistV1**](ObjectSupplierAPI.md#SupplierSyncDocumenttypechecklistV1) | **Post** /1/object/supplier/{pkiSupplierID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 
@@ -425,6 +427,74 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## SupplierGetDocumenttypechecklistV1
+
+> SupplierGetDocumenttypechecklistV1Response SupplierGetDocumenttypechecklistV1(ctx, pkiSupplierID).Execute()
+
+Retrieve Document type checklist
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiSupplierID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectSupplierAPI.SupplierGetDocumenttypechecklistV1(context.Background(), pkiSupplierID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSupplierAPI.SupplierGetDocumenttypechecklistV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SupplierGetDocumenttypechecklistV1`: SupplierGetDocumenttypechecklistV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectSupplierAPI.SupplierGetDocumenttypechecklistV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiSupplierID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSupplierGetDocumenttypechecklistV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**SupplierGetDocumenttypechecklistV1Response**](SupplierGetDocumenttypechecklistV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## SupplierGetListV1
 
 > SupplierGetListV1Response SupplierGetListV1(ctx).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
@@ -556,6 +626,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SupplierImportIntoEDMV1Response**](SupplierImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SupplierSyncDocumenttypechecklistV1
+
+> SupplierSyncDocumenttypechecklistV1Response SupplierSyncDocumenttypechecklistV1(ctx, pkiSupplierID).Body(body).Execute()
+
+Synchronize Document type checklist
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiSupplierID := int32(56) // int32 | 
+	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectSupplierAPI.SupplierSyncDocumenttypechecklistV1(context.Background(), pkiSupplierID).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectSupplierAPI.SupplierSyncDocumenttypechecklistV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SupplierSyncDocumenttypechecklistV1`: SupplierSyncDocumenttypechecklistV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectSupplierAPI.SupplierSyncDocumenttypechecklistV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiSupplierID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSupplierSyncDocumenttypechecklistV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **body** | **map[string]interface{}** |  | 
+
+### Return type
+
+[**SupplierSyncDocumenttypechecklistV1Response**](SupplierSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

@@ -16,7 +16,7 @@ import (
 	"fmt"
 )
 
-// FieldEDocumenttypeSaledisplaybyrole The saledisplaybyrole of the Documenttype
+// FieldEDocumenttypeSaledisplaybyrole The role that determines document display in sale transactions
 type FieldEDocumenttypeSaledisplaybyrole string
 
 // List of Field-eDocumenttypeSaledisplaybyrole

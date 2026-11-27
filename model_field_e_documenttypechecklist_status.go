@@ -25,6 +25,7 @@ const (
 	REQUIRED FieldEDocumenttypechecklistStatus = "Required"
 	FILED FieldEDocumenttypechecklistStatus = "Filed"
 	JUSTIFIED FieldEDocumenttypechecklistStatus = "Justified"
+	MANDATORY FieldEDocumenttypechecklistStatus = "Mandatory"
 )
 
 // All allowed values of FieldEDocumenttypechecklistStatus enum
@@ -33,6 +34,7 @@ var AllowedFieldEDocumenttypechecklistStatusEnumValues = []FieldEDocumenttypeche
 	"Required",
 	"Filed",
 	"Justified",
+	"Mandatory",
 }
 
 func (v *FieldEDocumenttypechecklistStatus) UnmarshalJSON(src []byte) error {

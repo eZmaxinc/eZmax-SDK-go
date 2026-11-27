@@ -39,7 +39,7 @@ type ActivesessionResponse struct {
 	BActivesessionDebug bool `json:"bActivesessionDebug"`
 	// Whether the active session is superadmin or not
 	BActivesessionIssuperadmin bool `json:"bActivesessionIssuperadmin"`
-	// Can access attachment when we clone a user
+	// Whether the user can access attachments when their session is cloned
 	BActivesessionAttachment *bool `json:"bActivesessionAttachment,omitempty"`
 	// Can access canafe when we clone a user
 	BActivesessionCanafe *bool `json:"bActivesessionCanafe,omitempty"`

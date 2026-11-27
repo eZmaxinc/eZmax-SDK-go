@@ -556,7 +556,7 @@ func (r ApiDiscussionImproveMessageV1Request) Execute() (*DiscussionImproveMessa
 /*
 DiscussionImproveMessageV1 Improve a message using the AI
 
-Improve a message using the AI.
+The endpoint allows to improve a discussion message using the AI.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiDiscussionImproveMessageV1Request

@@ -30,7 +30,7 @@ type InscriptionnotauthenticatedconditionResponse struct {
 	SInscriptionnotauthenticatedconditiontypeNameX string `json:"sInscriptionnotauthenticatedconditiontypeNameX" validate:"regexp=^.{1\\,100}$"`
 	// The unique ID of the Inscriptionnotauthenticated.
 	FkiInscriptionnotauthenticatedID int32 `json:"fkiInscriptionnotauthenticatedID"`
-	// Can access attachment when we clone a user
+	// Whether the user can access attachments when their session is cloned
 	BInscriptionnotauthenticatedconditionFilled bool `json:"bInscriptionnotauthenticatedconditionFilled"`
 	// The date the Inscriptionnotauthenticatedcondition was completed
 	DtInscriptionnotauthenticatedconditionCompleted *string `json:"dtInscriptionnotauthenticatedconditionCompleted,omitempty" validate:"regexp=^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"`

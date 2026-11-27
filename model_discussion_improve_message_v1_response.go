@@ -20,7 +20,7 @@ import (
 // checks if the DiscussionImproveMessageV1Response type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &DiscussionImproveMessageV1Response{}
 
-// DiscussionImproveMessageV1Response Response for POST /1/object/discussion
+// DiscussionImproveMessageV1Response Response for POST /1/object/discussion/improveMessage
 type DiscussionImproveMessageV1Response struct {
 	ObjDebugPayload CommonResponseObjDebugPayload `json:"objDebugPayload"`
 	ObjDebug *CommonResponseObjDebug `json:"objDebug,omitempty"`

@@ -43,7 +43,7 @@ func (r ApiAttachmentDeleteV1Request) Execute() (*AttachmentDeleteV1Response, *h
 /*
 AttachmentDeleteV1 Delete an existing attachment
 
-Te endpoint allows to delete an attachment.
+The endpoint allows to delete an attachment.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiAttachmentID
@@ -643,7 +643,7 @@ func (r ApiAttachmentRestoreV1Request) Execute() (*AttachmentRestoreV1Response, 
 /*
 AttachmentRestoreV1 Restore a deleted attachment
 
-The endpoints allows to restore a previously deleted attachment.
+The endpoint allows to restore a previously deleted attachment.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiAttachmentID
@@ -817,7 +817,7 @@ func (r ApiAttachmentSetDocumentTypeV1Request) Execute() (*AttachmentSetDocument
 /*
 AttachmentSetDocumentTypeV1 Change attachment document type
 
-The endpoint allows to change the checklist document type for an attachment.
+The endpoint allows to change the document type for an attachment.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param pkiAttachmentID

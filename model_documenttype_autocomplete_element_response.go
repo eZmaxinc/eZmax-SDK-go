@@ -24,7 +24,7 @@ var _ MappedNullable = &DocumenttypeAutocompleteElementResponse{}
 type DocumenttypeAutocompleteElementResponse struct {
 	// The unique ID of the Documenttype
 	PkiDocumenttypeID int32 `json:"pkiDocumenttypeID"`
-	// The name of the Documenttype in the language of the requester
+	// The name of the document type in the requester's language
 	SDocumenttypeNameX string `json:"sDocumenttypeNameX" validate:"regexp=^.{0\\,55}$"`
 	// Whether the documenttype is active or not
 	BDocumenttypeIsactive bool `json:"bDocumenttypeIsactive"`

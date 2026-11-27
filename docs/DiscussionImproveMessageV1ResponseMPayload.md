@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**APkiDiscussionID** | **[]int32** | An array of unique IDs representing the object that were requested to be created.  They are returned in the same order as the array containing the objects to be created that was sent in the request. | 
+**TDiscussionMessage** | **string** | The Message of the Discussion | 
 
 ## Methods
 
 ### NewDiscussionImproveMessageV1ResponseMPayload
 
-`func NewDiscussionImproveMessageV1ResponseMPayload(aPkiDiscussionID []int32, ) *DiscussionImproveMessageV1ResponseMPayload`
+`func NewDiscussionImproveMessageV1ResponseMPayload(tDiscussionMessage string, ) *DiscussionImproveMessageV1ResponseMPayload`
 
 NewDiscussionImproveMessageV1ResponseMPayload instantiates a new DiscussionImproveMessageV1ResponseMPayload object
 This constructor will assign default values to properties that have it defined,
@@ -25,24 +25,24 @@ NewDiscussionImproveMessageV1ResponseMPayloadWithDefaults instantiates a new Dis
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetAPkiDiscussionID
+### GetTDiscussionMessage
 
-`func (o *DiscussionImproveMessageV1ResponseMPayload) GetAPkiDiscussionID() []int32`
+`func (o *DiscussionImproveMessageV1ResponseMPayload) GetTDiscussionMessage() string`
 
-GetAPkiDiscussionID returns the APkiDiscussionID field if non-nil, zero value otherwise.
+GetTDiscussionMessage returns the TDiscussionMessage field if non-nil, zero value otherwise.
 
-### GetAPkiDiscussionIDOk
+### GetTDiscussionMessageOk
 
-`func (o *DiscussionImproveMessageV1ResponseMPayload) GetAPkiDiscussionIDOk() (*[]int32, bool)`
+`func (o *DiscussionImproveMessageV1ResponseMPayload) GetTDiscussionMessageOk() (*string, bool)`
 
-GetAPkiDiscussionIDOk returns a tuple with the APkiDiscussionID field if it's non-nil, zero value otherwise
+GetTDiscussionMessageOk returns a tuple with the TDiscussionMessage field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAPkiDiscussionID
+### SetTDiscussionMessage
 
-`func (o *DiscussionImproveMessageV1ResponseMPayload) SetAPkiDiscussionID(v []int32)`
+`func (o *DiscussionImproveMessageV1ResponseMPayload) SetTDiscussionMessage(v string)`
 
-SetAPkiDiscussionID sets APkiDiscussionID field to given value.
+SetTDiscussionMessage sets TDiscussionMessage field to given value.
 
 
 

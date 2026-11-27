@@ -10,8 +10,10 @@ Method | HTTP request | Description
 [**DeposittransitchequeGetCommunicationListV1**](ObjectDeposittransitchequeAPI.md#DeposittransitchequeGetCommunicationListV1) | **Get** /1/object/deposittransitcheque/{pkiDeposittransitchequeID}/getCommunicationList | Retrieve Communication list
 [**DeposittransitchequeGetCommunicationrecipientsV1**](ObjectDeposittransitchequeAPI.md#DeposittransitchequeGetCommunicationrecipientsV1) | **Get** /1/object/deposittransitcheque/{pkiDeposittransitchequeID}/getCommunicationrecipients | Retrieve Communication recipients
 [**DeposittransitchequeGetCommunicationsendersV1**](ObjectDeposittransitchequeAPI.md#DeposittransitchequeGetCommunicationsendersV1) | **Get** /1/object/deposittransitcheque/{pkiDeposittransitchequeID}/getCommunicationsenders | Retrieve Communication senders
+[**DeposittransitchequeGetDocumenttypechecklistV1**](ObjectDeposittransitchequeAPI.md#DeposittransitchequeGetDocumenttypechecklistV1) | **Get** /1/object/deposittransitcheque/{pkiDeposittransitchequeID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**DeposittransitchequeGetListV1**](ObjectDeposittransitchequeAPI.md#DeposittransitchequeGetListV1) | **Get** /1/object/deposittransitcheque/getList | Retrieve Deposittransitcheque list
 [**DeposittransitchequeImportIntoEDMV1**](ObjectDeposittransitchequeAPI.md#DeposittransitchequeImportIntoEDMV1) | **Post** /1/object/deposittransitcheque/{pkiDeposittransitchequeID}/importIntoEDM | Import attachments into the Deposittransitcheque
+[**DeposittransitchequeSyncDocumenttypechecklistV1**](ObjectDeposittransitchequeAPI.md#DeposittransitchequeSyncDocumenttypechecklistV1) | **Post** /1/object/deposittransitcheque/{pkiDeposittransitchequeID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 
@@ -425,6 +427,74 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## DeposittransitchequeGetDocumenttypechecklistV1
+
+> DeposittransitchequeGetDocumenttypechecklistV1Response DeposittransitchequeGetDocumenttypechecklistV1(ctx, pkiDeposittransitchequeID).Execute()
+
+Retrieve Document type checklist
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiDeposittransitchequeID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectDeposittransitchequeAPI.DeposittransitchequeGetDocumenttypechecklistV1(context.Background(), pkiDeposittransitchequeID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectDeposittransitchequeAPI.DeposittransitchequeGetDocumenttypechecklistV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeposittransitchequeGetDocumenttypechecklistV1`: DeposittransitchequeGetDocumenttypechecklistV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectDeposittransitchequeAPI.DeposittransitchequeGetDocumenttypechecklistV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiDeposittransitchequeID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeposittransitchequeGetDocumenttypechecklistV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**DeposittransitchequeGetDocumenttypechecklistV1Response**](DeposittransitchequeGetDocumenttypechecklistV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## DeposittransitchequeGetListV1
 
 > DeposittransitchequeGetListV1Response DeposittransitchequeGetListV1(ctx).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
@@ -554,6 +624,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DeposittransitchequeImportIntoEDMV1Response**](DeposittransitchequeImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeposittransitchequeSyncDocumenttypechecklistV1
+
+> DeposittransitchequeSyncDocumenttypechecklistV1Response DeposittransitchequeSyncDocumenttypechecklistV1(ctx, pkiDeposittransitchequeID).Body(body).Execute()
+
+Synchronize Document type checklist
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiDeposittransitchequeID := int32(56) // int32 | 
+	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectDeposittransitchequeAPI.DeposittransitchequeSyncDocumenttypechecklistV1(context.Background(), pkiDeposittransitchequeID).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectDeposittransitchequeAPI.DeposittransitchequeSyncDocumenttypechecklistV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeposittransitchequeSyncDocumenttypechecklistV1`: DeposittransitchequeSyncDocumenttypechecklistV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectDeposittransitchequeAPI.DeposittransitchequeSyncDocumenttypechecklistV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiDeposittransitchequeID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeposittransitchequeSyncDocumenttypechecklistV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **body** | **map[string]interface{}** |  | 
+
+### Return type
+
+[**DeposittransitchequeSyncDocumenttypechecklistV1Response**](DeposittransitchequeSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

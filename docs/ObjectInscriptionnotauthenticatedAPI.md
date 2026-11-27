@@ -11,10 +11,12 @@ Method | HTTP request | Description
 [**InscriptionnotauthenticatedGetCommunicationListV1**](ObjectInscriptionnotauthenticatedAPI.md#InscriptionnotauthenticatedGetCommunicationListV1) | **Get** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getCommunicationList | Retrieve Communication list
 [**InscriptionnotauthenticatedGetCommunicationrecipientsV1**](ObjectInscriptionnotauthenticatedAPI.md#InscriptionnotauthenticatedGetCommunicationrecipientsV1) | **Get** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getCommunicationrecipients | Retrieve Inscriptionnotauthenticated&#39;s Communicationrecipient
 [**InscriptionnotauthenticatedGetCommunicationsendersV1**](ObjectInscriptionnotauthenticatedAPI.md#InscriptionnotauthenticatedGetCommunicationsendersV1) | **Get** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getCommunicationsenders | Retrieve Inscriptionnotauthenticated&#39;s Communicationsender
+[**InscriptionnotauthenticatedGetDocumenttypechecklistV1**](ObjectInscriptionnotauthenticatedAPI.md#InscriptionnotauthenticatedGetDocumenttypechecklistV1) | **Get** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**InscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1**](ObjectInscriptionnotauthenticatedAPI.md#InscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1) | **Get** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getInscriptionnotauthenticatedconditions | Retrieve Inscriptionnotauthenticated conditions
 [**InscriptionnotauthenticatedGetListV1**](ObjectInscriptionnotauthenticatedAPI.md#InscriptionnotauthenticatedGetListV1) | **Get** /1/object/inscriptionnotauthenticated/getList | Retrieve Inscriptionnotauthenticated list
 [**InscriptionnotauthenticatedGetObjectV2**](ObjectInscriptionnotauthenticatedAPI.md#InscriptionnotauthenticatedGetObjectV2) | **Get** /2/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID} | Retrieve an existing Inscriptionnotauthenticated
 [**InscriptionnotauthenticatedImportIntoEDMV1**](ObjectInscriptionnotauthenticatedAPI.md#InscriptionnotauthenticatedImportIntoEDMV1) | **Post** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/importIntoEDM | Import attachments into the Inscriptionnotauthenticated
+[**InscriptionnotauthenticatedSyncDocumenttypechecklistV1**](ObjectInscriptionnotauthenticatedAPI.md#InscriptionnotauthenticatedSyncDocumenttypechecklistV1) | **Post** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 
@@ -508,6 +510,74 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## InscriptionnotauthenticatedGetDocumenttypechecklistV1
+
+> InscriptionnotauthenticatedGetDocumenttypechecklistV1Response InscriptionnotauthenticatedGetDocumenttypechecklistV1(ctx, pkiInscriptionnotauthenticatedID).Execute()
+
+Retrieve Document type checklist
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiInscriptionnotauthenticatedID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectInscriptionnotauthenticatedAPI.InscriptionnotauthenticatedGetDocumenttypechecklistV1(context.Background(), pkiInscriptionnotauthenticatedID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectInscriptionnotauthenticatedAPI.InscriptionnotauthenticatedGetDocumenttypechecklistV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InscriptionnotauthenticatedGetDocumenttypechecklistV1`: InscriptionnotauthenticatedGetDocumenttypechecklistV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectInscriptionnotauthenticatedAPI.InscriptionnotauthenticatedGetDocumenttypechecklistV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiInscriptionnotauthenticatedID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInscriptionnotauthenticatedGetDocumenttypechecklistV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**InscriptionnotauthenticatedGetDocumenttypechecklistV1Response**](InscriptionnotauthenticatedGetDocumenttypechecklistV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## InscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1
 
 > InscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1Response InscriptionnotauthenticatedGetInscriptionnotauthenticatedconditionsV1(ctx, pkiInscriptionnotauthenticatedID).Execute()
@@ -779,6 +849,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**InscriptionnotauthenticatedImportIntoEDMV1Response**](InscriptionnotauthenticatedImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## InscriptionnotauthenticatedSyncDocumenttypechecklistV1
+
+> InscriptionnotauthenticatedSyncDocumenttypechecklistV1Response InscriptionnotauthenticatedSyncDocumenttypechecklistV1(ctx, pkiInscriptionnotauthenticatedID).Body(body).Execute()
+
+Synchronize Document type checklist
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiInscriptionnotauthenticatedID := int32(56) // int32 | 
+	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectInscriptionnotauthenticatedAPI.InscriptionnotauthenticatedSyncDocumenttypechecklistV1(context.Background(), pkiInscriptionnotauthenticatedID).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectInscriptionnotauthenticatedAPI.InscriptionnotauthenticatedSyncDocumenttypechecklistV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InscriptionnotauthenticatedSyncDocumenttypechecklistV1`: InscriptionnotauthenticatedSyncDocumenttypechecklistV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectInscriptionnotauthenticatedAPI.InscriptionnotauthenticatedSyncDocumenttypechecklistV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiInscriptionnotauthenticatedID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInscriptionnotauthenticatedSyncDocumenttypechecklistV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **body** | **map[string]interface{}** |  | 
+
+### Return type
+
+[**InscriptionnotauthenticatedSyncDocumenttypechecklistV1Response**](InscriptionnotauthenticatedSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

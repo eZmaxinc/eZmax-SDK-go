@@ -7,20 +7,19 @@ Name | Type | Description | Notes
 **PkiDocumenttypeID** | Pointer to **int32** | The unique ID of the Documenttype | [optional] 
 **ObjDocumenttypeName** | [**MultilingualDocumenttypeName**](MultilingualDocumenttypeName.md) |  | 
 **EDocumenttypeStep** | [**ComputedEDocumenttypeStep**](ComputedEDocumenttypeStep.md) |  | 
-**SDocumenttypeDefaultfilename** | **string** | The defaultfilename of the Documenttype | 
-**BDocumenttypeShowagent** | **bool** | Whether if it&#39;s an showagent | 
+**SDocumenttypeDefaultfilename** | **string** | The default filename for the document type | 
+**BDocumenttypeShowagent** | **bool** | Whether the document type should be shown to the agent | 
 **BDocumenttypeIsactive** | **bool** | Whether the documenttype is active or not | 
-**BDocumenttypeIsrequired** | **bool** | Whether if it&#39;s an isrequired | 
-**BDocumenttypeSale** | **bool** | Whether if it&#39;s an sale | 
-**BDocumenttypeRental** | **bool** | Whether if it&#39;s an rental | 
-**BDocumenttypeReference** | **bool** | Whether if it&#39;s an reference | 
-**BDocumenttypeMortgagereference** | **bool** | Whether if it&#39;s an mortgagereference | 
-**BDocumenttypeEvaluation** | **bool** | Whether if it&#39;s an evaluation | 
-**BDocumenttypeConsultation** | **bool** | Whether if it&#39;s an consultation | 
-**BDocumenttypeOtherservices** | **bool** | Whether if it&#39;s an otherservices | 
-**BDocumenttypeForeclosedsale** | **bool** | Whether if it&#39;s an foreclosedsale | 
-**BDocumenttypeCommercialfunding** | **bool** | Whether if it&#39;s an commercialfunding | 
-**BDocumenttypeCanafe** | **bool** | Whether if it&#39;s an canafe | 
+**BDocumenttypeSale** | **bool** | Whether the document type applies to sale transactions | 
+**BDocumenttypeRental** | **bool** | Whether the document type applies to rental transactions | 
+**BDocumenttypeReference** | **bool** | Whether the document type is a reference document | 
+**BDocumenttypeMortgagereference** | **bool** | Whether the document type is a mortgage reference | 
+**BDocumenttypeEvaluation** | **bool** | Whether the document type applies to evaluation transactions | 
+**BDocumenttypeConsultation** | **bool** | Whether the document type applies to consultation transactions | 
+**BDocumenttypeOtherservices** | **bool** | Whether the document type applies to other services | 
+**BDocumenttypeForeclosedsale** | **bool** | Whether the document type applies to foreclosed sale transactions | 
+**BDocumenttypeCommercialfunding** | **bool** | Whether the document type applies to commercial funding transactions | 
+**BDocumenttypeCanafe** | **bool** | Whether the document type applies to Canafe transactions | 
 **EDocumenttypeEzcom** | Pointer to [**FieldEDocumenttypeEzcom**](FieldEDocumenttypeEzcom.md) |  | [optional] 
 **EDocumenttypePrivacydefault** | [**FieldEDocumenttypePrivacydefault**](FieldEDocumenttypePrivacydefault.md) |  | 
 **EDocumenttypeStatusdefault** | [**FieldEDocumenttypeStatusdefault**](FieldEDocumenttypeStatusdefault.md) |  | 
@@ -34,7 +33,7 @@ Name | Type | Description | Notes
 
 ### NewDocumenttypeRequestCompound
 
-`func NewDocumenttypeRequestCompound(objDocumenttypeName MultilingualDocumenttypeName, eDocumenttypeStep ComputedEDocumenttypeStep, sDocumenttypeDefaultfilename string, bDocumenttypeShowagent bool, bDocumenttypeIsactive bool, bDocumenttypeIsrequired bool, bDocumenttypeSale bool, bDocumenttypeRental bool, bDocumenttypeReference bool, bDocumenttypeMortgagereference bool, bDocumenttypeEvaluation bool, bDocumenttypeConsultation bool, bDocumenttypeOtherservices bool, bDocumenttypeForeclosedsale bool, bDocumenttypeCommercialfunding bool, bDocumenttypeCanafe bool, eDocumenttypePrivacydefault FieldEDocumenttypePrivacydefault, eDocumenttypeStatusdefault FieldEDocumenttypeStatusdefault, eDocumenttypeSalebyowner FieldEDocumenttypeSalebyowner, eDocumenttypeSaledisplaybyrole FieldEDocumenttypeSaledisplaybyrole, eDocumenttypeTransactiontype FieldEDocumenttypeTransactiontype, eDocumenttypeRepossession FieldEDocumenttypeRepossession, aFkiInscriptiontypeID []int32, ) *DocumenttypeRequestCompound`
+`func NewDocumenttypeRequestCompound(objDocumenttypeName MultilingualDocumenttypeName, eDocumenttypeStep ComputedEDocumenttypeStep, sDocumenttypeDefaultfilename string, bDocumenttypeShowagent bool, bDocumenttypeIsactive bool, bDocumenttypeSale bool, bDocumenttypeRental bool, bDocumenttypeReference bool, bDocumenttypeMortgagereference bool, bDocumenttypeEvaluation bool, bDocumenttypeConsultation bool, bDocumenttypeOtherservices bool, bDocumenttypeForeclosedsale bool, bDocumenttypeCommercialfunding bool, bDocumenttypeCanafe bool, eDocumenttypePrivacydefault FieldEDocumenttypePrivacydefault, eDocumenttypeStatusdefault FieldEDocumenttypeStatusdefault, eDocumenttypeSalebyowner FieldEDocumenttypeSalebyowner, eDocumenttypeSaledisplaybyrole FieldEDocumenttypeSaledisplaybyrole, eDocumenttypeTransactiontype FieldEDocumenttypeTransactiontype, eDocumenttypeRepossession FieldEDocumenttypeRepossession, aFkiInscriptiontypeID []int32, ) *DocumenttypeRequestCompound`
 
 NewDocumenttypeRequestCompound instantiates a new DocumenttypeRequestCompound object
 This constructor will assign default values to properties that have it defined,
@@ -172,26 +171,6 @@ and a boolean to check if the value has been set.
 `func (o *DocumenttypeRequestCompound) SetBDocumenttypeIsactive(v bool)`
 
 SetBDocumenttypeIsactive sets BDocumenttypeIsactive field to given value.
-
-
-### GetBDocumenttypeIsrequired
-
-`func (o *DocumenttypeRequestCompound) GetBDocumenttypeIsrequired() bool`
-
-GetBDocumenttypeIsrequired returns the BDocumenttypeIsrequired field if non-nil, zero value otherwise.
-
-### GetBDocumenttypeIsrequiredOk
-
-`func (o *DocumenttypeRequestCompound) GetBDocumenttypeIsrequiredOk() (*bool, bool)`
-
-GetBDocumenttypeIsrequiredOk returns a tuple with the BDocumenttypeIsrequired field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBDocumenttypeIsrequired
-
-`func (o *DocumenttypeRequestCompound) SetBDocumenttypeIsrequired(v bool)`
-
-SetBDocumenttypeIsrequired sets BDocumenttypeIsrequired field to given value.
 
 
 ### GetBDocumenttypeSale

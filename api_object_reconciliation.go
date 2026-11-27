@@ -844,6 +844,137 @@ func (a *ObjectReconciliationAPIService) ReconciliationGetCommunicationsendersV1
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiReconciliationGetDocumenttypechecklistV1Request struct {
+	ctx context.Context
+	ApiService *ObjectReconciliationAPIService
+	pkiReconciliationID int32
+}
+
+func (r ApiReconciliationGetDocumenttypechecklistV1Request) Execute() (*ReconciliationGetDocumenttypechecklistV1Response, *http.Response, error) {
+	return r.ApiService.ReconciliationGetDocumenttypechecklistV1Execute(r)
+}
+
+/*
+ReconciliationGetDocumenttypechecklistV1 Retrieve Document type checklist
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiReconciliationID
+ @return ApiReconciliationGetDocumenttypechecklistV1Request
+*/
+func (a *ObjectReconciliationAPIService) ReconciliationGetDocumenttypechecklistV1(ctx context.Context, pkiReconciliationID int32) ApiReconciliationGetDocumenttypechecklistV1Request {
+	return ApiReconciliationGetDocumenttypechecklistV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiReconciliationID: pkiReconciliationID,
+	}
+}
+
+// Execute executes the request
+//  @return ReconciliationGetDocumenttypechecklistV1Response
+func (a *ObjectReconciliationAPIService) ReconciliationGetDocumenttypechecklistV1Execute(r ApiReconciliationGetDocumenttypechecklistV1Request) (*ReconciliationGetDocumenttypechecklistV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ReconciliationGetDocumenttypechecklistV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectReconciliationAPIService.ReconciliationGetDocumenttypechecklistV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/reconciliation/{pkiReconciliationID}/getDocumenttypechecklist"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiReconciliationID"+"}", url.PathEscape(parameterValueToString(r.pkiReconciliationID, "pkiReconciliationID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiReconciliationID < 0 {
+		return localVarReturnValue, nil, reportError("pkiReconciliationID must be greater than 0")
+	}
+	if r.pkiReconciliationID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiReconciliationID must be less than 65535")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiReconciliationImportIntoEDMV1Request struct {
 	ctx context.Context
 	ApiService *ObjectReconciliationAPIService
@@ -925,6 +1056,145 @@ func (a *ObjectReconciliationAPIService) ReconciliationImportIntoEDMV1Execute(r 
 	}
 	// body params
 	localVarPostBody = r.reconciliationImportIntoEDMV1Request
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiReconciliationSyncDocumenttypechecklistV1Request struct {
+	ctx context.Context
+	ApiService *ObjectReconciliationAPIService
+	pkiReconciliationID int32
+	body *map[string]interface{}
+}
+
+func (r ApiReconciliationSyncDocumenttypechecklistV1Request) Body(body map[string]interface{}) ApiReconciliationSyncDocumenttypechecklistV1Request {
+	r.body = &body
+	return r
+}
+
+func (r ApiReconciliationSyncDocumenttypechecklistV1Request) Execute() (*ReconciliationSyncDocumenttypechecklistV1Response, *http.Response, error) {
+	return r.ApiService.ReconciliationSyncDocumenttypechecklistV1Execute(r)
+}
+
+/*
+ReconciliationSyncDocumenttypechecklistV1 Synchronize Document type checklist
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiReconciliationID
+ @return ApiReconciliationSyncDocumenttypechecklistV1Request
+*/
+func (a *ObjectReconciliationAPIService) ReconciliationSyncDocumenttypechecklistV1(ctx context.Context, pkiReconciliationID int32) ApiReconciliationSyncDocumenttypechecklistV1Request {
+	return ApiReconciliationSyncDocumenttypechecklistV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiReconciliationID: pkiReconciliationID,
+	}
+}
+
+// Execute executes the request
+//  @return ReconciliationSyncDocumenttypechecklistV1Response
+func (a *ObjectReconciliationAPIService) ReconciliationSyncDocumenttypechecklistV1Execute(r ApiReconciliationSyncDocumenttypechecklistV1Request) (*ReconciliationSyncDocumenttypechecklistV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ReconciliationSyncDocumenttypechecklistV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectReconciliationAPIService.ReconciliationSyncDocumenttypechecklistV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/reconciliation/{pkiReconciliationID}/syncDocumenttypechecklist"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiReconciliationID"+"}", url.PathEscape(parameterValueToString(r.pkiReconciliationID, "pkiReconciliationID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiReconciliationID < 0 {
+		return localVarReturnValue, nil, reportError("pkiReconciliationID must be greater than 0")
+	}
+	if r.pkiReconciliationID > 65535 {
+		return localVarReturnValue, nil, reportError("pkiReconciliationID must be less than 65535")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.body
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

@@ -16,19 +16,21 @@ import (
 	"fmt"
 )
 
-// FieldEDocumenttypeStatusdefault The statusdefault of the Documenttype
+// FieldEDocumenttypeStatusdefault The default status requirement for the document type
 type FieldEDocumenttypeStatusdefault string
 
 // List of Field-eDocumenttypeStatusdefault
 const (
 	NOT_REQUIRED FieldEDocumenttypeStatusdefault = "Not required"
 	REQUIRED FieldEDocumenttypeStatusdefault = "Required"
+	MANDATORY FieldEDocumenttypeStatusdefault = "Mandatory"
 )
 
 // All allowed values of FieldEDocumenttypeStatusdefault enum
 var AllowedFieldEDocumenttypeStatusdefaultEnumValues = []FieldEDocumenttypeStatusdefault{
 	"Not required",
 	"Required",
+	"Mandatory",
 }
 
 func (v *FieldEDocumenttypeStatusdefault) UnmarshalJSON(src []byte) error {

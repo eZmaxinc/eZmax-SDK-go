@@ -500,7 +500,6 @@ Enum values that can be filtered in query parameter *sFilter*:
 
 | Variable | Valid values |
 |---|---|
- | Agentbroker<br>Buyercontract<br>Inscription<br>NotAuthenticated<br>Otherincome<br>RejectedOfferToPurchase |
 | eDocumenttypeEzcom | PromiseToPurchase<br>Annex<br>Modification<br>CounterOffer<br>Conditions<br>BankApproval<br>Other |
 | eDocumenttypePrivacydefault | Administration<br>Administrator<br>All<br>Creator<br>Inscriptor<br>Myself<br>Seller |
 | eDocumenttypeStatusdefault | Not required<br>Required |

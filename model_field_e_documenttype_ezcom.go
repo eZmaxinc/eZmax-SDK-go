@@ -16,7 +16,7 @@ import (
 	"fmt"
 )
 
-// FieldEDocumenttypeEzcom The ezcom of the Documenttype
+// FieldEDocumenttypeEzcom The ezcom document type category
 type FieldEDocumenttypeEzcom string
 
 // List of Field-eDocumenttypeEzcom

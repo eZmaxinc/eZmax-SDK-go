@@ -10,8 +10,10 @@ Method | HTTP request | Description
 [**OfficetaxreportGetCommunicationListV1**](ObjectOfficetaxreportAPI.md#OfficetaxreportGetCommunicationListV1) | **Get** /1/object/officetaxreport/{pkiOfficetaxreportID}/getCommunicationList | Retrieve Communication list
 [**OfficetaxreportGetCommunicationrecipientsV1**](ObjectOfficetaxreportAPI.md#OfficetaxreportGetCommunicationrecipientsV1) | **Get** /1/object/officetaxreport/{pkiOfficetaxreportID}/getCommunicationrecipients | Retrieve Communication recipients
 [**OfficetaxreportGetCommunicationsendersV1**](ObjectOfficetaxreportAPI.md#OfficetaxreportGetCommunicationsendersV1) | **Get** /1/object/officetaxreport/{pkiOfficetaxreportID}/getCommunicationsenders | Retrieve Communication senders
+[**OfficetaxreportGetDocumenttypechecklistV1**](ObjectOfficetaxreportAPI.md#OfficetaxreportGetDocumenttypechecklistV1) | **Get** /1/object/officetaxreport/{pkiOfficetaxreportID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**OfficetaxreportGetListV1**](ObjectOfficetaxreportAPI.md#OfficetaxreportGetListV1) | **Get** /1/object/officetaxreport/getList | Retrieve Officetaxreport list
 [**OfficetaxreportImportIntoEDMV1**](ObjectOfficetaxreportAPI.md#OfficetaxreportImportIntoEDMV1) | **Post** /1/object/officetaxreport/{pkiOfficetaxreportID}/importIntoEDM | Import attachments into the Officetaxreport
+[**OfficetaxreportSyncDocumenttypechecklistV1**](ObjectOfficetaxreportAPI.md#OfficetaxreportSyncDocumenttypechecklistV1) | **Post** /1/object/officetaxreport/{pkiOfficetaxreportID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 
@@ -425,6 +427,74 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## OfficetaxreportGetDocumenttypechecklistV1
+
+> OfficetaxreportGetDocumenttypechecklistV1Response OfficetaxreportGetDocumenttypechecklistV1(ctx, pkiOfficetaxreportID).Execute()
+
+Retrieve Document type checklist
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiOfficetaxreportID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectOfficetaxreportAPI.OfficetaxreportGetDocumenttypechecklistV1(context.Background(), pkiOfficetaxreportID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectOfficetaxreportAPI.OfficetaxreportGetDocumenttypechecklistV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `OfficetaxreportGetDocumenttypechecklistV1`: OfficetaxreportGetDocumenttypechecklistV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectOfficetaxreportAPI.OfficetaxreportGetDocumenttypechecklistV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiOfficetaxreportID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiOfficetaxreportGetDocumenttypechecklistV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**OfficetaxreportGetDocumenttypechecklistV1Response**](OfficetaxreportGetDocumenttypechecklistV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## OfficetaxreportGetListV1
 
 > OfficetaxreportGetListV1Response OfficetaxreportGetListV1(ctx).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
@@ -554,6 +624,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**OfficetaxreportImportIntoEDMV1Response**](OfficetaxreportImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## OfficetaxreportSyncDocumenttypechecklistV1
+
+> OfficetaxreportSyncDocumenttypechecklistV1Response OfficetaxreportSyncDocumenttypechecklistV1(ctx, pkiOfficetaxreportID).Body(body).Execute()
+
+Synchronize Document type checklist
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiOfficetaxreportID := int32(56) // int32 | 
+	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectOfficetaxreportAPI.OfficetaxreportSyncDocumenttypechecklistV1(context.Background(), pkiOfficetaxreportID).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectOfficetaxreportAPI.OfficetaxreportSyncDocumenttypechecklistV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `OfficetaxreportSyncDocumenttypechecklistV1`: OfficetaxreportSyncDocumenttypechecklistV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectOfficetaxreportAPI.OfficetaxreportSyncDocumenttypechecklistV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiOfficetaxreportID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiOfficetaxreportSyncDocumenttypechecklistV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **body** | **map[string]interface{}** |  | 
+
+### Return type
+
+[**OfficetaxreportSyncDocumenttypechecklistV1Response**](OfficetaxreportSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

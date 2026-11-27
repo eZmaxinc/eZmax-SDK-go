@@ -26,33 +26,31 @@ type DocumenttypeRequest struct {
 	PkiDocumenttypeID *int32 `json:"pkiDocumenttypeID,omitempty"`
 	ObjDocumenttypeName MultilingualDocumenttypeName `json:"objDocumenttypeName"`
 	EDocumenttypeStep ComputedEDocumenttypeStep `json:"eDocumenttypeStep"`
-	// The defaultfilename of the Documenttype
+	// The default filename for the document type
 	SDocumenttypeDefaultfilename string `json:"sDocumenttypeDefaultfilename" validate:"regexp=^.{0\\,50}$"`
-	// Whether if it's an showagent
+	// Whether the document type should be shown to the agent
 	BDocumenttypeShowagent bool `json:"bDocumenttypeShowagent"`
 	// Whether the documenttype is active or not
 	BDocumenttypeIsactive bool `json:"bDocumenttypeIsactive"`
-	// Whether if it's an isrequired
-	BDocumenttypeIsrequired bool `json:"bDocumenttypeIsrequired"`
-	// Whether if it's an sale
+	// Whether the document type applies to sale transactions
 	BDocumenttypeSale bool `json:"bDocumenttypeSale"`
-	// Whether if it's an rental
+	// Whether the document type applies to rental transactions
 	BDocumenttypeRental bool `json:"bDocumenttypeRental"`
-	// Whether if it's an reference
+	// Whether the document type is a reference document
 	BDocumenttypeReference bool `json:"bDocumenttypeReference"`
-	// Whether if it's an mortgagereference
+	// Whether the document type is a mortgage reference
 	BDocumenttypeMortgagereference bool `json:"bDocumenttypeMortgagereference"`
-	// Whether if it's an evaluation
+	// Whether the document type applies to evaluation transactions
 	BDocumenttypeEvaluation bool `json:"bDocumenttypeEvaluation"`
-	// Whether if it's an consultation
+	// Whether the document type applies to consultation transactions
 	BDocumenttypeConsultation bool `json:"bDocumenttypeConsultation"`
-	// Whether if it's an otherservices
+	// Whether the document type applies to other services
 	BDocumenttypeOtherservices bool `json:"bDocumenttypeOtherservices"`
-	// Whether if it's an foreclosedsale
+	// Whether the document type applies to foreclosed sale transactions
 	BDocumenttypeForeclosedsale bool `json:"bDocumenttypeForeclosedsale"`
-	// Whether if it's an commercialfunding
+	// Whether the document type applies to commercial funding transactions
 	BDocumenttypeCommercialfunding bool `json:"bDocumenttypeCommercialfunding"`
-	// Whether if it's an canafe
+	// Whether the document type applies to Canafe transactions
 	BDocumenttypeCanafe bool `json:"bDocumenttypeCanafe"`
 	EDocumenttypeEzcom *FieldEDocumenttypeEzcom `json:"eDocumenttypeEzcom,omitempty"`
 	EDocumenttypePrivacydefault FieldEDocumenttypePrivacydefault `json:"eDocumenttypePrivacydefault"`
@@ -70,14 +68,13 @@ type _DocumenttypeRequest DocumenttypeRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDocumenttypeRequest(objDocumenttypeName MultilingualDocumenttypeName, eDocumenttypeStep ComputedEDocumenttypeStep, sDocumenttypeDefaultfilename string, bDocumenttypeShowagent bool, bDocumenttypeIsactive bool, bDocumenttypeIsrequired bool, bDocumenttypeSale bool, bDocumenttypeRental bool, bDocumenttypeReference bool, bDocumenttypeMortgagereference bool, bDocumenttypeEvaluation bool, bDocumenttypeConsultation bool, bDocumenttypeOtherservices bool, bDocumenttypeForeclosedsale bool, bDocumenttypeCommercialfunding bool, bDocumenttypeCanafe bool, eDocumenttypePrivacydefault FieldEDocumenttypePrivacydefault, eDocumenttypeStatusdefault FieldEDocumenttypeStatusdefault, eDocumenttypeSalebyowner FieldEDocumenttypeSalebyowner, eDocumenttypeSaledisplaybyrole FieldEDocumenttypeSaledisplaybyrole, eDocumenttypeTransactiontype FieldEDocumenttypeTransactiontype, eDocumenttypeRepossession FieldEDocumenttypeRepossession, aFkiInscriptiontypeID []int32) *DocumenttypeRequest {
+func NewDocumenttypeRequest(objDocumenttypeName MultilingualDocumenttypeName, eDocumenttypeStep ComputedEDocumenttypeStep, sDocumenttypeDefaultfilename string, bDocumenttypeShowagent bool, bDocumenttypeIsactive bool, bDocumenttypeSale bool, bDocumenttypeRental bool, bDocumenttypeReference bool, bDocumenttypeMortgagereference bool, bDocumenttypeEvaluation bool, bDocumenttypeConsultation bool, bDocumenttypeOtherservices bool, bDocumenttypeForeclosedsale bool, bDocumenttypeCommercialfunding bool, bDocumenttypeCanafe bool, eDocumenttypePrivacydefault FieldEDocumenttypePrivacydefault, eDocumenttypeStatusdefault FieldEDocumenttypeStatusdefault, eDocumenttypeSalebyowner FieldEDocumenttypeSalebyowner, eDocumenttypeSaledisplaybyrole FieldEDocumenttypeSaledisplaybyrole, eDocumenttypeTransactiontype FieldEDocumenttypeTransactiontype, eDocumenttypeRepossession FieldEDocumenttypeRepossession, aFkiInscriptiontypeID []int32) *DocumenttypeRequest {
 	this := DocumenttypeRequest{}
 	this.ObjDocumenttypeName = objDocumenttypeName
 	this.EDocumenttypeStep = eDocumenttypeStep
 	this.SDocumenttypeDefaultfilename = sDocumenttypeDefaultfilename
 	this.BDocumenttypeShowagent = bDocumenttypeShowagent
 	this.BDocumenttypeIsactive = bDocumenttypeIsactive
-	this.BDocumenttypeIsrequired = bDocumenttypeIsrequired
 	this.BDocumenttypeSale = bDocumenttypeSale
 	this.BDocumenttypeRental = bDocumenttypeRental
 	this.BDocumenttypeReference = bDocumenttypeReference
@@ -256,30 +253,6 @@ func (o *DocumenttypeRequest) GetBDocumenttypeIsactiveOk() (*bool, bool) {
 // SetBDocumenttypeIsactive sets field value
 func (o *DocumenttypeRequest) SetBDocumenttypeIsactive(v bool) {
 	o.BDocumenttypeIsactive = v
-}
-
-// GetBDocumenttypeIsrequired returns the BDocumenttypeIsrequired field value
-func (o *DocumenttypeRequest) GetBDocumenttypeIsrequired() bool {
-	if o == nil {
-		var ret bool
-		return ret
-	}
-
-	return o.BDocumenttypeIsrequired
-}
-
-// GetBDocumenttypeIsrequiredOk returns a tuple with the BDocumenttypeIsrequired field value
-// and a boolean to check if the value has been set.
-func (o *DocumenttypeRequest) GetBDocumenttypeIsrequiredOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.BDocumenttypeIsrequired, true
-}
-
-// SetBDocumenttypeIsrequired sets field value
-func (o *DocumenttypeRequest) SetBDocumenttypeIsrequired(v bool) {
-	o.BDocumenttypeIsrequired = v
 }
 
 // GetBDocumenttypeSale returns the BDocumenttypeSale field value
@@ -740,7 +713,6 @@ func (o DocumenttypeRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize["sDocumenttypeDefaultfilename"] = o.SDocumenttypeDefaultfilename
 	toSerialize["bDocumenttypeShowagent"] = o.BDocumenttypeShowagent
 	toSerialize["bDocumenttypeIsactive"] = o.BDocumenttypeIsactive
-	toSerialize["bDocumenttypeIsrequired"] = o.BDocumenttypeIsrequired
 	toSerialize["bDocumenttypeSale"] = o.BDocumenttypeSale
 	toSerialize["bDocumenttypeRental"] = o.BDocumenttypeRental
 	toSerialize["bDocumenttypeReference"] = o.BDocumenttypeReference
@@ -774,7 +746,6 @@ func (o *DocumenttypeRequest) UnmarshalJSON(data []byte) (err error) {
 		"sDocumenttypeDefaultfilename",
 		"bDocumenttypeShowagent",
 		"bDocumenttypeIsactive",
-		"bDocumenttypeIsrequired",
 		"bDocumenttypeSale",
 		"bDocumenttypeRental",
 		"bDocumenttypeReference",

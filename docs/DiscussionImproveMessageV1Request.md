@@ -4,15 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FkiDiscussionID** | Pointer to **int32** | The unique ID of the Discussion | [optional] 
-**EDiscussionRobot** | [**FieldEDiscussionRobot**](FieldEDiscussionRobot.md) |  | 
 **TDiscussionMessage** | **string** | The Message of the Discussion | 
 
 ## Methods
 
 ### NewDiscussionImproveMessageV1Request
 
-`func NewDiscussionImproveMessageV1Request(eDiscussionRobot FieldEDiscussionRobot, tDiscussionMessage string, ) *DiscussionImproveMessageV1Request`
+`func NewDiscussionImproveMessageV1Request(tDiscussionMessage string, ) *DiscussionImproveMessageV1Request`
 
 NewDiscussionImproveMessageV1Request instantiates a new DiscussionImproveMessageV1Request object
 This constructor will assign default values to properties that have it defined,
@@ -26,51 +24,6 @@ will change when the set of required properties is changed
 NewDiscussionImproveMessageV1RequestWithDefaults instantiates a new DiscussionImproveMessageV1Request object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetFkiDiscussionID
-
-`func (o *DiscussionImproveMessageV1Request) GetFkiDiscussionID() int32`
-
-GetFkiDiscussionID returns the FkiDiscussionID field if non-nil, zero value otherwise.
-
-### GetFkiDiscussionIDOk
-
-`func (o *DiscussionImproveMessageV1Request) GetFkiDiscussionIDOk() (*int32, bool)`
-
-GetFkiDiscussionIDOk returns a tuple with the FkiDiscussionID field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFkiDiscussionID
-
-`func (o *DiscussionImproveMessageV1Request) SetFkiDiscussionID(v int32)`
-
-SetFkiDiscussionID sets FkiDiscussionID field to given value.
-
-### HasFkiDiscussionID
-
-`func (o *DiscussionImproveMessageV1Request) HasFkiDiscussionID() bool`
-
-HasFkiDiscussionID returns a boolean if a field has been set.
-
-### GetEDiscussionRobot
-
-`func (o *DiscussionImproveMessageV1Request) GetEDiscussionRobot() FieldEDiscussionRobot`
-
-GetEDiscussionRobot returns the EDiscussionRobot field if non-nil, zero value otherwise.
-
-### GetEDiscussionRobotOk
-
-`func (o *DiscussionImproveMessageV1Request) GetEDiscussionRobotOk() (*FieldEDiscussionRobot, bool)`
-
-GetEDiscussionRobotOk returns a tuple with the EDiscussionRobot field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEDiscussionRobot
-
-`func (o *DiscussionImproveMessageV1Request) SetEDiscussionRobot(v FieldEDiscussionRobot)`
-
-SetEDiscussionRobot sets EDiscussionRobot field to given value.
-
 
 ### GetTDiscussionMessage
 

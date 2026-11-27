@@ -40,9 +40,9 @@ func (r ApiEzmaxpartnerSubscribeV1Request) Execute() (*EzmaxpartnerSubscribeV1Re
 }
 
 /*
-EzmaxpartnerSubscribeV1 Subscribe to an Ezmaxparnerproductstage
+EzmaxpartnerSubscribeV1 Subscribe to an Ezmaxpartnerproductstage
 
-Subscribe to an Ezmaxparnerproductstage
+Subscribe to an Ezmaxpartnerproductstage
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiEzmaxpartnerSubscribeV1Request

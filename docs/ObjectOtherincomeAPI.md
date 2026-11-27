@@ -10,8 +10,10 @@ Method | HTTP request | Description
 [**OtherincomeGetCommunicationListV1**](ObjectOtherincomeAPI.md#OtherincomeGetCommunicationListV1) | **Get** /1/object/otherincome/{pkiOtherincomeID}/getCommunicationList | Retrieve Communication list
 [**OtherincomeGetCommunicationrecipientsV1**](ObjectOtherincomeAPI.md#OtherincomeGetCommunicationrecipientsV1) | **Get** /1/object/otherincome/{pkiOtherincomeID}/getCommunicationrecipients | Retrieve Otherincome&#39;s Communicationrecipient
 [**OtherincomeGetCommunicationsendersV1**](ObjectOtherincomeAPI.md#OtherincomeGetCommunicationsendersV1) | **Get** /1/object/otherincome/{pkiOtherincomeID}/getCommunicationsenders | Retrieve Otherincome&#39;s Communicationsender
+[**OtherincomeGetDocumenttypechecklistV1**](ObjectOtherincomeAPI.md#OtherincomeGetDocumenttypechecklistV1) | **Get** /1/object/otherincome/{pkiOtherincomeID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**OtherincomeGetListV1**](ObjectOtherincomeAPI.md#OtherincomeGetListV1) | **Get** /1/object/otherincome/getList | Retrieve Otherincome list
 [**OtherincomeImportIntoEDMV1**](ObjectOtherincomeAPI.md#OtherincomeImportIntoEDMV1) | **Post** /1/object/otherincome/{pkiOtherincomeID}/importIntoEDM | Import attachments into the Otherincome
+[**OtherincomeSyncDocumenttypechecklistV1**](ObjectOtherincomeAPI.md#OtherincomeSyncDocumenttypechecklistV1) | **Post** /1/object/otherincome/{pkiOtherincomeID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 
@@ -433,6 +435,74 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## OtherincomeGetDocumenttypechecklistV1
+
+> OtherincomeGetDocumenttypechecklistV1Response OtherincomeGetDocumenttypechecklistV1(ctx, pkiOtherincomeID).Execute()
+
+Retrieve Document type checklist
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiOtherincomeID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectOtherincomeAPI.OtherincomeGetDocumenttypechecklistV1(context.Background(), pkiOtherincomeID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectOtherincomeAPI.OtherincomeGetDocumenttypechecklistV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `OtherincomeGetDocumenttypechecklistV1`: OtherincomeGetDocumenttypechecklistV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectOtherincomeAPI.OtherincomeGetDocumenttypechecklistV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiOtherincomeID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiOtherincomeGetDocumenttypechecklistV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**OtherincomeGetDocumenttypechecklistV1Response**](OtherincomeGetDocumenttypechecklistV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## OtherincomeGetListV1
 
 > OtherincomeGetListV1Response OtherincomeGetListV1(ctx).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
@@ -564,6 +634,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**OtherincomeImportIntoEDMV1Response**](OtherincomeImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## OtherincomeSyncDocumenttypechecklistV1
+
+> OtherincomeSyncDocumenttypechecklistV1Response OtherincomeSyncDocumenttypechecklistV1(ctx, pkiOtherincomeID).Body(body).Execute()
+
+Synchronize Document type checklist
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiOtherincomeID := int32(56) // int32 | 
+	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectOtherincomeAPI.OtherincomeSyncDocumenttypechecklistV1(context.Background(), pkiOtherincomeID).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectOtherincomeAPI.OtherincomeSyncDocumenttypechecklistV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `OtherincomeSyncDocumenttypechecklistV1`: OtherincomeSyncDocumenttypechecklistV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectOtherincomeAPI.OtherincomeSyncDocumenttypechecklistV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiOtherincomeID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiOtherincomeSyncDocumenttypechecklistV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **body** | **map[string]interface{}** |  | 
+
+### Return type
+
+[**OtherincomeSyncDocumenttypechecklistV1Response**](OtherincomeSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

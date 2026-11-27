@@ -10,8 +10,10 @@ Method | HTTP request | Description
 [**InscriptiontempGetCommunicationListV1**](ObjectInscriptiontempAPI.md#InscriptiontempGetCommunicationListV1) | **Get** /1/object/inscriptiontemp/{pkiInscriptiontempID}/getCommunicationList | Retrieve Communication list
 [**InscriptiontempGetCommunicationrecipientsV1**](ObjectInscriptiontempAPI.md#InscriptiontempGetCommunicationrecipientsV1) | **Get** /1/object/inscriptiontemp/{pkiInscriptiontempID}/getCommunicationrecipients | Retrieve Inscriptiontemp&#39;s Communicationrecipient
 [**InscriptiontempGetCommunicationsendersV1**](ObjectInscriptiontempAPI.md#InscriptiontempGetCommunicationsendersV1) | **Get** /1/object/inscriptiontemp/{pkiInscriptiontempID}/getCommunicationsenders | Retrieve Inscriptiontemp&#39;s Communicationsender
+[**InscriptiontempGetDocumenttypechecklistV1**](ObjectInscriptiontempAPI.md#InscriptiontempGetDocumenttypechecklistV1) | **Get** /1/object/inscriptiontemp/{pkiInscriptiontempID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**InscriptiontempGetListV1**](ObjectInscriptiontempAPI.md#InscriptiontempGetListV1) | **Get** /1/object/inscriptiontemp/getList | Retrieve Inscriptiontemp list
 [**InscriptiontempImportIntoEDMV1**](ObjectInscriptiontempAPI.md#InscriptiontempImportIntoEDMV1) | **Post** /1/object/inscriptiontemp/{pkiInscriptiontempID}/importIntoEDM | Import attachments into the Inscriptiontemp
+[**InscriptiontempSyncDocumenttypechecklistV1**](ObjectInscriptiontempAPI.md#InscriptiontempSyncDocumenttypechecklistV1) | **Post** /1/object/inscriptiontemp/{pkiInscriptiontempID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 
@@ -433,6 +435,74 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## InscriptiontempGetDocumenttypechecklistV1
+
+> InscriptiontempGetDocumenttypechecklistV1Response InscriptiontempGetDocumenttypechecklistV1(ctx, pkiInscriptiontempID).Execute()
+
+Retrieve Document type checklist
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiInscriptiontempID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectInscriptiontempAPI.InscriptiontempGetDocumenttypechecklistV1(context.Background(), pkiInscriptiontempID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectInscriptiontempAPI.InscriptiontempGetDocumenttypechecklistV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InscriptiontempGetDocumenttypechecklistV1`: InscriptiontempGetDocumenttypechecklistV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectInscriptiontempAPI.InscriptiontempGetDocumenttypechecklistV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiInscriptiontempID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInscriptiontempGetDocumenttypechecklistV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**InscriptiontempGetDocumenttypechecklistV1Response**](InscriptiontempGetDocumenttypechecklistV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## InscriptiontempGetListV1
 
 > InscriptiontempGetListV1Response InscriptiontempGetListV1(ctx).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
@@ -564,6 +634,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**InscriptiontempImportIntoEDMV1Response**](InscriptiontempImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## InscriptiontempSyncDocumenttypechecklistV1
+
+> InscriptiontempSyncDocumenttypechecklistV1Response InscriptiontempSyncDocumenttypechecklistV1(ctx, pkiInscriptiontempID).Body(body).Execute()
+
+Synchronize Document type checklist
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiInscriptiontempID := int32(56) // int32 | 
+	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectInscriptiontempAPI.InscriptiontempSyncDocumenttypechecklistV1(context.Background(), pkiInscriptiontempID).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectInscriptiontempAPI.InscriptiontempSyncDocumenttypechecklistV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InscriptiontempSyncDocumenttypechecklistV1`: InscriptiontempSyncDocumenttypechecklistV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectInscriptiontempAPI.InscriptiontempSyncDocumenttypechecklistV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiInscriptiontempID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiInscriptiontempSyncDocumenttypechecklistV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **body** | **map[string]interface{}** |  | 
+
+### Return type
+
+[**InscriptiontempSyncDocumenttypechecklistV1Response**](InscriptiontempSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

@@ -20,10 +20,10 @@ import (
 // checks if the DiscussionImproveMessageV1ResponseMPayload type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &DiscussionImproveMessageV1ResponseMPayload{}
 
-// DiscussionImproveMessageV1ResponseMPayload Payload for POST /1/object/discussion
+// DiscussionImproveMessageV1ResponseMPayload Payload for POST /1/object/discussion/improveMessage
 type DiscussionImproveMessageV1ResponseMPayload struct {
-	// An array of unique IDs representing the object that were requested to be created.  They are returned in the same order as the array containing the objects to be created that was sent in the request.
-	APkiDiscussionID []int32 `json:"a_pkiDiscussionID"`
+	// The Message of the Discussion
+	TDiscussionMessage string `json:"tDiscussionMessage" validate:"regexp=^[\\s\\S]{0\\,65535}$"`
 }
 
 type _DiscussionImproveMessageV1ResponseMPayload DiscussionImproveMessageV1ResponseMPayload
@@ -32,9 +32,9 @@ type _DiscussionImproveMessageV1ResponseMPayload DiscussionImproveMessageV1Respo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDiscussionImproveMessageV1ResponseMPayload(aPkiDiscussionID []int32) *DiscussionImproveMessageV1ResponseMPayload {
+func NewDiscussionImproveMessageV1ResponseMPayload(tDiscussionMessage string) *DiscussionImproveMessageV1ResponseMPayload {
 	this := DiscussionImproveMessageV1ResponseMPayload{}
-	this.APkiDiscussionID = aPkiDiscussionID
+	this.TDiscussionMessage = tDiscussionMessage
 	return &this
 }
 
@@ -46,28 +46,28 @@ func NewDiscussionImproveMessageV1ResponseMPayloadWithDefaults() *DiscussionImpr
 	return &this
 }
 
-// GetAPkiDiscussionID returns the APkiDiscussionID field value
-func (o *DiscussionImproveMessageV1ResponseMPayload) GetAPkiDiscussionID() []int32 {
+// GetTDiscussionMessage returns the TDiscussionMessage field value
+func (o *DiscussionImproveMessageV1ResponseMPayload) GetTDiscussionMessage() string {
 	if o == nil {
-		var ret []int32
+		var ret string
 		return ret
 	}
 
-	return o.APkiDiscussionID
+	return o.TDiscussionMessage
 }
 
-// GetAPkiDiscussionIDOk returns a tuple with the APkiDiscussionID field value
+// GetTDiscussionMessageOk returns a tuple with the TDiscussionMessage field value
 // and a boolean to check if the value has been set.
-func (o *DiscussionImproveMessageV1ResponseMPayload) GetAPkiDiscussionIDOk() ([]int32, bool) {
+func (o *DiscussionImproveMessageV1ResponseMPayload) GetTDiscussionMessageOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.APkiDiscussionID, true
+	return &o.TDiscussionMessage, true
 }
 
-// SetAPkiDiscussionID sets field value
-func (o *DiscussionImproveMessageV1ResponseMPayload) SetAPkiDiscussionID(v []int32) {
-	o.APkiDiscussionID = v
+// SetTDiscussionMessage sets field value
+func (o *DiscussionImproveMessageV1ResponseMPayload) SetTDiscussionMessage(v string) {
+	o.TDiscussionMessage = v
 }
 
 func (o DiscussionImproveMessageV1ResponseMPayload) MarshalJSON() ([]byte, error) {
@@ -80,7 +80,7 @@ func (o DiscussionImproveMessageV1ResponseMPayload) MarshalJSON() ([]byte, error
 
 func (o DiscussionImproveMessageV1ResponseMPayload) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["a_pkiDiscussionID"] = o.APkiDiscussionID
+	toSerialize["tDiscussionMessage"] = o.TDiscussionMessage
 	return toSerialize, nil
 }
 
@@ -89,7 +89,7 @@ func (o *DiscussionImproveMessageV1ResponseMPayload) UnmarshalJSON(data []byte) 
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"a_pkiDiscussionID",
+		"tDiscussionMessage",
 	}
 
 	allProperties := make(map[string]interface{})

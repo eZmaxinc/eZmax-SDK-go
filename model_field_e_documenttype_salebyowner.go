@@ -16,7 +16,7 @@ import (
 	"fmt"
 )
 
-// FieldEDocumenttypeSalebyowner The salebyowner of the Documenttype
+// FieldEDocumenttypeSalebyowner Whether the document type applies to sale by owner transactions
 type FieldEDocumenttypeSalebyowner string
 
 // List of Field-eDocumenttypeSalebyowner

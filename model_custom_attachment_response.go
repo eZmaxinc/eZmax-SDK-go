@@ -106,7 +106,7 @@ type CustomAttachmentResponse struct {
 	FkiTemplateID *int32 `json:"fkiTemplateID,omitempty"`
 	// The unique ID of the Documenttypechecklist
 	FkiDocumenttypechecklistID *int32 `json:"fkiDocumenttypechecklistID,omitempty"`
-	// The name of the Documenttype in the language of the requester
+	// The name of the document type in the requester's language
 	SDocumenttypeNameX *string `json:"sDocumenttypeNameX,omitempty" validate:"regexp=^.{0\\,55}$"`
 	// The unique ID of the Folder
 	FkiFolderID *int32 `json:"fkiFolderID,omitempty"`
@@ -134,9 +134,9 @@ type CustomAttachmentResponse struct {
 	IAttachmentEDMmoduleflag *int32 `json:"iAttachmentEDMmoduleflag,omitempty"`
 	// The MD5 of the Attachment
 	SAttachmentMD5 string `json:"sAttachmentMD5" validate:"regexp=^[a-f0-9]{32}$"`
-	// Whether if it's deleted
+	// Whether the Attachment is deleted or not
 	BAttachmentDeleted bool `json:"bAttachmentDeleted"`
-	// Whether if it's valid
+	// Whether the Attachment is valid or not
 	BAttachmentValid bool `json:"bAttachmentValid"`
 	EAttachmentVerified FieldEAttachmentVerified `json:"eAttachmentVerified"`
 	// The rejectioncomment of the Attachment

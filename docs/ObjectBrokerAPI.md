@@ -11,8 +11,10 @@ Method | HTTP request | Description
 [**BrokerGetCommunicationListV1**](ObjectBrokerAPI.md#BrokerGetCommunicationListV1) | **Get** /1/object/broker/{pkiBrokerID}/getCommunicationList | Retrieve Communication list
 [**BrokerGetCommunicationrecipientsV1**](ObjectBrokerAPI.md#BrokerGetCommunicationrecipientsV1) | **Get** /1/object/broker/{pkiBrokerID}/getCommunicationrecipients | Retrieve Communication recipients
 [**BrokerGetCommunicationsendersV1**](ObjectBrokerAPI.md#BrokerGetCommunicationsendersV1) | **Get** /1/object/broker/{pkiBrokerID}/getCommunicationsenders | Retrieve Communication senders
+[**BrokerGetDocumenttypechecklistV1**](ObjectBrokerAPI.md#BrokerGetDocumenttypechecklistV1) | **Get** /1/object/broker/{pkiBrokerID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**BrokerGetListV1**](ObjectBrokerAPI.md#BrokerGetListV1) | **Get** /1/object/broker/getList | Retrieve Broker list
 [**BrokerImportIntoEDMV1**](ObjectBrokerAPI.md#BrokerImportIntoEDMV1) | **Post** /1/object/broker/{pkiBrokerID}/importIntoEDM | Import attachments into the Broker
+[**BrokerSyncDocumenttypechecklistV1**](ObjectBrokerAPI.md#BrokerSyncDocumenttypechecklistV1) | **Post** /1/object/broker/{pkiBrokerID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 
@@ -502,6 +504,74 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## BrokerGetDocumenttypechecklistV1
+
+> BrokerGetDocumenttypechecklistV1Response BrokerGetDocumenttypechecklistV1(ctx, pkiBrokerID).Execute()
+
+Retrieve Document type checklist
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiBrokerID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectBrokerAPI.BrokerGetDocumenttypechecklistV1(context.Background(), pkiBrokerID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBrokerAPI.BrokerGetDocumenttypechecklistV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BrokerGetDocumenttypechecklistV1`: BrokerGetDocumenttypechecklistV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectBrokerAPI.BrokerGetDocumenttypechecklistV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiBrokerID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBrokerGetDocumenttypechecklistV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**BrokerGetDocumenttypechecklistV1Response**](BrokerGetDocumenttypechecklistV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## BrokerGetListV1
 
 > BrokerGetListV1Response BrokerGetListV1(ctx).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
@@ -633,6 +703,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**BrokerImportIntoEDMV1Response**](BrokerImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BrokerSyncDocumenttypechecklistV1
+
+> BrokerSyncDocumenttypechecklistV1Response BrokerSyncDocumenttypechecklistV1(ctx, pkiBrokerID).Body(body).Execute()
+
+Synchronize Document type checklist
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiBrokerID := int32(56) // int32 | 
+	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectBrokerAPI.BrokerSyncDocumenttypechecklistV1(context.Background(), pkiBrokerID).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBrokerAPI.BrokerSyncDocumenttypechecklistV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BrokerSyncDocumenttypechecklistV1`: BrokerSyncDocumenttypechecklistV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectBrokerAPI.BrokerSyncDocumenttypechecklistV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiBrokerID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBrokerSyncDocumenttypechecklistV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **body** | **map[string]interface{}** |  | 
+
+### Return type
+
+[**BrokerSyncDocumenttypechecklistV1Response**](BrokerSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

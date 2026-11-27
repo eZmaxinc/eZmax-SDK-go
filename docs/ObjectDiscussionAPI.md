@@ -307,7 +307,7 @@ import (
 )
 
 func main() {
-	discussionImproveMessageV1Request := *openapiclient.NewDiscussionImproveMessageV1Request(openapiclient.Field-eDiscussionRobot("Advanced"), "Hello, this is an example of content in a message") // DiscussionImproveMessageV1Request | 
+	discussionImproveMessageV1Request := *openapiclient.NewDiscussionImproveMessageV1Request("Hello, this is an example of content in a message") // DiscussionImproveMessageV1Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

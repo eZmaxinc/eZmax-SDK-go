@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **ObjUser** | [**CustomUserNameResponse**](CustomUserNameResponse.md) |  | 
 **DtAttachmentlogDatetime** | **string** | The created date | 
 **EAttachmentlogType** | [**FieldEAttachmentlogType**](FieldEAttachmentlogType.md) |  | 
-**SAttachmentlogDetail** | Pointer to **string** | The additionnal detail | [optional] 
+**SAttachmentlogDetail** | Pointer to **string** | The additional detail for the Attachmentlog | [optional] 
 
 ## Methods
 

@@ -954,6 +954,134 @@ func (a *ObjectAgentAPIService) AgentGetCommunicationsendersV1Execute(r ApiAgent
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiAgentGetDocumenttypechecklistV1Request struct {
+	ctx context.Context
+	ApiService *ObjectAgentAPIService
+	pkiAgentID int32
+}
+
+func (r ApiAgentGetDocumenttypechecklistV1Request) Execute() (*AgentGetDocumenttypechecklistV1Response, *http.Response, error) {
+	return r.ApiService.AgentGetDocumenttypechecklistV1Execute(r)
+}
+
+/*
+AgentGetDocumenttypechecklistV1 Retrieve Document type checklist
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiAgentID
+ @return ApiAgentGetDocumenttypechecklistV1Request
+*/
+func (a *ObjectAgentAPIService) AgentGetDocumenttypechecklistV1(ctx context.Context, pkiAgentID int32) ApiAgentGetDocumenttypechecklistV1Request {
+	return ApiAgentGetDocumenttypechecklistV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiAgentID: pkiAgentID,
+	}
+}
+
+// Execute executes the request
+//  @return AgentGetDocumenttypechecklistV1Response
+func (a *ObjectAgentAPIService) AgentGetDocumenttypechecklistV1Execute(r ApiAgentGetDocumenttypechecklistV1Request) (*AgentGetDocumenttypechecklistV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AgentGetDocumenttypechecklistV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectAgentAPIService.AgentGetDocumenttypechecklistV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/agent/{pkiAgentID}/getDocumenttypechecklist"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiAgentID"+"}", url.PathEscape(parameterValueToString(r.pkiAgentID, "pkiAgentID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiAgentID < 0 {
+		return localVarReturnValue, nil, reportError("pkiAgentID must be greater than 0")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiAgentGetListV1Request struct {
 	ctx context.Context
 	ApiService *ObjectAgentAPIService
@@ -1207,6 +1335,142 @@ func (a *ObjectAgentAPIService) AgentImportIntoEDMV1Execute(r ApiAgentImportInto
 	}
 	// body params
 	localVarPostBody = r.agentImportIntoEDMV1Request
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Authorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v CommonResponseError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiAgentSyncDocumenttypechecklistV1Request struct {
+	ctx context.Context
+	ApiService *ObjectAgentAPIService
+	pkiAgentID int32
+	body *map[string]interface{}
+}
+
+func (r ApiAgentSyncDocumenttypechecklistV1Request) Body(body map[string]interface{}) ApiAgentSyncDocumenttypechecklistV1Request {
+	r.body = &body
+	return r
+}
+
+func (r ApiAgentSyncDocumenttypechecklistV1Request) Execute() (*AgentSyncDocumenttypechecklistV1Response, *http.Response, error) {
+	return r.ApiService.AgentSyncDocumenttypechecklistV1Execute(r)
+}
+
+/*
+AgentSyncDocumenttypechecklistV1 Synchronize Document type checklist
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param pkiAgentID
+ @return ApiAgentSyncDocumenttypechecklistV1Request
+*/
+func (a *ObjectAgentAPIService) AgentSyncDocumenttypechecklistV1(ctx context.Context, pkiAgentID int32) ApiAgentSyncDocumenttypechecklistV1Request {
+	return ApiAgentSyncDocumenttypechecklistV1Request{
+		ApiService: a,
+		ctx: ctx,
+		pkiAgentID: pkiAgentID,
+	}
+}
+
+// Execute executes the request
+//  @return AgentSyncDocumenttypechecklistV1Response
+func (a *ObjectAgentAPIService) AgentSyncDocumenttypechecklistV1Execute(r ApiAgentSyncDocumenttypechecklistV1Request) (*AgentSyncDocumenttypechecklistV1Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AgentSyncDocumenttypechecklistV1Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ObjectAgentAPIService.AgentSyncDocumenttypechecklistV1")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/1/object/agent/{pkiAgentID}/syncDocumenttypechecklist"
+	localVarPath = strings.Replace(localVarPath, "{"+"pkiAgentID"+"}", url.PathEscape(parameterValueToString(r.pkiAgentID, "pkiAgentID")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.pkiAgentID < 0 {
+		return localVarReturnValue, nil, reportError("pkiAgentID must be greater than 0")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.body
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

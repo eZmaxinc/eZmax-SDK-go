@@ -20,9 +20,9 @@ var _ MappedNullable = &MultilingualDocumenttypeName{}
 
 // MultilingualDocumenttypeName The name1 of the Documenttype
 type MultilingualDocumenttypeName struct {
-	// The name1 of the Documenttype
+	// The name of the document type in French
 	SDocumenttypeName1 *string `json:"sDocumenttypeName1,omitempty" validate:"regexp=^.{0\\,50}$"`
-	// The name2 of the Documenttype
+	// The name of the document type in English
 	SDocumenttypeName2 *string `json:"sDocumenttypeName2,omitempty" validate:"regexp=^.{0\\,50}$"`
 }
 

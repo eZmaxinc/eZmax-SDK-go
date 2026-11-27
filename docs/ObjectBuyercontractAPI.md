@@ -10,8 +10,10 @@ Method | HTTP request | Description
 [**BuyercontractGetCommunicationListV1**](ObjectBuyercontractAPI.md#BuyercontractGetCommunicationListV1) | **Get** /1/object/buyercontract/{pkiBuyercontractID}/getCommunicationList | Retrieve Communication list
 [**BuyercontractGetCommunicationrecipientsV1**](ObjectBuyercontractAPI.md#BuyercontractGetCommunicationrecipientsV1) | **Get** /1/object/buyercontract/{pkiBuyercontractID}/getCommunicationrecipients | Retrieve Buyercontract&#39;s Communicationrecipient
 [**BuyercontractGetCommunicationsendersV1**](ObjectBuyercontractAPI.md#BuyercontractGetCommunicationsendersV1) | **Get** /1/object/buyercontract/{pkiBuyercontractID}/getCommunicationsenders | Retrieve Buyercontract&#39;s Communicationsender
+[**BuyercontractGetDocumenttypechecklistV1**](ObjectBuyercontractAPI.md#BuyercontractGetDocumenttypechecklistV1) | **Get** /1/object/buyercontract/{pkiBuyercontractID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**BuyercontractGetListV1**](ObjectBuyercontractAPI.md#BuyercontractGetListV1) | **Get** /1/object/buyercontract/getList | Retrieve Buyercontract list
 [**BuyercontractImportIntoEDMV1**](ObjectBuyercontractAPI.md#BuyercontractImportIntoEDMV1) | **Post** /1/object/buyercontract/{pkiBuyercontractID}/importIntoEDM | Import attachments into the Buyercontract
+[**BuyercontractSyncDocumenttypechecklistV1**](ObjectBuyercontractAPI.md#BuyercontractSyncDocumenttypechecklistV1) | **Post** /1/object/buyercontract/{pkiBuyercontractID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 
@@ -433,6 +435,74 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## BuyercontractGetDocumenttypechecklistV1
+
+> BuyercontractGetDocumenttypechecklistV1Response BuyercontractGetDocumenttypechecklistV1(ctx, pkiBuyercontractID).Execute()
+
+Retrieve Document type checklist
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiBuyercontractID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectBuyercontractAPI.BuyercontractGetDocumenttypechecklistV1(context.Background(), pkiBuyercontractID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBuyercontractAPI.BuyercontractGetDocumenttypechecklistV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BuyercontractGetDocumenttypechecklistV1`: BuyercontractGetDocumenttypechecklistV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectBuyercontractAPI.BuyercontractGetDocumenttypechecklistV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiBuyercontractID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBuyercontractGetDocumenttypechecklistV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**BuyercontractGetDocumenttypechecklistV1Response**](BuyercontractGetDocumenttypechecklistV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## BuyercontractGetListV1
 
 > BuyercontractGetListV1Response BuyercontractGetListV1(ctx).EOrderBy(eOrderBy).IRowMax(iRowMax).IRowOffset(iRowOffset).AcceptLanguage(acceptLanguage).SFilter(sFilter).Execute()
@@ -564,6 +634,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**BuyercontractImportIntoEDMV1Response**](BuyercontractImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BuyercontractSyncDocumenttypechecklistV1
+
+> BuyercontractSyncDocumenttypechecklistV1Response BuyercontractSyncDocumenttypechecklistV1(ctx, pkiBuyercontractID).Body(body).Execute()
+
+Synchronize Document type checklist
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiBuyercontractID := int32(56) // int32 | 
+	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectBuyercontractAPI.BuyercontractSyncDocumenttypechecklistV1(context.Background(), pkiBuyercontractID).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectBuyercontractAPI.BuyercontractSyncDocumenttypechecklistV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BuyercontractSyncDocumenttypechecklistV1`: BuyercontractSyncDocumenttypechecklistV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectBuyercontractAPI.BuyercontractSyncDocumenttypechecklistV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiBuyercontractID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBuyercontractSyncDocumenttypechecklistV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **body** | **map[string]interface{}** |  | 
+
+### Return type
+
+[**BuyercontractSyncDocumenttypechecklistV1Response**](BuyercontractSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

@@ -10,7 +10,9 @@ Method | HTTP request | Description
 [**ReconciliationGetCommunicationListV1**](ObjectReconciliationAPI.md#ReconciliationGetCommunicationListV1) | **Get** /1/object/reconciliation/{pkiReconciliationID}/getCommunicationList | Retrieve Communication list
 [**ReconciliationGetCommunicationrecipientsV1**](ObjectReconciliationAPI.md#ReconciliationGetCommunicationrecipientsV1) | **Get** /1/object/reconciliation/{pkiReconciliationID}/getCommunicationrecipients | Retrieve Communication recipients
 [**ReconciliationGetCommunicationsendersV1**](ObjectReconciliationAPI.md#ReconciliationGetCommunicationsendersV1) | **Get** /1/object/reconciliation/{pkiReconciliationID}/getCommunicationsenders | Retrieve Communication senders
+[**ReconciliationGetDocumenttypechecklistV1**](ObjectReconciliationAPI.md#ReconciliationGetDocumenttypechecklistV1) | **Get** /1/object/reconciliation/{pkiReconciliationID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**ReconciliationImportIntoEDMV1**](ObjectReconciliationAPI.md#ReconciliationImportIntoEDMV1) | **Post** /1/object/reconciliation/{pkiReconciliationID}/importIntoEDM | Import attachments into the Reconciliation
+[**ReconciliationSyncDocumenttypechecklistV1**](ObjectReconciliationAPI.md#ReconciliationSyncDocumenttypechecklistV1) | **Post** /1/object/reconciliation/{pkiReconciliationID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 
@@ -424,6 +426,74 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ReconciliationGetDocumenttypechecklistV1
+
+> ReconciliationGetDocumenttypechecklistV1Response ReconciliationGetDocumenttypechecklistV1(ctx, pkiReconciliationID).Execute()
+
+Retrieve Document type checklist
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiReconciliationID := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectReconciliationAPI.ReconciliationGetDocumenttypechecklistV1(context.Background(), pkiReconciliationID).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectReconciliationAPI.ReconciliationGetDocumenttypechecklistV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ReconciliationGetDocumenttypechecklistV1`: ReconciliationGetDocumenttypechecklistV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectReconciliationAPI.ReconciliationGetDocumenttypechecklistV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiReconciliationID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiReconciliationGetDocumenttypechecklistV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**ReconciliationGetDocumenttypechecklistV1Response**](ReconciliationGetDocumenttypechecklistV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ReconciliationImportIntoEDMV1
 
 > ReconciliationImportIntoEDMV1Response ReconciliationImportIntoEDMV1(ctx, pkiReconciliationID).ReconciliationImportIntoEDMV1Request(reconciliationImportIntoEDMV1Request).Execute()
@@ -479,6 +549,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ReconciliationImportIntoEDMV1Response**](ReconciliationImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ReconciliationSyncDocumenttypechecklistV1
+
+> ReconciliationSyncDocumenttypechecklistV1Response ReconciliationSyncDocumenttypechecklistV1(ctx, pkiReconciliationID).Body(body).Execute()
+
+Synchronize Document type checklist
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/ezmaxinc/ezmax-sdk-go"
+)
+
+func main() {
+	pkiReconciliationID := int32(56) // int32 | 
+	body := map[string]interface{}{ ... } // map[string]interface{} |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ObjectReconciliationAPI.ReconciliationSyncDocumenttypechecklistV1(context.Background(), pkiReconciliationID).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ObjectReconciliationAPI.ReconciliationSyncDocumenttypechecklistV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ReconciliationSyncDocumenttypechecklistV1`: ReconciliationSyncDocumenttypechecklistV1Response
+	fmt.Fprintf(os.Stdout, "Response from `ObjectReconciliationAPI.ReconciliationSyncDocumenttypechecklistV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pkiReconciliationID** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiReconciliationSyncDocumenttypechecklistV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **body** | **map[string]interface{}** |  | 
+
+### Return type
+
+[**ReconciliationSyncDocumenttypechecklistV1Response**](ReconciliationSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

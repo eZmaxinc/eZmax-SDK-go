@@ -4,7 +4,7 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**EzmaxpartnerSubscribeV1**](ExternalEzmaxpartnerAPI.md#EzmaxpartnerSubscribeV1) | **Post** /1/external/ezmaxpartner/subscribe | Subscribe to an Ezmaxparnerproductstage
+[**EzmaxpartnerSubscribeV1**](ExternalEzmaxpartnerAPI.md#EzmaxpartnerSubscribeV1) | **Post** /1/external/ezmaxpartner/subscribe | Subscribe to an Ezmaxpartnerproductstage
 
 
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 > EzmaxpartnerSubscribeV1Response EzmaxpartnerSubscribeV1(ctx).EzmaxpartnerSubscribeV1Request(ezmaxpartnerSubscribeV1Request).Execute()
 
-Subscribe to an Ezmaxparnerproductstage
+Subscribe to an Ezmaxpartnerproductstage
 
 
 
