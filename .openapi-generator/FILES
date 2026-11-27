@@ -45,7 +45,6 @@ api_object_disclosure.go
 api_object_discussion.go
 api_object_discussionmembership.go
 api_object_discussionmessage.go
-api_object_documenttypechecklist.go
 api_object_domain.go
 api_object_electronicfundstransfer.go
 api_object_electronicfundstransfertransaction.go
@@ -740,9 +739,6 @@ docs/DiscussionmessageRequestCompound.md
 docs/DiscussionmessageRequestPatch.md
 docs/DiscussionmessageResponse.md
 docs/DiscussionmessageResponseCompound.md
-docs/DocumenttypechecklistPatchObjectV1Request.md
-docs/DocumenttypechecklistPatchObjectV1Response.md
-docs/DocumenttypechecklistRequestPatch.md
 docs/DomainAutocompleteElementResponse.md
 docs/DomainCreateObjectV1Request.md
 docs/DomainCreateObjectV1Response.md
@@ -1762,7 +1758,6 @@ docs/FieldECustomerType.md
 docs/FieldEDisclosureInteresttype.md
 docs/FieldEDiscussionRobot.md
 docs/FieldEDiscussionmessageStatus.md
-docs/FieldEDocumenttypechecklistStatus.md
 docs/FieldEErrorCode.md
 docs/FieldEEzdoctemplatedocumentPrivacylevel.md
 docs/FieldEEzmaxinvoicingPaymenttype.md
@@ -2154,7 +2149,6 @@ docs/ObjectDisclosureAPI.md
 docs/ObjectDiscussionAPI.md
 docs/ObjectDiscussionmembershipAPI.md
 docs/ObjectDiscussionmessageAPI.md
-docs/ObjectDocumenttypechecklistAPI.md
 docs/ObjectDomainAPI.md
 docs/ObjectElectronicfundstransferAPI.md
 docs/ObjectElectronicfundstransfertransactionAPI.md
@@ -3377,9 +3371,6 @@ model_discussionmessage_request_compound.go
 model_discussionmessage_request_patch.go
 model_discussionmessage_response.go
 model_discussionmessage_response_compound.go
-model_documenttypechecklist_patch_object_v1_request.go
-model_documenttypechecklist_patch_object_v1_response.go
-model_documenttypechecklist_request_patch.go
 model_domain_autocomplete_element_response.go
 model_domain_create_object_v1_request.go
 model_domain_create_object_v1_response.go
@@ -4398,7 +4389,6 @@ model_field_e_customer_type.go
 model_field_e_disclosure_interesttype.go
 model_field_e_discussion_robot.go
 model_field_e_discussionmessage_status.go
-model_field_e_documenttypechecklist_status.go
 model_field_e_error_code.go
 model_field_e_ezdoctemplatedocument_privacylevel.go
 model_field_e_ezmaxinvoicing_paymenttype.go
